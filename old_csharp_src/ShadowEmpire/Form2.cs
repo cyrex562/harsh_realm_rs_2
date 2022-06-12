@@ -1,0 +1,295 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: WindowsApplication1.Form2
+// Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
+// MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
+
+using Microsoft.VisualBasic;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
+
+namespace WindowsApplication1
+{
+  public class Form2 : Form
+  {
+    private Form1 formref;
+    private IContainer components;
+    [AccessedThroughProperty("TextBox1")]
+    private TextBox _TextBox1;
+    [AccessedThroughProperty("Button1")]
+    private Button _Button1;
+    [AccessedThroughProperty("Button2")]
+    private Button _Button2;
+    [AccessedThroughProperty("Label1")]
+    private Label _Label1;
+    public int type;
+    public int nr;
+    public int nr2;
+    public DataClass Data;
+
+    public Form2(Form tformref)
+    {
+      this.Load += new EventHandler(this.Form2_Load);
+      this.formref = (Form1) tformref;
+      this.formref.Enabled = false;
+      this.InitializeComponent();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+      if (disposing && this.components != null)
+        this.components.Dispose();
+      base.Dispose(disposing);
+    }
+
+    internal virtual TextBox TextBox1
+    {
+      get => this._TextBox1;
+      [MethodImpl(MethodImplOptions.Synchronized)] set => this._TextBox1 = value;
+    }
+
+    internal virtual Button Button1
+    {
+      get => this._Button1;
+      [MethodImpl(MethodImplOptions.Synchronized)] set
+      {
+        EventHandler eventHandler = new EventHandler(this.Button1_Click);
+        if (this._Button1 != null)
+          this._Button1.Click -= eventHandler;
+        this._Button1 = value;
+        if (this._Button1 == null)
+          return;
+        this._Button1.Click += eventHandler;
+      }
+    }
+
+    internal virtual Button Button2
+    {
+      get => this._Button2;
+      [MethodImpl(MethodImplOptions.Synchronized)] set
+      {
+        EventHandler eventHandler = new EventHandler(this.Button2_Click);
+        if (this._Button2 != null)
+          this._Button2.Click -= eventHandler;
+        this._Button2 = value;
+        if (this._Button2 == null)
+          return;
+        this._Button2.Click += eventHandler;
+      }
+    }
+
+    internal virtual Label Label1
+    {
+      get => this._Label1;
+      [MethodImpl(MethodImplOptions.Synchronized)] set => this._Label1 = value;
+    }
+
+    [DebuggerStepThrough]
+    private void InitializeComponent()
+    {
+      ComponentResourceManager componentResourceManager = new ComponentResourceManager(typeof (Form2));
+      this.TextBox1 = new TextBox();
+      this.Button1 = new Button();
+      this.Label1 = new Label();
+      this.Button2 = new Button();
+      this.SuspendLayout();
+      TextBox textBox1_1 = this.TextBox1;
+      Point point1 = new Point(58, 65);
+      Point point2 = point1;
+      textBox1_1.Location = point2;
+      this.TextBox1.Multiline = true;
+      this.TextBox1.Name = "TextBox1";
+      TextBox textBox1_2 = this.TextBox1;
+      Size size1 = new Size(566, 406);
+      Size size2 = size1;
+      textBox1_2.Size = size2;
+      this.TextBox1.TabIndex = 0;
+      Button button1_1 = this.Button1;
+      point1 = new Point(212, 513);
+      Point point3 = point1;
+      button1_1.Location = point3;
+      this.Button1.Name = "Button1";
+      Button button1_2 = this.Button1;
+      size1 = new Size(125, 47);
+      Size size3 = size1;
+      button1_2.Size = size3;
+      this.Button1.TabIndex = 1;
+      this.Button1.Text = "OK";
+      this.Label1.Font = new Font("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
+      Label label1_1 = this.Label1;
+      point1 = new Point(58, 18);
+      Point point4 = point1;
+      label1_1.Location = point4;
+      this.Label1.Name = "Label1";
+      Label label1_2 = this.Label1;
+      size1 = new Size(566, 37);
+      Size size4 = size1;
+      label1_2.Size = size4;
+      this.Label1.TabIndex = 2;
+      this.Label1.Text = "Label1";
+      this.Label1.TextAlign = ContentAlignment.TopCenter;
+      Button button2_1 = this.Button2;
+      point1 = new Point(355, 513);
+      Point point5 = point1;
+      button2_1.Location = point5;
+      this.Button2.Name = "Button2";
+      Button button2_2 = this.Button2;
+      size1 = new Size(125, 47);
+      Size size5 = size1;
+      button2_2.Size = size5;
+      this.Button2.TabIndex = 3;
+      this.Button2.Text = "Cancel";
+      size1 = new Size(6, 15);
+      this.AutoScaleBaseSize = size1;
+      size1 = new Size(691, 590);
+      this.ClientSize = size1;
+      this.ControlBox = false;
+      this.Controls.Add((Control) this.Button2);
+      this.Controls.Add((Control) this.Label1);
+      this.Controls.Add((Control) this.Button1);
+      this.Controls.Add((Control) this.TextBox1);
+      this.FormBorderStyle = FormBorderStyle.FixedSingle;
+      this.Icon = (Icon) componentResourceManager.GetObject("$this.Icon");
+      this.Name = nameof (Form2);
+      this.Text = "Message";
+      this.ResumeLayout(false);
+      this.PerformLayout();
+    }
+
+    private void Form2_Load(object sender, EventArgs e)
+    {
+    }
+
+    public void Initialize(DataClass tData, int ttype, int tnr, int tnr2 = -1)
+    {
+      this.type = ttype;
+      this.nr = tnr;
+      this.nr2 = tnr2;
+      this.Data = tData;
+      this.BringToFront();
+      if (this.type == 1)
+        this.TextBox1.Text = this.Data.SFTypeObj[this.nr].Description;
+      else if (this.type == 2)
+        this.TextBox1.Text = this.Data.Description;
+      else if (this.type == 3)
+        this.TextBox1.Text = this.Data.EventObj[this.nr].CommandList[this.nr2].DataString;
+      else if (this.type == 4)
+        this.TextBox1.Text = this.Data.ActionCardObj[this.nr].Text;
+      else if (this.type == 5)
+        this.TextBox1.Text = this.Data.ResearchObj[this.nr].Text;
+      else if (this.type == 6)
+        this.TextBox1.Text = this.Data.HistoricalUnitObj[this.nr].Descript;
+      else if (this.type == 8)
+        this.TextBox1.Text = this.Data.LocTypeObj[this.nr].Description;
+      else if (this.type == 9)
+        this.TextBox1.Text = this.Data.ActionCardObj[this.nr].MouseOver;
+      else if (this.type == 10)
+        this.TextBox1.Text = this.Data.LandscapeTypeObj[this.nr].Description;
+      else if (this.type == 11)
+        this.TextBox1.Text = this.Data.PeopleObj[this.nr].Description;
+      else if (this.type == 12)
+        this.TextBox1.Text = this.Data.StringListObj[this.nr].Description;
+      else if (this.type == 13)
+        this.TextBox1.Text = this.Data.LibraryObj[this.nr].information;
+      else if (this.type == 14)
+        this.TextBox1.Text = this.Data.LibVarObj[this.nr].information;
+      this.Button1.Text = "OK";
+      if (this.type == 1)
+        this.Label1.Text = "Give description for SFType";
+      if (this.type == 2)
+        this.Label1.Text = "Give scenario description";
+      if (this.type == 3)
+        this.Label1.Text = "Give Message2 text";
+      if (this.type == 4)
+        this.Label1.Text = "Give Action Card Text";
+      if (this.type == 5)
+        this.Label1.Text = "Give Researchfield description Text";
+      if (this.type == 6)
+        this.Label1.Text = "Give Commander description Text";
+      if (this.type == 7)
+        this.Label1.Text = "Text Message for " + DrawMod.TGame.Data.RegimeObj[this.nr].Name;
+      if (this.type == 8)
+        this.Label1.Text = "Give LocType description Text";
+      if (this.type == 9)
+        this.Label1.Text = "Give Actioncard Mouse over text";
+      if (this.type == 10)
+        this.Label1.Text = "Give description for landscape type";
+      if (this.type == 11)
+        this.Label1.Text = "Give description for people";
+      if (this.type == 12)
+        this.Label1.Text = "Give description for stringlist";
+      if (this.type == 13)
+        this.Label1.Text = "Give description for library";
+      if (this.type == 14)
+        this.Label1.Text = "Give description for libvar";
+      this.Show();
+      this.Focus();
+    }
+
+    private void Button1_Click(object sender, EventArgs e)
+    {
+      if (this.type == 1)
+        this.Data.SFTypeObj[this.nr].Description = this.TextBox1.Text;
+      else if (this.type == 2)
+        this.Data.Description = this.TextBox1.Text;
+      else if (this.type == 3)
+        this.Data.EventObj[this.nr].CommandList[this.nr2].DataString = this.TextBox1.Text;
+      else if (this.type == 4)
+        this.Data.ActionCardObj[this.nr].Text = this.TextBox1.Text;
+      else if (this.type == 5)
+        this.Data.ResearchObj[this.nr].Text = this.TextBox1.Text;
+      else if (this.type == 6)
+        this.Data.HistoricalUnitObj[this.nr].Descript = this.TextBox1.Text;
+      else if (this.type == 7)
+      {
+        if (Strings.Len(this.TextBox1.Text) > 1 & Strings.Len(this.TextBox1.Text) < 4000)
+        {
+          DrawMod.TGame.HandyFunctionsObj.AddMessageForOne("MESSAGE FROM " + DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].Name + "\r\n\r\n'" + this.TextBox1.Text + "'", this.nr, -1, 0);
+          DrawMod.TGame.HandyFunctionsObj.AddMessageForOne("YOUR MESSAGE TO " + DrawMod.TGame.Data.RegimeObj[this.nr].Name + "\r\n\r\n'" + this.TextBox1.Text + "'", DrawMod.TGame.Data.Turn, -1, 0);
+          int num = (int) Interaction.MsgBox((object) "Your message has been sent!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        }
+        else
+        {
+          if (Strings.Len(this.TextBox1.Text) >= 4000)
+          {
+            int num = (int) Interaction.MsgBox((object) ("To many characters. currently " + Conversion.Str((object) Strings.Len(this.TextBox1.Text)) + ". should be less then 1000"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+            return;
+          }
+          int num1 = (int) Interaction.MsgBox((object) "Cancelled. Your message has not been sent because there was 1 or less characters in it.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        }
+      }
+      else if (this.type == 8)
+        this.Data.LocTypeObj[this.nr].Description = this.TextBox1.Text;
+      else if (this.type == 9)
+        this.Data.ActionCardObj[this.nr].MouseOver = this.TextBox1.Text;
+      else if (this.type == 10)
+        this.Data.LandscapeTypeObj[this.nr].Description = this.TextBox1.Text;
+      else if (this.type == 11)
+        this.Data.PeopleObj[this.nr].Description = this.TextBox1.Text;
+      else if (this.type == 12)
+        this.Data.StringListObj[this.nr].Description = this.TextBox1.Text;
+      else if (this.type == 13)
+        this.Data.LibraryObj[this.nr].information = this.TextBox1.Text;
+      else if (this.type == 14)
+        this.Data.LibVarObj[this.nr].information = this.TextBox1.Text;
+      this.Close();
+      this.formref.Enabled = true;
+      this.formref.DoRefresh();
+      this.formref.Show();
+      this.formref.Focus();
+    }
+
+    private void Button2_Click(object sender, EventArgs e)
+    {
+      this.Close();
+      this.formref.Enabled = true;
+      this.formref.DoRefresh();
+      this.formref.Show();
+      this.formref.Focus();
+    }
+  }
+}
