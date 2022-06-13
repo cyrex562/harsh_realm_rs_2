@@ -1,0 +1,489 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: WindowsApplication1.AdviceWindow
+// Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
+// MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
+
+// using Microsoft.VisualBasic;
+// using Microsoft.VisualBasic.CompilerServices;
+// using System;
+// using System.Drawing;
+// using System.Runtime.CompilerServices;
+
+// namespace WindowsApplication1
+// {
+  // pub class AdviceWindow : WindowClass
+  #[derive(Clone,Debug,Default)]
+  pub struct AdviceWindow
+  {
+     hideId: i32,
+     Info1Id: i32,
+     info2id: i32,
+     info3id: i32,
+     info4id: i32,
+     info5id: i32,
+     info6id: i32,
+     info7id: i32,
+     info8id: i32,
+     w: i32,
+     h: i32,
+     MouseOverWhichTab: i32,
+     cacheList: String,
+     profId: i32,
+     currentShqNr: i32,
+     special1id: i32,
+     special2id: i32,
+     special3id: i32,
+  }
+
+  impl AdviceWindow {
+
+    pub AdviceWindow(
+       GameClass tGame,
+       WindowClass tLowerWindow,
+       Rectangle tLowerRect)
+      : base( tGame, 820, 240, 8)
+    {
+      self.LowerWindow = tLowerWindow;
+      self.LowerRect = tLowerRect;
+      self.w = 820;
+      self.h = 240;
+      self.BlockBlit = false;
+      self.dostuff();
+    }
+
+    pub HandleMouseMove: WindowReturnClass(int x, int y)
+    {
+      windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
+      if (self.game.EditObj.SetViewMode2 > 0)
+        windowReturnClass.Flag = false;
+      return windowReturnClass;
+    }
+
+    pub void DoRefresh() => self.dostuff();
+
+    pub handleTimer: WindowReturnClass()
+    {
+      windowReturnClass: WindowReturnClass = WindowReturnClass::new();
+      if (self.game.EditObj.SetViewMode2 > 0 || self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0))].Length != -1)
+        return windowReturnClass;
+      self.game.EditObj.TempBlockAdvice = true;
+      windowReturnClass.AddCommand(3, 11);
+      windowReturnClass.SetFlag(true);
+      return windowReturnClass;
+    }
+
+    pub void dostuff()
+    {
+      int stringListById1 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+      int stringListById2 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 191, 0, 0));
+      if (self.hideId > 0)
+      {
+        self.RemoveSubPart(self.hideId);
+        self.hideId = 0;
+      }
+      if (self.Info1Id > 0)
+      {
+        self.RemoveSubPart(self.Info1Id);
+        self.Info1Id = 0;
+      }
+      if (self.info2id > 0)
+      {
+        self.RemoveSubPart(self.info2id);
+        self.info2id = 0;
+      }
+      if (self.info3id > 0)
+      {
+        self.RemoveSubPart(self.info3id);
+        self.info3id = 0;
+      }
+      if (self.info4id > 0)
+      {
+        self.RemoveSubPart(self.info4id);
+        self.info4id = 0;
+      }
+      if (self.info5id > 0)
+      {
+        self.RemoveSubPart(self.info5id);
+        self.info5id = 0;
+      }
+      if (self.info6id > 0)
+      {
+        self.RemoveSubPart(self.info6id);
+        self.info6id = 0;
+      }
+      if (self.info7id > 0)
+      {
+        self.RemoveSubPart(self.info7id);
+        self.info7id = 0;
+      }
+      if (self.info8id > 0)
+      {
+        self.RemoveSubPart(self.info8id);
+        self.info8id = 0;
+      }
+      if (self.special1id > 0)
+      {
+        self.RemoveSubPart(self.special1id);
+        self.special1id = 0;
+      }
+      if (self.special2id > 0)
+      {
+        self.RemoveSubPart(self.special2id);
+        self.special2id = 0;
+      }
+      if (self.special3id > 0)
+      {
+        self.RemoveSubPart(self.special3id);
+        self.special3id = 0;
+      }
+      self.ClearMouse();
+      self.NewBackGroundAndClearAll(self.w, self.h, -1);
+      if (self.game.EditObj.SetViewMode2 > 0)
+      {
+        self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
+      }
+      else
+      {
+        Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
+         Graphics local1 =  Expression;
+        Bitmap bitmap = BitmapStore.GetBitmap(self.game.BACKGROUND3MARC);
+         Bitmap local2 =  bitmap;
+        Rectangle rectangle1 = new Rectangle(0, 0, 512, self.h - 24);
+        Rectangle srcrect1 = rectangle1;
+        Rectangle rectangle2 = new Rectangle(8, 8, 512, self.h - 24);
+        Rectangle destrect1 = rectangle2;
+        DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
+         Graphics local3 =  Expression;
+        Bitmap b = BitmapStore.GetBitmap(self.game.BACKGROUND3MARC);
+         Bitmap local4 =  b;
+        rectangle2 = new Rectangle(0, 0, 264, self.h - 24);
+        Rectangle srcrect2 = rectangle2;
+        rectangle1 = new Rectangle(520, 8, 264, self.h - 24);
+        Rectangle destrect2 = rectangle1;
+        DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
+        b = (Bitmap) null;
+        DrawMod.DrawMessFrame( b,  Expression, 0, 0, self.w - 32, self.h - 16);
+         Graphics local5 =  Expression;
+        b = BitmapStore.GetBitmap(self.game.SE1_SIDEBAR_EXITLEFT);
+         Bitmap local6 =  b;
+        int x = self.w - 32;
+        int y = self.h - 160;
+        DrawMod.DrawSimple( local5,  local6, x, y);
+        let mut tsubpart1: SubPartClass =  new SEButtonPartClass(self.game.SE1_ARROW2, "Hide the advice bar.", 23);
+        self.hideId = self.AddSubPart( tsubpart1, self.w - 30, self.h - 160 + 18, 23, 35, 1);
+        self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
+        if (self.game.Data.StringListObj[stringListById1].Length > -1)
+        {
+          int id = self.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
+          if (self.game.EditObj.se1_adviceWindowPage < 0)
+            self.game.EditObj.se1_adviceWindowPage = 0;
+          if (self.game.EditObj.se1_adviceWindowPage > self.game.Data.StringListObj[stringListById1].Length)
+            self.game.EditObj.se1_adviceWindowPage = self.game.Data.StringListObj[stringListById1].Length;
+          int num1 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+          int charId = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 1]));
+          int idValue1 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 2]));
+          int idValue2 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 3]));
+          str1: String = self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 4];
+          str2: String = self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 5];
+           Graphics local7 =  Expression;
+          b = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
+           Bitmap local8 =  b;
+          rectangle2 = new Rectangle(16, 16, self.w - 58, self.h - 42);
+          Rectangle srcrect3 = rectangle2;
+          rectangle1 = new Rectangle(14, 14, self.w - 58, self.h - 42);
+          Rectangle destrect3 = rectangle1;
+          DrawMod.DrawSimplePart2( local7,  local8, srcrect3, destrect3);
+          tstring1: String = str2 + " " + (self.game.EditObj.se1_adviceWindowPage + 1).ToString() + "/" + (self.game.Data.StringListObj[stringListById1].Length + 1).ToString();
+          DrawMod.DrawTextColouredConsoleCenter( Expression, tstring1, DrawMod.TGame.se1TypeWriterBig, (int) Math.Round((double) self.w / 2.0) - 18, 20, DrawMod.TGame.seColTW);
+          if (charId > 0)
+          {
+             Graphics local9 =  Expression;
+            b = self.game.CustomBitmapObj.DrawLeaderPortrait(charId, 78, 110);
+             Bitmap local10 =  b;
+            DrawMod.DrawSimple( local9,  local10, 20, 55);
+            tstring2: String = self.game.EventRelatedObj.GetLeaderName(charId, true) + " says:";
+            DrawMod.DrawTextColouredConsole( Expression, tstring2, DrawMod.TGame.se1TypeWriterSmall, 104, 52, DrawMod.TGame.seColTW);
+          }
+          self.game.EventRelatedObj.IO_AddClear();
+          self.game.EventRelatedObj.IO_AddText("\"" + str1 + "\"", 0, 0, self.w - 182, IO_ColNr.Black, IO_FontNr.Regular, returnHeight: true);
+          let mut tsubpart2: SubPartClass =  new UDSPartClass(self.game, self.w - 182, self.h - 48, self.game.EventRelatedObj.CheckKey(id, "FINALTEXT", 0, 0),  self.OwnBitmap, 104, 69, true);
+          self.info4id = self.AddSubPart( tsubpart2, 104, 69, self.w - 182, self.h - 48, 0);
+          let mut tsubpart3: SubPartClass =  new TextButtonPartClass("Del", 50, "Never give me this specific type of advice again for remainder of the game.",  self.OwnBitmap, 16, self.h - 65, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
+          self.info5id = self.AddSubPart( tsubpart3, 16, self.h - 65, 50, 35, 1);
+          let mut tsubpart4: SubPartClass =  new TextButtonPartClass("Dismiss", 120, "Remove this advice for now, but remind me later if deemed neccessary.",  self.OwnBitmap, 66, self.h - 65, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
+          self.info6id = self.AddSubPart( tsubpart4, 66, self.h - 65, 120, 35, 1);
+          if (idValue1 > 0)
+          {
+            str3: String = self.game.Data.StringListObj[stringListById2].GetData(0, idValue1, 2);
+            int num2 = Strings.InStr(str3.ToLower(), "How to".ToLower());
+            if (num2 > 0)
+              str3 = Strings.Mid(str3, num2 + 7);
+            int num3 = Strings.InStr(str3, " ");
+            if (num3 > 0)
+            {
+              int num4 = Strings.InStr(num3 + 1, str3, " ");
+              if (num4 > 0)
+              {
+                int num5 = Strings.InStr(num4 + 1, str3, " ");
+                if (num5 > 0)
+                {
+                  int num6 = Strings.InStr(num5 + 1, str3, " ");
+                  if (num6 > 0)
+                    str3 = Strings.Left(str3, num6 - 1);
+                }
+              }
+            }
+            let mut tsubpart5: SubPartClass =  new TextButtonPartClass(Strings.Left(str3, 1).ToUpper() + Strings.Mid(str3, 2), 290, "Give more information on: " + self.game.Data.StringListObj[stringListById2].GetData(0, idValue1, 2),  self.OwnBitmap, 186, self.h - 65, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
+            self.info7id = self.AddSubPart( tsubpart5, 186, self.h - 65, 290, 35, 1);
+          }
+          if (idValue2 > 0)
+          {
+            str4: String = self.game.Data.StringListObj[stringListById2].GetData(0, idValue2, 2);
+            int num7 = Strings.InStr(str4.ToLower(), "How to".ToLower());
+            if (num7 > 0)
+              str4 = Strings.Mid(str4, num7 + 7);
+            int num8 = Strings.InStr(str4, " ");
+            if (num8 > 0)
+            {
+              int num9 = Strings.InStr(num8 + 1, str4, " ");
+              if (num9 > 0)
+              {
+                int num10 = Strings.InStr(num9 + 1, str4, " ");
+                if (num10 > 0)
+                {
+                  int num11 = Strings.InStr(num10 + 1, str4, " ");
+                  if (num11 > 0)
+                    str4 = Strings.Left(str4, num11 - 1);
+                }
+              }
+            }
+            let mut tsubpart6: SubPartClass =  new TextButtonPartClass(Strings.Left(str4, 1).ToUpper() + Strings.Mid(str4, 2), 290, "Give more information on: " + self.game.Data.StringListObj[stringListById2].GetData(0, idValue2, 2),  self.OwnBitmap, 481, self.h - 65, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
+            self.info8id = self.AddSubPart( tsubpart6, 481, self.h - 65, 290, 35, 1);
+          }
+          if (self.game.Data.StringListObj[stringListById1].Length > 0)
+          {
+            int num12 = 0;
+            if (self.game.EditObj.se1_adviceWindowPage < 1)
+              num12 = 1;
+            let mut tsubpart7: SubPartClass =  new TextButtonPartClass("<", 60, "Go to previous Advice...",  self.OwnBitmap, 30, 20, num12 == 1, theight: 30, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
+            self.info2id = self.AddSubPart( tsubpart7, 30, 20, 60, 30, 1);
+            int num13 = 1;
+            if (self.game.EditObj.se1_adviceWindowPage < self.game.Data.StringListObj[stringListById1].Length)
+              num13 = 0;
+            let mut tsubpart8: SubPartClass =  new TextButtonPartClass(">", 60, "Go to next Advice...",  self.OwnBitmap, self.w - 110, 20, num13 == 1, theight: 30, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
+            self.info3id = self.AddSubPart( tsubpart8, self.w - 110, 20, 60, 30, 1);
+          }
+        }
+        if (Information.IsNothing((object) Expression))
+          return;
+        Expression.Dispose();
+        Expression = (Graphics) null;
+      }
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
+    pub void HandleToolTip(int x, int y)
+    {
+      if (self.SubPartCounter > -1)
+      {
+        int subPartCounter = self.SubPartCounter;
+        for (int index = 0; index <= subPartCounter; index += 1)
+        {
+          if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
+          {
+            self.game.EditObj.TipButton = false;
+            self.SubPartList[index].HandleToolTip(x - self.SubPartX[index], y - self.SubPartY[index]);
+            if (self.game.EditObj.TipButton)
+              return;
+            if (Operators.CompareString(self.SubPartList[index].Descript, "", false) > 0)
+            {
+              self.game.EditObj.TipButton = true;
+              self.game.EditObj.TipTitle = "";
+              self.game.EditObj.TipText = self.SubPartList[index].Descript;
+              return;
+            }
+          }
+        }
+      }
+      int mouseCounter = self.MouseCounter;
+      for (int index = 0; index <= mouseCounter; index += 1)
+      {
+        if (x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height)
+        {
+          if (self.MouseData[index] > 0)
+            self.game.EditObj.TipButton = true;
+          self.game.EditObj.TipTitle = self.MouseTitle[index];
+          self.game.EditObj.TipText = self.MouseText[index];
+          if (Strings.InStr(self.game.EditObj.TipText, "MX-ENTR") <= 0)
+            break;
+          self.game.EditObj.TipTitle += "<FIXEDSYS>";
+          break;
+        }
+      }
+    }
+
+    pub void PopUpRefresh() => self.DoRefresh();
+
+    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    {
+      windowReturnClass: WindowReturnClass = WindowReturnClass::new();
+      if (self.game.EditObj.SetViewMode2 > 0 || self.game.EditObj.TutOrder > -1)
+        return windowReturnClass;
+      int subPartCounter = self.SubPartCounter;
+      for (int index = 0; index <= subPartCounter; index += 1)
+      {
+        if (self.SubPartCounter > -1 && x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
+        {
+          int num1 = self.SubPartID[index];
+          if (num1 == self.Info1Id)
+          {
+            self.dostuff();
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+          if (num1 == self.info2id)
+          {
+            --self.game.EditObj.se1_adviceWindowPage;
+            self.dostuff();
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+          if (num1 == self.hideId)
+          {
+            self.game.EditObj.BlockAdvice = true;
+            self.game.EditObj.TempBlockAdvice = true;
+            windowReturnClass.AddCommand(3, 11);
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+          if (num1 == self.info3id)
+          {
+            this += 1.game.EditObj.se1_adviceWindowPage;
+            self.dostuff();
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+          if (num1 == self.info7id)
+          {
+            int stringListById = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
+            int num2 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 2]));
+            self.game.EditObj.udsManagementTabOverrideId = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Present", 79, 0, 0))].GetData(11, idValue, 0)));
+            self.game.EditObj.SetViewMode2 = 12;
+            self.ClearMouse();
+            self.NewBackGroundAndClearAll(self.w, self.h, -1);
+            self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
+            if (self.game.ScreenHeight < 920 & self.game.ScreenWidth < 1465)
+            {
+              self.game.EditObj.GuiDown = true;
+              self.game.EditObj.RightDown = true;
+              windowReturnClass.AddCommand(3, 11);
+            }
+            else if (self.game.ScreenHeight < 920)
+            {
+              self.game.EditObj.GuiDown = true;
+              windowReturnClass.AddCommand(3, 11);
+            }
+            else if (self.game.ScreenWidth < 1465)
+            {
+              self.game.EditObj.RightDown = true;
+              windowReturnClass.AddCommand(3, 11);
+            }
+            else
+              windowReturnClass.AddCommand(3, 11);
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+          if (num1 == self.info8id)
+          {
+            int stringListById = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
+            int num3 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 3]));
+            self.game.EditObj.udsManagementTabOverrideId = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Present", 79, 0, 0))].GetData(11, idValue, 0)));
+            self.game.EditObj.SetViewMode2 = 12;
+            self.ClearMouse();
+            self.NewBackGroundAndClearAll(self.w, self.h, -1);
+            self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
+            if (self.game.ScreenHeight < 920 & self.game.ScreenWidth < 1465)
+            {
+              self.game.EditObj.GuiDown = true;
+              self.game.EditObj.RightDown = true;
+              windowReturnClass.AddCommand(3, 11);
+            }
+            else if (self.game.ScreenHeight < 920)
+            {
+              self.game.EditObj.GuiDown = true;
+              windowReturnClass.AddCommand(3, 11);
+            }
+            else if (self.game.ScreenWidth < 1465)
+            {
+              self.game.EditObj.RightDown = true;
+              windowReturnClass.AddCommand(3, 11);
+            }
+            else
+              windowReturnClass.AddCommand(3, 11);
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+          if (num1 == self.info5id)
+          {
+            int stringListById1 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            int stringListById2 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
+            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            if (idValue > 0)
+            {
+              int num4 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, idValue, 1)));
+              int num5 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, idValue, 2)));
+              int setValue = 999999;
+              self.game.Data.StringListObj[stringListById2].SetData(0, idValue, 1, setValue, true);
+              self.game.Data.StringListObj[stringListById1].RemoveRow(self.game.EditObj.se1_adviceWindowPage);
+            }
+            self.dostuff();
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+          if (num1 == self.info6id)
+          {
+            int stringListById3 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            int stringListById4 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
+            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById3].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            if (idValue > 0)
+            {
+              int num6 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, idValue, 1)));
+              int num7 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, idValue, 2)));
+              if (num7 < 1)
+                num7 = 1;
+              int setValue1 = num7 + (1 + num7);
+              int setValue2 = self.game.Data.Round + (1 + setValue1);
+              self.game.Data.StringListObj[stringListById4].SetData(0, idValue, 1, setValue2, true);
+              self.game.Data.StringListObj[stringListById4].SetData(0, idValue, 2, setValue1, true);
+              self.game.Data.StringListObj[stringListById3].RemoveRow(self.game.EditObj.se1_adviceWindowPage);
+            }
+            self.dostuff();
+            windowReturnClass.SetFlag(true);
+            return windowReturnClass;
+          }
+        }
+      }
+      int mouseCounter = self.MouseCounter;
+      for (int index = 0; index <= mouseCounter; index += 1)
+      {
+        if (x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height && self.MouseData[index] > 0 & self.MouseData[index] <= 3)
+        {
+          self.dostuff();
+          windowReturnClass.SetFlag(true);
+          return windowReturnClass;
+        }
+      }
+      if (x > 0 & x < self.w && y > 0 & y < self.h)
+        windowReturnClass.NoMouseClickBelow = true;
+      windowReturnClass.SetFlag(false);
+      return windowReturnClass;
+    }
+
+    pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false) => WindowReturnClass::new();
+  }
+// }

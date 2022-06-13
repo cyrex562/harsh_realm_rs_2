@@ -1,0 +1,525 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: WindowsApplication1.UnitHeaderPartClass
+// Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
+// MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
+
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Drawing;
+
+namespace WindowsApplication1
+{
+  pub class UnitHeaderPartClass : SubPartClass
+  {
+     object OwnBitmapNr;
+     int unr;
+     GameClass game;
+     int his;
+
+    pub UnitHeaderPartClass(int tunr, GameClass tgame)
+      : base(280, 200)
+    {
+      self.unr = tunr;
+      self.game = tgame;
+      self.his = self.game.Data.UnitObj[self.unr].Historical;
+    }
+
+    pub void DescriptInfo(int x, int y)
+    {
+      if (self.game.EditObj.UnitSelected == -1)
+        return;
+      self.Descript = "";
+      if (x > 105 & y > 5 & x < 140 & y < 45)
+        self.Descript = "Action Points";
+      if (x > 0 & y > 152 & x < 70 & y < 204)
+        self.Descript = "Supply % consumed at start of this turn.";
+      if (x > 140 & y > 5 & x < 175 & y < 45)
+        self.Descript = "Readiness.";
+      if (x > 175 & y > 5 & x < 210 & y < 45)
+        self.Descript = "Experience.";
+      if (x > 210 & y > 5 & x < 245 & y < 45)
+        self.Descript = "Morale.";
+      if (x > 245 & y > 5 & x < 280 & y < 45)
+        self.Descript = "Entrenchment.";
+      if (x > 125 & y > 123 & x < 277 & y < 143)
+      {
+        let mut hq: i32 = self.game.Data.UnitObj[self.game.EditObj.UnitSelected].HQ;
+        if (self.game.Data.Round != 0 & self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Regime != self.game.Data.Turn & self.game.Data.FOWOn)
+        {
+          self.Descript = "HQ power and Staff points in HQ expressed as a % of needed staff points. ";
+        }
+        else
+        {
+          int Number1;
+          int Number2;
+          if (hq == -1 | self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
+          {
+            Number1 = 0;
+            Number2 = 0;
+          }
+          else
+          {
+            let mut num1: i32 = self.game.HandyFunctionsObj.GetStaffPercent(hq, true);
+            let mut num2: i32 = self.game.HandyFunctionsObj.GetStaffPercent(hq, true);
+            let mut num3: i32 = self.game.HandyFunctionsObj.GetStaffPercent(hq);
+            let mut num4: i32 = self.game.HandyFunctionsObj.GetStaffPercent(hq);
+            if (num1 > 100)
+              num1 = 100;
+            if (num2 > 100)
+              num2 = 100;
+            if (num3 > 100)
+              num3 = 100;
+            if (num4 > 100)
+              num4 = 100;
+            Number1 =  Math.Round((double)  Math.Round((double) num1 * (double) self.game.HandyFunctionsObj.GetStaffCombatMod(hq) * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0)) + (double) num3 * (double) self.game.Data.RuleVar[140] * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0));
+            Number2 =  Math.Round((double)  Math.Round((double) num2 * (double) self.game.HandyFunctionsObj.GetStaffMoraleMod(hq) * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0)) + (double) num4 * (double) self.game.Data.RuleVar[141] * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0));
+          }
+          if (self.game.HandyFunctionsObj.HasUnitlandSF(self.unr))
+            self.Descript = "Staff points in HQ expressed as a % of needed staff points. Current CombatMod = +" + Conversion.Str((object) Number1) + "%. Current MoraleMod = +" + Conversion.Str((object) Number2) + "%";
+          else
+            self.Descript = "Staff only gives bonuses to land theater subformations. not to air and navy.";
+        }
+      }
+      if (x > 125 & y > 70 & x < 277 & y < 88)
+        self.Descript = "Click to change name of unit.";
+      if (x > 125 & y > 90 & x < 277 & y < 108)
+      {
+        if (self.game.Data.UnitObj[self.unr].Regime == self.game.Data.Turn)
+          self.Descript = "Click to jump to units HQ.";
+        else
+          self.Descript = "";
+      }
+      if (x > 0 & y > 65 & x < 44 & y < 103)
+        self.Descript = "For all practical purposes this unit travels with the movement speed this movement type";
+      if (x > 0 & y > 105 & x < 44 & y < 132)
+        self.Descript = "The regime controlling the unit. " + self.game.Data.RegimeObj[self.game.Data.UnitObj[self.unr].Regime].Name;
+      if (x > 44 & y > 60 & x < 122 & y < 138)
+      {
+        if (self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
+          self.Descript = "The selected unit. Click to change color of hq.";
+        else
+          self.Descript = "The selected unit.";
+      }
+      if (x > 70 & y > 152 & x < 140 & y < 204)
+        self.Descript = "Supply Stock. The total number of supply points with the unit.";
+      if (x > 140 & y > 152 & x < 210 & y < 204)
+      {
+        if (self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
+          self.Descript = "Supply Requested Out";
+        else
+          self.Descript = "Supply Requested In";
+      }
+      if (!(x > 210 & y > 152 & x < 280 & y < 204))
+        return;
+      if (self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
+        self.Descript = "Supply Send Out";
+      else
+        self.Descript = "Supply Received In";
+    }
+
+    pub Bitmap Paint()
+    {
+      SizeF sizeF1 = SizeF::new();
+      Coordinate coordinate = Coordinate::new();
+      if (self.game.Data.UnitObj[self.unr].Regime == self.game.Data.Turn | self.game.Data.Round == 0)
+        coordinate.x = 3;
+      else
+        coordinate = self.game.HandyFunctionsObj.GetReconMinusHide(self.unr, self.game.Data.Turn);
+      Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
+      Conversions.ToInteger(self.game.HandyFunctionsObj.GetUnitPeople(self.unr));
+      let mut regime: i32 = self.game.Data.UnitObj[self.unr].Regime;
+      str1: String = self.game.Data.UnitObj[self.unr].Name;
+       Graphics local1 =  graphics;
+      Rectangle rectangle1 = new Rectangle(0, 35, 150, 14);
+      Rectangle rect1_1 = rectangle1;
+      Rectangle rectangle2;
+      Rectangle rect2_1 = rectangle2;
+      DrawMod.MakeFullBoxVic2( local1, rect1_1, "SELECTED UNIT", rect2_1, "");
+      let mut num1: i32 = 45;
+      DrawMod.DrawBlock( graphics, 0, 5 + num1, 280, 95,  self.game.VicColor3Shade.R,  self.game.VicColor3Shade.G,  self.game.VicColor3Shade.B,  self.game.VicColor3Shade.A);
+      DrawMod.DrawRectangle( graphics, 0, 5 + num1, 279, 95,  self.game.VicColor3.R,  self.game.VicColor3.G,  self.game.VicColor3.B,  self.game.VicColor3.A);
+      self.game.CustomBitmapObj.DrawUnitBig(self.unr, true, graphics, 44, 15 + num1, true);
+      if ((double) self.game.Data.RuleVar[344] == 1.0 && (double) self.game.Data.RuleVar[337] == 1.0)
+      {
+        if (self.game.Data.UnitObj[self.unr].Historical > -1)
+        {
+          if (self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.unr].Historical].ModelMaster > -1)
+          {
+            str2: String = str1 + " (" + Strings.Left(self.game.Data.HistoricalUnitObj[self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.unr].Historical].ModelMaster].Name, 3);
+            if (self.game.Data.UnitObj[self.unr].HistoricalSubPart > -1)
+              str2 = str2 + ", " + Strings.Left(self.game.Data.UnitObj[self.game.HandyFunctionsObj.GetPreDef(self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.unr].Historical].SubParts[self.game.Data.UnitObj[self.unr].HistoricalSubPart])].Name, 3);
+            str1 = str2 + ")";
+          }
+          else
+            str1 += " (ad hoc)";
+        }
+        else
+          str1 += " (remnant)";
+      }
+      if (coordinate.x < 2)
+        str1 = "?";
+      str3: String = str1;
+      string str4;
+      if (self.game.Data.UnitObj[self.unr].HQ > -1)
+      {
+        str4 = self.game.Data.UnitObj[self.game.Data.UnitObj[self.unr].HQ].Name;
+        if (coordinate.x < 2)
+          str4 = "HQ: ?";
+      }
+      else
+      {
+        str4 = "(has no HQ)";
+        if (coordinate.x < 2)
+          str4 = "HQ: ?";
+      }
+      str5: String = str4;
+      str6: String = "";
+      SizeF sizeF2;
+      if (self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.Turn, self.game.Data.UnitObj[self.unr].Regime))
+      {
+        if (!self.game.Data.UnitObj[self.unr].IsHQ)
+        {
+          str7: String = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.Gethqpow(self.unr)));
+          if (coordinate.x <= 2)
+            str7 = "?";
+          if (coordinate.x <= 1)
+            str7 = "?";
+          str6 = "HQP: " + str7 + "%" + ", ";
+        }
+        string str8;
+        if (!self.game.Data.UnitObj[self.unr].IsHQ)
+        {
+          str8 = self.game.Data.UnitObj[self.unr].HQ <= -1 ? "N/A" : Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetStaffPercent(self.game.Data.UnitObj[self.unr].HQ)));
+          if (coordinate.x <= 2)
+            str8 = "?";
+        }
+        else
+        {
+          str8 = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetStaffPercent(self.unr)));
+          if (coordinate.x <= 2)
+            str8 = "?";
+        }
+        if (coordinate.x <= 1)
+          str8 = "?";
+        str9: String = str6 + "STF: " + str8 + "%";
+        sizeF2 = graphics.MeasureString(str3, self.game.VicFont2);
+        let mut num2: i32 =  Math.Round((152.0 - (double) sizeF2.Width) / 2.0);
+        if ((double) sizeF2.Width > 145.0)
+        {
+          sizeF2 = graphics.MeasureString(str3, self.game.VicFont4);
+          let mut num3: i32 =  Math.Round((152.0 - (double) sizeF2.Width) / 2.0);
+          DrawMod.DrawTextVic2( graphics, str3, self.game.VicFont4, 125 + num3, 25 + num1, self.game.VicColor2, self.game.VicColor2Shade);
+        }
+        else
+          DrawMod.DrawTextVic2( graphics, str3, self.game.VicFont2, 125 + num2, 25 + num1, self.game.VicColor2, self.game.VicColor2Shade);
+        sizeF2 = graphics.MeasureString(str9, self.game.VicFont3);
+        let mut num4: i32 =  Math.Round((152.0 - (double) sizeF2.Width) / 2.0);
+        DrawMod.DrawTextVic2( graphics, str9, self.game.VicFont3, 125 + num4, 78 + num1, self.game.VicColor1, self.game.VicColor1Shade);
+        sizeF2 = graphics.MeasureString(str5, self.game.VicFont3);
+        let mut num5: i32 =  Math.Round((152.0 - (double) sizeF2.Width) / 2.0);
+        if ((double) sizeF2.Width > 145.0)
+        {
+          sizeF2 = graphics.MeasureString(str5, self.game.VicFont4);
+          let mut num6: i32 =  Math.Round((152.0 - (double) sizeF2.Width) / 2.0);
+          DrawMod.DrawTextVic2( graphics, str5, self.game.VicFont4, 125 + num6, 45 + num1, self.game.VicColor1, self.game.VicColor1Shade);
+        }
+        else
+          DrawMod.DrawTextVic2( graphics, str5, self.game.VicFont3, 125 + num5, 45 + num1, self.game.VicColor1, self.game.VicColor1Shade);
+      }
+      else
+      {
+        str10: String = "HQPW: ?, STF: ?";
+        let mut num7: i32 =  Math.Round((152.0 - (double) graphics.MeasureString(str10, self.game.VicFont3).Width) / 2.0);
+        DrawMod.DrawTextVic2( graphics, str10, self.game.VicFont3, 125 + num7, 78 + num1, self.game.VicColor1, self.game.VicColor1Shade);
+        let mut num8: i32 =  Math.Round((152.0 - (double) graphics.MeasureString(str3, self.game.VicFont2).Width) / 2.0);
+        DrawMod.DrawTextVic2( graphics, str3, self.game.VicFont2, 125 + num8, 25 + num1, self.game.VicColor2, self.game.VicColor2Shade);
+        let mut num9: i32 =  Math.Round((152.0 - (double) graphics.MeasureString(str4, self.game.VicFont3).Width) / 2.0);
+        DrawMod.DrawTextVic2( graphics, str4, self.game.VicFont3, 125 + num9, 45 + num1, self.game.VicColor1, self.game.VicColor1Shade);
+      }
+      let mut num10: i32 = 0;
+      Bitmap bitmap1;
+      if (self.game.Data.Turn == self.game.Data.UnitObj[self.unr].Regime | !self.game.Data.FOWOn | self.game.Data.Round == 0 | coordinate.x >= 2)
+      {
+        num10 = 1;
+        let mut nr: i32 = -1;
+        let mut index1: i32 = self.game.HandyFunctionsObj.GetLowestSpeed(self.unr, -1, true);
+        if (index1 > -1)
+        {
+          let mut sfCount: i32 = self.game.Data.UnitObj[self.unr].SFCount;
+          for (nr = 0; nr <= sfCount; nr += 1)
+          {
+            if (self.game.Data.SFTypeObj[self.game.Data.SFObj[self.game.Data.UnitObj[self.unr].SFList[nr]].Type].SymbolGroup == self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].SymbolGroup && self.game.Data.SFTypeObj[self.game.Data.SFObj[self.game.Data.UnitObj[self.unr].SFList[nr]].Type].SymbolWeight > self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].SymbolWeight && self.game.Data.SFTypeObj[self.game.Data.SFObj[self.game.Data.UnitObj[self.unr].SFList[nr]].Type].MoveType == self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].MoveType)
+              index1 = self.game.Data.UnitObj[self.unr].SFList[nr];
+          }
+        }
+        str11: String = index1 <= -1 ? "Immobile" : (self.game.Data.SFObj[index1].MoveType != -1 ? Strings.Trim(self.game.Data.TempString[self.game.Data.SFObj[index1].MoveType]) : Strings.Trim(self.game.Data.TempString[self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].MoveType]));
+        if (index1 == -2)
+          nr = self.game.SUPPLIESSYMBOL;
+        else if (index1 > -1)
+          nr = self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].SymbolSpriteID;
+        let mut integer: i32 = Conversions.ToInteger(self.game.HandyFunctionsObj.GetUnitPeople(self.unr));
+        if (regime > -1 & index1 > -1)
+        {
+          if (self.game.Data.RegimeObj[regime].ExtraGraphicUse > -1)
+          {
+            let mut extraCounter: i32 = self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].ExtraCounter;
+            for (let mut index2: i32 = 0; index2 <= extraCounter; index2 += 1)
+            {
+              if (self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].ExtraCode[index2] == self.game.Data.RegimeObj[regime].ExtraGraphicUse)
+                nr = self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].ExtraSymbolSpriteID[index2];
+            }
+          }
+          else if (self.game.Data.PeopleObj[integer].ExtraGraphicUse > -1)
+          {
+            let mut extraCounter: i32 = self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].ExtraCounter;
+            for (let mut index3: i32 = 0; index3 <= extraCounter; index3 += 1)
+            {
+              if (self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].ExtraCode[index3] == self.game.Data.PeopleObj[integer].ExtraGraphicUse)
+                nr = self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].ExtraSymbolSpriteID[index3];
+            }
+          }
+        }
+        if (coordinate.x < 3)
+          nr = -1;
+        if (nr > -1 & index1 > -1)
+        {
+           Graphics local2 =  graphics;
+          bitmap1 = BitmapStore.GetBitmap(nr);
+           Bitmap local3 =  bitmap1;
+          let mut y: i32 = 20 + num1;
+          DrawMod.DrawSimple( local2,  local3, 2, y);
+          str12: String = Strings.UCase(Strings.Left(self.game.Data.SFObj[index1].MoveType <= -1 ? self.game.Data.TempString[self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].MoveType] : self.game.Data.TempString[self.game.Data.SFObj[index1].MoveType], 5));
+          sizeF2 = graphics.MeasureString(str12, self.game.VicFont5);
+          DrawMod.DrawTextVic2( graphics, str12, self.game.VicFont5,  Math.Round(22.0 - (double) sizeF2.Width / 2.0), 43 + num1, self.game.VicColor1, self.game.VicColor1Shade);
+        }
+        else if (nr > -1)
+        {
+           Graphics local4 =  graphics;
+          Bitmap bitmap2 = BitmapStore.GetBitmap(nr);
+           Bitmap local5 =  bitmap2;
+          let mut y: i32 = 20 + num1;
+          DrawMod.DrawSimple( local4,  local5, 2, y);
+          str13: String = Strings.UCase(Strings.Left(str11, 5));
+          sizeF2 = graphics.MeasureString(str13, self.game.VicFont5);
+          DrawMod.DrawTextVic2( graphics, str13, self.game.VicFont5,  Math.Round(22.0 - (double) sizeF2.Width / 2.0), 43 + num1, self.game.VicColor1, self.game.VicColor1Shade);
+        }
+      }
+      let mut hqSpriteNr: i32 = self.game.Data.RegimeObj[self.game.Data.UnitObj[self.unr].Regime].HQSpriteNr;
+       Graphics local6 =  graphics;
+      bitmap1 = BitmapStore.GetBitmap(hqSpriteNr);
+       Bitmap local7 =  bitmap1;
+      let mut y1: i32 = 60 + num1;
+      DrawMod.DrawSimple( local6,  local7, 0, y1);
+      if (self.game.Data.Turn == self.game.Data.UnitObj[self.unr].Regime | !self.game.Data.FOWOn | self.game.Data.Round == 0 | coordinate.x >= 1)
+      {
+        let mut num11: i32 = -105;
+        str14: String = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetLowestAp(self.unr)));
+        if (coordinate.x == 2)
+          str14 = "?";
+        if (coordinate.x <= 1)
+          str14 = "?";
+         Graphics local8 =  graphics;
+        rectangle1 = new Rectangle(105, num11 + 110, 30, 14);
+        Rectangle rect1_2 = rectangle1;
+        Rectangle rectangle3 = new Rectangle(105, num11 + 124, 30, 23);
+        Rectangle rect2_2 = rectangle3;
+        txt2_1: String = str14;
+        DrawMod.MakeFullBoxVic2( local8, rect1_2, "AP", rect2_2, txt2_1);
+        let mut Number1: i32 = self.game.HandyFunctionsObj.GetAverageRdn(self.unr);
+        if (coordinate.x == 2)
+        {
+          self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
+          float num12 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num13 = (float) ((1.0 - (double) num12) * 2.0);
+          float num14 = VBMath.Rnd() * num13 + num12;
+          Number1 =  Math.Round((double) Conversion.Int((float) Number1 * num14));
+          if (Number1 < 0)
+            Number1 = 0;
+          if (Number1 > 100)
+            Number1 = 100;
+        }
+        str15: String = Strings.Trim(Conversion.Str((object) Number1));
+        if (coordinate.x <= 1)
+          str15 = "?";
+         Graphics local9 =  graphics;
+        rectangle3 = new Rectangle(140, num11 + 110, 30, 14);
+        Rectangle rect1_3 = rectangle3;
+        rectangle1 = new Rectangle(140, num11 + 124, 30, 23);
+        Rectangle rect2_3 = rectangle1;
+        txt2_2: String = str15;
+        DrawMod.MakeFullBoxVic2( local9, rect1_3, "RDN", rect2_3, txt2_2);
+        let mut Number2: i32 = self.game.HandyFunctionsObj.GetAverageXp(self.unr);
+        if (coordinate.x == 2)
+        {
+          self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
+          float num15 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num16 = (float) ((1.0 - (double) num15) * 2.0);
+          float num17 = VBMath.Rnd() * num16 + num15;
+          Number2 =  Math.Round((double) Conversion.Int((float) Number2 * num17));
+          if (Number2 < 0)
+            Number2 = 0;
+          if (Number2 > 100)
+            Number2 = 100;
+        }
+        str16: String = Strings.Trim(Conversion.Str((object) Number2));
+        if (coordinate.x <= 1)
+          str16 = "?";
+         Graphics local10 =  graphics;
+        rectangle3 = new Rectangle(175, num11 + 110, 30, 14);
+        Rectangle rect1_4 = rectangle3;
+        rectangle1 = new Rectangle(175, num11 + 124, 30, 23);
+        Rectangle rect2_4 = rectangle1;
+        txt2_3: String = str16;
+        DrawMod.MakeFullBoxVic2( local10, rect1_4, "EXP", rect2_4, txt2_3);
+        let mut Number3: i32 = self.game.HandyFunctionsObj.GetAverageMor(self.unr);
+        if (coordinate.x == 2)
+        {
+          self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
+          float num18 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num19 = (float) ((1.0 - (double) num18) * 2.0);
+          float num20 = VBMath.Rnd() * num19 + num18;
+          Number3 =  Math.Round((double) Conversion.Int((float) Number3 * num20));
+          if (Number3 < 0)
+            Number3 = 0;
+          if (Number3 > 999)
+            Number3 = 999;
+        }
+        str17: String = Strings.Trim(Conversion.Str((object) Number3));
+        if (coordinate.x <= 1)
+          str17 = "?";
+         Graphics local11 =  graphics;
+        rectangle3 = new Rectangle(210, num11 + 110, 30, 14);
+        Rectangle rect1_5 = rectangle3;
+        rectangle1 = new Rectangle(210, num11 + 124, 30, 23);
+        Rectangle rect2_5 = rectangle1;
+        txt2_4: String = str17;
+        DrawMod.MakeFullBoxVic2( local11, rect1_5, "MOR", rect2_5, txt2_4);
+        let mut Number4: i32 = self.game.HandyFunctionsObj.GetAverageEntrench(self.unr);
+        if (coordinate.x == 2)
+        {
+          self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
+          float num21 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num22 = (float) ((1.0 - (double) num21) * 2.0);
+          float num23 = VBMath.Rnd() * num22 + num21;
+          Number4 =  Math.Round((double) Conversion.Int((float) Number4 * num23));
+          if (Number4 < 0)
+            Number4 = 0;
+          if (Number4 > 999)
+            Number4 = 999;
+        }
+        str18: String = Strings.Trim(Conversion.Str((object) Number4));
+        if (coordinate.x <= 1)
+          str18 = "?";
+         Graphics local12 =  graphics;
+        rectangle3 = new Rectangle(245, num11 + 110, 30, 14);
+        Rectangle rect1_6 = rectangle3;
+        rectangle1 = new Rectangle(245, num11 + 124, 30, 23);
+        Rectangle rect2_6 = rectangle1;
+        txt2_5: String = str18;
+        DrawMod.MakeFullBoxVic2( local12, rect1_6, "ENT", rect2_6, txt2_5);
+        let mut num24: i32 = 40;
+        str19: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyConsume)) + "%";
+        if (coordinate.x <= 2)
+          str19 = "?";
+        if (coordinate.x <= 1)
+          str19 = "?";
+         Graphics local13 =  graphics;
+        rectangle3 = new Rectangle(0, num24 + 110, 65, 14);
+        Rectangle rect1_7 = rectangle3;
+        rectangle1 = new Rectangle(0, num24 + 124, 65, 23);
+        Rectangle rect2_7 = rectangle1;
+        txt2_6: String = str19;
+        DrawMod.MakeFullBoxVic2( local13, rect1_7, "SUP.CONS", rect2_7, txt2_6);
+        if (self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.UnitObj[self.unr].Regime, self.game.Data.Turn))
+        {
+          str20: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].Supply));
+          if (coordinate.x <= 2)
+            str20 = "?";
+          if (coordinate.x <= 1)
+            str20 = "?";
+           Graphics local14 =  graphics;
+          rectangle3 = new Rectangle(70, num24 + 110, 65, 14);
+          Rectangle rect1_8 = rectangle3;
+          rectangle1 = new Rectangle(70, num24 + 124, 65, 23);
+          Rectangle rect2_8 = rectangle1;
+          txt2_7: String = str20;
+          DrawMod.MakeFullBoxVic2( local14, rect1_8, "SUP.STOCK", rect2_8, txt2_7);
+          if (self.game.Data.UnitObj[self.unr].IsHQ)
+          {
+            str21: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyReq));
+            if (coordinate.x == 2)
+              str21 = "?";
+            if (coordinate.x <= 1)
+              str21 = "?";
+             Graphics local15 =  graphics;
+            rectangle3 = new Rectangle(140, num24 + 110, 65, 14);
+            Rectangle rect1_9 = rectangle3;
+            rectangle1 = new Rectangle(140, num24 + 124, 65, 23);
+            Rectangle rect2_9 = rectangle1;
+            txt2_8: String = str21;
+            DrawMod.MakeFullBoxVic2( local15, rect1_9, "REQ.OUT", rect2_9, txt2_8);
+            str22: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyOut));
+            if (coordinate.x == 2)
+              str22 = "?";
+            if (coordinate.x <= 1)
+              str22 = "?";
+             Graphics local16 =  graphics;
+            rectangle3 = new Rectangle(210, num24 + 110, 65, 14);
+            Rectangle rect1_10 = rectangle3;
+            rectangle1 = new Rectangle(210, num24 + 124, 65, 23);
+            Rectangle rect2_10 = rectangle1;
+            txt2_9: String = str22;
+            DrawMod.MakeFullBoxVic2( local16, rect1_10, "SEND.OUT", rect2_10, txt2_9);
+          }
+          else
+          {
+            str23: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyInReq));
+            if (coordinate.x == 2)
+              str23 = "?";
+            if (coordinate.x <= 1)
+              str23 = "?";
+             Graphics local17 =  graphics;
+            rectangle3 = new Rectangle(140, num24 + 110, 65, 14);
+            Rectangle rect1_11 = rectangle3;
+            rectangle1 = new Rectangle(140, num24 + 124, 65, 23);
+            Rectangle rect2_11 = rectangle1;
+            txt2_10: String = str23;
+            DrawMod.MakeFullBoxVic2( local17, rect1_11, "REQ.IN", rect2_11, txt2_10);
+            str24: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyIn));
+            if (coordinate.x == 2)
+              str24 = "?";
+            if (coordinate.x <= 1)
+              str24 = "?";
+             Graphics local18 =  graphics;
+            rectangle3 = new Rectangle(210, num24 + 110, 65, 14);
+            Rectangle rect1_12 = rectangle3;
+            rectangle1 = new Rectangle(210, num24 + 124, 65, 23);
+            Rectangle rect2_12 = rectangle1;
+            txt2_11: String = str24;
+            DrawMod.MakeFullBoxVic2( local18, rect1_12, "SUP.IN", rect2_12, txt2_11);
+          }
+        }
+      }
+      if (!Information.IsNothing((object) graphics))
+      {
+        graphics.Dispose();
+        graphics = (Graphics) null;
+      }
+      return self.OwnBitmap;
+    }
+
+    pub Bitmap PaintOverlay()
+    {
+      Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
+       Graphics local1 =  Expression;
+      Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
+       Bitmap local2 =  bitmap;
+      DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
+      if (!Information.IsNothing((object) Expression))
+        Expression.Dispose();
+      return self.OwnBitmap;
+    }
+  }
+}

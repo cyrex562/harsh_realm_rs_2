@@ -1,0 +1,211 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: WindowsApplication1.MessageWindowClass
+// Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
+// MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
+// Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
+
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
+using System;
+using System.Drawing;
+
+namespace WindowsApplication1
+{
+  pub class MessageWindowClass : WindowClass
+  {
+     int okid;
+     int tbacknr;
+     int oktextid;
+     int noteid;
+     int note2id;
+     int cloudid;
+     int Pic1Id;
+     int TAid;
+     int FromMessage;
+
+    pub MessageWindowClass( GameClass tGame)
+      : base( tGame, 810, 610, BackSprite: tGame.BACKGROUND2MARC, tBackSpriteScaled: true)
+    {
+      self.tbacknr = tGame.BACKGROUND2MARC;
+      self.FromMessage = tGame.EditObj.FromMessage;
+      self.ViewMessage();
+    }
+
+    pub MessageWindowClass( GameClass tGame, int TempShit)
+      : base( tGame, 810, 610, 7, tGame.BACKGROUND2MARC, true)
+    {
+      self.tbacknr = tGame.BACKGROUND2MARC;
+      self.FromMessage = tGame.EditObj.FromMessage;
+      self.ViewMessage();
+    }
+
+    pub void ViewMessage()
+    {
+      if (self.Pic1Id > 0)
+        self.RemoveSubPart(self.Pic1Id);
+      if (self.okid > 0)
+      {
+        self.RemoveSubPart(self.okid);
+        self.okid = 0;
+      }
+      if (self.oktextid > 0)
+        self.RemoveSubPart(self.oktextid);
+      if (self.TAid > 0)
+        self.RemoveSubPart(self.TAid);
+      if (self.noteid > 0)
+        self.RemoveSubPart(self.noteid);
+      if (self.note2id > 0)
+        self.RemoveSubPart(self.note2id);
+      if (self.cloudid > 0)
+        self.RemoveSubPart(self.cloudid);
+      if (self.game.Data.RegimeObj[self.game.Data.Turn].MesStyle[self.FromMessage] == 1)
+        self.NewBackGroundAndClearAll(810, 610, self.game.BACKGROUND2MARC);
+      Graphics g = Graphics.FromImage((Image) self.OwnBitmap);
+      if (Strings.Len(self.game.Data.RegimeObj[self.game.Data.Turn].MessWav[self.FromMessage]) > 0)
+      {
+        SoundMod.STopEventWave();
+        SoundMod.PlayEventWave(self.game.AppPath + "sound/" + self.game.Data.RegimeObj[self.game.Data.Turn].MessWav[self.FromMessage],  self.game.EditObj);
+      }
+      int num1;
+      if (self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] > -1)
+      {
+        int index = self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage];
+        int nr = index < 10000 ? self.game.Data.EventPicNr[index] : self.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
+        if (nr > -1)
+        {
+          int width1 = BitmapStore.GetWidth(nr);
+          int height1 = BitmapStore.Getheight(nr);
+          Rectangle rectangle;
+          if (self.game.Data.RegimeObj[self.game.Data.Turn].MesStyle[self.FromMessage] == 2)
+          {
+            if (width1 > 160)
+            {
+              height1 =  Math.Round((double) height1 * (160.0 / (double) width1));
+              width1 =  Math.Round((double) width1 * (160.0 / (double) width1));
+            }
+            if (height1 > 200)
+            {
+              width1 =  Math.Round((double) width1 * (200.0 / (double) height1));
+              height1 =  Math.Round((double) height1 * (200.0 / (double) height1));
+            }
+            rectangle = new Rectangle(85, 100, width1, height1);
+            num1 = height1 + 100 + 20;
+          }
+          else
+          {
+            if (width1 > 724)
+            {
+              height1 =  Math.Round((double) height1 * (724.0 / (double) width1));
+              width1 =  Math.Round((double) width1 * (724.0 / (double) width1));
+            }
+            if (height1 > 200)
+            {
+              width1 =  Math.Round((double) width1 * (200.0 / (double) height1));
+              height1 =  Math.Round((double) height1 * (200.0 / (double) height1));
+            }
+            rectangle = new Rectangle( Math.Round(405.0 - (double) width1 / 2.0), 20, width1, height1);
+            num1 = height1 + 20 + 20;
+          }
+          if (self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] >= 10000)
+          {
+            DrawMod.DrawOfficer(g, self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] - 10000,  Math.Round(412.0 - (double) BitmapStore.GetWidth(nr) / 2.0), 70, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
+            num1 += 50;
+          }
+          else
+          {
+             Graphics local1 =  g;
+            Bitmap bitmap = BitmapStore.GetBitmap(nr);
+             Bitmap local2 =  bitmap;
+            int x = rectangle.X;
+            int y = rectangle.Y;
+            int width2 = rectangle.Width;
+            int height2 = rectangle.Height;
+            DrawMod.DrawScaled( local1,  local2, x, y, width2, height2);
+          }
+        }
+      }
+      else
+        num1 = 60;
+      int num2 =  Math.Round(Conversion.Int(32.5) - (double) num1 / 16.0);
+      DrawMod.DrawPaperSheet( g, 55, num1 - 10, 690, 16 * (num2 - 1) + 20);
+      let mut tsubpart1: SubPartClass =  new PaperAreaClass(self.game, 650, num2 - 2,  null, "Description", false, self.game.Data.RegimeObj[self.game.Data.Turn].MessString[self.FromMessage], self.game.VicColor8, tbackbitmap: ( self.OwnBitmap), bbx: 75, bby: num1);
+      self.TAid = self.AddSubPart( tsubpart1, 75, num1, 650, 16 * (num2 - 2), 0);
+      let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( self.OwnBitmap), bbx: 300, bby: 540);
+      self.okid = self.AddSubPart( tsubpart2, 300, 540, 200, 35, 1);
+      if (Information.IsNothing((object) g))
+        return;
+      g.Dispose();
+    }
+
+    pub HandleKeyup: WindowReturnClass(int nr)
+    {
+      windowReturnClass: WindowReturnClass = WindowReturnClass::new();
+      try
+      {
+        if (nr > 0)
+        {
+          windowReturnClass = self.HandleMouseClick(self.SubPartX[self.SubpartNr(self.okid)] + 1, self.SubPartY[self.SubpartNr(self.okid)] + 1, 1);
+          windowReturnClass.SetFlag(true);
+        }
+      }
+      catch (Exception ex)
+      {
+        ProjectData.SetProjectError(ex);
+        ProjectData.ClearProjectError();
+      }
+      return windowReturnClass;
+    }
+
+    pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
+    {
+      windowReturnClass: WindowReturnClass = WindowReturnClass::new();
+      if (self.SubPartCounter > -1)
+      {
+        int subPartCounter = self.SubPartCounter;
+        for (int index = 0; index <= subPartCounter; index += 1)
+        {
+          if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
+          {
+            int num = self.SubPartID[index];
+            if (num == self.TAid)
+            {
+              self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);
+              self.SubPartFlag[index] = true;
+              windowReturnClass.SetFlag(true);
+              return windowReturnClass;
+            }
+            if (num == self.okid)
+            {
+              if (self.FromMessage >= self.game.Data.RegimeObj[self.game.Data.Turn].MessCounter)
+              {
+                SoundMod.STopEventWave();
+                if (self.game.EditObj.OrderType == 23)
+                {
+                  self.game.EditObj.PopupValue = 14;
+                  windowReturnClass.AddCommand(5, 10);
+                  windowReturnClass.SetFlag(true);
+                  return windowReturnClass;
+                }
+                windowReturnClass.AddCommand(6, 0);
+                windowReturnClass.SetFlag(true);
+                return windowReturnClass;
+              }
+              self += 1.FromMessage;
+              if (Strings.Len(DrawMod.TGame.EditObj.CampaignRoomTitle) > 0)
+                self.NewBackGroundAndClearAll(810, 610, DrawMod.TGame.BACKGROUND2MARC);
+              else
+                self.NewBackGroundAndClearAll(810, 610, self.tbacknr);
+              self.ViewMessage();
+              windowReturnClass.SetFlag(true);
+              return windowReturnClass;
+            }
+          }
+        }
+        windowReturnClass.SetFlag(false);
+        return windowReturnClass;
+      }
+      windowReturnClass.SetFlag(false);
+      return windowReturnClass;
+    }
+  }
+}
