@@ -47,7 +47,7 @@ namespace WindowsApplication1
 
     pub void SetUnits()
     {
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.SlidersId[index] > 0)
@@ -65,8 +65,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -81,8 +81,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -97,8 +97,8 @@ namespace WindowsApplication1
 
     pub void View()
     {
-      int selectX = this.game.SelectX;
-      int selectY = this.game.SelectY;
+      let mut selectX: i32 =  this.game.SelectX;
+      let mut selectY: i32 =  this.game.SelectY;
       if (this.cancelid > 0)
       {
         this.RemoveSubPart(this.cancelid);
@@ -141,14 +141,14 @@ namespace WindowsApplication1
       Graphics toG = Graphics.FromImage((Image) this.OwnBitmap);
       DrawMod.DrawMessFrame(ref this.OwnBitmap, ref toG, 0, 0, 1000, 760);
       this.BackBitmap = (Bitmap) this.OwnBitmap.Clone();
-      int battlegroupTemplate = this.game.HandyFunctionsObj.GetBattlegroupTemplate(this.game.Data.Turn);
-      int index1 = -1;
+      let mut battlegroupTemplate: i32 =  this.game.HandyFunctionsObj.GetBattlegroupTemplate(this.game.Data.Turn);
+      let mut index1: i32 =  -1;
       if ((double) this.game.Data.RuleVar[486] > 0.0)
         index1 = this.game.HandyFunctionsObj.GetStringListByID((int) Math.Round((double) this.game.Data.RuleVar[486]));
-      int x1_1 = 5;
-      int num1 = 980;
-      int h1 = 110;
-      int y1_1 = 10;
+      let mut x1_1: i32 =  5;
+      let mut num1: i32 =  980;
+      let mut h1: i32 =  110;
+      let mut y1_1: i32 =  10;
       DrawMod.DrawBlockGradient2(ref toG, x1_1, y1_1, 235, 40, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawBlockGradient2(ref toG, x1_1 + 240, y1_1, 235, h1, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawBlockGradient2(ref toG, x1_1 + 480, y1_1, (int) byte.MaxValue, h1, this.game.MarcCol1, this.game.MarcCol2);
@@ -157,25 +157,25 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarcCenter(ref toG, tstring1, this.game.MarcFont3, x1_1 + 120, y1_1 + 10, Color.White);
       tstring2: String = "Target unit list";
       DrawMod.DrawTextColouredMarcCenter(ref toG, tstring2, this.game.MarcFont3, x1_1 + 840, y1_1 + 10, Color.White);
-      int num2 = 740;
-      int num3 = 5;
-      int num4 = 52;
-      int num5 = 235;
-      int num6 = 37;
+      let mut num2: i32 =  740;
+      let mut num3: i32 =  5;
+      let mut num4: i32 =  52;
+      let mut num5: i32 =  235;
+      let mut num6: i32 =  37;
       SimpleList simpleList1 = SimpleList::new();
-      int unitCounter1 = this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitCounter;
-      for (int index2 = 0; index2 <= unitCounter1; index2 += 1)
+      let mut unitCounter1: i32 =  this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitCounter;
+      for (let mut index2: i32 =  0; index2 <= unitCounter1; index2 += 1)
       {
-        int unit = this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitList[index2];
+        let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitList[index2];
         if (this.sourceUnr == -1)
           this.sourceUnr = unit;
         simpleList1.Add(unit, 1);
       }
-      int counter1 = simpleList1.Counter;
+      let mut counter1: i32 =  simpleList1.Counter;
       Rectangle trect1;
-      for (int index3 = 0; index3 <= counter1; index3 += 1)
+      for (let mut index3: i32 =  0; index3 <= counter1; index3 += 1)
       {
-        int index4 = simpleList1.Id[index3];
+        let mut index4: i32 =  simpleList1.Id[index3];
         if (index4 == this.sourceUnr)
         {
           DrawMod.DrawBlock(ref toG, num3, num4, num5, num6, 0, 0, 0, 64);
@@ -190,25 +190,25 @@ namespace WindowsApplication1
         if (str.Length > 25)
           str = Strings.Left(str, 25) + ".";
         DrawMod.DrawTextColouredMarc(ref toG, str, this.game.MarcFont4, num3 + 50, num4 + 5, Color.White);
-        int hq = this.game.Data.UnitObj[index4].HQ;
+        let mut hq: i32 =  this.game.Data.UnitObj[index4].HQ;
         tstring3: String = hq <= -1 ? "no HQ" : "HQ: " + this.game.Data.UnitObj[hq].Name;
         DrawMod.DrawTextColouredMarc(ref toG, tstring3, this.game.MarcFont5, num3 + 52, num4 + 22, Color.LightGray);
         if (index4 != this.targetUnr)
         {
-          trect1 = new Rectangle(num3, num4, num5, num6);
+          trect1 = Rectangle::new(num3, num4, num5, num6);
           this.AddMouse(ref trect1, "", "", 1, index4);
         }
         num4 += 39;
       }
-      int num7 = 745;
-      int num8 = 52;
-      int num9 = 235;
-      int num10 = 37;
+      let mut num7: i32 =  745;
+      let mut num8: i32 =  52;
+      let mut num9: i32 =  235;
+      let mut num10: i32 =  37;
       SimpleList simpleList2 = SimpleList::new();
-      int unitCounter2 = this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitCounter;
-      for (int index5 = 0; index5 <= unitCounter2; index5 += 1)
+      let mut unitCounter2: i32 =  this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitCounter;
+      for (let mut index5: i32 =  0; index5 <= unitCounter2; index5 += 1)
       {
-        int unit = this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitList[index5];
+        let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[selectX, selectY].UnitList[index5];
         simpleList2.Add(unit, 1);
       }
       if ((double) this.game.Data.RuleVar[486] > 0.0)
@@ -224,8 +224,8 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc(ref toG, tstring4, this.game.MarcFont4, num7 + 50, num8 + 5, Color.White);
         tstring5: String = "Destroys selected equipment";
         DrawMod.DrawTextColouredMarc(ref toG, tstring5, this.game.MarcFont5, num7 + 52, num8 + 22, Color.LightGray);
-        trect1 = new Rectangle(num7, num8, num9, num10);
-        Rectangle trect2 = trect1;
+        trect1 = Rectangle::new(num7, num8, num9, num10);
+        let mut trect2: &Rectangle = &trect1
         this.AddMouse(ref trect2, "", "", 2, -3);
         num8 += 39;
       }
@@ -248,15 +248,15 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc(ref toG, tstring6, this.game.MarcFont4, num7 + 50, num8 + 5, Color.White);
         tstring7: String = "Newly created Battlegroup";
         DrawMod.DrawTextColouredMarc(ref toG, tstring7, this.game.MarcFont5, num7 + 52, num8 + 22, Color.LightGray);
-        trect1 = new Rectangle(num7, num8, num9, num10);
-        Rectangle trect3 = trect1;
+        trect1 = Rectangle::new(num7, num8, num9, num10);
+        let mut trect3: &Rectangle = &trect1
         this.AddMouse(ref trect3, "", "", 2, -2);
         num8 += 39;
       }
-      int counter2 = simpleList2.Counter;
-      for (int index6 = 0; index6 <= counter2; index6 += 1)
+      let mut counter2: i32 =  simpleList2.Counter;
+      for (let mut index6: i32 =  0; index6 <= counter2; index6 += 1)
       {
-        int index7 = simpleList2.Id[index6];
+        let mut index7: i32 =  simpleList2.Id[index6];
         if (index7 == this.targetUnr)
         {
           DrawMod.DrawBlock(ref toG, num7, num8, num9, num10, 0, 0, 0, 64);
@@ -271,69 +271,69 @@ namespace WindowsApplication1
         if (str.Length > 25)
           str = Strings.Left(str, 25) + ".";
         DrawMod.DrawTextColouredMarc(ref toG, str, this.game.MarcFont4, num7 + 50, num8 + 5, Color.White);
-        int hq = this.game.Data.UnitObj[index7].HQ;
+        let mut hq: i32 =  this.game.Data.UnitObj[index7].HQ;
         tstring8: String = hq <= -1 ? "no HQ" : "HQ: " + this.game.Data.UnitObj[hq].Name;
         DrawMod.DrawTextColouredMarc(ref toG, tstring8, this.game.MarcFont5, num7 + 52, num8 + 22, Color.LightGray);
         if (index7 != this.sourceUnr)
         {
-          trect1 = new Rectangle(num7, num8, num9, num10);
-          Rectangle trect4 = trect1;
+          trect1 = Rectangle::new(num7, num8, num9, num10);
+          let mut trect4: &Rectangle = &trect1
           this.AddMouse(ref trect4, "", "", 2, index7);
         }
         num8 += 39;
       }
-      int num11 = 11;
-      int x1_2 = 485;
-      int y1_2 = 125;
-      int maxValue = (int) byte.MaxValue;
-      int h2 = 40;
+      let mut num11: i32 =  11;
+      let mut x1_2: i32 =  485;
+      let mut y1_2: i32 =  125;
+      let mut maxValue: i32 =  (int) byte.MaxValue;
+      let mut h2: i32 =  40;
       SimpleList simpleList3 = this.TL.Clone();
       SimpleList simpleList4 = SimpleList::new();
       SimpleList SL = SimpleList::new();
-      int index8 = -1;
-      int num12 = -1;
+      let mut index8: i32 =  -1;
+      let mut num12: i32 =  -1;
       if (this.targetUnr > -1)
       {
         index8 = this.game.Data.UnitObj[this.targetUnr].Historical;
-        int historicalSubPart = this.game.Data.UnitObj[this.targetUnr].HistoricalSubPart;
+        let mut historicalSubPart: i32 =  this.game.Data.UnitObj[this.targetUnr].HistoricalSubPart;
         if (index8 > -1)
         {
-          int subPart = this.game.Data.HistoricalUnitObj[index8].SubParts[historicalSubPart];
+          let mut subPart: i32 =  this.game.Data.HistoricalUnitObj[index8].SubParts[historicalSubPart];
           if (subPart > 0)
           {
-            int preDef = this.game.HandyFunctionsObj.GetPreDef(subPart);
-            int sfCount = this.game.Data.UnitObj[preDef].SFCount;
-            for (int index9 = 0; index9 <= sfCount; index9 += 1)
+            let mut preDef: i32 =  this.game.HandyFunctionsObj.GetPreDef(subPart);
+            let mut sfCount: i32 =  this.game.Data.UnitObj[preDef].SFCount;
+            for (let mut index9: i32 =  0; index9 <= sfCount; index9 += 1)
             {
-              int sf = this.game.Data.UnitObj[preDef].SFList[index9];
-              int type = this.game.Data.SFObj[sf].Type;
-              int people = this.game.Data.SFObj[sf].People;
-              int qty = this.game.Data.SFObj[sf].Qty;
-              int reinforcementType = this.game.Data.SFTypeObj[type].ReinforcementType;
+              let mut sf: i32 =  this.game.Data.UnitObj[preDef].SFList[index9];
+              let mut type: i32 =  this.game.Data.SFObj[sf].Type;
+              let mut people: i32 =  this.game.Data.SFObj[sf].People;
+              let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
+              let mut reinforcementType: i32 =  this.game.Data.SFTypeObj[type].ReinforcementType;
               simpleList4.AddWeight(reinforcementType, qty, people);
             }
           }
         }
-        int sfCount1 = this.game.Data.UnitObj[this.targetUnr].SFCount;
-        for (int index10 = 0; index10 <= sfCount1; index10 += 1)
+        let mut sfCount1: i32 =  this.game.Data.UnitObj[this.targetUnr].SFCount;
+        for (let mut index10: i32 =  0; index10 <= sfCount1; index10 += 1)
         {
-          int sf = this.game.Data.UnitObj[this.targetUnr].SFList[index10];
-          int type = this.game.Data.SFObj[sf].Type;
-          int people = this.game.Data.SFObj[sf].People;
-          int qty = this.game.Data.SFObj[sf].Qty;
-          int reinforcementType = this.game.Data.SFTypeObj[type].ReinforcementType;
+          let mut sf: i32 =  this.game.Data.UnitObj[this.targetUnr].SFList[index10];
+          let mut type: i32 =  this.game.Data.SFObj[sf].Type;
+          let mut people: i32 =  this.game.Data.SFObj[sf].People;
+          let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
+          let mut reinforcementType: i32 =  this.game.Data.SFTypeObj[type].ReinforcementType;
           SL.AddWeight(reinforcementType, qty, people);
         }
       }
-      int counter3 = simpleList3.Counter;
+      let mut counter3: i32 =  simpleList3.Counter;
       int qty1;
-      for (int index11 = 0; index11 <= counter3; index11 += 1)
+      for (let mut index11: i32 =  0; index11 <= counter3; index11 += 1)
       {
-        int index12 = simpleList3.Id[index11];
-        int type = this.game.Data.SFObj[index12].Type;
-        int people = this.game.Data.SFObj[index12].People;
+        let mut index12: i32 =  simpleList3.Id[index11];
+        let mut type: i32 =  this.game.Data.SFObj[index12].Type;
+        let mut people: i32 =  this.game.Data.SFObj[index12].People;
         qty1 = this.game.Data.SFObj[index12].Qty;
-        int reinforcementType = this.game.Data.SFTypeObj[type].ReinforcementType;
+        let mut reinforcementType: i32 =  this.game.Data.SFTypeObj[type].ReinforcementType;
         SL.AddWeight(reinforcementType, simpleList3.Weight[index11], people);
       }
       SimpleList simpleList5 = simpleList4.Clone();
@@ -341,18 +341,18 @@ namespace WindowsApplication1
       SimpleList simpleList6 = simpleList3.Clone();
       if (this.targetUnr > -1)
       {
-        int sfCount = this.game.Data.UnitObj[this.targetUnr].SFCount;
-        for (int index13 = 0; index13 <= sfCount; index13 += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[this.targetUnr].SFCount;
+        for (let mut index13: i32 =  0; index13 <= sfCount; index13 += 1)
         {
-          int sf = this.game.Data.UnitObj[this.targetUnr].SFList[index13];
-          int type1 = this.game.Data.SFObj[sf].Type;
-          int reinforcementType = this.game.Data.SFTypeObj[type1].ReinforcementType;
-          int people1 = this.game.Data.SFObj[sf].People;
-          for (int counter4 = simpleList3.Counter; counter4 >= 0; counter4 += -1)
+          let mut sf: i32 =  this.game.Data.UnitObj[this.targetUnr].SFList[index13];
+          let mut type1: i32 =  this.game.Data.SFObj[sf].Type;
+          let mut reinforcementType: i32 =  this.game.Data.SFTypeObj[type1].ReinforcementType;
+          let mut people1: i32 =  this.game.Data.SFObj[sf].People;
+          for (let mut counter4: i32 =  simpleList3.Counter; counter4 >= 0; counter4 += -1)
           {
-            int index14 = simpleList3.Id[counter4];
-            int type2 = this.game.Data.SFObj[index14].Type;
-            int people2 = this.game.Data.SFObj[index14].People;
+            let mut index14: i32 =  simpleList3.Id[counter4];
+            let mut type2: i32 =  this.game.Data.SFObj[index14].Type;
+            let mut people2: i32 =  this.game.Data.SFObj[index14].People;
             if (type2 == type1 & people2 == people1)
               simpleList6.RemoveNr(counter4);
           }
@@ -372,21 +372,21 @@ namespace WindowsApplication1
       int num17;
       if (this.targetUnr > -1)
       {
-        int sfCount = this.game.Data.UnitObj[this.targetUnr].SFCount;
-        for (int index15 = 0; index15 <= sfCount; index15 += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[this.targetUnr].SFCount;
+        for (let mut index15: i32 =  0; index15 <= sfCount; index15 += 1)
         {
-          int sf = this.game.Data.UnitObj[this.targetUnr].SFList[index15];
-          int type3 = this.game.Data.SFObj[sf].Type;
-          int reinforcementType = this.game.Data.SFTypeObj[type3].ReinforcementType;
-          int people3 = this.game.Data.SFObj[sf].People;
-          int qty2 = this.game.Data.SFObj[sf].Qty;
-          int num18 = 0;
-          for (int counter5 = simpleList3.Counter; counter5 >= 0; counter5 += -1)
+          let mut sf: i32 =  this.game.Data.UnitObj[this.targetUnr].SFList[index15];
+          let mut type3: i32 =  this.game.Data.SFObj[sf].Type;
+          let mut reinforcementType: i32 =  this.game.Data.SFTypeObj[type3].ReinforcementType;
+          let mut people3: i32 =  this.game.Data.SFObj[sf].People;
+          let mut qty2: i32 =  this.game.Data.SFObj[sf].Qty;
+          let mut num18: i32 =  0;
+          for (let mut counter5: i32 =  simpleList3.Counter; counter5 >= 0; counter5 += -1)
           {
-            int index16 = simpleList3.Id[counter5];
-            int type4 = this.game.Data.SFObj[index16].Type;
-            int people4 = this.game.Data.SFObj[index16].People;
-            int qty3 = this.game.Data.SFObj[index16].Qty;
+            let mut index16: i32 =  simpleList3.Id[counter5];
+            let mut type4: i32 =  this.game.Data.SFObj[index16].Type;
+            let mut people4: i32 =  this.game.Data.SFObj[index16].People;
+            let mut qty3: i32 =  this.game.Data.SFObj[index16].Qty;
             if (type4 == type3 & people4 == people3)
             {
               num18 += simpleList3.Weight[counter5];
@@ -408,18 +408,18 @@ namespace WindowsApplication1
           {
             DrawMod.DrawBlock(ref toG, x1_2, y1_2, maxValue, h2, 0, 0, 0, 128);
             num12 += 1;
-            int people5 = this.game.Data.SFObj[sf].People;
-            int symbolSpriteId = this.game.Data.SFTypeObj[type3].SymbolSpriteID;
+            let mut people5: i32 =  this.game.Data.SFObj[sf].People;
+            let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type3].SymbolSpriteID;
             ref Graphics local1 = ref toG;
             Bitmap bitmap = BitmapStore.GetBitmap(symbolSpriteId);
             ref Bitmap local2 = ref bitmap;
-            int sftypenr = type3;
-            int ppl = people5;
-            int tx = x1_2 + 3;
-            int ty = y1_2 + 7;
+            let mut sftypenr: i32 =  type3;
+            let mut ppl: i32 =  people5;
+            let mut tx: i32 =  x1_2 + 3;
+            let mut ty: i32 =  y1_2 + 7;
             DrawMod.DrawWithArtCode(ref local1, ref local2, 34, 17, sftypenr, ppl, tx, ty, -1, -1);
-            int num19 = qty2 * this.game.Data.SFTypeObj[type3].Ratio;
-            int num20 = num18 * this.game.Data.SFTypeObj[type3].Ratio;
+            let mut num19: i32 =  qty2 * this.game.Data.SFTypeObj[type3].Ratio;
+            let mut num20: i32 =  num18 * this.game.Data.SFTypeObj[type3].Ratio;
             tstring9: String = (num19 + num20).ToString() + "x " + this.game.Data.SFTypeObj[type3].Name + "(" + Strings.Left(this.game.Data.PeopleObj[people5].Name, 3) + ")";
             DrawMod.DrawTextColouredMarc(ref toG, tstring9, this.game.MarcFont4, x1_2 + 65, y1_2 + 2, Color.White);
             if (this.targetUnr == -3)
@@ -434,9 +434,9 @@ namespace WindowsApplication1
             }
             if (reinforcementType > -1 & index8 > -1 & this.targetUnr > -1)
             {
-              int num21 = SL.FindWeight(reinforcementType, people5) * this.game.Data.ReinfRatio[reinforcementType];
-              int num22 = simpleList4.FindWeight(reinforcementType, people5) * this.game.Data.ReinfRatio[reinforcementType];
-              int num23 = 0;
+              let mut num21: i32 =  SL.FindWeight(reinforcementType, people5) * this.game.Data.ReinfRatio[reinforcementType];
+              let mut num22: i32 =  simpleList4.FindWeight(reinforcementType, people5) * this.game.Data.ReinfRatio[reinforcementType];
+              let mut num23: i32 =  0;
               if (this.targetUnr > -1 && this.game.Data.UnitObj[this.targetUnr].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.targetUnr].Historical].Type == 8)
                 num23 = 1;
               if ((num21 > 0 | num22 > 0) & !this.game.HandyFunctionsObj.CheckIsBattlegroup(this.targetUnr) & num23 == 0)
@@ -462,19 +462,19 @@ namespace WindowsApplication1
           }
         }
       }
-      int num24 = num12;
+      let mut num24: i32 =  num12;
       int num25;
       if (this.targetUnr == -2 | this.targetUnr == -3 | this.targetUnr > -1)
       {
-        int counter6 = simpleList3.Counter;
-        for (int index17 = 0; index17 <= counter6; index17 += 1)
+        let mut counter6: i32 =  simpleList3.Counter;
+        for (let mut index17: i32 =  0; index17 <= counter6; index17 += 1)
         {
-          int index18 = simpleList3.Id[index17];
-          int type = this.game.Data.SFObj[index18].Type;
-          int reinforcementType = this.game.Data.SFTypeObj[type].ReinforcementType;
-          int people = this.game.Data.SFObj[index18].People;
+          let mut index18: i32 =  simpleList3.Id[index17];
+          let mut type: i32 =  this.game.Data.SFObj[index18].Type;
+          let mut reinforcementType: i32 =  this.game.Data.SFTypeObj[type].ReinforcementType;
+          let mut people: i32 =  this.game.Data.SFObj[index18].People;
           qty1 = this.game.Data.SFObj[index18].Qty;
-          int num26 = simpleList3.Weight[index17];
+          let mut num26: i32 =  simpleList3.Weight[index17];
           if (num26 <= 0)
             num26 = 0;
           if (this.game.Data.SFTypeObj[type].CarryCap < 1 & this.game.Data.transportMovementType[this.game.Data.SFTypeObj[type].MoveType] == 2)
@@ -490,17 +490,17 @@ namespace WindowsApplication1
           {
             DrawMod.DrawBlock(ref toG, x1_2, y1_2, maxValue, h2, 0, 0, 0, 128);
             num12 += 1;
-            int symbolSpriteId = this.game.Data.SFTypeObj[type].SymbolSpriteID;
+            let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type].SymbolSpriteID;
             ref Graphics local3 = ref toG;
             Bitmap bitmap = BitmapStore.GetBitmap(symbolSpriteId);
             ref Bitmap local4 = ref bitmap;
-            int sftypenr = type;
-            int ppl = people;
-            int tx = x1_2 + 3;
-            int ty = y1_2 + 7;
+            let mut sftypenr: i32 =  type;
+            let mut ppl: i32 =  people;
+            let mut tx: i32 =  x1_2 + 3;
+            let mut ty: i32 =  y1_2 + 7;
             DrawMod.DrawWithArtCode(ref local3, ref local4, 34, 17, sftypenr, ppl, tx, ty, -1, -1);
-            int num27 = 0;
-            int num28 = num26 * this.game.Data.SFTypeObj[type].Ratio;
+            let mut num27: i32 =  0;
+            let mut num28: i32 =  num26 * this.game.Data.SFTypeObj[type].Ratio;
             string[] strArray1 = new string[6];
             string[] strArray2 = strArray1;
             num25 = num27 + num28;
@@ -530,9 +530,9 @@ namespace WindowsApplication1
             }
             else if (reinforcementType > -1 & index8 > -1 & this.targetUnr > -1)
             {
-              int num29 = SL.FindWeight(reinforcementType, people) * this.game.Data.ReinfRatio[reinforcementType];
-              int num30 = simpleList4.FindWeight(reinforcementType, people) * this.game.Data.ReinfRatio[reinforcementType];
-              int num31 = 0;
+              let mut num29: i32 =  SL.FindWeight(reinforcementType, people) * this.game.Data.ReinfRatio[reinforcementType];
+              let mut num30: i32 =  simpleList4.FindWeight(reinforcementType, people) * this.game.Data.ReinfRatio[reinforcementType];
+              let mut num31: i32 =  0;
               if (this.targetUnr > -1 && this.game.Data.UnitObj[this.targetUnr].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.targetUnr].Historical].Type == 8)
                 num31 = 1;
               if ((num29 > 0 | num30 > 0) & !this.game.HandyFunctionsObj.CheckIsBattlegroup(this.targetUnr) & num31 == 0)
@@ -558,7 +558,7 @@ namespace WindowsApplication1
           }
         }
       }
-      int y1_3 = 125 + num11 * 42;
+      let mut y1_3: i32 =  125 + num11 * 42;
       DrawMod.DrawBlock(ref toG, x1_2, y1_3, maxValue, h2, 0, 0, 0, 128);
       if (this.TargetPage > 1)
       {
@@ -582,10 +582,10 @@ namespace WindowsApplication1
       }
       tstring22: String = this.TargetPage.ToString() + "/" + this.TargetPageMax.ToString();
       DrawMod.DrawTextColouredMarcCenter(ref toG, tstring22, this.game.MarcFont4, x1_2 + 130, y1_3 + 12, Color.White);
-      int x1_3 = 245;
-      int y1_4 = 125;
-      int w1 = 235;
-      int h3 = 40;
+      let mut x1_3: i32 =  245;
+      let mut y1_4: i32 =  125;
+      let mut w1: i32 =  235;
+      let mut h3: i32 =  40;
       this.SourcePageMax = this.sourceUnr <= -1 ? Convert.ToInt32(Decimal.Divide(Math.Ceiling(new Decimal(0 + simpleList6.Counter + 1)), new Decimal(num11))) : (int) Math.Round(Math.Ceiling((double) (this.game.Data.UnitObj[this.sourceUnr].SFCount + 1) / (double) num11));
       if (this.SourcePageMax < 1)
         this.SourcePageMax = 1;
@@ -600,21 +600,21 @@ namespace WindowsApplication1
       int num36;
       if (this.sourceUnr > -1)
       {
-        int index19 = -1;
-        int sfCount = this.game.Data.UnitObj[this.sourceUnr].SFCount;
-        for (int index20 = 0; index20 <= sfCount; index20 += 1)
+        let mut index19: i32 =  -1;
+        let mut sfCount: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFCount;
+        for (let mut index20: i32 =  0; index20 <= sfCount; index20 += 1)
         {
-          int sf = this.game.Data.UnitObj[this.sourceUnr].SFList[index20];
-          int type = this.game.Data.SFObj[sf].Type;
-          int people6 = this.game.Data.SFObj[sf].People;
-          int reinforcementType = this.game.Data.SFTypeObj[type].ReinforcementType;
-          int num37 = this.game.Data.SFObj[sf].Qty;
-          int num38 = this.TL.FindWeight(sf);
+          let mut sf: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFList[index20];
+          let mut type: i32 =  this.game.Data.SFObj[sf].Type;
+          let mut people6: i32 =  this.game.Data.SFObj[sf].People;
+          let mut reinforcementType: i32 =  this.game.Data.SFTypeObj[type].ReinforcementType;
+          let mut num37: i32 =  this.game.Data.SFObj[sf].Qty;
+          let mut num38: i32 =  this.TL.FindWeight(sf);
           if (num38 <= 0)
             num38 = 0;
           if (num38 > 0)
             num37 = num37;
-          int people7 = this.game.Data.SFObj[sf].People;
+          let mut people7: i32 =  this.game.Data.SFObj[sf].People;
           if (this.game.Data.SFTypeObj[type].CarryCap < 1 & this.game.Data.transportMovementType[this.game.Data.SFTypeObj[type].MoveType] == 2)
             num32 += this.game.Data.SFTypeObj[type].manpower * (num37 - num38);
           if (this.game.Data.SFTypeObj[type].CarryCap < 1 & this.game.Data.transportMovementType[this.game.Data.SFTypeObj[type].MoveType] == 2)
@@ -665,16 +665,16 @@ namespace WindowsApplication1
             else
               DrawMod.DrawBlock(ref toG, x1_3, y1_4, w1, h3, 128, 0, 0, 128);
             index19 += 1;
-            int symbolSpriteId = this.game.Data.SFTypeObj[type].SymbolSpriteID;
+            let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type].SymbolSpriteID;
             ref Graphics local5 = ref toG;
             Bitmap bitmap = BitmapStore.GetBitmap(symbolSpriteId);
             ref Bitmap local6 = ref bitmap;
-            int sftypenr = type;
-            int ppl = people7;
-            int tx = x1_3 + 3;
-            int ty = y1_4 + 7;
+            let mut sftypenr: i32 =  type;
+            let mut ppl: i32 =  people7;
+            let mut tx: i32 =  x1_3 + 3;
+            let mut ty: i32 =  y1_4 + 7;
             DrawMod.DrawWithArtCode(ref local5, ref local6, 34, 17, sftypenr, ppl, tx, ty, -1, -1);
-            int num39 = num37 * this.game.Data.SFTypeObj[type].Ratio;
+            let mut num39: i32 =  num37 * this.game.Data.SFTypeObj[type].Ratio;
             tstring23: String = num39.ToString() + "x " + this.game.Data.SFTypeObj[type].Name + "(" + Strings.Left(this.game.Data.PeopleObj[people7].Name, 3) + ")";
             bool flag2 = false;
             bool flag3 = false;
@@ -724,9 +724,9 @@ namespace WindowsApplication1
                 if (this.SlidersId[index19] < 1)
                 {
                   int[] slidersId = this.SlidersId;
-                  int index21 = index19;
+                  let mut index21: i32 =  index19;
                   let mut tsubpart: SubPartClass =  new NumberSliderSubPartClass2(this.game, "", " of " + num39.ToString() + "x " + this.game.Data.SFTypeObj[type].Name + "(" + Strings.Left(this.game.Data.PeopleObj[people7].Name, 3) + ")", 190, 0, num37 * this.game.Data.SFTypeObj[type].Ratio, num38 * this.game.Data.SFTypeObj[type].Ratio, tsmallchange: this.game.Data.SFTypeObj[type].Ratio, tbackbitmap: (ref this.OwnBitmap), bbx: (x1_3 + 45), bby: (y1_4 + 0));
-                  int num40 = this.AddSubPart(ref tsubpart, x1_3 + 45, y1_4 + 0, 190, 40, 0);
+                  let mut num40: i32 =  this.AddSubPart(ref tsubpart, x1_3 + 45, y1_4 + 0, 190, 40, 0);
                   slidersId[index21] = num40;
                   this.SlidersSfnr[index19] = sf;
                 }
@@ -746,7 +746,7 @@ namespace WindowsApplication1
           }
         }
       }
-      int y1_5 = 125 + num11 * 42;
+      let mut y1_5: i32 =  125 + num11 * 42;
       DrawMod.DrawBlock(ref toG, x1_3, y1_5, w1, h3, 0, 0, 0, 128);
       if (this.SourcePage > 1)
       {
@@ -772,8 +772,8 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarcCenter(ref toG, tstring24, this.game.MarcFont4, x1_3 + 120, y1_5 + 12, Color.White);
       bool flag = false;
       SimpleStringList simpleStringList1 = SimpleStringList::new();
-      int num41 = 0;
-      int num42 = 0;
+      let mut num41: i32 =  0;
+      let mut num42: i32 =  0;
       if (this.targetUnr < 0)
         num41 = 1;
       if (this.targetUnr > -1 && this.game.HandyFunctionsObj.CheckIsBattlegroup(this.targetUnr))
@@ -785,8 +785,8 @@ namespace WindowsApplication1
       }
       if (num41 == 0)
       {
-        int counter7 = simpleList5.Counter;
-        for (int index22 = 0; index22 <= counter7; index22 += 1)
+        let mut counter7: i32 =  simpleList5.Counter;
+        for (let mut index22: i32 =  0; index22 <= counter7; index22 += 1)
         {
           if (simpleList5.Weight[index22] < 0)
           {
@@ -830,20 +830,20 @@ namespace WindowsApplication1
         flag = true;
         simpleStringList1.Add("You do not have the " + this.game.Data.HistoricalUnitObj[battlegroupTemplate].PP.ToString() + " PP to create a new Battlegroup.", 1);
       }
-      int x1_4 = 245;
-      int y1_6 = 125 + num11 * 42 + 42;
-      int h4 = 62;
-      int w2 = 495;
+      let mut x1_4: i32 =  245;
+      let mut y1_6: i32 =  125 + num11 * 42 + 42;
+      let mut h4: i32 =  62;
+      let mut w2: i32 =  495;
       DrawMod.DrawBlock(ref toG, x1_4, y1_6, w2, h4, 0, 0, 0, 128);
-      int num43 = simpleStringList1.Counter + 1;
+      let mut num43: i32 =  simpleStringList1.Counter + 1;
       if (num43 < 1)
         num43 = 1;
       if (num43 > 3)
         num43 = 3;
-      int y = y1_6 + (30 - num43 * 10);
-      int num44 = x1_4 + 110;
-      int counter8 = simpleStringList1.Counter;
-      for (int index23 = 0; index23 <= counter8; index23 += 1)
+      let mut y: i32 =  y1_6 + (30 - num43 * 10);
+      let mut num44: i32 =  x1_4 + 110;
+      let mut counter8: i32 =  simpleStringList1.Counter;
+      for (let mut index23: i32 =  0; index23 <= counter8; index23 += 1)
       {
         tstring25: String = simpleStringList1.Id[index23];
         DrawMod.DrawTextColouredMarcCenter(ref toG, tstring25, this.game.MarcFont4, num44 + 130, y, Color.Red);
@@ -875,15 +875,15 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredMarcCenter(ref toG, tstring29, this.game.MarcFont4, num44 + 130, y, Color.White);
         }
       }
-      int x1_5 = 245;
-      int y1_7 = 125 + num11 * 42 + 42 + 64;
-      int h5 = 40;
+      let mut x1_5: i32 =  245;
+      let mut y1_7: i32 =  125 + num11 * 42 + 42 + 64;
+      let mut h5: i32 =  40;
       DrawMod.DrawBlock(ref toG, x1_5, y1_7, w2, h5, 0, 0, 0, 128);
-      int num45 = y1_7 + 4;
-      int num46 = x1_5 + 45;
+      let mut num45: i32 =  y1_7 + 4;
+      let mut num46: i32 =  x1_5 + 45;
       let mut tsubpart1: SubPartClass =  new TextButtonPartClass("Cancel", 150, "Click to return to main screen.", ref this.OwnBitmap, num46, num45, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
       this.cancelid = this.AddSubPart(ref tsubpart1, num46, num45, 150, 35, 1);
-      int num47 = num46 + 250;
+      let mut num47: i32 =  num46 + 250;
       str1: String = "";
       if (this.targetUnr == -2 & battlegroupTemplate > -1)
         str1 = str1 + " [" + this.game.Data.HistoricalUnitObj[battlegroupTemplate].PP.ToString() + " PP]";
@@ -912,10 +912,10 @@ namespace WindowsApplication1
         let mut tsubpart5: SubPartClass =  new TextButtonPartClass("Transfer" + str1, 150, "Not possible to transfer.", ref this.OwnBitmap, num47, num45, true, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
         this.transfer2id = this.AddSubPart(ref tsubpart5, num47, num45, 150, 35, 0);
       }
-      int num48 = 5;
+      let mut num48: i32 =  5;
       num1 = 980;
       num2 = 110;
-      int num49 = 10;
+      let mut num49: i32 =  10;
       str2: String = "No source unit selected";
       tstring30: String = "";
       tstring31: String = "";
@@ -923,13 +923,13 @@ namespace WindowsApplication1
         str2 = this.game.Data.UnitObj[this.sourceUnr].Name;
       if ((double) toG.MeasureString(str2, DrawMod.TGame.MarcFont3).Width > 230.0)
       {
-        int num50 = Strings.InStr(str2, " ");
+        let mut num50: i32 =  Strings.InStr(str2, " ");
         if (num50 > 0)
         {
-          int num51 = Strings.InStr(num50 + 1, str2, " ");
+          let mut num51: i32 =  Strings.InStr(num50 + 1, str2, " ");
           if (num51 > 0)
           {
-            int num52 = Strings.InStr(num51 + 1, str2, " ");
+            let mut num52: i32 =  Strings.InStr(num51 + 1, str2, " ");
             if (num52 > 0)
             {
               tstring31 = Strings.Mid(str2, num52 + 1);
@@ -938,7 +938,7 @@ namespace WindowsApplication1
           }
           else
           {
-            int num53 = Strings.InStr(str2, " ");
+            let mut num53: i32 =  Strings.InStr(str2, " ");
             if (num53 <= 0 || Strings.InStr(num53 + 1, str2, " ") <= 0)
               ;
           }
@@ -973,13 +973,13 @@ namespace WindowsApplication1
       tstring35: String = "";
       if ((double) toG.MeasureString(str3, DrawMod.TGame.MarcFont3).Width > 230.0)
       {
-        int num54 = Strings.InStr(str3, " ");
+        let mut num54: i32 =  Strings.InStr(str3, " ");
         if (num54 > 0)
         {
-          int num55 = Strings.InStr(num54 + 1, str3, " ");
+          let mut num55: i32 =  Strings.InStr(num54 + 1, str3, " ");
           if (num55 > 0)
           {
-            int num56 = Strings.InStr(num55 + 1, str3, " ");
+            let mut num56: i32 =  Strings.InStr(num55 + 1, str3, " ");
             if (num56 > 0)
             {
               tstring35 = Strings.Mid(str3, num56 + 1);
@@ -988,7 +988,7 @@ namespace WindowsApplication1
           }
           else
           {
-            int num57 = Strings.InStr(str3, " ");
+            let mut num57: i32 =  Strings.InStr(str3, " ");
             if (num57 <= 0 || Strings.InStr(num57 + 1, str3, " ") <= 0)
               ;
           }
@@ -1037,25 +1037,25 @@ namespace WindowsApplication1
       OrderResult orderResult = OrderResult::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
 label_10:
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (this.SubPartList[index1].Scroller)
           {
-            int index2 = 0;
+            let mut index2: i32 =  0;
             while (this.SlidersId[index2] != this.SubPartID[index1])
             {
               index2 += 1;
               if (index2 > 19)
                 goto label_10;
             }
-            int tweight = (int) Math.Round((double) this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1], b) / (double) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.SlidersSfnr[index2]].Type].Ratio);
+            let mut tweight: i32 =  (int) Math.Round((double) this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1], b) / (double) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.SlidersSfnr[index2]].Type].Ratio);
             this.SubPartFlag[index1] = true;
             this.FlagAll();
             windowReturnClass.SetFlag(true);
             this.SubPartList[index1].Scroller = false;
-            int nr = this.TL.FindNr(this.SlidersSfnr[index2]);
+            let mut nr: i32 =  this.TL.FindNr(this.SlidersSfnr[index2]);
             if (nr > -1)
               this.TL.RemoveNr(nr);
             this.TL.Add(this.SlidersSfnr[index2], tweight);
@@ -1073,8 +1073,8 @@ label_10:
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (this.MouseData[index] > 0 && x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -1100,19 +1100,19 @@ label_10:
       }
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
 label_125:
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int index2 = 0;
+            let mut index2: i32 =  0;
             while (this.SubPartID[index1] != this.SlidersId[index2])
             {
               index2 += 1;
               if (index2 > 19)
               {
-                int num1 = this.SubPartID[index1];
+                let mut num1: i32 =  this.SubPartID[index1];
                 if (num1 == this.SourcePrevId)
                 {
                   this.SetUnits();
@@ -1155,56 +1155,56 @@ label_125:
                 }
                 if (num1 == this.transferid)
                 {
-                  int unr = -1;
-                  int battlegroupTemplate = this.game.HandyFunctionsObj.GetBattlegroupTemplate(this.game.Data.Turn);
-                  int sfCount1 = this.game.Data.UnitObj[this.sourceUnr].SFCount;
+                  let mut unr: i32 =  -1;
+                  let mut battlegroupTemplate: i32 =  this.game.HandyFunctionsObj.GetBattlegroupTemplate(this.game.Data.Turn);
+                  let mut sfCount1: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFCount;
                   int num2;
                   int num3;
-                  for (int index3 = 0; index3 <= sfCount1; index3 += 1)
+                  for (let mut index3: i32 =  0; index3 <= sfCount1; index3 += 1)
                   {
-                    int sf = this.game.Data.UnitObj[this.sourceUnr].SFList[index3];
-                    int qty = this.game.Data.SFObj[sf].Qty;
-                    int type = this.game.Data.SFObj[sf].Type;
+                    let mut sf: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFList[index3];
+                    let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
+                    let mut type: i32 =  this.game.Data.SFObj[sf].Type;
                     num2 += this.game.Data.SFTypeObj[type].FuelCarry * qty;
                     num3 += this.game.Data.SFTypeObj[type].SupplyCarry * qty;
                   }
                   if (this.targetUnr == -3)
                   {
-                    int counter1 = this.TL.Counter;
-                    for (int index4 = 0; index4 <= counter1; index4 += 1)
+                    let mut counter1: i32 =  this.TL.Counter;
+                    for (let mut index4: i32 =  0; index4 <= counter1; index4 += 1)
                     {
                       this.TL.Data5[index4] = this.TL.Weight[index4];
                       this.TL.Weight[index4] = this.TL.Id[index4];
                     }
                     this.TL.ReverseSort();
-                    int counter2 = this.TL.Counter;
-                    for (int index5 = 0; index5 <= counter2; index5 += 1)
+                    let mut counter2: i32 =  this.TL.Counter;
+                    for (let mut index5: i32 =  0; index5 <= counter2; index5 += 1)
                       this.TL.Weight[index5] = this.TL.Data5[index5];
                     if ((double) this.game.Data.RuleVar[486] > 0.0)
                     {
-                      int stringListById = this.game.HandyFunctionsObj.GetStringListByID((int) Math.Round((double) this.game.Data.RuleVar[486]));
-                      int counter3 = this.TL.Counter;
-                      for (int index6 = 0; index6 <= counter3; index6 += 1)
+                      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID((int) Math.Round((double) this.game.Data.RuleVar[486]));
+                      let mut counter3: i32 =  this.TL.Counter;
+                      for (let mut index6: i32 =  0; index6 <= counter3; index6 += 1)
                       {
-                        int index7 = this.TL.Id[index6];
-                        int qty = this.game.Data.SFObj[index7].Qty;
-                        int people = this.game.Data.SFObj[index7].People;
-                        int type = this.game.Data.SFObj[index7].Type;
-                        int xp = this.game.Data.SFObj[index7].Xp;
-                        int ap = this.game.Data.SFObj[index7].Ap;
-                        int rdn = this.game.Data.SFObj[index7].Rdn;
-                        int mor = this.game.Data.SFObj[index7].Mor;
-                        int supplyConsume = this.game.Data.UnitObj[this.sourceUnr].SupplyConsume;
-                        int offMod = this.game.Data.SFObj[index7].OffMod;
-                        int defMod = this.game.Data.SFObj[index7].DefMod;
-                        int SfType = (int) Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, people, 1)));
-                        int Qty = 0;
+                        let mut index7: i32 =  this.TL.Id[index6];
+                        let mut qty: i32 =  this.game.Data.SFObj[index7].Qty;
+                        let mut people: i32 =  this.game.Data.SFObj[index7].People;
+                        let mut type: i32 =  this.game.Data.SFObj[index7].Type;
+                        let mut xp: i32 =  this.game.Data.SFObj[index7].Xp;
+                        let mut ap: i32 =  this.game.Data.SFObj[index7].Ap;
+                        let mut rdn: i32 =  this.game.Data.SFObj[index7].Rdn;
+                        let mut mor: i32 =  this.game.Data.SFObj[index7].Mor;
+                        let mut supplyConsume: i32 =  this.game.Data.UnitObj[this.sourceUnr].SupplyConsume;
+                        let mut offMod: i32 =  this.game.Data.SFObj[index7].OffMod;
+                        let mut defMod: i32 =  this.game.Data.SFObj[index7].DefMod;
+                        let mut SfType: i32 =  (int) Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, people, 1)));
+                        let mut Qty: i32 =  0;
                         if (this.game.Data.SFTypeObj[type].scrapable >= 100)
                           Qty = this.TL.Weight[index6] * (int) Math.Round(Math.Floor((double) this.game.Data.SFTypeObj[type].scrapable / 100.0));
                         else if (this.game.Data.SFTypeObj[type].scrapable > 1)
                         {
-                          int num4 = this.TL.Weight[index6];
-                          for (int index8 = 1; index8 <= num4; index8 += 1)
+                          let mut num4: i32 =  this.TL.Weight[index6];
+                          for (let mut index8: i32 =  1; index8 <= num4; index8 += 1)
                           {
                             if (DrawMod.RandyNumber.Next(1, 100) <= this.game.Data.SFTypeObj[type].scrapable)
                               Qty += 1;
@@ -1212,20 +1212,20 @@ label_125:
                         }
                         else
                           Qty = 0;
-                        int Ap = ap - 25;
+                        let mut Ap: i32 =  ap - 25;
                         if (Ap < 0)
                           Ap = 0;
                         this.game.HandyFunctionsObj.AddTroops3(this.sourceUnr, SfType, people, Qty, xp, rdn, Ap, mor, supplyConsume, offmod: offMod, defmod: defMod);
                         this.game.HandyFunctionsObj.RemoveTroops(this.sourceUnr, type, people, this.TL.Weight[index6], -1);
                       }
-                      int num5 = 0;
-                      int num6 = 0;
-                      int sfCount2 = this.game.Data.UnitObj[this.sourceUnr].SFCount;
-                      for (int index9 = 0; index9 <= sfCount2; index9 += 1)
+                      let mut num5: i32 =  0;
+                      let mut num6: i32 =  0;
+                      let mut sfCount2: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFCount;
+                      for (let mut index9: i32 =  0; index9 <= sfCount2; index9 += 1)
                       {
-                        int sf = this.game.Data.UnitObj[this.sourceUnr].SFList[index9];
-                        int qty = this.game.Data.SFObj[sf].Qty;
-                        int type = this.game.Data.SFObj[sf].Type;
+                        let mut sf: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFList[index9];
+                        let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
+                        let mut type: i32 =  this.game.Data.SFObj[sf].Type;
                         num5 += this.game.Data.SFTypeObj[type].SupplyCarry * qty;
                         num6 += this.game.Data.SFTypeObj[type].FuelCarry * qty;
                       }
@@ -1241,7 +1241,7 @@ label_125:
                     {
                       this.game.ProcessingObj.AddNewUnitBasedOnHistorical(this.game.SelectX, this.game.SelectY, 0, this.game.Data.Turn, battlegroupTemplate);
                       unr = this.game.Data.UnitCounter;
-                      int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
+                      let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
                       if ((double) this.game.Data.RuleVar[403] == 1.0)
                       {
                         this.game.Data.HistoricalUnitObj[historicalUnitCounter].SetHisVarValue(71, 50);
@@ -1253,18 +1253,18 @@ label_125:
                       this.game.Data.HistoricalUnitObj[historicalUnitCounter].BattleGroup = 1;
                       if ((double) this.game.Data.RuleVar[479] > 0.0)
                       {
-                        int stringListById = this.game.HandyFunctionsObj.GetStringListByID((int) Math.Round((double) this.game.Data.RuleVar[479]));
+                        let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID((int) Math.Round((double) this.game.Data.RuleVar[479]));
                         string str;
                         int num7;
-                        for (int index10 = 0; index10 < 99; index10 += 1)
+                        for (let mut index10: i32 =  0; index10 < 99; index10 += 1)
                         {
-                          int index11 = DrawMod.RandyNumber.Next(0, this.game.Data.StringListObj[stringListById].Length);
+                          let mut index11: i32 =  DrawMod.RandyNumber.Next(0, this.game.Data.StringListObj[stringListById].Length);
                           if (Conversions.ToInteger(this.game.Data.StringListObj[stringListById].Data[index11, 0]) == this.game.Data.Turn)
                           {
                             str = this.game.Data.StringListObj[stringListById].Data[index11, 1];
                             num7 = 0;
-                            int unitCounter = this.game.Data.UnitCounter;
-                            for (int index12 = 0; index12 <= unitCounter; index12 += 1)
+                            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                            for (let mut index12: i32 =  0; index12 <= unitCounter; index12 += 1)
                             {
                               if (Strings.InStr(this.game.Data.UnitObj[index12].Name, str) > 0)
                                 num7 = 1;
@@ -1292,52 +1292,52 @@ label_125:
                     SimpleList simpleList2;
                     if ((double) this.game.Data.RuleVar[403] == 1.0)
                     {
-                      int sfCount3 = this.game.Data.UnitObj[this.sourceUnr].SFCount;
-                      for (int index13 = 0; index13 <= sfCount3; index13 += 1)
+                      let mut sfCount3: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFCount;
+                      for (let mut index13: i32 =  0; index13 <= sfCount3; index13 += 1)
                       {
-                        int sf = this.game.Data.UnitObj[this.sourceUnr].SFList[index13];
-                        int qty = this.game.Data.SFObj[sf].Qty;
-                        int people = this.game.Data.SFObj[sf].People;
-                        int type = this.game.Data.SFObj[sf].Type;
+                        let mut sf: i32 =  this.game.Data.UnitObj[this.sourceUnr].SFList[index13];
+                        let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
+                        let mut people: i32 =  this.game.Data.SFObj[sf].People;
+                        let mut type: i32 =  this.game.Data.SFObj[sf].Type;
                         SL1.AddWeight(type, qty);
                       }
                       simpleList1 = DrawMod.TGame.EventRelatedObj.Helper_SupplyItemList_ForSFTypeList(SL1);
                       simpleList2 = this.game.Data.UnitObj[this.sourceUnr].items.list.Clone();
                     }
-                    int counter = this.TL.Counter;
+                    let mut counter: i32 =  this.TL.Counter;
                     int num8;
                     int num9;
-                    for (int index14 = 0; index14 <= counter; index14 += 1)
+                    for (let mut index14: i32 =  0; index14 <= counter; index14 += 1)
                     {
-                      int index15 = this.TL.Id[index14];
-                      int qty = this.game.Data.SFObj[index15].Qty;
-                      int people = this.game.Data.SFObj[index15].People;
-                      int type = this.game.Data.SFObj[index15].Type;
-                      int xp = this.game.Data.SFObj[index15].Xp;
-                      int rdn = this.game.Data.SFObj[index15].Rdn;
-                      int mor = this.game.Data.SFObj[index15].Mor;
-                      int supplyConsume = this.game.Data.UnitObj[this.sourceUnr].SupplyConsume;
-                      int offMod = this.game.Data.SFObj[index15].OffMod;
-                      int defMod = this.game.Data.SFObj[index15].DefMod;
+                      let mut index15: i32 =  this.TL.Id[index14];
+                      let mut qty: i32 =  this.game.Data.SFObj[index15].Qty;
+                      let mut people: i32 =  this.game.Data.SFObj[index15].People;
+                      let mut type: i32 =  this.game.Data.SFObj[index15].Type;
+                      let mut xp: i32 =  this.game.Data.SFObj[index15].Xp;
+                      let mut rdn: i32 =  this.game.Data.SFObj[index15].Rdn;
+                      let mut mor: i32 =  this.game.Data.SFObj[index15].Mor;
+                      let mut supplyConsume: i32 =  this.game.Data.UnitObj[this.sourceUnr].SupplyConsume;
+                      let mut offMod: i32 =  this.game.Data.SFObj[index15].OffMod;
+                      let mut defMod: i32 =  this.game.Data.SFObj[index15].DefMod;
                       num8 += this.game.Data.SFTypeObj[type].FuelCarry * this.TL.Weight[index14];
                       num9 += this.game.Data.SFTypeObj[type].SupplyCarry * this.TL.Weight[index14];
                       if ((double) this.game.Data.RuleVar[403] == 1.0)
                       {
                         SimpleList SL2 = SimpleList::new();
-                        int tid1 = this.game.Data.SFTypeObj[type].SFTypeVar[45];
-                        int tweight1 = this.game.Data.SFTypeObj[type].SFTypeVar[52] * this.TL.Weight[index14];
+                        let mut tid1: i32 =  this.game.Data.SFTypeObj[type].SFTypeVar[45];
+                        let mut tweight1: i32 =  this.game.Data.SFTypeObj[type].SFTypeVar[52] * this.TL.Weight[index14];
                         if (tid1 > 0 & simpleList1.FindWeight(tid1) > 0)
                           tweight1 = (int) Math.Round(Math.Floor((double) tweight1 * Math.Min(1.0, (double) simpleList2.FindWeight(tid1) / (double) simpleList1.FindWeight(tid1))));
                         if (tweight1 > 0)
                           SL2.Add(tid1, tweight1);
-                        int tid2 = this.game.Data.SFTypeObj[type].SFTypeVar[47];
-                        int tweight2 = this.game.Data.SFTypeObj[type].SFTypeVar[53] * this.TL.Weight[index14];
+                        let mut tid2: i32 =  this.game.Data.SFTypeObj[type].SFTypeVar[47];
+                        let mut tweight2: i32 =  this.game.Data.SFTypeObj[type].SFTypeVar[53] * this.TL.Weight[index14];
                         if (tid2 > 0 & simpleList1.FindWeight(tid2) > 0)
                           tweight2 = (int) Math.Round(Math.Floor((double) tweight2 * Math.Min(1.0, (double) simpleList2.FindWeight(tid2) / (double) simpleList1.FindWeight(tid2))));
                         if (tweight2 > 0)
                           SL2.Add(tid2, tweight2);
-                        int tid3 = this.game.Data.SFTypeObj[type].SFTypeVar[50];
-                        int tweight3 = this.game.Data.SFTypeObj[type].SFTypeVar[54] * this.TL.Weight[index14];
+                        let mut tid3: i32 =  this.game.Data.SFTypeObj[type].SFTypeVar[50];
+                        let mut tweight3: i32 =  this.game.Data.SFTypeObj[type].SFTypeVar[54] * this.TL.Weight[index14];
                         if (tid3 > 0 & simpleList1.FindWeight(tid3) > 0)
                           tweight3 = (int) Math.Round(Math.Floor((double) tweight3 * Math.Min(1.0, (double) simpleList2.FindWeight(tid3) / (double) simpleList1.FindWeight(tid3))));
                         if (tweight3 > 0)
@@ -1355,32 +1355,32 @@ label_125:
                     {
                       if (num3 > 0)
                       {
-                        int num10 = (int) Math.Round((double) (this.game.Data.UnitObj[this.sourceUnr].Supply * num9) / (double) num3);
+                        let mut num10: i32 =  (int) Math.Round((double) (this.game.Data.UnitObj[this.sourceUnr].Supply * num9) / (double) num3);
                         UnitClass[] unitObj1 = this.game.Data.UnitObj;
                         UnitClass[] unitClassArray1 = unitObj1;
-                        int index16 = unr;
-                        int index17 = index16;
+                        let mut index16: i32 =  unr;
+                        let mut index17: i32 =  index16;
                         unitClassArray1[index17].Supply = unitObj1[index16].Supply + num10;
                         UnitClass[] unitObj2 = this.game.Data.UnitObj;
                         UnitClass[] unitClassArray2 = unitObj2;
-                        int sourceUnr = this.sourceUnr;
-                        int index18 = sourceUnr;
+                        let mut sourceUnr: i32 =  this.sourceUnr;
+                        let mut index18: i32 =  sourceUnr;
                         unitClassArray2[index18].Supply = unitObj2[sourceUnr].Supply - num10;
                         if (this.game.Data.UnitObj[this.sourceUnr].Supply < 0)
                           this.game.Data.UnitObj[this.sourceUnr].Supply = 0;
                       }
                       if (num2 > 0)
                       {
-                        int num11 = (int) Math.Round((double) (this.game.Data.UnitObj[this.sourceUnr].Fuel * num8) / (double) num2);
+                        let mut num11: i32 =  (int) Math.Round((double) (this.game.Data.UnitObj[this.sourceUnr].Fuel * num8) / (double) num2);
                         UnitClass[] unitObj3 = this.game.Data.UnitObj;
                         UnitClass[] unitClassArray3 = unitObj3;
-                        int index19 = unr;
-                        int index20 = index19;
+                        let mut index19: i32 =  unr;
+                        let mut index20: i32 =  index19;
                         unitClassArray3[index20].Fuel = unitObj3[index19].Fuel + num11;
                         UnitClass[] unitObj4 = this.game.Data.UnitObj;
                         UnitClass[] unitClassArray4 = unitObj4;
-                        int sourceUnr = this.sourceUnr;
-                        int index21 = sourceUnr;
+                        let mut sourceUnr: i32 =  this.sourceUnr;
+                        let mut index21: i32 =  sourceUnr;
                         unitClassArray4[index21].Fuel = unitObj4[sourceUnr].Fuel - num11;
                         if (this.game.Data.UnitObj[this.sourceUnr].Fuel < 0)
                           this.game.Data.UnitObj[this.sourceUnr].Fuel = 0;
@@ -1396,7 +1396,7 @@ label_125:
                       this.game.EditObj.UnitSelected = -1;
                       this.game.EditObj.OrderUnit = -1;
                       data: DataClass = this.game.Data;
-                      int sourceUnr = this.sourceUnr;
+                      let mut sourceUnr: i32 =  this.sourceUnr;
                       let mut gameClass: GameClass = (GameClass) null;
                       ref let mut local: GameClass = ref gameClass;
                       data.RemoveUnit(sourceUnr, ref local);
@@ -1428,9 +1428,9 @@ label_125:
                 goto label_125;
               }
             }
-            int num = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1], b);
-            int nr = this.TL.FindNr(this.SlidersSfnr[index2]);
-            int tweight = (int) Math.Round((double) num / (double) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.SlidersSfnr[index2]].Type].Ratio);
+            let mut num: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1], b);
+            let mut nr: i32 =  this.TL.FindNr(this.SlidersSfnr[index2]);
+            let mut tweight: i32 =  (int) Math.Round((double) num / (double) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.SlidersSfnr[index2]].Type].Ratio);
             if (nr > -1)
               this.TL.RemoveNr(nr);
             this.TL.Add(this.SlidersSfnr[index2], tweight);

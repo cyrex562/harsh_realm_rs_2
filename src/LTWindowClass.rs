@@ -367,120 +367,120 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.quitid);
       let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONQUIT);
       this.but1id = this.AddSubPart( tsubpart1, 952, 22, 32, 32, 1);
-      int x1 = 296;
-      int y1 = 50;
+      let mut x1: i32 =  296;
+      let mut y1: i32 =  50;
       name1: String = this.game.Data.LandscapeTypeObj[this.ltnr].Name;
-       Graphics local1 =  Expression;
-      Rectangle rectangle1 = new Rectangle(x1, y1, 192, 14);
-      Rectangle rect1_1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(x1, y1 + 14, 192, 23);
-      Rectangle rect2_1 = rectangle2;
+       let mut local1: &Graphics = &Expression;
+      Rectangle rectangle1 = Rectangle::new(x1, y1, 192, 14);
+      let mut rect1_1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(x1, y1 + 14, 192, 23);
+      let mut rect2_1: &Rectangle = &rectangle2
       txt2_1: String = name1;
       DrawMod.MakeFullBoxVic2( local1, rect1_1, "SELECTED LANDSCAPE TYPE", rect2_1, txt2_1);
-      int x2 = 532;
-      int y2 = 50;
+      let mut x2: i32 =  532;
+      let mut y2: i32 =  50;
       str1: String = this.locnr <= -1 ? "No Location Type selected" : this.game.Data.LocTypeObj[this.locnr].Name;
-       Graphics local2 =  Expression;
-      rectangle2 = new Rectangle(x2, y2, 192, 14);
-      Rectangle rect1_2 = rectangle2;
-      rectangle1 = new Rectangle(x2, y2 + 14, 192, 23);
-      Rectangle rect2_2 = rectangle1;
+       let mut local2: &Graphics = &Expression;
+      rectangle2 = Rectangle::new(x2, y2, 192, 14);
+      let mut rect1_2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(x2, y2 + 14, 192, 23);
+      let mut rect2_2: &Rectangle = &rectangle1
       txt2_2: String = str1;
       DrawMod.MakeFullBoxVic2( local2, rect1_2, "SELECTED LOCATION TYPE", rect2_2, txt2_2);
-      int num1 = 384;
+      let mut num1: i32 =  384;
       DrawMod.DrawRectangle( Expression, num1 - 1, y2 + 66, 251, 104,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
       this.spnr = 0;
-      int num2 = num1;
-      int num3 = y2 + 67;
+      let mut num2: i32 =  num1;
+      let mut num3: i32 =  y2 + 67;
       if (this.ltnr > -1 & this.spnr > -1)
       {
         if ((double) this.game.Data.RuleVar[869] == 0.0 | (double) this.game.Data.RuleVar[869] == 3.0)
         {
-          int nr = this.game.Data.LandscapeTypeObj[this.ltnr].BasicPicID[this.spnr];
-           Graphics local3 =  Expression;
+          let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].BasicPicID[this.spnr];
+           let mut local3: &Graphics = &Expression;
           Bitmap bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local4 =  bitmap;
-          int x3 = num2;
-          int y3 = num3;
+           let mut local4: &Bitmap = &bitmap;
+          let mut x3: i32 =  num2;
+          let mut y3: i32 =  num3;
           DrawMod.DrawScaled( local3,  local4, x3, y3, 250, 103);
         }
         else
         {
           if ((double) this.game.Data.RuleVar[869] == 1.0)
           {
-            int nr = this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID1[this.spnr];
-             Graphics local5 =  Expression;
+            let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID1[this.spnr];
+             let mut local5: &Graphics = &Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(nr);
-             Bitmap local6 =  bitmap;
-            int x4 = num2;
-            int y4 = num3;
+             let mut local6: &Bitmap = &bitmap;
+            let mut x4: i32 =  num2;
+            let mut y4: i32 =  num3;
             DrawMod.DrawScaled( local5,  local6, x4, y4, 250, 103);
           }
-          int nr1 = this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID2[this.spnr];
-           Graphics local7 =  Expression;
+          let mut nr1: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID2[this.spnr];
+           let mut local7: &Graphics = &Expression;
           Bitmap bitmap1 = BitmapStore.GetBitmap(nr1);
-           Bitmap local8 =  bitmap1;
-          int x5 = num2;
-          int y5 = num3;
+           let mut local8: &Bitmap = &bitmap1;
+          let mut x5: i32 =  num2;
+          let mut y5: i32 =  num3;
           DrawMod.DrawScaled( local7,  local8, x5, y5, 250, 103);
-          int nr2 = this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID3[this.spnr];
-           Graphics local9 =  Expression;
+          let mut nr2: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID3[this.spnr];
+           let mut local9: &Graphics = &Expression;
           Bitmap bitmap2 = BitmapStore.GetBitmap(nr2);
-           Bitmap local10 =  bitmap2;
-          int x6 = num2;
-          int y6 = num3;
+           let mut local10: &Bitmap = &bitmap2;
+          let mut x6: i32 =  num2;
+          let mut y6: i32 =  num3;
           DrawMod.DrawScaled( local9,  local10, x6, y6, 250, 103);
         }
         if (this.locnr > -1 && this.game.Data.LocTypeObj[this.locnr].PictureLT > -1)
         {
           if ((double) this.game.Data.RuleVar[869] == 0.0 | (double) this.game.Data.RuleVar[869] == 3.0)
           {
-            int nr = this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
-             Graphics local11 =  Expression;
+            let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
+             let mut local11: &Graphics = &Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(nr);
-             Bitmap local12 =  bitmap;
-            int x7 = num2;
-            int y7 = num3;
+             let mut local12: &Bitmap = &bitmap;
+            let mut x7: i32 =  num2;
+            let mut y7: i32 =  num3;
             DrawMod.DrawScaled( local11,  local12, x7, y7, 250, 103);
           }
           else
           {
             if ((double) this.game.Data.RuleVar[869] == 1.0)
             {
-              int nr = this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID1[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
-               Graphics local13 =  Expression;
+              let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID1[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
+               let mut local13: &Graphics = &Expression;
               Bitmap bitmap = BitmapStore.GetBitmap(nr);
-               Bitmap local14 =  bitmap;
-              int x8 = num2;
-              int y8 = num3;
+               let mut local14: &Bitmap = &bitmap;
+              let mut x8: i32 =  num2;
+              let mut y8: i32 =  num3;
               DrawMod.DrawScaled( local13,  local14, x8, y8, 250, 103);
             }
-            int nr3 = this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID2[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
-             Graphics local15 =  Expression;
+            let mut nr3: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID2[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
+             let mut local15: &Graphics = &Expression;
             Bitmap bitmap3 = BitmapStore.GetBitmap(nr3);
-             Bitmap local16 =  bitmap3;
-            int x9 = num2;
-            int y9 = num3;
+             let mut local16: &Bitmap = &bitmap3;
+            let mut x9: i32 =  num2;
+            let mut y9: i32 =  num3;
             DrawMod.DrawScaled( local15,  local16, x9, y9, 250, 103);
-            int nr4 = this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID3[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
-             Graphics local17 =  Expression;
+            let mut nr4: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID3[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
+             let mut local17: &Graphics = &Expression;
             Bitmap bitmap4 = BitmapStore.GetBitmap(nr4);
-             Bitmap local18 =  bitmap4;
-            int x10 = num2;
-            int y10 = num3;
+             let mut local18: &Bitmap = &bitmap4;
+            let mut x10: i32 =  num2;
+            let mut y10: i32 =  num3;
             DrawMod.DrawScaled( local17,  local18, x10, y10, 250, 103);
           }
         }
       }
-      int num4 = 60;
-      int num5 = 60;
+      let mut num4: i32 =  60;
+      let mut num5: i32 =  60;
       this.combatListObj = ATListClass::new();
-      int num6 = -1;
-      int tlistselect = -1;
-      int landscapeTypeCounter1 = this.game.Data.LandscapeTypeCounter;
+      let mut num6: i32 =  -1;
+      let mut tlistselect: i32 =  -1;
+      let mut landscapeTypeCounter1: i32 =  this.game.Data.LandscapeTypeCounter;
       string str2;
       string str3;
-      for (int tdata = 0; tdata <= landscapeTypeCounter1; tdata += 1)
+      for (let mut tdata: i32 =  0; tdata <= landscapeTypeCounter1; tdata += 1)
       {
         if (!this.game.Data.LandscapeTypeObj[tdata].DontShowInList)
         {
@@ -502,12 +502,12 @@ namespace WindowsApplication1
         let mut tsubpart2: SubPartClass =  new ATListSubPartClass(this.combatListObj, 11, 225, tlistselect, this.game, true, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num4, bby: num5);
         this.combatListId = this.AddSubPart( tsubpart2, num4, num5, 225, 192, 0);
       }
-      int num7 = 745;
-      int num8 = 60;
+      let mut num7: i32 =  745;
+      let mut num8: i32 =  60;
       this.combatList2Obj = ATListClass::new();
       this.combatList2Obj.add("None", 9999);
-      int locTypeCounter1 = this.game.Data.LocTypeCounter;
-      for (int tdata = 0; tdata <= locTypeCounter1; tdata += 1)
+      let mut locTypeCounter1: i32 =  this.game.Data.LocTypeCounter;
+      for (let mut tdata: i32 =  0; tdata <= locTypeCounter1; tdata += 1)
       {
         str2 = "";
         str3 = "";
@@ -524,8 +524,8 @@ namespace WindowsApplication1
         tsubpart3 =  new ATListSubPartClass(this.combatList2Obj, 11, 225, this.locnr + 1, this.game, true, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num7, bby: num8);
         this.combatList2Id = this.AddSubPart( tsubpart3, num7, num8, 225, 192, 0);
       }
-      int num9 = 300;
-      int num10 = 15;
+      let mut num9: i32 =  300;
+      let mut num10: i32 =  15;
       if (this.locnr > -1)
         num10 -= 85;
       tsubpart3 =  new TextButtonPartClass("General Stats", 150, tBackbitmap: ( this.OwnBitmap), bbx: (num10 + 170), bby: num9, tred: (this.StatMode == 0));
@@ -555,8 +555,8 @@ namespace WindowsApplication1
         num11 = -1;
         num12 = -1;
         num13 = 0;
-        int num14 = 150;
-        int num15 = 401;
+        let mut num14: i32 =  150;
+        let mut num15: i32 =  401;
         if (this.locnr == -1)
           num14 = 347;
         this.OptionsList3Obj = ATListClass::new();
@@ -591,15 +591,15 @@ namespace WindowsApplication1
           tsubpart3 =  new ATListSubPartClass(this.OptionsList3Obj, 6, 330, -1, this.game, true, tHighlight: false, tShowPair: true, tValueWidth: 165, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num14, bby: num15);
           this.OptionsList3Id = this.AddSubPart( tsubpart3, num14, num15, 330, 112, 0);
         }
-         Graphics local19 =  Expression;
-        rectangle2 = new Rectangle(num14, num15 - 14, 330, 13);
-        Rectangle rect1_3 = rectangle2;
-        Rectangle rect2_3 = rectangle3;
+         let mut local19: &Graphics = &Expression;
+        rectangle2 = Rectangle::new(num14, num15 - 14, 330, 13);
+        let mut rect1_3: &Rectangle = &rectangle2
+        let mut rect2_3: &Rectangle = &rectangle3
         DrawMod.MakeFullBoxVic2( local19, rect1_3, "LANDSCAPE GENERAL STATS", rect2_3, "");
         if (this.locnr > -1)
         {
-          int num16 = 150;
-          int num17 = 546;
+          let mut num16: i32 =  150;
+          let mut num17: i32 =  546;
           this.OptionsList4Obj = ATListClass::new();
           str2 = "";
           str3 = "";
@@ -631,10 +631,10 @@ namespace WindowsApplication1
           str2 = "";
           str3 = "";
           this.OptionsList4Obj.add("Production Points", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].MaxProd)));
-           Graphics local20 =  Expression;
-          rectangle2 = new Rectangle(num16, num17 - 14, 330, 13);
-          Rectangle rect1_4 = rectangle2;
-          Rectangle rect2_4 = rectangle3;
+           let mut local20: &Graphics = &Expression;
+          rectangle2 = Rectangle::new(num16, num17 - 14, 330, 13);
+          let mut rect1_4: &Rectangle = &rectangle2
+          let mut rect2_4: &Rectangle = &rectangle3
           DrawMod.MakeFullBoxVic2( local20, rect1_4, "LOCATION TYPE GENERAL STATS", rect2_4, "");
           if (this.OptionsList4Id > 0)
           {
@@ -653,16 +653,16 @@ namespace WindowsApplication1
         tText: String = str4 + this.game.Data.LandscapeTypeObj[this.ltnr].Name + "\r\n\r\n" + this.game.Data.LandscapeTypeObj[this.ltnr].Description;
         if (this.locnr > -1)
         {
-          int num18 = 530;
-          int num19 = 411;
+          let mut num18: i32 =  530;
+          let mut num19: i32 =  411;
           DrawMod.DrawPaperSheet( Expression, num18 - 20, num19 - 10, 390, 280);
           tsubpart3 =  new PaperAreaClass(this.game, 360, 13,  null, "Description", false, tText, this.game.VicColor8, tItemSize: 20, tbackbitmap: ( this.OwnBitmap), bbx: num18, bby: num19);
           this.descid = this.AddSubPart( tsubpart3, num18, num19, 360, 280, 0);
         }
         else
         {
-          int num20 = 230;
-          int num21 = 545;
+          let mut num20: i32 =  230;
+          let mut num21: i32 =  545;
           DrawMod.DrawPaperSheet( Expression, num20 - 20, num21 - 10, 590, 160);
           tsubpart3 =  new PaperAreaClass(this.game, 560, 7,  null, "Description", false, tText, this.game.VicColor8, tItemSize: 20, tbackbitmap: ( this.OwnBitmap), bbx: num20, bby: num21);
           this.descid = this.AddSubPart( tsubpart3, num20, num21, 560, 160, 0);
@@ -672,24 +672,24 @@ namespace WindowsApplication1
       string tvalue4;
       if (this.StatMode == 1)
       {
-        int index1 = -1;
+        let mut index1: i32 =  -1;
         if (this.locnr > -1 && this.game.Data.LocTypeObj[this.locnr].PictureLT > -1)
           index1 = this.game.Data.LocTypeObj[this.locnr].PictureLT;
-        int num22 = 200;
-        int num23 = 405;
+        let mut num22: i32 =  200;
+        let mut num23: i32 =  405;
         this.OptionsList3Obj = ATListClass::new();
         if (index1 > -1)
         {
-           Graphics local21 =  Expression;
-          rectangle2 = new Rectangle(num22, num23 - 14, 730, 13);
-          Rectangle rect1_5 = rectangle2;
-          Rectangle rect2_5 = rectangle3;
+           let mut local21: &Graphics = &Expression;
+          rectangle2 = Rectangle::new(num22, num23 - 14, 730, 13);
+          let mut rect1_5: &Rectangle = &rectangle2
+          let mut rect2_5: &Rectangle = &rectangle3
           DrawMod.MakeFullBoxVic2( local21, rect1_5, "                                                                               LANDSCAPE TYPE STATS                              LOCATION TYPE STATS", rect2_5, "");
           this.OptionsList3Obj.add("SUBFORMATION TYPE GROUP", -1, "AUTO ENTR", "MAX ENTR", "AUTO ENTR", "MAX ENTR");
         }
         else
           this.OptionsList3Obj.add("SUBFORMATION TYPE GROUP", -1, "AUTO ENTR", "MAX ENTR");
-        int index2 = 0;
+        let mut index2: i32 =  0;
         do
         {
           if (!Information.IsNothing((object) this.game.Data.TempString[400 + index2]) && this.game.Data.TempString[400 + index2].Length > 1)
@@ -723,29 +723,29 @@ namespace WindowsApplication1
       }
       if (this.StatMode == 2)
       {
-        int index3 = -1;
+        let mut index3: i32 =  -1;
         if (this.locnr > -1 && this.game.Data.LocTypeObj[this.locnr].PictureLT > -1)
           index3 = this.game.Data.LocTypeObj[this.locnr].PictureLT;
-        int num24 = 200;
-        int num25 = 405;
+        let mut num24: i32 =  200;
+        let mut num25: i32 =  405;
         this.OptionsList3Obj = ATListClass::new();
         if (index3 > -1)
         {
-           Graphics local22 =  Expression;
-          rectangle2 = new Rectangle(num24, num25 - 14, 730, 13);
-          Rectangle rect1_6 = rectangle2;
-          Rectangle rect2_6 = rectangle3;
+           let mut local22: &Graphics = &Expression;
+          rectangle2 = Rectangle::new(num24, num25 - 14, 730, 13);
+          let mut rect1_6: &Rectangle = &rectangle2
+          let mut rect2_6: &Rectangle = &rectangle3
           DrawMod.MakeFullBoxVic2( local22, rect1_6, "                                                                               LANDSCAPE TYPE STATS                              LOCATION TYPE STATS", rect2_6, "");
           this.OptionsList3Obj.add("SUBFORMATION TYPE", -1, "OFF MOD", "DEF MOD", "OFF MOD", "DEF MOD");
         }
         else
           this.OptionsList3Obj.add("SUBFORMATION TYPE", -1, "OFF MOD", "DEF MOD");
-        int sfTypeCounter = this.game.Data.SFTypeCounter;
-        for (int index4 = 0; index4 <= sfTypeCounter; index4 += 1)
+        let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+        for (let mut index4: i32 =  0; index4 <= sfTypeCounter; index4 += 1)
         {
           if (!this.game.Data.SFTypeObj[index4].DontShowInList)
           {
-            int num26 = 0;
+            let mut num26: i32 =  0;
             if ((double) this.game.Data.SFTypeObj[index4].CombatModAtt[this.ltnr] != 1.0)
               num26 = 1;
             if ((double) this.game.Data.SFTypeObj[index4].CombatModDef[this.ltnr] != 1.0)
@@ -787,14 +787,14 @@ namespace WindowsApplication1
       }
       if (this.StatMode == 3)
       {
-        int num27 = -1;
+        let mut num27: i32 =  -1;
         if (this.locnr > -1 && this.game.Data.LocTypeObj[this.locnr].PictureLT > -1)
           num27 = this.game.Data.LocTypeObj[this.locnr].PictureLT;
-        int num28 = 300;
-        int num29 = 405;
+        let mut num28: i32 =  300;
+        let mut num29: i32 =  405;
         this.OptionsList3Obj = ATListClass::new();
         this.OptionsList3Obj.add("MOVEMENT TYPE", -1, "AP COST");
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           if (this.game.Data.TempString[index].Length > 1)
@@ -802,10 +802,10 @@ namespace WindowsApplication1
           index += 1;
         }
         while (index <= 99);
-         Graphics local23 =  Expression;
-        rectangle2 = new Rectangle(num28, num29 - 14, 730, 13);
-        Rectangle rect1_7 = rectangle2;
-        Rectangle rect2_7 = rectangle3;
+         let mut local23: &Graphics = &Expression;
+        rectangle2 = Rectangle::new(num28, num29 - 14, 730, 13);
+        let mut rect1_7: &Rectangle = &rectangle2
+        let mut rect2_7: &Rectangle = &rectangle3
         DrawMod.MakeFullBoxVic2( local23, rect1_7, "LANDSCAPE TYPE MOVEMENT COSTS", rect2_7, "");
         if (this.OptionsList3Id > 0)
         {
@@ -823,8 +823,8 @@ namespace WindowsApplication1
         num11 = -1;
         num12 = -1;
         num13 = 0;
-        int num30 = 150;
-        int num31 = 401;
+        let mut num30: i32 =  150;
+        let mut num31: i32 =  401;
         this.OptionsList3Obj = ATListClass::new();
         str2 = "";
         str3 = "";
@@ -848,7 +848,7 @@ namespace WindowsApplication1
           str2 = "";
           str3 = "";
           this.OptionsList3Obj.add("Is Upgrade", -1, this.game.Data.LocTypeObj[this.locnr].UpgradeNr <= -1 ? "No" : "Yes, from " + this.game.Data.LocTypeObj[this.game.Data.LocTypeObj[this.locnr].UpgradeNr].Name);
-          int index5 = 0;
+          let mut index5: i32 =  0;
           do
           {
             if (this.game.Data.LocTypeObj[this.locnr].Research[index5] > -1)
@@ -866,7 +866,7 @@ namespace WindowsApplication1
             this.OptionsList3Obj.add("PP Cost", -1, Conversions.ToString(this.game.Data.LocTypeObj[this.locnr].PPCost));
           if (this.game.Data.LocTypeObj[this.locnr].SupplyCost > 0)
             this.OptionsList3Obj.add("Supply Cost", -1, Conversions.ToString( Math.Round((double) ((float) this.game.Data.LocTypeObj[this.locnr].SupplyCost / this.game.Data.RuleVar[77]))));
-          int index6 = 0;
+          let mut index6: i32 =  0;
           do
           {
             if (this.game.Data.LocTypeObj[this.locnr].VarQty[index6] > 0 | this.game.Data.LocTypeObj[this.locnr].VarType[index6] > -1)
@@ -875,10 +875,10 @@ namespace WindowsApplication1
           }
           while (index6 <= 4);
         }
-         Graphics local24 =  Expression;
-        rectangle2 = new Rectangle(num30, num31 - 14, 330, 13);
-        Rectangle rect1_8 = rectangle2;
-        Rectangle rect2_8 = rectangle3;
+         let mut local24: &Graphics = &Expression;
+        rectangle2 = Rectangle::new(num30, num31 - 14, 330, 13);
+        let mut rect1_8: &Rectangle = &rectangle2
+        let mut rect2_8: &Rectangle = &rectangle3
         DrawMod.MakeFullBoxVic2( local24, rect1_8, "BUILDING REQUIREMENTS", rect2_8, "");
         if (this.OptionsList3Id > 0)
         {
@@ -890,10 +890,10 @@ namespace WindowsApplication1
           tsubpart3 =  new ATListSubPartClass(this.OptionsList3Obj, 6, 330, -1, this.game, true, tHighlight: false, tShowPair: true, tValueWidth: 240, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num30, bby: num31);
           this.OptionsList3Id = this.AddSubPart( tsubpart3, num30, num31, 330, 112, 0);
         }
-        int num32 = 150;
-        int num33 = 546;
+        let mut num32: i32 =  150;
+        let mut num33: i32 =  546;
         this.OptionsList4Obj = ATListClass::new();
-        int index7 = 0;
+        let mut index7: i32 =  0;
         do
         {
           if (!Information.IsNothing((object) this.game.Data.TempString[300 + index7]) && this.game.Data.TempString[300 + index7].Length > 1 & this.game.Data.LocTypeObj[this.locnr].ItemGroup[index7])
@@ -905,10 +905,10 @@ namespace WindowsApplication1
           index7 += 1;
         }
         while (index7 <= 99);
-         Graphics local25 =  Expression;
-        rectangle2 = new Rectangle(num32, num33 - 14, 330, 13);
-        Rectangle rect1_9 = rectangle2;
-        Rectangle rect2_9 = rectangle3;
+         let mut local25: &Graphics = &Expression;
+        rectangle2 = Rectangle::new(num32, num33 - 14, 330, 13);
+        let mut rect1_9: &Rectangle = &rectangle2
+        let mut rect2_9: &Rectangle = &rectangle3
         DrawMod.MakeFullBoxVic2( local25, rect1_9, "PRODUCABLE ITEM TYPE GROUPS", rect2_9, "");
         if (this.OptionsList4Id > 0)
         {
@@ -920,10 +920,10 @@ namespace WindowsApplication1
           tsubpart3 =  new ATListSubPartClass(this.OptionsList4Obj, 7, 330, -1, this.game, true, tHighlight: false, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num32, bby: num33);
           this.OptionsList4Id = this.AddSubPart( tsubpart3, num32, num33, 330, 128, 0);
         }
-        int num34 = 550;
-        int num35 = 401;
+        let mut num34: i32 =  550;
+        let mut num35: i32 =  401;
         this.OptionsList5Obj = ATListClass::new();
-        int index8 = 0;
+        let mut index8: i32 =  0;
         do
         {
           if (!Information.IsNothing((object) this.game.Data.TempString[200 + index8]) && this.game.Data.TempString[200 + index8].Length > 1 & this.game.Data.LocTypeObj[this.locnr].PeopleGroup[index8])
@@ -935,10 +935,10 @@ namespace WindowsApplication1
           index8 += 1;
         }
         while (index8 <= 99);
-         Graphics local26 =  Expression;
-        rectangle2 = new Rectangle(num34, num35 - 14, 330, 13);
-        Rectangle rect1_10 = rectangle2;
-        Rectangle rect2_10 = rectangle3;
+         let mut local26: &Graphics = &Expression;
+        rectangle2 = Rectangle::new(num34, num35 - 14, 330, 13);
+        let mut rect1_10: &Rectangle = &rectangle2
+        let mut rect2_10: &Rectangle = &rectangle3
         DrawMod.MakeFullBoxVic2( local26, rect1_10, "REGIME PEOPLES ALLOWED", rect2_10, "");
         if (this.OptionsList5Id > 0)
         {
@@ -950,17 +950,17 @@ namespace WindowsApplication1
           tsubpart3 =  new ATListSubPartClass(this.OptionsList5Obj, 6, 160, -1, this.game, true, tHighlight: false, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num34, bby: num35);
           this.OptionsList5Id = this.AddSubPart( tsubpart3, num34, num35, 160, 112, 0);
         }
-        int num36 = 720;
-        int num37 = 401;
-        int num38 = 0;
+        let mut num36: i32 =  720;
+        let mut num37: i32 =  401;
+        let mut num38: i32 =  0;
         this.OptionsList6Obj = ATListClass::new();
-        int index9 = 0;
+        let mut index9: i32 =  0;
         do
         {
           if (this.game.Data.LocTypeObj[this.locnr].MinDistance[index9] > 0)
           {
-            int locTypeCounter2 = this.game.Data.LocTypeCounter;
-            for (int index10 = 0; index10 <= locTypeCounter2; index10 += 1)
+            let mut locTypeCounter2: i32 =  this.game.Data.LocTypeCounter;
+            for (let mut index10: i32 =  0; index10 <= locTypeCounter2; index10 += 1)
             {
               if (this.game.Data.LocTypeObj[this.locnr].MinDistance[this.game.Data.LocTypeObj[index10].LocTypeGroup] > 1)
               {
@@ -974,10 +974,10 @@ namespace WindowsApplication1
         while (index9 <= 99);
         if (num38 == 0)
           this.OptionsList6Obj.add("No min. distances", -1);
-         Graphics local27 =  Expression;
-        rectangle2 = new Rectangle(num36, num37 - 14, 330, 13);
-        Rectangle rect1_11 = rectangle2;
-        Rectangle rect2_11 = rectangle3;
+         let mut local27: &Graphics = &Expression;
+        rectangle2 = Rectangle::new(num36, num37 - 14, 330, 13);
+        let mut rect1_11: &Rectangle = &rectangle2
+        let mut rect2_11: &Rectangle = &rectangle3
         DrawMod.MakeFullBoxVic2( local27, rect1_11, "MIN.DISTANCE NEED", rect2_11, "");
         if (this.OptionsList6Id > 0)
         {
@@ -989,18 +989,18 @@ namespace WindowsApplication1
           tsubpart3 =  new ATListSubPartClass(this.OptionsList6Obj, 6, 160, -1, this.game, true, tHighlight: false, tShowPair: true, tValueWidth: 40, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num36, bby: num37);
           this.OptionsList6Id = this.AddSubPart( tsubpart3, num36, num37, 160, 112, 0);
         }
-        int num39 = 550;
-        int num40 = 546;
+        let mut num39: i32 =  550;
+        let mut num40: i32 =  546;
         if (this.game.Data.LocTypeObj[this.locnr].Buildable)
         {
           this.OptionsListObj = ATListClass::new();
-          int index11 = 0;
+          let mut index11: i32 =  0;
           do
           {
             if (this.game.Data.LocTypeObj[this.locnr].BuildgroundType[index11])
             {
-              int landscapeTypeCounter2 = this.game.Data.LandscapeTypeCounter;
-              for (int index12 = 0; index12 <= landscapeTypeCounter2; index12 += 1)
+              let mut landscapeTypeCounter2: i32 =  this.game.Data.LandscapeTypeCounter;
+              for (let mut index12: i32 =  0; index12 <= landscapeTypeCounter2; index12 += 1)
               {
                 if (this.game.Data.LandscapeTypeObj[index12].BuildGround == index11 & !this.game.Data.LandscapeTypeObj[index12].DontShowInList)
                 {
@@ -1012,10 +1012,10 @@ namespace WindowsApplication1
             index11 += 1;
           }
           while (index11 <= 99);
-           Graphics local28 =  Expression;
-          rectangle2 = new Rectangle(num39, num40 - 14, 330, 13);
-          Rectangle rect1_12 = rectangle2;
-          Rectangle rect2_12 = rectangle3;
+           let mut local28: &Graphics = &Expression;
+          rectangle2 = Rectangle::new(num39, num40 - 14, 330, 13);
+          let mut rect1_12: &Rectangle = &rectangle2
+          let mut rect2_12: &Rectangle = &rectangle3
           DrawMod.MakeFullBoxVic2( local28, rect1_12, "BUILDABLE LANDSC.TYPES", rect2_12, "");
           if (this.OptionsListId > 0)
           {
@@ -1037,13 +1037,13 @@ namespace WindowsApplication1
 
     pub object ReturnSFSpriteNr(int typ, int regnr, int pplnr)
     {
-      int symbolSpriteId = this.game.Data.SFTypeObj[typ].SymbolSpriteID;
+      let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[typ].SymbolSpriteID;
       if (regnr > -1)
       {
         if (this.game.Data.RegimeObj[regnr].ExtraGraphicUse > -1)
         {
-          int extraCounter = this.game.Data.SFTypeObj[typ].ExtraCounter;
-          for (int index = 0; index <= extraCounter; index += 1)
+          let mut extraCounter: i32 =  this.game.Data.SFTypeObj[typ].ExtraCounter;
+          for (let mut index: i32 =  0; index <= extraCounter; index += 1)
           {
             if (this.game.Data.SFTypeObj[typ].ExtraCode[index] == this.game.Data.RegimeObj[regnr].ExtraGraphicUse)
               symbolSpriteId = this.game.Data.SFTypeObj[typ].ExtraSymbolSpriteID[index];
@@ -1051,8 +1051,8 @@ namespace WindowsApplication1
         }
         else if (pplnr > -1 && this.game.Data.PeopleObj[pplnr].ExtraGraphicUse > -1)
         {
-          int extraCounter = this.game.Data.SFTypeObj[typ].ExtraCounter;
-          for (int index = 0; index <= extraCounter; index += 1)
+          let mut extraCounter: i32 =  this.game.Data.SFTypeObj[typ].ExtraCounter;
+          for (let mut index: i32 =  0; index <= extraCounter; index += 1)
           {
             if (this.game.Data.SFTypeObj[typ].ExtraCode[index] == this.game.Data.PeopleObj[pplnr].ExtraGraphicUse)
               symbolSpriteId = this.game.Data.SFTypeObj[typ].ExtraSymbolSpriteID[index];
@@ -1061,8 +1061,8 @@ namespace WindowsApplication1
       }
       else if (this.game.Data.PeopleObj[pplnr].ExtraGraphicUse > -1)
       {
-        int extraCounter = this.game.Data.SFTypeObj[typ].ExtraCounter;
-        for (int index = 0; index <= extraCounter; index += 1)
+        let mut extraCounter: i32 =  this.game.Data.SFTypeObj[typ].ExtraCounter;
+        for (let mut index: i32 =  0; index <= extraCounter; index += 1)
         {
           if (this.game.Data.SFTypeObj[typ].ExtraCode[index] == this.game.Data.PeopleObj[pplnr].ExtraGraphicUse)
             symbolSpriteId = this.game.Data.SFTypeObj[typ].ExtraSymbolSpriteID[index];
@@ -1097,12 +1097,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.tab1id)
             {
               this.StatMode = 0;
@@ -1217,7 +1217,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.combatListId)
             {
-              int num3 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num3: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               if (num3 > -1)
               {
                 this.ltnr = num3;
@@ -1229,7 +1229,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.combatList2Id)
             {
-              int num4 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num4: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               if (num4 > -1)
               {
                 this.locnr = num4;
@@ -1286,7 +1286,7 @@ namespace WindowsApplication1
                 {
                   if (orderResult.ErrorString.Length > 1)
                   {
-                    int num5 =  Interaction.MsgBox((object) orderResult.ErrorString, Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num5: i32 =   Interaction.MsgBox((object) orderResult.ErrorString, Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   windowReturnClass.AddCommand(6, 0);
                   windowReturnClass.SetFlag(true);
@@ -1307,7 +1307,7 @@ namespace WindowsApplication1
               {
                 if (!this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount > 6 && this.game.Data.SFObj[this.sfnr].Qty != this.detailnr2)
                 {
-                  int num6 =  Interaction.MsgBox((object) "You can only upgrade ALL because there is already 8 subformations in unit.");
+                  let mut num6: i32 =   Interaction.MsgBox((object) "You can only upgrade ALL because there is already 8 subformations in unit.");
                   return windowReturnClass;
                 }
                 OrderResult orderResult = this.game.ProcessingObj.DoUpgrade(this.game.EditObj.UnitSelected, this.sfnr, this.detailnr2, this.HQselect);

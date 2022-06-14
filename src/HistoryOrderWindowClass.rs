@@ -52,8 +52,8 @@ namespace WindowsApplication1
     {
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index] && Operators.CompareString(this.SubPartList[index].Descript, "", false) > 0)
           {
@@ -64,8 +64,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -105,26 +105,26 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.autoplayid);
       this.NewBackGroundAndClearAll(this.w, this.h, -1);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      int num1 =  Math.Round((double) this.game.ScreenWidth / 116.0);
+      let mut num1: i32 =   Math.Round((double) this.game.ScreenWidth / 116.0);
       Bitmap bitmap;
-      for (int index = 0; index <= num1; index += 1)
+      for (let mut index: i32 =  0; index <= num1; index += 1)
       {
-         Graphics local1 =  Expression;
+         let mut local1: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARFRAME);
-         Bitmap local2 =  bitmap;
-        int x = index * 116;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  index * 116;
         DrawMod.DrawSimple( local1,  local2, x, 87);
       }
-      int num2 =  Math.Round((double) (this.game.ScreenWidth - 1152) / 2.0);
-      int num3 = -3;
-       Graphics local3 =  Expression;
+      let mut num2: i32 =   Math.Round((double) (this.game.ScreenWidth - 1152) / 2.0);
+      let mut num3: i32 =  -3;
+       let mut local3: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARHISTORY);
-       Bitmap local4 =  bitmap;
-      int x1 = num2;
-      int y = num3;
+       let mut local4: &Bitmap = &bitmap;
+      let mut x1: i32 =  num2;
+      let mut y: i32 =  num3;
       DrawMod.DrawSimple( local3,  local4, x1, y);
-      int num4 = 34;
-      int num5 = num2 + 40;
+      let mut num4: i32 =  34;
+      let mut num5: i32 =  num2 + 40;
       this.BackBitmap = (Bitmap) this.OwnBitmap.Clone();
       if (this.game.AIRunning | this.game.se1ThreadRunning)
       {
@@ -181,12 +181,12 @@ namespace WindowsApplication1
         windowReturnClass.NoMouseClickBelow = true;
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.skipid)
             {
               this.game.EditObj.TempCoordList = CoordList::new();
@@ -197,8 +197,8 @@ namespace WindowsApplication1
               }
               if (this.HisW.lastregime >= -1)
               {
-                int lastregime1 = this.HisW.lastregime;
-                int num2 = 1;
+                let mut lastregime1: i32 =  this.HisW.lastregime;
+                let mut num2: i32 =  1;
                 while (num2 == 1)
                 {
                   num2 = 0;
@@ -207,7 +207,7 @@ namespace WindowsApplication1
                     this.HisW.Forward(1);
                     this += 1.HisW.Curstep;
                     num2 = 1;
-                    int lastregime2 = this.HisW.lastregime;
+                    let mut lastregime2: i32 =  this.HisW.lastregime;
                     if (lastregime2 != lastregime1 & lastregime2 != -1)
                       num2 = 0;
                   }
@@ -222,7 +222,7 @@ namespace WindowsApplication1
             }
             else if (num1 == this.slider1id)
             {
-              int steps = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index], b);
+              let mut steps: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index], b);
               if (steps > this.HisW.Curstep)
               {
                 this.game.EditObj.TempCoordList = CoordList::new();

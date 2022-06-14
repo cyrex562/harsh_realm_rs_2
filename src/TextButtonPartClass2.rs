@@ -59,7 +59,7 @@ namespace WindowsApplication1
         self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics Expression = Graphics.FromImage((Image) self.backbitmap);
         Expression.CompositingMode = CompositingMode.SourceCopy;
-        Expression.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), new Rectangle(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
+        Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
         Expression.CompositingMode = CompositingMode.SourceOver;
         if (!Information.IsNothing((object) Expression))
           Expression.Dispose();
@@ -110,29 +110,29 @@ namespace WindowsApplication1
         if (self.pressed)
           nr = DrawMod.TGame.MARCBLOCKPRESSED2;
       }
-       Graphics local1 =  Expression;
+       let mut local1: &Graphics = &Expression;
       Bitmap bitmap = BitmapStore.GetBitmap(nr);
-       Bitmap local2 =  bitmap;
-      Rectangle rectangle1 = new Rectangle(0, 0, 50, 4);
-      Rectangle srcrect1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(0, 0, self.width, 4);
-      Rectangle destrect1 = rectangle2;
+       let mut local2: &Bitmap = &bitmap;
+      Rectangle rectangle1 = Rectangle::new(0, 0, 50, 4);
+      let mut srcrect1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(0, 0, self.width, 4);
+      let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-       Graphics local3 =  Expression;
+       let mut local3: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(nr);
-       Bitmap local4 =  bitmap;
-      rectangle2 = new Rectangle(0, 4, 50, 42);
-      Rectangle srcrect2 = rectangle2;
-      rectangle1 = new Rectangle(0, 4, self.width, self.height - 6);
-      Rectangle destrect2 = rectangle1;
+       let mut local4: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(0, 4, 50, 42);
+      let mut srcrect2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(0, 4, self.width, self.height - 6);
+      let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-       Graphics local5 =  Expression;
+       let mut local5: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(nr);
-       Bitmap local6 =  bitmap;
-      rectangle2 = new Rectangle(0, 46, 50, 6);
-      Rectangle srcrect3 = rectangle2;
-      rectangle1 = new Rectangle(0, self.height - 6, self.width, 6);
-      Rectangle destrect3 = rectangle1;
+       let mut local6: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(0, 46, 50, 6);
+      let mut srcrect3: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(0, self.height - 6, self.width, 6);
+      let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       if (self.inactive)
         DrawMod.DrawBlock( Expression, 0, 0, 48, self.height - 2, 0, 0, 0, 96);
@@ -187,29 +187,29 @@ namespace WindowsApplication1
         if (self.pressed)
           nr = DrawMod.TGame.MARCBLOCKPRESSED2;
       }
-       Graphics local1 =  Expression;
+       let mut local1: &Graphics = &Expression;
       Bitmap bitmap = BitmapStore.GetBitmap(nr);
-       Bitmap local2 =  bitmap;
-      Rectangle rectangle1 = new Rectangle(0, 0, 50, 4);
-      Rectangle srcrect1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(0, 0, self.width, 4);
-      Rectangle destrect1 = rectangle2;
+       let mut local2: &Bitmap = &bitmap;
+      Rectangle rectangle1 = Rectangle::new(0, 0, 50, 4);
+      let mut srcrect1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(0, 0, self.width, 4);
+      let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-       Graphics local3 =  Expression;
+       let mut local3: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(nr);
-       Bitmap local4 =  bitmap;
-      rectangle2 = new Rectangle(0, 4, 50, 42);
-      Rectangle srcrect2 = rectangle2;
-      rectangle1 = new Rectangle(0, 4, self.width, self.height - 6);
-      Rectangle destrect2 = rectangle1;
+       let mut local4: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(0, 4, 50, 42);
+      let mut srcrect2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(0, 4, self.width, self.height - 6);
+      let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-       Graphics local5 =  Expression;
+       let mut local5: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(nr);
-       Bitmap local6 =  bitmap;
-      rectangle2 = new Rectangle(0, 46, 50, 6);
-      Rectangle srcrect3 = rectangle2;
-      rectangle1 = new Rectangle(0, self.height - 6, self.width, 6);
-      Rectangle destrect3 = rectangle1;
+       let mut local6: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(0, 46, 50, 6);
+      let mut srcrect3: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(0, self.height - 6, self.width, 6);
+      let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       if (self.inactive)
         DrawMod.DrawBlock( Expression, 0, 0, 48, self.height - 2, 0, 0, 0, 96);

@@ -297,7 +297,7 @@ namespace WindowsApplication1
           ttext: String = "Unit slot: " + this.game.EditObj.UnitSelected.ToString() + "\r\n";
           if (historical > -1)
             ttext = ttext + "Historical slot: " + historical.ToString() + "\r\n" + "Historical ID: " + this.game.Data.HistoricalUnitObj[historical].ID.ToString() + "\r\n";
-          Rectangle trect = new Rectangle(num2, y, 200, 20);
+          Rectangle trect = Rectangle::new(num2, y, 200, 20);
           this.AddMouse( trect, "Selected unit", ttext);
           DrawMod.DrawTextColouredMarc( graphics, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Name, this.game.MarcFont3, num2, y + 20, Color.White);
           DrawMod.DrawTextColouredMarc( graphics, "Units model:", this.game.MarcFont4, num2, y + 50, Color.White);

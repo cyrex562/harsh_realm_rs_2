@@ -173,9 +173,9 @@ namespace WindowsApplication1
         num13 =  Math.Round((double) (num13 * 500) / (double) num12);
         num12 = 500;
       }
-       Graphics local3 =  objgraphics;
+       let mut local3: &Graphics = &objgraphics;
       Bitmap bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.detailnr]);
-       Bitmap local4 =  bitmap;
+       let mut local4: &Bitmap = &bitmap;
       let mut x2: i32 = num7;
       let mut y3: i32 = num11;
       let mut w: i32 = num12;

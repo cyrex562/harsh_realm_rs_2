@@ -31,15 +31,15 @@ namespace WindowsApplication1
       info.AddValue("Name", (object) this.Name);
       info.AddValue("MapWidth", this.MapWidth);
       info.AddValue("MapHeight", this.MapHeight);
-      int num1 = 164 * ((this.MapWidth + 1) * (this.MapHeight + 1)) + 24 * ((this.MapWidth + 1) * (this.MapHeight + 1)) + 4 * ((this.MapWidth + 1) * (this.MapHeight + 1));
-      int num2 = 4;
-      int num3 = num1 + 112 * ((this.MapWidth + 1) * (this.MapHeight + 1));
-      int mapWidth1 = this.MapWidth;
+      let mut num1: i32 =  164 * ((this.MapWidth + 1) * (this.MapHeight + 1)) + 24 * ((this.MapWidth + 1) * (this.MapHeight + 1)) + 4 * ((this.MapWidth + 1) * (this.MapHeight + 1));
+      let mut num2: i32 =  4;
+      let mut num3: i32 =  num1 + 112 * ((this.MapWidth + 1) * (this.MapHeight + 1));
+      let mut mapWidth1: i32 =  this.MapWidth;
       int index1;
       int index2;
       for (index1 = 0; index1 <= mapWidth1; index1 += 1)
       {
-        int mapHeight = this.MapHeight;
+        let mut mapHeight: i32 =  this.MapHeight;
         for (index2 = 0; index2 <= mapHeight; index2 += 1)
         {
           if (this.HexObj[index1, index2].RegimeCount > -1)
@@ -69,16 +69,16 @@ namespace WindowsApplication1
             num3 = num3 + 180 + 36;
         }
       }
-      int num4 = num3;
+      let mut num4: i32 =  num3;
       byte[] numArray1 = new byte[num4 + 1];
       MemoryStream output = new MemoryStream(numArray1);
       BinaryWriter bw = new BinaryWriter((Stream) output);
       try
       {
-        int mapWidth2 = this.MapWidth;
+        let mut mapWidth2: i32 =  this.MapWidth;
         for (index1 = 0; index1 <= mapWidth2; index1 += 1)
         {
-          int mapHeight = this.MapHeight;
+          let mut mapHeight: i32 =  this.MapHeight;
           for (index2 = 0; index2 <= mapHeight; index2 += 1)
           {
             this.HexObj[index1, index2].StreamWrite( bw);
@@ -92,7 +92,7 @@ namespace WindowsApplication1
       {
         ProjectData.SetProjectError(ex);
         Exception exception = ex;
-        int num5 =  Interaction.MsgBox((object) ("Error in hex data compression. Current size: " + bw.BaseStream.Position.ToString() + " , SizeDimmed: " + num4.ToString() + "..  ix: " + index1.ToString() + "/" + this.MapWidth.ToString() + " iy: " + index2.ToString() + "/" + this.MapHeight.ToString() + " .. actual error message: " + exception.Message));
+        let mut num5: i32 =   Interaction.MsgBox((object) ("Error in hex data compression. Current size: " + bw.BaseStream.Position.ToString() + " , SizeDimmed: " + num4.ToString() + "..  ix: " + index1.ToString() + "/" + this.MapWidth.ToString() + " iy: " + index2.ToString() + "/" + this.MapHeight.ToString() + " .. actual error message: " + exception.Message));
         ProjectData.ClearProjectError();
       }
       bw.Flush();
@@ -125,11 +125,11 @@ namespace WindowsApplication1
         byte[] numArray1 = new byte[info.GetInt32("DataSize") + 1];
         Stream input = (Stream) new MemoryStream((byte[]) info.GetValue("Data", numArray1.GetType()));
         BinaryReader br = new BinaryReader(input);
-        int mapWidth = this.MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapWidth: i32 =  this.MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
             this.HexObj[index1, index2] = new HexClass(0, 0, 0);
             this.HexObj[index1, index2].StreamRead( br);
@@ -162,11 +162,11 @@ namespace WindowsApplication1
       this.MapLoop = false;
       this.CanSee = false;
       this.HexObj = new HexClass[w + 1, h + 1];
-      int num1 = w;
-      for (int index1 = 0; index1 <= num1; index1 += 1)
+      let mut num1: i32 =  w;
+      for (let mut index1: i32 =  0; index1 <= num1; index1 += 1)
       {
-        int num2 = h;
-        for (int index2 = 0; index2 <= num2; index2 += 1)
+        let mut num2: i32 =  h;
+        for (let mut index2: i32 =  0; index2 <= num2; index2 += 1)
         {
           this.HexObj[index1, index2] = new HexClass(0, regimecount, regimecount);
           this.HexObj[index1, index2].Location2 = -1;

@@ -26,7 +26,7 @@ namespace WindowsApplication1
      int lastMouseOverY;
      int lastUnitSelected;
 
-    pub MapWindowClass2( GameClass tGame, int tminheight = 0, int tminwidth = 200, int tZoomLevel = -2)
+    pub MapWindowClass2( GameClass tGame, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200, let mut tZoomLevel: i32 =  -2)
       : base( tGame, tGame.ScreenWidth - tminwidth, tGame.ScreenHeight - tminheight)
     {
       this.game.EditObj.se1_map_data3cache_set = false;
@@ -69,7 +69,7 @@ namespace WindowsApplication1
       if (!(this.game.EditObj.ScrollDir > 0 & !this.game.EditObj.BattleTimerActive))
         this.lastscroll = DateAndTime.Now;
       TimeSpan timeSpan = now.Subtract(this.lastscroll);
-      int num = timeSpan.Milliseconds + timeSpan.Seconds * 1000;
+      let mut num: i32 =  timeSpan.Milliseconds + timeSpan.Seconds * 1000;
       if (this.game.EditObj.ScrollDir == 1 & !this.game.EditObj.BattleTimerActive & num >= 0)
       {
         this.game.EditObj.ScrollDir = 0;
@@ -94,7 +94,7 @@ namespace WindowsApplication1
       {
         if (this.game.EditObj.BattleAnimNr == 0 && this.game.EditObj.udsUnitOrderMode != 33 & this.game.EditObj.OrderType != 33)
         {
-          int volume2 = this.game.EditObj.Volume2;
+          let mut volume2: i32 =  this.game.EditObj.Volume2;
           this.game.EditObj.Volume2 =  Math.Round((double) this.game.EditObj.Volume2 / 2.0);
           if (this.game.EditObj.SoundOn)
             SoundMod.PlayAWave(this.game.AppPath + "sound/blow.wav",  this.game.EditObj);
@@ -137,11 +137,11 @@ namespace WindowsApplication1
         if (this.game.EditObj.BattleAnimNr > 32)
           this.game.EditObj.BattleAnimNr = 32;
         let mut subPart: SubPartClass = this.SubPartList[this.SubpartNr(this.MapId)];
-        int targetX = this.game.EditObj.TargetX;
-        int targetY = this.game.EditObj.TargetY;
-        int mapSelected = this.game.EditObj.MapSelected;
+        let mut targetX: i32 =  this.game.EditObj.TargetX;
+        let mut targetY: i32 =  this.game.EditObj.TargetY;
+        let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
         Bitmap bitmap = (Bitmap) null;
-         Bitmap local =  bitmap;
+         let mut local: &Bitmap = &bitmap;
         subPart.PaintCoordinate((Graphics) null, targetX, targetY, mapSelected, gBitmap: ( local));
         this.game.EditObj.TempCoordList = CoordList::new();
         this.game.EditObj.TempCoordList.active = true;
@@ -169,16 +169,16 @@ namespace WindowsApplication1
       if (this.game.EditObj.BattleTimerActive)
         return windowReturnClass;
       bool flag = false;
-      int cornerX1 = this.game.CornerX;
-      int cornerY1 = this.game.CornerY;
+      let mut cornerX1: i32 =  this.game.CornerX;
+      let mut cornerY1: i32 =  this.game.CornerY;
       if (this.game.EventRelatedObj.Helper_IsDebug() && nr == 46)
       {
-        int memorySize1 = this.game.FormRef.GetMemorySize();
-        int memorySize2 = BitmapStore.GetMemorySize();
-        int num =  Interaction.MsgBox((object) ("Memory Used Right Now by GUI (" + Conversion.Str((object) memorySize1) + "KB) + Bitmapstore (" + Conversion.Str((object) memorySize2) + "KB) =" + Conversion.Str((object)  Math.Round((double) (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut memorySize1: i32 =  this.game.FormRef.GetMemorySize();
+        let mut memorySize2: i32 =  BitmapStore.GetMemorySize();
+        let mut num: i32 =   Interaction.MsgBox((object) ("Memory Used Right Now by GUI (" + Conversion.Str((object) memorySize1) + "KB) + Bitmapstore (" + Conversion.Str((object) memorySize2) + "KB) =" + Conversion.Str((object)  Math.Round((double) (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ((object) "Shadow Empire : Planetary Conquest"));
         StreamWriter text1 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_missingsystemgraphics.txt");
-        int counter1 = BitmapStore.Counter;
-        for (int nr1 = 0; nr1 <= counter1; nr1 += 1)
+        let mut counter1: i32 =  BitmapStore.Counter;
+        for (let mut nr1: i32 =  0; nr1 <= counter1; nr1 += 1)
         {
           if (BitmapStore.tmpIsSystem[nr1] && BitmapStore.GetWidth(nr1) == 1 & BitmapStore.Getheight(nr1) == 1)
           {
@@ -188,8 +188,8 @@ namespace WindowsApplication1
         }
         text1.Close();
         StreamWriter text2 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_presentscenariographics.txt");
-        int counter2 = BitmapStore.Counter;
-        for (int index = 0; index <= counter2; index += 1)
+        let mut counter2: i32 =  BitmapStore.Counter;
+        for (let mut index: i32 =  0; index <= counter2; index += 1)
         {
           if (!BitmapStore.tmpIsSystem[index])
           {
@@ -227,7 +227,7 @@ namespace WindowsApplication1
       int cornerY2;
       if (nr == 57 & this.game.EditObj.layerUnits)
       {
-        int index1 = this.game.HandyFunctionsObj.NextCycleUnit(this.game.EditObj.UnitSelected, true);
+        let mut index1: i32 =  this.game.HandyFunctionsObj.NextCycleUnit(this.game.EditObj.UnitSelected, true);
         if (!(index1 != this.game.EditObj.UnitSelected & index1 > -1))
           return windowReturnClass;
         this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
@@ -237,15 +237,15 @@ namespace WindowsApplication1
         cornerX2 = this.game.CornerX;
         cornerY2 = this.game.CornerY;
         this.game.HandyFunctionsObj.SetcornerXY2(this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, true);
-        int index2 = 0;
-        int num = index1;
+        let mut index2: i32 =  0;
+        let mut num: i32 =  index1;
         while (this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] != num)
         {
-          int unit = this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
+          let mut unit: i32 =  this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
           index2 = 0;
           if (this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 0)
           {
-            for (int unitCounter = this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter; unitCounter >= 1; unitCounter += -1)
+            for (let mut unitCounter: i32 =  this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter; unitCounter >= 1; unitCounter += -1)
               this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitList[unitCounter] = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitList[unitCounter - 1];
           }
           this.game.Data.MapObj[index2].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] = unit;
@@ -261,7 +261,7 @@ namespace WindowsApplication1
       }
       if (nr == 56 & this.game.EditObj.layerUnits)
       {
-        int index3 = this.game.HandyFunctionsObj.NextCycleUnit(this.game.EditObj.UnitSelected, false);
+        let mut index3: i32 =  this.game.HandyFunctionsObj.NextCycleUnit(this.game.EditObj.UnitSelected, false);
         if (index3 != this.game.EditObj.UnitSelected & index3 > -1)
         {
           this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
@@ -271,15 +271,15 @@ namespace WindowsApplication1
           cornerX2 = this.game.CornerX;
           cornerY2 = this.game.CornerY;
           this.game.HandyFunctionsObj.SetcornerXY2(this.game.Data.UnitObj[index3].X, this.game.Data.UnitObj[index3].Y, true);
-          int index4 = 0;
-          int num = index3;
+          let mut index4: i32 =  0;
+          let mut num: i32 =  index3;
           while (this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] != num)
           {
-            int unit = this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
+            let mut unit: i32 =  this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
             index4 = 0;
             if (this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 0)
             {
-              for (int unitCounter = this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter; unitCounter >= 1; unitCounter += -1)
+              for (let mut unitCounter: i32 =  this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter; unitCounter >= 1; unitCounter += -1)
                 this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitList[unitCounter] = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitList[unitCounter - 1];
             }
             this.game.Data.MapObj[index4].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] = unit;
@@ -311,8 +311,8 @@ namespace WindowsApplication1
         }
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].Type == 5)
         {
-          int unitCounter = this.game.Data.UnitCounter;
-          for (int index = 0; index <= unitCounter; index += 1)
+          let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+          for (let mut index: i32 =  0; index <= unitCounter; index += 1)
           {
             if (this.game.Data.UnitObj[index].HQ == this.game.EditObj.UnitSelected)
             {
@@ -340,8 +340,8 @@ namespace WindowsApplication1
       }
       if (nr == 81 & this.game.EditObj.layerUnits)
       {
-        int unitCounter = this.game.Data.UnitCounter;
-        for (int index = 0; index <= unitCounter; index += 1)
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+        for (let mut index: i32 =  0; index <= unitCounter; index += 1)
         {
           if (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index].PreDef == -1 & this.game.Data.UnitObj[index].Historical > -1 && this.game.Data.UnitObj[index].cycleOrder < 0L)
             this.game.Data.UnitObj[index].cycleOrder = Math.Abs(this.game.Data.UnitObj[index].cycleOrder);
@@ -354,11 +354,11 @@ namespace WindowsApplication1
         windowReturnClass.SetFlag(true);
         return windowReturnClass;
       }
-      int num1 = 0;
-      int num2 =  Math.Round(Conversion.Int((double) this.OwnBitmap.Width / (double) (30 * (this.game.EditObj.Zoom + 2))));
-      int num3 =  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 2))));
-      int num4 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
-      int num5 = (double) this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 4 - this.game.CornerY + 3;
+      let mut num1: i32 =  0;
+      let mut num2: i32 =   Math.Round(Conversion.Int((double) this.OwnBitmap.Width / (double) (30 * (this.game.EditObj.Zoom + 2))));
+      let mut num3: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 2))));
+      let mut num4: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
+      let mut num5: i32 =  (double) this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 4 - this.game.CornerY + 3;
       if (this.game.EditObj.Zoom == 1)
       {
         num2 -= 3;
@@ -431,16 +431,16 @@ namespace WindowsApplication1
         this.game.EditObj.se1_map_data3cache_set = false;
       else if (this.game.EditObj.se1_map_data3cache_set)
       {
-        int stringListById1 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 143, 0, 0));
-        int stringListById2 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
-        int num1 = Math.Max(0, this.game.Data.StringListObj[stringListById1].GetHighestValue(0)) + 5;
-        int regimeCounter = this.game.Data.RegimeCounter;
-        for (int index = 0; index <= regimeCounter; index += 1)
+        let mut stringListById1: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 143, 0, 0));
+        let mut stringListById2: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
+        let mut num1: i32 =  Math.Max(0, this.game.Data.StringListObj[stringListById1].GetHighestValue(0)) + 5;
+        let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+        for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         {
           if (this.game.Data.RegimeObj[index].id > num1)
             num1 = this.game.Data.RegimeObj[index].id;
         }
-        int num2 = Math.Max(0, this.game.Data.StringListObj[stringListById2].GetHighestValue(0)) + 5;
+        let mut num2: i32 =  Math.Max(0, this.game.Data.StringListObj[stringListById2].GetHighestValue(0)) + 5;
         if (this.game.CustomBitmapObj.cacheDipClear.GetUpperBound(0) < num1)
           this.game.EditObj.se1_map_data3cache_set = false;
         else if (this.game.CustomBitmapObj.cacheZoneRecon.GetUpperBound(1) < num2)
@@ -789,21 +789,21 @@ namespace WindowsApplication1
         {
           this.game.EditObj.OrderType = 18;
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
-          int unitWeight = this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.UnitSelected);
-          int counter = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut unitWeight: i32 =  this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.UnitSelected);
+          let mut counter: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
           {
-            int integer = Conversions.ToInteger(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]))].GetData(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Id[index], 3));
+            let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]))].GetData(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Id[index], 3));
             unitWeight += integer * this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Weight[index];
           }
-          int sizeForAirBridge = this.game.HandyFunctionsObj.GetHighestSizeForAirBridge(this.game.EditObj.UnitSelected);
+          let mut sizeForAirBridge: i32 =  this.game.HandyFunctionsObj.GetHighestSizeForAirBridge(this.game.EditObj.UnitSelected);
           this.game.HandyFunctionsObj.MakeMovePredictionLIS(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, unitWeight, useAirBridge: true, weightSize: sizeForAirBridge);
           this.game.EditObj.TempCoordList = CoordList::new();
-          int mapWidth = this.game.Data.MapObj[0].MapWidth;
-          for (int x = 0; x <= mapWidth; x += 1)
+          let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+          for (let mut x: i32 =  0; x <= mapWidth; x += 1)
           {
-            int mapHeight = this.game.Data.MapObj[0].MapHeight;
-            for (int y = 0; y <= mapHeight; y += 1)
+            let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+            for (let mut y: i32 =  0; y <= mapHeight; y += 1)
             {
               if (this.game.EditObj.TempValue[0].Value[x, y] > 0)
               {
@@ -885,18 +885,18 @@ namespace WindowsApplication1
           this.game.EditObj.OrderType = this.game.EditObj.udsUnitOrderMode;
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
           this.game.EditObj.TempCoordList = CoordList::new();
-          int x = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X;
-          int y = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y;
-          int num1 = this.game.HandyFunctionsObj.GetMaxAirRange(this.game.EditObj.UnitSelected);
+          let mut x: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X;
+          let mut y: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y;
+          let mut num1: i32 =  this.game.HandyFunctionsObj.GetMaxAirRange(this.game.EditObj.UnitSelected);
           if (this.game.EditObj.udsUnitOrderMode == 55)
           {
-            int num2 = Math.Min(this.game.HandyFunctionsObj.GetLowestAirAp(this.game.EditObj.UnitSelected), this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected));
+            let mut num2: i32 =  Math.Min(this.game.HandyFunctionsObj.GetLowestAirAp(this.game.EditObj.UnitSelected), this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected));
             if (num2 > 100)
               num2 = 100;
             num1 =  Math.Round(Math.Floor((double) (num1 * num2) / 100.0));
           }
           this.game.HandyFunctionsObj.RedimTempValue(9999);
-          int minimumAirfieldLevel = this.game.HandyFunctionsObj.SE1_GetUnitMinimumAirfieldLevel(this.game.EditObj.UnitSelected);
+          let mut minimumAirfieldLevel: i32 =  this.game.HandyFunctionsObj.SE1_GetUnitMinimumAirfieldLevel(this.game.EditObj.UnitSelected);
           this.game.HandyFunctionsObj.GetLowestAirAp(this.game.EditObj.UnitSelected);
           bool flag5 = true;
           if (minimumAirfieldLevel > 0)
@@ -913,10 +913,10 @@ namespace WindowsApplication1
             flag5 = false;
           if (flag5)
           {
-            int num3 = x - (num1 + 1);
-            int num4 = x + (num1 + 1);
-            int num5 = y - (num1 + 1);
-            int num6 = y + (num1 + 1);
+            let mut num3: i32 =  x - (num1 + 1);
+            let mut num4: i32 =  x + (num1 + 1);
+            let mut num5: i32 =  y - (num1 + 1);
+            let mut num6: i32 =  y + (num1 + 1);
             if (num1 >= 999)
             {
               num3 = 0;
@@ -924,16 +924,16 @@ namespace WindowsApplication1
               num5 = 0;
               num6 = this.game.Data.MapObj[0].MapHeight;
             }
-            int num7 = num3;
-            int num8 = num4;
-            for (int index1 = num7; index1 <= num8; index1 += 1)
+            let mut num7: i32 =  num3;
+            let mut num8: i32 =  num4;
+            for (let mut index1: i32 =  num7; index1 <= num8; index1 += 1)
             {
-              int num9 = num5;
-              int num10 = num6;
-              for (int index2 = num9; index2 <= num10; index2 += 1)
+              let mut num9: i32 =  num5;
+              let mut num10: i32 =  num6;
+              for (let mut index2: i32 =  num9; index2 <= num10; index2 += 1)
               {
-                int index3 = index1;
-                int index4 = index2;
+                let mut index3: i32 =  index1;
+                let mut index4: i32 =  index2;
                 if (index3 == 22 & index4 == 8)
                   index3 = index3;
                 if (index3 > this.game.Data.MapObj[0].MapWidth)
@@ -962,7 +962,7 @@ namespace WindowsApplication1
                   }
                   if (flag6)
                   {
-                    int num11 = this.game.HandyFunctionsObj.Distance(x, y, 0, index3, index4, 0, num1 + 1);
+                    let mut num11: i32 =  this.game.HandyFunctionsObj.Distance(x, y, 0, index3, index4, 0, num1 + 1);
                     if (num11 <= num1)
                     {
                       this.game.EditObj.TempValue[0].Value[index3, index4] = num11;
@@ -1048,14 +1048,14 @@ namespace WindowsApplication1
           this.game.EditObj.OrderType = this.game.EditObj.udsUnitOrderMode;
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
           this.game.EditObj.TempCoordList = CoordList::new();
-          int x = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X;
-          int y = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y;
-          int maxArtRange = this.game.HandyFunctionsObj.GetMaxArtRange(this.game.EditObj.UnitSelected, 0);
+          let mut x: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X;
+          let mut y: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y;
+          let mut maxArtRange: i32 =  this.game.HandyFunctionsObj.GetMaxArtRange(this.game.EditObj.UnitSelected, 0);
           this.game.HandyFunctionsObj.RedimTempValue(9999);
-          int num12 = x - (maxArtRange + 1);
-          int num13 = x + (maxArtRange + 1);
-          int num14 = y - (maxArtRange + 1);
-          int num15 = y + (maxArtRange + 1);
+          let mut num12: i32 =  x - (maxArtRange + 1);
+          let mut num13: i32 =  x + (maxArtRange + 1);
+          let mut num14: i32 =  y - (maxArtRange + 1);
+          let mut num15: i32 =  y + (maxArtRange + 1);
           if (maxArtRange >= 999)
           {
             num12 = 0;
@@ -1063,16 +1063,16 @@ namespace WindowsApplication1
             num14 = 0;
             num15 = this.game.Data.MapObj[0].MapHeight;
           }
-          int num16 = num12;
-          int num17 = num13;
-          for (int index5 = num16; index5 <= num17; index5 += 1)
+          let mut num16: i32 =  num12;
+          let mut num17: i32 =  num13;
+          for (let mut index5: i32 =  num16; index5 <= num17; index5 += 1)
           {
-            int num18 = num14;
-            int num19 = num15;
-            for (int index6 = num18; index6 <= num19; index6 += 1)
+            let mut num18: i32 =  num14;
+            let mut num19: i32 =  num15;
+            for (let mut index6: i32 =  num18; index6 <= num19; index6 += 1)
             {
-              int index7 = index5;
-              int index8 = index6;
+              let mut index7: i32 =  index5;
+              let mut index8: i32 =  index6;
               if (index7 == 22 & index8 == 8)
                 index7 = index7;
               if (index7 > this.game.Data.MapObj[0].MapWidth)
@@ -1081,7 +1081,7 @@ namespace WindowsApplication1
                 index7 = this.game.Data.MapObj[0].MapWidth - (Math.Abs(index7) - 1);
               if (index7 >= 0 & index8 >= 0 & index7 <= this.game.Data.MapObj[0].MapWidth & index8 <= this.game.Data.MapObj[0].MapHeight && this.game.Data.MapObj[0].HexObj[index7, index8].Regime > -1 & this.game.Data.MapObj[0].HexObj[index7, index8].MaxRecon > 0 && this.game.EventRelatedObj.Helper_CanAttack(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[index7, index8].Regime, false) && this.game.Data.MapObj[0].HexObj[index7, index8].Regime != this.game.Data.Turn & this.game.Data.MapObj[0].HexObj[index7, index8].Regime > -1)
               {
-                int num20 = this.game.HandyFunctionsObj.Distance(x, y, 0, index7, index8, 0, maxArtRange + 1);
+                let mut num20: i32 =  this.game.HandyFunctionsObj.Distance(x, y, 0, index7, index8, 0, maxArtRange + 1);
                 if (num20 <= maxArtRange)
                 {
                   this.game.EditObj.TempValue[0].Value[index7, index8] = num20;
@@ -1202,14 +1202,14 @@ namespace WindowsApplication1
       this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1] && this.SubPartID[index1] == this.MapId)
           {
-            int index2 = this.game.SelectX;
-            int selectY1 = this.game.SelectY;
-            int mapSelected1 = this.game.EditObj.MapSelected;
+            let mut index2: i32 =  this.game.SelectX;
+            let mut selectY1: i32 =  this.game.SelectY;
+            let mut mapSelected1: i32 =  this.game.EditObj.MapSelected;
             Coordinate coordinate1 = this.SubPartList[index1].ClickMap(x - this.SubPartX[index1], y - this.SubPartY[index1]);
             if (coordinate1.onmap)
             {
@@ -1244,7 +1244,7 @@ namespace WindowsApplication1
                   return windowReturnClass1;
                 }
               }
-              int num1 = !(index2 == this.game.SelectX & selectY1 == this.game.SelectY) ? this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, true, b, coordinate1.data1, coordinate1.penalty, isMainMap: true) : this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, false, b, coordinate1.data1, coordinate1.penalty, isMainMap: true);
+              let mut num1: i32 =  !(index2 == this.game.SelectX & selectY1 == this.game.SelectY) ? this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, true, b, coordinate1.data1, coordinate1.penalty, isMainMap: true) : this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, false, b, coordinate1.data1, coordinate1.penalty, isMainMap: true);
               if (this.game.EditObj.UnitSelected != num1)
                 this.game.EditObj.SFSelected = -1;
               this.game.EditObj.UnitSelected = num1;
@@ -1254,12 +1254,12 @@ namespace WindowsApplication1
               if (this.game.SelectX > -1 & this.game.SelectY > -1 & this.game.SelectX <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth & this.game.SelectY <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
               {
                 let mut subPart: SubPartClass = this.SubPartList[this.SubpartNr(this.MapId)];
-                int selectX = this.game.SelectX;
-                int selectY2 = this.game.SelectY;
-                int map = mapSelected1;
-                int counterAlpha = this.game.EditObj.CounterAlpha;
+                let mut selectX: i32 =  this.game.SelectX;
+                let mut selectY2: i32 =  this.game.SelectY;
+                let mut map: i32 =  mapSelected1;
+                let mut counterAlpha: i32 =  this.game.EditObj.CounterAlpha;
                 bitmap = (Bitmap) null;
-                 Bitmap local =  bitmap;
+                 let mut local: &Bitmap = &bitmap;
                 subPart.PaintCoordinate((Graphics) null, selectX, selectY2, map, counterAlpha,  local);
               }
               Coordinate Target;
@@ -1272,16 +1272,16 @@ namespace WindowsApplication1
                     data: DataClass = DrawMod.TGame.Data;
                     str: String = "Zones";
                      local: String =  str;
-                    int libVar = data.FindLibVar( local, "SE_Data");
-                    int hexLibVarValue = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(libVar);
-                    int num2 = -1;
-                    int index3 = -1;
+                    let mut libVar: i32 =  data.FindLibVar( local, "SE_Data");
+                    let mut hexLibVarValue: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(libVar);
+                    let mut num2: i32 =  -1;
+                    let mut index3: i32 =  -1;
                     bool flag = true;
                     if (hexLibVarValue > 0)
                     {
-                      int stringListById = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
+                      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
                       num2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, hexLibVarValue, 8)));
-                      int id =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, hexLibVarValue, 6)));
+                      let mut id: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, hexLibVarValue, 6)));
                       if (id > 0)
                         index3 = this.game.HandyFunctionsObj.GetLocationByID(id);
                     }
@@ -1289,11 +1289,11 @@ namespace WindowsApplication1
                       flag = false;
                     if (num2 == this.game.Data.RegimeObj[this.game.Data.Turn].id & flag && hexLibVarValue != this.game.EditObj.OrderSubType)
                     {
-                      int num3 = 0;
-                      int num4 = 0;
+                      let mut num3: i32 =  0;
+                      let mut num4: i32 =  0;
                       if (Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
                         this.game.EditObj.TempCoordListLastMove = CoordList::new();
-                      int tfacing = 1;
+                      let mut tfacing: i32 =  1;
                       Coordinate coordinate2;
                       do
                       {
@@ -1354,9 +1354,9 @@ namespace WindowsApplication1
                   }
                   if (this.game.EditObj.OrderType == 55 | this.game.EditObj.OrderType == 33 | this.game.EditObj.OrderType == 14 | this.game.EditObj.OrderType == 11 | this.game.EditObj.OrderType == 1 | this.game.EditObj.OrderType == 48 && this.game.EditObj.TempValueSpecial[0].Value[this.game.SelectX, this.game.SelectY] >= 2)
                   {
-                    int eventByLib = this.game.EventRelatedObj.CheckGetEventByLib("SE_Present", 506, 0, 0);
-                    int areaX = this.game.EditObj.AreaX;
-                    int areaY = this.game.EditObj.AreaY;
+                    let mut eventByLib: i32 =  this.game.EventRelatedObj.CheckGetEventByLib("SE_Present", 506, 0, 0);
+                    let mut areaX: i32 =  this.game.EditObj.AreaX;
+                    let mut areaY: i32 =  this.game.EditObj.AreaY;
                     this.game.EditObj.AreaX = this.game.SelectX;
                     this.game.EditObj.AreaY = this.game.SelectY;
                     this.game.EditObj.UDSinputCounter = -1;
@@ -1432,7 +1432,7 @@ namespace WindowsApplication1
                       if (!this.game.HandyFunctionsObj.VisibleEnemyUnitsInHex(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.Data.Turn, true))
                       {
                         this += 1.game.Data.StepNr;
-                        int orderUnit = this.game.EditObj.OrderUnit;
+                        let mut orderUnit: i32 =  this.game.EditObj.OrderUnit;
                         if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Regime != this.game.Data.UnitObj[orderUnit].Regime)
                         {
                           infostring: String = "Air Landing: " + this.game.Data.UnitObj[orderUnit].Name + " disembarks...";
@@ -1443,7 +1443,7 @@ namespace WindowsApplication1
                           this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].set_LastReg(this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Regime, this.game.Data.UnitObj[orderUnit].Regime);
                         this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].set_LastReg(this.game.Data.UnitObj[orderUnit].Regime, this.game.Data.UnitObj[orderUnit].Regime);
                         this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Regime = this.game.Data.UnitObj[orderUnit].Regime;
-                        int tfacing = 1;
+                        let mut tfacing: i32 =  1;
                         do
                         {
                           Coordinate coordinate4 = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, 0, tfacing);
@@ -1516,11 +1516,11 @@ namespace WindowsApplication1
                     if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.UnitSelected > -1 & this.game.EditObj.OrderUnit > -1)
                     {
                       bool flag = false;
-                      int x1 = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X;
-                      int y1 = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y;
+                      let mut x1: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X;
+                      let mut y1: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y;
                       if (x1 > -1 && this.game.HandyFunctionsObj.Distance(x1, y1, 0, this.game.SelectX, this.game.SelectY, 0, 1) == 1)
                       {
-                        int index4 = 0;
+                        let mut index4: i32 =  0;
                         do
                         {
                           if (this.game.EditObj.TempAttack[0].Value[this.game.SelectX, this.game.SelectY, index4])
@@ -1548,11 +1548,11 @@ namespace WindowsApplication1
                     if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.UnitSelected > -1 & this.game.EditObj.OrderUnit > -1)
                     {
                       bool flag = false;
-                      int x2 = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X;
-                      int y2 = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y;
+                      let mut x2: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X;
+                      let mut y2: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y;
                       if (x2 > -1 && this.game.HandyFunctionsObj.Distance(x2, y2, 0, this.game.SelectX, this.game.SelectY, 0, 1) == 1)
                       {
-                        int index5 = 0;
+                        let mut index5: i32 =  0;
                         do
                         {
                           if (this.game.EditObj.TempAttack[0].Value[this.game.SelectX, this.game.SelectY, index5])
@@ -1678,12 +1678,12 @@ namespace WindowsApplication1
                   }
                   else if (this.game.EditObj.PencilType == 2)
                   {
-                    int num5 = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                    int num6 = this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
+                    let mut num5: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                    let mut num6: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
                     if (num5 > -1)
                     {
-                      int index6 = num5 - 1;
-                      int index7 = num6 - 1;
+                      let mut index6: i32 =  num5 - 1;
+                      let mut index7: i32 =  num6 - 1;
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].RoadType[index6] == -1)
                         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].RoadType[index6] = this.game.EditObj.PencilData1;
                       else
@@ -1738,12 +1738,12 @@ namespace WindowsApplication1
                   }
                   else if (this.game.EditObj.PencilType == 5)
                   {
-                    int num7 = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                    int num8 = this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
+                    let mut num7: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                    let mut num8: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
                     if (num7 > -1)
                     {
-                      int index8 = num7 - 1;
-                      int index9 = num8 - 1;
+                      let mut index8: i32 =  num7 - 1;
+                      let mut index9: i32 =  num8 - 1;
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].RiverType[index8] == -1)
                       {
                         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].RiverType[index8] = this.game.EditObj.PencilData1;
@@ -1762,12 +1762,12 @@ namespace WindowsApplication1
                   }
                   else if (this.game.EditObj.PencilType == 6)
                   {
-                    int num9 = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                    int num10 = this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
+                    let mut num9: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                    let mut num10: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
                     if (num9 > -1)
                     {
-                      int index10 = num9 - 1;
-                      int index11 = num10 - 1;
+                      let mut index10: i32 =  num9 - 1;
+                      let mut index11: i32 =  num10 - 1;
                       if (!this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].Bridge[index10])
                         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].Bridge[index10] = true;
                       else
@@ -1856,14 +1856,14 @@ namespace WindowsApplication1
                       this.game.EditObj.RightClickX = this.game.SelectX;
                       this.game.EditObj.RightCLickY = this.game.SelectY;
                       this.game.EditObj.RightClickMap = this.game.EditObj.MapSelected;
-                      int x3 = this.game.EditObj.RightClickX;
-                      int y3 = this.game.EditObj.RightCLickY;
+                      let mut x3: i32 =  this.game.EditObj.RightClickX;
+                      let mut y3: i32 =  this.game.EditObj.RightCLickY;
                       int map1;
-                      for (int map2 = this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].onmap; map2 = map1)
+                      for (let mut map2: i32 =  this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].onmap; map2 = map1)
                       {
                         this.game.EditObj.SupplyPath.AddCoord(x3, y3, map2);
-                        int x4 = this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].x;
-                        int y4 = this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].y;
+                        let mut x4: i32 =  this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].x;
+                        let mut y4: i32 =  this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].y;
                         map1 = this.game.EditObj.TempSupCameFrom[map2].Value[x3, y3].map;
                         x3 = x4;
                         y3 = y4;
@@ -1941,8 +1941,8 @@ namespace WindowsApplication1
                         simpleList.Add(this.game.EditObj.OrderUnit, 1);
                       else if ((double) this.game.Data.RuleVar[954] == 1.0)
                       {
-                        int unitCounter = this.game.Data.UnitCounter;
-                        for (int tid = 0; tid <= unitCounter; tid += 1)
+                        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                        for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
                         {
                           if (this.game.Data.UnitObj[tid].X > -1 & this.game.Data.UnitObj[tid].X == this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X & this.game.Data.UnitObj[tid].Y == this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y & this.game.Data.UnitObj[tid].Regime == this.game.Data.Turn & this.game.Data.UnitObj[tid].PreDef == -1)
                             simpleList.Add(tid, 1);
@@ -1950,16 +1950,16 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        int historical = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical;
-                        int unitCounter = this.game.Data.UnitCounter;
-                        for (int tid = 0; tid <= unitCounter; tid += 1)
+                        let mut historical: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical;
+                        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                        for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
                         {
                           if (this.game.Data.UnitObj[tid].Historical == historical & this.game.Data.UnitObj[tid].Regime == this.game.Data.Turn & this.game.Data.UnitObj[tid].PreDef == -1)
                             simpleList.Add(tid, 1);
                         }
                       }
-                      int counter = simpleList.Counter;
-                      for (int index12 = 0; index12 <= counter; index12 += 1)
+                      let mut counter: i32 =  simpleList.Counter;
+                      for (let mut index12: i32 =  0; index12 <= counter; index12 += 1)
                       {
                         this.game.EditObj.OrderUnit = simpleList.Id[index12];
                         if (this.game.EditObj.OrderType == 48)
@@ -2020,8 +2020,8 @@ namespace WindowsApplication1
                           this.game.EditObj.AreaY = -1;
                           this.game.EditObj.AreaMap = -1;
                           OrderResult orderResult3 = this.game.ProcessingObj.ExecuteMovement(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                          int lowestSpeed1 = this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1);
-                          int lowestSpeed2 = this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1, true);
+                          let mut lowestSpeed1: i32 =  this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1);
+                          let mut lowestSpeed2: i32 =  this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1, true);
                           if (lowestSpeed1 > -1 & index12 == 0)
                           {
                             if (this.game.Data.SFObj[lowestSpeed2].MoveType == -1)
@@ -2096,7 +2096,7 @@ namespace WindowsApplication1
                                 this.game.EditObj.OrderType = 0;
                                 return windowReturnClass1;
                               }
-                              int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+                              let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
                               this.game.ProcessingObj.PlayCard(this.game.EditObj.DoCardSlot);
                               if (Strings.Len(this.game.Data.LoadGame) > 0)
                               {
@@ -2109,13 +2109,13 @@ namespace WindowsApplication1
                                 this.game.EditObj.OrderType = 0;
                                 return windowReturnClass1;
                               }
-                              int num11 = 0;
-                              int locCounter = this.game.Data.LocCounter;
-                              for (int locnr = 0; locnr <= locCounter; locnr += 1)
+                              let mut num11: i32 =  0;
+                              let mut locCounter: i32 =  this.game.Data.LocCounter;
+                              for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
                               {
                                 if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
                                 {
-                                  int index13 = 0;
+                                  let mut index13: i32 =  0;
                                   do
                                   {
                                     if (this.game.Data.LocObj[locnr].Production[index13] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index13]).result)
@@ -2339,11 +2339,11 @@ namespace WindowsApplication1
                       if (this.game.EditObj.UnitSelected > -1)
                       {
                         this.game.HandyFunctionsObj.AirSupplyNeeded(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, 0);
-                        int mapWidth = this.game.Data.MapObj[0].MapWidth;
-                        for (int index14 = 0; index14 <= mapWidth; index14 += 1)
+                        let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+                        for (let mut index14: i32 =  0; index14 <= mapWidth; index14 += 1)
                         {
-                          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-                          for (int index15 = 0; index15 <= mapHeight; index15 += 1)
+                          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+                          for (let mut index15: i32 =  0; index15 <= mapHeight; index15 += 1)
                             this.game.EditObj.TempValue[0].Value[index14, index15] = this.game.EditObj.TempValue2[0].Value[index14, index15];
                         }
                       }
@@ -2539,14 +2539,14 @@ namespace WindowsApplication1
                   this.game.EditObj.RightClickX = this.game.SelectX;
                   this.game.EditObj.RightCLickY = this.game.SelectY;
                   this.game.EditObj.RightClickMap = this.game.EditObj.MapSelected;
-                  int x5 = this.game.EditObj.RightClickX;
-                  int y5 = this.game.EditObj.RightCLickY;
+                  let mut x5: i32 =  this.game.EditObj.RightClickX;
+                  let mut y5: i32 =  this.game.EditObj.RightCLickY;
                   int map3;
-                  for (int map4 = this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].onmap; map4 = map3)
+                  for (let mut map4: i32 =  this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].onmap; map4 = map3)
                   {
                     this.game.EditObj.SupplyPath.AddCoord(x5, y5, map4);
-                    int x6 = this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].x;
-                    int y6 = this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].y;
+                    let mut x6: i32 =  this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].x;
+                    let mut y6: i32 =  this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].y;
                     map3 = this.game.EditObj.TempSupCameFrom[map4].Value[x5, y5].map;
                     x5 = x6;
                     y5 = y6;
@@ -2573,33 +2573,33 @@ namespace WindowsApplication1
               {
                 this.DrawLayersAndSuch();
                 let mut subPart1: SubPartClass = this.SubPartList[index1];
-                int x7 = index2;
-                int y7 = selectY1;
-                int map5 = mapSelected1;
+                let mut x7: i32 =  index2;
+                let mut y7: i32 =  selectY1;
+                let mut map5: i32 =  mapSelected1;
                 bitmap = (Bitmap) null;
-                 Bitmap local1 =  bitmap;
+                 let mut local1: &Bitmap = &bitmap;
                 subPart1.PaintCoordinate((Graphics) null, x7, y7, map5, gBitmap: ( local1));
                 let mut subPart2: SubPartClass = this.SubPartList[index1];
-                int selectX = this.game.SelectX;
-                int selectY3 = this.game.SelectY;
-                int mapSelected2 = this.game.EditObj.MapSelected;
+                let mut selectX: i32 =  this.game.SelectX;
+                let mut selectY3: i32 =  this.game.SelectY;
+                let mut mapSelected2: i32 =  this.game.EditObj.MapSelected;
                 bitmap = (Bitmap) null;
-                 Bitmap local2 =  bitmap;
+                 let mut local2: &Bitmap = &bitmap;
                 subPart2.PaintCoordinate((Graphics) null, selectX, selectY3, mapSelected2, gBitmap: ( local2));
                 if (this.game.Data.Round == 0 & this.game.EditObj.PencilType == 1)
                 {
-                  int tfacing = 1;
+                  let mut tfacing: i32 =  1;
                   do
                   {
                     Coordinate coordinate5 = this.game.HandyFunctionsObj.HexNeighbourSameMap(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, tfacing);
                     if (coordinate5.onmap)
                     {
                       let mut subPart3: SubPartClass = this.SubPartList[index1];
-                      int x8 = coordinate5.x;
-                      int y8 = coordinate5.y;
-                      int map6 = coordinate5.map;
+                      let mut x8: i32 =  coordinate5.x;
+                      let mut y8: i32 =  coordinate5.y;
+                      let mut map6: i32 =  coordinate5.map;
                       bitmap = (Bitmap) null;
-                       Bitmap local3 =  bitmap;
+                       let mut local3: &Bitmap = &bitmap;
                       subPart3.PaintCoordinate((Graphics) null, x8, y8, map6, gBitmap: ( local3));
                     }
                     tfacing += 1;
@@ -2635,7 +2635,7 @@ namespace WindowsApplication1
 
     pub DrawLayersAndSuch: bool(bool noClearMap = false)
     {
-      int num1 = 0;
+      let mut num1: i32 =  0;
       if (this.game.EditObj.OrderType == 26 | this.game.EditObj.AIMoving)
         return false;
       bool flag1;
@@ -2661,7 +2661,7 @@ namespace WindowsApplication1
         {
           if (this.game.HandyFunctionsObj.HasUnitAirSF(this.game.EditObj.UnitSelected))
           {
-            int increaseap =  Math.Round((double) (Conversion.Int((float) this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true) * this.game.Data.RuleVar[147]) - (float) this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true)));
+            let mut increaseap: i32 =   Math.Round((double) (Conversion.Int((float) this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true) * this.game.Data.RuleVar[147]) - (float) this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true)));
             this.game.HandyFunctionsObj.RedimTempValue(9999);
             if (this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true) - increaseap > 0)
             {
@@ -2671,16 +2671,16 @@ namespace WindowsApplication1
           }
           else if (this.game.HandyFunctionsObj.HasUnitArtSF(this.game.EditObj.UnitSelected, this.game.Data))
           {
-            int num2 = this.game.HandyFunctionsObj.GetUnitBestArtRange(this.game.EditObj.UnitSelected, this.game.Data) + 1;
+            let mut num2: i32 =  this.game.HandyFunctionsObj.GetUnitBestArtRange(this.game.EditObj.UnitSelected, this.game.Data) + 1;
             this.game.HandyFunctionsObj.RedimTempValue(9999);
-            int num3 = Math.Max(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X - num2);
+            let mut num3: i32 =  Math.Max(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X - num2);
             int num4;
-            int num5 = Math.Min(this.game.Data.MapObj[0].MapWidth, num4 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X + num2);
-            for (int index1 = num3; index1 <= num5; index1 += 1)
+            let mut num5: i32 =  Math.Min(this.game.Data.MapObj[0].MapWidth, num4 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X + num2);
+            for (let mut index1: i32 =  num3; index1 <= num5; index1 += 1)
             {
-              int num6 = Math.Max(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y - num2);
-              int num7 = Math.Min(this.game.Data.MapObj[0].MapHeight, index1 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y + num2);
-              for (int index2 = num6; index2 <= num7; index2 += 1)
+              let mut num6: i32 =  Math.Max(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y - num2);
+              let mut num7: i32 =  Math.Min(this.game.Data.MapObj[0].MapHeight, index1 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y + num2);
+              for (let mut index2: i32 =  num6; index2 <= num7; index2 += 1)
               {
                 if (this.game.HandyFunctionsObj.CanDoArtAttack(this.game.EditObj.UnitSelected, Coordinate::new()
                 {
@@ -2700,11 +2700,11 @@ namespace WindowsApplication1
         bool flag2 = false;
         if (!Information.IsNothing((object) this.game.EditObj.TempSup[0]))
         {
-          int mapWidth = this.game.Data.MapObj[0].MapWidth;
-          for (int index3 = 0; index3 <= mapWidth; index3 += 1)
+          let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+          for (let mut index3: i32 =  0; index3 <= mapWidth; index3 += 1)
           {
-            int mapHeight = this.game.Data.MapObj[0].MapHeight;
-            for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+            let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+            for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
             {
               if (this.game.Data.MapObj[0].HexObj[index3, index4].Regime == this.game.Data.Turn && this.game.EditObj.TempSup[0].Value[index3, index4] >= 9999)
                 flag2 = true;
@@ -2718,15 +2718,15 @@ namespace WindowsApplication1
           this.game.HandyFunctionsObj.RedimTempSup(9999);
           if (Information.IsNothing((object) this.game.DC2AIObj))
             this.game.DC2AIObj = new DC2AIClass(this.game);
-          int supplyMaximumRange = this.game.DC2AIObj.VAR_SUPPLY_MAXIMUM_RANGE;
+          let mut supplyMaximumRange: i32 =  this.game.DC2AIObj.VAR_SUPPLY_MAXIMUM_RANGE;
           this.game.DC2AIObj.VAR_SUPPLY_MAXIMUM_RANGE = 100;
           AIMatrix aiMatrix = new AIMatrix( this.game.DC2AIObj);
           AIMatrix ownerMatrix = new AIMatrix( this.game.DC2AIObj);
-          int mapWidth1 = this.game.Data.MapObj[0].MapWidth;
-          for (int x = 0; x <= mapWidth1; x += 1)
+          let mut mapWidth1: i32 =  this.game.Data.MapObj[0].MapWidth;
+          for (let mut x: i32 =  0; x <= mapWidth1; x += 1)
           {
-            int mapHeight = this.game.Data.MapObj[0].MapHeight;
-            for (int y = 0; y <= mapHeight; y += 1)
+            let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+            for (let mut y: i32 =  0; y <= mapHeight; y += 1)
             {
               aiMatrix.Value[x, y] = 9999;
               ownerMatrix.Value[x, y] = 2;
@@ -2750,11 +2750,11 @@ namespace WindowsApplication1
           if (this.game.DC2AIObj.TempHexNeighbour.GetUpperBound(0) < this.game.Data.MapObj[0].MapWidth)
             this.game.DC2AIObj.SetTempHexNeighbours();
           aiMatrix.ExpandAsSimplifiedSupplyMatrix(10,  ownerMatrix, 1, (AICoordinateMatrix) null);
-          int mapWidth2 = this.game.Data.MapObj[0].MapWidth;
-          for (int index5 = 0; index5 <= mapWidth2; index5 += 1)
+          let mut mapWidth2: i32 =  this.game.Data.MapObj[0].MapWidth;
+          for (let mut index5: i32 =  0; index5 <= mapWidth2; index5 += 1)
           {
-            int mapHeight = this.game.Data.MapObj[0].MapHeight;
-            for (int index6 = 0; index6 <= mapHeight; index6 += 1)
+            let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+            for (let mut index6: i32 =  0; index6 <= mapHeight; index6 += 1)
               this.game.EditObj.TempSup[0].Value[index5, index6] = aiMatrix.Value[index5, index6];
           }
           this.game.DC2AIObj.VAR_SUPPLY_MAXIMUM_RANGE = supplyMaximumRange;
@@ -2781,34 +2781,34 @@ namespace WindowsApplication1
         {
           if (this.game.EditObj.OldUnit > -1 && !this.game.Data.UnitObj[this.game.EditObj.OldUnit].IsHQ & this.game.Data.UnitObj[this.game.EditObj.OldUnit].Regime == this.game.Data.Turn & this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ > -1)
           {
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int index = 0; index <= unitCounter; index += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
               if (!this.game.Data.UnitObj[index].IsHQ & this.game.Data.UnitObj[index].HQ == this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ | this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ == index && this.game.Data.UnitObj[index].HQ > -1 && this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical].Type < 8 && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
-                int x = this.game.Data.UnitObj[index].X;
-                int y = this.game.Data.UnitObj[index].Y;
-                int map = num1;
+                let mut x: i32 =  this.game.Data.UnitObj[index].X;
+                let mut y: i32 =  this.game.Data.UnitObj[index].Y;
+                let mut map: i32 =  num1;
                 bitmap = (Bitmap) null;
-                 Bitmap local =  bitmap;
+                 let mut local: &Bitmap = &bitmap;
                 subPart.PaintCoordinate((Graphics) null, x, y, map, gBitmap: ( local));
               }
             }
           }
           if (this.game.EditObj.UnitSelected > -1 && !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ > -1)
           {
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int index = 0; index <= unitCounter; index += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
               if (this.game.Data.UnitObj[index].HQ == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ | this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ == index && this.game.Data.UnitObj[index].HQ > -1 && this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical].Type < 8 && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
-                int x = this.game.Data.UnitObj[index].X;
-                int y = this.game.Data.UnitObj[index].Y;
-                int map = num1;
+                let mut x: i32 =  this.game.Data.UnitObj[index].X;
+                let mut y: i32 =  this.game.Data.UnitObj[index].Y;
+                let mut map: i32 =  num1;
                 bitmap = (Bitmap) null;
-                 Bitmap local =  bitmap;
+                 let mut local: &Bitmap = &bitmap;
                 subPart.PaintCoordinate((Graphics) null, x, y, map, gBitmap: ( local));
               }
             }
@@ -2818,34 +2818,34 @@ namespace WindowsApplication1
         {
           if (this.game.EditObj.OldUnit > -1 && this.game.Data.UnitObj[this.game.EditObj.OldUnit].IsHQ)
           {
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int index = 0; index <= unitCounter; index += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
               if (this.game.Data.UnitObj[index].HQ == this.game.EditObj.OldUnit && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
-                int x = this.game.Data.UnitObj[index].X;
-                int y = this.game.Data.UnitObj[index].Y;
-                int map = num1;
+                let mut x: i32 =  this.game.Data.UnitObj[index].X;
+                let mut y: i32 =  this.game.Data.UnitObj[index].Y;
+                let mut map: i32 =  num1;
                 bitmap = (Bitmap) null;
-                 Bitmap local =  bitmap;
+                 let mut local: &Bitmap = &bitmap;
                 subPart.PaintCoordinate((Graphics) null, x, y, map, gBitmap: ( local));
               }
             }
           }
           if (this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
           {
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int index = 0; index <= unitCounter; index += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
               if (this.game.Data.UnitObj[index].HQ == this.game.EditObj.UnitSelected && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
-                int x = this.game.Data.UnitObj[index].X;
-                int y = this.game.Data.UnitObj[index].Y;
-                int map = num1;
+                let mut x: i32 =  this.game.Data.UnitObj[index].X;
+                let mut y: i32 =  this.game.Data.UnitObj[index].Y;
+                let mut map: i32 =  num1;
                 bitmap = (Bitmap) null;
-                 Bitmap local =  bitmap;
+                 let mut local: &Bitmap = &bitmap;
                 subPart.PaintCoordinate((Graphics) null, x, y, map, gBitmap: ( local));
               }
             }
@@ -2887,8 +2887,8 @@ namespace WindowsApplication1
                 if (this.game.EditObj.mouseOverActive)
                 {
                   this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempMovePathList);
-                  int groupMoveCounter = this.game.EditObj.tempGroupMoveCounter;
-                  for (int index = 0; index <= groupMoveCounter; index += 1)
+                  let mut groupMoveCounter: i32 =  this.game.EditObj.tempGroupMoveCounter;
+                  for (let mut index: i32 =  0; index <= groupMoveCounter; index += 1)
                   {
                     if (!Information.IsNothing((object) this.game.EditObj.tempGroupMovePath[index]))
                       this.game.EditObj.TempCoordList.AddList( this.game.EditObj.tempGroupMovePath[index]);
@@ -2904,8 +2904,8 @@ namespace WindowsApplication1
                 this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempMovePathList);
                 if (this.game.Data.Product >= 6)
                 {
-                  int groupMoveCounter = this.game.EditObj.tempGroupMoveCounter;
-                  for (int index = 0; index <= groupMoveCounter; index += 1)
+                  let mut groupMoveCounter: i32 =  this.game.EditObj.tempGroupMoveCounter;
+                  for (let mut index: i32 =  0; index <= groupMoveCounter; index += 1)
                   {
                     this.game.EditObj.tempGroupMovePath[index] = CoordList::new();
                     if (!Information.IsNothing((object) this.game.EditObj.tempGroupMoveCameFrom[index]))
@@ -2916,7 +2916,7 @@ namespace WindowsApplication1
                       while (coordinate.onmap)
                       {
                         this.game.EditObj.tempGroupMovePath[index].AddCoord(coordinate.x, coordinate.y, coordinate.map);
-                        int slot = this.game.EditObj.tempGroupMoveCameFrom[index].FindSlot(coordinate.x, coordinate.y, 0);
+                        let mut slot: i32 =  this.game.EditObj.tempGroupMoveCameFrom[index].FindSlot(coordinate.x, coordinate.y, 0);
                         if (slot > -1)
                         {
                           if (this.game.EditObj.tempGroupMoveCameFrom[index].coord[slot].data1 > -1)
@@ -2953,8 +2953,8 @@ namespace WindowsApplication1
             this.game.EditObj.TempCoordList = CoordList::new();
             this.game.EditObj.mouseOverActive = false;
             this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempMovePathList);
-            int groupMoveCounter = this.game.EditObj.tempGroupMoveCounter;
-            for (int index = 0; index <= groupMoveCounter; index += 1)
+            let mut groupMoveCounter: i32 =  this.game.EditObj.tempGroupMoveCounter;
+            for (let mut index: i32 =  0; index <= groupMoveCounter; index += 1)
             {
               if (!Information.IsNothing((object) this.game.EditObj.tempGroupMovePath[index]))
               {
@@ -2980,9 +2980,9 @@ namespace WindowsApplication1
       currentDescript: String = this.game.EditObj.CurrentDescript;
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
         bool t;
-        for (int subpartMapSlot = 0; subpartMapSlot <= subPartCounter; subpartMapSlot += 1)
+        for (let mut subpartMapSlot: i32 =  0; subpartMapSlot <= subPartCounter; subpartMapSlot += 1)
         {
           if (x > this.SubPartX[subpartMapSlot] & x < this.SubPartX[subpartMapSlot] + this.SubPartW[subpartMapSlot] && y > this.SubPartY[subpartMapSlot] & y < this.SubPartY[subpartMapSlot] + this.SubPartH[subpartMapSlot] && this.SubPartID[subpartMapSlot] == this.MapId)
           {
@@ -3026,14 +3026,14 @@ namespace WindowsApplication1
         num1 =  Math.Round(Conversion.Val(str));
         if (num1 == -1 | num1 > this.game.Data.PeopleCounter)
         {
-          int num2 =  Interaction.MsgBox((object) "Invalid people#", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num2: i32 =   Interaction.MsgBox((object) "Invalid people#", Title: ((object) "Shadow Empire : Planetary Conquest"));
           return (object) -1;
         }
       }
       Left: String = Interaction.InputBox("Give Name for this location...", "Shadow Empire : Planetary Conquest", this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name);
       if (Operators.CompareString(Left, "", false) == 0)
         return (object) -1;
-      int regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
+      let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       if (this.game.Data.LocTypeObj[this.game.EditObj.PencilData1].OverdrawLTNr > -1)
       {
         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType = this.game.Data.LocTypeObj[this.game.EditObj.PencilData1].OverdrawLTNr;
@@ -3061,25 +3061,25 @@ namespace WindowsApplication1
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int hexLibVarValue = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(slot);
+      let mut hexLibVarValue: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(slot);
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
-      int num = 1;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].SetHexLibVarValue(slot, code);
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
@@ -3100,25 +3100,25 @@ namespace WindowsApplication1
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
+      let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
-      int num = 1;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].Regime = newreg;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
@@ -3139,25 +3139,25 @@ namespace WindowsApplication1
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int num1 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].AreaCode[slot];
+      let mut num1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].AreaCode[slot];
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
-      int num2 = 1;
+      let mut num2: i32 =  1;
       while (num2 == 1)
       {
         num2 = 0;
         int Right;
         Right += 1;
-        int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num2 = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].AreaCode[slot] = code;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
@@ -3178,20 +3178,20 @@ namespace WindowsApplication1
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int landscapeType = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
-      int spriteNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
-      int num = 1;
+      let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
+      let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapSelected = this.game.EditObj.MapSelected;
-        int mapWidth = this.game.Data.MapObj[mapSelected].MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
+        let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[mapSelected].MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[index1, index2], (object) Right, false))
             {
@@ -3201,7 +3201,7 @@ namespace WindowsApplication1
               this.game.HandyFunctionsObj.RandomizeHex(index1, index2, mapSelected);
               if (this.game.Data.LandscapeTypeObj[newland].IsSea)
                 this.game.Data.MapObj[mapSelected].HexObj[index1, index2].Regime = -1;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(index1, index2, mapSelected, tfacing);
@@ -3222,27 +3222,27 @@ namespace WindowsApplication1
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int specialType = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialType;
-      int specialSprite = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialSprite;
-      int num = 1;
+      let mut specialType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialType;
+      let mut specialSprite: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialSprite;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapSelected = this.game.EditObj.MapSelected;
-        int mapWidth = this.game.Data.MapObj[mapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
+        let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[mapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num = 1;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].SpecialType = newland;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].SpecialSprite = newspr;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, mapSelected, tfacing);

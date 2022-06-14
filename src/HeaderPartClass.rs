@@ -33,15 +33,15 @@ namespace WindowsApplication1
     {
       SizeF sizeF1 = SizeF::new();
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      int round = this.game.Data.Round;
+      let mut round: i32 =  this.game.Data.Round;
       int red1;
       int green1;
       int blue1;
       if (this.regnr > -1)
       {
-        int red2 = this.game.Data.RegimeObj[this.regnr].Red;
-        int green2 = this.game.Data.RegimeObj[this.regnr].Green;
-        int blue2 = this.game.Data.RegimeObj[this.regnr].Blue;
+        let mut red2: i32 =  this.game.Data.RegimeObj[this.regnr].Red;
+        let mut green2: i32 =  this.game.Data.RegimeObj[this.regnr].Green;
+        let mut blue2: i32 =  this.game.Data.RegimeObj[this.regnr].Blue;
         red1 = this.game.Data.RegimeObj[this.regnr].Red2;
         green1 = this.game.Data.RegimeObj[this.regnr].Green2;
         blue1 = this.game.Data.RegimeObj[this.regnr].Blue2;
@@ -77,9 +77,9 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-       Graphics local1 =  graphics;
+       let mut local1: &Graphics = &graphics;
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return this.OwnBitmap;
     }

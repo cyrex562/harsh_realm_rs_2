@@ -190,9 +190,9 @@ namespace WindowsApplication1
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       graphics.TextContrast = 1;
-       Graphics local1 =  graphics;
+       let mut local1: &Graphics = &graphics;
       Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCINTRO2);
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       let mut x: i32 =  Math.Round((double) (1024 - BitmapStore.GetWidth(self.game.MARCINTRO2)) / 2.0);
       DrawMod.DrawSimple( local1,  local2, x, 50);
       str1: String = "v " + Strings.Trim(Conversion.Str((object) 110)) + Strings.Trim(".04b");

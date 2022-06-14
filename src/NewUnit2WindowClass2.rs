@@ -51,7 +51,7 @@ namespace WindowsApplication1
      int w;
      int h;
 
-    pub NewUnit2WindowClass2( GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub NewUnit2WindowClass2( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, tGame.ScreenWidth, 222, BackSprite: tGame.MARCBOTBAR)
     {
       self.Ucnt = new int[1];
@@ -77,65 +77,65 @@ namespace WindowsApplication1
       self.SubCnt = new int[self.game.Data.HistoricalUnitCounter + 1, 10];
       self.ModSubCnt = new int[self.game.Data.HistoricalUnitCounter + 1, 10];
       self.modelcount = new int[self.game.Data.HistoricalUnitCounter + 1];
-      int unitCounter = self.game.Data.UnitCounter;
-      for (int index1 = 0; index1 <= unitCounter; index1 += 1)
+      let mut unitCounter: i32 =  self.game.Data.UnitCounter;
+      for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
       {
         if (self.game.Data.UnitObj[index1].Historical > -1 & self.game.Data.UnitObj[index1].PreDef == -1 & self.game.Data.UnitObj[index1].Regime == self.game.Data.Turn)
         {
           int[] ucnt = self.Ucnt;
           int[] numArray1 = ucnt;
-          int historical1 = self.game.Data.UnitObj[index1].Historical;
-          int index2 = historical1;
-          int num1 = ucnt[historical1] + 1;
+          let mut historical1: i32 =  self.game.Data.UnitObj[index1].Historical;
+          let mut index2: i32 =  historical1;
+          let mut num1: i32 =  ucnt[historical1] + 1;
           numArray1[index2] = num1;
           if (self.game.Data.UnitObj[index1].HistoricalSubPart > -1)
           {
             int[,] subCnt = self.SubCnt;
             int[,] numArray2 = subCnt;
-            int historical2 = self.game.Data.UnitObj[index1].Historical;
-            int index3 = historical2;
-            int historicalSubPart = self.game.Data.UnitObj[index1].HistoricalSubPart;
-            int index4 = historicalSubPart;
-            int num2 = subCnt[historical2, historicalSubPart] + 1;
+            let mut historical2: i32 =  self.game.Data.UnitObj[index1].Historical;
+            let mut index3: i32 =  historical2;
+            let mut historicalSubPart: i32 =  self.game.Data.UnitObj[index1].HistoricalSubPart;
+            let mut index4: i32 =  historicalSubPart;
+            let mut num2: i32 =  subCnt[historical2, historicalSubPart] + 1;
             numArray2[index3, index4] = num2;
           }
         }
       }
-      int historicalUnitCounter1 = self.game.Data.HistoricalUnitCounter;
-      for (int index5 = 0; index5 <= historicalUnitCounter1; index5 += 1)
+      let mut historicalUnitCounter1: i32 =  self.game.Data.HistoricalUnitCounter;
+      for (let mut index5: i32 =  0; index5 <= historicalUnitCounter1; index5 += 1)
       {
         if (self.Ucnt[index5] > 0 && self.game.Data.HistoricalUnitObj[index5].ModelMaster > -1)
         {
           int[] modelcount = self.modelcount;
           int[] numArray = modelcount;
-          int modelMaster = self.game.Data.HistoricalUnitObj[index5].ModelMaster;
-          int index6 = modelMaster;
-          int num = modelcount[modelMaster] + 1;
+          let mut modelMaster: i32 =  self.game.Data.HistoricalUnitObj[index5].ModelMaster;
+          let mut index6: i32 =  modelMaster;
+          let mut num: i32 =  modelcount[modelMaster] + 1;
           numArray[index6] = num;
         }
       }
-      int historicalUnitCounter2 = self.game.Data.HistoricalUnitCounter;
-      for (int index7 = 0; index7 <= historicalUnitCounter2; index7 += 1)
+      let mut historicalUnitCounter2: i32 =  self.game.Data.HistoricalUnitCounter;
+      for (let mut index7: i32 =  0; index7 <= historicalUnitCounter2; index7 += 1)
       {
-        int index8 = 0;
+        let mut index8: i32 =  0;
         do
         {
           if (self.game.Data.HistoricalUnitObj[index7].SubParts[index8] > -1)
           {
             int[] modCnt = self.ModCnt;
             int[] numArray = modCnt;
-            int index9 = index7;
-            int index10 = index9;
-            int num = modCnt[index9] + 1;
+            let mut index9: i32 =  index7;
+            let mut index10: i32 =  index9;
+            let mut num: i32 =  modCnt[index9] + 1;
             numArray[index10] = num;
           }
           int[,] modSubCnt = self.ModSubCnt;
           int[,] numArray3 = modSubCnt;
-          int index11 = index7;
-          int index12 = index11;
-          int index13 = index8;
-          int index14 = index13;
-          int num3 = modSubCnt[index11, index13] + 1;
+          let mut index11: i32 =  index7;
+          let mut index12: i32 =  index11;
+          let mut index13: i32 =  index8;
+          let mut index14: i32 =  index13;
+          let mut num3: i32 =  modSubCnt[index11, index13] + 1;
           numArray3[index12, index14] = num3;
           index8 += 1;
         }
@@ -189,17 +189,17 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.OrderTextId);
       if (self.OrderText2Id > 0)
         self.RemoveSubPart(self.OrderText2Id);
-      int num1 =  Math.Round((double) (self.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round((double) (self.w - 1024) / 2.0);
       self.NewBackGroundAndClearAll(self.w, self.h, self.game.MARCBOTBAR);
       self.ClearMouse();
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
       if (self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.EditObj.OrderX, self.game.EditObj.OrderY].UnitCounter < 15)
       {
         self.OptionsListObj = ListClass::new();
-        int num2 = -1;
-        int tlistselect1 = -1;
-        int historicalUnitCounter = self.game.Data.HistoricalUnitCounter;
-        for (int tdata = 0; tdata <= historicalUnitCounter; tdata += 1)
+        let mut num2: i32 =  -1;
+        let mut tlistselect1: i32 =  -1;
+        let mut historicalUnitCounter: i32 =  self.game.Data.HistoricalUnitCounter;
+        for (let mut tdata: i32 =  0; tdata <= historicalUnitCounter; tdata += 1)
         {
           if (self.game.Data.HistoricalUnitObj[tdata].TempRegime == self.game.Data.Turn & self.game.Data.HistoricalUnitObj[tdata].ModelMaster > -1 && self.Ucnt[tdata] < self.ModCnt[tdata] & self.Ucnt[tdata] > 0)
           {
@@ -237,10 +237,10 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsListObj = self.OptionsListObj;
-          int tlistselect2 = tlistselect1;
+          let mut tlistselect2: i32 =  tlistselect1;
           let mut game: GameClass = self.game;
            Bitmap local1 =  self.OwnBitmap;
-          int bbx = num1 + 10;
+          let mut bbx: i32 =  num1 + 10;
           Font font =  null;
            Font local2 =  font;
           let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsListObj, 9, 350, tlistselect2, game, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: 30, tMarcStyle: true, overruleFont: ( local2));
@@ -249,9 +249,9 @@ namespace WindowsApplication1
         if (self.detailnr > -1)
         {
           self.OptionsList2Obj = ListClass::new();
-          int num3 = -1;
-          int tlistselect3 = -1;
-          int tdata = 0;
+          let mut num3: i32 =  -1;
+          let mut tlistselect3: i32 =  -1;
+          let mut tdata: i32 =  0;
           do
           {
             if (self.game.Data.HistoricalUnitObj[self.detailnr].SubParts[tdata] > -1 && self.SubCnt[self.detailnr, tdata] == 0 & self.ModSubCnt[self.detailnr, tdata] > 0)
@@ -272,10 +272,10 @@ namespace WindowsApplication1
           else
           {
             ListClass optionsList2Obj = self.OptionsList2Obj;
-            int tlistselect4 = tlistselect3;
+            let mut tlistselect4: i32 =  tlistselect3;
             let mut game: GameClass = self.game;
              Bitmap local3 =  self.OwnBitmap;
-            int bbx = num1 + 400;
+            let mut bbx: i32 =  num1 + 400;
             Font font =  null;
              Font local4 =  font;
             let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsList2Obj, 9, 300, tlistselect4, game, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: ( local3), bbx: bbx, bby: 30, tMarcStyle: true, overruleFont: ( local4));
@@ -319,12 +319,12 @@ namespace WindowsApplication1
       OrderResult orderResult = OrderResult::new();
       if (self.SubPartCounter > -1)
       {
-        int subPartCounter = self.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  self.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
           {
-            int num1 = self.SubPartID[index];
+            let mut num1: i32 =  self.SubPartID[index];
             if (num1 == self.B3Id)
             {
               self.game.ProcessingObj.AddNewUnitBasedOnHistorical(self.game.EditObj.OrderX, self.game.EditObj.OrderY, self.game.EditObj.OrderMap, self.game.Data.Turn, self.detailnr, self.detailnr2);
@@ -374,7 +374,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.OptionsListId)
             {
-              int num2 = self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);
+              let mut num2: i32 =  self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);
               self.SubPartFlag[index] = true;
               if (num2 > -1)
               {
@@ -387,7 +387,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.OptionsList2Id)
             {
-              int num3 = self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);
+              let mut num3: i32 =  self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);
               self.SubPartFlag[index] = true;
               if (num3 > -1)
               {

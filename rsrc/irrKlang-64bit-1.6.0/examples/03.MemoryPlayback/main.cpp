@@ -26,7 +26,7 @@ using namespace irrklang;
 // some external software, but to keep it simple we just use this array as memory.
 
 // test.wav, converted to this array by bin2h tool, available at bin2h.irrlicht3d.org
-int memorySoundDataSize = 3932; // data size in bytes
+let mut memorySoundDataSize: i32 =  3932; // data size in bytes
 int memorySoundData[] = {
 	0x46464952, 0xf54, 0x45564157, 0x20746d66, 0x12,
 	0x10001, 0x1f40, 0x1f40, 0x80001, 0x61660000, 0x47463,

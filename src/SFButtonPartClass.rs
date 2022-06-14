@@ -79,13 +79,13 @@ namespace WindowsApplication1
         if ((double) DrawMod.TGame.Data.RuleVar[869] == 3.0)
         {
           let mut nr: i32 = DrawMod.TGame.Data.LandscapeTypeObj[index1].BasicPicID[index2];
-           Graphics local1 =  Expression;
+           let mut local1: &Graphics = &Expression;
           Bitmap bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local2 =  bitmap;
-          rectangle1 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr));
-          Rectangle srcrect = rectangle1;
-          rectangle2 = new Rectangle(x1, y1, width1, height);
-          Rectangle destrect = rectangle2;
+           let mut local2: &Bitmap = &bitmap;
+          rectangle1 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr));
+          let mut srcrect: &Rectangle = &rectangle1
+          rectangle2 = Rectangle::new(x1, y1, width1, height);
+          let mut destrect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
         }
         else
@@ -93,23 +93,23 @@ namespace WindowsApplication1
           if ((double) DrawMod.TGame.Data.RuleVar[869] == 1.0)
           {
             let mut nr: i32 = DrawMod.TGame.Data.LandscapeTypeObj[index1].SidewaysSPriteID1[index2];
-             Graphics local3 =  Expression;
+             let mut local3: &Graphics = &Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(nr);
-             Bitmap local4 =  bitmap;
-            rectangle2 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr));
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1, y1, width1, height);
-            Rectangle destrect = rectangle1;
+             let mut local4: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr));
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1, y1, width1, height);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
           }
           let mut nr1: i32 = DrawMod.TGame.Data.LandscapeTypeObj[index1].SidewaysSPriteID2[index2];
-           Graphics local5 =  Expression;
+           let mut local5: &Graphics = &Expression;
           Bitmap bitmap1 = BitmapStore.GetBitmap(nr1);
-           Bitmap local6 =  bitmap1;
-          rectangle2 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr1));
-          Rectangle srcrect1 = rectangle2;
-          rectangle1 = new Rectangle(x1, y1, width1, height);
-          Rectangle destrect1 = rectangle1;
+           let mut local6: &Bitmap = &bitmap1;
+          rectangle2 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr1));
+          let mut srcrect1: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x1, y1, width1, height);
+          let mut destrect1: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local5,  local6, srcrect1, destrect1);
         }
       }
@@ -126,9 +126,9 @@ namespace WindowsApplication1
       switch (DrawMod.TGame.Data.SFTypeObj[this.typ].BaseColor)
       {
         case 0:
-           Graphics local7 =  Expression;
+           let mut local7: &Graphics = &Expression;
           Bitmap bitmap2 = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local8 =  bitmap2;
+           let mut local8: &Bitmap = &bitmap2;
           let mut x2: i32 = x1;
           let mut y2: i32 = y1;
           let mut w1: i32 = width1;
@@ -136,9 +136,9 @@ namespace WindowsApplication1
           DrawMod.DrawScaled( local7,  local8, x2, y2, w1, h1);
           break;
         case 1:
-           Graphics local9 =  Expression;
+           let mut local9: &Graphics = &Expression;
           Bitmap bitmap3 = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local10 =  bitmap3;
+           let mut local10: &Bitmap = &bitmap3;
           let mut x3: i32 = x1;
           let mut y3: i32 = y1;
           let mut w2: i32 = width1;
@@ -154,9 +154,9 @@ namespace WindowsApplication1
           let mut red2: i32 = DrawMod.TGame.Data.RegimeObj[index3].Red2;
           let mut green2: i32 = DrawMod.TGame.Data.RegimeObj[index3].Green2;
           let mut blue2: i32 = DrawMod.TGame.Data.RegimeObj[index3].Blue2;
-           Graphics local11 =  Expression;
+           let mut local11: &Graphics = &Expression;
           Bitmap bitmap4 = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local12 =  bitmap4;
+           let mut local12: &Bitmap = &bitmap4;
           let mut x4: i32 = x1;
           let mut y4: i32 = y1;
           let mut w3: i32 = width1;
@@ -172,9 +172,9 @@ namespace WindowsApplication1
           let mut red3: i32 = DrawMod.TGame.Data.RegimeObj[index3].Red3;
           let mut green3: i32 = DrawMod.TGame.Data.RegimeObj[index3].Green3;
           let mut blue3: i32 = DrawMod.TGame.Data.RegimeObj[index3].Blue3;
-           Graphics local13 =  Expression;
+           let mut local13: &Graphics = &Expression;
           Bitmap bitmap5 = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local14 =  bitmap5;
+           let mut local14: &Bitmap = &bitmap5;
           let mut x5: i32 = x1;
           let mut y5: i32 = y1;
           let mut w4: i32 = width1;
@@ -190,9 +190,9 @@ namespace WindowsApplication1
           let mut red4: i32 = DrawMod.TGame.Data.RegimeObj[index3].Red4;
           let mut green4: i32 = DrawMod.TGame.Data.RegimeObj[index3].Green4;
           let mut blue4: i32 = DrawMod.TGame.Data.RegimeObj[index3].Blue4;
-           Graphics local15 =  Expression;
+           let mut local15: &Graphics = &Expression;
           Bitmap bitmap6 = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local16 =  bitmap6;
+           let mut local16: &Bitmap = &bitmap6;
           let mut x6: i32 = x1;
           let mut y6: i32 = y1;
           let mut w5: i32 = width1;
@@ -205,9 +205,9 @@ namespace WindowsApplication1
           DrawMod.DrawScaledColorized2( local15,  local16, x6, y6, w5, h5, width5, origh4, (float) r4, (float) g4, (float) b4, 1f);
           break;
         case 5:
-           Graphics local17 =  Expression;
+           let mut local17: &Graphics = &Expression;
           Bitmap bitmap7 = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local18 =  bitmap7;
+           let mut local18: &Bitmap = &bitmap7;
           let mut x7: i32 = x1;
           let mut y7: i32 = y1;
           let mut w6: i32 = width1;
@@ -220,9 +220,9 @@ namespace WindowsApplication1
           DrawMod.DrawScaledColorized2( local17,  local18, x7, y7, w6, h6, width6, origh5, (float) r5, (float) g5, (float) b5, 1f);
           break;
         case 6:
-           Graphics local19 =  Expression;
+           let mut local19: &Graphics = &Expression;
           Bitmap bitmap8 = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local20 =  bitmap8;
+           let mut local20: &Bitmap = &bitmap8;
           let mut x8: i32 = x1;
           let mut y8: i32 = y1;
           let mut w7: i32 = width1;
@@ -237,9 +237,9 @@ namespace WindowsApplication1
       }
       if ((double) DrawMod.TGame.Data.RuleVar[870] > 0.0 & !Information.IsNothing((object) BitmapStore.GetBitmap(sidewaysSpriteId)))
       {
-         Graphics local21 =  Expression;
+         let mut local21: &Graphics = &Expression;
         Bitmap bitmap9 = BitmapStore.GetBitmap(sidewaysSpriteId);
-         Bitmap local22 =  bitmap9;
+         let mut local22: &Bitmap = &bitmap9;
         let mut x9: i32 = x1;
         let mut y9: i32 = y1;
         let mut w8: i32 = width1;
@@ -249,13 +249,13 @@ namespace WindowsApplication1
       if ((double) DrawMod.TGame.Data.RuleVar[869] >= 1.0 & (double) DrawMod.TGame.Data.RuleVar[869] < 3.0)
       {
         let mut nr: i32 = DrawMod.TGame.Data.LandscapeTypeObj[index1].SidewaysSPriteID3[index2];
-         Graphics local23 =  Expression;
+         let mut local23: &Graphics = &Expression;
         Bitmap bitmap10 = BitmapStore.GetBitmap(nr);
-         Bitmap local24 =  bitmap10;
-        rectangle2 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr));
-        Rectangle srcrect = rectangle2;
-        rectangle1 = new Rectangle(x1, y1, width1, height);
-        Rectangle destrect = rectangle1;
+         let mut local24: &Bitmap = &bitmap10;
+        rectangle2 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr));
+        let mut srcrect: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(x1, y1, width1, height);
+        let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local23,  local24, srcrect, destrect);
       }
       if (!Information.IsNothing((object) Expression))

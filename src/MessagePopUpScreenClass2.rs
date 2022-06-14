@@ -38,16 +38,16 @@ namespace WindowsApplication1
       }
       else if (tGame.EditObj.PopupValue == 7)
       {
-        int num1 = Math.Max(1280, this.Game.ScreenWidth - 400);
-        int num2 = Math.Max(768, this.Game.ScreenHeight - 200);
+        let mut num1: i32 =  Math.Max(1280, this.Game.ScreenWidth - 400);
+        let mut num2: i32 =  Math.Max(768, this.Game.ScreenHeight - 200);
         this.wup = this.AddWindow((WindowClass) new CombatResultWindowClass2( tGame, num1, num2),  Math.Round((double) (this.Game.ScreenWidth - num1) / 2.0),  Math.Round((double) (this.Game.ScreenHeight - num2) / 2.0), num1, num2);
       }
       else if (tGame.EditObj.PopupValue == 8)
       {
-        int num3 = Math.Min(1324, this.Game.ScreenWidth);
-        int num4 = Math.Min(968, this.Game.ScreenHeight);
-        int x =  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - num3) / 2.0));
-        int y =  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - num4) / 2.0));
+        let mut num3: i32 =  Math.Min(1324, this.Game.ScreenWidth);
+        let mut num4: i32 =  Math.Min(968, this.Game.ScreenHeight);
+        let mut x: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - num3) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - num4) / 2.0));
         this.wup = this.AddWindow((WindowClass) new CombatDetailWindowClass( tGame, 0, num3, num4), x, y, num3, num4);
       }
       else if (tGame.EditObj.PopupValue == 9)
@@ -74,7 +74,7 @@ namespace WindowsApplication1
         this.wup = this.AddWindow((WindowClass) new SimplePrefsWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 240.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 125.0), 480, 250);
       else if (tGame.EditObj.PopupValue == 21)
       {
-        int extraHeight =  Math.Round((double) (this.Game.ScreenHeight - 750) / 2.0);
+        let mut extraHeight: i32 =   Math.Round((double) (this.Game.ScreenHeight - 750) / 2.0);
         if (extraHeight > 120)
           extraHeight = 120;
         if (Strings.InStr(Strings.LCase(this.Game.EditObj.UDSpopupText), "[key]nobackground[/key]") < 1)
@@ -86,27 +86,27 @@ namespace WindowsApplication1
         this.wup = this.AddWindow((WindowClass) new CombatSelectWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
       else if (tGame.EditObj.PopupValue == 23)
       {
-        int num = Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
+        let mut num: i32 =  Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
         if (num > 1280)
           num = 1280;
         this.wup = this.AddWindow((WindowClass) new SpecialWindowClass1( tGame, 1280, num),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double)  Math.Round((double) num / 2.0)), 1280, num);
       }
       else if (tGame.EditObj.PopupValue == 24)
       {
-        int num5 = Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
+        let mut num5: i32 =  Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
         if (num5 > 1280)
           num5 = 1280;
-        int num6 = Math.Max( Math.Round((double) this.Game.ScreenWidth * 0.9), 1280);
+        let mut num6: i32 =  Math.Max( Math.Round((double) this.Game.ScreenWidth * 0.9), 1280);
         if (num6 > 1920)
           num6 = 1920;
         this.wup = this.AddWindow((WindowClass) new SpecialWindowClass2( tGame, num6, num5),  Math.Round((double) tGame.ScreenWidth / 2.0 - (double)  Math.Round((double) num6 / 2.0)),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double)  Math.Round((double) num5 / 2.0)), num6, num5);
       }
       else if (tGame.EditObj.PopupValue == 25)
       {
-        int num7 = Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
+        let mut num7: i32 =  Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
         if (num7 > 1280)
           num7 = 1280;
-        int num8 = Math.Max( Math.Round((double) this.Game.ScreenWidth * 0.9), 1280);
+        let mut num8: i32 =  Math.Max( Math.Round((double) this.Game.ScreenWidth * 0.9), 1280);
         if (num8 > 1920)
           num8 = 1920;
         this.wup = this.AddWindow((WindowClass) new SpecialWindowClass3( tGame, num8, num7),  Math.Round((double) tGame.ScreenWidth / 2.0 - (double)  Math.Round((double) num8 / 2.0)),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double)  Math.Round((double) num7 / 2.0)), num8, num7);
@@ -156,8 +156,8 @@ namespace WindowsApplication1
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      int windowCounter = this.WindowCounter;
-      for (int index1 = 0; index1 <= windowCounter; index1 += 1)
+      let mut windowCounter: i32 =  this.WindowCounter;
+      for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
       {
         if (Conversions.ToBoolean(Operators.OrObject((object) (x > this.WindowX[index1] & x < this.WindowX[index1] + this.WindowW[index1]), Operators.CompareObjectEqual(this.WindowList[index1].allowClickOutsideWindow(), (object) true, false))) && Conversions.ToBoolean(Operators.OrObject((object) (y > this.WindowY[index1] & y < this.WindowY[index1] + this.WindowH[index1]), this.WindowList[index1].allowClickOutsideWindow())))
         {
@@ -165,8 +165,8 @@ namespace WindowsApplication1
           this.WindowFlag[index1] = windowReturnClass.Flag;
           if (windowReturnClass.Counter > -1)
           {
-            int counter = windowReturnClass.Counter;
-            for (int index2 = 0; index2 <= counter; index2 += 1)
+            let mut counter: i32 =  windowReturnClass.Counter;
+            for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
             {
               if (windowReturnClass.CommandType[index2] == 3)
               {
@@ -202,8 +202,8 @@ namespace WindowsApplication1
       if (this.WindowCounter <= -1)
         return screenReturnClass;
       bool flag = false;
-      int windowCounter = this.WindowCounter;
-      for (int index1 = 0; index1 <= windowCounter; index1 += 1)
+      let mut windowCounter: i32 =  this.WindowCounter;
+      for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
       {
         windowReturnClass2: WindowReturnClass = this.WindowList[index1].handleTimer();
         this.WindowFlag[index1] = windowReturnClass2.Flag;
@@ -211,8 +211,8 @@ namespace WindowsApplication1
           flag = true;
         if (windowReturnClass2.Counter > -1)
         {
-          int counter = windowReturnClass2.Counter;
-          for (int index2 = 0; index2 <= counter; index2 += 1)
+          let mut counter: i32 =  windowReturnClass2.Counter;
+          for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
           {
             if (windowReturnClass2.CommandType[index2] == 3)
             {
@@ -244,15 +244,15 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         windowReturnClass2: WindowReturnClass = this.WindowList[windowCounter].HandleKeyPress(nr);
         if (!this.WindowFlag[windowCounter])
           this.WindowFlag[windowCounter] = windowReturnClass2.Flag;
         if (windowReturnClass2.Counter > -1)
         {
-          int counter = windowReturnClass2.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  windowReturnClass2.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
           {
             if (windowReturnClass2.CommandType[index] == 3)
             {
@@ -284,15 +284,15 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         windowReturnClass2: WindowReturnClass = this.WindowList[windowCounter].HandleKeyup(nr);
         if (!this.WindowFlag[windowCounter])
           this.WindowFlag[windowCounter] = windowReturnClass2.Flag;
         if (windowReturnClass2.Counter > -1)
         {
-          int counter = windowReturnClass2.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  windowReturnClass2.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
           {
             if (windowReturnClass2.CommandType[index] == 3)
             {
@@ -336,8 +336,8 @@ namespace WindowsApplication1
       }
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      int windowCounter = this.WindowCounter;
-      for (int index1 = 0; index1 <= windowCounter; index1 += 1)
+      let mut windowCounter: i32 =  this.WindowCounter;
+      for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
       {
         if (x > this.WindowX[index1] & x < this.WindowX[index1] + this.WindowW[index1] && y > this.WindowY[index1] & y < this.WindowY[index1] + this.WindowH[index1])
         {
@@ -351,8 +351,8 @@ namespace WindowsApplication1
           }
           if (windowReturnClass.Counter > -1)
           {
-            int counter = windowReturnClass.Counter;
-            for (int index2 = 0; index2 <= counter; index2 += 1)
+            let mut counter: i32 =  windowReturnClass.Counter;
+            for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
             {
               if (windowReturnClass.CommandType[index2] != 4 || windowReturnClass.CommandData[index2] != 29)
                 ;

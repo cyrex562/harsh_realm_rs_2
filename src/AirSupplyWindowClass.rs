@@ -71,7 +71,7 @@ namespace WindowsApplication1
      int HQSelect;
      int[] ChainHq;
 
-    pub AirSupplyWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub AirSupplyWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.ChainHq = new int[3];
@@ -87,14 +87,14 @@ namespace WindowsApplication1
       {
         this.ChainHq[0] = this.unr;
         this.HQSelect = this.unr;
-        int hq1 = this.game.Data.UnitObj[this.ChainHq[0]].HQ;
+        let mut hq1: i32 =  this.game.Data.UnitObj[this.ChainHq[0]].HQ;
         if (hq1 > -1)
         {
           this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.unr].Regime, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
           if ((double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq1].Map].Value[this.game.Data.UnitObj[hq1].X, this.game.Data.UnitObj[hq1].Y] <= (double) this.game.Data.RuleVar[51])
           {
             this.ChainHq[1] = hq1;
-            int hq2 = this.game.Data.UnitObj[this.ChainHq[1]].HQ;
+            let mut hq2: i32 =  this.game.Data.UnitObj[this.ChainHq[1]].HQ;
             if (hq2 > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq2].Map].Value[this.game.Data.UnitObj[hq2].X, this.game.Data.UnitObj[hq2].Y] <= (double) this.game.Data.RuleVar[51])
               this.ChainHq[2] = hq2;
           }
@@ -103,16 +103,16 @@ namespace WindowsApplication1
       else if (this.game.Data.UnitObj[this.unr].HQ > -1)
       {
         this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.unr].Regime, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
-        int hq3 = this.game.Data.UnitObj[this.unr].HQ;
+        let mut hq3: i32 =  this.game.Data.UnitObj[this.unr].HQ;
         if (this.game.Data.UnitObj[hq3].X > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq3].Map].Value[this.game.Data.UnitObj[hq3].X, this.game.Data.UnitObj[hq3].Y] <= (double) this.game.Data.RuleVar[51])
         {
           this.ChainHq[0] = hq3;
           this.HQSelect = hq3;
-          int hq4 = this.game.Data.UnitObj[this.ChainHq[0]].HQ;
+          let mut hq4: i32 =  this.game.Data.UnitObj[this.ChainHq[0]].HQ;
           if (hq4 > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq4].Map].Value[this.game.Data.UnitObj[hq4].X, this.game.Data.UnitObj[hq4].Y] <= (double) this.game.Data.RuleVar[51])
           {
             this.ChainHq[1] = hq4;
-            int hq5 = this.game.Data.UnitObj[this.ChainHq[1]].HQ;
+            let mut hq5: i32 =  this.game.Data.UnitObj[this.ChainHq[1]].HQ;
             if (hq5 > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq5].Map].Value[this.game.Data.UnitObj[hq5].X, this.game.Data.UnitObj[hq5].Y] <= (double) this.game.Data.RuleVar[51])
               this.ChainHq[2] = hq5;
           }
@@ -210,10 +210,10 @@ namespace WindowsApplication1
       DrawMod.DrawBlock(ref Expression, 430, 20, 400, 70, (int) this.game.VicColor4.R, (int) this.game.VicColor4.G, (int) this.game.VicColor4.B, (int) this.game.VicColor4.A);
       DrawMod.DrawFrame(ref this.OwnBitmap, ref this.BackBitmap, ref Expression, 430, 20, 400, 70, -1, -1);
       ref Graphics local1 = ref Expression;
-      Rectangle rectangle1 = new Rectangle(430, 6, 400, 14);
-      Rectangle rect1_1 = rectangle1;
+      Rectangle rectangle1 = Rectangle::new(430, 6, 400, 14);
+      let mut rect1_1: &Rectangle = &rectangle1
       Rectangle rectangle2;
-      Rectangle rect2_1 = rectangle2;
+      let mut rect2_1: &Rectangle = &rectangle2
       DrawMod.MakeFullBoxVic2(ref local1, rect1_1, "SUPPLY FLOW", rect2_1, "");
       let mut tsubpart1: SubPartClass =  new ATTextPartClass("FROM", this.game.VicFont2, 55, 20, true, tDescript: "The unit you are transferring from");
       this.Text1Id = this.AddSubPart(ref tsubpart1, 440, 30, 60, 20, 0);
@@ -222,9 +222,9 @@ namespace WindowsApplication1
       tsubpart2 =  new ATTextPartClass("TO", this.game.VicFont2, 55, 20, true, tDescript: "The hex you are transferring too");
       this.Text2Id = this.AddSubPart(ref tsubpart2, 550, 30, 40, 20, 0);
       CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
-      int targetX = this.TargetX;
-      int targetY = this.TargetY;
-      int targetMap = this.TargetMap;
+      let mut targetX: i32 =  this.TargetX;
+      let mut targetY: i32 =  this.TargetY;
+      let mut targetMap: i32 =  this.TargetMap;
       Bitmap bitmap1 = (Bitmap) null;
       ref Bitmap local2 = ref bitmap1;
       bool flag = false;
@@ -241,9 +241,9 @@ namespace WindowsApplication1
       DrawMod.DrawBlock(ref Expression, 220, 20, 200, 70, (int) this.game.VicColor4.R, (int) this.game.VicColor4.G, (int) this.game.VicColor4.B, (int) this.game.VicColor4.A);
       DrawMod.DrawFrame(ref this.OwnBitmap, ref this.BackBitmap, ref Expression, 220, 20, 200, 70, -1, -1);
       ref Graphics local4 = ref Expression;
-      rectangle1 = new Rectangle(220, 6, 150, 14);
-      Rectangle rect1_2 = rectangle1;
-      Rectangle rect2_2 = rectangle2;
+      rectangle1 = Rectangle::new(220, 6, 150, 14);
+      let mut rect1_2: &Rectangle = &rectangle1
+      let mut rect2_2: &Rectangle = &rectangle2
       DrawMod.MakeFullBoxVic2(ref local4, rect1_2, "AVAILABLE HQs", rect2_2, "");
       if (this.HQSelect > -1)
       {
@@ -277,7 +277,7 @@ namespace WindowsApplication1
           if (forcehighlight)
             DrawMod.DrawRectangle(ref Expression, 342, 30, 40, 40, (int) byte.MaxValue, 0, 0, (int) byte.MaxValue, 2);
         }
-        int carryCapPts = this.game.HandyFunctionsObj.GetCarryCapPts(this.unr, 2);
+        let mut carryCapPts: i32 =  this.game.HandyFunctionsObj.GetCarryCapPts(this.unr, 2);
         this.max = (int) Math.Round((double) Conversion.Int((float) carryCapPts / this.game.Data.RuleVar[33]));
         if (this.max > this.game.Data.UnitObj[this.HQSelect].Supply)
           this.max = this.game.Data.UnitObj[this.HQSelect].Supply;
@@ -290,8 +290,8 @@ namespace WindowsApplication1
         if (this.max > 0)
         {
           let mut game: GameClass = this.game;
-          int max = this.max;
-          int tempNew = this.TempNew;
+          let mut max: i32 =  this.max;
+          let mut tempNew: i32 =  this.TempNew;
           Bitmap bitmap2 = (Bitmap) null;
           ref Bitmap local5 = ref bitmap2;
           tsubpart2 =  new NumberSliderSubPartClass2(game, "", "x Supply Pts", 300, 0, max, tempNew, tbackbitmap: (ref local5));
@@ -339,12 +339,12 @@ namespace WindowsApplication1
       OrderResult orderResult = OrderResult::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num = this.SubPartID[index];
+            let mut num: i32 =  this.SubPartID[index];
             if (num == this.OrderOKId)
             {
               this.game.EditObj.TempUnitList = UnitList::new();

@@ -274,11 +274,11 @@ namespace WindowsApplication1
 
     pub void AddLog(int type, int data1, int data2, int data3)
     {
-      int num1 = -1;
+      let mut num1: i32 =  -1;
       if (data3 > 100 & DrawMod.TGame.Data.Turn == 1)
         data3 = data3;
-      int logCounter = this.LogCounter;
-      for (int index = 0; index <= logCounter; index += 1)
+      let mut logCounter: i32 =  this.LogCounter;
+      for (let mut index: i32 =  0; index <= logCounter; index += 1)
       {
         if (this.LogType[index] == type & this.LogData1[index] == data1 & this.LogData2[index] == data2)
         {
@@ -302,18 +302,18 @@ namespace WindowsApplication1
       {
         int[] logData3 = this.LogData3;
         int[] numArray = logData3;
-        int index1 = num1;
-        int index2 = index1;
-        int num2 = logData3[index1] + data3;
+        let mut index1: i32 =  num1;
+        let mut index2: i32 =  index1;
+        let mut num2: i32 =  logData3[index1] + data3;
         numArray[index2] = num2;
       }
     }
 
     pub void SetLog(int type, int data1, int data2, int data3)
     {
-      int index1 = -1;
-      int logCounter = this.LogCounter;
-      for (int index2 = 0; index2 <= logCounter; index2 += 1)
+      let mut index1: i32 =  -1;
+      let mut logCounter: i32 =  this.LogCounter;
+      for (let mut index2: i32 =  0; index2 <= logCounter; index2 += 1)
       {
         if (this.LogType[index2] == type & this.LogData1[index2] == data1 & this.LogData2[index2] == data2)
         {
@@ -342,12 +342,12 @@ namespace WindowsApplication1
       SimpleList simpleList = SimpleList::new();
       if (DrawMod.TGame.Data.MapObj[0].HexObj[this.X, this.Y].Regime == 2)
       {
-        int num = num;
+        let mut num: i32 =  num;
       }
       if (useFromAndToo)
       {
-        int logCounter = this.LogCounter;
-        for (int index = 0; index <= logCounter; index += 1)
+        let mut logCounter: i32 =  this.LogCounter;
+        for (let mut index: i32 =  0; index <= logCounter; index += 1)
         {
           if (this.LogType[index] >= fromType & this.LogType[index] <= untillType)
           {
@@ -365,8 +365,8 @@ namespace WindowsApplication1
       this.LogData3 = (int[]) Utils.CopyArray((Array) this.LogData3, (Array) new int[1]);
       if (!useFromAndToo || simpleList.Counter <= -1)
         return;
-      int counter = simpleList.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  simpleList.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
         this.AddLog(simpleList.Id[index], simpleList.Data1[index], simpleList.Data2[index], simpleList.Data3[index]);
     }
 

@@ -28,7 +28,7 @@ namespace WindowsApplication1
       this.maxcounter = 20;
     }
 
-    pub void add(int tunr, int tAIid, int tdata = -1, int tdata2 = -1)
+    pub void add(int tunr, int tAIid, let mut tdata: i32 =  -1, let mut tdata2: i32 =  -1)
     {
       this += 1.counter;
       if (this.counter > this.maxcounter)
@@ -49,18 +49,18 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return;
-      int num1 = -1;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut num1: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.unr[index] == tunr)
           num1 = index;
       }
       if (num1 > -1 && num1 < this.counter)
       {
-        int num2 = num1;
-        int num3 = this.counter - 1;
-        for (int index = num2; index <= num3; index += 1)
+        let mut num2: i32 =  num1;
+        let mut num3: i32 =  this.counter - 1;
+        for (let mut index: i32 =  num2; index <= num3; index += 1)
         {
           this.unr[index] = this.unr[index + 1];
           this.AIid[index] = this.AIid[index + 1];
@@ -75,18 +75,18 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return;
-      int num1 = -1;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut num1: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.AIid[index] == tAIid)
           num1 = index;
       }
       if (num1 > -1 && num1 < this.counter)
       {
-        int num2 = num1;
-        int num3 = this.counter - 1;
-        for (int index = num2; index <= num3; index += 1)
+        let mut num2: i32 =  num1;
+        let mut num3: i32 =  this.counter - 1;
+        for (let mut index: i32 =  num2; index <= num3; index += 1)
         {
           this.unr[index] = this.unr[index + 1];
           this.AIid[index] = this.AIid[index + 1];
@@ -101,9 +101,9 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return false;
-      int num = -1;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut num: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.unr[index] == tunr)
           num = index;
@@ -115,9 +115,9 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return -1;
-      int unrSlot = -1;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut unrSlot: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.unr[index] == tunr)
           unrSlot = index;
@@ -129,9 +129,9 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return -1;
-      int aiIdSlot = -1;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut aiIdSlot: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.AIid[index] == tId)
           aiIdSlot = index;
@@ -143,9 +143,9 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return false;
-      int num = -1;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut num: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.unr[index] == tunr & this.AIid[index] == taid)
           num = index;
@@ -157,9 +157,9 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return -1;
-      int index1 = -1;
-      int counter = this.counter;
-      for (int index2 = 0; index2 <= counter; index2 += 1)
+      let mut index1: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
       {
         if (this.unr[index2] == tunr & this.AIid[index2] == taid)
           index1 = index2;
@@ -171,9 +171,9 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return false;
-      int num = -1;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut num: i32 =  -1;
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.AIid[index] == tAIid)
           num = index;

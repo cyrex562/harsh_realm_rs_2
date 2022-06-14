@@ -40,7 +40,7 @@ namespace WindowsApplication1
       this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics Expression = Graphics.FromImage((Image) this.backbitmap);
       Expression.CompositingMode = CompositingMode.SourceCopy;
-      Expression.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), new Rectangle(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
+      Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
       Expression.CompositingMode = CompositingMode.SourceOver;
       if (Information.IsNothing((object) Expression))
         return;
@@ -56,9 +56,9 @@ namespace WindowsApplication1
         DrawMod.DrawSimple( objGraphics,  this.backbitmap, 0, 0);
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
-       Graphics local1 =  objGraphics;
+       let mut local1: &Graphics = &objGraphics;
       Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local1,  local2, 0, 0);
       if (!Information.IsNothing((object) objGraphics))
       {
@@ -77,9 +77,9 @@ namespace WindowsApplication1
         DrawMod.DrawSimple( objGraphics,  this.backbitmap, 0, 0);
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
-       Graphics local1 =  objGraphics;
+       let mut local1: &Graphics = &objGraphics;
       Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing((object) objGraphics))
       {

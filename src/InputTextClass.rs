@@ -27,7 +27,7 @@ namespace WindowsApplication1
       bool tinactive,
       int tmaxchar,
       bool tnospace = false,
-      int tmaxsize = 50)
+      let mut tmaxsize: i32 =  50)
       : base(w, h)
     {
       this.OwnFont = f;
@@ -44,8 +44,8 @@ namespace WindowsApplication1
 
     pub void Refresh(string s)
     {
-      int length = s.Length;
-      for (int Start = 1; Start <= length; Start += 1)
+      let mut length: i32 =  s.Length;
+      for (let mut Start: i32 =  1; Start <= length; Start += 1)
       {
         char ch = Conversions.ToChar(Strings.Mid(s, Start, 1));
         if (this.OwnText.Length < this.maxchar | ch == '\b')

@@ -650,14 +650,14 @@ namespace WindowsApplication1
             if (groupRect.Width < 180)
             {
               DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont5, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y - 6 +  Math.Round((double) groupRect.Height / 2.0), c);
-              trect1 = new Rectangle(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
+              trect1 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
               trect2 = trect1;
               self.AddMouse( trect2, data1, ttext);
             }
             else
             {
               DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont4, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y - 9 +  Math.Round((double) groupRect.Height / 2.0), c);
-              trect2 = new Rectangle(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
+              trect2 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
               trect1 = trect2;
               self.AddMouse( trect1, data1, ttext);
             }
@@ -666,14 +666,14 @@ namespace WindowsApplication1
           {
             DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont5, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y + 3, c);
             num15 = 18;
-            trect2 = new Rectangle(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
+            trect2 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
             trect1 = trect2;
             self.AddMouse( trect1, data1, ttext);
           }
           else
           {
             DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont4, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y + 5, c);
-            trect2 = new Rectangle(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
+            trect2 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
             trect1 = trect2;
             self.AddMouse( trect1, data1, ttext);
           }
@@ -718,7 +718,7 @@ namespace WindowsApplication1
       let mut num6: i32 = num4 - 8;
       let mut height: i32 = num5 - 18;
       let mut width: i32 =  Math.Round((double) num6 - Math.Floor((double) num3 / 24.0));
-      return new Rectangle(x, y, width, height);
+      return Rectangle::new(x, y, width, height);
     }
 
     pub HandleKeyup: WindowReturnClass(int nr)

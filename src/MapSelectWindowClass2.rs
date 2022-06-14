@@ -116,58 +116,58 @@ namespace WindowsApplication1
       {
         if (this.game.EditObj.HandCard == -1)
         {
-           Graphics local1 =  graphics;
+           let mut local1: &Graphics = &graphics;
           bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.game.EditObj.DoCardSlot], size: 2);
-           Bitmap local2 =  bitmap;
+           let mut local2: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local1,  local2, 210, 538);
         }
         else
         {
-           Graphics local3 =  graphics;
+           let mut local3: &Graphics = &graphics;
           bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.game.EditObj.HandCard, size: 2);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local3,  local4, 210, 538);
         }
       }
-       Graphics local5 =  graphics;
+       let mut local5: &Graphics = &graphics;
       bitmap = BitmapStore.GetBitmap(this.game.MARCMESFRAME);
-       Bitmap local6 =  bitmap;
-      Rectangle rectangle1 = new Rectangle(32, 1, 10, 4);
-      Rectangle srcrect1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(4, 56, 842, 4);
-      Rectangle destrect1 = rectangle2;
+       let mut local6: &Bitmap = &bitmap;
+      Rectangle rectangle1 = Rectangle::new(32, 1, 10, 4);
+      let mut srcrect1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(4, 56, 842, 4);
+      let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local5,  local6, srcrect1, destrect1);
-       Graphics local7 =  graphics;
+       let mut local7: &Graphics = &graphics;
       bitmap = BitmapStore.GetBitmap(this.game.MARCMESFRAME);
-       Bitmap local8 =  bitmap;
-      rectangle2 = new Rectangle(32, 385, 10, 4);
-      Rectangle srcrect2 = rectangle2;
-      rectangle1 = new Rectangle(4, 531, 842, 4);
-      Rectangle destrect2 = rectangle1;
+       let mut local8: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(32, 385, 10, 4);
+      let mut srcrect2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(4, 531, 842, 4);
+      let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local7,  local8, srcrect2, destrect2);
-       Graphics local9 =  graphics;
+       let mut local9: &Graphics = &graphics;
       bitmap = BitmapStore.GetBitmap(this.game.MARCMESFRAME);
-       Bitmap local10 =  bitmap;
-      rectangle2 = new Rectangle(1, 300, 4, 42);
-      Rectangle srcrect3 = rectangle2;
-      rectangle1 = new Rectangle(205, 535, 4, 150);
-      Rectangle destrect3 = rectangle1;
+       let mut local10: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(1, 300, 4, 42);
+      let mut srcrect3: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(205, 535, 4, 150);
+      let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local9,  local10, srcrect3, destrect3);
-       Graphics local11 =  graphics;
+       let mut local11: &Graphics = &graphics;
       bitmap = BitmapStore.GetBitmap(this.game.MARCMESFRAME);
-       Bitmap local12 =  bitmap;
-      rectangle2 = new Rectangle(1, 300, 4, 42);
-      Rectangle srcrect4 = rectangle2;
-      rectangle1 = new Rectangle(320, 535, 4, 150);
-      Rectangle destrect4 = rectangle1;
+       let mut local12: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(1, 300, 4, 42);
+      let mut srcrect4: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(320, 535, 4, 150);
+      let mut destrect4: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local11,  local12, srcrect4, destrect4);
-       Graphics local13 =  graphics;
+       let mut local13: &Graphics = &graphics;
       bitmap = BitmapStore.GetBitmap(this.game.MARCMESFRAME);
-       Bitmap local14 =  bitmap;
-      rectangle2 = new Rectangle(1, 300, 4, 42);
-      Rectangle srcrect5 = rectangle2;
-      rectangle1 = new Rectangle(615, 535, 4, 150);
-      Rectangle destrect5 = rectangle1;
+       let mut local14: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(1, 300, 4, 42);
+      let mut srcrect5: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(615, 535, 4, 150);
+      let mut destrect5: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local13,  local14, srcrect5, destrect5);
       if (!this.UdsMode)
       {
@@ -175,16 +175,16 @@ namespace WindowsApplication1
         {
           if (this.game.EditObj.HandCard > -1)
           {
-             Graphics local15 =  graphics;
+             let mut local15: &Graphics = &graphics;
             bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.game.EditObj.HandCard, size: 3);
-             Bitmap local16 =  bitmap;
+             let mut local16: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local15,  local16, 10, 7);
           }
           else
           {
-             Graphics local17 =  graphics;
+             let mut local17: &Graphics = &graphics;
             bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.game.EditObj.DoCardSlot], size: 3);
-             Bitmap local18 =  bitmap;
+             let mut local18: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local17,  local18, 10, 7);
           }
           DrawMod.DrawTextColouredMarc( graphics, "Select a hex to play card on", this.game.MarcFont1, 50, 15, Color.White);
@@ -192,23 +192,23 @@ namespace WindowsApplication1
         else
         {
           DrawMod.DrawTextColouredMarc( graphics, "Unit", this.game.MarcFont1, 10, 15, Color.White);
-           Graphics local19 =  graphics;
+           let mut local19: &Graphics = &graphics;
           bitmap = this.game.CustomBitmapObj.DrawUnit(this.UnitSelected);
-           Bitmap local20 =  bitmap;
+           let mut local20: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local19,  local20, 72, 12);
           DrawMod.DrawTextColouredMarc( graphics, "is playing card ", this.game.MarcFont1, 110, 15, Color.White);
           if (this.game.EditObj.HandCard == -1)
           {
-             Graphics local21 =  graphics;
+             let mut local21: &Graphics = &graphics;
             bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.game.EditObj.DoCardSlot], size: 3);
-             Bitmap local22 =  bitmap;
+             let mut local22: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local21,  local22, 290, 7);
           }
           else
           {
-             Graphics local23 =  graphics;
+             let mut local23: &Graphics = &graphics;
             bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.game.EditObj.HandCard, size: 3);
-             Bitmap local24 =  bitmap;
+             let mut local24: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local23,  local24, 290, 7);
           }
           DrawMod.DrawTextColouredMarc( graphics, "You need to select a hex to play card on.", this.game.MarcFont1, 330, 15, Color.White);
@@ -231,8 +231,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -247,8 +247,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -284,20 +284,20 @@ namespace WindowsApplication1
       {
         if (this.game.EditObj.HandCard > -1)
         {
-          int handCard = this.game.EditObj.HandCard;
+          let mut handCard: i32 =  this.game.EditObj.HandCard;
           if (this.game.Data.ActionCardObj[handCard].MouseOver.Length > 0)
           {
-            trect1 = new Rectangle(210, 538, 105, 147);
+            trect1 = Rectangle::new(210, 538, 105, 147);
             this.AddMouse( trect1, "", this.game.Data.ActionCardObj[handCard].MouseOver);
           }
         }
         else
         {
-          int index = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.game.EditObj.DoCardSlot];
+          let mut index: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.game.EditObj.DoCardSlot];
           if (this.game.Data.ActionCardObj[index].MouseOver.Length > 0)
           {
-            trect1 = new Rectangle(210, 538, 105, 147);
-            Rectangle trect2 = trect1;
+            trect1 = Rectangle::new(210, 538, 105, 147);
+            let mut trect2: &Rectangle = &trect1
             this.AddMouse( trect2, "", this.game.Data.ActionCardObj[index].MouseOver);
           }
         }
@@ -308,26 +308,26 @@ namespace WindowsApplication1
         this.mapid = this.AddSubPart( tsubpart, 5, 60, 839, 470, 0);
       }
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-       Graphics local1 =  objgraphics;
+       let mut local1: &Graphics = &objgraphics;
        Bitmap local2 =  this.BackBitmap;
-      trect1 = new Rectangle(370, 540, 240, 140);
-      Rectangle rect = trect1;
+      trect1 = Rectangle::new(370, 540, 240, 140);
+      let mut rect: &Rectangle = &trect1
       DrawMod.DrawSimplePart( local1,  local2, rect);
       if (!this.UdsMode)
       {
         if (this.game.SelectX > -1 & this.game.SelectY > -1)
         {
           DrawMod.DrawTextColouredMarc( objgraphics, "HEX SELECTED:", this.game.MarcFont4, 370, 550, Color.White);
-           Graphics local3 =  objgraphics;
+           let mut local3: &Graphics = &objgraphics;
           CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
-          int selectX = this.game.SelectX;
-          int selectY = this.game.SelectY;
+          let mut selectX: i32 =  this.game.SelectX;
+          let mut selectY: i32 =  this.game.SelectY;
           Bitmap bitmap1 = (Bitmap) null;
-           Bitmap local4 =  bitmap1;
+           let mut local4: &Bitmap = &bitmap1;
           bool flag = false;
            bool local5 =  flag;
           Bitmap bitmap2 = customBitmapObj.DrawHex(selectX, selectY, 0, gBitmap: ( local4), tFromMapPopup: ( local5));
-           Bitmap local6 =  bitmap2;
+           let mut local6: &Bitmap = &bitmap2;
           DrawMod.DrawSimple( local3,  local6, 370, 575);
           DrawMod.DrawTextColouredMarc( objgraphics, this.game.HandyFunctionsObj.GetHexName(this.game.SelectX, this.game.SelectY, 0), this.game.MarcFont4, 440, 585, Color.White);
           if (this.game.EditObj.AreaSlot > -1)
@@ -350,16 +350,16 @@ namespace WindowsApplication1
         if (this.game.SelectX > -1 & this.game.SelectY > -1)
         {
           DrawMod.DrawTextColouredMarc( objgraphics, "HEX SELECTED:", this.game.MarcFont4, 370, 550, Color.White);
-           Graphics local7 =  objgraphics;
+           let mut local7: &Graphics = &objgraphics;
           CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
-          int selectX = this.game.SelectX;
-          int selectY = this.game.SelectY;
+          let mut selectX: i32 =  this.game.SelectX;
+          let mut selectY: i32 =  this.game.SelectY;
           Bitmap bitmap3 = (Bitmap) null;
-           Bitmap local8 =  bitmap3;
+           let mut local8: &Bitmap = &bitmap3;
           bool flag = false;
            bool local9 =  flag;
           Bitmap bitmap4 = customBitmapObj.DrawHex(selectX, selectY, 0, gBitmap: ( local8), tFromMapPopup: ( local9));
-           Bitmap local10 =  bitmap4;
+           let mut local10: &Bitmap = &bitmap4;
           DrawMod.DrawSimple( local7,  local10, 370, 575);
           DrawMod.DrawTextColouredMarc( objgraphics, this.game.HandyFunctionsObj.GetHexName(this.game.SelectX, this.game.SelectY, 0), this.game.MarcFont4, 440, 585, Color.White);
           if (this.game.EditObj.AreaSlot > -1)
@@ -386,16 +386,16 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.Pic1Id)
             {
-              int selectX = this.game.SelectX;
-              int selectY = this.game.SelectY;
+              let mut selectX: i32 =  this.game.SelectX;
+              let mut selectY: i32 =  this.game.SelectY;
               this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.game.EditObj.TempCoordList = CoordList::new();
               this.SubPartList[this.SubpartNr(this.mapid)].Paint();
@@ -405,8 +405,8 @@ namespace WindowsApplication1
             }
             if (num1 == this.mapid)
             {
-              int selectX = this.game.SelectX;
-              int selectY = this.game.SelectY;
+              let mut selectX: i32 =  this.game.SelectX;
+              let mut selectY: i32 =  this.game.SelectY;
               Coordinate coordinate = this.SubPartList[index1].ClickMap(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               if (coordinate.onmap)
               {
@@ -441,7 +441,7 @@ namespace WindowsApplication1
                 else if (!(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical == this.tempUnitHisId & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HistoricalSubPart == this.tempUnitHis2Id))
                   this.game.EditObj.UnitSelected = -1;
               }
-              int widthForMiniMap = DrawMod.GetWidthForMiniMap();
+              let mut widthForMiniMap: i32 =  DrawMod.GetWidthForMiniMap();
               MiniMapPartClass miniMapPartClass = new MiniMapPartClass(DrawMod.TGame, tx: widthForMiniMap, ty: 200);
               this.game.HandyFunctionsObj.RedimTempValue(9999);
               this.Close();
@@ -454,7 +454,7 @@ namespace WindowsApplication1
               this.game.EditObj.HideUnit = this.oldShowSetting;
               this.game.EditObj.AreaX = this.game.SelectX;
               this.game.EditObj.AreaY = this.game.SelectY;
-              int widthForMiniMap = DrawMod.GetWidthForMiniMap();
+              let mut widthForMiniMap: i32 =  DrawMod.GetWidthForMiniMap();
               MiniMapPartClass miniMapPartClass = new MiniMapPartClass(DrawMod.TGame, tx: widthForMiniMap, ty: 200);
               if (this.UdsMode)
               {
@@ -511,7 +511,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+              let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
               if (this.game.EditObj.HandCard > -1)
                 this.game.ProcessingObj.PlayCardByUnit(this.UnitSelected, this.game.EditObj.HandCard);
               else
@@ -542,13 +542,13 @@ namespace WindowsApplication1
                 windowReturnClass.AddCommand(3, 13);
                 return windowReturnClass;
               }
-              int locCounter = this.game.Data.LocCounter;
+              let mut locCounter: i32 =  this.game.Data.LocCounter;
               int Number;
-              for (int locnr = 0; locnr <= locCounter; locnr += 1)
+              for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
               {
                 if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
                 {
-                  int index2 = 0;
+                  let mut index2: i32 =  0;
                   do
                   {
                     if (this.game.Data.LocObj[locnr].Production[index2] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index2]).result)
@@ -567,7 +567,7 @@ namespace WindowsApplication1
                 this.game.EditObj.udsReturnFromPopup = true;
               if (Number > 0)
               {
-                int num2 =  Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num2: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
               {
@@ -624,8 +624,8 @@ namespace WindowsApplication1
     pub HandleKeyup: WindowReturnClass(int nr)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      int cornerX = this.game.CornerX;
-      int cornerY = this.game.CornerY;
+      let mut cornerX: i32 =  this.game.CornerX;
+      let mut cornerY: i32 =  this.game.CornerY;
       if (nr == 27)
         return this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.cancelid)] + 1, this.SubPartY[this.SubpartNr(this.cancelid)] + 1, 1);
       return nr == 32 & this.okid > 0 ? this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.okid)] + 1, this.SubPartY[this.SubpartNr(this.okid)] + 1, 1) : windowReturnClass;
@@ -635,8 +635,8 @@ namespace WindowsApplication1
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag = false;
-      int cornerX = this.game.CornerX;
-      int cornerY = this.game.CornerY;
+      let mut cornerX: i32 =  this.game.CornerX;
+      let mut cornerY: i32 =  this.game.CornerY;
       if (nr == 39)
       {
         this += 1.game.CornerX;
@@ -661,13 +661,13 @@ namespace WindowsApplication1
           this.game.CornerY = 0;
         flag = true;
       }
-      int num1 = 230;
+      let mut num1: i32 =  230;
       if (this.game.Data.Round == 0)
         num1 += 100;
-      int num2 =  Math.Round(Conversion.Int((double) (this.OwnBitmap.Width - 250) / (double) (53 * (this.game.EditObj.Zoom + 1))));
-      int num3 =  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (48 * (this.game.EditObj.Zoom + 1))));
-      int num4 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 1;
-      int num5 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 1;
+      let mut num2: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Width - 250) / (double) (53 * (this.game.EditObj.Zoom + 1))));
+      let mut num3: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (48 * (this.game.EditObj.Zoom + 1))));
+      let mut num4: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 1;
+      let mut num5: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 1;
       if (num2 > num4 & !this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop)
       {
         flag = true;

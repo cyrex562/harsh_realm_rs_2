@@ -27,11 +27,11 @@ namespace WindowsApplication1
       int w,
       int h,
       bool tcenterit,
-      int tcolor = -1,
+      let mut tcolor: i32 =  -1,
       tDescript: String = "",
       bool tBlackBack = false,
       bool toutline = false,
-      int tProgress = -1,
+      let mut tProgress: i32 =  -1,
       bool tMarc = false)
       : base(w, h)
     {

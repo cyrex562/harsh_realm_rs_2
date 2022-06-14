@@ -37,11 +37,11 @@ namespace WindowsApplication1
       this.tCornerX = this.game.CornerX;
       this.tCornerY = this.game.CornerY;
       this.tSelectMap = this.game.EditObj.MapSelected;
-      int mapWidth = this.game.Data.MapObj[0].MapWidth;
-      for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+      let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
           if (this.game.Data.MapObj[0].HexObj[index1, index2].AreaCode[this.game.EditObj.AreaSlot] == this.game.EditObj.AreaValue && index1 + index2 < this.game.SelectX + this.game.SelectY)
           {
@@ -63,16 +63,16 @@ namespace WindowsApplication1
       DrawMod.DrawTextVic2( Expression, "Select a highlighted hex", this.game.VicFont1, 50, 43, this.game.VicColor2, this.game.VicColor2Shade);
       if (this.game.EditObj.DoCardSlot > -1)
       {
-         Graphics local1 =  Expression;
+         let mut local1: &Graphics = &Expression;
         Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.game.EditObj.DoCardSlot]);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local1,  local2, 685, 210, 267, 400);
       }
       else
       {
-         Graphics local3 =  Expression;
+         let mut local3: &Graphics = &Expression;
         Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.EditObj.HandCard);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local3,  local4, 685, 210, 267, 400);
       }
       DrawMod.DrawRectangle( Expression, 49, 79, 602, 582,  this.game.GameCol2.R,  this.game.GameCol2.G,  this.game.GameCol2.B,  byte.MaxValue);
@@ -123,16 +123,16 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.Pic1Id)
             {
-              int selectX = this.game.SelectX;
-              int selectY = this.game.SelectY;
+              let mut selectX: i32 =  this.game.SelectX;
+              let mut selectY: i32 =  this.game.SelectY;
               this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.ViewMessage();
               windowReturnClass.SetFlag(true);
@@ -141,8 +141,8 @@ namespace WindowsApplication1
             {
               if (num1 == this.mapid)
               {
-                int selectX = this.game.SelectX;
-                int selectY = this.game.SelectY;
+                let mut selectX: i32 =  this.game.SelectX;
+                let mut selectY: i32 =  this.game.SelectY;
                 Coordinate coordinate = this.SubPartList[index1].ClickMap(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                 if (coordinate.onmap)
                 {
@@ -151,11 +151,11 @@ namespace WindowsApplication1
                   if (selectX > -1)
                   {
                     let mut subPart: SubPartClass = this.SubPartList[index1];
-                    int x1 = selectX;
-                    int y1 = selectY;
-                    int map = coordinate.map;
+                    let mut x1: i32 =  selectX;
+                    let mut y1: i32 =  selectY;
+                    let mut map: i32 =  coordinate.map;
                     Bitmap bitmap = (Bitmap) null;
-                     Bitmap local =  bitmap;
+                     let mut local: &Bitmap = &bitmap;
                     subPart.PaintCoordinate((Graphics) null, x1, y1, map, gBitmap: ( local));
                   }
                 }
@@ -212,7 +212,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+                let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
                 if (this.game.EditObj.HandCard > -1)
                   this.game.ProcessingObj.PlayCardByUnit(this.UnitSelected, this.game.EditObj.HandCard);
                 else if (this.game.EditObj.OrderType == 23)
@@ -232,12 +232,12 @@ namespace WindowsApplication1
                   windowReturnClass.AddCommand(3, 4);
                   return windowReturnClass;
                 }
-                int locCounter = this.game.Data.LocCounter;
-                for (int locnr = 0; locnr <= locCounter; locnr += 1)
+                let mut locCounter: i32 =  this.game.Data.LocCounter;
+                for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
                 {
                   if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
                   {
-                    int index2 = 0;
+                    let mut index2: i32 =  0;
                     do
                     {
                       if (this.game.Data.LocObj[locnr].Production[index2] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index2]).result)
@@ -311,11 +311,11 @@ namespace WindowsApplication1
       if (this.game.Data.Round > 0)
       {
         let mut subPart: SubPartClass = this.SubPartList[this.SubpartNr(this.mapid)];
-        int selectX = this.game.SelectX;
-        int selectY = this.game.SelectY;
-        int counterAlpha = this.game.EditObj.CounterAlpha;
+        let mut selectX: i32 =  this.game.SelectX;
+        let mut selectY: i32 =  this.game.SelectY;
+        let mut counterAlpha: i32 =  this.game.EditObj.CounterAlpha;
         Bitmap bitmap = (Bitmap) null;
-         Bitmap local =  bitmap;
+         let mut local: &Bitmap = &bitmap;
         subPart.PaintCoordinate((Graphics) null, selectX, selectY, counterAlpha, gBitmap: ( local));
         this.PaintCurrentBitmap(this.mapid);
         windowReturnClass.SetFlag(true);
@@ -329,8 +329,8 @@ namespace WindowsApplication1
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag = false;
-      int cornerX = this.game.CornerX;
-      int cornerY = this.game.CornerY;
+      let mut cornerX: i32 =  this.game.CornerX;
+      let mut cornerY: i32 =  this.game.CornerY;
       if (nr == 39)
       {
         this += 1.game.CornerX;
@@ -355,13 +355,13 @@ namespace WindowsApplication1
           this.game.CornerY = 0;
         flag = true;
       }
-      int num1 = 230;
+      let mut num1: i32 =  230;
       if (this.game.Data.Round == 0)
         num1 += 100;
-      int num2 =  Math.Round(Conversion.Int((double) (this.OwnBitmap.Width - 250) / (double) (53 * (this.game.EditObj.Zoom + 1))));
-      int num3 =  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (48 * (this.game.EditObj.Zoom + 1))));
-      int num4 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 1;
-      int num5 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 1;
+      let mut num2: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Width - 250) / (double) (53 * (this.game.EditObj.Zoom + 1))));
+      let mut num3: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (48 * (this.game.EditObj.Zoom + 1))));
+      let mut num4: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 1;
+      let mut num5: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 1;
       if (num2 > num4 & !this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop)
       {
         flag = true;

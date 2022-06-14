@@ -140,20 +140,20 @@ namespace WindowsApplication1
       {
         if (!active & openSideWindow)
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABRIGHT);
-           Bitmap local2 =  bitmap;
-          rectangle1 = new Rectangle(0, 0, 28, 70);
-          Rectangle srcrect = rectangle1;
-          rectangle2 = new Rectangle(x1 + 7, ty, 28, 70);
-          Rectangle destrect = rectangle2;
+           let mut local2: &Bitmap = &bitmap;
+          rectangle1 = Rectangle::new(0, 0, 28, 70);
+          let mut srcrect: &Rectangle = &rectangle1
+          rectangle2 = Rectangle::new(x1 + 7, ty, 28, 70);
+          let mut destrect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2ColouredNew( local1,  local2, srcrect, destrect, 1.1f, 1.1f, 1.1f, 1f);
         }
         if (active | !openSideWindow)
         {
-           Graphics local3 =  g;
+           let mut local3: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABRIGHT);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           let mut x2: i32 = x1;
           let mut y: i32 = ty;
           DrawMod.Draw( local3,  local4, x2, y, 0.05f, 0.05f, 0.05f, 1f);
@@ -163,20 +163,20 @@ namespace WindowsApplication1
       {
         if (!active & openSideWindow)
         {
-           Graphics local5 =  g;
+           let mut local5: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABRIGHT);
-           Bitmap local6 =  bitmap;
-          rectangle2 = new Rectangle(0, 0, 28, 70);
-          Rectangle srcrect = rectangle2;
-          rectangle1 = new Rectangle(x1 + 7, ty, 28, 70);
-          Rectangle destrect = rectangle1;
+           let mut local6: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 0, 28, 70);
+          let mut srcrect: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x1 + 7, ty, 28, 70);
+          let mut destrect: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
         }
         if (active | !openSideWindow)
         {
-           Graphics local7 =  g;
+           let mut local7: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABRIGHT);
-           Bitmap local8 =  bitmap;
+           let mut local8: &Bitmap = &bitmap;
           let mut x3: i32 = x1;
           let mut y: i32 = ty;
           DrawMod.DrawSimple( local7,  local8, x3, y);
@@ -188,24 +188,24 @@ namespace WindowsApplication1
         {
           if (!active & openSideWindow)
           {
-             Graphics local9 =  g;
+             let mut local9: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local10 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 32, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1 + 4, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local10: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1 + 4, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
           }
           if (!active & !openSideWindow)
           {
-             Graphics local11 =  g;
+             let mut local11: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local12 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 32, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local12: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local11,  local12, srcrect, destrect);
           }
         }
@@ -213,40 +213,40 @@ namespace WindowsApplication1
         {
           if (!active & openSideWindow)
           {
-             Graphics local13 =  g;
+             let mut local13: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local14 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 0, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1 + 4, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local14: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 0, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1 + 4, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local13,  local14, srcrect, destrect);
           }
           if (!active & !openSideWindow)
           {
-             Graphics local15 =  g;
+             let mut local15: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local16 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 0, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local16: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 0, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
           }
         }
         if (active)
         {
-           Graphics local17 =  g;
+           let mut local17: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-           Bitmap local18 =  bitmap;
-          rectangle2 = new Rectangle(iconSlot * 42, 32, 42, 32);
-          Rectangle srcrect = rectangle2;
-          rectangle1 = new Rectangle(x1, ty + 17, 42, 32);
-          Rectangle destrect = rectangle1;
+           let mut local18: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+          let mut srcrect: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x1, ty + 17, 42, 32);
+          let mut destrect: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local17,  local18, srcrect, destrect);
         }
       }
-      return new Rectangle(x1, ty, 35, 65);
+      return Rectangle::new(x1, ty, 35, 65);
     }
 
     pub handleTimer: WindowReturnClass()
@@ -607,9 +607,9 @@ namespace WindowsApplication1
         BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TEXTURE).RotateFlip(RotateFlipType.RotateNoneFlipX);
         for (let mut index4: i32 = 0; index4 < this.h; index4 += 185)
         {
-           Graphics local1 =  objgraphics;
+           let mut local1: &Graphics = &objgraphics;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TEXTURE);
-           Bitmap local2 =  bitmap;
+           let mut local2: &Bitmap = &bitmap;
           let mut x2: i32 = x1 + 40;
           let mut y: i32 = index4;
           DrawMod.DrawSimple( local1,  local2, x2, y);
@@ -618,38 +618,38 @@ namespace WindowsApplication1
       }
       if (!openSideWindow)
       {
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TOPSHADOWRIGHT);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         let mut x3: i32 = this.w - 150;
         DrawMod.DrawSimple( local3,  local4, x3, 0);
       }
-       Graphics local5 =  objgraphics;
+       let mut local5: &Graphics = &objgraphics;
       Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
-       Bitmap local6 =  bitmap1;
-      Rectangle trect1 = new Rectangle(0, 0, 40, 128);
-      Rectangle srcrect1 = trect1;
-      Rectangle rectangle = new Rectangle(x1, 0, 40, 128);
-      Rectangle destrect1 = rectangle;
+       let mut local6: &Bitmap = &bitmap1;
+      Rectangle trect1 = Rectangle::new(0, 0, 40, 128);
+      let mut srcrect1: &Rectangle = &trect1
+      Rectangle rectangle = Rectangle::new(x1, 0, 40, 128);
+      let mut destrect1: &Rectangle = &rectangle
       DrawMod.DrawSimplePart2( local5,  local6, srcrect1, destrect1);
       for (let mut y: i32 = 128; y < this.h - 128; y += 124)
       {
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
-         Bitmap local8 =  bitmap2;
-        rectangle = new Rectangle(0, 128, 40, 124);
-        Rectangle srcrect2 = rectangle;
-        trect1 = new Rectangle(x1, y, 40, 124);
-        Rectangle destrect2 = trect1;
+         let mut local8: &Bitmap = &bitmap2;
+        rectangle = Rectangle::new(0, 128, 40, 124);
+        let mut srcrect2: &Rectangle = &rectangle
+        trect1 = Rectangle::new(x1, y, 40, 124);
+        let mut destrect2: &Rectangle = &trect1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect2, destrect2);
       }
-       Graphics local9 =  objgraphics;
+       let mut local9: &Graphics = &objgraphics;
       Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_RIGHT);
-       Bitmap local10 =  bitmap3;
-      rectangle = new Rectangle(0, 252, 40, 128);
-      Rectangle srcrect3 = rectangle;
-      trect1 = new Rectangle(x1, this.h - 128, 40, 128);
-      Rectangle destrect3 = trect1;
+       let mut local10: &Bitmap = &bitmap3;
+      rectangle = Rectangle::new(0, 252, 40, 128);
+      let mut srcrect3: &Rectangle = &rectangle
+      trect1 = Rectangle::new(x1, this.h - 128, 40, 128);
+      let mut destrect3: &Rectangle = &trect1
       DrawMod.DrawSimplePart2( local9,  local10, srcrect3, destrect3);
       let mut ty1: i32 = 90;
       Rectangle trect2 = this.DrawOneTab(objgraphics, ty1, this.game.EditObj.rightSideBarMode == 2, openSideWindow, 9, this.MouseOverWhichTab == 2);
@@ -664,9 +664,9 @@ namespace WindowsApplication1
       if (openSideWindow)
       {
         let mut num5: i32 = this.h - 67;
-         Graphics local11 =  objgraphics;
+         let mut local11: &Graphics = &objgraphics;
         Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_EXITRIGHT);
-         Bitmap local12 =  bitmap4;
+         let mut local12: &Bitmap = &bitmap4;
         let mut y: i32 = num5;
         DrawMod.DrawSimple( local11,  local12, 8, y);
         if (this.but1id < 1)
@@ -690,9 +690,9 @@ namespace WindowsApplication1
         if (this.game.EditObj.rightSideBarMode == 4)
         {
           tstring: String = "Order Mode";
-           Graphics local13 =  objgraphics;
+           let mut local13: &Graphics = &objgraphics;
           Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-           Bitmap local14 =  bitmap5;
+           let mut local14: &Bitmap = &bitmap5;
           let mut x4: i32 = num8 + num6;
           let mut y: i32 = num9 + num7;
           DrawMod.DrawSimple( local13,  local14, x4, y);
@@ -827,9 +827,9 @@ namespace WindowsApplication1
         if (this.game.EditObj.rightSideBarMode == 3)
         {
           tstring1: String = "Logistics";
-           Graphics local15 =  objgraphics;
+           let mut local15: &Graphics = &objgraphics;
           Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-           Bitmap local16 =  bitmap6;
+           let mut local16: &Bitmap = &bitmap6;
           let mut x5: i32 = num8 + num6;
           let mut y1: i32 = num9 + num7;
           DrawMod.DrawSimple( local15,  local16, x5, y1);
@@ -879,9 +879,9 @@ namespace WindowsApplication1
           if (this.game.EditObj.layerLisPreview)
           {
             tstring2: String = "Zone Log. Assets";
-             Graphics local17 =  objgraphics;
+             let mut local17: &Graphics = &objgraphics;
             Bitmap bitmap7 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local18 =  bitmap7;
+             let mut local18: &Bitmap = &bitmap7;
             let mut x6: i32 = num8 + num6;
             let mut y2: i32 = num9 + num7;
             DrawMod.DrawSimple( local17,  local18, x6, y2);
@@ -947,9 +947,9 @@ namespace WindowsApplication1
           if (!this.game.EditObj.layerLisPreview | flag1 & num9 + 315 < this.h | !flag1 & num9 + 135 < this.h)
           {
             tstring3: String = "Map Layers";
-             Graphics local19 =  objgraphics;
+             let mut local19: &Graphics = &objgraphics;
             Bitmap bitmap8 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local20 =  bitmap8;
+             let mut local20: &Bitmap = &bitmap8;
             let mut x7: i32 = num8 + num6;
             let mut y3: i32 = num9 + num7;
             DrawMod.DrawSimple( local19,  local20, x7, y3);
@@ -1010,9 +1010,9 @@ namespace WindowsApplication1
             str: String = this.game.Data.UnitObj[index2].Name;
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
-             Graphics local21 =  objgraphics;
+             let mut local21: &Graphics = &objgraphics;
             Bitmap bitmap9 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local22 =  bitmap9;
+             let mut local22: &Bitmap = &bitmap9;
             let mut x8: i32 = num8 + num6;
             let mut y: i32 = num9 + num7;
             DrawMod.DrawSimple( local21,  local22, x8, y);
@@ -1061,9 +1061,9 @@ namespace WindowsApplication1
               str = "Unfriendly";
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
-             Graphics local23 =  objgraphics;
+             let mut local23: &Graphics = &objgraphics;
             Bitmap bitmap10 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local24 =  bitmap10;
+             let mut local24: &Bitmap = &bitmap10;
             let mut x9: i32 = num8 + num6;
             let mut y: i32 = num9 + num7;
             DrawMod.DrawSimple( local23,  local24, x9, y);
@@ -1112,9 +1112,9 @@ namespace WindowsApplication1
             str1: String = data;
             if (str1.Length > 15)
               str1 = Strings.Left(str1, 15) + ".";
-             Graphics local25 =  objgraphics;
+             let mut local25: &Graphics = &objgraphics;
             Bitmap bitmap11 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local26 =  bitmap11;
+             let mut local26: &Bitmap = &bitmap11;
             let mut x10: i32 = num47 + num6;
             let mut y: i32 = num48 + num7;
             DrawMod.DrawSimple( local25,  local26, x10, y);
@@ -1261,9 +1261,9 @@ namespace WindowsApplication1
               str = "Zone in Conquest";
             if (str.Length > 16)
               str = Strings.Left(str, 16) + ".";
-             Graphics local27 =  objgraphics;
+             let mut local27: &Graphics = &objgraphics;
             Bitmap bitmap12 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local28 =  bitmap12;
+             let mut local28: &Bitmap = &bitmap12;
             let mut x11: i32 = num47 + num6;
             let mut y: i32 = num48 + num7;
             DrawMod.DrawSimple( local27,  local28, x11, y);
@@ -1321,9 +1321,9 @@ namespace WindowsApplication1
             str: String = this.game.Data.UnitObj[unitSelected].Name;
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
-             Graphics local29 =  objgraphics;
+             let mut local29: &Graphics = &objgraphics;
             Bitmap bitmap13 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local30 =  bitmap13;
+             let mut local30: &Bitmap = &bitmap13;
             let mut x12: i32 = num69 + num6;
             let mut y: i32 = num70 + num7;
             DrawMod.DrawSimple( local29,  local30, x12, y);
@@ -1382,9 +1382,9 @@ namespace WindowsApplication1
             str: String = "No friendy Unit";
             if (str.Length > 15)
               str = Strings.Left(str, 15) + ".";
-             Graphics local31 =  objgraphics;
+             let mut local31: &Graphics = &objgraphics;
             Bitmap bitmap14 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-             Bitmap local32 =  bitmap14;
+             let mut local32: &Bitmap = &bitmap14;
             let mut x13: i32 = num69 + num6;
             let mut y: i32 = num70 + num7;
             DrawMod.DrawSimple( local31,  local32, x13, y);
@@ -1459,9 +1459,9 @@ namespace WindowsApplication1
         str4: String = this.game.Data.UnitObj[index2].Name;
         if (str4.Length > 15)
           str4 = Strings.Left(str4, 15) + ".";
-         Graphics local33 =  objgraphics;
+         let mut local33: &Graphics = &objgraphics;
         Bitmap bitmap15 = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-         Bitmap local34 =  bitmap15;
+         let mut local34: &Bitmap = &bitmap15;
         let mut x15: i32 = x14;
         let mut y4: i32 = num109;
         DrawMod.DrawSimple( local33,  local34, x15, y4);
@@ -1477,16 +1477,16 @@ namespace WindowsApplication1
           {
             this.game.Data.StringListObj[stringListById4].GetData(0, simpleList.Id[index8], 2);
             str5: String = simpleStringList.Id[index8];
-             Graphics local35 =  objgraphics;
+             let mut local35: &Graphics = &objgraphics;
             Bitmap bitmap16 = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_VARBOX);
-             Bitmap local36 =  bitmap16;
+             let mut local36: &Bitmap = &bitmap16;
             let mut x16: i32 = x14;
             let mut y6: i32 = y5;
             DrawMod.DrawSimple( local35,  local36, x16, y6);
             let mut eventPicSlotFor: i32 = this.game.EventRelatedObj.GetEventPicSlotFor(simpleList.Id[index8], "", "");
-             Graphics local37 =  objgraphics;
+             let mut local37: &Graphics = &objgraphics;
             Bitmap bitmap17 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPicSlotFor]);
-             Bitmap local38 =  bitmap17;
+             let mut local38: &Bitmap = &bitmap17;
             let mut x17: i32 = x14 + 2;
             let mut y7: i32 = y5 + 6;
             DrawMod.DrawSimple( local37,  local38, x17, y7);
@@ -1539,35 +1539,35 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredConsole( objgraphics, tstring5, this.game.MarcFont7, x14 + 91, y5 + 5, this.game.seColGray);
             if (num114 > 0)
             {
-               Graphics local39 =  objgraphics;
+               let mut local39: &Graphics = &objgraphics;
               Bitmap bitmap18 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic2]);
-               Bitmap local40 =  bitmap18;
-              rectangle = new Rectangle(0, 0, 32, 16);
-              Rectangle srcrect4 = rectangle;
-              trect1 = new Rectangle(x14 + 76, y5 + 6, 32, 16);
-              Rectangle destrect4 = trect1;
+               let mut local40: &Bitmap = &bitmap18;
+              rectangle = Rectangle::new(0, 0, 32, 16);
+              let mut srcrect4: &Rectangle = &rectangle
+              trect1 = Rectangle::new(x14 + 76, y5 + 6, 32, 16);
+              let mut destrect4: &Rectangle = &trect1
               DrawMod.DrawSimplePart2ColouredNew( local39,  local40, srcrect4, destrect4, 0.0f, 1.5f, 0.0f, 1f);
             }
             else if (num114 < 0)
             {
-               Graphics local41 =  objgraphics;
+               let mut local41: &Graphics = &objgraphics;
               Bitmap bitmap19 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic1]);
-               Bitmap local42 =  bitmap19;
-              rectangle = new Rectangle(0, 0, 32, 16);
-              Rectangle srcrect5 = rectangle;
-              trect1 = new Rectangle(x14 + 76, y5 + 6, 32, 16);
-              Rectangle destrect5 = trect1;
+               let mut local42: &Bitmap = &bitmap19;
+              rectangle = Rectangle::new(0, 0, 32, 16);
+              let mut srcrect5: &Rectangle = &rectangle
+              trect1 = Rectangle::new(x14 + 76, y5 + 6, 32, 16);
+              let mut destrect5: &Rectangle = &trect1
               DrawMod.DrawSimplePart2ColouredNew( local41,  local42, srcrect5, destrect5, 1.5f, 0.0f, 0.0f, 1f);
             }
             else
             {
-               Graphics local43 =  objgraphics;
+               let mut local43: &Graphics = &objgraphics;
               Bitmap bitmap20 = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic3]);
-               Bitmap local44 =  bitmap20;
-              rectangle = new Rectangle(0, 0, 32, 16);
-              Rectangle srcrect6 = rectangle;
-              trect1 = new Rectangle(x14 + 76, y5 + 6, 32, 16);
-              Rectangle destrect6 = trect1;
+               let mut local44: &Bitmap = &bitmap20;
+              rectangle = Rectangle::new(0, 0, 32, 16);
+              let mut srcrect6: &Rectangle = &rectangle
+              trect1 = Rectangle::new(x14 + 76, y5 + 6, 32, 16);
+              let mut destrect6: &Rectangle = &trect1
               DrawMod.DrawSimplePart2ColouredNew( local43,  local44, srcrect6, destrect6, 0.0f, 1.8f, 1.8f, 1f);
             }
             str6: String = "Delivered from zones: " + num110.ToString() + "\r\n" + "Sent to zones: " + num115.ToString() + "\r\n" + "Sent to units: " + num116.ToString() + "\r\n" + "Consumed in SHQ: " + num117.ToString() + "\r\n" + "Consumed by colonists & recruits: " + num119.ToString() + "\r\n" + "Lost due to max storage reached: " + num118.ToString();
@@ -1579,7 +1579,7 @@ namespace WindowsApplication1
             }
             else
               ttext = str6 + "\r\nMaximum storage: Unlimited";
-            rectangle = new Rectangle(x14, y5, width, height);
+            rectangle = Rectangle::new(x14, y5, width, height);
             trect1 = rectangle;
             this.AddMouse( trect1, ttitle, ttext);
             y5 += height;

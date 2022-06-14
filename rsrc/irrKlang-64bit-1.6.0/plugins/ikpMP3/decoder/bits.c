@@ -38,11 +38,11 @@ void init_get_bits(GetBitContext *s,
 unsigned int show_bits(const GetBitContext *s, int n)
 {
     int i;
-    unsigned int result = 0;
+    unsigned let mut result: i32 =  0;
     assert(s->size_in_bits - s->index >= n);
     for (i = s->index; i < s->index + n; i++) {
-        int byte_index = i / 8;
-        unsigned int right_shift = 7 - (i % 8);
+        let mut byte_index: i32 =  i / 8;
+        unsigned let mut right_shift: i32 =  7 - (i % 8);
         uint8_t byte = s->buffer[byte_index];
         uint8_t bit;
         result <<= 1;
@@ -62,7 +62,7 @@ void skip_bits(GetBitContext *s, int n)
 
 unsigned int get_bits(GetBitContext *s, int n)
 {
-    unsigned int result = show_bits(s, n);
+    unsigned let mut result: i32 =  show_bits(s, n);
     skip_bits(s, n);
     return result;
 }
@@ -252,8 +252,8 @@ void free_vlc(VLC *vlc)
 
 int get_vlc(GetBitContext *s, const VLC *vlc)
 {
-    int code = 0;
-    int depth = 0, max_depth = 3;
+    let mut code: i32 =  0;
+    let mut depth: i32 =  0, max_depth = 3;
     int n, index, bits = vlc->bits;
     
     do {

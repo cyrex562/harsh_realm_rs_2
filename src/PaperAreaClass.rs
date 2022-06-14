@@ -19,8 +19,8 @@ namespace WindowsApplication1
      ListClass ListObj;
      Font OwnFont;
      int ItemSize;
-     const int ItemFontOffset = 1;
-     const int LeftTextOffset = 5;
+     const let mut ItemFontOffset: i32 =  1;
+     const let mut LeftTextOffset: i32 =  5;
      int Width;
      int Height;
      string Header;
@@ -70,15 +70,15 @@ namespace WindowsApplication1
       bool theadercenter,
       string tText,
       Color tfontcol,
-      int tTop = 0,
-      int tItemSize = 16,
+      let mut tTop: i32 =  0,
+      let mut tItemSize: i32 =  16,
        Bitmap tbackbitmap = null,
-      int bbx = -1,
-      int bby = -1,
+      let mut bbx: i32 =  -1,
+      let mut bby: i32 =  -1,
       bool tcenterit = false,
       bool tHideShade = false,
-      int tPaginationLines = 2,
-      int tbgcolor = -1)
+      let mut tPaginationLines: i32 =  2,
+      let mut tbgcolor: i32 =  -1)
       : base(twidth, (trows + 1) * tItemSize)
     {
       this.ItemSize = tItemSize;
@@ -96,7 +96,7 @@ namespace WindowsApplication1
         this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         objGraphics = Graphics.FromImage((Image) this.backbitmap);
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
-        DrawMod.DrawSimplePart2( objGraphics,  tbackbitmap, new Rectangle(bbx, bby, this.Width, this.Height), new Rectangle(0, 0, this.Width, this.Height));
+        DrawMod.DrawSimplePart2( objGraphics,  tbackbitmap, Rectangle::new(bbx, bby, this.Width, this.Height), Rectangle::new(0, 0, this.Width, this.Height));
         objGraphics = (Graphics) null;
       }
       this.fontcol = !Information.IsNothing((object) tfontcol) ? tfontcol : Color.White;
@@ -104,26 +104,26 @@ namespace WindowsApplication1
       this.ListObj = ListClass::new();
       objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       this.OwnFont = !Information.IsNothing((object) tfont) ? tfont : this.game.VicFont7;
-      int num1 = 1;
+      let mut num1: i32 =  1;
       this.clickscroll = 0;
       if (Information.IsNothing((object) tText))
         tText = "";
       tText = tText.Replace("\t", " ");
       while (Strings.Len(tText) > 0)
       {
-        int num2 = 1;
+        let mut num2: i32 =  1;
         str1: String = "";
         while (num2 == 1)
         {
-          int num3 = Strings.InStr(tText, "\r\n");
-          int num4 = Strings.InStr(tText, " ");
+          let mut num3: i32 =  Strings.InStr(tText, "\r\n");
+          let mut num4: i32 =  Strings.InStr(tText, " ");
           if (num4 == 0)
             num4 = 9999999;
           if (num3 < num4 & num3 > 0)
           {
-            int num5 = num3;
+            let mut num5: i32 =  num3;
             num2 = 0;
-            int num6 = 0;
+            let mut num6: i32 =  0;
             if (num5 != 1)
             {
               if ((double) objGraphics.MeasureString(str1 + Strings.Left(tText, num5 - 1), this.OwnFont).Width <= (double) this.Width)
@@ -136,9 +136,9 @@ namespace WindowsApplication1
           }
           else
           {
-            int Length = Strings.InStr(tText, " ");
+            let mut Length: i32 =  Strings.InStr(tText, " ");
             str2: String = Length <= 0 ? tText : Strings.Left(tText, Length);
-            int num7 = 0;
+            let mut num7: i32 =  0;
             num2 = 0;
             if ((double) objGraphics.MeasureString(str1 + str2, this.OwnFont).Width <= (double) this.Width)
             {
@@ -208,16 +208,16 @@ namespace WindowsApplication1
       if (!Information.IsNothing((object) this.backbitmap))
       {
         Expression.CompositingMode = CompositingMode.SourceCopy;
-        DrawMod.DrawSimplePart2( Expression,  this.backbitmap, new Rectangle(0, 0, this.Width, this.Height), new Rectangle(0, 0, this.Width, this.Height));
+        DrawMod.DrawSimplePart2( Expression,  this.backbitmap, Rectangle::new(0, 0, this.Width, this.Height), Rectangle::new(0, 0, this.Width, this.Height));
       }
       else if (this.bgcolor == -1)
         Expression.Clear(Color.White);
       Expression.CompositingMode = CompositingMode.SourceOver;
-      int num1 = -1;
-      int topItem = this.TopItem;
-      int num2 = this.TopItem + this.ListSize - this.PaginationLines;
+      let mut num1: i32 =  -1;
+      let mut topItem: i32 =  this.TopItem;
+      let mut num2: i32 =  this.TopItem + this.ListSize - this.PaginationLines;
       SizeF sizeF2;
-      for (int index = topItem; index <= num2; index += 1)
+      for (let mut index: i32 =  topItem; index <= num2; index += 1)
       {
         num1 += 1;
         if (index <= this.ListObj.ListCount)
@@ -229,7 +229,7 @@ namespace WindowsApplication1
           else
           {
             sizeF2 = Expression.MeasureString(this.ListObj.ListName[index], this.OwnFont);
-            int num3 =  Math.Round((double) this.Width / 2.0 - (double) sizeF2.Width / 2.0);
+            let mut num3: i32 =   Math.Round((double) this.Width / 2.0 - (double) sizeF2.Width / 2.0);
             if (0 > num3)
               num3 = 0;
             DrawMod.DrawTextColoured( Expression, this.ListObj.ListName[index], this.OwnFont, num3 + 5, this.ItemSize * num1 + 1, this.fontcol);
@@ -238,11 +238,11 @@ namespace WindowsApplication1
       }
       if (this.ListSize - this.PaginationLines < this.ListObj.ListCount)
       {
-        int Number1 =  Math.Round(Conversion.Int((double) this.ListObj.ListCount / (double) (this.ListSize - this.PaginationLines)) + 1.0);
-        int Number2 =  Math.Round(Conversion.Int((double) this.TopItem / (double) (this.ListSize - this.PaginationLines)) + 1.0);
+        let mut Number1: i32 =   Math.Round(Conversion.Int((double) this.ListObj.ListCount / (double) (this.ListSize - this.PaginationLines)) + 1.0);
+        let mut Number2: i32 =   Math.Round(Conversion.Int((double) this.TopItem / (double) (this.ListSize - this.PaginationLines)) + 1.0);
         str: String = "Page " + Strings.Trim(Conversion.Str((object) Number2)) + " of " + Strings.Trim(Conversion.Str((object) Number1));
         sizeF2 = Expression.MeasureString(str, this.OwnFont);
-        int num4 =  Math.Round((double) this.Width / 2.0 - (double) sizeF2.Width / 2.0);
+        let mut num4: i32 =   Math.Round((double) this.Width / 2.0 - (double) sizeF2.Width / 2.0);
         if (0 > num4)
           num4 = 0;
         DrawMod.DrawTextColoured( Expression, str, this.game.VicFont7, 5 + num4, this.Height - this.ItemSize - 15, Color.Black);
@@ -270,7 +270,7 @@ namespace WindowsApplication1
 
     pub Bitmap PaintOverlay() => this.Paint();
 
-    pub int Click(int x, int y, int b = 1)
+    pub int Click(int x, int y, let mut b: i32 =  1)
     {
       if (x > this.mzx & x < this.mzx + 40 & y > this.mzy & y < this.mzy + 21)
       {

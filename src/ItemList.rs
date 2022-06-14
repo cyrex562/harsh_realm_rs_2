@@ -48,7 +48,7 @@ namespace WindowsApplication1
     protected ItemList(SerializationInfo info, StreamingContext context)
     {
       this.list = SimpleList::new();
-      int int32 = info.GetInt32("counter");
+      let mut int32: i32 =  info.GetInt32("counter");
       int[] numArray1 = new int[int32 + 1];
       int[] numArray2 = new int[int32 + 1];
       int[] numArray3 = new int[int32 + 1];

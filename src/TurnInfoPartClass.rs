@@ -102,9 +102,9 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-       Graphics local1 =  Expression;
+       let mut local1: &Graphics = &Expression;
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing((object) Expression))
         Expression.Dispose();

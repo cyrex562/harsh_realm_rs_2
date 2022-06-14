@@ -18,12 +18,12 @@ namespace WindowsApplication1
   [Serializable]
   pub class DataClass : ISerializable
   {
-    pub const int CONSTVERSION = 424;
+    pub const let mut CONSTVERSION: i32 =  424;
     pub const CONSTSUBVERSION: String = ".04b";
     pub const CONSTFILEEXTENSIONSLOAD: String = "SE1 Scenario file (*.se1)|*.se1";
     pub const CONSTFILEEXTENSIONSSAVE: String = "SE1 Scenario file (*.se1)|*.se1";
     pub const CONSTFILEEXTENSIONAUTOSAVE: String = ".se1";
-    pub const int CONSTVERSIONDISPLAYMINUS = 314;
+    pub const let mut CONSTVERSIONDISPLAYMINUS: i32 =  314;
     pub const CONSTFILEEXTENSTIONLOADMAP: String = "SE1 Map file(*.se1map)|*.se1map";
     pub const CONSTFILEEXTENSIONEVENTLIB: String = "SE1 Event library(*.se1evlib)|*.se1evlib";
     pub const CONSTFILEEXTENSIONTROOPSLIB: String = "SE1 Troops&Equipment library(*.se1troops)|*.se1troops";
@@ -63,7 +63,7 @@ namespace WindowsApplication1
     pub string[] RealTempString;
     pub int[] GameSlotNato;
     pub int[] GameSlotSmallGfx;
-    pub const int Slotcounter = 499;
+    pub const let mut Slotcounter: i32 =  499;
     pub ShrowdOn: bool;
     pub FOWOn: bool;
     pub UncertaintyOn: bool;
@@ -183,18 +183,18 @@ namespace WindowsApplication1
     pub NoAIAdvice: bool;
     pub int[] Variants;
     pub int[] VariantEvent;
-    pub const int MoveGroup1 = 0;
-    pub const int MoveGroup2 = 99;
-    pub const int LandscapeGroup1 = 100;
-    pub const int LandscapeGroup2 = 199;
-    pub const int PeopleGroup1 = 200;
-    pub const int PeopleGroup2 = 299;
-    pub const int ItemGroup1 = 300;
-    pub const int ItemGroup2 = 399;
-    pub const int SFTypeGroup1 = 400;
-    pub const int SFTypeGroup2 = 499;
-    pub const int LocTypeGroup1 = 500;
-    pub const int LocTypeGroup2 = 599;
+    pub const let mut MoveGroup1: i32 =  0;
+    pub const let mut MoveGroup2: i32 =  99;
+    pub const let mut LandscapeGroup1: i32 =  100;
+    pub const let mut LandscapeGroup2: i32 =  199;
+    pub const let mut PeopleGroup1: i32 =  200;
+    pub const let mut PeopleGroup2: i32 =  299;
+    pub const let mut ItemGroup1: i32 =  300;
+    pub const let mut ItemGroup2: i32 =  399;
+    pub const let mut SFTypeGroup1: i32 =  400;
+    pub const let mut SFTypeGroup2: i32 =  499;
+    pub const let mut LocTypeGroup1: i32 =  500;
+    pub const let mut LocTypeGroup2: i32 =  599;
     pub int[] MoveTypePenalty;
     pub int[] UnitTypePenalty;
     pub int[] WheaterColor;
@@ -245,11 +245,11 @@ namespace WindowsApplication1
 
     pub int GetLibVarUseId(int libVarId, int slotId)
     {
-      int index = slotId;
+      let mut index: i32 =  slotId;
       if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Hex || this.LibVarObj[libVarId].type == NewEnums.LibVarType.General)
         return libVarId;
-      int num1 = -1;
-      int num2 = -1;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  -1;
       if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.HistoricalUnit)
       {
         num2 = this.HistoricalUnitObj[index].LibId.libSlot;
@@ -318,8 +318,8 @@ namespace WindowsApplication1
       }
       if (index > -1)
       {
-        int libVarCounter = this.LibVarCounter;
-        for (int libVarUseId = 0; libVarUseId <= libVarCounter; libVarUseId += 1)
+        let mut libVarCounter: i32 =  this.LibVarCounter;
+        for (let mut libVarUseId: i32 =  0; libVarUseId <= libVarCounter; libVarUseId += 1)
         {
           if (this.LibVarObj[libVarId].libId.libSlot == this.LibVarObj[libVarUseId].libId.libSlot && Operators.CompareString(this.LibVarObj[libVarId].name, this.LibVarObj[libVarUseId].name, false) == 0 && num2 == this.LibVarObj[libVarUseId].instanceId.libSlot && num1 == this.LibVarObj[libVarUseId].instanceId.id)
             return libVarUseId;
@@ -328,7 +328,7 @@ namespace WindowsApplication1
       return libVarId;
     }
 
-    pub DataClass(int twidth = 25, int theight = 25, bool DontLoadGraphics = false)
+    pub DataClass(let mut twidth: i32 =  25, let mut theight: i32 =  25, bool DontLoadGraphics = false)
     {
       this.GameSlot = new int[500];
       this.GameSlotName = new string[500];
@@ -435,11 +435,11 @@ namespace WindowsApplication1
       this.MapObj[0].MapWidth = twidth;
       this.MapObj[0].MapHeight = theight;
       this.HexObj = new HexClass[this.MapWidth + 1, this.MapHeight + 1];
-      int mapWidth = this.MapObj[0].MapWidth;
-      for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+      let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
+      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
-        int mapHeight = this.MapObj[0].MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           this.MapObj[0].HexObj[index1, index2] = new HexClass(0, 0, 0);
       }
       this.RoadTypeCounter = 0;
@@ -460,7 +460,7 @@ namespace WindowsApplication1
       this.RiverTypeObj[0] = new RiverTypeClass(0);
       this.BridgeObj[0] = new BridgeClass(0);
       this.StringListCounter = -1;
-      int index3 = 0;
+      let mut index3: i32 =  0;
       do
       {
         this.GameSlot[index3] = -1;
@@ -488,7 +488,7 @@ namespace WindowsApplication1
       this.AlternateRound = -1;
       this.AlternateRound2 = -1;
       this.Turn = -1;
-      int index4 = 0;
+      let mut index4: i32 =  0;
       do
       {
         this.Variants[index4] = -1;
@@ -496,7 +496,7 @@ namespace WindowsApplication1
         index4 += 1;
       }
       while (index4 <= 11);
-      int index5 = 0;
+      let mut index5: i32 =  0;
       do
       {
         this.MoveTypePenalty[index5] = 100;
@@ -514,14 +514,14 @@ namespace WindowsApplication1
       this.SetEventNames();
       if (!DontLoadGraphics)
         this.LoadGraphics((Form1) null);
-      int index6 = 0;
+      let mut index6: i32 =  0;
       do
       {
         this.ReinfRatio[index6] = 1;
         index6 += 1;
       }
       while (index6 <= 49);
-      int index7 = 0;
+      let mut index7: i32 =  0;
       do
       {
         this.transportMovementType[index7] = 0;
@@ -4235,8 +4235,8 @@ namespace WindowsApplication1
 
     pub void SetDefaultRules(bool namesonly = false)
     {
-      int ruleCounter = this.RuleCounter;
-      for (int index = 0; index <= ruleCounter; index += 1)
+      let mut ruleCounter: i32 =  this.RuleCounter;
+      for (let mut index: i32 =  0; index <= ruleCounter; index += 1)
       {
         if (!namesonly)
           this.RuleVar[index] = 0.0f;
@@ -6349,8 +6349,8 @@ namespace WindowsApplication1
 
     pub void SetDefaultTempStrings()
     {
-      int stringCounter = this.StringCounter;
-      for (int index = 0; index <= stringCounter; index += 1)
+      let mut stringCounter: i32 =  this.StringCounter;
+      for (let mut index: i32 =  0; index <= stringCounter; index += 1)
         this.TempString[index] = "";
     }
 
@@ -6365,8 +6365,8 @@ namespace WindowsApplication1
 
     pub int FindUnit(ref UnitClass uni, string libName)
     {
-      int unitCounter = this.UnitCounter;
-      for (int unit = 0; unit <= unitCounter; unit += 1)
+      let mut unitCounter: i32 =  this.UnitCounter;
+      for (let mut unit: i32 =  0; unit <= unitCounter; unit += 1)
       {
         if (this.UnitObj[unit].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.UnitObj[unit].LibId.libSlot].name, libName, false) == 0 && this.UnitObj[unit].LibId.id == uni.PreDef)
           return unit;
@@ -6376,8 +6376,8 @@ namespace WindowsApplication1
 
     pub int FindPredef(int id)
     {
-      int unitCounter = this.UnitCounter;
-      for (int predef = 0; predef <= unitCounter; predef += 1)
+      let mut unitCounter: i32 =  this.UnitCounter;
+      for (let mut predef: i32 =  0; predef <= unitCounter; predef += 1)
       {
         if (this.UnitObj[predef].PreDef == id)
           return predef;
@@ -6408,9 +6408,9 @@ namespace WindowsApplication1
     {
       if (this.UnitObj[nr].X > -1 & !Information.IsNothing((object) tgame))
         tgame.HandyFunctionsObj.SetHexReconAndZOCUnitMoves(this.UnitObj[nr].X, this.UnitObj[nr].Y, this.UnitObj[nr].Map, -1, -1, -1, this.UnitObj[nr].Regime, nr);
-      int x = this.UnitObj[nr].X;
-      int y = this.UnitObj[nr].Y;
-      int map = this.UnitObj[nr].Map;
+      let mut x: i32 =  this.UnitObj[nr].X;
+      let mut y: i32 =  this.UnitObj[nr].Y;
+      let mut map: i32 =  this.UnitObj[nr].Map;
       if (this.UnitObj[nr].Historical > -1 && !this.HistoricalUnitObj[this.UnitObj[nr].Historical].Pool && Strings.Len(this.HistoricalUnitObj[this.UnitObj[nr].Historical].CommanderName) > 0)
       {
         if (this.HistoricalUnitObj[this.UnitObj[nr].Historical].PP < 0)
@@ -6419,16 +6419,16 @@ namespace WindowsApplication1
           {
             RegimeClass[] regimeObj = this.RegimeObj;
             RegimeClass[] regimeClassArray = regimeObj;
-            int uberRegime = this.RegimeObj[this.UnitObj[nr].Regime].UberRegime;
-            int index = uberRegime;
+            let mut uberRegime: i32 =  this.RegimeObj[this.UnitObj[nr].Regime].UberRegime;
+            let mut index: i32 =  uberRegime;
             regimeClassArray[index].ResPts = regimeObj[uberRegime].ResPts + this.HistoricalUnitObj[this.UnitObj[nr].Historical].PP;
           }
           else
           {
             RegimeClass[] regimeObj = this.RegimeObj;
             RegimeClass[] regimeClassArray = regimeObj;
-            int regime = this.UnitObj[nr].Regime;
-            int index = regime;
+            let mut regime: i32 =  this.UnitObj[nr].Regime;
+            let mut index: i32 =  regime;
             regimeClassArray[index].ResPts = regimeObj[regime].ResPts + this.HistoricalUnitObj[this.UnitObj[nr].Historical].PP;
           }
         }
@@ -6439,16 +6439,16 @@ namespace WindowsApplication1
       }
       if (this.UnitObj[nr].SFCount > -1)
       {
-        for (int sfCount = this.UnitObj[nr].SFCount; sfCount >= 0; sfCount += -1)
+        for (let mut sfCount: i32 =  this.UnitObj[nr].SFCount; sfCount >= 0; sfCount += -1)
           this.RemoveSF(this.UnitObj[nr].SFList[sfCount]);
       }
       this.UnitObj[nr].Kill();
       this.ChangeUnitNr(nr, -1, ref tgame, false, deleteRegimeMod);
       if (nr < this.UnitCounter)
       {
-        int num1 = nr;
-        int num2 = this.UnitCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.UnitCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.UnitObj[Newnr] = this.UnitObj[Newnr + 1];
           this.ChangeUnitNr(Newnr + 1, Newnr, ref tgame, false, deleteRegimeMod);
@@ -6482,10 +6482,10 @@ namespace WindowsApplication1
       }
       if (this.UnitObj[Oldnr].PreDef > -1 & Newnr == -1)
       {
-        int historicalUnitCounter = this.HistoricalUnitCounter;
-        for (int index1 = 0; index1 <= historicalUnitCounter; index1 += 1)
+        let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+        for (let mut index1: i32 =  0; index1 <= historicalUnitCounter; index1 += 1)
         {
-          int index2 = 0;
+          let mut index2: i32 =  0;
           do
           {
             if (this.HistoricalUnitObj[index1].SubParts[index2] == this.UnitObj[Oldnr].PreDef)
@@ -6497,19 +6497,19 @@ namespace WindowsApplication1
       }
       if (!skipmap)
       {
-        int mapCounter = this.MapCounter;
-        for (int index3 = 0; index3 <= mapCounter; index3 += 1)
+        let mut mapCounter: i32 =  this.MapCounter;
+        for (let mut index3: i32 =  0; index3 <= mapCounter; index3 += 1)
         {
-          int mapWidth = this.MapObj[index3].MapWidth;
-          for (int index4 = 0; index4 <= mapWidth; index4 += 1)
+          let mut mapWidth: i32 =  this.MapObj[index3].MapWidth;
+          for (let mut index4: i32 =  0; index4 <= mapWidth; index4 += 1)
           {
-            int mapHeight = this.MapObj[index3].MapHeight;
-            for (int index5 = 0; index5 <= mapHeight; index5 += 1)
+            let mut mapHeight: i32 =  this.MapObj[index3].MapHeight;
+            for (let mut index5: i32 =  0; index5 <= mapHeight; index5 += 1)
             {
               if (index4 > -1 & index5 > -1 & index3 > -1 && this.MapObj[index3].HexObj[index4, index5].UnitCounter > -1)
               {
-                int unitCounter = this.MapObj[index3].HexObj[index4, index5].UnitCounter;
-                for (int index6 = 0; index6 <= unitCounter; index6 += 1)
+                let mut unitCounter: i32 =  this.MapObj[index3].HexObj[index4, index5].UnitCounter;
+                for (let mut index6: i32 =  0; index6 <= unitCounter; index6 += 1)
                 {
                   if (this.MapObj[index3].HexObj[index4, index5].UnitList[index6] == Oldnr)
                   {
@@ -6527,8 +6527,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int unitCounter1 = this.UnitCounter;
-      for (int index7 = 0; index7 <= unitCounter1; index7 += 1)
+      let mut unitCounter1: i32 =  this.UnitCounter;
+      for (let mut index7: i32 =  0; index7 <= unitCounter1; index7 += 1)
       {
         if (this.UnitObj[index7].HQ == Oldnr)
           this.UnitObj[index7].HQ = Newnr;
@@ -6538,8 +6538,8 @@ namespace WindowsApplication1
           this.UnitObj[index7].OnBoard = Newnr;
         if (this.UnitObj[index7].PassengerCounter > -1)
         {
-          int passengerCounter = this.UnitObj[index7].PassengerCounter;
-          for (int index8 = 0; index8 <= passengerCounter; index8 += 1)
+          let mut passengerCounter: i32 =  this.UnitObj[index7].PassengerCounter;
+          for (let mut index8: i32 =  0; index8 <= passengerCounter; index8 += 1)
           {
             if (this.UnitObj[index7].PassengerList[index8] == Oldnr)
             {
@@ -6554,8 +6554,8 @@ namespace WindowsApplication1
           this.UnitObj[index7].attachedTo = Newnr;
         if (this.UnitObj[index7].TransportCounter > -1)
         {
-          int transportCounter = this.UnitObj[index7].TransportCounter;
-          for (int index9 = 0; index9 <= transportCounter; index9 += 1)
+          let mut transportCounter: i32 =  this.UnitObj[index7].TransportCounter;
+          for (let mut index9: i32 =  0; index9 <= transportCounter; index9 += 1)
           {
             if (this.UnitObj[index7].TransportList[index9] == Oldnr)
             {
@@ -6573,8 +6573,8 @@ namespace WindowsApplication1
       {
         if (!Information.IsNothing((object) tgame.AIObj))
         {
-          int tplanCount = tgame.AIObj.TPlanCount;
-          for (int index = 0; index <= tplanCount; index += 1)
+          let mut tplanCount: i32 =  tgame.AIObj.TPlanCount;
+          for (let mut index: i32 =  0; index <= tplanCount; index += 1)
           {
             if (!Information.IsNothing((object) tgame.AIObj.TPlanObj[index]) && tgame.AIObj.TPlanObj[index].HQ == Oldnr)
               tgame.AIObj.TPlanObj[index].HQ = Newnr;
@@ -6582,7 +6582,7 @@ namespace WindowsApplication1
         }
         if (tgame.Data.UseAI == 1)
         {
-          int index = 1;
+          let mut index: i32 =  1;
           do
           {
             if (tgame.NewAIObj.MoveMatrixUnit[index] == Oldnr)
@@ -6594,8 +6594,8 @@ namespace WindowsApplication1
           while (index <= 90);
         }
       }
-      int locCounter = this.LocCounter;
-      for (int index = 0; index <= locCounter; index += 1)
+      let mut locCounter: i32 =  this.LocCounter;
+      for (let mut index: i32 =  0; index <= locCounter; index += 1)
       {
         if (this.LocObj[index].HQ == Oldnr)
           this.LocObj[index].HQ = Newnr;
@@ -6618,9 +6618,9 @@ namespace WindowsApplication1
       this.ChangeSFNr(nr, -1);
       if (nr < this.SFCounter)
       {
-        int num1 = nr;
-        int num2 = this.SFCounter - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.SFCounter - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.SFObj[index] = this.SFObj[index + 1];
         this.MassChangeSFNr(nr + 1);
       }
@@ -6634,13 +6634,13 @@ namespace WindowsApplication1
     {
       if (this.UnitCounter <= -1)
         return;
-      int unitCounter = this.UnitCounter;
-      for (int index1 = 0; index1 <= unitCounter; index1 += 1)
+      let mut unitCounter: i32 =  this.UnitCounter;
+      for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
       {
         if (this.UnitObj[index1].SFCount > -1)
         {
-          int sfCount = this.UnitObj[index1].SFCount;
-          for (int index2 = 0; index2 <= sfCount; index2 += 1)
+          let mut sfCount: i32 =  this.UnitObj[index1].SFCount;
+          for (let mut index2: i32 =  0; index2 <= sfCount; index2 += 1)
           {
             if (this.UnitObj[index1].SFList[index2] >= FromNr)
               this.UnitObj[index1].SFList[index2] = this.UnitObj[index1].SFList[index2] - 1;
@@ -6653,13 +6653,13 @@ namespace WindowsApplication1
     {
       if (this.UnitCounter <= -1)
         return;
-      int unitCounter = this.UnitCounter;
-      for (int index1 = 0; index1 <= unitCounter; index1 += 1)
+      let mut unitCounter: i32 =  this.UnitCounter;
+      for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
       {
         if (this.UnitObj[index1].SFCount > -1)
         {
-          int sfCount = this.UnitObj[index1].SFCount;
-          for (int index2 = 0; index2 <= sfCount; index2 += 1)
+          let mut sfCount: i32 =  this.UnitObj[index1].SFCount;
+          for (let mut index2: i32 =  0; index2 <= sfCount; index2 += 1)
           {
             if (this.UnitObj[index1].SFList[index2] == Oldnr)
             {
@@ -6678,8 +6678,8 @@ namespace WindowsApplication1
 
     pub int FindSFType(ref SFTypeClass sft, string libName, bool thisIsHistoricalImport = false)
     {
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int sfType = 0; sfType <= sfTypeCounter; sfType += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut sfType: i32 =  0; sfType <= sfTypeCounter; sfType += 1)
       {
         if (this.SFTypeObj[sfType].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.SFTypeObj[sfType].LibId.libSlot].name, libName, false) == 0)
         {
@@ -6697,8 +6697,8 @@ namespace WindowsApplication1
 
     pub int FindSFType(string libName, int libId)
     {
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int sfType = 0; sfType <= sfTypeCounter; sfType += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut sfType: i32 =  0; sfType <= sfTypeCounter; sfType += 1)
       {
         if (this.SFTypeObj[sfType].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.SFTypeObj[sfType].LibId.libSlot].name, libName, false) == 0 && this.SFTypeObj[sfType].LibId.id == libId)
           return sfType;
@@ -6708,10 +6708,10 @@ namespace WindowsApplication1
 
     pub int FindSFTypeAlien(string libName, int libId, int buildGround)
     {
-      int num = -1;
+      let mut num: i32 =  -1;
       SimpleList simpleList = SimpleList::new();
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int tid = 0; tid <= sfTypeCounter; tid += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut tid: i32 =  0; tid <= sfTypeCounter; tid += 1)
       {
         if (this.SFTypeObj[tid].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.SFTypeObj[tid].LibId.libSlot].name, libName, false) == 0 && this.SFTypeObj[tid].LibId.id == libId)
         {
@@ -6739,14 +6739,14 @@ namespace WindowsApplication1
         object[,] objArray2 = new object[this.SFTypeCounter + 1, this.Round + 1 + 1];
         object[,] objArray3 = new object[this.SFTypeCounter + 1, this.Round + 1 + 1];
         object[] objArray4 = new object[this.SFTypeCounter + 1];
-        int regimeCounter = this.RegimeCounter;
-        for (int index1 = 0; index1 <= regimeCounter; index1 += 1)
+        let mut regimeCounter: i32 =  this.RegimeCounter;
+        for (let mut index1: i32 =  0; index1 <= regimeCounter; index1 += 1)
         {
-          int upperBound = this.RegimeObj[index1].SKills.GetUpperBound(0);
-          for (int index2 = 0; index2 <= upperBound; index2 += 1)
+          let mut upperBound: i32 =  this.RegimeObj[index1].SKills.GetUpperBound(0);
+          for (let mut index2: i32 =  0; index2 <= upperBound; index2 += 1)
           {
-            int num = this.Round + 1;
-            for (int index3 = 0; index3 <= num; index3 += 1)
+            let mut num: i32 =  this.Round + 1;
+            for (let mut index3: i32 =  0; index3 <= num; index3 += 1)
             {
               objArray1[index2, index3] = (object) this.RegimeObj[index1].SKills[index2, index3];
               objArray2[index2, index3] = (object) this.RegimeObj[index1].SLoss[index2, index3];
@@ -6758,11 +6758,11 @@ namespace WindowsApplication1
           this.RegimeObj[index1].SLoss = new int[this.SFTypeCounter + 1, this.Round + 1 + 1];
           this.RegimeObj[index1].SPresent = new int[this.SFTypeCounter + 1, this.Round + 1 + 1];
           this.RegimeObj[index1].SASKilled = new int[this.SFTypeCounter + 1];
-          int num1 = this.SFTypeCounter - 1;
-          for (int index4 = 0; index4 <= num1; index4 += 1)
+          let mut num1: i32 =  this.SFTypeCounter - 1;
+          for (let mut index4: i32 =  0; index4 <= num1; index4 += 1)
           {
-            int num2 = this.Round + 1;
-            for (int index5 = 0; index5 <= num2; index5 += 1)
+            let mut num2: i32 =  this.Round + 1;
+            for (let mut index5: i32 =  0; index5 <= num2; index5 += 1)
             {
               this.RegimeObj[index1].SKills[index4, index5] = Conversions.ToInteger(objArray1[index4, index5]);
               this.RegimeObj[index1].SLoss[index4, index5] = Conversions.ToInteger(objArray2[index4, index5]);
@@ -6772,8 +6772,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter; index += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
       {
         if (this.SFTypeObj[index].Id >= this.SFTypeIdCounter)
           this.SFTypeIdCounter = this.SFTypeObj[index].Id;
@@ -6788,9 +6788,9 @@ namespace WindowsApplication1
       this.ChangeSFTypeNr(nr, -1);
       if (nr < this.SFTypeCounter)
       {
-        int num1 = nr;
-        int num2 = this.SFTypeCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.SFTypeCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.SFTypeObj[Newnr] = this.SFTypeObj[Newnr + 1];
           this.ChangeSFTypeNr(Newnr + 1, Newnr);
@@ -6804,15 +6804,15 @@ namespace WindowsApplication1
 
     pub void ChangeSFTypeNr(int Oldnr, int Newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int nr;
-      for (int index1 = 0; index1 <= stringListCounter; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= stringListCounter; index1 += 1)
       {
-        int width = this.StringListObj[index1].Width;
-        for (int index2 = 0; index2 <= width; index2 += 1)
+        let mut width: i32 =  this.StringListObj[index1].Width;
+        for (let mut index2: i32 =  0; index2 <= width; index2 += 1)
         {
-          int length = this.StringListObj[index1].Length;
-          for (int index3 = 0; index3 <= length; index3 += 1)
+          let mut length: i32 =  this.StringListObj[index1].Length;
+          for (let mut index3: i32 =  0; index3 <= length; index3 += 1)
           {
             if (this.StringListObj[index1].ColValueType[index2] == NewEnums.LibVarValueType.SFTypeId && this.StringListObj[index1].Data[index3, index2].Length > 0)
             {
@@ -6824,7 +6824,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.SFtype & this.LibVarObj[libVarCounter].instanceId.id == this.SFTypeObj[Oldnr].LibId.id & this.LibVarObj[libVarCounter].instanceId.libSlot == this.SFTypeObj[Oldnr].LibId.libSlot)
         {
@@ -6834,7 +6834,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].instanceId.id = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.SFTypeId & this.LibVarObj[libVarCounter].value == Oldnr)
         {
@@ -6896,8 +6896,8 @@ namespace WindowsApplication1
       this.LandscapeTypeObj = (LandscapeTypeClass[]) Utils.CopyArray((Array) this.LandscapeTypeObj, (Array) new LandscapeTypeClass[this.LandscapeTypeCounter + 1]);
       this.LandscapeTypeObj[this.LandscapeTypeCounter] = new LandscapeTypeClass(0);
       this.LandscapeTypeObj[this.LandscapeTypeCounter].LoadSprites();
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter; index += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
       {
         this.SFTypeObj[index].CombatModAtt = (float[]) Utils.CopyArray((Array) this.SFTypeObj[index].CombatModAtt, (Array) new float[this.LandscapeTypeCounter + 1]);
         this.SFTypeObj[index].CombatModDef = (float[]) Utils.CopyArray((Array) this.SFTypeObj[index].CombatModDef, (Array) new float[this.LandscapeTypeCounter + 1]);
@@ -6914,22 +6914,22 @@ namespace WindowsApplication1
       this.ChangeLandscapeNr(nr, -1);
       if (nr < this.LandscapeTypeCounter)
       {
-        int num1 = nr;
-        int num2 = this.LandscapeTypeCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.LandscapeTypeCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.LandscapeTypeObj[Newnr] = this.LandscapeTypeObj[Newnr + 1];
           this.ChangeLandscapeNr(Newnr + 1, Newnr);
         }
       }
-      int sfTypeCounter1 = this.SFTypeCounter;
-      for (int index1 = 0; index1 <= sfTypeCounter1; index1 += 1)
+      let mut sfTypeCounter1: i32 =  this.SFTypeCounter;
+      for (let mut index1: i32 =  0; index1 <= sfTypeCounter1; index1 += 1)
       {
         if (nr < this.LandscapeTypeCounter)
         {
-          int num3 = nr;
-          int num4 = this.LandscapeTypeCounter - 1;
-          for (int index2 = num3; index2 <= num4; index2 += 1)
+          let mut num3: i32 =  nr;
+          let mut num4: i32 =  this.LandscapeTypeCounter - 1;
+          for (let mut index2: i32 =  num3; index2 <= num4; index2 += 1)
           {
             this.SFTypeObj[index1].CombatModAtt[index2] = this.SFTypeObj[index1].CombatModAtt[index2 + 1];
             this.SFTypeObj[index1].CombatModDef[index2] = this.SFTypeObj[index1].CombatModDef[index2 + 1];
@@ -6938,8 +6938,8 @@ namespace WindowsApplication1
         }
       }
       --this.LandscapeTypeCounter;
-      int sfTypeCounter2 = this.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter2; index += 1)
+      let mut sfTypeCounter2: i32 =  this.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter2; index += 1)
       {
         if (this.LandscapeTypeCounter > -1)
         {
@@ -6950,14 +6950,14 @@ namespace WindowsApplication1
       }
       if (this.LandscapeTypeCounter != -1)
         this.LandscapeTypeObj = (LandscapeTypeClass[]) Utils.CopyArray((Array) this.LandscapeTypeObj, (Array) new LandscapeTypeClass[this.LandscapeTypeCounter + 1]);
-      int mapCounter = this.MapCounter;
-      for (int index3 = 0; index3 <= mapCounter; index3 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index3: i32 =  0; index3 <= mapCounter; index3 += 1)
       {
-        int mapWidth = this.MapObj[index3].MapWidth;
-        for (int index4 = 0; index4 <= mapWidth; index4 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index3].MapWidth;
+        for (let mut index4: i32 =  0; index4 <= mapWidth; index4 += 1)
         {
-          int mapHeight = this.MapObj[index3].MapHeight;
-          for (int index5 = 0; index5 <= mapHeight; index5 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index3].MapHeight;
+          for (let mut index5: i32 =  0; index5 <= mapHeight; index5 += 1)
           {
             if (this.MapObj[index3].HexObj[index4, index5].LandscapeType == -1)
               this.MapObj[index3].HexObj[index4, index5].LandscapeType = 0;
@@ -6968,15 +6968,15 @@ namespace WindowsApplication1
 
     pub void ChangeLandscapeNr(int Oldnr, int Newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int index1;
-      for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+      for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
-        int width = this.StringListObj[index2].Width;
-        for (int index3 = 0; index3 <= width; index3 += 1)
+        let mut width: i32 =  this.StringListObj[index2].Width;
+        for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
         {
-          int length = this.StringListObj[index2].Length;
-          for (int index4 = 0; index4 <= length; index4 += 1)
+          let mut length: i32 =  this.StringListObj[index2].Length;
+          for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
           {
             if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.LandscapeId && this.StringListObj[index2].Data[index4, index3].Length > 0)
             {
@@ -6988,7 +6988,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.Landscape & this.LibVarObj[libVarCounter].instanceId.id == Oldnr)
         {
@@ -6998,7 +6998,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].instanceId.id = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.LandscapeId & this.LibVarObj[libVarCounter].value == Oldnr)
         {
@@ -7008,14 +7008,14 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].value = Newnr;
         }
       }
-      int mapCounter = this.MapCounter;
-      for (int index5 = 0; index5 <= mapCounter; index5 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index5: i32 =  0; index5 <= mapCounter; index5 += 1)
       {
-        int mapWidth = this.MapObj[index5].MapWidth;
-        for (int index6 = 0; index6 <= mapWidth; index6 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index5].MapWidth;
+        for (let mut index6: i32 =  0; index6 <= mapWidth; index6 += 1)
         {
-          int mapHeight = this.MapObj[index5].MapHeight;
-          for (int index7 = 0; index7 <= mapHeight; index7 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index5].MapHeight;
+          for (let mut index7: i32 =  0; index7 <= mapHeight; index7 += 1)
           {
             if (this.MapObj[index5].HexObj[index6, index7].LandscapeType == Oldnr)
             {
@@ -7032,7 +7032,7 @@ namespace WindowsApplication1
           }
         }
       }
-      int locTypeCounter = this.LocTypeCounter;
+      let mut locTypeCounter: i32 =  this.LocTypeCounter;
       for (index1 = 0; index1 <= locTypeCounter; index1 += 1)
       {
         if (this.LocTypeObj[index1].OverdrawLTNr == Oldnr)
@@ -7042,10 +7042,10 @@ namespace WindowsApplication1
             this.LocTypeObj[index1].OverdrawSpriteNr = 0;
         }
       }
-      int landscapeTypeCounter1 = this.LandscapeTypeCounter;
+      let mut landscapeTypeCounter1: i32 =  this.LandscapeTypeCounter;
       for (index1 = 0; index1 <= landscapeTypeCounter1; index1 += 1)
       {
-        for (int overridesCount = this.LandscapeTypeObj[index1].OverridesCount; overridesCount >= 0; overridesCount += -1)
+        for (let mut overridesCount: i32 =  this.LandscapeTypeObj[index1].OverridesCount; overridesCount >= 0; overridesCount += -1)
         {
           if (this.LandscapeTypeObj[index1].OverridesType[overridesCount] == Oldnr)
           {
@@ -7055,7 +7055,7 @@ namespace WindowsApplication1
               this.LandscapeTypeObj[index1].OverridesType[overridesCount] = Newnr;
           }
         }
-        for (int overridesCount2 = this.LandscapeTypeObj[index1].OverridesCount2; overridesCount2 >= 0; overridesCount2 += -1)
+        for (let mut overridesCount2: i32 =  this.LandscapeTypeObj[index1].OverridesCount2; overridesCount2 >= 0; overridesCount2 += -1)
         {
           if (this.LandscapeTypeObj[index1].OverridesType2[overridesCount2] == Oldnr)
           {
@@ -7066,14 +7066,14 @@ namespace WindowsApplication1
           }
         }
       }
-      int landscapeTypeCounter2 = this.LandscapeTypeCounter;
+      let mut landscapeTypeCounter2: i32 =  this.LandscapeTypeCounter;
       for (index1 = 0; index1 <= landscapeTypeCounter2; index1 += 1)
       {
         if (this.LandscapeTypeObj[index1].ExtraExterior == Oldnr)
           this.LandscapeTypeObj[index1].ExtraExterior = Newnr;
         if (this.LandscapeTypeObj[index1].OverridesCount > -1)
         {
-          for (int overridesCount = this.LandscapeTypeObj[index1].OverridesCount; overridesCount >= 0; overridesCount += -1)
+          for (let mut overridesCount: i32 =  this.LandscapeTypeObj[index1].OverridesCount; overridesCount >= 0; overridesCount += -1)
           {
             if (this.LandscapeTypeObj[index1].OverridesType[overridesCount] == Oldnr)
             {
@@ -7101,9 +7101,9 @@ namespace WindowsApplication1
       this.ChangeLandscapeSpriteNr(ltnr, nr, -1);
       if (nr < this.LandscapeTypeObj[ltnr].BasicSpriteCounter)
       {
-        int num1 = nr;
-        int num2 = this.LandscapeTypeObj[ltnr].BasicSpriteCounter - 1;
-        for (int NewNr = num1; NewNr <= num2; NewNr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.LandscapeTypeObj[ltnr].BasicSpriteCounter - 1;
+        for (let mut NewNr: i32 =  num1; NewNr <= num2; NewNr += 1)
         {
           this.LandscapeTypeObj[ltnr].BasicSpriteFileName[NewNr] = this.LandscapeTypeObj[ltnr].BasicSpriteFileName[NewNr + 1];
           this.LandscapeTypeObj[ltnr].BasicSpriteFileName2[NewNr] = this.LandscapeTypeObj[ltnr].BasicSpriteFileName2[NewNr + 1];
@@ -7127,14 +7127,14 @@ namespace WindowsApplication1
 
     pub void ChangeLandscapeSpriteNr(int LTnr, int OldNr, int NewNr)
     {
-      int mapCounter = this.MapCounter;
-      for (int index1 = 0; index1 <= mapCounter; index1 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
-        int mapWidth = this.MapObj[index1].MapWidth;
-        for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index1].MapWidth;
+        for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
         {
-          int mapHeight = this.MapObj[index1].MapHeight;
-          for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index1].MapHeight;
+          for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
           {
             if (this.MapObj[index1].HexObj[index2, index3].LandscapeType == LTnr && this.MapObj[index1].HexObj[index2, index3].SpriteNr == OldNr)
               this.MapObj[index1].HexObj[index2, index3].SpriteNr = NewNr != -1 ? NewNr : 0;
@@ -7143,8 +7143,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int locTypeCounter = this.LocTypeCounter;
-      for (int index = 0; index <= locTypeCounter; index += 1)
+      let mut locTypeCounter: i32 =  this.LocTypeCounter;
+      for (let mut index: i32 =  0; index <= locTypeCounter; index += 1)
       {
         if (this.LocTypeObj[index].OverdrawLTNr == LTnr & this.LocTypeObj[index].OverdrawSpriteNr == OldNr)
           this.LocTypeObj[index].OverdrawSpriteNr = NewNr != -1 ? NewNr : 0;
@@ -7153,8 +7153,8 @@ namespace WindowsApplication1
 
     pub int FindLibrary(string libName)
     {
-      int libraryCounter = this.LibraryCounter;
-      for (int library = 0; library <= libraryCounter; library += 1)
+      let mut libraryCounter: i32 =  this.LibraryCounter;
+      for (let mut library: i32 =  0; library <= libraryCounter; library += 1)
       {
         if (Operators.CompareString(this.LibraryObj[library].name, libName, false) == 0)
           return library;
@@ -7165,8 +7165,8 @@ namespace WindowsApplication1
     pub int FindLibraryLowCase(string libName)
     {
       libName = Strings.LCase(libName);
-      int libraryCounter = this.LibraryCounter;
-      for (int libraryLowCase = 0; libraryLowCase <= libraryCounter; libraryLowCase += 1)
+      let mut libraryCounter: i32 =  this.LibraryCounter;
+      for (let mut libraryLowCase: i32 =  0; libraryLowCase <= libraryCounter; libraryLowCase += 1)
       {
         if (Operators.CompareString(Strings.LCase(this.LibraryObj[libraryLowCase].name), libName, false) == 0)
           return libraryLowCase;
@@ -7186,9 +7186,9 @@ namespace WindowsApplication1
       this.ChangeLibraryNr(nr, -1);
       if (nr < this.LibraryCounter)
       {
-        int num1 = nr;
-        int num2 = this.LibraryCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.LibraryCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.LibraryObj[Newnr] = this.LibraryObj[Newnr + 1];
           this.ChangeLibraryNr(Newnr + 1, Newnr);
@@ -7202,7 +7202,7 @@ namespace WindowsApplication1
 
     pub void ChangeLibraryNr(int Oldnr, int Newnr)
     {
-      for (int historicalUnitCounter = this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
+      for (let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
       {
         if (this.HistoricalUnitObj[historicalUnitCounter].LibId.libSlot == Oldnr && Newnr == -1 && this.HistoricalUnitObj[historicalUnitCounter].OffLibId.libSlot > -1 & this.HistoricalUnitObj[historicalUnitCounter].OffLibId.libSlot != Oldnr)
         {
@@ -7211,7 +7211,7 @@ namespace WindowsApplication1
           this.HistoricalUnitObj[this.HistoricalUnitCounter].LibId = this.HistoricalUnitObj[historicalUnitCounter].OffLibId.Clone();
         }
       }
-      for (int historicalUnitCounter = this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
+      for (let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
       {
         if (this.HistoricalUnitObj[historicalUnitCounter].ModelMaster > -1 && this.HistoricalUnitObj[this.HistoricalUnitObj[historicalUnitCounter].ModelMaster].LibId.libSlot == Oldnr && Newnr == -1 && this.HistoricalUnitObj[historicalUnitCounter].OffLibId.libSlot > -1 & this.HistoricalUnitObj[historicalUnitCounter].OffLibId.libSlot != Oldnr)
         {
@@ -7220,7 +7220,7 @@ namespace WindowsApplication1
           this.HistoricalUnitObj[this.HistoricalUnitCounter].LibId = this.HistoricalUnitObj[historicalUnitCounter].OffLibId.Clone();
         }
       }
-      for (int historicalUnitCounter = this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
+      for (let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
       {
         if (this.HistoricalUnitObj[historicalUnitCounter].LibId.libSlot == Oldnr)
         {
@@ -7230,7 +7230,7 @@ namespace WindowsApplication1
             this.HistoricalUnitObj[historicalUnitCounter].LibId.libSlot = Newnr;
         }
       }
-      for (int historicalUnitCounter = this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
+      for (let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
       {
         if (this.HistoricalUnitObj[historicalUnitCounter].OffLibId.libSlot == Oldnr)
         {
@@ -7244,13 +7244,13 @@ namespace WindowsApplication1
             this.HistoricalUnitObj[historicalUnitCounter].OffLibId.libSlot = Newnr;
         }
       }
-      int mapWidth = this.MapObj[0].MapWidth;
-      for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+      let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
+      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
-        int mapHeight = this.MapObj[0].MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
-          for (int hexLibVarCounter = this.MapObj[0].HexObj[index1, index2].HexLibVarCounter; hexLibVarCounter >= 0; hexLibVarCounter += -1)
+          for (let mut hexLibVarCounter: i32 =  this.MapObj[0].HexObj[index1, index2].HexLibVarCounter; hexLibVarCounter >= 0; hexLibVarCounter += -1)
           {
             if (this.MapObj[0].HexObj[index1, index2].HexLibVarSlotNr[hexLibVarCounter] == Oldnr)
             {
@@ -7262,7 +7262,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int sfTypeCounter = this.SFTypeCounter; sfTypeCounter >= 0; sfTypeCounter += -1)
+      for (let mut sfTypeCounter: i32 =  this.SFTypeCounter; sfTypeCounter >= 0; sfTypeCounter += -1)
       {
         if (this.SFTypeObj[sfTypeCounter].LibId.libSlot == Oldnr)
         {
@@ -7272,7 +7272,7 @@ namespace WindowsApplication1
             this.SFTypeObj[sfTypeCounter].LibId.libSlot = Newnr;
         }
       }
-      for (int peopleCounter = this.PeopleCounter; peopleCounter >= 0; peopleCounter += -1)
+      for (let mut peopleCounter: i32 =  this.PeopleCounter; peopleCounter >= 0; peopleCounter += -1)
       {
         if (this.PeopleObj[peopleCounter].LibId.libSlot == Oldnr)
         {
@@ -7282,7 +7282,7 @@ namespace WindowsApplication1
             this.PeopleObj[peopleCounter].LibId.libSlot = Newnr;
         }
       }
-      for (int regimeCounter = this.RegimeCounter; regimeCounter >= 0; regimeCounter += -1)
+      for (let mut regimeCounter: i32 =  this.RegimeCounter; regimeCounter >= 0; regimeCounter += -1)
       {
         if (this.RegimeObj[regimeCounter].libId.libSlot == Oldnr)
         {
@@ -7292,7 +7292,7 @@ namespace WindowsApplication1
             this.RegimeObj[regimeCounter].libId.libSlot = Newnr;
         }
       }
-      for (int eventCounter = this.EventCounter; eventCounter >= 0; eventCounter += -1)
+      for (let mut eventCounter: i32 =  this.EventCounter; eventCounter >= 0; eventCounter += -1)
       {
         if (this.EventObj[eventCounter].LibId.libSlot == Oldnr)
         {
@@ -7302,7 +7302,7 @@ namespace WindowsApplication1
             this.EventObj[eventCounter].LibId.libSlot = Newnr;
         }
       }
-      for (int stringListCounter = this.StringListCounter; stringListCounter >= 0; stringListCounter += -1)
+      for (let mut stringListCounter: i32 =  this.StringListCounter; stringListCounter >= 0; stringListCounter += -1)
       {
         if (this.StringListObj[stringListCounter].LibId.libSlot == Oldnr)
         {
@@ -7312,7 +7312,7 @@ namespace WindowsApplication1
             this.StringListObj[stringListCounter].LibId.libSlot = Newnr;
         }
       }
-      for (int eventPicCounter = this.EventPicCounter; eventPicCounter >= 0; eventPicCounter += -1)
+      for (let mut eventPicCounter: i32 =  this.EventPicCounter; eventPicCounter >= 0; eventPicCounter += -1)
       {
         if (this.eventPicLibId[eventPicCounter].libSlot == Oldnr)
         {
@@ -7322,7 +7322,7 @@ namespace WindowsApplication1
             this.eventPicLibId[eventPicCounter].libSlot = Newnr;
         }
       }
-      for (int smallPicCounter = this.SmallPicCounter; smallPicCounter >= 0; smallPicCounter += -1)
+      for (let mut smallPicCounter: i32 =  this.SmallPicCounter; smallPicCounter >= 0; smallPicCounter += -1)
       {
         if (this.SmallLibId[smallPicCounter].libSlot == Oldnr)
         {
@@ -7332,7 +7332,7 @@ namespace WindowsApplication1
             this.SmallLibId[smallPicCounter].libSlot = Newnr;
         }
       }
-      for (int reinfCounter = this.ReinfCounter; reinfCounter >= 0; reinfCounter += -1)
+      for (let mut reinfCounter: i32 =  this.ReinfCounter; reinfCounter >= 0; reinfCounter += -1)
       {
         if (this.ReinfLibId[reinfCounter].libSlot == Oldnr)
         {
@@ -7342,7 +7342,7 @@ namespace WindowsApplication1
             this.ReinfLibId[reinfCounter].libSlot = Newnr;
         }
       }
-      for (int actionCardCounter = this.ActionCardCounter; actionCardCounter >= 0; actionCardCounter += -1)
+      for (let mut actionCardCounter: i32 =  this.ActionCardCounter; actionCardCounter >= 0; actionCardCounter += -1)
       {
         if (this.ActionCardObj[actionCardCounter].LibId.libSlot == Oldnr)
         {
@@ -7352,13 +7352,13 @@ namespace WindowsApplication1
             this.ActionCardObj[actionCardCounter].LibId.libSlot = Newnr;
         }
       }
-      for (int unitCounter = this.UnitCounter; unitCounter >= 0; unitCounter += -1)
+      for (let mut unitCounter: i32 =  this.UnitCounter; unitCounter >= 0; unitCounter += -1)
       {
         if (this.UnitObj[unitCounter].PreDef > -1 && this.UnitObj[unitCounter].LibId.libSlot == Oldnr)
         {
           if (Newnr == -1)
           {
-            int nr = unitCounter;
+            let mut nr: i32 =  unitCounter;
             let mut gameClass: GameClass = (GameClass) null;
             ref let mut local: GameClass = ref gameClass;
             this.RemoveUnit(nr, ref local);
@@ -7367,7 +7367,7 @@ namespace WindowsApplication1
             this.UnitObj[unitCounter].LibId.libSlot = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].libId.libSlot == Oldnr)
         {
@@ -7382,8 +7382,8 @@ namespace WindowsApplication1
     pub int FindLibVar(ref LibVarClass tlv, string libName)
     {
       libName = Strings.LCase(libName);
-      int libVarCounter = this.LibVarCounter;
-      for (int libVar = 0; libVar <= libVarCounter; libVar += 1)
+      let mut libVarCounter: i32 =  this.LibVarCounter;
+      for (let mut libVar: i32 =  0; libVar <= libVarCounter; libVar += 1)
       {
         if (Operators.CompareString(Strings.LCase(this.LibraryObj[this.LibVarObj[libVar].libId.libSlot].name), libName, false) == 0 && Operators.CompareString(Strings.LCase(this.LibVarObj[libVar].name), Strings.LCase(tlv.name), false) == 0)
           return libVar;
@@ -7395,8 +7395,8 @@ namespace WindowsApplication1
     {
       libvarname = Strings.LCase(libvarname);
       libName = Strings.LCase(libName);
-      int libVarCounter = this.LibVarCounter;
-      for (int libVar = 0; libVar <= libVarCounter; libVar += 1)
+      let mut libVarCounter: i32 =  this.LibVarCounter;
+      for (let mut libVar: i32 =  0; libVar <= libVarCounter; libVar += 1)
       {
         if (Operators.CompareString(Strings.LCase(this.LibraryObj[this.LibVarObj[libVar].libId.libSlot].name), libName, false) == 0 | Operators.CompareString(libName, "", false) == 0 && Operators.CompareString(Strings.LCase(this.LibVarObj[libVar].name), libvarname, false) == 0)
           return libVar;
@@ -7416,9 +7416,9 @@ namespace WindowsApplication1
       this.ChangeLibVarNr(nr, -1);
       if (nr < this.LibVarCounter)
       {
-        int num1 = nr;
-        int num2 = this.LibVarCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.LibVarCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.LibVarObj[Newnr] = this.LibVarObj[Newnr + 1];
           this.ChangeLibVarNr(Newnr + 1, Newnr);
@@ -7432,13 +7432,13 @@ namespace WindowsApplication1
 
     pub void ChangeLibVarNr(int Oldnr, int Newnr)
     {
-      int mapWidth = this.MapObj[0].MapWidth;
-      for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+      let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
+      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
-        int mapHeight = this.MapObj[0].MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
-          for (int hexLibVarCounter = this.MapObj[0].HexObj[index1, index2].HexLibVarCounter; hexLibVarCounter >= 0; hexLibVarCounter += -1)
+          for (let mut hexLibVarCounter: i32 =  this.MapObj[0].HexObj[index1, index2].HexLibVarCounter; hexLibVarCounter >= 0; hexLibVarCounter += -1)
           {
             if (this.MapObj[0].HexObj[index1, index2].HexLibVarSlotNr[hexLibVarCounter] == Oldnr)
             {
@@ -7466,9 +7466,9 @@ namespace WindowsApplication1
       this.ChangeRoadNr(nr, -1);
       if (nr < this.RoadTypeCounter)
       {
-        int num1 = nr;
-        int num2 = this.RoadTypeCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.RoadTypeCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.RoadTypeObj[Newnr] = this.RoadTypeObj[Newnr + 1];
           this.ChangeRoadNr(Newnr + 1, Newnr);
@@ -7482,15 +7482,15 @@ namespace WindowsApplication1
 
     pub void ChangeRoadNr(int Oldnr, int Newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int index1;
-      for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+      for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
-        int width = this.StringListObj[index2].Width;
-        for (int index3 = 0; index3 <= width; index3 += 1)
+        let mut width: i32 =  this.StringListObj[index2].Width;
+        for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
         {
-          int length = this.StringListObj[index2].Length;
-          for (int index4 = 0; index4 <= length; index4 += 1)
+          let mut length: i32 =  this.StringListObj[index2].Length;
+          for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
           {
             if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.RoadId && this.StringListObj[index2].Data[index4, index3].Length > 0)
             {
@@ -7502,7 +7502,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.Road & this.LibVarObj[libVarCounter].instanceId.id == Oldnr)
         {
@@ -7512,7 +7512,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].instanceId.id = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.RoadId & this.LibVarObj[libVarCounter].value == Oldnr)
         {
@@ -7522,14 +7522,14 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].value = Newnr;
         }
       }
-      int mapCounter = this.MapCounter;
-      for (int index5 = 0; index5 <= mapCounter; index5 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index5: i32 =  0; index5 <= mapCounter; index5 += 1)
       {
-        int mapWidth = this.MapObj[index5].MapWidth;
-        for (int index6 = 0; index6 <= mapWidth; index6 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index5].MapWidth;
+        for (let mut index6: i32 =  0; index6 <= mapWidth; index6 += 1)
         {
-          int mapHeight = this.MapObj[index5].MapHeight;
-          for (int index7 = 0; index7 <= mapHeight; index7 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index5].MapHeight;
+          for (let mut index7: i32 =  0; index7 <= mapHeight; index7 += 1)
           {
             index1 = 0;
             do
@@ -7558,9 +7558,9 @@ namespace WindowsApplication1
       this.ChangeRiverNr(nr, -1);
       if (nr < this.RiverTypeCounter)
       {
-        int num1 = nr;
-        int num2 = this.RiverTypeCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.RiverTypeCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.RiverTypeObj[Newnr] = this.RiverTypeObj[Newnr + 1];
           this.ChangeRiverNr(Newnr + 1, Newnr);
@@ -7574,15 +7574,15 @@ namespace WindowsApplication1
 
     pub void ChangeRiverNr(int Oldnr, int Newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int index1;
-      for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+      for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
-        int width = this.StringListObj[index2].Width;
-        for (int index3 = 0; index3 <= width; index3 += 1)
+        let mut width: i32 =  this.StringListObj[index2].Width;
+        for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
         {
-          int length = this.StringListObj[index2].Length;
-          for (int index4 = 0; index4 <= length; index4 += 1)
+          let mut length: i32 =  this.StringListObj[index2].Length;
+          for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
           {
             if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.RiverId && this.StringListObj[index2].Data[index4, index3].Length > 0)
             {
@@ -7594,7 +7594,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.River & this.LibVarObj[libVarCounter].instanceId.id == Oldnr)
         {
@@ -7604,7 +7604,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].instanceId.id = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.RiverId & this.LibVarObj[libVarCounter].value == Oldnr)
         {
@@ -7614,14 +7614,14 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].value = Newnr;
         }
       }
-      int mapCounter = this.MapCounter;
-      for (int index5 = 0; index5 <= mapCounter; index5 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index5: i32 =  0; index5 <= mapCounter; index5 += 1)
       {
-        int mapWidth = this.MapObj[index5].MapWidth;
-        for (int index6 = 0; index6 <= mapWidth; index6 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index5].MapWidth;
+        for (let mut index6: i32 =  0; index6 <= mapWidth; index6 += 1)
         {
-          int mapHeight = this.MapObj[index5].MapHeight;
-          for (int index7 = 0; index7 <= mapHeight; index7 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index5].MapHeight;
+          for (let mut index7: i32 =  0; index7 <= mapHeight; index7 += 1)
           {
             index1 = 0;
             do
@@ -7649,9 +7649,9 @@ namespace WindowsApplication1
     {
       if (nr < this.AreaCounter)
       {
-        int num1 = nr;
-        int num2 = this.AreaCounter - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.AreaCounter - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.AreaObj[index] = this.AreaObj[index + 1];
       }
       --this.AreaCounter;
@@ -7662,8 +7662,8 @@ namespace WindowsApplication1
 
     pub int FindHistorical(ref HistoricalUnitClass his, string libName)
     {
-      int historicalUnitCounter = this.HistoricalUnitCounter;
-      for (int historical = 0; historical <= historicalUnitCounter; historical += 1)
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+      for (let mut historical: i32 =  0; historical <= historicalUnitCounter; historical += 1)
       {
         if (this.HistoricalUnitObj[historical].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.HistoricalUnitObj[historical].LibId.libSlot].name, libName, false) == 0 && this.HistoricalUnitObj[historical].LibId.id == his.ID)
           return historical;
@@ -7673,8 +7673,8 @@ namespace WindowsApplication1
 
     pub int FindHistoricalFromSameLib(ref HistoricalUnitClass his, string libName)
     {
-      int historicalUnitCounter = this.HistoricalUnitCounter;
-      for (int historicalFromSameLib = 0; historicalFromSameLib <= historicalUnitCounter; historicalFromSameLib += 1)
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+      for (let mut historicalFromSameLib: i32 =  0; historicalFromSameLib <= historicalUnitCounter; historicalFromSameLib += 1)
       {
         if (this.HistoricalUnitObj[historicalFromSameLib].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.HistoricalUnitObj[historicalFromSameLib].LibId.libSlot].name, libName, false) == 0 && this.HistoricalUnitObj[historicalFromSameLib].LibId.id == his.LibId.id)
           return historicalFromSameLib;
@@ -7684,8 +7684,8 @@ namespace WindowsApplication1
 
     pub int FindOffHistorical(ref HistoricalUnitClass his, string libName)
     {
-      int historicalUnitCounter = this.HistoricalUnitCounter;
-      for (int offHistorical = 0; offHistorical <= historicalUnitCounter; offHistorical += 1)
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+      for (let mut offHistorical: i32 =  0; offHistorical <= historicalUnitCounter; offHistorical += 1)
       {
         if (this.HistoricalUnitObj[offHistorical].OffLibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.HistoricalUnitObj[offHistorical].OffLibId.libSlot].name, libName, false) == 0 && this.HistoricalUnitObj[offHistorical].OffLibId.id == his.ID)
           return offHistorical;
@@ -7695,8 +7695,8 @@ namespace WindowsApplication1
 
     pub int FindOffHistoricalBySameLib(ref HistoricalUnitClass his, string libName)
     {
-      int historicalUnitCounter = this.HistoricalUnitCounter;
-      for (int historicalBySameLib = 0; historicalBySameLib <= historicalUnitCounter; historicalBySameLib += 1)
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+      for (let mut historicalBySameLib: i32 =  0; historicalBySameLib <= historicalUnitCounter; historicalBySameLib += 1)
       {
         if (this.HistoricalUnitObj[historicalBySameLib].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.HistoricalUnitObj[historicalBySameLib].LibId.libSlot].name, libName, false) == 0 && this.HistoricalUnitObj[historicalBySameLib].LibId.id == his.OffLibId.id)
           return historicalBySameLib;
@@ -7709,8 +7709,8 @@ namespace WindowsApplication1
       this += 1.HistoricalUnitCounter;
       this.HistoricalUnitObj = (HistoricalUnitClass[]) Utils.CopyArray((Array) this.HistoricalUnitObj, (Array) new HistoricalUnitClass[this.HistoricalUnitCounter + 1]);
       this.HistoricalUnitObj[this.HistoricalUnitCounter] = HistoricalUnitClass::new();
-      int historicalUnitCounter = this.HistoricalUnitCounter;
-      for (int index = 0; index <= historicalUnitCounter; index += 1)
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+      for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
       {
         if (this.HistoricalUnitObj[index].ID >= this.HistoricalIDCounter)
           this.HistoricalIDCounter = this.HistoricalUnitObj[index].ID;
@@ -7725,9 +7725,9 @@ namespace WindowsApplication1
       this.ChangeHistoricalUnitNr(nr, -1);
       if (nr < this.HistoricalUnitCounter)
       {
-        int num1 = nr;
-        int num2 = this.HistoricalUnitCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.HistoricalUnitCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.HistoricalUnitObj[Newnr] = this.HistoricalUnitObj[Newnr + 1];
           this.ChangeHistoricalUnitNr(Newnr + 1, Newnr);
@@ -7745,16 +7745,16 @@ namespace WindowsApplication1
       int index1;
       if (!QuickMode)
       {
-        int stringListCounter = this.StringListCounter;
-        for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+        let mut stringListCounter: i32 =  this.StringListCounter;
+        for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
         {
-          int width = this.StringListObj[index2].Width;
-          for (int index3 = 0; index3 <= width; index3 += 1)
+          let mut width: i32 =  this.StringListObj[index2].Width;
+          for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
           {
             if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.HistoricalUnitId | this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.HistoricalUnitModelId | this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.OfficerId)
             {
-              int length = this.StringListObj[index2].Length;
-              for (int index4 = 0; index4 <= length; index4 += 1)
+              let mut length: i32 =  this.StringListObj[index2].Length;
+              for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
               {
                 if (this.StringListObj[index2].Data[index4, index3].Length > 0)
                 {
@@ -7768,7 +7768,7 @@ namespace WindowsApplication1
             }
           }
         }
-        for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+        for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
         {
           if (this.HistoricalUnitObj[Oldnr].LibId.libSlot > -1 & (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.HistoricalUnit | this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.HistoricalUnitModel | this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.Officer) & this.LibVarObj[libVarCounter].instanceId.id == this.HistoricalUnitObj[Oldnr].LibId.id & this.LibVarObj[libVarCounter].instanceId.libSlot == this.HistoricalUnitObj[Oldnr].LibId.libSlot && Newnr == -1)
             this.RemoveLibVar(libVarCounter);
@@ -7780,7 +7780,7 @@ namespace WindowsApplication1
               this.LibVarObj[libVarCounter].instanceId.id = Newnr;
           }
         }
-        for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+        for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
         {
           if (this.LibVarObj[libVarCounter].instanceId.id > -1 & (this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.HistoricalUnitId | this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.HistoricalUnitModelId | this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.OfficerId) & this.LibVarObj[libVarCounter].value == Oldnr)
           {
@@ -7793,16 +7793,16 @@ namespace WindowsApplication1
       }
       if (this.Product == 7)
       {
-        int regimeCounter = this.RegimeCounter;
-        for (int index5 = 0; index5 <= regimeCounter; index5 += 1)
+        let mut regimeCounter: i32 =  this.RegimeCounter;
+        for (let mut index5: i32 =  0; index5 <= regimeCounter; index5 += 1)
         {
           if (!this.RegimeObj[index5].AI)
           {
-            int mapWidth = this.MapObj[0].MapWidth;
-            for (int index6 = 0; index6 <= mapWidth; index6 += 1)
+            let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
+            for (let mut index6: i32 =  0; index6 <= mapWidth; index6 += 1)
             {
-              int mapHeight = this.MapObj[0].MapHeight;
-              for (int index7 = 0; index7 <= mapHeight; index7 += 1)
+              let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
+              for (let mut index7: i32 =  0; index7 <= mapHeight; index7 += 1)
               {
                 if (this.RegimeObj[0].HistoryHis[0].Value[index6, index7] == Oldnr)
                   this.RegimeObj[0].HistoryHis[0].Value[index6, index7] = Newnr;
@@ -7827,8 +7827,8 @@ namespace WindowsApplication1
 
     pub int FindRegime(ref RegimeClass reg, string libName)
     {
-      int regimeCounter = this.RegimeCounter;
-      for (int regime = 0; regime <= regimeCounter; regime += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut regime: i32 =  0; regime <= regimeCounter; regime += 1)
       {
         if (this.RegimeObj[regime].libId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.RegimeObj[regime].libId.libSlot].name, libName, false) == 0 && this.RegimeObj[regime].libId.id == reg.id)
           return regime;
@@ -7838,8 +7838,8 @@ namespace WindowsApplication1
 
     pub int FindRegimeFromSameLib(ref RegimeClass reg, string libName)
     {
-      int regimeCounter = this.RegimeCounter;
-      for (int regimeFromSameLib = 0; regimeFromSameLib <= regimeCounter; regimeFromSameLib += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut regimeFromSameLib: i32 =  0; regimeFromSameLib <= regimeCounter; regimeFromSameLib += 1)
       {
         if (Operators.CompareString(this.RegimeObj[regimeFromSameLib].Name, reg.Name, false) == 0)
           return regimeFromSameLib;
@@ -7856,21 +7856,21 @@ namespace WindowsApplication1
       this.RegimeObj[this.RegimeCounter].LoadSprites();
       this += 1.RegimeIdCounter;
       this.RegimeObj[this.RegimeCounter].id = this.RegimeIdCounter;
-      int num1 = -1;
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut num1: i32 =  -1;
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
       {
         if (!this.RegimeObj[index].minimumDataUsage)
           num1 = index;
       }
-      int mapCounter1 = this.MapCounter;
-      for (int index1 = 0; index1 <= mapCounter1; index1 += 1)
+      let mut mapCounter1: i32 =  this.MapCounter;
+      for (let mut index1: i32 =  0; index1 <= mapCounter1; index1 += 1)
       {
-        int mapWidth = this.MapObj[index1].MapWidth;
-        for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index1].MapWidth;
+        for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
         {
-          int mapHeight = this.MapObj[index1].MapHeight;
-          for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index1].MapHeight;
+          for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
           {
             while (this.MapObj[index1].HexObj[index2, index3].RegimeCount < this.RegimeCounter)
               this.MapObj[index1].HexObj[index2, index3].UNUSED_addnewregime(this.MapObj[index1].HexObj[index2, index3].RegimeCount + 1, !this.RegimeObj[this.MapObj[index1].HexObj[index2, index3].RegimeCount + 1].minimumDataUsage, noRedimNecc);
@@ -7882,23 +7882,23 @@ namespace WindowsApplication1
       }
       if (this.RegimeCounter > 0)
       {
-        int num2 = this.RegimeCounter - 1;
-        for (int index = 0; index <= num2; index += 1)
+        let mut num2: i32 =  this.RegimeCounter - 1;
+        for (let mut index: i32 =  0; index <= num2; index += 1)
           this.RegimeObj[index].AddRegime();
       }
       if (noRedimNecc)
       {
-        int mapCounter2 = this.MapCounter;
-        for (int index4 = 0; index4 <= mapCounter2; index4 += 1)
+        let mut mapCounter2: i32 =  this.MapCounter;
+        for (let mut index4: i32 =  0; index4 <= mapCounter2; index4 += 1)
         {
-          int mapWidth = this.MapObj[index4].MapWidth;
-          for (int index5 = 0; index5 <= mapWidth; index5 += 1)
+          let mut mapWidth: i32 =  this.MapObj[index4].MapWidth;
+          for (let mut index5: i32 =  0; index5 <= mapWidth; index5 += 1)
           {
-            int mapHeight = this.MapObj[index4].MapHeight;
-            for (int index6 = 0; index6 <= mapHeight; index6 += 1)
+            let mut mapHeight: i32 =  this.MapObj[index4].MapHeight;
+            for (let mut index6: i32 =  0; index6 <= mapHeight; index6 += 1)
             {
-              int regimeFullCount = this.MapObj[0].HexObj[index5, index6].RegimeFullCount;
-              for (int Index = 0; Index <= regimeFullCount; Index += 1)
+              let mut regimeFullCount: i32 =  this.MapObj[0].HexObj[index5, index6].RegimeFullCount;
+              for (let mut Index: i32 =  0; Index <= regimeFullCount; Index += 1)
               {
                 this.MapObj[index4].HexObj[index5, index6].set_LastLT(Index, -1);
                 this.MapObj[index4].HexObj[index5, index6].set_LastReg(Index, -1);
@@ -7926,10 +7926,10 @@ namespace WindowsApplication1
       this.RemoveRegime(this.RegimeCounter);
       this.RegimeObj[regnr].LoadSprites();
       this.RegimeObj[regnr + 1].LoadSprites();
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
       {
-        int num = this.RegimeObj[index].RegimeRel[regnr + 1];
+        let mut num: i32 =  this.RegimeObj[index].RegimeRel[regnr + 1];
         this.RegimeObj[index].RegimeRel[regnr + 1] = this.RegimeObj[index].RegimeRel[regnr];
         this.RegimeObj[index].RegimeRel[regnr] = num;
       }
@@ -7950,10 +7950,10 @@ namespace WindowsApplication1
       this.RemoveRegime(this.RegimeCounter);
       this.RegimeObj[regnr].LoadSprites();
       this.RegimeObj[regnr - 1].LoadSprites();
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
       {
-        int num = this.RegimeObj[index].RegimeRel[regnr - 1];
+        let mut num: i32 =  this.RegimeObj[index].RegimeRel[regnr - 1];
         this.RegimeObj[index].RegimeRel[regnr - 1] = this.RegimeObj[index].RegimeRel[regnr];
         this.RegimeObj[index].RegimeRel[regnr] = num;
       }
@@ -7967,27 +7967,27 @@ namespace WindowsApplication1
       this.ChangeRegimeNr(nr, -1);
       if (nr < this.RegimeCounter)
       {
-        int num1 = nr;
-        int num2 = this.RegimeCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.RegimeCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.RegimeObj[Newnr] = this.RegimeObj[Newnr + 1];
           this.ChangeRegimeNr(Newnr + 1, Newnr);
         }
       }
-      int mapCounter = this.MapCounter;
-      for (int index1 = 0; index1 <= mapCounter; index1 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
-        int mapWidth = this.MapObj[index1].MapWidth;
-        for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index1].MapWidth;
+        for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
         {
-          int mapHeight = this.MapObj[index1].MapHeight;
-          for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index1].MapHeight;
+          for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
             this.MapObj[index1].HexObj[index2, index3].removeregime(!minimumDataUsage, nr);
         }
       }
-      int num = this.RegimeCounter - 1;
-      for (int index = 0; index <= num; index += 1)
+      let mut num: i32 =  this.RegimeCounter - 1;
+      for (let mut index: i32 =  0; index <= num; index += 1)
         this.RegimeObj[index].Removeregime(nr);
       --this.RegimeCounter;
       if (this.RegimeCounter != -1)
@@ -8001,18 +8001,18 @@ namespace WindowsApplication1
       int index1;
       if (!QuickMode)
       {
-        int stringListCounter = this.StringListCounter;
-        for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+        let mut stringListCounter: i32 =  this.StringListCounter;
+        for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
         {
-          int width = this.StringListObj[index2].Width;
+          let mut width: i32 =  this.StringListObj[index2].Width;
           for (index1 = 0; index1 <= width; index1 += 1)
           {
-            int length = this.StringListObj[index2].Length;
-            for (int index3 = 0; index3 <= length; index3 += 1)
+            let mut length: i32 =  this.StringListObj[index2].Length;
+            for (let mut index3: i32 =  0; index3 <= length; index3 += 1)
             {
               if (this.StringListObj[index2].ColValueType[index1] == NewEnums.LibVarValueType.RegimeId && this.StringListObj[index2].Data[index3, index1].Length > 0)
               {
-                int num =  Math.Round(Conversion.Val(this.StringListObj[index2].Data[index3, index1]));
+                let mut num: i32 =   Math.Round(Conversion.Val(this.StringListObj[index2].Data[index3, index1]));
                 if (num == Oldnr)
                   num = Newnr;
                 this.StringListObj[index2].Data[index3, index1] = num.ToString();
@@ -8021,7 +8021,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.Regime & this.LibVarObj[libVarCounter].instanceId.id == this.RegimeObj[Oldnr].libId.id & this.LibVarObj[libVarCounter].instanceId.libSlot == this.RegimeObj[Oldnr].libId.libSlot)
         {
@@ -8031,7 +8031,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].instanceId.id = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.RegimeId & this.LibVarObj[libVarCounter].value == Oldnr)
         {
@@ -8041,14 +8041,14 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].value = Newnr;
         }
       }
-      int mapCounter1 = this.MapCounter;
-      for (int index4 = 0; index4 <= mapCounter1; index4 += 1)
+      let mut mapCounter1: i32 =  this.MapCounter;
+      for (let mut index4: i32 =  0; index4 <= mapCounter1; index4 += 1)
       {
-        int mapWidth = this.MapObj[index4].MapWidth;
+        let mut mapWidth: i32 =  this.MapObj[index4].MapWidth;
         for (index1 = 0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.MapObj[index4].MapHeight;
-          for (int index5 = 0; index5 <= mapHeight; index5 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index4].MapHeight;
+          for (let mut index5: i32 =  0; index5 <= mapHeight; index5 += 1)
           {
             if (this.MapObj[index4].HexObj[index1, index5].Regime == Oldnr & Newnr == -1 && this.MapObj[index4].HexObj[index1, index5].Location > -1)
               this.LocObj[this.MapObj[index4].HexObj[index1, index5].Location].HQ = -1;
@@ -8056,11 +8056,11 @@ namespace WindowsApplication1
               this.MapObj[index4].HexObj[index1, index5].Regime = Newnr;
             if (this.Product >= 6 & this.Round > 0)
             {
-              int num = this.MapObj[index4].HexObj[index1, index5].get_LastReg(Oldnr);
+              let mut num: i32 =  this.MapObj[index4].HexObj[index1, index5].get_LastReg(Oldnr);
               if (Newnr != -1)
                 this.MapObj[index4].HexObj[index1, index5].set_LastReg(Newnr, num);
-              int regimeCounter = this.RegimeCounter;
-              for (int Index = 0; Index <= regimeCounter; Index += 1)
+              let mut regimeCounter: i32 =  this.RegimeCounter;
+              for (let mut Index: i32 =  0; Index <= regimeCounter; Index += 1)
               {
                 if (this.MapObj[index4].HexObj[index1, index5].get_LastReg(Index) == Oldnr)
                   this.MapObj[index4].HexObj[index1, index5].set_LastReg(Index, Newnr);
@@ -8075,11 +8075,11 @@ namespace WindowsApplication1
         {
           try
           {
-            int mapWidth = this.MapObj[0].MapWidth;
+            let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
             for (index1 = 0; index1 <= mapWidth; index1 += 1)
             {
-              int mapHeight = this.MapObj[0].MapHeight;
-              for (int index6 = 0; index6 <= mapHeight; index6 += 1)
+              let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
+              for (let mut index6: i32 =  0; index6 <= mapHeight; index6 += 1)
               {
                 if (DrawMod.TGame.EditObj.HisOwner[0].Value[index1, index6] == Oldnr)
                   DrawMod.TGame.EditObj.HisOwner[0].Value[index1, index6] = Newnr;
@@ -8095,26 +8095,26 @@ namespace WindowsApplication1
       }
       if (this.Product >= 6 & this.Round > 0)
       {
-        int tRegimeFullCount = -1;
-        int regimeCounter = this.RegimeCounter;
-        for (int index7 = 0; index7 <= regimeCounter; index7 += 1)
+        let mut tRegimeFullCount: i32 =  -1;
+        let mut regimeCounter: i32 =  this.RegimeCounter;
+        for (let mut index7: i32 =  0; index7 <= regimeCounter; index7 += 1)
         {
           if (!this.RegimeObj[index7].minimumDataUsage)
             tRegimeFullCount = index7;
         }
-        int mapCounter2 = this.MapCounter;
-        for (int index8 = 0; index8 <= mapCounter2; index8 += 1)
+        let mut mapCounter2: i32 =  this.MapCounter;
+        for (let mut index8: i32 =  0; index8 <= mapCounter2; index8 += 1)
         {
-          int mapWidth = this.MapObj[index8].MapWidth;
-          for (int index9 = 0; index9 <= mapWidth; index9 += 1)
+          let mut mapWidth: i32 =  this.MapObj[index8].MapWidth;
+          for (let mut index9: i32 =  0; index9 <= mapWidth; index9 += 1)
           {
-            int mapHeight = this.MapObj[index8].MapHeight;
-            for (int index10 = 0; index10 <= mapHeight; index10 += 1)
+            let mut mapHeight: i32 =  this.MapObj[index8].MapHeight;
+            for (let mut index10: i32 =  0; index10 <= mapHeight; index10 += 1)
               this.MapObj[index8].HexObj[index9, index10].redimRegime(this.RegimeCounter, tRegimeFullCount);
           }
         }
       }
-      for (int index11 = this.RegimeCounter; index11 >= 0; index11 += -1)
+      for (let mut index11: i32 =  this.RegimeCounter; index11 >= 0; index11 += -1)
       {
         if (this.Round > 0)
         {
@@ -8124,19 +8124,19 @@ namespace WindowsApplication1
           {
             if (!Information.IsNothing((object) this.RegimeObj[index11].HistoryOwner[0]))
             {
-              int mapWidth = this.MapObj[0].MapWidth;
-              for (int index12 = 0; index12 <= mapWidth; index12 += 1)
+              let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
+              for (let mut index12: i32 =  0; index12 <= mapWidth; index12 += 1)
               {
-                int mapHeight = this.MapObj[0].MapHeight;
-                for (int index13 = 0; index13 <= mapHeight; index13 += 1)
+                let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
+                for (let mut index13: i32 =  0; index13 <= mapHeight; index13 += 1)
                 {
                   if (this.RegimeObj[index11].HistoryOwner[0].Value[index12, index13] == Oldnr)
                     this.RegimeObj[index11].HistoryOwner[0].Value[index12, index13] = Newnr;
                 }
               }
             }
-            int historyStepCounter = this.RegimeObj[index11].HistoryStepCounter;
-            for (int index14 = 0; index14 <= historyStepCounter; index14 += 1)
+            let mut historyStepCounter: i32 =  this.RegimeObj[index11].HistoryStepCounter;
+            for (let mut index14: i32 =  0; index14 <= historyStepCounter; index14 += 1)
             {
               if (this.RegimeObj[index11].HistoryStep[index14].Ownership == Oldnr)
                 this.RegimeObj[index11].HistoryStep[index14].Ownership = Newnr;
@@ -8154,13 +8154,13 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int unitCounter = this.UnitCounter; unitCounter >= 0; unitCounter += -1)
+      for (let mut unitCounter: i32 =  this.UnitCounter; unitCounter >= 0; unitCounter += -1)
       {
         if (this.UnitObj[unitCounter].Regime == Oldnr)
         {
           if (Newnr == -1)
           {
-            int nr = unitCounter;
+            let mut nr: i32 =  unitCounter;
             let mut gameClass: GameClass = (GameClass) null;
             ref let mut local: GameClass = ref gameClass;
             this.RemoveUnit(nr, ref local, true);
@@ -8169,13 +8169,13 @@ namespace WindowsApplication1
             this.UnitObj[unitCounter].Regime = Newnr;
         }
       }
-      int itemTypeCounter = this.ItemTypeCounter;
-      for (int index15 = 0; index15 <= itemTypeCounter; index15 += 1)
+      let mut itemTypeCounter: i32 =  this.ItemTypeCounter;
+      for (let mut index15: i32 =  0; index15 <= itemTypeCounter; index15 += 1)
       {
         if (this.ItemTypeObj[index15].RegimeSpecific > -1 & this.ItemTypeObj[index15].RegimeSpecific == Oldnr)
           this.ItemTypeObj[index15].RegimeSpecific = Newnr;
       }
-      for (int historicalUnitCounter = this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
+      for (let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter; historicalUnitCounter >= 0; historicalUnitCounter += -1)
       {
         if (this.HistoricalUnitObj[historicalUnitCounter].TempRegime == Oldnr)
         {
@@ -8185,8 +8185,8 @@ namespace WindowsApplication1
             this.HistoricalUnitObj[historicalUnitCounter].TempRegime = Newnr;
         }
       }
-      int peopleCounter = this.PeopleCounter;
-      for (int index16 = 0; index16 <= peopleCounter; index16 += 1)
+      let mut peopleCounter: i32 =  this.PeopleCounter;
+      for (let mut index16: i32 =  0; index16 <= peopleCounter; index16 += 1)
       {
         if (this.PeopleObj[index16].RegCol == Oldnr)
           this.PeopleObj[index16].RegCol = Newnr;
@@ -8195,8 +8195,8 @@ namespace WindowsApplication1
 
     pub int FindStringList(ref StringListClass e, string libname)
     {
-      int stringListCounter = this.StringListCounter;
-      for (int stringList = 0; stringList <= stringListCounter; stringList += 1)
+      let mut stringListCounter: i32 =  this.StringListCounter;
+      for (let mut stringList: i32 =  0; stringList <= stringListCounter; stringList += 1)
       {
         if (this.StringListObj[stringList].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.StringListObj[stringList].LibId.libSlot].name, libname, false) == 0 && Operators.CompareString(this.StringListObj[stringList].Name, e.Name, false) == 0 & this.StringListObj[stringList].LibId.id == e.ID)
           return stringList;
@@ -8208,8 +8208,8 @@ namespace WindowsApplication1
     {
       this += 1.StringListCounter;
       this += 1.StringIDCounter;
-      int num = this.StringListCounter - 1;
-      for (int index = 0; index <= num; index += 1)
+      let mut num: i32 =  this.StringListCounter - 1;
+      for (let mut index: i32 =  0; index <= num; index += 1)
       {
         if (this.StringListObj[index].ID >= this.StringIDCounter)
           this.StringIDCounter = this.StringListObj[index].ID + 1;
@@ -8220,17 +8220,17 @@ namespace WindowsApplication1
 
     pub void RemoveStringList(int nr)
     {
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
       {
         if (this.RegimeObj[index].OfficerPool == nr)
           this.RegimeObj[index].OfficerPool = -1;
       }
       if (nr < this.StringListCounter)
       {
-        int num1 = nr;
-        int num2 = this.StringListCounter - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.StringListCounter - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.StringListObj[index] = this.StringListObj[index + 1];
       }
       --this.StringListCounter;
@@ -8245,11 +8245,11 @@ namespace WindowsApplication1
       this.ResearchObj = (ResearchClass[]) Utils.CopyArray((Array) this.ResearchObj, (Array) new ResearchClass[this.ResearchCounter + 1]);
       this.ResearchObj[this.ResearchCounter] = new ResearchClass(0);
       this.ResearchObj[this.ResearchCounter].LoadSprites();
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         this.RegimeObj[index].AddResField();
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter; index += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
         this.SFTypeObj[index].AddResField();
     }
 
@@ -8259,20 +8259,20 @@ namespace WindowsApplication1
       this.ChangeResearchNr(nr, -1);
       if (nr < this.ResearchCounter)
       {
-        int num1 = nr;
-        int num2 = this.ResearchCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.ResearchCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.ResearchObj[Newnr] = this.ResearchObj[Newnr + 1];
           this.ChangeResearchNr(Newnr + 1, Newnr);
         }
       }
       --this.ResearchCounter;
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         this.RegimeObj[index].RemoveResField(nr);
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter; index += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
         this.SFTypeObj[index].RemoveResField(nr);
       if (this.ResearchCounter == -1)
         return;
@@ -8281,10 +8281,10 @@ namespace WindowsApplication1
 
     pub void ChangeResearchNr(int Oldnr, int Newnr)
     {
-      int itemTypeCounter = this.ItemTypeCounter;
-      for (int index1 = 0; index1 <= itemTypeCounter; index1 += 1)
+      let mut itemTypeCounter: i32 =  this.ItemTypeCounter;
+      for (let mut index1: i32 =  0; index1 <= itemTypeCounter; index1 += 1)
       {
-        int index2 = 0;
+        let mut index2: i32 =  0;
         do
         {
           if (this.ItemTypeObj[index1].ResFieldNeeded[index2] == Oldnr)
@@ -8293,10 +8293,10 @@ namespace WindowsApplication1
         }
         while (index2 <= 4);
       }
-      int locTypeCounter = this.LocTypeCounter;
-      for (int index3 = 0; index3 <= locTypeCounter; index3 += 1)
+      let mut locTypeCounter: i32 =  this.LocTypeCounter;
+      for (let mut index3: i32 =  0; index3 <= locTypeCounter; index3 += 1)
       {
-        int index4 = 0;
+        let mut index4: i32 =  0;
         do
         {
           if (this.LocTypeObj[index3].Research[index4] == Oldnr)
@@ -8305,18 +8305,18 @@ namespace WindowsApplication1
         }
         while (index4 <= 4);
       }
-      int researchCounter = this.ResearchCounter;
-      for (int index = 0; index <= researchCounter; index += 1)
+      let mut researchCounter: i32 =  this.ResearchCounter;
+      for (let mut index: i32 =  0; index <= researchCounter; index += 1)
       {
         if (this.ResearchObj[index].PreReq == Oldnr)
           this.ResearchObj[index].PreReq = Newnr;
         if (this.ResearchObj[index].PreReq2 == Oldnr)
           this.ResearchObj[index].PreReq2 = Newnr;
       }
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index5 = 0; index5 <= sfTypeCounter; index5 += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index5: i32 =  0; index5 <= sfTypeCounter; index5 += 1)
       {
-        int index6 = 0;
+        let mut index6: i32 =  0;
         do
         {
           if (this.SFTypeObj[index5].ModelResearch[index6] == Oldnr)
@@ -8341,9 +8341,9 @@ namespace WindowsApplication1
       this.ChangeLocTypeNr(nr, -1);
       if (nr < this.LocTypeCounter)
       {
-        int num1 = nr;
-        int num2 = this.LocTypeCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.LocTypeCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.LocTypeObj[Newnr] = this.LocTypeObj[Newnr + 1];
           this.ChangeLocTypeNr(Newnr + 1, Newnr);
@@ -8357,15 +8357,15 @@ namespace WindowsApplication1
 
     pub void ChangeLocTypeNr(int Oldnr, int Newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int nr;
-      for (int index1 = 0; index1 <= stringListCounter; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= stringListCounter; index1 += 1)
       {
-        int width = this.StringListObj[index1].Width;
-        for (int index2 = 0; index2 <= width; index2 += 1)
+        let mut width: i32 =  this.StringListObj[index1].Width;
+        for (let mut index2: i32 =  0; index2 <= width; index2 += 1)
         {
-          int length = this.StringListObj[index1].Length;
-          for (int index3 = 0; index3 <= length; index3 += 1)
+          let mut length: i32 =  this.StringListObj[index1].Length;
+          for (let mut index3: i32 =  0; index3 <= length; index3 += 1)
           {
             if (this.StringListObj[index1].ColValueType[index2] == NewEnums.LibVarValueType.LocationTypeId && this.StringListObj[index1].Data[index3, index2].Length > 0)
             {
@@ -8377,7 +8377,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.LocationType & this.LibVarObj[libVarCounter].instanceId.id == Oldnr)
         {
@@ -8387,7 +8387,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].instanceId.id = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.LocationTypeId & this.LibVarObj[libVarCounter].value == Oldnr)
         {
@@ -8445,9 +8445,9 @@ namespace WindowsApplication1
       this.ChangeLocNr(nr, -1);
       if (nr < this.LocCounter)
       {
-        int num1 = nr;
-        int num2 = this.LocCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.LocCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.LocObj[Newnr] = this.LocObj[Newnr + 1];
           this.ChangeLocNr(Newnr + 1, Newnr);
@@ -8461,14 +8461,14 @@ namespace WindowsApplication1
 
     pub void ChangeLocNr(int Oldnr, int Newnr)
     {
-      int mapCounter = this.MapCounter;
-      for (int index1 = 0; index1 <= mapCounter; index1 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
-        int mapWidth = this.MapObj[index1].MapWidth;
-        for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index1].MapWidth;
+        for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
         {
-          int mapHeight = this.MapObj[index1].MapHeight;
-          for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index1].MapHeight;
+          for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
           {
             if (this.MapObj[index1].HexObj[index2, index3].Location == Oldnr)
               this.MapObj[index1].HexObj[index2, index3].Location = Newnr;
@@ -8481,8 +8481,8 @@ namespace WindowsApplication1
 
     pub int FindEvent(ref EventClass e, string libname)
     {
-      int eventCounter = this.EventCounter;
-      for (int index = 0; index <= eventCounter; index += 1)
+      let mut eventCounter: i32 =  this.EventCounter;
+      for (let mut index: i32 =  0; index <= eventCounter; index += 1)
       {
         if (this.EventObj[index].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.EventObj[index].LibId.libSlot].name, libname, false) == 0 && Operators.CompareString(this.EventObj[index].Name, e.Name, false) == 0 & this.EventObj[index].LibId.id == e.Id)
           return index;
@@ -8492,8 +8492,8 @@ namespace WindowsApplication1
 
     pub int FindEvent2(string libname, int id)
     {
-      int eventCounter = this.EventCounter;
-      for (int event2 = 0; event2 <= eventCounter; event2 += 1)
+      let mut eventCounter: i32 =  this.EventCounter;
+      for (let mut event2: i32 =  0; event2 <= eventCounter; event2 += 1)
       {
         if (this.EventObj[event2].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.EventObj[event2].LibId.libSlot].name, libname, false) == 0 && this.EventObj[event2].LibId.id == id)
           return event2;
@@ -8501,10 +8501,10 @@ namespace WindowsApplication1
       return -1;
     }
 
-    pub void AddEvent(int insert = -1)
+    pub void AddEvent(let mut insert: i32 =  -1)
     {
-      int eventCounter1 = this.EventCounter;
-      for (int index = 0; index <= eventCounter1; index += 1)
+      let mut eventCounter1: i32 =  this.EventCounter;
+      for (let mut index: i32 =  0; index <= eventCounter1; index += 1)
       {
         if (this.EventObj[index].Id >= this.EventIdCounter)
           this.EventIdCounter = this.EventObj[index].Id;
@@ -8516,9 +8516,9 @@ namespace WindowsApplication1
       this.EventObj[this.EventCounter].Id = this.EventIdCounter;
       if (insert <= -1 || insert >= this.EventCounter - 1)
         return;
-      int eventCounter2 = this.EventCounter;
-      int num = insert + 2;
-      for (int toonr = eventCounter2; toonr >= num; toonr += -1)
+      let mut eventCounter2: i32 =  this.EventCounter;
+      let mut num: i32 =  insert + 2;
+      for (let mut toonr: i32 =  eventCounter2; toonr >= num; toonr += -1)
       {
         this.EventObj[toonr] = this.EventObj[toonr - 1];
         this.ChangeEventNr2(toonr - 1, toonr);
@@ -8529,15 +8529,15 @@ namespace WindowsApplication1
 
     pub void ChangeEventNr2(int fromnr, int toonr)
     {
-      int actionCardCounter = this.ActionCardCounter;
-      for (int index = 0; index <= actionCardCounter; index += 1)
+      let mut actionCardCounter: i32 =  this.ActionCardCounter;
+      for (let mut index: i32 =  0; index <= actionCardCounter; index += 1)
       {
         if (this.ActionCardObj[index].ExecuteEvent == fromnr)
           this.ActionCardObj[index].ExecuteEvent = toonr;
         if (this.ActionCardObj[index].PreExecuteEvent == fromnr)
           this.ActionCardObj[index].PreExecuteEvent = toonr;
       }
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.VariantEvent[index1] == fromnr)
@@ -8545,31 +8545,31 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 9);
-      int historicalUnitCounter = this.HistoricalUnitCounter;
-      for (int index2 = 0; index2 <= historicalUnitCounter; index2 += 1)
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+      for (let mut index2: i32 =  0; index2 <= historicalUnitCounter; index2 += 1)
       {
-        int autoEventCounter = this.HistoricalUnitObj[index2].AutoEventCounter;
-        for (int index3 = 0; index3 <= autoEventCounter; index3 += 1)
+        let mut autoEventCounter: i32 =  this.HistoricalUnitObj[index2].AutoEventCounter;
+        for (let mut index3: i32 =  0; index3 <= autoEventCounter; index3 += 1)
         {
           if (this.HistoricalUnitObj[index2].AutoEvent[index3] == fromnr)
             this.HistoricalUnitObj[index2].AutoEvent[index3] = toonr;
         }
       }
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index4 = 0; index4 <= sfTypeCounter; index4 += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index4: i32 =  0; index4 <= sfTypeCounter; index4 += 1)
       {
         if (this.SFTypeObj[index4].ModelNewEvent == fromnr)
           this.SFTypeObj[index4].ModelNewEvent = toonr;
-        int upperBound = this.SFTypeObj[index4].ModelImproveEvent.GetUpperBound(0);
-        for (int index5 = 0; index5 <= upperBound; index5 += 1)
+        let mut upperBound: i32 =  this.SFTypeObj[index4].ModelImproveEvent.GetUpperBound(0);
+        for (let mut index5: i32 =  0; index5 <= upperBound; index5 += 1)
         {
           if (this.SFTypeObj[index4].ModelImproveEvent[index5] == fromnr)
             this.SFTypeObj[index4].ModelImproveEvent[index5] = toonr;
         }
         if (this.SFTypeObj[index4].ModelInitialEvent == fromnr)
           this.SFTypeObj[index4].ModelInitialEvent = toonr;
-        int modelVariantCounter = this.SFTypeObj[index4].ModelVariantCounter;
-        for (int index6 = 0; index6 <= modelVariantCounter; index6 += 1)
+        let mut modelVariantCounter: i32 =  this.SFTypeObj[index4].ModelVariantCounter;
+        for (let mut index6: i32 =  0; index6 <= modelVariantCounter; index6 += 1)
         {
           if (this.SFTypeObj[index4].ModelVariantCheck[index6] == fromnr)
             this.SFTypeObj[index4].ModelVariantCheck[index6] = toonr;
@@ -8577,8 +8577,8 @@ namespace WindowsApplication1
             this.SFTypeObj[index4].ModelVariantExec[index6] = toonr;
         }
       }
-      int locTypeCounter = this.LocTypeCounter;
-      for (int index7 = 0; index7 <= locTypeCounter; index7 += 1)
+      let mut locTypeCounter: i32 =  this.LocTypeCounter;
+      for (let mut index7: i32 =  0; index7 <= locTypeCounter; index7 += 1)
       {
         if (this.LocTypeObj[index7].AIEvent == fromnr)
           this.LocTypeObj[index7].AIEvent = toonr;
@@ -8591,8 +8591,8 @@ namespace WindowsApplication1
 
     pub void ChangeEventSwitchNr(int fromnr, int toonr)
     {
-      int actionCardCounter = this.ActionCardCounter;
-      for (int index = 0; index <= actionCardCounter; index += 1)
+      let mut actionCardCounter: i32 =  this.ActionCardCounter;
+      for (let mut index: i32 =  0; index <= actionCardCounter; index += 1)
       {
         if (this.ActionCardObj[index].ExecuteEvent == fromnr)
           this.ActionCardObj[index].ExecuteEvent = toonr;
@@ -8603,7 +8603,7 @@ namespace WindowsApplication1
         else if (this.ActionCardObj[index].PreExecuteEvent == toonr)
           this.ActionCardObj[index].PreExecuteEvent = fromnr;
       }
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.VariantEvent[index1] == fromnr)
@@ -8613,11 +8613,11 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 9);
-      int historicalUnitCounter = this.HistoricalUnitCounter;
-      for (int index2 = 0; index2 <= historicalUnitCounter; index2 += 1)
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+      for (let mut index2: i32 =  0; index2 <= historicalUnitCounter; index2 += 1)
       {
-        int autoEventCounter = this.HistoricalUnitObj[index2].AutoEventCounter;
-        for (int index3 = 0; index3 <= autoEventCounter; index3 += 1)
+        let mut autoEventCounter: i32 =  this.HistoricalUnitObj[index2].AutoEventCounter;
+        for (let mut index3: i32 =  0; index3 <= autoEventCounter; index3 += 1)
         {
           if (this.HistoricalUnitObj[index2].AutoEvent[index3] == fromnr)
             this.HistoricalUnitObj[index2].AutoEvent[index3] = toonr;
@@ -8625,15 +8625,15 @@ namespace WindowsApplication1
             this.HistoricalUnitObj[index2].AutoEvent[index3] = fromnr;
         }
       }
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index4 = 0; index4 <= sfTypeCounter; index4 += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index4: i32 =  0; index4 <= sfTypeCounter; index4 += 1)
       {
         if (this.SFTypeObj[index4].ModelNewEvent == fromnr)
           this.SFTypeObj[index4].ModelNewEvent = toonr;
         else if (this.SFTypeObj[index4].ModelNewEvent == toonr)
           this.SFTypeObj[index4].ModelNewEvent = fromnr;
-        int researchCounter = this.ResearchCounter;
-        for (int index5 = 0; index5 <= researchCounter; index5 += 1)
+        let mut researchCounter: i32 =  this.ResearchCounter;
+        for (let mut index5: i32 =  0; index5 <= researchCounter; index5 += 1)
         {
           if (this.SFTypeObj[index4].ModelImproveEvent[index5] == fromnr)
             this.SFTypeObj[index4].ModelImproveEvent[index5] = toonr;
@@ -8644,8 +8644,8 @@ namespace WindowsApplication1
           this.SFTypeObj[index4].ModelInitialEvent = toonr;
         else if (this.SFTypeObj[index4].ModelInitialEvent == toonr)
           this.SFTypeObj[index4].ModelInitialEvent = fromnr;
-        int modelVariantCounter = this.SFTypeObj[index4].ModelVariantCounter;
-        for (int index6 = 0; index6 <= modelVariantCounter; index6 += 1)
+        let mut modelVariantCounter: i32 =  this.SFTypeObj[index4].ModelVariantCounter;
+        for (let mut index6: i32 =  0; index6 <= modelVariantCounter; index6 += 1)
         {
           if (this.SFTypeObj[index4].ModelVariantCheck[index6] == fromnr)
             this.SFTypeObj[index4].ModelVariantCheck[index6] = toonr;
@@ -8663,9 +8663,9 @@ namespace WindowsApplication1
     {
       if (nr < this.EventCounter)
       {
-        int num1 = nr;
-        int num2 = this.EventCounter - 1;
-        for (int toonr = num1; toonr <= num2; toonr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.EventCounter - 1;
+        for (let mut toonr: i32 =  num1; toonr <= num2; toonr += 1)
         {
           this.EventObj[toonr] = this.EventObj[toonr + 1];
           this.ChangeEventNr2(toonr + 1, toonr);
@@ -8700,8 +8700,8 @@ namespace WindowsApplication1
 
     pub int FindPeople(ref PeopleClass ppl, string libName)
     {
-      int peopleCounter = this.PeopleCounter;
-      for (int people = 0; people <= peopleCounter; people += 1)
+      let mut peopleCounter: i32 =  this.PeopleCounter;
+      for (let mut people: i32 =  0; people <= peopleCounter; people += 1)
       {
         if (this.PeopleObj[people].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.PeopleObj[people].LibId.libSlot].name, libName, false) == 0 && this.PeopleObj[people].LibId.id == ppl.id)
           return people;
@@ -8725,9 +8725,9 @@ namespace WindowsApplication1
       this.ChangePeopleNr(nr, -1);
       if (nr < this.PeopleCounter)
       {
-        int num1 = nr;
-        int num2 = this.PeopleCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.PeopleCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.PeopleObj[Newnr] = this.PeopleObj[Newnr + 1];
           this.ChangePeopleNr(Newnr + 1, Newnr);
@@ -8741,15 +8741,15 @@ namespace WindowsApplication1
 
     pub void ChangePeopleNr(int Oldnr, int Newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int index1;
-      for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+      for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
-        int width = this.StringListObj[index2].Width;
-        for (int index3 = 0; index3 <= width; index3 += 1)
+        let mut width: i32 =  this.StringListObj[index2].Width;
+        for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
         {
-          int length = this.StringListObj[index2].Length;
-          for (int index4 = 0; index4 <= length; index4 += 1)
+          let mut length: i32 =  this.StringListObj[index2].Length;
+          for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
           {
             if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.PeopleId && this.StringListObj[index2].Data[index4, index3].Length > 0)
             {
@@ -8761,7 +8761,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].type == NewEnums.LibVarType.People & this.LibVarObj[libVarCounter].instanceId.id == this.PeopleObj[Oldnr].LibId.id & this.LibVarObj[libVarCounter].instanceId.libSlot == this.PeopleObj[Oldnr].LibId.libSlot)
         {
@@ -8771,7 +8771,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].instanceId.id = Newnr;
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.PeopleId & this.LibVarObj[libVarCounter].value == Oldnr)
         {
@@ -8783,31 +8783,31 @@ namespace WindowsApplication1
       }
       if (Newnr == -1 & this.PeopleCounter > 0)
         Newnr = 0;
-      int locCounter = this.LocCounter;
+      let mut locCounter: i32 =  this.LocCounter;
       for (index1 = 0; index1 <= locCounter; index1 += 1)
       {
         if (this.LocObj[index1].People == Oldnr)
           this.LocObj[index1].People = Newnr;
       }
-      int sfCounter = this.SFCounter;
+      let mut sfCounter: i32 =  this.SFCounter;
       for (index1 = 0; index1 <= sfCounter; index1 += 1)
       {
         if (this.SFObj[index1].People == Oldnr)
           this.SFObj[index1].People = Newnr;
       }
-      int regimeCounter = this.RegimeCounter;
+      let mut regimeCounter: i32 =  this.RegimeCounter;
       for (index1 = 0; index1 <= regimeCounter; index1 += 1)
       {
         if (this.RegimeObj[index1].People == Oldnr)
           this.RegimeObj[index1].People = Newnr;
       }
-      int itemTypeCounter = this.ItemTypeCounter;
+      let mut itemTypeCounter: i32 =  this.ItemTypeCounter;
       for (index1 = 0; index1 <= itemTypeCounter; index1 += 1)
       {
         if (this.ItemTypeObj[index1].PeopleMod == Oldnr)
           this.ItemTypeObj[index1].PeopleMod = Newnr;
       }
-      int historicalUnitCounter = this.HistoricalUnitCounter;
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
       for (index1 = 0; index1 <= historicalUnitCounter; index1 += 1)
       {
         if (this.HistoricalUnitObj[index1].People == Oldnr)
@@ -8856,8 +8856,8 @@ namespace WindowsApplication1
       this += 1.MapCounter;
       this.MapObj = (MapClass[]) Utils.CopyArray((Array) this.MapObj, (Array) new MapClass[this.MapCounter + 1]);
       this.MapObj[this.MapCounter] = new MapClass(0, this.RegimeCounter, w, h);
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         this.RegimeObj[index].AddMap(w, h);
     }
 
@@ -8866,9 +8866,9 @@ namespace WindowsApplication1
       this.ChangeMapNr(nr, -1);
       if (nr < this.MapCounter)
       {
-        int num1 = nr;
-        int num2 = this.MapCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.MapCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.MapObj[Newnr] = this.MapObj[Newnr + 1];
           this.ChangeMapNr(Newnr + 1, Newnr);
@@ -8877,42 +8877,42 @@ namespace WindowsApplication1
       --this.MapCounter;
       if (this.MapCounter != -1)
         this.MapObj = (MapClass[]) Utils.CopyArray((Array) this.MapObj, (Array) new MapClass[this.MapCounter + 1]);
-      int regimeCounter = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         this.RegimeObj[index].RemoveMap(nr);
     }
 
     pub void ChangeMapNr(int Oldnr, int Newnr)
     {
-      for (int unitCounter = this.UnitCounter; unitCounter >= 0; unitCounter += -1)
+      for (let mut unitCounter: i32 =  this.UnitCounter; unitCounter >= 0; unitCounter += -1)
       {
         if (this.UnitObj[unitCounter].Map == Oldnr & Newnr > -1)
           this.UnitObj[unitCounter].Map = Newnr;
         if (Newnr == -1)
         {
-          int nr = unitCounter;
+          let mut nr: i32 =  unitCounter;
           let mut gameClass: GameClass = (GameClass) null;
           ref let mut local: GameClass = ref gameClass;
           this.RemoveUnit(nr, ref local);
         }
       }
-      for (int locCounter = this.LocCounter; locCounter >= 0; locCounter += -1)
+      for (let mut locCounter: i32 =  this.LocCounter; locCounter >= 0; locCounter += -1)
       {
         if (this.LocObj[locCounter].Map == Oldnr & Newnr > -1)
           this.LocObj[locCounter].Map = Newnr;
         if (Newnr == -1)
           this.RemoveLoc(locCounter);
       }
-      int mapCounter = this.MapCounter;
-      for (int index1 = 0; index1 <= mapCounter; index1 += 1)
+      let mut mapCounter: i32 =  this.MapCounter;
+      for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
-        int mapWidth = this.MapObj[index1].MapWidth;
-        for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+        let mut mapWidth: i32 =  this.MapObj[index1].MapWidth;
+        for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
         {
-          int mapHeight = this.MapObj[index1].MapHeight;
-          for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+          let mut mapHeight: i32 =  this.MapObj[index1].MapHeight;
+          for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
           {
-            for (int connectionCount = this.MapObj[index1].HexObj[index2, index3].ConnectionCount; connectionCount >= 0; connectionCount += -1)
+            for (let mut connectionCount: i32 =  this.MapObj[index1].HexObj[index2, index3].ConnectionCount; connectionCount >= 0; connectionCount += -1)
             {
               if (this.MapObj[index1].HexObj[index2, index3].ConnectionMap[connectionCount] == Oldnr)
               {
@@ -8929,8 +8929,8 @@ namespace WindowsApplication1
 
     pub void AddItemType()
     {
-      int regimeCounter1 = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter1; index += 1)
+      let mut regimeCounter1: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter1; index += 1)
       {
         this.RegimeObj[index].SProd = new int[this.ItemTypeCounter + 1, this.Round + 1 + 1];
         this.RegimeObj[index].SASProdLost = (int[]) Utils.CopyArray((Array) this.RegimeObj[index].SASProdLost, (Array) new int[this.ItemTypeCounter + 1]);
@@ -8940,31 +8940,31 @@ namespace WindowsApplication1
       this.ItemTypeObj[this.ItemTypeCounter] = new ItemTypeClass(0);
       this.ItemTypeObj[this.ItemTypeCounter].LoadSprites();
       object[,,] objArray = new object[this.RegimeCounter + 1, this.ItemTypeCounter + 1, this.Round + 1 + 1];
-      int regimeCounter2 = this.RegimeCounter;
-      for (int index1 = 0; index1 <= regimeCounter2; index1 += 1)
+      let mut regimeCounter2: i32 =  this.RegimeCounter;
+      for (let mut index1: i32 =  0; index1 <= regimeCounter2; index1 += 1)
       {
-        int upperBound = this.RegimeObj[index1].SProd.GetUpperBound(0);
-        for (int index2 = 0; index2 <= upperBound; index2 += 1)
+        let mut upperBound: i32 =  this.RegimeObj[index1].SProd.GetUpperBound(0);
+        for (let mut index2: i32 =  0; index2 <= upperBound; index2 += 1)
         {
-          int round = this.Round;
-          for (int index3 = 0; index3 <= round; index3 += 1)
+          let mut round: i32 =  this.Round;
+          for (let mut index3: i32 =  0; index3 <= round; index3 += 1)
             objArray[index1, index2, index3] = (object) this.RegimeObj[index1].SProd[index2, index3];
         }
       }
-      int regimeCounter3 = this.RegimeCounter;
-      for (int index = 0; index <= regimeCounter3; index += 1)
+      let mut regimeCounter3: i32 =  this.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter3; index += 1)
       {
         this.RegimeObj[index].SProd = new int[this.ItemTypeCounter + 1, this.Round + 1 + 1];
         this.RegimeObj[index].SASProdLost = (int[]) Utils.CopyArray((Array) this.RegimeObj[index].SASProdLost, (Array) new int[this.ItemTypeCounter + 1]);
       }
-      int regimeCounter4 = this.RegimeCounter;
-      for (int index4 = 0; index4 <= regimeCounter4; index4 += 1)
+      let mut regimeCounter4: i32 =  this.RegimeCounter;
+      for (let mut index4: i32 =  0; index4 <= regimeCounter4; index4 += 1)
       {
-        int itemTypeCounter = this.ItemTypeCounter;
-        for (int index5 = 0; index5 <= itemTypeCounter; index5 += 1)
+        let mut itemTypeCounter: i32 =  this.ItemTypeCounter;
+        for (let mut index5: i32 =  0; index5 <= itemTypeCounter; index5 += 1)
         {
-          int num = this.Round + 1;
-          for (int index6 = 0; index6 <= num; index6 += 1)
+          let mut num: i32 =  this.Round + 1;
+          for (let mut index6: i32 =  0; index6 <= num; index6 += 1)
             this.RegimeObj[index4].SProd[index5, index6] = Conversions.ToInteger(objArray[index4, index5, index6]);
         }
       }
@@ -8976,9 +8976,9 @@ namespace WindowsApplication1
       this.ChangeItemTypeNr(nr, -1);
       if (nr < this.ItemTypeCounter)
       {
-        int num1 = nr;
-        int num2 = this.ItemTypeCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.ItemTypeCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.ItemTypeObj[Newnr] = this.ItemTypeObj[Newnr + 1];
           this.ChangeItemTypeNr(Newnr + 1, Newnr);
@@ -8992,14 +8992,14 @@ namespace WindowsApplication1
 
     pub void ChangeItemTypeNr(int Oldnr, int Newnr)
     {
-      int itemTypeCounter = this.ItemTypeCounter;
-      for (int index = 0; index <= itemTypeCounter; index += 1)
+      let mut itemTypeCounter: i32 =  this.ItemTypeCounter;
+      for (let mut index: i32 =  0; index <= itemTypeCounter; index += 1)
       {
         if (this.ItemTypeObj[index].Blocks == Oldnr)
           this.ItemTypeObj[index].Blocks = Newnr;
       }
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter; index += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
       {
         if (this.SFTypeObj[index].ModelItemType == Oldnr)
           this.SFTypeObj[index].ModelItemType = Newnr;
@@ -9010,8 +9010,8 @@ namespace WindowsApplication1
     {
       if (Information.IsNothing((object) e))
       {
-        int actionCardCounter = this.ActionCardCounter;
-        for (int actionCard = 0; actionCard <= actionCardCounter; actionCard += 1)
+        let mut actionCardCounter: i32 =  this.ActionCardCounter;
+        for (let mut actionCard: i32 =  0; actionCard <= actionCardCounter; actionCard += 1)
         {
           if (this.ActionCardObj[actionCard].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.ActionCardObj[actionCard].LibId.libSlot].name, libname, false) == 0 && this.ActionCardObj[actionCard].LibId.id == origCardSlot)
             return actionCard;
@@ -9019,8 +9019,8 @@ namespace WindowsApplication1
       }
       else
       {
-        int actionCardCounter = this.ActionCardCounter;
-        for (int actionCard = 0; actionCard <= actionCardCounter; actionCard += 1)
+        let mut actionCardCounter: i32 =  this.ActionCardCounter;
+        for (let mut actionCard: i32 =  0; actionCard <= actionCardCounter; actionCard += 1)
         {
           if (this.ActionCardObj[actionCard].LibId.libSlot > -1 && Operators.CompareString(this.LibraryObj[this.ActionCardObj[actionCard].LibId.libSlot].name, libname, false) == 0 && Operators.CompareString(this.ActionCardObj[actionCard].Title, e.Title, false) == 0 & this.ActionCardObj[actionCard].LibId.id == origCardSlot)
             return actionCard;
@@ -9041,9 +9041,9 @@ namespace WindowsApplication1
       this.ChangeActionCardNr(nr, -1, QuickMode);
       if (nr < this.ActionCardCounter)
       {
-        int num1 = nr;
-        int num2 = this.ActionCardCounter - 1;
-        for (int Newnr = num1; Newnr <= num2; Newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.ActionCardCounter - 1;
+        for (let mut Newnr: i32 =  num1; Newnr <= num2; Newnr += 1)
         {
           this.ActionCardObj[Newnr] = this.ActionCardObj[Newnr + 1];
           this.ChangeActionCardNr(Newnr + 1, Newnr, QuickMode);
@@ -9060,14 +9060,14 @@ namespace WindowsApplication1
       int index1;
       if (!QuickMode)
       {
-        int stringListCounter = this.StringListCounter;
-        for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+        let mut stringListCounter: i32 =  this.StringListCounter;
+        for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
         {
-          int width = this.StringListObj[index2].Width;
-          for (int index3 = 0; index3 <= width; index3 += 1)
+          let mut width: i32 =  this.StringListObj[index2].Width;
+          for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
           {
-            int length = this.StringListObj[index2].Length;
-            for (int index4 = 0; index4 <= length; index4 += 1)
+            let mut length: i32 =  this.StringListObj[index2].Length;
+            for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
             {
               if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.ActionCardId && this.StringListObj[index2].Data[index4, index3].Length > 0)
               {
@@ -9079,7 +9079,7 @@ namespace WindowsApplication1
             }
           }
         }
-        for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+        for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
         {
           if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.ActionCardId & this.LibVarObj[libVarCounter].value == Oldnr)
           {
@@ -9090,10 +9090,10 @@ namespace WindowsApplication1
           }
         }
       }
-      int regimeCounter = this.RegimeCounter;
+      let mut regimeCounter: i32 =  this.RegimeCounter;
       for (index1 = 0; index1 <= regimeCounter; index1 += 1)
       {
-        for (int actionCardCounter = this.RegimeObj[index1].ActionCardCounter; actionCardCounter >= 0; actionCardCounter += -1)
+        for (let mut actionCardCounter: i32 =  this.RegimeObj[index1].ActionCardCounter; actionCardCounter >= 0; actionCardCounter += -1)
         {
           if (Newnr > -1)
           {
@@ -9106,32 +9106,32 @@ namespace WindowsApplication1
       }
       if (QuickMode)
         return;
-      int historicalUnitCounter = this.HistoricalUnitCounter;
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
       for (index1 = 0; index1 <= historicalUnitCounter; index1 += 1)
       {
-        for (int deckCardCounter = this.HistoricalUnitObj[index1].DeckCardCounter; deckCardCounter >= 0; deckCardCounter += -1)
+        for (let mut deckCardCounter: i32 =  this.HistoricalUnitObj[index1].DeckCardCounter; deckCardCounter >= 0; deckCardCounter += -1)
         {
           if (this.HistoricalUnitObj[index1].DeckCard[deckCardCounter] == Oldnr)
           {
             if (Newnr == -1)
             {
-              int num1 = deckCardCounter;
-              int index5 = index1;
+              let mut num1: i32 =  deckCardCounter;
+              let mut index5: i32 =  index1;
               if (num1 < this.HistoricalUnitObj[index5].DeckCardCounter)
               {
-                int num2 = num1;
-                int num3 = this.HistoricalUnitObj[index5].DeckCardCounter - 1;
-                for (int index6 = num2; index6 <= num3; index6 += 1)
+                let mut num2: i32 =  num1;
+                let mut num3: i32 =  this.HistoricalUnitObj[index5].DeckCardCounter - 1;
+                for (let mut index6: i32 =  num2; index6 <= num3; index6 += 1)
                 {
                   this.HistoricalUnitObj[index5].DeckCard[index6] = this.HistoricalUnitObj[index5].DeckCard[index6 + 1];
                   this.HistoricalUnitObj[index5].DeckChance[index6] = this.HistoricalUnitObj[index5].DeckChance[index6 + 1];
                 }
               }
-              int num4 = num1 - 1;
+              let mut num4: i32 =  num1 - 1;
               HistoricalUnitClass[] historicalUnitObj = this.HistoricalUnitObj;
               HistoricalUnitClass[] historicalUnitClassArray = historicalUnitObj;
-              int index7 = index5;
-              int index8 = index7;
+              let mut index7: i32 =  index5;
+              let mut index8: i32 =  index7;
               historicalUnitClassArray[index8].DeckCardCounter = historicalUnitObj[index7].DeckCardCounter - 1;
               if (this.HistoricalUnitObj[index5].DeckCardCounter > -1 & num4 == -1)
                 ;
@@ -9290,7 +9290,7 @@ namespace WindowsApplication1
       info.AddValue("StringIDCounter", this.StringIDCounter);
       info.AddValue("StringListObj", (object) this.StringListObj);
       info.AddValue("VariantEvent", (object) this.VariantEvent);
-      int num = 7;
+      let mut num: i32 =  7;
       this.Product = !DrawMod.TGame.SuperAdminRights ? num : this.Product;
       info.AddValue("Product", this.Product);
       info.AddValue("SFModelIDCounter", this.SFModelIDCounter);
@@ -9424,21 +9424,21 @@ namespace WindowsApplication1
         this.Product = -1;
         ProjectData.ClearProjectError();
       }
-      int num1 = 7;
+      let mut num1: i32 =  7;
       if (!DrawMod.TGame.SuperAdminRights)
       {
         if (num1 != 0)
           ;
         if (num1 == 1 | num1 == 3 && this.Product != num1)
         {
-          int num2 =  Interaction.MsgBox((object) "This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num2: i32 =   Interaction.MsgBox((object) "This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 2 && this.Product == 1 | this.Product == 0)
         {
           if (this.Version >= 185)
           {
-            int num3 =  Interaction.MsgBox((object) "This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num3: i32 =   Interaction.MsgBox((object) "This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
             ProjectData.EndApp();
           }
           else
@@ -9446,32 +9446,32 @@ namespace WindowsApplication1
         }
         if (num1 == 4 && this.Product != 4)
         {
-          int num4 =  Interaction.MsgBox((object) "This file might have the propper file extension but is not a real DC3 file. This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num4: i32 =   Interaction.MsgBox((object) "This file might have the propper file extension but is not a real DC3 file. This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 5 && this.Product != 5)
         {
-          int num5 =  Interaction.MsgBox((object) "This file have the propper file extension but is not a real DCX file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num5: i32 =   Interaction.MsgBox((object) "This file have the propper file extension but is not a real DCX file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 6 && this.Product != 6)
         {
-          int num6 =  Interaction.MsgBox((object) "This file have the propper file extension but is not a real DC4 file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num6: i32 =   Interaction.MsgBox((object) "This file have the propper file extension but is not a real DC4 file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 7 && this.Product != 7)
         {
-          int num7 =  Interaction.MsgBox((object) "This file have the propper file extension but is not a real SE1 file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num7: i32 =   Interaction.MsgBox((object) "This file have the propper file extension but is not a real SE1 file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
       }
       if (this.Version > 424)
       {
-        int num8 =  Interaction.MsgBox((object) ("You are loading a scenario or saved game made with version " + Conversion.Str((object) (this.Version - 314)) + ". Your version is " + Conversion.Str((object) 110) + ". This could cause errors. You are advised to upgrade to the latest version of this Shadow Empire : Planetary Conquest."), Title: ((object) "You should upgrade to the latest version!"));
+        let mut num8: i32 =   Interaction.MsgBox((object) ("You are loading a scenario or saved game made with version " + Conversion.Str((object) (this.Version - 314)) + ". Your version is " + Conversion.Str((object) 110) + ". This could cause errors. You are advised to upgrade to the latest version of this Shadow Empire : Planetary Conquest."), Title: ((object) "You should upgrade to the latest version!"));
       }
       if (this.Version < 424)
       {
-        int num9 =  Interaction.MsgBox((object) ("You are loading a scenario or saved game made with a previous version " + Conversion.Str((object) (this.Version - 314)) + ". This is probably incompatible with the current game version " + Conversion.Str((object) 110) + "."));
+        let mut num9: i32 =   Interaction.MsgBox((object) ("You are loading a scenario or saved game made with a previous version " + Conversion.Str((object) (this.Version - 314)) + ". This is probably incompatible with the current game version " + Conversion.Str((object) 110) + "."));
       }
       DrawMod.TGame.Data.Version = this.Version;
       this.Name = info.GetString(nameof (Name));
@@ -9733,7 +9733,7 @@ namespace WindowsApplication1
         {
           ProjectData.SetProjectError(ex);
           this.RegimeSlotSmallGfx = new int[500];
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             this.RegimeSlotSmallGfx[index] = -1;
@@ -9750,7 +9750,7 @@ namespace WindowsApplication1
         {
           ProjectData.SetProjectError(ex);
           this.GameSlotSmallGfx = new int[500];
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             this.GameSlotSmallGfx[index] = -1;
@@ -9788,7 +9788,7 @@ namespace WindowsApplication1
           catch (Exception ex4)
           {
             ProjectData.SetProjectError(ex4);
-            int index = 0;
+            let mut index: i32 =  0;
             do
             {
               this.VariantEvent[index] = -1;
@@ -9825,7 +9825,7 @@ namespace WindowsApplication1
           ProjectData.SetProjectError(ex);
           this.RegimeSlotSmallGfx = new int[500];
           this.GameSlotSmallGfx = new int[500];
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             this.RegimeSlotSmallGfx[index] = -1;
@@ -9865,8 +9865,8 @@ namespace WindowsApplication1
       {
         ProjectData.SetProjectError(ex);
         this.eventPicLibId = this.EventPicCounter <= -1 ? new LibIdClass[1] : new LibIdClass[this.EventPicCounter + 1];
-        int eventPicCounter = this.EventPicCounter;
-        for (int index = 0; index <= eventPicCounter; index += 1)
+        let mut eventPicCounter: i32 =  this.EventPicCounter;
+        for (let mut index: i32 =  0; index <= eventPicCounter; index += 1)
           this.eventPicLibId[index] = LibIdClass::new();
         ProjectData.ClearProjectError();
       }
@@ -9925,8 +9925,8 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          int reinfCounter = this.ReinfCounter;
-          for (int index = 0; index <= reinfCounter; index += 1)
+          let mut reinfCounter: i32 =  this.ReinfCounter;
+          for (let mut index: i32 =  0; index <= reinfCounter; index += 1)
             this.ReinfRatio[index] = 1;
           ProjectData.ClearProjectError();
         }
@@ -10356,7 +10356,7 @@ namespace WindowsApplication1
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           this.transportMovementType[index] = 0;
@@ -10393,7 +10393,7 @@ namespace WindowsApplication1
         this.RuleVar[319] = 1f;
       if ((double) DrawMod.TGame.Data.RuleVar[344] == 1.0 & DrawMod.TGame.EditObj.HideUnit == 0)
         DrawMod.TGame.EditObj.HideUnit = 2;
-      int index1 = 440;
+      let mut index1: i32 =  440;
       do
       {
         if (Operators.CompareString(this.RuleString[index1], "", false) == 0)
@@ -10428,8 +10428,8 @@ namespace WindowsApplication1
         dataClass1.RuleVar[306] = 0.3f;
       if (Operators.CompareString(dataClass1.Designer, dataClass1.Designer2, false) == 0)
         dataClass1.Designer2 = "";
-      int sfTypeCounter1 = dataClass1.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter1; index += 1)
+      let mut sfTypeCounter1: i32 =  dataClass1.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter1; index += 1)
       {
         if (dataClass1.SFTypeObj[index].ModelLastState.GetUpperBound(0) < dataClass1.ResearchCounter)
         {
@@ -10439,10 +10439,10 @@ namespace WindowsApplication1
           dataClass1.SFTypeObj[index].ModelAutoImprovement = (bool[]) Utils.CopyArray((Array) dataClass1.SFTypeObj[index].ModelAutoImprovement, (Array) new bool[dataClass1.ResearchCounter + 1]);
         }
       }
-      int locTypeCounter = dataClass1.LocTypeCounter;
-      for (int index1 = 0; index1 <= locTypeCounter; index1 += 1)
+      let mut locTypeCounter: i32 =  dataClass1.LocTypeCounter;
+      for (let mut index1: i32 =  0; index1 <= locTypeCounter; index1 += 1)
       {
-        int index2 = 0;
+        let mut index2: i32 =  0;
         do
         {
           if (dataClass1.LocTypeObj[index1].Research[index2] > dataClass1.ResearchCounter)
@@ -10454,15 +10454,15 @@ namespace WindowsApplication1
       if (dataClass1.RegimeIdCounter == -1)
       {
         dataClass1.RegimeIdCounter = 0;
-        int regimeCounter = dataClass1.RegimeCounter;
-        for (int index = 0; index <= regimeCounter; index += 1)
+        let mut regimeCounter: i32 =  dataClass1.RegimeCounter;
+        for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         {
           if (dataClass1.RegimeObj[index].id >= dataClass1.RegimeIdCounter)
             dataClass1.RegimeIdCounter = dataClass1.RegimeObj[index].id;
         }
       }
-      int regimeCounter1 = dataClass1.RegimeCounter;
-      for (int index = 0; index <= regimeCounter1; index += 1)
+      let mut regimeCounter1: i32 =  dataClass1.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter1; index += 1)
       {
         if (dataClass1.RegimeObj[index].id == -1)
         {
@@ -10473,15 +10473,15 @@ namespace WindowsApplication1
       if (dataClass1.PeopleIdCounter == -1)
       {
         dataClass1.PeopleIdCounter = 0;
-        int peopleCounter = dataClass1.PeopleCounter;
-        for (int index = 0; index <= peopleCounter; index += 1)
+        let mut peopleCounter: i32 =  dataClass1.PeopleCounter;
+        for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
         {
           if (dataClass1.PeopleObj[index].id >= dataClass1.PeopleIdCounter)
             dataClass1.PeopleIdCounter = dataClass1.PeopleObj[index].id;
         }
       }
-      int peopleCounter1 = dataClass1.PeopleCounter;
-      for (int index = 0; index <= peopleCounter1; index += 1)
+      let mut peopleCounter1: i32 =  dataClass1.PeopleCounter;
+      for (let mut index: i32 =  0; index <= peopleCounter1; index += 1)
       {
         if (dataClass1.PeopleObj[index].id == -1)
         {
@@ -10492,15 +10492,15 @@ namespace WindowsApplication1
       if (dataClass1.EventIdCounter == -1)
       {
         dataClass1.EventIdCounter = 0;
-        int eventCounter = dataClass1.EventCounter;
-        for (int index = 0; index <= eventCounter; index += 1)
+        let mut eventCounter: i32 =  dataClass1.EventCounter;
+        for (let mut index: i32 =  0; index <= eventCounter; index += 1)
         {
           if (dataClass1.EventObj[index].Id >= dataClass1.EventIdCounter)
             dataClass1.EventIdCounter = dataClass1.EventObj[index].Id;
         }
       }
-      int eventCounter1 = dataClass1.EventCounter;
-      for (int index = 0; index <= eventCounter1; index += 1)
+      let mut eventCounter1: i32 =  dataClass1.EventCounter;
+      for (let mut index: i32 =  0; index <= eventCounter1; index += 1)
       {
         if (dataClass1.EventObj[index].Id == -1)
         {
@@ -10511,15 +10511,15 @@ namespace WindowsApplication1
       if (Operators.ConditionalCompareObjectEqual(dataClass1.LocIdCounter, (object) -1, false))
       {
         dataClass1.LocIdCounter = (object) 0;
-        int locCounter = dataClass1.LocCounter;
-        for (int index = 0; index <= locCounter; index += 1)
+        let mut locCounter: i32 =  dataClass1.LocCounter;
+        for (let mut index: i32 =  0; index <= locCounter; index += 1)
         {
           if (Operators.ConditionalCompareObjectGreaterEqual((object) dataClass1.LocObj[index].ID, dataClass1.LocIdCounter, false))
             dataClass1.LocIdCounter = (object) dataClass1.LocObj[index].ID;
         }
       }
-      int locCounter1 = dataClass1.LocCounter;
-      for (int index = 0; index <= locCounter1; index += 1)
+      let mut locCounter1: i32 =  dataClass1.LocCounter;
+      for (let mut index: i32 =  0; index <= locCounter1; index += 1)
       {
         if (dataClass1.LocObj[index].ID == -1)
         {
@@ -10531,15 +10531,15 @@ namespace WindowsApplication1
       if (dataClass1.SFTypeIdCounter == -1)
       {
         dataClass1.SFTypeIdCounter = 0;
-        int sfTypeCounter2 = dataClass1.SFTypeCounter;
-        for (int index = 0; index <= sfTypeCounter2; index += 1)
+        let mut sfTypeCounter2: i32 =  dataClass1.SFTypeCounter;
+        for (let mut index: i32 =  0; index <= sfTypeCounter2; index += 1)
         {
           if (dataClass1.SFTypeObj[index].Id >= dataClass1.SFTypeIdCounter)
             dataClass1.SFTypeIdCounter = dataClass1.SFTypeObj[index].Id;
         }
       }
-      int sfTypeCounter3 = dataClass1.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter3; index += 1)
+      let mut sfTypeCounter3: i32 =  dataClass1.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter3; index += 1)
       {
         if (dataClass1.SFTypeObj[index].Id == -1)
         {
@@ -10549,23 +10549,23 @@ namespace WindowsApplication1
       }
       if (dataClass1.reinfIdCounter == -1)
         dataClass1.reinfIdCounter = 0;
-      int reinfCounter1 = dataClass1.ReinfCounter;
-      for (int index = 0; index <= reinfCounter1; index += 1)
+      let mut reinfCounter1: i32 =  dataClass1.ReinfCounter;
+      for (let mut index: i32 =  0; index <= reinfCounter1; index += 1)
       {
         if (dataClass1.ReinfId[index] > dataClass1.reinfIdCounter)
           dataClass1.reinfIdCounter = dataClass1.ReinfId[index];
       }
       if (dataClass1.ReinfCounter == -1)
       {
-        int sfTypeCounter4 = dataClass1.SFTypeCounter;
-        for (int index3 = 0; index3 <= sfTypeCounter4; index3 += 1)
+        let mut sfTypeCounter4: i32 =  dataClass1.SFTypeCounter;
+        for (let mut index3: i32 =  0; index3 <= sfTypeCounter4; index3 += 1)
         {
           if (dataClass1.SFTypeObj[index3].ReinforcementType > -1)
           {
             str: String = dataClass1.TempString[750 + dataClass1.SFTypeObj[index3].ReinforcementType];
             bool flag = false;
-            int reinfCounter2 = dataClass1.ReinfCounter;
-            for (int index4 = 0; index4 <= reinfCounter2; index4 += 1)
+            let mut reinfCounter2: i32 =  dataClass1.ReinfCounter;
+            for (let mut index4: i32 =  0; index4 <= reinfCounter2; index4 += 1)
             {
               if (Operators.CompareString(dataClass1.ReinfName[index4], str, false) == 0)
               {
@@ -10584,8 +10584,8 @@ namespace WindowsApplication1
           {
             str: String = dataClass1.TempString[750 + dataClass1.SFTypeObj[index3].ReinforcementType2];
             bool flag = false;
-            int reinfCounter3 = dataClass1.ReinfCounter;
-            for (int index5 = 0; index5 <= reinfCounter3; index5 += 1)
+            let mut reinfCounter3: i32 =  dataClass1.ReinfCounter;
+            for (let mut index5: i32 =  0; index5 <= reinfCounter3; index5 += 1)
             {
               if (Operators.CompareString(dataClass1.ReinfName[index5], str, false) == 0)
               {
@@ -10604,8 +10604,8 @@ namespace WindowsApplication1
           {
             str: String = dataClass1.TempString[750 + dataClass1.SFTypeObj[index3].ReinforcementType3];
             bool flag = false;
-            int reinfCounter4 = dataClass1.ReinfCounter;
-            for (int index6 = 0; index6 <= reinfCounter4; index6 += 1)
+            let mut reinfCounter4: i32 =  dataClass1.ReinfCounter;
+            for (let mut index6: i32 =  0; index6 <= reinfCounter4; index6 += 1)
             {
               if (Operators.CompareString(dataClass1.ReinfName[index6], str, false) == 0)
               {
@@ -10621,7 +10621,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int index = 750;
+        let mut index: i32 =  750;
         do
         {
           dataClass1.TempString[index] = "";
@@ -10635,7 +10635,7 @@ namespace WindowsApplication1
         dataClass1.RuleVar[999] = 1f;
       if (dataClass1.Product <= 5)
       {
-        int index = 401;
+        let mut index: i32 =  401;
         do
         {
           dataClass1.RuleVar[index] = 0.0f;
@@ -10655,8 +10655,8 @@ namespace WindowsApplication1
       Application.DoEvents();
       if (this.LandscapeTypeCounter > -1)
       {
-        int landscapeTypeCounter = this.LandscapeTypeCounter;
-        for (int Number = 0; Number <= landscapeTypeCounter; Number += 1)
+        let mut landscapeTypeCounter: i32 =  this.LandscapeTypeCounter;
+        for (let mut Number: i32 =  0; Number <= landscapeTypeCounter; Number += 1)
         {
           this.LandscapeTypeObj[Number].LoadSprites();
           str: String = Strings.Trim(Conversion.Str((object) Number)) + " of " + Strings.Trim(Conversion.Str((object) this.LandscapeTypeCounter));
@@ -10667,8 +10667,8 @@ namespace WindowsApplication1
       }
       if (this.RoadTypeCounter > -1)
       {
-        int roadTypeCounter = this.RoadTypeCounter;
-        for (int index = 0; index <= roadTypeCounter; index += 1)
+        let mut roadTypeCounter: i32 =  this.RoadTypeCounter;
+        for (let mut index: i32 =  0; index <= roadTypeCounter; index += 1)
           this.RoadTypeObj[index].LoadSprites();
       }
       if (!Information.IsNothing((object) tformref))
@@ -10676,8 +10676,8 @@ namespace WindowsApplication1
       Application.DoEvents();
       if (this.SFTypeCounter > -1)
       {
-        int sfTypeCounter = this.SFTypeCounter;
-        for (int Number = 0; Number <= sfTypeCounter; Number += 1)
+        let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+        for (let mut Number: i32 =  0; Number <= sfTypeCounter; Number += 1)
         {
           str: String = Strings.Trim(Conversion.Str((object) Number)) + " of " + Strings.Trim(Conversion.Str((object) this.SFTypeCounter));
           if (!Information.IsNothing((object) tformref))
@@ -10691,26 +10691,26 @@ namespace WindowsApplication1
       Application.DoEvents();
       if (this.RegimeCounter > -1)
       {
-        int regimeCounter = this.RegimeCounter;
-        for (int index = 0; index <= regimeCounter; index += 1)
+        let mut regimeCounter: i32 =  this.RegimeCounter;
+        for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
           this.RegimeObj[index].LoadSprites();
       }
       if (this.RiverTypeCounter > -1)
       {
-        int riverTypeCounter = this.RiverTypeCounter;
-        for (int index = 0; index <= riverTypeCounter; index += 1)
+        let mut riverTypeCounter: i32 =  this.RiverTypeCounter;
+        for (let mut index: i32 =  0; index <= riverTypeCounter; index += 1)
           this.RiverTypeObj[index].LoadSprites();
       }
       if (this.PeopleCounter > -1)
       {
-        int peopleCounter = this.PeopleCounter;
-        for (int index = 0; index <= peopleCounter; index += 1)
+        let mut peopleCounter: i32 =  this.PeopleCounter;
+        for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
           this.PeopleObj[index].LoadSprites();
       }
       if (this.HistoricalUnitCounter > -1)
       {
-        int historicalUnitCounter = this.HistoricalUnitCounter;
-        for (int index = 0; index <= historicalUnitCounter; index += 1)
+        let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
+        for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
           this.HistoricalUnitObj[index].LoadSprites();
       }
       this.BridgeObj[0].LoadSprites();
@@ -10735,10 +10735,10 @@ namespace WindowsApplication1
 
     pub void EventPicKill()
     {
-      int eventPicCounter = this.EventPicCounter;
+      let mut eventPicCounter: i32 =  this.EventPicCounter;
       int num1;
-      int num2 = num1;
-      for (int index = eventPicCounter; index >= num2; index += -1)
+      let mut num2: i32 =  num1;
+      for (let mut index: i32 =  eventPicCounter; index >= num2; index += -1)
         BitmapStore.RemoveBitmapNr(this.EventPicNr[index]);
     }
 
@@ -10752,8 +10752,8 @@ namespace WindowsApplication1
     {
       if (this.EventPicCounter == -1)
         return;
-      int eventPicCounter = this.EventPicCounter;
-      for (int index = 0; index <= eventPicCounter; index += 1)
+      let mut eventPicCounter: i32 =  this.EventPicCounter;
+      for (let mut index: i32 =  0; index <= eventPicCounter; index += 1)
         this.EventPicNr[index] = BitmapStore.AddFile(this.EventPicName[index], false);
     }
 
@@ -10762,9 +10762,9 @@ namespace WindowsApplication1
       this.EventChangeEventNr(nr, -1);
       if (nr < this.EventPicCounter)
       {
-        int num1 = nr;
-        int num2 = this.EventPicCounter - 1;
-        for (int newnr = num1; newnr <= num2; newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.EventPicCounter - 1;
+        for (let mut newnr: i32 =  num1; newnr <= num2; newnr += 1)
         {
           this.EventPicName[newnr] = this.EventPicName[newnr + 1];
           this.EventPicNr[newnr] = this.EventPicNr[newnr + 1];
@@ -10785,8 +10785,8 @@ namespace WindowsApplication1
 
     pub int FindEventPic(string teventpicName, int eventPicOrigSlot, string libname)
     {
-      int eventPicCounter = this.EventPicCounter;
-      for (int eventPic = 0; eventPic <= eventPicCounter; eventPic += 1)
+      let mut eventPicCounter: i32 =  this.EventPicCounter;
+      for (let mut eventPic: i32 =  0; eventPic <= eventPicCounter; eventPic += 1)
       {
         if (this.eventPicLibId[eventPic].libSlot > -1 && Operators.CompareString(this.LibraryObj[this.eventPicLibId[eventPic].libSlot].name, libname, false) == 0 && (Operators.CompareString(this.EventPicName[eventPic], teventpicName, false) == 0 | Operators.CompareString(teventpicName, "", false) == 0) & this.eventPicLibId[eventPic].id == eventPicOrigSlot)
           return eventPic;
@@ -10796,8 +10796,8 @@ namespace WindowsApplication1
 
     pub int FindEventPic(int eventPicOrigSlot, string libname)
     {
-      int eventPicCounter = this.EventPicCounter;
-      for (int eventPic = 0; eventPic <= eventPicCounter; eventPic += 1)
+      let mut eventPicCounter: i32 =  this.EventPicCounter;
+      for (let mut eventPic: i32 =  0; eventPic <= eventPicCounter; eventPic += 1)
       {
         if (this.eventPicLibId[eventPic].libSlot > -1 && Operators.CompareString(this.LibraryObj[this.eventPicLibId[eventPic].libSlot].name, libname, false) == 0 && this.eventPicLibId[eventPic].id == eventPicOrigSlot)
           return eventPic;
@@ -10818,15 +10818,15 @@ namespace WindowsApplication1
 
     pub void EventChangeEventNr(int oldnr, int newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int index1;
-      for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+      for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
-        int width = this.StringListObj[index2].Width;
-        for (int index3 = 0; index3 <= width; index3 += 1)
+        let mut width: i32 =  this.StringListObj[index2].Width;
+        for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
         {
-          int length = this.StringListObj[index2].Length;
-          for (int index4 = 0; index4 <= length; index4 += 1)
+          let mut length: i32 =  this.StringListObj[index2].Length;
+          for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
           {
             if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.EventPicId && this.StringListObj[index2].Data[index4, index3].Length > 0)
             {
@@ -10838,7 +10838,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.EventPicId & this.LibVarObj[libVarCounter].value == oldnr)
         {
@@ -10848,7 +10848,7 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].value = newnr;
         }
       }
-      int actionCardCounter = this.ActionCardCounter;
+      let mut actionCardCounter: i32 =  this.ActionCardCounter;
       for (index1 = 0; index1 <= actionCardCounter; index1 += 1)
       {
         if (this.ActionCardObj[index1].EventPicNr == oldnr)
@@ -10860,10 +10860,10 @@ namespace WindowsApplication1
 
     pub void SmallPicKill()
     {
-      int smallPicCounter = this.SmallPicCounter;
+      let mut smallPicCounter: i32 =  this.SmallPicCounter;
       int num1;
-      int num2 = num1;
-      for (int index = smallPicCounter; index >= num2; index += -1)
+      let mut num2: i32 =  num1;
+      for (let mut index: i32 =  smallPicCounter; index >= num2; index += -1)
         BitmapStore.RemoveBitmapNr(this.SmallPicNr[index]);
     }
 
@@ -10877,8 +10877,8 @@ namespace WindowsApplication1
     {
       if (this.SmallPicCounter == -1)
         return;
-      int smallPicCounter = this.SmallPicCounter;
-      for (int index = 0; index <= smallPicCounter; index += 1)
+      let mut smallPicCounter: i32 =  this.SmallPicCounter;
+      for (let mut index: i32 =  0; index <= smallPicCounter; index += 1)
         this.SmallPicNr[index] = BitmapStore.AddFile(this.SmallPicName[index], false, true);
     }
 
@@ -10887,9 +10887,9 @@ namespace WindowsApplication1
       this.SmallChangeEventNr(nr, -1);
       if (nr < this.SmallPicCounter)
       {
-        int num1 = nr;
-        int num2 = this.SmallPicCounter - 1;
-        for (int newnr = num1; newnr <= num2; newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.SmallPicCounter - 1;
+        for (let mut newnr: i32 =  num1; newnr <= num2; newnr += 1)
         {
           this.SmallPicName[newnr] = this.SmallPicName[newnr + 1];
           this.SmallPicNr[newnr] = this.SmallPicNr[newnr + 1];
@@ -10914,9 +10914,9 @@ namespace WindowsApplication1
       this.ReinfChangeEventNr(nr, -1);
       if (nr < this.ReinfCounter)
       {
-        int num1 = nr;
-        int num2 = this.ReinfCounter - 1;
-        for (int newnr = num1; newnr <= num2; newnr += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.ReinfCounter - 1;
+        for (let mut newnr: i32 =  num1; newnr <= num2; newnr += 1)
         {
           this.ReinfName[newnr] = this.ReinfName[newnr + 1];
           this.ReinfId[newnr] = this.ReinfId[newnr + 1];
@@ -10942,8 +10942,8 @@ namespace WindowsApplication1
 
     pub int FindSmallPic(string tsmallpicName, int smallId, string libname)
     {
-      int smallPicCounter = this.SmallPicCounter;
-      for (int smallPic = 0; smallPic <= smallPicCounter; smallPic += 1)
+      let mut smallPicCounter: i32 =  this.SmallPicCounter;
+      for (let mut smallPic: i32 =  0; smallPic <= smallPicCounter; smallPic += 1)
       {
         if (this.SmallLibId[smallPic].libSlot > -1 && Operators.CompareString(this.LibraryObj[this.SmallLibId[smallPic].libSlot].name, libname, false) == 0 && Operators.CompareString(this.SmallPicName[smallPic], tsmallpicName, false) == 0 & this.SmallLibId[smallPic].id == smallId)
           return smallPic;
@@ -10953,8 +10953,8 @@ namespace WindowsApplication1
 
     pub int FindSmallPic(int smallId, string libname)
     {
-      int smallPicCounter = this.SmallPicCounter;
-      for (int smallPic = 0; smallPic <= smallPicCounter; smallPic += 1)
+      let mut smallPicCounter: i32 =  this.SmallPicCounter;
+      for (let mut smallPic: i32 =  0; smallPic <= smallPicCounter; smallPic += 1)
       {
         if (this.SmallLibId[smallPic].libSlot > -1 && Operators.CompareString(this.LibraryObj[this.SmallLibId[smallPic].libSlot].name, libname, false) == 0 && this.SmallLibId[smallPic].id == smallId)
           return smallPic;
@@ -10964,8 +10964,8 @@ namespace WindowsApplication1
 
     pub int FindReinf(string treinfName, int reinfId, string libname)
     {
-      int reinfCounter = this.ReinfCounter;
-      for (int reinf = 0; reinf <= reinfCounter; reinf += 1)
+      let mut reinfCounter: i32 =  this.ReinfCounter;
+      for (let mut reinf: i32 =  0; reinf <= reinfCounter; reinf += 1)
       {
         if (this.ReinfLibId[reinf].libSlot > -1 && Operators.CompareString(this.LibraryObj[this.ReinfLibId[reinf].libSlot].name, libname, false) == 0 && ((Operators.CompareString(treinfName, "", false) == 0 | Operators.CompareString(this.ReinfName[reinf], treinfName, false) == 0) & this.ReinfLibId[reinf].id == reinfId || Operators.CompareString(treinfName, "", false) == 0 & this.ReinfLibId[reinf].id == reinfId))
           return reinf;
@@ -11004,15 +11004,15 @@ namespace WindowsApplication1
 
     pub void SmallChangeEventNr(int oldnr, int newnr)
     {
-      int stringListCounter = this.StringListCounter;
+      let mut stringListCounter: i32 =  this.StringListCounter;
       int index1;
-      for (int index2 = 0; index2 <= stringListCounter; index2 += 1)
+      for (let mut index2: i32 =  0; index2 <= stringListCounter; index2 += 1)
       {
-        int width = this.StringListObj[index2].Width;
-        for (int index3 = 0; index3 <= width; index3 += 1)
+        let mut width: i32 =  this.StringListObj[index2].Width;
+        for (let mut index3: i32 =  0; index3 <= width; index3 += 1)
         {
-          int length = this.StringListObj[index2].Length;
-          for (int index4 = 0; index4 <= length; index4 += 1)
+          let mut length: i32 =  this.StringListObj[index2].Length;
+          for (let mut index4: i32 =  0; index4 <= length; index4 += 1)
           {
             if (this.StringListObj[index2].ColValueType[index3] == NewEnums.LibVarValueType.SmallGfxId && this.StringListObj[index2].Data[index4, index3].Length > 0)
             {
@@ -11024,7 +11024,7 @@ namespace WindowsApplication1
           }
         }
       }
-      for (int libVarCounter = this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
+      for (let mut libVarCounter: i32 =  this.LibVarCounter; libVarCounter >= 0; libVarCounter += -1)
       {
         if (this.LibVarObj[libVarCounter].instanceId.id > -1 & this.LibVarObj[libVarCounter].valueType == NewEnums.LibVarValueType.SmallGfxId & this.LibVarObj[libVarCounter].value == oldnr)
         {
@@ -11034,12 +11034,12 @@ namespace WindowsApplication1
             this.LibVarObj[libVarCounter].value = newnr;
         }
       }
-      int historicalUnitCounter = this.HistoricalUnitCounter;
+      let mut historicalUnitCounter: i32 =  this.HistoricalUnitCounter;
       for (index1 = 0; index1 <= historicalUnitCounter; index1 += 1)
       {
         if (this.HistoricalUnitObj[index1].SmallGfx == oldnr)
           this.HistoricalUnitObj[index1].SmallGfx = newnr;
-        int index5 = 0;
+        let mut index5: i32 =  0;
         do
         {
           if (this.HistoricalUnitObj[index1].DesignationSmall[index5] == oldnr)
@@ -11047,8 +11047,8 @@ namespace WindowsApplication1
           index5 += 1;
         }
         while (index5 <= 9);
-        int hisVarCount = this.HistoricalUnitObj[index1].HisVarCount;
-        for (int index6 = 0; index6 <= hisVarCount; index6 += 1)
+        let mut hisVarCount: i32 =  this.HistoricalUnitObj[index1].HisVarCount;
+        for (let mut index6: i32 =  0; index6 <= hisVarCount; index6 += 1)
         {
           if (this.HistoricalUnitObj[index1].HisVarSmall[index6] == oldnr)
             this.HistoricalUnitObj[index1].HisVarSmall[index6] = newnr;
@@ -11064,13 +11064,13 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 499);
-      int actionCardCounter = this.ActionCardCounter;
+      let mut actionCardCounter: i32 =  this.ActionCardCounter;
       for (index1 = 0; index1 <= actionCardCounter; index1 += 1)
       {
         if (this.ActionCardObj[index1].SmallGfx == oldnr)
           this.ActionCardObj[index1].SmallGfx = newnr;
       }
-      int locTypeCounter = this.LocTypeCounter;
+      let mut locTypeCounter: i32 =  this.LocTypeCounter;
       for (index1 = 0; index1 <= locTypeCounter; index1 += 1)
       {
         if (this.LocTypeObj[index1].SmallGraphic == oldnr)
@@ -11090,8 +11090,8 @@ namespace WindowsApplication1
 
     pub void ReinfChangeEventNr(int oldnr, int newnr)
     {
-      int sfTypeCounter = this.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter; index += 1)
+      let mut sfTypeCounter: i32 =  this.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
       {
         if (this.SFTypeObj[index].ReinforcementType == oldnr)
           this.SFTypeObj[index].ReinforcementType = newnr;

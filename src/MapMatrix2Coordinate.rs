@@ -39,11 +39,11 @@ namespace WindowsApplication1
       int[,] numArray4 = new int[this.Width + 1, this.Height + 1];
       int[,] numArray5 = new int[this.Width + 1, this.Height + 1];
       bool[,] flagArray = new bool[this.Width + 1, this.Height + 1];
-      int width = this.Width;
-      for (int index1 = 0; index1 <= width; index1 += 1)
+      let mut width: i32 =  this.Width;
+      for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
       {
-        int height = this.Height;
-        for (int index2 = 0; index2 <= height; index2 += 1)
+        let mut height: i32 =  this.Height;
+        for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
         {
           numArray1[index1, index2] = this.Value[index1, index2].x;
           numArray2[index1, index2] = this.Value[index1, index2].y;
@@ -83,11 +83,11 @@ namespace WindowsApplication1
       int[,] numArray9 = (int[,]) info.GetValue("t4", numArray4.GetType());
       int[,] numArray10 = (int[,]) info.GetValue("t5", numArray5.GetType());
       bool[,] flagArray2 = (bool[,]) info.GetValue("t6", flagArray1.GetType());
-      int width = this.Width;
-      for (int index1 = 0; index1 <= width; index1 += 1)
+      let mut width: i32 =  this.Width;
+      for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
       {
-        int height = this.Height;
-        for (int index2 = 0; index2 <= height; index2 += 1)
+        let mut height: i32 =  this.Height;
+        for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
         {
           this.Value[index1, index2].x = numArray6[index1, index2];
           this.Value[index1, index2].y = numArray7[index1, index2];

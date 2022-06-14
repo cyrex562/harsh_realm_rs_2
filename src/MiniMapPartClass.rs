@@ -34,21 +34,21 @@ namespace WindowsApplication1
     pub MiniMapPartClass(
       GameClass tgame,
       bool tpaintview = true,
-      int tx = 200,
-      int ty = 150,
+      let mut tx: i32 =  200,
+      let mut ty: i32 =  150,
       bool talsounits = false,
       bool trealhex = false,
-      int tMapWidth = -1,
-      int tMapHeight = -1,
-      int ZoomLevel = -1,
-      int humanplayer = -1,
+      let mut tMapWidth: i32 =  -1,
+      let mut tMapHeight: i32 =  -1,
+      let mut ZoomLevel: i32 =  -1,
+      let mut humanplayer: i32 =  -1,
       bool alsoHQ = false,
-      int ttempValue4mustBe = -1,
+      let mut ttempValue4mustBe: i32 =  -1,
       bool tblockMapMove = false,
       bool tTempValue3usedForAlpha = false,
       bool tTempAi2use = false,
       bool tTempZones = false,
-      int tspecialMode1 = -1)
+      let mut tspecialMode1: i32 =  -1)
       : base(tx, ty)
     {
       this.minix = tx;
@@ -119,8 +119,8 @@ namespace WindowsApplication1
       if (this.game.EditObj.MiniMap.Width < 310 | this.specialMode1 > -1)
       {
         Coordinate realCoord1 = this.GetRealCoord(this.game.CornerX, this.game.CornerY);
-        int num1 = realCoord1.x;
-        int num2 = realCoord1.y;
+        let mut num1: i32 =  realCoord1.x;
+        let mut num2: i32 =  realCoord1.y;
         int num3;
         int num4;
         if (this.tZoomLevel == -1)
@@ -156,15 +156,15 @@ namespace WindowsApplication1
           num6 =  Math.Round((double) this.MapHeight / (double) num4);
         }
         Coordinate realCoord2 = this.GetRealCoord(this.game.CornerX + (num5 + 1) + 1, this.game.CornerY + num6 + 1);
-        int w = realCoord2.x - num1;
-        int h = realCoord2.y - num2;
-        int x1 = this.game.EditObj.MiniMapOffset - 1;
+        let mut w: i32 =  realCoord2.x - num1;
+        let mut h: i32 =  realCoord2.y - num2;
+        let mut x1: i32 =  this.game.EditObj.MiniMapOffset - 1;
         if (x1 < 0)
           x1 = this.game.Data.MapObj[0].MapWidth + x1 + 1;
         realCoord2 = this.GetRealCoord(x1, this.game.CornerY + h + 1);
-        int x2 = realCoord2.x;
+        let mut x2: i32 =  realCoord2.x;
         realCoord2 = this.GetRealCoord(this.game.EditObj.MiniMapOffset, this.game.CornerY + h + 1);
-        int x3 = realCoord2.x;
+        let mut x3: i32 =  realCoord2.x;
         if (w < 0)
           w = x2 + w;
         if (0 > num1)
@@ -339,7 +339,7 @@ namespace WindowsApplication1
     {
       if (this.game.Data.MapObj[0].MapLoop)
       {
-        int num =  Math.Round(Math.Ceiling((double) this.game.Data.MapObj[0].MapWidth / 20.0));
+        let mut num: i32 =   Math.Round(Math.Ceiling((double) this.game.Data.MapObj[0].MapWidth / 20.0));
         if (this.game.EditObj.MouseWheel > 0)
         {
           this.game.EditObj.MiniMapOffset -= num;
@@ -372,10 +372,10 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int Click(int x, int y, int b = 1)
+    pub int Click(int x, int y, let mut b: i32 =  1)
     {
-      int cornerX = this.game.CornerX;
-      int cornerY = this.game.CornerY;
+      let mut cornerX: i32 =  this.game.CornerX;
+      let mut cornerY: i32 =  this.game.CornerY;
       float d1 = (float) this.minix / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
       float d2 = (float) this.miniy / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1);
       float num1;
@@ -394,20 +394,20 @@ namespace WindowsApplication1
       float num4 = (float) Math.Floor((double) d2);
       if (this.minix > 310)
       {
-        int num5 =  Math.Round((double) ((float) this.minix - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * num3));
+        let mut num5: i32 =   Math.Round((double) ((float) this.minix - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * num3));
         if (num5 > 0)
         {
-          int num6 =  Math.Round((double) num5 / 2.0);
+          let mut num6: i32 =   Math.Round((double) num5 / 2.0);
           if ((double) num6 > (double) num1)
             num1 = (float) num6;
         }
       }
       if (this.miniy > 220)
       {
-        int num7 =  Math.Round((double) ((float) this.miniy - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * num4));
+        let mut num7: i32 =   Math.Round((double) ((float) this.miniy - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * num4));
         if (num7 > 0)
         {
-          int num8 =  Math.Round((double) num7 / 2.0);
+          let mut num8: i32 =   Math.Round((double) num7 / 2.0);
           if ((double) num8 > (double) num2)
             num2 = (float) num8;
         }
@@ -437,17 +437,17 @@ namespace WindowsApplication1
         Number2 += 3;
       if (this.tZoomLevel == -1)
         Number2 += 6;
-      int num10 = (double) this.game.Data.RuleVar[839] != 0.0 ? this.game.ScreenWidth - 0 : (this.game.EditObj.Layout != 1 ? this.game.ScreenWidth - 220 : this.game.ScreenWidth - 440);
-      int num11 = this.game.ScreenHeight - 280;
-      int num12 = (double) this.game.Data.RuleVar[839] != 1.0 ? (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 128 : 64) : 32) : (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 106 : 53) : 27);
+      let mut num10: i32 =  (double) this.game.Data.RuleVar[839] != 0.0 ? this.game.ScreenWidth - 0 : (this.game.EditObj.Layout != 1 ? this.game.ScreenWidth - 220 : this.game.ScreenWidth - 440);
+      let mut num11: i32 =  this.game.ScreenHeight - 280;
+      let mut num12: i32 =  (double) this.game.Data.RuleVar[839] != 1.0 ? (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 128 : 64) : 32) : (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 106 : 53) : 27);
       int num13;
       int num14;
       int num15;
       int num16;
       if (this.MapWidth > -1)
       {
-        int num17 =  Math.Round((double) this.MapWidth / (double) num12);
-        int num18 =  Math.Round((double) this.MapHeight / (double) (24 * (this.tZoomLevel + 2)));
+        let mut num17: i32 =   Math.Round((double) this.MapWidth / (double) num12);
+        let mut num18: i32 =   Math.Round((double) this.MapHeight / (double) (24 * (this.tZoomLevel + 2)));
         num13 = Number1 -  Math.Round((double) num17 / 2.0);
         num14 = Number2 -  Math.Round((double) num18 / 2.0);
         num15 = num17;
@@ -457,7 +457,7 @@ namespace WindowsApplication1
       {
         num13 = this.game.EditObj.Layout != 0 ?  Math.Round((double) Number1 - (double) (num10 - 0) / (double) num12 / 2.0) :  Math.Round((double) Number1 - (double) (num10 - 0) / (double) num12 / 2.0);
         num14 =  Math.Round((double) Number2 - (double) num11 / (double) (24 * (this.tZoomLevel + 2)) / 2.0);
-        int num19 = 265;
+        let mut num19: i32 =  265;
         if ((double) this.game.Data.RuleVar[839] == 0.0)
           num19 = 305;
         if (this.game.Data.Round == 0)
@@ -467,7 +467,7 @@ namespace WindowsApplication1
       }
       if (0 > num14)
         num14 = 0;
-      int num20 = num14 - 1;
+      let mut num20: i32 =  num14 - 1;
       if (this.game.EditObj.MiniMapOffset > 0)
       {
         num13 += this.game.EditObj.MiniMapOffset;
@@ -476,8 +476,8 @@ namespace WindowsApplication1
       }
       this.game.CornerX = num13;
       this.game.CornerY = num20;
-      int num21 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
-      int num22 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3;
+      let mut num21: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
+      let mut num22: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3;
       if (num15 > num21 & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
         this.game.CornerX -= num15 - num21;
       if (num16 > num22)

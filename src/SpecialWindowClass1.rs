@@ -124,13 +124,13 @@ namespace WindowsApplication1
         data1: String = self.game.Data.StringListObj[stringListById4].GetData(0, str1, 4);
         let mut tCardId: i32 = self.game.Data.FindEventPic( Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, str1, 5))), data1);
         let mut num9: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, str1, 6)));
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap1 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[tCardId]);
-         Bitmap local2 =  bitmap1;
-        Rectangle trect = new Rectangle(num9 * 32, 0, 32, 32);
-        Rectangle srcrect = trect;
-        Rectangle rectangle = new Rectangle(num6 + 20, num7 + 20 +  Math.Round((double) num3 / 2.0), 32, 32);
-        Rectangle destrect = rectangle;
+         let mut local2: &Bitmap = &bitmap1;
+        Rectangle trect = Rectangle::new(num9 * 32, 0, 32, 32);
+        let mut srcrect: &Rectangle = &trect
+        Rectangle rectangle = Rectangle::new(num6 + 20, num7 + 20 +  Math.Round((double) num3 / 2.0), 32, 32);
+        let mut destrect: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
         DrawMod.DrawTextColouredMarc( g, num8.ToString(), self.game.MarcFont3, num6 + 58, num7 + 25 +  Math.Round((double) num3 / 2.0), Color.White);
         DrawMod.DrawTextColouredMarc( g, str1, self.game.MarcFont4, num6 + 88, num7 + 26 +  Math.Round((double) num3 / 2.0), Color.White);
@@ -227,15 +227,15 @@ namespace WindowsApplication1
                 let mut y1: i32 =  Math.Round((double) (num10 + 19) + (double) num3 * 0.33);
                 let mut width: i32 =  Math.Round(20.0 + (double) num3 * 0.44);
                 let mut height: i32 =  Math.Round(30.0 + (double) num3 * 0.66);
-                 Graphics local3 =  g;
+                 let mut local3: &Graphics = &g;
                 Bitmap bitmap2 = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, -1, size: 2, tCardId: tCardId);
-                 Bitmap local4 =  bitmap2;
+                 let mut local4: &Bitmap = &bitmap2;
                 let mut x2: i32 = x1;
                 let mut y2: i32 = y1;
                 let mut w: i32 = width;
                 let mut h: i32 = height;
                 DrawMod.DrawScaled( local3,  local4, x2, y2, w, h, true);
-                rectangle = new Rectangle(x1, y1, width, height);
+                rectangle = Rectangle::new(x1, y1, width, height);
                 trect = rectangle;
                 self.AddMouse( trect, ttitle, ttext);
                 num21 += width + 2;
@@ -255,7 +255,7 @@ namespace WindowsApplication1
                 let mut num24: i32 =  Math.Round(40.0 + (double) num3 * 0.5);
                 let mut num25: i32 =  Math.Round(40.0 + (double) num3 * 0.5);
                 DrawMod.DrawScaled( g,  bitmap3, x, y, num24, num25, true);
-                rectangle = new Rectangle(x, y, num24, num25);
+                rectangle = Rectangle::new(x, y, num24, num25);
                 trect = rectangle;
                 self.AddMouse( trect, ttitle, ttext);
               }
@@ -288,7 +288,7 @@ namespace WindowsApplication1
               else
                 str6 = "Your nation does not have this Regime Feat. You need a Profile of at least " + str1 + "-" + idValue2.ToString() + " to have a chance to gain it.";
               ttext: String = self.game.HandyFunctionsObj.CustomMouseOverLookups(str6 + "\r\n\r\n" + str5, currentName);
-              rectangle = new Rectangle(num12, num10, num4 - 5, 55 + num3);
+              rectangle = Rectangle::new(num12, num10, num4 - 5, 55 + num3);
               trect = rectangle;
               self.AddMouse( trect, "Regime Feat: " + currentName, ttext);
             }

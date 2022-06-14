@@ -136,10 +136,10 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.LibListId);
       this.LibListObj = ListClass::new();
       this.LibListObj.add("All", -2);
-      int num1 = -1;
-      int num2 = 0;
-      int libraryCounter = this.game.Data.LibraryCounter;
-      for (int index = 0; index <= libraryCounter; index += 1)
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  0;
+      let mut libraryCounter: i32 =  this.game.Data.LibraryCounter;
+      for (let mut index: i32 =  0; index <= libraryCounter; index += 1)
       {
         num2 += 1;
         if (this.LibNr == index)
@@ -149,7 +149,7 @@ namespace WindowsApplication1
       if (this.LibNr == -1)
         num1 = 0;
       ListClass libListObj = this.LibListObj;
-      int tlistselect1 = num1;
+      let mut tlistselect1: i32 =  num1;
       let mut game1: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -158,13 +158,13 @@ namespace WindowsApplication1
       this.LibListId = this.AddSubPart( tsubpart1, 10, 50, 200, 192, 0);
       if (this.peopleListId > 0)
         this.RemoveSubPart(this.peopleListId);
-      int num3 = -1;
-      int num4 = -1;
+      let mut num3: i32 =  -1;
+      let mut num4: i32 =  -1;
       if (this.game.Data.PeopleCounter > -1)
       {
         this.peopleListObj = ListClass::new();
-        int peopleCounter = this.game.Data.PeopleCounter;
-        for (int index = 0; index <= peopleCounter; index += 1)
+        let mut peopleCounter: i32 =  this.game.Data.PeopleCounter;
+        for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
         {
           if (this.game.Data.PeopleObj[index].LibId.libSlot == this.LibNr | this.LibNr == -1)
           {
@@ -175,7 +175,7 @@ namespace WindowsApplication1
           }
         }
         ListClass peopleListObj = this.peopleListObj;
-        int tlistselect2 = num3;
+        let mut tlistselect2: i32 =  num3;
         let mut game2: GameClass = this.game;
          Bitmap local3 =  this.OwnBitmap;
         font =  null;
@@ -521,7 +521,7 @@ namespace WindowsApplication1
       this.CombatListObj = ListClass::new();
       if (this.detailnr < -1 | this.detailnr > 99)
         this.detailnr = -1;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         str4: String = "";
@@ -539,7 +539,7 @@ namespace WindowsApplication1
       }
       while (index <= 99);
       ListClass combatListObj = this.CombatListObj;
-      int detailnr = this.detailnr;
+      let mut detailnr: i32 =  this.detailnr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -587,15 +587,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.LibListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -614,7 +614,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.peopleListId)
             {
-              int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
@@ -626,7 +626,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.firstListId)
             {
-              int num4 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num4: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num4 > -1)
               {
@@ -645,7 +645,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int num5 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -659,7 +659,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int num6 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -673,7 +673,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int num7 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num7: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -687,7 +687,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int num8 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -701,14 +701,14 @@ namespace WindowsApplication1
               }
               else
               {
-                int num9 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num9: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
             if (num1 == this.lastListId)
             {
-              int num10 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num10: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num10 > -1)
               {
@@ -725,9 +725,9 @@ namespace WindowsApplication1
               if (this.peopleNr > -1 & Interaction.MsgBox((object) "Insert it in current selected people slot?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
               {
                 PeopleClass peopleClass = this.game.Data.PeopleObj[this.game.Data.PeopleCounter];
-                int peopleCounter = this.game.Data.PeopleCounter;
-                int num11 = this.peopleNr + 1;
-                for (int Newnr = peopleCounter; Newnr >= num11; Newnr += -1)
+                let mut peopleCounter: i32 =  this.game.Data.PeopleCounter;
+                let mut num11: i32 =  this.peopleNr + 1;
+                for (let mut Newnr: i32 =  peopleCounter; Newnr >= num11; Newnr += -1)
                 {
                   this.game.Data.PeopleObj[Newnr] = this.game.Data.PeopleObj[Newnr - 1];
                   this.game.Data.ChangePeopleNr(Newnr - 1, Newnr);
@@ -753,15 +753,15 @@ namespace WindowsApplication1
               {
                 PeopleClass peopleClass1 = this.game.Data.PeopleObj[this.peopleNr];
                 Color color = colorDialog.Color;
-                int r =  color.R;
+                let mut r: i32 =   color.R;
                 peopleClass1.Red = r;
                 PeopleClass peopleClass2 = this.game.Data.PeopleObj[this.peopleNr];
                 color = colorDialog.Color;
-                int g =  color.G;
+                let mut g: i32 =   color.G;
                 peopleClass2.Green = g;
                 PeopleClass peopleClass3 = this.game.Data.PeopleObj[this.peopleNr];
                 color = colorDialog.Color;
-                int b1 =  color.B;
+                let mut b1: i32 =   color.B;
                 peopleClass3.Blue = b1;
               }
               this.MakepeopleListGUI(this.peopleNr);
@@ -817,7 +817,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.CombatListId)
             {
-              int num12 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num12: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num12 > -1)
               {
@@ -836,10 +836,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.b18id)
             {
-              int num13 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new base morale.", "Shadow Empire : Planetary Conquest")));
+              let mut num13: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new base morale.", "Shadow Empire : Planetary Conquest")));
               if (num13 < 0 | num13 > 100)
               {
-                int num14 =  Interaction.MsgBox((object) "Between 0 and 100 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num14: i32 =   Interaction.MsgBox((object) "Between 0 and 100 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].BaseMorale[this.detailnr] = num13;
@@ -856,7 +856,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.B4cId)
             {
-              int num15 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new ID.", "Shadow Empire : Planetary Conquest")));
+              let mut num15: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new ID.", "Shadow Empire : Planetary Conquest")));
               this.game.Data.PeopleObj[this.peopleNr].id = num15;
               if (num15 > this.game.Data.PeopleIdCounter)
                 this.game.Data.PeopleIdCounter = num15;
@@ -866,10 +866,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.a6Id)
             {
-              int num16 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new extra graphic (-1=none).", "Shadow Empire : Planetary Conquest")));
+              let mut num16: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new extra graphic (-1=none).", "Shadow Empire : Planetary Conquest")));
               if (num16 < -1 | num16 > 100)
               {
-                int num17 =  Interaction.MsgBox((object) "Between -1 and 100 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num17: i32 =   Interaction.MsgBox((object) "Between -1 and 100 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].ExtraGraphicUse = num16;
@@ -879,31 +879,31 @@ namespace WindowsApplication1
             }
             if (num1 == this.z1id)
             {
-              int num18 =  Math.Round(Conversion.Val(Interaction.InputBox("Give regime# to use.", "Shadow Empire : Planetary Conquest")));
+              let mut num18: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give regime# to use.", "Shadow Empire : Planetary Conquest")));
               if (num18 < 0 | num18 > this.game.Data.RegimeCounter)
                 return windowReturnClass;
-              int num19 =  Math.Round(Conversion.Val(Interaction.InputBox("Give people# to use.", "Shadow Empire : Planetary Conquest")));
+              let mut num19: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give people# to use.", "Shadow Empire : Planetary Conquest")));
               if (num19 < 0 | num19 > this.game.Data.PeopleCounter)
                 return windowReturnClass;
-              int unitCounter = this.game.Data.UnitCounter;
-              for (int index2 = 0; index2 <= unitCounter; index2 += 1)
+              let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+              for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
               {
                 if (this.game.Data.UnitObj[index2].PreDef == -1 & this.game.Data.UnitObj[index2].Regime == num18)
                 {
-                  int sfCount = this.game.Data.UnitObj[index2].SFCount;
-                  for (int index3 = 0; index3 <= sfCount; index3 += 1)
+                  let mut sfCount: i32 =  this.game.Data.UnitObj[index2].SFCount;
+                  for (let mut index3: i32 =  0; index3 <= sfCount; index3 += 1)
                     this.game.Data.SFObj[this.game.Data.UnitObj[index2].SFList[index3]].People = num19;
                 }
               }
-              int num20 =  Interaction.MsgBox((object) "Done! ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num20: i32 =   Interaction.MsgBox((object) "Done! ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               return windowReturnClass;
             }
             if (num1 == this.a7Id)
             {
-              int num21 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new SFType # to use.", "Shadow Empire : Planetary Conquest")));
+              let mut num21: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new SFType # to use.", "Shadow Empire : Planetary Conquest")));
               if (num21 < -1 | num21 > this.game.Data.SFTypeCounter)
               {
-                int num22 =  Interaction.MsgBox((object) "Between -1 and SFTypeCounter please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num22: i32 =   Interaction.MsgBox((object) "Between -1 and SFTypeCounter please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].SFIll = num21;
@@ -914,10 +914,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.b25id)
             {
-              int num23 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new break At %. 0=never break. 50=chance starts from half unit lost. 100=immediate chance.", "Shadow Empire : Planetary Conquest")));
+              let mut num23: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new break At %. 0=never break. 50=chance starts from half unit lost. 100=immediate chance.", "Shadow Empire : Planetary Conquest")));
               if (num23 < 0 | num23 > 100)
               {
-                int num24 =  Interaction.MsgBox((object) "Between 0 and 100 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num24: i32 =   Interaction.MsgBox((object) "Between 0 and 100 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].BreakAt = num23;
@@ -936,7 +936,7 @@ namespace WindowsApplication1
               float num25 = (float) Conversion.Val(Interaction.InputBox("Give Prod Mod.", "Shadow Empire : Planetary Conquest"));
               if ((double) num25 < 0.0 | (double) num25 > 10.0)
               {
-                int num26 =  Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num26: i32 =   Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].ProdMod[this.detailnr] = num25;
@@ -949,7 +949,7 @@ namespace WindowsApplication1
               float num27 = (float) Conversion.Val(Interaction.InputBox("Give Prod Mod 4.", "Shadow Empire : Planetary Conquest"));
               if ((double) num27 < 0.0 | (double) num27 > 10.0)
               {
-                int num28 =  Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num28: i32 =   Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].ProdMod4[this.detailnr] = num27;
@@ -962,7 +962,7 @@ namespace WindowsApplication1
               float num29 = (float) Conversion.Val(Interaction.InputBox("Give Prod Mod 3.", "Shadow Empire : Planetary Conquest"));
               if ((double) num29 < 0.0 | (double) num29 > 10.0)
               {
-                int num30 =  Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num30: i32 =   Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].ProdMod3[this.detailnr] = num29;
@@ -975,7 +975,7 @@ namespace WindowsApplication1
               float num31 = (float) Conversion.Val(Interaction.InputBox("Give Prod Mod 2.", "Shadow Empire : Planetary Conquest"));
               if ((double) num31 < 0.0 | (double) num31 > 10.0)
               {
-                int num32 =  Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num32: i32 =   Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].ProdMod2[this.detailnr] = num31;
@@ -988,7 +988,7 @@ namespace WindowsApplication1
               float num33 = (float) Conversion.Val(Interaction.InputBox("Give Battle For Mod (normal=1).", "Shadow Empire : Planetary Conquest"));
               if ((double) num33 < 0.0 | (double) num33 > 10.0)
               {
-                int num34 =  Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num34: i32 =   Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].BattleForMod[this.detailnr] = num33;
@@ -1001,7 +1001,7 @@ namespace WindowsApplication1
               float num35 = (float) Conversion.Val(Interaction.InputBox("Give Battle VS Mod (normal=1).", "Shadow Empire : Planetary Conquest"));
               if ((double) num35 < 0.0 | (double) num35 > 10.0)
               {
-                int num36 =  Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num36: i32 =   Interaction.MsgBox((object) "Between 0 and 10 please. You can use 0.51 or 4.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.PeopleObj[this.peopleNr].BattleVSMod[this.detailnr] = num35;

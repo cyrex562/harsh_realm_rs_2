@@ -88,7 +88,7 @@ namespace WindowsApplication1
         this.game.Data.DontShowAIMove = false;
         if (Conversion.Val(Strings.Mid(this.game.EditObj.PbemChallengeMiscData, 44, 1)) == 1.0)
           this.game.Data.DontShowAIMove = true;
-        int index1 = 0;
+        let mut index1: i32 =  0;
         do
         {
           if (this.game.Data.Variants[index1] > -1)
@@ -101,8 +101,8 @@ namespace WindowsApplication1
           index1 += 1;
         }
         while (index1 <= 11);
-        int num = Math.Min(7, this.game.Data.RegimeCounter);
-        for (int index2 = 0; index2 <= num; index2 += 1)
+        let mut num: i32 =  Math.Min(7, this.game.Data.RegimeCounter);
+        for (let mut index2: i32 =  0; index2 <= num; index2 += 1)
         {
           if (Conversion.Val(Strings.Mid(this.game.EditObj.PbemChallengeMiscData, 57 + index2, 1)) == 0.0)
             this.game.Data.RegimeObj[index2].AI = true;
@@ -118,14 +118,14 @@ namespace WindowsApplication1
           }
         }
       }
-      int num1 = 0;
-      int num2 = 0;
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  0;
       if (this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.MakingChallenge)
       {
-        int regimeCounter1 = this.game.Data.RegimeCounter;
+        let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
         int num3;
         int num4;
-        for (int index = 0; index <= regimeCounter1; index += 1)
+        for (let mut index: i32 =  0; index <= regimeCounter1; index += 1)
         {
           if (this.game.Data.RegimeObj[index].PbemPlayer <= 0)
           {
@@ -150,8 +150,8 @@ namespace WindowsApplication1
         }
         if (num2 <= 1)
         {
-          int regimeCounter2 = this.game.Data.RegimeCounter;
-          for (int index = 0; index <= regimeCounter2; index += 1)
+          let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
+          for (let mut index: i32 =  0; index <= regimeCounter2; index += 1)
           {
             if (!this.game.Data.RegimeObj[index].Sleep && this.game.Data.RegimeObj[index].AI & !this.game.Data.NoPlayChoice)
             {
@@ -175,12 +175,12 @@ namespace WindowsApplication1
         }
         if (num2 <= 1)
         {
-          int regimeCounter3 = this.game.Data.RegimeCounter;
-          for (int index = 0; index <= regimeCounter3; index += 1)
+          let mut regimeCounter3: i32 =  this.game.Data.RegimeCounter;
+          for (let mut index: i32 =  0; index <= regimeCounter3; index += 1)
           {
             if (!this.game.Data.RegimeObj[index].Sleep && this.game.Data.RegimeObj[index].AI & !this.game.Data.NoPlayChoice)
             {
-              int num5 = num2 + 1;
+              let mut num5: i32 =  num2 + 1;
               if (num3 == 0)
               {
                 this.game.Data.RegimeObj[index].PbemPlayer = 1;
@@ -310,7 +310,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.txt9);
       if (this.opt10 > 0)
         this.RemoveSubPart(this.opt10);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.vari[index1] > 0)
@@ -345,10 +345,10 @@ namespace WindowsApplication1
         if (Strings.Len(this.game.Data.Designer2) > 0)
           tstring = tstring + " & " + this.game.Data.Designer2;
         SizeF sizeF2 = graphics.MeasureString("by: " + tstring, Font::new("Arial Black", 19f, FontStyle.Regular, GraphicsUnit.Pixel));
-        int x =  Math.Round((double) (950f - sizeF2.Width));
+        let mut x: i32 =   Math.Round((double) (950f - sizeF2.Width));
         DrawMod.DrawTextColouredMarc( graphics, "by:", this.game.MarcFont1, x, 27, Color.White);
         DrawMod.DrawTextColouredMarc( graphics, tstring, this.game.MarcFont2, x + 50, 27, Color.White);
-        Rectangle trect = new Rectangle(x, 27,  Math.Round((double) sizeF2.Width),  Math.Round((double) sizeF2.Height));
+        Rectangle trect = Rectangle::new(x, 27,  Math.Round((double) sizeF2.Width),  Math.Round((double) sizeF2.Height));
         this.AddMouse( trect, "", "The name of the designer of this scenario");
         if (this.game.Data.scenarioVersion.Length > 0)
         {
@@ -357,9 +357,9 @@ namespace WindowsApplication1
         }
       }
       DrawMod.DrawBlock( graphics, 180, 60, 775, 3,  this.game.MarcCol4.R,  this.game.MarcCol4.G,  this.game.MarcCol4.B,  this.game.MarcCol4.A);
-       Graphics local1 =  graphics;
+       let mut local1: &Graphics = &graphics;
       Bitmap bitmap = BitmapStore.GetBitmap(this.game.LOGOFLATTINY);
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local1,  local2, 20, 21);
       if (this.game.Data.CampaignRoom == -1)
       {
@@ -368,7 +368,7 @@ namespace WindowsApplication1
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  graphics, 620, 458, 300, 215, -1, -1);
         DrawMod.DrawTextColouredMarc( graphics, "MAP", this.game.MarcFont4, 630, 437, Color.White);
       }
-      int num1 = 490 + this.game.EditObj.MiniMap.Width;
+      let mut num1: i32 =  490 + this.game.EditObj.MiniMap.Width;
       if (this.game.Data.UseAI >= 1 & !this.game.Data.NoAIAdvice & this.game.Data.RegimeCounter > -1)
       {
         if (this.game.Data.UseAI == 1)
@@ -476,10 +476,10 @@ namespace WindowsApplication1
         this.pass = this.AddSubPart( tsubpart3, 400, 714, 240, 36, 0);
         tsubpart3 =  new MarcButtonPartClass(this.game.BACKBUTTON, tBackbitmap: ( this.OwnBitmap), bbx: 20, bby: 710);
         this.cancelID = this.AddSubPart( tsubpart3, 20, 710, 35, 35, 1);
-        int regimeCounter = this.game.Data.RegimeCounter;
+        let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
         int num2;
         int num3;
-        for (int index2 = 0; index2 <= regimeCounter; index2 += 1)
+        for (let mut index2: i32 =  0; index2 <= regimeCounter; index2 += 1)
         {
           if (!this.game.Data.RegimeObj[index2].AI & !this.game.Data.RegimeObj[index2].Sleep)
           {
@@ -549,7 +549,7 @@ namespace WindowsApplication1
       tsubpart3 =  new MarcRadioPartClass(0, this.game.Data.DontShowAIMove, tBackbitmap: ( this.OwnBitmap), bbx: 380, bby: 288);
       this.opt9 = this.AddSubPart( tsubpart3, 380, 288, 35, 35, 1);
       DrawMod.DrawTextColouredMarc( graphics, "HIDE AI MOVES", this.game.MarcFont5, 430, 296, Color.White);
-      int index3 = 0;
+      let mut index3: i32 =  0;
       do
       {
         if (this.game.Data.Variants[index3] > -1)
@@ -567,17 +567,17 @@ namespace WindowsApplication1
             if (this.game.Data.GameSlot[this.game.Data.Variants[index3]] <= 0)
             {
               int[] vari = this.vari;
-              int index4 = index3;
+              let mut index4: i32 =  index3;
               tsubpart3 =  new MarcRadioPartClass(0, false, tDescript,  this.OwnBitmap, 580, 164 + index3 * 40);
-              int num4 = this.AddSubPart( tsubpart3, 580, 164 + index3 * 40, 35, 35, 1);
+              let mut num4: i32 =  this.AddSubPart( tsubpart3, 580, 164 + index3 * 40, 35, 35, 1);
               vari[index4] = num4;
             }
             else
             {
               int[] vari = this.vari;
-              int index5 = index3;
+              let mut index5: i32 =  index3;
               tsubpart3 =  new MarcRadioPartClass(0, true, tDescript,  this.OwnBitmap, 580, 164 + index3 * 40);
-              int num5 = this.AddSubPart( tsubpart3, 580, 164 + index3 * 40, 35, 35, 1);
+              let mut num5: i32 =  this.AddSubPart( tsubpart3, 580, 164 + index3 * 40, 35, 35, 1);
               vari[index5] = num5;
             }
             DrawMod.DrawTextColouredMarc( graphics, Strings.UCase(String1), this.game.MarcFont5, 630, 176 + index3 * 40, Color.White);
@@ -587,17 +587,17 @@ namespace WindowsApplication1
             if (this.game.Data.GameSlot[this.game.Data.Variants[index3]] <= 0)
             {
               int[] vari = this.vari;
-              int index6 = index3;
+              let mut index6: i32 =  index3;
               tsubpart3 =  new MarcRadioPartClass(0, false, tDescript,  this.OwnBitmap, 780, 164 + (index3 - 6) * 40);
-              int num6 = this.AddSubPart( tsubpart3, 780, 164 + (index3 - 6) * 40, 35, 35, 1);
+              let mut num6: i32 =  this.AddSubPart( tsubpart3, 780, 164 + (index3 - 6) * 40, 35, 35, 1);
               vari[index6] = num6;
             }
             else
             {
               int[] vari = this.vari;
-              int index7 = index3;
+              let mut index7: i32 =  index3;
               tsubpart3 =  new MarcRadioPartClass(0, true, tDescript,  this.OwnBitmap, 780, 164 + (index3 - 6) * 40);
-              int num7 = this.AddSubPart( tsubpart3, 780, 164 + (index3 - 6) * 40, 35, 35, 1);
+              let mut num7: i32 =  this.AddSubPart( tsubpart3, 780, 164 + (index3 - 6) * 40, 35, 35, 1);
               vari[index7] = num7;
             }
             DrawMod.DrawTextColouredMarc( graphics, Strings.UCase(String1), this.game.MarcFont5, 830, 172 + (index3 - 6) * 40, Color.White);
@@ -635,13 +635,13 @@ namespace WindowsApplication1
     {
       if (!this.game.Data.NoPlayChoice)
       {
-        int tlistselect = -1;
-        int num = -1;
+        let mut tlistselect: i32 =  -1;
+        let mut num: i32 =  -1;
         this.RegimeListObj = ListClass::new();
         if (this.game.Data.RegimeCounter > -1)
         {
-          int regimeCounter = this.game.Data.RegimeCounter;
-          for (int tdata = 0; tdata <= regimeCounter; tdata += 1)
+          let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+          for (let mut tdata: i32 =  0; tdata <= regimeCounter; tdata += 1)
           {
             if (!this.game.Data.RegimeObj[tdata].Sleep)
             {
@@ -703,8 +703,8 @@ namespace WindowsApplication1
 
     pub void HandleToolTip(int x, int y)
     {
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -715,12 +715,12 @@ namespace WindowsApplication1
           return;
         }
       }
-      int subPartCounter = this.SubPartCounter;
-      for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+      let mut subPartCounter: i32 =  this.SubPartCounter;
+      for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
       {
         if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
         {
-          int index2 = 0;
+          let mut index2: i32 =  0;
           do
           {
             if (this.SubPartID[index1] == this.vari[index2])
@@ -740,7 +740,7 @@ namespace WindowsApplication1
             index2 += 1;
           }
           while (index2 <= 11);
-          int num = this.SubPartID[index1];
+          let mut num: i32 =  this.SubPartID[index1];
           if (num == this.cancelID)
           {
             this.game.EditObj.TipButton = true;
@@ -839,12 +839,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1 & b == 1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.TempText)
             {
               this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
@@ -854,7 +854,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.RegimeListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1 && !(this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.Inspecting | this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.PlayTurn))
               {
@@ -914,7 +914,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num3 =  Interaction.MsgBox((object) "Scenario is not suitable for playing the AI.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num3: i32 =   Interaction.MsgBox((object) "Scenario is not suitable for playing the AI.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.DoStuff();
               }
@@ -971,7 +971,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num4 =  Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num4: i32 =   Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
               }
             }
@@ -1007,9 +1007,9 @@ namespace WindowsApplication1
             {
               if (!(this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.Inspecting | this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.PlayTurn))
               {
-                int prodBonus = this.game.Data.RegimeObj[0].ProdBonus;
-                int regimeCounter = this.game.Data.RegimeCounter;
-                for (int index2 = 0; index2 <= regimeCounter; index2 += 1)
+                let mut prodBonus: i32 =  this.game.Data.RegimeObj[0].ProdBonus;
+                let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                for (let mut index2: i32 =  0; index2 <= regimeCounter; index2 += 1)
                 {
                   switch (prodBonus)
                   {
@@ -1054,9 +1054,9 @@ namespace WindowsApplication1
               {
                 if (!(this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.Inspecting | this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.PlayTurn))
                 {
-                  int aiHelpMove = this.game.Data.RegimeObj[0].AIHelpMove;
-                  int regimeCounter = this.game.Data.RegimeCounter;
-                  for (int index3 = 0; index3 <= regimeCounter; index3 += 1)
+                  let mut aiHelpMove: i32 =  this.game.Data.RegimeObj[0].AIHelpMove;
+                  let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                  for (let mut index3: i32 =  0; index3 <= regimeCounter; index3 += 1)
                   {
                     if (this.game.Data.Product == 6)
                     {
@@ -1152,7 +1152,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num5 =  Interaction.MsgBox((object) "This option can only be activated if map is shrouded.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num5: i32 =   Interaction.MsgBox((object) "This option can only be activated if map is shrouded.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                 }
               }
@@ -1165,14 +1165,14 @@ namespace WindowsApplication1
                     this.game.Data.TerrorMode = !this.game.Data.TerrorMode;
                     if (this.game.Data.TerrorMode)
                     {
-                      int num6 =  Interaction.MsgBox((object) "Be warned that you can only play your turn once with Terror Mode on. After it had been opened once it cannot be reopened again. This is a very safe mode, but if anything goes wrong it will ruin your pbem game because it will not allow you to continue play. Be warned if you play with this ultimate protection mode on.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num6: i32 =   Interaction.MsgBox((object) "Be warned that you can only play your turn once with Terror Mode on. After it had been opened once it cannot be reopened again. This is a very safe mode, but if anything goes wrong it will ruin your pbem game because it will not allow you to continue play. Be warned if you play with this ultimate protection mode on.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     this.DoStuff();
                     windowReturnClass.SetFlag(true);
                   }
                   else
                   {
-                    int num7 =  Interaction.MsgBox((object) "This terror mode anti cheat option can only be activated if normal Anti Cheat is already on.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num7: i32 =   Interaction.MsgBox((object) "This terror mode anti cheat option can only be activated if normal Anti Cheat is already on.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                 }
               }
@@ -1183,28 +1183,28 @@ namespace WindowsApplication1
                   this.game.EditObj.PbemPrivatePassword = this.SubPartList[this.SubpartNr(this.pass)].GetText();
                   if (this.game.EditObj.PbemPrivatePassword.Length > 0 && this.game.EditObj.PbemPrivatePassword.Length < 4 | this.game.EditObj.PbemPrivatePassword.Length > 16)
                   {
-                    int num8 =  Interaction.MsgBox((object) "Cancelled challenge because when you set password it must be min 4 and max 16 chars.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num8: i32 =   Interaction.MsgBox((object) "Cancelled challenge because when you set password it must be min 4 and max 16 chars.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
                   if (this.game.EditObj.PbemTitle.Length < 4 | this.game.EditObj.PbemTitle.Length > 50)
                   {
-                    int num9 =  Interaction.MsgBox((object) "Cancelled challenge because name of game must be min 4 and max 50 chars.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num9: i32 =   Interaction.MsgBox((object) "Cancelled challenge because name of game must be min 4 and max 50 chars.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
                   if (this.game.Data.RegimeCounter > 7 | this.game.Data.MasterFile.Length > 1)
                   {
-                    int num10 =  Interaction.MsgBox((object) "Cancelled challenge because more then 8 regimes in scenario or because a masterfile is still attached to scenario.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num10: i32 =   Interaction.MsgBox((object) "Cancelled challenge because more then 8 regimes in scenario or because a masterfile is still attached to scenario.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     this.game.EditObj.PbemGameSetup = PbemGameSetupPhase.Cancel;
                     windowReturnClass.AddCommand(1, 55);
                     windowReturnClass.AddCommand(2, 91);
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
-                  int num11 = 0;
-                  int num12 = Math.Min(7, this.game.Data.RegimeCounter);
-                  for (int index4 = 0; index4 <= num12; index4 += 1)
+                  let mut num11: i32 =  0;
+                  let mut num12: i32 =  Math.Min(7, this.game.Data.RegimeCounter);
+                  for (let mut index4: i32 =  0; index4 <= num12; index4 += 1)
                   {
                     if (this.game.Data.RegimeObj[index4].PbemPlayer <= 0 && !this.game.Data.RegimeObj[index4].AI & !this.game.Data.RegimeObj[index4].Sleep)
                     {
@@ -1220,12 +1220,12 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                int num13 = 0;
+                let mut num13: i32 =  0;
                 if (this.game.Data.Product != 6)
                 {
-                  int aiHelpMove = this.game.Data.RegimeObj[0].AIHelpMove;
-                  int regimeCounter = this.game.Data.RegimeCounter;
-                  for (int index5 = 0; index5 <= regimeCounter; index5 += 1)
+                  let mut aiHelpMove: i32 =  this.game.Data.RegimeObj[0].AIHelpMove;
+                  let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                  for (let mut index5: i32 =  0; index5 <= regimeCounter; index5 += 1)
                   {
                     this.game.Data.RegimeObj[index5].AIHelpMove = 0;
                     this.game.Data.RegimeObj[index5].AIHelpCombat = 0;
@@ -1261,46 +1261,46 @@ namespace WindowsApplication1
                     }
                   }
                 }
-                int regimeCounter1 = this.game.Data.RegimeCounter;
-                for (int index6 = 0; index6 <= regimeCounter1; index6 += 1)
+                let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
+                for (let mut index6: i32 =  0; index6 <= regimeCounter1; index6 += 1)
                 {
                   if (this.game.Data.RegimeObj[index6].AI | this.game.Data.RegimeObj[index6].Sleep)
                     num13 += 1;
                 }
                 if (num13 == this.game.Data.RegimeCounter + 1 & this.game.Data.CampaignRoom == -1)
                 {
-                  int num14 =  Interaction.MsgBox((object) "There must be at least 1 human player", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num14: i32 =   Interaction.MsgBox((object) "There must be at least 1 human player", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   if (MsgBoxResult.No == Interaction.MsgBox((object) "Do you want to proceed anyway?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest"))
                     goto label_208;
                 }
                 if ((double) this.game.Data.RuleVar[839] == 0.0)
                 {
-                  int num15 =  Interaction.MsgBox((object) "In order to play a scenario in the VR Editor rulevar(839) 'new GUI' must be set to 1.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num15: i32 =   Interaction.MsgBox((object) "In order to play a scenario in the VR Editor rulevar(839) 'new GUI' must be set to 1.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
-                  int num16 = 0;
-                  int regimeCounter2 = this.game.Data.RegimeCounter;
-                  for (int index7 = 0; index7 <= regimeCounter2; index7 += 1)
+                  let mut num16: i32 =  0;
+                  let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
+                  for (let mut index7: i32 =  0; index7 <= regimeCounter2; index7 += 1)
                   {
                     if (this.game.Data.RegimeObj[index7].AI)
                       num16 += 1;
                   }
                   if (this.game.Data.NoAIAdvice & num16 > 0)
                   {
-                    int num17 =  Interaction.MsgBox((object) "The scenario creator has allowed no AIs in this scenario. You are not allowed to play for your own good.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num17: i32 =   Interaction.MsgBox((object) "The scenario creator has allowed no AIs in this scenario. You are not allowed to play for your own good.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
                     this.game.Data.Round = 0;
-                    int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-                    for (int index8 = 0; index8 <= mapWidth; index8 += 1)
+                    let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+                    for (let mut index8: i32 =  0; index8 <= mapWidth; index8 += 1)
                     {
-                      int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-                      for (int index9 = 0; index9 <= mapHeight; index9 += 1)
+                      let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+                      for (let mut index9: i32 =  0; index9 <= mapHeight; index9 += 1)
                       {
-                        int regimeCounter3 = this.game.Data.RegimeCounter;
-                        for (int Index = 0; Index <= regimeCounter3; Index += 1)
+                        let mut regimeCounter3: i32 =  this.game.Data.RegimeCounter;
+                        for (let mut Index: i32 =  0; Index <= regimeCounter3; Index += 1)
                         {
                           this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index8, index9].set_LastLT(Index, -1);
                           this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index8, index9].set_LastSpr(Index, -1);
@@ -1309,8 +1309,8 @@ namespace WindowsApplication1
                         }
                       }
                     }
-                    int unitCounter = this.game.Data.UnitCounter;
-                    for (int unr = 0; unr <= unitCounter; unr += 1)
+                    let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                    for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
                     {
                       if (!this.game.Data.UnitObj[unr].IsHQ && this.game.Data.UnitObj[unr].Supply > this.game.HandyFunctionsObj.UnitSupplyStore(unr))
                         this.game.Data.UnitObj[unr].Supply = this.game.HandyFunctionsObj.UnitSupplyStore(unr);
@@ -1319,11 +1319,11 @@ namespace WindowsApplication1
                     }
                     if (this.game.EditObj.randoallied == 1)
                     {
-                      int regimeCounter4 = this.game.Data.RegimeCounter;
-                      for (int index10 = 0; index10 <= regimeCounter4; index10 += 1)
+                      let mut regimeCounter4: i32 =  this.game.Data.RegimeCounter;
+                      for (let mut index10: i32 =  0; index10 <= regimeCounter4; index10 += 1)
                       {
-                        int regimeCounter5 = this.game.Data.RegimeCounter;
-                        for (int index11 = 0; index11 <= regimeCounter5; index11 += 1)
+                        let mut regimeCounter5: i32 =  this.game.Data.RegimeCounter;
+                        for (let mut index11: i32 =  0; index11 <= regimeCounter5; index11 += 1)
                         {
                           if (index10 == index11)
                             this.game.Data.RegimeObj[index10].RegimeRel[index11] = 1;
@@ -1336,8 +1336,8 @@ namespace WindowsApplication1
                     }
                     if (this.game.Data.Turn > -1)
                     {
-                      int turn = this.game.Data.Turn;
-                      for (int regnr = 0; regnr <= turn; regnr += 1)
+                      let mut turn: i32 =  this.game.Data.Turn;
+                      for (let mut regnr: i32 =  0; regnr <= turn; regnr += 1)
                       {
                         this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
                         this.game.HandyFunctionsObj.ClearHistory((object) regnr);
@@ -1356,8 +1356,8 @@ namespace WindowsApplication1
               {
                 if (!(this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.Inspecting | this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.PlayTurn))
                 {
-                  int unitCounter = this.game.Data.UnitCounter;
-                  for (int index12 = 0; index12 <= unitCounter; index12 += 1)
+                  let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                  for (let mut index12: i32 =  0; index12 <= unitCounter; index12 += 1)
                   {
                     this.game.Data.UnitObj[index12].Name = this.game.Data.UnitObj[index12].Name.Replace("3th", "3rd");
                     this.game.Data.UnitObj[index12].Name = this.game.Data.UnitObj[index12].Name.Replace("11st", "11th");
@@ -1370,11 +1370,11 @@ namespace WindowsApplication1
                     {
                       if (Operators.CompareString(Strings.LCase(Interaction.InputBox("This File is protected by an edit password. Please give it in order to edit it.", "Shadow Empire : Planetary Conquest")), Strings.LCase(this.game.Data.EditPass), false) == 0)
                       {
-                        int num18 =  Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num18: i32 =   Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else
                       {
-                        int num19 =  Interaction.MsgBox((object) "Wrong Password. You cannot Edit this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num19: i32 =   Interaction.MsgBox((object) "Wrong Password. You cannot Edit this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         return windowReturnClass;
                       }
                     }
@@ -1390,7 +1390,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num20 =  Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num20: i32 =   Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                 }
               }
@@ -1402,11 +1402,11 @@ namespace WindowsApplication1
                   {
                     if (Operators.CompareString(Strings.LCase(Interaction.InputBox("This File is protected by an edit password. Please give it in order to edit it.", "Shadow Empire : Planetary Conquest")), Strings.LCase(this.game.Data.EditPass), false) == 0)
                     {
-                      int num21 =  Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num21: i32 =   Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
-                      int num22 =  Interaction.MsgBox((object) "Wrong Password. You cannot Edit this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num22: i32 =   Interaction.MsgBox((object) "Wrong Password. You cannot Edit this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       return windowReturnClass;
                     }
                   }
@@ -1422,14 +1422,14 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num23 =  Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num23: i32 =   Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
               }
             }
 label_208:
             if (!(this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.Inspecting | this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.PlayTurn))
             {
-              int tv0 = 0;
+              let mut tv0: i32 =  0;
               do
               {
                 if (this.SubPartID[index1] == this.vari[tv0])

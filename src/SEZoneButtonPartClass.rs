@@ -52,40 +52,40 @@ namespace WindowsApplication1
       Bitmap bitmap;
       if (!this.active)
       {
-         Graphics local1 =  objgraphics;
+         let mut local1: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTON);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
       }
       if (this.active)
       {
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTONHIGH);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local3,  local4, 0, 0);
       }
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (!this.active)
       {
-         Graphics local5 =  objgraphics;
+         let mut local5: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-         Bitmap local6 =  bitmap;
-        rectangle1 = new Rectangle(this.iconSlotNr * 42, 0, 42, 32);
-        Rectangle srcrect = rectangle1;
-        rectangle2 = new Rectangle(0, 3, 48, 32);
-        Rectangle destrect = rectangle2;
+         let mut local6: &Bitmap = &bitmap;
+        rectangle1 = Rectangle::new(this.iconSlotNr * 42, 0, 42, 32);
+        let mut srcrect: &Rectangle = &rectangle1
+        rectangle2 = Rectangle::new(0, 3, 48, 32);
+        let mut destrect: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
       }
       if (this.active)
       {
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-         Bitmap local8 =  bitmap;
-        rectangle2 = new Rectangle(this.iconSlotNr * 42, 32, 42, 32);
-        Rectangle srcrect = rectangle2;
-        rectangle1 = new Rectangle(0, 3, 48, 32);
-        Rectangle destrect = rectangle1;
+         let mut local8: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(this.iconSlotNr * 42, 32, 42, 32);
+        let mut srcrect: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 3, 48, 32);
+        let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
       }
       if (!this.active)
@@ -109,9 +109,9 @@ namespace WindowsApplication1
           index = this.eventpicslotNeg;
         else if (this.delta > 0)
           index = this.eventpicslotPos;
-         Graphics local9 =  objgraphics;
+         let mut local9: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.Data.EventPicNr[index]);
-         Bitmap local10 =  bitmap;
+         let mut local10: &Bitmap = &bitmap;
         let mut x1: i32 = num2;
         DrawMod.DrawSimple( local9,  local10, x1, 13);
         let mut x2: i32 = num2 + 15;
@@ -128,44 +128,44 @@ namespace WindowsApplication1
       Bitmap bitmap;
       if (!this.active)
       {
-         Graphics local1 =  objgraphics;
+         let mut local1: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTON);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTONHIGH);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.Draw( local3,  local4, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
       }
       if (this.active)
       {
-         Graphics local5 =  objgraphics;
+         let mut local5: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ZONEBUTTONHIGH);
-         Bitmap local6 =  bitmap;
+         let mut local6: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local5,  local6, 0, 0);
       }
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (!this.active)
       {
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-         Bitmap local8 =  bitmap;
-        rectangle1 = new Rectangle(this.iconSlotNr * 42, 0, 42, 32);
-        Rectangle srcrect = rectangle1;
-        rectangle2 = new Rectangle(0, 3, 48, 32);
-        Rectangle destrect = rectangle2;
+         let mut local8: &Bitmap = &bitmap;
+        rectangle1 = Rectangle::new(this.iconSlotNr * 42, 0, 42, 32);
+        let mut srcrect: &Rectangle = &rectangle1
+        rectangle2 = Rectangle::new(0, 3, 48, 32);
+        let mut destrect: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
       }
       if (this.active)
       {
-         Graphics local9 =  objgraphics;
+         let mut local9: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_ICONS);
-         Bitmap local10 =  bitmap;
-        rectangle2 = new Rectangle(this.iconSlotNr * 42, 32, 42, 32);
-        Rectangle srcrect = rectangle2;
-        rectangle1 = new Rectangle(0, 3, 48, 32);
-        Rectangle destrect = rectangle1;
+         let mut local10: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(this.iconSlotNr * 42, 32, 42, 32);
+        let mut srcrect: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 3, 48, 32);
+        let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
       }
       if (!this.active)
@@ -189,9 +189,9 @@ namespace WindowsApplication1
           index = this.eventpicslotNeg;
         else if (this.delta > 0)
           index = this.eventpicslotPos;
-         Graphics local11 =  objgraphics;
+         let mut local11: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.Data.EventPicNr[index]);
-         Bitmap local12 =  bitmap;
+         let mut local12: &Bitmap = &bitmap;
         let mut x1: i32 = num2;
         DrawMod.DrawSimple( local11,  local12, x1, 13);
         let mut x2: i32 = num2 + 15;

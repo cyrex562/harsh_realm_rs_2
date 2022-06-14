@@ -288,9 +288,9 @@ namespace WindowsApplication1
               picSpriteId = this.game.Data.SFTypeObj[this.detailnr].ExtraPicSpriteID[index];
           }
         }
-         Graphics local3 =  Expression;
+         let mut local3: &Graphics = &Expression;
         Bitmap bitmap = BitmapStore.GetBitmap(picSpriteId);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local3,  local4, 350, 30, 100, 75);
         DrawMod.DrawRectangle( Expression, 350, 30, 100, 75, 0, 0, 0,  byte.MaxValue);
         DrawMod.DrawRectangle( Expression, 351, 31, 98, 73,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);

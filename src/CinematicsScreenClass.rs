@@ -45,11 +45,11 @@ namespace WindowsApplication1
       Graphics Expression = Graphics.FromImage((Image) this.OwnBackground);
       if (!Information.IsNothing((object) this.bmp))
       {
-        int screenWidth = this.Game.ScreenWidth;
-        int num1 = (int) Math.Round(16.0 / 9.0 * (double) this.Game.ScreenHeight);
-        int num2 = (int) Math.Round(9.0 / 16.0 * (double) screenWidth);
-        int width = num1 + 1;
-        int height = num2 + 1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut num1: i32 =  (int) Math.Round(16.0 / 9.0 * (double) this.Game.ScreenHeight);
+        let mut num2: i32 =  (int) Math.Round(9.0 / 16.0 * (double) screenWidth);
+        let mut width: i32 =  num1 + 1;
+        let mut height: i32 =  num2 + 1;
         if (width < this.Game.ScreenWidth)
         {
           height = (int) Math.Round((double) height * ((double) this.Game.ScreenWidth / (double) width));
@@ -76,26 +76,26 @@ namespace WindowsApplication1
         {
           ref Graphics local1 = ref Expression;
           ref Bitmap local2 = ref this.lastbmp;
-          Rectangle rectangle1 = new Rectangle(0, 0, 1920, 1080);
-          Rectangle srcrect1 = rectangle1;
-          Rectangle rectangle2 = new Rectangle(x, y, width, height);
-          Rectangle destrect1 = rectangle2;
+          Rectangle rectangle1 = Rectangle::new(0, 0, 1920, 1080);
+          let mut srcrect1: &Rectangle = &rectangle1
+          Rectangle rectangle2 = Rectangle::new(x, y, width, height);
+          let mut destrect1: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect1, destrect1);
           ref Graphics local3 = ref Expression;
           ref Bitmap local4 = ref this.bmp;
-          rectangle2 = new Rectangle(0, 0, 1920, 1080);
-          Rectangle srcrect2 = rectangle2;
-          rectangle1 = new Rectangle(x, y, width, height);
-          Rectangle destrect2 = rectangle1;
+          rectangle2 = Rectangle::new(0, 0, 1920, 1080);
+          let mut srcrect2: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, y, width, height);
+          let mut destrect2: &Rectangle = &rectangle1
           double alpha = (double) ((float) this.fadenr / (float) this.fadeFrameCap);
           DrawMod.DrawSimplePartAlpha(ref local3, ref local4, srcrect2, destrect2, (float) alpha);
         }
         else
-          DrawMod.DrawSimplePart2(ref Expression, ref this.bmp, new Rectangle(0, 0, 1920, 1080), new Rectangle(x, y, width, height));
+          DrawMod.DrawSimplePart2(ref Expression, ref this.bmp, Rectangle::new(0, 0, 1920, 1080), Rectangle::new(x, y, width, height));
       }
       else
         Expression.Clear(Color.Black);
-      int num = (int) Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0 + 100.0);
+      let mut num: i32 =  (int) Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0 + 100.0);
       if (this.pagenr == 1)
         this.pagespeed = 1200;
       if (this.pagenr == 2)
@@ -196,8 +196,8 @@ namespace WindowsApplication1
 
     pub void introText(ref Graphics g, string s, int mode, int plusy)
     {
-      int x = (int) Math.Round((double) this.Game.ScreenWidth / 2.0);
-      int num = (int) Math.Round((double) this.Game.ScreenHeight / 2.0);
+      let mut x: i32 =  (int) Math.Round((double) this.Game.ScreenWidth / 2.0);
+      let mut num: i32 =  (int) Math.Round((double) this.Game.ScreenHeight / 2.0);
       if (mode == 1)
       {
         DrawMod.DrawTextColouredMarcCenter(ref g, s, this.Game.introFont1, x + 1, 30 + plusy, Color.FromArgb(0, 0, 0, 58));
@@ -329,7 +329,7 @@ namespace WindowsApplication1
       Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) fileStream);
       Bitmap bitmap2 = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
-      graphics.DrawImage((Image) bitmap1, new Rectangle(0, 0, bitmap1.Width, bitmap1.Height));
+      graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
       bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       fileStream.Close();

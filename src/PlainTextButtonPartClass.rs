@@ -50,7 +50,7 @@ namespace WindowsApplication1
       this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics Expression = Graphics.FromImage((Image) this.backbitmap);
       Expression.CompositingMode = CompositingMode.SourceCopy;
-      Expression.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), new Rectangle(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
+      Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
       Expression.CompositingMode = CompositingMode.SourceOver;
       if (Information.IsNothing((object) Expression))
         return;

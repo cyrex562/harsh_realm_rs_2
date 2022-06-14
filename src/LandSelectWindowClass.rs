@@ -35,8 +35,8 @@ namespace WindowsApplication1
     pub void SetUnits()
     {
       this.UL = UnitList::new();
-      int unitCounter = this.game.Data.UnitCounter;
-      for (int index = 0; index <= unitCounter; index += 1)
+      let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+      for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn)
         {
@@ -55,8 +55,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -71,8 +71,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -94,7 +94,7 @@ namespace WindowsApplication1
       }
       if (this.TAid > 0)
         this.RemoveSubPart(this.TAid);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.Air[index1] > 0)
@@ -117,28 +117,28 @@ namespace WindowsApplication1
       SizeF sizeF2 = toG.MeasureString(str1, this.game.MarcFont4);
       DrawMod.DrawTextColouredMarc( toG, str1, this.game.MarcFont4,  Math.Round(335.0 - (double) sizeF2.Width / 2.0), 40, Color.White);
       str2: String = "Stack: " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.HandyFunctionsObj.maxAttackStack()) + ". Concentric: +" + Conversion.Str((object) Conversion.Int((float) (((double) this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
-      int divBonusForAttack = this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
+      let mut divBonusForAttack: i32 =  this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
       if (divBonusForAttack > 0)
         str2 = str2 + ". Divisional: +" + Conversion.Str((object) Conversion.Int(divBonusForAttack)) + "%";
       SizeF sizeF3 = toG.MeasureString(str2, this.game.MarcFont4);
       DrawMod.DrawTextColouredMarc( toG, str2, this.game.MarcFont4,  Math.Round(335.0 - (double) sizeF3.Width / 2.0), 278, Color.White);
-      int counter = this.UL.counter;
-      for (int index2 = 0; index2 <= counter; index2 += 1)
+      let mut counter: i32 =  this.UL.counter;
+      for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
       {
-        int num1 = 180 + index2 * 40;
-        int num2 = 100;
+        let mut num1: i32 =  180 + index2 * 40;
+        let mut num2: i32 =  100;
         while (num1 > 480)
         {
           num1 -= 320;
           num2 += 40;
         }
         str3: String = "";
-        int num3 = 0;
-        int sfCount = this.game.Data.UnitObj[this.UL.unr[index2]].SFCount;
-        for (int index3 = 0; index3 <= sfCount; index3 += 1)
+        let mut num3: i32 =  0;
+        let mut sfCount: i32 =  this.game.Data.UnitObj[this.UL.unr[index2]].SFCount;
+        for (let mut index3: i32 =  0; index3 <= sfCount; index3 += 1)
         {
-          int sf = DrawMod.TGame.Data.UnitObj[this.UL.unr[index2]].SFList[index3];
-          int type = DrawMod.TGame.Data.SFObj[sf].Type;
+          let mut sf: i32 =  DrawMod.TGame.Data.UnitObj[this.UL.unr[index2]].SFList[index3];
+          let mut type: i32 =  DrawMod.TGame.Data.SFObj[sf].Type;
           if (DrawMod.TGame.Data.SFTypeObj[type].Theater == 0)
           {
             num3 += 1;
@@ -149,7 +149,7 @@ namespace WindowsApplication1
         }
         ttext: String = str3 + "\r\n" + "Average Readiness: " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetAverageRdn(this.UL.unr[index2]))) + "\r\n" + "Action Points: " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetLowestAp(this.UL.unr[index2])));
         this.game.CustomBitmapObj.DrawUnit(this.UL.unr[index2], toG: toG, tx: num1, ty: num2, ShowAttacker: true);
-        Rectangle trect = new Rectangle(num1, num2, 38, 38);
+        Rectangle trect = Rectangle::new(num1, num2, 38, 38);
         this.AddMouse( trect, this.game.Data.UnitObj[this.UL.unr[index2]].Name, ttext, this.UL.unr[index2]);
       }
       let mut tsubpart: SubPartClass =  new TextButtonPartClass("OK", 150, "Click to return to main screen.",  this.OwnBitmap, 265, 315, theight: 40, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -181,8 +181,8 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (this.MouseData[index] > 0 && x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height && this.MouseData[index] >= 0)
         {
@@ -197,8 +197,8 @@ namespace WindowsApplication1
       }
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index] && this.SubPartID[index] == this.cancelid)
           {

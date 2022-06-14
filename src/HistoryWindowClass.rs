@@ -59,7 +59,7 @@ namespace WindowsApplication1
      int lastendstep;
      bool writing;
 
-    pub HistoryWindowClass( GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub HistoryWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, tGame.ScreenWidth, 250, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.dostuff();
@@ -74,8 +74,8 @@ namespace WindowsApplication1
       this.game.EditObj.MiniMap = new Bitmap(1, 1);
       if (this.game.HandyFunctionsObj.GetHumanPlayers() == 1 & this.game.EditObj.TempAIWatch)
       {
-        int regimeCounter = this.game.Data.RegimeCounter;
-        for (int index = 0; index <= regimeCounter; index += 1)
+        let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+        for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         {
           if (!this.game.Data.RegimeObj[index].AI & !this.game.Data.RegimeObj[index].Sleep)
           {
@@ -115,8 +115,8 @@ namespace WindowsApplication1
       this.game.EditObj.HisOwner = new MapMatrix2[this.game.Data.MapCounter + 1];
       this.game.EditObj.HisHis = new MapMatrix2[this.game.Data.MapCounter + 1];
       this.game.EditObj.HisDepth = new MapMatrix2[this.game.Data.MapCounter + 1];
-      int mapCounter = this.game.Data.MapCounter;
-      for (int index = 0; index <= mapCounter; index += 1)
+      let mut mapCounter: i32 =  this.game.Data.MapCounter;
+      for (let mut index: i32 =  0; index <= mapCounter; index += 1)
       {
         this.game.EditObj.HisForce[index] = this.game.Data.RegimeObj[this.Turny].HistoryForce[index].Clone();
         this.game.EditObj.HisSFType[index] = this.game.Data.RegimeObj[this.Turny].HistorySFType[index].Clone();
@@ -141,8 +141,8 @@ namespace WindowsApplication1
 
     pub void Forward(int steps)
     {
-      int num1 = -1;
-      int num2 = 0;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  0;
       this.game.EditObj.HisHotX = -1;
       this.game.EditObj.HisHotY = -1;
       this.game.EditObj.HisHotMap = -1;
@@ -157,9 +157,9 @@ namespace WindowsApplication1
       this.game.EditObj.HisInfoString = "";
       this.game.EditObj.HisAttackType = -1;
       this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-      int num3 = 0;
-      int historyStepCounter = this.game.Data.RegimeObj[this.Turny].HistoryStepCounter;
-      for (int index1 = 0; index1 <= historyStepCounter; index1 += 1)
+      let mut num3: i32 =  0;
+      let mut historyStepCounter: i32 =  this.game.Data.RegimeObj[this.Turny].HistoryStepCounter;
+      for (let mut index1: i32 =  0; index1 <= historyStepCounter; index1 += 1)
       {
         HistoryStepClass historyStepClass = this.game.Data.RegimeObj[this.Turny].HistoryStep[index1];
         if (historyStepClass.StepNr > this.RealStepNr)
@@ -192,7 +192,7 @@ namespace WindowsApplication1
           this.game.EditObj.HisHis[historyStepClass.Map].Value[historyStepClass.X, historyStepClass.Y] = historyStepClass.His;
           this.game.EditObj.HisDepth[historyStepClass.Map].Value[historyStepClass.X, historyStepClass.Y] = historyStepClass.Depth;
           this.game.EditObj.TempCoordList.AddCoord(historyStepClass.X, historyStepClass.Y, historyStepClass.Map);
-          int tfacing = 1;
+          let mut tfacing: i32 =  1;
           do
           {
             Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(historyStepClass.X, historyStepClass.Y, historyStepClass.Map, tfacing);
@@ -218,7 +218,7 @@ namespace WindowsApplication1
             this.game.EditObj.HisHotY = historyStepClass.Y;
             this.game.EditObj.HisHotMap = historyStepClass.Map;
             this.game.EditObj.HisNeighbour = Neighbours::new();
-            int index2 = 0;
+            let mut index2: i32 =  0;
             do
             {
               this.game.EditObj.HisNeighbour.data[index2] = historyStepClass.AttackDirection[index2];
@@ -234,8 +234,8 @@ namespace WindowsApplication1
             this.game.EditObj.HisLossOK = new int[historyStepClass.LossCounter + 1];
             this.game.EditObj.HisLossSFType = new int[historyStepClass.LossCounter + 1];
             this.game.EditObj.HisLossCounter = historyStepClass.LossCounter;
-            int lossCounter = historyStepClass.LossCounter;
-            for (int index3 = 0; index3 <= lossCounter; index3 += 1)
+            let mut lossCounter: i32 =  historyStepClass.LossCounter;
+            for (let mut index3: i32 =  0; index3 <= lossCounter; index3 += 1)
             {
               this.game.EditObj.HisLossAttacker[index3] = historyStepClass.LossAttacker[index3];
               this.game.EditObj.HisLossDEAD[index3] = historyStepClass.LossDEAD[index3];
@@ -254,9 +254,9 @@ namespace WindowsApplication1
         this.game.SelectY = this.game.EditObj.HisHotY;
         this.game.EditObj.MapSelected = this.game.EditObj.HisHotMap;
       }
-      int num4 =  Math.Round((double) this.game.ScreenWidth / 53.0);
-      int num5 =  Math.Round((double) (this.game.ScreenHeight - 200) / 48.0);
-      int num6 = 0;
+      let mut num4: i32 =   Math.Round((double) this.game.ScreenWidth / 53.0);
+      let mut num5: i32 =   Math.Round((double) (this.game.ScreenHeight - 200) / 48.0);
+      let mut num6: i32 =  0;
       if (this.game.SelectX <= this.game.CornerX + 1)
         num6 = 1;
       if (this.game.SelectY <= this.game.CornerY + 1)
@@ -270,8 +270,8 @@ namespace WindowsApplication1
       if (num6 != 1)
         return;
       this.game.EditObj.TempCoordList = CoordList::new();
-      int num7 =  Math.Round((double) this.game.SelectX - (double) num4 / 2.0);
-      int num8 =  Math.Round((double) this.game.SelectY - (double) num5 / 2.0);
+      let mut num7: i32 =   Math.Round((double) this.game.SelectX - (double) num4 / 2.0);
+      let mut num8: i32 =   Math.Round((double) this.game.SelectY - (double) num5 / 2.0);
       if (0 > num7)
         num7 = 0;
       if (0 > num8)
@@ -284,13 +284,13 @@ namespace WindowsApplication1
         this.game.CornerX = 0;
       if (num8 == 0 & this.game.CornerY > 0)
         this.game.CornerY = 0;
-      int num9 = 265;
+      let mut num9: i32 =  265;
       if (this.game.Data.Round == 0)
         num9 += 100;
-      int num10 =  Math.Round((double) (this.game.ScreenWidth - 0) / 53.0);
-      int num11 =  Math.Round((double) (this.game.ScreenHeight - num9) / 48.0);
-      int num12 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
-      int num13 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
+      let mut num10: i32 =   Math.Round((double) (this.game.ScreenWidth - 0) / 53.0);
+      let mut num11: i32 =   Math.Round((double) (this.game.ScreenHeight - num9) / 48.0);
+      let mut num12: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
+      let mut num13: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
       if (num10 > num12)
         this.game.CornerX = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - num10 + 2;
       if (num11 > num13)
@@ -307,8 +307,8 @@ namespace WindowsApplication1
     pub void dostuffonlyslider()
     {
       this.writing = true;
-      int num1 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
-      int num2 = 5;
+      let mut num1: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num2: i32 =  5;
       if (this.Slider1Id > 0)
         this.RemoveSubPart(this.Slider1Id);
       if (this.ExitId > 0)
@@ -383,8 +383,8 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.mapid);
       this.NewBackGroundAndClearAll(this.game.ScreenWidth, 250, -1);
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      int num1 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
-      int num2 = 5;
+      let mut num1: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num2: i32 =  5;
       DrawMod.DrawBlock( objGraphics, 0, 0, this.game.ScreenWidth, 40,  this.game.VicColor5.R,  this.game.VicColor5.G,  this.game.VicColor5.B,  this.game.VicColor5.A);
       DrawMod.DrawBlock( objGraphics, 0, 40, this.game.ScreenWidth, 10,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
       DrawMod.drawLine( objGraphics, 0, 50, this.game.ScreenWidth, 50,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
@@ -394,13 +394,13 @@ namespace WindowsApplication1
       DrawMod.DrawRectangle( objGraphics, num1 + 4, num2 + 101, 201, 131,  DrawMod.TGame.VicColor3.R,  DrawMod.TGame.VicColor3.G,  DrawMod.TGame.VicColor3.B,  DrawMod.TGame.VicColor3.A);
       if (this.game.Data.MapCounter > 0)
       {
-        int num3 = -1;
-        int num4 = -1;
+        let mut num3: i32 =  -1;
+        let mut num4: i32 =  -1;
         this.MapListObj = ListClass::new();
-        int mapCounter = this.game.Data.MapCounter;
-        for (int tdata = 0; tdata <= mapCounter; tdata += 1)
+        let mut mapCounter: i32 =  this.game.Data.MapCounter;
+        for (let mut tdata: i32 =  0; tdata <= mapCounter; tdata += 1)
         {
-          int num5 = 0;
+          let mut num5: i32 =  0;
           if (this.game.Data.Round == 0)
             num5 = 1;
           if (this.game.Data.MapObj[tdata].CanSee)
@@ -416,7 +416,7 @@ namespace WindowsApplication1
           }
         }
         ListClass mapListObj = this.MapListObj;
-        int tlistselect = num3;
+        let mut tlistselect: i32 =  num3;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -476,16 +476,16 @@ namespace WindowsApplication1
         {
           this.OptionsListObj = ATListClass::new();
           this.OptionsListObj.add("TYPE", -1, "START", "LOSS");
-          int hisLossCounter = this.game.EditObj.HisLossCounter;
-          for (int index1 = 0; index1 <= hisLossCounter; index1 += 1)
+          let mut hisLossCounter: i32 =  this.game.EditObj.HisLossCounter;
+          for (let mut index1: i32 =  0; index1 <= hisLossCounter; index1 += 1)
           {
             if (this.game.EditObj.HisLossAttacker[index1] == 1)
             {
-              int index2 = this.game.EditObj.HisLossSFType[index1];
-              int Number1 = this.game.EditObj.HisLossOK[index1] + this.game.EditObj.HisLossDEAD[index1];
+              let mut index2: i32 =  this.game.EditObj.HisLossSFType[index1];
+              let mut Number1: i32 =  this.game.EditObj.HisLossOK[index1] + this.game.EditObj.HisLossDEAD[index1];
               if (this.game.Data.SFTypeObj[index2].Ratio > 0)
                 Number1 *= this.game.Data.SFTypeObj[index2].Ratio;
-              int Number2 = this.game.EditObj.HisLossDEAD[index1];
+              let mut Number2: i32 =  this.game.EditObj.HisLossDEAD[index1];
               if (this.game.Data.SFTypeObj[index2].Ratio > 0)
                 Number2 *= this.game.Data.SFTypeObj[index2].Ratio;
               this.OptionsListObj.add(this.game.Data.SFTypeObj[index2].Name, -1, Strings.Trim(Conversion.Str((object) Number1)), Strings.Trim(Conversion.Str((object) Number2)));
@@ -503,14 +503,14 @@ namespace WindowsApplication1
         {
           this.OptionsList2Obj = ATListClass::new();
           this.OptionsList2Obj.add("TYPE", -1, "START", "LOSS");
-          int hisLossCounter = this.game.EditObj.HisLossCounter;
-          for (int index3 = 0; index3 <= hisLossCounter; index3 += 1)
+          let mut hisLossCounter: i32 =  this.game.EditObj.HisLossCounter;
+          for (let mut index3: i32 =  0; index3 <= hisLossCounter; index3 += 1)
           {
             if (this.game.EditObj.HisLossAttacker[index3] == 0)
             {
-              int index4 = this.game.EditObj.HisLossSFType[index3];
-              int Number3 = this.game.EditObj.HisLossOK[index3] + this.game.EditObj.HisLossDEAD[index3];
-              int Number4 = this.game.EditObj.HisLossDEAD[index3];
+              let mut index4: i32 =  this.game.EditObj.HisLossSFType[index3];
+              let mut Number3: i32 =  this.game.EditObj.HisLossOK[index3] + this.game.EditObj.HisLossDEAD[index3];
+              let mut Number4: i32 =  this.game.EditObj.HisLossDEAD[index3];
               if (this.game.Data.SFTypeObj[index4].Ratio > 0)
                 Number3 *= this.game.Data.SFTypeObj[index4].Ratio;
               if (this.game.Data.SFTypeObj[index4].Ratio > 0)
@@ -646,8 +646,8 @@ namespace WindowsApplication1
         else
           windowReturnClass.SetFlag(true);
       }
-      int num1 = 1;
-      int index = this.game.Data.Turn;
+      let mut num1: i32 =  1;
+      let mut index: i32 =  this.game.Data.Turn;
       bool flag1 = false;
       while (num1 == 1)
       {
@@ -766,15 +766,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.mapid)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               if (num2 > -1)
               {
                 this.detailnr = num2;
@@ -802,8 +802,8 @@ namespace WindowsApplication1
               }
               if (this.lastregime > -1)
               {
-                int lastregime1 = this.lastregime;
-                int num4 = 1;
+                let mut lastregime1: i32 =  this.lastregime;
+                let mut num4: i32 =  1;
                 while (num4 == 1)
                 {
                   num4 = 0;
@@ -812,10 +812,10 @@ namespace WindowsApplication1
                     this.Forward(1);
                     this += 1.Curstep;
                     num4 = 1;
-                    int lastregime2 = this.lastregime;
+                    let mut lastregime2: i32 =  this.lastregime;
                     if (lastregime2 != lastregime1 & lastregime2 != -1)
                     {
-                      int num5 =  Interaction.MsgBox((object) ("History from " + this.game.Data.RegimeObj[lastregime2].Name), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num5: i32 =   Interaction.MsgBox((object) ("History from " + this.game.Data.RegimeObj[lastregime2].Name), Title: ((object) "Shadow Empire : Planetary Conquest"));
                       num4 = 0;
                     }
                   }
@@ -828,7 +828,7 @@ namespace WindowsApplication1
             }
             else if (num1 == this.Slider1Id)
             {
-              int steps = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index], b);
+              let mut steps: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index], b);
               if (steps > this.Curstep)
               {
                 this.game.EditObj.TempCoordList = CoordList::new();

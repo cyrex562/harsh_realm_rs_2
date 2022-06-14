@@ -35,8 +35,8 @@ namespace WindowsApplication1
       if (Operators.ConditionalCompareObjectLess(self.locnr, (object) 0, false))
         return self.OwnBitmap;
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-      int type = self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].Type;
-      int regime = self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].X, self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].Y].Regime;
+      let mut type: i32 =  self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].Type;
+      let mut regime: i32 =  self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].X, self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].Y].Regime;
       if (self.game.Data.Round > 0)
       {
         int red;
@@ -100,12 +100,12 @@ namespace WindowsApplication1
       return self.OwnBitmap;
     }
 
-    pub int Click(int x, int y, int b = 1)
+    pub int Click(int x, int y, let mut b: i32 =  1)
     {
       if (self.mzcount <= -1)
         return -1;
-      int mzcount = self.mzcount;
-      for (int index = 0; index <= mzcount; index += 1)
+      let mut mzcount: i32 =  self.mzcount;
+      for (let mut index: i32 =  0; index <= mzcount; index += 1)
       {
         if (x > self.mzx[index] & y > self.mzy[index] & x < self.mzx[index] + 31 & y < self.mzy[index] + 31)
           return self.mznr[index];
@@ -116,9 +116,9 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
-       Graphics local1 =  graphics;
+       let mut local1: &Graphics = &graphics;
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return self.OwnBitmap;
     }

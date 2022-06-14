@@ -37,10 +37,10 @@ namespace WindowsApplication1
       int tmaxval,
       int startval,
       bool systemfont = false,
-      int tsmallchange = 1,
+      let mut tsmallchange: i32 =  1,
        Bitmap tbackbitmap = null,
-      int bbx = -1,
-      int bby = -1)
+      let mut bbx: i32 =  -1,
+      let mut bby: i32 =  -1)
       : base(twidth, 22)
     {
       this.Width = twidth;
@@ -55,7 +55,7 @@ namespace WindowsApplication1
         this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
-        graphics.DrawImage((Image) tbackbitmap, new Rectangle(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), new Rectangle(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
+        graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
         graphics.CompositingMode = CompositingMode.SourceOver;
       }
       this.bx = bbx;
@@ -77,33 +77,33 @@ namespace WindowsApplication1
         DrawMod.DrawSimple( Expression,  this.backbitmap, 0, 0);
         Expression.CompositingMode = CompositingMode.SourceOver;
       }
-      int num1 =  Math.Round(Conversion.Int((double) this.curval / (double) this.maxval * (double) (this.Width - 291)));
+      let mut num1: i32 =   Math.Round(Conversion.Int((double) this.curval / (double) this.maxval * (double) (this.Width - 291)));
       DrawMod.DrawSteveBlock( Expression, 200, 0, this.Width - 201, 20);
-      int num2 = num1 - 11;
+      let mut num2: i32 =  num1 - 11;
       if (num2 < 0)
         num2 = 0;
-       Graphics local1 =  Expression;
+       let mut local1: &Graphics = &Expression;
       Bitmap bitmap = BitmapStore.GetBitmap(this.game.VSLIDER);
-       Bitmap local2 =  bitmap;
-      int x1 = 240 + num2;
+       let mut local2: &Bitmap = &bitmap;
+      let mut x1: i32 =  240 + num2;
       DrawMod.DrawSimple( local1,  local2, x1, 0);
-       Graphics local3 =  Expression;
+       let mut local3: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(this.game.BUTTONLEFT);
-       Bitmap local4 =  bitmap;
+       let mut local4: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local3,  local4, 220, 0);
-       Graphics local5 =  Expression;
+       let mut local5: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(this.game.BUTTONRIGHT);
-       Bitmap local6 =  bitmap;
-      int x2 = this.Width - 40;
+       let mut local6: &Bitmap = &bitmap;
+      let mut x2: i32 =  this.Width - 40;
       DrawMod.DrawSimple( local5,  local6, x2, 0);
-       Graphics local7 =  Expression;
+       let mut local7: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(this.game.BUTTONLEFT2);
-       Bitmap local8 =  bitmap;
+       let mut local8: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local7,  local8, 200, 0);
-       Graphics local9 =  Expression;
+       let mut local9: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(this.game.BUTTONRIGHT2);
-       Bitmap local10 =  bitmap;
-      int x3 = this.Width - 20;
+       let mut local10: &Bitmap = &bitmap;
+      let mut x3: i32 =  this.Width - 20;
       DrawMod.DrawSimple( local9,  local10, x3, 0);
       DrawMod.DrawSteveBlock( Expression, 0, 0, 180, 20);
       SizeF sizeF1 = SizeF::new();
@@ -117,7 +117,7 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub int Click(int x, int y, int b = 1)
+    pub int Click(int x, int y, let mut b: i32 =  1)
     {
       this.clickscroll = 0;
       if (x > 200 & x < 220)

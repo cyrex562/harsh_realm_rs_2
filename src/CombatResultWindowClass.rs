@@ -131,7 +131,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.txt7id);
       if (this.txt8id > 0)
         this.RemoveSubPart(this.txt8id);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.modid[index1] > 0)
@@ -139,7 +139,7 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 60);
-      int index2 = 0;
+      let mut index2: i32 =  0;
       do
       {
         this.UnitA[0, index2] = -1;
@@ -148,20 +148,20 @@ namespace WindowsApplication1
       }
       while (index2 <= 199);
       this.UnitC = -1;
-      int num1 = 1;
-      int index3 = -1;
-      int index4 = -1;
+      let mut num1: i32 =  1;
+      let mut index3: i32 =  -1;
+      let mut index4: i32 =  -1;
       while (num1 == 1)
       {
         num1 = 0;
-        int icounter = this.game.TempCombat.ICounter;
-        for (int index5 = 0; index5 <= icounter; index5 += 1)
+        let mut icounter: i32 =  this.game.TempCombat.ICounter;
+        for (let mut index5: i32 =  0; index5 <= icounter; index5 += 1)
         {
           if (this.game.TempCombat.IList[index5].IAttacker == 1)
           {
-            int num2 = 0;
-            int num3 = index3;
-            for (int index6 = 0; index6 <= num3; index6 += 1)
+            let mut num2: i32 =  0;
+            let mut num3: i32 =  index3;
+            for (let mut index6: i32 =  0; index6 <= num3; index6 += 1)
             {
               if (this.UnitA[1, index6] == this.game.TempCombat.IList[index5].IUnr)
               {
@@ -181,19 +181,19 @@ namespace WindowsApplication1
           }
         }
       }
-      int num4 = 1;
-      int index7 = -1;
+      let mut num4: i32 =  1;
+      let mut index7: i32 =  -1;
       while (num4 == 1)
       {
         num4 = 0;
-        int icounter = this.game.TempCombat.ICounter;
-        for (int index8 = 0; index8 <= icounter; index8 += 1)
+        let mut icounter: i32 =  this.game.TempCombat.ICounter;
+        for (let mut index8: i32 =  0; index8 <= icounter; index8 += 1)
         {
           if (this.game.TempCombat.IList[index8].IAttacker == 0)
           {
-            int num5 = 0;
-            int num6 = index7;
-            for (int index9 = 0; index9 <= num6; index9 += 1)
+            let mut num5: i32 =  0;
+            let mut num6: i32 =  index7;
+            for (let mut index9: i32 =  0; index9 <= num6; index9 += 1)
             {
               if (this.UnitA[0, index9] == this.game.TempCombat.IList[index8].IUnr)
               {
@@ -214,13 +214,13 @@ namespace WindowsApplication1
           }
         }
       }
-      int unitCounter = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].UnitCounter;
-      for (int index10 = 0; index10 <= unitCounter; index10 += 1)
+      let mut unitCounter: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].UnitCounter;
+      for (let mut index10: i32 =  0; index10 <= unitCounter; index10 += 1)
       {
-        int unit = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].UnitList[index10];
-        int num7 = 0;
-        int num8 = index7;
-        for (int index11 = 0; index11 <= num8; index11 += 1)
+        let mut unit: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].UnitList[index10];
+        let mut num7: i32 =  0;
+        let mut num8: i32 =  index7;
+        for (let mut index11: i32 =  0; index11 <= num8; index11 += 1)
         {
           if (this.UnitA[0, index11] == unit)
           {
@@ -255,8 +255,8 @@ namespace WindowsApplication1
         int[] numArray9 = new int[2];
         int[] numArray10 = new int[2];
         int[] numArray11 = new int[2];
-        int num9 = 0;
-        int num10 = 0;
+        let mut num9: i32 =  0;
+        let mut num10: i32 =  0;
         numArray4[0] = 0;
         numArray4[1] = 0;
         numArray5[0] = 0;
@@ -273,61 +273,61 @@ namespace WindowsApplication1
         numArray10[1] = 0;
         numArray11[0] = 0;
         numArray11[1] = 0;
-        int icounter1 = this.game.TempCombat.ICounter;
+        let mut icounter1: i32 =  this.game.TempCombat.ICounter;
         int index12;
-        for (int index13 = 0; index13 <= icounter1; index13 += 1)
+        for (let mut index13: i32 =  0; index13 <= icounter1; index13 += 1)
         {
-          int iattacker = this.game.TempCombat.IList[index13].IAttacker;
+          let mut iattacker: i32 =  this.game.TempCombat.IList[index13].IAttacker;
           index12 = this.game.TempCombat.IList[index13].ISFType;
           if (this.game.TempCombat.IList[index13].IKilled > 0)
           {
             int[,] numArray12 = numArray1;
             int[,] numArray13 = numArray12;
-            int index14 = index12;
-            int index15 = index14;
-            int index16 = iattacker;
-            int index17 = index16;
-            int num11 = numArray12[index14, index16] + 1;
+            let mut index14: i32 =  index12;
+            let mut index15: i32 =  index14;
+            let mut index16: i32 =  iattacker;
+            let mut index17: i32 =  index16;
+            let mut num11: i32 =  numArray12[index14, index16] + 1;
             numArray13[index15, index17] = num11;
             int[] numArray14 = numArray8;
             int[] numArray15 = numArray14;
-            int index18 = iattacker;
-            int index19 = index18;
-            int num12 = numArray14[index18] + this.game.Data.SFTypeObj[index12].PowerPts;
+            let mut index18: i32 =  iattacker;
+            let mut index19: i32 =  index18;
+            let mut num12: i32 =  numArray14[index18] + this.game.Data.SFTypeObj[index12].PowerPts;
             numArray15[index19] = num12;
           }
           else if (this.game.TempCombat.IList[index13].IRetreat > 0)
           {
             int[,] numArray16 = numArray2;
             int[,] numArray17 = numArray16;
-            int index20 = index12;
-            int index21 = index20;
-            int index22 = iattacker;
-            int index23 = index22;
-            int num13 = numArray16[index20, index22] + 1;
+            let mut index20: i32 =  index12;
+            let mut index21: i32 =  index20;
+            let mut index22: i32 =  iattacker;
+            let mut index23: i32 =  index22;
+            let mut num13: i32 =  numArray16[index20, index22] + 1;
             numArray17[index21, index23] = num13;
             int[] numArray18 = numArray9;
             int[] numArray19 = numArray18;
-            int index24 = iattacker;
-            int index25 = index24;
-            int num14 = numArray18[index24] + this.game.Data.SFTypeObj[index12].PowerPts;
+            let mut index24: i32 =  iattacker;
+            let mut index25: i32 =  index24;
+            let mut num14: i32 =  numArray18[index24] + this.game.Data.SFTypeObj[index12].PowerPts;
             numArray19[index25] = num14;
           }
           else
           {
             int[,] numArray20 = numArray3;
             int[,] numArray21 = numArray20;
-            int index26 = index12;
-            int index27 = index26;
-            int index28 = iattacker;
-            int index29 = index28;
-            int num15 = numArray20[index26, index28] + 1;
+            let mut index26: i32 =  index12;
+            let mut index27: i32 =  index26;
+            let mut index28: i32 =  iattacker;
+            let mut index29: i32 =  index28;
+            let mut num15: i32 =  numArray20[index26, index28] + 1;
             numArray21[index27, index29] = num15;
             int[] numArray22 = numArray10;
             int[] numArray23 = numArray22;
-            int index30 = iattacker;
-            int index31 = index30;
-            int num16 = numArray22[index30] + this.game.Data.SFTypeObj[index12].PowerPts;
+            let mut index30: i32 =  iattacker;
+            let mut index31: i32 =  index30;
+            let mut num16: i32 =  numArray22[index30] + this.game.Data.SFTypeObj[index12].PowerPts;
             numArray23[index31] = num16;
           }
           if (this.game.TempCombat.IList[index13].IKilled <= 0)
@@ -336,60 +336,60 @@ namespace WindowsApplication1
             {
               int[] numArray24 = numArray11;
               int[] numArray25 = numArray24;
-              int index32 = iattacker;
-              int index33 = index32;
-              int num17 = numArray24[index32] + this.game.Data.SFTypeObj[index12].PowerPts;
+              let mut index32: i32 =  iattacker;
+              let mut index33: i32 =  index32;
+              let mut num17: i32 =  numArray24[index32] + this.game.Data.SFTypeObj[index12].PowerPts;
               numArray25[index33] = num17;
               int[] startRdn = this.StartRdn;
               int[] numArray26 = startRdn;
-              int index34 = iattacker;
-              int index35 = index34;
-              int num18 = startRdn[index34] + this.game.TempCombat.IList[index13].IRdn;
+              let mut index34: i32 =  iattacker;
+              let mut index35: i32 =  index34;
+              let mut num18: i32 =  startRdn[index34] + this.game.TempCombat.IList[index13].IRdn;
               numArray26[index35] = num18;
               int[] startXp = this.StartXp;
               int[] numArray27 = startXp;
-              int index36 = iattacker;
-              int index37 = index36;
-              int num19 = startXp[index36] + this.game.TempCombat.IList[index13].IXp;
+              let mut index36: i32 =  iattacker;
+              let mut index37: i32 =  index36;
+              let mut num19: i32 =  startXp[index36] + this.game.TempCombat.IList[index13].IXp;
               numArray27[index37] = num19;
               int[] startMor = this.StartMor;
               int[] numArray28 = startMor;
-              int index38 = iattacker;
-              int index39 = index38;
-              int num20 = startMor[index38] + this.game.TempCombat.IList[index13].IMor;
+              let mut index38: i32 =  iattacker;
+              let mut index39: i32 =  index38;
+              let mut num20: i32 =  startMor[index38] + this.game.TempCombat.IList[index13].IMor;
               numArray28[index39] = num20;
               int[] startEntr = this.StartEntr;
               int[] numArray29 = startEntr;
-              int index40 = iattacker;
-              int index41 = index40;
-              int num21 = startEntr[index40] + this.game.TempCombat.IList[index13].IEntrench;
+              let mut index40: i32 =  iattacker;
+              let mut index41: i32 =  index40;
+              let mut num21: i32 =  startEntr[index40] + this.game.TempCombat.IList[index13].IEntrench;
               numArray29[index41] = num21;
             }
             else
             {
               int[] numArray30 = numArray4;
               int[] numArray31 = numArray30;
-              int index42 = iattacker;
-              int index43 = index42;
-              int num22 = numArray30[index42] + this.game.TempCombat.IList[index13].IRdn;
+              let mut index42: i32 =  iattacker;
+              let mut index43: i32 =  index42;
+              let mut num22: i32 =  numArray30[index42] + this.game.TempCombat.IList[index13].IRdn;
               numArray31[index43] = num22;
               int[] numArray32 = numArray5;
               int[] numArray33 = numArray32;
-              int index44 = iattacker;
-              int index45 = index44;
-              int num23 = numArray32[index44] + this.game.TempCombat.IList[index13].IXp;
+              let mut index44: i32 =  iattacker;
+              let mut index45: i32 =  index44;
+              let mut num23: i32 =  numArray32[index44] + this.game.TempCombat.IList[index13].IXp;
               numArray33[index45] = num23;
               int[] numArray34 = numArray6;
               int[] numArray35 = numArray34;
-              int index46 = iattacker;
-              int index47 = index46;
-              int num24 = numArray34[index46] + this.game.TempCombat.IList[index13].IMor;
+              let mut index46: i32 =  iattacker;
+              let mut index47: i32 =  index46;
+              let mut num24: i32 =  numArray34[index46] + this.game.TempCombat.IList[index13].IMor;
               numArray35[index47] = num24;
               int[] numArray36 = numArray7;
               int[] numArray37 = numArray36;
-              int index48 = iattacker;
-              int index49 = index48;
-              int num25 = numArray36[index48] + this.game.TempCombat.IList[index13].IEntrench;
+              let mut index48: i32 =  iattacker;
+              let mut index49: i32 =  index48;
+              let mut num25: i32 =  numArray36[index48] + this.game.TempCombat.IList[index13].IEntrench;
               numArray37[index49] = num25;
             }
             if (iattacker == 1)
@@ -412,7 +412,7 @@ namespace WindowsApplication1
           this.StartXp[1] =  Math.Round(Conversion.Int((double) this.StartXp[1] / (double) num9));
           this.StartMor[1] =  Math.Round(Conversion.Int((double) this.StartMor[1] / (double) num9));
           this.StartEntr[1] =  Math.Round(Conversion.Int((double) this.StartEntr[1] / (double) num9));
-          int index50 = 0;
+          let mut index50: i32 =  0;
           do
           {
             this.game.EditObj.StartRdn[index50] = this.StartRdn[index50];
@@ -433,7 +433,7 @@ namespace WindowsApplication1
           numArray5[1] =  Math.Round(Conversion.Int((double) numArray5[1] / (double) num9));
           numArray6[1] =  Math.Round(Conversion.Int((double) numArray6[1] / (double) num9));
           numArray7[1] =  Math.Round(Conversion.Int((double) numArray7[1] / (double) num9));
-          int index51 = 0;
+          let mut index51: i32 =  0;
           do
           {
             this.StartRdn[index51] = this.game.EditObj.StartRdn[index51];
@@ -446,14 +446,14 @@ namespace WindowsApplication1
         }
         if (this.showdetail == 0)
         {
-          int num26 = 185;
+          let mut num26: i32 =  185;
           Bitmap bitmap;
           if (this.game.TempCombat.DefenderRegime > -1)
           {
             ref Graphics local1 = ref Expression1;
             bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
             ref Bitmap local2 = ref bitmap;
-            int y = num26;
+            let mut y: i32 =  num26;
             double r = (double) this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Red / (double) byte.MaxValue - 1.0;
             double g = (double) this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Green / (double) byte.MaxValue - 1.0;
             double b = (double) this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Blue / (double) byte.MaxValue - 1.0;
@@ -464,27 +464,27 @@ namespace WindowsApplication1
             ref Graphics local3 = ref Expression1;
             bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
             ref Bitmap local4 = ref bitmap;
-            int y = num26;
+            let mut y: i32 =  num26;
             DrawMod.Draw(ref local3, ref local4, 150, y, -0.4980392f, -0.4980392f, -0.4980392f, 1f);
           }
-          int num27 = 495;
+          let mut num27: i32 =  495;
           ref Graphics local5 = ref Expression1;
           bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
           ref Bitmap local6 = ref bitmap;
-          int y1 = num27;
+          let mut y1: i32 =  num27;
           double r1 = (double) ((float) this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Red / (float) byte.MaxValue);
           double g1 = (double) ((float) this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Green / (float) byte.MaxValue);
           double b1 = (double) ((float) this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Blue / (float) byte.MaxValue);
           DrawMod.Draw(ref local5, ref local6, 150, y1, (float) r1, (float) g1, (float) b1, 1f);
           DrawMod.DrawBlock(ref Expression1, 150, 110, 840, 310,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
           DrawMod.DrawBlock(ref Expression1, 150, 420, 840, 310,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
-          int unitC1 = this.UnitC;
-          for (int index52 = 0; index52 <= unitC1; index52 += 1)
+          let mut unitC1: i32 =  this.UnitC;
+          for (let mut index52: i32 =  0; index52 <= unitC1; index52 += 1)
           {
-            int num28 =  Math.Round(640.0 / (double) (this.UnitC + 1));
-            int num29 = num28 * (index52 + 1);
-            int num30 = num28 * index52;
-            int Length =  Math.Round(100.0 / (double) (this.UnitC + 1));
+            let mut num28: i32 =   Math.Round(640.0 / (double) (this.UnitC + 1));
+            let mut num29: i32 =  num28 * (index52 + 1);
+            let mut num30: i32 =  num28 * index52;
+            let mut Length: i32 =   Math.Round(100.0 / (double) (this.UnitC + 1));
             if (index52 > -1)
             {
               num29 =  Math.Round((double) num29 + 100.0 / (double) (this.UnitC + 1) * (double) (index52 + 1));
@@ -563,25 +563,25 @@ namespace WindowsApplication1
           DrawMod.drawLine(ref Expression1, 990, 350, 990, 730,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
           DrawMod.drawLine(ref Expression1, 150, 110, 150, 350,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
           DrawMod.drawLine(ref Expression1, 150, 350, 150, 730,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
-          int index53 = 0;
+          let mut index53: i32 =  0;
           do
           {
-            int unitC2 = this.UnitC;
-            for (int index54 = 0; index54 <= unitC2; index54 += 1)
+            let mut unitC2: i32 =  this.UnitC;
+            for (let mut index54: i32 =  0; index54 <= unitC2; index54 += 1)
             {
-              int num31 = 0;
+              let mut num31: i32 =  0;
               do
               {
-                int num32 = 70 + index53 * 240 + 50 + num31 * 80;
+                let mut num32: i32 =  70 + index53 * 240 + 50 + num31 * 80;
                 if (index53 == 1)
                   num32 += 70;
-                int num33 = -1;
-                int num34 = 0;
-                int sfTypeCounter1 = this.game.Data.SFTypeCounter;
-                for (int index55 = 0; index55 <= sfTypeCounter1; index55 += 1)
+                let mut num33: i32 =  -1;
+                let mut num34: i32 =  0;
+                let mut sfTypeCounter1: i32 =  this.game.Data.SFTypeCounter;
+                for (let mut index55: i32 =  0; index55 <= sfTypeCounter1; index55 += 1)
                 {
-                  int icounter2 = this.game.TempCombat.ICounter;
-                  for (int index56 = 0; index56 <= icounter2; index56 += 1)
+                  let mut icounter2: i32 =  this.game.TempCombat.ICounter;
+                  for (let mut index56: i32 =  0; index56 <= icounter2; index56 += 1)
                   {
                     if (this.game.TempCombat.IList[index56].ISFType == index55 & this.game.TempCombat.IList[index56].IUnr == this.UnitA[index53, index54] && this.game.TempCombat.IList[index56].IAttacker == index53)
                     {
@@ -614,13 +614,13 @@ namespace WindowsApplication1
                     }
                   }
                 }
-                int sfTypeCounter2 = this.game.Data.SFTypeCounter;
-                for (int index57 = 0; index57 <= sfTypeCounter2; index57 += 1)
+                let mut sfTypeCounter2: i32 =  this.game.Data.SFTypeCounter;
+                for (let mut index57: i32 =  0; index57 <= sfTypeCounter2; index57 += 1)
                 {
-                  int icounter3 = this.game.TempCombat.ICounter;
-                  for (int index58 = 0; index58 <= icounter3; index58 += 1)
+                  let mut icounter3: i32 =  this.game.TempCombat.ICounter;
+                  for (let mut index58: i32 =  0; index58 <= icounter3; index58 += 1)
                   {
-                    int num35 = 0;
+                    let mut num35: i32 =  0;
                     if (this.game.TempCombat.IList[index58].ISFType == index57 && this.game.TempCombat.IList[index58].IAttacker == index53 & this.game.TempCombat.IList[index58].IUnr == this.UnitA[index53, index54])
                     {
                       switch (num31)
@@ -649,8 +649,8 @@ namespace WindowsApplication1
                       }
                       if (num35 > 0)
                       {
-                        int symbolSpriteId = this.game.Data.SFTypeObj[index57].SymbolSpriteID;
-                        int index59 = -1;
+                        let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[index57].SymbolSpriteID;
+                        let mut index59: i32 =  -1;
                         if (index53 == 0)
                           index59 = this.game.TempCombat.DefenderRegime;
                         if (index53 == 1)
@@ -659,8 +659,8 @@ namespace WindowsApplication1
                         {
                           if (this.game.Data.RegimeObj[index59].ExtraGraphicUse > -1)
                           {
-                            int extraCounter = this.game.Data.SFTypeObj[index57].ExtraCounter;
-                            for (int index60 = 0; index60 <= extraCounter; index60 += 1)
+                            let mut extraCounter: i32 =  this.game.Data.SFTypeObj[index57].ExtraCounter;
+                            for (let mut index60: i32 =  0; index60 <= extraCounter; index60 += 1)
                             {
                               if (this.game.Data.SFTypeObj[index57].ExtraCode[index60] == this.game.Data.RegimeObj[index59].ExtraGraphicUse)
                                 symbolSpriteId = this.game.Data.SFTypeObj[index57].ExtraSymbolSpriteID[index60];
@@ -668,8 +668,8 @@ namespace WindowsApplication1
                           }
                           else if (this.game.Data.PeopleObj[this.game.Data.SFObj[this.game.TempCombat.IList[index58].ISFNr].People].ExtraGraphicUse > -1)
                           {
-                            int extraCounter = this.game.Data.SFTypeObj[index57].ExtraCounter;
-                            for (int index61 = 0; index61 <= extraCounter; index61 += 1)
+                            let mut extraCounter: i32 =  this.game.Data.SFTypeObj[index57].ExtraCounter;
+                            for (let mut index61: i32 =  0; index61 <= extraCounter; index61 += 1)
                             {
                               if (this.game.Data.SFTypeObj[index57].ExtraCode[index61] == this.game.Data.PeopleObj[this.game.Data.SFObj[this.game.TempCombat.IList[index58].ISFNr].People].ExtraGraphicUse)
                                 symbolSpriteId = this.game.Data.SFTypeObj[index57].ExtraSymbolSpriteID[index61];
@@ -677,16 +677,16 @@ namespace WindowsApplication1
                           }
                         }
                         num33 += 1;
-                        int num36 =  Math.Round(640.0 / (double) (this.UnitC + 1));
-                        int num37 =  Math.Round(Conversion.Int((double) (num36 * 4) / (double) num34));
+                        let mut num36: i32 =   Math.Round(640.0 / (double) (this.UnitC + 1));
+                        let mut num37: i32 =   Math.Round(Conversion.Int((double) (num36 * 4) / (double) num34));
                         if (num37 > 25)
                           num37 = 25;
                         if (num37 < 1)
                           num37 = 1;
-                        int num38 = num37 * num33;
-                        int num39 = num36 % num37;
-                        int num40 = num36 - num39;
-                        int num41 = (num40 + num39) * index54;
+                        let mut num38: i32 =  num37 * num33;
+                        let mut num39: i32 =  num36 % num37;
+                        let mut num40: i32 =  num36 - num39;
+                        let mut num41: i32 =  (num40 + num39) * index54;
                         if (index54 > 0)
                           num41 =  Math.Round((double) num41 + 100.0 / (double) (this.UnitC + 1) * (double) index54);
                         int num42;
@@ -711,7 +711,7 @@ namespace WindowsApplication1
                           num42 = 3 * num40 + 2 * num37;
                           num43 = 118;
                         }
-                        int num44 = 0;
+                        let mut num44: i32 =  0;
                         if (this.game.TempCombat.IList[index58].ICapitulate)
                           num44 = 1;
                         if (this.game.TempCombat.IList[index58].IBreakTrough > 0 & (num31 == 0 & index53 == 0 | num31 == 0 & index53 == 1))
@@ -722,34 +722,34 @@ namespace WindowsApplication1
                             ref Graphics local7 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(symbolSpriteId);
                             ref Bitmap local8 = ref bitmap;
-                            int x1 = num41 + 150 + num37 * num33 - num42;
-                            int y2 = num32 + num43;
+                            let mut x1: i32 =  num41 + 150 + num37 * num33 - num42;
+                            let mut y2: i32 =  num32 + num43;
                             DrawMod.DrawSimple(ref local7, ref local8, x1, y2);
                             break;
                           case 1:
                             ref Graphics local9 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(symbolSpriteId);
                             ref Bitmap local10 = ref bitmap;
-                            int x2 = num41 + 150 + num37 * num33 - num42;
-                            int y3 = num32 + num43;
+                            let mut x2: i32 =  num41 + 150 + num37 * num33 - num42;
+                            let mut y3: i32 =  num32 + num43;
                             DrawMod.DrawSimple(ref local9, ref local10, x2, y3);
                             ref Graphics local11 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(this.game.WHITEFLAG);
                             ref Bitmap local12 = ref bitmap;
-                            int x3 = num41 + 157 + num37 * num33 - num42;
-                            int y4 = num32 + num43;
+                            let mut x3: i32 =  num41 + 157 + num37 * num33 - num42;
+                            let mut y4: i32 =  num32 + num43;
                             DrawMod.DrawSimple(ref local11, ref local12, x3, y4);
                             break;
                           case 2:
                             ref Graphics local13 = ref Expression1;
                             bitmap = BitmapStore.GetBitmap(symbolSpriteId);
                             ref Bitmap local14 = ref bitmap;
-                            int x4 = num41 + 150 + num37 * num33 - num42;
-                            int y5 = num32 + num43;
+                            let mut x4: i32 =  num41 + 150 + num37 * num33 - num42;
+                            let mut y5: i32 =  num32 + num43;
                             DrawMod.Draw(ref local13, ref local14, x4, y5, 0.0f, 0.0f, -1f, 1f);
                             break;
                         }
-                        int num45 =  Math.Round(Conversion.Int((double) this.game.TempCombat.IList[index58].IRdn / 10.0));
+                        let mut num45: i32 =   Math.Round(Conversion.Int((double) this.game.TempCombat.IList[index58].IRdn / 10.0));
                         DrawMod.drawLine(ref Expression1, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43 + 10, 0, 0, 0,  byte.MaxValue);
                         DrawMod.drawLine(ref Expression1, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43 + 10 - num45, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43 + 10, 0,  byte.MaxValue, 0,  byte.MaxValue);
                       }
@@ -768,37 +768,37 @@ namespace WindowsApplication1
         {
           str1: String = "ATTACKER TOTALS\r\n";
           Expression2: String = "SUBFORMATIONTYPE";
-          int Number1 = 35 - Strings.Len(Expression2);
+          let mut Number1: i32 =  35 - Strings.Len(Expression2);
           if (0 > Number1)
             Number1 = 0;
           str2: String = str1 + Expression2 + Strings.Space(Number1);
           Expression3: String = "INITIAL";
-          int Number2 = 10 - Strings.Len(Expression3);
+          let mut Number2: i32 =  10 - Strings.Len(Expression3);
           if (0 > Number2)
             Number2 = 0;
           str3: String = str2 + Expression3 + Strings.Space(Number2);
           Expression4: String = "ATTACK";
-          int Number3 = 9 - Strings.Len(Expression4);
+          let mut Number3: i32 =  9 - Strings.Len(Expression4);
           if (0 > Number3)
             Number3 = 0;
           str4: String = str3 + Expression4 + Strings.Space(Number3);
           Expression5: String = "DEAD";
-          int Number4 = 7 - Strings.Len(Expression5);
+          let mut Number4: i32 =  7 - Strings.Len(Expression5);
           if (0 > Number4)
             Number4 = 0;
           str5: String = str4 + Expression5 + Strings.Space(Number4);
           Expression6: String = "RETREAT";
-          int Number5 = 9 - Strings.Len(Expression6);
+          let mut Number5: i32 =  9 - Strings.Len(Expression6);
           if (0 > Number5)
             Number5 = 0;
           str6: String = str5 + Expression6 + Strings.Space(Number5);
           Expression7: String = "ALIVE";
-          int Number6 = 6 - Strings.Len(Expression7);
+          let mut Number6: i32 =  6 - Strings.Len(Expression7);
           if (0 > Number6)
             Number6 = 0;
           str7: String = str6 + Expression7 + Strings.Space(Number6) + "\r\n";
-          int sfTypeCounter3 = this.game.Data.SFTypeCounter;
-          for (int index62 = 0; index62 <= sfTypeCounter3; index62 += 1)
+          let mut sfTypeCounter3: i32 =  this.game.Data.SFTypeCounter;
+          for (let mut index62: i32 =  0; index62 <= sfTypeCounter3; index62 += 1)
           {
             index12 = 1;
             if (this.game.Data.SFTypeObj[index62].Ratio > 0)
@@ -808,32 +808,32 @@ namespace WindowsApplication1
               Expression8: String = this.game.Data.SFTypeObj[index62].Name;
               if (Strings.Len(Expression8) > 29)
                 Expression8 = Strings.Left(str7, 29);
-              int Number7 = 35 - Strings.Len(Expression8);
+              let mut Number7: i32 =  35 - Strings.Len(Expression8);
               if (0 > Number7)
                 Number7 = 0;
               str8: String = str7 + Expression8 + Strings.Space(Number7);
               Expression9: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray3[index62, 1] + numArray1[index62, 1] + numArray2[index62, 1]))));
-              int Number8 = 10 - Strings.Len(Expression9);
+              let mut Number8: i32 =  10 - Strings.Len(Expression9);
               if (0 > Number8)
                 Number8 = 0;
               str9: String = str8 + Expression9 + Strings.Space(Number8);
               Expression10: String = Strings.Trim(Conversion.Str((object) (index12 * numArray3[index62, 1])));
-              int Number9 = 9 - Strings.Len(Expression10);
+              let mut Number9: i32 =  9 - Strings.Len(Expression10);
               if (0 > Number9)
                 Number9 = 0;
               str10: String = str9 + Expression10 + Strings.Space(Number9);
               Expression11: String = Strings.Trim(Conversion.Str((object) (index12 * numArray1[index62, 1])));
-              int Number10 = 7 - Strings.Len(Expression11);
+              let mut Number10: i32 =  7 - Strings.Len(Expression11);
               if (0 > Number10)
                 Number10 = 0;
               str11: String = str10 + Expression11 + Strings.Space(Number10);
               Expression12: String = Strings.Trim(Conversion.Str((object) (index12 * numArray2[index62, 1])));
-              int Number11 = 9 - Strings.Len(Expression12);
+              let mut Number11: i32 =  9 - Strings.Len(Expression12);
               if (0 > Number11)
                 Number11 = 0;
               str12: String = str11 + Expression12 + Strings.Space(Number11);
               Expression13: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray2[index62, 1] + numArray3[index62, 1]))));
-              int Number12 = 6 - Strings.Len(Expression13);
+              let mut Number12: i32 =  6 - Strings.Len(Expression13);
               if (0 > Number12)
                 Number12 = 0;
               str7 = str12 + Expression13 + Strings.Space(Number12) + "\r\n";
@@ -842,67 +842,67 @@ namespace WindowsApplication1
           Expression14: String = "TOTAL POWERPOINTS";
           if (Strings.Len(Expression14) > 29)
             Expression14 = Strings.Left(str7, 29);
-          int Number13 = 35 - Strings.Len(Expression14);
+          let mut Number13: i32 =  35 - Strings.Len(Expression14);
           if (0 > Number13)
             Number13 = 0;
           str13: String = str7 + Expression14 + Strings.Space(Number13);
           Expression15: String = Strings.Trim(Conversion.Str((object) (numArray10[1] + numArray8[1] + numArray9[1])));
-          int Number14 = 10 - Strings.Len(Expression15);
+          let mut Number14: i32 =  10 - Strings.Len(Expression15);
           if (0 > Number14)
             Number14 = 0;
           str14: String = str13 + Expression15 + Strings.Space(Number14);
           Expression16: String = Strings.Trim(Conversion.Str((object) numArray10[1]));
-          int Number15 = 9 - Strings.Len(Expression16);
+          let mut Number15: i32 =  9 - Strings.Len(Expression16);
           if (0 > Number15)
             Number15 = 0;
           str15: String = str14 + Expression16 + Strings.Space(Number15);
           Expression17: String = Strings.Trim(Conversion.Str((object) numArray8[1]));
-          int Number16 = 7 - Strings.Len(Expression17);
+          let mut Number16: i32 =  7 - Strings.Len(Expression17);
           if (0 > Number16)
             Number16 = 0;
           str16: String = str15 + Expression17 + Strings.Space(Number16);
           Expression18: String = Strings.Trim(Conversion.Str((object) numArray9[1]));
-          int Number17 = 9 - Strings.Len(Expression18);
+          let mut Number17: i32 =  9 - Strings.Len(Expression18);
           if (0 > Number17)
             Number17 = 0;
           str17: String = str16 + Expression18 + Strings.Space(Number17);
           Expression19: String = Strings.Trim(Conversion.Str((object) (numArray9[1] + numArray10[1])));
-          int Number18 = 6 - Strings.Len(Expression19);
+          let mut Number18: i32 =  6 - Strings.Len(Expression19);
           if (0 > Number18)
             Number18 = 0;
           str18: String = str17 + Expression19 + Strings.Space(Number18) + "\r\n" + "\r\n" + "DEFENDERS TOTALS\r\n";
           Expression20: String = "SUBFORMATIONTYPE";
-          int Number19 = 35 - Strings.Len(Expression20);
+          let mut Number19: i32 =  35 - Strings.Len(Expression20);
           if (0 > Number19)
             Number19 = 0;
           str19: String = str18 + Expression20 + Strings.Space(Number19);
           Expression21: String = "INITIAL";
-          int Number20 = 10 - Strings.Len(Expression21);
+          let mut Number20: i32 =  10 - Strings.Len(Expression21);
           if (0 > Number20)
             Number20 = 0;
           str20: String = str19 + Expression21 + Strings.Space(Number20);
           Expression22: String = "ATTACK";
-          int Number21 = 9 - Strings.Len(Expression22);
+          let mut Number21: i32 =  9 - Strings.Len(Expression22);
           if (0 > Number21)
             Number21 = 0;
           str21: String = str20 + Expression22 + Strings.Space(Number21);
           Expression23: String = "DEAD";
-          int Number22 = 7 - Strings.Len(Expression23);
+          let mut Number22: i32 =  7 - Strings.Len(Expression23);
           if (0 > Number22)
             Number22 = 0;
           str22: String = str21 + Expression23 + Strings.Space(Number22);
           Expression24: String = "RETREAT";
-          int Number23 = 9 - Strings.Len(Expression24);
+          let mut Number23: i32 =  9 - Strings.Len(Expression24);
           if (0 > Number23)
             Number23 = 0;
           str23: String = str22 + Expression24 + Strings.Space(Number23);
           Expression25: String = "ALIVE";
-          int Number24 = 6 - Strings.Len(Expression25);
+          let mut Number24: i32 =  6 - Strings.Len(Expression25);
           if (0 > Number24)
             Number24 = 0;
           str24: String = str23 + Expression25 + Strings.Space(Number24) + "\r\n";
-          int sfTypeCounter4 = this.game.Data.SFTypeCounter;
-          for (int index63 = 0; index63 <= sfTypeCounter4; index63 += 1)
+          let mut sfTypeCounter4: i32 =  this.game.Data.SFTypeCounter;
+          for (let mut index63: i32 =  0; index63 <= sfTypeCounter4; index63 += 1)
           {
             index12 = 1;
             if (this.game.Data.SFTypeObj[index63].Ratio > 0)
@@ -912,32 +912,32 @@ namespace WindowsApplication1
               Expression26: String = this.game.Data.SFTypeObj[index63].Name;
               if (Strings.Len(Expression26) > 29)
                 Expression26 = Strings.Left(str24, 29);
-              int Number25 = 35 - Strings.Len(Expression26);
+              let mut Number25: i32 =  35 - Strings.Len(Expression26);
               if (0 > Number25)
                 Number25 = 0;
               str25: String = str24 + Expression26 + Strings.Space(Number25);
               Expression27: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray3[index63, 0] + numArray1[index63, 0] + numArray2[index63, 0]))));
-              int Number26 = 10 - Strings.Len(Expression27);
+              let mut Number26: i32 =  10 - Strings.Len(Expression27);
               if (0 > Number26)
                 Number26 = 0;
               str26: String = str25 + Expression27 + Strings.Space(Number26);
               Expression28: String = Strings.Trim(Conversion.Str((object) (index12 * numArray3[index63, 0])));
-              int Number27 = 9 - Strings.Len(Expression28);
+              let mut Number27: i32 =  9 - Strings.Len(Expression28);
               if (0 > Number27)
                 Number27 = 0;
               str27: String = str26 + Expression28 + Strings.Space(Number27);
               Expression29: String = Strings.Trim(Conversion.Str((object) (index12 * numArray1[index63, 0])));
-              int Number28 = 7 - Strings.Len(Expression29);
+              let mut Number28: i32 =  7 - Strings.Len(Expression29);
               if (0 > Number28)
                 Number28 = 0;
               str28: String = str27 + Expression29 + Strings.Space(Number28);
               Expression30: String = Strings.Trim(Conversion.Str((object) (index12 * numArray2[index63, 0])));
-              int Number29 = 9 - Strings.Len(Expression30);
+              let mut Number29: i32 =  9 - Strings.Len(Expression30);
               if (0 > Number29)
                 Number29 = 0;
               str29: String = str28 + Expression30 + Strings.Space(Number29);
               Expression31: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray2[index63, 0] + numArray3[index63, 0]))));
-              int Number30 = 6 - Strings.Len(Expression31);
+              let mut Number30: i32 =  6 - Strings.Len(Expression31);
               if (0 > Number30)
                 Number30 = 0;
               str24 = str29 + Expression31 + Strings.Space(Number30) + "\r\n";
@@ -946,175 +946,175 @@ namespace WindowsApplication1
           Expression32: String = "TOTAL POWERPOINTS";
           if (Strings.Len(Expression32) > 29)
             Expression32 = Strings.Left(str24, 29);
-          int Number31 = 35 - Strings.Len(Expression32);
+          let mut Number31: i32 =  35 - Strings.Len(Expression32);
           if (0 > Number31)
             Number31 = 0;
           str30: String = str24 + Expression32 + Strings.Space(Number31);
           Expression33: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray10[0] + numArray8[0] + numArray9[0]))));
-          int Number32 = 10 - Strings.Len(Expression33);
+          let mut Number32: i32 =  10 - Strings.Len(Expression33);
           if (0 > Number32)
             Number32 = 0;
           str31: String = str30 + Expression33 + Strings.Space(Number32);
           Expression34: String = Strings.Trim(Conversion.Str((object) (index12 * numArray10[0])));
-          int Number33 = 9 - Strings.Len(Expression34);
+          let mut Number33: i32 =  9 - Strings.Len(Expression34);
           if (0 > Number33)
             Number33 = 0;
           str32: String = str31 + Expression34 + Strings.Space(Number33);
           Expression35: String = Strings.Trim(Conversion.Str((object) (index12 * numArray8[0])));
-          int Number34 = 7 - Strings.Len(Expression35);
+          let mut Number34: i32 =  7 - Strings.Len(Expression35);
           if (0 > Number34)
             Number34 = 0;
           str33: String = str32 + Expression35 + Strings.Space(Number34);
           Expression36: String = Strings.Trim(Conversion.Str((object) (index12 * numArray9[0])));
-          int Number35 = 9 - Strings.Len(Expression36);
+          let mut Number35: i32 =  9 - Strings.Len(Expression36);
           if (0 > Number35)
             Number35 = 0;
           str34: String = str33 + Expression36 + Strings.Space(Number35);
           Expression37: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray9[0] + numArray10[0]))));
-          int Number36 = 6 - Strings.Len(Expression37);
+          let mut Number36: i32 =  6 - Strings.Len(Expression37);
           if (0 > Number36)
             Number36 = 0;
           str35: String = str34 + Expression37 + Strings.Space(Number36) + "\r\n" + "\r\n" + "\r\n";
           Expression38: String = "ATTACKER";
-          int Number37 = 10 - Strings.Len(Expression38);
+          let mut Number37: i32 =  10 - Strings.Len(Expression38);
           if (0 > Number37)
             Number37 = 0;
           str36: String = str35 + Strings.Space(20) + Expression38 + Strings.Space(Number37);
           Expression39: String = "DEFENDER";
-          int num46 = 10 - Strings.Len(Expression39);
+          let mut num46: i32 =  10 - Strings.Len(Expression39);
           if (0 > num46)
             num46 = 0;
           str37: String = str36 + Strings.Space(20) + Expression39 + Strings.Space(num46 + 50) + "\r\n";
           Expression40: String = "STAT";
-          int Number38 = 20 - Strings.Len(Expression40);
+          let mut Number38: i32 =  20 - Strings.Len(Expression40);
           if (0 > Number38)
             Number38 = 0;
           str38: String = str37 + Expression40 + Strings.Space(Number38);
           Expression41: String = "INITIAL";
-          int Number39 = 10 - Strings.Len(Expression41);
+          let mut Number39: i32 =  10 - Strings.Len(Expression41);
           if (0 > Number39)
             Number39 = 0;
           str39: String = str38 + Expression41 + Strings.Space(Number39);
           Expression42: String = "CURRENT";
-          int Number40 = 20 - Strings.Len(Expression42);
+          let mut Number40: i32 =  20 - Strings.Len(Expression42);
           if (0 > Number40)
             Number40 = 0;
           str40: String = str39 + Expression42 + Strings.Space(Number40);
           Expression43: String = "INITIAL";
-          int Number41 = 10 - Strings.Len(Expression43);
+          let mut Number41: i32 =  10 - Strings.Len(Expression43);
           if (0 > Number41)
             Number41 = 0;
           str41: String = str40 + Expression43 + Strings.Space(Number41);
           Expression44: String = "CURRENT";
-          int Number42 = 10 - Strings.Len(Expression44);
+          let mut Number42: i32 =  10 - Strings.Len(Expression44);
           if (0 > Number42)
             Number42 = 0;
           str42: String = str41 + Expression44 + Strings.Space(Number42) + "\r\n";
           Expression45: String = "Readiness";
           if (Strings.Len(Expression45) > 29)
             Expression45 = Strings.Left(str42, 29);
-          int Number43 = 20 - Strings.Len(Expression45);
+          let mut Number43: i32 =  20 - Strings.Len(Expression45);
           if (0 > Number43)
             Number43 = 0;
           str43: String = str42 + Expression45 + Strings.Space(Number43);
           Expression46: String = Strings.Trim(Conversion.Str((object) this.StartRdn[1]));
-          int Number44 = 10 - Strings.Len(Expression46);
+          let mut Number44: i32 =  10 - Strings.Len(Expression46);
           if (0 > Number44)
             Number44 = 0;
           str44: String = str43 + Expression46 + Strings.Space(Number44);
           Expression47: String = Strings.Trim(Conversion.Str((object) numArray4[1]));
-          int Number45 = 20 - Strings.Len(Expression47);
+          let mut Number45: i32 =  20 - Strings.Len(Expression47);
           if (0 > Number45)
             Number45 = 0;
           str45: String = str44 + Expression47 + Strings.Space(Number45);
           Expression48: String = Strings.Trim(Conversion.Str((object) this.StartRdn[0]));
-          int Number46 = 10 - Strings.Len(Expression48);
+          let mut Number46: i32 =  10 - Strings.Len(Expression48);
           if (0 > Number46)
             Number46 = 0;
           str46: String = str45 + Expression48 + Strings.Space(Number46);
           Expression49: String = Strings.Trim(Conversion.Str((object) numArray4[0]));
-          int Number47 = 10 - Strings.Len(Expression49);
+          let mut Number47: i32 =  10 - Strings.Len(Expression49);
           if (0 > Number47)
             Number47 = 0;
           str47: String = str46 + Expression49 + Strings.Space(Number47) + "\r\n";
           Expression50: String = "Experience";
           if (Strings.Len(Expression50) > 29)
             Expression50 = Strings.Left(str47, 29);
-          int Number48 = 20 - Strings.Len(Expression50);
+          let mut Number48: i32 =  20 - Strings.Len(Expression50);
           if (0 > Number48)
             Number48 = 0;
           str48: String = str47 + Expression50 + Strings.Space(Number48);
           Expression51: String = Strings.Trim(Conversion.Str((object) this.StartXp[1]));
-          int Number49 = 10 - Strings.Len(Expression51);
+          let mut Number49: i32 =  10 - Strings.Len(Expression51);
           if (0 > Number49)
             Number49 = 0;
           str49: String = str48 + Expression51 + Strings.Space(Number49);
           Expression52: String = Strings.Trim(Conversion.Str((object) numArray5[1]));
-          int Number50 = 20 - Strings.Len(Expression52);
+          let mut Number50: i32 =  20 - Strings.Len(Expression52);
           if (0 > Number50)
             Number50 = 0;
           str50: String = str49 + Expression52 + Strings.Space(Number50);
           Expression53: String = Strings.Trim(Conversion.Str((object) this.StartXp[0]));
-          int Number51 = 10 - Strings.Len(Expression53);
+          let mut Number51: i32 =  10 - Strings.Len(Expression53);
           if (0 > Number51)
             Number51 = 0;
           str51: String = str50 + Expression53 + Strings.Space(Number51);
           Expression54: String = Strings.Trim(Conversion.Str((object) numArray5[0]));
-          int Number52 = 10 - Strings.Len(Expression54);
+          let mut Number52: i32 =  10 - Strings.Len(Expression54);
           if (0 > Number52)
             Number52 = 0;
           str52: String = str51 + Expression54 + Strings.Space(Number52) + "\r\n";
           Expression55: String = "Morale";
           if (Strings.Len(Expression55) > 29)
             Expression55 = Strings.Left(str52, 29);
-          int Number53 = 20 - Strings.Len(Expression55);
+          let mut Number53: i32 =  20 - Strings.Len(Expression55);
           if (0 > Number53)
             Number53 = 0;
           str53: String = str52 + Expression55 + Strings.Space(Number53);
           Expression56: String = Strings.Trim(Conversion.Str((object) this.StartMor[1]));
-          int Number54 = 10 - Strings.Len(Expression56);
+          let mut Number54: i32 =  10 - Strings.Len(Expression56);
           if (0 > Number54)
             Number54 = 0;
           str54: String = str53 + Expression56 + Strings.Space(Number54);
           Expression57: String = Strings.Trim(Conversion.Str((object) numArray6[1]));
-          int Number55 = 20 - Strings.Len(Expression57);
+          let mut Number55: i32 =  20 - Strings.Len(Expression57);
           if (0 > Number55)
             Number55 = 0;
           str55: String = str54 + Expression57 + Strings.Space(Number55);
           Expression58: String = Strings.Trim(Conversion.Str((object) this.StartMor[0]));
-          int Number56 = 10 - Strings.Len(Expression58);
+          let mut Number56: i32 =  10 - Strings.Len(Expression58);
           if (0 > Number56)
             Number56 = 0;
           str56: String = str55 + Expression58 + Strings.Space(Number56);
           Expression59: String = Strings.Trim(Conversion.Str((object) numArray6[0]));
-          int Number57 = 10 - Strings.Len(Expression59);
+          let mut Number57: i32 =  10 - Strings.Len(Expression59);
           if (0 > Number57)
             Number57 = 0;
           str57: String = str56 + Expression59 + Strings.Space(Number57) + "\r\n";
           Expression60: String = "Entrenchment";
           if (Strings.Len(Expression60) > 29)
             Expression60 = Strings.Left(str57, 29);
-          int Number58 = 20 - Strings.Len(Expression60);
+          let mut Number58: i32 =  20 - Strings.Len(Expression60);
           if (0 > Number58)
             Number58 = 0;
           str58: String = str57 + Expression60 + Strings.Space(Number58);
           Expression61: String = Strings.Trim(Conversion.Str((object) this.StartEntr[1]));
-          int Number59 = 10 - Strings.Len(Expression61);
+          let mut Number59: i32 =  10 - Strings.Len(Expression61);
           if (0 > Number59)
             Number59 = 0;
           str59: String = str58 + Expression61 + Strings.Space(Number59);
           Expression62: String = Strings.Trim(Conversion.Str((object) numArray7[1]));
-          int Number60 = 20 - Strings.Len(Expression62);
+          let mut Number60: i32 =  20 - Strings.Len(Expression62);
           if (0 > Number60)
             Number60 = 0;
           str60: String = str59 + Expression62 + Strings.Space(Number60);
           Expression63: String = Strings.Trim(Conversion.Str((object) this.StartEntr[0]));
-          int Number61 = 10 - Strings.Len(Expression63);
+          let mut Number61: i32 =  10 - Strings.Len(Expression63);
           if (0 > Number61)
             Number61 = 0;
           str61: String = str60 + Expression63 + Strings.Space(Number61);
           Expression64: String = Strings.Trim(Conversion.Str((object) numArray7[0]));
-          int Number62 = 10 - Strings.Len(Expression64);
+          let mut Number62: i32 =  10 - Strings.Len(Expression64);
           if (0 > Number62)
             Number62 = 0;
           tText = str61 + Expression64 + Strings.Space(Number62) + "\r\n" + "\r\n";
@@ -1191,17 +1191,17 @@ namespace WindowsApplication1
       if (this.game.EditObj.CombatSim)
         tText = "Combat sim. Check log file for result";
       ref Graphics local15 = ref Expression1;
-      Rectangle rectangle1 = new Rectangle(150, 18, 500, 14);
-      Rectangle rect1_1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(150, 32, 500, 23);
-      Rectangle rect2_1 = rectangle2;
+      Rectangle rectangle1 = Rectangle::new(150, 18, 500, 14);
+      let mut rect1_1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(150, 32, 500, 23);
+      let mut rect2_1: &Rectangle = &rectangle2
       txt2_1: String = tText;
       DrawMod.MakeFullBoxVic2(ref local15, rect1_1, "COMBAT STATUS", rect2_1, txt2_1);
       ref Graphics local16 = ref Expression1;
-      rectangle2 = new Rectangle(150, 58, 700, 14);
-      Rectangle rect1_2 = rectangle2;
-      rectangle1 = new Rectangle(150, 72, 700, 23);
-      Rectangle rect2_2 = rectangle1;
+      rectangle2 = Rectangle::new(150, 58, 700, 14);
+      let mut rect1_2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(150, 72, 700, 23);
+      let mut rect2_2: &Rectangle = &rectangle1
       DrawMod.MakeFullBoxVic2(ref local16, rect1_2, "COMBAT EFFECTS", rect2_2, "");
       if (this.showdetail == 0 & !this.game.EditObj.CombatSim)
       {
@@ -1252,10 +1252,10 @@ namespace WindowsApplication1
         if (Operators.CompareString(Left, "", false) == 0)
           Left = "no effects";
         ref Graphics local17 = ref Expression1;
-        rectangle2 = new Rectangle(150, 58, 700, 14);
-        Rectangle rect1_3 = rectangle2;
-        rectangle1 = new Rectangle(150, 72, 700, 23);
-        Rectangle rect2_3 = rectangle1;
+        rectangle2 = Rectangle::new(150, 58, 700, 14);
+        let mut rect1_3: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(150, 72, 700, 23);
+        let mut rect2_3: &Rectangle = &rectangle1
         txt2_2: String = Left;
         DrawMod.MakeFullBoxVic2(ref local17, rect1_3, "COMBAT EFFECTS", rect2_3, txt2_2);
         tsubpart =  new SteveButtonPartClass(this.game.BUTTONQUIT, tBackbitmap: (ref this.OwnBitmap), bbx: 965, bby: 15);
@@ -1266,8 +1266,8 @@ namespace WindowsApplication1
         this.CombatListObj = ListClass::new();
         if (this.LogCounter > -1)
         {
-          int logCounter = this.LogCounter;
-          for (int index64 = 0; index64 <= logCounter; index64 += 1)
+          let mut logCounter: i32 =  this.LogCounter;
+          for (let mut index64: i32 =  0; index64 <= logCounter; index64 += 1)
             this.CombatListObj.add(this.LogTxt[index64], 0);
           ListClass combatListObj = this.CombatListObj;
           let mut game: GameClass = this.game;
@@ -1318,7 +1318,7 @@ namespace WindowsApplication1
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+            let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
             this.game.ProcessingObj.PlayCard(this.game.EditObj.DoCardSlot);
             if (Strings.Len(this.game.Data.LoadGame) > 0)
             {
@@ -1330,13 +1330,13 @@ namespace WindowsApplication1
               windowReturnClass.AddCommand(3, 4);
               return windowReturnClass;
             }
-            int Number = 0;
-            int locCounter = this.game.Data.LocCounter;
-            for (int locnr = 0; locnr <= locCounter; locnr += 1)
+            let mut Number: i32 =  0;
+            let mut locCounter: i32 =  this.game.Data.LocCounter;
+            for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
             {
               if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
               {
-                int index = 0;
+                let mut index: i32 =  0;
                 do
                 {
                   if (this.game.Data.LocObj[locnr].Production[index] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index]).result)
@@ -1353,7 +1353,7 @@ namespace WindowsApplication1
             }
             if (Number > 0)
             {
-              int num =  Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
             }
             if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
             {
@@ -1446,15 +1446,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.CombatListId)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (!this.game.EditObj.CombatSim & num2 > -1)
               {
@@ -1475,7 +1475,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.CombatListDId)
             {
-              int num3 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num3: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (!this.game.EditObj.CombatSim & num3 > -1)
               {
@@ -1539,7 +1539,7 @@ namespace WindowsApplication1
 
     pub void DoCombatSim()
     {
-      int Number1 = 200;
+      let mut Number1: i32 =  200;
       int[,] numArray1 = new int[this.game.Data.SFTypeCounter + 1, 2];
       int[,] numArray2 = new int[this.game.Data.SFTypeCounter + 1, 2];
       int[,] numArray3 = new int[this.game.Data.SFTypeCounter + 1, 2];
@@ -1552,86 +1552,86 @@ namespace WindowsApplication1
       float[,] numArray10 = new float[this.game.Data.SFTypeCounter + 1, 2];
       float[,] numArray11 = new float[this.game.Data.SFTypeCounter + 1, 2];
       float[,] numArray12 = new float[this.game.Data.SFTypeCounter + 1, 2];
-      int num1 = Number1;
+      let mut num1: i32 =  Number1;
       int Number2;
       int Number3;
       int Number4;
       float num2;
-      for (int index1 = 1; index1 <= num1; index1 += 1)
+      for (let mut index1: i32 =  1; index1 <= num1; index1 += 1)
       {
         Coordinate tempTarget = this.game.TempCombat.TempTarget;
-        int tempType = this.game.TempCombat.TempType;
+        let mut tempType: i32 =  this.game.TempCombat.TempType;
         UnitList tempUnits = this.game.TempCombat.TempUnits;
-        int tempattacktype = this.game.TempCombat.Tempattacktype;
+        let mut tempattacktype: i32 =  this.game.TempCombat.Tempattacktype;
         this.game.TempCombat.DoBattle();
-        int icounter = this.game.TempCombat.ICounter;
-        for (int index2 = 0; index2 <= icounter; index2 += 1)
+        let mut icounter: i32 =  this.game.TempCombat.ICounter;
+        for (let mut index2: i32 =  0; index2 <= icounter; index2 += 1)
         {
-          int iattacker = this.game.TempCombat.IList[index2].IAttacker;
-          int isfType = this.game.TempCombat.IList[index2].ISFType;
+          let mut iattacker: i32 =  this.game.TempCombat.IList[index2].IAttacker;
+          let mut isfType: i32 =  this.game.TempCombat.IList[index2].ISFType;
           if (this.game.TempCombat.IList[index2].IKilled > 0)
           {
             int[,] numArray13 = numArray1;
             int[,] numArray14 = numArray13;
-            int index3 = isfType;
-            int index4 = index3;
-            int index5 = iattacker;
-            int index6 = index5;
-            int num3 = numArray13[index3, index5] + 1;
+            let mut index3: i32 =  isfType;
+            let mut index4: i32 =  index3;
+            let mut index5: i32 =  iattacker;
+            let mut index6: i32 =  index5;
+            let mut num3: i32 =  numArray13[index3, index5] + 1;
             numArray14[index4, index6] = num3;
           }
           else if (this.game.TempCombat.IList[index2].IRetreat > 0)
           {
             int[,] numArray15 = numArray2;
             int[,] numArray16 = numArray15;
-            int index7 = isfType;
-            int index8 = index7;
-            int index9 = iattacker;
-            int index10 = index9;
-            int num4 = numArray15[index7, index9] + 1;
+            let mut index7: i32 =  isfType;
+            let mut index8: i32 =  index7;
+            let mut index9: i32 =  iattacker;
+            let mut index10: i32 =  index9;
+            let mut num4: i32 =  numArray15[index7, index9] + 1;
             numArray16[index8, index10] = num4;
           }
           else
           {
             int[,] numArray17 = numArray3;
             int[,] numArray18 = numArray17;
-            int index11 = isfType;
-            int index12 = index11;
-            int index13 = iattacker;
-            int index14 = index13;
-            int num5 = numArray17[index11, index13] + 1;
+            let mut index11: i32 =  isfType;
+            let mut index12: i32 =  index11;
+            let mut index13: i32 =  iattacker;
+            let mut index14: i32 =  index13;
+            let mut num5: i32 =  numArray17[index11, index13] + 1;
             numArray18[index12, index14] = num5;
           }
           int[,] numArray19 = numArray4;
           int[,] numArray20 = numArray19;
-          int index15 = isfType;
-          int index16 = index15;
-          int index17 = iattacker;
-          int index18 = index17;
-          int num6 = numArray19[index15, index17] + this.game.TempCombat.IList[index2].IRdn;
+          let mut index15: i32 =  isfType;
+          let mut index16: i32 =  index15;
+          let mut index17: i32 =  iattacker;
+          let mut index18: i32 =  index17;
+          let mut num6: i32 =  numArray19[index15, index17] + this.game.TempCombat.IList[index2].IRdn;
           numArray20[index16, index18] = num6;
           float[,] numArray21 = numArray9;
           float[,] numArray22 = numArray21;
-          int index19 = isfType;
-          int index20 = index19;
-          int index21 = iattacker;
-          int index22 = index21;
+          let mut index19: i32 =  isfType;
+          let mut index20: i32 =  index19;
+          let mut index21: i32 =  iattacker;
+          let mut index22: i32 =  index21;
           double num7 = (double) numArray21[index19, index21] + 1.0;
           numArray22[index20, index22] = (float) num7;
           float[,] numArray23 = numArray11;
           float[,] numArray24 = numArray23;
-          int index23 = isfType;
-          int index24 = index23;
-          int index25 = iattacker;
-          int index26 = index25;
+          let mut index23: i32 =  isfType;
+          let mut index24: i32 =  index23;
+          let mut index25: i32 =  iattacker;
+          let mut index26: i32 =  index25;
           double num8 = (double) numArray23[index23, index25] + (double) this.game.TempCombat.IList[index2].IMor;
           numArray24[index24, index26] = (float) num8;
           float[,] numArray25 = numArray12;
           float[,] numArray26 = numArray25;
-          int index27 = isfType;
-          int index28 = index27;
-          int index29 = iattacker;
-          int index30 = index29;
+          let mut index27: i32 =  isfType;
+          let mut index28: i32 =  index27;
+          let mut index29: i32 =  iattacker;
+          let mut index30: i32 =  index29;
           double num9 = (double) numArray25[index27, index29] + 1.0;
           numArray26[index28, index30] = (float) num9;
         }
@@ -1649,10 +1649,10 @@ namespace WindowsApplication1
         }
       }
       float Number5 = num2 / (float) Number1;
-      int sfTypeCounter1 = this.game.Data.SFTypeCounter;
-      for (int index31 = 0; index31 <= sfTypeCounter1; index31 += 1)
+      let mut sfTypeCounter1: i32 =  this.game.Data.SFTypeCounter;
+      for (let mut index31: i32 =  0; index31 <= sfTypeCounter1; index31 += 1)
       {
-        int index32 = 0;
+        let mut index32: i32 =  0;
         do
         {
           numArray5[index31, index32] = (float) numArray1[index31, index32] / (float) Number1;
@@ -1672,8 +1672,8 @@ namespace WindowsApplication1
       this.AddLog(Strings.Space(3) + "Attack failed: " + Conversion.Str((object) Number4));
       this.AddLog(" ");
       this.AddLog("DEFENDER AVERAGES:");
-      int sfTypeCounter2 = this.game.Data.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter2; index += 1)
+      let mut sfTypeCounter2: i32 =  this.game.Data.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter2; index += 1)
       {
         if ((double) numArray5[index, 0] > 0.0 | (double) numArray6[index, 0] > 0.0 | (double) numArray7[index, 0] > 0.0)
         {
@@ -1687,8 +1687,8 @@ namespace WindowsApplication1
       }
       this.AddLog(" ");
       this.AddLog("ATTACKER AVERAGES:");
-      int sfTypeCounter3 = this.game.Data.SFTypeCounter;
-      for (int index = 0; index <= sfTypeCounter3; index += 1)
+      let mut sfTypeCounter3: i32 =  this.game.Data.SFTypeCounter;
+      for (let mut index: i32 =  0; index <= sfTypeCounter3; index += 1)
       {
         if ((double) numArray5[index, 1] > 0.0 | (double) numArray6[index, 1] > 0.0 | (double) numArray7[index, 1] > 0.0)
         {
@@ -1715,8 +1715,8 @@ namespace WindowsApplication1
     pub void WriteLog()
     {
       StreamWriter text = File.CreateText(this.game.AppPath + "logs\\combatsim.txt");
-      int logCounter = this.LogCounter;
-      for (int index = 0; index <= logCounter; index += 1)
+      let mut logCounter: i32 =  this.LogCounter;
+      for (let mut index: i32 =  0; index <= logCounter; index += 1)
         text.WriteLine(this.LogTxt[index]);
       text.Close();
     }

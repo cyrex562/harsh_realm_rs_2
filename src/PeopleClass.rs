@@ -118,7 +118,7 @@ namespace WindowsApplication1
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           this.ProdMod2[index] = 1f;
@@ -275,7 +275,7 @@ namespace WindowsApplication1
       this.SidewaysFileName4 = "systemgraphics/trans.bmp";
       this.NationalFileName = "systemgraphics/trans.bmp";
       this.PeopleGroup = 0;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.BaseMorale[index] = 50;

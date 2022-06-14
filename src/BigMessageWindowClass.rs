@@ -49,8 +49,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -69,8 +69,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -127,12 +127,12 @@ namespace WindowsApplication1
       }
       this.dyn = new DynamicData(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[this.FromMessage]);
       this.OptionsList5Obj = ListClass::new();
-      int tlistselect1 = -1;
-      int num1 = -1;
+      let mut tlistselect1: i32 =  -1;
+      let mut num1: i32 =  -1;
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MesChosen[this.coreMessage] > 0)
       {
-        int elementCounter = this.dyn.elementCounter;
-        for (int tdata = 0; tdata <= elementCounter; tdata += 1)
+        let mut elementCounter: i32 =  this.dyn.elementCounter;
+        for (let mut tdata: i32 =  0; tdata <= elementCounter; tdata += 1)
         {
           if (this.dyn.element[tdata].type == DynamicType.OptionField & tdata == this.game.Data.RegimeObj[this.game.Data.Turn].MesChosen[this.coreMessage])
           {
@@ -152,8 +152,8 @@ namespace WindowsApplication1
       }
       else
       {
-        int elementCounter = this.dyn.elementCounter;
-        for (int tdata = 0; tdata <= elementCounter; tdata += 1)
+        let mut elementCounter: i32 =  this.dyn.elementCounter;
+        for (let mut tdata: i32 =  0; tdata <= elementCounter; tdata += 1)
         {
           if (this.dyn.element[tdata].type == DynamicType.OptionField)
           {
@@ -189,8 +189,8 @@ namespace WindowsApplication1
       let mut tsubpart2: SubPartClass =  new MarcButtonPartClass(this.game.BACKBUTTON, tDescript: "Exit this message popup [ESC]", tBackbitmap: (ref this.OwnBitmap), bbx: 894, bby: 24);
       this.ok2id = this.AddSubPart(ref tsubpart2, 894, 24, 32, 32, 1);
       int num2;
-      int num3 = (int) Math.Round(Conversion.Int((double) (270 - num2) / 16.0));
-      int num4 = 0;
+      let mut num3: i32 =  (int) Math.Round(Conversion.Int((double) (270 - num2) / 16.0));
+      let mut num4: i32 =  0;
       if (this.OptionsList5Obj.ListCount == -1)
         num4 = 120;
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MesStyle[this.FromMessage] == 3)
@@ -227,12 +227,12 @@ namespace WindowsApplication1
         this.orderidb = this.AddSubPart(ref tsubpart8, 640, 605, 250, 60, 0);
       }
       this.OptionsList6Obj = ListClass::new();
-      int tlistselect2 = -1;
-      int num5 = -1;
+      let mut tlistselect2: i32 =  -1;
+      let mut num5: i32 =  -1;
       if (this.detailnr2 == -1)
         this.detailnr2 = this.coreMessage;
-      int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
-      for (int tdata = 0; tdata <= messCounter; tdata += 1)
+      let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+      for (let mut tdata: i32 =  0; tdata <= messCounter; tdata += 1)
       {
         if (this.game.Data.RegimeObj[this.game.Data.Turn].MesGroup[tdata] > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].MesGroup[tdata] == this.game.Data.RegimeObj[this.game.Data.Turn].MesGroup[this.coreMessage])
         {
@@ -244,8 +244,8 @@ namespace WindowsApplication1
           tname: String = this.game.Data.RegimeObj[this.game.Data.Turn].MesName[tdata].Length <= 1 ? this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata] : this.game.Data.RegimeObj[this.game.Data.Turn].MesName[tdata];
           bool flag = false;
           DynamicData dynamicData = new DynamicData(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata]);
-          int elementCounter = dynamicData.elementCounter;
-          for (int index = 0; index <= elementCounter; index += 1)
+          let mut elementCounter: i32 =  dynamicData.elementCounter;
+          for (let mut index: i32 =  0; index <= elementCounter; index += 1)
           {
             if (dynamicData.element[index].type == DynamicType.OptionField)
               flag = true;
@@ -272,7 +272,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList6Obj = this.OptionsList6Obj;
-          int tlistselect3 = tlistselect2;
+          let mut tlistselect3: i32 =  tlistselect2;
           let mut game: GameClass = this.game;
           ref Bitmap local1 = ref this.OwnBitmap;
           Font font =  null;
@@ -282,13 +282,13 @@ namespace WindowsApplication1
         }
       }
       DrawMod.DrawTextColouredMarc(ref graphics, "POLITICAL POINTS", this.game.MarcFont4, 680, 102, Color.White);
-      int num6 = 680;
-      int y = 125;
+      let mut num6: i32 =  680;
+      let mut y: i32 =  125;
       DrawMod.DrawBlockGradient2(ref graphics, num6 + 5, y - 1, 79, 20, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame(ref this.OwnBitmap, ref this.BackBitmap, ref graphics, num6 + 5, y, 80, 19, -1, -1);
       str: String = Strings.Trim(Conversion.Str((object) Math.Round(new Decimal(this.game.Data.RegimeObj[this.game.Data.Turn].ResPts))));
       DrawMod.DrawTextColouredMarc(ref graphics, str + "PP", this.game.MarcFont5, num6 + 10, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num6 + 10, y, 80, 20);
+      Rectangle trect = Rectangle::new(num6 + 10, y, 80, 20);
       this.AddMouse(ref trect, "Available political points", Conversions.ToString(-1));
     }
 
@@ -339,12 +339,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.TAid)
             {
               this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
@@ -355,11 +355,11 @@ namespace WindowsApplication1
             if (num1 == this.orderid)
             {
               SoundMod.STopEventWave();
-              int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+              let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
               RegimeClass[] regimeObj = this.game.Data.RegimeObj;
               RegimeClass[] regimeClassArray = regimeObj;
-              int turn = this.game.Data.Turn;
-              int index2 = turn;
+              let mut turn: i32 =  this.game.Data.Turn;
+              let mut index2: i32 =  turn;
               regimeClassArray[index2].ResPts = regimeObj[turn].ResPts - this.dyn.element[this.detailnr].optionpp;
               this.game.Data.RegimeObj[this.game.Data.Turn].MesChosen[this.detailnr2] = this.detailnr;
               this.game.EditObj.AreaX = -1;
@@ -379,7 +379,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.OptionsList5id)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -391,7 +391,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.OptionsList6id)
             {
-              int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num3 > -1)
               {

@@ -1280,9 +1280,9 @@ namespace WindowsApplication1
       bitmap1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics graphics1 = Graphics.FromImage((Image) bitmap1);
       graphics1.Clear(Color.Transparent);
-       Graphics local1 =  graphics1;
+       let mut local1: &Graphics = &graphics1;
       Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, 1);
-       Bitmap local2 =  bitmap2;
+       let mut local2: &Bitmap = &bitmap2;
       double r1 = (double) num1;
       double g1 = (double) num2;
       double b1 = (double) num3;
@@ -1294,9 +1294,9 @@ namespace WindowsApplication1
       bitmap3.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics graphics2 = Graphics.FromImage((Image) bitmap3);
       graphics2.Clear(Color.Transparent);
-       Graphics local3 =  graphics2;
+       let mut local3: &Graphics = &graphics2;
       Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX);
-       Bitmap local4 =  bitmap4;
+       let mut local4: &Bitmap = &bitmap4;
       double r2 = (double) num1;
       double g2 = (double) num2;
       double b2 = (double) num3;
@@ -1308,9 +1308,9 @@ namespace WindowsApplication1
       bitmap5.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics graphics3 = Graphics.FromImage((Image) bitmap5);
       graphics3.Clear(Color.Transparent);
-       Graphics local5 =  graphics3;
+       let mut local5: &Graphics = &graphics3;
       Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.WHITEHEX, -1);
-       Bitmap local6 =  bitmap6;
+       let mut local6: &Bitmap = &bitmap6;
       double r3 = (double) num1;
       double g3 = (double) num2;
       double b3 = (double) num3;
@@ -1416,12 +1416,12 @@ namespace WindowsApplication1
               flag = true;
               Graphics graphics = Graphics.FromImage((Image) bitmap1);
               graphics.CompositingMode = CompositingMode.SourceCopy;
-               Graphics local1 =  graphics;
-               Bitmap local2 =  bitmap1;
-              rectangle1 = new Rectangle(num1 * index2, 0, num1, num1);
-              Rectangle srcrect = rectangle1;
-              rectangle2 = new Rectangle(num1 * index1, 0, num1, num1);
-              Rectangle destrect = rectangle2;
+               let mut local1: &Graphics = &graphics;
+               let mut local2: &Bitmap = &bitmap1;
+              rectangle1 = Rectangle::new(num1 * index2, 0, num1, num1);
+              let mut srcrect: &Rectangle = &rectangle1
+              rectangle2 = Rectangle::new(num1 * index1, 0, num1, num1);
+              let mut destrect: &Rectangle = &rectangle2
               DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
               graphics.Dispose();
               break;
@@ -1512,12 +1512,12 @@ namespace WindowsApplication1
               flag = true;
               Graphics graphics = Graphics.FromImage((Image) bitmap1);
               graphics.CompositingMode = CompositingMode.SourceCopy;
-               Graphics local3 =  graphics;
-               Bitmap local4 =  bitmap1;
-              rectangle2 = new Rectangle(num1 * index4, 0, num1, num1);
-              Rectangle srcrect = rectangle2;
-              rectangle1 = new Rectangle(num1 * index1, 0, num1, num1);
-              Rectangle destrect = rectangle1;
+               let mut local3: &Graphics = &graphics;
+               let mut local4: &Bitmap = &bitmap1;
+              rectangle2 = Rectangle::new(num1 * index4, 0, num1, num1);
+              let mut srcrect: &Rectangle = &rectangle2
+              rectangle1 = Rectangle::new(num1 * index1, 0, num1, num1);
+              let mut destrect: &Rectangle = &rectangle1
               DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
               graphics.Dispose();
               break;
@@ -1596,12 +1596,12 @@ namespace WindowsApplication1
               flag = true;
               Graphics graphics = Graphics.FromImage((Image) bitmap1);
               graphics.CompositingMode = CompositingMode.SourceCopy;
-               Graphics local5 =  graphics;
-               Bitmap local6 =  bitmap1;
-              rectangle2 = new Rectangle(num1 * index6, 0, num1, num1);
-              Rectangle srcrect = rectangle2;
-              rectangle1 = new Rectangle(num1 * index1, 0, num1, num1);
-              Rectangle destrect = rectangle1;
+               let mut local5: &Graphics = &graphics;
+               let mut local6: &Bitmap = &bitmap1;
+              rectangle2 = Rectangle::new(num1 * index6, 0, num1, num1);
+              let mut srcrect: &Rectangle = &rectangle2
+              rectangle1 = Rectangle::new(num1 * index1, 0, num1, num1);
+              let mut destrect: &Rectangle = &rectangle1
               DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
               graphics.Dispose();
               break;
@@ -1749,12 +1749,12 @@ namespace WindowsApplication1
       bitmap6.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics graphics1 = Graphics.FromImage((Image) bitmap6);
       graphics1.CompositingMode = CompositingMode.SourceCopy;
-       Graphics local7 =  graphics1;
-       Bitmap local8 =  bitmap1;
-      rectangle2 = new Rectangle(0, 0, bitmap1.Width, bitmap1.Height);
-      Rectangle srcrect1 = rectangle2;
-      rectangle1 = new Rectangle(0, 0, bitmap1.Width, bitmap1.Height);
-      Rectangle destrect1 = rectangle1;
+       let mut local7: &Graphics = &graphics1;
+       let mut local8: &Bitmap = &bitmap1;
+      rectangle2 = Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height);
+      let mut srcrect1: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height);
+      let mut destrect1: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2ColouredNew( local7,  local8, srcrect1, destrect1, 0.9f, 0.9f, 0.9f, 1f);
       graphics1.Dispose();
       graphics1 = (Graphics) null;

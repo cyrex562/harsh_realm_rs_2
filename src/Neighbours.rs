@@ -13,7 +13,7 @@ namespace WindowsApplication1
     pub Neighbours()
     {
       this.data = new int[6];
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.data[index] = -1;

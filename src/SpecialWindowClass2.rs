@@ -329,14 +329,14 @@ namespace WindowsApplication1
         {
           DrawMod.DrawTextColouredMarcCenter( g1, data1, self.game.MarcFont5, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y + 3, c1);
           num9 = 18;
-          trect1 = new Rectangle(groupRect.X, groupRect.Y, groupRect.Width, 18);
+          trect1 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, 18);
           trect2 = trect1;
           self.AddMouse( trect2, data1, ttext1);
         }
         else
         {
           DrawMod.DrawTextColouredMarcCenter( g1, data1, self.game.MarcFont4, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y + 5, c1);
-          trect2 = new Rectangle(groupRect.X, groupRect.Y, groupRect.Width, 28);
+          trect2 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, 28);
           trect1 = trect2;
           self.AddMouse( trect1, data1, ttext1);
         }
@@ -580,7 +580,7 @@ namespace WindowsApplication1
             DrawMod.DrawBlock( g1,  Math.Round((double) x + (double) sizeF.Width + 3.0), num20 - 1, 20, Math.Max(12, height - 6),  color.R,  color.G,  color.B,  color.A);
             DrawMod.DrawTextColouredMarcCenter( g1, tstring, self.game.MarcFont5,  Math.Round((double) x + (double) sizeF.Width + 13.0), num20 - 1, c2);
           }
-          trect2 = new Rectangle(x - 4, num20 - 4, width, height);
+          trect2 = Rectangle::new(x - 4, num20 - 4, width, height);
           trect1 = trect2;
           self.AddMouse( trect1, str2 + " (#" + simpleList2.Id[index9].ToString() + ")", ttext2);
         }
@@ -602,7 +602,7 @@ namespace WindowsApplication1
       let mut num6: i32 = num4 - 8;
       let mut height: i32 =  Math.Round((double) (num5 - 18) - Math.Floor((double) num3 / 18.0));
       let mut width: i32 =  Math.Round((double) num6 - Math.Floor((double) num3 / 15.0));
-      return new Rectangle(x, y, width, height);
+      return Rectangle::new(x, y, width, height);
     }
 
     pub HandleKeyup: WindowReturnClass(int nr)

@@ -125,25 +125,25 @@ namespace WindowsApplication1
       Bitmap bitmap1;
       if (self.game.EditObj.HandCard == -1)
       {
-         Graphics local1 =  graphics;
+         let mut local1: &Graphics = &graphics;
         bitmap1 = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.game.EditObj.DoCardSlot], size: 2);
-         Bitmap local2 =  bitmap1;
+         let mut local2: &Bitmap = &bitmap1;
         DrawMod.DrawSimple( local1,  local2, 210, 538);
       }
       else
       {
-         Graphics local3 =  graphics;
+         let mut local3: &Graphics = &graphics;
         Bitmap bitmap2 = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.EditObj.HandCard, size: 2);
-         Bitmap local4 =  bitmap2;
+         let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local3,  local4, 210, 538);
       }
-       Graphics local5 =  graphics;
+       let mut local5: &Graphics = &graphics;
       bitmap1 = BitmapStore.GetBitmap(self.game.MARCMESFRAME);
-       Bitmap local6 =  bitmap1;
-      Rectangle rectangle1 = new Rectangle(1, 300, 4, 42);
-      Rectangle srcrect1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(844, 5, 4, 680);
-      Rectangle destrect1 = rectangle2;
+       let mut local6: &Bitmap = &bitmap1;
+      Rectangle rectangle1 = Rectangle::new(1, 300, 4, 42);
+      let mut srcrect1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(844, 5, 4, 680);
+      let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local5,  local6, srcrect1, destrect1);
       self.OptionsListObj = ListClass::new();
       if (self.UL.Counter <= -1)
@@ -161,60 +161,60 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc( graphics, "Selectable", self.game.MarcFont3, 860, 11, Color.White);
         DrawMod.DrawTextColouredMarc( graphics, "units:", self.game.MarcFont3, 860, 31, Color.White);
       }
-       Graphics local7 =  graphics;
+       let mut local7: &Graphics = &graphics;
       bitmap1 = BitmapStore.GetBitmap(self.game.MARCMESFRAME);
-       Bitmap local8 =  bitmap1;
-      rectangle2 = new Rectangle(32, 1, 10, 4);
-      Rectangle srcrect2 = rectangle2;
-      rectangle1 = new Rectangle(4, 56, 842, 4);
-      Rectangle destrect2 = rectangle1;
+       let mut local8: &Bitmap = &bitmap1;
+      rectangle2 = Rectangle::new(32, 1, 10, 4);
+      let mut srcrect2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(4, 56, 842, 4);
+      let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local7,  local8, srcrect2, destrect2);
-       Graphics local9 =  graphics;
+       let mut local9: &Graphics = &graphics;
       bitmap1 = BitmapStore.GetBitmap(self.game.MARCMESFRAME);
-       Bitmap local10 =  bitmap1;
-      rectangle2 = new Rectangle(32, 385, 10, 4);
-      Rectangle srcrect3 = rectangle2;
-      rectangle1 = new Rectangle(4, 531, 842, 4);
-      Rectangle destrect3 = rectangle1;
+       let mut local10: &Bitmap = &bitmap1;
+      rectangle2 = Rectangle::new(32, 385, 10, 4);
+      let mut srcrect3: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(4, 531, 842, 4);
+      let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local9,  local10, srcrect3, destrect3);
-       Graphics local11 =  graphics;
+       let mut local11: &Graphics = &graphics;
       bitmap1 = BitmapStore.GetBitmap(self.game.MARCMESFRAME);
-       Bitmap local12 =  bitmap1;
-      rectangle2 = new Rectangle(1, 300, 4, 42);
-      Rectangle srcrect4 = rectangle2;
-      rectangle1 = new Rectangle(205, 535, 4, 150);
-      Rectangle destrect4 = rectangle1;
+       let mut local12: &Bitmap = &bitmap1;
+      rectangle2 = Rectangle::new(1, 300, 4, 42);
+      let mut srcrect4: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(205, 535, 4, 150);
+      let mut destrect4: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local11,  local12, srcrect4, destrect4);
-       Graphics local13 =  graphics;
+       let mut local13: &Graphics = &graphics;
       bitmap1 = BitmapStore.GetBitmap(self.game.MARCMESFRAME);
-       Bitmap local14 =  bitmap1;
-      rectangle2 = new Rectangle(1, 300, 4, 42);
-      Rectangle srcrect5 = rectangle2;
-      rectangle1 = new Rectangle(320, 535, 4, 150);
-      Rectangle destrect5 = rectangle1;
+       let mut local14: &Bitmap = &bitmap1;
+      rectangle2 = Rectangle::new(1, 300, 4, 42);
+      let mut srcrect5: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(320, 535, 4, 150);
+      let mut destrect5: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local13,  local14, srcrect5, destrect5);
-       Graphics local15 =  graphics;
+       let mut local15: &Graphics = &graphics;
       bitmap1 = BitmapStore.GetBitmap(self.game.MARCMESFRAME);
-       Bitmap local16 =  bitmap1;
-      rectangle2 = new Rectangle(1, 300, 4, 42);
-      Rectangle srcrect6 = rectangle2;
-      rectangle1 = new Rectangle(615, 535, 4, 150);
-      Rectangle destrect6 = rectangle1;
+       let mut local16: &Bitmap = &bitmap1;
+      rectangle2 = Rectangle::new(1, 300, 4, 42);
+      let mut srcrect6: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(615, 535, 4, 150);
+      let mut destrect6: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local15,  local16, srcrect6, destrect6);
       if (self.UnitSelected == -1 | self.game.EditObj.HandCard == -1)
       {
         if (self.game.EditObj.HandCard > -1)
         {
-           Graphics local17 =  graphics;
+           let mut local17: &Graphics = &graphics;
           bitmap1 = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.EditObj.HandCard, size: 3);
-           Bitmap local18 =  bitmap1;
+           let mut local18: &Bitmap = &bitmap1;
           DrawMod.DrawSimple( local17,  local18, 10, 7);
         }
         else
         {
-           Graphics local19 =  graphics;
+           let mut local19: &Graphics = &graphics;
           bitmap1 = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.game.EditObj.DoCardSlot], size: 3);
-           Bitmap local20 =  bitmap1;
+           let mut local20: &Bitmap = &bitmap1;
           DrawMod.DrawSimple( local19,  local20, 10, 7);
         }
         DrawMod.DrawTextColouredMarc( graphics, "Select a unit to play card on", self.game.MarcFont1, 50, 15, Color.White);
@@ -222,23 +222,23 @@ namespace WindowsApplication1
       else
       {
         DrawMod.DrawTextColouredMarc( graphics, "Unit", self.game.MarcFont1, 10, 15, Color.White);
-         Graphics local21 =  graphics;
+         let mut local21: &Graphics = &graphics;
         bitmap1 = self.game.CustomBitmapObj.DrawUnit(self.UnitSelected);
-         Bitmap local22 =  bitmap1;
+         let mut local22: &Bitmap = &bitmap1;
         DrawMod.DrawSimple( local21,  local22, 72, 12);
         DrawMod.DrawTextColouredMarc( graphics, "is playing card ", self.game.MarcFont1, 110, 15, Color.White);
         if (self.game.EditObj.HandCard == -1)
         {
-           Graphics local23 =  graphics;
+           let mut local23: &Graphics = &graphics;
           bitmap1 = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.game.EditObj.DoCardSlot], size: 3);
-           Bitmap local24 =  bitmap1;
+           let mut local24: &Bitmap = &bitmap1;
           DrawMod.DrawSimple( local23,  local24, 290, 7);
         }
         else
         {
-           Graphics local25 =  graphics;
+           let mut local25: &Graphics = &graphics;
           bitmap1 = self.game.CustomBitmapObj.DrawActionCardMarc2(self.game.Data.Turn, self.game.EditObj.HandCard, size: 3);
-           Bitmap local26 =  bitmap1;
+           let mut local26: &Bitmap = &bitmap1;
           DrawMod.DrawSimple( local25,  local26, 290, 7);
         }
         DrawMod.DrawTextColouredMarc( graphics, "You need to select a unit to play card on.", self.game.MarcFont1, 330, 15, Color.White);
@@ -306,7 +306,7 @@ namespace WindowsApplication1
         let mut handCard: i32 = self.game.EditObj.HandCard;
         if (self.game.Data.ActionCardObj[handCard].MouseOver.Length > 0)
         {
-          trect1 = new Rectangle(210, 538, 105, 147);
+          trect1 = Rectangle::new(210, 538, 105, 147);
           self.AddMouse( trect1, "", self.game.Data.ActionCardObj[handCard].MouseOver);
         }
       }
@@ -315,8 +315,8 @@ namespace WindowsApplication1
         let mut index: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.game.EditObj.DoCardSlot];
         if (self.game.Data.ActionCardObj[index].MouseOver.Length > 0)
         {
-          trect1 = new Rectangle(210, 538, 105, 147);
-          Rectangle trect2 = trect1;
+          trect1 = Rectangle::new(210, 538, 105, 147);
+          let mut trect2: &Rectangle = &trect1
           self.AddMouse( trect2, "", self.game.Data.ActionCardObj[index].MouseOver);
         }
       }
@@ -326,17 +326,17 @@ namespace WindowsApplication1
         self.mapid = self.AddSubPart( tsubpart, 5, 60, 839, 470, 0);
       }
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
-       Graphics local1 =  objgraphics;
+       let mut local1: &Graphics = &objgraphics;
        Bitmap local2 =  self.BackBitmap;
-      trect1 = new Rectangle(370, 540, 240, 120);
-      Rectangle rect = trect1;
+      trect1 = Rectangle::new(370, 540, 240, 120);
+      let mut rect: &Rectangle = &trect1
       DrawMod.DrawSimplePart( local1,  local2, rect);
       if (self.game.EditObj.UnitSelected > -1)
       {
         DrawMod.DrawTextColouredMarc( objgraphics, "UNIT SELECTED:", self.game.MarcFont4, 370, 550, Color.White);
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         Bitmap bitmap = self.game.CustomBitmapObj.DrawUnit(self.game.EditObj.UnitSelected);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local3,  local4, 370, 575);
         DrawMod.DrawTextColouredMarc( objgraphics, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Name, self.game.MarcFont4, 420, 585, Color.White);
         if (self.game.Data.UnitObj[self.game.EditObj.UnitSelected].TempUnitSelectable)

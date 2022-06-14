@@ -153,7 +153,7 @@ namespace WindowsApplication1
             windowReturnClass1.SetFlag(true);
             return windowReturnClass1;
           }
-          int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+          let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
           this.game.ProcessingObj.PlayCard(this.game.EditObj.DoCardSlot);
           if (Strings.Len(this.game.Data.LoadGame) > 0)
           {
@@ -165,13 +165,13 @@ namespace WindowsApplication1
             windowReturnClass1.AddCommand(3, 4);
             return windowReturnClass1;
           }
-          int Number = 0;
-          int locCounter = this.game.Data.LocCounter;
-          for (int locnr = 0; locnr <= locCounter; locnr += 1)
+          let mut Number: i32 =  0;
+          let mut locCounter: i32 =  this.game.Data.LocCounter;
+          for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
           {
             if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
             {
-              int index = 0;
+              let mut index: i32 =  0;
               do
               {
                 if (this.game.Data.LocObj[locnr].Production[index] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index]).result)
@@ -188,7 +188,7 @@ namespace WindowsApplication1
           }
           if (Number > 0)
           {
-            int num =  Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
           }
           if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
           {
@@ -281,7 +281,7 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new SteveButtonPartClass(this.game.BACKBUTTON, tBackbitmap: ( this.OwnBitmap), bbx: 25, bby: 700);
         this.but1id = this.AddSubPart( tsubpart, 25, 700, 35, 35, 1);
       }
-      int num1 = 200;
+      let mut num1: i32 =  200;
       if (Strings.Len(this.game.EditObj.CampaignRoomTitle) > 0)
         num1 = 25;
       Font usefont;
@@ -343,7 +343,7 @@ namespace WindowsApplication1
           tsubpart1 =  new TextButtonPartClass(buttontext1, 150, "Your currently viewing your reports already.",  this.OwnBitmap, num1, 60, tred: (!flag), usefont: usefont, useshadow: flag, tMarcStyle: flag);
           this.mainx = this.AddSubPart( tsubpart1, num1, 60, 150, 35, 1);
         }
-        int num2 = num1 + 160;
+        let mut num2: i32 =  num1 + 160;
         if ((double) this.game.Data.RuleVar[501] < 1.0)
         {
           if (this.mainnr != 5)
@@ -356,7 +356,7 @@ namespace WindowsApplication1
             tsubpart1 =  new TextButtonPartClass("Research", 150, tBackbitmap: ( this.OwnBitmap), bbx: num2, bby: 60, tred: (!flag), usefont: usefont, useshadow: flag, tMarcStyle: flag);
             this.mainx = this.AddSubPart( tsubpart1, num2, 60, 150, 35, 1);
           }
-          int num3 = num2 + 160;
+          let mut num3: i32 =  num2 + 160;
         }
       }
       str1: String = "Game Round is " + Strings.Trim(Conversion.Str((object) this.game.Data.Round));
@@ -380,19 +380,19 @@ namespace WindowsApplication1
       {
         if (this.game.Data.Turn > -1)
         {
-          int num4 = 940;
-          int num5 = 16;
-           Graphics local1 =  graphics;
+          let mut num4: i32 =  940;
+          let mut num5: i32 =  16;
+           let mut local1: &Graphics = &graphics;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
-           Bitmap local2 =  bitmap;
-          int x = num4;
-          int y = num5;
+           let mut local2: &Bitmap = &bitmap;
+          let mut x: i32 =  num4;
+          let mut y: i32 =  num5;
           DrawMod.DrawSimple( local1,  local2, x, y);
           DrawMod.DrawTextColouredMarc( graphics, "PP", this.game.MarcFont8, num4 + 7, num5 + 4, Color.White);
           str3: String = this.game.Data.RegimeObj[this.game.Data.Turn].ResPts.ToString();
           SizeF sizeF2 = graphics.MeasureString(str3, this.game.MarcFont6);
           DrawMod.DrawTextColouredMarc( graphics, str3, this.game.MarcFont8,  Math.Round((double) ((float) (num4 + 57) - sizeF2.Width)), num5 + 2, Color.White);
-          Rectangle trect = new Rectangle( Math.Round((double) ((float) (num4 + 57) - sizeF2.Width)), num5 + 2, 75, 20);
+          Rectangle trect = Rectangle::new( Math.Round((double) ((float) (num4 + 57) - sizeF2.Width)), num5 + 2, 75, 20);
           this.AddMouse( trect, "Political Points", "You need PP to play regime action cards");
         }
       }
@@ -477,7 +477,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.OptionsList6Id);
         this.OptionsList6Id = 0;
       }
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.minicard[index] > 0)
@@ -526,7 +526,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.B3Id);
       if (this.B3TextId > 0)
         this.RemoveSubPart(this.B3TextId);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.minicard[index1] > 0)
@@ -538,17 +538,17 @@ namespace WindowsApplication1
       graphics1.SmoothingMode = SmoothingMode.AntiAlias;
       graphics1.TextRenderingHint = TextRenderingHint.AntiAlias;
       graphics1.TextContrast = 1;
-       Graphics local1 =  graphics1;
+       let mut local1: &Graphics = &graphics1;
       Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.RESEARCHOVERPRINT);
-       Bitmap local2 =  bitmap1;
+       let mut local2: &Bitmap = &bitmap1;
       DrawMod.DrawSimple( local1,  local2, 610, 120);
       if (this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter > 64)
       {
         this.OptionsList4Obj = ListClass::new();
-        int tlistselect1 = -1;
-        int num = -1;
-        int cardHistoryCounter = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter;
-        for (int tdata = 0; tdata <= cardHistoryCounter; tdata += 1)
+        let mut tlistselect1: i32 =  -1;
+        let mut num: i32 =  -1;
+        let mut cardHistoryCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter;
+        for (let mut tdata: i32 =  0; tdata <= cardHistoryCounter; tdata += 1)
         {
           num += 1;
           if (this.detailnr == tdata)
@@ -563,7 +563,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList4Obj = this.OptionsList4Obj;
-          int tlistselect2 = tlistselect1;
+          let mut tlistselect2: i32 =  tlistselect1;
           let mut game: GameClass = this.game;
            Bitmap local3 =  this.OwnBitmap;
           Font font =  null;
@@ -574,14 +574,14 @@ namespace WindowsApplication1
       }
       else
       {
-        int cardHistoryCounter = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter;
-        int num1 =  Math.Round(Conversion.Int((double)  Math.Round(Conversion.Int(Math.Sqrt((double) (cardHistoryCounter + 1))) + 1.0) * 1.5));
-        int num2 =  Math.Round(Conversion.Int(520.0 / (double) num1));
-        int num3 =  Math.Round(Conversion.Int((double) num2 * 1.5));
-        int num4 = -1;
-        int num5 = 0;
-        int num6 = cardHistoryCounter;
-        for (int index2 = 0; index2 <= num6; index2 += 1)
+        let mut cardHistoryCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter;
+        let mut num1: i32 =   Math.Round(Conversion.Int((double)  Math.Round(Conversion.Int(Math.Sqrt((double) (cardHistoryCounter + 1))) + 1.0) * 1.5));
+        let mut num2: i32 =   Math.Round(Conversion.Int(520.0 / (double) num1));
+        let mut num3: i32 =   Math.Round(Conversion.Int((double) num2 * 1.5));
+        let mut num4: i32 =  -1;
+        let mut num5: i32 =  0;
+        let mut num6: i32 =  cardHistoryCounter;
+        for (let mut index2: i32 =  0; index2 <= num6; index2 += 1)
         {
           num4 += 1;
           if (num4 >= num1)
@@ -589,24 +589,24 @@ namespace WindowsApplication1
             num4 = 0;
             num5 += 1;
           }
-          int x =  Math.Round(13.0 + (double) num4 * ((double) num2 * 1.1));
-          int y =  Math.Round(156.0 + (double) num5 * ((double) num3 * 1.1));
+          let mut x: i32 =   Math.Round(13.0 + (double) num4 * ((double) num2 * 1.1));
+          let mut y: i32 =   Math.Round(156.0 + (double) num5 * ((double) num3 * 1.1));
           if (Information.IsNothing((object) this.tempbmp[index2]))
           {
             this.tempbmp[index2] = new Bitmap(num2, num3);
             this.tempbmp[index2].SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
             Graphics graphics2 = Graphics.FromImage((Image) this.tempbmp[index2]);
-             Graphics local5 =  graphics2;
+             let mut local5: &Graphics = &graphics2;
             Bitmap bitmap2 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistory[index2], this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryRound[index2]);
-             Bitmap local6 =  bitmap2;
-            int w = num2;
-            int h = num3;
+             let mut local6: &Bitmap = &bitmap2;
+            let mut w: i32 =  num2;
+            let mut h: i32 =  num3;
             DrawMod.DrawScaled( local5,  local6, 0, 0, w, h);
           }
           int[] minicard = this.minicard;
-          int index3 = index2;
+          let mut index3: i32 =  index2;
           let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.tempbmp[index2]);
-          int num7 = this.AddSubPart( tsubpart, x, y, num2, num3, 1);
+          let mut num7: i32 =  this.AddSubPart( tsubpart, x, y, num2, num3, 1);
           minicard[index3] = num7;
           if (this.detailnr == index2)
           {
@@ -618,9 +618,9 @@ namespace WindowsApplication1
       }
       if (this.detailnr <= -1)
         return;
-       Graphics local7 =  graphics1;
+       let mut local7: &Graphics = &graphics1;
       Bitmap bitmap3 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistory[this.detailnr]);
-       Bitmap local8 =  bitmap3;
+       let mut local8: &Bitmap = &bitmap3;
       DrawMod.DrawSimple( local7,  local8, 660, 160);
       if (this.game.Data.AlternateRound > -1)
       {
@@ -673,7 +673,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.B3Id);
       if (this.B3TextId > 0)
         this.RemoveSubPart(this.B3TextId);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.minicard[index1] > 0)
@@ -685,9 +685,9 @@ namespace WindowsApplication1
       objGraphics.SmoothingMode = SmoothingMode.AntiAlias;
       objGraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objGraphics.TextContrast = 1;
-       Graphics local1 =  objGraphics;
+       let mut local1: &Graphics = &objGraphics;
       Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.RESEARCHOVERPRINT);
-       Bitmap local2 =  bitmap1;
+       let mut local2: &Bitmap = &bitmap1;
       DrawMod.DrawSimple( local1,  local2, 610, 120);
       this.ClearMouse();
       SimpleList simpleList = SimpleList::new();
@@ -695,10 +695,10 @@ namespace WindowsApplication1
       if (this.game.Data.Turn > -1)
       {
         actionCardCounter1 = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter;
-        int num = actionCardCounter1;
+        let mut num: i32 =  actionCardCounter1;
         for (index1 = 0; index1 <= num; index1 += 1)
         {
-          int tweight = this.game.Data.ActionCardObj[this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index1]].ColorScheme * 1000 + this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index1];
+          let mut tweight: i32 =  this.game.Data.ActionCardObj[this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index1]].ColorScheme * 1000 + this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index1];
           simpleList.Add(index1, tweight);
         }
       }
@@ -711,9 +711,9 @@ namespace WindowsApplication1
         if (this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > 64)
         {
           this.OptionsList4Obj = ListClass::new();
-          int tlistselect1 = -1;
-          int num = -1;
-          int actionCardCounter2 = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter;
+          let mut tlistselect1: i32 =  -1;
+          let mut num: i32 =  -1;
+          let mut actionCardCounter2: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter;
           for (index1 = 0; index1 <= actionCardCounter2; index1 += 1)
           {
             num += 1;
@@ -729,7 +729,7 @@ namespace WindowsApplication1
           else
           {
             ListClass optionsList4Obj = this.OptionsList4Obj;
-            int tlistselect2 = tlistselect1;
+            let mut tlistselect2: i32 =  tlistselect1;
             let mut game: GameClass = this.game;
              Bitmap local3 =  this.OwnBitmap;
             Font font =  null;
@@ -740,13 +740,13 @@ namespace WindowsApplication1
         }
         else
         {
-          int num1 =  Math.Round(Conversion.Int((double)  Math.Round(Conversion.Int(Math.Sqrt((double) (actionCardCounter1 + 1))) + 1.0) * 1.5));
-          int num2 =  Math.Round(Conversion.Int(520.0 / (double) num1));
-          int num3 =  Math.Round(Conversion.Int((double) num2 * 1.5));
-          int num4 = -1;
-          int num5 = 0;
-          int counter = simpleList.Counter;
-          for (int index2 = 0; index2 <= counter; index2 += 1)
+          let mut num1: i32 =   Math.Round(Conversion.Int((double)  Math.Round(Conversion.Int(Math.Sqrt((double) (actionCardCounter1 + 1))) + 1.0) * 1.5));
+          let mut num2: i32 =   Math.Round(Conversion.Int(520.0 / (double) num1));
+          let mut num3: i32 =   Math.Round(Conversion.Int((double) num2 * 1.5));
+          let mut num4: i32 =  -1;
+          let mut num5: i32 =  0;
+          let mut counter: i32 =  simpleList.Counter;
+          for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
           {
             index1 = simpleList.Id[index2];
             num4 += 1;
@@ -755,24 +755,24 @@ namespace WindowsApplication1
               num4 = 0;
               num5 += 1;
             }
-            int x =  Math.Round(13.0 + (double) num4 * ((double) num2 * 1.1));
-            int y =  Math.Round(156.0 + (double) num5 * ((double) num3 * 1.1));
+            let mut x: i32 =   Math.Round(13.0 + (double) num4 * ((double) num2 * 1.1));
+            let mut y: i32 =   Math.Round(156.0 + (double) num5 * ((double) num3 * 1.1));
             if (Information.IsNothing((object) this.tempbmp[index1]))
             {
               this.tempbmp[index1] = new Bitmap(num2, num3);
               this.tempbmp[index1].SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
               Graphics graphics = Graphics.FromImage((Image) this.tempbmp[index1]);
-               Graphics local5 =  graphics;
+               let mut local5: &Graphics = &graphics;
               Bitmap bitmap3 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index1]);
-               Bitmap local6 =  bitmap3;
-              int w = num2;
-              int h = num3;
+               let mut local6: &Bitmap = &bitmap3;
+              let mut w: i32 =  num2;
+              let mut h: i32 =  num3;
               DrawMod.DrawScaled( local5,  local6, 0, 0, w, h);
             }
             int[] minicard = this.minicard;
-            int index3 = index1;
+            let mut index3: i32 =  index1;
             tsubpart1 =  ButtonPartClass::new(this.tempbmp[index1]);
-            int num6 = this.AddSubPart( tsubpart1, x, y, num2, num3, 1);
+            let mut num6: i32 =  this.AddSubPart( tsubpart1, x, y, num2, num3, 1);
             minicard[index3] = num6;
             if (this.detailnr == index1)
             {
@@ -785,12 +785,12 @@ namespace WindowsApplication1
       }
       else
       {
-        int num =  Math.Round(Conversion.Int(1650.0 / (double) (simpleList.Counter + 1)));
+        let mut num: i32 =   Math.Round(Conversion.Int(1650.0 / (double) (simpleList.Counter + 1)));
         if (num > 110)
           num = 110;
-        int x1 = 25 - num;
-        int y1 = 140;
-        int counter = simpleList.Counter;
+        let mut x1: i32 =  25 - num;
+        let mut y1: i32 =  140;
+        let mut counter: i32 =  simpleList.Counter;
         for (index1 = 0; index1 <= counter; index1 += 1)
         {
           if (this.detailnr == -1)
@@ -806,23 +806,23 @@ namespace WindowsApplication1
             x1 = 25;
             y1 = 297;
           }
-          int nr = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[simpleList.Id[index1]];
-           Graphics local7 =  objGraphics;
+          let mut nr: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[simpleList.Id[index1]];
+           let mut local7: &Graphics = &objGraphics;
           bitmap2 = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, nr, size: 2);
-           Bitmap local8 =  bitmap2;
-          int x2 = x1;
-          int y2 = y1;
+           let mut local8: &Bitmap = &bitmap2;
+          let mut x2: i32 =  x1;
+          let mut y2: i32 =  y1;
           DrawMod.DrawSimple( local7,  local8, x2, y2);
           Rectangle trect2;
           if (this.game.Data.ActionCardObj[nr].MouseOver.Length > 0)
           {
-            trect2 = new Rectangle(x1, y1, 110, 147);
+            trect2 = Rectangle::new(x1, y1, 110, 147);
             trect1 = trect2;
             this.AddMouse( trect1, "REGIME CARD", this.game.Data.ActionCardObj[nr].MouseOver + "\r\nClick for close up and play option", simpleList.Id[index1] + 100);
           }
           else
           {
-            trect1 = new Rectangle(x1, y1, 110, 147);
+            trect1 = Rectangle::new(x1, y1, 110, 147);
             trect2 = trect1;
             this.AddMouse( trect2, "REGIME CARD", "Click for close up and play option", simpleList.Id[index1] + 100);
           }
@@ -844,27 +844,27 @@ namespace WindowsApplication1
       }
       if ((double) this.game.Data.RuleVar[839] == 0.0)
       {
-         Graphics local9 =  objGraphics;
+         let mut local9: &Graphics = &objGraphics;
         bitmap2 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.detailnr]);
-         Bitmap local10 =  bitmap2;
+         let mut local10: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local9,  local10, 660, 160);
       }
       else
       {
-         Graphics local11 =  objGraphics;
+         let mut local11: &Graphics = &objGraphics;
         bitmap2 = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.detailnr]);
-         Bitmap local12 =  bitmap2;
+         let mut local12: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local11,  local12, 710, 260);
         if (this.game.Data.ActionCardObj[this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.detailnr]].MouseOver.Length > 0)
         {
-          trect1 = new Rectangle(710, 260, 190, 266);
-          Rectangle trect3 = trect1;
+          trect1 = Rectangle::new(710, 260, 190, 266);
+          let mut trect3: &Rectangle = &trect1
           this.AddMouse( trect3, "SELECTED REGIME CARD", this.game.Data.ActionCardObj[this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.detailnr]].MouseOver + "\r\nClick on the 'play card' button to play this card.", simpleList.Id[index1] + 100);
         }
         else
         {
-          trect1 = new Rectangle(710, 260, 190, 266);
-          Rectangle trect4 = trect1;
+          trect1 = Rectangle::new(710, 260, 190, 266);
+          let mut trect4: &Rectangle = &trect1
           this.AddMouse( trect4, "SELECTED REGIME CARD", "Click on the 'play card' button to play this card.", simpleList.Id[index1] + 100);
         }
       }
@@ -927,17 +927,17 @@ namespace WindowsApplication1
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       graphics.TextContrast = 1;
       this.OptionsList5Obj = ListClass::new();
-      int tlistselect1 = -1;
-      int num1 = -1;
-      int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
-      for (int tdata = 0; tdata <= messCounter; tdata += 1)
+      let mut tlistselect1: i32 =  -1;
+      let mut num1: i32 =  -1;
+      let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+      for (let mut tdata: i32 =  0; tdata <= messCounter; tdata += 1)
       {
         if (this.game.Data.RegimeObj[this.game.Data.Turn].MessBackPic[tdata] == -2)
         {
           num1 += 1;
           if (this.detailnr == tdata)
             tlistselect1 = num1;
-          int num2 = Strings.InStr(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata], "\r\n");
+          let mut num2: i32 =  Strings.InStr(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata], "\r\n");
           string str;
           if (Information.IsNothing((object) num2) | num2 <= 0)
           {
@@ -962,7 +962,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList5Obj = this.OptionsList5Obj;
-          int tlistselect2 = tlistselect1;
+          let mut tlistselect2: i32 =  tlistselect1;
           let mut game: GameClass = this.game;
            Bitmap local1 =  this.OwnBitmap;
           Font font =  null;
@@ -975,12 +975,12 @@ namespace WindowsApplication1
         int num3;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr] > -1)
         {
-          int index = this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr];
-          int num4 = index < 10000 ? this.game.Data.EventPicNr[index] : this.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
+          let mut index: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr];
+          let mut num4: i32 =  index < 10000 ? this.game.Data.EventPicNr[index] : this.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
           if (num4 > -1)
           {
-            int num5 = BitmapStore.GetWidth(num4);
-            int num6 = BitmapStore.Getheight(num4);
+            let mut num5: i32 =  BitmapStore.GetWidth(num4);
+            let mut num6: i32 =  BitmapStore.Getheight(num4);
             if (num5 > 320)
             {
               num6 =  Math.Round((double) num6 * (320.0 / (double) num5));
@@ -993,7 +993,7 @@ namespace WindowsApplication1
             num3 = 20 + num6 + 25;
           }
         }
-        int trows =  Math.Round(35.0 - (double) num3 / 16.0);
+        let mut trows: i32 =   Math.Round(35.0 - (double) num3 / 16.0);
         if (this.Text2Id != 0)
           return;
         let mut tsubpart1: SubPartClass =  new TextAreaClass(this.game, 360, trows, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), "", false, this.game.Data.RegimeObj[this.game.Data.Turn].MessString[this.detailnr], Color.White, tbackbitmap: ( this.OwnBitmap), bbx: 630, bby: (120 + num3));
@@ -1033,23 +1033,23 @@ namespace WindowsApplication1
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       graphics.TextContrast = 1;
-       Graphics local1 =  graphics;
+       let mut local1: &Graphics = &graphics;
       Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.RESEARCHOVERPRINT);
-       Bitmap local2 =  bitmap1;
+       let mut local2: &Bitmap = &bitmap1;
       DrawMod.DrawSimple( local1,  local2, 610, 120);
       this.OptionsListObj = ListClass::new();
       if (this.detailnr > this.game.Data.ResearchCounter)
         this.detailnr = -1;
-      int num1 = -1;
-      int num2 = -1;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  -1;
       if (this.game.Data.ResearchCounter > -1)
       {
-        int researchCounter = this.game.Data.ResearchCounter;
-        for (int tdata = 0; tdata <= researchCounter; tdata += 1)
+        let mut researchCounter: i32 =  this.game.Data.ResearchCounter;
+        for (let mut tdata: i32 =  0; tdata <= researchCounter; tdata += 1)
         {
           if (!this.game.Data.RegimeObj[this.pregnr].ResField[tdata])
           {
-            int num3 = 1;
+            let mut num3: i32 =  1;
             if (this.game.Data.ResearchObj[tdata].PreReq > -1 && !this.game.Data.RegimeObj[this.pregnr].ResField[this.game.Data.ResearchObj[tdata].PreReq])
               num3 = 0;
             if (this.game.Data.ResearchObj[tdata].PreReq2 > -1 && !this.game.Data.RegimeObj[this.pregnr].ResField[this.game.Data.ResearchObj[tdata].PreReq2])
@@ -1062,11 +1062,11 @@ namespace WindowsApplication1
               if (this.detailnr == tdata)
                 num1 = num2;
               tname: String = this.game.Data.ResearchObj[tdata].Name;
-              int Number = 0;
+              let mut Number: i32 =  0;
               if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & (double) this.game.Data.RuleVar[530] == 1.0)
               {
-                int regimeCounter = this.game.Data.RegimeCounter;
-                for (int reg2 = 0; reg2 <= regimeCounter; reg2 += 1)
+                let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
                 {
                   if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, reg2) & this.game.Data.Turn != reg2 && this.game.Data.RegimeObj[reg2].ResField[tdata])
                     Number += 1;
@@ -1079,9 +1079,9 @@ namespace WindowsApplication1
           }
         }
         this.OptionsListObj.Sort();
-        int tlistselect1 = -1;
-        int listCount = this.OptionsListObj.ListCount;
-        for (int index = 0; index <= listCount; index += 1)
+        let mut tlistselect1: i32 =  -1;
+        let mut listCount: i32 =  this.OptionsListObj.ListCount;
+        for (let mut index: i32 =  0; index <= listCount; index += 1)
         {
           if (this.detailnr == this.OptionsListObj.ListData[index])
             tlistselect1 = index;
@@ -1094,7 +1094,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsListObj = this.OptionsListObj;
-          int tlistselect2 = tlistselect1;
+          let mut tlistselect2: i32 =  tlistselect1;
           let mut game: GameClass = this.game;
            Bitmap local3 =  this.OwnBitmap;
           Font font =  null;
@@ -1107,15 +1107,15 @@ namespace WindowsApplication1
       if (this.detailnr3 > this.game.Data.ResearchCounter)
         this.detailnr3 = -1;
       num1 = -1;
-      int num4 = -1;
+      let mut num4: i32 =  -1;
       if (this.game.Data.ResearchCounter > -1)
       {
-        int researchCounter = this.game.Data.ResearchCounter;
-        for (int tdata = 0; tdata <= researchCounter; tdata += 1)
+        let mut researchCounter: i32 =  this.game.Data.ResearchCounter;
+        for (let mut tdata: i32 =  0; tdata <= researchCounter; tdata += 1)
         {
           if (!this.game.Data.RegimeObj[this.pregnr].ResField[tdata])
           {
-            int num5 = 1;
+            let mut num5: i32 =  1;
             if (this.game.Data.ResearchObj[tdata].PreReq > -1 && !this.game.Data.RegimeObj[this.pregnr].ResField[this.game.Data.ResearchObj[tdata].PreReq])
               num5 = 0;
             if (this.game.Data.ResearchObj[tdata].PreReq2 > -1 && !this.game.Data.RegimeObj[this.pregnr].ResField[this.game.Data.ResearchObj[tdata].PreReq2])
@@ -1128,11 +1128,11 @@ namespace WindowsApplication1
               if (this.detailnr3 == tdata)
                 num1 = num4;
               tname: String = this.game.Data.ResearchObj[tdata].Name;
-              int Number = 0;
+              let mut Number: i32 =  0;
               if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & (double) this.game.Data.RuleVar[530] == 1.0)
               {
-                int regimeCounter = this.game.Data.RegimeCounter;
-                for (int reg2 = 0; reg2 <= regimeCounter; reg2 += 1)
+                let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
                 {
                   if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, reg2) & this.game.Data.Turn != reg2 && this.game.Data.RegimeObj[reg2].ResField[tdata])
                     Number += 1;
@@ -1145,9 +1145,9 @@ namespace WindowsApplication1
           }
         }
         this.OptionsList3Obj.Sort();
-        int tlistselect3 = -1;
-        int listCount = this.OptionsList3Obj.ListCount;
-        for (int index = 0; index <= listCount; index += 1)
+        let mut tlistselect3: i32 =  -1;
+        let mut listCount: i32 =  this.OptionsList3Obj.ListCount;
+        for (let mut index: i32 =  0; index <= listCount; index += 1)
         {
           if (this.detailnr3 == this.OptionsList3Obj.ListData[index])
             tlistselect3 = index;
@@ -1160,7 +1160,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList3Obj = this.OptionsList3Obj;
-          int tlistselect4 = tlistselect3;
+          let mut tlistselect4: i32 =  tlistselect3;
           let mut game: GameClass = this.game;
            Bitmap local5 =  this.OwnBitmap;
           Font font =  null;
@@ -1170,20 +1170,20 @@ namespace WindowsApplication1
         }
       }
       num1 = -1;
-      int num6 = -1;
+      let mut num6: i32 =  -1;
       if (this.detailnr2 > this.game.Data.ResearchCounter)
         this.detailnr2 = -1;
       this.OptionsList2Obj = ListClass::new();
       if (this.game.Data.ResearchCounter > -1)
       {
-        int researchCounter1 = this.game.Data.ResearchCounter;
-        for (int tdata = 0; tdata <= researchCounter1; tdata += 1)
+        let mut researchCounter1: i32 =  this.game.Data.ResearchCounter;
+        for (let mut tdata: i32 =  0; tdata <= researchCounter1; tdata += 1)
         {
           if (this.game.Data.RegimeObj[this.pregnr].ResField[tdata])
           {
-            int num7 = 1;
-            int researchCounter2 = this.game.Data.ResearchCounter;
-            for (int index = 0; index <= researchCounter2; index += 1)
+            let mut num7: i32 =  1;
+            let mut researchCounter2: i32 =  this.game.Data.ResearchCounter;
+            for (let mut index: i32 =  0; index <= researchCounter2; index += 1)
             {
               if (this.game.Data.RegimeObj[this.pregnr].ResField[index] && this.game.Data.ResearchObj[index].Blocks == tdata)
               {
@@ -1198,11 +1198,11 @@ namespace WindowsApplication1
               if (this.detailnr2 == tdata)
                 num1 = num6;
               tname: String = this.game.Data.ResearchObj[tdata].Name;
-              int Number = 0;
+              let mut Number: i32 =  0;
               if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & (double) this.game.Data.RuleVar[530] == 1.0)
               {
-                int regimeCounter = this.game.Data.RegimeCounter;
-                for (int reg2 = 0; reg2 <= regimeCounter; reg2 += 1)
+                let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
                 {
                   if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, reg2) & this.game.Data.Turn != reg2 && this.game.Data.RegimeObj[reg2].ResField[tdata])
                     Number += 1;
@@ -1216,9 +1216,9 @@ namespace WindowsApplication1
         }
       }
       this.OptionsList2Obj.Sort();
-      int tlistselect5 = -1;
-      int listCount1 = this.OptionsList2Obj.ListCount;
-      for (int index = 0; index <= listCount1; index += 1)
+      let mut tlistselect5: i32 =  -1;
+      let mut listCount1: i32 =  this.OptionsList2Obj.ListCount;
+      for (let mut index: i32 =  0; index <= listCount1; index += 1)
       {
         if (this.detailnr2 == this.OptionsList2Obj.ListData[index])
           tlistselect5 = index;
@@ -1231,7 +1231,7 @@ namespace WindowsApplication1
       else
       {
         ListClass optionsList2Obj = this.OptionsList2Obj;
-        int tlistselect6 = tlistselect5;
+        let mut tlistselect6: i32 =  tlistselect5;
         let mut game: GameClass = this.game;
          Bitmap local7 =  this.OwnBitmap;
         Font font =  null;
@@ -1239,19 +1239,19 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsList2Obj, 30, 150, tlistselect6, game, tHeader: "Known Research", tHeaderCenter: false, tbackbitmap: ( local7), bbx: 40, bby: 160, overruleFont: ( local8));
         this.OptionsList2Id = this.AddSubPart( tsubpart, 40, 160, 150, 528, 0);
       }
-      int index1 = this.detailnr;
+      let mut index1: i32 =  this.detailnr;
       if (index1 == -1)
         index1 = this.detailnr2;
       if (index1 == -1)
         index1 = this.detailnr3;
       if (index1 <= -1)
         return;
-      int x1 = 650;
-      int num8 = 0;
+      let mut x1: i32 =  650;
+      let mut num8: i32 =  0;
       if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true))
       {
-        int regimeCounter = this.game.Data.RegimeCounter;
-        for (int reg2 = 0; reg2 <= regimeCounter; reg2 += 1)
+        let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+        for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
         {
           if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, reg2) & this.game.Data.Turn != reg2 & (double) this.game.Data.RuleVar[530] == 1.0 && this.game.Data.RegimeObj[reg2].ResField[index1])
           {
@@ -1259,10 +1259,10 @@ namespace WindowsApplication1
               DrawMod.DrawText( graphics, "Allies:", this.game.GameFont1, x1, 145);
             num8 = 1;
             x1 += 37;
-             Graphics local9 =  graphics;
+             let mut local9: &Graphics = &graphics;
             Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.Data.RegimeObj[reg2].HQSpriteNr);
-             Bitmap local10 =  bitmap2;
-            int x2 = x1;
+             let mut local10: &Bitmap = &bitmap2;
+            let mut x2: i32 =  x1;
             DrawMod.DrawSimple( local9,  local10, x2, 143);
           }
         }
@@ -1276,23 +1276,23 @@ namespace WindowsApplication1
       DrawMod.DrawTextColoured( graphics, this.game.Data.ResearchObj[index1].Name, Font::new("Arial Black", 19f, FontStyle.Regular, GraphicsUnit.Pixel), 675, 201, Color.White);
       if (this.game.Data.ResearchObj[index1].SFTypePic > -1)
       {
-        int picSpriteId = this.game.Data.SFTypeObj[this.game.Data.ResearchObj[index1].SFTypePic].PicSpriteID;
+        let mut picSpriteId: i32 =  this.game.Data.SFTypeObj[this.game.Data.ResearchObj[index1].SFTypePic].PicSpriteID;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].ExtraGraphicUse > -1)
         {
-          int extraCounter = this.game.Data.SFTypeObj[this.game.Data.ResearchObj[index1].SFTypePic].ExtraCounter;
-          for (int index2 = 0; index2 <= extraCounter; index2 += 1)
+          let mut extraCounter: i32 =  this.game.Data.SFTypeObj[this.game.Data.ResearchObj[index1].SFTypePic].ExtraCounter;
+          for (let mut index2: i32 =  0; index2 <= extraCounter; index2 += 1)
           {
             if (this.game.Data.SFTypeObj[this.game.Data.ResearchObj[index1].SFTypePic].ExtraCode[index2] == this.game.Data.RegimeObj[this.game.Data.Turn].ExtraGraphicUse)
               picSpriteId = this.game.Data.SFTypeObj[this.game.Data.ResearchObj[index1].SFTypePic].ExtraPicSpriteID[index2];
           }
         }
-         Graphics local11 =  graphics;
+         let mut local11: &Graphics = &graphics;
         Bitmap bitmap3 = BitmapStore.GetBitmap(picSpriteId);
-         Bitmap local12 =  bitmap3;
+         let mut local12: &Bitmap = &bitmap3;
         DrawMod.DrawScaled( local11,  local12, 665, 240, 260, 194);
-         Graphics local13 =  graphics;
+         let mut local13: &Graphics = &graphics;
         Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.ACTIONFRAME);
-         Bitmap local14 =  bitmap4;
+         let mut local14: &Bitmap = &bitmap4;
         DrawMod.DrawSimple( local13,  local14, 665, 240);
       }
       if (this.game.Data.ResearchObj[index1].PreReq > -1)
@@ -1320,19 +1320,19 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new TextButtonPartClass("Buy", 100, "Buy selected researchfield",  this.OwnBitmap, 750, 635);
         this.B2Id = this.AddSubPart( tsubpart, 750, 635, 100, 35, 1);
       }
-      int num9 = 0;
+      let mut num9: i32 =  0;
       if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & this.game.Data.RegimeObj[this.game.Data.Turn].ResField[index1] & (double) this.game.Data.RuleVar[530] == 1.0 && this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] > -1)
       {
-        int regimeCounter = this.game.Data.RegimeCounter;
-        for (int reg2 = 0; reg2 <= regimeCounter; reg2 += 1)
+        let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+        for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
         {
           if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, reg2) & this.game.Data.Turn != reg2 && !this.game.Data.RegimeObj[reg2].ResField[index1])
             num9 += 1;
         }
-        int preReq = this.game.Data.ResearchObj[index1].PreReq;
+        let mut preReq: i32 =  this.game.Data.ResearchObj[index1].PreReq;
         if (preReq > -1 && this.game.Data.ResearchObj[preReq].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] == -1)
           num9 = 0;
-        int preReq2 = this.game.Data.ResearchObj[index1].PreReq2;
+        let mut preReq2: i32 =  this.game.Data.ResearchObj[index1].PreReq2;
         if (preReq2 > -1 && this.game.Data.ResearchObj[preReq2].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] == -1)
           num9 = 0;
         if (num9 > 0)
@@ -1386,7 +1386,7 @@ namespace WindowsApplication1
           windowReturnClass.SetFlag(true);
           return windowReturnClass;
         }
-        int num =  Interaction.MsgBox((object) "Error. Cant have selected an Area X,Y already.");
+        let mut num: i32 =   Interaction.MsgBox((object) "Error. Cant have selected an Area X,Y already.");
         windowReturnClass.SetFlag(true);
         return windowReturnClass;
       }
@@ -1402,7 +1402,7 @@ namespace WindowsApplication1
         windowReturnClass.SetFlag(true);
         return windowReturnClass;
       }
-      int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+      let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
       this.game.ProcessingObj.PlayCard(this.game.Data.Turn, this.detailnr);
       if (this.game.EditObj.DoQuit)
       {
@@ -1427,12 +1427,12 @@ namespace WindowsApplication1
         return windowReturnClass;
       }
       t2 = 0;
-      int locCounter = this.game.Data.LocCounter;
-      for (int locnr = 0; locnr <= locCounter; locnr += 1)
+      let mut locCounter: i32 =  this.game.Data.LocCounter;
+      for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
       {
         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
         {
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             if (this.game.Data.LocObj[locnr].Production[index] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index]).result)
@@ -1449,7 +1449,7 @@ namespace WindowsApplication1
       }
       if (t2 > 0)
       {
-        int num1 =  Interaction.MsgBox((object) (Conversion.Str((object) t2) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) t2) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
       }
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
       {
@@ -1470,7 +1470,7 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
-      for (int mouseCounter = this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
+      for (let mut mouseCounter: i32 =  this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
       {
         if (this.MouseData[mouseCounter] > 0 && x > this.MouseRect[mouseCounter].X & x < this.MouseRect[mouseCounter].X + this.MouseRect[mouseCounter].Width && y > this.MouseRect[mouseCounter].Y & y < this.MouseRect[mouseCounter].Y + this.MouseRect[mouseCounter].Height && this.MouseData[mouseCounter] >= 100 & this.MouseData[mouseCounter] <= 100 + this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter + 100)
         {
@@ -1489,13 +1489,13 @@ namespace WindowsApplication1
           windowReturnClass2: WindowReturnClass;
           return windowReturnClass2;
         }
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
 label_71:
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.main2)
             {
               this.mainnr = 2;
@@ -1530,7 +1530,7 @@ label_71:
             }
             if (num1 == this.OptionsList4Id)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -1556,7 +1556,7 @@ label_71:
             }
             if (num1 == this.OptionsList5Id)
             {
-              int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
@@ -1589,19 +1589,19 @@ label_71:
             {
               this.game.ProcessingObj.BuyResearch(this.pplnr, this.regnr, this.detailnr);
               SimpleList simpleList = SimpleList::new();
-              int itemTypeCounter = this.game.Data.ItemTypeCounter;
+              let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
               int Number;
-              for (int itemtypenr = 0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
+              for (let mut itemtypenr: i32 =  0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
               {
                 if (this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[0] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[1] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[2] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[3] == this.detailnr | this.game.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[4] == this.detailnr && this.game.Data.ItemTypeObj[itemtypenr].Blocks > -1)
                 {
-                  int blocks = this.game.Data.ItemTypeObj[itemtypenr].Blocks;
-                  int locCounter = this.game.Data.LocCounter;
-                  for (int locnr = 0; locnr <= locCounter; locnr += 1)
+                  let mut blocks: i32 =  this.game.Data.ItemTypeObj[itemtypenr].Blocks;
+                  let mut locCounter: i32 =  this.game.Data.LocCounter;
+                  for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
                   {
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
                     {
-                      int index2 = 0;
+                      let mut index2: i32 =  0;
                       do
                       {
                         if (this.game.Data.LocObj[locnr].Production[index2] == this.game.Data.ItemTypeObj[itemtypenr].Blocks && this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, itemtypenr).result)
@@ -1618,7 +1618,7 @@ label_71:
               }
               if (Number > 0)
               {
-                int num4 =  Interaction.MsgBox((object) ("Automatically switched " + Conversion.Str((object) Number) + " production line(s)."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =   Interaction.MsgBox((object) ("Automatically switched " + Conversion.Str((object) Number) + " production line(s)."), Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.detailnr = -1;
               this.detailnr2 = -1;
@@ -1629,7 +1629,7 @@ label_71:
             }
             if (num1 == this.OptionsListId)
             {
-              int num5 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num5: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num5 > -1)
               {
@@ -1649,7 +1649,7 @@ label_71:
             }
             if (num1 == this.OptionsList2Id)
             {
-              int num6 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num6: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num6 > -1)
               {
@@ -1663,7 +1663,7 @@ label_71:
             }
             if (num1 == this.OptionsList3Id)
             {
-              int num7 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num7: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num7 > -1)
               {
@@ -1675,7 +1675,7 @@ label_71:
               windowReturnClass1.SetFlag(true);
               return windowReturnClass1;
             }
-            int index3 = 0;
+            let mut index3: i32 =  0;
             while (this.SubPartID[index1] != this.minicard[index3])
             {
               index3 += 1;

@@ -13,7 +13,7 @@ namespace WindowsApplication1
      int minwidth;
      bool hidden;
 
-    pub BigMiniMapWindowClass(ref GameClass tGame, int tminheight = 0, int tminwidth = 200)
+    pub BigMiniMapWindowClass(ref GameClass tGame, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200)
       : base(ref tGame, tGame.ScreenWidth - tminwidth, tGame.ScreenHeight - tminheight)
     {
       this.minheight = tminheight;
@@ -35,13 +35,13 @@ namespace WindowsApplication1
       OrderResult orderResult = OrderResult::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index] && this.SubPartID[index] == this.MapId)
           {
-            int selectX = this.game.SelectX;
-            int selectY = this.game.SelectY;
+            let mut selectX: i32 =  this.game.SelectX;
+            let mut selectY: i32 =  this.game.SelectY;
             this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
             windowReturnClass.AddCommand(4, 39);
             windowReturnClass.AddCommand(4, 53);

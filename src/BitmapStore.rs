@@ -57,10 +57,10 @@ namespace WindowsApplication1
 
     pub static void ReloadAllRecoloredBitmaps()
     {
-      int num = num;
+      let mut num: i32 =  num;
       BitmapStore.ReloadSomeGfx();
-      int counter = BitmapStore.Counter;
-      for (int nr = 0; nr <= counter; nr += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut nr: i32 =  0; nr <= counter; nr += 1)
       {
         if (BitmapStore.tmpRecolorDone[nr])
         {
@@ -77,8 +77,8 @@ namespace WindowsApplication1
 
     pub static void ReloadBeforeRecolor(string spart, string newSpart)
     {
-      int counter = BitmapStore.Counter;
-      for (int nr = 0; nr <= counter; nr += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut nr: i32 =  0; nr <= counter; nr += 1)
       {
         str: String = BitmapStore.tmpFileName[nr].Replace("\\", "/").Replace("//", "/");
         if (Strings.InStr(Strings.LCase(str), Strings.LCase(spart)) > 0)
@@ -100,10 +100,10 @@ namespace WindowsApplication1
       bool gray = false;
       if (Strings.InStr(spart, "sandy") > 0)
       {
-        int num = num;
+        let mut num: i32 =  num;
       }
-      int counter = BitmapStore.Counter;
-      for (int nr = 0; nr <= counter; nr += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut nr: i32 =  0; nr <= counter; nr += 1)
       {
         if (Strings.InStr(Strings.LCase(BitmapStore.tmpFileName[nr].Replace("\\", "/").Replace("//", "/")), Strings.LCase(spart)) > 0)
         {
@@ -146,8 +146,8 @@ namespace WindowsApplication1
       int tb)
     {
       bool flag = false;
-      int counter = BitmapStore.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (Strings.InStr(Strings.LCase(BitmapStore.tmpFileName[index].Replace("\\", "/").Replace("//", "/")), Strings.LCase(spart)) > 0)
         {
@@ -194,7 +194,7 @@ namespace WindowsApplication1
       Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) fileStream);
       Bitmap bitmap2 = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
-      graphics.DrawImage((Image) bitmap1, new Rectangle(0, 0, bitmap1.Width, bitmap1.Height));
+      graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
       bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       if (bitmap2.GetPixel(0, 0) == Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 0, (int) byte.MaxValue))
@@ -211,9 +211,9 @@ namespace WindowsApplication1
 
     pub static int GetMemorySize()
     {
-      int counter = BitmapStore.Counter;
+      let mut counter: i32 =  BitmapStore.Counter;
       int memorySize;
-      for (int index = 0; index <= counter; index += 1)
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (!Information.IsNothing((object) BitmapStore.tmpBitmap[index]))
           memorySize += (int) Math.Round((double) (32 * BitmapStore.tmpBitmap[index].Width * BitmapStore.tmpBitmap[index].Height) / 8000.0);
@@ -316,8 +316,8 @@ namespace WindowsApplication1
 
     pub static void ReloadSomeGfx()
     {
-      int counter = BitmapStore.Counter;
-      for (int nr = 0; nr <= counter; nr += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut nr: i32 =  0; nr <= counter; nr += 1)
       {
         if (!Information.IsNothing((object) BitmapStore.oldFileName[nr]) && BitmapStore.oldFileName[nr].Length > 1)
         {
@@ -345,15 +345,15 @@ namespace WindowsApplication1
       {
         BitmapStore.lastreloadsystemgfx = ns;
         BitmapStore.FlagForDelete();
-        int upperBound = DrawMod.TGame.NATO.GetUpperBound(0);
-        for (int index = 1; index <= upperBound; index += 1)
+        let mut upperBound: i32 =  DrawMod.TGame.NATO.GetUpperBound(0);
+        for (let mut index: i32 =  1; index <= upperBound; index += 1)
         {
           if (DrawMod.TGame.NATO[index] <= BitmapStore.Counter & DrawMod.TGame.NATO[index] > 0)
             BitmapStore.RemoveBitmapNr(DrawMod.TGame.NATO[index]);
         }
         DrawMod.TGame.NATO = new int[1];
-        int counter = BitmapStore.Counter;
-        for (int nr = 0; nr <= counter; nr += 1)
+        let mut counter: i32 =  BitmapStore.Counter;
+        for (let mut nr: i32 =  0; nr <= counter; nr += 1)
         {
           if (BitmapStore.tmpIsSystem[nr])
           {
@@ -439,8 +439,8 @@ namespace WindowsApplication1
             path = DrawMod.TGame.AppPath + "graphics/systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png";
           else
             path = DrawMod.TGame.AppPath + "graphics/" + ns + "/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png";
-          int gfxReplaceCounter = DrawMod.TGame.ModGfxReplaceCounter;
-          for (int index = 1; index <= gfxReplaceCounter; index += 1)
+          let mut gfxReplaceCounter: i32 =  DrawMod.TGame.ModGfxReplaceCounter;
+          for (let mut index: i32 =  1; index <= gfxReplaceCounter; index += 1)
           {
             str: String = path;
             path = path.Replace(DrawMod.TGame.ModGfxReplaceS1[index], DrawMod.TGame.ModGfxReplaceS2[index]);
@@ -479,12 +479,12 @@ namespace WindowsApplication1
 
     pub static string MakeBigString(string s)
     {
-      int num1 = 0;
-      int num2 = num1;
-      int Start = Strings.InStr(num1 + 1, s, "\\");
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  num1;
+      let mut Start: i32 =  Strings.InStr(num1 + 1, s, "\\");
       if (Start == 0)
       {
-        int num3 = 0;
+        let mut num3: i32 =  0;
         num2 = num3;
         Start = Strings.InStr(num3 + 1, s, "/");
       }
@@ -493,12 +493,12 @@ namespace WindowsApplication1
 
     pub static string MakeSmallString(string s)
     {
-      int num1 = 0;
-      int num2 = num1;
-      int Start = Strings.InStr(num1 + 1, s, "\\");
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  num1;
+      let mut Start: i32 =  Strings.InStr(num1 + 1, s, "\\");
       if (Start == 0)
       {
-        int num3 = 0;
+        let mut num3: i32 =  0;
         num2 = num3;
         Start = Strings.InStr(num3 + 1, s, "/");
       }
@@ -513,8 +513,8 @@ namespace WindowsApplication1
       bool EventDriven = false,
       bool forceReload = false)
     {
-      int gfxReplaceCounter = DrawMod.TGame.ModGfxReplaceCounter;
-      for (int index = 1; index <= gfxReplaceCounter; index += 1)
+      let mut gfxReplaceCounter: i32 =  DrawMod.TGame.ModGfxReplaceCounter;
+      for (let mut index: i32 =  1; index <= gfxReplaceCounter; index += 1)
       {
         str: String = filename;
         filename = filename.Replace(DrawMod.TGame.ModGfxReplaceS1[index], DrawMod.TGame.ModGfxReplaceS2[index]);
@@ -556,11 +556,11 @@ namespace WindowsApplication1
               ProjectData.SetProjectError(ex);
               tmpbmp1 = new Bitmap(BitmapStore.tmpBitmap[nr].Width * 2, BitmapStore.tmpBitmap[nr].Height * 2, PixelFormat.Format32bppPArgb);
               tmpbmp1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
-              int num1 = BitmapStore.tmpBitmap[nr].Height - 1;
-              for (int y = 0; y <= num1; y += 1)
+              let mut num1: i32 =  BitmapStore.tmpBitmap[nr].Height - 1;
+              for (let mut y: i32 =  0; y <= num1; y += 1)
               {
-                int num2 = BitmapStore.tmpBitmap[nr].Width - 1;
-                for (int x = 0; x <= num2; x += 1)
+                let mut num2: i32 =  BitmapStore.tmpBitmap[nr].Width - 1;
+                for (let mut x: i32 =  0; x <= num2; x += 1)
                 {
                   Color color = BitmapStore.tmpBitmap[nr].GetPixel(x, y);
                   if (Strings.InStr(String1_1, ".bmp") > 0 & color.A == (byte) 0)
@@ -595,19 +595,19 @@ namespace WindowsApplication1
               tmpbmp2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
               if (tmpbmp2.Height == 24 | tmpbmp2.Height == 264 & tmpbmp2.Width == 192)
               {
-                int num3 = tmpbmp2.Height - 1;
-                for (int y = 0; y <= num3; y += 1)
+                let mut num3: i32 =  tmpbmp2.Height - 1;
+                for (let mut y: i32 =  0; y <= num3; y += 1)
                 {
-                  int num4 = tmpbmp2.Width - 1;
-                  for (int x = 0; x <= num4; x += 1)
+                  let mut num4: i32 =  tmpbmp2.Width - 1;
+                  for (let mut x: i32 =  0; x <= num4; x += 1)
                   {
                     if (BitmapStore.SmallShape.GetPixel(x % 32, y % 24).A == byte.MaxValue)
                     {
-                      int num5 = 0;
-                      int num6 = 0;
-                      int num7 = 0;
-                      int num8 = 0;
-                      int num9 = 0;
+                      let mut num5: i32 =  0;
+                      let mut num6: i32 =  0;
+                      let mut num7: i32 =  0;
+                      let mut num8: i32 =  0;
+                      let mut num9: i32 =  0;
                       Color pixel = BitmapStore.tmpBitmap[nr].GetPixel(x * 2, y * 2);
                       if (pixel.A > (byte) 0)
                       {
@@ -655,10 +655,10 @@ namespace WindowsApplication1
                       }
                       if (num9 > 0)
                       {
-                        int red = (int) Math.Round((double) num5 / (double) num9);
-                        int green = (int) Math.Round((double) num6 / (double) num9);
-                        int blue = (int) Math.Round((double) num7 / (double) num9);
-                        int alpha = (int) Math.Round((double) num8 / (double) num9);
+                        let mut red: i32 =  (int) Math.Round((double) num5 / (double) num9);
+                        let mut green: i32 =  (int) Math.Round((double) num6 / (double) num9);
+                        let mut blue: i32 =  (int) Math.Round((double) num7 / (double) num9);
+                        let mut alpha: i32 =  (int) Math.Round((double) num8 / (double) num9);
                         if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                         {
                           alpha = (int) byte.MaxValue;
@@ -670,10 +670,10 @@ namespace WindowsApplication1
                       }
                       else if (Strings.InStr(String1_2, ".bmp") > 0)
                       {
-                        int maxValue1 = (int) byte.MaxValue;
-                        int maxValue2 = (int) byte.MaxValue;
-                        int green = 0;
-                        int maxValue3 = (int) byte.MaxValue;
+                        let mut maxValue1: i32 =  (int) byte.MaxValue;
+                        let mut maxValue2: i32 =  (int) byte.MaxValue;
+                        let mut green: i32 =  0;
+                        let mut maxValue3: i32 =  (int) byte.MaxValue;
                         tmpbmp2.SetPixel(x, y, Color.FromArgb(maxValue1, maxValue2, green, maxValue3));
                       }
                     }
@@ -684,17 +684,17 @@ namespace WindowsApplication1
               }
               else
               {
-                int num10 = tmpbmp2.Height - 1;
-                for (int y = 0; y <= num10; y += 1)
+                let mut num10: i32 =  tmpbmp2.Height - 1;
+                for (let mut y: i32 =  0; y <= num10; y += 1)
                 {
-                  int num11 = tmpbmp2.Width - 1;
-                  for (int x = 0; x <= num11; x += 1)
+                  let mut num11: i32 =  tmpbmp2.Width - 1;
+                  for (let mut x: i32 =  0; x <= num11; x += 1)
                   {
-                    int num12 = 0;
-                    int num13 = 0;
-                    int num14 = 0;
-                    int num15 = 0;
-                    int num16 = 0;
+                    let mut num12: i32 =  0;
+                    let mut num13: i32 =  0;
+                    let mut num14: i32 =  0;
+                    let mut num15: i32 =  0;
+                    let mut num16: i32 =  0;
                     Color pixel = BitmapStore.tmpBitmap[nr].GetPixel(x * 2, y * 2);
                     if (pixel.A > (byte) 0)
                     {
@@ -754,10 +754,10 @@ namespace WindowsApplication1
                     }
                     if (num16 > 0)
                     {
-                      int red = (int) Math.Round((double) num12 / (double) num16);
-                      int green = (int) Math.Round((double) num13 / (double) num16);
-                      int blue = (int) Math.Round((double) num14 / (double) num16);
-                      int alpha = (int) Math.Round((double) num15 / (double) num16);
+                      let mut red: i32 =  (int) Math.Round((double) num12 / (double) num16);
+                      let mut green: i32 =  (int) Math.Round((double) num13 / (double) num16);
+                      let mut blue: i32 =  (int) Math.Round((double) num14 / (double) num16);
+                      let mut alpha: i32 =  (int) Math.Round((double) num15 / (double) num16);
                       if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                       {
                         alpha = (int) byte.MaxValue;
@@ -815,19 +815,19 @@ namespace WindowsApplication1
       {
         str1: String = str1;
       }
-      int gfxReplaceCounter = DrawMod.TGame.ModGfxReplaceCounter;
-      for (int index = 1; index <= gfxReplaceCounter; index += 1)
+      let mut gfxReplaceCounter: i32 =  DrawMod.TGame.ModGfxReplaceCounter;
+      for (let mut index: i32 =  1; index <= gfxReplaceCounter; index += 1)
       {
         str2: String = filename;
         filename = filename.Replace(DrawMod.TGame.ModGfxReplaceS1[index], DrawMod.TGame.ModGfxReplaceS2[index]);
         if (!File.Exists(BitmapStore.GraphicsPath + filename))
           filename = str2;
       }
-      int index1 = -1;
+      let mut index1: i32 =  -1;
       if (BitmapStore.Counter > -1)
       {
-        int counter = BitmapStore.Counter;
-        for (int index2 = 0; index2 <= counter; index2 += 1)
+        let mut counter: i32 =  BitmapStore.Counter;
+        for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
         {
           if (Operators.CompareString(BitmapStore.tmpFileName[index2], filename, false) == 0 & BitmapStore.tmpIsBig[index2] == IsBig)
           {
@@ -851,8 +851,8 @@ namespace WindowsApplication1
       {
         forceReload = false;
         index1 = -1;
-        int counter = BitmapStore.Counter;
-        for (int index3 = 0; index3 <= counter; index3 += 1)
+        let mut counter: i32 =  BitmapStore.Counter;
+        for (let mut index3: i32 =  0; index3 <= counter; index3 += 1)
         {
           if (BitmapStore.tmpOverloadCounter[index3] == 0 & Operators.CompareString(BitmapStore.tmpFileName[index3], "", false) == 0)
           {
@@ -942,7 +942,7 @@ namespace WindowsApplication1
               catch (Exception ex)
               {
                 ProjectData.SetProjectError(ex);
-                int num = (int) Interaction.MsgBox((object) ("Faulty File " + String1_1));
+                let mut num: i32 =  (int) Interaction.MsgBox((object) ("Faulty File " + String1_1));
                 ProjectData.ClearProjectError();
               }
             }
@@ -953,11 +953,11 @@ namespace WindowsApplication1
           {
             tmpbmp = new Bitmap(BitmapStore.tmpBitmap[BitmapStore.Counter].Width * 2, BitmapStore.tmpBitmap[BitmapStore.Counter].Height * 2, PixelFormat.Format32bppPArgb);
             tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
-            int num1 = BitmapStore.tmpBitmap[BitmapStore.Counter].Height - 1;
-            for (int y = 0; y <= num1; y += 1)
+            let mut num1: i32 =  BitmapStore.tmpBitmap[BitmapStore.Counter].Height - 1;
+            for (let mut y: i32 =  0; y <= num1; y += 1)
             {
-              int num2 = BitmapStore.tmpBitmap[BitmapStore.Counter].Width - 1;
-              for (int x = 0; x <= num2; x += 1)
+              let mut num2: i32 =  BitmapStore.tmpBitmap[BitmapStore.Counter].Width - 1;
+              for (let mut x: i32 =  0; x <= num2; x += 1)
               {
                 Color color = BitmapStore.tmpBitmap[BitmapStore.Counter].GetPixel(x, y);
                 if (Strings.InStr(String1_1, ".bmp") > 0 & color.A == (byte) 0)
@@ -992,7 +992,7 @@ namespace WindowsApplication1
               catch (Exception ex)
               {
                 ProjectData.SetProjectError(ex);
-                int num = (int) Interaction.MsgBox((object) ("Faulty File " + String1_2));
+                let mut num: i32 =  (int) Interaction.MsgBox((object) ("Faulty File " + String1_2));
                 ProjectData.ClearProjectError();
               }
             }
@@ -1005,19 +1005,19 @@ namespace WindowsApplication1
             tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
             if (tmpbmp.Height == 24 | tmpbmp.Height == 264 & tmpbmp.Width == 192)
             {
-              int num3 = tmpbmp.Height - 1;
-              for (int y = 0; y <= num3; y += 1)
+              let mut num3: i32 =  tmpbmp.Height - 1;
+              for (let mut y: i32 =  0; y <= num3; y += 1)
               {
-                int num4 = tmpbmp.Width - 1;
-                for (int x = 0; x <= num4; x += 1)
+                let mut num4: i32 =  tmpbmp.Width - 1;
+                for (let mut x: i32 =  0; x <= num4; x += 1)
                 {
                   if (BitmapStore.SmallShape.GetPixel(x % 32, y % 24).A == byte.MaxValue)
                   {
-                    int num5 = 0;
-                    int num6 = 0;
-                    int num7 = 0;
-                    int num8 = 0;
-                    int num9 = 0;
+                    let mut num5: i32 =  0;
+                    let mut num6: i32 =  0;
+                    let mut num7: i32 =  0;
+                    let mut num8: i32 =  0;
+                    let mut num9: i32 =  0;
                     Color pixel = BitmapStore.tmpBitmap[BitmapStore.Counter].GetPixel(x * 2, y * 2);
                     if (pixel.A > (byte) 0)
                     {
@@ -1065,10 +1065,10 @@ namespace WindowsApplication1
                     }
                     if (num9 > 0)
                     {
-                      int red = (int) Math.Round((double) num5 / (double) num9);
-                      int green = (int) Math.Round((double) num6 / (double) num9);
-                      int blue = (int) Math.Round((double) num7 / (double) num9);
-                      int alpha = (int) Math.Round((double) num8 / (double) num9);
+                      let mut red: i32 =  (int) Math.Round((double) num5 / (double) num9);
+                      let mut green: i32 =  (int) Math.Round((double) num6 / (double) num9);
+                      let mut blue: i32 =  (int) Math.Round((double) num7 / (double) num9);
+                      let mut alpha: i32 =  (int) Math.Round((double) num8 / (double) num9);
                       if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                       {
                         alpha = (int) byte.MaxValue;
@@ -1080,10 +1080,10 @@ namespace WindowsApplication1
                     }
                     else if (Strings.InStr(String1_2, ".bmp") > 0)
                     {
-                      int maxValue1 = (int) byte.MaxValue;
-                      int maxValue2 = (int) byte.MaxValue;
-                      int green = 0;
-                      int maxValue3 = (int) byte.MaxValue;
+                      let mut maxValue1: i32 =  (int) byte.MaxValue;
+                      let mut maxValue2: i32 =  (int) byte.MaxValue;
+                      let mut green: i32 =  0;
+                      let mut maxValue3: i32 =  (int) byte.MaxValue;
                       tmpbmp.SetPixel(x, y, Color.FromArgb(maxValue1, maxValue2, green, maxValue3));
                     }
                   }
@@ -1094,17 +1094,17 @@ namespace WindowsApplication1
             }
             else
             {
-              int num10 = tmpbmp.Height - 1;
-              for (int y = 0; y <= num10; y += 1)
+              let mut num10: i32 =  tmpbmp.Height - 1;
+              for (let mut y: i32 =  0; y <= num10; y += 1)
               {
-                int num11 = tmpbmp.Width - 1;
-                for (int x = 0; x <= num11; x += 1)
+                let mut num11: i32 =  tmpbmp.Width - 1;
+                for (let mut x: i32 =  0; x <= num11; x += 1)
                 {
-                  int num12 = 0;
-                  int num13 = 0;
-                  int num14 = 0;
-                  int num15 = 0;
-                  int num16 = 0;
+                  let mut num12: i32 =  0;
+                  let mut num13: i32 =  0;
+                  let mut num14: i32 =  0;
+                  let mut num15: i32 =  0;
+                  let mut num16: i32 =  0;
                   Color pixel = BitmapStore.tmpBitmap[BitmapStore.Counter].GetPixel(x * 2, y * 2);
                   if (pixel.A > (byte) 0)
                   {
@@ -1164,10 +1164,10 @@ namespace WindowsApplication1
                   }
                   if (num16 > 0)
                   {
-                    int red = (int) Math.Round((double) num12 / (double) num16);
-                    int green = (int) Math.Round((double) num13 / (double) num16);
-                    int blue = (int) Math.Round((double) num14 / (double) num16);
-                    int alpha = (int) Math.Round((double) num15 / (double) num16);
+                    let mut red: i32 =  (int) Math.Round((double) num12 / (double) num16);
+                    let mut green: i32 =  (int) Math.Round((double) num13 / (double) num16);
+                    let mut blue: i32 =  (int) Math.Round((double) num14 / (double) num16);
+                    let mut alpha: i32 =  (int) Math.Round((double) num15 / (double) num16);
                     if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                     {
                       alpha = (int) byte.MaxValue;
@@ -1179,10 +1179,10 @@ namespace WindowsApplication1
                   }
                   else if (Strings.InStr(String1_2, ".bmp") > 0)
                   {
-                    int maxValue4 = (int) byte.MaxValue;
-                    int maxValue5 = (int) byte.MaxValue;
-                    int green = 0;
-                    int maxValue6 = (int) byte.MaxValue;
+                    let mut maxValue4: i32 =  (int) byte.MaxValue;
+                    let mut maxValue5: i32 =  (int) byte.MaxValue;
+                    let mut green: i32 =  0;
+                    let mut maxValue6: i32 =  (int) byte.MaxValue;
                     tmpbmp.SetPixel(x, y, Color.FromArgb(maxValue4, maxValue5, green, maxValue6));
                   }
                 }
@@ -1250,11 +1250,11 @@ namespace WindowsApplication1
           ProjectData.SetProjectError(ex);
           tmpbmp1 = new Bitmap(BitmapStore.tmpBitmap[index1].Width * 2, BitmapStore.tmpBitmap[index1].Height * 2, PixelFormat.Format32bppPArgb);
           tmpbmp1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
-          int num17 = BitmapStore.tmpBitmap[index1].Height - 1;
-          for (int y = 0; y <= num17; y += 1)
+          let mut num17: i32 =  BitmapStore.tmpBitmap[index1].Height - 1;
+          for (let mut y: i32 =  0; y <= num17; y += 1)
           {
-            int num18 = BitmapStore.tmpBitmap[index1].Width - 1;
-            for (int x = 0; x <= num18; x += 1)
+            let mut num18: i32 =  BitmapStore.tmpBitmap[index1].Width - 1;
+            for (let mut x: i32 =  0; x <= num18; x += 1)
             {
               Color color = BitmapStore.tmpBitmap[index1].GetPixel(x, y);
               if (Strings.InStr(String1_3, ".bmp") > 0 & color.A == (byte) 0)
@@ -1291,19 +1291,19 @@ namespace WindowsApplication1
           tmpbmp2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
           if (tmpbmp2.Height == 24 | tmpbmp2.Height == 264 & tmpbmp2.Width == 192)
           {
-            int num19 = tmpbmp2.Height - 1;
-            for (int y = 0; y <= num19; y += 1)
+            let mut num19: i32 =  tmpbmp2.Height - 1;
+            for (let mut y: i32 =  0; y <= num19; y += 1)
             {
-              int num20 = tmpbmp2.Width - 1;
-              for (int x = 0; x <= num20; x += 1)
+              let mut num20: i32 =  tmpbmp2.Width - 1;
+              for (let mut x: i32 =  0; x <= num20; x += 1)
               {
                 if (BitmapStore.SmallShape.GetPixel(x % 32, y % 24).A == byte.MaxValue)
                 {
-                  int num21 = 0;
-                  int num22 = 0;
-                  int num23 = 0;
-                  int num24 = 0;
-                  int num25 = 0;
+                  let mut num21: i32 =  0;
+                  let mut num22: i32 =  0;
+                  let mut num23: i32 =  0;
+                  let mut num24: i32 =  0;
+                  let mut num25: i32 =  0;
                   Color pixel = BitmapStore.tmpBitmap[index1].GetPixel(x * 2, y * 2);
                   if (pixel.A > (byte) 0)
                   {
@@ -1351,10 +1351,10 @@ namespace WindowsApplication1
                   }
                   if (num25 > 0)
                   {
-                    int red = (int) Math.Round((double) num21 / (double) num25);
-                    int green = (int) Math.Round((double) num22 / (double) num25);
-                    int blue = (int) Math.Round((double) num23 / (double) num25);
-                    int alpha = (int) Math.Round((double) num24 / (double) num25);
+                    let mut red: i32 =  (int) Math.Round((double) num21 / (double) num25);
+                    let mut green: i32 =  (int) Math.Round((double) num22 / (double) num25);
+                    let mut blue: i32 =  (int) Math.Round((double) num23 / (double) num25);
+                    let mut alpha: i32 =  (int) Math.Round((double) num24 / (double) num25);
                     if (Strings.InStr(String1_4, ".bmp") > 0 & alpha == 0)
                     {
                       alpha = (int) byte.MaxValue;
@@ -1366,10 +1366,10 @@ namespace WindowsApplication1
                   }
                   else if (Strings.InStr(String1_4, ".bmp") > 0)
                   {
-                    int maxValue7 = (int) byte.MaxValue;
-                    int maxValue8 = (int) byte.MaxValue;
-                    int green = 0;
-                    int maxValue9 = (int) byte.MaxValue;
+                    let mut maxValue7: i32 =  (int) byte.MaxValue;
+                    let mut maxValue8: i32 =  (int) byte.MaxValue;
+                    let mut green: i32 =  0;
+                    let mut maxValue9: i32 =  (int) byte.MaxValue;
                     tmpbmp2.SetPixel(x, y, Color.FromArgb(maxValue7, maxValue8, green, maxValue9));
                   }
                 }
@@ -1380,17 +1380,17 @@ namespace WindowsApplication1
           }
           else
           {
-            int num26 = tmpbmp2.Height - 1;
-            for (int y = 0; y <= num26; y += 1)
+            let mut num26: i32 =  tmpbmp2.Height - 1;
+            for (let mut y: i32 =  0; y <= num26; y += 1)
             {
-              int num27 = tmpbmp2.Width - 1;
-              for (int x = 0; x <= num27; x += 1)
+              let mut num27: i32 =  tmpbmp2.Width - 1;
+              for (let mut x: i32 =  0; x <= num27; x += 1)
               {
-                int num28 = 0;
-                int num29 = 0;
-                int num30 = 0;
-                int num31 = 0;
-                int num32 = 0;
+                let mut num28: i32 =  0;
+                let mut num29: i32 =  0;
+                let mut num30: i32 =  0;
+                let mut num31: i32 =  0;
+                let mut num32: i32 =  0;
                 Color pixel = BitmapStore.tmpBitmap[index1].GetPixel(x * 2, y * 2);
                 if (pixel.A > (byte) 0)
                 {
@@ -1450,10 +1450,10 @@ namespace WindowsApplication1
                 }
                 if (num32 > 0)
                 {
-                  int red = (int) Math.Round((double) num28 / (double) num32);
-                  int green = (int) Math.Round((double) num29 / (double) num32);
-                  int blue = (int) Math.Round((double) num30 / (double) num32);
-                  int alpha = (int) Math.Round((double) num31 / (double) num32);
+                  let mut red: i32 =  (int) Math.Round((double) num28 / (double) num32);
+                  let mut green: i32 =  (int) Math.Round((double) num29 / (double) num32);
+                  let mut blue: i32 =  (int) Math.Round((double) num30 / (double) num32);
+                  let mut alpha: i32 =  (int) Math.Round((double) num31 / (double) num32);
                   if (Strings.InStr(String1_4, ".bmp") > 0 & alpha == 0)
                   {
                     alpha = (int) byte.MaxValue;
@@ -1465,10 +1465,10 @@ namespace WindowsApplication1
                 }
                 else if (Strings.InStr(String1_4, ".bmp") > 0)
                 {
-                  int maxValue10 = (int) byte.MaxValue;
-                  int maxValue11 = (int) byte.MaxValue;
-                  int green = 0;
-                  int maxValue12 = (int) byte.MaxValue;
+                  let mut maxValue10: i32 =  (int) byte.MaxValue;
+                  let mut maxValue11: i32 =  (int) byte.MaxValue;
+                  let mut green: i32 =  0;
+                  let mut maxValue12: i32 =  (int) byte.MaxValue;
                   tmpbmp2.SetPixel(x, y, Color.FromArgb(maxValue10, maxValue11, green, maxValue12));
                 }
               }
@@ -1497,8 +1497,8 @@ namespace WindowsApplication1
     pub static void SetKnownTransparents()
     {
       BitmapStore.tmpKnownTransparent = new bool[BitmapStore.Counter + 1];
-      int counter = BitmapStore.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (Strings.InStr(BitmapStore.tmpFileName[index], "/trans.png") > 0)
           BitmapStore.tmpKnownTransparent[index] = true;
@@ -1511,12 +1511,12 @@ namespace WindowsApplication1
     {
       Coordinate sheetPos;
       sheetPos.x = -1;
-      int gfxSheetCount1 = BitmapStore.GfxSheetCount;
-      for (int index1 = 1; index1 <= gfxSheetCount1; index1 += 1)
+      let mut gfxSheetCount1: i32 =  BitmapStore.GfxSheetCount;
+      for (let mut index1: i32 =  1; index1 <= gfxSheetCount1; index1 += 1)
       {
         if (Strings.InStr(s, BitmapStore.GfxSheetObj[index1].DirName) == 0 & index1 == BitmapStore.GfxSheetCount)
         {
-          int gfxSheetCount2 = BitmapStore.GfxSheetCount;
+          let mut gfxSheetCount2: i32 =  BitmapStore.GfxSheetCount;
           BitmapStore.CheckLoadSheet(s);
           if (gfxSheetCount2 < BitmapStore.GfxSheetCount)
             index1 += 1;
@@ -1524,8 +1524,8 @@ namespace WindowsApplication1
         if (Strings.InStr(s, BitmapStore.GfxSheetObj[index1].DirName) > 0)
         {
           str: String = Strings.Right(s, Strings.Len(s) - (Strings.InStr(s, BitmapStore.GfxSheetObj[index1].DirName) - 1)).Replace("/", "\\").Replace("\\\\", "\\");
-          int counter = BitmapStore.GfxSheetObj[index1].Counter;
-          for (int index2 = 1; index2 <= counter; index2 += 1)
+          let mut counter: i32 =  BitmapStore.GfxSheetObj[index1].Counter;
+          for (let mut index2: i32 =  1; index2 <= counter; index2 += 1)
           {
             if (Operators.CompareString(Strings.LCase(BitmapStore.GfxSheetObj[index1].Name[index2]), Strings.LCase(str), false) == 0)
             {
@@ -1548,8 +1548,8 @@ namespace WindowsApplication1
         str = Strings.Left(str, Strings.InStr(str, "/") - 1);
       else if ((uint) Strings.InStr(str, "\\") > 0U)
         str = Strings.Left(str, Strings.InStr(str, "\\") - 1);
-      int gfxSheetCount = BitmapStore.GfxSheetCount;
-      for (int index = 1; index <= gfxSheetCount; index += 1)
+      let mut gfxSheetCount: i32 =  BitmapStore.GfxSheetCount;
+      for (let mut index: i32 =  1; index <= gfxSheetCount; index += 1)
       {
         if (Operators.CompareString(BitmapStore.GfxSheetObj[index].DirName, str, false) == 0)
           return;
@@ -1562,7 +1562,7 @@ namespace WindowsApplication1
       BitmapStore.GfxSheetObj[BitmapStore.GfxSheetCount].DirName = str;
     }
 
-    pub static Bitmap GetBitmap(int nr, int Zoom = 0)
+    pub static Bitmap GetBitmap(int nr, let mut Zoom: i32 =  0)
     {
       switch (Zoom)
       {
@@ -1580,22 +1580,22 @@ namespace WindowsApplication1
 
     pub static string GetFileName(int nr) => BitmapStore.tmpFileName[nr];
 
-    pub static int GetWidth(int nr, int zoom = 0)
+    pub static int GetWidth(int nr, let mut zoom: i32 =  0)
     {
       if (zoom != -1)
         return BitmapStore.tmpWidth[nr] * (zoom + 1);
       return Information.IsNothing((object) BitmapStore.tmpSmallBitmap[nr]) ? 0 : BitmapStore.tmpSmallBitmap[nr].Width;
     }
 
-    pub static int Getheight(int nr, int zoom = 0) => zoom == -1 ? BitmapStore.tmpSmallBitmap[nr].Height : BitmapStore.tmpBitmap[nr].Height * (zoom + 1);
+    pub static int Getheight(int nr, let mut zoom: i32 =  0) => zoom == -1 ? BitmapStore.tmpSmallBitmap[nr].Height : BitmapStore.tmpBitmap[nr].Height * (zoom + 1);
 
     pub static void DeleteAllBitmaps()
     {
-      int num = -1;
+      let mut num: i32 =  -1;
       if (BitmapStore.Counter > -1)
       {
-        int counter = BitmapStore.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  BitmapStore.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
         {
           if (!BitmapStore.tmpIsSystem[index])
           {
@@ -1630,11 +1630,11 @@ namespace WindowsApplication1
 
     pub static void DeleteFlaggedBitmaps()
     {
-      int num = -1;
+      let mut num: i32 =  -1;
       if (BitmapStore.Counter <= -1)
         return;
-      int counter = BitmapStore.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (!BitmapStore.tmpIsSystem[index] & BitmapStore.tmpFlag[index] & BitmapStore.tmpOverloadCounter[index] == 0)
         {
@@ -1662,8 +1662,8 @@ namespace WindowsApplication1
       if (BitmapStore.Counter <= -1)
         return;
       BitmapStore.tmpFlag = new bool[BitmapStore.Counter + 1];
-      int counter = BitmapStore.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  BitmapStore.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         BitmapStore.tmpFlag[index] = false;
         if (!BitmapStore.tmpIsSystem[index])
@@ -1676,8 +1676,8 @@ namespace WindowsApplication1
 
     pub static void DeleteGfxSheets()
     {
-      int gfxSheetCount = BitmapStore.GfxSheetCount;
-      for (int index = 1; index <= gfxSheetCount; index += 1)
+      let mut gfxSheetCount: i32 =  BitmapStore.GfxSheetCount;
+      for (let mut index: i32 =  1; index <= gfxSheetCount; index += 1)
       {
         if (!Information.IsNothing((object) BitmapStore.GfxSheetObj[index].Bmp))
           BitmapStore.GfxSheetObj[index].Bmp.Dispose();

@@ -57,7 +57,7 @@ int main(int argc, const char** argv)
 
 	while(true) // endless loop until user exits
 	{
-		int key = getch();
+		let mut key: i32 =  getch();
 
 		if (key == 27)
 			break; // user pressed ESCAPE key

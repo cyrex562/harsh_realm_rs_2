@@ -14,7 +14,7 @@
 
 namespace irrklang
 {
-	const int IKP_MP3_INPUT_BUFFER_SIZE = 4096;
+	const let mut IKP_MP3_INPUT_BUFFER_SIZE: i32 =  4096;
 
 	//!	Reads and decodes audio data into an usable audio stream for the ISoundEngine
 	/** To extend irrKlang with new audio format decoders, the only thing needed to do

@@ -153,7 +153,7 @@ namespace WindowsApplication1
         self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) self.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
-        graphics.DrawImage((Image) tbackbitmap, new Rectangle(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), new Rectangle(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
+        graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
         graphics.CompositingMode = CompositingMode.SourceOver;
         graphics.Dispose();
       }
@@ -312,9 +312,9 @@ namespace WindowsApplication1
               {
                 if (Conversions.ToDouble(self.ListObj.TempColumBmp[index2]) > 0.0)
                 {
-                   Graphics local1 =  graphics;
+                   let mut local1: &Graphics = &graphics;
                   bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.ListObj.TempColumBmp[index2]));
-                   Bitmap local2 =  bitmap;
+                   let mut local2: &Bitmap = &bitmap;
                   let mut x2: i32 = x1;
                   let mut y: i32 = self.ItemSize * num6 + 1 + 1;
                   DrawMod.DrawSimple( local1,  local2, x2, y);
@@ -387,9 +387,9 @@ namespace WindowsApplication1
                   let mut nr: i32 =  Math.Round(Conversion.Val(strArray1[2]));
                   let mut width2: i32 = BitmapStore.GetWidth(nr);
                   let mut num14: i32 = BitmapStore.Getheight(nr);
-                   Graphics local3 =  graphics;
+                   let mut local3: &Graphics = &graphics;
                   bitmap = BitmapStore.GetBitmap(nr);
-                   Bitmap local4 =  bitmap;
+                   let mut local4: &Bitmap = &bitmap;
                   let mut x4: i32 = x3 + num13;
                   let mut y: i32 = self.ItemSize * num6 +  Math.Round((double) (self.ItemSize - num14) / 2.0) + 1;
                   let mut w: i32 = width2;
@@ -410,9 +410,9 @@ namespace WindowsApplication1
                     let mut nr: i32 =  Math.Round(Conversion.Val(strArray1[index6]));
                     if (nr > 0)
                     {
-                       Graphics local5 =  graphics;
+                       let mut local5: &Graphics = &graphics;
                       bitmap = BitmapStore.GetBitmap(nr);
-                       Bitmap local6 =  bitmap;
+                       let mut local6: &Bitmap = &bitmap;
                       let mut x5: i32 = x3 + num16;
                       let mut y: i32 = self.ItemSize * num6 +  Math.Round((double) (self.ItemSize - 18) / 2.0);
                       DrawMod.DrawSimple( local5,  local6, x5, y);
@@ -439,18 +439,18 @@ namespace WindowsApplication1
                         nr2 =  Math.Round(Conversion.Val(strArray1[index7 + 1]));
                       if (nr1 > 0)
                       {
-                         Graphics local7 =  graphics;
+                         let mut local7: &Graphics = &graphics;
                         bitmap = BitmapStore.GetBitmap(nr1);
-                         Bitmap local8 =  bitmap;
+                         let mut local8: &Bitmap = &bitmap;
                         let mut x6: i32 = x3 + num17;
                         let mut y: i32 = self.ItemSize * num6 +  Math.Round((double) (self.ItemSize - 20) / 2.0) + num18;
                         DrawMod.DrawSimple( local7,  local8, x6, y);
                       }
                       if (nr2 > 0)
                       {
-                         Graphics local9 =  graphics;
+                         let mut local9: &Graphics = &graphics;
                         bitmap = BitmapStore.GetBitmap(nr2);
-                         Bitmap local10 =  bitmap;
+                         let mut local10: &Bitmap = &bitmap;
                         let mut x7: i32 = x3 + num17;
                         let mut y: i32 = self.ItemSize * num6 +  Math.Round((double) (self.ItemSize - 20) / 2.0) + num18;
                         DrawMod.DrawSimple( local9,  local10, x7, y);
@@ -475,9 +475,9 @@ namespace WindowsApplication1
                     let mut nr: i32 =  Math.Round(Conversion.Val(strArray1[index8]));
                     if (nr > 0)
                     {
-                       Graphics local11 =  graphics;
+                       let mut local11: &Graphics = &graphics;
                       bitmap = BitmapStore.GetBitmap(nr);
-                       Bitmap local12 =  bitmap;
+                       let mut local12: &Bitmap = &bitmap;
                       let mut x8: i32 = x3 + num19 - 6;
                       let mut y: i32 = self.ItemSize * num6 +  Math.Round((double) (self.ItemSize - BitmapStore.Getheight(nr)) / 2.0);
                       DrawMod.DrawSimple( local11,  local12, x8, y);
@@ -541,9 +541,9 @@ namespace WindowsApplication1
                     let mut nr: i32 =  Math.Round(Conversion.Val(strArray1[index10]));
                     if (nr > 0)
                     {
-                       Graphics local13 =  graphics;
+                       let mut local13: &Graphics = &graphics;
                       bitmap = BitmapStore.GetBitmap(nr, -1);
-                       Bitmap local14 =  bitmap;
+                       let mut local14: &Bitmap = &bitmap;
                       let mut x9: i32 = x3 + num32 - 6;
                       let mut y: i32 = self.ItemSize * num6 +  Math.Round((double) (self.ItemSize - BitmapStore.Getheight(nr, -1)) / 2.0);
                       DrawMod.DrawSimple( local13,  local14, x9, y);
@@ -565,9 +565,9 @@ namespace WindowsApplication1
                     let mut nr: i32 =  Math.Round(Conversion.Val(strArray1[index11]));
                     if (nr > 0)
                     {
-                       Graphics local15 =  graphics;
+                       let mut local15: &Graphics = &graphics;
                       bitmap = BitmapStore.GetBitmap(nr);
-                       Bitmap local16 =  bitmap;
+                       let mut local16: &Bitmap = &bitmap;
                       let mut x10: i32 = x3 + num34 - 7;
                       let mut y: i32 = self.ItemSize * num6 +  Math.Round((double) (self.ItemSize - BitmapStore.Getheight(nr)) / 2.0);
                       DrawMod.DrawSimple( local15,  local16, x10, y);
@@ -594,18 +594,18 @@ namespace WindowsApplication1
                       num39 =  Math.Round((double) (self.ItemSize - BitmapStore.Getheight(nr) * 2) / 3.0);
                     if (nr > 0 & num37 == 1)
                     {
-                       Graphics local17 =  graphics;
+                       let mut local17: &Graphics = &graphics;
                       bitmap = BitmapStore.GetBitmap(nr);
-                       Bitmap local18 =  bitmap;
+                       let mut local18: &Bitmap = &bitmap;
                       let mut x11: i32 = x3 + num36 - 7;
                       let mut y: i32 = self.ItemSize * num6 + num39;
                       DrawMod.DrawSimple( local17,  local18, x11, y);
                     }
                     if (nr > 0 & num37 == 2)
                     {
-                       Graphics local19 =  graphics;
+                       let mut local19: &Graphics = &graphics;
                       bitmap = BitmapStore.GetBitmap(nr);
-                       Bitmap local20 =  bitmap;
+                       let mut local20: &Bitmap = &bitmap;
                       let mut x12: i32 = x3 + num36 - 7;
                       let mut y: i32 = self.ItemSize * num6 + BitmapStore.Getheight(nr) + num39 * 2;
                       DrawMod.DrawSimple( local19,  local20, x12, y);
@@ -636,9 +636,9 @@ namespace WindowsApplication1
                 {
                   let mut width4: i32 = BitmapStore.GetWidth(nr);
                   let mut num40: i32 = BitmapStore.Getheight(nr);
-                   Graphics local21 =  graphics;
+                   let mut local21: &Graphics = &graphics;
                   bitmap = BitmapStore.GetBitmap(nr);
-                   Bitmap local22 =  bitmap;
+                   let mut local22: &Bitmap = &bitmap;
                   let mut x13: i32 = x3;
                   let mut y: i32 = self.ItemSize * num6 + 1 + 1;
                   let mut w: i32 = width4;
@@ -729,9 +729,9 @@ namespace WindowsApplication1
     pub void Hardcoded_DrawPortrait(Graphics g, int x, int y, int w, int h, int charId)
     {
       let mut num: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotCharacter].GetData(0, charId, 12)));
-       Graphics local1 =  g;
+       let mut local1: &Graphics = &g;
       Bitmap bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(charId, w, h);
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       let mut x1: i32 = x;
       let mut y1: i32 = y;
       DrawMod.DrawSimple( local1,  local2, x1, y1);

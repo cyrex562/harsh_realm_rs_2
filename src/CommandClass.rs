@@ -25,11 +25,11 @@ namespace WindowsApplication1
       info.AddValue("Type", this.type);
       if (DrawMod.TGame.Data.Version > 407)
       {
-        int index1 = 0;
+        let mut index1: i32 =  0;
         string str;
         do
         {
-          int index2 = 0;
+          let mut index2: i32 =  0;
           do
           {
             str = str + "®" + this.Data[index1, index2];
@@ -56,15 +56,15 @@ namespace WindowsApplication1
         if (DrawMod.TGame.Data.Version > 407)
         {
           str1: String = info.GetString("s");
-          int Start1 = 1;
-          int index1 = 0;
+          let mut Start1: i32 =  1;
+          let mut index1: i32 =  0;
           do
           {
-            int index2 = 0;
+            let mut index2: i32 =  0;
             do
             {
-              int num = Strings.InStr(Start1, str1, "®", CompareMethod.Text);
-              int Start2 = Strings.InStr(num + 1, str1, "®", CompareMethod.Text);
+              let mut num: i32 =  Strings.InStr(Start1, str1, "®", CompareMethod.Text);
+              let mut Start2: i32 =  Strings.InStr(num + 1, str1, "®", CompareMethod.Text);
               str2: String = "";
               if (num > 0)
               {
@@ -97,10 +97,10 @@ namespace WindowsApplication1
           {
             ProjectData.SetProjectError(ex);
             numArray1 = (int[,]) info.GetValue(nameof (Data), numArray1.GetType());
-            int index3 = 0;
+            let mut index3: i32 =  0;
             do
             {
-              int index4 = 0;
+              let mut index4: i32 =  0;
               do
               {
                 this.Data[index3, index4] = Strings.Trim(Conversion.Str((object) numArray1[index3, index4]));
@@ -125,10 +125,10 @@ namespace WindowsApplication1
         {
           ProjectData.SetProjectError(ex2);
           int[,] numArray2 = (int[,]) info.GetValue(nameof (Data), numArray1.GetType());
-          int index5 = 0;
+          let mut index5: i32 =  0;
           do
           {
-            int index6 = 0;
+            let mut index6: i32 =  0;
             do
             {
               this.Data[index5, index6] = Strings.Trim(Conversion.Str((object) numArray2[index5, index6]));

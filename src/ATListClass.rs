@@ -48,11 +48,11 @@ namespace WindowsApplication1
       tvalue2: String = "",
       tvalue3: String = "",
       tvalue4: String = "",
-      int tcol = -1,
+      let mut tcol: i32 =  -1,
       Bitmap tbmp = null,
-      int tr = -1,
-      int tg = -1,
-      int tb = -1)
+      let mut tr: i32 =  -1,
+      let mut tg: i32 =  -1,
+      let mut tb: i32 =  -1)
     {
       this += 1.ListCount;
       this.ListName = (string[]) Utils.CopyArray((Array) this.ListName, (Array) new string[this.ListCount + 1]);
@@ -83,16 +83,16 @@ namespace WindowsApplication1
     {
       if (this.ListCount < 1)
         return;
-      int num1 = this.ListCount - 1;
-      for (int index1 = 0; index1 <= num1; index1 += 1)
+      let mut num1: i32 =  this.ListCount - 1;
+      for (let mut index1: i32 =  0; index1 <= num1; index1 += 1)
       {
-        int num2 = this.ListCount - 1;
-        for (int index2 = 0; index2 <= num2; index2 += 1)
+        let mut num2: i32 =  this.ListCount - 1;
+        for (let mut index2: i32 =  0; index2 <= num2; index2 += 1)
         {
           if (Operators.CompareString(this.ListName[index2], this.ListName[index2 + 1], false) > 0)
           {
             str1: String = this.ListName[index2 + 1];
-            int num3 = this.ListData[index2 + 1];
+            let mut num3: i32 =  this.ListData[index2 + 1];
             str2: String = this.ListValue[index2 + 1];
             str3: String = this.ListValue2[index2 + 1];
             str4: String = this.ListValue3[index2 + 1];
@@ -121,16 +121,16 @@ namespace WindowsApplication1
         int num;
         return num;
       }
-      int num1 = this.ListCount - 1;
-      for (int index1 = 0; index1 <= num1; index1 += 1)
+      let mut num1: i32 =  this.ListCount - 1;
+      for (let mut index1: i32 =  0; index1 <= num1; index1 += 1)
       {
-        int num2 = this.ListCount - 1;
-        for (int index2 = 0; index2 <= num2; index2 += 1)
+        let mut num2: i32 =  this.ListCount - 1;
+        for (let mut index2: i32 =  0; index2 <= num2; index2 += 1)
         {
           if (Operators.CompareString(this.ListName[index2], this.ListName[index2 + 1], false) > 0)
           {
             str: String = this.ListName[index2 + 1];
-            int num3 = this.ListData[index2 + 1];
+            let mut num3: i32 =  this.ListData[index2 + 1];
             if (TempInt == index2 + 1)
               TempInt = index2;
             else if (TempInt == index2)

@@ -43,22 +43,22 @@ namespace WindowsApplication1
       this.Descript = "";
       if (this.commander)
       {
-        int num1 = -1;
-        int num2 = Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].HandCardCounter);
-        for (int index = 0; index <= num2; index += 1)
+        let mut num1: i32 =  -1;
+        let mut num2: i32 =  Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].HandCardCounter);
+        for (let mut index: i32 =  0; index <= num2; index += 1)
         {
           num1 += 1;
-          int num3 = 140 + num1 * 45;
-          int num4 = 45;
+          let mut num3: i32 =  140 + num1 * 45;
+          let mut num4: i32 =  45;
           if (x > num3 & y > num4 & x < num3 + 45 & y < num4 + 60)
             this.Descript = "Officer can play: " + this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[this.his].HandCard[index]].Title;
         }
-        int num5 = Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].DeckCardCounter);
-        for (int index1 = 0; index1 <= num5; index1 += 1)
+        let mut num5: i32 =  Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].DeckCardCounter);
+        for (let mut index1: i32 =  0; index1 <= num5; index1 += 1)
         {
-          int num6 = 0;
-          int handCardCounter = this.game.Data.HistoricalUnitObj[this.his].HandCardCounter;
-          for (int index2 = 0; index2 <= handCardCounter; index2 += 1)
+          let mut num6: i32 =  0;
+          let mut handCardCounter: i32 =  this.game.Data.HistoricalUnitObj[this.his].HandCardCounter;
+          for (let mut index2: i32 =  0; index2 <= handCardCounter; index2 += 1)
           {
             if (this.game.Data.HistoricalUnitObj[this.his].DeckCard[index1] == this.game.Data.HistoricalUnitObj[this.his].HandCard[index2])
               num6 = 1;
@@ -68,8 +68,8 @@ namespace WindowsApplication1
             num1 += 1;
             if (num1 <= 3)
             {
-              int num7 = 140 + num1 * 45;
-              int num8 = 45;
+              let mut num7: i32 =  140 + num1 * 45;
+              let mut num8: i32 =  45;
               if (x > num7 & y > num8 & x < num7 + 45 & y < num8 + 60)
                 this.Descript = "Officer has " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.his].DeckChance[index1]) + "% chance to receive " + this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[this.his].DeckCard[index1]].Title + " as a handcard.";
             }
@@ -93,16 +93,16 @@ namespace WindowsApplication1
         if (x > 50 & y > 107 & x < 350 & y < 177)
           this.Descript = "The description of the commander. Click on it to read the full description.";
       }
-      int num9 = 4;
+      let mut num9: i32 =  4;
       if (x > 0 & y > num9 + 14 & x < 45 & y < num9 + 14 + 23)
         this.Descript = "Staff individuals that can be commanded effectively.";
-      int num10 = num9 + 37;
+      let mut num10: i32 =  num9 + 37;
       if (x > 0 & y > num10 + 14 & x < 45 & y < num10 + 14 + 23)
         this.Descript = "Combat modifier of commander. This modifier increases the staff combat bonus.";
-      int num11 = num10 + 37;
+      let mut num11: i32 =  num10 + 37;
       if (x > 0 & y > num11 + 14 & x < 45 & y < num11 + 14 + 23)
         this.Descript = "Morale modifier of commander. This modifier increase the staff morale recovery bonus.";
-      int num12 = num11 + 37;
+      let mut num12: i32 =  num11 + 37;
       if (!(x > 0 & y > num12 + 14 & x < 45 & y < num12 + 14 + 23))
         return;
       this.Descript = "The commanders experience points.";
@@ -128,14 +128,14 @@ namespace WindowsApplication1
         str1: String = this.game.Data.HistoricalUnitObj[this.his].CommanderName;
         if (Strings.Len(str1) > 20)
           str1 = Strings.Left(str1, 20);
-         Graphics local1 =  objgraphics;
-        Rectangle rectangle1 = new Rectangle(140, 4, 40, 14);
-        Rectangle rect1_1 = rectangle1;
-        Rectangle rectangle2 = new Rectangle(140, 18, 200, 23);
-        Rectangle rect2_1 = rectangle2;
+         let mut local1: &Graphics = &objgraphics;
+        Rectangle rectangle1 = Rectangle::new(140, 4, 40, 14);
+        let mut rect1_1: &Rectangle = &rectangle1
+        Rectangle rectangle2 = Rectangle::new(140, 18, 200, 23);
+        let mut rect2_1: &Rectangle = &rectangle2
         txt2_1: String = str1;
         DrawMod.MakeFullBoxVic2( local1, rect1_1, "NAME", rect2_1, txt2_1);
-        int num1 = 0;
+        let mut num1: i32 =  0;
         if (!this.game.Data.FOWOn)
           num1 = 1;
         if (this.unr > -1)
@@ -152,8 +152,8 @@ namespace WindowsApplication1
         int num2;
         if (num1 == 1)
         {
-          int staffPoints = this.game.HandyFunctionsObj.GetStaffPoints(this.unr);
-          int num3 = this.game.HandyFunctionsObj.GetStaffNeeded(this.unr);
+          let mut staffPoints: i32 =  this.game.HandyFunctionsObj.GetStaffPoints(this.unr);
+          let mut num3: i32 =  this.game.HandyFunctionsObj.GetStaffNeeded(this.unr);
           if (num3 == 0)
             num3 = 1;
           if ( Math.Round(40.0 * ((double) staffPoints / (double) num3)) > 80)
@@ -169,36 +169,36 @@ namespace WindowsApplication1
             str4 = "?";
             str5 = "?";
           }
-          int y1 = 4;
-           Graphics local2 =  objgraphics;
-          rectangle2 = new Rectangle(0, y1, 45, 14);
-          Rectangle rect1_2 = rectangle2;
-          rectangle1 = new Rectangle(0, y1 + 14, 45, 23);
-          Rectangle rect2_2 = rectangle1;
+          let mut y1: i32 =  4;
+           let mut local2: &Graphics = &objgraphics;
+          rectangle2 = Rectangle::new(0, y1, 45, 14);
+          let mut rect1_2: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(0, y1 + 14, 45, 23);
+          let mut rect2_2: &Rectangle = &rectangle1
           txt2_2: String = str2;
           DrawMod.MakeFullBoxVic2( local2, rect1_2, "STAFF", rect2_2, txt2_2);
-          int y2 = y1 + 37;
-           Graphics local3 =  objgraphics;
-          rectangle2 = new Rectangle(0, y2, 48, 14);
-          Rectangle rect1_3 = rectangle2;
-          rectangle1 = new Rectangle(0, y2 + 14, 45, 23);
-          Rectangle rect2_3 = rectangle1;
+          let mut y2: i32 =  y1 + 37;
+           let mut local3: &Graphics = &objgraphics;
+          rectangle2 = Rectangle::new(0, y2, 48, 14);
+          let mut rect1_3: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(0, y2 + 14, 45, 23);
+          let mut rect2_3: &Rectangle = &rectangle1
           txt2_3: String = "+" + str3;
           DrawMod.MakeFullBoxVic2( local3, rect1_3, "COMBAT", rect2_3, txt2_3);
-          int y3 = y2 + 37;
-           Graphics local4 =  objgraphics;
-          rectangle2 = new Rectangle(0, y3, 48, 14);
-          Rectangle rect1_4 = rectangle2;
-          rectangle1 = new Rectangle(0, y3 + 14, 45, 23);
-          Rectangle rect2_4 = rectangle1;
+          let mut y3: i32 =  y2 + 37;
+           let mut local4: &Graphics = &objgraphics;
+          rectangle2 = Rectangle::new(0, y3, 48, 14);
+          let mut rect1_4: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(0, y3 + 14, 45, 23);
+          let mut rect2_4: &Rectangle = &rectangle1
           txt2_4: String = "+" + str4;
           DrawMod.MakeFullBoxVic2( local4, rect1_4, "MORALE", rect2_4, txt2_4);
-          int y4 = y3 + 37;
-           Graphics local5 =  objgraphics;
-          rectangle2 = new Rectangle(0, y4, 45, 14);
-          Rectangle rect1_5 = rectangle2;
-          rectangle1 = new Rectangle(0, y4 + 14, 45, 23);
-          Rectangle rect2_5 = rectangle1;
+          let mut y4: i32 =  y3 + 37;
+           let mut local5: &Graphics = &objgraphics;
+          rectangle2 = Rectangle::new(0, y4, 45, 14);
+          let mut rect1_5: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(0, y4 + 14, 45, 23);
+          let mut rect2_5: &Rectangle = &rectangle1
           txt2_5: String = str5;
           DrawMod.MakeFullBoxVic2( local5, rect1_5, "EXP", rect2_5, txt2_5);
         }
@@ -210,27 +210,27 @@ namespace WindowsApplication1
         if (flag)
         {
           num2 = 0;
-          int num4 = -1;
-          int num5 = Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].HandCardCounter);
-          for (int index = 0; index <= num5; index += 1)
+          let mut num4: i32 =  -1;
+          let mut num5: i32 =  Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].HandCardCounter);
+          for (let mut index: i32 =  0; index <= num5; index += 1)
           {
             num4 += 1;
-            int num6 = 140 + num4 * 45;
-            int num7 = 45;
-             Graphics local6 =  objgraphics;
+            let mut num6: i32 =  140 + num4 * 45;
+            let mut num7: i32 =  45;
+             let mut local6: &Graphics = &objgraphics;
             Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.HistoricalUnitObj[this.his].HandCard[index], small: true);
-             Bitmap local7 =  bitmap;
-            int x = num6;
-            int y = num7;
+             let mut local7: &Bitmap = &bitmap;
+            let mut x: i32 =  num6;
+            let mut y: i32 =  num7;
             DrawMod.DrawSimple( local6,  local7, x, y);
           }
-          int num8 = Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].DeckCardCounter);
+          let mut num8: i32 =  Math.Min(3, this.game.Data.HistoricalUnitObj[this.his].DeckCardCounter);
           Bitmap bitmap1;
-          for (int index1 = 0; index1 <= num8; index1 += 1)
+          for (let mut index1: i32 =  0; index1 <= num8; index1 += 1)
           {
-            int num9 = 0;
-            int handCardCounter = this.game.Data.HistoricalUnitObj[this.his].HandCardCounter;
-            for (int index2 = 0; index2 <= handCardCounter; index2 += 1)
+            let mut num9: i32 =  0;
+            let mut handCardCounter: i32 =  this.game.Data.HistoricalUnitObj[this.his].HandCardCounter;
+            for (let mut index2: i32 =  0; index2 <= handCardCounter; index2 += 1)
             {
               if (this.game.Data.HistoricalUnitObj[this.his].DeckCard[index1] == this.game.Data.HistoricalUnitObj[this.his].HandCard[index2])
                 num9 = 1;
@@ -240,34 +240,34 @@ namespace WindowsApplication1
               num4 += 1;
               if (num4 <= 3)
               {
-                int x1 = 140 + num4 * 45;
-                int num10 = 45;
-                 Graphics local8 =  objgraphics;
+                let mut x1: i32 =  140 + num4 * 45;
+                let mut num10: i32 =  45;
+                 let mut local8: &Graphics = &objgraphics;
                 bitmap1 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.HistoricalUnitObj[this.his].DeckCard[index1], small: true);
-                 Bitmap local9 =  bitmap1;
-                int x2 = x1;
-                int y5 = num10;
+                 let mut local9: &Bitmap = &bitmap1;
+                let mut x2: i32 =  x1;
+                let mut y5: i32 =  num10;
                 DrawMod.DrawSimple( local8,  local9, x2, y5);
-                 Graphics local10 =  objgraphics;
+                 let mut local10: &Graphics = &objgraphics;
                 bitmap1 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.HistoricalUnitObj[this.his].DeckCard[index1], small: true);
-                 Bitmap local11 =  bitmap1;
-                int x3 = x1;
-                int y6 = num10;
+                 let mut local11: &Bitmap = &bitmap1;
+                let mut x3: i32 =  x1;
+                let mut y6: i32 =  num10;
                 DrawMod.Draw( local10,  local11, x3, y6, -1f, -1f, -1f, 0.5f);
                 DrawMod.DrawTextColouredMarc( objgraphics, Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.his].DeckChance[index1])) + "%", this.game.MarcFont4, x1, num10 + 38, Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
               }
             }
           }
-           Graphics local12 =  objgraphics;
+           let mut local12: &Graphics = &objgraphics;
           Rectangle rectangle3;
-          Rectangle rect1_6 = rectangle3;
-          rectangle2 = new Rectangle(50, 107, 249, 70);
-          Rectangle rect2_6 = rectangle2;
+          let mut rect1_6: &Rectangle = &rectangle3
+          rectangle2 = Rectangle::new(50, 107, 249, 70);
+          let mut rect2_6: &Rectangle = &rectangle2
           DrawMod.MakeFullBoxVic2( local12, rect1_6, "", rect2_6, "");
           TextAreaClass textAreaClass = new TextAreaClass(this.game, 280, 3, this.game.VicFont3, "", false, this.game.Data.HistoricalUnitObj[this.his].Descript, Color.White, tbackbitmap: ( this.OwnBitmap), bbx: 50, bby: 109, tHideShade: true, tBlockScroller: true);
-           Graphics local13 =  objgraphics;
+           let mut local13: &Graphics = &objgraphics;
           bitmap1 = textAreaClass.Paint();
-           Bitmap local14 =  bitmap1;
+           let mut local14: &Bitmap = &bitmap1;
           DrawMod.DrawSimple( local13,  local14, 50, 109);
         }
       }
@@ -282,9 +282,9 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-       Graphics local1 =  Expression;
+       let mut local1: &Graphics = &Expression;
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing((object) Expression))
         Expression.Dispose();

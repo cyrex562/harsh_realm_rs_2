@@ -80,8 +80,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -96,8 +96,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -142,13 +142,13 @@ namespace WindowsApplication1
       this.OptionsListObj = ATListClass::new();
       if (this.detailnr > this.game.TempCombat.CombatRound)
         this.detailnr = -1;
-      int tlistselect1 = -1;
-      int num1 = -1;
+      let mut tlistselect1: i32 =  -1;
+      let mut num1: i32 =  -1;
       SubPartClass tsubpart;
       if (this.game.TempCombat.CombatRound > -1)
       {
-        int combatRound = this.game.TempCombat.CombatRound;
-        for (int index = 1; index <= combatRound; index += 1)
+        let mut combatRound: i32 =  this.game.TempCombat.CombatRound;
+        for (let mut index: i32 =  1; index <= combatRound; index += 1)
         {
           num1 += 1;
           if (this.detailnr <= 0)
@@ -172,12 +172,12 @@ namespace WindowsApplication1
       this.OptionsList1Obj = ATListClass::new();
       if (this.detailnr1 > this.game.TempCombat.UCounter)
         this.detailnr1 = -1;
-      int tlistselect2 = -1;
-      int num2 = -1;
+      let mut tlistselect2: i32 =  -1;
+      let mut num2: i32 =  -1;
       if (this.game.TempCombat.UCounter > -1)
       {
-        int ucounter = this.game.TempCombat.UCounter;
-        for (int tdata = 0; tdata <= ucounter; tdata += 1)
+        let mut ucounter: i32 =  this.game.TempCombat.UCounter;
+        for (let mut tdata: i32 =  0; tdata <= ucounter; tdata += 1)
         {
           num2 += 1;
           if (this.detailnr1 == -1)
@@ -199,13 +199,13 @@ namespace WindowsApplication1
       }
       DrawMod.DrawTextVic2(ref Expression, "UNIT REPORTS", this.game.VicFont2, 10, 517, this.game.VicColor2, this.game.VicColor1Shade);
       this.OptionsList2Obj = ATListClass::new();
-      int tlistselect3 = -1;
+      let mut tlistselect3: i32 =  -1;
       if (this.detailnr1 > -1)
       {
-        int num3 = -1;
-        int repCounter = this.game.TempCombat.RepCounter;
+        let mut num3: i32 =  -1;
+        let mut repCounter: i32 =  this.game.TempCombat.RepCounter;
         int num4;
-        for (int tdata = 0; tdata <= repCounter; tdata += 1)
+        for (let mut tdata: i32 =  0; tdata <= repCounter; tdata += 1)
         {
           if (this.game.TempCombat.RepFrom[tdata] == this.detailnr1 & this.game.TempCombat.RepRound[tdata] == this.detailnr)
           {
@@ -239,12 +239,12 @@ namespace WindowsApplication1
       }
       DrawMod.DrawTextVic2(ref Expression, "INDIVIDUAL LIST", this.game.VicFont2, 310, 8, this.game.VicColor2, this.game.VicColor1Shade);
       this.OptionsList3Obj = ATListClass::new();
-      int tlistselect4 = -1;
+      let mut tlistselect4: i32 =  -1;
       if (this.detailnr1 > -1)
       {
-        int num5 = -1;
-        int icounter = this.game.TempCombat.ICounter;
-        for (int tdata = 0; tdata <= icounter; tdata += 1)
+        let mut num5: i32 =  -1;
+        let mut icounter: i32 =  this.game.TempCombat.ICounter;
+        for (let mut tdata: i32 =  0; tdata <= icounter; tdata += 1)
         {
           if (this.game.TempCombat.IList[tdata].IUnr == this.game.TempCombat.UList[this.detailnr1].UNr)
           {
@@ -283,13 +283,13 @@ namespace WindowsApplication1
       }
       DrawMod.DrawTextVic2(ref Expression, "INDIVIDUAL REPORTS", this.game.VicFont2, 610, 8, this.game.VicColor2, this.game.VicColor1Shade);
       this.OptionsList4Obj = ATListClass::new();
-      int tlistselect5 = -1;
+      let mut tlistselect5: i32 =  -1;
       if (this.detailnr3 > -1)
       {
-        int num6 = -1;
-        int repCounter = this.game.TempCombat.RepCounter;
+        let mut num6: i32 =  -1;
+        let mut repCounter: i32 =  this.game.TempCombat.RepCounter;
         int num7;
-        for (int tdata = 0; tdata <= repCounter; tdata += 1)
+        for (let mut tdata: i32 =  0; tdata <= repCounter; tdata += 1)
         {
           if (this.game.TempCombat.RepFrom[tdata] == this.detailnr3 + 10000 & this.game.TempCombat.RepRound[tdata] == this.detailnr)
           {
@@ -350,7 +350,7 @@ namespace WindowsApplication1
           }
           DrawMod.DrawTextVic2(ref Expression, "ATTACK SCORE MODS", this.game.VicFont2, 610, 447, this.game.VicColor2, this.game.VicColor1Shade);
           this.OptionsList5Obj = ATListClass::new();
-          int index2 = 1;
+          let mut index2: i32 =  1;
           do
           {
             if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index2, 0, index1]) && this.game.TempCombat.RepCom[index2, 0, index1].Length > 0 & (index2 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index2 - 1, 2, index1], this.game.TempCombat.RepCom[index2, 2, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index2, 0, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index2, 2, index1], "?", false) != 0)
@@ -362,7 +362,7 @@ namespace WindowsApplication1
           this.OptionsList5Id = this.AddSubPart(ref tsubpart, 610, 465, 170, 256, 0);
           DrawMod.DrawTextVic2(ref Expression, "DEFENDER SCORE MODS", this.game.VicFont2, 810, 447, this.game.VicColor2, this.game.VicColor1Shade);
           this.OptionsList6Obj = ATListClass::new();
-          int index3 = 1;
+          let mut index3: i32 =  1;
           do
           {
             if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index3, 3, index1]) & !Information.IsNothing((object) this.game.TempCombat.RepCom[index3, 5, index1]) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0 & this.game.TempCombat.RepCom[index3, 3, index1].Length > 0 & (index3 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index3 - 1, 5, index1], this.game.TempCombat.RepCom[index3, 5, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index3, 3, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0)
@@ -377,7 +377,7 @@ namespace WindowsApplication1
         {
           DrawMod.DrawTextVic2(ref Expression, "STATUS", this.game.VicFont2, 610, 300, this.game.VicColor2, this.game.VicColor1Shade);
           this.OptionsList5Obj = ATListClass::new();
-          int index4 = 1;
+          let mut index4: i32 =  1;
           do
           {
             if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index4, 0, index1]) && this.game.TempCombat.RepCom[index4, 0, index1].Length > 0)
@@ -430,9 +430,9 @@ namespace WindowsApplication1
 
     pub int GetSfNrBitmap(int sfnr, int att)
     {
-      int type = this.game.Data.SFObj[sfnr].Type;
-      int symbolSpriteId = this.game.Data.SFTypeObj[type].SymbolSpriteID;
-      int index1 = -1;
+      let mut type: i32 =  this.game.Data.SFObj[sfnr].Type;
+      let mut symbolSpriteId: i32 =  this.game.Data.SFTypeObj[type].SymbolSpriteID;
+      let mut index1: i32 =  -1;
       if (att == 0)
         index1 = this.game.TempCombat.DefenderRegime;
       if (att == 1)
@@ -441,8 +441,8 @@ namespace WindowsApplication1
       {
         if (this.game.Data.RegimeObj[index1].ExtraGraphicUse > -1)
         {
-          int extraCounter = this.game.Data.SFTypeObj[type].ExtraCounter;
-          for (int index2 = 0; index2 <= extraCounter; index2 += 1)
+          let mut extraCounter: i32 =  this.game.Data.SFTypeObj[type].ExtraCounter;
+          for (let mut index2: i32 =  0; index2 <= extraCounter; index2 += 1)
           {
             if (this.game.Data.SFTypeObj[type].ExtraCode[index2] == this.game.Data.RegimeObj[index1].ExtraGraphicUse)
               symbolSpriteId = this.game.Data.SFTypeObj[type].ExtraSymbolSpriteID[index2];
@@ -453,8 +453,8 @@ namespace WindowsApplication1
           int index3;
           if (this.game.Data.PeopleObj[this.game.Data.SFObj[this.game.TempCombat.IList[index3].ISFNr].People].ExtraGraphicUse > -1)
           {
-            int extraCounter = this.game.Data.SFTypeObj[type].ExtraCounter;
-            for (int index4 = 0; index4 <= extraCounter; index4 += 1)
+            let mut extraCounter: i32 =  this.game.Data.SFTypeObj[type].ExtraCounter;
+            for (let mut index4: i32 =  0; index4 <= extraCounter; index4 += 1)
             {
               if (this.game.Data.SFTypeObj[type].ExtraCode[index4] == this.game.Data.PeopleObj[this.game.Data.SFObj[this.game.TempCombat.IList[index3].ISFNr].People].ExtraGraphicUse)
                 symbolSpriteId = this.game.Data.SFTypeObj[type].ExtraSymbolSpriteID[index4];
@@ -470,12 +470,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.TAid)
             {
               this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
@@ -485,7 +485,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.OptionsListId)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num2 > -1)
               {
@@ -497,7 +497,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.OptionsList1Id)
             {
-              int num3 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num3: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num3 > -1)
               {
@@ -509,7 +509,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.OptionsList2Id)
             {
-              int num4 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num4: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num4 > -1)
               {
@@ -522,7 +522,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.OptionsList3Id)
             {
-              int num5 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num5: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num5 > -1)
               {
@@ -534,7 +534,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.OptionsList4Id)
             {
-              int num6 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num6: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num6 > -1)
               {

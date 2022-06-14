@@ -69,12 +69,12 @@ namespace WindowsApplication1
       int num1;
       if (self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] > -1)
       {
-        int index = self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage];
-        int nr = index < 10000 ? self.game.Data.EventPicNr[index] : self.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
+        let mut index: i32 =  self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage];
+        let mut nr: i32 =  index < 10000 ? self.game.Data.EventPicNr[index] : self.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
         if (nr > -1)
         {
-          int width1 = BitmapStore.GetWidth(nr);
-          int height1 = BitmapStore.Getheight(nr);
+          let mut width1: i32 =  BitmapStore.GetWidth(nr);
+          let mut height1: i32 =  BitmapStore.Getheight(nr);
           Rectangle rectangle;
           if (self.game.Data.RegimeObj[self.game.Data.Turn].MesStyle[self.FromMessage] == 2)
           {
@@ -88,7 +88,7 @@ namespace WindowsApplication1
               width1 =  Math.Round((double) width1 * (200.0 / (double) height1));
               height1 =  Math.Round((double) height1 * (200.0 / (double) height1));
             }
-            rectangle = new Rectangle(85, 100, width1, height1);
+            rectangle = Rectangle::new(85, 100, width1, height1);
             num1 = height1 + 100 + 20;
           }
           else
@@ -103,7 +103,7 @@ namespace WindowsApplication1
               width1 =  Math.Round((double) width1 * (200.0 / (double) height1));
               height1 =  Math.Round((double) height1 * (200.0 / (double) height1));
             }
-            rectangle = new Rectangle( Math.Round(405.0 - (double) width1 / 2.0), 20, width1, height1);
+            rectangle = Rectangle::new( Math.Round(405.0 - (double) width1 / 2.0), 20, width1, height1);
             num1 = height1 + 20 + 20;
           }
           if (self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] >= 10000)
@@ -113,20 +113,20 @@ namespace WindowsApplication1
           }
           else
           {
-             Graphics local1 =  g;
+             let mut local1: &Graphics = &g;
             Bitmap bitmap = BitmapStore.GetBitmap(nr);
-             Bitmap local2 =  bitmap;
-            int x = rectangle.X;
-            int y = rectangle.Y;
-            int width2 = rectangle.Width;
-            int height2 = rectangle.Height;
+             let mut local2: &Bitmap = &bitmap;
+            let mut x: i32 =  rectangle.X;
+            let mut y: i32 =  rectangle.Y;
+            let mut width2: i32 =  rectangle.Width;
+            let mut height2: i32 =  rectangle.Height;
             DrawMod.DrawScaled( local1,  local2, x, y, width2, height2);
           }
         }
       }
       else
         num1 = 60;
-      int num2 =  Math.Round(Conversion.Int(32.5) - (double) num1 / 16.0);
+      let mut num2: i32 =   Math.Round(Conversion.Int(32.5) - (double) num1 / 16.0);
       DrawMod.DrawPaperSheet( g, 55, num1 - 10, 690, 16 * (num2 - 1) + 20);
       let mut tsubpart1: SubPartClass =  new PaperAreaClass(self.game, 650, num2 - 2,  null, "Description", false, self.game.Data.RegimeObj[self.game.Data.Turn].MessString[self.FromMessage], self.game.VicColor8, tbackbitmap: ( self.OwnBitmap), bbx: 75, bby: num1);
       self.TAid = self.AddSubPart( tsubpart1, 75, num1, 650, 16 * (num2 - 2), 0);
@@ -161,12 +161,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
       {
-        int subPartCounter = self.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  self.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
           {
-            int num = self.SubPartID[index];
+            let mut num: i32 =  self.SubPartID[index];
             if (num == self.TAid)
             {
               self.SubPartList[index].Click(x - self.SubPartX[index], y - self.SubPartY[index]);

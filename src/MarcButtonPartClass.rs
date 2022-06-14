@@ -28,13 +28,13 @@ namespace WindowsApplication1
 
     pub MarcButtonPartClass(
       int tbmpnr,
-      int tcolorized = 0,
+      let mut tcolorized: i32 =  0,
       tDescript: String = "",
        Bitmap tBackbitmap = null,
-      int bbx = -1,
-      int bby = -1,
-      int totherback = 0,
-      int tsize = 35)
+      let mut bbx: i32 =  -1,
+      let mut bby: i32 =  -1,
+      let mut totherback: i32 =  0,
+      let mut tsize: i32 =  35)
       : base(tsize, tsize)
     {
       this.OwnBitmapNr = tbmpnr;
@@ -47,7 +47,7 @@ namespace WindowsApplication1
       this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics Expression = Graphics.FromImage((Image) this.backbitmap);
       Expression.CompositingMode = CompositingMode.SourceCopy;
-      Expression.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), new Rectangle(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
+      Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
       Expression.CompositingMode = CompositingMode.SourceOver;
       if (Information.IsNothing((object) Expression))
         return;
@@ -67,57 +67,57 @@ namespace WindowsApplication1
       {
         if (this.otherback == 0)
         {
-           Graphics local1 =  objGraphics;
+           let mut local1: &Graphics = &objGraphics;
           Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1);
-           Bitmap local2 =  bitmap1;
+           let mut local2: &Bitmap = &bitmap1;
           DrawMod.DrawSimple( local1,  local2, 0, 0);
-           Graphics local3 =  objGraphics;
+           let mut local3: &Graphics = &objGraphics;
           Bitmap bitmap2 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local4 =  bitmap2;
+           let mut local4: &Bitmap = &bitmap2;
           DrawMod.DrawSimple( local3,  local4, 2, 2);
         }
         else if (this.otherback == 1)
         {
-           Graphics local5 =  objGraphics;
+           let mut local5: &Graphics = &objGraphics;
           Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK1);
-           Bitmap local6 =  bitmap3;
+           let mut local6: &Bitmap = &bitmap3;
           DrawMod.DrawSimple( local5,  local6, 0, 0);
-           Graphics local7 =  objGraphics;
+           let mut local7: &Graphics = &objGraphics;
           Bitmap bitmap4 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local8 =  bitmap4;
+           let mut local8: &Bitmap = &bitmap4;
           DrawMod.DrawSimple( local7,  local8, 0, 0);
         }
         else if (this.otherback == 2)
         {
-           Graphics local9 =  objGraphics;
+           let mut local9: &Graphics = &objGraphics;
           Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK2);
-           Bitmap local10 =  bitmap5;
+           let mut local10: &Bitmap = &bitmap5;
           DrawMod.DrawSimple( local9,  local10, 0, 0);
-           Graphics local11 =  objGraphics;
+           let mut local11: &Graphics = &objGraphics;
           Bitmap bitmap6 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local12 =  bitmap6;
+           let mut local12: &Bitmap = &bitmap6;
           DrawMod.DrawSimple( local11,  local12, 0, 0);
         }
         else if (this.otherback == 3)
         {
-           Graphics local13 =  objGraphics;
+           let mut local13: &Graphics = &objGraphics;
           Bitmap bitmap7 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK3);
-           Bitmap local14 =  bitmap7;
+           let mut local14: &Bitmap = &bitmap7;
           DrawMod.DrawSimple( local13,  local14, 0, 0);
-           Graphics local15 =  objGraphics;
+           let mut local15: &Graphics = &objGraphics;
           Bitmap bitmap8 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local16 =  bitmap8;
+           let mut local16: &Bitmap = &bitmap8;
           DrawMod.DrawSimple( local15,  local16, 0, 0);
         }
         else if (this.otherback == 4)
         {
-           Graphics local17 =  objGraphics;
+           let mut local17: &Graphics = &objGraphics;
           Bitmap bitmap9 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK4);
-           Bitmap local18 =  bitmap9;
+           let mut local18: &Bitmap = &bitmap9;
           DrawMod.DrawSimple( local17,  local18, 0, 0);
-           Graphics local19 =  objGraphics;
+           let mut local19: &Graphics = &objGraphics;
           Bitmap bitmap10 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local20 =  bitmap10;
+           let mut local20: &Bitmap = &bitmap10;
           DrawMod.DrawSimple( local19,  local20, 0, 0);
         }
       }
@@ -125,57 +125,57 @@ namespace WindowsApplication1
       {
         if (this.otherback == 0)
         {
-           Graphics local21 =  objGraphics;
+           let mut local21: &Graphics = &objGraphics;
           Bitmap bitmap11 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1);
-           Bitmap local22 =  bitmap11;
+           let mut local22: &Bitmap = &bitmap11;
           DrawMod.Draw( local21,  local22, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local23 =  objGraphics;
+           let mut local23: &Graphics = &objGraphics;
           Bitmap bitmap12 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local24 =  bitmap12;
+           let mut local24: &Bitmap = &bitmap12;
           DrawMod.DrawGray( local23,  local24, 2, 2);
         }
         else if (this.otherback == 1)
         {
-           Graphics local25 =  objGraphics;
+           let mut local25: &Graphics = &objGraphics;
           Bitmap bitmap13 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK1);
-           Bitmap local26 =  bitmap13;
+           let mut local26: &Bitmap = &bitmap13;
           DrawMod.Draw( local25,  local26, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local27 =  objGraphics;
+           let mut local27: &Graphics = &objGraphics;
           Bitmap bitmap14 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local28 =  bitmap14;
+           let mut local28: &Bitmap = &bitmap14;
           DrawMod.DrawGray( local27,  local28, 0, 0);
         }
         else if (this.otherback == 2)
         {
-           Graphics local29 =  objGraphics;
+           let mut local29: &Graphics = &objGraphics;
           Bitmap bitmap15 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK2);
-           Bitmap local30 =  bitmap15;
+           let mut local30: &Bitmap = &bitmap15;
           DrawMod.Draw( local29,  local30, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local31 =  objGraphics;
+           let mut local31: &Graphics = &objGraphics;
           Bitmap bitmap16 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local32 =  bitmap16;
+           let mut local32: &Bitmap = &bitmap16;
           DrawMod.DrawGray( local31,  local32, 0, 0);
         }
         else if (this.otherback == 3)
         {
-           Graphics local33 =  objGraphics;
+           let mut local33: &Graphics = &objGraphics;
           Bitmap bitmap17 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK3);
-           Bitmap local34 =  bitmap17;
+           let mut local34: &Bitmap = &bitmap17;
           DrawMod.Draw( local33,  local34, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local35 =  objGraphics;
+           let mut local35: &Graphics = &objGraphics;
           Bitmap bitmap18 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local36 =  bitmap18;
+           let mut local36: &Bitmap = &bitmap18;
           DrawMod.DrawGray( local35,  local36, 0, 0);
         }
         else if (this.otherback == 4)
         {
-           Graphics local37 =  objGraphics;
+           let mut local37: &Graphics = &objGraphics;
           Bitmap bitmap19 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK4);
-           Bitmap local38 =  bitmap19;
+           let mut local38: &Bitmap = &bitmap19;
           DrawMod.Draw( local37,  local38, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local39 =  objGraphics;
+           let mut local39: &Graphics = &objGraphics;
           Bitmap bitmap20 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local40 =  bitmap20;
+           let mut local40: &Bitmap = &bitmap20;
           DrawMod.DrawGray( local39,  local40, 0, 0);
         }
       }
@@ -200,57 +200,57 @@ namespace WindowsApplication1
       {
         if (this.otherback == 0)
         {
-           Graphics local1 =  objGraphics;
+           let mut local1: &Graphics = &objGraphics;
           Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1b);
-           Bitmap local2 =  bitmap1;
+           let mut local2: &Bitmap = &bitmap1;
           DrawMod.DrawSimple( local1,  local2, 0, 0);
-           Graphics local3 =  objGraphics;
+           let mut local3: &Graphics = &objGraphics;
           Bitmap bitmap2 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local4 =  bitmap2;
+           let mut local4: &Bitmap = &bitmap2;
           DrawMod.DrawSimple( local3,  local4, 2, 2);
         }
         else if (this.otherback == 1)
         {
-           Graphics local5 =  objGraphics;
+           let mut local5: &Graphics = &objGraphics;
           Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK1B);
-           Bitmap local6 =  bitmap3;
+           let mut local6: &Bitmap = &bitmap3;
           DrawMod.DrawSimple( local5,  local6, 0, 0);
-           Graphics local7 =  objGraphics;
+           let mut local7: &Graphics = &objGraphics;
           Bitmap bitmap4 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local8 =  bitmap4;
+           let mut local8: &Bitmap = &bitmap4;
           DrawMod.DrawSimple( local7,  local8, 0, 0);
         }
         else if (this.otherback == 2)
         {
-           Graphics local9 =  objGraphics;
+           let mut local9: &Graphics = &objGraphics;
           Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK2B);
-           Bitmap local10 =  bitmap5;
+           let mut local10: &Bitmap = &bitmap5;
           DrawMod.DrawSimple( local9,  local10, 0, 0);
-           Graphics local11 =  objGraphics;
+           let mut local11: &Graphics = &objGraphics;
           Bitmap bitmap6 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local12 =  bitmap6;
+           let mut local12: &Bitmap = &bitmap6;
           DrawMod.DrawSimple( local11,  local12, 0, 0);
         }
         else if (this.otherback == 3)
         {
-           Graphics local13 =  objGraphics;
+           let mut local13: &Graphics = &objGraphics;
           Bitmap bitmap7 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK3B);
-           Bitmap local14 =  bitmap7;
+           let mut local14: &Bitmap = &bitmap7;
           DrawMod.DrawSimple( local13,  local14, 0, 0);
-           Graphics local15 =  objGraphics;
+           let mut local15: &Graphics = &objGraphics;
           Bitmap bitmap8 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local16 =  bitmap8;
+           let mut local16: &Bitmap = &bitmap8;
           DrawMod.DrawSimple( local15,  local16, 0, 0);
         }
         else if (this.otherback == 4)
         {
-           Graphics local17 =  objGraphics;
+           let mut local17: &Graphics = &objGraphics;
           Bitmap bitmap9 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK4B);
-           Bitmap local18 =  bitmap9;
+           let mut local18: &Bitmap = &bitmap9;
           DrawMod.DrawSimple( local17,  local18, 0, 0);
-           Graphics local19 =  objGraphics;
+           let mut local19: &Graphics = &objGraphics;
           Bitmap bitmap10 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local20 =  bitmap10;
+           let mut local20: &Bitmap = &bitmap10;
           DrawMod.DrawSimple( local19,  local20, 0, 0);
         }
       }
@@ -258,57 +258,57 @@ namespace WindowsApplication1
       {
         if (this.otherback == 0)
         {
-           Graphics local21 =  objGraphics;
+           let mut local21: &Graphics = &objGraphics;
           Bitmap bitmap11 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONMARC1b);
-           Bitmap local22 =  bitmap11;
+           let mut local22: &Bitmap = &bitmap11;
           DrawMod.Draw( local21,  local22, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local23 =  objGraphics;
+           let mut local23: &Graphics = &objGraphics;
           Bitmap bitmap12 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local24 =  bitmap12;
+           let mut local24: &Bitmap = &bitmap12;
           DrawMod.Draw( local23,  local24, 2, 2, 0.0f, 0.0f, 0.0f, 0.4f);
         }
         else if (this.otherback == 1)
         {
-           Graphics local25 =  objGraphics;
+           let mut local25: &Graphics = &objGraphics;
           Bitmap bitmap13 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK1B);
-           Bitmap local26 =  bitmap13;
+           let mut local26: &Bitmap = &bitmap13;
           DrawMod.Draw( local25,  local26, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local27 =  objGraphics;
+           let mut local27: &Graphics = &objGraphics;
           Bitmap bitmap14 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local28 =  bitmap14;
+           let mut local28: &Bitmap = &bitmap14;
           DrawMod.Draw( local27,  local28, 0, 0, 0.0f, 0.0f, 0.0f, 0.4f);
         }
         else if (this.otherback == 2)
         {
-           Graphics local29 =  objGraphics;
+           let mut local29: &Graphics = &objGraphics;
           Bitmap bitmap15 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK2B);
-           Bitmap local30 =  bitmap15;
+           let mut local30: &Bitmap = &bitmap15;
           DrawMod.Draw( local29,  local30, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local31 =  objGraphics;
+           let mut local31: &Graphics = &objGraphics;
           Bitmap bitmap16 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local32 =  bitmap16;
+           let mut local32: &Bitmap = &bitmap16;
           DrawMod.Draw( local31,  local32, 0, 0, 0.0f, 0.0f, 0.0f, 0.4f);
         }
         else if (this.otherback == 3)
         {
-           Graphics local33 =  objGraphics;
+           let mut local33: &Graphics = &objGraphics;
           Bitmap bitmap17 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK3B);
-           Bitmap local34 =  bitmap17;
+           let mut local34: &Bitmap = &bitmap17;
           DrawMod.Draw( local33,  local34, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local35 =  objGraphics;
+           let mut local35: &Graphics = &objGraphics;
           Bitmap bitmap18 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local36 =  bitmap18;
+           let mut local36: &Bitmap = &bitmap18;
           DrawMod.Draw( local35,  local36, 0, 0, 0.0f, 0.0f, 0.0f, 0.4f);
         }
         else if (this.otherback == 4)
         {
-           Graphics local37 =  objGraphics;
+           let mut local37: &Graphics = &objGraphics;
           Bitmap bitmap19 = BitmapStore.GetBitmap(DrawMod.TGame.MARCBACK4B);
-           Bitmap local38 =  bitmap19;
+           let mut local38: &Bitmap = &bitmap19;
           DrawMod.Draw( local37,  local38, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
-           Graphics local39 =  objGraphics;
+           let mut local39: &Graphics = &objGraphics;
           Bitmap bitmap20 = BitmapStore.GetBitmap(this.OwnBitmapNr);
-           Bitmap local40 =  bitmap20;
+           let mut local40: &Bitmap = &bitmap20;
           DrawMod.Draw( local39,  local40, 0, 0, 0.0f, 0.0f, 0.0f, 0.4f);
         }
       }

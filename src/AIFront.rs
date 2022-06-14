@@ -103,25 +103,25 @@ namespace WindowsApplication1
       aiFront.artUnits = AIUnitList::new();
       aiFront.orgUnits = AIUnitList::new();
       aiFront.strictHQs = AIUnitList::new();
-      int counter1 = this.units.counter;
-      for (int index = 0; index <= counter1; index += 1)
+      let mut counter1: i32 =  this.units.counter;
+      for (let mut index: i32 =  0; index <= counter1; index += 1)
         aiFront.units.add(this.units.unr[index], this.units.AIid[index]);
-      int counter2 = this.artUnits.counter;
-      for (int index = 0; index <= counter2; index += 1)
+      let mut counter2: i32 =  this.artUnits.counter;
+      for (let mut index: i32 =  0; index <= counter2; index += 1)
         aiFront.artUnits.add(this.artUnits.unr[index], this.artUnits.AIid[index]);
-      int counter3 = this.orgUnits.counter;
-      for (int index = 0; index <= counter3; index += 1)
+      let mut counter3: i32 =  this.orgUnits.counter;
+      for (let mut index: i32 =  0; index <= counter3; index += 1)
         aiFront.orgUnits.add(this.orgUnits.unr[index], this.orgUnits.AIid[index]);
-      int counter4 = this.strictHQs.counter;
-      for (int index = 0; index <= counter4; index += 1)
+      let mut counter4: i32 =  this.strictHQs.counter;
+      for (let mut index: i32 =  0; index <= counter4; index += 1)
         aiFront.strictHQs.add(this.strictHQs.unr[index], this.strictHQs.AIid[index]);
       aiFront.removelist = (AIUnitList) null;
       aiFront.coordCount = this.coordCount;
       if (this.coordCount == -1)
         aiFront.Coords = new Coordinate[1];
       aiFront.Coords = new Coordinate[this.coordCount + 1];
-      int coordCount = this.coordCount;
-      for (int index = 0; index <= coordCount; index += 1)
+      let mut coordCount: i32 =  this.coordCount;
+      for (let mut index: i32 =  0; index <= coordCount; index += 1)
         aiFront.Coords[index] = this.Coords[index];
       aiFront.targetX = this.targetX;
       aiFront.targetY = this.targetY;
@@ -172,15 +172,15 @@ namespace WindowsApplication1
     pub SimpleList GetNeighbourFrontList()
     {
       SimpleList neighbourFrontList = SimpleList::new();
-      int mapWidth = this.ai.map.MapWidth;
-      for (int cx = 0; cx <= mapWidth; cx += 1)
+      let mut mapWidth: i32 =  this.ai.map.MapWidth;
+      for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int cy = 0; cy <= mapHeight; cy += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
         {
           if (this.ai.frontMatrix.Value[cx, cy] == this.FrontID)
           {
-            int tfacing = 1;
+            let mut tfacing: i32 =  1;
             do
             {
               Coordinate coordinate = this.ai.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
@@ -198,15 +198,15 @@ namespace WindowsApplication1
     pub HasFriendlyZeroBorder: bool()
     {
       SimpleList simpleList = SimpleList::new();
-      int mapWidth = this.ai.map.MapWidth;
-      for (int cx = 0; cx <= mapWidth; cx += 1)
+      let mut mapWidth: i32 =  this.ai.map.MapWidth;
+      for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int cy = 0; cy <= mapHeight; cy += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
         {
           if (this.ai.frontMatrix.Value[cx, cy] == this.FrontID)
           {
-            int tfacing = 1;
+            let mut tfacing: i32 =  1;
             do
             {
               Coordinate coordinate = this.ai.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
@@ -224,14 +224,14 @@ namespace WindowsApplication1
     pub void CopyUnitsFromAIFront(AIFront tempFront)
     {
       this.units = AIUnitList::new();
-      int counter1 = tempFront.units.counter;
-      for (int index = 0; index <= counter1; index += 1)
+      let mut counter1: i32 =  tempFront.units.counter;
+      for (let mut index: i32 =  0; index <= counter1; index += 1)
         this.units.add(tempFront.units.unr[index], tempFront.units.AIid[index]);
-      int counter2 = tempFront.artUnits.counter;
-      for (int index = 0; index <= counter2; index += 1)
+      let mut counter2: i32 =  tempFront.artUnits.counter;
+      for (let mut index: i32 =  0; index <= counter2; index += 1)
         this.artUnits.add(tempFront.artUnits.unr[index], tempFront.artUnits.AIid[index]);
-      int counter3 = tempFront.orgUnits.counter;
-      for (int index = 0; index <= counter3; index += 1)
+      let mut counter3: i32 =  tempFront.orgUnits.counter;
+      for (let mut index: i32 =  0; index <= counter3; index += 1)
         this.orgUnits.add(tempFront.orgUnits.unr[index], tempFront.orgUnits.AIid[index]);
     }
 
@@ -271,8 +271,8 @@ namespace WindowsApplication1
 
     pub HasCoord: bool(int x, int y)
     {
-      int coordCount = this.coordCount;
-      for (int index = 0; index <= coordCount; index += 1)
+      let mut coordCount: i32 =  this.coordCount;
+      for (let mut index: i32 =  0; index <= coordCount; index += 1)
       {
         if (this.Coords[index].x == x & this.Coords[index].y == y)
           return true;
@@ -282,9 +282,9 @@ namespace WindowsApplication1
 
     pub void RemoveCoord(int x, int y)
     {
-      int num1 = -1;
-      int coordCount = this.coordCount;
-      for (int index = 0; index <= coordCount; index += 1)
+      let mut num1: i32 =  -1;
+      let mut coordCount: i32 =  this.coordCount;
+      for (let mut index: i32 =  0; index <= coordCount; index += 1)
       {
         if (this.Coords[index].x == x & this.Coords[index].y == y)
         {
@@ -294,9 +294,9 @@ namespace WindowsApplication1
       }
       if (num1 <= -1)
         return;
-      int num2 = num1;
-      int num3 = this.coordCount - 1;
-      for (int index = num2; index <= num3; index += 1)
+      let mut num2: i32 =  num1;
+      let mut num3: i32 =  this.coordCount - 1;
+      for (let mut index: i32 =  num2; index <= num3; index += 1)
         this.Coords[index] = this.Coords[index + 1];
       --this.coordCount;
       this.Coords = (Coordinate[]) Utils.CopyArray((Array) this.Coords, (Array) new Coordinate[this.coordCount + 1]);
@@ -314,15 +314,15 @@ namespace WindowsApplication1
 
     pub int GetPowerUnderCorps(int hq)
     {
-      int powerUnderCorps = 0;
-      int counter1 = this.units.counter;
-      for (int index = 0; index <= counter1; index += 1)
+      let mut powerUnderCorps: i32 =  0;
+      let mut counter1: i32 =  this.units.counter;
+      for (let mut index: i32 =  0; index <= counter1; index += 1)
       {
         if (this.ai.game.Data.UnitObj[this.units.unr[index]].HQ == hq)
           powerUnderCorps += this.ai.game.Data.UnitObj[this.units.unr[index]].TempUnitPower;
       }
-      int counter2 = this.artUnits.counter;
-      for (int index = 0; index <= counter2; index += 1)
+      let mut counter2: i32 =  this.artUnits.counter;
+      for (let mut index: i32 =  0; index <= counter2; index += 1)
       {
         if (this.ai.game.Data.UnitObj[this.artUnits.unr[index]].HQ == hq)
           powerUnderCorps += this.ai.game.Data.UnitObj[this.artUnits.unr[index]].TempUnitPower;
@@ -332,23 +332,23 @@ namespace WindowsApplication1
 
     pub int GetPowerUnderFront(bool Absolute = false)
     {
-      int powerUnderFront = 0;
+      let mut powerUnderFront: i32 =  0;
       if (Absolute)
       {
-        int counter1 = this.units.counter;
-        for (int index = 0; index <= counter1; index += 1)
+        let mut counter1: i32 =  this.units.counter;
+        for (let mut index: i32 =  0; index <= counter1; index += 1)
           powerUnderFront += this.ai.game.Data.UnitObj[this.units.unr[index]].TempUnitPowerAbs;
-        int counter2 = this.artUnits.counter;
-        for (int index = 0; index <= counter2; index += 1)
+        let mut counter2: i32 =  this.artUnits.counter;
+        for (let mut index: i32 =  0; index <= counter2; index += 1)
           powerUnderFront += this.ai.game.Data.UnitObj[this.artUnits.unr[index]].TempUnitPowerAbs;
       }
       else
       {
-        int counter3 = this.units.counter;
-        for (int index = 0; index <= counter3; index += 1)
+        let mut counter3: i32 =  this.units.counter;
+        for (let mut index: i32 =  0; index <= counter3; index += 1)
           powerUnderFront += this.ai.game.Data.UnitObj[this.units.unr[index]].TempUnitPower;
-        int counter4 = this.artUnits.counter;
-        for (int index = 0; index <= counter4; index += 1)
+        let mut counter4: i32 =  this.artUnits.counter;
+        for (let mut index: i32 =  0; index <= counter4; index += 1)
           powerUnderFront += this.ai.game.Data.UnitObj[this.artUnits.unr[index]].TempUnitPower;
       }
       return powerUnderFront;
@@ -356,15 +356,15 @@ namespace WindowsApplication1
 
     pub int GetPowerUnderHis(int his)
     {
-      int powerUnderHis = 0;
-      int counter1 = this.units.counter;
-      for (int index = 0; index <= counter1; index += 1)
+      let mut powerUnderHis: i32 =  0;
+      let mut counter1: i32 =  this.units.counter;
+      for (let mut index: i32 =  0; index <= counter1; index += 1)
       {
         if (this.ai.game.Data.UnitObj[this.units.unr[index]].Historical == his)
           powerUnderHis = powerUnderHis + this.ai.game.Data.UnitObj[this.units.unr[index]].TempUnitPower + 1;
       }
-      int counter2 = this.artUnits.counter;
-      for (int index = 0; index <= counter2; index += 1)
+      let mut counter2: i32 =  this.artUnits.counter;
+      for (let mut index: i32 =  0; index <= counter2; index += 1)
       {
         if (this.ai.game.Data.UnitObj[this.artUnits.unr[index]].Historical == his)
           powerUnderHis = powerUnderHis + this.ai.game.Data.UnitObj[this.artUnits.unr[index]].TempUnitPower + 1;
@@ -374,21 +374,21 @@ namespace WindowsApplication1
 
     pub int GetTransferableHisUnitsInUnitList()
     {
-      int hisUnitsInUnitList = 0;
-      int num1 = 0;
+      let mut hisUnitsInUnitList: i32 =  0;
+      let mut num1: i32 =  0;
       if (DrawMod.TGame.Data.Product >= 6)
         num1 = -1;
       bool[] flagArray = new bool[this.units.counter + 1];
-      int counter1 = this.units.counter;
-      for (int index1 = 0; index1 <= counter1; index1 += 1)
+      let mut counter1: i32 =  this.units.counter;
+      for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
       {
         if (this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical > -1 & !flagArray[index1] && this.ai.game.Data.UnitObj[this.units.unr[index1]].TempCategory == 1 && this.ai.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical) > num1)
         {
           hisUnitsInUnitList += 1;
           flagArray[index1] = true;
-          int num2 = index1 + 1;
-          int counter2 = this.units.counter;
-          for (int index2 = num2; index2 <= counter2; index2 += 1)
+          let mut num2: i32 =  index1 + 1;
+          let mut counter2: i32 =  this.units.counter;
+          for (let mut index2: i32 =  num2; index2 <= counter2; index2 += 1)
           {
             if (this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical == this.ai.game.Data.UnitObj[this.units.unr[index2]].Historical)
               flagArray[index2] = true;
@@ -400,8 +400,8 @@ namespace WindowsApplication1
 
     pub HasTopUnits: bool()
     {
-      int counter = this.units.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.units.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.ai.game.Data.UnitObj[this.units.unr[index]].TempTopUnit)
           return true;
@@ -415,21 +415,21 @@ namespace WindowsApplication1
       AIFront targetFront,
       bool GetPowerPts = false)
     {
-      int id = -1;
-      int num1 = 999999999;
-      int num2 = 0;
+      let mut id: i32 =  -1;
+      let mut num1: i32 =  999999999;
+      let mut num2: i32 =  0;
       bool[] flagArray = new bool[this.units.counter + 1];
-      int counter1 = this.units.counter;
+      let mut counter1: i32 =  this.units.counter;
       int num3;
       int num4;
-      for (int index = 0; index <= counter1; index += 1)
+      for (let mut index: i32 =  0; index <= counter1; index += 1)
       {
         if (this.ai.game.Data.UnitObj[this.units.unr[index]].Historical > -1 & !flagArray[index])
         {
           bool flag = false;
           if (this.ai.VAR_USE_STRICT_HQFRONT)
           {
-            int hq = this.ai.game.Data.UnitObj[this.units.unr[index]].HQ;
+            let mut hq: i32 =  this.ai.game.Data.UnitObj[this.units.unr[index]].HQ;
             if (hq > -1 && this.strictHQs.CheckIfPresentUnr(hq) & targetFront.strictHQs.CheckIfPresentUnr(hq))
               flag = true;
           }
@@ -444,25 +444,25 @@ namespace WindowsApplication1
           }
         }
       }
-      int num5 = 1;
+      let mut num5: i32 =  1;
       do
       {
-        int counter2 = this.units.counter;
-        for (int index1 = 0; index1 <= counter2; index1 += 1)
+        let mut counter2: i32 =  this.units.counter;
+        for (let mut index1: i32 =  0; index1 <= counter2; index1 += 1)
         {
           if (this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical > -1 & !flagArray[index1])
           {
             bool flag = false;
             if (this.ai.VAR_USE_STRICT_HQFRONT)
             {
-              int hq = this.ai.game.Data.UnitObj[this.units.unr[index1]].HQ;
+              let mut hq: i32 =  this.ai.game.Data.UnitObj[this.units.unr[index1]].HQ;
               if (hq > -1 && this.strictHQs.CheckIfPresentUnr(hq) & targetFront.strictHQs.CheckIfPresentUnr(hq))
                 flag = true;
             }
             else
               flag = true;
-            int x = this.ai.game.Data.UnitObj[this.units.unr[index1]].X;
-            int y = this.ai.game.Data.UnitObj[this.units.unr[index1]].Y;
+            let mut x: i32 =  this.ai.game.Data.UnitObj[this.units.unr[index1]].X;
+            let mut y: i32 =  this.ai.game.Data.UnitObj[this.units.unr[index1]].Y;
             if (flag & (num5 == 2 | frontMatrix.Value[x, y] == targetFrontID | targetFrontID == -1) && this.ai.game.Data.UnitObj[this.units.unr[index1]].TempCategory == 1 & !this.ai.game.Data.UnitObj[this.units.unr[index1]].TempTopUnit && this.ai.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical) > 0 && this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical != this.FrontID & !this.ai.game.Data.UnitObj[this.units.unr[index1]].AIReserve)
             {
               num2 += 1;
@@ -480,9 +480,9 @@ namespace WindowsApplication1
                 id = this.units.AIid[index1];
               }
               flagArray[index1] = true;
-              int num6 = index1 + 1;
-              int counter3 = this.units.counter;
-              for (int index2 = num6; index2 <= counter3; index2 += 1)
+              let mut num6: i32 =  index1 + 1;
+              let mut counter3: i32 =  this.units.counter;
+              for (let mut index2: i32 =  num6; index2 <= counter3; index2 += 1)
               {
                 if (this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical == this.ai.game.Data.UnitObj[this.units.unr[index2]].Historical)
                   flagArray[index2] = true;
@@ -500,10 +500,10 @@ namespace WindowsApplication1
         return id;
       if (id <= -1)
         return 0;
-      int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(id);
-      int unitCounter = this.ai.game.Data.UnitCounter;
+      let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(id);
+      let mut unitCounter: i32 =  this.ai.game.Data.UnitCounter;
       int unitAiidToSplitOff;
-      for (int index = 0; index <= unitCounter; index += 1)
+      for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.ai.game.Data.UnitObj[index].Historical == this.ai.game.Data.UnitObj[unitByAiid].Historical)
           unitAiidToSplitOff += this.ai.game.Data.UnitObj[index].TempUnitPowerAbs;
@@ -514,21 +514,21 @@ namespace WindowsApplication1
     pub int GetUnitsInTargetFrontIDTerritory(AIMatrix frontMatrix, int targetFrontID)
     {
       bool[] flagArray = new bool[this.units.counter + 1];
-      int counter1 = this.units.counter;
+      let mut counter1: i32 =  this.units.counter;
       int frontIdTerritory;
-      for (int index1 = 0; index1 <= counter1; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
       {
         if (this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical > -1 & !flagArray[index1])
         {
-          int x = this.ai.game.Data.UnitObj[this.units.unr[index1]].X;
-          int y = this.ai.game.Data.UnitObj[this.units.unr[index1]].Y;
+          let mut x: i32 =  this.ai.game.Data.UnitObj[this.units.unr[index1]].X;
+          let mut y: i32 =  this.ai.game.Data.UnitObj[this.units.unr[index1]].Y;
           if (frontMatrix.Value[x, y] == targetFrontID | targetFrontID == -1 && this.ai.game.Data.UnitObj[this.units.unr[index1]].TempCategory == 1 & !this.ai.game.Data.UnitObj[this.units.unr[index1]].TempTopUnit && this.ai.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical) > 0 && this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical != this.FrontID && !this.ai.game.Data.UnitObj[this.units.unr[index1]].AIReserve)
           {
             frontIdTerritory += 1;
             flagArray[index1] = true;
-            int num = index1 + 1;
-            int counter2 = this.units.counter;
-            for (int index2 = num; index2 <= counter2; index2 += 1)
+            let mut num: i32 =  index1 + 1;
+            let mut counter2: i32 =  this.units.counter;
+            for (let mut index2: i32 =  num; index2 <= counter2; index2 += 1)
             {
               if (this.ai.game.Data.UnitObj[this.units.unr[index1]].Historical == this.ai.game.Data.UnitObj[this.units.unr[index2]].Historical)
                 flagArray[index2] = true;
@@ -539,18 +539,18 @@ namespace WindowsApplication1
       return frontIdTerritory;
     }
 
-    pub Coordinate GetAverageFrontCoordinate(int withZoneNumber = -1)
+    pub Coordinate GetAverageFrontCoordinate(let mut withZoneNumber: i32 =  -1)
     {
-      int num1 = 0;
+      let mut num1: i32 =  0;
       int num2;
       int num3;
       if (this.FrontType != 2)
       {
-        int mapWidth = this.ai.map.MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
             if (this.ai.frontMatrix.Value[index1, index2] == this.FrontID & (withZoneNumber == -1 | this.ai.VAR_MATRIX_ZONES.Value[index1, index2] == withZoneNumber))
             {
@@ -570,26 +570,26 @@ namespace WindowsApplication1
       }
       else
       {
-        int counter1 = this.units.counter;
-        for (int index = 0; index <= counter1; index += 1)
+        let mut counter1: i32 =  this.units.counter;
+        for (let mut index: i32 =  0; index <= counter1; index += 1)
         {
-          int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.units.AIid[index]);
+          let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.units.AIid[index]);
           num2 += this.ai.game.Data.UnitObj[unitByAiid].X;
           num3 += this.ai.game.Data.UnitObj[unitByAiid].Y;
           num1 += 1;
         }
-        int counter2 = this.artUnits.counter;
-        for (int index = 0; index <= counter2; index += 1)
+        let mut counter2: i32 =  this.artUnits.counter;
+        for (let mut index: i32 =  0; index <= counter2; index += 1)
         {
-          int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.artUnits.AIid[index]);
+          let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.artUnits.AIid[index]);
           num2 += this.ai.game.Data.UnitObj[unitByAiid].X;
           num3 += this.ai.game.Data.UnitObj[unitByAiid].Y;
           num1 += 1;
         }
-        int counter3 = this.orgUnits.counter;
-        for (int index = 0; index <= counter3; index += 1)
+        let mut counter3: i32 =  this.orgUnits.counter;
+        for (let mut index: i32 =  0; index <= counter3; index += 1)
         {
-          int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.orgUnits.AIid[index]);
+          let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.orgUnits.AIid[index]);
           num2 += this.ai.game.Data.UnitObj[unitByAiid].X;
           num3 += this.ai.game.Data.UnitObj[unitByAiid].Y;
           num1 += 1;
@@ -608,14 +608,14 @@ namespace WindowsApplication1
 
     pub Coordinate GetAverageUnitsCoordinate(int hqNrNecc, int SSHQNrNecc)
     {
-      int num1 = 0;
+      let mut num1: i32 =  0;
       Coordinate averageUnitsCoordinate = Coordinate::new();
-      int counter1 = this.units.counter;
+      let mut counter1: i32 =  this.units.counter;
       int num2;
       int num3;
-      for (int index = 0; index <= counter1; index += 1)
+      for (let mut index: i32 =  0; index <= counter1; index += 1)
       {
-        int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.units.AIid[index]);
+        let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.units.AIid[index]);
         if (hqNrNecc < 0 | this.ai.game.Data.UnitObj[unitByAiid].HQ == hqNrNecc && SSHQNrNecc < 0 | this.ai.game.Data.UnitObj[unitByAiid].AISubStrictGroup == SSHQNrNecc)
         {
           num2 += this.ai.game.Data.UnitObj[unitByAiid].X;
@@ -623,10 +623,10 @@ namespace WindowsApplication1
           num1 += 1;
         }
       }
-      int counter2 = this.artUnits.counter;
-      for (int index = 0; index <= counter2; index += 1)
+      let mut counter2: i32 =  this.artUnits.counter;
+      for (let mut index: i32 =  0; index <= counter2; index += 1)
       {
-        int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.artUnits.AIid[index]);
+        let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.artUnits.AIid[index]);
         if (hqNrNecc < 0 | this.ai.game.Data.UnitObj[unitByAiid].HQ == hqNrNecc && SSHQNrNecc < 0 | this.ai.game.Data.UnitObj[unitByAiid].AISubStrictGroup == SSHQNrNecc)
         {
           num2 += this.ai.game.Data.UnitObj[unitByAiid].X;
@@ -634,10 +634,10 @@ namespace WindowsApplication1
           num1 += 1;
         }
       }
-      int counter3 = this.orgUnits.counter;
-      for (int index = 0; index <= counter3; index += 1)
+      let mut counter3: i32 =  this.orgUnits.counter;
+      for (let mut index: i32 =  0; index <= counter3; index += 1)
       {
-        int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.orgUnits.AIid[index]);
+        let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(this.orgUnits.AIid[index]);
         if (hqNrNecc < 0 | this.ai.game.Data.UnitObj[unitByAiid].HQ == hqNrNecc && SSHQNrNecc < 0 | this.ai.game.Data.UnitObj[unitByAiid].AISubStrictGroup == SSHQNrNecc)
         {
           num2 += this.ai.game.Data.UnitObj[unitByAiid].X;

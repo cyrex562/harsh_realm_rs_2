@@ -54,12 +54,12 @@ namespace WindowsApplication1
 
     pub void HandleToolTip(int x, int y)
     {
-      int subPartCounter = self.SubPartCounter;
-      for (int index = 0; index <= subPartCounter; index += 1)
+      let mut subPartCounter: i32 =  self.SubPartCounter;
+      for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
       {
         if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
         {
-          int num = self.SubPartID[index];
+          let mut num: i32 =  self.SubPartID[index];
           if (num == self.userid)
           {
             self.game.EditObj.TipButton = true;
@@ -128,12 +128,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
       {
-        int subPartCounter = self.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  self.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
           {
-            int num = self.SubPartID[index];
+            let mut num: i32 =  self.SubPartID[index];
             if (num == self.cancelid)
             {
               windowReturnClass.AddCommand(6, 0);

@@ -57,8 +57,8 @@ namespace WindowsApplication1
         this.blocked = false;
         return false;
       }
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.coord[index].x == x & this.coord[index].y == y & this.moveType[index] == tMoveType)
         {

@@ -131,8 +131,8 @@ namespace WindowsApplication1
       this.SuspendLayout();
       this.Label1.Font = Font::new("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       Label label1_1 = this.Label1;
-      Point point1 = new Point(58, 9);
-      Point point2 = point1;
+      Polet mut point1: i32 =  new Point(58, 9);
+      Polet mut point2: i32 =  point1;
       label1_1.Location = point2;
       this.Label1.Name = "Label1";
       Label label1_2 = this.Label1;
@@ -145,7 +145,7 @@ namespace WindowsApplication1
       this.ListBox1.ItemHeight = 16;
       ListBox listBox1_1 = this.ListBox1;
       point1 = new Point(86, 65);
-      Point point3 = point1;
+      Polet mut point3: i32 =  point1;
       listBox1_1.Location = point3;
       this.ListBox1.Name = "ListBox1";
       ListBox listBox1_2 = this.ListBox1;
@@ -155,7 +155,7 @@ namespace WindowsApplication1
       this.ListBox1.TabIndex = 1;
       Button button1_1 = this.Button1;
       point1 = new Point(106, 489);
-      Point point4 = point1;
+      Polet mut point4: i32 =  point1;
       button1_1.Location = point4;
       this.Button1.Name = "Button1";
       Button button1_2 = this.Button1;
@@ -166,7 +166,7 @@ namespace WindowsApplication1
       this.Button1.Text = "OK";
       Button button2_1 = this.Button2;
       point1 = new Point(384, 489);
-      Point point5 = point1;
+      Polet mut point5: i32 =  point1;
       button2_1.Location = point5;
       this.Button2.Name = "Button2";
       Button button2_2 = this.Button2;
@@ -177,7 +177,7 @@ namespace WindowsApplication1
       this.Button2.Text = "Cancel";
       Button button3_1 = this.Button3;
       point1 = new Point(575, 352);
-      Point point6 = point1;
+      Polet mut point6: i32 =  point1;
       button3_1.Location = point6;
       this.Button3.Name = "Button3";
       Button button3_2 = this.Button3;
@@ -213,9 +213,9 @@ namespace WindowsApplication1
       DataClass tData,
       int ttype,
       int tnr,
-      int tnr2 = -1,
+      let mut tnr2: i32 =  -1,
       let mut tGame: GameClass = null,
-      int tnr3 = -1)
+      let mut tnr3: i32 =  -1)
     {
       this.BringToFront();
       this.type = ttype;
@@ -230,8 +230,8 @@ namespace WindowsApplication1
       int num1;
       if (this.type == 1)
       {
-        int num2 = -1;
-        int index = 100;
+        let mut num2: i32 =  -1;
+        let mut index: i32 =  100;
         do
         {
           num2 += 1;
@@ -245,8 +245,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 2)
       {
-        int landscapeTypeCounter = this.Data.LandscapeTypeCounter;
-        for (int index = 0; index <= landscapeTypeCounter; index += 1)
+        let mut landscapeTypeCounter: i32 =  this.Data.LandscapeTypeCounter;
+        for (let mut index: i32 =  0; index <= landscapeTypeCounter; index += 1)
         {
           if (!this.Data.LandscapeTypeObj[this.nr].CheckOverride(index))
           {
@@ -257,8 +257,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 3)
       {
-        int peopleCounter = this.Data.PeopleCounter;
-        for (int index = 0; index <= peopleCounter; index += 1)
+        let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+        for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.PeopleObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -266,7 +266,7 @@ namespace WindowsApplication1
       }
       else if (this.type == 4)
       {
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.TempString[index];
@@ -277,8 +277,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 5)
       {
-        int num3 = -1;
-        int index = 400;
+        let mut num3: i32 =  -1;
+        let mut index: i32 =  400;
         do
         {
           num3 += 1;
@@ -290,8 +290,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 6)
       {
-        int sfTypeCounter = this.Data.SFTypeCounter;
-        for (int index = 0; index <= sfTypeCounter; index += 1)
+        let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+        for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.SFTypeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -299,8 +299,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 7)
       {
-        int peopleCounter = this.Data.PeopleCounter;
-        for (int index = 0; index <= peopleCounter; index += 1)
+        let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+        for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.PeopleObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -309,8 +309,8 @@ namespace WindowsApplication1
       else if (this.type == 8)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None***"));
-        int landscapeTypeCounter = this.Data.LandscapeTypeCounter;
-        for (int index = 0; index <= landscapeTypeCounter; index += 1)
+        let mut landscapeTypeCounter: i32 =  this.Data.LandscapeTypeCounter;
+        for (let mut index: i32 =  0; index <= landscapeTypeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.LandscapeTypeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -318,8 +318,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 9)
       {
-        int basicSpriteCounter = this.Data.LandscapeTypeObj[this.Data.LocTypeObj[this.nr].OverdrawLTNr].BasicSpriteCounter;
-        for (int index = 0; index <= basicSpriteCounter; index += 1)
+        let mut basicSpriteCounter: i32 =  this.Data.LandscapeTypeObj[this.Data.LocTypeObj[this.nr].OverdrawLTNr].BasicSpriteCounter;
+        for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.LandscapeTypeObj[this.Data.LocTypeObj[this.nr].OverdrawLTNr].BasicSpriteFileName[index];
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -329,8 +329,8 @@ namespace WindowsApplication1
       {
         this.ListBox1.Items.Add((object) new ListItem(-2, "***No Morph***"));
         this.ListBox1.Items.Add((object) new ListItem(-1, "***No Destruct***"));
-        int landscapeTypeCounter = this.Data.LandscapeTypeCounter;
-        for (int index = 0; index <= landscapeTypeCounter; index += 1)
+        let mut landscapeTypeCounter: i32 =  this.Data.LandscapeTypeCounter;
+        for (let mut index: i32 =  0; index <= landscapeTypeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.LandscapeTypeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -339,8 +339,8 @@ namespace WindowsApplication1
       else if (this.type == 11)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None***"));
-        int basicSpriteCounter = this.Data.LandscapeTypeObj[this.Data.LocTypeObj[this.nr].OnDestructLT].BasicSpriteCounter;
-        for (int index = 0; index <= basicSpriteCounter; index += 1)
+        let mut basicSpriteCounter: i32 =  this.Data.LandscapeTypeObj[this.Data.LocTypeObj[this.nr].OnDestructLT].BasicSpriteCounter;
+        for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.LandscapeTypeObj[this.Data.LocTypeObj[this.nr].OnDestructLT].BasicSpriteFileName[index];
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -348,8 +348,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 12)
       {
-        int num4 = -1;
-        int index = 500;
+        let mut num4: i32 =  -1;
+        let mut index: i32 =  500;
         do
         {
           num4 += 1;
@@ -361,8 +361,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 13)
       {
-        int num5 = -1;
-        int index = 200;
+        let mut num5: i32 =  -1;
+        let mut index: i32 =  200;
         do
         {
           num5 += 1;
@@ -375,8 +375,8 @@ namespace WindowsApplication1
       else if (this.type == 14 | this.type == 15)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None***"));
-        int regimeCounter = this.Data.RegimeCounter;
-        for (int index = 0; index <= regimeCounter; index += 1)
+        let mut regimeCounter: i32 =  this.Data.RegimeCounter;
+        for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.RegimeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -384,8 +384,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 16)
       {
-        int peopleCounter = this.Data.PeopleCounter;
-        for (int index = 0; index <= peopleCounter; index += 1)
+        let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+        for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.PeopleObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -393,8 +393,8 @@ namespace WindowsApplication1
       }
       else if (this.type == 17)
       {
-        int num6 = -1;
-        int index = 300;
+        let mut num6: i32 =  -1;
+        let mut index: i32 =  300;
         do
         {
           num6 += 1;
@@ -407,8 +407,8 @@ namespace WindowsApplication1
       else if (this.type == 18)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-        int researchCounter = this.Data.ResearchCounter;
-        for (int index = 0; index <= researchCounter; index += 1)
+        let mut researchCounter: i32 =  this.Data.ResearchCounter;
+        for (let mut index: i32 =  0; index <= researchCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.ResearchObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -417,8 +417,8 @@ namespace WindowsApplication1
       else if (this.type == 19)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-        int sfTypeCounter = this.Data.SFTypeCounter;
-        for (int index = 0; index <= sfTypeCounter; index += 1)
+        let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+        for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.SFTypeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -427,8 +427,8 @@ namespace WindowsApplication1
       else if (this.type == 20)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None***"));
-        int itemTypeCounter = this.Data.ItemTypeCounter;
-        for (int index = 0; index <= itemTypeCounter; index += 1)
+        let mut itemTypeCounter: i32 =  this.Data.ItemTypeCounter;
+        for (let mut index: i32 =  0; index <= itemTypeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.ItemTypeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -437,8 +437,8 @@ namespace WindowsApplication1
       else if (this.type == 21)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None needed***"));
-        int sfTypeCounter = this.Data.SFTypeCounter;
-        for (int index = 0; index <= sfTypeCounter; index += 1)
+        let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+        for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.SFTypeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -447,8 +447,8 @@ namespace WindowsApplication1
       else if (this.type == 22 | this.type == 23)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-        int researchCounter = this.Data.ResearchCounter;
-        for (int index = 0; index <= researchCounter; index += 1)
+        let mut researchCounter: i32 =  this.Data.ResearchCounter;
+        for (let mut index: i32 =  0; index <= researchCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.ResearchObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -457,8 +457,8 @@ namespace WindowsApplication1
       else if (this.type == 24)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-        int researchCounter = this.Data.ResearchCounter;
-        for (int index = 0; index <= researchCounter; index += 1)
+        let mut researchCounter: i32 =  this.Data.ResearchCounter;
+        for (let mut index: i32 =  0; index <= researchCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.ResearchObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -467,7 +467,7 @@ namespace WindowsApplication1
       else if (this.type == 25)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.GameSlotName[index];
@@ -479,8 +479,8 @@ namespace WindowsApplication1
       else if (this.type == 26)
       {
         this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-        int sfTypeCounter = this.Data.SFTypeCounter;
-        for (int index = 0; index <= sfTypeCounter; index += 1)
+        let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+        for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
         {
           Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.SFTypeObj[index].Name;
           this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -491,8 +491,8 @@ namespace WindowsApplication1
         if (this.type == 28)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int peopleCounter = this.Data.PeopleCounter;
-          for (int index = 0; index <= peopleCounter; index += 1)
+          let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+          for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.PeopleObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -501,8 +501,8 @@ namespace WindowsApplication1
         else if (this.type == 29)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int regimeCounter = this.Data.RegimeCounter;
-          for (int index = 0; index <= regimeCounter; index += 1)
+          let mut regimeCounter: i32 =  this.Data.RegimeCounter;
+          for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.RegimeObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -510,9 +510,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 30)
         {
-          int num7 = -1;
+          let mut num7: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int index = 200;
+          let mut index: i32 =  200;
           do
           {
             num7 += 1;
@@ -524,10 +524,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 31)
         {
-          int num8 = -1;
+          let mut num8: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num8 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num8)) + ") " + this.Data.EventObj[index].Name;
@@ -536,9 +536,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 32)
         {
-          int num9 = -1;
+          let mut num9: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int num10 = 0;
+          let mut num10: i32 =  0;
           do
           {
             num9 += 1;
@@ -552,8 +552,8 @@ namespace WindowsApplication1
         {
           num1 = -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int unitCounter = this.Data.UnitCounter;
-          for (int ID = 0; ID <= unitCounter; ID += 1)
+          let mut unitCounter: i32 =  this.Data.UnitCounter;
+          for (let mut ID: i32 =  0; ID <= unitCounter; ID += 1)
           {
             if (this.Data.UnitObj[ID].Regime == this.Data.Turn && this.Data.UnitObj[ID].PreDef == -1 && this.Data.UnitObj[ID].X > -1 && this.Data.UnitObj[ID].IsHQ)
               this.ListBox1.Items.Add((object) new ListItem(ID, this.Data.UnitObj[ID].Name + " (" + Strings.Trim(Conversion.Str((object) this.Data.UnitObj[ID].X)) + "," + Strings.Trim(Conversion.Str((object) this.Data.UnitObj[ID].Y)) + ")"));
@@ -561,10 +561,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 34)
         {
-          int num11 = -1;
+          let mut num11: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int index = 0; index <= sfTypeCounter; index += 1)
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
           {
             num11 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num11)) + ") " + this.Data.SFTypeObj[index].Name;
@@ -573,10 +573,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 35)
         {
-          int num12 = -1;
+          let mut num12: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num12 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num12)) + ") " + this.Data.EventObj[index].Name;
@@ -596,26 +596,26 @@ namespace WindowsApplication1
         }
         else if (this.type == 37 | this.type == 46 | this.type == 47)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           int[] numArray1 = new int[this.Data.HistoricalUnitCounter + 1];
-          int unitCounter = this.Data.UnitCounter;
-          for (int index1 = 0; index1 <= unitCounter; index1 += 1)
+          let mut unitCounter: i32 =  this.Data.UnitCounter;
+          for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
           {
             if (this.Data.UnitObj[index1].Historical > -1)
             {
               int[] numArray2 = numArray1;
               int[] numArray3 = numArray2;
-              int historical = this.Data.UnitObj[index1].Historical;
-              int index2 = historical;
-              int num13 = numArray2[historical] + 1;
+              let mut historical: i32 =  this.Data.UnitObj[index1].Historical;
+              let mut index2: i32 =  historical;
+              let mut num13: i32 =  numArray2[historical] + 1;
               numArray3[index2] = num13;
             }
           }
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int ID = 0; ID <= historicalUnitCounter; ID += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut ID: i32 =  0; ID <= historicalUnitCounter; ID += 1)
           {
-            int num14 = 0;
+            let mut num14: i32 =  0;
             if (this.type == 47 | this.type == 46)
               num14 = 1;
             else if (this.Data.UnitObj[tnr].Regime == this.Data.HistoricalUnitObj[ID].TempRegime & this.type == 37 | this.type == 47)
@@ -624,7 +624,7 @@ namespace WindowsApplication1
               num14 = 1;
             if (num14 == 1)
             {
-              int num15 = 0;
+              let mut num15: i32 =  0;
               if (this.type == 47 | this.type == 46)
                 num15 = 1;
               else if (this.Data.UnitObj[tnr].IsHQ & (this.Data.HistoricalUnitObj[ID].Type >= 5 | this.Data.HistoricalUnitObj[ID].Type == -1) | !this.Data.UnitObj[tnr].IsHQ & this.Data.HistoricalUnitObj[ID].Type < 5 | this.type >= 46)
@@ -653,10 +653,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 38 | this.type == 139)
         {
-          int num16 = -1;
+          let mut num16: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int actionCardCounter = this.Data.ActionCardCounter;
-          for (int index = 0; index <= actionCardCounter; index += 1)
+          let mut actionCardCounter: i32 =  this.Data.ActionCardCounter;
+          for (let mut index: i32 =  0; index <= actionCardCounter; index += 1)
           {
             num16 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num16)) + ") " + this.Data.ActionCardObj[index].Title;
@@ -665,10 +665,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 39)
         {
-          int num17 = -1;
+          let mut num17: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num17 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num17)) + ") " + this.Data.EventObj[index].Name;
@@ -677,10 +677,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 40)
         {
-          int num18 = -1;
+          let mut num18: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int actionCardCounter = this.Data.ActionCardCounter;
-          for (int index = 0; index <= actionCardCounter; index += 1)
+          let mut actionCardCounter: i32 =  this.Data.ActionCardCounter;
+          for (let mut index: i32 =  0; index <= actionCardCounter; index += 1)
           {
             num18 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num18)) + ") " + this.Data.ActionCardObj[index].Title;
@@ -693,8 +693,8 @@ namespace WindowsApplication1
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
           if (this.Game.Data.UnitObj[this.Game.EditObj.OrderUnit].TempCategory == 1)
           {
-            int counter = this.Game.NewAIObj.MarkerList.Counter;
-            for (int index = 0; index <= counter; index += 1)
+            let mut counter: i32 =  this.Game.NewAIObj.MarkerList.Counter;
+            for (let mut index: i32 =  0; index <= counter; index += 1)
             {
               if (this.Game.NewAIObj.MarkerList.Data1[index] == this.Game.SelectX & this.Game.NewAIObj.MarkerList.Data2[index] == this.Game.SelectY)
               {
@@ -705,8 +705,8 @@ namespace WindowsApplication1
           }
           if (this.Game.Data.UnitObj[this.Game.EditObj.OrderUnit].TempCategory == 2)
           {
-            int counter = this.Game.NewAIObj.ArtMarkerList.Counter;
-            for (int index = 0; index <= counter; index += 1)
+            let mut counter: i32 =  this.Game.NewAIObj.ArtMarkerList.Counter;
+            for (let mut index: i32 =  0; index <= counter; index += 1)
             {
               if (this.Game.NewAIObj.ArtMarkerList.Data1[index] == this.Game.SelectX & this.Game.NewAIObj.ArtMarkerList.Data2[index] == this.Game.SelectY)
               {
@@ -717,8 +717,8 @@ namespace WindowsApplication1
           }
           if (this.Game.Data.UnitObj[this.Game.EditObj.OrderUnit].TempCategory == 3)
           {
-            int counter = this.Game.NewAIObj.AirMarkerList.Counter;
-            for (int index = 0; index <= counter; index += 1)
+            let mut counter: i32 =  this.Game.NewAIObj.AirMarkerList.Counter;
+            for (let mut index: i32 =  0; index <= counter; index += 1)
             {
               if (this.Game.NewAIObj.AirMarkerList.Data1[index] == this.Game.SelectX & this.Game.NewAIObj.AirMarkerList.Data2[index] == this.Game.SelectY)
               {
@@ -731,8 +731,8 @@ namespace WindowsApplication1
           {
             if (this.Game.NewAIObj.EngineerMarkerList.Counter > -1)
             {
-              int counter = this.Game.NewAIObj.EngineerMarkerList.Counter;
-              for (int index = 0; index <= counter; index += 1)
+              let mut counter: i32 =  this.Game.NewAIObj.EngineerMarkerList.Counter;
+              for (let mut index: i32 =  0; index <= counter; index += 1)
               {
                 if (this.Game.NewAIObj.EngineerMarkerList.Data1[index] == this.Game.SelectX & this.Game.NewAIObj.EngineerMarkerList.Data2[index] == this.Game.SelectY)
                 {
@@ -743,8 +743,8 @@ namespace WindowsApplication1
             }
             else
             {
-              int counter = this.Game.NewAIObj.MarkerList.Counter;
-              for (int index = 0; index <= counter; index += 1)
+              let mut counter: i32 =  this.Game.NewAIObj.MarkerList.Counter;
+              for (let mut index: i32 =  0; index <= counter; index += 1)
               {
                 if (this.Game.NewAIObj.MarkerList.Data1[index] == this.Game.SelectX & this.Game.NewAIObj.MarkerList.Data2[index] == this.Game.SelectY)
                 {
@@ -758,8 +758,8 @@ namespace WindowsApplication1
         else if (this.type == 42)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None needed***"));
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int index = 0; index <= sfTypeCounter; index += 1)
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.SFTypeObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -768,8 +768,8 @@ namespace WindowsApplication1
         else if (this.type == 43)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None needed***"));
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int index = 0; index <= sfTypeCounter; index += 1)
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.SFTypeObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -777,9 +777,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 44)
         {
-          int num19 = -1;
+          let mut num19: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***Default***"));
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             num19 += 1;
@@ -791,10 +791,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 45 | this.type == 136)
         {
-          int num20 = -1;
+          let mut num20: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None/Default***"));
-          int unitCounter = this.Data.UnitCounter;
-          for (int index = 0; index <= unitCounter; index += 1)
+          let mut unitCounter: i32 =  this.Data.UnitCounter;
+          for (let mut index: i32 =  0; index <= unitCounter; index += 1)
           {
             if (this.Data.UnitObj[index].PreDef > -1)
             {
@@ -806,9 +806,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 48)
         {
-          int num21 = -1;
+          let mut num21: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***Default***"));
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             if (this.Data.HistoricalUnitObj[this.nr2].SubParts[index] > -1 | this.Data.HistoricalUnitObj[this.nr2].Designation[index] > -1)
@@ -827,11 +827,11 @@ namespace WindowsApplication1
         }
         else if (this.type == 49)
         {
-          int num22 = -1;
+          let mut num22: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** None / No overrule ***"));
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** People of the Regime Producing ***"));
-          int peopleCounter = this.Data.PeopleCounter;
-          for (int index = 0; index <= peopleCounter; index += 1)
+          let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+          for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
           {
             num22 += 1;
             Name: String = Conversion.Str((object) index) + ") " + this.Data.PeopleObj[index].Name;
@@ -840,9 +840,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 50)
         {
-          int num23 = -1;
+          let mut num23: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***Default***"));
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             num23 += 1;
@@ -854,10 +854,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 51)
         {
-          int num24 = -1;
+          let mut num24: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***Default***"));
-          int reinfCounter = this.Data.ReinfCounter;
-          for (int index = 0; index <= reinfCounter; index += 1)
+          let mut reinfCounter: i32 =  this.Data.ReinfCounter;
+          for (let mut index: i32 =  0; index <= reinfCounter; index += 1)
           {
             num24 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num24)) + ") " + this.Data.ReinfName[index];
@@ -866,9 +866,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 53 | this.type == 54)
         {
-          int num25 = -1;
-          int regimeCounter = this.Data.RegimeCounter;
-          for (int ID = 0; ID <= regimeCounter; ID += 1)
+          let mut num25: i32 =  -1;
+          let mut regimeCounter: i32 =  this.Data.RegimeCounter;
+          for (let mut ID: i32 =  0; ID <= regimeCounter; ID += 1)
           {
             num25 += 1;
             if (this.Data.Turn != ID && this.Data.RegimeObj[this.Data.Turn].RegimeRel[ID] == 2)
@@ -888,9 +888,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 52)
         {
-          int num26 = -1;
-          int regimeCounter = this.Data.RegimeCounter;
-          for (int ID = 0; ID <= regimeCounter; ID += 1)
+          let mut num26: i32 =  -1;
+          let mut regimeCounter: i32 =  this.Data.RegimeCounter;
+          for (let mut ID: i32 =  0; ID <= regimeCounter; ID += 1)
           {
             num26 += 1;
             if (this.Data.Turn != ID && this.Data.RegimeObj[this.Data.Turn].RegimeRel[ID] == 2 && this.Data.UnitObj[this.nr].Regime != ID)
@@ -904,10 +904,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 55)
         {
-          int num27 = -1;
+          let mut num27: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None***"));
-          int stringListCounter = this.Data.StringListCounter;
-          for (int index = 0; index <= stringListCounter; index += 1)
+          let mut stringListCounter: i32 =  this.Data.StringListCounter;
+          for (let mut index: i32 =  0; index <= stringListCounter; index += 1)
           {
             num27 += 1;
             Name: String = Conversion.Str((object) this.Data.StringListObj[index].ID) + ") " + this.Data.StringListObj[index].Name;
@@ -922,10 +922,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 57)
         {
-          int num28 = -1;
+          let mut num28: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No UberRegime ***"));
-          int regimeCounter = this.Data.RegimeCounter;
-          for (int ID = 0; ID <= regimeCounter; ID += 1)
+          let mut regimeCounter: i32 =  this.Data.RegimeCounter;
+          for (let mut ID: i32 =  0; ID <= regimeCounter; ID += 1)
           {
             num28 += 1;
             name: String = this.Data.RegimeObj[ID].Name;
@@ -934,10 +934,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 58)
         {
-          int num29 = -1;
+          let mut num29: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num29 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num29)) + ") " + this.Data.EventObj[index].Name;
@@ -947,8 +947,8 @@ namespace WindowsApplication1
         else if (this.type == 59)
         {
           num1 = -1;
-          int unitCounter = this.Data.UnitCounter;
-          for (int index3 = 0; index3 <= unitCounter; index3 += 1)
+          let mut unitCounter: i32 =  this.Data.UnitCounter;
+          for (let mut index3: i32 =  0; index3 <= unitCounter; index3 += 1)
           {
             if (tGame.Data.UnitObj[index3].Regime == tGame.Data.Turn && tGame.HandyFunctionsObj.HasUnitAirSF(index3))
             {
@@ -963,11 +963,11 @@ namespace WindowsApplication1
                   Name = "SELECTED " + Name;
                 if (tGame.Data.UnitObj[index3].HQ > -1)
                   Name = Name + ", " + tGame.Data.UnitObj[tGame.Data.UnitObj[index3].HQ].Name;
-                int sfCount = this.Game.Data.UnitObj[index3].SFCount;
-                for (int index4 = 0; index4 <= sfCount; index4 += 1)
+                let mut sfCount: i32 =  this.Game.Data.UnitObj[index3].SFCount;
+                for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
                 {
-                  int sf = tGame.Data.UnitObj[index3].SFList[index4];
-                  int type = tGame.Data.SFObj[sf].Type;
+                  let mut sf: i32 =  tGame.Data.UnitObj[index3].SFList[index4];
+                  let mut type: i32 =  tGame.Data.SFObj[sf].Type;
                   if (tGame.Data.SFTypeObj[type].Theater == 2)
                     Name = Name + ", " + Strings.Trim(Conversion.Str((object) (tGame.Data.SFObj[sf].Qty * tGame.Data.SFTypeObj[type].Ratio))) + "x " + tGame.Data.SFTypeObj[type].Name;
                 }
@@ -979,8 +979,8 @@ namespace WindowsApplication1
         else if (this.type == 60)
         {
           num1 = -1;
-          int unitCounter = tGame.Data.UnitCounter;
-          for (int ID = 0; ID <= unitCounter; ID += 1)
+          let mut unitCounter: i32 =  tGame.Data.UnitCounter;
+          for (let mut ID: i32 =  0; ID <= unitCounter; ID += 1)
           {
             if (tGame.Data.UnitObj[ID].Regime == tGame.Data.Turn && tGame.Data.UnitObj[ID].IsHQ & (tGame.Data.UnitObj[ID].LandCap > 0 | tGame.Data.UnitObj[ID].AirCap > 0 | tGame.Data.UnitObj[ID].NavyCap > 0))
             {
@@ -992,8 +992,8 @@ namespace WindowsApplication1
         else if (this.type == 61)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int landscapeTypeCounter = this.Data.LandscapeTypeCounter;
-          for (int index = 0; index <= landscapeTypeCounter; index += 1)
+          let mut landscapeTypeCounter: i32 =  this.Data.LandscapeTypeCounter;
+          for (let mut index: i32 =  0; index <= landscapeTypeCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.LandscapeTypeObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -1001,8 +1001,8 @@ namespace WindowsApplication1
         }
         else if (this.type == 62)
         {
-          int landscapeTypeCounter = this.Data.LandscapeTypeCounter;
-          for (int index = 0; index <= landscapeTypeCounter; index += 1)
+          let mut landscapeTypeCounter: i32 =  this.Data.LandscapeTypeCounter;
+          for (let mut index: i32 =  0; index <= landscapeTypeCounter; index += 1)
           {
             if (!this.Data.LandscapeTypeObj[this.nr].CheckOverride2(index))
             {
@@ -1013,10 +1013,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 63)
         {
-          int num30 = -1;
+          let mut num30: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num30 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num30)) + ") " + this.Data.EventObj[index].Name;
@@ -1025,10 +1025,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 64)
         {
-          int num31 = -1;
+          let mut num31: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num31 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num31)) + ") " + this.Data.EventObj[index].Name;
@@ -1037,10 +1037,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 65)
         {
-          int num32 = -1;
+          let mut num32: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None***"));
-          int stringListCounter = this.Data.StringListCounter;
-          for (int index = 0; index <= stringListCounter; index += 1)
+          let mut stringListCounter: i32 =  this.Data.StringListCounter;
+          for (let mut index: i32 =  0; index <= stringListCounter; index += 1)
           {
             num32 += 1;
             Name: String = Conversion.Str((object) this.Data.StringListObj[index].ID) + ") " + this.Data.StringListObj[index].Name;
@@ -1049,10 +1049,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 66)
         {
-          int num33 = -1;
+          let mut num33: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num33 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num33)) + ") " + this.Data.EventObj[index].Name;
@@ -1062,8 +1062,8 @@ namespace WindowsApplication1
         else if (this.type == 67)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** All ***"));
-          int itemTypeCounter = this.Data.ItemTypeCounter;
-          for (int index = 0; index <= itemTypeCounter; index += 1)
+          let mut itemTypeCounter: i32 =  this.Data.ItemTypeCounter;
+          for (let mut index: i32 =  0; index <= itemTypeCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.ItemTypeObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -1071,9 +1071,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 68 | this.type == 69)
         {
-          int num34 = -1;
+          let mut num34: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** All ***"));
-          int index = 400;
+          let mut index: i32 =  400;
           do
           {
             num34 += 1;
@@ -1085,8 +1085,8 @@ namespace WindowsApplication1
         }
         else if (this.type == 70)
         {
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int index = 0; index <= sfTypeCounter; index += 1)
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.SFTypeObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -1095,8 +1095,8 @@ namespace WindowsApplication1
         else if (this.type == 71 | this.type == 72)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int researchCounter = this.Data.ResearchCounter;
-          for (int index = 0; index <= researchCounter; index += 1)
+          let mut researchCounter: i32 =  this.Data.ResearchCounter;
+          for (let mut index: i32 =  0; index <= researchCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.ResearchObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -1105,7 +1105,7 @@ namespace WindowsApplication1
         else if (this.type == 73)
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.RegimeSlotName[index];
@@ -1118,9 +1118,9 @@ namespace WindowsApplication1
         {
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
           ListClass listClass = ListClass::new();
-          int num35 = -1;
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int tdata = 0; tdata <= sfTypeCounter; tdata += 1)
+          let mut num35: i32 =  -1;
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut tdata: i32 =  0; tdata <= sfTypeCounter; tdata += 1)
           {
             if (!this.Data.SFTypeObj[tdata].DontShowInList && this.Data.SFTypeObj[tdata].Name.Length > 1)
             {
@@ -1130,16 +1130,16 @@ namespace WindowsApplication1
             }
           }
           listClass.Sort();
-          int listCount = listClass.ListCount;
-          for (int index = 0; index <= listCount; index += 1)
+          let mut listCount: i32 =  listClass.ListCount;
+          for (let mut index: i32 =  0; index <= listCount; index += 1)
             this.ListBox1.Items.Add((object) new ListItem(listClass.ListData[index], listClass.ListName[index]));
         }
         else if (this.type >= 75 & this.type <= 78 | this.type == 81)
         {
-          int num36 = -1;
+          let mut num36: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int eventCounter = this.Data.EventCounter;
-          for (int index = 0; index <= eventCounter; index += 1)
+          let mut eventCounter: i32 =  this.Data.EventCounter;
+          for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
             num36 += 1;
             Name: String = Strings.Trim(Conversion.Str((object) num36)) + ") " + this.Data.EventObj[index].Name;
@@ -1148,10 +1148,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 79)
         {
-          int num37 = -1;
+          let mut num37: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***No Alteration***"));
-          int modelVariantCounter = this.Data.SFTypeObj[this.nr].ModelVariantCounter;
-          for (int ID = 0; ID <= modelVariantCounter; ID += 1)
+          let mut modelVariantCounter: i32 =  this.Data.SFTypeObj[this.nr].ModelVariantCounter;
+          for (let mut ID: i32 =  0; ID <= modelVariantCounter; ID += 1)
           {
             if (this.Data.SFTypeObj[this.nr].TempAlterationPossible[ID])
             {
@@ -1163,10 +1163,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 80)
         {
-          int num38 = -1;
+          let mut num38: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***No AutoProd ***"));
-          int itemTypeCounter = this.Data.ItemTypeCounter;
-          for (int ID = 0; ID <= itemTypeCounter; ID += 1)
+          let mut itemTypeCounter: i32 =  this.Data.ItemTypeCounter;
+          for (let mut ID: i32 =  0; ID <= itemTypeCounter; ID += 1)
           {
             num38 += 1;
             name: String = this.Data.ItemTypeObj[ID].Name;
@@ -1178,12 +1178,12 @@ namespace WindowsApplication1
           num1 = -1;
           if (this.Game.EditObj.inSimpleEditor)
             this.ListBox1.Items.Add((object) new ListItem(-1, "***No HQ****"));
-          int unitCounter = this.Data.UnitCounter;
-          for (int index = 0; index <= unitCounter; index += 1)
+          let mut unitCounter: i32 =  this.Data.UnitCounter;
+          for (let mut index: i32 =  0; index <= unitCounter; index += 1)
           {
             if (this.Data.UnitObj[index].PreDef == -1 & this.Data.UnitObj[index].X > -1 && this.nr > -1 && this.nr != index & this.Game.Data.UnitObj[this.nr].HQ != index & this.Game.Data.UnitObj[index].IsHQ & (this.Game.Data.UnitObj[index].Regime == this.Game.Data.Turn | this.Game.Data.UnitObj[index].Regime == this.Game.Data.UnitObj[this.nr].Regime) && this.Game.HandyFunctionsObj.CanUnitBecomeHQfor(index, this.nr))
             {
-              int num39 = 0;
+              let mut num39: i32 =  0;
               if (this.Game.Data.UnitObj[this.nr].IsHQ)
                 num39 = 1;
               if ((double) this.Game.Data.RuleVar[304] == 0.0 | (double) (this.Game.HandyFunctionsObj.HowmanyHQsAbove(index) + this.Game.HandyFunctionsObj.HowmanyHQsBelow(this.nr) + 1 + num39) <= (double) this.Game.Data.RuleVar[304])
@@ -1198,8 +1198,8 @@ namespace WindowsApplication1
         {
           num1 = -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***No ppl ***"));
-          int peopleCounter = this.Data.PeopleCounter;
-          for (int index = 0; index <= peopleCounter; index += 1)
+          let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+          for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.PeopleObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -1209,8 +1209,8 @@ namespace WindowsApplication1
         {
           num1 = -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** None ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int index = 0; index <= historicalUnitCounter; index += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
           {
             if (this.Data.HistoricalUnitObj[index].Model & this.Data.HistoricalUnitObj[index].SubParts[0] > -1)
             {
@@ -1234,8 +1234,8 @@ namespace WindowsApplication1
         {
           num1 = -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** None ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int index = 0; index <= historicalUnitCounter; index += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
           {
             if (this.Data.HistoricalUnitObj[index].DeckCardCounter > -1)
             {
@@ -1248,8 +1248,8 @@ namespace WindowsApplication1
         {
           num1 = -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** None ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int index = 0; index <= historicalUnitCounter; index += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
           {
             if (this.Data.HistoricalUnitObj[index].HisVarCount > -1)
             {
@@ -1260,29 +1260,29 @@ namespace WindowsApplication1
         }
         else if (this.type == 87 | this.type == 101)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           int[] numArray4 = new int[this.Data.HistoricalUnitCounter + 1];
-          int unitCounter = this.Data.UnitCounter;
-          for (int index5 = 0; index5 <= unitCounter; index5 += 1)
+          let mut unitCounter: i32 =  this.Data.UnitCounter;
+          for (let mut index5: i32 =  0; index5 <= unitCounter; index5 += 1)
           {
             if (this.Data.UnitObj[index5].Historical > -1)
             {
               int[] numArray5 = numArray4;
               int[] numArray6 = numArray5;
-              int historical = this.Data.UnitObj[index5].Historical;
-              int index6 = historical;
-              int num40 = numArray5[historical] + 1;
+              let mut historical: i32 =  this.Data.UnitObj[index5].Historical;
+              let mut index6: i32 =  historical;
+              let mut num40: i32 =  numArray5[historical] + 1;
               numArray6[index6] = num40;
             }
           }
-          int num41 = -1;
+          let mut num41: i32 =  -1;
           if (this.Game.SelectX > -1 & this.Game.SelectY > -1)
             num41 = this.Game.Data.MapObj[0].HexObj[this.Game.SelectX, this.Game.SelectY].Regime;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int ID = 0; ID <= historicalUnitCounter; ID += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut ID: i32 =  0; ID <= historicalUnitCounter; ID += 1)
           {
-            int num42 = 1;
+            let mut num42: i32 =  1;
             if (numArray4[ID] > 0)
               num42 = 0;
             if (num42 == 1 && !this.Data.HistoricalUnitObj[ID].Model && num41 == -1 | this.Data.HistoricalUnitObj[ID].TempRegime == num41 & !(this.type == 101 & this.Data.HistoricalUnitObj[ID].CommanderName.Length > 0))
@@ -1310,8 +1310,8 @@ namespace WindowsApplication1
         {
           num1 = -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***No ppl ***"));
-          int peopleCounter = this.Data.PeopleCounter;
-          for (int index = 0; index <= peopleCounter; index += 1)
+          let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+          for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
           {
             Name: String = Strings.Trim(Conversion.Str((object) index)) + ") " + this.Data.PeopleObj[index].Name;
             this.ListBox1.Items.Add((object) new ListItem(index, Name));
@@ -1319,10 +1319,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 89)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***Default***"));
-          int reinfCounter = this.Data.ReinfCounter;
-          for (int ID = 0; ID <= reinfCounter; ID += 1)
+          let mut reinfCounter: i32 =  this.Data.ReinfCounter;
+          for (let mut ID: i32 =  0; ID <= reinfCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.ReinfName[ID];
@@ -1331,10 +1331,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 90)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int libraryCounter = this.Data.LibraryCounter;
-          for (int ID = 0; ID <= libraryCounter; ID += 1)
+          let mut libraryCounter: i32 =  this.Data.LibraryCounter;
+          for (let mut ID: i32 =  0; ID <= libraryCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LibraryObj[ID].name;
@@ -1378,10 +1378,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 93)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int libraryCounter = this.Data.LibraryCounter;
-          for (int ID = 0; ID <= libraryCounter; ID += 1)
+          let mut libraryCounter: i32 =  this.Data.LibraryCounter;
+          for (let mut ID: i32 =  0; ID <= libraryCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LibraryObj[ID].name;
@@ -1390,10 +1390,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 94)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int libraryCounter = this.Data.LibraryCounter;
-          for (int ID = 0; ID <= libraryCounter; ID += 1)
+          let mut libraryCounter: i32 =  this.Data.LibraryCounter;
+          for (let mut ID: i32 =  0; ID <= libraryCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LibraryObj[ID].name;
@@ -1402,10 +1402,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 95 | this.type == 96 | this.type == 97 | this.type == 107 | this.type == 108 | this.type == 109 | this.type == 129)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int libraryCounter = this.Data.LibraryCounter;
-          for (int ID = 0; ID <= libraryCounter; ID += 1)
+          let mut libraryCounter: i32 =  this.Data.LibraryCounter;
+          for (let mut ID: i32 =  0; ID <= libraryCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LibraryObj[ID].name;
@@ -1414,10 +1414,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 98)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** Do NOT substitute ***"));
-          int regimeCounter = this.Data.RegimeCounter;
-          for (int ID = 0; ID <= regimeCounter; ID += 1)
+          let mut regimeCounter: i32 =  this.Data.RegimeCounter;
+          for (let mut ID: i32 =  0; ID <= regimeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.RegimeObj[ID].Name;
@@ -1426,10 +1426,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 99)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** Do NOT substitute ***"));
-          int peopleCounter = this.Data.PeopleCounter;
-          for (int ID = 0; ID <= peopleCounter; ID += 1)
+          let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+          for (let mut ID: i32 =  0; ID <= peopleCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.PeopleObj[ID].Name;
@@ -1438,10 +1438,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 102)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** No commander ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int index = 0; index <= historicalUnitCounter; index += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
           {
             if (this.Game.Data.HistoricalUnitObj[index].TempRegime == this.nr & this.Game.Data.HistoricalUnitObj[index].CommanderName.Length > 0 & !this.Game.Data.HistoricalUnitObj[index].Pool & this.Game.HandyFunctionsObj.GetUnitByHistorical(index) == -1)
             {
@@ -1453,10 +1453,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 103)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** No commander ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int index = 0; index <= historicalUnitCounter; index += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
           {
             if (this.Game.Data.HistoricalUnitObj[index].TempRegime == this.nr & this.Game.Data.HistoricalUnitObj[index].CommanderName.Length > 0 & this.Game.Data.HistoricalUnitObj[index].Pool & this.Game.HandyFunctionsObj.GetUnitByHistorical(index) == -1)
             {
@@ -1468,10 +1468,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 104)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***None ***"));
-          int libraryCounter = this.Data.LibraryCounter;
-          for (int ID = 0; ID <= libraryCounter; ID += 1)
+          let mut libraryCounter: i32 =  this.Data.LibraryCounter;
+          for (let mut ID: i32 =  0; ID <= libraryCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LibraryObj[ID].name;
@@ -1480,10 +1480,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 106 | this.type == 123)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No Regime ***"));
-          int regimeCounter = this.Data.RegimeCounter;
-          for (int ID = 0; ID <= regimeCounter; ID += 1)
+          let mut regimeCounter: i32 =  this.Data.RegimeCounter;
+          for (let mut ID: i32 =  0; ID <= regimeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.RegimeObj[ID].Name;
@@ -1492,10 +1492,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 110 | this.type == 118)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No His Unit ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int index = 0; index <= historicalUnitCounter; index += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
           {
             if ((this.type == 110 | !this.Data.HistoricalUnitObj[index].Model) & this.Data.HistoricalUnitObj[index].CommanderName.Length < 1 && this.type != 110 | this.Game.HandyFunctionsObj.GetUnitByHistorical(index) == -1)
             {
@@ -1511,10 +1511,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 144)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No His Unit ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int ID = 0; ID <= historicalUnitCounter; ID += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut ID: i32 =  0; ID <= historicalUnitCounter; ID += 1)
           {
             if (!this.Data.HistoricalUnitObj[ID].Model)
             {
@@ -1530,10 +1530,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 111 | this.type == 119 | this.type == 135)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No Model ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int ID = 0; ID <= historicalUnitCounter; ID += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut ID: i32 =  0; ID <= historicalUnitCounter; ID += 1)
           {
             if (this.Data.HistoricalUnitObj[ID].Model & this.Data.HistoricalUnitObj[ID].CommanderName.Length < 1)
             {
@@ -1545,10 +1545,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 112 | this.type == 121)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No Officer ***"));
-          int historicalUnitCounter = this.Data.HistoricalUnitCounter;
-          for (int ID = 0; ID <= historicalUnitCounter; ID += 1)
+          let mut historicalUnitCounter: i32 =  this.Data.HistoricalUnitCounter;
+          for (let mut ID: i32 =  0; ID <= historicalUnitCounter; ID += 1)
           {
             if (!this.Data.HistoricalUnitObj[ID].Model & this.Data.HistoricalUnitObj[ID].CommanderName.Length > 0)
             {
@@ -1560,10 +1560,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 113 | this.type == 120)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No Landscape ***"));
-          int landscapeTypeCounter = this.Data.LandscapeTypeCounter;
-          for (int ID = 0; ID <= landscapeTypeCounter; ID += 1)
+          let mut landscapeTypeCounter: i32 =  this.Data.LandscapeTypeCounter;
+          for (let mut ID: i32 =  0; ID <= landscapeTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LandscapeTypeObj[ID].Name;
@@ -1572,10 +1572,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 114 | this.type == 122 | this.type == 132 | this.type == 134 | this.type == 138)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No People ***"));
-          int peopleCounter = this.Data.PeopleCounter;
-          for (int ID = 0; ID <= peopleCounter; ID += 1)
+          let mut peopleCounter: i32 =  this.Data.PeopleCounter;
+          for (let mut ID: i32 =  0; ID <= peopleCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.PeopleObj[ID].Name;
@@ -1584,10 +1584,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 115 | this.type == 124)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No River ***"));
-          int riverTypeCounter = this.Data.RiverTypeCounter;
-          for (int ID = 0; ID <= riverTypeCounter; ID += 1)
+          let mut riverTypeCounter: i32 =  this.Data.RiverTypeCounter;
+          for (let mut ID: i32 =  0; ID <= riverTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.RiverTypeObj[ID].Name;
@@ -1596,10 +1596,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 116 | this.type == 125)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No Road ***"));
-          int roadTypeCounter = this.Data.RoadTypeCounter;
-          for (int ID = 0; ID <= roadTypeCounter; ID += 1)
+          let mut roadTypeCounter: i32 =  this.Data.RoadTypeCounter;
+          for (let mut ID: i32 =  0; ID <= roadTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.RoadTypeObj[ID].Name;
@@ -1608,10 +1608,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 131 | this.type == 145)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No SFtype***"));
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int ID = 0; ID <= sfTypeCounter; ID += 1)
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut ID: i32 =  0; ID <= sfTypeCounter; ID += 1)
           {
             if (!this.Data.SFTypeObj[ID].DontShowInList)
             {
@@ -1623,10 +1623,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 117 | this.type == 126)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No SFtype***"));
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int ID = 0; ID <= sfTypeCounter; ID += 1)
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut ID: i32 =  0; ID <= sfTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.SFTypeObj[ID].Name;
@@ -1635,10 +1635,10 @@ namespace WindowsApplication1
         }
         else if (this.type ==  sbyte.MaxValue | this.type == 128)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No Loctype***"));
-          int locTypeCounter = this.Data.LocTypeCounter;
-          for (int ID = 0; ID <= locTypeCounter; ID += 1)
+          let mut locTypeCounter: i32 =  this.Data.LocTypeCounter;
+          for (let mut ID: i32 =  0; ID <= locTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LocTypeObj[ID].Name;
@@ -1647,9 +1647,9 @@ namespace WindowsApplication1
         }
         else if (this.type == 130)
         {
-          int Number = -1;
-          int sfTypeCounter = this.Data.SFTypeCounter;
-          for (int ID = 0; ID <= sfTypeCounter; ID += 1)
+          let mut Number: i32 =  -1;
+          let mut sfTypeCounter: i32 =  this.Data.SFTypeCounter;
+          for (let mut ID: i32 =  0; ID <= sfTypeCounter; ID += 1)
           {
             if (this.Game.Data.SFTypeObj[ID].DontShowInList & Operators.CompareString(this.Game.Data.SFTypeObj[ID].Name, "Reserved SFType", false) != 0 && Strings.InStr(this.Game.Data.SFTypeObj[ID].Name.ToLower(), "unused") <= 0 && Strings.InStr(this.Game.Data.SFTypeObj[ID].Name.ToLower(), "n/a") <= 0)
             {
@@ -1672,10 +1672,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 140 | this.type == 142)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***No Small Graphic***"));
-          int smallPicCounter = this.Data.SmallPicCounter;
-          for (int ID = 0; ID <= smallPicCounter; ID += 1)
+          let mut smallPicCounter: i32 =  this.Data.SmallPicCounter;
+          for (let mut ID: i32 =  0; ID <= smallPicCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.SmallPicName[ID];
@@ -1684,10 +1684,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 141 | this.type == 143)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "***No Event Pic***"));
-          int eventPicCounter = this.Data.EventPicCounter;
-          for (int ID = 0; ID <= eventPicCounter; ID += 1)
+          let mut eventPicCounter: i32 =  this.Data.EventPicCounter;
+          for (let mut ID: i32 =  0; ID <= eventPicCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.EventPicName[ID];
@@ -1696,10 +1696,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 146)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-1, "*** No ActionCard ***"));
-          int actionCardCounter = this.Data.ActionCardCounter;
-          for (int ID = 0; ID <= actionCardCounter; ID += 1)
+          let mut actionCardCounter: i32 =  this.Data.ActionCardCounter;
+          for (let mut ID: i32 =  0; ID <= actionCardCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.ActionCardObj[ID].Title;
@@ -1708,10 +1708,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 147)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** Do NOT replace ***"));
-          int landscapeTypeCounter = this.Data.LandscapeTypeCounter;
-          for (int ID = 0; ID <= landscapeTypeCounter; ID += 1)
+          let mut landscapeTypeCounter: i32 =  this.Data.LandscapeTypeCounter;
+          for (let mut ID: i32 =  0; ID <= landscapeTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.LandscapeTypeObj[ID].Name;
@@ -1720,10 +1720,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 148)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** Do NOT replace ***"));
-          int roadTypeCounter = this.Data.RoadTypeCounter;
-          for (int ID = 0; ID <= roadTypeCounter; ID += 1)
+          let mut roadTypeCounter: i32 =  this.Data.RoadTypeCounter;
+          for (let mut ID: i32 =  0; ID <= roadTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.RoadTypeObj[ID].Name;
@@ -1732,10 +1732,10 @@ namespace WindowsApplication1
         }
         else if (this.type == 149)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** Do NOT replace ***"));
-          int riverTypeCounter = this.Data.RiverTypeCounter;
-          for (int ID = 0; ID <= riverTypeCounter; ID += 1)
+          let mut riverTypeCounter: i32 =  this.Data.RiverTypeCounter;
+          for (let mut ID: i32 =  0; ID <= riverTypeCounter; ID += 1)
           {
             Number += 1;
             Name: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.Data.RiverTypeObj[ID].Name;
@@ -1744,13 +1744,13 @@ namespace WindowsApplication1
         }
         else if (this.type == 150)
         {
-          int num43 = -1;
+          let mut num43: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(0, "*** Nothing ***"));
-          int stringListById = this.Game.HandyFunctionsObj.GetStringListByID(this.Game.Data.StringListObj[this.nr].LookUpCol[this.nr3]);
+          let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID(this.Game.Data.StringListObj[this.nr].LookUpCol[this.nr3]);
           if (stringListById > -1)
           {
-            int length = this.Data.StringListObj[stringListById].Length;
-            for (int index = 0; index <= length; index += 1)
+            let mut length: i32 =  this.Data.StringListObj[stringListById].Length;
+            for (let mut index: i32 =  0; index <= length; index += 1)
             {
               num43 += 1;
               Name: String = this.Data.StringListObj[stringListById].Data[index, this.Data.StringListObj[stringListById].LookUpLabel] + " [" + this.Data.StringListObj[stringListById].Data[index, this.Data.StringListObj[stringListById].LookUpId] + "]";
@@ -1758,21 +1758,21 @@ namespace WindowsApplication1
             }
           }
           ArrayList arrayList = ArrayList::new();
-          int num44 = this.ListBox1.Items.Count - 1;
-          for (int index = 0; index <= num44; index += 1)
+          let mut num44: i32 =  this.ListBox1.Items.Count - 1;
+          for (let mut index: i32 =  0; index <= num44; index += 1)
             arrayList.Add(RuntimeHelpers.GetObjectValue(this.ListBox1.Items[index]));
           SortListArray sortListArray = new SortListArray(true);
           this.ListBox1.Items.Clear();
-          int num45 = arrayList.Count - 1;
-          for (int index = 0; index <= num45; index += 1)
+          let mut num45: i32 =  arrayList.Count - 1;
+          for (let mut index: i32 =  0; index <= num45; index += 1)
             this.ListBox1.Items.Add(RuntimeHelpers.GetObjectValue(arrayList[index]));
         }
         else if (this.type == 151)
         {
-          int Number = -1;
+          let mut Number: i32 =  -1;
           this.ListBox1.Items.Add((object) new ListItem(-2, "*** Do NOT replace ***"));
-          int locTypeCounter = this.Data.LocTypeCounter;
-          for (int ID = 0; ID <= locTypeCounter; ID += 1)
+          let mut locTypeCounter: i32 =  this.Data.LocTypeCounter;
+          for (let mut ID: i32 =  0; ID <= locTypeCounter; ID += 1)
           {
             if (!this.Data.LocTypeObj[ID].editorBlock)
             {
@@ -1785,7 +1785,7 @@ namespace WindowsApplication1
         else if (this.type == 153)
         {
           num1 = -1;
-          int num46 = 1;
+          let mut num46: i32 =  1;
           do
           {
             Coordinate coordinate = this.Game.HandyFunctionsObj.HexNeighbourSameMap(this.Game.SelectX, this.Game.SelectY, 0, num46);
@@ -1815,13 +1815,13 @@ namespace WindowsApplication1
         {
           num1 = -1;
           CoordList coordList = this.Game.HandyFunctionsObj.InfraHexHighlight_getCoordList(this.Game.SelectX, this.Game.SelectY, 0, this.Game.EditObj.UnitSelected);
-          int counter = coordList.counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  coordList.counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
           {
             Coordinate coordinate = coordList.coord[index];
             if (coordinate.onmap)
             {
-              int ID = this.Game.HandyFunctionsObj.HexFacing(this.Game.SelectX, this.Game.SelectY, 0, coordinate.x, coordinate.y, 0);
+              let mut ID: i32 =  this.Game.HandyFunctionsObj.HexFacing(this.Game.SelectX, this.Game.SelectY, 0, coordinate.x, coordinate.y, 0);
               string Name;
               if (ID == 1)
                 Name = "North";
@@ -2226,8 +2226,8 @@ namespace WindowsApplication1
           {
             HistoricalUnitClass[] historicalUnitObj = this.Data.HistoricalUnitObj;
             HistoricalUnitClass[] historicalUnitClassArray = historicalUnitObj;
-            int nr = this.nr;
-            int index = nr;
+            let mut nr: i32 =  this.nr;
+            let mut index: i32 =  nr;
             historicalUnitClassArray[index].AutoEventCounter = historicalUnitObj[nr].AutoEventCounter + 1;
             this.Data.HistoricalUnitObj[this.nr].AutoEvent = (int[]) Utils.CopyArray((Array) this.Data.HistoricalUnitObj[this.nr].AutoEvent, (Array) new int[this.Data.HistoricalUnitObj[this.nr].AutoEventCounter + 1]);
             this.Data.HistoricalUnitObj[this.nr].AutoChance = (int[]) Utils.CopyArray((Array) this.Data.HistoricalUnitObj[this.nr].AutoChance, (Array) new int[this.Data.HistoricalUnitObj[this.nr].AutoEventCounter + 1]);
@@ -2238,8 +2238,8 @@ namespace WindowsApplication1
           {
             HistoricalUnitClass[] historicalUnitObj = this.Data.HistoricalUnitObj;
             HistoricalUnitClass[] historicalUnitClassArray = historicalUnitObj;
-            int nr = this.nr;
-            int index = nr;
+            let mut nr: i32 =  this.nr;
+            let mut index: i32 =  nr;
             historicalUnitClassArray[index].DeckCardCounter = historicalUnitObj[nr].DeckCardCounter + 1;
             this.Data.HistoricalUnitObj[this.nr].DeckCard = (int[]) Utils.CopyArray((Array) this.Data.HistoricalUnitObj[this.nr].DeckCard, (Array) new int[this.Data.HistoricalUnitObj[this.nr].DeckCardCounter + 1]);
             this.Data.HistoricalUnitObj[this.nr].DeckChance = (int[]) Utils.CopyArray((Array) this.Data.HistoricalUnitObj[this.nr].DeckChance, (Array) new int[this.Data.HistoricalUnitObj[this.nr].DeckCardCounter + 1]);
@@ -2248,9 +2248,9 @@ namespace WindowsApplication1
           }
           else if (this.type == 41)
           {
-            int index1 = -1;
-            int moveMatrixCounter = this.Game.NewAIObj.MoveMatrixCounter;
-            for (int index2 = 0; index2 <= moveMatrixCounter; index2 += 1)
+            let mut index1: i32 =  -1;
+            let mut moveMatrixCounter: i32 =  this.Game.NewAIObj.MoveMatrixCounter;
+            for (let mut index2: i32 =  0; index2 <= moveMatrixCounter; index2 += 1)
             {
               if (this.Game.NewAIObj.MoveMatrixUnit[index2] == this.Game.EditObj.OrderUnit)
               {
@@ -2274,7 +2274,7 @@ namespace WindowsApplication1
             if (selectedItem.ID > -1)
             {
               num1 = 0;
-              int num2 = this.type != 47 ? 7 :  Interaction.MsgBox((object) "Do you want to overwrite te units composition with the MODELS?", MsgBoxStyle.YesNo);
+              let mut num2: i32 =  this.type != 47 ? 7 :  Interaction.MsgBox((object) "Do you want to overwrite te units composition with the MODELS?", MsgBoxStyle.YesNo);
               this.Data.HistoricalUnitObj[this.nr].Counter = this.Data.HistoricalUnitObj[selectedItem.ID].Counter;
               this.Data.HistoricalUnitObj[this.nr].Green = this.Data.HistoricalUnitObj[selectedItem.ID].Green;
               this.Data.HistoricalUnitObj[this.nr].SmallGfx = this.Data.HistoricalUnitObj[selectedItem.ID].SmallGfx;
@@ -2284,13 +2284,13 @@ namespace WindowsApplication1
               this.Data.HistoricalUnitObj[this.nr].Type = this.Data.HistoricalUnitObj[selectedItem.ID].Type;
               this.Data.HistoricalUnitObj[this.nr].TempRegime = this.Data.HistoricalUnitObj[selectedItem.ID].TempRegime;
               this.Data.HistoricalUnitObj[this.nr].ModelMaster = selectedItem.ID;
-              int unitCounter1 = this.Data.UnitCounter;
-              for (int index = 0; index <= unitCounter1; index += 1)
+              let mut unitCounter1: i32 =  this.Data.UnitCounter;
+              for (let mut index: i32 =  0; index <= unitCounter1; index += 1)
               {
                 if (this.Data.UnitObj[index].Historical == this.nr)
                   this.Data.UnitObj[index].HistoricalSubPart = -1;
               }
-              int index3 = 0;
+              let mut index3: i32 =  0;
               do
               {
                 this.Data.HistoricalUnitObj[this.nr].SubParts[index3] = this.Data.HistoricalUnitObj[selectedItem.ID].SubParts[index3];
@@ -2298,15 +2298,15 @@ namespace WindowsApplication1
                 this.Data.HistoricalUnitObj[this.nr].DesignationSmall[index3] = this.Data.HistoricalUnitObj[selectedItem.ID].DesignationSmall[index3];
                 if (this.Data.HistoricalUnitObj[this.nr].SubParts[index3] > -1)
                 {
-                  int unitCounter2 = this.Data.UnitCounter;
-                  for (int unr = 0; unr <= unitCounter2; unr += 1)
+                  let mut unitCounter2: i32 =  this.Data.UnitCounter;
+                  for (let mut unr: i32 =  0; unr <= unitCounter2; unr += 1)
                   {
                     if (this.Data.UnitObj[unr].Historical == this.nr & this.Data.UnitObj[unr].HistoricalSubPart == -1)
                     {
                       this.Data.UnitObj[unr].HistoricalSubPart = index3;
                       if (num2 == 6)
                       {
-                        int hq = this.Data.UnitObj[unr].HQ;
+                        let mut hq: i32 =  this.Data.UnitObj[unr].HQ;
                         DrawMod.TGame.HandyFunctionsObj.CopyUnit(unr, DrawMod.TGame.HandyFunctionsObj.GetPreDef(this.Data.HistoricalUnitObj[this.nr].SubParts[index3]), false);
                         this.Data.UnitObj[unr].HQ = hq;
                         break;
@@ -2322,8 +2322,8 @@ namespace WindowsApplication1
             else
             {
               this.Data.HistoricalUnitObj[this.nr].ModelMaster = selectedItem.ID;
-              int unitCounter = this.Data.UnitCounter;
-              for (int index = 0; index <= unitCounter; index += 1)
+              let mut unitCounter: i32 =  this.Data.UnitCounter;
+              for (let mut index: i32 =  0; index <= unitCounter; index += 1)
               {
                 if (this.Data.UnitObj[index].Historical == this.nr)
                   this.Data.UnitObj[index].HistoricalSubPart = -1;
@@ -2365,17 +2365,17 @@ namespace WindowsApplication1
                 if (this.Data.HistoricalUnitObj[this.nr].TempRegime > -1)
                   this.Data.HistoricalUnitObj[this.nr].ModelMaster = selectedItem.ID;
               }
-              int num3 = 9999;
-              int num4 = -1;
-              int num5 = this.Game.Data.UnitObj[this.Game.Data.UnitCounter].Regime;
+              let mut num3: i32 =  9999;
+              let mut num4: i32 =  -1;
+              let mut num5: i32 =  this.Game.Data.UnitObj[this.Game.Data.UnitCounter].Regime;
               if (num5 == -1)
                 num5 = this.Game.Data.HistoricalUnitObj[this.nr].TempRegime;
-              int unitCounter3 = this.Game.Data.UnitCounter;
-              for (int index = 0; index <= unitCounter3; index += 1)
+              let mut unitCounter3: i32 =  this.Game.Data.UnitCounter;
+              for (let mut index: i32 =  0; index <= unitCounter3; index += 1)
               {
                 if (this.Game.Data.UnitObj[index].Regime == num5 && this.Game.Data.UnitObj[index].PreDef == -1 && this.Game.Data.UnitObj[index].IsHQ && index != this.Game.Data.UnitCounter)
                 {
-                  int num6 = this.Game.HandyFunctionsObj.Distance(DrawMod.TGame.Data.UnitObj[index].X, DrawMod.TGame.Data.UnitObj[index].Y, DrawMod.TGame.Data.UnitObj[index].Map, DrawMod.TGame.SelectX, DrawMod.TGame.SelectY, DrawMod.TGame.EditObj.MapSelected);
+                  let mut num6: i32 =  this.Game.HandyFunctionsObj.Distance(DrawMod.TGame.Data.UnitObj[index].X, DrawMod.TGame.Data.UnitObj[index].Y, DrawMod.TGame.Data.UnitObj[index].Map, DrawMod.TGame.SelectX, DrawMod.TGame.SelectY, DrawMod.TGame.EditObj.MapSelected);
                   if (num6 < num3)
                   {
                     num3 = num6;
@@ -2385,7 +2385,7 @@ namespace WindowsApplication1
               }
               if (!flag)
               {
-                int index = 0;
+                let mut index: i32 =  0;
                 do
                 {
                   this.Data.HistoricalUnitObj[this.nr].SubParts[index] = this.Data.HistoricalUnitObj[selectedItem.ID].SubParts[index];
@@ -2393,7 +2393,7 @@ namespace WindowsApplication1
                   if (this.Data.HistoricalUnitObj[this.nr].SubParts[index] > -1)
                   {
                     this.Data.AddUnit(DrawMod.TGame.SelectX, DrawMod.TGame.SelectY, DrawMod.TGame.EditObj.MapSelected);
-                    int unitCounter4 = this.Data.UnitCounter;
+                    let mut unitCounter4: i32 =  this.Data.UnitCounter;
                     this.Data.UnitObj[unitCounter4].Name = this.Data.HistoricalUnitObj[this.nr].Name;
                     this.Data.UnitObj[unitCounter4].Historical = this.nr;
                     this.Data.UnitObj[unitCounter4].Regime = this.Data.HistoricalUnitObj[this.nr].TempRegime;
@@ -2407,12 +2407,12 @@ namespace WindowsApplication1
               }
               else
               {
-                int unitCounter5 = this.Game.Data.UnitCounter;
-                for (int unr = 0; unr <= unitCounter5; unr += 1)
+                let mut unitCounter5: i32 =  this.Game.Data.UnitCounter;
+                for (let mut unr: i32 =  0; unr <= unitCounter5; unr += 1)
                 {
                   if (this.Game.Data.UnitObj[unr].Historical == this.Game.Data.HistoricalUnitCounter)
                   {
-                    int historicalSubPart = this.Data.UnitObj[unr].HistoricalSubPart;
+                    let mut historicalSubPart: i32 =  this.Data.UnitObj[unr].HistoricalSubPart;
                     DrawMod.TGame.HandyFunctionsObj.CopyUnit(unr, DrawMod.TGame.HandyFunctionsObj.GetPreDef(this.Data.HistoricalUnitObj[this.nr].SubParts[historicalSubPart]), false);
                     this.Data.UnitObj[unr].HQ = num4;
                   }
@@ -2422,7 +2422,7 @@ namespace WindowsApplication1
             else
             {
               this.Data.RemoveHistoricalUnit(this.Data.HistoricalUnitCounter);
-              int num7 =  Interaction.MsgBox((object) "Aborted because selected hex has no owner");
+              let mut num7: i32 =   Interaction.MsgBox((object) "Aborted because selected hex has no owner");
             }
           }
           else if (this.type == 48)
@@ -2438,11 +2438,11 @@ namespace WindowsApplication1
             DrawMod += 1.TGame.Data.StepNr;
             if (!DrawMod.TGame.Data.UnitObj[this.nr].IsHQ)
             {
-              int num8 = 0;
+              let mut num8: i32 =  0;
               if (DrawMod.TGame.Data.UnitObj[this.nr].Historical > -1)
               {
-                int unitCounter = DrawMod.TGame.Data.UnitCounter;
-                for (int index = 0; index <= unitCounter; index += 1)
+                let mut unitCounter: i32 =  DrawMod.TGame.Data.UnitCounter;
+                for (let mut index: i32 =  0; index <= unitCounter; index += 1)
                 {
                   if (DrawMod.TGame.Data.UnitObj[index].Historical == DrawMod.TGame.Data.UnitObj[this.nr].Historical && DrawMod.TGame.Data.UnitObj[index].HQ == DrawMod.TGame.Data.UnitObj[this.nr].HQ && index != this.nr)
                   {
@@ -2465,9 +2465,9 @@ namespace WindowsApplication1
             }
             else
             {
-              int Number = 0;
-              int unitCounter = DrawMod.TGame.Data.UnitCounter;
-              for (int unr = 0; unr <= unitCounter; unr += 1)
+              let mut Number: i32 =  0;
+              let mut unitCounter: i32 =  DrawMod.TGame.Data.UnitCounter;
+              for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
               {
                 if (DrawMod.TGame.HandyFunctionsObj.IsUnitInHQChain(unr, this.nr))
                 {
@@ -2490,15 +2490,15 @@ namespace WindowsApplication1
           else if (this.type == 53)
           {
             DrawMod += 1.TGame.Data.StepNr;
-            int Number1 = 0;
-            int Number2 = 0;
-            int num9 = DrawMod.TGame.SelectX - (this.nr + 2);
-            int num10 = DrawMod.TGame.SelectX + (this.nr + 2);
-            for (int index4 = num9; index4 <= num10; index4 += 1)
+            let mut Number1: i32 =  0;
+            let mut Number2: i32 =  0;
+            let mut num9: i32 =  DrawMod.TGame.SelectX - (this.nr + 2);
+            let mut num10: i32 =  DrawMod.TGame.SelectX + (this.nr + 2);
+            for (let mut index4: i32 =  num9; index4 <= num10; index4 += 1)
             {
-              int num11 = DrawMod.TGame.SelectY - (this.nr + 2);
-              int num12 = DrawMod.TGame.SelectY + (this.nr + 2);
-              for (int index5 = num11; index5 <= num12; index5 += 1)
+              let mut num11: i32 =  DrawMod.TGame.SelectY - (this.nr + 2);
+              let mut num12: i32 =  DrawMod.TGame.SelectY + (this.nr + 2);
+              for (let mut index5: i32 =  num11; index5 <= num12; index5 += 1)
               {
                 if (index4 >= 0 & index5 >= 0 & index4 <= DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapWidth & index5 <= DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapHeight && DrawMod.TGame.HandyFunctionsObj.Distance(DrawMod.TGame.SelectX, DrawMod.TGame.SelectY, DrawMod.TGame.EditObj.MapSelected, index4, index5, DrawMod.TGame.EditObj.MapSelected) <= this.nr && DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].HexObj[index4, index5].Regime == DrawMod.TGame.Data.Turn)
                 {
@@ -2519,15 +2519,15 @@ namespace WindowsApplication1
           {
             DrawMod.TGame.Data.RegimeObj[selectedItem.ID].ResField[this.nr] = true;
             DrawMod.TGame.HandyFunctionsObj.AddMessageForOne(DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].Name + " has given " + DrawMod.TGame.Data.ResearchObj[this.nr].Name + " research to you.", selectedItem.ID, -1, 1);
-            int sfTypeCounter = DrawMod.TGame.Data.SFTypeCounter;
-            for (int index = 0; index <= sfTypeCounter; index += 1)
+            let mut sfTypeCounter: i32 =  DrawMod.TGame.Data.SFTypeCounter;
+            for (let mut index: i32 =  0; index <= sfTypeCounter; index += 1)
             {
               if (DrawMod.TGame.Data.SFTypeObj[index].ModelID > 0 & DrawMod.TGame.Data.SFTypeObj[index].ModelRegime == selectedItem.ID)
               {
-                int modelItemType = DrawMod.TGame.Data.SFTypeObj[index].ModelItemType;
-                int tv9 = index;
-                int tv7 = 0;
-                int tv8 = 0;
+                let mut modelItemType: i32 =  DrawMod.TGame.Data.SFTypeObj[index].ModelItemType;
+                let mut tv9: i32 =  index;
+                let mut tv7: i32 =  0;
+                let mut tv8: i32 =  0;
                 if (DrawMod.TGame.Data.SFTypeObj[index].ModelAutoImprovement[this.nr] && DrawMod.TGame.Data.SFTypeObj[index].ModelLastState[this.nr] == 0 & DrawMod.TGame.Data.SFTypeObj[index].ModelImproveEvent[this.nr] > 0 && DrawMod.TGame.Data.RegimeObj[selectedItem.ID].ResField[this.nr])
                 {
                   DrawMod.TGame.EventRelatedObj.DoCheckSpecificEvent(DrawMod.TGame.Data.SFTypeObj[index].ModelImproveEvent[this.nr], tv9: tv9, tv7: tv7, tv8: tv8, tv10: modelItemType);
@@ -2536,18 +2536,18 @@ namespace WindowsApplication1
               }
             }
             SimpleList simpleList = SimpleList::new();
-            int itemTypeCounter = DrawMod.TGame.Data.ItemTypeCounter;
-            for (int itemtypenr = 0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
+            let mut itemTypeCounter: i32 =  DrawMod.TGame.Data.ItemTypeCounter;
+            for (let mut itemtypenr: i32 =  0; itemtypenr <= itemTypeCounter; itemtypenr += 1)
             {
               if (DrawMod.TGame.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[0] == this.nr | DrawMod.TGame.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[1] == this.nr | DrawMod.TGame.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[2] == this.nr | DrawMod.TGame.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[3] == this.nr | DrawMod.TGame.Data.ItemTypeObj[itemtypenr].ResFieldNeeded[4] == this.nr && DrawMod.TGame.Data.ItemTypeObj[itemtypenr].Blocks > -1)
               {
-                int blocks = DrawMod.TGame.Data.ItemTypeObj[itemtypenr].Blocks;
-                int locCounter = DrawMod.TGame.Data.LocCounter;
-                for (int locnr = 0; locnr <= locCounter; locnr += 1)
+                let mut blocks: i32 =  DrawMod.TGame.Data.ItemTypeObj[itemtypenr].Blocks;
+                let mut locCounter: i32 =  DrawMod.TGame.Data.LocCounter;
+                for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
                 {
                   if (DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].HexObj[DrawMod.TGame.Data.LocObj[locnr].X, DrawMod.TGame.Data.LocObj[locnr].Y].Regime == selectedItem.ID)
                   {
-                    int index = 0;
+                    let mut index: i32 =  0;
                     do
                     {
                       if (DrawMod.TGame.Data.LocObj[locnr].Production[index] == DrawMod.TGame.Data.ItemTypeObj[itemtypenr].Blocks && DrawMod.TGame.HandyFunctionsObj.CanProduceItem(locnr, selectedItem.ID, itemtypenr).result)
@@ -2630,7 +2630,7 @@ namespace WindowsApplication1
             this.Data.SFTypeObj[this.nr].PreventHitFrom[this.nr2] = selectedItem.ID;
           else if (this.type == 70)
           {
-            int index = 0;
+            let mut index: i32 =  0;
             do
             {
               this.Data.SFTypeObj[this.nr].FavTarget[index] = this.Data.SFTypeObj[selectedItem.ID].FavTarget[index];
@@ -2665,7 +2665,7 @@ namespace WindowsApplication1
             if (selectedItem.ID > -1 && DrawMod.TGame.Data.SFTypeObj[this.nr].ModelVariantExec[selectedItem.ID] > -1)
             {
               DrawMod.TGame.EventRelatedObj.DoCheckSpecificEvent(DrawMod.TGame.Data.SFTypeObj[this.nr].ModelVariantExec[selectedItem.ID], tv9: this.nr);
-              int num14 =  Interaction.MsgBox((object) "Alteration to model has been made", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num14: i32 =   Interaction.MsgBox((object) "Alteration to model has been made", Title: ((object) "Shadow Empire : Planetary Conquest"));
             }
           }
           else if (this.type == 80)
@@ -2683,8 +2683,8 @@ namespace WindowsApplication1
             DrawMod.TGame.Data.HistoricalUnitObj[this.nr].DeckCardCounter = DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].DeckCardCounter;
             DrawMod.TGame.Data.HistoricalUnitObj[this.nr].DeckCard = new int[DrawMod.TGame.Data.HistoricalUnitObj[this.nr].DeckCardCounter + 1];
             DrawMod.TGame.Data.HistoricalUnitObj[this.nr].DeckChance = new int[DrawMod.TGame.Data.HistoricalUnitObj[this.nr].DeckCardCounter + 1];
-            int deckCardCounter = DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].DeckCardCounter;
-            for (int index = 0; index <= deckCardCounter; index += 1)
+            let mut deckCardCounter: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].DeckCardCounter;
+            for (let mut index: i32 =  0; index <= deckCardCounter; index += 1)
             {
               DrawMod.TGame.Data.HistoricalUnitObj[this.nr].DeckCard[index] = DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].DeckCard[index];
               DrawMod.TGame.Data.HistoricalUnitObj[this.nr].DeckChance[index] = DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].DeckChance[index];
@@ -2697,8 +2697,8 @@ namespace WindowsApplication1
             DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarType = new int[DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarCount + 1];
             DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarValue = new int[DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarCount + 1];
             DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarSmall = new int[DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarCount + 1];
-            int hisVarCount = DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].HisVarCount;
-            for (int index = 0; index <= hisVarCount; index += 1)
+            let mut hisVarCount: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].HisVarCount;
+            for (let mut index: i32 =  0; index <= hisVarCount; index += 1)
             {
               DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarNato[index] = DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].HisVarNato[index];
               DrawMod.TGame.Data.HistoricalUnitObj[this.nr].HisVarType[index] = DrawMod.TGame.Data.HistoricalUnitObj[selectedItem.ID].HisVarType[index];
@@ -2711,14 +2711,14 @@ namespace WindowsApplication1
             this.nr = selectedItem.ID;
             if (this.Data.HistoricalUnitObj[this.nr].TempRegime > -1)
             {
-              int num15 = 9999;
-              int num16 = -1;
-              int unitCounter6 = this.Game.Data.UnitCounter;
-              for (int index = 0; index <= unitCounter6; index += 1)
+              let mut num15: i32 =  9999;
+              let mut num16: i32 =  -1;
+              let mut unitCounter6: i32 =  this.Game.Data.UnitCounter;
+              for (let mut index: i32 =  0; index <= unitCounter6; index += 1)
               {
                 if (this.Game.Data.UnitObj[index].Regime == this.Data.HistoricalUnitObj[this.nr].TempRegime && this.Game.Data.UnitObj[index].Historical > -1 && this.Game.Data.HistoricalUnitObj[this.nr].Type < this.Game.Data.HistoricalUnitObj[this.Game.Data.UnitObj[index].Historical].Type && this.Game.Data.UnitObj[index].PreDef == -1 && this.Game.Data.UnitObj[index].IsHQ)
                 {
-                  int num17 = this.Game.HandyFunctionsObj.Distance(DrawMod.TGame.Data.UnitObj[index].X, DrawMod.TGame.Data.UnitObj[index].Y, DrawMod.TGame.Data.UnitObj[index].Map, DrawMod.TGame.SelectX, DrawMod.TGame.SelectY, DrawMod.TGame.EditObj.MapSelected);
+                  let mut num17: i32 =  this.Game.HandyFunctionsObj.Distance(DrawMod.TGame.Data.UnitObj[index].X, DrawMod.TGame.Data.UnitObj[index].Y, DrawMod.TGame.Data.UnitObj[index].Map, DrawMod.TGame.SelectX, DrawMod.TGame.SelectY, DrawMod.TGame.EditObj.MapSelected);
                   if (num17 < num15)
                   {
                     num15 = num17;
@@ -2726,13 +2726,13 @@ namespace WindowsApplication1
                   }
                 }
               }
-              int index6 = 0;
+              let mut index6: i32 =  0;
               do
               {
                 if (this.Data.HistoricalUnitObj[this.nr].SubParts[index6] > -1)
                 {
                   this.Data.AddUnit(DrawMod.TGame.SelectX, DrawMod.TGame.SelectY, DrawMod.TGame.EditObj.MapSelected);
-                  int unitCounter7 = this.Data.UnitCounter;
+                  let mut unitCounter7: i32 =  this.Data.UnitCounter;
                   this.Data.UnitObj[unitCounter7].Name = this.Data.HistoricalUnitObj[this.nr].Name;
                   this.Data.UnitObj[unitCounter7].Historical = this.nr;
                   this.Data.UnitObj[unitCounter7].Regime = this.Data.HistoricalUnitObj[this.nr].TempRegime;
@@ -2833,13 +2833,13 @@ namespace WindowsApplication1
             this.Data.SFTypeObj[this.nr].CopyDataFrom = selectedItem.ID;
             name: String = this.Data.SFTypeObj[this.nr].Name;
             description: String = this.Data.SFTypeObj[this.nr].Description;
-            int reinforcementType = this.Data.SFTypeObj[this.nr].ReinforcementType;
-            int reinforcementType2 = this.Data.SFTypeObj[this.nr].ReinforcementType2;
+            let mut reinforcementType: i32 =  this.Data.SFTypeObj[this.nr].ReinforcementType;
+            let mut reinforcementType2: i32 =  this.Data.SFTypeObj[this.nr].ReinforcementType2;
             symbolFileName: String = this.Data.SFTypeObj[this.nr].SymbolFileName;
             sidewaysFileName: String = this.Data.SFTypeObj[this.nr].SidewaysFileName;
             moveWav: String = this.Data.SFTypeObj[this.nr].MoveWAV;
             battleWav: String = this.Data.SFTypeObj[this.nr].BattleWAV;
-            int id = this.Data.SFTypeObj[this.nr].Id;
+            let mut id: i32 =  this.Data.SFTypeObj[this.nr].Id;
             int[] numArray1 = new int[100];
             int[] numArray2 = (int[]) this.Data.SFTypeObj[this.nr].SFTypeVar.Clone();
             this.Data.SFTypeObj[this.nr] = this.Data.SFTypeObj[selectedItem.ID].Clone();
@@ -2904,8 +2904,8 @@ namespace WindowsApplication1
             }
             if (this.nr2 <= this.Game.Data.HistoricalUnitObj[this.nr].DeckCardCounter)
               this.Data.HistoricalUnitObj[this.nr].DeckCard[this.nr2] = selectedItem.ID;
-            int deckCardCounter = this.Game.Data.HistoricalUnitObj[this.nr].DeckCardCounter;
-            for (int index = 0; index <= deckCardCounter; index += 1)
+            let mut deckCardCounter: i32 =  this.Game.Data.HistoricalUnitObj[this.nr].DeckCardCounter;
+            for (let mut index: i32 =  0; index <= deckCardCounter; index += 1)
               this.Game.Data.HistoricalUnitObj[this.nr].DeckChance[index] = 100;
           }
           else if (this.type >= 140 & this.type <= 141)
@@ -2922,11 +2922,11 @@ namespace WindowsApplication1
           {
             if (selectedItem.ID > -1)
             {
-              int mapWidth = this.Game.Data.MapObj[0].MapWidth;
-              for (int index7 = 0; index7 <= mapWidth; index7 += 1)
+              let mut mapWidth: i32 =  this.Game.Data.MapObj[0].MapWidth;
+              for (let mut index7: i32 =  0; index7 <= mapWidth; index7 += 1)
               {
-                int mapHeight = this.Game.Data.MapObj[0].MapHeight;
-                for (int index8 = 0; index8 <= mapHeight; index8 += 1)
+                let mut mapHeight: i32 =  this.Game.Data.MapObj[0].MapHeight;
+                for (let mut index8: i32 =  0; index8 <= mapHeight; index8 += 1)
                 {
                   if (this.Game.Data.MapObj[0].HexObj[index7, index8].LandscapeType == this.nr)
                     this.Game.Data.MapObj[0].HexObj[index7, index8].LandscapeType = selectedItem.ID;
@@ -2938,13 +2938,13 @@ namespace WindowsApplication1
           {
             if (selectedItem.ID > -1)
             {
-              int mapWidth = this.Game.Data.MapObj[0].MapWidth;
-              for (int index9 = 0; index9 <= mapWidth; index9 += 1)
+              let mut mapWidth: i32 =  this.Game.Data.MapObj[0].MapWidth;
+              for (let mut index9: i32 =  0; index9 <= mapWidth; index9 += 1)
               {
-                int mapHeight = this.Game.Data.MapObj[0].MapHeight;
-                for (int index10 = 0; index10 <= mapHeight; index10 += 1)
+                let mut mapHeight: i32 =  this.Game.Data.MapObj[0].MapHeight;
+                for (let mut index10: i32 =  0; index10 <= mapHeight; index10 += 1)
                 {
-                  int index11 = 0;
+                  let mut index11: i32 =  0;
                   do
                   {
                     if (this.Game.Data.MapObj[0].HexObj[index9, index10].RoadType[index11] == this.nr)
@@ -2960,13 +2960,13 @@ namespace WindowsApplication1
           {
             if (selectedItem.ID > -1)
             {
-              int mapWidth = this.Game.Data.MapObj[0].MapWidth;
-              for (int index12 = 0; index12 <= mapWidth; index12 += 1)
+              let mut mapWidth: i32 =  this.Game.Data.MapObj[0].MapWidth;
+              for (let mut index12: i32 =  0; index12 <= mapWidth; index12 += 1)
               {
-                int mapHeight = this.Game.Data.MapObj[0].MapHeight;
-                for (int index13 = 0; index13 <= mapHeight; index13 += 1)
+                let mut mapHeight: i32 =  this.Game.Data.MapObj[0].MapHeight;
+                for (let mut index13: i32 =  0; index13 <= mapHeight; index13 += 1)
                 {
-                  int index14 = 0;
+                  let mut index14: i32 =  0;
                   do
                   {
                     if (this.Game.Data.MapObj[0].HexObj[index12, index13].RiverType[index14] == this.nr)
@@ -2984,11 +2984,11 @@ namespace WindowsApplication1
           {
             if (selectedItem.ID > -1)
             {
-              int mapWidth = this.Game.Data.MapObj[0].MapWidth;
-              for (int index15 = 0; index15 <= mapWidth; index15 += 1)
+              let mut mapWidth: i32 =  this.Game.Data.MapObj[0].MapWidth;
+              for (let mut index15: i32 =  0; index15 <= mapWidth; index15 += 1)
               {
-                int mapHeight = this.Game.Data.MapObj[0].MapHeight;
-                for (int index16 = 0; index16 <= mapHeight; index16 += 1)
+                let mut mapHeight: i32 =  this.Game.Data.MapObj[0].MapHeight;
+                for (let mut index16: i32 =  0; index16 <= mapHeight; index16 += 1)
                 {
                   if (this.Game.Data.MapObj[0].HexObj[index15, index16].Location > -1 && this.Game.Data.LocObj[this.Game.Data.MapObj[0].HexObj[index15, index16].Location].Type == this.nr)
                   {
@@ -3035,14 +3035,14 @@ namespace WindowsApplication1
      void Button3_Click(object sender, EventArgs e)
     {
       ArrayList arrayList = ArrayList::new();
-      int num1 = this.ListBox1.Items.Count - 1;
-      for (int index = 0; index <= num1; index += 1)
+      let mut num1: i32 =  this.ListBox1.Items.Count - 1;
+      for (let mut index: i32 =  0; index <= num1; index += 1)
         arrayList.Add(RuntimeHelpers.GetObjectValue(this.ListBox1.Items[index]));
       SortListArray sortListArray = new SortListArray(true);
       arrayList.Sort((IComparer) sortListArray);
       this.ListBox1.Items.Clear();
-      int num2 = arrayList.Count - 1;
-      for (int index = 0; index <= num2; index += 1)
+      let mut num2: i32 =  arrayList.Count - 1;
+      for (let mut index: i32 =  0; index <= num2; index += 1)
         this.ListBox1.Items.Add(RuntimeHelpers.GetObjectValue(arrayList[index]));
     }
   }

@@ -83,9 +83,9 @@ namespace WindowsApplication1
           let mut num3: i32 =  Math.Round(Conversion.Int((double) this.Game.ScreenHeight / (double) num1));
           for (let mut index2: i32 = 0; index2 <= num3; index2 += 1)
           {
-             Graphics local1 =  graphics;
+             let mut local1: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
-             Bitmap local2 =  bitmap;
+             let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = index1 * width;
             let mut y: i32 = index2 * num1;
             let mut w: i32 = width;
@@ -124,9 +124,9 @@ namespace WindowsApplication1
             num9 -= num10;
             num10 = 0;
           }
-           Graphics local3 =  graphics;
+           let mut local3: &Graphics = &graphics;
           Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           let mut x: i32 = num9;
           let mut y: i32 = num10;
           let mut w: i32 = num7;
@@ -135,9 +135,9 @@ namespace WindowsApplication1
         }
         else
         {
-           Graphics local5 =  graphics;
+           let mut local5: &Graphics = &graphics;
           Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
-           Bitmap local6 =  bitmap;
+           let mut local6: &Bitmap = &bitmap;
           let mut screenWidth: i32 = this.Game.ScreenWidth;
           let mut screenHeight: i32 = this.Game.ScreenHeight;
           DrawMod.DrawScaled( local5,  local6, 0, 0, screenWidth, screenHeight);
@@ -197,9 +197,9 @@ namespace WindowsApplication1
               let mut num3: i32 =  Math.Round(Conversion.Int((double) this.Game.ScreenHeight / (double) num1));
               for (let mut index2: i32 = 0; index2 <= num3; index2 += 1)
               {
-                 Graphics local1 =  Expression;
+                 let mut local1: &Graphics = &Expression;
                 Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
-                 Bitmap local2 =  bitmap;
+                 let mut local2: &Bitmap = &bitmap;
                 let mut x: i32 = index1 * width;
                 let mut y: i32 = index2 * num1;
                 let mut w: i32 = width;
@@ -237,9 +237,9 @@ namespace WindowsApplication1
               num9 -= num10;
               num10 = 0;
             }
-             Graphics local3 =  Expression;
+             let mut local3: &Graphics = &Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(backgroundsprite);
-             Bitmap local4 =  bitmap;
+             let mut local4: &Bitmap = &bitmap;
             let mut x: i32 = num9;
             let mut y: i32 = num10;
             let mut w: i32 = num7;
@@ -247,9 +247,9 @@ namespace WindowsApplication1
             DrawMod.DrawScaled( local3,  local4, x, y, w, h);
             break;
           }
-           Graphics local5 =  Expression;
+           let mut local5: &Graphics = &Expression;
           Bitmap bitmap1 = BitmapStore.GetBitmap(backgroundsprite);
-           Bitmap local6 =  bitmap1;
+           let mut local6: &Bitmap = &bitmap1;
           let mut screenWidth: i32 = this.Game.ScreenWidth;
           let mut screenHeight: i32 = this.Game.ScreenHeight;
           DrawMod.DrawScaled( local5,  local6, 0, 0, screenWidth, screenHeight);
@@ -374,7 +374,7 @@ namespace WindowsApplication1
           {
             if (num == 2 & !(Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) == 0 | Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0) | num == 1 & (Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) == 0 | Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0))
             {
-              Rectangle rectangle = new Rectangle(this.WindowX[index], this.WindowY[index], this.WindowW[index], this.WindowH[index]);
+              Rectangle rectangle = Rectangle::new(this.WindowX[index], this.WindowY[index], this.WindowW[index], this.WindowH[index]);
               Rectangle destrect = Rectangle.Intersect(this.LastToolTipRect, rectangle);
               if (!destrect.IsEmpty)
               {
@@ -432,9 +432,9 @@ namespace WindowsApplication1
               if (!Information.IsNothing((object) this.WindowList[index1].LowerWindow) | this.WindowList[index1].BlockBlit)
               {
                 graphics.CompositingMode = CompositingMode.SourceCopy;
-                 Graphics local1 =  graphics;
+                 let mut local1: &Graphics = &graphics;
                 Bitmap bitmap = this.WindowList[index1].Paint();
-                 Bitmap local2 =  bitmap;
+                 let mut local2: &Bitmap = &bitmap;
                  Bitmap local3 =  this.OwnBitmap;
                 let mut x: i32 = this.WindowX[index1];
                 let mut y: i32 = this.WindowY[index1];
@@ -459,10 +459,10 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                   Graphics local4 =  graphics;
+                   let mut local4: &Graphics = &graphics;
                    Bitmap local5 =  this.OwnBackground;
-                  rectangle1 = new Rectangle(this.WindowX[index1], this.WindowY[index1], this.WindowW[index1], this.WindowH[index1]);
-                  Rectangle rect = rectangle1;
+                  rectangle1 = Rectangle::new(this.WindowX[index1], this.WindowY[index1], this.WindowW[index1], this.WindowH[index1]);
+                  let mut rect: &Rectangle = &rectangle1
                   DrawMod.DrawSimplePart( local4,  local5, rect);
                 }
                 graphics.CompositingMode = CompositingMode.SourceOver;
@@ -481,9 +481,9 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                   Graphics local6 =  graphics;
+                   let mut local6: &Graphics = &graphics;
                   Bitmap bitmap = this.WindowList[index1].Paint();
-                   Bitmap local7 =  bitmap;
+                   let mut local7: &Bitmap = &bitmap;
                   let mut x: i32 = this.WindowX[index1];
                   let mut y: i32 = this.WindowY[index1];
                   DrawMod.DrawSimple( local6,  local7, x, y);
@@ -493,10 +493,10 @@ namespace WindowsApplication1
                 this.WindowFlag[index1 + 1] = true;
               if (this.WindowList[index1].fixshade)
               {
-                 Graphics local8 =  graphics;
+                 let mut local8: &Graphics = &graphics;
                  Bitmap local9 =  this.OwnBackground;
-                rectangle1 = new Rectangle(0, this.OwnBitmap.Height - 210, this.OwnBitmap.Width, 10);
-                Rectangle rect = rectangle1;
+                rectangle1 = Rectangle::new(0, this.OwnBitmap.Height - 210, this.OwnBitmap.Width, 10);
+                let mut rect: &Rectangle = &rectangle1
                 DrawMod.DrawSimplePart( local8,  local9, rect);
                 DrawMod.DrawBlock( graphics, 0, this.OwnBitmap.Height - 210, this.OwnBitmap.Width, 10,  DrawMod.TGame.VicColor4.R,  DrawMod.TGame.VicColor4.G,  DrawMod.TGame.VicColor4.B,  DrawMod.TGame.VicColor4.A);
                 DrawMod.drawLine( graphics, 0, this.OwnBitmap.Height - 200, this.OwnBitmap.Width, this.OwnBitmap.Height - 200,  DrawMod.TGame.VicColor6.R,  DrawMod.TGame.VicColor6.G,  DrawMod.TGame.VicColor6.B,  DrawMod.TGame.VicColor3.A);
@@ -553,33 +553,33 @@ namespace WindowsApplication1
           Bitmap bitmap1;
           if (this.doMinimize)
           {
-             Graphics local10 =  graphics;
+             let mut local10: &Graphics = &graphics;
             Bitmap bitmap2 = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
-             Bitmap local11 =  bitmap2;
+             let mut local11: &Bitmap = &bitmap2;
             let mut x: i32 = this.Game.ScreenWidth - 52;
             DrawMod.DrawSimple( local10,  local11, x, 1);
           }
           else
           {
-             Graphics local12 =  graphics;
+             let mut local12: &Graphics = &graphics;
             bitmap1 = BitmapStore.GetBitmap(this.Game.SYSTEM1);
-             Bitmap local13 =  bitmap1;
+             let mut local13: &Bitmap = &bitmap1;
             let mut x: i32 = this.Game.ScreenWidth - 52;
             DrawMod.DrawSimple( local12,  local13, x, 1);
           }
           if (this.doQuit)
           {
-             Graphics local14 =  graphics;
+             let mut local14: &Graphics = &graphics;
             bitmap1 = BitmapStore.GetBitmap(this.Game.SYSTEM2B);
-             Bitmap local15 =  bitmap1;
+             let mut local15: &Bitmap = &bitmap1;
             let mut x: i32 = this.Game.ScreenWidth - 28;
             DrawMod.DrawSimple( local14,  local15, x, 1);
           }
           else
           {
-             Graphics local16 =  graphics;
+             let mut local16: &Graphics = &graphics;
             bitmap1 = BitmapStore.GetBitmap(this.Game.SYSTEM2);
-             Bitmap local17 =  bitmap1;
+             let mut local17: &Bitmap = &bitmap1;
             let mut x: i32 = this.Game.ScreenWidth - 28;
             DrawMod.DrawSimple( local16,  local17, x, 1);
           }
@@ -591,33 +591,33 @@ namespace WindowsApplication1
             Bitmap bitmap3;
             if (this.doMinimize)
             {
-               Graphics local18 =  graphics;
+               let mut local18: &Graphics = &graphics;
               Bitmap bitmap4 = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
-               Bitmap local19 =  bitmap4;
+               let mut local19: &Bitmap = &bitmap4;
               let mut x: i32 = this.Game.ScreenWidth - 52;
               DrawMod.DrawSimple( local18,  local19, x, 1);
             }
             else
             {
-               Graphics local20 =  graphics;
+               let mut local20: &Graphics = &graphics;
               bitmap3 = BitmapStore.GetBitmap(this.Game.SYSTEM1);
-               Bitmap local21 =  bitmap3;
+               let mut local21: &Bitmap = &bitmap3;
               let mut x: i32 = this.Game.ScreenWidth - 52;
               DrawMod.DrawSimple( local20,  local21, x, 1);
             }
             if (this.doQuit)
             {
-               Graphics local22 =  graphics;
+               let mut local22: &Graphics = &graphics;
               bitmap3 = BitmapStore.GetBitmap(this.Game.SYSTEM2B);
-               Bitmap local23 =  bitmap3;
+               let mut local23: &Bitmap = &bitmap3;
               let mut x: i32 = this.Game.ScreenWidth - 28;
               DrawMod.DrawSimple( local22,  local23, x, 1);
             }
             else
             {
-               Graphics local24 =  graphics;
+               let mut local24: &Graphics = &graphics;
               bitmap3 = BitmapStore.GetBitmap(this.Game.SYSTEM2);
-               Bitmap local25 =  bitmap3;
+               let mut local25: &Bitmap = &bitmap3;
               let mut x: i32 = this.Game.ScreenWidth - 28;
               DrawMod.DrawSimple( local24,  local25, x, 1);
             }
@@ -630,33 +630,33 @@ namespace WindowsApplication1
           Bitmap bitmap5;
           if (this.doMinimize)
           {
-             Graphics local26 =  graphics;
+             let mut local26: &Graphics = &graphics;
             Bitmap bitmap6 = BitmapStore.GetBitmap(this.Game.SYSTEM1B);
-             Bitmap local27 =  bitmap6;
+             let mut local27: &Bitmap = &bitmap6;
             let mut x: i32 = this.Game.ScreenWidth - 52;
             DrawMod.DrawSimple( local26,  local27, x, 1);
           }
           else
           {
-             Graphics local28 =  graphics;
+             let mut local28: &Graphics = &graphics;
             bitmap5 = BitmapStore.GetBitmap(this.Game.SYSTEM1);
-             Bitmap local29 =  bitmap5;
+             let mut local29: &Bitmap = &bitmap5;
             let mut x: i32 = this.Game.ScreenWidth - 52;
             DrawMod.DrawSimple( local28,  local29, x, 1);
           }
           if (this.doQuit)
           {
-             Graphics local30 =  graphics;
+             let mut local30: &Graphics = &graphics;
             bitmap5 = BitmapStore.GetBitmap(this.Game.SYSTEM2B);
-             Bitmap local31 =  bitmap5;
+             let mut local31: &Bitmap = &bitmap5;
             let mut x: i32 = this.Game.ScreenWidth - 28;
             DrawMod.DrawSimple( local30,  local31, x, 1);
           }
           else
           {
-             Graphics local32 =  graphics;
+             let mut local32: &Graphics = &graphics;
             bitmap5 = BitmapStore.GetBitmap(this.Game.SYSTEM2);
-             Bitmap local33 =  bitmap5;
+             let mut local33: &Bitmap = &bitmap5;
             let mut x: i32 = this.Game.ScreenWidth - 28;
             DrawMod.DrawSimple( local32,  local33, x, 1);
           }
@@ -726,7 +726,7 @@ namespace WindowsApplication1
           x1 -= x1 + num6 - (this.Game.ScreenWidth - 64);
         if (num4 + h > this.Game.ScreenHeight - 32)
           num4 -= num4 + h - (this.Game.ScreenHeight - 32);
-        this.LastToolTipRect = str1.Length <= 0 ? new Rectangle(x1 - 16, num4, num6 + 1 + 32, h + 1) : new Rectangle(x1 - 16, num4, num6 + 1 + 32, h + 1 + 16);
+        this.LastToolTipRect = str1.Length <= 0 ? Rectangle::new(x1 - 16, num4, num6 + 1 + 32, h + 1) : Rectangle::new(x1 - 16, num4, num6 + 1 + 32, h + 1 + 16);
         let mut r1: i32 = 240;
         let mut g1: i32 = 240;
         let mut b1: i32 = 160;
@@ -893,12 +893,12 @@ namespace WindowsApplication1
       {
         System.Type WC = typeof (MapWindowClass2);
         WindowClass window = this.GetWindow( WC);
-        Rectangle rect = new Rectangle(this.WindowX[index1], this.WindowY[index1], this.WindowW[index1], this.WindowH[index1]);
+        Rectangle rect = Rectangle::new(this.WindowX[index1], this.WindowY[index1], this.WindowW[index1], this.WindowH[index1]);
         DrawMod.DrawSimplePart( objGraphics,  window.SubPartList[0].OwnBitmap, rect);
       }
       else
       {
-        Rectangle rect = new Rectangle(this.WindowX[index1], this.WindowY[index1], this.WindowW[index1], this.WindowH[index1]);
+        Rectangle rect = Rectangle::new(this.WindowX[index1], this.WindowY[index1], this.WindowW[index1], this.WindowH[index1]);
         DrawMod.DrawSimplePart( objGraphics,  this.OwnBackground, rect);
       }
       this.WindowList[index1].Dispose();
@@ -1311,9 +1311,9 @@ namespace WindowsApplication1
         let mut num2: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
         let mut num3: i32 = num1 + 845;
         let mut num4: i32 = num2 + 650;
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num3;
         let mut y: i32 = num4;
         DrawMod.DrawSimple( local1,  local2, x, y);
@@ -1393,13 +1393,13 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "(This rule makes it possible for the defender to delay the whole enemy army with one properly defended roadblock)", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 55, Color.White);
               DrawMod.DrawTextColouredOutline( g, "And that concludes this short tutorial. It handled some key concepts, but I advise you to read the manual now.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 80, Color.White);
               DrawMod.DrawTextColouredOutline( g, "In a normal game you would now press", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 105, Color.White);
-               Graphics local3 =  g;
+               let mut local3: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.MARCBACK4);
-               Bitmap local4 =  bitmap;
+               let mut local4: &Bitmap = &bitmap;
               DrawMod.DrawSimple( local3,  local4, 95, 138);
-               Graphics local5 =  g;
+               let mut local5: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.Game.BUTTONNEXT);
-               Bitmap local6 =  bitmap;
+               let mut local6: &Bitmap = &bitmap;
               DrawMod.DrawSimple( local5,  local6, 95, 138);
               DrawMod.DrawTextColouredOutline( g, "the next turn button, but the tutorial has no next turn. You have to use the 'quit' button.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 130, 155, Color.White);
               DrawMod.DrawTextColouredOutline( g, "It's in the top-right corner. I will be available on the forums for any questions. Thanks for your attention and happy gaming!", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 180, Color.White);
@@ -1416,9 +1416,9 @@ namespace WindowsApplication1
             {
               let mut num18: i32 = num15 + 825;
               let mut num19: i32 = this.Game.ScreenHeight - 360;
-               Graphics local7 =  g;
+               let mut local7: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local8 =  bitmap1;
+               let mut local8: &Bitmap = &bitmap1;
               let mut x: i32 = num18;
               let mut y: i32 = num19;
               DrawMod.DrawSimple( local7,  local8, x, y);
@@ -1433,9 +1433,9 @@ namespace WindowsApplication1
               this.Game.EditObj.TutStep = 27;
               let mut num20: i32 = num15 + 956;
               let mut num21: i32 = this.Game.ScreenHeight - 360;
-               Graphics local9 =  g;
+               let mut local9: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local10 =  bitmap1;
+               let mut local10: &Bitmap = &bitmap1;
               let mut x: i32 = num20;
               let mut y: i32 = num21;
               DrawMod.DrawSimple( local9,  local10, x, y);
@@ -1465,9 +1465,9 @@ namespace WindowsApplication1
               }
               let mut num22: i32 = num15 + 75;
               let mut num23: i32 = this.Game.ScreenHeight - 360;
-               Graphics local14 =  g;
+               let mut local14: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local15 =  bitmap1;
+               let mut local15: &Bitmap = &bitmap1;
               let mut x: i32 = num22;
               let mut y: i32 = num23;
               DrawMod.DrawSimple( local14,  local15, x, y);
@@ -1530,9 +1530,9 @@ namespace WindowsApplication1
               {
                 let mut num24: i32 = num15 + 723;
                 let mut num25: i32 = this.Game.ScreenHeight - 360;
-                 Graphics local22 =  g;
+                 let mut local22: &Graphics = &g;
                 bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-                 Bitmap local23 =  bitmap1;
+                 let mut local23: &Bitmap = &bitmap1;
                 let mut x: i32 = num24;
                 let mut y: i32 = num25;
                 DrawMod.DrawSimple( local22,  local23, x, y);
@@ -1563,9 +1563,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Click the highlighted 'HQ' order.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
               let mut num26: i32 = num15 + 143;
               let mut num27: i32 = this.Game.ScreenHeight - 360;
-               Graphics local27 =  g;
+               let mut local27: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local28 =  bitmap1;
+               let mut local28: &Bitmap = &bitmap1;
               let mut x: i32 = num26;
               let mut y: i32 = num27;
               DrawMod.DrawSimple( local27,  local28, x, y);
@@ -1601,9 +1601,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Now I'll show how to change a units HQ. Please now select the Motorized Regiment.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
               let mut num28: i32 = num15 + 143;
               let mut num29: i32 = this.Game.ScreenHeight - 360;
-               Graphics local33 =  g;
+               let mut local33: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local34 =  bitmap1;
+               let mut local34: &Bitmap = &bitmap1;
               let mut x: i32 = num28;
               let mut y: i32 = num29;
               DrawMod.DrawSimple( local33,  local34, x, y);
@@ -1618,9 +1618,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Supply being issued from I Corps thus starts with a huge penalty already. De-activate supply layer now please.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 55, Color.White);
               let mut num30: i32 = num15 + 38;
               let mut num31: i32 = this.Game.ScreenHeight - 360;
-               Graphics local35 =  g;
+               let mut local35: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local36 =  bitmap1;
+               let mut local36: &Bitmap = &bitmap1;
               let mut x: i32 = num30;
               let mut y: i32 = num31;
               DrawMod.DrawSimple( local35,  local36, x, y);
@@ -1633,9 +1633,9 @@ namespace WindowsApplication1
               this.Game.EditObj.TutOrder = 51;
               let mut num32: i32 = num15 + 770;
               let mut num33: i32 = this.Game.ScreenHeight - 360;
-               Graphics local37 =  g;
+               let mut local37: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local38 =  bitmap1;
+               let mut local38: &Bitmap = &bitmap1;
               let mut x: i32 = num32;
               let mut y: i32 = num33;
               DrawMod.DrawSimple( local37,  local38, x, y);
@@ -1695,9 +1695,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "You will check how the situation looks from I Corps after you have closed the supply layer again.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 155, Color.White);
               let mut num35: i32 = num15 + 38;
               let mut num36: i32 = this.Game.ScreenHeight - 360;
-               Graphics local46 =  g;
+               let mut local46: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local47 =  bitmap1;
+               let mut local47: &Bitmap = &bitmap1;
               let mut x: i32 = num35;
               let mut y: i32 = num36;
               DrawMod.DrawSimple( local46,  local47, x, y);
@@ -1735,9 +1735,9 @@ namespace WindowsApplication1
               this.Game.EditObj.TutOrder = 51;
               let mut num37: i32 = num15 + 770;
               let mut num38: i32 = this.Game.ScreenHeight - 360;
-               Graphics local52 =  g;
+               let mut local52: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local53 =  bitmap1;
+               let mut local53: &Bitmap = &bitmap1;
               let mut x: i32 = num37;
               let mut y: i32 = num38;
               DrawMod.DrawSimple( local52,  local53, x, y);
@@ -1773,9 +1773,9 @@ namespace WindowsApplication1
               {
                 let mut num39: i32 = num15 + 735;
                 let mut num40: i32 = this.Game.ScreenHeight - 200;
-                 Graphics local58 =  g;
+                 let mut local58: &Graphics = &g;
                 bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-                 Bitmap local59 =  bitmap1;
+                 let mut local59: &Bitmap = &bitmap1;
                 let mut x: i32 = num39;
                 let mut y: i32 = num40;
                 DrawMod.DrawSimple( local58,  local59, x, y);
@@ -1814,9 +1814,9 @@ namespace WindowsApplication1
               }
               let mut num41: i32 = num15 + 165;
               let mut num42: i32 = this.Game.ScreenHeight - 360;
-               Graphics local63 =  g;
+               let mut local63: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local64 =  bitmap1;
+               let mut local64: &Bitmap = &bitmap1;
               let mut x: i32 = num41;
               let mut y: i32 = num42;
               DrawMod.DrawSimple( local63,  local64, x, y);
@@ -1870,9 +1870,9 @@ namespace WindowsApplication1
               num34 = 1;
               let mut num43: i32 = num15 + 842;
               let mut num44: i32 = this.Game.ScreenHeight - 360;
-               Graphics local68 =  g;
+               let mut local68: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local69 =  bitmap1;
+               let mut local69: &Bitmap = &bitmap1;
               let mut x: i32 = num43;
               let mut y: i32 = num44;
               DrawMod.DrawSimple( local68,  local69, x, y);
@@ -1885,9 +1885,9 @@ namespace WindowsApplication1
               num34 = 1;
               let mut num45: i32 = num15 + 722;
               let mut num46: i32 = this.Game.ScreenHeight - 360;
-               Graphics local70 =  g;
+               let mut local70: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local71 =  bitmap1;
+               let mut local71: &Bitmap = &bitmap1;
               let mut x: i32 = num45;
               let mut y: i32 = num46;
               DrawMod.DrawSimple( local70,  local71, x, y);
@@ -1942,9 +1942,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, " ", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 55, Color.White);
               let mut num47: i32 = num15 + 70;
               let mut num48: i32 = this.Game.ScreenHeight - 375;
-               Graphics local78 =  g;
+               let mut local78: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local79 =  bitmap1;
+               let mut local79: &Bitmap = &bitmap1;
               let mut x: i32 = num47;
               let mut y: i32 = num48;
               DrawMod.DrawSimple( local78,  local79, x, y);
@@ -2030,9 +2030,9 @@ namespace WindowsApplication1
               }
               let mut num50: i32 = num15 + 106;
               let mut num51: i32 = this.Game.ScreenHeight - 360;
-               Graphics local86 =  g;
+               let mut local86: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local87 =  bitmap1;
+               let mut local87: &Bitmap = &bitmap1;
               let mut x: i32 = num50;
               let mut y: i32 = num51;
               DrawMod.DrawSimple( local86,  local87, x, y);
@@ -2120,9 +2120,9 @@ namespace WindowsApplication1
               }
               let mut num53: i32 = num15 + 70;
               let mut num54: i32 = this.Game.ScreenHeight - 360;
-               Graphics local95 =  g;
+               let mut local95: &Graphics = &g;
               bitmap1 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local96 =  bitmap1;
+               let mut local96: &Bitmap = &bitmap1;
               let mut x: i32 = num53;
               let mut y: i32 = num54;
               DrawMod.DrawSimple( local95,  local96, x, y);
@@ -2182,9 +2182,9 @@ namespace WindowsApplication1
               let mut num56: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
               let mut num57: i32 = num55 + 485;
               let mut num58: i32 = num56 + 630;
-               Graphics local99 =  g;
+               let mut local99: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local100 =  bitmap;
+               let mut local100: &Bitmap = &bitmap;
               let mut x: i32 = num57;
               let mut y: i32 = num58;
               DrawMod.DrawSimple( local99,  local100, x, y);
@@ -2198,9 +2198,9 @@ namespace WindowsApplication1
               let mut num60: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
               let mut num61: i32 = num59 + 485;
               let mut num62: i32 = num60 + 630;
-               Graphics local101 =  g;
+               let mut local101: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local102 =  bitmap;
+               let mut local102: &Bitmap = &bitmap;
               let mut x: i32 = num61;
               let mut y: i32 = num62;
               DrawMod.DrawSimple( local101,  local102, x, y);
@@ -2239,9 +2239,9 @@ namespace WindowsApplication1
         let mut num2: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
         let mut num3: i32 = num1 + 845;
         let mut num4: i32 = num2 + 650;
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num3;
         let mut y: i32 = num4;
         DrawMod.DrawSimple( local1,  local2, x, y);
@@ -2321,13 +2321,13 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "(This rule makes it possible for the defender to delay the whole enemy army with one properly defended roadblock)", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 55, Color.White);
               DrawMod.DrawTextColouredOutline( g, "And that concludes this short tutorial. It handled some key concepts, but I advise you to read the manual now.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 80, Color.White);
               DrawMod.DrawTextColouredOutline( g, "In a normal game you would now press", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 105, Color.White);
-               Graphics local3 =  g;
+               let mut local3: &Graphics = &g;
               Bitmap bitmap1 = BitmapStore.GetBitmap(this.Game.MARCBACK4);
-               Bitmap local4 =  bitmap1;
+               let mut local4: &Bitmap = &bitmap1;
               DrawMod.DrawSimple( local3,  local4, 95, 138);
-               Graphics local5 =  g;
+               let mut local5: &Graphics = &g;
               Bitmap bitmap2 = BitmapStore.GetBitmap(this.Game.BUTTONNEXT);
-               Bitmap local6 =  bitmap2;
+               let mut local6: &Bitmap = &bitmap2;
               DrawMod.DrawSimple( local5,  local6, 95, 138);
               DrawMod.DrawTextColouredOutline( g, "the next turn button, but the tutorial has no next turn. You have to use the 'quit' button.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 130, 155, Color.White);
               DrawMod.DrawTextColouredOutline( g, "It's in the top-right corner. I will be available on the forums for any questions. Thanks for your attention and happy gaming!", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 180, Color.White);
@@ -2343,9 +2343,9 @@ namespace WindowsApplication1
             {
               let mut num18: i32 = num15 + 825;
               let mut num19: i32 = this.Game.ScreenHeight - 360;
-               Graphics local7 =  g;
+               let mut local7: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local8 =  bitmap;
+               let mut local8: &Bitmap = &bitmap;
               let mut x: i32 = num18;
               let mut y: i32 = num19;
               DrawMod.DrawSimple( local7,  local8, x, y);
@@ -2360,9 +2360,9 @@ namespace WindowsApplication1
               this.Game.EditObj.TutStep = 27;
               let mut num20: i32 = num15 + 956;
               let mut num21: i32 = this.Game.ScreenHeight - 360;
-               Graphics local9 =  g;
+               let mut local9: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local10 =  bitmap;
+               let mut local10: &Bitmap = &bitmap;
               let mut x: i32 = num20;
               let mut y: i32 = num21;
               DrawMod.DrawSimple( local9,  local10, x, y);
@@ -2392,9 +2392,9 @@ namespace WindowsApplication1
               }
               let mut num22: i32 = num15 + 75;
               let mut num23: i32 = this.Game.ScreenHeight - 360;
-               Graphics local14 =  g;
+               let mut local14: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local15 =  bitmap;
+               let mut local15: &Bitmap = &bitmap;
               let mut x: i32 = num22;
               let mut y: i32 = num23;
               DrawMod.DrawSimple( local14,  local15, x, y);
@@ -2475,9 +2475,9 @@ namespace WindowsApplication1
               {
                 let mut num24: i32 = num15 + 723;
                 let mut num25: i32 = this.Game.ScreenHeight - 360;
-                 Graphics local22 =  g;
+                 let mut local22: &Graphics = &g;
                 Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-                 Bitmap local23 =  bitmap;
+                 let mut local23: &Bitmap = &bitmap;
                 let mut x: i32 = num24;
                 let mut y: i32 = num25;
                 DrawMod.DrawSimple( local22,  local23, x, y);
@@ -2509,9 +2509,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Click the highlighted 'HQ' order.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
               let mut num26: i32 = num15 + 143;
               let mut num27: i32 = this.Game.ScreenHeight - 360;
-               Graphics local27 =  g;
+               let mut local27: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local28 =  bitmap3;
+               let mut local28: &Bitmap = &bitmap3;
               let mut x: i32 = num26;
               let mut y: i32 = num27;
               DrawMod.DrawSimple( local27,  local28, x, y);
@@ -2575,9 +2575,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Note that our Flak unit is in bad supply due to the river and broken bridges.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 100, Color.White);
               let mut num29: i32 = num15 + 38;
               let mut num30: i32 = this.Game.ScreenHeight - 360;
-               Graphics local36 =  g;
+               let mut local36: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local37 =  bitmap3;
+               let mut local37: &Bitmap = &bitmap3;
               let mut x: i32 = num29;
               let mut y: i32 = num30;
               DrawMod.DrawSimple( local36,  local37, x, y);
@@ -2617,9 +2617,9 @@ namespace WindowsApplication1
                 this.Game.EditObj.TutOrder = 51;
                 let mut num31: i32 = num15 + 770;
                 let mut num32: i32 = this.Game.ScreenHeight - 360;
-                 Graphics local42 =  g;
+                 let mut local42: &Graphics = &g;
                 bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-                 Bitmap local43 =  bitmap3;
+                 let mut local43: &Bitmap = &bitmap3;
                 let mut x: i32 = num31;
                 let mut y: i32 = num32;
                 DrawMod.DrawSimple( local42,  local43, x, y);
@@ -2658,9 +2658,9 @@ namespace WindowsApplication1
               {
                 let mut num33: i32 = num15 + 735;
                 let mut num34: i32 = this.Game.ScreenHeight - 200;
-                 Graphics local48 =  g;
+                 let mut local48: &Graphics = &g;
                 bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-                 Bitmap local49 =  bitmap3;
+                 let mut local49: &Bitmap = &bitmap3;
                 let mut x: i32 = num33;
                 let mut y: i32 = num34;
                 DrawMod.DrawSimple( local48,  local49, x, y);
@@ -2699,9 +2699,9 @@ namespace WindowsApplication1
               }
               let mut num35: i32 = num15 + 165;
               let mut num36: i32 = this.Game.ScreenHeight - 360;
-               Graphics local53 =  g;
+               let mut local53: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local54 =  bitmap3;
+               let mut local54: &Bitmap = &bitmap3;
               let mut x: i32 = num35;
               let mut y: i32 = num36;
               DrawMod.DrawSimple( local53,  local54, x, y);
@@ -2755,9 +2755,9 @@ namespace WindowsApplication1
               num28 = 1;
               let mut num37: i32 = num15 + 842;
               let mut num38: i32 = this.Game.ScreenHeight - 360;
-               Graphics local58 =  g;
+               let mut local58: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local59 =  bitmap3;
+               let mut local59: &Bitmap = &bitmap3;
               let mut x: i32 = num37;
               let mut y: i32 = num38;
               DrawMod.DrawSimple( local58,  local59, x, y);
@@ -2770,9 +2770,9 @@ namespace WindowsApplication1
               num28 = 1;
               let mut num39: i32 = num15 + 722;
               let mut num40: i32 = this.Game.ScreenHeight - 360;
-               Graphics local60 =  g;
+               let mut local60: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local61 =  bitmap3;
+               let mut local61: &Bitmap = &bitmap3;
               let mut x: i32 = num39;
               let mut y: i32 = num40;
               DrawMod.DrawSimple( local60,  local61, x, y);
@@ -2827,9 +2827,9 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, " ", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 55, Color.White);
               let mut num41: i32 = num15 + 70;
               let mut num42: i32 = this.Game.ScreenHeight - 375;
-               Graphics local68 =  g;
+               let mut local68: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local69 =  bitmap3;
+               let mut local69: &Bitmap = &bitmap3;
               let mut x: i32 = num41;
               let mut y: i32 = num42;
               DrawMod.DrawSimple( local68,  local69, x, y);
@@ -2915,9 +2915,9 @@ namespace WindowsApplication1
               }
               let mut num44: i32 = num15 + 106;
               let mut num45: i32 = this.Game.ScreenHeight - 360;
-               Graphics local76 =  g;
+               let mut local76: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local77 =  bitmap3;
+               let mut local77: &Bitmap = &bitmap3;
               let mut x: i32 = num44;
               let mut y: i32 = num45;
               DrawMod.DrawSimple( local76,  local77, x, y);
@@ -3005,9 +3005,9 @@ namespace WindowsApplication1
               }
               let mut num47: i32 = num15 + 70;
               let mut num48: i32 = this.Game.ScreenHeight - 360;
-               Graphics local85 =  g;
+               let mut local85: &Graphics = &g;
               bitmap3 = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local86 =  bitmap3;
+               let mut local86: &Bitmap = &bitmap3;
               let mut x: i32 = num47;
               let mut y: i32 = num48;
               DrawMod.DrawSimple( local85,  local86, x, y);
@@ -3073,9 +3073,9 @@ namespace WindowsApplication1
               let mut num50: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
               let mut num51: i32 = num49 + 485;
               let mut num52: i32 = num50 + 630;
-               Graphics local89 =  g;
+               let mut local89: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local90 =  bitmap;
+               let mut local90: &Bitmap = &bitmap;
               let mut x: i32 = num51;
               let mut y: i32 = num52;
               DrawMod.DrawSimple( local89,  local90, x, y);
@@ -3089,9 +3089,9 @@ namespace WindowsApplication1
               let mut num54: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
               let mut num55: i32 = num53 + 485;
               let mut num56: i32 = num54 + 630;
-               Graphics local91 =  g;
+               let mut local91: &Graphics = &g;
               Bitmap bitmap = BitmapStore.GetBitmap(this.Game.TUTARROW);
-               Bitmap local92 =  bitmap;
+               let mut local92: &Bitmap = &bitmap;
               let mut x: i32 = num55;
               let mut y: i32 = num56;
               DrawMod.DrawSimple( local91,  local92, x, y);
@@ -3163,11 +3163,11 @@ namespace WindowsApplication1
           if (Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) != 0 & Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) != 0)
           {
             g.CompositingMode = CompositingMode.SourceCopy;
-            DrawMod.DrawSimplePart( g,  this.OwnBackground, new Rectangle(this.WindowX[index], this.WindowY[index], this.WindowW[index], this.WindowH[index]));
+            DrawMod.DrawSimplePart( g,  this.OwnBackground, Rectangle::new(this.WindowX[index], this.WindowY[index], this.WindowW[index], this.WindowH[index]));
             g.CompositingMode = CompositingMode.SourceOver;
-             Graphics local1 =  g;
+             let mut local1: &Graphics = &g;
             Bitmap bitmap = this.WindowList[index].Paint();
-             Bitmap local2 =  bitmap;
+             let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = this.WindowX[index];
             let mut y: i32 = this.WindowY[index];
             DrawMod.DrawSimple( local1,  local2, x, y);

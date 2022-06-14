@@ -39,10 +39,10 @@ namespace WindowsApplication1
       Color tUseColHigh,
       tDescript: String = "",
       ref Bitmap tBackbitmap = null,
-      int bbx = -1,
-      int bby = -1,
-      int tArtCodeSfType = -1,
-      int tArtCodePeople = -1)
+      let mut bbx: i32 =  -1,
+      let mut bby: i32 =  -1,
+      let mut tArtCodeSfType: i32 =  -1,
+      let mut tArtCodePeople: i32 =  -1)
       : base(trect.Width, trect.Height)
     {
       this.OwnBitmapNr = tbmpnr;
@@ -59,7 +59,7 @@ namespace WindowsApplication1
       this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics Expression = Graphics.FromImage((Image) this.backbitmap);
       Expression.CompositingMode = CompositingMode.SourceCopy;
-      Expression.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), new Rectangle(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
+      Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
       Expression.CompositingMode = CompositingMode.SourceOver;
       if (Information.IsNothing((object) Expression))
         return;
@@ -75,23 +75,23 @@ namespace WindowsApplication1
         DrawMod.DrawSimple(ref objGraphics, ref this.backbitmap, 0, 0);
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
-      int smoothingMode = (int) objGraphics.SmoothingMode;
+      let mut smoothingMode: i32 =  (int) objGraphics.SmoothingMode;
       objGraphics.SmoothingMode = SmoothingMode.AntiAlias;
       DrawMod.DrawFilledCircle(ref objGraphics, 0, 0, this.useRect.Width, this.useRect.Height, (int) this.useCol.R, (int) this.useCol.G, (int) this.useCol.B, (int) this.useCol.A);
       objGraphics.SmoothingMode = (SmoothingMode) smoothingMode;
-      int x = (int) Math.Round((double) (this.useRect.Width - this.bmpRect.Width) / 2.0);
-      int y = (int) Math.Round((double) (this.useRect.Height - this.bmpRect.Height) / 2.0);
+      let mut x: i32 =  (int) Math.Round((double) (this.useRect.Width - this.bmpRect.Width) / 2.0);
+      let mut y: i32 =  (int) Math.Round((double) (this.useRect.Height - this.bmpRect.Height) / 2.0);
       if (this.drawArtCodePpl > -1)
       {
-        int num1 = (int) Math.Round((double) (this.useRect.Width - 35) / 2.0);
-        int num2 = (int) Math.Round((double) (this.useRect.Height - 17) / 2.0);
+        let mut num1: i32 =  (int) Math.Round((double) (this.useRect.Width - 35) / 2.0);
+        let mut num2: i32 =  (int) Math.Round((double) (this.useRect.Height - 17) / 2.0);
         ref Graphics local1 = ref objGraphics;
         Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
         ref Bitmap local2 = ref bitmap;
-        int drawArtCodeSfType = this.drawArtCodeSfType;
-        int drawArtCodePpl = this.drawArtCodePpl;
-        int tx = num1;
-        int ty = num2;
+        let mut drawArtCodeSfType: i32 =  this.drawArtCodeSfType;
+        let mut drawArtCodePpl: i32 =  this.drawArtCodePpl;
+        let mut tx: i32 =  num1;
+        let mut ty: i32 =  num2;
         DrawMod.DrawWithArtCode(ref local1, ref local2, 34, 17, drawArtCodeSfType, drawArtCodePpl, tx, ty, -1, -1);
       }
       else
@@ -100,7 +100,7 @@ namespace WindowsApplication1
         Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
         ref Bitmap local4 = ref bitmap;
         Rectangle bmpRect = this.bmpRect;
-        Rectangle destrect = new Rectangle(x, y, this.bmpRect.Width, this.bmpRect.Height);
+        Rectangle destrect = Rectangle::new(x, y, this.bmpRect.Width, this.bmpRect.Height);
         DrawMod.DrawSimplePart2(ref local3, ref local4, bmpRect, destrect);
       }
       if (!Information.IsNothing((object) objGraphics))
@@ -120,23 +120,23 @@ namespace WindowsApplication1
         DrawMod.DrawSimple(ref objGraphics, ref this.backbitmap, 0, 0);
         objGraphics.CompositingMode = CompositingMode.SourceOver;
       }
-      int smoothingMode = (int) objGraphics.SmoothingMode;
+      let mut smoothingMode: i32 =  (int) objGraphics.SmoothingMode;
       objGraphics.SmoothingMode = SmoothingMode.AntiAlias;
       DrawMod.DrawFilledCircle(ref objGraphics, 0, 0, this.useRect.Width, this.useRect.Height, (int) this.useColHigh.R, (int) this.useColHigh.G, (int) this.useColHigh.B, (int) this.useColHigh.A);
       objGraphics.SmoothingMode = (SmoothingMode) smoothingMode;
-      int x = (int) Math.Round((double) (this.useRect.Width - this.bmpRect.Width) / 2.0);
-      int y = (int) Math.Round((double) (this.useRect.Height - this.bmpRect.Height) / 2.0);
+      let mut x: i32 =  (int) Math.Round((double) (this.useRect.Width - this.bmpRect.Width) / 2.0);
+      let mut y: i32 =  (int) Math.Round((double) (this.useRect.Height - this.bmpRect.Height) / 2.0);
       if (this.drawArtCodePpl > -1)
       {
-        int num1 = (int) Math.Round((double) (this.useRect.Width - 35) / 2.0);
-        int num2 = (int) Math.Round((double) (this.useRect.Height - 17) / 2.0);
+        let mut num1: i32 =  (int) Math.Round((double) (this.useRect.Width - 35) / 2.0);
+        let mut num2: i32 =  (int) Math.Round((double) (this.useRect.Height - 17) / 2.0);
         ref Graphics local1 = ref objGraphics;
         Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
         ref Bitmap local2 = ref bitmap;
-        int drawArtCodeSfType = this.drawArtCodeSfType;
-        int drawArtCodePpl = this.drawArtCodePpl;
-        int tx = num1;
-        int ty = num2;
+        let mut drawArtCodeSfType: i32 =  this.drawArtCodeSfType;
+        let mut drawArtCodePpl: i32 =  this.drawArtCodePpl;
+        let mut tx: i32 =  num1;
+        let mut ty: i32 =  num2;
         DrawMod.DrawWithArtCode(ref local1, ref local2, 34, 17, drawArtCodeSfType, drawArtCodePpl, tx, ty, -1, -1);
       }
       else
@@ -145,7 +145,7 @@ namespace WindowsApplication1
         Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
         ref Bitmap local4 = ref bitmap;
         Rectangle bmpRect = this.bmpRect;
-        Rectangle destrect = new Rectangle(x, y, this.bmpRect.Width, this.bmpRect.Height);
+        Rectangle destrect = Rectangle::new(x, y, this.bmpRect.Width, this.bmpRect.Height);
         DrawMod.DrawSimplePart2(ref local3, ref local4, bmpRect, destrect);
       }
       if (!Information.IsNothing((object) objGraphics))

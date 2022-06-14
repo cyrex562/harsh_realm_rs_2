@@ -100,7 +100,7 @@ namespace WindowsApplication1
     {
       self.ListObj = new ListClass[10];
       self.TabName = new string[10];
-      self.TabRect = new Rectangle[100];
+      self.TabRect = Rectangle::new[100];
       self.encyId = new int[2, 2, 2];
       if (tgame.Data.Product >= 7)
       {
@@ -139,7 +139,7 @@ namespace WindowsApplication1
         self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) self.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
-        graphics.DrawImage((Image) tbackbitmap, new Rectangle(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), new Rectangle(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
+        graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
         graphics.CompositingMode = CompositingMode.SourceOver;
       }
       self.fontcol = tfontcol != 0 ? Color.Black : Color.White;
@@ -501,7 +501,7 @@ namespace WindowsApplication1
             DrawMod.DrawTextColouredMarc( Expression, self.TabName[index], DrawMod.TGame.MarcFont5, x1 + 1, 0, DrawMod.TGame.MarcCol5);
           sizeF3 = Expression.MeasureString(self.TabName[index], DrawMod.TGame.MarcFont5);
         }
-        self.TabRect[index] = index >= self.TabCount ? new Rectangle(x1, 0,  Math.Round((double) sizeF3.Width), self.ItemSize) : new Rectangle(x1, 0,  Math.Round((double) sizeF3.Width - (double) Expression.MeasureString(" | ", DrawMod.TGame.MarcFont5).Width), self.ItemSize);
+        self.TabRect[index] = index >= self.TabCount ? Rectangle::new(x1, 0,  Math.Round((double) sizeF3.Width), self.ItemSize) : Rectangle::new(x1, 0,  Math.Round((double) sizeF3.Width - (double) Expression.MeasureString(" | ", DrawMod.TGame.MarcFont5).Width), self.ItemSize);
         x1 =  Math.Round((double) ((float) x1 + sizeF3.Width));
       }
       let mut num2: i32 = 0;
@@ -672,7 +672,7 @@ namespace WindowsApplication1
                     ttext = ttext + "\r\n\r\n" + Left;
                   ttext = self.game.HandyFunctionsObj.CustomMouseOverLookups(ttext.Replace("<br>", "\r\n"), currentName);
                 }
-                rectangle = new Rectangle(x2 + num6, self.ItemSize * num3 + 13 - num4, num10 - num11, self.ItemSize);
+                rectangle = Rectangle::new(x2 + num6, self.ItemSize * num3 + 13 - num4, num10 - num11, self.ItemSize);
                 trect = rectangle;
                 self.AddMouse( trect, ttitle, ttext, tdata);
                 num6 += num10 - num11;
@@ -698,45 +698,45 @@ namespace WindowsApplication1
         let mut num15: i32 =  Math.Round((double) Conversion.Int((float) num13 * num14));
         let mut x3: i32 = self.Width - 20;
         let mut num16: i32 = self.ItemSize + 25 + num15;
-         Graphics local1 =  Expression;
+         let mut local1: &Graphics = &Expression;
         Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-         Bitmap local2 =  bitmap;
-        trect = new Rectangle(0, 3, 20, 4);
-        Rectangle srcrect1 = trect;
-        rectangle = new Rectangle(x3, 28 + self.ItemSize, 20, self.Height - (56 + self.ItemSize));
-        Rectangle destrect1 = rectangle;
+         let mut local2: &Bitmap = &bitmap;
+        trect = Rectangle::new(0, 3, 20, 4);
+        let mut srcrect1: &Rectangle = &trect
+        rectangle = Rectangle::new(x3, 28 + self.ItemSize, 20, self.Height - (56 + self.ItemSize));
+        let mut destrect1: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-         Graphics local3 =  Expression;
+         let mut local3: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-         Bitmap local4 =  bitmap;
-        trect = new Rectangle(0, 0, 20, 3);
-        Rectangle srcrect2 = trect;
-        rectangle = new Rectangle(x3, self.ItemSize + 25, 20, 3);
-        Rectangle destrect2 = rectangle;
+         let mut local4: &Bitmap = &bitmap;
+        trect = Rectangle::new(0, 0, 20, 3);
+        let mut srcrect2: &Rectangle = &trect
+        rectangle = Rectangle::new(x3, self.ItemSize + 25, 20, 3);
+        let mut destrect2: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-         Graphics local5 =  Expression;
+         let mut local5: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-         Bitmap local6 =  bitmap;
-        trect = new Rectangle(0, 7, 20, 3);
-        Rectangle srcrect3 = trect;
-        rectangle = new Rectangle(x3, self.Height - 28, 20, 3);
-        Rectangle destrect3 = rectangle;
+         let mut local6: &Bitmap = &bitmap;
+        trect = Rectangle::new(0, 7, 20, 3);
+        let mut srcrect3: &Rectangle = &trect
+        rectangle = Rectangle::new(x3, self.Height - 28, 20, 3);
+        let mut destrect3: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
-         Graphics local7 =  Expression;
+         let mut local7: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTUP);
-         Bitmap local8 =  bitmap;
+         let mut local8: &Bitmap = &bitmap;
         let mut x4: i32 = x3;
         let mut y1: i32 = self.ItemSize + 16;
         DrawMod.DrawSimple( local7,  local8, x4, y1);
-         Graphics local9 =  Expression;
+         let mut local9: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTDOWN);
-         Bitmap local10 =  bitmap;
+         let mut local10: &Bitmap = &bitmap;
         let mut x5: i32 = x3;
         let mut y2: i32 = self.Height - 25;
         DrawMod.DrawSimple( local9,  local10, x5, y2);
-         Graphics local11 =  Expression;
+         let mut local11: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBLOCK);
-         Bitmap local12 =  bitmap;
+         let mut local12: &Bitmap = &bitmap;
         let mut x6: i32 = x3;
         let mut y3: i32 = num16;
         DrawMod.DrawSimple( local11,  local12, x6, y3);

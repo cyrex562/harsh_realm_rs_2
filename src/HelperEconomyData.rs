@@ -184,35 +184,35 @@ namespace WindowsApplication1
       this.hexFreeFolk = new AIMatrix(ref tgame.DC2AIObj);
       this.temperatures = new AIMatrix(ref tgame.DC2AIObj);
       this.rad = new AIMatrix(ref tgame.DC2AIObj);
-      int mapWidth = tgame.Data.MapObj[0].MapWidth;
-      int mapHeight = tgame.Data.MapObj[0].MapHeight;
+      let mut mapWidth: i32 =  tgame.Data.MapObj[0].MapWidth;
+      let mut mapHeight: i32 =  tgame.Data.MapObj[0].MapHeight;
       this.atmosHazard =  Math.Round(Conversion.Val(tgame.Data.StringListObj[this.slotGameKeys].GetData(0, 1, 2)));
       this.bioHazard =  Math.Round(Conversion.Val(tgame.Data.StringListObj[this.slotGameKeys].GetData(0, 2, 2)));
       data1: DataClass = tgame.Data;
       str1: String = "Zones";
       ref local1: String = ref str1;
       libName2: String = dataLib;
-      int libVar1 = data1.FindLibVar(ref local1, libName2);
+      let mut libVar1: i32 =  data1.FindLibVar(ref local1, libName2);
       data2: DataClass = tgame.Data;
       str2: String = "Temperature";
       ref local2: String = ref str2;
       libName3: String = dataLib;
-      int libVar2 = data2.FindLibVar(ref local2, libName3);
+      let mut libVar2: i32 =  data2.FindLibVar(ref local2, libName3);
       data3: DataClass = tgame.Data;
       str3: String = nameof (rad);
       ref local3: String = ref str3;
       libName4: String = dataLib;
-      int libVar3 = data3.FindLibVar(ref local3, libName4);
+      let mut libVar3: i32 =  data3.FindLibVar(ref local3, libName4);
       data4: DataClass = tgame.Data;
       str4: String = "freefolk";
       ref local4: String = ref str4;
       libName5: String = dataLib;
-      int libVar4 = data4.FindLibVar(ref local4, libName5);
-      int num1 = mapWidth;
-      for (int index1 = 0; index1 <= num1; index1 += 1)
+      let mut libVar4: i32 =  data4.FindLibVar(ref local4, libName5);
+      let mut num1: i32 =  mapWidth;
+      for (let mut index1: i32 =  0; index1 <= num1; index1 += 1)
       {
-        int num2 = mapHeight;
-        for (int index2 = 0; index2 <= num2; index2 += 1)
+        let mut num2: i32 =  mapHeight;
+        for (let mut index2: i32 =  0; index2 <= num2; index2 += 1)
         {
           this.zones.Value[index1, index2] = tgame.Data.MapObj[0].HexObj[index1, index2].GetHexLibVarValue(libVar1);
           this.temperatures.Value[index1, index2] = tgame.Data.MapObj[0].HexObj[index1, index2].GetHexLibVarValue(libVar2);
@@ -263,7 +263,7 @@ namespace WindowsApplication1
       this.regtype =  Math.Round(Conversion.Val(tgame.Data.StringListObj[this.slotRegimes].GetData(0, this.regid, 1)));
     }
 
-    pub void Input(int useRegimeId = -1)
+    pub void Input(let mut useRegimeId: i32 =  -1)
     {
       if (DrawMod.TGame.Data.Turn == 1)
         this.water = this.water;
@@ -349,28 +349,28 @@ namespace WindowsApplication1
       {
         if (Information.IsNothing((object) DrawMod.TGame.Data.LocObj[this.locNr].items))
           DrawMod.TGame.Data.LocObj[this.locNr].items = ItemList::new();
-        int nr1 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(7);
+        let mut nr1: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(7);
         this.food = nr1 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr1];
         this.orig_food = this.food;
-        int nr2 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(5);
+        let mut nr2: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(5);
         this.water = nr2 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr2];
-        int nr3 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(6);
+        let mut nr3: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(6);
         this.oxygen = nr3 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr3];
-        int nr4 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(12);
+        let mut nr4: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(12);
         this.colonists = nr4 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr4];
-        int nr5 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(9);
+        let mut nr5: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(9);
         this.recruits = nr5 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr5];
-        int nr6 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(16);
+        let mut nr6: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(16);
         this.maxEnergy = nr6 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr6];
-        int nr7 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(17);
+        let mut nr7: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(17);
         this.maxAmmo = nr7 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr7];
-        int nr8 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(18);
+        let mut nr8: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(18);
         this.maxFuel = nr8 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr8];
-        int nr9 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(19);
+        let mut nr9: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(19);
         this.maxFood = nr9 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr9];
-        int nr10 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(22);
+        let mut nr10: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(22);
         this.maxIP = nr10 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr10];
-        int nr11 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(20);
+        let mut nr11: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(20);
         this.maxWater = nr11 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr11];
       }
       else
@@ -380,33 +380,33 @@ namespace WindowsApplication1
       this.tempExposureWorkerLoss = Math.Max(0,  Math.Round(Conversion.Val(DrawMod.TGame.Data.StringListObj[this.slotZoneKeys].GetData2(0, this.zoneId, 1, "tempExposureWorkerLoss", 2))));
     }
 
-    pub void Output(int useRegimeId = -1)
+    pub void Output(let mut useRegimeId: i32 =  -1)
     {
       if (this.locNr > -1)
       {
-        int nr1 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(5);
+        let mut nr1: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(5);
         if (nr1 < 0)
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Add(5, this.water);
         else
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr1] = this.water;
-        int nr2 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(6);
+        let mut nr2: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(6);
         if (nr2 < 0)
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Add(6, this.oxygen);
         else
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr2] = this.oxygen;
-        int index = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(7);
+        let mut index: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(7);
         if (this.zoneId == 41)
           index = index;
         if (index < 0)
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Add(7, this.food);
         else
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[index] = this.food;
-        int nr3 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(12);
+        let mut nr3: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(12);
         if (nr3 < 0)
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Add(12, this.colonists);
         else
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr3] = this.colonists;
-        int nr4 = DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(9);
+        let mut nr4: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(9);
         if (nr4 < 0)
           DrawMod.TGame.Data.LocObj[this.locNr].items.list.Add(9, this.recruits);
         else

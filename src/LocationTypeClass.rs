@@ -232,7 +232,7 @@ namespace WindowsApplication1
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           this.Research[index] = -1;
@@ -434,7 +434,7 @@ namespace WindowsApplication1
       this.AutoProd = -1;
       this.AILocEvent = -1;
       this.SetPeopleToSlotX = -1;
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         this.Research[index1] = -1;
@@ -448,7 +448,7 @@ namespace WindowsApplication1
         this.Name = "Default Loc Type";
         this.OverdrawLTNr = 0;
         this.OverdrawSpriteNr = 0;
-        int index2 = 0;
+        let mut index2: i32 =  0;
         do
         {
           this.BuildgroundType[index2] = false;
@@ -456,7 +456,7 @@ namespace WindowsApplication1
           index2 += 1;
         }
         while (index2 <= 19);
-        int index3 = 0;
+        let mut index3: i32 =  0;
         do
         {
           this.ItemGroup[index3] = false;

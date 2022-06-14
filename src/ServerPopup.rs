@@ -175,7 +175,7 @@ namespace WindowsApplication1
           this.RemoveSubPart(this.cancelid);
           let mut tsubpart: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( this.OwnBitmap), bbx: 200, bby: 340, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
           this.okid = this.AddSubPart( tsubpart, 200, 340, 200, 36, 1);
-          Rectangle trect = new Rectangle(200, 530, 200, 35);
+          Rectangle trect = Rectangle::new(200, 530, 200, 35);
           this.AddMouse( trect, "", "Back to main PBEM++ screen");
         }
         windowReturnClass.SetFlag(true);
@@ -643,7 +643,7 @@ namespace WindowsApplication1
         DrawMod.DrawBlock( g, num1, num2, w, 15, 0,  byte.MaxValue, 0, 100);
         DrawMod.DrawRectangle( g, num1, num2, 100, 15,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 128);
         DrawMod.DrawTextColouredMarc( g, Conversion.Str((object)  Math.Round((double) this.game.EditObj.ServerUploadDone / 1000.0)) + " KB", this.game.MarcFont14, num1 + 2, num2 + 2, Color.White);
-        trect1 = new Rectangle(num1, num2, 100, 15);
+        trect1 = Rectangle::new(num1, num2, 100, 15);
         this.AddMouse( trect1, "FILE UPLOAD PROGRESS", "Currently uploaded " + this.game.EditObj.ServerUploadDone.ToString() + " bytes of " + this.game.EditObj.ServerUploadSize.ToString());
       }
       if (this.game.EditObj.ServerDownloadDone > 0L)
@@ -654,8 +654,8 @@ namespace WindowsApplication1
         DrawMod.DrawBlock( g, num4, num5, 100, 15, 0, 0, 0, 64);
         DrawMod.DrawRectangle( g, num4, num5, 100, 15,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 128);
         DrawMod.DrawTextColouredMarc( g, Conversion.Str((object)  Math.Round((double) this.game.EditObj.ServerDownloadDone / 1000.0)) + " KB", this.game.MarcFont14, num4 + 2, num5 + 2, Color.White);
-        trect1 = new Rectangle(num4, num5, 100, 15);
-        Rectangle trect2 = trect1;
+        trect1 = Rectangle::new(num4, num5, 100, 15);
+        let mut trect2: &Rectangle = &trect1
         this.AddMouse( trect2, "FILE DOWNLOAD PROGRESS", "Currently downloaded " + this.game.EditObj.ServerDownloadDone.ToString() + " bytes.");
       }
       if (this.game.EditObj.ServerCommandMaxStepOrig <= 0)

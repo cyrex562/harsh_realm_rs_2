@@ -2283,18 +2283,18 @@ namespace WindowsApplication1
       let mut num142: i32 = -1;
       if ((double) self.game.Data.RuleVar[403] > 0.0)
         num142 += 1;
-      Rectangle trect2 = new Rectangle(15, 20, 135, 70);
+      Rectangle trect2 = Rectangle::new(15, 20, 135, 70);
       self.AddMouse( trect2, "Click to see statistics on troops", "", 1);
       if (num140 > -1)
       {
-        trect2 = new Rectangle(15, 90, 135, 70);
-        Rectangle trect3 = trect2;
+        trect2 = Rectangle::new(15, 90, 135, 70);
+        let mut trect3: &Rectangle = &trect2
         self.AddMouse( trect3, "Click to see statistics on regime variables", "", 2);
       }
       if (num142 > -1)
       {
-        trect2 = new Rectangle(15, 160, 135, 70);
-        Rectangle trect4 = trect2;
+        trect2 = Rectangle::new(15, 160, 135, 70);
+        let mut trect4: &Rectangle = &trect2
         self.AddMouse( trect4, "Click to see statistics on logistics", "", 3);
       }
       if (self.subtabnr == 0)

@@ -64,7 +64,7 @@ namespace WindowsApplication1
             self.currentHelp = index;
           if (index == self.currentHelp)
             DrawMod.DrawBlockGradient( g, 35, 8 + 24 * index, 100, 24, Color.FromArgb(0, 0, 0, 0), Color.FromArgb(96,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
-          Rectangle trect2 = new Rectangle(15, 8 + 24 * index, 120, 24);
+          Rectangle trect2 = Rectangle::new(15, 8 + 24 * index, 120, 24);
           self.AddMouse( trect2, "", "Click to get more info", 1000 + index);
           let mut y: i32 = 13 + 24 * index + 1;
           DrawMod.DrawTextColouredMarcCenter( g, self.game.Data.StringListObj[stringListById].Data[index, 0], self.game.MarcFont5, 75, y, Color.White);

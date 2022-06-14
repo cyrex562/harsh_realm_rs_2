@@ -21,8 +21,8 @@ namespace WindowsApplication1
     {
       if (!this.Game.EditObj.ShownWelcome)
       {
-        int x =  Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        int y =  Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
         if (tGame.ModIntroType == 0)
           this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass( tGame, true, (ScreenClass) this), x, y, 1024, 768);
         else
@@ -33,15 +33,15 @@ namespace WindowsApplication1
         BitmapStore.ReloadSomeGfx();
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
-        int x =  Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        int y =  Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = tGame.ModIntroType != 0 ? this.AddWindow((WindowClass) new WelcomeWindowClass( tGame, true, (ScreenClass) this, true), x, y, 1024, 768) : this.AddWindow((WindowClass) new WelcomeWindowClass( tGame, true, (ScreenClass) this), x, y, 1024, 768);
         this.Game.EditObj.ShowInitialMenu = false;
       }
       else
       {
-        int x =  Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        int y =  Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
         if (tGame.ModIntroType == 0)
           this.wTop = this.AddWindow((WindowClass) new IntroWindowClass( tGame), x, y, 1024, 768);
         else
@@ -56,8 +56,8 @@ namespace WindowsApplication1
       {
         BitmapStore.ReloadSomeGfx();
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
-        int x =  Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        int y =  Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
         if (tGame.ModIntroType == 0)
           this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass( tGame, true, (ScreenClass) this), x, y, 1024, 768);
         else
@@ -67,15 +67,15 @@ namespace WindowsApplication1
       {
         BitmapStore.ReloadSomeGfx();
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
-        int x =  Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        int y =  Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = tGame.ModIntroType != 0 ? this.AddWindow((WindowClass) new WelcomeWindowClass( tGame, true, (ScreenClass) this, true), x, y, 1024, 768) : this.AddWindow((WindowClass) new WelcomeWindowClass( tGame, true, (ScreenClass) this), x, y, 1024, 768);
         this.Game.EditObj.ShowInitialMenu = false;
       }
       else
       {
-        int x =  Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        int y =  Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
         if (tGame.ModIntroType == 0)
           this.wTop = this.AddWindow((WindowClass) new IntroWindowClass( tGame), x, y, 1024, 768);
         else
@@ -98,8 +98,8 @@ namespace WindowsApplication1
       }
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      int windowCounter = this.WindowCounter;
-      for (int index1 = 0; index1 <= windowCounter; index1 += 1)
+      let mut windowCounter: i32 =  this.WindowCounter;
+      for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
       {
         if (x > this.WindowX[index1] & x < this.WindowX[index1] + this.WindowW[index1] && y > this.WindowY[index1] & y < this.WindowY[index1] + this.WindowH[index1])
         {
@@ -107,8 +107,8 @@ namespace WindowsApplication1
           this.WindowFlag[index1] = windowReturnClass.Flag;
           if (windowReturnClass.Counter > -1)
           {
-            int counter = windowReturnClass.Counter;
-            for (int index2 = 0; index2 <= counter; index2 += 1)
+            let mut counter: i32 =  windowReturnClass.Counter;
+            for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
             {
               if (windowReturnClass.CommandType[index2] == 3)
               {
@@ -135,14 +135,14 @@ namespace WindowsApplication1
                   this.wTop = this.AddWindow((WindowClass) new IntroWindowClass( this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
                 if (windowReturnClass.CommandData[index2] == 55)
                 {
-                  int x1 =  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0));
-                  int y1 =  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0));
+                  let mut x1: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0));
+                  let mut y1: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0));
                   this.wTop = this.Game.ModIntroType != 0 ? this.AddWindow((WindowClass) new WelcomeWindowClass( this.Game, true, (ScreenClass) this, true), x1, y1, 1024, 768) : this.AddWindow((WindowClass) new WelcomeWindowClass( this.Game, true, (ScreenClass) this), x1, y1, 1024, 768);
                 }
                 if (windowReturnClass.CommandData[index2] == 50)
                 {
-                  int x2 =  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0));
-                  int y2 =  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0));
+                  let mut x2: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0));
+                  let mut y2: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0));
                   this.wTop = this.Game.ModIntroType != 0 ? this.AddWindow((WindowClass) new RandomWindowClass( this.Game, true), x2, y2, 1024, 768) : this.AddWindow((WindowClass) new RandomWindowClass( this.Game), x2, y2, 1024, 768);
                 }
               }
@@ -162,15 +162,15 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         windowReturnClass2: WindowReturnClass = this.WindowList[windowCounter].HandleKeyPress(nr);
         if (!this.WindowFlag[windowCounter])
           this.WindowFlag[windowCounter] = windowReturnClass2.Flag;
         if (windowReturnClass2.Counter > -1)
         {
-          int counter = windowReturnClass2.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  windowReturnClass2.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
           {
             if (windowReturnClass2.CommandType[index] == 3)
             {
@@ -185,8 +185,8 @@ namespace WindowsApplication1
                 this.wTop = this.AddWindow((WindowClass) new IntroWindowClass( this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
               if (windowReturnClass2.CommandData[index] == 55)
               {
-                int x =  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0));
-                int y =  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0));
+                let mut x: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0));
+                let mut y: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0));
                 this.wTop = this.Game.ModIntroType != 0 ? this.AddWindow((WindowClass) new WelcomeWindowClass( this.Game, true, (ScreenClass) this, true), x, y, 1024, 768) : this.AddWindow((WindowClass) new WelcomeWindowClass( this.Game, true, (ScreenClass) this), 0, 0, DrawMod.TGame.ScreenWidth, DrawMod.TGame.ScreenHeight);
               }
               if (windowReturnClass2.CommandData[index] == 50)

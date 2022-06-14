@@ -111,11 +111,11 @@ namespace WindowsApplication1
       if (this.game.Data.ItemTypeCounter > -1)
       {
         this.ItemTypeListObj = ListClass::new();
-        int itemTypeCounter = this.game.Data.ItemTypeCounter;
-        for (int index = 0; index <= itemTypeCounter; index += 1)
+        let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
+        for (let mut index: i32 =  0; index <= itemTypeCounter; index += 1)
           this.ItemTypeListObj.add(Strings.Trim(Conversion.Str((object) index)) + ") " + this.game.Data.ItemTypeObj[index].Name, index);
         ListClass itemTypeListObj = this.ItemTypeListObj;
-        int tlistselect = tItemTypenr;
+        let mut tlistselect: i32 =  tItemTypenr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -247,7 +247,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.B20Id);
       if (this.B20TextId > 0)
         this.RemoveSubPart(this.B20TextId);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.Bgameslotid[index1] > 0)
@@ -311,16 +311,16 @@ namespace WindowsApplication1
       }
       tsubpart3 =  TextPartClass::new("ItemType Group #: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].ItemGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B2TextId = this.AddSubPart( tsubpart3, 410, 69, 400, 20, 0);
-      int index2 = 0;
+      let mut index2: i32 =  0;
       do
       {
         this.ss = "Click to set a minimum value that a certain gameslot has to have in order to be able to produce this itemtype. -1=none needed";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] bgameslotid = this.Bgameslotid;
-          int index3 = index2;
+          let mut index3: i32 =  index2;
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          int num = this.AddSubPart( tsubpart3, 370, 90 + index2 * 20, 32, 16, 1);
+          let mut num: i32 =  this.AddSubPart( tsubpart3, 370, 90 + index2 * 20, 32, 16, 1);
           bgameslotid[index3] = num;
         }
         string txt1;
@@ -329,17 +329,17 @@ namespace WindowsApplication1
         else
           txt1 = "No GameSlot Needed";
         int[] bgameslottextid = this.Bgameslottextid;
-        int index4 = index2;
+        let mut index4: i32 =  index2;
         tsubpart3 =  TextPartClass::new(txt1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-        int num1 = this.AddSubPart( tsubpart3, 410, 90 + index2 * 20 - 1, 400, 20, 0);
+        let mut num1: i32 =  this.AddSubPart( tsubpart3, 410, 90 + index2 * 20 - 1, 400, 20, 0);
         bgameslottextid[index4] = num1;
         this.ss = "Click to set a minimum value that a certain regimeslot has to have in order to be able to produce this itemtype. -1=none needed";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] bregimeslotid = this.Bregimeslotid;
-          int index5 = index2;
+          let mut index5: i32 =  index2;
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          int num2 = this.AddSubPart( tsubpart3, 370, 190 + index2 * 20, 32, 16, 1);
+          let mut num2: i32 =  this.AddSubPart( tsubpart3, 370, 190 + index2 * 20, 32, 16, 1);
           bregimeslotid[index5] = num2;
         }
         string txt2;
@@ -348,17 +348,17 @@ namespace WindowsApplication1
         else
           txt2 = "No RegimeSlot Needed";
         int[] bregimeslottextid = this.Bregimeslottextid;
-        int index6 = index2;
+        let mut index6: i32 =  index2;
         tsubpart3 =  TextPartClass::new(txt2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-        int num3 = this.AddSubPart( tsubpart3, 410, 190 + index2 * 20 - 1, 400, 20, 0);
+        let mut num3: i32 =  this.AddSubPart( tsubpart3, 410, 190 + index2 * 20 - 1, 400, 20, 0);
         bregimeslottextid[index6] = num3;
         this.ss = "Click to set a howmuch points from regime variable X this itemtype needs to USE in order to produce it. -1=none needed";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] bregimeslotcostid = this.Bregimeslotcostid;
-          int index7 = index2;
+          let mut index7: i32 =  index2;
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          int num4 = this.AddSubPart( tsubpart3, 410, 300 + index2 * 20, 32, 16, 1);
+          let mut num4: i32 =  this.AddSubPart( tsubpart3, 410, 300 + index2 * 20, 32, 16, 1);
           bregimeslotcostid[index7] = num4;
         }
         string txt3;
@@ -367,17 +367,17 @@ namespace WindowsApplication1
         else
           txt3 = "No RegimeSlotCost Needed";
         int[] bregimeslotcosttextid = this.Bregimeslotcosttextid;
-        int index8 = index2;
+        let mut index8: i32 =  index2;
         tsubpart3 =  TextPartClass::new(txt3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-        int num5 = this.AddSubPart( tsubpart3, 450, 300 + index2 * 20 - 1, 400, 20, 0);
+        let mut num5: i32 =  this.AddSubPart( tsubpart3, 450, 300 + index2 * 20 - 1, 400, 20, 0);
         bregimeslotcosttextid[index8] = num5;
         this.ss = "Click to set a researchfield that is neccessary to produce this itemtype";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] bresId = this.BresId;
-          int index9 = index2;
+          let mut index9: i32 =  index2;
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          int num6 = this.AddSubPart( tsubpart3, 370, 450 + index2 * 20, 32, 16, 1);
+          let mut num6: i32 =  this.AddSubPart( tsubpart3, 370, 450 + index2 * 20, 32, 16, 1);
           bresId[index9] = num6;
         }
         string txt4;
@@ -386,9 +386,9 @@ namespace WindowsApplication1
         else
           txt4 = "No Research needed";
         int[] bresTextId = this.BResTextId;
-        int index10 = index2;
+        let mut index10: i32 =  index2;
         tsubpart3 =  TextPartClass::new(txt4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
-        int num7 = this.AddSubPart( tsubpart3, 410, 450 + index2 * 20 - 1, 400, 20, 0);
+        let mut num7: i32 =  this.AddSubPart( tsubpart3, 410, 450 + index2 * 20 - 1, 400, 20, 0);
         bresTextId[index10] = num7;
         index2 += 1;
       }
@@ -552,7 +552,7 @@ namespace WindowsApplication1
       this.PGListObj = ListClass::new();
       if (this.detailnr < -1 | this.detailnr > 99)
         this.detailnr = -1;
-      int index11 = 0;
+      let mut index11: i32 =  0;
       do
       {
         this.PGListObj.add(Conversion.Str((object) index11) + ") " + this.game.Data.TempString[index11 + 200] + " = " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].PeopleGroup[index11]), index11);
@@ -560,7 +560,7 @@ namespace WindowsApplication1
       }
       while (index11 <= 99);
       ListClass pgListObj = this.PGListObj;
-      int detailnr = this.detailnr;
+      let mut detailnr: i32 =  this.detailnr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -595,16 +595,16 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
 label_106:
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.ItemTypeListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -643,10 +643,10 @@ label_106:
             }
             if (num1 == this.B5Id)
             {
-              int num3 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new prodweight, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num3: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new prodweight, please.", "Shadow Empire : Planetary Conquest")));
               if (num3 < 0 | num3 > 99999)
               {
-                int num4 =  Interaction.MsgBox((object) "Between 0 and 99999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =   Interaction.MsgBox((object) "Between 0 and 99999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].ProdWeight = num3;
@@ -656,10 +656,10 @@ label_106:
             }
             if (num1 == this.B13Id)
             {
-              int itemTypeCounter = this.game.Data.ItemTypeCounter;
-              for (int index2 = 0; index2 <= itemTypeCounter; index2 += 1)
+              let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
+              for (let mut index2: i32 =  0; index2 <= itemTypeCounter; index2 += 1)
               {
-                int index3 = 0;
+                let mut index3: i32 =  0;
                 do
                 {
                   this.game.Data.ItemTypeObj[index2].PeopleGroup[index3] = false;
@@ -680,10 +680,10 @@ label_106:
             }
             if (num1 == this.B9Id)
             {
-              int num5 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new multiplier, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num5: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new multiplier, please.", "Shadow Empire : Planetary Conquest")));
               if (num5 < 1 | num5 > 99999)
               {
-                int num6 =  Interaction.MsgBox((object) "Between 1 and 99999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =   Interaction.MsgBox((object) "Between 1 and 99999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].Multiplier = num5;
@@ -711,10 +711,10 @@ label_106:
             }
             if (num1 == this.B12Id)
             {
-              int num7 =  Math.Round(Conversion.Val(Interaction.InputBox("Give which regime slot is raised +1 please.", "Shadow Empire : Planetary Conquest")));
+              let mut num7: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give which regime slot is raised +1 please.", "Shadow Empire : Planetary Conquest")));
               if (num7 < -1 | num7 > 499)
               {
-                int num8 =  Interaction.MsgBox((object) "Between -1 and 499 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =   Interaction.MsgBox((object) "Between -1 and 499 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].IsRegimeSlot = num7;
@@ -742,10 +742,10 @@ label_106:
             }
             if (num1 == this.B15Id)
             {
-              int num9 =  Math.Round(Conversion.Val(Interaction.InputBox("Give XP Modifier", "Shadow Empire : Planetary Conquest")));
+              let mut num9: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give XP Modifier", "Shadow Empire : Planetary Conquest")));
               if (num9 < -999 | num9 > 999)
               {
-                int num10 =  Interaction.MsgBox((object) "Between -999 and 999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num10: i32 =   Interaction.MsgBox((object) "Between -999 and 999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].XpMod = num9;
@@ -755,14 +755,14 @@ label_106:
             }
             if (num1 == this.B19Id)
             {
-              int num11 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Regime Specific (-2=none,-1=all,>-1=reg)", "Shadow Empire : Planetary Conquest")));
+              let mut num11: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Regime Specific (-2=none,-1=all,>-1=reg)", "Shadow Empire : Planetary Conquest")));
               if (num11 <= this.game.Data.RegimeCounter | num11 >= -2)
               {
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSpecific = num11;
               }
               else
               {
-                int num12 =  Interaction.MsgBox((object) "Between -2 and regimecount please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num12: i32 =   Interaction.MsgBox((object) "Between -2 and regimecount please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.MakeItemTypeTypeItemGUI();
               windowReturnClass.SetFlag(true);
@@ -770,14 +770,14 @@ label_106:
             }
             if (num1 == this.B20Id)
             {
-              int num13 =  Math.Round(Conversion.Val(Interaction.InputBox("Use Prod Mod (1-4). 0=seen as 1", "Shadow Empire : Planetary Conquest")));
+              let mut num13: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Use Prod Mod (1-4). 0=seen as 1", "Shadow Empire : Planetary Conquest")));
               if (num13 <= 4 | num13 >= 1)
               {
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].UseProdMod = num13;
               }
               else
               {
-                int num14 =  Interaction.MsgBox((object) "Between 1 and 4 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num14: i32 =   Interaction.MsgBox((object) "Between 1 and 4 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.MakeItemTypeTypeItemGUI();
               windowReturnClass.SetFlag(true);
@@ -785,10 +785,10 @@ label_106:
             }
             if (num1 == this.B16Id)
             {
-              int num15 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Mor Modifier", "Shadow Empire : Planetary Conquest")));
+              let mut num15: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Mor Modifier", "Shadow Empire : Planetary Conquest")));
               if (num15 < -999 | num15 > 999)
               {
-                int num16 =  Interaction.MsgBox((object) "Between -999 and 999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num16: i32 =   Interaction.MsgBox((object) "Between -999 and 999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].MorMod = num15;
@@ -810,7 +810,7 @@ label_106:
             }
             if (num1 == this.BRemoveItemType2Id)
             {
-              for (int itemTypeCounter = this.game.Data.ItemTypeCounter; itemTypeCounter >= 0; itemTypeCounter += -1)
+              for (let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter; itemTypeCounter >= 0; itemTypeCounter += -1)
                 this.game.Data.RemoveItemType(itemTypeCounter);
               this.ItemTypeNr = -1;
               this.MakeItemTypeListGUI(-1);
@@ -819,7 +819,7 @@ label_106:
             }
             if (num1 == this.PGListId)
             {
-              int num17 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num17: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num17 > -1)
               {
@@ -836,16 +836,16 @@ label_106:
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            int tnr2 = 0;
+            let mut tnr2: i32 =  0;
             while (this.SubPartID[index1] != this.Bgameslotid[tnr2])
             {
               if (this.SubPartID[index1] == this.Bregimeslotid[tnr2])
               {
-                int num18 =  Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new regimeslot# needed", "Shadow Empire : Planetary Conquest")));
-                int num19 =  Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new value needed for this slot", "Shadow Empire : Planetary Conquest")));
+                let mut num18: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new regimeslot# needed", "Shadow Empire : Planetary Conquest")));
+                let mut num19: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new value needed for this slot", "Shadow Empire : Planetary Conquest")));
                 if (num18 < -1 | num18 > 499)
                 {
-                  int num20 =  Interaction.MsgBox((object) "Regime Slot # Between -1 and 499 please..", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num20: i32 =   Interaction.MsgBox((object) "Regime Slot # Between -1 and 499 please..", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -858,11 +858,11 @@ label_106:
               }
               if (this.SubPartID[index1] == this.Bregimeslotcostid[tnr2])
               {
-                int num21 =  Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new regimeslot# needed", "Shadow Empire : Planetary Conquest")));
-                int num22 =  Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new ammount of points needed from this regimeslot in order to produce", "Shadow Empire : Planetary Conquest")));
+                let mut num21: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new regimeslot# needed", "Shadow Empire : Planetary Conquest")));
+                let mut num22: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new ammount of points needed from this regimeslot in order to produce", "Shadow Empire : Planetary Conquest")));
                 if (num21 < -1 | num21 > 499 & num22 > 0)
                 {
-                  int num23 =  Interaction.MsgBox((object) "Regime Slot # Between -1 and 499 please.. and qty>0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num23: i32 =   Interaction.MsgBox((object) "Regime Slot # Between -1 and 499 please.. and qty>0", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -883,11 +883,11 @@ label_106:
               if (tnr2 > 4)
                 goto label_106;
             }
-            int num24 =  Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new gameslot# needed", "Shadow Empire : Planetary Conquest")));
-            int num25 =  Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new value needed for this slot", "Shadow Empire : Planetary Conquest")));
+            let mut num24: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new gameslot# needed", "Shadow Empire : Planetary Conquest")));
+            let mut num25: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new value needed for this slot", "Shadow Empire : Planetary Conquest")));
             if (num24 < -1 | num24 > 499)
             {
-              int num26 =  Interaction.MsgBox((object) "Game slot # Between -1 and 499 please..", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num26: i32 =   Interaction.MsgBox((object) "Game slot # Between -1 and 499 please..", Title: ((object) "Shadow Empire : Planetary Conquest"));
             }
             else
             {

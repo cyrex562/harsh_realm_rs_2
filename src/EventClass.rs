@@ -113,16 +113,16 @@ namespace WindowsApplication1
       this.Priority = 0;
     }
 
-    pub void AddCommand(int insert = -1)
+    pub void AddCommand(let mut insert: i32 =  -1)
     {
       this += 1.CommandCounter;
       this.CommandList = (CommandClass[]) Utils.CopyArray((Array) this.CommandList, (Array) new CommandClass[this.CommandCounter + 1]);
       this.CommandList[this.CommandCounter] = new CommandClass(0);
       if (insert <= -1 || insert >= this.CommandCounter - 1)
         return;
-      int commandCounter = this.CommandCounter;
-      int num = insert + 2;
-      for (int index = commandCounter; index >= num; index += -1)
+      let mut commandCounter: i32 =  this.CommandCounter;
+      let mut num: i32 =  insert + 2;
+      for (let mut index: i32 =  commandCounter; index >= num; index += -1)
         this.CommandList[index] = this.CommandList[index - 1];
       this.CommandList[insert + 1] = new CommandClass(0);
     }
@@ -149,9 +149,9 @@ namespace WindowsApplication1
     {
       if (nr < this.CommandCounter)
       {
-        int num1 = nr;
-        int num2 = this.CommandCounter - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.CommandCounter - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.CommandList[index] = this.CommandList[index + 1].Clone();
       }
       --this.CommandCounter;

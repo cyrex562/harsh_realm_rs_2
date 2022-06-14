@@ -55,8 +55,8 @@ namespace WindowsApplication1
       {
         ProjectData.SetProjectError(ex);
         this.RandomCode = new int[this.Counter + 1];
-        int counter = this.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
           this.RandomCode[index] = 0;
         ProjectData.ClearProjectError();
       }
@@ -80,9 +80,9 @@ namespace WindowsApplication1
 
     pub void SetEntry(int gameid, int roundnr, int turnnr, int rancode)
     {
-      int index1 = -1;
-      int counter = this.Counter;
-      for (int index2 = 0; index2 <= counter; index2 += 1)
+      let mut index1: i32 =  -1;
+      let mut counter: i32 =  this.Counter;
+      for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
       {
         if (this.Code[index2] == gameid & this.Round[index2] == roundnr & this.Turn[index2] == turnnr)
         {
@@ -104,9 +104,9 @@ namespace WindowsApplication1
       this.Round[index1] = roundnr;
       int[] qty = this.Qty;
       int[] numArray = qty;
-      int index3 = index1;
-      int index4 = index3;
-      int num = qty[index3] + 1;
+      let mut index3: i32 =  index1;
+      let mut index4: i32 =  index3;
+      let mut num: i32 =  qty[index3] + 1;
       numArray[index4] = num;
       this.Turn[index1] = turnnr;
       this.RandomCode[index1] = rancode;
@@ -114,9 +114,9 @@ namespace WindowsApplication1
 
     pub object ReturnQty(int gameid, int roundnr, int turnnr, int rancode)
     {
-      int index1 = -1;
-      int counter = this.Counter;
-      for (int index2 = 0; index2 <= counter; index2 += 1)
+      let mut index1: i32 =  -1;
+      let mut counter: i32 =  this.Counter;
+      for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
       {
         if (this.Code[index2] == gameid & this.Round[index2] == roundnr & this.Turn[index2] == turnnr & (rancode == -1 | this.RandomCode[index2] == rancode | this.RandomCode[index2] == 0))
         {

@@ -918,7 +918,7 @@ namespace WindowsApplication1
             self.currentCat = index;
           if (index == self.currentCat)
             DrawMod.DrawBlockGradient( g, 36, 43 + 50 * (index - 1), 140, 50, Color.FromArgb(0, 0, 0, 0), Color.FromArgb(96,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
-          trect2 = new Rectangle(36, 43 + 50 * (index - 1), 140, 50);
+          trect2 = Rectangle::new(36, 43 + 50 * (index - 1), 140, 50);
           trect3 = trect2;
           self.AddMouse( trect3, "Stratagem Category " + self.categoryName[index], "Click to see all stratagems in this category", 100000 + index);
           let mut num10: i32 = 50 * index;
@@ -959,19 +959,19 @@ namespace WindowsApplication1
           num13 += self.w - 910;
         if (self.h > 602)
           num14 += self.h - 602;
-        rectangle1 = new Rectangle(num11, num12, num13, num14);
+        rectangle1 = Rectangle::new(num11, num12, num13, num14);
         DrawMod.DrawBlockGradient2( g, num11, num12, num13, num14, Color.FromArgb(50, 0, 0, 0), Color.FromArgb(150, 0, 0, 0));
         DrawMod.DrawSimpleFrame( self.game.LINESFRAME,  g, num11 - 3, num12 - 3, num13 + 6, num14 + 6, 10, 10, 10);
         let mut y1: i32 = num12 + num14 + 30;
         let mut height1: i32 = 240;
-        rectangle2 = new Rectangle(num11, y1, num13, height1);
+        rectangle2 = Rectangle::new(num11, y1, num13, height1);
         let mut x: i32 = 30;
         let mut y2: i32 = 38;
         let mut width: i32 = 155;
         let mut height2: i32 = 512;
         if (self.h > 602)
           height2 += self.h - 602;
-        rectangle3 = new Rectangle(x, y2, width, height2);
+        rectangle3 = Rectangle::new(x, y2, width, height2);
       }
       Rectangle rectangle4;
       if (self.viewMode == 2 & (self.categorySelectMode[self.currentCat] == 3 | self.categorySelectMode[self.currentCat] == 5 | self.categorySelectMode[self.currentCat] == 4))
@@ -992,17 +992,17 @@ namespace WindowsApplication1
           width1 += self.w - 910;
         if (self.h > 602)
           height3 += self.h - 602;
-        rectangle3 = new Rectangle(x1, y3, width1, height3);
+        rectangle3 = Rectangle::new(x1, y3, width1, height3);
         let mut y4: i32 = y3 + height3 + 30;
         let mut height4: i32 = 240;
-        rectangle2 = new Rectangle(x1, y4, width1, height4);
+        rectangle2 = Rectangle::new(x1, y4, width1, height4);
         let mut x2: i32 = 30;
         let mut y5: i32 = 38;
         let mut width2: i32 = 155;
         let mut height5: i32 = 512;
         if (self.h > 602)
           height5 += self.h - 602;
-        rectangle4 = new Rectangle(x2, y5, width2, height5);
+        rectangle4 = Rectangle::new(x2, y5, width2, height5);
       }
       self.game.Data.StringListObj[stringListById8].SetData(0, "ZONEID", 1, 0);
       self.game.Data.StringListObj[stringListById8].SetData(0, "TARGETCHARID", 1, 0);
@@ -1326,18 +1326,18 @@ namespace WindowsApplication1
               {
                 if (self.cardSize == 2)
                 {
-                   Graphics local1 =  g;
+                   let mut local1: &Graphics = &g;
                   bitmap = BitmapStore.GetBitmap(self.game.SECARDOUTLINE);
-                   Bitmap local2 =  bitmap;
+                   let mut local2: &Bitmap = &bitmap;
                   let mut x4: i32 = x3 - 10;
                   let mut y7: i32 = y6 - 10;
                   DrawMod.DrawScaled( local1,  local2, x4, y7, 210, 286);
                 }
                 else
                 {
-                   Graphics local3 =  g;
+                   let mut local3: &Graphics = &g;
                   bitmap = BitmapStore.GetBitmap(self.game.SECARDOUTLINE);
-                   Bitmap local4 =  bitmap;
+                   let mut local4: &Bitmap = &bitmap;
                   let mut x5: i32 = x3 - 10;
                   let mut y8: i32 = y6 - 10;
                   DrawMod.DrawSimple( local3,  local4, x5, y8);
@@ -1345,18 +1345,18 @@ namespace WindowsApplication1
               }
               if (self.cardSize == 2)
               {
-                 Graphics local5 =  g;
+                 let mut local5: &Graphics = &g;
                 bitmap = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]);
-                 Bitmap local6 =  bitmap;
+                 let mut local6: &Bitmap = &bitmap;
                 let mut x6: i32 = x3;
                 let mut y9: i32 = y6;
                 DrawMod.DrawSimple( local5,  local6, x6, y9);
               }
               else
               {
-                 Graphics local7 =  g;
+                 let mut local7: &Graphics = &g;
                 bitmap = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot], size: 2);
-                 Bitmap local8 =  bitmap;
+                 let mut local8: &Bitmap = &bitmap;
                 let mut x7: i32 = x3;
                 let mut y10: i32 = y6;
                 DrawMod.DrawSimple( local7,  local8, x7, y10);
@@ -1364,9 +1364,9 @@ namespace WindowsApplication1
               let mut num47: i32 = SL.Weight[index5];
               if (num47 > 1)
               {
-                 Graphics local9 =  g;
+                 let mut local9: &Graphics = &g;
                 bitmap = BitmapStore.GetBitmap(self.game.SE1_MULTICARD);
-                 Bitmap local10 =  bitmap;
+                 let mut local10: &Bitmap = &bitmap;
                 let mut x8: i32 = x3 - 6;
                 let mut y11: i32 = y6 + num29 - 42;
                 DrawMod.DrawSimple( local9,  local10, x8, y11);
@@ -1476,29 +1476,29 @@ namespace WindowsApplication1
                   let mut num53: i32 = 64;
                   if (self.scrapMouseOver == regcardslot)
                   {
-                     Graphics local11 =  g;
+                     let mut local11: &Graphics = &g;
                     bitmap = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-                     Bitmap local12 =  bitmap;
-                    trect3 = new Rectangle(num53 * 42, 32, 42, 32);
-                    Rectangle srcrect = trect3;
-                    trect2 = new Rectangle(x3 + 40, y6 + 237, 42, 32);
-                    Rectangle destrect = trect2;
+                     let mut local12: &Bitmap = &bitmap;
+                    trect3 = Rectangle::new(num53 * 42, 32, 42, 32);
+                    let mut srcrect: &Rectangle = &trect3
+                    trect2 = Rectangle::new(x3 + 40, y6 + 237, 42, 32);
+                    let mut destrect: &Rectangle = &trect2
                     DrawMod.DrawSimplePart2( local11,  local12, srcrect, destrect);
                     DrawMod.DrawTextColouredConsole( g, tdata2.ToString() + " Scrap Pts", self.game.MarcFont4, x3 + 80, y6 + 244, Color.White);
                   }
                   else
                   {
-                     Graphics local13 =  g;
+                     let mut local13: &Graphics = &g;
                     bitmap = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-                     Bitmap local14 =  bitmap;
-                    trect3 = new Rectangle(num53 * 42, 0, 42, 32);
-                    Rectangle srcrect = trect3;
-                    trect2 = new Rectangle(x3 + 40, y6 + 237, 42, 32);
-                    Rectangle destrect = trect2;
+                     let mut local14: &Bitmap = &bitmap;
+                    trect3 = Rectangle::new(num53 * 42, 0, 42, 32);
+                    let mut srcrect: &Rectangle = &trect3
+                    trect2 = Rectangle::new(x3 + 40, y6 + 237, 42, 32);
+                    let mut destrect: &Rectangle = &trect2
                     DrawMod.DrawSimplePart2( local13,  local14, srcrect, destrect);
                     DrawMod.DrawTextColouredConsole( g, tdata2.ToString() + " Scrap Pts", self.game.MarcFont4, x3 + 80, y6 + 244, Color.LightGray);
                   }
-                  trect3 = new Rectangle(x3 + 42, y6 + 238, 130, 31);
+                  trect3 = Rectangle::new(x3 + 42, y6 + 238, 130, 31);
                   trect2 = trect3;
                   self.AddMouse( trect2, "Scrap!", "Click to Scrap 1 Stratagem", regcardslot + 50100, tdata2);
                   if (self.scrapMouseOver == regcardslot)
@@ -1514,29 +1514,29 @@ namespace WindowsApplication1
                   let mut num54: i32 = 64;
                   if (self.scrapMouseOver == regcardslot)
                   {
-                     Graphics local15 =  g;
+                     let mut local15: &Graphics = &g;
                     bitmap = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-                     Bitmap local16 =  bitmap;
-                    trect3 = new Rectangle(num54 * 42, 32, 42, 32);
-                    Rectangle srcrect = trect3;
-                    trect2 = new Rectangle(x3 + 30 - 15, y6 + 119 - 13, 42, 32);
-                    Rectangle destrect = trect2;
+                     let mut local16: &Bitmap = &bitmap;
+                    trect3 = Rectangle::new(num54 * 42, 32, 42, 32);
+                    let mut srcrect: &Rectangle = &trect3
+                    trect2 = Rectangle::new(x3 + 30 - 15, y6 + 119 - 13, 42, 32);
+                    let mut destrect: &Rectangle = &trect2
                     DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
                     DrawMod.DrawTextColouredConsole( g, tdata2.ToString() + " Pts", self.game.MarcFont5, x3 + 64 - 15, y6 + 130 - 13, Color.White);
                   }
                   else
                   {
-                     Graphics local17 =  g;
+                     let mut local17: &Graphics = &g;
                     bitmap = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-                     Bitmap local18 =  bitmap;
-                    trect3 = new Rectangle(num54 * 42, 0, 42, 32);
-                    Rectangle srcrect = trect3;
-                    trect2 = new Rectangle(x3 + 30 - 15, y6 + 119 - 13, 42, 32);
-                    Rectangle destrect = trect2;
+                     let mut local18: &Bitmap = &bitmap;
+                    trect3 = Rectangle::new(num54 * 42, 0, 42, 32);
+                    let mut srcrect: &Rectangle = &trect3
+                    trect2 = Rectangle::new(x3 + 30 - 15, y6 + 119 - 13, 42, 32);
+                    let mut destrect: &Rectangle = &trect2
                     DrawMod.DrawSimplePart2( local17,  local18, srcrect, destrect);
                     DrawMod.DrawTextColouredConsole( g, tdata2.ToString() + " Pts", self.game.MarcFont5, x3 + 64 - 15, y6 + 130 - 13, Color.LightGray);
                   }
-                  trect3 = new Rectangle(x3 + 37 - 15, y6 + 119 - 13, 60, 32);
+                  trect3 = Rectangle::new(x3 + 37 - 15, y6 + 119 - 13, 60, 32);
                   trect2 = trect3;
                   self.AddMouse( trect2, "Scrap!", "Click to Scrap 1 Stratagem", regcardslot + 50100, tdata2);
                   if (self.scrapMouseOver == regcardslot)
@@ -1551,13 +1551,13 @@ namespace WindowsApplication1
               {
                 if (self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]].MouseOver.Length > 0)
                 {
-                  trect3 = new Rectangle(x3, y6, num28 - 10, num29 - 10);
+                  trect3 = Rectangle::new(x3, y6, num28 - 10, num29 - 10);
                   trect2 = trect3;
                   self.AddMouse( trect2, self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]].Title, str1, regcardslot + 100);
                 }
                 else
                 {
-                  trect3 = new Rectangle(x3, y6, num28 - 10, num29 - 10);
+                  trect3 = Rectangle::new(x3, y6, num28 - 10, num29 - 10);
                   trect2 = trect3;
                   self.AddMouse( trect2, self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]].Title, str1, regcardslot + 100);
                 }
@@ -1569,7 +1569,7 @@ namespace WindowsApplication1
       bool flag1 = true;
       if (self.viewMode == 2 && self.categorySelectMode[self.currentCat] == 1 | self.categorySelectMode[self.currentCat] == 2)
       {
-        Rectangle trect4 = rectangle1;
+        let mut trect4: &Rectangle = &rectangle1
         bool tTempZones = false;
         if (self.currentCat == 7 | self.currentCat == 3)
           tTempZones = true;
@@ -2301,9 +2301,9 @@ namespace WindowsApplication1
         if (self.hovernr > -1)
         {
           let mut nr: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.hovernr];
-           Graphics local19 =  g;
+           let mut local19: &Graphics = &g;
           bitmap = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, nr);
-           Bitmap local20 =  bitmap;
+           let mut local20: &Bitmap = &bitmap;
           let mut x: i32 = num80 + 10;
           let mut y: i32 = num81 + 10;
           DrawMod.DrawSimple( local19,  local20, x, y);
@@ -2317,16 +2317,16 @@ namespace WindowsApplication1
           }
           else
             ttext = self.game.Data.ActionCardObj[nr].MouseOver.Length <= 1 ? "No requirements to play Stratagem" : self.game.Data.ActionCardObj[nr].MouseOver;
-          trect3 = new Rectangle(num80 + 10, num81 + 10, 190, 266);
-          Rectangle trect5 = trect3;
+          trect3 = Rectangle::new(num80 + 10, num81 + 10, 190, 266);
+          let mut trect5: &Rectangle = &trect3
           self.AddMouse( trect5, "REGIMECARD", ttext);
         }
         else if (self.detailnr > -1)
         {
           let mut nr: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.detailnr];
-           Graphics local21 =  g;
+           let mut local21: &Graphics = &g;
           bitmap = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, nr);
-           Bitmap local22 =  bitmap;
+           let mut local22: &Bitmap = &bitmap;
           let mut x: i32 = num80 + 10;
           let mut y: i32 = num81 + 10;
           DrawMod.DrawSimple( local21,  local22, x, y);
@@ -2344,8 +2344,8 @@ namespace WindowsApplication1
           }
           else
             ttext = self.game.Data.ActionCardObj[nr].MouseOver.Length <= 1 ? "No requirements to play Stratagem" : "Requirements:\r\n" + self.game.Data.ActionCardObj[nr].MouseOver;
-          trect3 = new Rectangle(num80 + 10, num81 + 10, 190, 266);
-          Rectangle trect6 = trect3;
+          trect3 = Rectangle::new(num80 + 10, num81 + 10, 190, 266);
+          let mut trect6: &Rectangle = &trect3
           self.AddMouse( trect6, "REGIMECARD", ttext);
         }
         let mut x11: i32 = num80 - 35;
@@ -2428,14 +2428,14 @@ namespace WindowsApplication1
           {
             if (self.h > 742 & self.categorySelectMode[self.currentCat] == 4)
             {
-               Graphics local23 =  g;
+               let mut local23: &Graphics = &g;
               bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(self.miniSelectLeader, 50, 70, true);
-               Bitmap local24 =  bitmap;
+               let mut local24: &Bitmap = &bitmap;
               let mut x12: i32 = x11 +  Math.Round((double) width / 2.0) - 25;
               let mut y20: i32 = y19;
               DrawMod.DrawSimple( local23,  local24, x12, y20);
-              trect3 = new Rectangle(x11 +  Math.Round((double) width / 2.0) - 25, y19, 50, 70);
-              Rectangle trect7 = trect3;
+              trect3 = Rectangle::new(x11 +  Math.Round((double) width / 2.0) - 25, y19, 50, 70);
+              let mut trect7: &Rectangle = &trect3
               self.AddMouse( trect7, "", "Click for more information", 11, self.miniSelectLeader);
               y19 += 70;
             }
@@ -2587,14 +2587,14 @@ namespace WindowsApplication1
             let mut y21: i32 = y18 + 16;
             if (self.h > 672)
             {
-               Graphics local25 =  g;
+               let mut local25: &Graphics = &g;
               bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(num101, 50, 70, true);
-               Bitmap local26 =  bitmap;
+               let mut local26: &Bitmap = &bitmap;
               let mut x13: i32 = x11 +  Math.Round((double) width / 2.0) - 25;
               let mut y22: i32 = y21;
               DrawMod.DrawSimple( local25,  local26, x13, y22);
-              trect3 = new Rectangle(x11 +  Math.Round((double) width / 2.0) - 25, y21, 50, 70);
-              Rectangle trect8 = trect3;
+              trect3 = Rectangle::new(x11 +  Math.Round((double) width / 2.0) - 25, y21, 50, 70);
+              let mut trect8: &Rectangle = &trect3
               self.AddMouse( trect8, "", "Click for more information", 11, num101);
               y21 += 70;
             }
@@ -2699,14 +2699,14 @@ namespace WindowsApplication1
                 DrawMod.DrawTextColouredConsoleCenter( g, tstring17, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y25, self.game.seColWhite);
                 if (simpleList3.Data1[index24] == 2)
                 {
-                  trect3 = new Rectangle(x11, y25 - 20, width, 40);
-                  Rectangle trect9 = trect3;
+                  trect3 = Rectangle::new(x11, y25 - 20, width, 40);
+                  let mut trect9: &Rectangle = &trect3
                   self.AddMouse( trect9, "ASTERIX *", "This *-sign means the Skill Roll is actually made by the targetted Leader.");
                 }
                 else if (flag8)
                 {
-                  trect3 = new Rectangle(x11, y25 - 20, width, 40);
-                  Rectangle trect10 = trect3;
+                  trect3 = Rectangle::new(x11, y25 - 20, width, 40);
+                  let mut trect10: &Rectangle = &trect3
                   self.AddMouse( trect10, "ASTERIX *", "This *-sign means because Secretary is executing the Stratagem there is a -25 penalty.");
                 }
                 y25 += 16;
@@ -3760,18 +3760,18 @@ namespace WindowsApplication1
       {
         if (active & wideTab)
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap2 = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1HIGH);
-           Bitmap local2 =  bitmap2;
+           let mut local2: &Bitmap = &bitmap2;
           let mut x: i32 = tx;
           let mut y: i32 = ty;
           DrawMod.Draw( local1,  local2, x, y, 0.05f, 0.05f, 0.05f, 1f);
         }
         if (!active & wideTab)
         {
-           Graphics local3 =  g;
+           let mut local3: &Graphics = &g;
           Bitmap bitmap3 = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1LOW);
-           Bitmap local4 =  bitmap3;
+           let mut local4: &Bitmap = &bitmap3;
           let mut x: i32 = tx;
           let mut y: i32 = ty;
           DrawMod.Draw( local3,  local4, x, y, 0.05f, 0.05f, 0.05f, 1f);
@@ -3781,18 +3781,18 @@ namespace WindowsApplication1
       {
         if (active & wideTab)
         {
-           Graphics local5 =  g;
+           let mut local5: &Graphics = &g;
           bitmap1 = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1HIGH);
-           Bitmap local6 =  bitmap1;
+           let mut local6: &Bitmap = &bitmap1;
           let mut x: i32 = tx;
           let mut y: i32 = ty;
           DrawMod.DrawSimple( local5,  local6, x, y);
         }
         if (!active & wideTab)
         {
-           Graphics local7 =  g;
+           let mut local7: &Graphics = &g;
           bitmap1 = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1LOW);
-           Bitmap local8 =  bitmap1;
+           let mut local8: &Bitmap = &bitmap1;
           let mut x: i32 = tx;
           let mut y: i32 = ty;
           DrawMod.DrawSimple( local7,  local8, x, y);
@@ -3804,18 +3804,18 @@ namespace WindowsApplication1
         {
           if (active)
           {
-             Graphics local9 =  g;
+             let mut local9: &Graphics = &g;
             bitmap1 = BitmapStore.GetBitmap(spriteSlot);
-             Bitmap local10 =  bitmap1;
+             let mut local10: &Bitmap = &bitmap1;
             let mut x: i32 = tx + 3;
             let mut y: i32 = ty + 4 + spriteOffsetY;
             DrawMod.DrawSimple( local9,  local10, x, y);
           }
           if (!active)
           {
-             Graphics local11 =  g;
+             let mut local11: &Graphics = &g;
             bitmap1 = BitmapStore.GetBitmap(spriteSlot);
-             Bitmap local12 =  bitmap1;
+             let mut local12: &Bitmap = &bitmap1;
             let mut x: i32 = tx + 3;
             let mut y: i32 = ty + 11 + spriteOffsetY;
             DrawMod.DrawSimple( local11,  local12, x, y);
@@ -3827,24 +3827,24 @@ namespace WindowsApplication1
           Rectangle rectangle2;
           if (active)
           {
-             Graphics local13 =  g;
+             let mut local13: &Graphics = &g;
             bitmap1 = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-             Bitmap local14 =  bitmap1;
-            rectangle1 = new Rectangle(iconSlot * 42, 32, 42, 32);
-            Rectangle srcrect = rectangle1;
-            rectangle2 = new Rectangle(tx + 4, ty + 11, 42, 32);
-            Rectangle destrect = rectangle2;
+             let mut local14: &Bitmap = &bitmap1;
+            rectangle1 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle1
+            rectangle2 = Rectangle::new(tx + 4, ty + 11, 42, 32);
+            let mut destrect: &Rectangle = &rectangle2
             DrawMod.DrawSimplePart2( local13,  local14, srcrect, destrect);
           }
           if (!active)
           {
-             Graphics local15 =  g;
+             let mut local15: &Graphics = &g;
             bitmap1 = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-             Bitmap local16 =  bitmap1;
-            rectangle2 = new Rectangle(iconSlot * 42, 0, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(tx + 4, ty + 18, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local16: &Bitmap = &bitmap1;
+            rectangle2 = Rectangle::new(iconSlot * 42, 0, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(tx + 4, ty + 18, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
           }
         }
@@ -3874,9 +3874,9 @@ namespace WindowsApplication1
       }
       else if (wideTab)
         DrawMod.DrawTextColouredConsoleCenter( g, sText, self.game.MarcFont16, tx + 97, ty + 25, c);
-      Rectangle rectangle = new Rectangle(tx, ty, 200, 50);
+      Rectangle rectangle = Rectangle::new(tx, ty, 200, 50);
       if (!wideTab)
-        rectangle = new Rectangle(tx, ty, 75, 50);
+        rectangle = Rectangle::new(tx, ty, 75, 50);
       return rectangle;
     }
   }

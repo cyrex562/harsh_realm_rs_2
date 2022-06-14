@@ -64,9 +64,9 @@ namespace WindowsApplication1
     {
       if (nr < this.counter)
       {
-        int num1 = nr;
-        int num2 = this.counter - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.counter - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
         {
           this.coord[index] = this.coord[index + 1];
           this.coordList[index] = this.coordList[index + 1];
@@ -79,8 +79,8 @@ namespace WindowsApplication1
     {
       if (this.counter == -1)
         return false;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.coord[index].x == x & this.coord[index].y == y & this.coord[index].map == map)
           return true;
@@ -92,8 +92,8 @@ namespace WindowsApplication1
     {
       if (this.counter == -1)
         return -1;
-      int counter = this.counter;
-      for (int slot = 0; slot <= counter; slot += 1)
+      let mut counter: i32 =  this.counter;
+      for (let mut slot: i32 =  0; slot <= counter; slot += 1)
       {
         if (this.coord[slot].x == x & this.coord[slot].y == y & this.coord[slot].map == map)
           return slot;

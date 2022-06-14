@@ -781,7 +781,7 @@
  *
  * 	printf("\nselect a device using the number (or press any key to use
  default):\n\n");
- * 	int deviceNumber = getch() - '0';
+ * 	let mut deviceNumber: i32 =  getch() - '0';
  *
  * 	// create device with the selected driver
  *
@@ -884,7 +884,7 @@
  *
  *  printf("\nselect a device using the number (or press any key to use
  default):\n\n");
- *  int deviceNumber = getch() - '0';
+ *  let mut deviceNumber: i32 =  getch() - '0';
  *
  *  // create recording device with the selected driver
  *
@@ -918,7 +918,7 @@
  * const wchar_t* yourFilename = L"SomeUnicodeFilename.wav"; // assuming this is
  the file name you get from some of your functions
  *
- * const int nBufferSize = 2048; // large enough, but best would be
+ * const let mut nBufferSize: i32 =  2048; // large enough, but best would be
  wcslen(yourFilename)*3.
  * char strBuffer[nBufferSize];
  * irrklang::makeUTF8fromUTF16string(yourFilename, strBuffer, nBufferSize);
@@ -1070,7 +1070,7 @@ IRefCounted::drop() for details.
 */
 IRRKLANG_API ISoundEngine *IRRKLANGCALLCONV createIrrKlangDevice(
     E_SOUND_OUTPUT_DRIVER driver = ESOD_AUTO_DETECT,
-    int options = ESEO_DEFAULT_OPTIONS, const char *deviceID = 0,
+    let mut options: i32 =  ESEO_DEFAULT_OPTIONS, const char *deviceID = 0,
     const char *sdk_version_do_not_use = IRR_KLANG_VERSION);
 
 //! Creates a list of available sound devices for the driver type.

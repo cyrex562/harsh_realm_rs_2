@@ -21,7 +21,7 @@ namespace WindowsApplication1
      int ZoomTimer;
      float LastZoom;
 
-    pub MapWindowClass( GameClass tGame, int tminheight = 0, int tminwidth = 200, int tZoomLevel = -2)
+    pub MapWindowClass( GameClass tGame, let mut tminheight: i32 =  0, let mut tminwidth: i32 =  200, let mut tZoomLevel: i32 =  -2)
       : base( tGame, tGame.ScreenWidth - tminwidth, tGame.ScreenHeight - tminheight)
     {
       this.minheight = tminheight;
@@ -104,11 +104,11 @@ namespace WindowsApplication1
         if (this.game.EditObj.BattleAnimNr > 32)
           this.game.EditObj.BattleAnimNr = 32;
         let mut subPart: SubPartClass = this.SubPartList[this.SubpartNr(this.MapId)];
-        int targetX = this.game.EditObj.TargetX;
-        int targetY = this.game.EditObj.TargetY;
-        int mapSelected = this.game.EditObj.MapSelected;
+        let mut targetX: i32 =  this.game.EditObj.TargetX;
+        let mut targetY: i32 =  this.game.EditObj.TargetY;
+        let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
         Bitmap bitmap = (Bitmap) null;
-         Bitmap local =  bitmap;
+         let mut local: &Bitmap = &bitmap;
         subPart.PaintCoordinate((Graphics) null, targetX, targetY, mapSelected, gBitmap: ( local));
         this.PaintCurrentBitmap(this.MapId);
         windowReturnClass.SetFlag(true);
@@ -134,8 +134,8 @@ namespace WindowsApplication1
       if (this.game.EditObj.BattleTimerActive)
         return windowReturnClass;
       bool flag1 = false;
-      int cornerX = this.game.CornerX;
-      int cornerY = this.game.CornerY;
+      let mut cornerX: i32 =  this.game.CornerX;
+      let mut cornerY: i32 =  this.game.CornerY;
       if (this.game.Data.Round < 1 && this.game.Data.PermanentOverlayUse)
       {
         if (nr == 56 | nr == 104)
@@ -168,12 +168,12 @@ namespace WindowsApplication1
       }
       if (nr == 46)
       {
-        int memorySize1 = this.game.FormRef.GetMemorySize();
-        int memorySize2 = BitmapStore.GetMemorySize();
-        int num =  Interaction.MsgBox((object) ("Memory Used Right Now by GUI (" + Conversion.Str((object) memorySize1) + "KB) + Bitmapstore (" + Conversion.Str((object) memorySize2) + "KB) =" + Conversion.Str((object)  Math.Round((double) (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut memorySize1: i32 =  this.game.FormRef.GetMemorySize();
+        let mut memorySize2: i32 =  BitmapStore.GetMemorySize();
+        let mut num: i32 =   Interaction.MsgBox((object) ("Memory Used Right Now by GUI (" + Conversion.Str((object) memorySize1) + "KB) + Bitmapstore (" + Conversion.Str((object) memorySize2) + "KB) =" + Conversion.Str((object)  Math.Round((double) (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ((object) "Shadow Empire : Planetary Conquest"));
         StreamWriter text1 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_missingsystemgraphics.txt");
-        int counter1 = BitmapStore.Counter;
-        for (int nr1 = 0; nr1 <= counter1; nr1 += 1)
+        let mut counter1: i32 =  BitmapStore.Counter;
+        for (let mut nr1: i32 =  0; nr1 <= counter1; nr1 += 1)
         {
           if (BitmapStore.tmpIsSystem[nr1] && BitmapStore.GetWidth(nr1) == 1 & BitmapStore.Getheight(nr1) == 1)
           {
@@ -183,8 +183,8 @@ namespace WindowsApplication1
         }
         text1.Close();
         StreamWriter text2 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_presentscenariographics.txt");
-        int counter2 = BitmapStore.Counter;
-        for (int index = 0; index <= counter2; index += 1)
+        let mut counter2: i32 =  BitmapStore.Counter;
+        for (let mut index: i32 =  0; index <= counter2; index += 1)
         {
           if (!BitmapStore.tmpIsSystem[index])
           {
@@ -230,18 +230,18 @@ namespace WindowsApplication1
         }
         if (nr == 75 && this.game.SelectX > -1 & this.game.SelectY > -1)
         {
-          int landscapeType = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
-          int spriteNr = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
+          let mut landscapeType: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
+          let mut spriteNr: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
           if (landscapeType > -1)
           {
             if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].randomOverrule < 1)
               this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].randomOverrule = 1;
             HexClass[,] hexObj = this.game.Data.MapObj[0].HexObj;
             HexClass[,] hexClassArray = hexObj;
-            int selectX = this.game.SelectX;
-            int index1 = selectX;
-            int selectY = this.game.SelectY;
-            int index2 = selectY;
+            let mut selectX: i32 =  this.game.SelectX;
+            let mut index1: i32 =  selectX;
+            let mut selectY: i32 =  this.game.SelectY;
+            let mut index2: i32 =  selectY;
             hexClassArray[index1, index2].randomOverrule = hexObj[selectX, selectY].randomOverrule + 1;
             if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].randomOverrule > 9)
               this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].randomOverrule = 1;
@@ -303,13 +303,13 @@ namespace WindowsApplication1
         }
         if (nr == 45 & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical == -1)
         {
-          int unitSelected = this.game.EditObj.UnitSelected;
+          let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.UnitObj[unitSelected].X, this.game.Data.UnitObj[unitSelected].Y].Regime > -1)
             this.game.Data.UnitObj[unitSelected].Regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.UnitObj[unitSelected].X, this.game.Data.UnitObj[unitSelected].Y].Regime;
           if (this.game.Data.UnitObj[unitSelected].IsHQ)
           {
             this.game.Data.AddHistoricalUnit();
-            int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
+            let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].Name = this.game.Data.UnitObj[unitSelected].Name;
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].Type = 5 + this.game.HandyFunctionsObj.HowmanyHQsBelow(unitSelected);
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].Counter = -1;
@@ -323,16 +323,16 @@ namespace WindowsApplication1
           else
           {
             this.game.Data.AddHistoricalUnit();
-            int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
+            let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].TempRegime = this.game.Data.UnitObj[unitSelected].Regime;
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].Name = this.game.Data.UnitObj[unitSelected].Name;
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].Type = 1;
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].Counter =  Math.Round(Conversion.Val(Interaction.InputBox("NATO counter #")));
             this.game.Data.HistoricalUnitObj[historicalUnitCounter].CounterString = Interaction.InputBox("Shortname");
-            int length = this.game.Data.UnitObj[unitSelected].Name.Length;
-            for (int Start = 1; Start <= length; Start += 1)
+            let mut length: i32 =  this.game.Data.UnitObj[unitSelected].Name.Length;
+            for (let mut Start: i32 =  1; Start <= length; Start += 1)
             {
-              int Number =  Math.Round(Conversion.Val(Strings.Mid(this.game.Data.UnitObj[unitSelected].Name, Start)));
+              let mut Number: i32 =   Math.Round(Conversion.Val(Strings.Mid(this.game.Data.UnitObj[unitSelected].Name, Start)));
               if (Number > 0)
               {
                 this.game.Data.HistoricalUnitObj[historicalUnitCounter].CounterString = Strings.Trim(Conversion.Str((object) Number));
@@ -344,9 +344,9 @@ namespace WindowsApplication1
         }
         if (nr == 8 & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1)
         {
-          int num = 0;
-          int unitCounter = this.game.Data.UnitCounter;
-          for (int index = 0; index <= unitCounter; index += 1)
+          let mut num: i32 =  0;
+          let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+          for (let mut index: i32 =  0; index <= unitCounter; index += 1)
           {
             if (this.game.Data.UnitObj[index].PreDef == -1 && this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical)
               num += 1;
@@ -363,11 +363,11 @@ namespace WindowsApplication1
           return windowReturnClass;
         }
       }
-      int num1 = 0;
-      int num2 =  Math.Round(Conversion.Int((double) this.OwnBitmap.Width / (double) (30 * (this.game.EditObj.Zoom + 2))));
-      int num3 = this.game.EditObj.Zoom != 1 ?  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 2)))) :  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 3))));
-      int num4 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
-      int num5 = (double) this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 2 - this.game.CornerY + 3;
+      let mut num1: i32 =  0;
+      let mut num2: i32 =   Math.Round(Conversion.Int((double) this.OwnBitmap.Width / (double) (30 * (this.game.EditObj.Zoom + 2))));
+      let mut num3: i32 =  this.game.EditObj.Zoom != 1 ?  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 2)))) :  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 3))));
+      let mut num4: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
+      let mut num5: i32 =  (double) this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 2 - this.game.CornerY + 3;
       if (this.game.EditObj.Zoom == 1)
       {
         num2 -= 3;
@@ -438,15 +438,15 @@ namespace WindowsApplication1
       OrderResult orderResult1 = OrderResult::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
 label_329:
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1] && this.SubPartID[index1] == this.MapId)
           {
-            int num1 = this.game.SelectX;
-            int selectY1 = this.game.SelectY;
-            int mapSelected1 = this.game.EditObj.MapSelected;
+            let mut num1: i32 =  this.game.SelectX;
+            let mut selectY1: i32 =  this.game.SelectY;
+            let mut mapSelected1: i32 =  this.game.EditObj.MapSelected;
             Coordinate coordinate1 = this.SubPartList[index1].ClickMap(x - this.SubPartX[index1], y - this.SubPartY[index1]);
             if (coordinate1.onmap)
             {
@@ -457,7 +457,7 @@ label_329:
               this.game.SelectX = coordinate1.x;
               this.game.SelectY = coordinate1.y;
               this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, 0);
-              int num2 = !(num1 == this.game.SelectX & selectY1 == this.game.SelectY) ? this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, true, b, coordinate1.data1, coordinate1.penalty) : this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, false, b, coordinate1.data1, coordinate1.penalty);
+              let mut num2: i32 =  !(num1 == this.game.SelectX & selectY1 == this.game.SelectY) ? this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, true, b, coordinate1.data1, coordinate1.penalty) : this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, false, b, coordinate1.data1, coordinate1.penalty);
               if (this.game.EditObj.UnitSelected != num2)
                 this.game.EditObj.SFSelected = -1;
               this.game.EditObj.UnitSelected = num2;
@@ -471,13 +471,13 @@ label_329:
                   this.game.EditObj.RightCLickY = this.game.SelectY;
                   if (this.game.EditObj.PencilType == 12 && this.game.EditObj.PencilMode == 0 & this.game.EditObj.PencilData1 == 1)
                   {
-                    int num3 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].HeightLevel - 1;
+                    let mut num3: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].HeightLevel - 1;
                     if (num3 < 0)
                       num3 = 0;
                     this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].HeightLevel = num3;
-                    int num4 = num3;
-                    int num5 = num3;
-                    int tfacing = 1;
+                    let mut num4: i32 =  num3;
+                    let mut num5: i32 =  num3;
+                    let mut tfacing: i32 =  1;
                     do
                     {
                       Coordinate coordinate2 = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, 0, tfacing);
@@ -519,16 +519,16 @@ label_329:
                       this.game.EditObj.RightClickX = this.game.SelectX;
                       this.game.EditObj.RightCLickY = this.game.SelectY;
                       this.game.EditObj.RightClickMap = this.game.EditObj.MapSelected;
-                      int x1 = this.game.EditObj.RightClickX;
-                      int y1 = this.game.EditObj.RightCLickY;
-                      int map1 = this.game.EditObj.RightClickMap;
+                      let mut x1: i32 =  this.game.EditObj.RightClickX;
+                      let mut y1: i32 =  this.game.EditObj.RightCLickY;
+                      let mut map1: i32 =  this.game.EditObj.RightClickMap;
                       this.game.EditObj.TempCoordList = CoordList::new();
                       int map2;
                       for (; this.game.EditObj.TempSupCameFrom[map1].Value[x1, y1].onmap; map1 = map2)
                       {
                         this.game.EditObj.SupplyPath.AddCoord(x1, y1, map1);
-                        int x2 = this.game.EditObj.TempSupCameFrom[map1].Value[x1, y1].x;
-                        int y2 = this.game.EditObj.TempSupCameFrom[map1].Value[x1, y1].y;
+                        let mut x2: i32 =  this.game.EditObj.TempSupCameFrom[map1].Value[x1, y1].x;
+                        let mut y2: i32 =  this.game.EditObj.TempSupCameFrom[map1].Value[x1, y1].y;
                         map2 = this.game.EditObj.TempSupCameFrom[map1].Value[x1, y1].map;
                         x1 = x2;
                         y1 = y2;
@@ -624,13 +624,13 @@ label_329:
                   {
                     if (this.game.EditObj.PencilMode == 0)
                     {
-                      int num6 = this.game.EditObj.PencilData2;
+                      let mut num6: i32 =  this.game.EditObj.PencilData2;
                       if (this.game.EditObj.PencilData1 == 1)
                         num6 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].HeightLevel + 1;
                       this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].HeightLevel = num6;
-                      int num7 = num6;
-                      int num8 = num6;
-                      int tfacing = 1;
+                      let mut num7: i32 =  num6;
+                      let mut num8: i32 =  num6;
+                      let mut tfacing: i32 =  1;
                       do
                       {
                         Coordinate coordinate3 = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, 0, tfacing);
@@ -658,12 +658,12 @@ label_329:
                   }
                   else if (this.game.EditObj.PencilType == 2)
                   {
-                    int index2 = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                    int index3 = this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
+                    let mut index2: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                    let mut index3: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
                     if (index2 > -1)
                     {
-                      int index4 = index2 - 1;
-                      int index5 = index3 - 1;
+                      let mut index4: i32 =  index2 - 1;
+                      let mut index5: i32 =  index3 - 1;
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].RoadType[index5] == -1)
                       {
                         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].RoadType[index4] = this.game.EditObj.PencilData1;
@@ -723,12 +723,12 @@ label_329:
                   }
                   else if (this.game.EditObj.PencilType == 5)
                   {
-                    int num9 = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                    int num10 = this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
+                    let mut num9: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                    let mut num10: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
                     if (num9 > -1)
                     {
-                      int index6 = num9 - 1;
-                      int index7 = num10 - 1;
+                      let mut index6: i32 =  num9 - 1;
+                      let mut index7: i32 =  num10 - 1;
                       bool flag = false;
                       if (this.game.Data.RiverTypeObj[this.game.EditObj.PencilData1].drawInteriorOnly)
                         flag = true;
@@ -752,12 +752,12 @@ label_329:
                   }
                   else if (this.game.EditObj.PencilType == 6)
                   {
-                    int num11 = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                    int num12 = this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
+                    let mut num11: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                    let mut num12: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY, this.game.EditObj.MapSelected);
                     if (num11 > -1)
                     {
-                      int index8 = num11 - 1;
-                      int index9 = num12 - 1;
+                      let mut index8: i32 =  num11 - 1;
+                      let mut index9: i32 =  num12 - 1;
                       if (!this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].Bridge[index8])
                         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.RightClickX, this.game.EditObj.RightCLickY].Bridge[index8] = true;
                       else
@@ -875,16 +875,16 @@ label_329:
                       }
                       else
                       {
-                        int historical = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical;
-                        int unitCounter = this.game.Data.UnitCounter;
-                        for (int tid = 0; tid <= unitCounter; tid += 1)
+                        let mut historical: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical;
+                        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                        for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
                         {
                           if (this.game.Data.UnitObj[tid].Historical == historical & this.game.Data.UnitObj[tid].Regime == this.game.Data.Turn & this.game.Data.UnitObj[tid].PreDef == -1)
                             simpleList.Add(tid, 1);
                         }
                       }
-                      int counter = simpleList.Counter;
-                      for (int index10 = 0; index10 <= counter; index10 += 1)
+                      let mut counter: i32 =  simpleList.Counter;
+                      for (let mut index10: i32 =  0; index10 <= counter; index10 += 1)
                       {
                         this.game.EditObj.OrderUnit = simpleList.Id[index10];
                         if (this.game.EditObj.OrderType == 48)
@@ -939,8 +939,8 @@ label_329:
                             this.game.EditObj.AreaY = -1;
                             this.game.EditObj.AreaMap = -1;
                             OrderResult orderResult2 = this.game.ProcessingObj.ExecuteMovement(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                            int lowestSpeed1 = this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1);
-                            int lowestSpeed2 = this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1, true);
+                            let mut lowestSpeed1: i32 =  this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1);
+                            let mut lowestSpeed2: i32 =  this.game.HandyFunctionsObj.GetLowestSpeed(this.game.EditObj.OrderUnit, -1, true);
                             if (lowestSpeed1 > -1 & index10 == 0)
                             {
                               if (this.game.Data.SFObj[lowestSpeed2].MoveType == -1)
@@ -1005,7 +1005,7 @@ label_329:
                                   this.game.EditObj.OrderType = 0;
                                   return windowReturnClass;
                                 }
-                                int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+                                let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
                                 this.game.ProcessingObj.PlayCard(this.game.EditObj.DoCardSlot);
                                 if (Strings.Len(this.game.Data.LoadGame) > 0)
                                 {
@@ -1018,13 +1018,13 @@ label_329:
                                   this.game.EditObj.OrderType = 0;
                                   return windowReturnClass;
                                 }
-                                int num13 = 0;
-                                int locCounter = this.game.Data.LocCounter;
-                                for (int locnr = 0; locnr <= locCounter; locnr += 1)
+                                let mut num13: i32 =  0;
+                                let mut locCounter: i32 =  this.game.Data.LocCounter;
+                                for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
                                 {
                                   if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
                                   {
-                                    int index11 = 0;
+                                    let mut index11: i32 =  0;
                                     do
                                     {
                                       if (this.game.Data.LocObj[locnr].Production[index11] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index11]).result)
@@ -1435,14 +1435,14 @@ label_329:
                   this.game.EditObj.RightClickX = this.game.SelectX;
                   this.game.EditObj.RightCLickY = this.game.SelectY;
                   this.game.EditObj.RightClickMap = this.game.EditObj.MapSelected;
-                  int x3 = this.game.EditObj.RightClickX;
-                  int y3 = this.game.EditObj.RightCLickY;
+                  let mut x3: i32 =  this.game.EditObj.RightClickX;
+                  let mut y3: i32 =  this.game.EditObj.RightCLickY;
                   int map3;
-                  for (int map4 = this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].onmap; map4 = map3)
+                  for (let mut map4: i32 =  this.game.EditObj.RightClickMap; this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].onmap; map4 = map3)
                   {
                     this.game.EditObj.SupplyPath.AddCoord(x3, y3, map4);
-                    int x4 = this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].x;
-                    int y4 = this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].y;
+                    let mut x4: i32 =  this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].x;
+                    let mut y4: i32 =  this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].y;
                     map3 = this.game.EditObj.TempSupCameFrom[map4].Value[x3, y3].map;
                     x3 = x4;
                     y3 = y4;
@@ -1468,34 +1468,34 @@ label_329:
               if (!this.game.Data.PermanentOverlayUse | this.game.Data.PermanentOverlayUse & this.game.Data.Round > 0)
               {
                 let mut subPart1: SubPartClass = this.SubPartList[index1];
-                int x5 = num1;
-                int y5 = selectY1;
-                int map5 = mapSelected1;
+                let mut x5: i32 =  num1;
+                let mut y5: i32 =  selectY1;
+                let mut map5: i32 =  mapSelected1;
                 Bitmap bitmap1 = (Bitmap) null;
-                 Bitmap local1 =  bitmap1;
+                 let mut local1: &Bitmap = &bitmap1;
                 subPart1.PaintCoordinate((Graphics) null, x5, y5, map5, gBitmap: ( local1));
                 Bitmap bitmap2;
                 if (this.game.Data.Round == 0)
                 {
                   let mut subPart2: SubPartClass = this.SubPartList[index1];
-                  int selectX = this.game.SelectX;
-                  int selectY2 = this.game.SelectY;
-                  int mapSelected2 = this.game.EditObj.MapSelected;
+                  let mut selectX: i32 =  this.game.SelectX;
+                  let mut selectY2: i32 =  this.game.SelectY;
+                  let mut mapSelected2: i32 =  this.game.EditObj.MapSelected;
                   Bitmap bitmap3 = (Bitmap) null;
-                   Bitmap local2 =  bitmap3;
+                   let mut local2: &Bitmap = &bitmap3;
                   subPart2.PaintCoordinate((Graphics) null, selectX, selectY2, mapSelected2, gBitmap: ( local2));
-                  int tfacing = 1;
+                  let mut tfacing: i32 =  1;
                   do
                   {
                     Coordinate coordinate4 = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, 0, tfacing);
                     if (coordinate4.onmap)
                     {
                       let mut subPart3: SubPartClass = this.SubPartList[index1];
-                      int x6 = coordinate4.x;
-                      int y6 = coordinate4.y;
-                      int mapSelected3 = this.game.EditObj.MapSelected;
+                      let mut x6: i32 =  coordinate4.x;
+                      let mut y6: i32 =  coordinate4.y;
+                      let mut mapSelected3: i32 =  this.game.EditObj.MapSelected;
                       bitmap2 = (Bitmap) null;
-                       Bitmap local3 =  bitmap2;
+                       let mut local3: &Bitmap = &bitmap2;
                       subPart3.PaintCoordinate((Graphics) null, x6, y6, mapSelected3, gBitmap: ( local3));
                     }
                     tfacing += 1;
@@ -1505,27 +1505,27 @@ label_329:
                 else
                 {
                   let mut subPart4: SubPartClass = this.SubPartList[index1];
-                  int selectX = this.game.SelectX;
-                  int selectY3 = this.game.SelectY;
-                  int mapSelected4 = this.game.EditObj.MapSelected;
+                  let mut selectX: i32 =  this.game.SelectX;
+                  let mut selectY3: i32 =  this.game.SelectY;
+                  let mut mapSelected4: i32 =  this.game.EditObj.MapSelected;
                   Bitmap bitmap4 = (Bitmap) null;
-                   Bitmap local4 =  bitmap4;
+                   let mut local4: &Bitmap = &bitmap4;
                   subPart4.PaintCoordinate((Graphics) null, selectX, selectY3, mapSelected4, gBitmap: ( local4));
                 }
                 if (this.game.Data.Round == 0 & this.game.EditObj.PencilType == 1)
                 {
-                  int tfacing = 1;
+                  let mut tfacing: i32 =  1;
                   do
                   {
                     Coordinate coordinate5 = this.game.HandyFunctionsObj.HexNeighbourSameMap(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, tfacing);
                     if (coordinate5.onmap)
                     {
                       let mut subPart5: SubPartClass = this.SubPartList[index1];
-                      int x7 = coordinate5.x;
-                      int y7 = coordinate5.y;
-                      int map6 = coordinate5.map;
+                      let mut x7: i32 =  coordinate5.x;
+                      let mut y7: i32 =  coordinate5.y;
+                      let mut map6: i32 =  coordinate5.map;
                       bitmap2 = (Bitmap) null;
-                       Bitmap local5 =  bitmap2;
+                       let mut local5: &Bitmap = &bitmap2;
                       subPart5.PaintCoordinate((Graphics) null, x7, y7, map6, gBitmap: ( local5));
                     }
                     tfacing += 1;
@@ -1566,8 +1566,8 @@ label_329:
       currentDescript: String = this.game.EditObj.CurrentDescript;
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1] && this.SubPartID[index1] == this.MapId)
           {
@@ -1584,46 +1584,46 @@ label_329:
                   str2: String = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].Regime != -1 ? str1 + " - " + this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].Regime].Name : str1 + " - Unoccupied Territory";
                   if (!this.game.EditObj.HideAS & this.game.Data.Round > 0)
                   {
-                    int x1 = coordinate.x;
-                    int y1 = coordinate.y;
+                    let mut x1: i32 =  coordinate.x;
+                    let mut y1: i32 =  coordinate.y;
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyLost(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyLost(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyLost(this.game.Data.Turn);
                       str2 = str2 + ", SupplyLost = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsLost(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsLost(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsLost(this.game.Data.Turn);
                       str2 = str2 + ", PowerPtsLost = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyKilled(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyKilled(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyKilled(this.game.Data.Turn);
                       str2 = str2 + ", SupplyKilled = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsKilled(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsKilled(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsKilled(this.game.Data.Turn);
                       str2 = str2 + ", PowerPtsKilled = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStack(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStack(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStack(this.game.Data.Turn);
                       str2 = str2 + ", BattleStack = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackArt(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackArt(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackArt(this.game.Data.Turn);
                       str2 = str2 + ", BattleStackArt = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackAir(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackAir(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackAir(this.game.Data.Turn);
                       str2 = str2 + ", BattleStackAir = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattlePenalty(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattlePenalty(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattlePenalty(this.game.Data.Turn);
                       str2 = str2 + ", Battle AP Penalty = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                   }
@@ -1647,31 +1647,31 @@ label_329:
                     str4 = "";
                   }
                   this.game.EditObj.CurrentDescript = str3 + str4;
-                  int x2 = coordinate.x;
-                  int y2 = coordinate.y;
+                  let mut x2: i32 =  coordinate.x;
+                  let mut y2: i32 =  coordinate.y;
                   if (this.game.Data.Round > 0)
                   {
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyLost(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyLost(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyLost(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyLost = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsLost(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsLost(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsLost(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsLost = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyKilled(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyKilled(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyKilled(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyKilled = " + Strings.Trim(Conversion.Str((object) Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsKilled(this.game.Data.Turn) > 0)
                     {
-                      int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsKilled(this.game.Data.Turn);
+                      let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsKilled(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
                       editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsKilled = " + Strings.Trim(Conversion.Str((object) Number));
                     }
@@ -1690,7 +1690,7 @@ label_329:
                     this.game.EditObj.CurrentDescript = "Move Cost = " + Conversion.Str((object) this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
                     if (this.game.EditObj.OrderType == 1)
                     {
-                      int integer = Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
+                      let mut integer: i32 =  Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
                       if (integer > 0)
                       {
                         EditClass editObj = this.game.EditObj;
@@ -1703,7 +1703,7 @@ label_329:
                     this.game.EditObj.CurrentDescript = "Impossible to move here. Move Cost = " + Conversion.Str((object) this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
                     if (this.game.EditObj.OrderType == 1)
                     {
-                      int integer = Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
+                      let mut integer: i32 =  Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
                       if (integer > 0)
                       {
                         EditClass editObj = this.game.EditObj;
@@ -1722,17 +1722,17 @@ label_329:
                 if (this.game.EditObj.OrderType == 35)
                 {
                   str: String = "To far away.";
-                  int num = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, coordinate.x, coordinate.y, coordinate.map);
+                  let mut num: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, coordinate.x, coordinate.y, coordinate.map);
                   if (num > 0)
                   {
-                    int index2 = num - 1;
+                    let mut index2: i32 =  num - 1;
                     str = "No river.";
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[index2] > -1)
                     {
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Bridge[index2])
                       {
-                        int Number1 = Conversion.Int(this.game.HandyFunctionsObj.GetBlowBridgePts(this.game.EditObj.OrderUnit));
-                        int Number2 =  Math.Round((double) Conversion.Int(this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[index2]].BridgeCostModifier));
+                        let mut Number1: i32 =  Conversion.Int(this.game.HandyFunctionsObj.GetBlowBridgePts(this.game.EditObj.OrderUnit));
+                        let mut Number2: i32 =   Math.Round((double) Conversion.Int(this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[index2]].BridgeCostModifier));
                         str = "Unit has a chance of " + Conversion.Str((object) Number1) + " : " + Conversion.Str((object) Number2) + " to demolish this bridge. ";
                       }
                       else
@@ -1753,13 +1753,13 @@ label_329:
                 else if (this.game.EditObj.OrderType == 36)
                 {
                   str5: String = "To far away.";
-                  int num = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, coordinate.x, coordinate.y, coordinate.map);
+                  let mut num: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, coordinate.x, coordinate.y, coordinate.map);
                   if (num > -1)
                   {
-                    int x3 = this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, coordinate.x, coordinate.y, coordinate.map, EngineerTest: true).x;
+                    let mut x3: i32 =  this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, coordinate.x, coordinate.y, coordinate.map, EngineerTest: true).x;
                     if (x3 <= this.game.HandyFunctionsObj.GetLowestAp(this.game.EditObj.OrderUnit))
                     {
-                      int facing = num - 1;
+                      let mut facing: i32 =  num - 1;
                       string str6;
                       if ((double) this.game.Data.RuleVar[32] == -1.0)
                       {
@@ -1886,8 +1886,8 @@ label_329:
         if (this.game.Data.PeopleCounter > 0)
         {
           str1: String = "\r\n";
-          int peopleCounter = this.game.Data.PeopleCounter;
-          for (int index = 0; index <= peopleCounter; index += 1)
+          let mut peopleCounter: i32 =  this.game.Data.PeopleCounter;
+          for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
             str1 = str1 + index.ToString() + ") " + this.game.Data.PeopleObj[index].Name + "\r\n";
           str2: String = Conversions.ToString(Conversion.Val(Interaction.InputBox("Give People # for town..." + str1, "Shadow Empire : Planetary Conquest")));
           if (Operators.CompareString(str2, "", false) == 0)
@@ -1895,7 +1895,7 @@ label_329:
           num1 =  Math.Round(Conversion.Val(str2));
           if (num1 == -1 | num1 > this.game.Data.PeopleCounter)
           {
-            int num2 =  Interaction.MsgBox((object) "Invalid people#", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num2: i32 =   Interaction.MsgBox((object) "Invalid people#", Title: ((object) "Shadow Empire : Planetary Conquest"));
             return (object) -1;
           }
         }
@@ -1905,7 +1905,7 @@ label_329:
       Left: String = Interaction.InputBox("Give Name for this location...", "Shadow Empire : Planetary Conquest", this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name);
       if (Operators.CompareString(Left, "", false) == 0)
         return (object) -1;
-      int regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
+      let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       if (this.game.Data.LocTypeObj[this.game.EditObj.PencilData1].OverdrawLTNr > -1)
       {
         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType = this.game.Data.LocTypeObj[this.game.EditObj.PencilData1].OverdrawLTNr;
@@ -1933,25 +1933,25 @@ label_329:
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
+      let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
-      int num = 1;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].Regime = newreg;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
@@ -1972,25 +1972,25 @@ label_329:
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int num1 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].AreaCode[slot];
+      let mut num1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].AreaCode[slot];
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
-      int num2 = 1;
+      let mut num2: i32 =  1;
       while (num2 == 1)
       {
         num2 = 0;
         int Right;
         Right += 1;
-        int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num2 = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].AreaCode[slot] = code;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
@@ -2011,25 +2011,25 @@ label_329:
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int hexLibVarValue = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(slot);
+      let mut hexLibVarValue: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(slot);
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
-      int num = 1;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].SetHexLibVarValue(slot, code);
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
@@ -2050,20 +2050,20 @@ label_329:
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int landscapeType = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
-      int spriteNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
-      int num = 1;
+      let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
+      let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapSelected = this.game.EditObj.MapSelected;
-        int mapWidth = this.game.Data.MapObj[mapSelected].MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
+        let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[mapSelected].MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[index1, index2], (object) Right, false))
             {
@@ -2073,7 +2073,7 @@ label_329:
               this.game.HandyFunctionsObj.RandomizeHex(index1, index2, mapSelected);
               if (this.game.Data.LandscapeTypeObj[newland].IsSea)
                 this.game.Data.MapObj[mapSelected].HexObj[index1, index2].Regime = -1;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(index1, index2, mapSelected, tfacing);
@@ -2094,26 +2094,26 @@ label_329:
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int landscapeType = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
-      int spriteNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
-      int num1 = 1;
+      let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
+      let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
+      let mut num1: i32 =  1;
       while (num1 == 1)
       {
         num1 = 0;
         int Right;
         Right += 1;
-        int mapSelected = this.game.EditObj.MapSelected;
-        int mapWidth = this.game.Data.MapObj[mapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
+        let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[mapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num1 = 1;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].HeightLevel = newHeight;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, mapSelected, tfacing);
@@ -2126,15 +2126,15 @@ label_329:
           }
         }
       }
-      int mapWidth1 = this.game.Data.MapObj[0].MapWidth;
-      for (int cx = 0; cx <= mapWidth1; cx += 1)
+      let mut mapWidth1: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut cx: i32 =  0; cx <= mapWidth1; cx += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
-        for (int cy = 0; cy <= mapHeight; cy += 1)
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+        for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
         {
-          int num2 = newHeight;
-          int num3 = newHeight;
-          int tfacing = 1;
+          let mut num2: i32 =  newHeight;
+          let mut num3: i32 =  newHeight;
+          let mut tfacing: i32 =  1;
           do
           {
             Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
@@ -2162,27 +2162,27 @@ label_329:
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
       objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
-      int specialType = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialType;
-      int specialSprite = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialSprite;
-      int num = 1;
+      let mut specialType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialType;
+      let mut specialSprite: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialSprite;
+      let mut num: i32 =  1;
       while (num == 1)
       {
         num = 0;
         int Right;
         Right += 1;
-        int mapSelected = this.game.EditObj.MapSelected;
-        int mapWidth = this.game.Data.MapObj[mapSelected].MapWidth;
-        for (int cx = 0; cx <= mapWidth; cx += 1)
+        let mut mapSelected: i32 =  this.game.EditObj.MapSelected;
+        let mut mapWidth: i32 =  this.game.Data.MapObj[mapSelected].MapWidth;
+        for (let mut cx: i32 =  0; cx <= mapWidth; cx += 1)
         {
-          int mapHeight = this.game.Data.MapObj[mapSelected].MapHeight;
-          for (int cy = 0; cy <= mapHeight; cy += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
+          for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
             if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
             {
               num = 1;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].SpecialType = newland;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].SpecialSprite = newspr;
-              int tfacing = 1;
+              let mut tfacing: i32 =  1;
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, mapSelected, tfacing);

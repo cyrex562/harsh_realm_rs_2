@@ -614,14 +614,14 @@ namespace WindowsApplication1
       }
       self.assetButtonCounter = -1;
       let mut y1: i32 = 80;
-      Rectangle rectangle1 = new Rectangle(0, y1, 220, self.useHeight);
+      Rectangle rectangle1 = Rectangle::new(0, y1, 220, self.useHeight);
       let mut width1: i32 = rectangle1.Width;
       let mut y2: i32 = y1;
       let mut width2: i32 = self.useWidth - width1;
       let mut height1: i32 = 50;
-      Rectangle rectangle2 = new Rectangle(width1, y2, width2, height1);
-      Rectangle rectangle3 = new Rectangle(rectangle2.Left, rectangle2.Top + rectangle2.Height, rectangle2.Width, self.useHeight - (rectangle2.Height + 200 + y1));
-      Rectangle rectangle4 = new Rectangle(rectangle3.X, rectangle3.Y + rectangle3.Height, rectangle3.Width, 200);
+      Rectangle rectangle2 = Rectangle::new(width1, y2, width2, height1);
+      Rectangle rectangle3 = Rectangle::new(rectangle2.Left, rectangle2.Top + rectangle2.Height, rectangle2.Width, self.useHeight - (rectangle2.Height + 200 + y1));
+      Rectangle rectangle4 = Rectangle::new(rectangle3.X, rectangle3.Y + rectangle3.Height, rectangle3.Width, 200);
       DrawMod.DrawBlock( g, rectangle1.X, rectangle1.Y, rectangle1.Width, rectangle1.Height, 0, 0, 0, 120);
       DrawMod.DrawBlock( g, rectangle2.X, rectangle2.Y, rectangle2.Width, rectangle2.Height, 0, 0, 0, 160);
       DrawMod.DrawBlock( g, rectangle3.X, rectangle3.Y, rectangle3.Width, rectangle3.Height, 0, 0, 0, 140);
@@ -747,16 +747,16 @@ namespace WindowsApplication1
           Bitmap bitmap = (Bitmap) self.game.CustomBitmapObj.DrawLeaderPortrait(num21, 40, 56).Clone();
           if (num17 == 1)
             DrawMod.DrawTextColouredMarc( g, "PORTRAIT, NAME, JOB", self.game.MarcFont5, x4, num16 - 28, Color.White);
-           Graphics local1 =  g;
-           Bitmap local2 =  bitmap;
-          trect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
-          Rectangle srcrect = trect;
-          rectangle5 = new Rectangle(x4, num16, 40, 56);
-          Rectangle destrect = rectangle5;
+           let mut local1: &Graphics = &g;
+           let mut local2: &Bitmap = &bitmap;
+          trect = Rectangle::new(0, 0, bitmap.Width, bitmap.Height);
+          let mut srcrect: &Rectangle = &trect
+          rectangle5 = Rectangle::new(x4, num16, 40, 56);
+          let mut destrect: &Rectangle = &rectangle5
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           bitmap.Dispose();
           bitmap = (Bitmap) null;
-          rectangle5 = new Rectangle(x4, num16, 50, height2);
+          rectangle5 = Rectangle::new(x4, num16, 50, height2);
           trect = rectangle5;
           self.AddMouse( trect, "", "Click to get more information on this Leader", 20000000 + num21);
           let mut x5: i32 = x4 + 50;
@@ -764,7 +764,7 @@ namespace WindowsApplication1
           characterJobTitle: String = self.game.EventRelatedObj.Helper_GetCharacterJobTitle(num21);
           DrawMod.DrawTextColouredMarc( g, tstring, self.game.MarcFont16, x5, num16 + num19 - 12, Color.White);
           DrawMod.DrawTextColouredMarc( g, characterJobTitle, self.game.MarcFont4, x5, num16 + num19 + 12, Color.LightGray);
-          rectangle5 = new Rectangle(x5, num16, 300, height2);
+          rectangle5 = Rectangle::new(x5, num16, 300, height2);
           trect = rectangle5;
           self.AddMouse( trect, "", "Click to select this row", 1000000 + num21);
           let mut x6: i32 = x5 + 300;
@@ -786,7 +786,7 @@ namespace WindowsApplication1
               for (SizeF sizeF3 = g.MeasureString(str2, self.game.MarcFont5); (double) sizeF3.Width > (double) num20; sizeF3 = g.MeasureString(str2, self.game.MarcFont5))
                 str2 = Strings.Left(str2, str2.Length - 1);
               DrawMod.DrawTextColouredMarc( g, str2, self.game.MarcFont5, x6, num16 - 28, Color.White);
-              rectangle5 = new Rectangle(x6, num16 - 32, num20, 32);
+              rectangle5 = Rectangle::new(x6, num16 - 32, num20, 32);
               trect = rectangle5;
               self.AddMouse( trect, "", "Click to sort differently", 50000 + index2);
             }
@@ -797,19 +797,19 @@ namespace WindowsApplication1
             DrawMod.DrawTextColouredMarc( g, str3, self.game.MarcFont4, x6, num16 + num19, Color.White);
             if (ttext.Length > 1)
             {
-              rectangle5 = new Rectangle(x6 - 5, num16, num20, height2 - 1);
+              rectangle5 = Rectangle::new(x6 - 5, num16, num20, height2 - 1);
               trect = rectangle5;
               self.AddMouse( trect, "", ttext);
             }
             else
             {
-              rectangle5 = new Rectangle(x6 - 5, num16, num20, height2 - 1);
+              rectangle5 = Rectangle::new(x6 - 5, num16, num20, height2 - 1);
               trect = rectangle5;
               self.AddMouse( trect, "", "Click to select this row", 1000000 + num21);
             }
             x6 += num20;
           }
-          rectangle5 = new Rectangle(x6, num16, rectangle3.Width - x6, height2);
+          rectangle5 = Rectangle::new(x6, num16, rectangle3.Width - x6, height2);
           trect = rectangle5;
           self.AddMouse( trect, "", "Click to select this row", 1000000 + num21);
           num16 += height2;
@@ -821,16 +821,16 @@ namespace WindowsApplication1
       if (se1LeaderSelected > 0)
       {
         Bitmap bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(se1LeaderSelected, 100, 140, true);
-         Graphics local3 =  g;
-         Bitmap local4 =  bitmap;
-        rectangle5 = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
-        Rectangle srcrect = rectangle5;
-        trect = new Rectangle(x7, y6, 100, 140);
-        Rectangle destrect = trect;
+         let mut local3: &Graphics = &g;
+         let mut local4: &Bitmap = &bitmap;
+        rectangle5 = Rectangle::new(0, 0, bitmap.Width, bitmap.Height);
+        let mut srcrect: &Rectangle = &rectangle5
+        trect = Rectangle::new(x7, y6, 100, 140);
+        let mut destrect: &Rectangle = &trect
         DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
         bitmap.Dispose();
         bitmap = (Bitmap) null;
-        rectangle5 = new Rectangle(x7, y6, 100, 140);
+        rectangle5 = Rectangle::new(x7, y6, 100, 140);
         trect = rectangle5;
         self.AddMouse( trect, "", "Click to get more information on this Leader", 20000000 + se1LeaderSelected);
         let mut num23: i32 = x7 + 120;

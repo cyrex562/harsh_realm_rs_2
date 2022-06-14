@@ -98,7 +98,7 @@ namespace WindowsApplication1
     pub void AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut tdata2: i32 = -1)
     {
       self += 1.MouseCounter;
-      self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) new Rectangle[self.MouseCounter + 1]);
+      self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) Rectangle::new[self.MouseCounter + 1]);
       self.MouseText = (string[]) Utils.CopyArray((Array) self.MouseText, (Array) new string[self.MouseCounter + 1]);
       self.MouseTitle = (string[]) Utils.CopyArray((Array) self.MouseTitle, (Array) new string[self.MouseCounter + 1]);
       self.MouseData = (int[]) Utils.CopyArray((Array) self.MouseData, (Array) new int[self.MouseCounter + 1]);
@@ -167,7 +167,7 @@ namespace WindowsApplication1
       let mut sy: i32 = -1,
       bool tTransBacksprite = false)
     {
-      self.QuickRect = new Rectangle[20];
+      self.QuickRect = Rectangle::new[20];
       self.QuickDrawMode = false;
       self.QuickRectCount = -1;
       self.QuickRectMax = 19;
@@ -237,12 +237,12 @@ namespace WindowsApplication1
       {
         if (backcolornr == 99 & !Information.IsNothing((object) self.screenbackref))
         {
-           Graphics local1 =  graphics;
+           let mut local1: &Graphics = &graphics;
            Bitmap local2 =  self.screenbackref;
-          rectangle1 = new Rectangle(self.screenx, self.screeny, self.screenw, self.screenh);
-          Rectangle srcrect = rectangle1;
-          rectangle2 = new Rectangle(0, 0, self.screenw, self.screenh);
-          Rectangle destrect = rectangle2;
+          rectangle1 = Rectangle::new(self.screenx, self.screeny, self.screenw, self.screenh);
+          let mut srcrect: &Rectangle = &rectangle1
+          rectangle2 = Rectangle::new(0, 0, self.screenw, self.screenh);
+          let mut destrect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           self.useparentscreenbitmap = true;
         }
@@ -268,28 +268,28 @@ namespace WindowsApplication1
         {
           if (BitmapStore.GetWidth(BackSprite) > w)
           {
-             Graphics local3 =  graphics;
+             let mut local3: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(BackSprite);
-             Bitmap local4 =  bitmap;
-            rectangle2 = new Rectangle( Math.Round((double) BitmapStore.GetWidth(BackSprite) / 2.0 - (double) w / 2.0), 0, w, h);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(0, 0, w, h);
-            Rectangle destrect = rectangle1;
+             let mut local4: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new( Math.Round((double) BitmapStore.GetWidth(BackSprite) / 2.0 - (double) w / 2.0), 0, w, h);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(0, 0, w, h);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
           }
           else
           {
-             Graphics local5 =  graphics;
+             let mut local5: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(BackSprite);
-             Bitmap local6 =  bitmap;
+             let mut local6: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local5,  local6, 0, 0);
           }
         }
         else
         {
-           Graphics local7 =  graphics;
+           let mut local7: &Graphics = &graphics;
           Bitmap bitmap = BitmapStore.GetBitmap(BackSprite);
-           Bitmap local8 =  bitmap;
+           let mut local8: &Bitmap = &bitmap;
           let mut w1: i32 = w;
           let mut h1: i32 = h;
           DrawMod.DrawScaled( local7,  local8, 0, 0, w1, h1);
@@ -338,9 +338,9 @@ namespace WindowsApplication1
           {
             if (self.LastOverlaySubPart == self.SubPartID[index])
             {
-               Graphics local1 =  objGraphics;
+               let mut local1: &Graphics = &objGraphics;
               bitmap = self.SubPartList[index].PaintOverlay();
-               Bitmap local2 =  bitmap;
+               let mut local2: &Bitmap = &bitmap;
                Bitmap local3 =  self.OwnBitmap;
               let mut x: i32 = self.SubPartX[index];
               let mut y: i32 = self.SubPartY[index];
@@ -348,9 +348,9 @@ namespace WindowsApplication1
             }
             else
             {
-               Graphics local4 =  objGraphics;
+               let mut local4: &Graphics = &objGraphics;
               bitmap = self.SubPartList[index].Paint();
-               Bitmap local5 =  bitmap;
+               let mut local5: &Bitmap = &bitmap;
                Bitmap local6 =  self.OwnBitmap;
               let mut x: i32 = self.SubPartX[index];
               let mut y: i32 = self.SubPartY[index];
@@ -363,18 +363,18 @@ namespace WindowsApplication1
         {
           if (self.LastOverlaySubPart == self.SubPartID[index])
           {
-             Graphics local7 =  objGraphics;
+             let mut local7: &Graphics = &objGraphics;
             bitmap = self.SubPartList[index].PaintOverlay();
-             Bitmap local8 =  bitmap;
+             let mut local8: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
             DrawMod.DrawSimple( local7,  local8, x, y);
           }
           else
           {
-             Graphics local9 =  objGraphics;
+             let mut local9: &Graphics = &objGraphics;
             bitmap = self.SubPartList[index].Paint();
-             Bitmap local10 =  bitmap;
+             let mut local10: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
             DrawMod.DrawSimple( local9,  local10, x, y);
@@ -400,9 +400,9 @@ namespace WindowsApplication1
           if (self.SubPartList[index].UseSourceCopyForPaintSpecific())
           {
             Expression.CompositingMode = CompositingMode.SourceCopy;
-             Graphics local1 =  Expression;
+             let mut local1: &Graphics = &Expression;
             Bitmap bitmap = self.SubPartList[index].Paint();
-             Bitmap local2 =  bitmap;
+             let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
             DrawMod.DrawSimple( local1,  local2, x, y);
@@ -410,14 +410,14 @@ namespace WindowsApplication1
           }
           else
           {
-             Graphics local3 =  Expression;
+             let mut local3: &Graphics = &Expression;
             Bitmap bitmap = self.SubPartList[index].Paint();
-             Bitmap local4 =  bitmap;
+             let mut local4: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
             DrawMod.DrawSimple( local3,  local4, x, y);
           }
-          self.AddQuickRect(new Rectangle(self.SubPartX[index], self.SubPartY[index], self.SubPartW[index], self.SubPartH[index]));
+          self.AddQuickRect(Rectangle::new(self.SubPartX[index], self.SubPartY[index], self.SubPartW[index], self.SubPartH[index]));
         }
       }
       if (Information.IsNothing((object) Expression))
@@ -451,9 +451,9 @@ namespace WindowsApplication1
           }
           else
           {
-             Graphics local1 =  Expression;
+             let mut local1: &Graphics = &Expression;
             Bitmap bitmap = self.SubPartList[index].Paint();
-             Bitmap local2 =  bitmap;
+             let mut local2: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
             DrawMod.DrawSimple( local1,  local2, x, y);
@@ -488,13 +488,13 @@ namespace WindowsApplication1
         if (id == self.SubPartID[index])
         {
           Expression = Graphics.FromImage((Image) self.OwnBitmap);
-           Graphics local1 =  Expression;
+           let mut local1: &Graphics = &Expression;
           Bitmap bitmap = self.SubPartList[index].PaintOverlay();
-           Bitmap local2 =  bitmap;
+           let mut local2: &Bitmap = &bitmap;
           let mut x: i32 = self.SubPartX[index];
           let mut y: i32 = self.SubPartY[index];
           DrawMod.DrawSimple( local1,  local2, x, y);
-          self.AddQuickRect(new Rectangle(self.SubPartX[index], self.SubPartY[index], self.SubPartW[index], self.SubPartH[index]));
+          self.AddQuickRect(Rectangle::new(self.SubPartX[index], self.SubPartY[index], self.SubPartW[index], self.SubPartH[index]));
         }
       }
       if (!Information.IsNothing((object) Expression))
@@ -517,9 +517,9 @@ namespace WindowsApplication1
           {
             if (self.SubPartList[index].MouseMove( Math.Round((double) ((float) Cursor.Position.X * self.formref.doubleModX - (float) (self.SubPartX[index] + self.screenx))),  Math.Round((double) ((float) Cursor.Position.Y * self.formref.doubleModY - (float) (self.SubPartY[index] + self.screeny)))))
             {
-               Graphics local1 =  graphics;
+               let mut local1: &Graphics = &graphics;
               Bitmap bitmap = self.SubPartList[index].Paint();
-               Bitmap local2 =  bitmap;
+               let mut local2: &Bitmap = &bitmap;
               let mut x: i32 = self.SubPartX[index];
               let mut y: i32 = self.SubPartY[index];
               DrawMod.DrawSimple( local1,  local2, x, y);
@@ -528,9 +528,9 @@ namespace WindowsApplication1
           }
           else if (self.SubPartList[index].MouseMove(Cursor.Position.X - (self.SubPartX[index] + self.screenx), Cursor.Position.Y - (self.SubPartY[index] + self.screeny)))
           {
-             Graphics local3 =  graphics;
+             let mut local3: &Graphics = &graphics;
             Bitmap bitmap = self.SubPartList[index].Paint();
-             Bitmap local4 =  bitmap;
+             let mut local4: &Bitmap = &bitmap;
             let mut x: i32 = self.SubPartX[index];
             let mut y: i32 = self.SubPartY[index];
             DrawMod.DrawSimple( local3,  local4, x, y);
@@ -579,12 +579,12 @@ namespace WindowsApplication1
       {
         if (self.useparentscreenbitmap)
         {
-           Graphics local1 =  graphics;
+           let mut local1: &Graphics = &graphics;
            Bitmap local2 =  self.screenbackref;
-          rectangle1 = new Rectangle(self.screenx, self.screeny, self.screenw, self.screenh);
-          Rectangle srcrect = rectangle1;
-          rectangle2 = new Rectangle(0, 0, self.screenw, self.screenh);
-          Rectangle destrect = rectangle2;
+          rectangle1 = Rectangle::new(self.screenx, self.screeny, self.screenw, self.screenh);
+          let mut srcrect: &Rectangle = &rectangle1
+          rectangle2 = Rectangle::new(0, 0, self.screenw, self.screenh);
+          let mut destrect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
         }
         else if (!Information.IsNothing((object) self.LowerWindow))
@@ -593,30 +593,30 @@ namespace WindowsApplication1
           {
             if (self.LowerWindow.GetType().Equals(typeof (MapWindowClass)) | self.LowerWindow.GetType().Equals(typeof (MapWindowClass2)))
             {
-               Graphics local3 =  graphics;
+               let mut local3: &Graphics = &graphics;
                Bitmap local4 =  self.LowerWindow.SubPartList[0].OwnBitmap;
               Rectangle lowerRect = self.LowerRect;
-              rectangle2 = new Rectangle(0, 0, w, h);
-              Rectangle destrect = rectangle2;
+              rectangle2 = Rectangle::new(0, 0, w, h);
+              let mut destrect: &Rectangle = &rectangle2
               DrawMod.DrawSimplePart2( local3,  local4, lowerRect, destrect);
             }
             else
             {
-               Graphics local5 =  graphics;
+               let mut local5: &Graphics = &graphics;
                Bitmap local6 =  self.LowerWindow.OwnBitmap;
               Rectangle lowerRect = self.LowerRect;
-              rectangle2 = new Rectangle(0, 0, w, h);
-              Rectangle destrect = rectangle2;
+              rectangle2 = Rectangle::new(0, 0, w, h);
+              let mut destrect: &Rectangle = &rectangle2
               DrawMod.DrawSimplePart2( local5,  local6, lowerRect, destrect);
             }
           }
           else if (!Information.IsNothing((object) self.LowerWindow))
           {
-             Graphics local7 =  graphics;
+             let mut local7: &Graphics = &graphics;
              Bitmap local8 =  self.LowerWindow.OwnBitmap;
             Rectangle lowerRect = self.LowerRect;
-            rectangle2 = new Rectangle(0, 0, w, h);
-            Rectangle destrect = rectangle2;
+            rectangle2 = Rectangle::new(0, 0, w, h);
+            let mut destrect: &Rectangle = &rectangle2
             DrawMod.DrawSimplePart2( local7,  local8, lowerRect, destrect);
           }
         }
@@ -642,39 +642,39 @@ namespace WindowsApplication1
         {
           if (BitmapStore.GetWidth(backsprite) > w)
           {
-             Graphics local9 =  graphics;
+             let mut local9: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
-             Bitmap local10 =  bitmap;
-            rectangle2 = new Rectangle( Math.Round((double) BitmapStore.GetWidth(backsprite) / 2.0 - (double) w / 2.0), 0, w, h);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(0, 0, w, h);
-            Rectangle destrect = rectangle1;
+             let mut local10: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new( Math.Round((double) BitmapStore.GetWidth(backsprite) / 2.0 - (double) w / 2.0), 0, w, h);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(0, 0, w, h);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
           }
           else if (BitmapStore.GetWidth(backsprite) < w)
           {
-             Graphics local11 =  graphics;
+             let mut local11: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
-             Bitmap local12 =  bitmap;
-            rectangle2 = new Rectangle(0, 0, BitmapStore.GetWidth(backsprite), BitmapStore.Getheight(backsprite));
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(0, 0, w, h);
-            Rectangle destrect = rectangle1;
+             let mut local12: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(0, 0, BitmapStore.GetWidth(backsprite), BitmapStore.Getheight(backsprite));
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(0, 0, w, h);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local11,  local12, srcrect, destrect);
           }
           else
           {
-             Graphics local13 =  graphics;
+             let mut local13: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
-             Bitmap local14 =  bitmap;
+             let mut local14: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local13,  local14, 0, 0);
           }
         }
         else
         {
-           Graphics local15 =  graphics;
+           let mut local15: &Graphics = &graphics;
           Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
-           Bitmap local16 =  bitmap;
+           let mut local16: &Bitmap = &bitmap;
           let mut w1: i32 = w;
           let mut h1: i32 = h;
           DrawMod.DrawScaled( local15,  local16, 0, 0, w1, h1);
@@ -712,7 +712,7 @@ namespace WindowsApplication1
           if (!Information.IsNothing((object) self.OwnBitmap))
           {
             Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
-            Rectangle rect = new Rectangle(self.SubPartX[index1], self.SubPartY[index1], self.SubPartW[index1], self.SubPartH[index1]);
+            Rectangle rect = Rectangle::new(self.SubPartX[index1], self.SubPartY[index1], self.SubPartW[index1], self.SubPartH[index1]);
             DrawMod.DrawSimplePart( objGraphics,  self.BackBitmap, rect);
           }
           if (self.LastOverlaySubPart == id)

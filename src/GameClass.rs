@@ -40,8 +40,8 @@ namespace WindowsApplication1
     pub AlternativeGraphics: String;
     pub dlc_Counter: i32;
     pub int[] dlc_ID;
-    pub const int dlc_SE_Astro = 1;
-    pub const int dlc_SE_Navy = 2;
+    pub const let mut dlc_SE_Astro: i32 =  1;
+    pub const let mut dlc_SE_Navy: i32 =  2;
     pub modlib_Counter: i32;
     pub string[] modlib_Name;
     pub string[] modlib_Designer;
@@ -50,167 +50,167 @@ namespace WindowsApplication1
     pub string[] modlib_Filename;
     pub bool[] modlib_Flagged;
     pub IsWin10: bool;
-    pub const int MAXROUND = 10;
+    pub const let mut MAXROUND: i32 =  10;
     pub theaterThreadBlock: bool;
     pub AllowHeightMap: bool;
     pub const GAMENAME: String = "Shadow Empire : Planetary Conquest";
     pub EmpireStyle: bool;
     pub HighGraphicsSpeedPossible: bool;
     pub useModLib: bool;
-    pub const int REMOVEWINDOW = 1;
-    pub const int OPENWINDOW = 2;
-    pub const int REFRESHWINDOW = 4;
-    pub const int NEWSCREEN = 3;
-    pub const int NEWPOPUPSCREEN = 5;
-    pub const int CLOSEPOPUPSCREEN = 6;
-    pub const int REPAINTWINDOW = 7;
-    pub const int THEWINDOW = 1;
-    pub const int LEFTWINDOW = 2;
-    pub const int RIGHTWINDOW = 3;
-    pub const int MIDDLEWINDOW = 4;
-    pub const int DOWNWINDOW = 5;
-    pub const int EDITMENUWINDOW = 6;
-    pub const int MIDDOWNWINDOW = 7;
-    pub const int RESWINDOW = 8;
-    pub const int TABSWINDOW = 9;
-    pub const int LANDSCAPETYPEWINDOW = 11;
-    pub const int MAPWINDOW = 12;
-    pub const int EDITOPTIONSWINDOW = 13;
-    pub const int ROADTYPEWINDOW = 14;
-    pub const int REGIMEWINDOW = 15;
-    pub const int SFTYPEWINDOW = 16;
-    pub const int EDITUNITWINDOW = 17;
-    pub const int PLAYMAINWINDOW = 18;
-    pub const int MAINLOOPWINDOW = 19;
-    pub const int PLAYEXTRAWINDOW = 20;
-    pub const int LOCTYPEWINDOW = 21;
-    pub const int PEOPLEWINDOW = 22;
-    pub const int GENERALWINDOW = 23;
-    pub const int ITEMTYPEWINDOW = 24;
-    pub const int PRODWINDOW = 25;
-    pub const int LOCWINDOW = 26;
-    pub const int NEWSFWINDOW = 27;
-    pub const int NEWUNITWINDOW = 28;
-    pub const int INFOWINDOW = 29;
-    pub const int TRANSFERWINDOW = 30;
-    pub const int COMBATSTATUSWINDOW = 31;
-    pub const int COMBATRESULTWINDOW = 32;
-    pub const int RIVERTYPEWINDOW = 33;
-    pub const int BRIDGEWINDOW = 34;
-    pub const int STRATEGICWINDOW = 35;
-    pub const int RESEARCHWINDOW = 37;
-    pub const int PLAYRESEARCHWINDOW = 38;
-    pub const int DIPWINDOW = 39;
-    pub const int CONSTRUCTWINDOW = 40;
-    pub const int HISTORYWINDOW = 41;
-    pub const int EVENTWINDOW = 42;
-    pub const int SFWINDOW = 43;
-    pub const int ORDERWINDOW = 44;
-    pub const int PREFSWINDOW = 45;
-    pub const int STATSWINDOW = 46;
-    pub const int PEOPLETRANSFERWINDOW = 47;
-    pub const int BUILDWINDOW = 48;
-    pub const int INTROWINDOW = 49;
-    pub const int RANDOMWINDOW = 50;
-    pub const int AIRSUPPLYWINDOW = 51;
-    pub const int PRODFLAPWINDOW = 52;
-    pub const int BIGMINIMAPWINDOW = 53;
-    pub const int WELCOMEWINDOW = 54;
-    pub const int INITIALMENUWINDOW = 55;
-    pub const int HISTORICWINDOW = 56;
-    pub const int ACTIONCARDWINDOW = 57;
-    pub const int CONNECTIONWINDOW = 58;
-    pub const int NEWUNIT2WINDOW = 59;
-    pub const int STRINGLISTWINDOW = 60;
-    pub const int OFFICERPOOLWINDOW = 61;
-    pub const int OFFICERINFOWINDOW = 62;
-    pub const int CHANGEMODELWINDOW = 63;
-    pub const int MODELDESIGNERWINDOW = 64;
-    pub const int DESIGNSFWINDOW = 65;
-    pub const int RESOURCEWINDOW = 66;
-    pub const int RESOURCEWINDOW2 = 67;
-    pub const int ORDERWINDOW2 = 68;
-    pub const int PLAYEXTRAWINDOW2 = 69;
-    pub const int TABBRIEFING2 = 70;
-    pub const int TABSTATS2 = 71;
-    pub const int TABOOB2 = 72;
-    pub const int TABREPORTS2 = 73;
-    pub const int TABCARDS2 = 74;
-    pub const int TABSMAP2 = 75;
-    pub const int TABSMINI = 76;
-    pub const int STRATEGICWINDOW2 = 76;
-    pub const int TABSPREFS = 77;
-    pub const int SYSTEMMESSAGEWINDOW = 78;
-    pub const int INTROWINDOW2 = 49;
-    pub const int HISTORYWINDOW2 = 80;
-    pub const int HISTORYORDERWINDOW = 81;
-    pub const int COMBATDETAILWINDOW = 82;
-    pub const int CREDITSWINDOW = 83;
-    pub const int COMBATWINDOW = 84;
-    pub const int WELCOMEWINDOW2 = 85;
-    pub const int EDITHISWINDOW = 86;
-    pub const int OFFICERPOOLWINDOW2 = 87;
-    pub const int NEWUNITWINDOW2 = 88;
-    pub const int NEWUNIT2WINDOW2 = 89;
-    pub const int CHANGEMODELWINDOW2 = 90;
-    pub const int COREPBEMWINDOW = 91;
-    pub const int PBEMINITIALIZEWINDOW = 92;
-    pub const int LIBRARYWINDOW = 93;
-    pub const int SIMPLEEDITOPTIONSWINDOW = 94;
-    pub const int SIMPLEEDITDASHBOARDWINDOW = 95;
-    pub const int SIMPLEEDITLIBRARYWINDOW = 96;
-    pub const int SIMPLELIBIMPORTPOPUP = 97;
-    pub const int SIMPLEEDITMAPWINDOW = 98;
-    pub const int SIMPLEEDITUNITWINDOW = 99;
-    pub const int SIMPLEDITREGIMEWINDOW = 100;
-    pub const int SIMPLEDITTABLEWINDOW = 101;
-    pub const int SIMPLEMAPWINDOW = 102;
-    pub const int SIMPLETROOPTYPEWINDOW = 103;
-    pub const int SIMPLEHISWINDOW = 104;
-    pub const int SIMPLEOFFICERWINDOW = 105;
-    pub const int BIGMESSAGEWINDOW = 106;
-    pub const int SIMPLEMAPDASHBOARDWINDOW = 107;
-    pub const int SIMPLEMAPOPTIONSWINDOW = 108;
-    pub const int SIMPLEDEBUGWINDOW = 109;
-    pub const int TABHELP = 110;
-    pub const int SIMPLEPREFSWINDOW = 111;
-    pub const int SIMPLEMAPREPLACEMENTWINDOW = 112;
-    pub const int TABMANAGEMENT = 113;
-    pub const int RANDOMTOP = 114;
-    pub const int RANDOMMIDDLE = 115;
-    pub const int RANDOMBOTTOM = 116;
-    pub const int COMBATSELECTWINDOW = 117;
-    pub const int UDSUNITOPSWINDOW = 118;
-    pub const int ADVICEWINDOW = 119;
-    pub const int LISTRAFFICWINDOW = 120;
-    pub const int SUPPLYLAYERWINDOW = 121;
-    pub const int SSEVENTPICS = 122;
-    pub const int SSSMALLGFX = 123;
-    pub const int FIRSTSCREEN = 1;
-    pub const int MAINEDITSCREEN = 2;
-    pub const int PLAYSCREEN = 3;
-    pub const int MAINLOOPSCREEN = 4;
-    pub const int BATTLESCREEN = 5;
-    pub const int HISTORYSCREEN = 6;
-    pub const int EVENTSCREEN = 7;
-    pub const int SFSCREEN = 8;
-    pub const int STATSSCREEN = 9;
-    pub const int MESSAGEPOPUPSCREEN = 10;
-    pub const int PLAYSCREEN2 = 11;
-    pub const int FIRSTSCREEN2 = 12;
-    pub const int MAINLOOPSCREEN2 = 13;
-    pub const int MESSAGEPOPUPSCREEN2 = 14;
-    pub const int SFSCREEN2 = 15;
-    pub const int HISTORYSCREEN2 = 16;
-    pub const int SIMPLEEDITSCREEN = 17;
-    pub const int SIMPLETROOPTYPESCREEN = 18;
-    pub const int SIMPLEHISSCREEN = 19;
-    pub const int SIMPLEOFFICERSCREEN = 20;
-    pub const int SIMPLEMAPSCREEN = 21;
-    pub const int DYNAMICCINEMATICSSCREEN = 22;
-    pub const int RANDOMSCREEN2 = 23;
-    pub const int MANAGEMENTSCREEN = 24;
-    pub const int SIMPLESSSCREEN = 25;
+    pub const let mut REMOVEWINDOW: i32 =  1;
+    pub const let mut OPENWINDOW: i32 =  2;
+    pub const let mut REFRESHWINDOW: i32 =  4;
+    pub const let mut NEWSCREEN: i32 =  3;
+    pub const let mut NEWPOPUPSCREEN: i32 =  5;
+    pub const let mut CLOSEPOPUPSCREEN: i32 =  6;
+    pub const let mut REPAINTWINDOW: i32 =  7;
+    pub const let mut THEWINDOW: i32 =  1;
+    pub const let mut LEFTWINDOW: i32 =  2;
+    pub const let mut RIGHTWINDOW: i32 =  3;
+    pub const let mut MIDDLEWINDOW: i32 =  4;
+    pub const let mut DOWNWINDOW: i32 =  5;
+    pub const let mut EDITMENUWINDOW: i32 =  6;
+    pub const let mut MIDDOWNWINDOW: i32 =  7;
+    pub const let mut RESWINDOW: i32 =  8;
+    pub const let mut TABSWINDOW: i32 =  9;
+    pub const let mut LANDSCAPETYPEWINDOW: i32 =  11;
+    pub const let mut MAPWINDOW: i32 =  12;
+    pub const let mut EDITOPTIONSWINDOW: i32 =  13;
+    pub const let mut ROADTYPEWINDOW: i32 =  14;
+    pub const let mut REGIMEWINDOW: i32 =  15;
+    pub const let mut SFTYPEWINDOW: i32 =  16;
+    pub const let mut EDITUNITWINDOW: i32 =  17;
+    pub const let mut PLAYMAINWINDOW: i32 =  18;
+    pub const let mut MAINLOOPWINDOW: i32 =  19;
+    pub const let mut PLAYEXTRAWINDOW: i32 =  20;
+    pub const let mut LOCTYPEWINDOW: i32 =  21;
+    pub const let mut PEOPLEWINDOW: i32 =  22;
+    pub const let mut GENERALWINDOW: i32 =  23;
+    pub const let mut ITEMTYPEWINDOW: i32 =  24;
+    pub const let mut PRODWINDOW: i32 =  25;
+    pub const let mut LOCWINDOW: i32 =  26;
+    pub const let mut NEWSFWINDOW: i32 =  27;
+    pub const let mut NEWUNITWINDOW: i32 =  28;
+    pub const let mut INFOWINDOW: i32 =  29;
+    pub const let mut TRANSFERWINDOW: i32 =  30;
+    pub const let mut COMBATSTATUSWINDOW: i32 =  31;
+    pub const let mut COMBATRESULTWINDOW: i32 =  32;
+    pub const let mut RIVERTYPEWINDOW: i32 =  33;
+    pub const let mut BRIDGEWINDOW: i32 =  34;
+    pub const let mut STRATEGICWINDOW: i32 =  35;
+    pub const let mut RESEARCHWINDOW: i32 =  37;
+    pub const let mut PLAYRESEARCHWINDOW: i32 =  38;
+    pub const let mut DIPWINDOW: i32 =  39;
+    pub const let mut CONSTRUCTWINDOW: i32 =  40;
+    pub const let mut HISTORYWINDOW: i32 =  41;
+    pub const let mut EVENTWINDOW: i32 =  42;
+    pub const let mut SFWINDOW: i32 =  43;
+    pub const let mut ORDERWINDOW: i32 =  44;
+    pub const let mut PREFSWINDOW: i32 =  45;
+    pub const let mut STATSWINDOW: i32 =  46;
+    pub const let mut PEOPLETRANSFERWINDOW: i32 =  47;
+    pub const let mut BUILDWINDOW: i32 =  48;
+    pub const let mut INTROWINDOW: i32 =  49;
+    pub const let mut RANDOMWINDOW: i32 =  50;
+    pub const let mut AIRSUPPLYWINDOW: i32 =  51;
+    pub const let mut PRODFLAPWINDOW: i32 =  52;
+    pub const let mut BIGMINIMAPWINDOW: i32 =  53;
+    pub const let mut WELCOMEWINDOW: i32 =  54;
+    pub const let mut INITIALMENUWINDOW: i32 =  55;
+    pub const let mut HISTORICWINDOW: i32 =  56;
+    pub const let mut ACTIONCARDWINDOW: i32 =  57;
+    pub const let mut CONNECTIONWINDOW: i32 =  58;
+    pub const let mut NEWUNIT2WINDOW: i32 =  59;
+    pub const let mut STRINGLISTWINDOW: i32 =  60;
+    pub const let mut OFFICERPOOLWINDOW: i32 =  61;
+    pub const let mut OFFICERINFOWINDOW: i32 =  62;
+    pub const let mut CHANGEMODELWINDOW: i32 =  63;
+    pub const let mut MODELDESIGNERWINDOW: i32 =  64;
+    pub const let mut DESIGNSFWINDOW: i32 =  65;
+    pub const let mut RESOURCEWINDOW: i32 =  66;
+    pub const let mut RESOURCEWINDOW2: i32 =  67;
+    pub const let mut ORDERWINDOW2: i32 =  68;
+    pub const let mut PLAYEXTRAWINDOW2: i32 =  69;
+    pub const let mut TABBRIEFING2: i32 =  70;
+    pub const let mut TABSTATS2: i32 =  71;
+    pub const let mut TABOOB2: i32 =  72;
+    pub const let mut TABREPORTS2: i32 =  73;
+    pub const let mut TABCARDS2: i32 =  74;
+    pub const let mut TABSMAP2: i32 =  75;
+    pub const let mut TABSMINI: i32 =  76;
+    pub const let mut STRATEGICWINDOW2: i32 =  76;
+    pub const let mut TABSPREFS: i32 =  77;
+    pub const let mut SYSTEMMESSAGEWINDOW: i32 =  78;
+    pub const let mut INTROWINDOW2: i32 =  49;
+    pub const let mut HISTORYWINDOW2: i32 =  80;
+    pub const let mut HISTORYORDERWINDOW: i32 =  81;
+    pub const let mut COMBATDETAILWINDOW: i32 =  82;
+    pub const let mut CREDITSWINDOW: i32 =  83;
+    pub const let mut COMBATWINDOW: i32 =  84;
+    pub const let mut WELCOMEWINDOW2: i32 =  85;
+    pub const let mut EDITHISWINDOW: i32 =  86;
+    pub const let mut OFFICERPOOLWINDOW2: i32 =  87;
+    pub const let mut NEWUNITWINDOW2: i32 =  88;
+    pub const let mut NEWUNIT2WINDOW2: i32 =  89;
+    pub const let mut CHANGEMODELWINDOW2: i32 =  90;
+    pub const let mut COREPBEMWINDOW: i32 =  91;
+    pub const let mut PBEMINITIALIZEWINDOW: i32 =  92;
+    pub const let mut LIBRARYWINDOW: i32 =  93;
+    pub const let mut SIMPLEEDITOPTIONSWINDOW: i32 =  94;
+    pub const let mut SIMPLEEDITDASHBOARDWINDOW: i32 =  95;
+    pub const let mut SIMPLEEDITLIBRARYWINDOW: i32 =  96;
+    pub const let mut SIMPLELIBIMPORTPOPUP: i32 =  97;
+    pub const let mut SIMPLEEDITMAPWINDOW: i32 =  98;
+    pub const let mut SIMPLEEDITUNITWINDOW: i32 =  99;
+    pub const let mut SIMPLEDITREGIMEWINDOW: i32 =  100;
+    pub const let mut SIMPLEDITTABLEWINDOW: i32 =  101;
+    pub const let mut SIMPLEMAPWINDOW: i32 =  102;
+    pub const let mut SIMPLETROOPTYPEWINDOW: i32 =  103;
+    pub const let mut SIMPLEHISWINDOW: i32 =  104;
+    pub const let mut SIMPLEOFFICERWINDOW: i32 =  105;
+    pub const let mut BIGMESSAGEWINDOW: i32 =  106;
+    pub const let mut SIMPLEMAPDASHBOARDWINDOW: i32 =  107;
+    pub const let mut SIMPLEMAPOPTIONSWINDOW: i32 =  108;
+    pub const let mut SIMPLEDEBUGWINDOW: i32 =  109;
+    pub const let mut TABHELP: i32 =  110;
+    pub const let mut SIMPLEPREFSWINDOW: i32 =  111;
+    pub const let mut SIMPLEMAPREPLACEMENTWINDOW: i32 =  112;
+    pub const let mut TABMANAGEMENT: i32 =  113;
+    pub const let mut RANDOMTOP: i32 =  114;
+    pub const let mut RANDOMMIDDLE: i32 =  115;
+    pub const let mut RANDOMBOTTOM: i32 =  116;
+    pub const let mut COMBATSELECTWINDOW: i32 =  117;
+    pub const let mut UDSUNITOPSWINDOW: i32 =  118;
+    pub const let mut ADVICEWINDOW: i32 =  119;
+    pub const let mut LISTRAFFICWINDOW: i32 =  120;
+    pub const let mut SUPPLYLAYERWINDOW: i32 =  121;
+    pub const let mut SSEVENTPICS: i32 =  122;
+    pub const let mut SSSMALLGFX: i32 =  123;
+    pub const let mut FIRSTSCREEN: i32 =  1;
+    pub const let mut MAINEDITSCREEN: i32 =  2;
+    pub const let mut PLAYSCREEN: i32 =  3;
+    pub const let mut MAINLOOPSCREEN: i32 =  4;
+    pub const let mut BATTLESCREEN: i32 =  5;
+    pub const let mut HISTORYSCREEN: i32 =  6;
+    pub const let mut EVENTSCREEN: i32 =  7;
+    pub const let mut SFSCREEN: i32 =  8;
+    pub const let mut STATSSCREEN: i32 =  9;
+    pub const let mut MESSAGEPOPUPSCREEN: i32 =  10;
+    pub const let mut PLAYSCREEN2: i32 =  11;
+    pub const let mut FIRSTSCREEN2: i32 =  12;
+    pub const let mut MAINLOOPSCREEN2: i32 =  13;
+    pub const let mut MESSAGEPOPUPSCREEN2: i32 =  14;
+    pub const let mut SFSCREEN2: i32 =  15;
+    pub const let mut HISTORYSCREEN2: i32 =  16;
+    pub const let mut SIMPLEEDITSCREEN: i32 =  17;
+    pub const let mut SIMPLETROOPTYPESCREEN: i32 =  18;
+    pub const let mut SIMPLEHISSCREEN: i32 =  19;
+    pub const let mut SIMPLEOFFICERSCREEN: i32 =  20;
+    pub const let mut SIMPLEMAPSCREEN: i32 =  21;
+    pub const let mut DYNAMICCINEMATICSSCREEN: i32 =  22;
+    pub const let mut RANDOMSCREEN2: i32 =  23;
+    pub const let mut MANAGEMENTSCREEN: i32 =  24;
+    pub const let mut SIMPLESSSCREEN: i32 =  25;
     pub BUTTON1: i32;
     pub TUTARROW: i32;
     pub BUTTON2: i32;
@@ -875,8 +875,8 @@ namespace WindowsApplication1
 
     pub CheckDLCpresent: bool(int dlcType)
     {
-      int dlcCounter = this.dlc_Counter;
-      for (int index = 0; index <= dlcCounter; index += 1)
+      let mut dlcCounter: i32 =  this.dlc_Counter;
+      for (let mut index: i32 =  0; index <= dlcCounter; index += 1)
       {
         if (this.dlc_ID[index] == dlcType)
           return true;
@@ -894,15 +894,15 @@ namespace WindowsApplication1
     pub int AddDynFont(string name, int size, int style, bool world = false)
     {
       bool flag = false;
-      int num1 = -1;
+      let mut num1: i32 =  -1;
       if (size < 1)
         size = 16;
       if (Information.IsNothing((object) name))
         name = "georgia.ttf";
       if (Operators.CompareString(name, "", false) == 0)
         name = "georgia.ttf";
-      int dynFontCount = this.DynFontCount;
-      for (int index = 0; index <= dynFontCount; index += 1)
+      let mut dynFontCount: i32 =  this.DynFontCount;
+      for (let mut index: i32 =  0; index <= dynFontCount; index += 1)
       {
         if (Operators.CompareString(this.DynFontFileName[index], name, false) == 0 & this.DynFontSize[index] == size & this.DynFontStyle[index] == style & this.DynFontWorld[index] == world)
         {
@@ -913,7 +913,7 @@ namespace WindowsApplication1
       }
       if (this.DynFontCount >= 99)
       {
-        int num2 =  Interaction.MsgBox((object) "Max Dynamic Font use (99 slots) exceeded! Creation of font aborted.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =   Interaction.MsgBox((object) "Max Dynamic Font use (99 slots) exceeded! Creation of font aborted.", Title: ((object) "Shadow Empire : Planetary Conquest"));
         return 0;
       }
       if (!flag)
@@ -972,7 +972,7 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          int num4 =  Interaction.MsgBox((object) ("Error creating font: " + ex.Message), Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num4: i32 =   Interaction.MsgBox((object) ("Error creating font: " + ex.Message), Title: ((object) "Shadow Empire : Planetary Conquest"));
           num3 = -1;
           ProjectData.ClearProjectError();
           goto label_31;
@@ -1102,7 +1102,7 @@ label_30:
         if (!(this.ModIntroType == 1 | this.ModIntroType == 2))
         {
           streamReader.Close();
-          int num =  Interaction.MsgBox((object) "Faulty Mod File");
+          let mut num: i32 =   Interaction.MsgBox((object) "Faulty Mod File");
           ProjectData.EndApp();
         }
         this.ModSystemGraphicsDirectory = streamReader.ReadLine();
@@ -1113,8 +1113,8 @@ label_30:
         this.ModOpeningSoundtrack = streamReader.ReadLine();
         this.ModExtraSound = streamReader.ReadLine();
         this.ModCounter = Conversions.ToInteger(streamReader.ReadLine());
-        int modCounter = this.ModCounter;
-        for (int index = 1; index <= modCounter; index += 1)
+        let mut modCounter: i32 =  this.ModCounter;
+        for (let mut index: i32 =  1; index <= modCounter; index += 1)
         {
           this.ModButActive = (int[]) Utils.CopyArray((Array) this.ModButActive, (Array) new int[index + 1]);
           this.ModButSize = (int[]) Utils.CopyArray((Array) this.ModButSize, (Array) new int[index + 1]);
@@ -1152,8 +1152,8 @@ label_30:
           try
           {
             this.ModGfxReplaceCounter =  Math.Round(Conversion.Val(streamReader.ReadLine()));
-            int gfxReplaceCounter = this.ModGfxReplaceCounter;
-            for (int index = 1; index <= gfxReplaceCounter; index += 1)
+            let mut gfxReplaceCounter: i32 =  this.ModGfxReplaceCounter;
+            for (let mut index: i32 =  1; index <= gfxReplaceCounter; index += 1)
             {
               this.ModGfxReplaceS1 = (string[]) Utils.CopyArray((Array) this.ModGfxReplaceS1, (Array) new string[index + 1]);
               this.ModGfxReplaceS2 = (string[]) Utils.CopyArray((Array) this.ModGfxReplaceS2, (Array) new string[index + 1]);
@@ -1173,7 +1173,7 @@ label_30:
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        int num =  Interaction.MsgBox((object) "MOD FILE CAUSED AN ERROR", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox((object) "MOD FILE CAUSED AN ERROR", Title: ((object) "Shadow Empire : Planetary Conquest"));
         ProjectData.EndApp();
         ProjectData.ClearProjectError();
       }
@@ -2297,7 +2297,7 @@ label_30:
           tData = (DataClass) null;
         }
       }
-      int num = num;
+      let mut num: i32 =  num;
     }
 
     pub void modlib_loadPrefs()
@@ -2315,8 +2315,8 @@ label_30:
             if (!Information.IsNothing((object) Expression1) & !Information.IsNothing((object) Expression2))
             {
               bool boolean = Conversions.ToBoolean(Expression2);
-              int modlibCounter = this.modlib_Counter;
-              for (int index = 0; index <= modlibCounter; index += 1)
+              let mut modlibCounter: i32 =  this.modlib_Counter;
+              for (let mut index: i32 =  0; index <= modlibCounter; index += 1)
               {
                 if (Operators.CompareString(this.modlib_Filename[index].ToLower(), Expression1.ToLower(), false) == 0)
                   this.modlib_Flagged[index] = boolean;
@@ -2339,8 +2339,8 @@ label_30:
     pub void modlib_savePrefs()
     {
       StreamWriter text = File.CreateText(this.AppPath + "modlib.txt");
-      int modlibCounter = this.modlib_Counter;
-      for (int index = 0; index <= modlibCounter; index += 1)
+      let mut modlibCounter: i32 =  this.modlib_Counter;
+      for (let mut index: i32 =  0; index <= modlibCounter; index += 1)
       {
         text.WriteLine(this.modlib_Filename[index]);
         text.WriteLine(this.modlib_Flagged[index]);

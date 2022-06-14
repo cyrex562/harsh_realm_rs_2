@@ -59,7 +59,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.BDrawTextId);
       if (this.OptionsListId > 0)
         this.RemoveSubPart(this.OptionsListId);
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.Bitemid[index] > 0)
@@ -94,7 +94,7 @@ namespace WindowsApplication1
         this.OptionsListObj.add("The 6 Sprites", 0);
         this.OptionsListObj.add("Statistics", 1);
         ListClass optionsListObj = this.OptionsListObj;
-        int tabSheetNr = this.TabSheetNr;
+        let mut tabSheetNr: i32 =  this.TabSheetNr;
         let mut game: GameClass = this.game;
         ref Bitmap local1 = ref this.OwnBitmap;
         Font font =  null;
@@ -131,7 +131,7 @@ namespace WindowsApplication1
       if (this.game.Data.LandscapeTypeObj[this.bridgeNr].BasicSpriteCounter <= -1)
         return;
       this.BasicListObj = ListClass::new();
-      int tdata = 0;
+      let mut tdata: i32 =  0;
       do
       {
         this.BasicListObj.add(this.game.Data.BridgeObj[this.bridgeNr].BasicSpriteFileName[tdata], tdata);
@@ -139,7 +139,7 @@ namespace WindowsApplication1
       }
       while (tdata <= 5);
       ListClass basicListObj = this.BasicListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
       ref Bitmap local1 = ref this.OwnBitmap;
       Font font =  null;
@@ -189,15 +189,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.OptionsListId)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num2 > -1)
               {
@@ -209,7 +209,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.BasicListId)
             {
-              int num3 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num3: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num3 > -1)
               {
@@ -228,7 +228,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int num4 = (int) Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  (int) Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -243,7 +243,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int num5 = (int) Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  (int) Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -260,16 +260,16 @@ namespace WindowsApplication1
             }
             if (num1 == this.BAltId)
             {
-              int num6 = (int) Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
+              let mut num6: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
               if (num6 >= -1 & num6 <= this.game.Data.RoadTypeCounter)
                 this.game.Data.BridgeObj[0].AlternateIfRoadType = num6;
-              int num7 = (int) Math.Round(Conversion.Val(Interaction.InputBox("SECOND TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
+              let mut num7: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("SECOND TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
               if (num7 >= -1 & num7 <= this.game.Data.RoadTypeCounter)
                 this.game.Data.BridgeObj[0].AlternateIfRoadType2 = num7;
-              int num8 = (int) Math.Round(Conversion.Val(Interaction.InputBox("THIRD TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
+              let mut num8: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("THIRD TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
               if (num8 >= -1 & num8 <= this.game.Data.RoadTypeCounter)
                 this.game.Data.BridgeObj[0].AlternateIfRoadType3 = num8;
-              int num9 = (int) Math.Round(Conversion.Val(Interaction.InputBox("FOURTH TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
+              let mut num9: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("FOURTH TYPE: Give roadtype or -1", "Shadow Empire : Planetary Conquest")));
               if (num9 >= -1 & num9 <= this.game.Data.RoadTypeCounter)
                 this.game.Data.BridgeObj[0].AlternateIfRoadType4 = num9;
               this.MakebridgeTypeItemGUI();
@@ -278,7 +278,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.BEP)
             {
-              int num10 = (int) Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new EP cost", "Shadow Empire : Planetary Conquest")));
+              let mut num10: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("TYPE: Give new EP cost", "Shadow Empire : Planetary Conquest")));
               if (num10 > -1 & num10 < 9999)
                 this.game.Data.BridgeObj[0].EPCost = num10;
               this.MakebridgeTypeItemGUI();

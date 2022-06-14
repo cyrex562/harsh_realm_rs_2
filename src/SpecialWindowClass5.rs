@@ -353,17 +353,17 @@ namespace WindowsApplication1
       self.assetButtonCounter = -1;
       let mut y1: i32 = 80;
       let mut height1: i32 =  Math.Round((double) (self.useHeight - (100 + y1)) / 2.0);
-      Rectangle rectangle1 = new Rectangle(0, y1, 220, self.useHeight);
+      Rectangle rectangle1 = Rectangle::new(0, y1, 220, self.useHeight);
       let mut width1: i32 = rectangle1.Width;
       let mut y2: i32 = y1;
       let mut width2: i32 = self.useWidth - width1;
       let mut height2: i32 = 50;
-      Rectangle rectangle2 = new Rectangle(width1, y2, width2, height2);
-      Rectangle rectangle3 = new Rectangle(rectangle2.Left, rectangle2.Top + rectangle2.Height, rectangle2.Width, height1);
-      Rectangle rectangle4 = new Rectangle(rectangle3.X, rectangle3.Y + rectangle3.Height, rectangle3.Width, 50);
-      Rectangle rectangle5 = new Rectangle(rectangle4.Left, rectangle4.Top + rectangle4.Height, rectangle4.Width, height1);
-      Rectangle rectangle6 = new Rectangle(10, rectangle3.Top + 10, 210, rectangle3.Height - 30);
-      Rectangle rectangle7 = new Rectangle(10, rectangle5.Top + 10, 210, rectangle5.Height - 30);
+      Rectangle rectangle2 = Rectangle::new(width1, y2, width2, height2);
+      Rectangle rectangle3 = Rectangle::new(rectangle2.Left, rectangle2.Top + rectangle2.Height, rectangle2.Width, height1);
+      Rectangle rectangle4 = Rectangle::new(rectangle3.X, rectangle3.Y + rectangle3.Height, rectangle3.Width, 50);
+      Rectangle rectangle5 = Rectangle::new(rectangle4.Left, rectangle4.Top + rectangle4.Height, rectangle4.Width, height1);
+      Rectangle rectangle6 = Rectangle::new(10, rectangle3.Top + 10, 210, rectangle3.Height - 30);
+      Rectangle rectangle7 = Rectangle::new(10, rectangle5.Top + 10, 210, rectangle5.Height - 30);
       DrawMod.DrawBlock( g, rectangle1.X, rectangle1.Y, rectangle1.Width, rectangle1.Height, 0, 0, 0, 120);
       DrawMod.DrawBlock( g, rectangle2.X, rectangle2.Y, rectangle2.Width, rectangle2.Height, 0, 0, 0, 160);
       DrawMod.DrawBlock( g, rectangle4.X, rectangle4.Y, rectangle4.Width, rectangle4.Height, 0, 0, 0, 160);
@@ -546,31 +546,31 @@ namespace WindowsApplication1
             }
             if (num20 == 1)
               DrawMod.DrawTextColouredMarc( g, "ICON", self.game.MarcFont5, x8, num19 - 16, Color.White);
-             Graphics local1 =  g;
-             Bitmap local2 =  bitmap;
-            trect1 = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
-            Rectangle srcrect = trect1;
-            rectangle8 = new Rectangle(x8 - 6, num19 + tdata1, num24, num23);
-            Rectangle destrect = rectangle8;
+             let mut local1: &Graphics = &g;
+             let mut local2: &Bitmap = &bitmap;
+            trect1 = Rectangle::new(0, 0, bitmap.Width, bitmap.Height);
+            let mut srcrect: &Rectangle = &trect1
+            rectangle8 = Rectangle::new(x8 - 6, num19 + tdata1, num24, num23);
+            let mut destrect: &Rectangle = &rectangle8
             DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
             bitmap.Dispose();
             bitmap = (Bitmap) null;
-            rectangle8 = new Rectangle(x8, num19, 70, num8);
-            Rectangle trect2 = rectangle8;
+            rectangle8 = Rectangle::new(x8, num19, 70, num8);
+            let mut trect2: &Rectangle = &rectangle8
             self.AddMouse( trect2, "", "Click to get more information on this Model", 20000000 + self.listModel.Id[index2]);
             let mut x9: i32 = x8 + 70;
             if (self.game.EditObj.se1_modelView == 0)
             {
-              rectangle8 = new Rectangle(x9, num19, 290, num8);
-              Rectangle trect3 = rectangle8;
+              rectangle8 = Rectangle::new(x9, num19, 290, num8);
+              let mut trect3: &Rectangle = &rectangle8
               self.AddMouse( trect3, "", "Click to select this row", 1000000 + self.listModel.Id[index2]);
-              rectangle8 = new Rectangle(x9 + 360 + 360, num19, width3 - 720, num8);
+              rectangle8 = Rectangle::new(x9 + 360 + 360, num19, width3 - 720, num8);
               trect1 = rectangle8;
               self.AddMouse( trect1, "", "Click to select this row", 1000000 + self.listModel.Id[index2]);
             }
             else
             {
-              rectangle8 = new Rectangle(x9, num19, width3 - 360, num8);
+              rectangle8 = Rectangle::new(x9, num19, width3 - 360, num8);
               trect1 = rectangle8;
               self.AddMouse( trect1, "", "Click to select this row", 1000000 + self.listModel.Id[index2]);
             }
@@ -650,13 +650,13 @@ namespace WindowsApplication1
                 if (flag)
                 {
                   DrawMod.DrawTextColouredMarc( g, str1, self.game.MarcFont16, x10, num19 + num25, Color.White);
-                  rectangle8 = new Rectangle(x10, num19, 60, num8);
+                  rectangle8 = Rectangle::new(x10, num19, 60, num8);
                   trect1 = rectangle8;
                   self.AddMouse( trect1, "Current Quality Level: " + upper, "This is the current Quality Level assigned to this Model.");
                 }
                 else
                 {
-                  rectangle8 = new Rectangle(x10, num19, 60, num8);
+                  rectangle8 = Rectangle::new(x10, num19, 60, num8);
                   trect1 = rectangle8;
                   self.AddMouse( trect1, "Change to Quality Level: " + upper, "Click to change the Model to this Quality Level.", 10000000 + num26 * 1000000 + self.listModel.Id[index2]);
                 }
@@ -1671,7 +1671,7 @@ namespace WindowsApplication1
                 DrawMod.DrawTextColouredMarc( g, tstring23, self.game.MarcFont16, x39, num48 + num51, Color.OrangeRed);
               if (tstring23.Length > 0)
               {
-                rectangle8 = new Rectangle(x37, num48, 80, height3);
+                rectangle8 = Rectangle::new(x37, num48, 80, height3);
                 trect1 = rectangle8;
                 self.AddMouse( trect1, "Quality level '" + upper + "' is " + str12.ToUpper(), "Click to change setting", 20000000 + 1000000 * index11 + tid);
               }
@@ -1739,12 +1739,12 @@ namespace WindowsApplication1
                   num24 = bitmap.Width;
                   tdata1 =  Math.Round((double) (height3 - bitmap.Height) / 2.0);
                 }
-                 Graphics local3 =  g;
-                 Bitmap local4 =  bitmap;
-                rectangle8 = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
-                Rectangle srcrect = rectangle8;
-                trect1 = new Rectangle(x37 - 6, num48 + tdata1, num24, num23);
-                Rectangle destrect = trect1;
+                 let mut local3: &Graphics = &g;
+                 let mut local4: &Bitmap = &bitmap;
+                rectangle8 = Rectangle::new(0, 0, bitmap.Width, bitmap.Height);
+                let mut srcrect: &Rectangle = &rectangle8
+                trect1 = Rectangle::new(x37 - 6, num48 + tdata1, num24, num23);
+                let mut destrect: &Rectangle = &trect1
                 DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
                 bitmap.Dispose();
                 bitmap = (Bitmap) null;
@@ -1755,7 +1755,7 @@ namespace WindowsApplication1
                 DrawMod.DrawTextColouredMarc( g, str14, self.game.MarcFont4, x41, num48 + num51, Color.White);
                 x37 =  Math.Round((double) ((float) x41 + (sizeF6.Width + 5f)));
                 num55 =  Math.Round((double) ((float) num55 - (float) ((double) num24 + (double) sizeF6.Width + 5.0)));
-                rectangle8 = new Rectangle(x40, num48, x37 - x40, height3);
+                rectangle8 = Rectangle::new(x40, num48, x37 - x40, height3);
                 trect1 = rectangle8;
                 self.AddMouse( trect1, self.game.Data.SFTypeObj[sfTypeById].Name, "There are " + num56.ToString() + " of this model in this Unit.");
                 if (num55 < 100)

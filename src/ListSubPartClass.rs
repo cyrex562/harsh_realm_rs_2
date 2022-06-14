@@ -68,16 +68,16 @@ namespace WindowsApplication1
       tHeader: String = "",
       bool tHeaderCenter = true,
       bool tHighlight = true,
-      int tTop = 0,
+      let mut tTop: i32 =  0,
       bool tShowPair = false,
-      int tValueWidth = 50,
+      let mut tValueWidth: i32 =  50,
       bool tdotopandbottom = true,
        Bitmap tbackbitmap = null,
-      int bbx = -1,
-      int bby = -1,
+      let mut bbx: i32 =  -1,
+      let mut bby: i32 =  -1,
       bool tMarcStyle = false,
        Font overruleFont = null,
-      int overruleItemSize = 16)
+      let mut overruleItemSize: i32 =  16)
       : base(twidth, (tlistsize + 3) * overruleItemSize)
     {
       self.ItemSize = (object) 16;
@@ -98,7 +98,7 @@ namespace WindowsApplication1
         self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) self.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
-        graphics.DrawImage((Image) tbackbitmap, new Rectangle(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), new Rectangle(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
+        graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
         graphics.CompositingMode = CompositingMode.SourceOver;
         graphics.Dispose();
       }
@@ -190,20 +190,20 @@ namespace WindowsApplication1
         }
         if (!self.DoTopAndBottom)
           DrawMod.DrawBlockGradient2( Expression, 0, 0, self.Width, self.Height, self.game.MarcCol1, self.game.MarcCol2);
-        int num1 = 20;
+        let mut num1: i32 =  20;
         if (self.ListSize >= self.ListObj.ListCount)
           num1 = 0;
-        int num2 = 2;
-        int num3 = 1;
+        let mut num2: i32 =  2;
+        let mut num3: i32 =  1;
         if (!self.DoTopAndBottom)
         {
           num2 = 0;
           num3 = 0;
         }
-        int Right = -1;
-        int topItem = self.TopItem;
-        int num4 = self.TopItem + self.ListSize + num2;
-        for (int index = topItem; index <= num4; index += 1)
+        let mut Right: i32 =  -1;
+        let mut topItem: i32 =  self.TopItem;
+        let mut num4: i32 =  self.TopItem + self.ListSize + num2;
+        for (let mut index: i32 =  topItem; index <= num4; index += 1)
         {
           Right += 1;
           if (!(Right == self.ListSize + 2 & self.DoTopAndBottom) && self.ListSelect == index - num3 & self.ListSelect > -1 & self.Highlight)
@@ -221,22 +221,22 @@ namespace WindowsApplication1
               {
                 if (Operators.ConditionalCompareObjectLess((object) self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
                 {
-                   Graphics local1 =  Expression;
+                   let mut local1: &Graphics = &Expression;
                    Bitmap local2 =  self.ListObj.ListBmp[index - num3];
-                  rectangle1 = new Rectangle(0, 0, 32, self.ListObj.ListBmp[index - num3].Height);
-                  Rectangle srcrect = rectangle1;
-                  rectangle2 = new Rectangle(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 1), (object) Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject(self.ItemSize, (object) self.ListObj.ListBmp[index - num3].Height), (object) 2)))), 32, self.ListObj.ListBmp[index - num3].Height);
-                  Rectangle destrect = rectangle2;
+                  rectangle1 = Rectangle::new(0, 0, 32, self.ListObj.ListBmp[index - num3].Height);
+                  let mut srcrect: &Rectangle = &rectangle1
+                  rectangle2 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 1), (object) Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject(self.ItemSize, (object) self.ListObj.ListBmp[index - num3].Height), (object) 2)))), 32, self.ListObj.ListBmp[index - num3].Height);
+                  let mut destrect: &Rectangle = &rectangle2
                   DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
                 }
                 else
                 {
-                   Graphics local3 =  Expression;
+                   let mut local3: &Graphics = &Expression;
                    Bitmap local4 =  self.ListObj.ListBmp[index - num3];
-                  rectangle2 = new Rectangle(0, 0, 32, Conversions.ToInteger(self.ItemSize));
-                  Rectangle srcrect = rectangle2;
-                  rectangle1 = new Rectangle(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3)), 32, Conversions.ToInteger(self.ItemSize));
-                  Rectangle destrect = rectangle1;
+                  rectangle2 = Rectangle::new(0, 0, 32, Conversions.ToInteger(self.ItemSize));
+                  let mut srcrect: &Rectangle = &rectangle2
+                  rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3)), 32, Conversions.ToInteger(self.ItemSize));
+                  let mut destrect: &Rectangle = &rectangle1
                   DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
                 }
                 if (self.ListObj.ListColor[index - num3] < 0)
@@ -257,22 +257,22 @@ namespace WindowsApplication1
                 {
                   if (Operators.ConditionalCompareObjectLess((object) self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
                   {
-                     Graphics local5 =  Expression;
+                     let mut local5: &Graphics = &Expression;
                      Bitmap local6 =  self.ListObj.ListBmp[index - num3];
-                    rectangle2 = new Rectangle(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
-                    Rectangle srcrect = rectangle2;
-                    rectangle1 = new Rectangle(self.LeftTextOffset, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.ListObj.ListBmp[index - num3].Width, Conversions.ToInteger(self.ItemSize));
-                    Rectangle destrect = rectangle1;
+                    rectangle2 = Rectangle::new(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
+                    let mut srcrect: &Rectangle = &rectangle2
+                    rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.ListObj.ListBmp[index - num3].Width, Conversions.ToInteger(self.ItemSize));
+                    let mut destrect: &Rectangle = &rectangle1
                     DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
                   }
                   else
                   {
-                     Graphics local7 =  Expression;
+                     let mut local7: &Graphics = &Expression;
                      Bitmap local8 =  self.ListObj.ListBmp[index - num3];
-                    rectangle2 = new Rectangle(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
-                    Rectangle srcrect = rectangle2;
-                    rectangle1 = new Rectangle(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject((object) self.ListObj.ListBmp[index - num3].Height, self.ItemSize), (object) 2)))), self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
-                    Rectangle destrect = rectangle1;
+                    rectangle2 = Rectangle::new(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
+                    let mut srcrect: &Rectangle = &rectangle2
+                    rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject((object) self.ListObj.ListBmp[index - num3].Height, self.ItemSize), (object) 2)))), self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
+                    let mut destrect: &Rectangle = &rectangle1
                     DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
                   }
                   str: String = self.ListObj.ListName[index - num3];
@@ -288,12 +288,12 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                   Graphics local9 =  Expression;
+                   let mut local9: &Graphics = &Expression;
                    Bitmap local10 =  self.ListObj.ListBmp[index - num3];
-                  rectangle2 = new Rectangle(0, 0, 32, Conversions.ToInteger(self.ItemSize));
-                  Rectangle srcrect = rectangle2;
-                  rectangle1 = new Rectangle(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3)), 32, Conversions.ToInteger(self.ItemSize));
-                  Rectangle destrect = rectangle1;
+                  rectangle2 = Rectangle::new(0, 0, 32, Conversions.ToInteger(self.ItemSize));
+                  let mut srcrect: &Rectangle = &rectangle2
+                  rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3)), 32, Conversions.ToInteger(self.ItemSize));
+                  let mut destrect: &Rectangle = &rectangle1
                   DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
                   DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White);
                 }
@@ -334,20 +334,20 @@ namespace WindowsApplication1
           DrawMod.DrawBlock( Expression, 0, Conversions.ToInteger(self.ItemSize), self.Width, Conversions.ToInteger(Operators.SubtractObject((object) self.Height, Operators.MultiplyObject((object) 2, self.ItemSize))), 0, 0, 0, 166);
         else
           DrawMod.DrawBlock( Expression, 0, 0, self.Width, self.Height, 0, 0, 0, 166);
-        int num5 = 20;
+        let mut num5: i32 =  20;
         if (self.ListSize >= self.ListObj.ListCount)
           num5 = 0;
-        int num6 = 2;
-        int num7 = 1;
+        let mut num6: i32 =  2;
+        let mut num7: i32 =  1;
         if (!self.DoTopAndBottom)
         {
           num6 = 0;
           num7 = 0;
         }
-        int Right = -1;
-        int topItem = self.TopItem;
-        int num8 = self.TopItem + self.ListSize + num6;
-        for (int index = topItem; index <= num8; index += 1)
+        let mut Right: i32 =  -1;
+        let mut topItem: i32 =  self.TopItem;
+        let mut num8: i32 =  self.TopItem + self.ListSize + num6;
+        for (let mut index: i32 =  topItem; index <= num8; index += 1)
         {
           Right += 1;
           if (!(Right == self.ListSize + 2 & self.DoTopAndBottom))
@@ -374,19 +374,19 @@ namespace WindowsApplication1
             {
               if (num5 > 0)
               {
-                 Graphics local11 =  Expression;
+                 let mut local11: &Graphics = &Expression;
                 bitmap = BitmapStore.GetBitmap(self.game.LISTUP);
-                 Bitmap local12 =  bitmap;
-                int x = self.Width - 20;
+                 let mut local12: &Bitmap = &bitmap;
+                let mut x: i32 =  self.Width - 20;
                 DrawMod.DrawSimple( local11,  local12, x, 3);
               }
             }
             else if (num5 > 0)
             {
-               Graphics local13 =  Expression;
+               let mut local13: &Graphics = &Expression;
               bitmap = BitmapStore.GetBitmap(self.game.LISTBLOCK);
-               Bitmap local14 =  bitmap;
-              int x = self.Width - 20;
+               let mut local14: &Bitmap = &bitmap;
+              let mut x: i32 =  self.Width - 20;
               DrawMod.DrawSimple( local13,  local14, x, 3);
             }
           }
@@ -396,21 +396,21 @@ namespace WindowsApplication1
             {
               if (num5 > 0)
               {
-                 Graphics local15 =  Expression;
+                 let mut local15: &Graphics = &Expression;
                 bitmap = BitmapStore.GetBitmap(self.game.LISTBLOCK);
-                 Bitmap local16 =  bitmap;
-                int x = self.Width - 20;
-                int integer = Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3));
+                 let mut local16: &Bitmap = &bitmap;
+                let mut x: i32 =  self.Width - 20;
+                let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3));
                 DrawMod.DrawSimple( local15,  local16, x, integer);
               }
             }
             else if (num5 > 0)
             {
-               Graphics local17 =  Expression;
+               let mut local17: &Graphics = &Expression;
               bitmap = BitmapStore.GetBitmap(self.game.LISTDOWN);
-               Bitmap local18 =  bitmap;
-              int x = self.Width - 20;
-              int integer = Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3));
+               let mut local18: &Bitmap = &bitmap;
+              let mut x: i32 =  self.Width - 20;
+              let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3));
               DrawMod.DrawSimple( local17,  local18, x, integer);
             }
           }
@@ -454,15 +454,15 @@ namespace WindowsApplication1
           }
         }
       }
-      int Left = Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
+      let mut Left: i32 =  Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
       float num9 = self.ListObj.ListCount <= 0 ? 1f : (float) self.ListSize / (float) self.ListObj.ListCount;
       if ((double) num9 > 1.0)
         num9 = 1f;
-      int num10 =  Math.Round((double) Conversion.Int((float) Left * num9));
+      let mut num10: i32 =   Math.Round((double) Conversion.Int((float) Left * num9));
       float num11 = self.ListObj.ListCount <= 0 ? 0.0f : (float) self.TopItem / (float) self.ListObj.ListCount;
       if ((double) num11 > 1.0)
         num11 = 1f;
-      int num12 =  Math.Round((double) Conversion.Int((float) Left * num11));
+      let mut num12: i32 =   Math.Round((double) Conversion.Int((float) Left * num11));
       if (self.DoTopAndBottom)
         num12 = Conversions.ToInteger(Operators.AddObject((object) num12, self.ItemSize));
       if (Left < 5)
@@ -471,86 +471,86 @@ namespace WindowsApplication1
         num10 = Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject((object) Left, self.ItemSize), (object) num12));
       if (self.ListSize < self.ListObj.ListCount)
       {
-        int x = self.Width - 18;
-        int y = num12 + 3;
-        int width = 16;
-        int num13 = num10 - 2;
+        let mut x: i32 =  self.Width - 18;
+        let mut y: i32 =  num12 + 3;
+        let mut width: i32 =  16;
+        let mut num13: i32 =  num10 - 2;
         if (!self.MarcStyle)
         {
-           Graphics local19 =  Expression;
+           let mut local19: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SLIDER1);
-           Bitmap local20 =  bitmap;
-          rectangle2 = new Rectangle(0, 8, 28, 12);
-          Rectangle srcrect1 = rectangle2;
-          rectangle1 = new Rectangle(x, y + 8, width, num13 - 16);
-          Rectangle destrect1 = rectangle1;
+           let mut local20: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 8, 28, 12);
+          let mut srcrect1: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, y + 8, width, num13 - 16);
+          let mut destrect1: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local19,  local20, srcrect1, destrect1);
-           Graphics local21 =  Expression;
+           let mut local21: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SLIDER1);
-           Bitmap local22 =  bitmap;
-          rectangle2 = new Rectangle(0, 0, 28, 8);
-          Rectangle srcrect2 = rectangle2;
-          rectangle1 = new Rectangle(x, y, width, 8);
-          Rectangle destrect2 = rectangle1;
+           let mut local22: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 0, 28, 8);
+          let mut srcrect2: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, y, width, 8);
+          let mut destrect2: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local21,  local22, srcrect2, destrect2);
-           Graphics local23 =  Expression;
+           let mut local23: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SLIDER1);
-           Bitmap local24 =  bitmap;
-          rectangle2 = new Rectangle(0, 28, 28, 8);
-          Rectangle srcrect3 = rectangle2;
-          rectangle1 = new Rectangle(x, y + num13 - 8, 28, 8);
-          Rectangle destrect3 = rectangle1;
+           let mut local24: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 28, 28, 8);
+          let mut srcrect3: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, y + num13 - 8, 28, 8);
+          let mut destrect3: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local23,  local24, srcrect3, destrect3);
         }
         else
         {
-           Graphics local25 =  Expression;
+           let mut local25: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-           Bitmap local26 =  bitmap;
-          rectangle2 = new Rectangle(0, 2, 20, 6);
-          Rectangle srcrect4 = rectangle2;
-          rectangle1 = new Rectangle(x, 2, 20, self.Height - 4);
-          Rectangle destrect4 = rectangle1;
+           let mut local26: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 2, 20, 6);
+          let mut srcrect4: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, 2, 20, self.Height - 4);
+          let mut destrect4: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local25,  local26, srcrect4, destrect4);
-           Graphics local27 =  Expression;
+           let mut local27: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-           Bitmap local28 =  bitmap;
-          rectangle2 = new Rectangle(0, 0, 20, 2);
-          Rectangle srcrect5 = rectangle2;
-          rectangle1 = new Rectangle(x, 0, 20, 2);
-          Rectangle destrect5 = rectangle1;
+           let mut local28: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 0, 20, 2);
+          let mut srcrect5: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, 0, 20, 2);
+          let mut destrect5: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local27,  local28, srcrect5, destrect5);
-           Graphics local29 =  Expression;
+           let mut local29: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBACK);
-           Bitmap local30 =  bitmap;
-          rectangle2 = new Rectangle(0, 8, 20, 2);
-          Rectangle srcrect6 = rectangle2;
-          rectangle1 = new Rectangle(x, self.Height - 2, 20, 2);
-          Rectangle destrect6 = rectangle1;
+           let mut local30: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 8, 20, 2);
+          let mut srcrect6: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, self.Height - 2, 20, 2);
+          let mut destrect6: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local29,  local30, srcrect6, destrect6);
-           Graphics local31 =  Expression;
+           let mut local31: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBLOCK);
-           Bitmap local32 =  bitmap;
-          rectangle2 = new Rectangle(0, 2, 20, 6);
-          Rectangle srcrect7 = rectangle2;
-          rectangle1 = new Rectangle(x, y + 2, width, num13 - 2);
-          Rectangle destrect7 = rectangle1;
+           let mut local32: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 2, 20, 6);
+          let mut srcrect7: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, y + 2, width, num13 - 2);
+          let mut destrect7: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local31,  local32, srcrect7, destrect7);
-           Graphics local33 =  Expression;
+           let mut local33: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBLOCK);
-           Bitmap local34 =  bitmap;
-          rectangle2 = new Rectangle(0, 0, 20, 2);
-          Rectangle srcrect8 = rectangle2;
-          rectangle1 = new Rectangle(x, y, width, 2);
-          Rectangle destrect8 = rectangle1;
+           let mut local34: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 0, 20, 2);
+          let mut srcrect8: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, y, width, 2);
+          let mut destrect8: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local33,  local34, srcrect8, destrect8);
-           Graphics local35 =  Expression;
+           let mut local35: &Graphics = &Expression;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.LISTBLOCK);
-           Bitmap local36 =  bitmap;
-          rectangle2 = new Rectangle(0, 8, 20, 2);
-          Rectangle srcrect9 = rectangle2;
-          rectangle1 = new Rectangle(x, y + num13 - 2, 10, 2);
-          Rectangle destrect9 = rectangle1;
+           let mut local36: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 8, 20, 2);
+          let mut srcrect9: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, y + num13 - 2, 10, 2);
+          let mut destrect9: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local35,  local36, srcrect9, destrect9);
         }
       }
@@ -614,21 +614,21 @@ namespace WindowsApplication1
 
     pub int GetTopItem() => self.TopItem;
 
-    pub int Click(int x, int y, int b = 1)
+    pub int Click(int x, int y, let mut b: i32 =  1)
     {
-      int Left = y;
+      let mut Left: i32 =  y;
       y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject((object) y, self.ItemSize)));
       self.Scroller = true;
-      int num1 = 0;
-      int num2 = 2;
-      int num3 = 1;
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  2;
+      let mut num3: i32 =  1;
       if (!self.DoTopAndBottom)
       {
         num2 = 1;
         num1 = -1;
         num3 = 0;
       }
-      int num4 = 20;
+      let mut num4: i32 =  20;
       if (self.ListSize >= self.ListObj.ListCount)
         num4 = 0;
       if (y > num1 & y < self.ListSize + num2)
@@ -644,12 +644,12 @@ namespace WindowsApplication1
           return self.ListObj.ListData[self.ListSelect];
         }
         self.clickscroll = 1;
-        int integer = Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
+        let mut integer: i32 =  Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
         if (self.DoTopAndBottom)
           Left = Conversions.ToInteger(Operators.SubtractObject((object) Left, self.ItemSize));
         if (Left < 1)
           Left = 1;
-        int num5 =  Math.Round((double)  Math.Round((double) ((float) Left / (float) integer * (float) self.ListObj.ListCount)) - (double) self.ListSize / 2.0);
+        let mut num5: i32 =   Math.Round((double)  Math.Round((double) ((float) Left / (float) integer * (float) self.ListObj.ListCount)) - (double) self.ListSize / 2.0);
         if (0 > num5)
           num5 = 0;
         self.TopItem = num5;
@@ -698,28 +698,28 @@ namespace WindowsApplication1
 
     pub bool MouseMove(int x, int y)
     {
-      int Left = y;
+      let mut Left: i32 =  y;
       y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject((object) y, self.ItemSize)));
-      int num1 = 0;
-      int num2 = 2;
-      int num3 = 1;
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  2;
+      let mut num3: i32 =  1;
       if (!self.DoTopAndBottom)
       {
         num2 = 1;
         num1 = -1;
         num3 = 0;
       }
-      int num4 = 20;
+      let mut num4: i32 =  20;
       if (self.ListSize >= self.ListObj.ListCount)
         num4 = 0;
       if (!(y > num1 & y < self.ListSize + num2 & self.clickscroll == 1))
         return false;
-      int integer = Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
+      let mut integer: i32 =  Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
       if (self.DoTopAndBottom)
         Left = Conversions.ToInteger(Operators.SubtractObject((object) Left, self.ItemSize));
       if (Left < 1)
         Left = 1;
-      int num5 =  Math.Round((double)  Math.Round((double) ((float) Left / (float) integer * (float) self.ListObj.ListCount)) - (double) self.ListSize / 2.0);
+      let mut num5: i32 =   Math.Round((double)  Math.Round((double) ((float) Left / (float) integer * (float) self.ListObj.ListCount)) - (double) self.ListSize / 2.0);
       if (0 > num5)
         num5 = 0;
       self.TopItem = num5;

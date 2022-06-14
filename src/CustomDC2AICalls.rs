@@ -33,23 +33,23 @@ namespace WindowsApplication1
       this.slotOobType = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 236, 0, 0));
       this.tempActuallyNotAtWarForMove = new bool[this.data.RegimeCounter + 1, this.data.RegimeCounter + 1];
       this.tempActuallyNotAtWarForAttack = new bool[this.data.RegimeCounter + 1, this.data.RegimeCounter + 1];
-      int regimeCounter1 = this.data.RegimeCounter;
-      for (int index1 = 0; index1 <= regimeCounter1; index1 += 1)
+      let mut regimeCounter1: i32 =  this.data.RegimeCounter;
+      for (let mut index1: i32 =  0; index1 <= regimeCounter1; index1 += 1)
       {
-        int regimeCounter2 = this.data.RegimeCounter;
-        for (int index2 = 0; index2 <= regimeCounter2; index2 += 1)
+        let mut regimeCounter2: i32 =  this.data.RegimeCounter;
+        for (let mut index2: i32 =  0; index2 <= regimeCounter2; index2 += 1)
         {
-          int num1 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[index1].id, 1, this.data.RegimeObj[index2].id, 2, "dipClear", 3)));
+          let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[index1].id, 1, this.data.RegimeObj[index2].id, 2, "dipClear", 3)));
           if ( Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[index2].id, 1, this.data.RegimeObj[index1].id, 2, "dipClear", 3))) == 1 & num1 == 0)
             num1 = 1;
-          int num2 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[index1].id, 1)));
+          let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[index1].id, 1)));
           this.tempActuallyNotAtWarForMove[index1, index2] = false;
           this.tempActuallyNotAtWarForAttack[index1, index2] = false;
           if (this.data.RegimeObj[index1].RegimeRel[index2] == 0 && num2 == 2)
           {
             if (num1 < 1)
             {
-              int num3 = Math.Max( Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[index1].id, 1, this.data.RegimeObj[index2].id, 2, "relation", 3))),  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[index2].id, 1, this.data.RegimeObj[index1].id, 2, "relation", 3))));
+              let mut num3: i32 =  Math.Max( Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[index1].id, 1, this.data.RegimeObj[index2].id, 2, "relation", 3))),  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[index2].id, 1, this.data.RegimeObj[index1].id, 2, "relation", 3))));
               this.tempActuallyNotAtWarForAttack[index1, index2] = true;
               this.tempActuallyNotAtWarForMove[index1, index2] = num3 >= 35;
             }
@@ -73,8 +73,8 @@ namespace WindowsApplication1
 
     pub float StrategicReserveModForUnit(int unr)
     {
-      int historical1 = this.data.UnitObj[unr].Historical;
-      int hq = this.data.UnitObj[unr].HQ;
+      let mut historical1: i32 =  this.data.UnitObj[unr].Historical;
+      let mut hq: i32 =  this.data.UnitObj[unr].HQ;
       if (this.data.HistoricalUnitObj[historical1].GiveHisVarValue(11) > 0 && !this.data.UnitObj[unr].IsHQ)
         return 0.2f;
       if (this.data.UnitObj[unr].TempCategory == 5)
@@ -83,8 +83,8 @@ namespace WindowsApplication1
         return 99999f;
       if (hq > -1)
       {
-        int historical2 = this.data.UnitObj[hq].Historical;
-        int idValue = this.data.HistoricalUnitObj[historical1].GiveHisVarValue(1);
+        let mut historical2: i32 =  this.data.UnitObj[hq].Historical;
+        let mut idValue: i32 =  this.data.HistoricalUnitObj[historical1].GiveHisVarValue(1);
         if (idValue > 0 & historical2 > -1)
         {
           if ( Math.Round(Conversion.Val(this.data.StringListObj[this.slotOobType].GetData(0, idValue, 4))) == 1)
@@ -102,25 +102,25 @@ namespace WindowsApplication1
     pub void PlayPostures()
     {
       str1: String = "8101_AI_Play_Postures";
-      int id1 = this.data.RegimeObj[this.data.Turn].id;
-      int stringListById1 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 277, 0, 0));
-      int stringListById2 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 169, 0, 0));
-      int stringListById3 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 168, 0, 0));
-      int num1 = 50;
-      int num2 = 100;
+      let mut id1: i32 =  this.data.RegimeObj[this.data.Turn].id;
+      let mut stringListById1: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 277, 0, 0));
+      let mut stringListById2: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 169, 0, 0));
+      let mut stringListById3: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 168, 0, 0));
+      let mut num1: i32 =  50;
+      let mut num2: i32 =  100;
       this.ai.ClearLog();
       this.ai.AddLog("");
       this.ai.AddLog(str1);
       this.ai.AddLog("");
       this.ai.AddLog("OHQs available:");
       SimpleList simpleList1 = SimpleList::new();
-      int unitCounter1 = this.data.UnitCounter;
-      for (int tid = 0; tid <= unitCounter1; tid += 1)
+      let mut unitCounter1: i32 =  this.data.UnitCounter;
+      for (let mut tid: i32 =  0; tid <= unitCounter1; tid += 1)
       {
         if (this.data.UnitObj[tid].HQ > -1 & this.data.UnitObj[tid].IsHQ && this.data.UnitObj[tid].Regime == this.data.Turn & this.data.UnitObj[tid].PreDef == -1 & this.data.UnitObj[tid].Historical > -1 && this.data.HistoricalUnitObj[this.data.UnitObj[tid].Historical].TempVar1 < 1)
         {
           simpleList1.Add(tid, 1);
-          int num3 = this.data.HistoricalUnitObj[this.data.UnitObj[tid].Historical].GiveHisVarValue(21);
+          let mut num3: i32 =  this.data.HistoricalUnitObj[this.data.UnitObj[tid].Historical].GiveHisVarValue(21);
           this.ai.AddLog(Conversions.ToString(Operators.CompareString("-OHQ: " + this.data.UnitObj[tid].Name + " (posture=" + num3.ToString(), ")", false) == 0));
         }
       }
@@ -129,9 +129,9 @@ namespace WindowsApplication1
       this.data.StringListObj[stringListById2].SetData(0, "SOURCEREGIMEID", 1, id1, true);
       this.data.StringListObj[stringListById2].SetData(0, "ROUND", 1, this.data.Round, true);
       SimpleList simpleList2 = SimpleList::new();
-      int length = this.data.StringListObj[stringListById1].Length;
+      let mut length: i32 =  this.data.StringListObj[stringListById1].Length;
       int num4;
-      for (int index = 0; index <= length; index += 1)
+      for (let mut index: i32 =  0; index <= length; index += 1)
       {
         num4 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 0]));
         if ( Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 12])) == 7 &  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 7])) == 3)
@@ -142,8 +142,8 @@ namespace WindowsApplication1
           if (str3.Length > 0)
           {
             EventRelatedClass eventRelatedObj = DrawMod.TGame.EventRelatedObj;
-            int id2 = this.data.StringListObj[stringListById3].ID;
-            int id3 = this.data.StringListObj[stringListById2].ID;
+            let mut id2: i32 =  this.data.StringListObj[stringListById3].ID;
+            let mut id3: i32 =  this.data.StringListObj[stringListById2].ID;
             logicString: String = str3;
             Random random = (Random) null;
             ref Random local = ref random;
@@ -159,12 +159,12 @@ namespace WindowsApplication1
         }
       }
       this.ai.AddLog("");
-      int counter1 = simpleList1.Counter;
-      for (int index1 = 0; index1 <= counter1; index1 += 1)
+      let mut counter1: i32 =  simpleList1.Counter;
+      for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
       {
-        int index2 = simpleList1.Id[index1];
-        int num6 = this.data.HistoricalUnitObj[this.data.UnitObj[index2].Historical].GiveHisVarValue(21);
-        int num7 = 0;
+        let mut index2: i32 =  simpleList1.Id[index1];
+        let mut num6: i32 =  this.data.HistoricalUnitObj[this.data.UnitObj[index2].Historical].GiveHisVarValue(21);
+        let mut num7: i32 =  0;
         if (num6 > 0)
         {
           if (DrawMod.RandyNumber.Next(0, 100) < num1)
@@ -174,27 +174,27 @@ namespace WindowsApplication1
           num7 = 1;
         if (num7 == 1)
         {
-          int num8 = 0;
-          int num9 = 0;
-          int num10 = 0;
-          int num11 = 0;
-          int num12 = 0;
-          int num13 = 0;
-          int num14 = 0;
-          int unitCounter2 = this.data.UnitCounter;
-          for (int index3 = 0; index3 <= unitCounter2; index3 += 1)
+          let mut num8: i32 =  0;
+          let mut num9: i32 =  0;
+          let mut num10: i32 =  0;
+          let mut num11: i32 =  0;
+          let mut num12: i32 =  0;
+          let mut num13: i32 =  0;
+          let mut num14: i32 =  0;
+          let mut unitCounter2: i32 =  this.data.UnitCounter;
+          for (let mut index3: i32 =  0; index3 <= unitCounter2; index3 += 1)
           {
             if (this.data.UnitObj[index3].HQ == index2)
             {
-              int sfCount = this.data.UnitObj[index3].SFCount;
-              for (int index4 = 0; index4 <= sfCount; index4 += 1)
+              let mut sfCount: i32 =  this.data.UnitObj[index3].SFCount;
+              for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
               {
-                int sf = this.data.UnitObj[index3].SFList[index4];
-                int type = this.data.SFObj[sf].Type;
-                int qty = this.data.SFObj[sf].Qty;
-                int unitGroup = this.data.SFTypeObj[type].UnitGroup;
-                int num15 = (this.data.SFTypeObj[type].SFTypeVar[30] + this.data.SFTypeObj[type].SFTypeVar[31] + (this.data.SFTypeObj[type].SFTypeVar[32] + this.data.SFTypeObj[type].SFTypeVar[33])) * qty;
-                int num16 = this.data.SFObj[sf].Xp * qty;
+                let mut sf: i32 =  this.data.UnitObj[index3].SFList[index4];
+                let mut type: i32 =  this.data.SFObj[sf].Type;
+                let mut qty: i32 =  this.data.SFObj[sf].Qty;
+                let mut unitGroup: i32 =  this.data.SFTypeObj[type].UnitGroup;
+                let mut num15: i32 =  (this.data.SFTypeObj[type].SFTypeVar[30] + this.data.SFTypeObj[type].SFTypeVar[31] + (this.data.SFTypeObj[type].SFTypeVar[32] + this.data.SFTypeObj[type].SFTypeVar[33])) * qty;
+                let mut num16: i32 =  this.data.SFObj[sf].Xp * qty;
                 num14 += num16;
                 num10 += qty;
                 if (unitGroup == 0)
@@ -230,11 +230,11 @@ namespace WindowsApplication1
               }
             }
           }
-          int num17 =  Math.Round((double) num14 / (double) num10);
-          int tweight1 =  Math.Round((double) (100 * num13) / (double) num8);
-          int tweight2 =  Math.Round((double) (100 * num9) / (double) num8);
-          int tweight3 =  Math.Round((double) (100 * num12) / (double) num8);
-          int tweight4 =  Math.Round((double) (100 * num11) / (double) num8);
+          let mut num17: i32 =   Math.Round((double) num14 / (double) num10);
+          let mut tweight1: i32 =   Math.Round((double) (100 * num13) / (double) num8);
+          let mut tweight2: i32 =   Math.Round((double) (100 * num9) / (double) num8);
+          let mut tweight3: i32 =   Math.Round((double) (100 * num12) / (double) num8);
+          let mut tweight4: i32 =   Math.Round((double) (100 * num11) / (double) num8);
           simpleList2.AddWeight(601, tweight2);
           simpleList2.AddWeight(602, tweight2);
           simpleList2.AddWeight(603, tweight2);
@@ -265,20 +265,20 @@ namespace WindowsApplication1
           simpleList2.AddWeight(611, tweight1);
           simpleList2.AddWeight(616, tweight1);
           simpleList2.AddWeight(610, tweight3);
-          int counter2 = simpleList2.Counter;
-          for (int index5 = 0; index5 <= counter2; index5 += 1)
+          let mut counter2: i32 =  simpleList2.Counter;
+          for (let mut index5: i32 =  0; index5 <= counter2; index5 += 1)
           {
-            int num18 = new Random( Math.Round((double) this.data.GameID / 1000.0 * (double) id1 * (double) simpleList2.Id[index5])).Next(3, 8);
+            let mut num18: i32 =  new Random( Math.Round((double) this.data.GameID / 1000.0 * (double) id1 * (double) simpleList2.Id[index5])).Next(3, 8);
             simpleList2.Weight[index5] =  Math.Round((double) (simpleList2.Weight[index5] * num18) / 5.0);
           }
-          int index6 = -1;
-          int counter3 = this.ai.frontList.Counter;
-          for (int index7 = 0; index7 <= counter3; index7 += 1)
+          let mut index6: i32 =  -1;
+          let mut counter3: i32 =  this.ai.frontList.Counter;
+          for (let mut index7: i32 =  0; index7 <= counter3; index7 += 1)
           {
             if (this.ai.frontList.Front[index7].strictHQs.counter > -1)
             {
-              int counter4 = this.ai.frontList.Front[index7].strictHQs.counter;
-              for (int index8 = 0; index8 <= counter4; index8 += 1)
+              let mut counter4: i32 =  this.ai.frontList.Front[index7].strictHQs.counter;
+              for (let mut index8: i32 =  0; index8 <= counter4; index8 += 1)
               {
                 if (this.ai.frontList.Front[index7].strictHQs.unr[index8] == index2)
                   index6 = index7;
@@ -405,7 +405,7 @@ namespace WindowsApplication1
             }
             if (aiFront.Stance == 3 | aiFront.Stance == 2)
             {
-              int num19 = DrawMod.TGame.EventRelatedObj.CheckEnemyTroopsCloseBy(12, this.data.UnitObj[index2].X, this.data.UnitObj[index2].Y, 0);
+              let mut num19: i32 =  DrawMod.TGame.EventRelatedObj.CheckEnemyTroopsCloseBy(12, this.data.UnitObj[index2].X, this.data.UnitObj[index2].Y, 0);
               if (this.data.Turn == 5)
                 index1 = index1;
               if (num19 < 1)
@@ -414,7 +414,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int num20 = DrawMod.TGame.EventRelatedObj.CheckEnemyTroopsCloseBy(8, this.data.UnitObj[index2].X, this.data.UnitObj[index2].Y, 0);
+                let mut num20: i32 =  DrawMod.TGame.EventRelatedObj.CheckEnemyTroopsCloseBy(8, this.data.UnitObj[index2].X, this.data.UnitObj[index2].Y, 0);
                 if (num20 < 1)
                   simpleList2.MultiplyWeight(609, 5f);
                 else if (num20 >= 10)
@@ -428,7 +428,7 @@ namespace WindowsApplication1
             else if (num17 > 20)
               simpleList2.MultiplyWeight(609, 0.5f);
           }
-          for (int counter5 = simpleList2.Counter; counter5 >= 0; counter5 += -1)
+          for (let mut counter5: i32 =  simpleList2.Counter; counter5 >= 0; counter5 += -1)
           {
             if (simpleList2.Data1[counter5] < 1)
               simpleList2.RemoveNr(counter5);
@@ -437,24 +437,24 @@ namespace WindowsApplication1
           simpleList2.removeWeight0orLower();
           if (simpleList2.Counter > -1)
           {
-            int num21 = simpleList2.Id[0];
+            let mut num21: i32 =  simpleList2.Id[0];
             num4 = num21;
-            int historical = this.data.UnitObj[index2].Historical;
+            let mut historical: i32 =  this.data.UnitObj[index2].Historical;
             this.ai.AddLog("Chosing Posture for " + this.data.UnitObj[index2].Name);
-            int counter6 = simpleList2.Counter;
-            for (int index9 = 0; index9 <= counter6; index9 += 1)
+            let mut counter6: i32 =  simpleList2.Counter;
+            for (let mut index9: i32 =  0; index9 <= counter6; index9 += 1)
               this.ai.AddLog("Posture #" + simpleList2.Id[index9].ToString() + " has weight = " + simpleList2.Weight[index9].ToString());
             if (this.data.HistoricalUnitObj[historical].GiveHisVarValue(21) != num4)
             {
               this.data.HistoricalUnitObj[historical].SetHisVarValue(21, num4);
               this.ai.AddLog("Assigned Posture #" + num21.ToString() + " to " + this.data.UnitObj[index2].Name);
-              int eventByLib = DrawMod.TGame.EventRelatedObj.CheckGetEventByLib("SE_Data", 541, 0, 0);
+              let mut eventByLib: i32 =  DrawMod.TGame.EventRelatedObj.CheckGetEventByLib("SE_Data", 541, 0, 0);
               this.data.AddActionCard();
-              int actionCardCounter = this.data.ActionCardCounter;
+              let mut actionCardCounter: i32 =  this.data.ActionCardCounter;
               this.data.ActionCardObj[actionCardCounter].TempVar0 = num4;
               this.data.ActionCardObj[actionCardCounter].ExecuteEvent = eventByLib;
-              int row = this.data.StringListObj[stringListById1].FindRow(0, num4);
-              int num22 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[row, 7]));
+              let mut row: i32 =  this.data.StringListObj[stringListById1].FindRow(0, num4);
+              let mut num22: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[row, 7]));
               this.data.RegimeObj[this.data.Turn].AddActionCard(this.data.ActionCardCounter);
               DrawMod.TGame.EditObj.DoCardSlot = this.data.RegimeObj[this.data.Turn].ActionCardCounter;
               this.data.StringListObj[stringListById2].SetData(0, "REGID", 1, id1, true);
@@ -483,11 +483,11 @@ namespace WindowsApplication1
     pub float CustomRuleTheater_MinimalAttackModifier(int x, int y, float currentMinimal)
     {
       float num1 = 1f;
-      int num2 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
-      int regime = this.data.MapObj[0].HexObj[x, y].Regime;
+      let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
+      let mut regime: i32 =  this.data.MapObj[0].HexObj[x, y].Regime;
       if (num2 == 1 & regime > -1)
       {
-        int num3 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[regime].id, 1)));
+        let mut num3: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[regime].id, 1)));
         if (num3 == 2 | num3 == 3)
           num1 = 0.5f;
       }
@@ -496,8 +496,8 @@ namespace WindowsApplication1
 
     pub int CustomHelpCombatModifier(int tHelpCombat, int forRegimeNr)
     {
-      int num1 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
-      int num2 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[forRegimeNr].id, 1)));
+      let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
+      let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[forRegimeNr].id, 1)));
       if (num1 == 1 && num2 > 1)
         tHelpCombat = 0;
       return tHelpCombat;
@@ -517,10 +517,10 @@ namespace WindowsApplication1
 
     pub CustomRuleHQtoFrontAssign_AllowHQGroupsWithoutHQ: bool(int unr)
     {
-      int index = this.data.Turn;
+      let mut index: i32 =  this.data.Turn;
       if (unr > -1)
         index = this.data.UnitObj[unr].Regime;
-      int num =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[index].id, 1)));
+      let mut num: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[index].id, 1)));
       return num == 2 | num == 3;
     }
 
@@ -547,7 +547,7 @@ namespace WindowsApplication1
 
     pub object CustomRuleInitVars()
     {
-      int num =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
+      let mut num: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
       if (num == 2 | num == 3)
       {
         this.ai.VAR_SUPPLY_MAXIMUM_RANGE = 1000;
@@ -594,13 +594,13 @@ namespace WindowsApplication1
 
     pub void CustomRuleInitFrontlines_ResetMatrixes()
     {
-      int num1 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
-      int stringListById1 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 123, 0, 0));
-      int stringListById2 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 160, 0, 0));
-      int stringListById3 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 236, 0, 0));
-      int stringListById4 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 148, 0, 0));
-      int stringListById5 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 144, 0, 0));
-      int id1 = this.data.RegimeObj[this.data.Turn].id;
+      let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1)));
+      let mut stringListById1: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 123, 0, 0));
+      let mut stringListById2: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 160, 0, 0));
+      let mut stringListById3: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 236, 0, 0));
+      let mut stringListById4: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID(this.dataLib, 148, 0, 0));
+      let mut stringListById5: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 144, 0, 0));
+      let mut id1: i32 =  this.data.RegimeObj[this.data.Turn].id;
       if (num1 != 1)
         return;
       this.ai.AddLog("CUSTOM MATRIXES AND ZONES (OFF/DEF)");
@@ -613,40 +613,40 @@ namespace WindowsApplication1
       aiMatrix1.RemoveValuesByMask(mask1, 1);
       aiMatrix1.ExpandAndAddValueForAnyRegime(199);
       aiMatrix1.SetAllValuesSubtractWith(2);
-      int num2 = 0;
+      let mut num2: i32 =  0;
       AIMatrix aiMatrix2 = new AIMatrix(ref this.ai.game.DC2AIObj);
       aiMatrix2.SetAllValuesToWithMask(1, ref mask1, 1);
       AIMatrix aiMatrix3 = aiMatrix2.DetectAndMakeEdgeMatrix(false);
       aiMatrix3.RemoveValuesByLandscapeAIBlock(0);
       aiMatrix3.ExpandSpecificValueForAnyRegime(1, 1);
-      int mapWidth1 = this.data.MapObj[0].MapWidth;
-      for (int index1 = 0; index1 <= mapWidth1; index1 += 1)
+      let mut mapWidth1: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index1: i32 =  0; index1 <= mapWidth1; index1 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
           if (aiMatrix3.Value[index1, index2] > 0)
             num2 += 1;
         }
       }
-      int num3 =  Math.Round((double) num2 * 0.25);
+      let mut num3: i32 =   Math.Round((double) num2 * 0.25);
       if (3 > num3)
         num3 = 3;
-      int num4 = 0;
-      int num5 = 0;
-      int num6 = 0;
-      int num7 = 0;
-      int num8 = 0;
-      int num9 = 0;
-      int unitCounter1 = this.data.UnitCounter;
+      let mut num4: i32 =  0;
+      let mut num5: i32 =  0;
+      let mut num6: i32 =  0;
+      let mut num7: i32 =  0;
+      let mut num8: i32 =  0;
+      let mut num9: i32 =  0;
+      let mut unitCounter1: i32 =  this.data.UnitCounter;
       int num10;
-      for (int unr = 0; unr <= unitCounter1; unr += 1)
+      for (let mut unr: i32 =  0; unr <= unitCounter1; unr += 1)
       {
         if (this.data.UnitObj[unr].Regime == this.data.Turn & this.data.UnitObj[unr].PreDef == -1)
         {
           if (this.data.UnitObj[unr].AIAttack != 1)
           {
-            int historical = this.data.UnitObj[unr].Historical;
+            let mut historical: i32 =  this.data.UnitObj[unr].Historical;
             if (historical > -1 && this.data.HistoricalUnitObj[historical].GiveHisVarValue(11) < 1)
             {
               num4 += 1;
@@ -686,11 +686,11 @@ namespace WindowsApplication1
       this.ai.AddLog("Adjusted UnitsPerFrontHex: " + val2_1.ToString());
       this.ai.AddLog("");
       this.ai.MLAMatrix = new AIMatrix(ref this.ai);
-      int mapWidth2 = this.data.MapObj[0].MapWidth;
-      for (int index3 = 0; index3 <= mapWidth2; index3 += 1)
+      let mut mapWidth2: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index3: i32 =  0; index3 <= mapWidth2; index3 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
         {
           this.ai.VAR_MATRIX_ZONES.Value[index3, index4] = 0;
           this.ai.VAR_MATRIX_RETREAT.Value[index3, index4] = 100;
@@ -699,12 +699,12 @@ namespace WindowsApplication1
         }
       }
       SimpleList simpleList1 = SimpleList::new();
-      int unitCounter2 = this.ai.game.Data.UnitCounter;
-      for (int tid = 0; tid <= unitCounter2; tid += 1)
+      let mut unitCounter2: i32 =  this.ai.game.Data.UnitCounter;
+      for (let mut tid: i32 =  0; tid <= unitCounter2; tid += 1)
       {
         if (this.ai.game.Data.UnitObj[tid].Regime == this.ai.game.Data.Turn)
         {
-          int historical = this.data.UnitObj[tid].Historical;
+          let mut historical: i32 =  this.data.UnitObj[tid].Historical;
           if (historical > -1)
           {
             if (this.data.UnitObj[tid].PreDef == -1 & this.data.UnitObj[tid].IsHQ && historical > -1 && this.data.HistoricalUnitObj[historical].Type == 5 && this.data.HistoricalUnitObj[historical].AIlist > 0)
@@ -720,23 +720,23 @@ namespace WindowsApplication1
       SimpleList simpleList2 = SimpleList::new();
       SimpleList simpleList3 = SimpleList::new();
       SimpleList simpleList4 = SimpleList::new();
-      int idValue1 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, id1, 12)));
-      int num11 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(6, idValue1, 0)));
-      int length1 = this.data.StringListObj[stringListById1].Length;
-      for (int index5 = 0; index5 <= length1; index5 += 1)
+      let mut idValue1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, id1, 12)));
+      let mut num11: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(6, idValue1, 0)));
+      let mut length1: i32 =  this.data.StringListObj[stringListById1].Length;
+      for (let mut index5: i32 =  0; index5 <= length1; index5 += 1)
       {
         if ( Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index5, 8])) == id1)
         {
-          int num12 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index5, 0]));
+          let mut num12: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index5, 0]));
           str: String = this.data.StringListObj[stringListById1].Data[index5, 7];
-          int tweight1 = 0;
-          int length2 = this.data.StringListObj[stringListById4].Length;
-          for (int index6 = 0; index6 <= length2; index6 += 1)
+          let mut tweight1: i32 =  0;
+          let mut length2: i32 =  this.data.StringListObj[stringListById4].Length;
+          for (let mut index6: i32 =  0; index6 <= length2; index6 += 1)
           {
             if ( Math.Round(Conversion.Val(this.data.StringListObj[stringListById4].Data[index6, 0])) == num12)
             {
-              int idValue2 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById4].Data[index6, 1]));
-              int num13 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById5].GetData(0, idValue2, 2)));
+              let mut idValue2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById4].Data[index6, 1]));
+              let mut num13: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById5].GetData(0, idValue2, 2)));
               if ( Math.Round(Conversion.Val(this.data.StringListObj[stringListById5].GetData(0, idValue2, 5))) == 1)
                 tweight1 += 3 * (num13 + 1);
               else
@@ -744,41 +744,41 @@ namespace WindowsApplication1
             }
           }
           simpleList3.AddWeight(num12, tweight1);
-          int num14 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, num12, 1, "pop", 2)));
-          int num15 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, num12, 1, "worker", 2)));
-          int num16 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, num12, 1, "cas", 2)));
+          let mut num14: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, num12, 1, "pop", 2)));
+          let mut num15: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, num12, 1, "worker", 2)));
+          let mut num16: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, num12, 1, "cas", 2)));
           if (num16 < 1)
             num16 = 100;
-          int num17 = num16 + 25;
-          int tweight2 =  Math.Round((double) ((num14 + num15) * num17) / 100.0);
+          let mut num17: i32 =  num16 + 25;
+          let mut tweight2: i32 =   Math.Round((double) ((num14 + num15) * num17) / 100.0);
           this.ai.AddLog(str + " got score1: " + tweight1.ToString() + ", score2: " + tweight2.ToString());
           simpleList4.AddWeight(num12, tweight2);
         }
       }
       simpleList3.Percentify();
       simpleList4.Percentify();
-      int length3 = this.data.StringListObj[stringListById1].Length;
-      for (int index = 0; index <= length3; index += 1)
+      let mut length3: i32 =  this.data.StringListObj[stringListById1].Length;
+      for (let mut index: i32 =  0; index <= length3; index += 1)
       {
         if ( Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 8])) == id1)
         {
-          int tid =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 0]));
-          int weight1 = simpleList3.FindWeight(tid);
-          int weight2 = simpleList4.FindWeight(tid);
-          int num18 = 0;
+          let mut tid: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 0]));
+          let mut weight1: i32 =  simpleList3.FindWeight(tid);
+          let mut weight2: i32 =  simpleList4.FindWeight(tid);
+          let mut num18: i32 =  0;
           if (num11 == tid)
             num18 = 100;
-          int tweight =  Math.Round((double) (weight1 + weight2 + num18) / 3.0);
+          let mut tweight: i32 =   Math.Round((double) (weight1 + weight2 + num18) / 3.0);
           simpleList2.AddWeight(tid, tweight);
         }
       }
       simpleList2.ReverseSort();
-      int num19 = simpleList2.Counter + 1;
-      int num20 = 0;
-      int num21 = 2;
-      int num22 = 1;
-      int counter1 = simpleList2.Counter;
-      for (int index = 0; index <= counter1; index += 1)
+      let mut num19: i32 =  simpleList2.Counter + 1;
+      let mut num20: i32 =  0;
+      let mut num21: i32 =  2;
+      let mut num22: i32 =  1;
+      let mut counter1: i32 =  simpleList2.Counter;
+      for (let mut index: i32 =  0; index <= counter1; index += 1)
       {
         num20 += 1;
         if (num20 > num21)
@@ -792,11 +792,11 @@ namespace WindowsApplication1
         num22 = simpleList2.Counter + 1;
       this.ai.AddLog("");
       this.ai.AddLog("IMPORTANT FRIENDLY ZONES");
-      int num23 = num22;
+      let mut num23: i32 =  num22;
       int tid1;
       for (tid1 = 1; tid1 <= num23; tid1 += 1)
       {
-        int idValue3 = simpleList2.Id[tid1 - 1];
+        let mut idValue3: i32 =  simpleList2.Id[tid1 - 1];
         data: String = this.data.StringListObj[stringListById1].GetData(0, idValue3, 7);
         this.ai.AddLog("#" + tid1.ToString() + " : " + data);
       }
@@ -806,31 +806,31 @@ namespace WindowsApplication1
       SimpleList simpleList7 = SimpleList::new();
       SimpleList simpleList8 = SimpleList::new();
       SimpleList simpleList9 = SimpleList::new();
-      int regimeCounter1 = this.data.RegimeCounter;
+      let mut regimeCounter1: i32 =  this.data.RegimeCounter;
       for (tid1 = 1; tid1 <= regimeCounter1; tid1 += 1)
       {
         if (tid1 != this.data.Turn)
         {
-          int num24 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[tid1].id, 1)));
-          int id2 = this.data.RegimeObj[tid1].id;
-          int num25 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "aiIntention", 3)));
-          int num26 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "relation", 3)));
+          let mut num24: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[tid1].id, 1)));
+          let mut id2: i32 =  this.data.RegimeObj[tid1].id;
+          let mut num25: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "aiIntention", 3)));
+          let mut num26: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "relation", 3)));
           AIMatrix aiMatrix4 = mask1.Clone();
-          int mapWidth3 = this.data.MapObj[0].MapWidth;
-          for (int index7 = 0; index7 <= mapWidth3; index7 += 1)
+          let mut mapWidth3: i32 =  this.data.MapObj[0].MapWidth;
+          for (let mut index7: i32 =  0; index7 <= mapWidth3; index7 += 1)
           {
-            int mapHeight = this.data.MapObj[0].MapHeight;
-            for (int index8 = 0; index8 <= mapHeight; index8 += 1)
+            let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+            for (let mut index8: i32 =  0; index8 <= mapHeight; index8 += 1)
               aiMatrix4.Value[index7, index8] = this.data.MapObj[0].HexObj[index7, index8].Regime == tid1 ? 1 : 0;
           }
           aiMatrix4.ExpandAndAddValueForAnyRegime(49);
           aiMatrix4.SetAllValuesSubtractWith(1);
           AIMatrix aiMatrix5 = new AIMatrix(ref this.ai);
-          int mapWidth4 = this.data.MapObj[0].MapWidth;
-          for (int index9 = 0; index9 <= mapWidth4; index9 += 1)
+          let mut mapWidth4: i32 =  this.data.MapObj[0].MapWidth;
+          for (let mut index9: i32 =  0; index9 <= mapWidth4; index9 += 1)
           {
-            int mapHeight = this.data.MapObj[0].MapHeight;
-            for (int index10 = 0; index10 <= mapHeight; index10 += 1)
+            let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+            for (let mut index10: i32 =  0; index10 <= mapHeight; index10 += 1)
               aiMatrix5.Value[index9, index10] = this.data.MapObj[0].HexObj[index9, index10].Regime == this.data.Turn ? 1 : 0;
           }
           switch (num24)
@@ -846,47 +846,47 @@ namespace WindowsApplication1
               break;
           }
           aiMatrix5.SetAllValuesSubtractWith(1);
-          int num27 = 0;
-          int num28 = 0;
-          int mapWidth5 = this.data.MapObj[0].MapWidth;
-          for (int index11 = 0; index11 <= mapWidth5; index11 += 1)
+          let mut num27: i32 =  0;
+          let mut num28: i32 =  0;
+          let mut mapWidth5: i32 =  this.data.MapObj[0].MapWidth;
+          for (let mut index11: i32 =  0; index11 <= mapWidth5; index11 += 1)
           {
-            int mapHeight = this.data.MapObj[0].MapHeight;
-            for (int index12 = 0; index12 <= mapHeight; index12 += 1)
+            let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+            for (let mut index12: i32 =  0; index12 <= mapHeight; index12 += 1)
             {
               if (this.data.MapObj[0].HexObj[index11, index12].Regime == this.data.Turn && aiMatrix3.Value[index11, index12] > 0 & aiMatrix4.Value[index11, index12] == 1)
                 num27 += 10;
               if (this.data.MapObj[0].HexObj[index11, index12].Regime == tid1 && aiMatrix5.Value[index11, index12] > 0 & aiMatrix5.Value[index11, index12] < 21 && this.data.MapObj[0].HexObj[index11, index12].UnitCounter > -1)
               {
-                int unitCounter3 = this.data.MapObj[0].HexObj[index11, index12].UnitCounter;
-                for (int index13 = 0; index13 <= unitCounter3; index13 += 1)
+                let mut unitCounter3: i32 =  this.data.MapObj[0].HexObj[index11, index12].UnitCounter;
+                for (let mut index13: i32 =  0; index13 <= unitCounter3; index13 += 1)
                 {
-                  int unit = this.data.MapObj[0].HexObj[index11, index12].UnitList[index13];
+                  let mut unit: i32 =  this.data.MapObj[0].HexObj[index11, index12].UnitList[index13];
                   num28 += this.data.UnitObj[unit].TempUnitPowerAbs;
                 }
               }
             }
           }
-          int tweight3 =  Math.Round((double) (num27 * num28) / 100.0);
+          let mut tweight3: i32 =   Math.Round((double) (num27 * num28) / 100.0);
           simpleList6.AddWeight(id2, tweight3);
-          int tweight4 = 0;
-          int length4 = this.data.StringListObj[stringListById1].Length;
-          for (int index = 0; index <= length4; index += 1)
+          let mut tweight4: i32 =  0;
+          let mut length4: i32 =  this.data.StringListObj[stringListById1].Length;
+          for (let mut index: i32 =  0; index <= length4; index += 1)
           {
             if ( Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 8])) == id1)
             {
-              int tid2 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 0]));
-              int nr1 = simpleList2.FindNr(tid2);
+              let mut tid2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 0]));
+              let mut nr1: i32 =  simpleList2.FindNr(tid2);
               if (nr1 > -1 & nr1 < num22)
               {
-                int id3 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 6]));
+                let mut id3: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index, 6]));
                 if (id3 > 0)
                 {
-                  int locationById = DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id3);
+                  let mut locationById: i32 =  DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id3);
                   if (locationById > -1)
                   {
-                    int num29 = aiMatrix4.Value[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y];
-                    int nr2 = simpleList2.FindNr(tid2);
+                    let mut num29: i32 =  aiMatrix4.Value[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y];
+                    let mut nr2: i32 =  simpleList2.FindNr(tid2);
                     if (nr2 > -1 && simpleList2.Data1[nr2] > num29)
                       simpleList2.Data1[nr2] = num29;
                     tweight4 += num29;
@@ -896,7 +896,7 @@ namespace WindowsApplication1
             }
           }
           simpleList7.Add(id2, tweight4);
-          int tweight5 = 10;
+          let mut tweight5: i32 =  10;
           if (num24 == 1)
             tweight5 = 100;
           if (num24 == 2)
@@ -906,7 +906,7 @@ namespace WindowsApplication1
           if (this.data.RegimeObj[this.data.Turn].RegimeRel[tid1] == 1)
             tweight5 =  Math.Round((double) tweight3 / 5.0);
           simpleList8.Add(id2, tweight5);
-          int tweight6 = new Random( Math.Round((double) (this.data.RegimeObj[tid1].id * this.data.GameID) / 10.0)).Next(1, 101);
+          let mut tweight6: i32 =  new Random( Math.Round((double) (this.data.RegimeObj[tid1].id * this.data.GameID) / 10.0)).Next(1, 101);
           simpleList9.Add(id2, tweight6);
         }
       }
@@ -914,26 +914,26 @@ namespace WindowsApplication1
       simpleList7.Percentify();
       simpleList8.Percentify();
       simpleList9.Percentify();
-      int regimeCounter2 = this.data.RegimeCounter;
+      let mut regimeCounter2: i32 =  this.data.RegimeCounter;
       int index14;
       for (tid1 = 1; tid1 <= regimeCounter2; tid1 += 1)
       {
         if (tid1 != this.data.Turn)
         {
-          int num30 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[tid1].id, 1)));
-          int id4 = this.data.RegimeObj[tid1].id;
-          int val1 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "aiIntention", 3)));
-          int val2_2 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "relation", 3)));
-          int num31 = this.data.RegimeObj[this.data.Turn].RegimeRel[tid1];
+          let mut num30: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[tid1].id, 1)));
+          let mut id4: i32 =  this.data.RegimeObj[tid1].id;
+          let mut val1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "aiIntention", 3)));
+          let mut val2_2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[tid1].id, 2, "relation", 3)));
+          let mut num31: i32 =  this.data.RegimeObj[this.data.Turn].RegimeRel[tid1];
           if (num30 != 4)
           {
-            int tweight = 0;
+            let mut tweight: i32 =  0;
             index14 = simpleList6.FindWeight(id4);
-            int num32 = 100 - simpleList7.FindWeight(id4);
-            int weight = simpleList8.FindWeight(id4);
-            int num33 =  Math.Round((double) simpleList9.FindWeight(id4) / 3.0);
+            let mut num32: i32 =  100 - simpleList7.FindWeight(id4);
+            let mut weight: i32 =  simpleList8.FindWeight(id4);
+            let mut num33: i32 =   Math.Round((double) simpleList9.FindWeight(id4) / 3.0);
             tweight =  Math.Round((double) (index14 + num32 + weight + num33) / 4.0);
-            int num34 = 100 - Math.Max(val1, val2_2);
+            let mut num34: i32 =  100 - Math.Max(val1, val2_2);
             if (num34 < 0)
               num34 = 0;
             if (num31 > 0)
@@ -951,10 +951,10 @@ namespace WindowsApplication1
       }
       simpleList5.ReverseSort();
       index14 = simpleList5.Counter + 1;
-      int num35 = 0;
-      int num36 = 3;
-      int num37 = 1;
-      int counter2 = simpleList5.Counter;
+      let mut num35: i32 =  0;
+      let mut num36: i32 =  3;
+      let mut num37: i32 =  1;
+      let mut counter2: i32 =  simpleList5.Counter;
       for (tid1 = 0; tid1 <= counter2; tid1 += 1)
       {
         num35 += 1;
@@ -965,14 +965,14 @@ namespace WindowsApplication1
           num36 += 1;
         }
       }
-      int num38 =  Math.Round(Math.Ceiling((double) num37 * (double) Math.Min(1f, val2_1)));
+      let mut num38: i32 =   Math.Round(Math.Ceiling((double) num37 * (double) Math.Min(1f, val2_1)));
       if (num38 < 1)
         num38 = 1;
       if (num38 > simpleList5.Counter + 1)
         num38 = simpleList5.Counter + 1;
       this.ai.AddLog("");
       this.ai.AddLog("IMPORTANT ENEMIES");
-      int num39 = num38;
+      let mut num39: i32 =  num38;
       for (tid1 = 1; tid1 <= num39; tid1 += 1)
       {
         index14 = simpleList5.Id[tid1 - 1];
@@ -982,18 +982,18 @@ namespace WindowsApplication1
       this.ai.AddLog("");
       SimpleList simpleList10 = SimpleList::new();
       SimpleList simpleList11 = SimpleList::new();
-      int unitCounter4 = this.data.UnitCounter;
+      let mut unitCounter4: i32 =  this.data.UnitCounter;
       for (tid1 = 0; tid1 <= unitCounter4; tid1 += 1)
       {
         if (this.data.UnitObj[tid1].Regime == this.ai.game.Data.Turn & this.data.UnitObj[tid1].PreDef == -1 & this.data.UnitObj[tid1].IsHQ)
         {
-          int historical = this.data.UnitObj[tid1].Historical;
+          let mut historical: i32 =  this.data.UnitObj[tid1].Historical;
           if (historical > -1 && this.data.HistoricalUnitObj[historical].Type == 5)
           {
             index14 = 0;
-            int num40 = 0;
-            int unitCounter5 = this.data.UnitCounter;
-            for (int index15 = 0; index15 <= unitCounter5; index15 += 1)
+            let mut num40: i32 =  0;
+            let mut unitCounter5: i32 =  this.data.UnitCounter;
+            for (let mut index15: i32 =  0; index15 <= unitCounter5; index15 += 1)
             {
               if (this.data.UnitObj[index15].Regime == this.ai.game.Data.Turn & this.data.UnitObj[index15].PreDef == -1 & !this.data.UnitObj[index15].IsHQ && this.data.UnitObj[index15].HQ == tid1)
               {
@@ -1015,19 +1015,19 @@ namespace WindowsApplication1
         }
       }
       simpleList10.ReverseSort();
-      int unitCounter6 = this.data.UnitCounter;
+      let mut unitCounter6: i32 =  this.data.UnitCounter;
       for (tid1 = 0; tid1 <= unitCounter6; tid1 += 1)
       {
         if (this.data.UnitObj[tid1].Regime == this.ai.game.Data.Turn & this.data.UnitObj[tid1].PreDef == -1 & this.data.UnitObj[tid1].IsHQ)
         {
-          int historical = this.data.UnitObj[tid1].Historical;
+          let mut historical: i32 =  this.data.UnitObj[tid1].Historical;
           if (historical > -1 && this.data.HistoricalUnitObj[historical].Type == 5)
           {
             index14 = 0;
-            int num41 = 0;
-            int num42 = 0;
-            int unitCounter7 = this.data.UnitCounter;
-            for (int index16 = 0; index16 <= unitCounter7; index16 += 1)
+            let mut num41: i32 =  0;
+            let mut num42: i32 =  0;
+            let mut unitCounter7: i32 =  this.data.UnitCounter;
+            for (let mut index16: i32 =  0; index16 <= unitCounter7; index16 += 1)
             {
               if (this.data.UnitObj[index16].Regime == this.ai.game.Data.Turn & this.data.UnitObj[index16].PreDef == -1 & !this.data.UnitObj[index16].IsHQ && this.data.UnitObj[index16].HQ == tid1)
               {
@@ -1036,10 +1036,10 @@ namespace WindowsApplication1
                   num41 += 1;
               }
             }
-            int idValue4 = this.data.HistoricalUnitObj[historical].GiveHisVarValue(1);
+            let mut idValue4: i32 =  this.data.HistoricalUnitObj[historical].GiveHisVarValue(1);
             if (idValue4 > 0)
             {
-              int num43 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById3].GetData(0, idValue4, 2)));
+              let mut num43: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById3].GetData(0, idValue4, 2)));
               num42 = 2;
               if (num43 > 0)
                 num42 = num43;
@@ -1049,7 +1049,7 @@ namespace WindowsApplication1
               index14 = 100000;
               if (num41 > 0)
                 index14 =  Math.Round((double) index14 / (double) ((num41 + 1) * (num41 + 1) * (num41 + 1)));
-              int num44 = num42 * num42;
+              let mut num44: i32 =  num42 * num42;
               if (num44 > 0)
                 index14 =  Math.Round((double) index14 / (double) num44);
               if (simpleList1.FindWeight(tid1) > 0)
@@ -1060,10 +1060,10 @@ namespace WindowsApplication1
         }
       }
       simpleList11.ReverseSort();
-      int num45 = 0;
-      int num46 = 2;
-      int num47 = 1;
-      int counter3 = simpleList10.Counter;
+      let mut num45: i32 =  0;
+      let mut num46: i32 =  2;
+      let mut num47: i32 =  1;
+      let mut counter3: i32 =  simpleList10.Counter;
       for (tid1 = 0; tid1 <= counter3; tid1 += 1)
       {
         num45 += 1;
@@ -1076,7 +1076,7 @@ namespace WindowsApplication1
       }
       this.ai.AddLog("");
       this.ai.AddLog("SPARE OHQs (if Offensive)");
-      int num48 = num47;
+      let mut num48: i32 =  num47;
       for (tid1 = 1; tid1 <= num48; tid1 += 1)
       {
         index14 = simpleList10.Id[tid1 - 1];
@@ -1086,7 +1086,7 @@ namespace WindowsApplication1
       this.ai.AddLog("");
       this.ai.AddLog("");
       this.ai.AddLog("SPARE OHQs (if Defensive)");
-      int num49 = num47;
+      let mut num49: i32 =  num47;
       for (tid1 = 1; tid1 <= num49; tid1 += 1)
       {
         index14 = simpleList11.Id[tid1 - 1];
@@ -1094,17 +1094,17 @@ namespace WindowsApplication1
         this.ai.AddLog("#" + tid1.ToString() + " : " + name);
       }
       this.ai.AddLog("");
-      int num50 = 0;
-      int num51 = 0;
-      int num52 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "majorAiOffensiveMode", 2)));
-      int setValue1 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "majorAiOffensiveModeFixed", 2)));
+      let mut num50: i32 =  0;
+      let mut num51: i32 =  0;
+      let mut num52: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "majorAiOffensiveMode", 2)));
+      let mut setValue1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "majorAiOffensiveModeFixed", 2)));
       if (num52 < 1)
         num52 = 50;
       if (setValue1 < 1)
         setValue1 = 50;
-      int num53 = 0;
-      int num54 = 0;
-      int num55 = num22 - 1;
+      let mut num53: i32 =  0;
+      let mut num54: i32 =  0;
+      let mut num55: i32 =  num22 - 1;
       for (tid1 = 0; tid1 <= num55; tid1 += 1)
       {
         index14 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, simpleList2.Id[tid1], 1, "majorAiEnemyDistance", 2)));
@@ -1114,13 +1114,13 @@ namespace WindowsApplication1
           num51 += simpleList2.Data1[tid1];
           if (num51 > num50)
           {
-            int num56 = num51 - num50;
+            let mut num56: i32 =  num51 - num50;
             if (num56 > num53)
               num53 = num56;
           }
           if (num51 < num50)
           {
-            int num57 = num50 - num51;
+            let mut num57: i32 =  num50 - num51;
             if (num57 > num54)
               num54 = num57;
           }
@@ -1128,12 +1128,12 @@ namespace WindowsApplication1
       }
       if (num50 == 0)
         num50 = num51;
-      int num58 = num52;
-      int setValue2 = !(num50 > 0 & num51 > 0) ? num58 + 1 : ((double)  Math.Round((double) num51 / (double) num50) < 0.5 ? (num54 >= 1 ? (num54 >= 2 ? (num54 >= 3 ? num58 - 7 : num58 - 6) : num58 - 4) : num58 - 1) : (num53 >= 1 ? (num53 >= 2 ? (num53 >= 3 ? num58 + 7 : num58 + 6) : num58 + 4) : num58 + 1));
+      let mut num58: i32 =  num52;
+      let mut setValue2: i32 =  !(num50 > 0 & num51 > 0) ? num58 + 1 : ((double)  Math.Round((double) num51 / (double) num50) < 0.5 ? (num54 >= 1 ? (num54 >= 2 ? (num54 >= 3 ? num58 - 7 : num58 - 6) : num58 - 4) : num58 - 1) : (num53 >= 1 ? (num53 >= 2 ? (num53 >= 3 ? num58 + 7 : num58 + 6) : num58 + 4) : num58 + 1));
       this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE = 0;
-      int num59 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "pathWar_Offensive", 2)));
-      int num60 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "pathWar_Defensive", 2)));
-      int num61 = num59 - num60;
+      let mut num59: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "pathWar_Offensive", 2)));
+      let mut num60: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, id1, 1, "pathWar_Defensive", 2)));
+      let mut num61: i32 =  num59 - num60;
       this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE = setValue2 < 80 ? (setValue2 < 70 ? (setValue2 <= 60 ? (setValue2 < 40 ? (setValue2 < 30 ? 0 : (num59 < 70 ? 0 : 1)) : (num59 < 50 ? 0 : 1)) : (num59 < 70 ? 1 : 2)) : (num59 < 50 ? 1 : 2)) : 2;
       if (setValue2 < 20)
         setValue2 = 20;
@@ -1149,7 +1149,7 @@ namespace WindowsApplication1
       }
       else
         this.ai.AddLog("OldOffensiveModFixed IS UNCHANGED");
-      int num62 = setValue1;
+      let mut num62: i32 =  setValue1;
       int num63;
       int num64;
       if (num62 >= 50)
@@ -1222,19 +1222,19 @@ namespace WindowsApplication1
       if (simpleList10.Counter + 1 < num63)
         num63 = simpleList10.Counter + 1;
       int[] numArray1 = new int[this.data.LocCounter + 10 + 1];
-      int counter4 = simpleList10.Counter;
+      let mut counter4: i32 =  simpleList10.Counter;
       for (tid1 = 0; tid1 <= counter4; tid1 += 1)
       {
         int num65;
         if (num65 < num63 && simpleList10.Data2[tid1] < 1 & simpleList11.FindData(simpleList10.Id[tid1], 2) < 1)
         {
-          int num66 = 0;
-          int num67 = 0;
-          int index17 = 0;
-          int index18 = 0;
-          int id5 = 0;
-          int x = this.data.UnitObj[simpleList10.Id[tid1]].X;
-          int y = this.data.UnitObj[simpleList10.Id[tid1]].Y;
+          let mut num66: i32 =  0;
+          let mut num67: i32 =  0;
+          let mut index17: i32 =  0;
+          let mut index18: i32 =  0;
+          let mut id5: i32 =  0;
+          let mut x: i32 =  this.data.UnitObj[simpleList10.Id[tid1]].X;
+          let mut y: i32 =  this.data.UnitObj[simpleList10.Id[tid1]].Y;
           AIMatrix aiMatrix6 = new AIMatrix(ref this.ai);
           aiMatrix6.SetAllValuesTo(0);
           aiMatrix6.Value[x, y] = 1;
@@ -1242,31 +1242,31 @@ namespace WindowsApplication1
           aiMatrix6.ExpandAndAddValueForAnyRegime(99, true);
           aiMatrix6.SetValueXToValueY(0, 9999);
           this.ai.AddLog("For " + this.data.UnitObj[simpleList10.Id[tid1]].Name + ":");
-          int num68 = num38 - 1;
+          let mut num68: i32 =  num38 - 1;
           int locationById;
-          for (int index19 = 0; index19 <= num68; index19 += 1)
+          for (let mut index19: i32 =  0; index19 <= num68; index19 += 1)
           {
-            int idValue5 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, simpleList5.Id[index19], 12)));
-            int num69 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(6, idValue5, 0)));
-            int length5 = this.data.StringListObj[stringListById1].Length;
-            for (int index20 = 0; index20 <= length5; index20 += 1)
+            let mut idValue5: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, simpleList5.Id[index19], 12)));
+            let mut num69: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(6, idValue5, 0)));
+            let mut length5: i32 =  this.data.StringListObj[stringListById1].Length;
+            for (let mut index20: i32 =  0; index20 <= length5; index20 += 1)
             {
               if ( Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index20, 8])) == simpleList5.Id[index19])
               {
-                int num70 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index20, 0]));
-                int num71 = 50;
+                let mut num70: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index20, 0]));
+                let mut num71: i32 =  50;
                 if (num69 == num70)
                   num71 = 100;
-                int id6 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index20, 6]));
+                let mut id6: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].Data[index20, 6]));
                 if (id6 > 0)
                 {
                   locationById = DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id6);
                   if (locationById > -1)
                   {
-                    int num72 = aiMatrix6.Value[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y];
+                    let mut num72: i32 =  aiMatrix6.Value[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y];
                     if (num72 < 199)
                     {
-                      int num73 =  Math.Round((double) (num71 * 1000) / (double) num72);
+                      let mut num73: i32 =   Math.Round((double) (num71 * 1000) / (double) num72);
                       if (simpleList1.FindWeight(simpleList10.Id[tid1]) == id6 && this.data.RegimeObj[this.data.MapObj[0].HexObj[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y].Regime].RegimeRel[this.data.Turn] == 0)
                         num73 *= 3;
                       if (numArray1[locationById] > 0)
@@ -1291,9 +1291,9 @@ namespace WindowsApplication1
             locationById = DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id5);
             int[] numArray2 = numArray1;
             int[] numArray3 = numArray2;
-            int index21 = locationById;
-            int index22 = index21;
-            int num74 = numArray2[index21] + 1;
+            let mut index21: i32 =  locationById;
+            let mut index22: i32 =  index21;
+            let mut num74: i32 =  numArray2[index21] + 1;
             numArray3[index22] = num74;
             this.ai.AddLog("====> Assigned to: ==> " + this.data.LocObj[locationById].Name);
             this.ai.AddLog("");
@@ -1317,40 +1317,40 @@ namespace WindowsApplication1
       if (simpleList11.Counter + 1 < num64)
         num64 = simpleList11.Counter + 1;
       int[] numArray4 = new int[this.data.LocCounter + 10 + 1];
-      int num75 = 0;
-      int counter5 = simpleList11.Counter;
+      let mut num75: i32 =  0;
+      let mut counter5: i32 =  simpleList11.Counter;
       for (tid1 = 0; tid1 <= counter5; tid1 += 1)
       {
         if (num75 < num64 && simpleList11.Data2[tid1] < 1 & simpleList10.FindData(simpleList11.Id[tid1], 2) < 1)
         {
-          int num76 = 0;
-          int num77 = 0;
-          int index23 = 0;
-          int index24 = 0;
-          int id7 = 0;
-          int x = this.data.UnitObj[simpleList11.Id[tid1]].X;
-          int y = this.data.UnitObj[simpleList11.Id[tid1]].Y;
+          let mut num76: i32 =  0;
+          let mut num77: i32 =  0;
+          let mut index23: i32 =  0;
+          let mut index24: i32 =  0;
+          let mut id7: i32 =  0;
+          let mut x: i32 =  this.data.UnitObj[simpleList11.Id[tid1]].X;
+          let mut y: i32 =  this.data.UnitObj[simpleList11.Id[tid1]].Y;
           AIMatrix aiMatrix7 = new AIMatrix(ref this.ai);
           aiMatrix7.SetAllValuesTo(0);
           aiMatrix7.Value[x, y] = 1;
           aiMatrix7.ExpandAndAddValueForSameRegime(69);
           aiMatrix7.SetValueXToValueY(0, 9999);
           this.ai.AddLog("For " + this.data.UnitObj[simpleList11.Id[tid1]].Name + ":");
-          int num78 = num22 - 1;
-          for (int index25 = 0; index25 <= num78; index25 += 1)
+          let mut num78: i32 =  num22 - 1;
+          for (let mut index25: i32 =  0; index25 <= num78; index25 += 1)
           {
-            int idValue6 = simpleList2.Id[index25];
-            int num79 = simpleList2.Weight[index25];
-            int id8 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(0, idValue6, 6)));
+            let mut idValue6: i32 =  simpleList2.Id[index25];
+            let mut num79: i32 =  simpleList2.Weight[index25];
+            let mut id8: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(0, idValue6, 6)));
             if (id8 > 0)
             {
-              int locationById = DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id8);
+              let mut locationById: i32 =  DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id8);
               if (locationById > -1)
               {
-                int num80 = aiMatrix7.Value[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y];
+                let mut num80: i32 =  aiMatrix7.Value[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y];
                 if (num80 < 199)
                 {
-                  int num81 =  Math.Round((double) (num79 * 1000) / (double) num80);
+                  let mut num81: i32 =   Math.Round((double) (num79 * 1000) / (double) num80);
                   if (simpleList1.FindWeight(simpleList11.Id[tid1] + 200000) - 200000 == id8)
                     num81 *= 3;
                   if (numArray4[locationById] > 0)
@@ -1370,12 +1370,12 @@ namespace WindowsApplication1
           }
           if (num77 > 0)
           {
-            int locationById = DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id7);
+            let mut locationById: i32 =  DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id7);
             int[] numArray5 = numArray4;
             int[] numArray6 = numArray5;
-            int index26 = locationById;
-            int index27 = index26;
-            int num82 = numArray5[index26] + 1;
+            let mut index26: i32 =  locationById;
+            let mut index27: i32 =  index26;
+            let mut num82: i32 =  numArray5[index26] + 1;
             numArray6[index27] = num82;
             this.ai.AddLog("====> Assigned to: ==> " + this.data.LocObj[locationById].Name);
             this.ai.AddLog("");
@@ -1385,11 +1385,11 @@ namespace WindowsApplication1
             aiMatrix8.SetAllValuesTo(0);
             aiMatrix8.Value[index23, index24] = 1;
             aiMatrix8.ExpandAndAddValueForSameRegime(4);
-            int mapWidth6 = this.data.MapObj[0].MapWidth;
-            for (int index28 = 0; index28 <= mapWidth6; index28 += 1)
+            let mut mapWidth6: i32 =  this.data.MapObj[0].MapWidth;
+            for (let mut index28: i32 =  0; index28 <= mapWidth6; index28 += 1)
             {
-              int mapHeight = this.data.MapObj[0].MapHeight;
-              for (int index29 = 0; index29 <= mapHeight; index29 += 1)
+              let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+              for (let mut index29: i32 =  0; index29 <= mapHeight; index29 += 1)
               {
                 if (this.data.MapObj[0].HexObj[index28, index29].Regime == this.data.Turn && aiMatrix8.Value[index28, index29] > 0)
                   this.ai.VAR_MATRIX_ZONES.Value[index28, index29] = 200000 + id7;
@@ -1400,7 +1400,7 @@ namespace WindowsApplication1
         }
       }
       this.ai.AddLog("");
-      int counter6 = simpleList2.Counter;
+      let mut counter6: i32 =  simpleList2.Counter;
       for (tid1 = 0; tid1 <= counter6; tid1 += 1)
       {
         this.data.StringListObj[stringListById2].SetData2(0, simpleList2.Id[tid1], 1, "majorAiRegId", 2, this.data.RegimeObj[this.data.Turn].id, true);
@@ -1409,14 +1409,14 @@ namespace WindowsApplication1
       this.data.StringListObj[this.slotRegimeKeys].SetData2(0, id1, 1, "majorAiOffensiveMode", 2, setValue2, true);
       this.data.StringListObj[this.slotRegimeKeys].SetData2(0, id1, 1, "majorAiOffensiveModeFixed", 2, setValue1, true);
       AIMatrix addvalue = new AIMatrix(ref this.ai);
-      int mapWidth7 = this.data.MapObj[0].MapWidth;
-      for (int index30 = 0; index30 <= mapWidth7; index30 += 1)
+      let mut mapWidth7: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index30: i32 =  0; index30 <= mapWidth7; index30 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index31 = 0; index31 <= mapHeight; index31 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index31: i32 =  0; index31 <= mapHeight; index31 += 1)
           addvalue.Value[index30, index31] = this.data.MapObj[0].HexObj[index30, index31].Regime != this.data.Turn ? 0 : 1;
       }
-      int num83 = 0;
+      let mut num83: i32 =  0;
       int maxy1;
       if ((double) val2_1 < 0.2)
         maxy1 = 2;
@@ -1433,11 +1433,11 @@ namespace WindowsApplication1
           maxy1 = 3;
       }
       AIMatrix mask2 = new AIMatrix(ref this.ai);
-      int mapWidth8 = this.data.MapObj[0].MapWidth;
-      for (int index32 = 0; index32 <= mapWidth8; index32 += 1)
+      let mut mapWidth8: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index32: i32 =  0; index32 <= mapWidth8; index32 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index33 = 0; index33 <= mapHeight; index33 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index33: i32 =  0; index33 <= mapHeight; index33 += 1)
         {
           if (this.data.MapObj[0].HexObj[index32, index33].Regime > -1)
           {
@@ -1450,7 +1450,7 @@ namespace WindowsApplication1
       mask2.AddValue(addvalue, 1);
       if (maxy1 > 0)
         addvalue.ExpandValueForAnyRegimeWithinMask(ref mask2, maxy1);
-      int num84 = 0;
+      let mut num84: i32 =  0;
       int maxy2;
       if ((double) val2_1 < 0.4)
         maxy2 = 0;
@@ -1470,32 +1470,32 @@ namespace WindowsApplication1
         addvalue.ExpandValueForAnyRegime(maxy2);
       this.ai.MLAMatrix = addvalue;
       AIMatrix aiMatrix9 = new AIMatrix(ref this.ai);
-      int mapWidth9 = this.data.MapObj[0].MapWidth;
-      for (int index34 = 0; index34 <= mapWidth9; index34 += 1)
+      let mut mapWidth9: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index34: i32 =  0; index34 <= mapWidth9; index34 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index35 = 0; index35 <= mapHeight; index35 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index35: i32 =  0; index35 <= mapHeight; index35 += 1)
           aiMatrix9.Value[index34, index35] = 0;
       }
-      int num85 = num22 - 1;
-      for (int index36 = 0; index36 <= num85; index36 += 1)
+      let mut num85: i32 =  num22 - 1;
+      for (let mut index36: i32 =  0; index36 <= num85; index36 += 1)
       {
-        int idValue7 = simpleList2.Id[index36];
-        int num86 = simpleList2.Weight[index36];
-        int id9 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(0, idValue7, 6)));
+        let mut idValue7: i32 =  simpleList2.Id[index36];
+        let mut num86: i32 =  simpleList2.Weight[index36];
+        let mut id9: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[stringListById1].GetData(0, idValue7, 6)));
         if (id9 > 0)
         {
-          int locationById = DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id9);
+          let mut locationById: i32 =  DrawMod.TGame.HandyFunctionsObj.GetLocationByID(id9);
           if (locationById > -1)
             aiMatrix9.Value[this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y] = 1;
         }
       }
       aiMatrix9.ExpandAndAddValueForAnyRegime(6);
-      int mapWidth10 = this.data.MapObj[0].MapWidth;
-      for (int index37 = 0; index37 <= mapWidth10; index37 += 1)
+      let mut mapWidth10: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index37: i32 =  0; index37 <= mapWidth10; index37 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index38 = 0; index38 <= mapHeight; index38 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index38: i32 =  0; index38 <= mapHeight; index38 += 1)
         {
           if (aiMatrix9.Value[index37, index38] == 1)
             this.ai.VAR_MATRIX_RETREAT.Value[index37, index38] = 25;
@@ -1512,7 +1512,7 @@ namespace WindowsApplication1
       int[] numArray7 = new int[this.data.RegimeCounter + 1];
       int[] numArray8 = new int[this.data.RegimeCounter + 1];
       int[] numArray9 = new int[this.data.RegimeCounter + 1];
-      int regimeCounter3 = this.data.RegimeCounter;
+      let mut regimeCounter3: i32 =  this.data.RegimeCounter;
       for (tid1 = 1; tid1 <= regimeCounter3; tid1 += 1)
       {
         if (tid1 != this.data.Turn)
@@ -1523,17 +1523,17 @@ namespace WindowsApplication1
         }
       }
       AIMatrix aiMatrix10 = new AIMatrix(ref this.ai);
-      int mapWidth11 = this.data.MapObj[0].MapWidth;
-      for (int index39 = 0; index39 <= mapWidth11; index39 += 1)
+      let mut mapWidth11: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index39: i32 =  0; index39 <= mapWidth11; index39 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index40 = 0; index40 <= mapHeight; index40 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index40: i32 =  0; index40 <= mapHeight; index40 += 1)
         {
           aiMatrix10.Value[index39, index40] = 0;
           index14 = this.data.MapObj[0].HexObj[index39, index40].Regime;
           if (index14 > -1 && index14 != this.data.Turn)
           {
-            int num87 = 100;
+            let mut num87: i32 =  100;
             if (this.data.RegimeObj[this.data.Turn].RegimeRel[index14] == 0)
               num87 = numArray7[index14] != 1 ? 100 : 50;
             else if (numArray7[index14] == 1)
@@ -1544,7 +1544,7 @@ namespace WindowsApplication1
               num87 = 400;
             if (this.data.RegimeObj[this.data.Turn].RegimeRel[index14] == 0)
             {
-              int nr = simpleList5.FindNr(this.data.RegimeObj[index14].id);
+              let mut nr: i32 =  simpleList5.FindNr(this.data.RegimeObj[index14].id);
               if (nr > -1 & nr < num38)
               {
                 num87 =  Math.Round((double) num87 / 2.0);
@@ -1559,22 +1559,22 @@ namespace WindowsApplication1
         }
       }
       aiMatrix10.ExpandValueForSameRegime(19);
-      int mapWidth12 = this.data.MapObj[0].MapWidth;
-      for (int index41 = 0; index41 <= mapWidth12; index41 += 1)
+      let mut mapWidth12: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index41: i32 =  0; index41 <= mapWidth12; index41 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index42 = 0; index42 <= mapHeight; index42 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index42: i32 =  0; index42 <= mapHeight; index42 += 1)
         {
           if (this.data.MapObj[0].HexObj[index41, index42].Regime != this.data.Turn & this.data.MapObj[0].HexObj[index41, index42].Regime > -1 && aiMatrix10.Value[index41, index42] == 0)
             aiMatrix10.Value[index41, index42] = 400;
         }
       }
       aiMatrix10.ExpandValueForAnyRegime(1);
-      int mapWidth13 = this.data.MapObj[0].MapWidth;
-      for (int index43 = 0; index43 <= mapWidth13; index43 += 1)
+      let mut mapWidth13: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index43: i32 =  0; index43 <= mapWidth13; index43 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index44 = 0; index44 <= mapHeight; index44 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index44: i32 =  0; index44 <= mapHeight; index44 += 1)
         {
           if (this.data.MapObj[0].HexObj[index43, index44].Regime != this.data.Turn)
             aiMatrix10.Value[index43, index44] = 0;
@@ -1585,11 +1585,11 @@ namespace WindowsApplication1
       aiMatrix11.ExpandValueForAnyRegime(20);
       if (this.ai.VAR_DEBUG_ON)
         this.ai.Screenshot("STRENGTH_MATRIX", ref aiMatrix11.Value);
-      int mapWidth14 = this.data.MapObj[0].MapWidth;
-      for (int index45 = 0; index45 <= mapWidth14; index45 += 1)
+      let mut mapWidth14: i32 =  this.data.MapObj[0].MapWidth;
+      for (let mut index45: i32 =  0; index45 <= mapWidth14; index45 += 1)
       {
-        int mapHeight = this.data.MapObj[0].MapHeight;
-        for (int index46 = 0; index46 <= mapHeight; index46 += 1)
+        let mut mapHeight: i32 =  this.data.MapObj[0].MapHeight;
+        for (let mut index46: i32 =  0; index46 <= mapHeight; index46 += 1)
           this.ai.VAR_MATRIX_STRENGTH.Value[index45, index46] = aiMatrix11.Value[index45, index46];
       }
       this.ai.VAR_STRENGTH_MOD_IS_ALSO_COMBAT_ADV_MOD = false;
@@ -1615,9 +1615,9 @@ namespace WindowsApplication1
       float score2,
       float score3)
     {
-      int num1 =  Math.Round((double) score1);
-      int num2 =  Math.Round((double) score2);
-      int num3 =  Math.Round((double) score3);
+      let mut num1: i32 =   Math.Round((double) score1);
+      let mut num2: i32 =   Math.Round((double) score2);
+      let mut num3: i32 =   Math.Round((double) score3);
       if (num1 > 30 & num1 < 999)
         num1 =  Math.Round(30.0 + (double) (num1 - 30) * 0.8);
       if (num1 > 60 & num1 < 999)
@@ -1639,8 +1639,8 @@ namespace WindowsApplication1
 
     pub float GetUnitPowerModifier(int unr)
     {
-      int num1 =  Math.Round(Conversion.Val(this.data.StringListObj[DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 156, 0, 0))].GetData(0, 42, 2)));
-      int regime = this.data.UnitObj[unr].Regime;
+      let mut num1: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 156, 0, 0))].GetData(0, 42, 2)));
+      let mut regime: i32 =  this.data.UnitObj[unr].Regime;
       float unitPowerModifier;
       if (DrawMod.TGame.HandyFunctionsObj.IsAlliedOrSelf(regime, this.data.Turn))
       {
@@ -1654,8 +1654,8 @@ namespace WindowsApplication1
         }
         else
         {
-          int num2 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[regime].id, 2, "aiIntention", 3)));
-          int num3 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[regime].id, 2, "relation", 3)));
+          let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[regime].id, 2, "aiIntention", 3)));
+          let mut num3: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotregregkeys].GetData3(0, this.data.RegimeObj[this.data.Turn].id, 1, this.data.RegimeObj[regime].id, 2, "relation", 3)));
           if (num3 > 0)
             num3 = num3;
           if (num3 > num2)
@@ -1684,11 +1684,11 @@ namespace WindowsApplication1
 
     pub int CustomRuleWorld_ExtraTroopsOnHex(int x, int y, int curTroops)
     {
-      int regime = this.data.MapObj[0].HexObj[x, y].Regime;
-      int num1 = 0;
+      let mut regime: i32 =  this.data.MapObj[0].HexObj[x, y].Regime;
+      let mut num1: i32 =  0;
       if (regime > 0 && this.data.RegimeObj[this.data.Turn].RegimeRel[regime] == 0 & this.data.Turn != regime &&  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[this.data.Turn].id, 1))) == 1)
       {
-        int num2 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[regime].id, 1)));
+        let mut num2: i32 =   Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimes].GetData(0, this.data.RegimeObj[regime].id, 1)));
         if (curTroops < 1 & DrawMod.RandyNumber.Next(0, 100) < 20)
           num1 = 5;
       }

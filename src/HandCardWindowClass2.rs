@@ -47,8 +47,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -63,8 +63,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -94,13 +94,13 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.cancelid);
         this.cancelid = 0;
       }
-       Graphics local1 =  g;
+       let mut local1: &Graphics = &g;
       Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.Turn, this.Card);
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local1,  local2, 95, 30);
       if (this.game.Data.ActionCardObj[this.Card].MouseOver.Length > 0)
       {
-        Rectangle trect = new Rectangle(95, 30, 190, 266);
+        Rectangle trect = Rectangle::new(95, 30, 190, 266);
         this.AddMouse( trect, "", this.game.Data.ActionCardObj[this.Card].MouseOver);
       }
       if ((this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= this.game.Data.ActionCardObj[this.Card].PPCost | this.game.Data.ActionCardObj[this.Card].PPCost == 0) & (this.game.Data.ActionCardObj[this.Card].HisVarCostType == -1 | this.game.Data.HistoricalUnitObj[this.His].GiveHisVarValue(this.game.Data.ActionCardObj[this.Card].HisVarCostType) >= this.game.Data.ActionCardObj[this.Card].HisVarCostQty))
@@ -150,12 +150,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.okid)
             {
               this.game.EditObj.SkippedPreSelectPopup = false;
@@ -186,7 +186,7 @@ namespace WindowsApplication1
                 }
                 this.game.EditObj.SkippedPreSelectPopup = true;
               }
-              int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+              let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
               this.game.ProcessingObj.PlayCardByUnit(this.game.EditObj.UnitSelected, this.Card);
               this.game.EditObj.AreaX = -1;
               this.game.EditObj.AreaSlot = -1;
@@ -201,13 +201,13 @@ namespace WindowsApplication1
                 windowReturnClass.AddCommand(3, 13);
                 return windowReturnClass;
               }
-              int locCounter = this.game.Data.LocCounter;
+              let mut locCounter: i32 =  this.game.Data.LocCounter;
               int Number;
-              for (int locnr = 0; locnr <= locCounter; locnr += 1)
+              for (let mut locnr: i32 =  0; locnr <= locCounter; locnr += 1)
               {
                 if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime == this.game.Data.Turn)
                 {
-                  int index2 = 0;
+                  let mut index2: i32 =  0;
                   do
                   {
                     if (this.game.Data.LocObj[locnr].Production[index2] > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, this.game.Data.LocObj[locnr].Production[index2]).result)
@@ -224,7 +224,7 @@ namespace WindowsApplication1
               }
               if (Number > 0)
               {
-                int num2 =  Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num2: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.game.CornerX = this.tCornerX;
               this.game.CornerY = this.tCornerY;

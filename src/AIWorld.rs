@@ -35,12 +35,12 @@ namespace WindowsApplication1
 
     pub int UnitOffensiveModifier(int unr)
     {
-      int sfCount = this.ai.game.Data.UnitObj[unr].SFCount;
+      let mut sfCount: i32 =  this.ai.game.Data.UnitObj[unr].SFCount;
       int num1;
       int num2;
-      for (int index = 0; index <= sfCount; index += 1)
+      for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
-        int sf = this.ai.game.Data.UnitObj[unr].SFList[index];
+        let mut sf: i32 =  this.ai.game.Data.UnitObj[unr].SFList[index];
         if (this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].AIRoleScore[10] > 0)
         {
           num1 += this.ai.game.Data.SFObj[sf].Qty;
@@ -65,16 +65,16 @@ namespace WindowsApplication1
       this.frontList = tfrontList;
       this.frontline = this.ai.frontMatrix.Clone();
       this.SetOwner();
-      int num1 = 0;
-      int num2 = 0;
-      int num3 = 0;
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  0;
+      let mut num3: i32 =  0;
       if (this.ai.VAR_STRATEGIC_WEAKNESS_AT_BOTTLENECK)
       {
-        int mapWidth = this.ai.map.MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
             if (this.owner.Value[index1, index2] == 2 && this.ai.map.HexObj[index1, index2].UnitCounter > -1)
             {
@@ -92,21 +92,21 @@ namespace WindowsApplication1
       this.FriendlyMod = tFriendlyMod;
       this.AbsoluteFriendlyMod = tAbsoluteFriendlyMod;
       this.offtroops = new AIMatrix(ref this.ai);
-      int mapWidth1 = this.ai.map.MapWidth;
-      for (int x = 0; x <= mapWidth1; x += 1)
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
+      for (let mut x: i32 =  0; x <= mapWidth1; x += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int y = 0; y <= mapHeight; y += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut y: i32 =  0; y <= mapHeight; y += 1)
         {
           if (this.ai.CustomCalls.HasCustumCalls())
           {
             int[,] numArray1 = this.troops.Value;
             int[,] numArray2 = numArray1;
-            int index3 = x;
-            int index4 = index3;
-            int index5 = y;
-            int index6 = index5;
-            int num4 = numArray1[index3, index5] + this.ai.CustomCalls.CustomRuleWorld_ExtraTroopsOnHex(x, y, this.troops.Value[x, y]);
+            let mut index3: i32 =  x;
+            let mut index4: i32 =  index3;
+            let mut index5: i32 =  y;
+            let mut index6: i32 =  index5;
+            let mut num4: i32 =  numArray1[index3, index5] + this.ai.CustomCalls.CustomRuleWorld_ExtraTroopsOnHex(x, y, this.troops.Value[x, y]);
             numArray2[index4, index6] = num4;
           }
           if (this.owner.Value[x, y] == 1)
@@ -115,10 +115,10 @@ namespace WindowsApplication1
             this.troops.Value[x, y] = (int) Math.Round((double) this.troops.Value[x, y] * Math.Max(0.2, (double) Math.Min(1f, this.frontList.Front[this.frontList.GetFrontNr(this.frontline.Value[x, y])].UnitCountRatio)));
           if (this.owner.Value[x, y] == 2)
           {
-            int num5 = this.troops.Value[x, y];
+            let mut num5: i32 =  this.troops.Value[x, y];
             if (this.ai.VAR_STRATEGIC_WEAKNESS_AT_BOTTLENECK & num5 > 0)
             {
-              int num6 = this.ai.enemyBoostMatrix.Value[x, y] - num1;
+              let mut num6: i32 =  this.ai.enemyBoostMatrix.Value[x, y] - num1;
               if (num6 >= num1 * 9)
                 num5 *= 2;
               else if (num6 >= num1 * 7)
@@ -137,12 +137,12 @@ namespace WindowsApplication1
           }
           if (this.owner.Value[x, y] == 2)
           {
-            int num7 = 0;
-            int num8 = 0;
-            int unitCounter = this.ai.map.HexObj[x, y].UnitCounter;
-            for (int index = 0; index <= unitCounter; index += 1)
+            let mut num7: i32 =  0;
+            let mut num8: i32 =  0;
+            let mut unitCounter: i32 =  this.ai.map.HexObj[x, y].UnitCounter;
+            for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
-              int unit = this.ai.map.HexObj[x, y].UnitList[index];
+              let mut unit: i32 =  this.ai.map.HexObj[x, y].UnitList[index];
               if (this.ai.game.HandyFunctionsObj.HasUnitlandSF(unit))
               {
                 num7 += this.UnitOffensiveModifier(unit);
@@ -151,7 +151,7 @@ namespace WindowsApplication1
             }
             if (num8 > 0 & num7 > 0)
             {
-              int num9 = (int) Math.Round((double) num7 / (double) num8);
+              let mut num9: i32 =  (int) Math.Round((double) num7 / (double) num8);
               this.offtroops.Value[x, y] = num9;
             }
           }
@@ -163,7 +163,7 @@ namespace WindowsApplication1
       this.CellularAutomatonSetEnemySupply();
       this.friendlyBottleneck = this.ai.SetFriendlyBottleNeckMatrix((AIFront) null, this.friendlySupply, this.owner, false, 2);
       this.SetStartValues();
-      int index7 = 0;
+      let mut index7: i32 =  0;
       do
       {
         this.halfScore[index7] = -999999;
@@ -195,7 +195,7 @@ namespace WindowsApplication1
       aiWorld.startEnemyVP = this.startEnemyVP;
       aiWorld.startFriendlyVP = this.startFriendlyVP;
       aiWorld.vp = this.vp;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         aiWorld.halfScore[index] = this.halfScore[index];
@@ -209,17 +209,17 @@ namespace WindowsApplication1
 
     pub int SetStartValues()
     {
-      int num1 = 0;
-      int mapWidth = this.ai.map.MapWidth;
+      let mut num1: i32 =  0;
+      let mut mapWidth: i32 =  this.ai.map.MapWidth;
       int num2;
       int val2;
       int num3;
       int num4;
       int num5;
-      for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
           if (this.owner.Value[index1, index2] == 1)
           {
@@ -253,15 +253,15 @@ namespace WindowsApplication1
 
     pub int GetScore(string logFileName, bool DoLog, AIFrontList plan, bool halfscoreCalc)
     {
-      int mapWidth = this.ai.map.MapWidth;
+      let mut mapWidth: i32 =  this.ai.map.MapWidth;
       int num1;
       int num2;
       int num3;
       int num4;
-      for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
           if (this.owner.Value[index1, index2] == 1)
           {
@@ -285,15 +285,15 @@ namespace WindowsApplication1
         num3 = 1;
       float num5 = (float) this.startFriendlyTroops / (float) this.startEnemyTroops;
       float num6 = (float) num2 / (float) num4;
-      int num7 = (int) Math.Round(((double) num6 - (double) num5) * 100.0);
+      let mut num7: i32 =  (int) Math.Round(((double) num6 - (double) num5) * 100.0);
       float num8 = (float) this.startFriendlyVP / (float) this.startEnemyVP;
       float num9 = (float) num1 / (float) num3;
-      int num10 = (int) Math.Round(((double) num9 - (double) num8) * 100.0) * 1;
-      int score = num7 + num10;
+      let mut num10: i32 =  (int) Math.Round(((double) num9 - (double) num8) * 100.0) * 1;
+      let mut score: i32 =  num7 + num10;
       if (!halfscoreCalc)
       {
-        int num11 = 1;
-        int index = 0;
+        let mut num11: i32 =  1;
+        let mut index: i32 =  0;
         do
         {
           if (this.halfScore[index] > -999999)
@@ -327,7 +327,7 @@ namespace WindowsApplication1
         this.ai.AddLog("");
         if (!halfscoreCalc)
         {
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             if (this.halfScore[index] > -999999)
@@ -342,8 +342,8 @@ namespace WindowsApplication1
         this.ai.AddLog("---------------------");
         this.ai.AddLog("FRONTS:");
         this.ai.AddLog("");
-        int counter1 = plan.Counter;
-        for (int index3 = 0; index3 <= counter1; index3 += 1)
+        let mut counter1: i32 =  plan.Counter;
+        for (let mut index3: i32 =  0; index3 <= counter1; index3 += 1)
         {
           str1: String = "";
           if (plan.Front[index3].FrontType == 1)
@@ -365,8 +365,8 @@ namespace WindowsApplication1
             str2 = str2 + "\r\n" + "TARGET-FRONT: " + plan.Front[index3].TargetFrontID.ToString() + ", DISTANCE: " + plan.Front[index3].Distance.ToString();
           this.ai.AddLog("FRONT " + plan.Front[index3].FrontID.ToString() + str2);
           this.ai.AddLog("----------------------------------");
-          int counter2 = plan.Front[index3].units.counter;
-          for (int index4 = 0; index4 <= counter2; index4 += 1)
+          let mut counter2: i32 =  plan.Front[index3].units.counter;
+          for (let mut index4: i32 =  0; index4 <= counter2; index4 += 1)
             this.ai.AddLog(this.ai.game.Data.UnitObj[plan.Front[index3].units.unr[index4]].Name);
           this.ai.AddLog("");
         }
@@ -381,7 +381,7 @@ namespace WindowsApplication1
     {
       this.friendlySupply = new AIMatrix(ref this.ai);
       this.friendlySupply.SetAllValuesTo(9999);
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.ai.VAR_SUPPLY_ACTIVE[this.ai.GetGameDataTurn(), index])
@@ -396,7 +396,7 @@ namespace WindowsApplication1
     {
       this.friendlySupplyRoute = new AIMatrix(ref this.ai);
       this.friendlySupplyRoute.SetAllValuesTo(9999);
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.ai.VAR_SUPPLY_ACTIVE[this.ai.GetGameDataTurn(), index])
@@ -411,12 +411,12 @@ namespace WindowsApplication1
     {
       this.enemySupply = new AIMatrix(ref this.ai);
       this.enemySupply.SetAllValuesTo(9999);
-      int regimeCounter = this.ai.game.Data.RegimeCounter;
-      for (int reg1 = 0; reg1 <= regimeCounter; reg1 += 1)
+      let mut regimeCounter: i32 =  this.ai.game.Data.RegimeCounter;
+      for (let mut reg1: i32 =  0; reg1 <= regimeCounter; reg1 += 1)
       {
         if (!this.ai.game.HandyFunctionsObj.IsAlliedOrSelf(reg1, this.ai.game.Data.Turn))
         {
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             if (this.ai.VAR_SUPPLY_ACTIVE[reg1, index])
@@ -466,8 +466,8 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonStartXIterations(int iterations)
     {
-      int num = iterations;
-      for (int iteration = 1; iteration <= num; iteration += 1)
+      let mut num: i32 =  iterations;
+      for (let mut iteration: i32 =  1; iteration <= num; iteration += 1)
       {
         this += 1.run;
         if (this.run > 1)
@@ -485,27 +485,27 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonSetStats()
     {
-      int counter = this.frontList.Counter;
-      for (int index1 = 0; index1 <= counter; index1 += 1)
+      let mut counter: i32 =  this.frontList.Counter;
+      for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
         AIFront aiFront = this.frontList.Front[index1];
-        int num1 = 0;
-        int num2 = 0;
-        int num3 = 0;
-        int num4 = 0;
-        int d = 0;
-        int num5 = 0;
-        int num6 = 0;
-        int num7 = 0;
+        let mut num1: i32 =  0;
+        let mut num2: i32 =  0;
+        let mut num3: i32 =  0;
+        let mut num4: i32 =  0;
+        let mut d: i32 =  0;
+        let mut num5: i32 =  0;
+        let mut num6: i32 =  0;
+        let mut num7: i32 =  0;
         if (aiFront.FrontID == 375)
           num6 = num6;
         if (aiFront.FrontType == 1)
         {
-          int mapWidth = this.ai.map.MapWidth;
-          for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+          let mut mapWidth: i32 =  this.ai.map.MapWidth;
+          for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
           {
-            int mapHeight = this.ai.map.MapHeight;
-            for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+            let mut mapHeight: i32 =  this.ai.map.MapHeight;
+            for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
             {
               if (this.frontline.Value[index2, index3] == aiFront.FrontID & this.owner.Value[index2, index3] == 1)
               {
@@ -532,7 +532,7 @@ namespace WindowsApplication1
             }
           }
         }
-        int num8 = num7 <= 0 ? 0 : (int) Math.Round((double) (num7 * 100) / (double) num6);
+        let mut num8: i32 =  num7 <= 0 ? 0 : (int) Math.Round((double) (num7 * 100) / (double) num6);
         if (this.ai.game.Data.Turn == 4 & aiFront.FrontID == 2)
           num8 = num8;
         if ((double) num6 > (double) aiFront.OrigPower * 0.1)
@@ -551,7 +551,7 @@ namespace WindowsApplication1
         }
         if (num4 > 0)
         {
-          int num9 = (int) Math.Round((double) ((int) Math.Round((double) num3 / (double) num4) + aiFront.retreatAverageScore) / 2.0);
+          let mut num9: i32 =  (int) Math.Round((double) ((int) Math.Round((double) num3 / (double) num4) + aiFront.retreatAverageScore) / 2.0);
           if (d > 0)
             num9 = (int) Math.Round((double) num9 / Math.Sqrt((double) d));
           if (num5 > 3)
@@ -568,15 +568,15 @@ namespace WindowsApplication1
     pub void CellularAutomatonFriendlyForces(AIFrontList frontList, int iteration)
     {
       this.CellularAutomatonMoveTowardsFront(3, this.ai.VAR_FRONTLINE_DEPTH);
-      int counter = frontList.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  frontList.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         AIFront front = frontList.Front[index];
         if (front.FrontID == 1421)
           front.FrontID = front.FrontID;
         if (front.FrontType == 1)
         {
-          int num = front.Stance != 2 ? (!(front.Stance == 3 & (double) front.OrigAverageStrength >= 3.5) ? (front.Stance != 3 ? 1 : 3) : 4) : 2;
+          let mut num: i32 =  front.Stance != 2 ? (!(front.Stance == 3 & (double) front.OrigAverageStrength >= 3.5) ? (front.Stance != 3 ? 1 : 3) : 4) : 2;
           if (front.Stance == 3)
           {
             if (front.FrontID < 1000000 | this.run > 1)
@@ -605,26 +605,26 @@ namespace WindowsApplication1
       {
         num1 = 0;
         AIMatrix aiMatrix = new AIMatrix(ref this.ai);
-        int mapWidth = this.ai.map.MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
             if (this.frontline.Value[index1, index2] == front.FrontID | this.run > 1 && this.friendlySupply.Value[index1, index2] <= this.ai.VAR_SUPPLY_50PERCENT_RANGE && this.troops.Value[index1, index2] > 0 & aiMatrix.Value[index1, index2] == 0)
             {
-              int x = -1;
-              int y = -1;
-              int num3 = -1;
-              int attackPower = 0;
-              int index3 = 0;
+              let mut x: i32 =  -1;
+              let mut y: i32 =  -1;
+              let mut num3: i32 =  -1;
+              let mut attackPower: i32 =  0;
+              let mut index3: i32 =  0;
               int totalPowerOn1;
               do
               {
                 Coordinate coordinate = this.ai.TempHexNeighbour[index1, index2, index3];
                 if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 2 && this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].RegimeRel[this.ai.map.HexObj[coordinate.x, coordinate.y].Regime] == 0 && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[coordinate.x, coordinate.y].LandscapeType].AIBlock < 1)
                 {
-                  int totalPowerOn2 = this.CellularAutomatonGetTotalPowerOn(coordinate.x, coordinate.y, front, aiMatrix, false);
+                  let mut totalPowerOn2: i32 =  this.CellularAutomatonGetTotalPowerOn(coordinate.x, coordinate.y, front, aiMatrix, false);
                   if (totalPowerOn2 > attackPower)
                   {
                     x = coordinate.x;
@@ -643,16 +643,16 @@ namespace WindowsApplication1
                 float num4 = (float) attackPower / (float) this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false);
                 if ((double) num4 >= (double) minimumAttackAdvantage)
                 {
-                  int lossForAttacker = this.CellularAutomatonGetLossForAttacker(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false), this.ai.map.HexObj[x, y].LandscapeType, num3, totalPowerOn1);
-                  int lossForDefender = this.CellularAutomatonGetLossForDefender(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false));
+                  let mut lossForAttacker: i32 =  this.CellularAutomatonGetLossForAttacker(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false), this.ai.map.HexObj[x, y].LandscapeType, num3, totalPowerOn1);
+                  let mut lossForDefender: i32 =  this.CellularAutomatonGetLossForDefender(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false));
                   this.CellularAutomatonModifyTroopsOn(x, y, front, lossForAttacker, aiMatrix);
                   int[,] numArray1 = this.troops.Value;
                   int[,] numArray2 = numArray1;
-                  int index4 = x;
-                  int index5 = index4;
-                  int index6 = y;
-                  int index7 = index6;
-                  int num5 = numArray1[index4, index6] - lossForDefender;
+                  let mut index4: i32 =  x;
+                  let mut index5: i32 =  index4;
+                  let mut index6: i32 =  y;
+                  let mut index7: i32 =  index6;
+                  let mut num5: i32 =  numArray1[index4, index6] - lossForDefender;
                   numArray2[index5, index7] = num5;
                   float num6 = 10f;
                   if (front.Stance == 3)
@@ -682,8 +682,8 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonEnemyAttack(float attackForceModifier)
     {
-      int num1 = 3;
-      int num2 = 2;
+      let mut num1: i32 =  3;
+      let mut num2: i32 =  2;
       if (this.ai.VAR_ENEMYMOVE_PROGNOSIS_MODE == 1)
       {
         num2 = 1;
@@ -697,27 +697,27 @@ namespace WindowsApplication1
       do
       {
         num3 = 0;
-        int mapWidth = this.ai.map.MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
             if (index1 == 10 & index2 == 17)
               index1 = index1;
             if (this.owner.Value[index1, index2] == 2 && this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].RegimeRel[this.ai.map.HexObj[index1, index2].Regime] == 0 | this.ai.map.HexObj[index1, index2].Regime == this.ai.game.Data.Turn && this.enemySupply.Value[index1, index2] < 999 && this.troops.Value[index1, index2] > 10 & aiMatrix.Value[index1, index2] == 0 & (num4 < num2 | this.offtroops.Value[index1, index2] > 25))
             {
-              int num5 = -1;
-              int num6 = -1;
-              int num7 = 0;
-              int index3 = 0;
+              let mut num5: i32 =  -1;
+              let mut num6: i32 =  -1;
+              let mut num7: i32 =  0;
+              let mut index3: i32 =  0;
               Coordinate coordinate;
               do
               {
                 coordinate = this.ai.TempHexNeighbour[index1, index2, index3];
                 if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 1 && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[coordinate.x, coordinate.y].LandscapeType].AIBlock < 1)
                 {
-                  int num8 = this.friendlyBottleneck.Value[coordinate.x, coordinate.y] + this.vp.Value[coordinate.x, coordinate.y] * 2;
+                  let mut num8: i32 =  this.friendlyBottleneck.Value[coordinate.x, coordinate.y] + this.vp.Value[coordinate.x, coordinate.y] * 2;
                   if (num8 > num7)
                   {
                     num5 = coordinate.x;
@@ -728,11 +728,11 @@ namespace WindowsApplication1
                 index3 += 1;
               }
               while (index3 <= 5);
-              int x = -1;
-              int y = -1;
-              int num9 = -9999;
-              int num10 = -1;
-              int index4 = 0;
+              let mut x: i32 =  -1;
+              let mut y: i32 =  -1;
+              let mut num9: i32 =  -9999;
+              let mut num10: i32 =  -1;
+              let mut index4: i32 =  0;
               int totalEnemyPowerOn1;
               do
               {
@@ -741,7 +741,7 @@ namespace WindowsApplication1
                   x = x;
                 if (coordinate.onmap && aiMatrix.Value[coordinate.x, coordinate.y] < 1 & this.owner.Value[coordinate.x, coordinate.y] == 1 && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[coordinate.x, coordinate.y].LandscapeType].AIBlock < 1)
                 {
-                  int totalEnemyPowerOn2 = this.CellularAutomatonGetTotalEnemyPowerOn(coordinate.x, coordinate.y, aiMatrix);
+                  let mut totalEnemyPowerOn2: i32 =  this.CellularAutomatonGetTotalEnemyPowerOn(coordinate.x, coordinate.y, aiMatrix);
                   int num11;
                   if (this.troops.Value[coordinate.x, coordinate.y] < 1)
                   {
@@ -751,10 +751,10 @@ namespace WindowsApplication1
                   }
                   else
                     num11 = (int) Math.Round((double) totalEnemyPowerOn2 / 2.0 + (double) totalEnemyPowerOn2 / 2.0 * Math.Max(0.2, Math.Min(5.0, (double) totalEnemyPowerOn2 / (double) this.troops.Value[coordinate.x, coordinate.y])));
-                  int num12 = num11 + (int) Math.Round((double) (this.troops.Value[index1, index2] * 1) * (Math.Sqrt((double) this.friendlyBottleneck.Value[coordinate.x, coordinate.y]) / 50.0));
+                  let mut num12: i32 =  num11 + (int) Math.Round((double) (this.troops.Value[index1, index2] * 1) * (Math.Sqrt((double) this.friendlyBottleneck.Value[coordinate.x, coordinate.y]) / 50.0));
                   if (num5 == coordinate.x & num6 == coordinate.y)
                     num12 *= 2;
-                  int num13 = num12 + this.vp.Value[index1, index2] * Math.Max(3, this.vp.Value[index1, index2]);
+                  let mut num13: i32 =  num12 + this.vp.Value[index1, index2] * Math.Max(3, this.vp.Value[index1, index2]);
                   if (num13 > num9)
                   {
                     x = coordinate.x;
@@ -769,23 +769,23 @@ namespace WindowsApplication1
               while (index4 <= 5);
               if (x > -1)
               {
-                int totalEnemyPowerOn3 = this.CellularAutomatonGetTotalEnemyPowerOn(x, y, aiMatrix);
+                let mut totalEnemyPowerOn3: i32 =  this.CellularAutomatonGetTotalEnemyPowerOn(x, y, aiMatrix);
                 float minimumAttackAdvantage = this.CellularAutomatonGetMinimumAttackAdvantage(3, this.ai.map.HexObj[x, y].LandscapeType, num10);
                 if (totalEnemyPowerOn1 > 10 & (double) totalEnemyPowerOn1 > (double) this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true) * (double) minimumAttackAdvantage)
                 {
-                  int lossForAttacker = this.CellularAutomatonGetLossForAttacker(3, totalEnemyPowerOn3, this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true), this.ai.map.HexObj[x, y].LandscapeType, num10);
-                  int lossForDefender = this.CellularAutomatonGetLossForDefender(3, totalEnemyPowerOn3, this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true));
-                  int attLoss = (int) Math.Round((double) ((float) lossForAttacker * attackForceModifier));
-                  int num14 = (int) Math.Round((double) ((float) lossForDefender * attackForceModifier));
+                  let mut lossForAttacker: i32 =  this.CellularAutomatonGetLossForAttacker(3, totalEnemyPowerOn3, this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true), this.ai.map.HexObj[x, y].LandscapeType, num10);
+                  let mut lossForDefender: i32 =  this.CellularAutomatonGetLossForDefender(3, totalEnemyPowerOn3, this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true));
+                  let mut attLoss: i32 =  (int) Math.Round((double) ((float) lossForAttacker * attackForceModifier));
+                  let mut num14: i32 =  (int) Math.Round((double) ((float) lossForDefender * attackForceModifier));
                   this.CellularAutomatonModifyEnemyTroopsOn(x, y, attLoss, aiMatrix);
-                  int num15 = (int) Math.Round((double) this.troops.Value[x, y] / 2.0);
+                  let mut num15: i32 =  (int) Math.Round((double) this.troops.Value[x, y] / 2.0);
                   int[,] numArray1 = this.troops.Value;
                   int[,] numArray2 = numArray1;
-                  int index5 = x;
-                  int index6 = index5;
-                  int index7 = y;
-                  int index8 = index7;
-                  int num16 = numArray1[index5, index7] - num14;
+                  let mut index5: i32 =  x;
+                  let mut index6: i32 =  index5;
+                  let mut index7: i32 =  y;
+                  let mut index8: i32 =  index7;
+                  let mut num16: i32 =  numArray1[index5, index7] - num14;
                   numArray2[index6, index8] = num16;
                   if (this.CellularAutomatonGetTotalEnemyPowerOn(coordinate.x, coordinate.y, aiMatrix) > this.troops.Value[x, y] * 3 && num14 * 3 >= this.troops.Value[x, y])
                   {
@@ -812,7 +812,7 @@ namespace WindowsApplication1
 
     pub int CellularAutomatonRetreatEnemyTroops(int x, int y, AIFront front)
     {
-      int index1 = 0;
+      let mut index1: i32 =  0;
       int num1;
       do
       {
@@ -824,8 +824,8 @@ namespace WindowsApplication1
       while (index1 <= 5);
       if (num1 > 0)
       {
-        int num2 = (int) Math.Round((double) this.troops.Value[x, y] / (double) num1);
-        int index2 = 0;
+        let mut num2: i32 =  (int) Math.Round((double) this.troops.Value[x, y] / (double) num1);
+        let mut index2: i32 =  0;
         do
         {
           Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index2];
@@ -834,11 +834,11 @@ namespace WindowsApplication1
             this.offtroops.Value[coordinate.x, coordinate.y] = (int) Math.Round((double) this.offtroops.Value[coordinate.x, coordinate.y] / (double) (this.troops.Value[coordinate.x, coordinate.y] + num2));
             int[,] numArray1 = this.troops.Value;
             int[,] numArray2 = numArray1;
-            int x1 = coordinate.x;
-            int index3 = x1;
-            int y1 = coordinate.y;
-            int index4 = y1;
-            int num3 = numArray1[x1, y1] + num2;
+            let mut x1: i32 =  coordinate.x;
+            let mut index3: i32 =  x1;
+            let mut y1: i32 =  coordinate.y;
+            let mut index4: i32 =  y1;
+            let mut num3: i32 =  numArray1[x1, y1] + num2;
             numArray2[index3, index4] = num3;
           }
           index2 += 1;
@@ -853,7 +853,7 @@ namespace WindowsApplication1
 
     pub int CellularAutomatonRetreatFriendlyTroops(int x, int y, AIMatrix frontlines)
     {
-      int index1 = 0;
+      let mut index1: i32 =  0;
       Coordinate coordinate;
       int num1;
       do
@@ -866,8 +866,8 @@ namespace WindowsApplication1
       while (index1 <= 5);
       if (num1 > 0)
       {
-        int num2 = (int) Math.Round((double) this.troops.Value[x, y] / (double) num1);
-        int index2 = 0;
+        let mut num2: i32 =  (int) Math.Round((double) this.troops.Value[x, y] / (double) num1);
+        let mut index2: i32 =  0;
         do
         {
           coordinate = this.ai.TempHexNeighbour[x, y, index2];
@@ -875,11 +875,11 @@ namespace WindowsApplication1
           {
             int[,] numArray1 = this.troops.Value;
             int[,] numArray2 = numArray1;
-            int x1 = coordinate.x;
-            int index3 = x1;
-            int y1 = coordinate.y;
-            int index4 = y1;
-            int num3 = numArray1[x1, y1] + num2;
+            let mut x1: i32 =  coordinate.x;
+            let mut index3: i32 =  x1;
+            let mut y1: i32 =  coordinate.y;
+            let mut index4: i32 =  y1;
+            let mut num3: i32 =  numArray1[x1, y1] + num2;
             numArray2[index3, index4] = num3;
             if (frontlines.Value[coordinate.x, coordinate.y] == 0)
               frontlines.Value[coordinate.x, coordinate.y] = frontlines.Value[x, y];
@@ -901,15 +901,15 @@ namespace WindowsApplication1
       AIMatrix blocked,
       bool getRealScore)
     {
-      int index = 0;
+      let mut index: i32 =  0;
       int totalPowerOn;
       do
       {
         Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index];
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 1 && this.frontline.Value[coordinate.x, coordinate.y] == front.FrontID && blocked.Value[coordinate.x, coordinate.y] == 0)
         {
-          int power = this.troops.Value[coordinate.x, coordinate.y];
-          int num = !getRealScore ? this.ModifyPower(power, this.friendlySupply.Value[coordinate.x, coordinate.y], false, front, true) : this.ModifyPower(power, this.friendlySupply.Value[coordinate.x, coordinate.y], false, (AIFront) null, true);
+          let mut power: i32 =  this.troops.Value[coordinate.x, coordinate.y];
+          let mut num: i32 =  !getRealScore ? this.ModifyPower(power, this.friendlySupply.Value[coordinate.x, coordinate.y], false, front, true) : this.ModifyPower(power, this.friendlySupply.Value[coordinate.x, coordinate.y], false, (AIFront) null, true);
           totalPowerOn += num;
         }
         index += 1;
@@ -920,15 +920,15 @@ namespace WindowsApplication1
 
     pub int CellularAutomatonGetBestRiver(int x, int y, AIMatrix blocked)
     {
-      int num = 0;
-      int bestRiver = -1;
-      int index = 0;
+      let mut num: i32 =  0;
+      let mut bestRiver: i32 =  -1;
+      let mut index: i32 =  0;
       do
       {
         Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index];
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] != this.owner.Value[x, y] && blocked.Value[coordinate.x, coordinate.y] == 0 && this.ai.map.HexObj[x, y].RiverType[index] > -1)
         {
-          int tempDefenseBonus = this.ai.game.Data.RiverTypeObj[this.ai.map.HexObj[x, y].RiverType[index]].TempDefenseBonus;
+          let mut tempDefenseBonus: i32 =  this.ai.game.Data.RiverTypeObj[this.ai.map.HexObj[x, y].RiverType[index]].TempDefenseBonus;
           if (tempDefenseBonus > num)
           {
             num = tempDefenseBonus;
@@ -943,14 +943,14 @@ namespace WindowsApplication1
 
     pub int CellularAutomatonGetTotalEnemyPowerOn(int x, int y, AIMatrix blocked)
     {
-      int index = 0;
+      let mut index: i32 =  0;
       int totalEnemyPowerOn;
       do
       {
         Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index];
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 2 && blocked.Value[coordinate.x, coordinate.y] == 0)
         {
-          int num = this.ModifyPower(this.troops.Value[coordinate.x, coordinate.y], this.enemySupply.Value[coordinate.x, coordinate.y], false, (AIFront) null, false);
+          let mut num: i32 =  this.ModifyPower(this.troops.Value[coordinate.x, coordinate.y], this.enemySupply.Value[coordinate.x, coordinate.y], false, (AIFront) null, false);
           if (this.offtroops.Value[coordinate.x, coordinate.y] > 0)
             num += (int) Math.Round((double) num * ((double) this.offtroops.Value[coordinate.x, coordinate.y] / 100.0));
           totalEnemyPowerOn += num;
@@ -999,29 +999,29 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonMoveIn(int x, int y, AIFront front, AIMatrix blocked)
     {
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index1];
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 1 && this.frontline.Value[coordinate.x, coordinate.y] == front.FrontID && blocked.Value[coordinate.x, coordinate.y] == 0)
         {
-          int ofEnemyNeighbours = this.CellularAutomatonGetNumberOfEnemyNeighbours(coordinate.x, coordinate.y);
-          int num1 = (int) Math.Round((double) this.troops.Value[coordinate.x, coordinate.y] / (double) (ofEnemyNeighbours + 1));
+          let mut ofEnemyNeighbours: i32 =  this.CellularAutomatonGetNumberOfEnemyNeighbours(coordinate.x, coordinate.y);
+          let mut num1: i32 =  (int) Math.Round((double) this.troops.Value[coordinate.x, coordinate.y] / (double) (ofEnemyNeighbours + 1));
           int[,] numArray1 = this.troops.Value;
           int[,] numArray2 = numArray1;
-          int index2 = x;
-          int index3 = index2;
-          int index4 = y;
-          int index5 = index4;
-          int num2 = numArray1[index2, index4] + num1;
+          let mut index2: i32 =  x;
+          let mut index3: i32 =  index2;
+          let mut index4: i32 =  y;
+          let mut index5: i32 =  index4;
+          let mut num2: i32 =  numArray1[index2, index4] + num1;
           numArray2[index3, index5] = num2;
           int[,] numArray3 = this.troops.Value;
           int[,] numArray4 = numArray3;
-          int x1 = coordinate.x;
-          int index6 = x1;
-          int y1 = coordinate.y;
-          int index7 = y1;
-          int num3 = numArray3[x1, y1] - num1;
+          let mut x1: i32 =  coordinate.x;
+          let mut index6: i32 =  x1;
+          let mut y1: i32 =  coordinate.y;
+          let mut index7: i32 =  y1;
+          let mut num3: i32 =  numArray3[x1, y1] - num1;
           numArray4[index6, index7] = num3;
         }
         index1 += 1;
@@ -1031,30 +1031,30 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonEnemyMoveIn(int x, int y, AIMatrix blocked)
     {
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index1];
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 2 && blocked.Value[coordinate.x, coordinate.y] == 0)
         {
-          int friendlyNeighbours = this.CellularAutomatonGetNumberOfFriendlyNeighbours(coordinate.x, coordinate.y);
-          int num1 = (int) Math.Round((double) this.troops.Value[coordinate.x, coordinate.y] / (double) (friendlyNeighbours + 1));
+          let mut friendlyNeighbours: i32 =  this.CellularAutomatonGetNumberOfFriendlyNeighbours(coordinate.x, coordinate.y);
+          let mut num1: i32 =  (int) Math.Round((double) this.troops.Value[coordinate.x, coordinate.y] / (double) (friendlyNeighbours + 1));
           this.offtroops.Value[x, y] = (int) Math.Round((double) (this.offtroops.Value[x, y] * this.troops.Value[x, y] + this.offtroops.Value[coordinate.x, coordinate.y] * num1) / (double) (num1 + this.troops.Value[x, y]));
           int[,] numArray1 = this.troops.Value;
           int[,] numArray2 = numArray1;
-          int index2 = x;
-          int index3 = index2;
-          int index4 = y;
-          int index5 = index4;
-          int num2 = numArray1[index2, index4] + num1;
+          let mut index2: i32 =  x;
+          let mut index3: i32 =  index2;
+          let mut index4: i32 =  y;
+          let mut index5: i32 =  index4;
+          let mut num2: i32 =  numArray1[index2, index4] + num1;
           numArray2[index3, index5] = num2;
           int[,] numArray3 = this.troops.Value;
           int[,] numArray4 = numArray3;
-          int x1 = coordinate.x;
-          int index6 = x1;
-          int y1 = coordinate.y;
-          int index7 = y1;
-          int num3 = numArray3[x1, y1] - num1;
+          let mut x1: i32 =  coordinate.x;
+          let mut index6: i32 =  x1;
+          let mut y1: i32 =  coordinate.y;
+          let mut index7: i32 =  y1;
+          let mut num3: i32 =  numArray3[x1, y1] - num1;
           numArray4[index6, index7] = num3;
           if (this.troops.Value[coordinate.x, coordinate.y] < 1)
             this.offtroops.Value[coordinate.x, coordinate.y] = 0;
@@ -1066,8 +1066,8 @@ namespace WindowsApplication1
 
     pub int CellularAutomatonGetNumberOfEnemyNeighbours(int x, int y)
     {
-      int ofEnemyNeighbours = 0;
-      int index = 0;
+      let mut ofEnemyNeighbours: i32 =  0;
+      let mut index: i32 =  0;
       do
       {
         Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index];
@@ -1081,8 +1081,8 @@ namespace WindowsApplication1
 
     pub int CellularAutomatonGetNumberOfFriendlyNeighbours(int x, int y)
     {
-      int friendlyNeighbours = 0;
-      int index = 0;
+      let mut friendlyNeighbours: i32 =  0;
+      let mut index: i32 =  0;
       do
       {
         Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index];
@@ -1101,7 +1101,7 @@ namespace WindowsApplication1
       int attLoss,
       AIMatrix Blocked)
     {
-      int index1 = 0;
+      let mut index1: i32 =  0;
       Coordinate coordinate;
       int num1;
       do
@@ -1112,8 +1112,8 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 5);
-      int num2 = (int) Math.Round((double) attLoss / (double) num1);
-      int index2 = 0;
+      let mut num2: i32 =  (int) Math.Round((double) attLoss / (double) num1);
+      let mut index2: i32 =  0;
       do
       {
         coordinate = this.ai.TempHexNeighbour[x, y, index2];
@@ -1121,11 +1121,11 @@ namespace WindowsApplication1
         {
           int[,] numArray1 = this.troops.Value;
           int[,] numArray2 = numArray1;
-          int x1 = coordinate.x;
-          int index3 = x1;
-          int y1 = coordinate.y;
-          int index4 = y1;
-          int num3 = numArray1[x1, y1] - num2;
+          let mut x1: i32 =  coordinate.x;
+          let mut index3: i32 =  x1;
+          let mut y1: i32 =  coordinate.y;
+          let mut index4: i32 =  y1;
+          let mut num3: i32 =  numArray1[x1, y1] - num2;
           numArray2[index3, index4] = num3;
         }
         index2 += 1;
@@ -1135,7 +1135,7 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonModifyEnemyTroopsOn(int x, int y, int attLoss, AIMatrix Blocked)
     {
-      int index1 = 0;
+      let mut index1: i32 =  0;
       Coordinate coordinate;
       int num1;
       do
@@ -1146,8 +1146,8 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 5);
-      int num2 = (int) Math.Round(Conversion.Int((double) attLoss / (double) num1));
-      int index2 = 0;
+      let mut num2: i32 =  (int) Math.Round(Conversion.Int((double) attLoss / (double) num1));
+      let mut index2: i32 =  0;
       do
       {
         coordinate = this.ai.TempHexNeighbour[x, y, index2];
@@ -1155,11 +1155,11 @@ namespace WindowsApplication1
         {
           int[,] numArray1 = this.troops.Value;
           int[,] numArray2 = numArray1;
-          int x1 = coordinate.x;
-          int index3 = x1;
-          int y1 = coordinate.y;
-          int index4 = y1;
-          int num3 = numArray1[x1, y1] - num2;
+          let mut x1: i32 =  coordinate.x;
+          let mut index3: i32 =  x1;
+          let mut y1: i32 =  coordinate.y;
+          let mut index4: i32 =  y1;
+          let mut num3: i32 =  numArray1[x1, y1] - num2;
           numArray2[index3, index4] = num3;
         }
         index2 += 1;
@@ -1195,7 +1195,7 @@ namespace WindowsApplication1
       int defendPower,
       int ltnr,
       int rivtype,
-      int realAttackerPower = -1)
+      let mut realAttackerPower: i32 =  -1)
     {
       float num;
       switch (stance)
@@ -1232,7 +1232,7 @@ namespace WindowsApplication1
 
     pub int CellularAutomatonGetLossForDefender(int stance, int attackPower, int defendPower)
     {
-      int num1 = attackPower;
+      let mut num1: i32 =  attackPower;
       if (attackPower > this.ai.VAR_HEX_STACK_REGULAR * 4)
         attackPower = (int) Math.Round((double) (this.ai.VAR_HEX_STACK_REGULAR * 4) + 4.0 * Math.Sqrt((double) (attackPower - this.ai.VAR_HEX_STACK_REGULAR * 4)));
       if (defendPower > this.ai.VAR_HEX_STACK_REGULAR * 4)
@@ -1250,7 +1250,7 @@ namespace WindowsApplication1
           num2 = (float) (0.012 * Math.Min(5.0, (double) attackPower / (double) defendPower));
           break;
       }
-      int lossForDefender = (int) Math.Round((double) ((float) num1 * num2)) + 1;
+      let mut lossForDefender: i32 =  (int) Math.Round((double) ((float) num1 * num2)) + 1;
       if (lossForDefender > defendPower)
         lossForDefender = defendPower;
       return lossForDefender;
@@ -1258,56 +1258,56 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonReserveDelivery(AIFront front, int iteration)
     {
-      int num1 = 4;
+      let mut num1: i32 =  4;
       if (front.tempDelivered || front.Distance >= iteration * num1)
         return;
-      int mapWidth1 = this.ai.map.MapWidth;
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
       int num2;
-      for (int index1 = 0; index1 <= mapWidth1; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= mapWidth1; index1 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
           if (this.frontline.Value[index1, index2] == front.TargetFrontID)
             num2 += 1;
         }
       }
-      int counter = front.units.counter;
+      let mut counter: i32 =  front.units.counter;
       int num3;
-      for (int index = 0; index <= counter; index += 1)
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
-        int unitByAiid = this.ai.game.HandyFunctionsObj.GetUnitByAIid(front.units.AIid[index]);
+        let mut unitByAiid: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(front.units.AIid[index]);
         if (unitByAiid > -1)
           num3 += this.ai.game.Data.UnitObj[unitByAiid].TempUnitPower;
       }
       float Number = (float) (int) Math.Round((double) ((float) num3 * this.FriendlyMod)) / (float) num2;
-      int num4 = (int) Math.Round((double) Conversion.Int(Number));
+      let mut num4: i32 =  (int) Math.Round((double) Conversion.Int(Number));
       float num5 = Number - (float) num4;
-      int mapWidth2 = this.ai.map.MapWidth;
-      for (int index3 = 0; index3 <= mapWidth2; index3 += 1)
+      let mut mapWidth2: i32 =  this.ai.map.MapWidth;
+      for (let mut index3: i32 =  0; index3 <= mapWidth2; index3 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
         {
           if (this.frontline.Value[index3, index4] == front.TargetFrontID)
           {
             int[,] numArray1 = this.troops.Value;
             int[,] numArray2 = numArray1;
-            int index5 = index3;
-            int index6 = index5;
-            int index7 = index4;
-            int index8 = index7;
-            int num6 = numArray1[index5, index7] + num4;
+            let mut index5: i32 =  index3;
+            let mut index6: i32 =  index5;
+            let mut index7: i32 =  index4;
+            let mut index8: i32 =  index7;
+            let mut num6: i32 =  numArray1[index5, index7] + num4;
             numArray2[index6, index8] = num6;
             if ((double) VBMath.Rnd() < (double) num5)
             {
               int[,] numArray3 = this.troops.Value;
               int[,] numArray4 = numArray3;
-              int index9 = index3;
-              int index10 = index9;
-              int index11 = index4;
-              int index12 = index11;
-              int num7 = numArray3[index9, index11] + 1;
+              let mut index9: i32 =  index3;
+              let mut index10: i32 =  index9;
+              let mut index11: i32 =  index4;
+              let mut index12: i32 =  index11;
+              let mut num7: i32 =  numArray3[index9, index11] + 1;
               numArray4[index10, index12] = num7;
             }
           }
@@ -1318,45 +1318,45 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonGiveEnemyReinforcements()
     {
-      int mapWidth1 = this.ai.map.MapWidth;
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
       int num1;
-      for (int index1 = 0; index1 <= mapWidth1; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= mapWidth1; index1 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
           if (this.owner.Value[index1, index2] == 2 & this.troops.Value[index1, index2] > 0 && this.enemySupply.Value[index1, index2] < this.ai.VAR_SUPPLY_50PERCENT_RANGE)
             num1 += 1;
         }
       }
       float Number = (float) (int) Math.Round((double) this.ai.VAR_REINFORCEMENTS_ENEMY / (double) num1);
-      int num2 = (int) Math.Round((double) Conversion.Int(Number));
+      let mut num2: i32 =  (int) Math.Round((double) Conversion.Int(Number));
       float num3 = Number - (float) num2;
-      int mapWidth2 = this.ai.map.MapWidth;
-      for (int index3 = 0; index3 <= mapWidth2; index3 += 1)
+      let mut mapWidth2: i32 =  this.ai.map.MapWidth;
+      for (let mut index3: i32 =  0; index3 <= mapWidth2; index3 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
         {
           if (this.owner.Value[index3, index4] == 2 & this.troops.Value[index3, index4] > 0 && this.enemySupply.Value[index3, index4] < this.ai.VAR_SUPPLY_50PERCENT_RANGE)
           {
             int[,] numArray1 = this.troops.Value;
             int[,] numArray2 = numArray1;
-            int index5 = index3;
-            int index6 = index5;
-            int index7 = index4;
-            int index8 = index7;
-            int num4 = numArray1[index5, index7] + num2;
+            let mut index5: i32 =  index3;
+            let mut index6: i32 =  index5;
+            let mut index7: i32 =  index4;
+            let mut index8: i32 =  index7;
+            let mut num4: i32 =  numArray1[index5, index7] + num2;
             numArray2[index6, index8] = num4;
             if ((double) VBMath.Rnd() < (double) num3)
             {
               int[,] numArray3 = this.troops.Value;
               int[,] numArray4 = numArray3;
-              int index9 = index3;
-              int index10 = index9;
-              int index11 = index4;
-              int index12 = index11;
-              int num5 = numArray3[index9, index11] + 1;
+              let mut index9: i32 =  index3;
+              let mut index10: i32 =  index9;
+              let mut index11: i32 =  index4;
+              let mut index12: i32 =  index11;
+              let mut num5: i32 =  numArray3[index9, index11] + 1;
               numArray4[index10, index12] = num5;
             }
           }
@@ -1366,45 +1366,45 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonGiveFriendlyReinforcements()
     {
-      int mapWidth1 = this.ai.map.MapWidth;
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
       int num1;
-      for (int index1 = 0; index1 <= mapWidth1; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= mapWidth1; index1 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
           if (this.frontline.Value[index1, index2] > 0 && this.owner.Value[index1, index2] == 1 && this.friendlySupply.Value[index1, index2] < this.ai.VAR_SUPPLY_50PERCENT_RANGE)
             num1 += 1;
         }
       }
       float Number = (float) this.ai.VAR_REINFORCEMENTS_FRIENDLY / (float) num1;
-      int num2 = (int) Math.Round((double) Conversion.Int(Number));
+      let mut num2: i32 =  (int) Math.Round((double) Conversion.Int(Number));
       float num3 = Number - (float) num2;
-      int mapWidth2 = this.ai.map.MapWidth;
-      for (int index3 = 0; index3 <= mapWidth2; index3 += 1)
+      let mut mapWidth2: i32 =  this.ai.map.MapWidth;
+      for (let mut index3: i32 =  0; index3 <= mapWidth2; index3 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
         {
           if (this.frontline.Value[index3, index4] > 0 && this.owner.Value[index3, index4] == 1 && this.friendlySupply.Value[index3, index4] < this.ai.VAR_SUPPLY_50PERCENT_RANGE)
           {
             int[,] numArray1 = this.troops.Value;
             int[,] numArray2 = numArray1;
-            int index5 = index3;
-            int index6 = index5;
-            int index7 = index4;
-            int index8 = index7;
-            int num4 = numArray1[index5, index7] + num2;
+            let mut index5: i32 =  index3;
+            let mut index6: i32 =  index5;
+            let mut index7: i32 =  index4;
+            let mut index8: i32 =  index7;
+            let mut num4: i32 =  numArray1[index5, index7] + num2;
             numArray2[index6, index8] = num4;
             if ((double) VBMath.Rnd() < (double) num3)
             {
               int[,] numArray3 = this.troops.Value;
               int[,] numArray4 = numArray3;
-              int index9 = index3;
-              int index10 = index9;
-              int index11 = index4;
-              int index12 = index11;
-              int num5 = numArray3[index9, index11] + 1;
+              let mut index9: i32 =  index3;
+              let mut index10: i32 =  index9;
+              let mut index11: i32 =  index4;
+              let mut index12: i32 =  index11;
+              let mut num5: i32 =  numArray3[index9, index11] + 1;
               numArray4[index10, index12] = num5;
             }
           }
@@ -1414,21 +1414,21 @@ namespace WindowsApplication1
 
     pub void CellularAutomatonRemoveFrontsWithoutFrontline(ref AIFrontList frontList)
     {
-      int counter = frontList.Counter;
-      for (int index1 = 0; index1 <= counter; index1 += 1)
+      let mut counter: i32 =  frontList.Counter;
+      for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
         if (frontList.Front[index1].FrontType == 1)
         {
-          int num = 0;
-          int mapWidth1 = this.ai.map.MapWidth;
-          for (int index2 = 0; index2 <= mapWidth1; index2 += 1)
+          let mut num: i32 =  0;
+          let mut mapWidth1: i32 =  this.ai.map.MapWidth;
+          for (let mut index2: i32 =  0; index2 <= mapWidth1; index2 += 1)
           {
-            int mapHeight = this.ai.map.MapHeight;
-            for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+            let mut mapHeight: i32 =  this.ai.map.MapHeight;
+            for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
             {
               if (this.frontline.Value[index2, index3] == frontList.Front[index1].FrontID)
               {
-                int index4 = 0;
+                let mut index4: i32 =  0;
                 do
                 {
                   Coordinate coordinate = this.ai.TempHexNeighbour[index2, index3, index4];
@@ -1446,11 +1446,11 @@ namespace WindowsApplication1
           }
           if (num == 0)
           {
-            int mapWidth2 = this.ai.map.MapWidth;
-            for (int index5 = 0; index5 <= mapWidth2; index5 += 1)
+            let mut mapWidth2: i32 =  this.ai.map.MapWidth;
+            for (let mut index5: i32 =  0; index5 <= mapWidth2; index5 += 1)
             {
-              int mapHeight = this.ai.map.MapHeight;
-              for (int index6 = 0; index6 <= mapHeight; index6 += 1)
+              let mut mapHeight: i32 =  this.ai.map.MapHeight;
+              for (let mut index6: i32 =  0; index6 <= mapHeight; index6 += 1)
               {
                 if (this.frontline.Value[index5, index6] == frontList.Front[index1].FrontID)
                   this.frontline.Value[index5, index6] = 0;
@@ -1473,27 +1473,27 @@ namespace WindowsApplication1
       do
       {
         num1 = 0;
-        int mapWidth = this.ai.map.MapWidth;
-        for (int x1 = 0; x1 <= mapWidth; x1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut x1: i32 =  0; x1 <= mapWidth; x1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int y1 = 0; y1 <= mapHeight; y1 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut y1: i32 =  0; y1 <= mapHeight; y1 += 1)
           {
             if (this.frontline.Value[x1, y1] == 0 | aiMatrix2.Value[x1, y1] > 3 + mindist && this.troops.Value[x1, y1] > 0 & this.owner.Value[x1, y1] == 1)
             {
-              int num3 = 999999;
-              int num4 = -1;
-              int num5 = -1;
-              int num6 = x1 - (range + 1);
-              int num7 = x1 + (range + 1);
-              for (int index1 = num6; index1 <= num7; index1 += 1)
+              let mut num3: i32 =  999999;
+              let mut num4: i32 =  -1;
+              let mut num5: i32 =  -1;
+              let mut num6: i32 =  x1 - (range + 1);
+              let mut num7: i32 =  x1 + (range + 1);
+              for (let mut index1: i32 =  num6; index1 <= num7; index1 += 1)
               {
-                int num8 = y1 - (range + 1);
-                int num9 = y1 + (range + 1);
-                for (int index2 = num8; index2 <= num9; index2 += 1)
+                let mut num8: i32 =  y1 - (range + 1);
+                let mut num9: i32 =  y1 + (range + 1);
+                for (let mut index2: i32 =  num8; index2 <= num9; index2 += 1)
                 {
-                  int x2 = index1;
-                  int y2 = index2;
+                  let mut x2: i32 =  index1;
+                  let mut y2: i32 =  index2;
                   if (this.ai.map.MapLoop)
                   {
                     if (x2 < 0)
@@ -1503,7 +1503,7 @@ namespace WindowsApplication1
                   }
                   if (x2 >= 0 & y2 >= 0 & x2 <= this.ai.map.MapWidth & y2 <= this.ai.map.MapHeight && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[x2, y2].LandscapeType].AIBlock < 1)
                   {
-                    int num10 = this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
+                    let mut num10: i32 =  this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
                     if (num10 > 0 & num10 <= range && this.owner.Value[x2, y2] == 1 && aiMatrix2.Value[x2, y2] < num3)
                     {
                       num3 = aiMatrix2.Value[x2, y2];
@@ -1515,22 +1515,22 @@ namespace WindowsApplication1
               }
               if (num4 > -1)
               {
-                int num11 = this.troops.Value[x1, y1];
+                let mut num11: i32 =  this.troops.Value[x1, y1];
                 int[,] numArray1 = this.troops.Value;
                 int[,] numArray2 = numArray1;
-                int index3 = x1;
-                int index4 = index3;
-                int index5 = y1;
-                int index6 = index5;
-                int num12 = numArray1[index3, index5] - num11;
+                let mut index3: i32 =  x1;
+                let mut index4: i32 =  index3;
+                let mut index5: i32 =  y1;
+                let mut index6: i32 =  index5;
+                let mut num12: i32 =  numArray1[index3, index5] - num11;
                 numArray2[index4, index6] = num12;
                 int[,] numArray3 = aiMatrix3.Value;
                 int[,] numArray4 = numArray3;
-                int index7 = num4;
-                int index8 = index7;
-                int index9 = num5;
-                int index10 = index9;
-                int num13 = numArray3[index7, index9] + num11;
+                let mut index7: i32 =  num4;
+                let mut index8: i32 =  index7;
+                let mut index9: i32 =  num5;
+                let mut index10: i32 =  index9;
+                let mut num13: i32 =  numArray3[index7, index9] + num11;
                 numArray4[index8, index10] = num13;
                 num1 = 1;
               }
@@ -1540,19 +1540,19 @@ namespace WindowsApplication1
         num2 += 1;
       }
       while (num1 > 0 & num2 < 5);
-      int mapWidth1 = this.ai.map.MapWidth;
-      for (int index11 = 0; index11 <= mapWidth1; index11 += 1)
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
+      for (let mut index11: i32 =  0; index11 <= mapWidth1; index11 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index12 = 0; index12 <= mapHeight; index12 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index12: i32 =  0; index12 <= mapHeight; index12 += 1)
         {
           int[,] numArray5 = this.troops.Value;
           int[,] numArray6 = numArray5;
-          int index13 = index11;
-          int index14 = index13;
-          int index15 = index12;
-          int index16 = index15;
-          int num14 = numArray5[index13, index15] + aiMatrix3.Value[index11, index12];
+          let mut index13: i32 =  index11;
+          let mut index14: i32 =  index13;
+          let mut index15: i32 =  index12;
+          let mut index16: i32 =  index15;
+          let mut num14: i32 =  numArray5[index13, index15] + aiMatrix3.Value[index11, index12];
           numArray6[index14, index16] = num14;
         }
       }
@@ -1570,27 +1570,27 @@ namespace WindowsApplication1
       do
       {
         num1 = 0;
-        int mapWidth = this.ai.map.MapWidth;
-        for (int x1 = 0; x1 <= mapWidth; x1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut x1: i32 =  0; x1 <= mapWidth; x1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int y1 = 0; y1 <= mapHeight; y1 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut y1: i32 =  0; y1 <= mapHeight; y1 += 1)
           {
             if (aiMatrix2.Value[x1, y1] > mindist + 1 && this.troops.Value[x1, y1] > 0 & this.owner.Value[x1, y1] == 2)
             {
-              int num3 = 999999;
-              int index1 = -1;
-              int index2 = -1;
-              int num4 = x1 - (range + 1);
-              int num5 = x1 + (range + 1);
-              for (int index3 = num4; index3 <= num5; index3 += 1)
+              let mut num3: i32 =  999999;
+              let mut index1: i32 =  -1;
+              let mut index2: i32 =  -1;
+              let mut num4: i32 =  x1 - (range + 1);
+              let mut num5: i32 =  x1 + (range + 1);
+              for (let mut index3: i32 =  num4; index3 <= num5; index3 += 1)
               {
-                int num6 = y1 - (range + 1);
-                int num7 = y1 + (range + 1);
-                for (int index4 = num6; index4 <= num7; index4 += 1)
+                let mut num6: i32 =  y1 - (range + 1);
+                let mut num7: i32 =  y1 + (range + 1);
+                for (let mut index4: i32 =  num6; index4 <= num7; index4 += 1)
                 {
-                  int x2 = index3;
-                  int y2 = index4;
+                  let mut x2: i32 =  index3;
+                  let mut y2: i32 =  index4;
                   if (this.ai.map.MapLoop)
                   {
                     if (x2 < 0)
@@ -1600,7 +1600,7 @@ namespace WindowsApplication1
                   }
                   if (x2 >= 0 & y2 >= 0 & x2 <= this.ai.map.MapWidth & y2 <= this.ai.map.MapHeight && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[x2, y2].LandscapeType].AIBlock < 1)
                   {
-                    int num8 = this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
+                    let mut num8: i32 =  this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
                     if (num8 > 0 & num8 <= range && this.owner.Value[x2, y2] == 2 && aiMatrix2.Value[x2, y2] * 100 + this.vp.Value[x2, y2] < num3)
                     {
                       num3 = aiMatrix2.Value[x2, y2] * 100 + this.vp.Value[x2, y2];
@@ -1612,23 +1612,23 @@ namespace WindowsApplication1
               }
               if (index1 > -1)
               {
-                int num9 = this.troops.Value[x1, y1];
+                let mut num9: i32 =  this.troops.Value[x1, y1];
                 this.offtroops.Value[index1, index2] = (int) Math.Round((double) (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2]) + (double) (this.offtroops.Value[x1, y1] * num9) / (double) (this.offtroops.Value[index1, index2] + num9));
                 int[,] numArray1 = this.troops.Value;
                 int[,] numArray2 = numArray1;
-                int index5 = x1;
-                int index6 = index5;
-                int index7 = y1;
-                int index8 = index7;
-                int num10 = numArray1[index5, index7] - num9;
+                let mut index5: i32 =  x1;
+                let mut index6: i32 =  index5;
+                let mut index7: i32 =  y1;
+                let mut index8: i32 =  index7;
+                let mut num10: i32 =  numArray1[index5, index7] - num9;
                 numArray2[index6, index8] = num10;
                 int[,] numArray3 = aiMatrix3.Value;
                 int[,] numArray4 = numArray3;
-                int index9 = index1;
-                int index10 = index9;
-                int index11 = index2;
-                int index12 = index11;
-                int num11 = numArray3[index9, index11] + num9;
+                let mut index9: i32 =  index1;
+                let mut index10: i32 =  index9;
+                let mut index11: i32 =  index2;
+                let mut index12: i32 =  index11;
+                let mut num11: i32 =  numArray3[index9, index11] + num9;
                 numArray4[index10, index12] = num11;
                 if (this.troops.Value[x1, y1] < 1)
                   this.offtroops.Value[x1, y1] = 0;
@@ -1640,19 +1640,19 @@ namespace WindowsApplication1
         num2 += 1;
       }
       while (num1 > 0 & num2 < 5);
-      int mapWidth1 = this.ai.map.MapWidth;
-      for (int index13 = 0; index13 <= mapWidth1; index13 += 1)
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
+      for (let mut index13: i32 =  0; index13 <= mapWidth1; index13 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index14 = 0; index14 <= mapHeight; index14 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
         {
           int[,] numArray5 = this.troops.Value;
           int[,] numArray6 = numArray5;
-          int index15 = index13;
-          int index16 = index15;
-          int index17 = index14;
-          int index18 = index17;
-          int num12 = numArray5[index15, index17] + aiMatrix3.Value[index13, index14];
+          let mut index15: i32 =  index13;
+          let mut index16: i32 =  index15;
+          let mut index17: i32 =  index14;
+          let mut index18: i32 =  index17;
+          let mut num12: i32 =  numArray5[index15, index17] + aiMatrix3.Value[index13, index14];
           numArray6[index16, index18] = num12;
         }
       }
@@ -1662,7 +1662,7 @@ namespace WindowsApplication1
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
       float num1 = 0.2f;
-      int num2 = 1;
+      let mut num2: i32 =  1;
       AIMatrix aiMatrix2 = this.troops.Clone();
       aiMatrix2.RemoveValuesByNotMask(this.owner, 2);
       AIMatrix troops = aiMatrix2.AverageValuesForSameRegime(2, this.owner, OnlyOwnerX: 2);
@@ -1674,7 +1674,7 @@ namespace WindowsApplication1
       aiMatrix3.RemoveValueByPercentage(this.friendlyBottleneck);
       aiMatrix3.RemoveValueByPercentage(this.friendlyBottleneck);
       AIMatrix aiMatrix4 = new AIMatrix(ref this.ai);
-      int num3 = front.units.counter + 1;
+      let mut num3: i32 =  front.units.counter + 1;
       if (this.ai.game.Data.Product >= 6)
         num3 *= 2;
       if (num3 < 0)
@@ -1684,29 +1684,29 @@ namespace WindowsApplication1
       do
       {
         num4 = 0;
-        int mapWidth = this.ai.map.MapWidth;
-        for (int x1 = 0; x1 <= mapWidth; x1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut x1: i32 =  0; x1 <= mapWidth; x1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int y1 = 0; y1 <= mapHeight; y1 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut y1: i32 =  0; y1 <= mapHeight; y1 += 1)
           {
             if (x1 == 54 & y1 == 13)
               x1 = x1;
             if (this.frontline.Value[x1, y1] == front.FrontID & this.owner.Value[x1, y1] == 1 && this.troops.Value[x1, y1] > 0)
             {
-              int num6 = 999999;
-              int index1 = -1;
-              int index2 = -1;
-              int num7 = x1 - (range + 1);
-              int num8 = x1 + (range + 1);
-              for (int index3 = num7; index3 <= num8; index3 += 1)
+              let mut num6: i32 =  999999;
+              let mut index1: i32 =  -1;
+              let mut index2: i32 =  -1;
+              let mut num7: i32 =  x1 - (range + 1);
+              let mut num8: i32 =  x1 + (range + 1);
+              for (let mut index3: i32 =  num7; index3 <= num8; index3 += 1)
               {
-                int num9 = y1 - (range + 1);
-                int num10 = y1 + (range + 1);
-                for (int index4 = num9; index4 <= num10; index4 += 1)
+                let mut num9: i32 =  y1 - (range + 1);
+                let mut num10: i32 =  y1 + (range + 1);
+                for (let mut index4: i32 =  num9; index4 <= num10; index4 += 1)
                 {
-                  int x2 = index3;
-                  int y2 = index4;
+                  let mut x2: i32 =  index3;
+                  let mut y2: i32 =  index4;
                   if (this.ai.map.MapLoop)
                   {
                     if (x2 < 0)
@@ -1716,7 +1716,7 @@ namespace WindowsApplication1
                   }
                   if (x2 >= 0 & y2 >= 0 & x2 <= this.ai.map.MapWidth & y2 <= this.ai.map.MapHeight && this.frontline.Value[x2, y2] == front.FrontID | this.ai.game.Data.Product < 6 && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[x2, y2].LandscapeType].AIBlock < 1)
                   {
-                    int num11 = this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
+                    let mut num11: i32 =  this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
                     int num12;
                     if (num11 > 0 & num11 <= range)
                     {
@@ -1744,26 +1744,26 @@ namespace WindowsApplication1
               {
                 if (this.troops.Value[index1, index2] + aiMatrix4.Value[index1, index2] < 1)
                   --num3;
-                int num13 = (int) Math.Round((double) (num1 * (float) this.troops.Value[x1, y1]));
+                let mut num13: i32 =  (int) Math.Round((double) (num1 * (float) this.troops.Value[x1, y1]));
                 if (num13 < num2)
                   num13 = this.troops.Value[x1, y1] < num2 ? this.troops.Value[x1, y1] : num2;
                 if (this.frontline.Value[index1, index2] == 0)
                   this.frontline.Value[index1, index2] = front.FrontID;
                 int[,] numArray1 = this.troops.Value;
                 int[,] numArray2 = numArray1;
-                int index5 = x1;
-                int index6 = index5;
-                int index7 = y1;
-                int index8 = index7;
-                int num14 = numArray1[index5, index7] - num13;
+                let mut index5: i32 =  x1;
+                let mut index6: i32 =  index5;
+                let mut index7: i32 =  y1;
+                let mut index8: i32 =  index7;
+                let mut num14: i32 =  numArray1[index5, index7] - num13;
                 numArray2[index6, index8] = num14;
                 int[,] numArray3 = aiMatrix4.Value;
                 int[,] numArray4 = numArray3;
-                int index9 = index1;
-                int index10 = index9;
-                int index11 = index2;
-                int index12 = index11;
-                int num15 = numArray3[index9, index11] + num13;
+                let mut index9: i32 =  index1;
+                let mut index10: i32 =  index9;
+                let mut index11: i32 =  index2;
+                let mut index12: i32 =  index11;
+                let mut num15: i32 =  numArray3[index9, index11] + num13;
                 numArray4[index10, index12] = num15;
                 aiMatrix3.Value[x1, y1] = enemy.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ((double) this.troops.Value[x1, y1] / (double) enemy.Value[x1, y1])) : 999;
                 aiMatrix3.Value[index1, index2] = enemy.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ((double) (this.troops.Value[index1, index2] + aiMatrix4.Value[index1, index2]) / (double) enemy.Value[index1, index2])) : 999;
@@ -1775,19 +1775,19 @@ namespace WindowsApplication1
         num5 += 1;
       }
       while (num4 > 0 & num5 < 5);
-      int mapWidth1 = this.ai.map.MapWidth;
-      for (int index13 = 0; index13 <= mapWidth1; index13 += 1)
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
+      for (let mut index13: i32 =  0; index13 <= mapWidth1; index13 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index14 = 0; index14 <= mapHeight; index14 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
         {
           int[,] numArray5 = this.troops.Value;
           int[,] numArray6 = numArray5;
-          int index15 = index13;
-          int index16 = index15;
-          int index17 = index14;
-          int index18 = index17;
-          int num16 = numArray5[index15, index17] + aiMatrix4.Value[index13, index14];
+          let mut index15: i32 =  index13;
+          let mut index16: i32 =  index15;
+          let mut index17: i32 =  index14;
+          let mut index18: i32 =  index17;
+          let mut num16: i32 =  numArray5[index15, index17] + aiMatrix4.Value[index13, index14];
           numArray6[index16, index18] = num16;
         }
       }
@@ -1796,7 +1796,7 @@ namespace WindowsApplication1
     pub void CellularAutomatonFallBack(AIFront front, int MAX_NUMBER_OF_STEPS)
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
-      int num1 = 99999;
+      let mut num1: i32 =  99999;
       AIMatrix enemy = this.ai.SetEnemyPressureMatrix(this.owner, this.troops, this.frontline, front.FrontID);
       AIMatrix aiMatrix2 = this.ai.SetRatioInPercentage(ref this.troops, ref enemy, this.frontline, front.FrontID);
       AIMatrix aiMatrix3 = new AIMatrix(ref this.ai);
@@ -1805,28 +1805,28 @@ namespace WindowsApplication1
       do
       {
         num2 = 0;
-        int mapWidth = this.ai.map.MapWidth;
-        for (int x1 = 0; x1 <= mapWidth; x1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut x1: i32 =  0; x1 <= mapWidth; x1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int y1 = 0; y1 <= mapHeight; y1 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut y1: i32 =  0; y1 <= mapHeight; y1 += 1)
           {
             if (this.frontline.Value[x1, y1] == front.FrontID & this.owner.Value[x1, y1] == 1 && this.troops.Value[x1, y1] > 0 & aiMatrix2.Value[x1, y1] < num1)
             {
-              int num4 = this.friendlySupplyRoute.Value[x1, y1];
-              int index1 = -1;
-              int index2 = -1;
-              int num5 = x1 - MAX_NUMBER_OF_STEPS;
-              int num6 = x1 + MAX_NUMBER_OF_STEPS;
-              for (int x2 = num5; x2 <= num6; x2 += 1)
+              let mut num4: i32 =  this.friendlySupplyRoute.Value[x1, y1];
+              let mut index1: i32 =  -1;
+              let mut index2: i32 =  -1;
+              let mut num5: i32 =  x1 - MAX_NUMBER_OF_STEPS;
+              let mut num6: i32 =  x1 + MAX_NUMBER_OF_STEPS;
+              for (let mut x2: i32 =  num5; x2 <= num6; x2 += 1)
               {
-                int num7 = y1 - MAX_NUMBER_OF_STEPS;
-                int num8 = y1 + MAX_NUMBER_OF_STEPS;
-                for (int y2 = num7; y2 <= num8; y2 += 1)
+                let mut num7: i32 =  y1 - MAX_NUMBER_OF_STEPS;
+                let mut num8: i32 =  y1 + MAX_NUMBER_OF_STEPS;
+                for (let mut y2: i32 =  num7; y2 <= num8; y2 += 1)
                 {
                   if (x2 >= 0 & y2 >= 0 & x2 <= this.ai.map.MapWidth & y2 <= this.ai.map.MapHeight && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[x2, y2].LandscapeType].AIBlock < 1)
                   {
-                    int num9 = this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
+                    let mut num9: i32 =  this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
                     if (num9 > 0 & num9 <= MAX_NUMBER_OF_STEPS && this.owner.Value[x2, y2] == 1 && this.friendlySupplyRoute.Value[x2, y2] + aiMatrix3.Value[x2, y2] < num4 & !(x2 == x1 & y2 == y1))
                     {
                       num4 = this.friendlySupplyRoute.Value[x2, y2] + aiMatrix3.Value[x2, y2];
@@ -1838,24 +1838,24 @@ namespace WindowsApplication1
               }
               if (index1 > -1)
               {
-                int num10 = this.troops.Value[x1, y1];
+                let mut num10: i32 =  this.troops.Value[x1, y1];
                 int[,] numArray1 = this.troops.Value;
                 int[,] numArray2 = numArray1;
-                int index3 = x1;
-                int index4 = index3;
-                int index5 = y1;
-                int index6 = index5;
-                int num11 = numArray1[index3, index5] - num10;
+                let mut index3: i32 =  x1;
+                let mut index4: i32 =  index3;
+                let mut index5: i32 =  y1;
+                let mut index6: i32 =  index5;
+                let mut num11: i32 =  numArray1[index3, index5] - num10;
                 numArray2[index4, index6] = num11;
                 if (0 > this.troops.Value[x1, y1])
                   this.troops.Value[x1, y1] = 0;
                 int[,] numArray3 = aiMatrix3.Value;
                 int[,] numArray4 = numArray3;
-                int index7 = index1;
-                int index8 = index7;
-                int index9 = index2;
-                int index10 = index9;
-                int num12 = numArray3[index7, index9] + num10;
+                let mut index7: i32 =  index1;
+                let mut index8: i32 =  index7;
+                let mut index9: i32 =  index2;
+                let mut index10: i32 =  index9;
+                let mut num12: i32 =  numArray3[index7, index9] + num10;
                 numArray4[index8, index10] = num12;
                 aiMatrix2.Value[x1, y1] = enemy.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ((double) this.troops.Value[x1, y1] / (double) enemy.Value[x1, y1])) : 999;
                 aiMatrix2.Value[index1, index2] = enemy.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ((double) (this.troops.Value[index1, index2] + num10) / (double) enemy.Value[index1, index2])) : 999;
@@ -1867,21 +1867,21 @@ namespace WindowsApplication1
         num3 += 1;
       }
       while (num2 > 0 & num3 < MAX_NUMBER_OF_STEPS);
-      int mapWidth1 = this.ai.map.MapWidth;
-      for (int index11 = 0; index11 <= mapWidth1; index11 += 1)
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
+      for (let mut index11: i32 =  0; index11 <= mapWidth1; index11 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index12 = 0; index12 <= mapHeight; index12 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index12: i32 =  0; index12 <= mapHeight; index12 += 1)
         {
           if (0 > this.troops.Value[index11, index12])
             this.troops.Value[index11, index12] = 0;
           int[,] numArray5 = this.troops.Value;
           int[,] numArray6 = numArray5;
-          int index13 = index11;
-          int index14 = index13;
-          int index15 = index12;
-          int index16 = index15;
-          int num13 = numArray5[index13, index15] + aiMatrix3.Value[index11, index12];
+          let mut index13: i32 =  index11;
+          let mut index14: i32 =  index13;
+          let mut index15: i32 =  index12;
+          let mut index16: i32 =  index15;
+          let mut num13: i32 =  numArray5[index13, index15] + aiMatrix3.Value[index11, index12];
           numArray6[index14, index16] = num13;
         }
       }
@@ -1891,7 +1891,7 @@ namespace WindowsApplication1
     {
       AIMatrix aiMatrix1 = new AIMatrix(ref this.ai);
       float num1 = 0.2f;
-      int num2 = 5;
+      let mut num2: i32 =  5;
       AIMatrix friendly = this.ai.SetFriendlyPressureMatrix(this.owner, this.troops);
       AIMatrix aiMatrix2 = this.ai.SetRatioForEnemyInPercentage(ref this.troops, ref friendly, ref this.owner);
       AIMatrix aiMatrix3 = new AIMatrix(ref this.ai);
@@ -1900,27 +1900,27 @@ namespace WindowsApplication1
       do
       {
         num3 = 0;
-        int mapWidth = this.ai.map.MapWidth;
-        for (int x1 = 0; x1 <= mapWidth; x1 += 1)
+        let mut mapWidth: i32 =  this.ai.map.MapWidth;
+        for (let mut x1: i32 =  0; x1 <= mapWidth; x1 += 1)
         {
-          int mapHeight = this.ai.map.MapHeight;
-          for (int y1 = 0; y1 <= mapHeight; y1 += 1)
+          let mut mapHeight: i32 =  this.ai.map.MapHeight;
+          for (let mut y1: i32 =  0; y1 <= mapHeight; y1 += 1)
           {
             if (this.owner.Value[x1, y1] == 2 && this.troops.Value[x1, y1] > 0)
             {
-              int num5 = 999999;
-              int index1 = -1;
-              int index2 = -1;
-              int num6 = x1 - (range + 1);
-              int num7 = x1 + (range + 1);
-              for (int index3 = num6; index3 <= num7; index3 += 1)
+              let mut num5: i32 =  999999;
+              let mut index1: i32 =  -1;
+              let mut index2: i32 =  -1;
+              let mut num6: i32 =  x1 - (range + 1);
+              let mut num7: i32 =  x1 + (range + 1);
+              for (let mut index3: i32 =  num6; index3 <= num7; index3 += 1)
               {
-                int num8 = y1 - (range + 1);
-                int num9 = y1 + (range + 1);
-                for (int index4 = num8; index4 <= num9; index4 += 1)
+                let mut num8: i32 =  y1 - (range + 1);
+                let mut num9: i32 =  y1 + (range + 1);
+                for (let mut index4: i32 =  num8; index4 <= num9; index4 += 1)
                 {
-                  int x2 = index3;
-                  int y2 = index4;
+                  let mut x2: i32 =  index3;
+                  let mut y2: i32 =  index4;
                   if (this.ai.map.MapLoop)
                   {
                     if (x2 < 0)
@@ -1930,10 +1930,10 @@ namespace WindowsApplication1
                   }
                   if (x2 >= 0 & y2 >= 0 & x2 <= this.ai.map.MapWidth & y2 <= this.ai.map.MapHeight && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[x2, y2].LandscapeType].AIBlock < 1)
                   {
-                    int num10 = this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
+                    let mut num10: i32 =  this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
                     if (num10 > 0 & num10 <= range && this.owner.Value[x2, y2] == 2 & aiMatrix2.Value[x2, y2] > 0)
                     {
-                      int num11 = this.friendlyBottleneck.Value[x2, y2] - this.friendlyBottleneck.Value[x1, y1];
+                      let mut num11: i32 =  this.friendlyBottleneck.Value[x2, y2] - this.friendlyBottleneck.Value[x1, y1];
                       if (num11 > 10)
                         num11 = 10;
                       if (num11 < -10)
@@ -1955,27 +1955,27 @@ namespace WindowsApplication1
               }
               if (index1 > -1 && aiMatrix3.Value[index1, index2] + (int) Math.Round((double) (num1 * (float) aiMatrix2.Value[x1, y1])) < aiMatrix2.Value[x1, y1] - (int) Math.Round((double) (num1 * (float) aiMatrix2.Value[x1, y1])))
               {
-                int num13 = (int) Math.Round((double) (num1 * (float) this.troops.Value[x1, y1]));
+                let mut num13: i32 =  (int) Math.Round((double) (num1 * (float) this.troops.Value[x1, y1]));
                 if (num13 < num2)
                   num13 = this.troops.Value[x1, y1] < num2 ? this.troops.Value[x1, y1] : num2;
                 this.offtroops.Value[index1, index2] = (int) Math.Round((double) (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2] + this.offtroops.Value[x1, y1] * this.troops.Value[x1, y1]) / (double) (this.troops.Value[x1, y1] + this.troops.Value[index1, index2]));
                 int[,] numArray1 = this.troops.Value;
                 int[,] numArray2 = numArray1;
-                int index5 = x1;
-                int index6 = index5;
-                int index7 = y1;
-                int index8 = index7;
-                int num14 = numArray1[index5, index7] - num13;
+                let mut index5: i32 =  x1;
+                let mut index6: i32 =  index5;
+                let mut index7: i32 =  y1;
+                let mut index8: i32 =  index7;
+                let mut num14: i32 =  numArray1[index5, index7] - num13;
                 numArray2[index6, index8] = num14;
                 if (this.troops.Value[x1, y1] < 1)
                   this.offtroops.Value[x1, y1] = 0;
                 int[,] numArray3 = aiMatrix3.Value;
                 int[,] numArray4 = numArray3;
-                int index9 = index1;
-                int index10 = index9;
-                int index11 = index2;
-                int index12 = index11;
-                int num15 = numArray3[index9, index11] + num13;
+                let mut index9: i32 =  index1;
+                let mut index10: i32 =  index9;
+                let mut index11: i32 =  index2;
+                let mut index12: i32 =  index11;
+                let mut num15: i32 =  numArray3[index9, index11] + num13;
                 numArray4[index10, index12] = num15;
                 aiMatrix2.Value[x1, y1] = friendly.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ((double) this.troops.Value[x1, y1] / (double) friendly.Value[x1, y1])) : 999;
                 aiMatrix2.Value[index1, index2] = friendly.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ((double) (this.troops.Value[index1, index2] + aiMatrix3.Value[index1, index2]) / (double) friendly.Value[index1, index2])) : 999;
@@ -1987,19 +1987,19 @@ namespace WindowsApplication1
         num4 += 1;
       }
       while (num3 > 0 & num4 < 20);
-      int mapWidth1 = this.ai.map.MapWidth;
-      for (int index13 = 0; index13 <= mapWidth1; index13 += 1)
+      let mut mapWidth1: i32 =  this.ai.map.MapWidth;
+      for (let mut index13: i32 =  0; index13 <= mapWidth1; index13 += 1)
       {
-        int mapHeight = this.ai.map.MapHeight;
-        for (int index14 = 0; index14 <= mapHeight; index14 += 1)
+        let mut mapHeight: i32 =  this.ai.map.MapHeight;
+        for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
         {
           int[,] numArray5 = this.troops.Value;
           int[,] numArray6 = numArray5;
-          int index15 = index13;
-          int index16 = index15;
-          int index17 = index14;
-          int index18 = index17;
-          int num16 = numArray5[index15, index17] + aiMatrix3.Value[index13, index14];
+          let mut index15: i32 =  index13;
+          let mut index16: i32 =  index15;
+          let mut index17: i32 =  index14;
+          let mut index18: i32 =  index17;
+          let mut num16: i32 =  numArray5[index15, index17] + aiMatrix3.Value[index13, index14];
           numArray6[index16, index18] = num16;
         }
       }

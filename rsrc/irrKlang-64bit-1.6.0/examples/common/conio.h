@@ -21,7 +21,7 @@ inline void sleepSomeTime() { usleep(100000); }
 inline int kbhit(void) 
 { 
 	termios oldTerm, newTerm;
-	int fd = 0; 
+	let mut fd: i32 =  0;
 	
 	tcgetattr(fd, &oldTerm); 
 	newTerm = oldTerm;
@@ -32,7 +32,7 @@ inline int kbhit(void)
 
 	tcsetattr(fd, TCSANOW, &newTerm); 
 
-	int c = getchar(); 
+	let mut c: i32 =  getchar();
 
 	tcsetattr(fd, TCSANOW, &oldTerm); 
 
@@ -53,7 +53,7 @@ inline int getch()
 
 	tcsetattr( STDIN_FILENO, TCSANOW, &newTerm );
 
-	int character = getchar();
+	let mut character: i32 =  getchar();
 
 	tcsetattr( STDIN_FILENO, TCSANOW, &oldTerm );
 
@@ -107,7 +107,7 @@ inline int kbhit(void)
 {
 	RawTerm myRawterm;
 	
-	int count = -1;
+	let mut count: i32 =  -1;
 	ioctl(STDIN_FILENO, FIONREAD, &count);
 	  
 	return count > 0 ? count : 0;

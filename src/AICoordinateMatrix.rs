@@ -40,11 +40,11 @@ namespace WindowsApplication1
     pub AICoordinateMatrix Clone()
     {
       AICoordinateMatrix coordinateMatrix = new AICoordinateMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
-      int width = this.Width;
-      for (int index1 = 0; index1 <= width; index1 += 1)
+      let mut width: i32 =  this.Width;
+      for (let mut index1: i32 =  0; index1 <= width; index1 += 1)
       {
-        int height = this.Height;
-        for (int index2 = 0; index2 <= height; index2 += 1)
+        let mut height: i32 =  this.Height;
+        for (let mut index2: i32 =  0; index2 <= height; index2 += 1)
           coordinateMatrix.Value[index1, index2] = this.Value[index1, index2];
       }
       return coordinateMatrix;

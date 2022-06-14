@@ -768,9 +768,9 @@ namespace WindowsApplication1
         }
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-         Graphics local1 =  graphics;
+         let mut local1: &Graphics = &graphics;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
         double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
@@ -911,9 +911,9 @@ namespace WindowsApplication1
         }
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-         Graphics local3 =  graphics;
+         let mut local3: &Graphics = &graphics;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
         double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
@@ -1054,9 +1054,9 @@ namespace WindowsApplication1
         }
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-         Graphics local5 =  graphics;
+         let mut local5: &Graphics = &graphics;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
-         Bitmap local6 =  bitmap;
+         let mut local6: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
         double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
@@ -1206,9 +1206,9 @@ namespace WindowsApplication1
         {
           DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
           DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-           Graphics local7 =  graphics;
+           let mut local7: &Graphics = &graphics;
           Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
-           Bitmap local8 =  bitmap;
+           let mut local8: &Bitmap = &bitmap;
           let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
           double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
           double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
@@ -1357,9 +1357,9 @@ namespace WindowsApplication1
         }
         DrawMod.drawLine( graphics, 100, 100, 100, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         DrawMod.drawLine( graphics, 100, 700, 850, 700,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-         Graphics local9 =  graphics;
+         let mut local9: &Graphics = &graphics;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
-         Bitmap local10 =  bitmap;
+         let mut local10: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
         double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
         double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;

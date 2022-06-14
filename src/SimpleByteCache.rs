@@ -68,7 +68,7 @@ namespace WindowsApplication1
           let mut height: i32 = 48;
           let mut num1: i32 = x1 * 4;
           let mut num2: i32 = (x1 + width) * 4 - num1;
-          Rectangle rect = new Rectangle(x1, y1, width, height);
+          Rectangle rect = Rectangle::new(x1, y1, width, height);
           BitmapData bitmapdata = bmp.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
           byte[] destination = new byte[num2 - 1 + 1];
           let mut num3: i32 = bitmapdata.Height - 1;
@@ -117,7 +117,7 @@ namespace WindowsApplication1
           let mut height: i32 = 96;
           let mut num9: i32 = x3 * 4;
           let mut num10: i32 = (x3 + width) * 4 - num9;
-          Rectangle rect = new Rectangle(x3, y3, width, height);
+          Rectangle rect = Rectangle::new(x3, y3, width, height);
           BitmapData bitmapdata = bmpBig.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
           byte[] destination = new byte[num10 - 1 + 1];
           let mut num11: i32 = bitmapdata.Height - 1;
@@ -166,7 +166,7 @@ namespace WindowsApplication1
           let mut height: i32 = 24;
           let mut num17: i32 = x5 * 4;
           let mut num18: i32 = (x5 + width) * 4 - num17;
-          Rectangle rect = new Rectangle(x5, y5, width, height);
+          Rectangle rect = Rectangle::new(x5, y5, width, height);
           BitmapData bitmapdata = bmpSmall.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
           byte[] destination = new byte[num18 - 1 + 1];
           let mut num19: i32 = bitmapdata.Height - 1;
@@ -335,7 +335,7 @@ namespace WindowsApplication1
             let mut height2: i32 = 48;
             let mut num5: i32 = x1 * 4;
             let mut num6: i32 = (x1 + width3) * 4 - num5;
-            Rectangle rect = new Rectangle(x1, y1, width3, height2);
+            Rectangle rect = Rectangle::new(x1, y1, width3, height2);
             BitmapData bitmapdata = bmp.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
             byte[] destination = new byte[num6 - 1 + 1];
             let mut num7: i32 = bitmapdata.Height - 1;
@@ -397,7 +397,7 @@ namespace WindowsApplication1
             let mut height3: i32 = 96;
             let mut num15: i32 = x3 * 4;
             let mut num16: i32 = (x3 + width4) * 4 - num15;
-            Rectangle rect = new Rectangle(x3, y3, width4, height3);
+            Rectangle rect = Rectangle::new(x3, y3, width4, height3);
             BitmapData bitmapdata = bmpBig.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
             byte[] destination = new byte[num16 - 1 + 1];
             let mut num17: i32 = bitmapdata.Height - 1;
@@ -459,7 +459,7 @@ namespace WindowsApplication1
             let mut height4: i32 = 24;
             let mut num25: i32 = x5 * 4;
             let mut num26: i32 = (x5 + width5) * 4 - num25;
-            Rectangle rect = new Rectangle(x5, y5, width5, height4);
+            Rectangle rect = Rectangle::new(x5, y5, width5, height4);
             BitmapData bitmapdata = bmpSmall.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
             byte[] destination = new byte[num26 - 1 + 1];
             let mut num27: i32 = bitmapdata.Height - 1;

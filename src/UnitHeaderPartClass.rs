@@ -131,11 +131,11 @@ namespace WindowsApplication1
       Conversions.ToInteger(self.game.HandyFunctionsObj.GetUnitPeople(self.unr));
       let mut regime: i32 = self.game.Data.UnitObj[self.unr].Regime;
       str1: String = self.game.Data.UnitObj[self.unr].Name;
-       Graphics local1 =  graphics;
-      Rectangle rectangle1 = new Rectangle(0, 35, 150, 14);
-      Rectangle rect1_1 = rectangle1;
+       let mut local1: &Graphics = &graphics;
+      Rectangle rectangle1 = Rectangle::new(0, 35, 150, 14);
+      let mut rect1_1: &Rectangle = &rectangle1
       Rectangle rectangle2;
-      Rectangle rect2_1 = rectangle2;
+      let mut rect2_1: &Rectangle = &rectangle2
       DrawMod.MakeFullBoxVic2( local1, rect1_1, "SELECTED UNIT", rect2_1, "");
       let mut num1: i32 = 45;
       DrawMod.DrawBlock( graphics, 0, 5 + num1, 280, 95,  self.game.VicColor3Shade.R,  self.game.VicColor3Shade.G,  self.game.VicColor3Shade.B,  self.game.VicColor3Shade.A);
@@ -285,9 +285,9 @@ namespace WindowsApplication1
           nr = -1;
         if (nr > -1 & index1 > -1)
         {
-           Graphics local2 =  graphics;
+           let mut local2: &Graphics = &graphics;
           bitmap1 = BitmapStore.GetBitmap(nr);
-           Bitmap local3 =  bitmap1;
+           let mut local3: &Bitmap = &bitmap1;
           let mut y: i32 = 20 + num1;
           DrawMod.DrawSimple( local2,  local3, 2, y);
           str12: String = Strings.UCase(Strings.Left(self.game.Data.SFObj[index1].MoveType <= -1 ? self.game.Data.TempString[self.game.Data.SFTypeObj[self.game.Data.SFObj[index1].Type].MoveType] : self.game.Data.TempString[self.game.Data.SFObj[index1].MoveType], 5));
@@ -296,9 +296,9 @@ namespace WindowsApplication1
         }
         else if (nr > -1)
         {
-           Graphics local4 =  graphics;
+           let mut local4: &Graphics = &graphics;
           Bitmap bitmap2 = BitmapStore.GetBitmap(nr);
-           Bitmap local5 =  bitmap2;
+           let mut local5: &Bitmap = &bitmap2;
           let mut y: i32 = 20 + num1;
           DrawMod.DrawSimple( local4,  local5, 2, y);
           str13: String = Strings.UCase(Strings.Left(str11, 5));
@@ -307,9 +307,9 @@ namespace WindowsApplication1
         }
       }
       let mut hqSpriteNr: i32 = self.game.Data.RegimeObj[self.game.Data.UnitObj[self.unr].Regime].HQSpriteNr;
-       Graphics local6 =  graphics;
+       let mut local6: &Graphics = &graphics;
       bitmap1 = BitmapStore.GetBitmap(hqSpriteNr);
-       Bitmap local7 =  bitmap1;
+       let mut local7: &Bitmap = &bitmap1;
       let mut y1: i32 = 60 + num1;
       DrawMod.DrawSimple( local6,  local7, 0, y1);
       if (self.game.Data.Turn == self.game.Data.UnitObj[self.unr].Regime | !self.game.Data.FOWOn | self.game.Data.Round == 0 | coordinate.x >= 1)
@@ -320,11 +320,11 @@ namespace WindowsApplication1
           str14 = "?";
         if (coordinate.x <= 1)
           str14 = "?";
-         Graphics local8 =  graphics;
-        rectangle1 = new Rectangle(105, num11 + 110, 30, 14);
-        Rectangle rect1_2 = rectangle1;
-        Rectangle rectangle3 = new Rectangle(105, num11 + 124, 30, 23);
-        Rectangle rect2_2 = rectangle3;
+         let mut local8: &Graphics = &graphics;
+        rectangle1 = Rectangle::new(105, num11 + 110, 30, 14);
+        let mut rect1_2: &Rectangle = &rectangle1
+        Rectangle rectangle3 = Rectangle::new(105, num11 + 124, 30, 23);
+        let mut rect2_2: &Rectangle = &rectangle3
         txt2_1: String = str14;
         DrawMod.MakeFullBoxVic2( local8, rect1_2, "AP", rect2_2, txt2_1);
         let mut Number1: i32 = self.game.HandyFunctionsObj.GetAverageRdn(self.unr);
@@ -343,11 +343,11 @@ namespace WindowsApplication1
         str15: String = Strings.Trim(Conversion.Str((object) Number1));
         if (coordinate.x <= 1)
           str15 = "?";
-         Graphics local9 =  graphics;
-        rectangle3 = new Rectangle(140, num11 + 110, 30, 14);
-        Rectangle rect1_3 = rectangle3;
-        rectangle1 = new Rectangle(140, num11 + 124, 30, 23);
-        Rectangle rect2_3 = rectangle1;
+         let mut local9: &Graphics = &graphics;
+        rectangle3 = Rectangle::new(140, num11 + 110, 30, 14);
+        let mut rect1_3: &Rectangle = &rectangle3
+        rectangle1 = Rectangle::new(140, num11 + 124, 30, 23);
+        let mut rect2_3: &Rectangle = &rectangle1
         txt2_2: String = str15;
         DrawMod.MakeFullBoxVic2( local9, rect1_3, "RDN", rect2_3, txt2_2);
         let mut Number2: i32 = self.game.HandyFunctionsObj.GetAverageXp(self.unr);
@@ -366,11 +366,11 @@ namespace WindowsApplication1
         str16: String = Strings.Trim(Conversion.Str((object) Number2));
         if (coordinate.x <= 1)
           str16 = "?";
-         Graphics local10 =  graphics;
-        rectangle3 = new Rectangle(175, num11 + 110, 30, 14);
-        Rectangle rect1_4 = rectangle3;
-        rectangle1 = new Rectangle(175, num11 + 124, 30, 23);
-        Rectangle rect2_4 = rectangle1;
+         let mut local10: &Graphics = &graphics;
+        rectangle3 = Rectangle::new(175, num11 + 110, 30, 14);
+        let mut rect1_4: &Rectangle = &rectangle3
+        rectangle1 = Rectangle::new(175, num11 + 124, 30, 23);
+        let mut rect2_4: &Rectangle = &rectangle1
         txt2_3: String = str16;
         DrawMod.MakeFullBoxVic2( local10, rect1_4, "EXP", rect2_4, txt2_3);
         let mut Number3: i32 = self.game.HandyFunctionsObj.GetAverageMor(self.unr);
@@ -389,11 +389,11 @@ namespace WindowsApplication1
         str17: String = Strings.Trim(Conversion.Str((object) Number3));
         if (coordinate.x <= 1)
           str17 = "?";
-         Graphics local11 =  graphics;
-        rectangle3 = new Rectangle(210, num11 + 110, 30, 14);
-        Rectangle rect1_5 = rectangle3;
-        rectangle1 = new Rectangle(210, num11 + 124, 30, 23);
-        Rectangle rect2_5 = rectangle1;
+         let mut local11: &Graphics = &graphics;
+        rectangle3 = Rectangle::new(210, num11 + 110, 30, 14);
+        let mut rect1_5: &Rectangle = &rectangle3
+        rectangle1 = Rectangle::new(210, num11 + 124, 30, 23);
+        let mut rect2_5: &Rectangle = &rectangle1
         txt2_4: String = str17;
         DrawMod.MakeFullBoxVic2( local11, rect1_5, "MOR", rect2_5, txt2_4);
         let mut Number4: i32 = self.game.HandyFunctionsObj.GetAverageEntrench(self.unr);
@@ -412,11 +412,11 @@ namespace WindowsApplication1
         str18: String = Strings.Trim(Conversion.Str((object) Number4));
         if (coordinate.x <= 1)
           str18 = "?";
-         Graphics local12 =  graphics;
-        rectangle3 = new Rectangle(245, num11 + 110, 30, 14);
-        Rectangle rect1_6 = rectangle3;
-        rectangle1 = new Rectangle(245, num11 + 124, 30, 23);
-        Rectangle rect2_6 = rectangle1;
+         let mut local12: &Graphics = &graphics;
+        rectangle3 = Rectangle::new(245, num11 + 110, 30, 14);
+        let mut rect1_6: &Rectangle = &rectangle3
+        rectangle1 = Rectangle::new(245, num11 + 124, 30, 23);
+        let mut rect2_6: &Rectangle = &rectangle1
         txt2_5: String = str18;
         DrawMod.MakeFullBoxVic2( local12, rect1_6, "ENT", rect2_6, txt2_5);
         let mut num24: i32 = 40;
@@ -425,11 +425,11 @@ namespace WindowsApplication1
           str19 = "?";
         if (coordinate.x <= 1)
           str19 = "?";
-         Graphics local13 =  graphics;
-        rectangle3 = new Rectangle(0, num24 + 110, 65, 14);
-        Rectangle rect1_7 = rectangle3;
-        rectangle1 = new Rectangle(0, num24 + 124, 65, 23);
-        Rectangle rect2_7 = rectangle1;
+         let mut local13: &Graphics = &graphics;
+        rectangle3 = Rectangle::new(0, num24 + 110, 65, 14);
+        let mut rect1_7: &Rectangle = &rectangle3
+        rectangle1 = Rectangle::new(0, num24 + 124, 65, 23);
+        let mut rect2_7: &Rectangle = &rectangle1
         txt2_6: String = str19;
         DrawMod.MakeFullBoxVic2( local13, rect1_7, "SUP.CONS", rect2_7, txt2_6);
         if (self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.UnitObj[self.unr].Regime, self.game.Data.Turn))
@@ -439,11 +439,11 @@ namespace WindowsApplication1
             str20 = "?";
           if (coordinate.x <= 1)
             str20 = "?";
-           Graphics local14 =  graphics;
-          rectangle3 = new Rectangle(70, num24 + 110, 65, 14);
-          Rectangle rect1_8 = rectangle3;
-          rectangle1 = new Rectangle(70, num24 + 124, 65, 23);
-          Rectangle rect2_8 = rectangle1;
+           let mut local14: &Graphics = &graphics;
+          rectangle3 = Rectangle::new(70, num24 + 110, 65, 14);
+          let mut rect1_8: &Rectangle = &rectangle3
+          rectangle1 = Rectangle::new(70, num24 + 124, 65, 23);
+          let mut rect2_8: &Rectangle = &rectangle1
           txt2_7: String = str20;
           DrawMod.MakeFullBoxVic2( local14, rect1_8, "SUP.STOCK", rect2_8, txt2_7);
           if (self.game.Data.UnitObj[self.unr].IsHQ)
@@ -453,11 +453,11 @@ namespace WindowsApplication1
               str21 = "?";
             if (coordinate.x <= 1)
               str21 = "?";
-             Graphics local15 =  graphics;
-            rectangle3 = new Rectangle(140, num24 + 110, 65, 14);
-            Rectangle rect1_9 = rectangle3;
-            rectangle1 = new Rectangle(140, num24 + 124, 65, 23);
-            Rectangle rect2_9 = rectangle1;
+             let mut local15: &Graphics = &graphics;
+            rectangle3 = Rectangle::new(140, num24 + 110, 65, 14);
+            let mut rect1_9: &Rectangle = &rectangle3
+            rectangle1 = Rectangle::new(140, num24 + 124, 65, 23);
+            let mut rect2_9: &Rectangle = &rectangle1
             txt2_8: String = str21;
             DrawMod.MakeFullBoxVic2( local15, rect1_9, "REQ.OUT", rect2_9, txt2_8);
             str22: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyOut));
@@ -465,11 +465,11 @@ namespace WindowsApplication1
               str22 = "?";
             if (coordinate.x <= 1)
               str22 = "?";
-             Graphics local16 =  graphics;
-            rectangle3 = new Rectangle(210, num24 + 110, 65, 14);
-            Rectangle rect1_10 = rectangle3;
-            rectangle1 = new Rectangle(210, num24 + 124, 65, 23);
-            Rectangle rect2_10 = rectangle1;
+             let mut local16: &Graphics = &graphics;
+            rectangle3 = Rectangle::new(210, num24 + 110, 65, 14);
+            let mut rect1_10: &Rectangle = &rectangle3
+            rectangle1 = Rectangle::new(210, num24 + 124, 65, 23);
+            let mut rect2_10: &Rectangle = &rectangle1
             txt2_9: String = str22;
             DrawMod.MakeFullBoxVic2( local16, rect1_10, "SEND.OUT", rect2_10, txt2_9);
           }
@@ -480,11 +480,11 @@ namespace WindowsApplication1
               str23 = "?";
             if (coordinate.x <= 1)
               str23 = "?";
-             Graphics local17 =  graphics;
-            rectangle3 = new Rectangle(140, num24 + 110, 65, 14);
-            Rectangle rect1_11 = rectangle3;
-            rectangle1 = new Rectangle(140, num24 + 124, 65, 23);
-            Rectangle rect2_11 = rectangle1;
+             let mut local17: &Graphics = &graphics;
+            rectangle3 = Rectangle::new(140, num24 + 110, 65, 14);
+            let mut rect1_11: &Rectangle = &rectangle3
+            rectangle1 = Rectangle::new(140, num24 + 124, 65, 23);
+            let mut rect2_11: &Rectangle = &rectangle1
             txt2_10: String = str23;
             DrawMod.MakeFullBoxVic2( local17, rect1_11, "REQ.IN", rect2_11, txt2_10);
             str24: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyIn));
@@ -492,11 +492,11 @@ namespace WindowsApplication1
               str24 = "?";
             if (coordinate.x <= 1)
               str24 = "?";
-             Graphics local18 =  graphics;
-            rectangle3 = new Rectangle(210, num24 + 110, 65, 14);
-            Rectangle rect1_12 = rectangle3;
-            rectangle1 = new Rectangle(210, num24 + 124, 65, 23);
-            Rectangle rect2_12 = rectangle1;
+             let mut local18: &Graphics = &graphics;
+            rectangle3 = Rectangle::new(210, num24 + 110, 65, 14);
+            let mut rect1_12: &Rectangle = &rectangle3
+            rectangle1 = Rectangle::new(210, num24 + 124, 65, 23);
+            let mut rect2_12: &Rectangle = &rectangle1
             txt2_11: String = str24;
             DrawMod.MakeFullBoxVic2( local18, rect1_12, "SUP.IN", rect2_12, txt2_11);
           }
@@ -513,9 +513,9 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-       Graphics local1 =  Expression;
+       let mut local1: &Graphics = &Expression;
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       if (!Information.IsNothing((object) Expression))
         Expression.Dispose();

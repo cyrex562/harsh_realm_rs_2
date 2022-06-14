@@ -31,42 +31,42 @@ namespace WindowsApplication1
       if (this.Game.Data.Product == 6)
       {
         MapWindowClass2 tmpWindow = new MapWindowClass2( tgame, 222, 0, this.Game.EditObj.Zoom);
-        int screenWidth = this.Game.ScreenWidth;
-        int h = this.Game.ScreenHeight - 222;
-        rectangle1 = new Rectangle(0, 75, this.Game.ScreenWidth, this.Game.ScreenHeight - 387);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut h: i32 =  this.Game.ScreenHeight - 222;
+        rectangle1 = Rectangle::new(0, 75, this.Game.ScreenWidth, this.Game.ScreenHeight - 387);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, h, tShowRectangle);
       }
       else
       {
         MapWindowClass2 tmpWindow = new MapWindowClass2( tgame, 222, 0, 0);
-        int screenWidth = this.Game.ScreenWidth;
-        int h = this.Game.ScreenHeight - 222;
-        rectangle1 = new Rectangle(0, 75, this.Game.ScreenWidth, this.Game.ScreenHeight - 387);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut h: i32 =  this.Game.ScreenHeight - 222;
+        rectangle1 = Rectangle::new(0, 75, this.Game.ScreenWidth, this.Game.ScreenHeight - 387);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, h, tShowRectangle);
       }
        let mut local1: GameClass =  tgame;
        WindowClass local2 =  this.WindowList[this.GetNr(this.WMap)];
-      rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, 75);
-      Rectangle rectangle2 = rectangle1;
+      rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, 75);
+      let mut rectangle2: &Rectangle = &rectangle1
        Rectangle local3 =  rectangle2;
       this.WRes = this.AddWindow((WindowClass) new ResourceWindowClass2( local1,  local2,  local3), 0, 0, this.Game.ScreenWidth, 75);
        let mut local4: GameClass =  tgame;
        WindowClass local5 =  this.WindowList[this.GetNr(this.WMap)];
-      rectangle2 = new Rectangle(0, this.Game.ScreenHeight - 312, this.Game.ScreenWidth, 90);
-      Rectangle rectangle3 = rectangle2;
+      rectangle2 = Rectangle::new(0, this.Game.ScreenHeight - 312, this.Game.ScreenWidth, 90);
+      let mut rectangle3: &Rectangle = &rectangle2
        Rectangle local6 =  rectangle3;
       WindowClass[] windowList = this.WindowList;
       WindowClass[] windowClassArray = windowList;
-      int nr = this.GetNr(this.WPlay);
-      int index = nr;
+      let mut nr: i32 =  this.GetNr(this.WPlay);
+      let mut index: i32 =  nr;
       HistoryWindowClass2 historyWindowClass2 = (HistoryWindowClass2) windowClassArray[index];
        HistoryWindowClass2 local7 =  historyWindowClass2;
       HistoryOrderWindowClass tmpWindow1 = new HistoryOrderWindowClass( local4,  local5,  local6,  local7);
       windowList[nr] = (WindowClass) historyWindowClass2;
-      int y = this.Game.ScreenHeight - 312;
-      int screenWidth1 = this.Game.ScreenWidth;
+      let mut y: i32 =  this.Game.ScreenHeight - 312;
+      let mut screenWidth1: i32 =  this.Game.ScreenWidth;
       this.WOrder = this.AddWindow((WindowClass) tmpWindow1, 0, y, screenWidth1, 90);
       Rectangle rectForTab;
       if (this.Game.EditObj.SetViewMode2 == 1)
@@ -74,10 +74,10 @@ namespace WindowsApplication1
         rectForTab = DrawMod.GetRectForTab(1);
          let mut local8: GameClass =  tgame;
          WindowClass local9 =  this.WindowList[this.GetNr(this.WMap)];
-        rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-        Rectangle rectangle4 = rectangle2;
+        rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+        let mut rectangle4: &Rectangle = &rectangle2
          Rectangle local10 =  rectangle4;
-        Rectangle trect = rectForTab;
+        let mut trect: &Rectangle = &rectForTab
         this.WTabs = this.AddWindow((WindowClass) new TabBriefingWindowClass2( local8,  local9,  local10, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
       }
       if (this.Game.EditObj.SetViewMode2 == 2)
@@ -85,10 +85,10 @@ namespace WindowsApplication1
         rectForTab = DrawMod.GetRectForTab(2);
          let mut local11: GameClass =  tgame;
          WindowClass local12 =  this.WindowList[this.GetNr(this.WMap)];
-        rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-        Rectangle rectangle5 = rectangle2;
+        rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+        let mut rectangle5: &Rectangle = &rectangle2
          Rectangle local13 =  rectangle5;
-        Rectangle trect = rectForTab;
+        let mut trect: &Rectangle = &rectForTab
         this.WTabs = this.AddWindow((WindowClass) new TabStatsWindowClass2( local11,  local12,  local13, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
       }
       if (this.Game.EditObj.SetViewMode2 == 3)
@@ -96,10 +96,10 @@ namespace WindowsApplication1
         rectForTab = DrawMod.GetRectForTab(3);
          let mut local14: GameClass =  tgame;
          WindowClass local15 =  this.WindowList[this.GetNr(this.WMap)];
-        rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-        Rectangle rectangle6 = rectangle2;
+        rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+        let mut rectangle6: &Rectangle = &rectangle2
          Rectangle local16 =  rectangle6;
-        Rectangle trect = rectForTab;
+        let mut trect: &Rectangle = &rectForTab
         this.WTabs = this.AddWindow((WindowClass) new TabOOBWindowClass2( local14,  local15,  local16, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
       }
       if (this.Game.EditObj.SetViewMode2 == 4)
@@ -107,10 +107,10 @@ namespace WindowsApplication1
         rectForTab = DrawMod.GetRectForTab(4);
          let mut local17: GameClass =  tgame;
          WindowClass local18 =  this.WindowList[this.GetNr(this.WMap)];
-        rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-        Rectangle rectangle7 = rectangle2;
+        rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+        let mut rectangle7: &Rectangle = &rectangle2
          Rectangle local19 =  rectangle7;
-        Rectangle trect = rectForTab;
+        let mut trect: &Rectangle = &rectForTab
         this.WTabs = this.AddWindow((WindowClass) new TabReportsWindowClass2( local17,  local18,  local19, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
       }
       if (this.Game.EditObj.SetViewMode2 == 5)
@@ -118,10 +118,10 @@ namespace WindowsApplication1
         rectForTab = DrawMod.GetRectForTab(5);
          let mut local20: GameClass =  tgame;
          WindowClass local21 =  this.WindowList[this.GetNr(this.WMap)];
-        rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-        Rectangle rectangle8 = rectangle2;
+        rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+        let mut rectangle8: &Rectangle = &rectangle2
          Rectangle local22 =  rectangle8;
-        Rectangle trect = rectForTab;
+        let mut trect: &Rectangle = &rectForTab
         this.WTabs = this.AddWindow((WindowClass) new TabCardsWindowClass2( local20,  local21,  local22, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
       }
       if (this.Game.EditObj.SetViewMode2 == 6)
@@ -129,10 +129,10 @@ namespace WindowsApplication1
         rectForTab = DrawMod.GetRectForTab(6);
          let mut local23: GameClass =  tgame;
          WindowClass local24 =  this.WindowList[this.GetNr(this.WMap)];
-        rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-        Rectangle rectangle9 = rectangle2;
+        rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+        let mut rectangle9: &Rectangle = &rectangle2
          Rectangle local25 =  rectangle9;
-        Rectangle trect = rectForTab;
+        let mut trect: &Rectangle = &rectForTab
         this.WTabs = this.AddWindow((WindowClass) new TabSMapWindowClass2( local23,  local24,  local25, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
       }
       if (this.Game.EditObj.SetViewMode2 == 7)
@@ -140,10 +140,10 @@ namespace WindowsApplication1
         rectForTab = DrawMod.GetRectForTab(7);
          let mut local26: GameClass =  tgame;
          WindowClass local27 =  this.WindowList[this.GetNr(this.WMap)];
-        rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-        Rectangle rectangle10 = rectangle2;
+        rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+        let mut rectangle10: &Rectangle = &rectangle2
          Rectangle local28 =  rectangle10;
-        Rectangle trect = rectForTab;
+        let mut trect: &Rectangle = &rectForTab
         this.WTabs = this.AddWindow((WindowClass) new TabMiniMapWindowClass2( local26,  local27,  local28, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
       }
       if (this.Game.EditObj.SetViewMode2 != 8)
@@ -151,10 +151,10 @@ namespace WindowsApplication1
       rectForTab = DrawMod.GetRectForTab(8);
        let mut local29: GameClass =  tgame;
        WindowClass local30 =  this.WindowList[this.GetNr(this.WMap)];
-      rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
-      Rectangle rectangle11 = rectangle2;
+      rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+      let mut rectangle11: &Rectangle = &rectangle2
        Rectangle local31 =  rectangle11;
-      Rectangle trect1 = rectForTab;
+      let mut trect1: &Rectangle = &rectForTab
       this.WTabs = this.AddWindow((WindowClass) new TabPrefsWindowClass2( local29,  local30,  local31, trect1), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
     }
 
@@ -165,8 +165,8 @@ namespace WindowsApplication1
     {
       if (wr.Counter > -1)
       {
-        int counter = wr.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  wr.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
         {
           if (wr.CommandType[index] == 3)
           {
@@ -255,10 +255,10 @@ namespace WindowsApplication1
             if (wr.CommandData[index] == 12)
             {
               MapWindowClass2 tmpWindow = new MapWindowClass2( DrawMod.TGame, 222, 0);
-              int screenWidth = this.Game.ScreenWidth;
-              int h = this.Game.ScreenHeight - 222;
-              rectangle1 = new Rectangle(0, 75, this.Game.ScreenWidth, this.Game.ScreenHeight - 387);
-              Rectangle tShowRectangle = rectangle1;
+              let mut screenWidth: i32 =  this.Game.ScreenWidth;
+              let mut h: i32 =  this.Game.ScreenHeight - 222;
+              rectangle1 = Rectangle::new(0, 75, this.Game.ScreenWidth, this.Game.ScreenHeight - 387);
+              let mut tShowRectangle: &Rectangle = &rectangle1
               this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, h, tShowRectangle);
               if (this.WRes > 0)
                 this.WindowList[this.GetNr(this.WRes)].LowerWindow = this.WindowList[this.GetNr(this.WMap)];
@@ -272,7 +272,7 @@ namespace WindowsApplication1
             {
                let mut local1: GameClass =  DrawMod.TGame;
                WindowClass local2 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, 75);
+              rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, 75);
               rectangle2 = rectangle1;
                Rectangle local3 =  rectangle2;
               this.WRes = this.AddWindow((WindowClass) new ResourceWindowClass2( local1,  local2,  local3), 0, 0, this.Game.ScreenWidth, 75);
@@ -283,10 +283,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(1);
                let mut local4: GameClass =  DrawMod.TGame;
                WindowClass local5 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local6 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabBriefingWindowClass2( local4,  local5,  local6, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
             if (wr.CommandData[index] == 71)
@@ -294,10 +294,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(2);
                let mut local7: GameClass =  DrawMod.TGame;
                WindowClass local8 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local9 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabStatsWindowClass2( local7,  local8,  local9, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
             if (wr.CommandData[index] == 72)
@@ -305,10 +305,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(3);
                let mut local10: GameClass =  DrawMod.TGame;
                WindowClass local11 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local12 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabOOBWindowClass2( local10,  local11,  local12, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
             if (wr.CommandData[index] == 73)
@@ -316,10 +316,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(4);
                let mut local13: GameClass =  DrawMod.TGame;
                WindowClass local14 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local15 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabReportsWindowClass2( local13,  local14,  local15, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
             if (wr.CommandData[index] == 74)
@@ -327,10 +327,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(5);
                let mut local16: GameClass =  DrawMod.TGame;
                WindowClass local17 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local18 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabCardsWindowClass2( local16,  local17,  local18, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
             if (wr.CommandData[index] == 75)
@@ -338,10 +338,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(6);
                let mut local19: GameClass =  DrawMod.TGame;
                WindowClass local20 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local21 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabSMapWindowClass2( local19,  local20,  local21, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
             if (wr.CommandData[index] == 76)
@@ -349,10 +349,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(7);
                let mut local22: GameClass =  DrawMod.TGame;
                WindowClass local23 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local24 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabMiniMapWindowClass2( local22,  local23,  local24, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
             if (wr.CommandData[index] == 77)
@@ -360,10 +360,10 @@ namespace WindowsApplication1
               rectForTab = DrawMod.GetRectForTab(8);
                let mut local25: GameClass =  DrawMod.TGame;
                WindowClass local26 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle2 = new Rectangle(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
+              rectangle2 = Rectangle::new(rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
               rectangle1 = rectangle2;
                Rectangle local27 =  rectangle1;
-              Rectangle trect = rectForTab;
+              let mut trect: &Rectangle = &rectForTab
               this.WTabs = this.AddWindow((WindowClass) new TabPrefsWindowClass2( local25,  local26,  local27, trect), rectForTab.X, rectForTab.Y, rectForTab.Width, rectForTab.Height);
             }
           }
@@ -403,7 +403,7 @@ namespace WindowsApplication1
       }
       if (this.WindowCounter > -1)
       {
-        for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+        for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
         {
           if (Operators.CompareString(this.WindowList[windowCounter].GetType().FullName, "WindowsApplication1.MapWindowClass", false) != 0 && x > this.WindowX[windowCounter] & x < this.WindowX[windowCounter] + this.WindowW[windowCounter] && y > this.WindowY[windowCounter] & y < this.WindowY[windowCounter] + this.WindowH[windowCounter])
           {
@@ -421,7 +421,7 @@ namespace WindowsApplication1
             }
           }
         }
-        for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+        for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
         {
           if (Operators.CompareString(this.WindowList[windowCounter].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0 && x > this.WindowX[windowCounter] & x < this.WindowX[windowCounter] + this.WindowW[windowCounter] && y > this.WindowY[windowCounter] & y < this.WindowY[windowCounter] + this.WindowH[windowCounter])
           {
@@ -477,9 +477,9 @@ namespace WindowsApplication1
       }
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      int windowCounter1 = this.WindowCounter;
+      let mut windowCounter1: i32 =  this.WindowCounter;
       windowReturnClass: WindowReturnClass;
-      for (int index = 0; index <= windowCounter1; index += 1)
+      for (let mut index: i32 =  0; index <= windowCounter1; index += 1)
       {
         if (Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) != 0 & Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) != 0 && x >= this.WindowX[index] & x <= this.WindowX[index] + this.WindowW[index] & y >= this.WindowY[index] & y <= this.WindowY[index] + this.WindowH[index])
         {
@@ -510,8 +510,8 @@ namespace WindowsApplication1
         num = 1;
       if (num == 1)
       {
-        int windowCounter2 = this.WindowCounter;
-        for (int index = 0; index <= windowCounter2; index += 1)
+        let mut windowCounter2: i32 =  this.WindowCounter;
+        for (let mut index: i32 =  0; index <= windowCounter2; index += 1)
         {
           if (Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0 | Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) == 0 && x >= this.WindowX[index] & x <= this.WindowX[index] + this.WindowW[index] & y >= this.WindowY[index] & y <= this.WindowY[index] + this.WindowH[index])
           {
@@ -553,7 +553,7 @@ namespace WindowsApplication1
       this.Game.FormRef.debugPoint4 = 2;
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         wr: WindowReturnClass = this.WindowList[windowCounter].handleTimer();
         if (!this.WindowFlag[windowCounter] & wr.Flag)
@@ -576,7 +576,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         wr: WindowReturnClass = this.WindowList[windowCounter].HandleKeyPress(nr);
         if (!this.WindowFlag[windowCounter] & wr.Flag)

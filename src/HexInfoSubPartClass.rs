@@ -45,8 +45,8 @@ namespace WindowsApplication1
       this.Descript = "";
       if (this.mzcount <= -1)
         return;
-      int mzcount = this.mzcount;
-      for (int index = 0; index <= mzcount; index += 1)
+      let mut mzcount: i32 =  this.mzcount;
+      for (let mut index: i32 =  0; index <= mzcount; index += 1)
       {
         if (ix > this.mzx[index] & iy > this.mzy[index] & ix < this.mzx[index] + 31 & iy < this.mzy[index] + 31)
         {
@@ -88,8 +88,8 @@ namespace WindowsApplication1
         return bitmap;
       }
       Graphics toG = Graphics.FromImage((Image) this.OwnBitmap);
-      int landscapeType = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].LandscapeType;
-      int spriteNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].SpriteNr;
+      let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].LandscapeType;
+      let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].SpriteNr;
       if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].get_SeeNow(this.game.Data.Turn) < 1)
       {
         DrawMod.DrawBlock( toG, 0, 0, 210, 85, 0, 0, 0,  byte.MaxValue);
@@ -101,44 +101,44 @@ namespace WindowsApplication1
       DrawMod.DrawBoxVic( toG, 0, 0, 210, 85, this.game.VicColor1, this.game.VicColor1Shade);
       if (landscapeType > -1 & spriteNr > -1)
       {
-        int nr1 = this.game.Data.LandscapeTypeObj[landscapeType].BasicPicID[spriteNr];
-         Graphics local1 =  toG;
+        let mut nr1: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].BasicPicID[spriteNr];
+         let mut local1: &Graphics = &toG;
         Bitmap bitmap = BitmapStore.GetBitmap(nr1);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local1,  local2, 3, 3, 205, 80);
         if (this.game.Data.MapObj[0].HexObj[this.x, this.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT > -1)
         {
-          int nr2 = this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
-           Graphics local3 =  toG;
+          let mut nr2: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
+           let mut local3: &Graphics = &toG;
           bitmap = BitmapStore.GetBitmap(nr2);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           DrawMod.DrawScaled( local3,  local4, 3, 3, 205, 80);
         }
       }
       this.mzcount = -1;
       if (!flag | this.IgnoreAttack && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter > -1)
       {
-        int num1 = -1;
-        int unitCounter1 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter;
-        int num2 = unitCounter1;
-        for (int index = 0; index <= num2; index += 1)
+        let mut num1: i32 =  -1;
+        let mut unitCounter1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter;
+        let mut num2: i32 =  unitCounter1;
+        for (let mut index: i32 =  0; index <= num2; index += 1)
         {
           if (this.game.HandyFunctionsObj.CanWeSeeUnit(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitList[index], this.game.Data.Turn) > 0)
             num1 += 1;
         }
-        int num3 = num1;
-        int num4 = unitCounter1 + 1;
-        int unitCounter2 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter;
-        for (int index = unitCounter2; index >= 0; index += -1)
+        let mut num3: i32 =  num1;
+        let mut num4: i32 =  unitCounter1 + 1;
+        let mut unitCounter2: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter;
+        for (let mut index: i32 =  unitCounter2; index >= 0; index += -1)
         {
-          int unit = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitList[index];
+          let mut unit: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitList[index];
           if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
           {
             --num4;
-            int num5 =  Math.Round(170.0 / (Conversion.Int((double) num3 / 2.0) + 1.0));
+            let mut num5: i32 =   Math.Round(170.0 / (Conversion.Int((double) num3 / 2.0) + 1.0));
             if (num5 > 39)
               num5 = 39;
-            int num6 =  Math.Round(Conversion.Int((double) (unitCounter2 + 1) / 2.0));
+            let mut num6: i32 =   Math.Round(Conversion.Int((double) (unitCounter2 + 1) / 2.0));
             if (num6 < 4)
               num6 = 4;
             int ty;
@@ -168,17 +168,17 @@ namespace WindowsApplication1
       {
         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter > -1)
         {
-          int unitCounter = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter;
-          for (int index = unitCounter; index >= 0; index += -1)
+          let mut unitCounter: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitCounter;
+          for (let mut index: i32 =  unitCounter; index >= 0; index += -1)
           {
-            int unit = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitList[index];
+            let mut unit: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.x, this.y].UnitList[index];
             if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
             {
-              int ty = 4;
-              int num =  Math.Round(170.0 / (double) (unitCounter + 1));
+              let mut ty: i32 =  4;
+              let mut num: i32 =   Math.Round(170.0 / (double) (unitCounter + 1));
               if (num > 39)
                 num = 39;
-              int tx = 4 + index * num;
+              let mut tx: i32 =  4 + index * num;
               this.game.CustomBitmapObj.DrawUnit(unit, true, toG, tx, ty);
               this += 1.mzcount;
               this.mzx[this.mzcount] = tx;
@@ -189,17 +189,17 @@ namespace WindowsApplication1
         }
         if (this.game.EditObj.TempUnitList.counter > -1)
         {
-          int counter = this.game.EditObj.TempUnitList.counter;
-          for (int index = counter; index >= 0; index += -1)
+          let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
+          for (let mut index: i32 =  counter; index >= 0; index += -1)
           {
-            int num7 = this.game.EditObj.TempUnitList.unr[index];
+            let mut num7: i32 =  this.game.EditObj.TempUnitList.unr[index];
             if (this.game.HandyFunctionsObj.CanWeSeeUnit(num7, this.game.Data.Turn) > 0)
             {
-              int ty = 44;
-              int num8 =  Math.Round(190.0 / (double) (counter + 1));
+              let mut ty: i32 =  44;
+              let mut num8: i32 =   Math.Round(190.0 / (double) (counter + 1));
               if (num8 > 39)
                 num8 = 39;
-              int tx = 4 + index * num8;
+              let mut tx: i32 =  4 + index * num8;
               this.game.CustomBitmapObj.DrawUnit(num7, true, toG, tx, ty);
               this += 1.mzcount;
               this.mzx[this.mzcount] = tx;
@@ -212,11 +212,11 @@ namespace WindowsApplication1
       return this.OwnBitmap;
     }
 
-    pub int Click(int x, int y, int b = 1)
+    pub int Click(int x, int y, let mut b: i32 =  1)
     {
       if (this.mzcount <= -1)
         return -1;
-      for (int mzcount = this.mzcount; mzcount >= 0; mzcount += -1)
+      for (let mut mzcount: i32 =  this.mzcount; mzcount >= 0; mzcount += -1)
       {
         if (x > this.mzx[mzcount] & y > this.mzy[mzcount] & x < this.mzx[mzcount] + 37 & y < this.mzy[mzcount] + 37)
           return this.mznr[mzcount];
@@ -227,9 +227,9 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-       Graphics local1 =  graphics;
+       let mut local1: &Graphics = &graphics;
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return this.OwnBitmap;
     }

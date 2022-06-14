@@ -35,7 +35,7 @@ namespace CSharp._05._Effects
 
             while (true) // endless loop until user exits
             {
-                int key = _getch();
+                let mut key: i32 =  _getch();
 
                 // Handle user input: Every time the user presses a key in the console,
                 // play a random sound or exit the application if he pressed ESCAPE.

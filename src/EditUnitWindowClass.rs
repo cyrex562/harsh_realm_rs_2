@@ -100,21 +100,21 @@ namespace WindowsApplication1
       if (this.LibListId > 0)
         this.RemoveSubPart(this.LibListId);
       this.UnitNr = tUnitnr;
-      int num1 = -1;
+      let mut num1: i32 =  -1;
       Font font;
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > -1)
       {
         this.UnitListObj = ListClass::new();
-        int unitCounter = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter;
-        for (int index = 0; index <= unitCounter; index += 1)
+        let mut unitCounter: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter;
+        for (let mut index: i32 =  0; index <= unitCounter; index += 1)
         {
-          int unit = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
+          let mut unit: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
           if (unit == tUnitnr)
             num1 = index;
           this.UnitListObj.add("-" + this.game.Data.UnitObj[unit].Name + "(#" + unit.ToString() + ")", unit);
         }
         ListClass unitListObj = this.UnitListObj;
-        int tlistselect = num1;
+        let mut tlistselect: i32 =  num1;
         let mut game: GameClass = this.game;
         ref Bitmap local1 = ref this.OwnBitmap;
         font =  null;
@@ -128,10 +128,10 @@ namespace WindowsApplication1
         this.MakeUnitTypeItemGUI();
       this.LibListObj = ListClass::new();
       this.LibListObj.add("All", -2);
-      int num2 = -1;
-      int num3 = 0;
-      int libraryCounter = this.game.Data.LibraryCounter;
-      for (int index = 0; index <= libraryCounter; index += 1)
+      let mut num2: i32 =  -1;
+      let mut num3: i32 =  0;
+      let mut libraryCounter: i32 =  this.game.Data.LibraryCounter;
+      for (let mut index: i32 =  0; index <= libraryCounter; index += 1)
       {
         num3 += 1;
         if (this.LibNr == index)
@@ -141,7 +141,7 @@ namespace WindowsApplication1
       if (this.LibNr == -1)
         num2 = 0;
       ListClass libListObj = this.LibListObj;
-      int tlistselect1 = num2;
+      let mut tlistselect1: i32 =  num2;
       let mut game1: GameClass = this.game;
       ref Bitmap local3 = ref this.OwnBitmap;
       font =  null;
@@ -151,15 +151,15 @@ namespace WindowsApplication1
       if (this.UnitList2Id > 0)
         this.RemoveSubPart(this.UnitList2Id);
       this.UnitNr = tUnitnr;
-      int num4 = -1;
+      let mut num4: i32 =  -1;
       this.UnitList2Obj = ListClass::new();
-      int num5 = -1;
-      int unitCounter1 = this.game.Data.UnitCounter;
-      for (int index1 = 0; index1 <= unitCounter1; index1 += 1)
+      let mut num5: i32 =  -1;
+      let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
+      for (let mut index1: i32 =  0; index1 <= unitCounter1; index1 += 1)
       {
         if (this.game.Data.UnitObj[index1].LibId.libSlot == this.LibNr | this.LibNr == -1)
         {
-          int index2 = index1;
+          let mut index2: i32 =  index1;
           if (this.game.Data.UnitObj[index2].PreDef > -1)
           {
             num5 += 1;
@@ -170,7 +170,7 @@ namespace WindowsApplication1
         }
       }
       ListClass unitList2Obj = this.UnitList2Obj;
-      int tlistselect2 = num4;
+      let mut tlistselect2: i32 =  num4;
       let mut game2: GameClass = this.game;
       ref Bitmap local5 = ref this.OwnBitmap;
       font =  null;
@@ -316,7 +316,7 @@ namespace WindowsApplication1
           }
           else
           {
-            int historical = this.game.Data.UnitObj[this.UnitNr].Historical;
+            let mut historical: i32 =  this.game.Data.UnitObj[this.UnitNr].Historical;
             string str2;
             if (this.game.Data.HistoricalUnitObj[historical].Type == 1)
               str2 = "(Ind)";
@@ -367,20 +367,20 @@ namespace WindowsApplication1
         if (this.game.Data.UnitObj[this.UnitNr].SFCount > -1)
         {
           this.SFListObj = ListClass::new();
-          int num = -1;
-          int sfCount = this.game.Data.UnitObj[this.UnitNr].SFCount;
-          for (int index = 0; index <= sfCount; index += 1)
+          let mut num: i32 =  -1;
+          let mut sfCount: i32 =  this.game.Data.UnitObj[this.UnitNr].SFCount;
+          for (let mut index: i32 =  0; index <= sfCount; index += 1)
           {
-            int sf = this.game.Data.UnitObj[this.UnitNr].SFList[index];
+            let mut sf: i32 =  this.game.Data.UnitObj[this.UnitNr].SFList[index];
             if (this.SFNr == sf)
               num = index;
-            int type = this.game.Data.SFObj[sf].Type;
+            let mut type: i32 =  this.game.Data.SFObj[sf].Type;
             this.SFListObj.add(type <= -1 ? "Empty SubFormation" : Conversion.Str((object) this.game.Data.SFObj[sf].Qty) + "x " + this.game.Data.SFTypeObj[type].Name, sf);
           }
           if (num == -1)
             this.SFNr = -1;
           ListClass sfListObj = this.SFListObj;
-          int tlistselect = num;
+          let mut tlistselect: i32 =  num;
           let mut game: GameClass = this.game;
           ref Bitmap local1 = ref this.OwnBitmap;
           Font font =  null;
@@ -445,7 +445,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.bmovtextid);
       if (this.SFNr <= -1)
         return;
-      int type = this.game.Data.SFObj[this.SFNr].Type;
+      let mut type: i32 =  this.game.Data.SFObj[this.SFNr].Type;
       str1: String = type <= -1 ? "Empty" : this.game.Data.SFTypeObj[type].Name;
       this.ss = "Click to select the subformationtype of this subformation";
       let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -503,15 +503,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.LibListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -530,7 +530,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.UnitListId)
             {
-              int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
@@ -564,7 +564,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.UnitList2Id)
             {
-              int num4 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num4: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num4 > -1)
               {
@@ -589,7 +589,7 @@ namespace WindowsApplication1
               }
               else
               {
-                int integer = Conversions.ToInteger(Interaction.InputBox("Give Regime Nr"));
+                let mut integer: i32 =  Conversions.ToInteger(Interaction.InputBox("Give Regime Nr"));
                 if (integer > -1 & integer <= this.game.Data.RegimeCounter)
                   this.game.Data.UnitObj[this.UnitNr].Regime = integer;
               }
@@ -609,15 +609,15 @@ namespace WindowsApplication1
               {
                 UnitClass unitClass1 = this.game.Data.UnitObj[this.UnitNr];
                 Color color = colorDialog.Color;
-                int r =  color.R;
+                let mut r: i32 =   color.R;
                 unitClass1.Red = r;
                 UnitClass unitClass2 = this.game.Data.UnitObj[this.UnitNr];
                 color = colorDialog.Color;
-                int g =  color.G;
+                let mut g: i32 =   color.G;
                 unitClass2.Green = g;
                 UnitClass unitClass3 = this.game.Data.UnitObj[this.UnitNr];
                 color = colorDialog.Color;
-                int b1 =  color.B;
+                let mut b1: i32 =   color.B;
                 unitClass3.Blue = b1;
               }
               this.MakeUnitListGUI(this.UnitNr);
@@ -635,11 +635,11 @@ namespace WindowsApplication1
                   this.game.HandyFunctionsObj.ImportPreDefUnitsOnly(filename);
                 BitmapStore.ReloadSystemGraphics(this.game.Data.SystemGfx);
                 this.game.Data.LoadGraphics((Form1) null);
-                int num5 =  Interaction.MsgBox((object) "Predef units (if any available) have been imported!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =   Interaction.MsgBox((object) "Predef units (if any available) have been imported!", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {
-                int num6 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.MakeUnitListGUI(this.UnitNr);
               windowReturnClass.SetFlag(true);
@@ -650,14 +650,14 @@ namespace WindowsApplication1
               str: String = Conversions.ToString(Conversion.Val(Interaction.InputBox("Give unit number# to copy from", "Shadow Empire : Planetary Conquest")));
               if (Operators.CompareString(str, "", false) != 0)
               {
-                int funr =  Math.Round(Conversion.Val(str));
+                let mut funr: i32 =   Math.Round(Conversion.Val(str));
                 if (funr > -1 & funr <= this.game.Data.UnitCounter)
                 {
                   this.game.HandyFunctionsObj.CopyUnit(this.UnitNr, funr, false);
                 }
                 else
                 {
-                  int num7 =  Interaction.MsgBox((object) "Unit # does not exist. Sorry.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num7: i32 =   Interaction.MsgBox((object) "Unit # does not exist. Sorry.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
               }
               this.MakeUnitListGUI(this.UnitNr);
@@ -677,7 +677,7 @@ namespace WindowsApplication1
                 if (integer > -1 & integer <= this.game.Data.RegimeCounter)
                   this.game.ProcessingObj.NewUnit(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, false, integer);
               }
-              int unitNr = this.UnitNr;
+              let mut unitNr: i32 =  this.UnitNr;
               this.UnitNr = this.game.Data.UnitCounter;
               if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1)
                 this.game.Data.UnitObj[this.UnitNr].Regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
@@ -686,8 +686,8 @@ namespace WindowsApplication1
               this.game.HandyFunctionsObj.CopyUnit(this.UnitNr, unitNr);
               this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.UnitObj[this.UnitNr].X, this.game.Data.UnitObj[this.UnitNr].Y].Regime,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.UnitNr].X, this.game.Data.UnitObj[this.UnitNr].Y, 0, false, muststartonairfield: false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true);
               SimpleList simpleList = SimpleList::new();
-              int unitCounter = this.game.Data.UnitCounter;
-              for (int tid = 0; tid <= unitCounter; tid += 1)
+              let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+              for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
               {
                 if (this.game.Data.UnitObj[tid].X > -1 && this.game.Data.UnitObj[tid].Regime == this.game.Data.UnitObj[this.UnitNr].Regime && this.game.Data.UnitObj[tid].IsHQ & tid != this.UnitNr && this.game.EditObj.TempValue[this.game.Data.UnitObj[tid].Map].Value[this.game.Data.UnitObj[tid].X, this.game.Data.UnitObj[tid].Y] < 9999)
                   simpleList.Add(tid, this.game.EditObj.TempValue[this.game.Data.UnitObj[tid].Map].Value[this.game.Data.UnitObj[tid].X, this.game.Data.UnitObj[tid].Y]);
@@ -695,7 +695,7 @@ namespace WindowsApplication1
               if (simpleList.Counter > -1)
               {
                 simpleList.Sort();
-                int num8 = simpleList.Id[0];
+                let mut num8: i32 =  simpleList.Id[0];
                 if (num8 > -1)
                   this.game.Data.UnitObj[this.UnitNr].HQ = num8;
               }
@@ -710,8 +710,8 @@ namespace WindowsApplication1
               this.game.Data.UnitObj[this.UnitNr].Name = str;
               if (this.game.Data.UnitObj[this.UnitNr].Historical > -1 && Interaction.MsgBox((object) "Set all of same historical unit to same name?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
-                int unitCounter = this.game.Data.UnitCounter;
-                for (int index2 = 0; index2 <= unitCounter; index2 += 1)
+                let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
                 {
                   if (this.game.Data.UnitObj[index2].Historical == this.game.Data.UnitObj[this.UnitNr].Historical)
                     this.game.Data.UnitObj[index2].Name = str;
@@ -726,14 +726,14 @@ namespace WindowsApplication1
               bool flag = false;
               if (Interaction.MsgBox((object) "Also delete predef units?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 flag = true;
-              int num9 =  Interaction.MsgBox((object) "Ok hold on!! this can take some while", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num9: i32 =   Interaction.MsgBox((object) "Ok hold on!! this can take some while", Title: ((object) "Shadow Empire : Planetary Conquest"));
               this.game.FormRef.Cursor = Cursors.WaitCursor;
-              for (int unitCounter = this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
+              for (let mut unitCounter: i32 =  this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
               {
                 if (this.game.Data.UnitObj[unitCounter].PreDef == -1 | flag)
                 {
                   data: DataClass = this.game.Data;
-                  int nr = unitCounter;
+                  let mut nr: i32 =  unitCounter;
                   let mut gameClass: GameClass = (GameClass) null;
                   ref let mut local: GameClass = ref gameClass;
                   data.RemoveUnit(nr, ref local);
@@ -741,21 +741,21 @@ namespace WindowsApplication1
               }
               this.UnitNr = -1;
               this.game.FormRef.Cursor = Cursors.Default;
-              int num10 =  Interaction.MsgBox((object) "Done!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num10: i32 =   Interaction.MsgBox((object) "Done!", Title: ((object) "Shadow Empire : Planetary Conquest"));
               this.MakeUnitListGUI(this.UnitNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
             if (num1 == this.BSupplyId)
             {
-              int num11 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new supply pts ammount, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num11: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new supply pts ammount, please.", "Shadow Empire : Planetary Conquest")));
               if (num11 > -1)
               {
                 this.game.Data.UnitObj[this.UnitNr].Supply = num11;
               }
               else
               {
-                int num12 =  Interaction.MsgBox((object) "Must be positive number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num12: i32 =   Interaction.MsgBox((object) "Must be positive number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.MakeUnitListGUI(this.UnitNr);
               windowReturnClass.SetFlag(true);
@@ -771,13 +771,13 @@ namespace WindowsApplication1
             {
               if (this.game.Data.UnitObj[this.UnitNr].PassengerCounter > -1)
               {
-                int num13 =  Interaction.MsgBox((object) "No can do. Unit has passengers. remove them first.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num13: i32 =   Interaction.MsgBox((object) "No can do. Unit has passengers. remove them first.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               this.game.EditObj.UnitSelected = -1;
               if (this.game.Data.UnitObj[this.UnitNr].SFCount > -1)
               {
-                for (int sfCount = this.game.Data.UnitObj[this.UnitNr].SFCount; sfCount >= 0; sfCount += -1)
+                for (let mut sfCount: i32 =  this.game.Data.UnitObj[this.UnitNr].SFCount; sfCount >= 0; sfCount += -1)
                   this.game.Data.RemoveSF(this.game.Data.UnitObj[this.UnitNr].SFList[sfCount]);
               }
               this.game.EditObj.UnitSelected = -1;
@@ -790,7 +790,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.SFListId)
             {
-              int num14 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num14: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num14 > -1)
               {
@@ -830,7 +830,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.SFTypeListId)
             {
-              int num15 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num15: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num15 > -1)
               {
@@ -842,10 +842,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.BQtyID)
             {
-              int num16 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Qty for this Subformation:", "Shadow Empire : Planetary Conquest")));
+              let mut num16: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Qty for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num16 < 1 | num16 > 9999)
               {
-                int num17 =  Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 9999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num17: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 9999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -857,10 +857,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.BRdnId)
             {
-              int num18 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Rdn for this Subformation:", "Shadow Empire : Planetary Conquest")));
+              let mut num18: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Rdn for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num18 < 10 | num18 > 100)
               {
-                int num19 =  Interaction.MsgBox((object) "Cancelled. You should have entered a value between 10 and 100.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num19: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 10 and 100.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -872,10 +872,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.BXpId)
             {
-              int num20 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Xp for this Subformation:", "Shadow Empire : Planetary Conquest")));
+              let mut num20: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Xp for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num20 < 0 | num20 > 300)
               {
-                int num21 =  Interaction.MsgBox((object) "Cancelled. You should have entered a value between 10 and 300.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num21: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 10 and 300.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -887,10 +887,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.BMorId)
             {
-              int num22 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Morale for this Subformation:", "Shadow Empire : Planetary Conquest")));
+              let mut num22: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Morale for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num22 < 1 | num22 > 100)
               {
-                int num23 =  Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 100.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num23: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 100.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -902,10 +902,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.a9id)
             {
-              int num24 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Regime #", "Shadow Empire : Planetary Conquest")));
+              let mut num24: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Regime #", "Shadow Empire : Planetary Conquest")));
               if (num24 < -1 | num24 > this.game.Data.RegimeCounter)
               {
-                int num25 =  Interaction.MsgBox((object) "Cancelled. Not a valid regime.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num25: i32 =   Interaction.MsgBox((object) "Cancelled. Not a valid regime.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -917,10 +917,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.BEntrId)
             {
-              int num26 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Entrench for this Subformation:", "Shadow Empire : Planetary Conquest")));
+              let mut num26: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Entrench for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num26 < 0 | num26 > 999)
               {
-                int num27 =  Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num27: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {

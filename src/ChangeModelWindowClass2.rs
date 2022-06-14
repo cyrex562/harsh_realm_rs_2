@@ -56,7 +56,7 @@ namespace WindowsApplication1
      bool[] creatable;
      string[] errors;
 
-    pub ChangeModelWindowClass2(ref GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub ChangeModelWindowClass2(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, tGame.ScreenWidth, 222, BackSprite: tGame.MARCBOTBAR)
     {
       this.Ucnt = new int[1];
@@ -126,11 +126,11 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.OptionsList2Id);
         this.OptionsList2Id = 0;
       }
-      int num1 =  Math.Round((double) (this.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
       this.NewBackGroundAndClearAll(this.w, this.h, this.game.MARCBOTBAR);
       this.ClearMouse();
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      int orderUnit = this.game.EditObj.OrderUnit;
+      let mut orderUnit: i32 =  this.game.EditObj.OrderUnit;
       string tstring;
       int Number1;
       int hisnr;
@@ -148,9 +148,9 @@ namespace WindowsApplication1
       else
       {
         str: String = "Current Model is " + this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[orderUnit].Historical].ModelMaster].Name;
-        int unitCounter = this.game.Data.UnitCounter;
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
         int Number2;
-        for (int index = 0; index <= unitCounter; index += 1)
+        for (let mut index: i32 =  0; index <= unitCounter; index += 1)
         {
           if (this.game.Data.UnitObj[index].PreDef == -1 && this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[orderUnit].Historical)
             Number2 += 1;
@@ -160,10 +160,10 @@ namespace WindowsApplication1
       }
       DrawMod.DrawTextColouredMarc(ref objgraphics, tstring, this.game.MarcFont4, num1 + 15, 10, Color.White);
       this.OptionsListObj = ListClass::new();
-      int num2 = -1;
-      int tlistselect1 = -1;
-      int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
-      for (int index = 0; index <= historicalUnitCounter; index += 1)
+      let mut num2: i32 =  -1;
+      let mut tlistselect1: i32 =  -1;
+      let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
+      for (let mut index: i32 =  0; index <= historicalUnitCounter; index += 1)
       {
         if (this.game.Data.HistoricalUnitObj[index].Model & !this.game.Data.HistoricalUnitObj[index].Fixed & this.game.Data.HistoricalUnitObj[index].TempRegime == this.game.Data.Turn && hisnr > -1 && this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(hisnr) <= this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(index) && this.game.Data.HistoricalUnitObj[index].Type < 5 && !(this.game.Data.HistoricalUnitObj[index].Type < 5 & this.game.Data.UnitObj[orderUnit].IsHQ) && this.game.Data.HistoricalUnitObj[index].MaxPresent != 0 && this.game.Data.HistoricalUnitObj[index].People == this.game.Data.HistoricalUnitObj[hisnr].People && hisnr != index)
         {
@@ -181,10 +181,10 @@ namespace WindowsApplication1
       else
       {
         ListClass optionsListObj = this.OptionsListObj;
-        int tlistselect2 = tlistselect1;
+        let mut tlistselect2: i32 =  tlistselect1;
         let mut game: GameClass = this.game;
         ref Bitmap local1 = ref this.OwnBitmap;
-        int bbx = num1 + 10;
+        let mut bbx: i32 =  num1 + 10;
         Font font =  null;
         ref Font local2 = ref font;
         let mut tsubpart: SubPartClass =  new ListSubPartClass(optionsListObj, 7, 500, tlistselect2, game, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: (ref local1), bbx: bbx, bby: 50, tMarcStyle: true, overruleFont: (ref local2));
@@ -226,45 +226,45 @@ namespace WindowsApplication1
       this.modelcount = new int[this.game.Data.HistoricalUnitCounter + 1];
       this.creatable = new bool[this.game.Data.HistoricalUnitCounter + 1];
       this.errors = new string[this.game.Data.HistoricalUnitCounter + 1];
-      int unitCounter = this.game.Data.UnitCounter;
-      for (int index1 = 0; index1 <= unitCounter; index1 += 1)
+      let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+      for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
       {
         if (this.game.Data.UnitObj[index1].Historical > -1 & this.game.Data.UnitObj[index1].PreDef == -1 & this.game.Data.UnitObj[index1].Regime == this.game.Data.Turn)
         {
           int[] ucnt = this.Ucnt;
           int[] numArray1 = ucnt;
-          int historical1 = this.game.Data.UnitObj[index1].Historical;
-          int index2 = historical1;
-          int num1 = ucnt[historical1] + 1;
+          let mut historical1: i32 =  this.game.Data.UnitObj[index1].Historical;
+          let mut index2: i32 =  historical1;
+          let mut num1: i32 =  ucnt[historical1] + 1;
           numArray1[index2] = num1;
           if (this.game.Data.UnitObj[index1].HistoricalSubPart > -1)
           {
             int[,] subCnt = this.SubCnt;
             int[,] numArray2 = subCnt;
-            int historical2 = this.game.Data.UnitObj[index1].Historical;
-            int index3 = historical2;
-            int historicalSubPart = this.game.Data.UnitObj[index1].HistoricalSubPart;
-            int index4 = historicalSubPart;
-            int num2 = subCnt[historical2, historicalSubPart] + 1;
+            let mut historical2: i32 =  this.game.Data.UnitObj[index1].Historical;
+            let mut index3: i32 =  historical2;
+            let mut historicalSubPart: i32 =  this.game.Data.UnitObj[index1].HistoricalSubPart;
+            let mut index4: i32 =  historicalSubPart;
+            let mut num2: i32 =  subCnt[historical2, historicalSubPart] + 1;
             numArray2[index3, index4] = num2;
           }
         }
       }
-      int historicalUnitCounter1 = this.game.Data.HistoricalUnitCounter;
-      for (int index5 = 0; index5 <= historicalUnitCounter1; index5 += 1)
+      let mut historicalUnitCounter1: i32 =  this.game.Data.HistoricalUnitCounter;
+      for (let mut index5: i32 =  0; index5 <= historicalUnitCounter1; index5 += 1)
       {
         if (this.game.Data.HistoricalUnitObj[index5].ModelMaster > -1 && this.Ucnt[index5] > 0)
         {
           int[] modelcount = this.modelcount;
           int[] numArray = modelcount;
-          int modelMaster = this.game.Data.HistoricalUnitObj[index5].ModelMaster;
-          int index6 = modelMaster;
-          int num = modelcount[modelMaster] + 1;
+          let mut modelMaster: i32 =  this.game.Data.HistoricalUnitObj[index5].ModelMaster;
+          let mut index6: i32 =  modelMaster;
+          let mut num: i32 =  modelcount[modelMaster] + 1;
           numArray[index6] = num;
         }
       }
-      int historicalUnitCounter2 = this.game.Data.HistoricalUnitCounter;
-      for (int index = 0; index <= historicalUnitCounter2; index += 1)
+      let mut historicalUnitCounter2: i32 =  this.game.Data.HistoricalUnitCounter;
+      for (let mut index: i32 =  0; index <= historicalUnitCounter2; index += 1)
       {
         this.errors[index] = "";
         if (this.game.Data.HistoricalUnitObj[index].Model)
@@ -278,28 +278,28 @@ namespace WindowsApplication1
             this.creatable[index] = true;
         }
       }
-      int historicalUnitCounter3 = this.game.Data.HistoricalUnitCounter;
-      for (int index7 = 0; index7 <= historicalUnitCounter3; index7 += 1)
+      let mut historicalUnitCounter3: i32 =  this.game.Data.HistoricalUnitCounter;
+      for (let mut index7: i32 =  0; index7 <= historicalUnitCounter3; index7 += 1)
       {
-        int index8 = 0;
+        let mut index8: i32 =  0;
         do
         {
           if (this.game.Data.HistoricalUnitObj[index7].SubParts[index8] > -1)
           {
             int[] modCnt = this.ModCnt;
             int[] numArray = modCnt;
-            int index9 = index7;
-            int index10 = index9;
-            int num = modCnt[index9] + 1;
+            let mut index9: i32 =  index7;
+            let mut index10: i32 =  index9;
+            let mut num: i32 =  modCnt[index9] + 1;
             numArray[index10] = num;
           }
           int[,] modSubCnt = this.ModSubCnt;
           int[,] numArray3 = modSubCnt;
-          int index11 = index7;
-          int index12 = index11;
-          int index13 = index8;
-          int index14 = index13;
-          int num3 = modSubCnt[index11, index13] + 1;
+          let mut index11: i32 =  index7;
+          let mut index12: i32 =  index11;
+          let mut index13: i32 =  index8;
+          let mut index14: i32 =  index13;
+          let mut num3: i32 =  modSubCnt[index11, index13] + 1;
           numArray3[index12, index14] = num3;
           index8 += 1;
         }
@@ -312,15 +312,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.OptionsListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -361,8 +361,8 @@ namespace WindowsApplication1
             }
             if (num1 == this.B5Id)
             {
-              int unitCounter = this.game.Data.UnitCounter;
-              for (int index2 = 0; index2 <= unitCounter; index2 += 1)
+              let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+              for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
               {
                 if (this.game.Data.UnitObj[index2].Historical == this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical & index2 != this.game.EditObj.OrderUnit)
                   this.game.Data.UnitObj[index2].Historical = -1;

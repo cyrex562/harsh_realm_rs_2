@@ -299,9 +299,9 @@ namespace WindowsApplication1
         }
         if (nr > -1 & index2 > -1)
         {
-           Graphics local1 =  toG;
+           let mut local1: &Graphics = &toG;
           Bitmap bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local2 =  bitmap;
+           let mut local2: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local1,  local2, 188, 13);
           str5: String = self.game.Data.SFObj[index2].MoveType <= -1 ? self.game.Data.TempString[self.game.Data.SFTypeObj[self.game.Data.SFObj[index2].Type].MoveType] : self.game.Data.TempString[self.game.Data.SFObj[index2].MoveType];
           if (Strings.Len(str5) > 7)
@@ -311,9 +311,9 @@ namespace WindowsApplication1
         }
         else if (nr > -1)
         {
-           Graphics local3 =  toG;
+           let mut local3: &Graphics = &toG;
           Bitmap bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local3,  local4, 188, 13);
           if (Strings.Len(str4) > 7)
             str4 = Strings.Left(str4, 7);
@@ -559,9 +559,9 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
-       Graphics local1 =  graphics;
+       let mut local1: &Graphics = &graphics;
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
       return self.OwnBitmap;
     }

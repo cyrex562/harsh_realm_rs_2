@@ -198,7 +198,7 @@ namespace WindowsApplication1
       this.variText = new int[12];
       this.vare = new int[12];
       this.SheetName = new string[2];
-      this.SheetRect = new Rectangle[2];
+      this.SheetRect = Rectangle::new[2];
       this.TabSheetNr = -1;
       this.DetailNr = -1;
       this.detailnr2 = -1;
@@ -472,7 +472,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.rrid);
       if (this.rrtextid > 0)
         this.RemoveSubPart(this.rrtextid);
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.vari[index] > 0)
@@ -495,7 +495,7 @@ namespace WindowsApplication1
       this.OptionsListObj.add("SmallGfx", 7);
       this.OptionsListObj.add("Reinforcement Types", 8);
       ListClass optionsListObj = this.OptionsListObj;
-      int tabSheetNr = this.TabSheetNr;
+      let mut tabSheetNr: i32 =  this.TabSheetNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -732,7 +732,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.rrtextid);
       if (this.ChangeId > 0)
         this.RemoveSubPart(this.ChangeId);
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.vari[index] > 0)
@@ -866,11 +866,11 @@ namespace WindowsApplication1
         this.game.Data.StringCounter = 1500;
         this.game.Data.TempString = (string[]) Utils.CopyArray((Array) this.game.Data.TempString, (Array) new string[this.game.Data.StringCounter + 1]);
       }
-      int num1 = this.game.Data.StringCounter - 1;
-      for (int index = 0; index <= num1; index += 1)
+      let mut num1: i32 =  this.game.Data.StringCounter - 1;
+      for (let mut index: i32 =  0; index <= num1; index += 1)
       {
         str: String = "";
-        int num2 = 0;
+        let mut num2: i32 =  0;
         if (index >= 0 & index <= 99)
         {
           str = "MoveGroup";
@@ -1072,7 +1072,7 @@ namespace WindowsApplication1
       if (this.DetailNr > this.game.Data.StringCounter)
         this.DetailNr = -1;
       ListClass stringListObj = this.StringListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1102,7 +1102,7 @@ namespace WindowsApplication1
      void maketabsheetnr1()
     {
       this.StringListObj = ListClass::new();
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.StringListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.GameSlotName[index] + " = " + Conversion.Str((object) this.game.Data.GameSlot[index]), index);
@@ -1112,7 +1112,7 @@ namespace WindowsApplication1
       if (this.DetailNr > this.game.Data.StringCounter)
         this.DetailNr = -1;
       ListClass stringListObj = this.StringListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1151,7 +1151,7 @@ namespace WindowsApplication1
      void maketabsheetnr2()
     {
       this.StringListObj = ListClass::new();
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.StringListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.RegimeSlotName[index], index);
@@ -1161,7 +1161,7 @@ namespace WindowsApplication1
       if (this.DetailNr > this.game.Data.StringCounter)
         this.DetailNr = -1;
       ListClass stringListObj = this.StringListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1200,9 +1200,9 @@ namespace WindowsApplication1
      void maketabsheetnr3()
     {
       this.StringList2Obj = ListClass::new();
-      int num1 = -1;
-      int num2 = -1;
-      int tdata = 1;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  -1;
+      let mut tdata: i32 =  1;
       do
       {
         num1 += 1;
@@ -1261,7 +1261,7 @@ namespace WindowsApplication1
       if (this.detailnr2 > 35)
         this.detailnr2 = -1;
       ListClass stringList2Obj = this.StringList2Obj;
-      int tlistselect1 = num2;
+      let mut tlistselect1: i32 =  num2;
       let mut game1: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1269,10 +1269,10 @@ namespace WindowsApplication1
       let mut tsubpart1: SubPartClass =  new ListSubPartClass(stringList2Obj, 18, 250, tlistselect1, game1, tHeader: "Rulevar Groups", tbackbitmap: ( local1), bbx: 10, bby: 300, overruleFont: ( local2));
       this.StringList2Id = this.AddSubPart( tsubpart1, 10, 300, 250, 336, 0);
       this.StringListObj = ListClass::new();
-      int num3 = -1;
-      int num4 = -1;
-      int ruleCounter = this.game.Data.RuleCounter;
-      for (int index = 0; index <= ruleCounter; index += 1)
+      let mut num3: i32 =  -1;
+      let mut num4: i32 =  -1;
+      let mut ruleCounter: i32 =  this.game.Data.RuleCounter;
+      for (let mut index: i32 =  0; index <= ruleCounter; index += 1)
       {
         if ((this.game.Data.RuleGroup[index] == this.detailnr2 | this.game.Data.RuleGroup2[index] == this.detailnr2) & this.game.Data.RuleString[index].Length > 1)
         {
@@ -1285,8 +1285,8 @@ namespace WindowsApplication1
       if (this.DetailNr > this.game.Data.RuleCounter)
         this.DetailNr = -1;
       ListClass stringListObj = this.StringListObj;
-      int twidth = 700 + (this.game.ScreenWidth - 1024);
-      int tlistselect2 = num4;
+      let mut twidth: i32 =  700 + (this.game.ScreenWidth - 1024);
+      let mut tlistselect2: i32 =  num4;
       let mut game2: GameClass = this.game;
        Bitmap local3 =  this.OwnBitmap;
       font =  null;
@@ -1316,26 +1316,26 @@ namespace WindowsApplication1
       if (this.game.Data.LibraryCounter > -1)
       {
         num1 = -1;
-        int num2 = 0;
+        let mut num2: i32 =  0;
         this.libListObj.add("All", -2);
         if (this.libNr == -1)
           num1 = 0;
-        int libraryCounter = this.game.Data.LibraryCounter;
-        for (int index = 0; index <= libraryCounter; index += 1)
+        let mut libraryCounter: i32 =  this.game.Data.LibraryCounter;
+        for (let mut index: i32 =  0; index <= libraryCounter; index += 1)
         {
           num2 += 1;
           this.libListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index);
           if (this.libNr == index)
             num1 = num2;
         }
-        int num3 = 0;
+        let mut num3: i32 =  0;
         if (this.game.ScreenHeight > 800)
           num3 =  Math.Round((double) (this.game.ScreenHeight - 800) / 16.0);
         if (this.libNr > this.game.Data.LibraryCounter)
           this.libNr = -1;
         ListClass libListObj = this.libListObj;
-        int tlistsize = 12 + num3;
-        int tlistselect = num1;
+        let mut tlistsize: i32 =  12 + num3;
+        let mut tlistselect: i32 =  num1;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         font =  null;
@@ -1349,11 +1349,11 @@ namespace WindowsApplication1
       if (this.game.Data.EventPicCounter > -1)
       {
         num1 = -1;
-        int num4 = -1;
-        int eventPicCounter = this.game.Data.EventPicCounter;
-        for (int index = 0; index <= eventPicCounter; index += 1)
+        let mut num4: i32 =  -1;
+        let mut eventPicCounter: i32 =  this.game.Data.EventPicCounter;
+        for (let mut index: i32 =  0; index <= eventPicCounter; index += 1)
         {
-          int num5 = 0;
+          let mut num5: i32 =  0;
           if (this.libNr == -1)
             num5 = 1;
           else if (this.game.Data.eventPicLibId[index].libSlot == this.libNr)
@@ -1367,14 +1367,14 @@ namespace WindowsApplication1
           }
         }
       }
-      int num6 = 0;
+      let mut num6: i32 =  0;
       if (this.game.ScreenHeight > 800)
         num6 =  Math.Round((double) (this.game.ScreenHeight - 800) / 16.0);
       if (this.DetailNr > this.game.Data.EventPicCounter)
         this.DetailNr = -1;
       ListClass stringListObj = this.StringListObj;
-      int tlistsize1 = 12 + num6;
-      int tlistselect1 = num1;
+      let mut tlistsize1: i32 =  12 + num6;
+      let mut tlistselect1: i32 =  num1;
       let mut game1: GameClass = this.game;
        Bitmap local3 =  this.OwnBitmap;
       font =  null;
@@ -1410,9 +1410,9 @@ namespace WindowsApplication1
       this.ss = "Click to change the event graphic.";
       let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
       this.LoadId = this.AddSubPart( tsubpart2, 350, 400, 32, 16, 1);
-      int num = this.game.Data.EventPicNr[this.DetailNr];
-      int w = BitmapStore.GetWidth(num);
-      int h = BitmapStore.Getheight(num);
+      let mut num: i32 =  this.game.Data.EventPicNr[this.DetailNr];
+      let mut w: i32 =  BitmapStore.GetWidth(num);
+      let mut h: i32 =  BitmapStore.Getheight(num);
       if (w > 500 & this.game.Data.LibraryCounter > -1)
       {
         h =  Math.Round((double) (h * 500) / (double) w);
@@ -1435,14 +1435,14 @@ namespace WindowsApplication1
       this.StringListObj = ListClass::new();
       if (this.game.Data.SmallPicCounter > -1)
       {
-        int smallPicCounter = this.game.Data.SmallPicCounter;
-        for (int index = 0; index <= smallPicCounter; index += 1)
+        let mut smallPicCounter: i32 =  this.game.Data.SmallPicCounter;
+        for (let mut index: i32 =  0; index <= smallPicCounter; index += 1)
           this.StringListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.SmallPicName[index], index);
       }
       if (this.DetailNr > this.game.Data.SmallPicCounter)
         this.DetailNr = -1;
       ListClass stringListObj = this.StringListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1478,7 +1478,7 @@ namespace WindowsApplication1
       this.ss = "Click to change the small gfx.";
       let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLUE, tDescript: this.ss);
       this.LoadId = this.AddSubPart( tsubpart2, 350, 400, 32, 16, 1);
-      int num = this.game.Data.SmallPicNr[this.DetailNr];
+      let mut num: i32 =  this.game.Data.SmallPicNr[this.DetailNr];
       let mut tsubpart3: SubPartClass =  ButtonPartClass::new(num);
       this.PicId = this.AddSubPart( tsubpart3, 350, 430, BitmapStore.GetWidth(num), BitmapStore.Getheight(num), 1);
       str: String = "None";
@@ -1496,14 +1496,14 @@ namespace WindowsApplication1
       this.StringListObj = ListClass::new();
       if (this.game.Data.ReinfCounter > -1)
       {
-        int reinfCounter = this.game.Data.ReinfCounter;
-        for (int index = 0; index <= reinfCounter; index += 1)
+        let mut reinfCounter: i32 =  this.game.Data.ReinfCounter;
+        for (let mut index: i32 =  0; index <= reinfCounter; index += 1)
           this.StringListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.ReinfName[index] + "(ratio= " + this.game.Data.ReinfRatio[index].ToString() + " , id= " + this.game.Data.ReinfId[index].ToString() + ", libSlot= " + this.game.Data.ReinfLibId[index].libSlot.ToString() + ", libSlotid=" + this.game.Data.ReinfLibId[index].id.ToString() + ")", index);
       }
       if (this.DetailNr > this.game.Data.ReinfCounter)
         this.DetailNr = -1;
       ListClass stringListObj = this.StringListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1559,19 +1559,19 @@ namespace WindowsApplication1
 
      void maketabsheetnr5()
     {
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         tDescript: String = "Click to set which game variable can be changed as a variant of scenario in setup (-1=n/a)";
         int[] vari = this.vari;
-        int index2 = index1;
+        let mut index2: i32 =  index1;
         let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: tDescript);
-        int num1 = this.AddSubPart( tsubpart1, 20, 330 + index1 * 20, 32, 16, 1);
+        let mut num1: i32 =  this.AddSubPart( tsubpart1, 20, 330 + index1 * 20, 32, 16, 1);
         vari[index2] = num1;
         int[] vare = this.vare;
-        int index3 = index1;
+        let mut index3: i32 =  index1;
         let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: "Click to change the event coupled to this variant");
-        int num2 = this.AddSubPart( tsubpart2, 500, 330 + index1 * 20, 32, 16, 1);
+        let mut num2: i32 =  this.AddSubPart( tsubpart2, 500, 330 + index1 * 20, 32, 16, 1);
         vare[index3] = num2;
         string txt;
         if (this.game.Data.Variants[index1] == -1)
@@ -1579,9 +1579,9 @@ namespace WindowsApplication1
         else
           txt = "Option (slot=" + Strings.Trim(Conversion.Str((object) this.game.Data.Variants[index1])) + ", ev=" + Conversion.Str((object) this.game.Data.VariantEvent[index1]) + ") slotname= " + this.game.Data.GameSlotName[this.game.Data.Variants[index1]];
         int[] variText = this.variText;
-        int index4 = index1;
+        let mut index4: i32 =  index1;
         let mut tsubpart3: SubPartClass =  TextPartClass::new(txt, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: tDescript);
-        int num3 = this.AddSubPart( tsubpart3, 60, 330 + index1 * 20, 400, 20, 0);
+        let mut num3: i32 =  this.AddSubPart( tsubpart3, 60, 330 + index1 * 20, 400, 20, 0);
         variText[index4] = num3;
         index1 += 1;
       }
@@ -1594,16 +1594,16 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
 label_645:
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.OptionsListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -1637,7 +1637,7 @@ label_645:
             }
             if (num1 == this.StringListId)
             {
-              int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
@@ -1649,7 +1649,7 @@ label_645:
             }
             if (num1 == this.libListId)
             {
-              int num4 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num4: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num4 > -1 | num4 == -2)
               {
@@ -1663,7 +1663,7 @@ label_645:
             }
             if (num1 == this.StringList2Id)
             {
-              int num5 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num5: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num5 > -1)
               {
@@ -1695,7 +1695,7 @@ label_645:
               }
               else
               {
-                int num7 =  Interaction.MsgBox((object) "Value out of bounds -1 to 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num7: i32 =   Interaction.MsgBox((object) "Value out of bounds -1 to 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1744,7 +1744,7 @@ label_645:
               this.game.FormRef.Cursor = Cursors.WaitCursor;
               this.PdfUnitModels();
               this.game.FormRef.Cursor = Cursors.Default;
-              int num8 =  Interaction.MsgBox((object) "Done!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num8: i32 =   Interaction.MsgBox((object) "Done!", Title: ((object) "Shadow Empire : Planetary Conquest"));
               this.MakeFirst();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -1754,7 +1754,7 @@ label_645:
               this.game.FormRef.Cursor = Cursors.WaitCursor;
               this.PdfReinforcements();
               this.game.FormRef.Cursor = Cursors.Default;
-              int num9 =  Interaction.MsgBox((object) "Done!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num9: i32 =   Interaction.MsgBox((object) "Done!", Title: ((object) "Shadow Empire : Planetary Conquest"));
               this.MakeFirst();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -1818,7 +1818,7 @@ label_645:
               }
               else
               {
-                int num10 =  Interaction.MsgBox((object) "Could not find graphic. Make sure its located inside the ''graphics'' directory", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num10: i32 =   Interaction.MsgBox((object) "Could not find graphic. Make sure its located inside the ''graphics'' directory", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 this.game.Data.PermanentOverlayUse = false;
                 this.game.Data.PermanentOverlayName = "systemgraphics/trans.bmp";
                 this.game.Data.LoadSprites();
@@ -1856,10 +1856,10 @@ label_645:
               }
               if (num1 == this.a38id)
               {
-                int num11 =  Math.Round(Conversion.Val(Interaction.InputBox("NATO number, 0=cancel", "Shadow Empire : Planetary Conquest")));
+                let mut num11: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("NATO number, 0=cancel", "Shadow Empire : Planetary Conquest")));
                 if (num11 > -1 & num11 <= this.game.NATO.GetUpperBound(0))
                   this.game.Data.RegimeSlotNato[this.DetailNr] = num11;
-                int num12 =  Math.Round(Conversion.Val(Interaction.InputBox("SmallGfx number, -1=cancel (is smallgfx>-1 it will overrule any NATO setting)", "Shadow Empire : Planetary Conquest")));
+                let mut num12: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("SmallGfx number, -1=cancel (is smallgfx>-1 it will overrule any NATO setting)", "Shadow Empire : Planetary Conquest")));
                 if (num12 >= -1 & num12 <= this.game.Data.SmallPicCounter)
                   this.game.Data.RegimeSlotSmallGfx[this.DetailNr] = num12;
                 this.maketabsheet();
@@ -1868,10 +1868,10 @@ label_645:
               }
               if (num1 == this.a38bid)
               {
-                int num13 =  Math.Round(Conversion.Val(Interaction.InputBox("NATO number, 0=cancel", "Shadow Empire : Planetary Conquest")));
+                let mut num13: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("NATO number, 0=cancel", "Shadow Empire : Planetary Conquest")));
                 if (num13 > -1 & num13 <= this.game.NATO.GetUpperBound(0))
                   this.game.Data.GameSlotNato[this.DetailNr] = num13;
-                int num14 =  Math.Round(Conversion.Val(Interaction.InputBox("SmallGfx number, -1=cancel (is smallgfx>-1 it will overrule any NATO setting)", "Shadow Empire : Planetary Conquest")));
+                let mut num14: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("SmallGfx number, -1=cancel (is smallgfx>-1 it will overrule any NATO setting)", "Shadow Empire : Planetary Conquest")));
                 if (num14 >= -1 & num14 <= this.game.Data.SmallPicCounter)
                   this.game.Data.GameSlotSmallGfx[this.DetailNr] = num14;
                 this.maketabsheet();
@@ -1934,12 +1934,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadHistoricalUnits(filename);
-                  int num15 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num15: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num16 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num16: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -1951,12 +1951,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadSFTypes(filename);
-                  int num17 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num17: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num18 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num18: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -1968,12 +1968,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadItemTypes(filename);
-                  int num19 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num19: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num20 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num20: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -1985,12 +1985,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadResearch(filename);
-                  int num21 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num21: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num22 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num22: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -2002,12 +2002,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadLocTypes(filename);
-                  int num23 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num23: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num24 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num24: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -2019,12 +2019,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadLandscapeTypes(filename);
-                  int num25 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num25: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num26 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num26: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -2036,12 +2036,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadUnitsByFullOverwrite(filename);
-                  int num27 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num27: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num28 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num28: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -2053,12 +2053,12 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadGameVars(filename);
-                  int num29 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num29: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.LoadGraphics((Form1) null);
                 }
                 else
                 {
-                  int num30 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num30: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -2070,11 +2070,11 @@ label_645:
                 if (File.Exists(this.game.AppPath + filename))
                 {
                   this.game.HandyFunctionsObj.LoadMap(filename);
-                  int num31 =  Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num31: i32 =   Interaction.MsgBox((object) "Succesfull", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
-                  int num32 =  Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num32: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeFirst();
                 windowReturnClass.SetFlag(true);
@@ -2093,22 +2093,22 @@ label_645:
                   this.game.HandyFunctionsObj.LoadMasterFile(str, alsohistorical: alsohistorical, LoadGameVars: LoadGameVars, LoadVariants: LoadVariants);
                   BitmapStore.ReloadSystemGraphics(this.game.Data.SystemGfx);
                   this.game.Data.LoadGraphics((Form1) null);
-                  int num33 =  Interaction.MsgBox((object) "Scenario has gotten all input from it's masterfile", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num33: i32 =   Interaction.MsgBox((object) "Scenario has gotten all input from it's masterfile", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.MasterFile = this.game.HandyFunctionsObj.ReturnShortMaster(str);
                   this.game.FormRef.Cursor = Cursors.Default;
                   if (Interaction.MsgBox((object) "Do you want to keep this file as a masterfile attached to your scenario? (or was it just for import data)", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                   {
-                    int num34 =  Interaction.MsgBox((object) "Masterfile stays attached", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num34: i32 =   Interaction.MsgBox((object) "Masterfile stays attached", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
-                    int num35 =  Interaction.MsgBox((object) "Masterfile is not attached (we just imported data)", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num35: i32 =   Interaction.MsgBox((object) "Masterfile is not attached (we just imported data)", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     this.game.Data.MasterFile = "";
                   }
                 }
                 else
                 {
-                  int num36 =  Interaction.MsgBox((object) "Masterfile has been removed", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num36: i32 =   Interaction.MsgBox((object) "Masterfile has been removed", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.MasterFile = "";
                 }
                 this.MakeFirst();
@@ -2134,7 +2134,7 @@ label_645:
                   this.game.HandyFunctionsObj.ZipFile(str);
                   if (!this.game.Data.Loadable & !this.game.SuperAdminRights)
                   {
-                    int num37 =  Interaction.MsgBox((object) "Sorry. This saved game is not loadable. we'll quit the editor now.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num37: i32 =   Interaction.MsgBox((object) "Sorry. This saved game is not loadable. we'll quit the editor now.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     this.game.EditObj.ShowInitialMenu = true;
                     this.game.FormRef.Cursor = Cursors.Default;
                     windowReturnClass.AddCommand(3, 1);
@@ -2147,8 +2147,8 @@ label_645:
                     this.game.EditObj.HideUnit = 2;
                   this.game.EditObj.TempValue = new MapMatrix2[this.game.Data.MapCounter + 1];
                   this.game.EditObj.TempValue2 = new MapMatrix2[this.game.Data.MapCounter + 1];
-                  int mapCounter = this.game.Data.MapCounter;
-                  for (int index2 = 0; index2 <= mapCounter; index2 += 1)
+                  let mut mapCounter: i32 =  this.game.Data.MapCounter;
+                  for (let mut index2: i32 =  0; index2 <= mapCounter; index2 += 1)
                   {
                     this.game.EditObj.TempValue[index2] = new MapMatrix2(this.game.Data.MapObj[index2].MapWidth, this.game.Data.MapObj[index2].MapHeight);
                     this.game.EditObj.TempValue2[index2] = new MapMatrix2(this.game.Data.MapObj[index2].MapWidth, this.game.Data.MapObj[index2].MapHeight);
@@ -2158,11 +2158,11 @@ label_645:
                     this.game.FormRef.Cursor = Cursors.Default;
                     if (Operators.CompareString(Strings.LCase(Interaction.InputBox("This File is protected by a load password. Please give it in order to load it.", "Shadow Empire : Planetary Conquest")), Strings.LCase(this.game.Data.LoadPass), false) == 0)
                     {
-                      int num38 =  Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num38: i32 =   Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
-                      int num39 =  Interaction.MsgBox((object) "Wrong Password. You cannot Load this file. Exiting whole app.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num39: i32 =   Interaction.MsgBox((object) "Wrong Password. You cannot Load this file. Exiting whole app.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       ProjectData.EndApp();
                     }
                   }
@@ -2173,7 +2173,7 @@ label_645:
                   this.game.EditObj.StratMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
                   this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.StratMap, this.game.ScreenWidth, this.game.ScreenHeight - 265, false, true, false);
                   this.game.FormRef.Cursor = Cursors.Default;
-                  int num40 =  Interaction.MsgBox((object) "Saved game is loaded. Round set to 0. Turn set to 0.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num40: i32 =   Interaction.MsgBox((object) "Saved game is loaded. Round set to 0. Turn set to 0.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.EditObj.MiddleWindow = true;
                   this.MakeFirst();
                   windowReturnClass.SetFlag(true);
@@ -2184,10 +2184,10 @@ label_645:
               {
                 if (num1 == this.a7Id)
                 {
-                  int num41 =  Math.Round(Conversion.Val(Interaction.InputBox("Give VP Win Condition. -1 for no VP win.", "Shadow Empire : Planetary Conquest")));
+                  let mut num41: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give VP Win Condition. -1 for no VP win.", "Shadow Empire : Planetary Conquest")));
                   if (num41 < -1 | num41 > 9999)
                   {
-                    int num42 =  Interaction.MsgBox((object) "Between -1 and 9999 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num42: i32 =   Interaction.MsgBox((object) "Between -1 and 9999 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   else
                     this.game.Data.VPWin = num41;
@@ -2197,10 +2197,10 @@ label_645:
                 }
                 if (num1 == this.rrid)
                 {
-                  int num43 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new reinf.ratio. standard = 1 ", "Shadow Empire : Planetary Conquest")));
+                  let mut num43: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new reinf.ratio. standard = 1 ", "Shadow Empire : Planetary Conquest")));
                   if (num43 < 1 | num43 > 99999)
                   {
-                    int num44 =  Interaction.MsgBox((object) "Between 1 and 99999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num44: i32 =   Interaction.MsgBox((object) "Between 1 and 99999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   else
                     this.game.Data.ReinfRatio[this.DetailNr - 750] = num43;
@@ -2210,10 +2210,10 @@ label_645:
                 }
                 if (num1 == this.a23bId)
                 {
-                  int num45 =  Math.Round(Conversion.Val(Interaction.InputBox("Give show value. 0=default.1=show all.2=only self.3=self+allies.-1=nobody", "Shadow Empire : Planetary Conquest")));
+                  let mut num45: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give show value. 0=default.1=show all.2=only self.3=self+allies.-1=nobody", "Shadow Empire : Planetary Conquest")));
                   if (num45 < -1 | num45 > 3)
                   {
-                    int num46 =  Interaction.MsgBox((object) "Between -1 and 3 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num46: i32 =   Interaction.MsgBox((object) "Between -1 and 3 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   else
                     this.game.Data.RegimeSlotShow2[this.DetailNr] = num45;
@@ -2234,7 +2234,7 @@ label_645:
                   if ((this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 10) % 2 == 0)
                   {
                     this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop = false;
-                    int num47 =  Interaction.MsgBox((object) "Mapwidth must be an even number of hexes in order to allow maploop.");
+                    let mut num47: i32 =   Interaction.MsgBox((object) "Mapwidth must be an even number of hexes in order to allow maploop.");
                   }
                   this.MakeFirst();
                   windowReturnClass.SetFlag(true);
@@ -2242,20 +2242,20 @@ label_645:
                 }
                 if (num1 == this.a28Id)
                 {
-                  int usetype =  Math.Round(Conversion.Val(Interaction.InputBox("Use color (1=white, 2= blue, 3=black, 4=red, 5=yellow)", "Shadow Empire : Planetary Conquest")));
+                  let mut usetype: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Use color (1=white, 2= blue, 3=black, 4=red, 5=yellow)", "Shadow Empire : Planetary Conquest")));
                   if (usetype > 0 & usetype < 6)
                   {
                     this.game.HandyFunctionsObj.MakeAutoLabels(usetype);
-                    int num48 =  Interaction.MsgBox((object) "Done. Set labels on map based on names of hexes and locations.");
+                    let mut num48: i32 =   Interaction.MsgBox((object) "Done. Set labels on map based on names of hexes and locations.");
                   }
                 }
                 else if (num1 == this.a29Id)
                 {
-                  int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-                  for (int index3 = 0; index3 <= mapWidth; index3 += 1)
+                  let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+                  for (let mut index3: i32 =  0; index3 <= mapWidth; index3 += 1)
                   {
-                    int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-                    for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+                    let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+                    for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
                     {
                       this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index3, index4].LabelText1 = "";
                       this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index3, index4].LabelText2 = "";
@@ -2263,29 +2263,29 @@ label_645:
                       this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index3, index4].LabelType2 = 0;
                     }
                   }
-                  int num49 =  Interaction.MsgBox((object) "Removed all labels");
+                  let mut num49: i32 =   Interaction.MsgBox((object) "Removed all labels");
                 }
                 else
                 {
                   if (num1 == this.a10Id)
                   {
-                    int tempint =  Math.Round(Conversion.Val(Interaction.InputBox("Add/Remove howmany x? Give negative value for removing", "Shadow Empire : Planetary Conquest")));
-                    int num50 =  Interaction.MsgBox((object) "At right side of map? (no = on left side)", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
+                    let mut tempint: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Add/Remove howmany x? Give negative value for removing", "Shadow Empire : Planetary Conquest")));
+                    let mut num50: i32 =   Interaction.MsgBox((object) "At right side of map? (no = on left side)", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
                     if (tempint > 0 & tempint < 100)
                     {
                       if (num50 == 6)
                       {
                         this.game.HandyFunctionsObj.AddXToMap(tempint);
-                        int num51 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num51: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else if ((Math.Abs(tempint) + 10) % 2 == 0)
                       {
                         this.game.HandyFunctionsObj.AddXToMapLeft(tempint);
-                        int num52 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num52: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else
                       {
-                        int num53 =  Interaction.MsgBox((object) "Some misconfiguration. Make sure adding width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num53: i32 =   Interaction.MsgBox((object) "Some misconfiguration. Make sure adding width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                     }
                     else if (tempint < 0 & Math.Abs(tempint) < this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
@@ -2293,26 +2293,26 @@ label_645:
                       if (num50 == 6)
                       {
                         this.game.HandyFunctionsObj.RemoveXToMap(Math.Abs(tempint));
-                        int num54 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num54: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else if ((Math.Abs(tempint) + 10) % 2 == 0)
                       {
                         this.game.HandyFunctionsObj.RemoveXToMapLeft(Math.Abs(tempint));
-                        int num55 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num55: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else
                       {
-                        int num56 =  Interaction.MsgBox((object) "Some misconfiguration. Make sure removing width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num56: i32 =   Interaction.MsgBox((object) "Some misconfiguration. Make sure removing width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                     }
                     else
                     {
-                      int num57 =  Interaction.MsgBox((object) "between 0 and 100 please", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num57: i32 =   Interaction.MsgBox((object) "between 0 and 100 please", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     if ((this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 10) % 2 == 0 & this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop)
                     {
                       this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop = false;
-                      int num58 =  Interaction.MsgBox((object) "Mapwidth must be an even number of hexes in order to allow maploop. Switched of maploop");
+                      let mut num58: i32 =   Interaction.MsgBox((object) "Mapwidth must be an even number of hexes in order to allow maploop. Switched of maploop");
                     }
                     this.MakeFirst();
                     windowReturnClass.SetFlag(true);
@@ -2320,22 +2320,22 @@ label_645:
                   }
                   if (num1 == this.a11Id)
                   {
-                    int tempint =  Math.Round(Conversion.Val(Interaction.InputBox("Add howmany y?", "Shadow Empire : Planetary Conquest")));
-                    int num59 =  Interaction.MsgBox((object) "At bottom side of map? (no = on top side)", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
+                    let mut tempint: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Add howmany y?", "Shadow Empire : Planetary Conquest")));
+                    let mut num59: i32 =   Interaction.MsgBox((object) "At bottom side of map? (no = on top side)", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
                     if (tempint > 0 & tempint < 100)
                     {
                       switch (num59)
                       {
                         case 6:
                           this.game.HandyFunctionsObj.AddYToMap(tempint);
-                          int num60 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num60: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           break;
                         case 7:
                           this.game.HandyFunctionsObj.AddYToMapLeft(tempint);
-                          int num61 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num61: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           break;
                         default:
-                          int num62 =  Interaction.MsgBox((object) "Some misconfiguration. Make sure adding width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num62: i32 =   Interaction.MsgBox((object) "Some misconfiguration. Make sure adding width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           break;
                       }
                     }
@@ -2345,20 +2345,20 @@ label_645:
                       {
                         case 6:
                           this.game.HandyFunctionsObj.RemoveYToMap(Math.Abs(tempint));
-                          int num63 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num63: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           break;
                         case 7:
                           this.game.HandyFunctionsObj.RemoveYToMapLeft(Math.Abs(tempint));
-                          int num64 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num64: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           break;
                         default:
-                          int num65 =  Interaction.MsgBox((object) "Some misconfiguration. Make sure removing width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num65: i32 =   Interaction.MsgBox((object) "Some misconfiguration. Make sure removing width left of map must be even number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           break;
                       }
                     }
                     else
                     {
-                      int num66 =  Interaction.MsgBox((object) "between 0 and 100 please", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num66: i32 =   Interaction.MsgBox((object) "between 0 and 100 please", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     this.MakeFirst();
                     windowReturnClass.SetFlag(true);
@@ -2366,7 +2366,7 @@ label_645:
                   }
                   if (num1 == this.a12Id)
                   {
-                    int num67 =  Math.Round(Conversion.Val(Interaction.InputBox("You should keep this value at '0' if at all possible. Higher values are considered 'beta status'. Regime that has to start?", "Shadow Empire : Planetary Conquest")));
+                    let mut num67: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("You should keep this value at '0' if at all possible. Higher values are considered 'beta status'. Regime that has to start?", "Shadow Empire : Planetary Conquest")));
                     if (num67 > -1 & num67 <= this.game.Data.RegimeCounter)
                       this.game.Data.Turn = num67 - 1;
                     this.MakeFirst();
@@ -2397,21 +2397,21 @@ label_645:
                     bool flag4;
                     if (Interaction.MsgBox((object) "adjust staff officer staff level to staff present in HQ? ", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                       flag4 = true;
-                    int unitCounter = this.game.Data.UnitCounter;
-                    for (int unr = 0; unr <= unitCounter; unr += 1)
+                    let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                    for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
                     {
                       if (this.game.Data.UnitObj[unr].PreDef == -1 & this.game.Data.UnitObj[unr].IsHQ && this.game.HandyFunctionsObj.GetStaffPoints(unr) > 0)
                       {
-                        int num68 = 0;
+                        let mut num68: i32 =  0;
                         if (flag1)
                         {
                           while (num68 == 0 & (double) this.game.HandyFunctionsObj.GetStaffPoints(unr) < 1.0 * (double) this.game.HandyFunctionsObj.GetStaffNeeded(unr))
                           {
                             num68 = 1;
-                            int sfCount = this.game.Data.UnitObj[unr].SFCount;
-                            for (int index5 = 0; index5 <= sfCount; index5 += 1)
+                            let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+                            for (let mut index5: i32 =  0; index5 <= sfCount; index5 += 1)
                             {
-                              int sf = this.game.Data.UnitObj[unr].SFList[index5];
+                              let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index5];
                               if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].StaffPts > 0)
                               {
                                 this.game.HandyFunctionsObj.AddTroops3(unr, this.game.Data.SFObj[sf].Type, this.game.Data.SFObj[sf].People, 1, this.game.Data.SFObj[sf].Xp, this.game.Data.SFObj[sf].Rdn, this.game.Data.SFObj[sf].Ap, this.game.Data.SFObj[sf].Mor, Ep: this.game.Data.SFObj[sf].MoveType);
@@ -2421,16 +2421,16 @@ label_645:
                             }
                           }
                         }
-                        int num69 = 0;
+                        let mut num69: i32 =  0;
                         if (flag2)
                         {
                           while (num69 == 0 & (double) this.game.HandyFunctionsObj.GetStaffPoints(unr) > 1.05 * (double) this.game.HandyFunctionsObj.GetStaffNeeded(unr))
                           {
                             num69 = 1;
-                            int sfCount = this.game.Data.UnitObj[unr].SFCount;
-                            for (int index6 = 0; index6 <= sfCount; index6 += 1)
+                            let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+                            for (let mut index6: i32 =  0; index6 <= sfCount; index6 += 1)
                             {
-                              int sf = this.game.Data.UnitObj[unr].SFList[index6];
+                              let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index6];
                               if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].StaffPts > 0 && this.game.Data.SFObj[sf].Qty > 2)
                               {
                                 this.game.HandyFunctionsObj.RemoveTroops(unr, this.game.Data.SFObj[sf].Type, this.game.Data.SFObj[sf].People, 1, this.game.Data.SFObj[sf].MoveType);
@@ -2440,16 +2440,16 @@ label_645:
                             }
                           }
                         }
-                        int num70 = 0;
+                        let mut num70: i32 =  0;
                         if (flag3)
                         {
                           while (num70 == 0 & (double) this.game.HandyFunctionsObj.GetStaffPoints(unr) < 1.0 * (double) this.game.HandyFunctionsObj.GetStaffNeeded(unr))
                           {
                             num70 = 1;
-                            int sfCount = this.game.Data.UnitObj[unr].SFCount;
-                            for (int index7 = 0; index7 <= sfCount; index7 += 1)
+                            let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+                            for (let mut index7: i32 =  0; index7 <= sfCount; index7 += 1)
                             {
-                              int sf = this.game.Data.UnitObj[unr].SFList[index7];
+                              let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index7];
                               if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].StaffPts > 0)
                               {
                                 this.game.HandyFunctionsObj.AddTroops3(unr, this.game.Data.SFObj[sf].Type, this.game.Data.SFObj[sf].People, 1, this.game.Data.SFObj[sf].Xp, this.game.Data.SFObj[sf].Rdn, this.game.Data.SFObj[sf].Ap, this.game.Data.SFObj[sf].Mor, MoveType: this.game.Data.SFObj[sf].MoveType);
@@ -2461,17 +2461,17 @@ label_645:
                         }
                         if (flag4 && this.game.Data.UnitObj[unr].Historical > -1)
                         {
-                          int historical = this.game.Data.UnitObj[unr].Historical;
+                          let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
                           this.game.Data.HistoricalUnitObj[historical].StaffSize = this.game.HandyFunctionsObj.GetStaffNeeded(unr);
                           HistoricalUnitClass[] historicalUnitObj = this.game.Data.HistoricalUnitObj;
                           HistoricalUnitClass[] historicalUnitClassArray = historicalUnitObj;
-                          int index8 = historical;
-                          int index9 = index8;
+                          let mut index8: i32 =  historical;
+                          let mut index9: i32 =  index8;
                           historicalUnitClassArray[index9].StaffSize = historicalUnitObj[index8].StaffSize + (50 - this.game.Data.HistoricalUnitObj[historical].StaffSize % 50);
                         }
                       }
                     }
-                    int num71 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num71: i32 =   Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     this.MakeFirst();
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
@@ -2492,8 +2492,8 @@ label_645:
                     text1.Write(this.game.Data.Description);
                     text1.Close();
                     StreamWriter text2 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_ActionCards.txt");
-                    int actionCardCounter1 = this.game.Data.ActionCardCounter;
-                    for (int index10 = 0; index10 <= actionCardCounter1; index10 += 1)
+                    let mut actionCardCounter1: i32 =  this.game.Data.ActionCardCounter;
+                    for (let mut index10: i32 =  0; index10 <= actionCardCounter1; index10 += 1)
                     {
                       if (Strings.InStr(this.game.Data.ActionCardObj[index10].Title, "Empty") <= 0)
                       {
@@ -2506,8 +2506,8 @@ label_645:
                     }
                     text2.Close();
                     StreamWriter text3 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_SFTypes.txt");
-                    int sfTypeCounter1 = this.game.Data.SFTypeCounter;
-                    for (int index11 = 0; index11 <= sfTypeCounter1; index11 += 1)
+                    let mut sfTypeCounter1: i32 =  this.game.Data.SFTypeCounter;
+                    for (let mut index11: i32 =  0; index11 <= sfTypeCounter1; index11 += 1)
                     {
                       text3.Write(this.game.Data.SFTypeObj[index11].Name);
                       text3.Write("\r\n");
@@ -2520,8 +2520,8 @@ label_645:
                     str1: String = "Based-on,SupplyCarry,SupplyMaxIn,BasicSupplyNeed,SupplyForAttack_100AP,SupplyForDefense_100AP,FuelCarry,FuelForMove_10AP,FuelForAttack_10AP,FuelForDefense_10AP";
                     text4.Write(str1);
                     text4.Write("\r\n");
-                    int sfTypeCounter2 = this.game.Data.SFTypeCounter;
-                    for (int index12 = 0; index12 <= sfTypeCounter2; index12 += 1)
+                    let mut sfTypeCounter2: i32 =  this.game.Data.SFTypeCounter;
+                    for (let mut index12: i32 =  0; index12 <= sfTypeCounter2; index12 += 1)
                     {
                       str2: String = this.game.Data.SFTypeObj[index12].Name + "," + this.game.Data.SFTypeObj[index12].SupplyCarry.ToString() + "," + this.game.Data.SFTypeObj[index12].SupplyMaxIn.ToString() + "," + this.game.Data.SFTypeObj[index12].BasicSupplyNeed.ToString() + "," + this.game.Data.SFTypeObj[index12].SupplyForAttack.ToString() + "," + this.game.Data.SFTypeObj[index12].SupplyForAttackDef.ToString() + "," + this.game.Data.SFTypeObj[index12].FuelCarry.ToString() + "," + this.game.Data.SFTypeObj[index12].FuelForMove.ToString() + "," + this.game.Data.SFTypeObj[index12].FuelForAttack.ToString() + "," + this.game.Data.SFTypeObj[index12].FuelForAttackDef.ToString();
                       text4.Write(str2);
@@ -2529,16 +2529,16 @@ label_645:
                     }
                     text4.Close();
                     StreamWriter text5 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_shortSFTypes.txt");
-                    int sfTypeCounter3 = this.game.Data.SFTypeCounter;
-                    for (int Number = 0; Number <= sfTypeCounter3; Number += 1)
+                    let mut sfTypeCounter3: i32 =  this.game.Data.SFTypeCounter;
+                    for (let mut Number: i32 =  0; Number <= sfTypeCounter3; Number += 1)
                     {
                       text5.Write(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.game.Data.SFTypeObj[Number].Name);
                       text5.Write("\r\n");
                     }
                     text5.Close();
                     StreamWriter text6 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_historicalunitsmodels.txt");
-                    int historicalUnitCounter1 = this.game.Data.HistoricalUnitCounter;
-                    for (int Number = 0; Number <= historicalUnitCounter1; Number += 1)
+                    let mut historicalUnitCounter1: i32 =  this.game.Data.HistoricalUnitCounter;
+                    for (let mut Number: i32 =  0; Number <= historicalUnitCounter1; Number += 1)
                     {
                       if (this.game.Data.HistoricalUnitObj[Number].Model)
                       {
@@ -2548,15 +2548,15 @@ label_645:
                     }
                     text6.Close();
                     StreamWriter text7 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_rulevarchangesinevents.txt");
-                    int eventCounter1 = this.game.Data.EventCounter;
-                    for (int Number = 0; Number <= eventCounter1; Number += 1)
+                    let mut eventCounter1: i32 =  this.game.Data.EventCounter;
+                    for (let mut Number: i32 =  0; Number <= eventCounter1; Number += 1)
                     {
-                      int commandCounter = this.game.Data.EventObj[Number].CommandCounter;
-                      for (int index13 = 0; index13 <= commandCounter; index13 += 1)
+                      let mut commandCounter: i32 =  this.game.Data.EventObj[Number].CommandCounter;
+                      for (let mut index13: i32 =  0; index13 <= commandCounter; index13 += 1)
                       {
                         if (this.game.Data.EventObj[Number].CommandList[index13].type == 3 && Conversions.ToDouble(this.game.Data.EventObj[Number].CommandList[index13].Data[0, 1]) == 31.0)
                         {
-                          int integer = Conversions.ToInteger(this.game.Data.EventObj[Number].CommandList[index13].Data[0, 5]);
+                          let mut integer: i32 =  Conversions.ToInteger(this.game.Data.EventObj[Number].CommandList[index13].Data[0, 5]);
                           if (integer > -1)
                           {
                             text7.Write(Conversion.Str((object) integer) + ") " + this.game.Data.RuleString[integer] + " => in mess: " + Conversion.Str((object) Number) + ") " + this.game.Data.EventObj[Number].Name);
@@ -2567,15 +2567,15 @@ label_645:
                     }
                     text7.Close();
                     StreamWriter text8 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_messagepicturesused.txt");
-                    int eventCounter2 = this.game.Data.EventCounter;
-                    for (int Number = 0; Number <= eventCounter2; Number += 1)
+                    let mut eventCounter2: i32 =  this.game.Data.EventCounter;
+                    for (let mut Number: i32 =  0; Number <= eventCounter2; Number += 1)
                     {
-                      int commandCounter = this.game.Data.EventObj[Number].CommandCounter;
-                      for (int index14 = 0; index14 <= commandCounter; index14 += 1)
+                      let mut commandCounter: i32 =  this.game.Data.EventObj[Number].CommandCounter;
+                      for (let mut index14: i32 =  0; index14 <= commandCounter; index14 += 1)
                       {
                         if (this.game.Data.EventObj[Number].CommandList[index14].type == 3 && Conversions.ToDouble(this.game.Data.EventObj[Number].CommandList[index14].Data[0, 1]) == 11.0)
                         {
-                          int integer = Conversions.ToInteger(this.game.Data.EventObj[Number].CommandList[index14].Data[0, 14]);
+                          let mut integer: i32 =  Conversions.ToInteger(this.game.Data.EventObj[Number].CommandList[index14].Data[0, 14]);
                           if (integer > -1 & integer < this.game.Data.EventPicCounter)
                           {
                             text8.Write(Conversion.Str((object) integer) + ") " + this.game.Data.EventPicName[integer] + " => in mess: " + Conversion.Str((object) Number) + ") " + this.game.Data.EventObj[Number].Name);
@@ -2588,8 +2588,8 @@ label_645:
                     text8.Write("\r\n");
                     text8.Write("EVENT PICTURES IN MEMORY:");
                     text8.Write("\r\n");
-                    int eventPicCounter = this.game.Data.EventPicCounter;
-                    for (int index15 = 0; index15 <= eventPicCounter; index15 += 1)
+                    let mut eventPicCounter: i32 =  this.game.Data.EventPicCounter;
+                    for (let mut index15: i32 =  0; index15 <= eventPicCounter; index15 += 1)
                     {
                       if (Strings.InStr(this.game.Data.EventPicName[index15], "empty") <= 0)
                       {
@@ -2601,10 +2601,10 @@ label_645:
                     text8.Write("\r\n");
                     text8.Write("ACTION CARDS USE WHICH EVENT PICTURES:");
                     text8.Write("\r\n");
-                    int actionCardCounter2 = this.game.Data.ActionCardCounter;
-                    for (int Number = 0; Number <= actionCardCounter2; Number += 1)
+                    let mut actionCardCounter2: i32 =  this.game.Data.ActionCardCounter;
+                    for (let mut Number: i32 =  0; Number <= actionCardCounter2; Number += 1)
                     {
-                      int eventPicNr = this.game.Data.ActionCardObj[Number].EventPicNr;
+                      let mut eventPicNr: i32 =  this.game.Data.ActionCardObj[Number].EventPicNr;
                       if (eventPicNr > -1)
                       {
                         text8.Write("Card " + Conversion.Str((object) Number) + " : " + Conversion.Str((object) eventPicNr) + ") " + this.game.Data.EventPicName[eventPicNr]);
@@ -2613,16 +2613,16 @@ label_645:
                     }
                     text8.Close();
                     StreamWriter text9 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_currentgraphicsloaded.txt");
-                    int counter1 = BitmapStore.Counter;
-                    for (int index16 = 0; index16 <= counter1; index16 += 1)
+                    let mut counter1: i32 =  BitmapStore.Counter;
+                    for (let mut index16: i32 =  0; index16 <= counter1; index16 += 1)
                     {
                       text9.Write(BitmapStore.tmpFileName[index16] + ", (" + Conversion.Str((object) BitmapStore.tmpOverloadCounter[index16]) + "x), Big=" + Conversion.Str((object) BitmapStore.tmpIsBig[index16]) + ", System=" + Conversion.Str((object) BitmapStore.tmpIsSystem[index16]));
                       text9.Write("\r\n");
                     }
                     text9.Close();
                     StreamWriter text10 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_unitnames.txt");
-                    int unitCounter1 = this.game.Data.UnitCounter;
-                    for (int index17 = 0; index17 <= unitCounter1; index17 += 1)
+                    let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
+                    for (let mut index17: i32 =  0; index17 <= unitCounter1; index17 += 1)
                     {
                       if (this.game.Data.UnitObj[index17].Historical > -1)
                         text10.Write(this.game.Data.UnitObj[index17].Name + "( " + this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index17].Historical].Name + ")");
@@ -2632,22 +2632,22 @@ label_645:
                     }
                     text10.Close();
                     StreamWriter text11 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_onMapOrderOfBattle.txt");
-                    int regimeCounter1 = this.game.Data.RegimeCounter;
-                    for (int index18 = 0; index18 <= regimeCounter1; index18 += 1)
+                    let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
+                    for (let mut index18: i32 =  0; index18 <= regimeCounter1; index18 += 1)
                     {
                       text11.Write(this.game.Data.RegimeObj[index18].Name);
                       text11.Write("\r\n");
                       text11.Write("-----------------------------------------------------");
                       text11.Write("\r\n");
-                      int unitCounter2 = this.game.Data.UnitCounter;
-                      for (int index19 = 0; index19 <= unitCounter2; index19 += 1)
+                      let mut unitCounter2: i32 =  this.game.Data.UnitCounter;
+                      for (let mut index19: i32 =  0; index19 <= unitCounter2; index19 += 1)
                       {
                         if (this.game.Data.UnitObj[index19].IsHQ & this.game.Data.UnitObj[index19].PreDef == -1 && this.game.Data.UnitObj[index19].Regime == index18)
                         {
                           text11.Write(this.game.Data.UnitObj[index19].Name.ToUpper());
                           text11.Write("\r\n");
-                          int unitCounter3 = this.game.Data.UnitCounter;
-                          for (int index20 = 0; index20 <= unitCounter3; index20 += 1)
+                          let mut unitCounter3: i32 =  this.game.Data.UnitCounter;
+                          for (let mut index20: i32 =  0; index20 <= unitCounter3; index20 += 1)
                           {
                             if (!this.game.Data.UnitObj[index20].IsHQ & this.game.Data.UnitObj[index20].PreDef == -1 && this.game.Data.UnitObj[index20].HQ == index19)
                             {
@@ -2662,8 +2662,8 @@ label_645:
                     }
                     text11.Close();
                     StreamWriter text12 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_missingsystemgraphics.txt");
-                    int counter2 = BitmapStore.Counter;
-                    for (int nr = 0; nr <= counter2; nr += 1)
+                    let mut counter2: i32 =  BitmapStore.Counter;
+                    for (let mut nr: i32 =  0; nr <= counter2; nr += 1)
                     {
                       if (BitmapStore.tmpIsSystem[nr] && BitmapStore.GetWidth(nr) == 1 & BitmapStore.Getheight(nr) == 1)
                       {
@@ -2673,14 +2673,14 @@ label_645:
                     }
                     text12.Close();
                     StreamWriter text13 = File.CreateText(this.game.AppPath + "logs/checks.txt");
-                    int checkTypeCount = this.game.Data.CheckTypeCount;
-                    for (int Number = 0; Number <= checkTypeCount; Number += 1)
+                    let mut checkTypeCount: i32 =  this.game.Data.CheckTypeCount;
+                    for (let mut Number: i32 =  0; Number <= checkTypeCount; Number += 1)
                     {
                       if (!Information.IsNothing((object) this.game.Data.CheckTypeNames[Number]) && this.game.Data.CheckCategory[Number] > 0 & this.game.Data.CheckTypeNames[Number].Length > 1)
                       {
                         str3: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.game.Data.CheckTypeNames[Number] + "(";
-                        int num72 = this.game.Data.CheckTypeVarCount[Number];
-                        for (int index21 = 1; index21 <= num72; index21 += 1)
+                        let mut num72: i32 =  this.game.Data.CheckTypeVarCount[Number];
+                        for (let mut index21: i32 =  1; index21 <= num72; index21 += 1)
                         {
                           if (index21 > 1)
                             str3 += ",";
@@ -2695,14 +2695,14 @@ label_645:
                     }
                     text13.Close();
                     StreamWriter text14 = File.CreateText(this.game.AppPath + "logs/execs.txt");
-                    int execTypeCount1 = this.game.Data.ExecTypeCount;
-                    for (int Number = 0; Number <= execTypeCount1; Number += 1)
+                    let mut execTypeCount1: i32 =  this.game.Data.ExecTypeCount;
+                    for (let mut Number: i32 =  0; Number <= execTypeCount1; Number += 1)
                     {
                       if (!Information.IsNothing((object) this.game.Data.ExecTypeNames[Number]) && this.game.Data.ExecCategory[Number] > 0 & this.game.Data.ExecTypeNames[Number].Length > 1)
                       {
                         str5: String = Strings.Trim(Conversion.Str((object) Number)) + ") " + this.game.Data.ExecTypeNames[Number] + "(";
-                        int num73 = this.game.Data.ExecTypeVarCount[Number];
-                        for (int index22 = 1; index22 <= num73; index22 += 1)
+                        let mut num73: i32 =  this.game.Data.ExecTypeVarCount[Number];
+                        for (let mut index22: i32 =  1; index22 <= num73; index22 += 1)
                         {
                           if (index22 > 1)
                             str5 += ",";
@@ -2717,8 +2717,8 @@ label_645:
                     }
                     text14.Close();
                     StreamWriter text15 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_historicalunitnames.txt");
-                    int historicalUnitCounter2 = this.game.Data.HistoricalUnitCounter;
-                    for (int index23 = 0; index23 <= historicalUnitCounter2; index23 += 1)
+                    let mut historicalUnitCounter2: i32 =  this.game.Data.HistoricalUnitCounter;
+                    for (let mut index23: i32 =  0; index23 <= historicalUnitCounter2; index23 += 1)
                     {
                       str7: String = "" + this.game.Data.HistoricalUnitObj[index23].Name + "," + this.game.Data.HistoricalUnitObj[index23].Type.ToString() + "," + this.game.Data.HistoricalUnitObj[index23].ID.ToString();
                       if (this.game.Data.HistoricalUnitObj[index23].LibId.libSlot > -1)
@@ -2728,14 +2728,14 @@ label_645:
                     }
                     text15.Close();
                     StreamWriter text16 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_temp3temp4temp5systemDC2_historicalunits.txt");
-                    int regimeCounter2 = this.game.Data.RegimeCounter;
-                    for (int index24 = 0; index24 <= regimeCounter2; index24 += 1)
+                    let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
+                    for (let mut index24: i32 =  0; index24 <= regimeCounter2; index24 += 1)
                     {
                       text16.WriteLine(this.game.Data.RegimeObj[index24].Name);
                       text16.WriteLine();
                       SimpleList simpleList = SimpleList::new();
-                      int historicalUnitCounter3 = this.game.Data.HistoricalUnitCounter;
-                      for (int tid = 0; tid <= historicalUnitCounter3; tid += 1)
+                      let mut historicalUnitCounter3: i32 =  this.game.Data.HistoricalUnitCounter;
+                      for (let mut tid: i32 =  0; tid <= historicalUnitCounter3; tid += 1)
                       {
                         if (this.game.Data.HistoricalUnitObj[tid].TempVar3 > 0 & this.game.Data.HistoricalUnitObj[tid].TempRegime == index24 & !this.game.Data.HistoricalUnitObj[tid].Model)
                           simpleList.Add(tid, this.game.Data.HistoricalUnitObj[tid].TempVar3 * 1000000 + this.game.Data.HistoricalUnitObj[tid].TempVar4 * 100 + this.game.Data.HistoricalUnitObj[tid].TempVar5 * 1, this.game.Data.HistoricalUnitObj[tid].TempVar3, this.game.Data.HistoricalUnitObj[tid].TempVar4, this.game.Data.HistoricalUnitObj[tid].TempVar5);
@@ -2743,10 +2743,10 @@ label_645:
                       simpleList.Sort();
                       while (simpleList.Counter > -1)
                       {
-                        int num74 = simpleList.Weight[0];
+                        let mut num74: i32 =  simpleList.Weight[0];
                         text16.Write(simpleList.Data3[0].ToString() + "-" + this.game.HandyFunctionsObj.GetMonth(simpleList.Data2[0]) + "-" + simpleList.Data1[0].ToString());
                         text16.WriteLine();
-                        for (int counter3 = simpleList.Counter; counter3 >= 0; counter3 += -1)
+                        for (let mut counter3: i32 =  simpleList.Counter; counter3 >= 0; counter3 += -1)
                         {
                           if (num74 == simpleList.Weight[counter3])
                           {
@@ -2759,8 +2759,8 @@ label_645:
                     }
                     text16.Close();
                     StreamWriter text17 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_presentscenariographics.txt");
-                    int counter4 = BitmapStore.Counter;
-                    for (int index25 = 0; index25 <= counter4; index25 += 1)
+                    let mut counter4: i32 =  BitmapStore.Counter;
+                    for (let mut index25: i32 =  0; index25 <= counter4; index25 += 1)
                     {
                       if (!BitmapStore.tmpIsSystem[index25])
                       {
@@ -2770,13 +2770,13 @@ label_645:
                     }
                     text17.Close();
                     StreamWriter text18 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_locationnames.txt");
-                    int mapWidth = this.game.Data.MapObj[0].MapWidth;
-                    for (int Number1 = 0; Number1 <= mapWidth; Number1 += 1)
+                    let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+                    for (let mut Number1: i32 =  0; Number1 <= mapWidth; Number1 += 1)
                     {
-                      int mapHeight = this.game.Data.MapObj[0].MapHeight;
-                      for (int Number2 = 0; Number2 <= mapHeight; Number2 += 1)
+                      let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+                      for (let mut Number2: i32 =  0; Number2 <= mapHeight; Number2 += 1)
                       {
-                        int location = this.game.Data.MapObj[0].HexObj[Number1, Number2].Location;
+                        let mut location: i32 =  this.game.Data.MapObj[0].HexObj[Number1, Number2].Location;
                         if (location > -1)
                         {
                           text18.Write("LOC: " + this.game.Data.LocObj[location].Name + "   (" + Conversion.Str((object) Number1) + "," + Conversion.Str((object) Number2) + ", " + this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].Name + ")");
@@ -2791,8 +2791,8 @@ label_645:
                     }
                     text18.Close();
                     StreamWriter text19 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_commandernames.txt");
-                    int historicalUnitCounter4 = this.game.Data.HistoricalUnitCounter;
-                    for (int index26 = 0; index26 <= historicalUnitCounter4; index26 += 1)
+                    let mut historicalUnitCounter4: i32 =  this.game.Data.HistoricalUnitCounter;
+                    for (let mut index26: i32 =  0; index26 <= historicalUnitCounter4; index26 += 1)
                     {
                       if (Strings.Len(this.game.Data.HistoricalUnitObj[index26].CommanderName) > 1)
                       {
@@ -2806,14 +2806,14 @@ label_645:
                     }
                     text19.Close();
                     StreamWriter text20 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_landscapetypes_linkedgraphics.txt");
-                    int landscapeTypeCounter = this.game.Data.LandscapeTypeCounter;
-                    for (int index27 = 0; index27 <= landscapeTypeCounter; index27 += 1)
+                    let mut landscapeTypeCounter: i32 =  this.game.Data.LandscapeTypeCounter;
+                    for (let mut index27: i32 =  0; index27 <= landscapeTypeCounter; index27 += 1)
                     {
                       text20.Write(this.game.Data.LandscapeTypeObj[index27].Name);
                       text20.Write("\r\n");
                       text20.Write("PreHexPicFileName = " + this.game.Data.LandscapeTypeObj[index27].PreHexPicFileName);
-                      int basicSpriteCounter = this.game.Data.LandscapeTypeObj[index27].BasicSpriteCounter;
-                      for (int Number = 0; Number <= basicSpriteCounter; Number += 1)
+                      let mut basicSpriteCounter: i32 =  this.game.Data.LandscapeTypeObj[index27].BasicSpriteCounter;
+                      for (let mut Number: i32 =  0; Number <= basicSpriteCounter; Number += 1)
                       {
                         text20.Write("\r\n");
                         text20.Write("\r\n");
@@ -2838,8 +2838,8 @@ label_645:
                     }
                     text20.Close();
                     StreamWriter text21 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_SFTypes_linkedgraphics.txt");
-                    int sfTypeCounter4 = this.game.Data.SFTypeCounter;
-                    for (int index28 = 0; index28 <= sfTypeCounter4; index28 += 1)
+                    let mut sfTypeCounter4: i32 =  this.game.Data.SFTypeCounter;
+                    for (let mut index28: i32 =  0; index28 <= sfTypeCounter4; index28 += 1)
                     {
                       text21.Write(this.game.Data.SFTypeObj[index28].Name);
                       text21.Write("\r\n");
@@ -2852,8 +2852,8 @@ label_645:
                       text21.Write("Big Symbol 2 = " + this.game.Data.SFTypeObj[index28].SymbolColBigFileName2);
                       text21.Write("\r\n");
                       text21.Write("Extra Symbol 1= " + this.game.Data.SFTypeObj[index28].SymbolFileName);
-                      int extraCounter = this.game.Data.SFTypeObj[index28].ExtraCounter;
-                      for (int Number = 0; Number <= extraCounter; Number += 1)
+                      let mut extraCounter: i32 =  this.game.Data.SFTypeObj[index28].ExtraCounter;
+                      for (let mut Number: i32 =  0; Number <= extraCounter; Number += 1)
                       {
                         text21.Write("\r\n");
                         text21.Write("\r\n");
@@ -2874,8 +2874,8 @@ label_645:
                     }
                     text21.Close();
                     StreamWriter text22 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_Regimes_linkedgraphics.txt");
-                    int regimeCounter3 = this.game.Data.RegimeCounter;
-                    for (int index29 = 0; index29 <= regimeCounter3; index29 += 1)
+                    let mut regimeCounter3: i32 =  this.game.Data.RegimeCounter;
+                    for (let mut index29: i32 =  0; index29 <= regimeCounter3; index29 += 1)
                     {
                       text22.Write(this.game.Data.RegimeObj[index29].Name);
                       text22.Write("\r\n");
@@ -2888,15 +2888,15 @@ label_645:
                     }
                     text22.Close();
                     StreamWriter text23 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_RoadType_linkedgraphics.txt");
-                    int roadTypeCounter = this.game.Data.RoadTypeCounter;
+                    let mut roadTypeCounter: i32 =  this.game.Data.RoadTypeCounter;
                     bool flag;
-                    for (int index30 = 0; index30 <= roadTypeCounter; index30 += 1)
+                    for (let mut index30: i32 =  0; index30 <= roadTypeCounter; index30 += 1)
                     {
                       text23.Write(this.game.Data.RoadTypeObj[index30].Name);
                       text23.Write("\r\n");
                       text23.Write("SheetFileName" + flag.ToString() + " = " + this.game.Data.RoadTypeObj[index30].SheetFileName);
                       text23.Write("\r\n");
-                      int index31 = 0;
+                      let mut index31: i32 =  0;
                       do
                       {
                         text23.Write("BasicSpriteFileName= " + this.game.Data.RoadTypeObj[index30].BasicSpriteFileName[index31].ToString());
@@ -2909,14 +2909,14 @@ label_645:
                     }
                     text23.Close();
                     StreamWriter text24 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_RiverType_linkedgraphics.txt");
-                    int riverTypeCounter = this.game.Data.RiverTypeCounter;
-                    for (int index32 = 0; index32 <= riverTypeCounter; index32 += 1)
+                    let mut riverTypeCounter: i32 =  this.game.Data.RiverTypeCounter;
+                    for (let mut index32: i32 =  0; index32 <= riverTypeCounter; index32 += 1)
                     {
                       text24.Write(this.game.Data.RiverTypeObj[index32].Name);
                       text24.Write("\r\n");
                       text24.Write("SheetFileName" + flag.ToString() + " = " + this.game.Data.RiverTypeObj[index32].SheetFileName);
                       text24.Write("\r\n");
-                      int index33 = 0;
+                      let mut index33: i32 =  0;
                       do
                       {
                         text24.Write("BasicSpriteFileName= " + this.game.Data.RiverTypeObj[index32].BasicSpriteFileName[index33].ToString());
@@ -2929,7 +2929,7 @@ label_645:
                     }
                     text24.Close();
                     StreamWriter text25 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_Bridge_linkedgraphics.txt");
-                    int index34 = 0;
+                    let mut index34: i32 =  0;
                     do
                     {
                       text25.Write("BasicSpriteFileName= " + this.game.Data.BridgeObj[0].BasicSpriteFileName[index34].ToString());
@@ -2942,11 +2942,11 @@ label_645:
                     text25.Write("\r\n");
                     text25.Close();
                     StreamWriter text26 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_Events.txt");
-                    int eventCounter3 = this.game.Data.EventCounter;
-                    for (int index35 = 0; index35 <= eventCounter3; index35 += 1)
+                    let mut eventCounter3: i32 =  this.game.Data.EventCounter;
+                    for (let mut index35: i32 =  0; index35 <= eventCounter3; index35 += 1)
                     {
-                      int commandCounter = this.game.Data.EventObj[index35].CommandCounter;
-                      for (int Number = 0; Number <= commandCounter; Number += 1)
+                      let mut commandCounter: i32 =  this.game.Data.EventObj[index35].CommandCounter;
+                      for (let mut Number: i32 =  0; Number <= commandCounter; Number += 1)
                       {
                         if (Strings.Len(this.game.Data.EventObj[index35].CommandList[Number].DataString) > 1 && Conversions.ToInteger(this.game.Data.EventObj[index35].CommandList[Number].Data[0, 1]) == 11)
                         {
@@ -2960,12 +2960,12 @@ label_645:
                     }
                     text26.Close();
                     StreamWriter text27 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_Execs.txt");
-                    int execTypeCount2 = this.game.Data.ExecTypeCount;
-                    for (int index36 = 0; index36 <= execTypeCount2; index36 += 1)
+                    let mut execTypeCount2: i32 =  this.game.Data.ExecTypeCount;
+                    for (let mut index36: i32 =  0; index36 <= execTypeCount2; index36 += 1)
                     {
                       str8: String = this.game.Data.ExecTypeNames[index36] + "(";
-                      int num75 = this.game.Data.ExecTypeVarCount[index36];
-                      for (int index37 = 1; index37 <= num75; index37 += 1)
+                      let mut num75: i32 =  this.game.Data.ExecTypeVarCount[index36];
+                      for (let mut index37: i32 =  1; index37 <= num75; index37 += 1)
                       {
                         if (index37 > 1)
                           str8 += ",";
@@ -2977,7 +2977,7 @@ label_645:
                     }
                     text27.Close();
                     StreamWriter text28 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_Rulevars.txt");
-                    int Number3 = 0;
+                    let mut Number3: i32 =  0;
                     do
                     {
                       if (this.game.Data.RuleGroup[Number3] > 0 & this.game.Data.RuleString[Number3].Length > 1)
@@ -2991,8 +2991,8 @@ label_645:
                     while (Number3 <= 999);
                     text28.Close();
                     StreamWriter text29 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_Stringlists.txt");
-                    int stringListCounter = this.game.Data.StringListCounter;
-                    for (int index38 = 0; index38 <= stringListCounter; index38 += 1)
+                    let mut stringListCounter: i32 =  this.game.Data.StringListCounter;
+                    for (let mut index38: i32 =  0; index38 <= stringListCounter; index38 += 1)
                     {
                       str11: String = this.game.Data.StringListObj[index38].Name + "(" + index38.ToString() + ") = ";
                       str12: String = this.game.Data.StringListObj[index38].Length.ToString() + " ..... " + str11;
@@ -3004,12 +3004,12 @@ label_645:
                   else if (num1 == this.a14Id)
                   {
                     str13: String = Interaction.InputBox("Give width of map in hexes (20-200)", "Shadow Empire : Planetary Conquest");
-                    int twidth = Operators.CompareString(Strings.Trim(str13), "", false) == 0 ? 0 : Conversions.ToInteger(str13);
+                    let mut twidth: i32 =  Operators.CompareString(Strings.Trim(str13), "", false) == 0 ? 0 : Conversions.ToInteger(str13);
                     str14: String = Interaction.InputBox("Give height of map in hexes (20-200)", "Shadow Empire : Planetary Conquest");
-                    int theight = Operators.CompareString(Strings.Trim(str14), "", false) == 0 ? 0 : Conversions.ToInteger(str14);
+                    let mut theight: i32 =  Operators.CompareString(Strings.Trim(str14), "", false) == 0 ? 0 : Conversions.ToInteger(str14);
                     if (twidth < 20 | theight < 20 | twidth > 200 | theight > 200)
                     {
-                      int num76 =  Interaction.MsgBox((object) "Cannot comply. Width and Height must be between 5 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num76: i32 =   Interaction.MsgBox((object) "Cannot comply. Width and Height must be between 5 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
@@ -3029,15 +3029,15 @@ label_645:
                   {
                     if (num1 == this.a15Id)
                     {
-                      int num77 =  Math.Round(Conversion.Val(Interaction.InputBox("Alternate system? -1=no, otherwise give #of days for a round (31=1 month steps)", "Shadow Empire : Planetary Conquest")));
+                      let mut num77: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Alternate system? -1=no, otherwise give #of days for a round (31=1 month steps)", "Shadow Empire : Planetary Conquest")));
                       if (num77 >= -1 & num77 < 9999)
                       {
                         this.game.Data.AlternateRound = num77;
                         if (num77 > -1)
                         {
-                          int year =  Math.Round(Conversion.Val(Interaction.InputBox("Give Start Year..", "Shadow Empire : Planetary Conquest")));
-                          int month =  Math.Round(Conversion.Val(Interaction.InputBox("Give Start Month..", "Shadow Empire : Planetary Conquest")));
-                          int day =  Math.Round(Conversion.Val(Interaction.InputBox("Give Start Day of the Month..", "Shadow Empire : Planetary Conquest")));
+                          let mut year: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Start Year..", "Shadow Empire : Planetary Conquest")));
+                          let mut month: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Start Month..", "Shadow Empire : Planetary Conquest")));
+                          let mut day: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Start Day of the Month..", "Shadow Empire : Planetary Conquest")));
                           if (month > 0 & year < 9999 & year > 0 & day > 0)
                           {
                             try
@@ -3047,21 +3047,21 @@ label_645:
                             catch (Exception ex)
                             {
                               ProjectData.SetProjectError(ex);
-                              int num78 =  Interaction.MsgBox((object) "cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                              let mut num78: i32 =   Interaction.MsgBox((object) "cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                               this.game.Data.AlternateRound = -1;
                               ProjectData.ClearProjectError();
                             }
                           }
                           else
                           {
-                            int num79 =  Interaction.MsgBox((object) "cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                            let mut num79: i32 =   Interaction.MsgBox((object) "cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                             this.game.Data.AlternateRound = -1;
                           }
                         }
                       }
                       else
                       {
-                        int num80 =  Interaction.MsgBox((object) "cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num80: i32 =   Interaction.MsgBox((object) "cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       this.MakeFirst();
                       windowReturnClass.SetFlag(true);
@@ -3076,26 +3076,26 @@ label_645:
                     }
                     if (num1 == this.a43id)
                     {
-                      int counter = BitmapStore.Counter;
-                      for (int index39 = 0; index39 <= counter; index39 += 1)
+                      let mut counter: i32 =  BitmapStore.Counter;
+                      for (let mut index39: i32 =  0; index39 <= counter; index39 += 1)
                       {
                         if (!BitmapStore.tmpIsSystem[index39] & BitmapStore.tmpOverloadCounter[index39] > 0)
                         {
                           if (!Directory.Exists(this.game.AppPath + "tempgraphics"))
                             Directory.CreateDirectory(this.game.AppPath + "tempgraphics");
-                          int num81 = 0;
+                          let mut num81: i32 =  0;
                           do
                           {
                             if (num81 == 0 | BitmapStore.tmpIsBig[index39])
                             {
                               str15: String = BitmapStore.tmpFileName[index39].Replace("//", "/").Replace("\\\\", "\\").Replace("\\", "/");
                               path: String = this.game.AppPath + "tempgraphics/";
-                              int num82 = 1;
-                              int num83 = 0;
+                              let mut num82: i32 =  1;
+                              let mut num83: i32 =  0;
                               while (num82 == 1)
                               {
                                 num82 = 0;
-                                int num84 = Strings.InStr(str15, "/");
+                                let mut num84: i32 =  Strings.InStr(str15, "/");
                                 if (num84 > 0)
                                 {
                                   num82 = 1;
@@ -3168,7 +3168,7 @@ label_645:
                       }
                       else
                       {
-                        int num86 =  Interaction.MsgBox((object) "Value out of bounds: 0.1 to 999x specified cost", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num86: i32 =   Interaction.MsgBox((object) "Value out of bounds: 0.1 to 999x specified cost", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       this.MakeFirst();
                       windowReturnClass.SetFlag(true);
@@ -3186,8 +3186,8 @@ label_645:
                       oldValue: String = Interaction.InputBox("Give String to replace", "Shadow Empire : Planetary Conquest");
                       newValue: String = Interaction.InputBox("Give String to replace with", "Shadow Empire : Planetary Conquest");
                       this.game.FormRef.Cursor = Cursors.WaitCursor;
-                      int sfTypeCounter = this.game.Data.SFTypeCounter;
-                      for (int index40 = 0; index40 <= sfTypeCounter; index40 += 1)
+                      let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+                      for (let mut index40: i32 =  0; index40 <= sfTypeCounter; index40 += 1)
                       {
                         if (!Information.IsNothing((object) this.game.Data.SFTypeObj[index40].MoveWAV))
                           this.game.Data.SFTypeObj[index40].MoveWAV = this.game.Data.SFTypeObj[index40].MoveWAV.Replace(oldValue, newValue);
@@ -3195,21 +3195,21 @@ label_645:
                           this.game.Data.SFTypeObj[index40].BattleWAV = this.game.Data.SFTypeObj[index40].BattleWAV.Replace(oldValue, newValue);
                       }
                       this.game.FormRef.Cursor = Cursors.Default;
-                      int num87 =  Interaction.MsgBox((object) "Changed", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num87: i32 =   Interaction.MsgBox((object) "Changed", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     else if (num1 == this.p3id)
                     {
                       oldValue: String = Interaction.InputBox("Give String to replace", "Shadow Empire : Planetary Conquest");
                       newValue: String = Interaction.InputBox("Give String to replace with", "Shadow Empire : Planetary Conquest");
                       this.game.FormRef.Cursor = Cursors.WaitCursor;
-                      int smallPicCounter = this.game.Data.SmallPicCounter;
-                      for (int index41 = 0; index41 <= smallPicCounter; index41 += 1)
+                      let mut smallPicCounter: i32 =  this.game.Data.SmallPicCounter;
+                      for (let mut index41: i32 =  0; index41 <= smallPicCounter; index41 += 1)
                         this.game.Data.SmallPicName[index41] = this.game.Data.SmallPicName[index41].Replace(oldValue, newValue);
-                      int eventPicCounter = this.game.Data.EventPicCounter;
-                      for (int index42 = 0; index42 <= eventPicCounter; index42 += 1)
+                      let mut eventPicCounter: i32 =  this.game.Data.EventPicCounter;
+                      for (let mut index42: i32 =  0; index42 <= eventPicCounter; index42 += 1)
                         this.game.Data.EventPicName[index42] = this.game.Data.EventPicName[index42].Replace(oldValue, newValue);
-                      int landscapeTypeCounter = this.game.Data.LandscapeTypeCounter;
-                      for (int index43 = 0; index43 <= landscapeTypeCounter; index43 += 1)
+                      let mut landscapeTypeCounter: i32 =  this.game.Data.LandscapeTypeCounter;
+                      for (let mut index43: i32 =  0; index43 <= landscapeTypeCounter; index43 += 1)
                       {
                         this.game.Data.LandscapeTypeObj[index43].PreHexPicFileName = this.game.Data.LandscapeTypeObj[index43].PreHexPicFileName.Replace(oldValue, newValue);
                         this.game.Data.LandscapeTypeObj[index43].SheetFileName = this.game.Data.LandscapeTypeObj[index43].SheetFileName.Replace(oldValue, newValue);
@@ -3221,7 +3221,7 @@ label_645:
                           b += 1;
                         }
                         while (b <= 64);
-                        int basicSpriteCounter = this.game.Data.LandscapeTypeObj[index43].BasicSpriteCounter;
+                        let mut basicSpriteCounter: i32 =  this.game.Data.LandscapeTypeObj[index43].BasicSpriteCounter;
                         for (b = 0; b <= basicSpriteCounter; b += 1)
                         {
                           this.game.Data.LandscapeTypeObj[index43].BasicSpriteFileName[b] = this.game.Data.LandscapeTypeObj[index43].BasicSpriteFileName[b].Replace(oldValue, newValue);
@@ -3233,8 +3233,8 @@ label_645:
                           this.game.Data.LandscapeTypeObj[index43].SidewaysSpriteFileName3[b] = this.game.Data.LandscapeTypeObj[index43].SidewaysSpriteFileName3[b].Replace(oldValue, newValue);
                         }
                       }
-                      int roadTypeCounter = this.game.Data.RoadTypeCounter;
-                      for (int index44 = 0; index44 <= roadTypeCounter; index44 += 1)
+                      let mut roadTypeCounter: i32 =  this.game.Data.RoadTypeCounter;
+                      for (let mut index44: i32 =  0; index44 <= roadTypeCounter; index44 += 1)
                       {
                         this.game.Data.RoadTypeObj[index44].SheetFileName = this.game.Data.RoadTypeObj[index44].SheetFileName.Replace(oldValue, newValue);
                         b = 0;
@@ -3246,8 +3246,8 @@ label_645:
                         }
                         while (b <= 64);
                       }
-                      int riverTypeCounter = this.game.Data.RiverTypeCounter;
-                      for (int index45 = 0; index45 <= riverTypeCounter; index45 += 1)
+                      let mut riverTypeCounter: i32 =  this.game.Data.RiverTypeCounter;
+                      for (let mut index45: i32 =  0; index45 <= riverTypeCounter; index45 += 1)
                       {
                         this.game.Data.RiverTypeObj[index45].SheetFileName = this.game.Data.RiverTypeObj[index45].SheetFileName.Replace(oldValue, newValue);
                         b = 0;
@@ -3267,10 +3267,10 @@ label_645:
                         b += 1;
                       }
                       while (b <= 5);
-                      int sfTypeCounter = this.game.Data.SFTypeCounter;
-                      for (int index46 = 0; index46 <= sfTypeCounter; index46 += 1)
+                      let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+                      for (let mut index46: i32 =  0; index46 <= sfTypeCounter; index46 += 1)
                       {
-                        int extraCounter = this.game.Data.SFTypeObj[index46].ExtraCounter;
+                        let mut extraCounter: i32 =  this.game.Data.SFTypeObj[index46].ExtraCounter;
                         for (b = 0; b <= extraCounter; b += 1)
                         {
                           this.game.Data.SFTypeObj[index46].ExtraSidewaysFileName[b] = this.game.Data.SFTypeObj[index46].ExtraSidewaysFileName[b].Replace(oldValue, newValue);
@@ -3287,14 +3287,14 @@ label_645:
                         this.game.Data.SFTypeObj[index46].SymbolFileName = this.game.Data.SFTypeObj[index46].SymbolFileName.Replace(oldValue, newValue);
                         this.game.Data.SFTypeObj[index46].SymbolFileName2 = this.game.Data.SFTypeObj[index46].SymbolFileName2.Replace(oldValue, newValue);
                       }
-                      int peopleCounter = this.game.Data.PeopleCounter;
-                      for (int index47 = 0; index47 <= peopleCounter; index47 += 1)
+                      let mut peopleCounter: i32 =  this.game.Data.PeopleCounter;
+                      for (let mut index47: i32 =  0; index47 <= peopleCounter; index47 += 1)
                       {
                         this.game.Data.PeopleObj[index47].SidewaysFileName = this.game.Data.PeopleObj[index47].SidewaysFileName.Replace(oldValue, newValue);
                         this.game.Data.PeopleObj[index47].NationalFileName = this.game.Data.PeopleObj[index47].NationalFileName.Replace(oldValue, newValue);
                       }
-                      int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
-                      for (int index48 = 0; index48 <= historicalUnitCounter; index48 += 1)
+                      let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
+                      for (let mut index48: i32 =  0; index48 <= historicalUnitCounter; index48 += 1)
                       {
                         if (Information.IsNothing((object) this.game.Data.HistoricalUnitObj[index48].CommanderFileName))
                           this.game.Data.HistoricalUnitObj[index48].CommanderFileName = "";
@@ -3305,7 +3305,7 @@ label_645:
                       }
                       this.game.Data.LoadGraphics(this.formref);
                       this.game.FormRef.Cursor = Cursors.Default;
-                      int num88 =  Interaction.MsgBox((object) "Changed and reloaded", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num88: i32 =   Interaction.MsgBox((object) "Changed and reloaded", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
@@ -3318,7 +3318,7 @@ label_645:
                         }
                         else
                         {
-                          int num90 =  Interaction.MsgBox((object) "Value out of bounds: 0.1 to 999x specified cost", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num90: i32 =   Interaction.MsgBox((object) "Value out of bounds: 0.1 to 999x specified cost", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         }
                         this.MakeFirst();
                         windowReturnClass.SetFlag(true);
@@ -3333,7 +3333,7 @@ label_645:
                         }
                         else
                         {
-                          int num92 =  Interaction.MsgBox((object) "Value out of bounds: 0.1 to 999x specified cost", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num92: i32 =   Interaction.MsgBox((object) "Value out of bounds: 0.1 to 999x specified cost", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         }
                         this.MakeFirst();
                         windowReturnClass.SetFlag(true);
@@ -3341,7 +3341,7 @@ label_645:
                       }
                       if (num1 == this.a18Id)
                       {
-                        int num93 =  Math.Round(Conversion.Val(Interaction.InputBox("Give ResMod value representing ideal prodpower", "Shadow Empire : Planetary Conquest")));
+                        let mut num93: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give ResMod value representing ideal prodpower", "Shadow Empire : Planetary Conquest")));
                         float num94;
                         if (num93 >= -1 & (double) num94 < 999999.0)
                         {
@@ -3349,7 +3349,7 @@ label_645:
                         }
                         else
                         {
-                          int num95 =  Interaction.MsgBox((object) "Value out of bounds: 0 to 999.999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num95: i32 =   Interaction.MsgBox((object) "Value out of bounds: 0 to 999.999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         }
                         this.MakeFirst();
                         windowReturnClass.SetFlag(true);
@@ -3357,7 +3357,7 @@ label_645:
                       }
                       if (num1 == this.B2Id)
                       {
-                        int num96 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Value", "Shadow Empire : Planetary Conquest")));
+                        let mut num96: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Value", "Shadow Empire : Planetary Conquest")));
                         if (num96 > -2 & num96 < 999999)
                         {
                           if (this.TabSheetNr == 1)
@@ -3365,7 +3365,7 @@ label_645:
                         }
                         else
                         {
-                          int num97 =  Interaction.MsgBox((object) "Value out of bounds -1 to 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num97: i32 =   Interaction.MsgBox((object) "Value out of bounds -1 to 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         }
                         this.maketabsheet();
                         windowReturnClass.SetFlag(true);
@@ -3395,7 +3395,7 @@ label_645:
                           }
                           else
                           {
-                            int num98 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                            let mut num98: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           }
                           this.maketabsheet();
                           windowReturnClass.SetFlag(true);
@@ -3408,7 +3408,7 @@ label_645:
                         }
                         else
                         {
-                          int num99 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num99: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         }
                         this.maketabsheet();
                         windowReturnClass.SetFlag(true);
@@ -3425,7 +3425,7 @@ label_645:
                           }
                           else
                           {
-                            int num100 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                            let mut num100: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                           }
                           this.maketabsheet();
                           windowReturnClass.SetFlag(true);
@@ -3438,7 +3438,7 @@ label_645:
                         }
                         else
                         {
-                          int num101 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num101: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         }
                         this.maketabsheet();
                         windowReturnClass.SetFlag(true);
@@ -3470,7 +3470,7 @@ label_645:
                 }
               }
             }
-            int tnr = 0;
+            let mut tnr: i32 =  0;
             while (this.SubPartID[index1] != this.vari[tnr])
             {
               if (this.SubPartID[index1] == this.vare[tnr])
@@ -3523,7 +3523,7 @@ label_645:
       str1: String = Interaction.InputBox("Give a directory under the graphics dir please", "Shadow Empire : Planetary Conquest");
       if (!Directory.Exists(this.game.AppPath + "graphics/" + str1))
       {
-        int num1 =  Interaction.MsgBox((object) "Dir does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox((object) "Dir does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
       }
       else
       {
@@ -3531,13 +3531,13 @@ label_645:
         this.RecursiveSearch(this.game.AppPath + "graphics/" + str1);
         if (this.SheetCount < 1)
         {
-          int num2 =  Interaction.MsgBox((object) "No files found");
+          let mut num2: i32 =   Interaction.MsgBox((object) "No files found");
         }
         else
         {
           Bitmap[] bitmapArray = new Bitmap[this.SheetCount + 1];
-          int sheetCount1 = this.SheetCount;
-          for (int index1 = 1; index1 <= sheetCount1 && index1 <= this.SheetCount; index1 += 1)
+          let mut sheetCount1: i32 =  this.SheetCount;
+          for (let mut index1: i32 =  1; index1 <= sheetCount1 && index1 <= this.SheetCount; index1 += 1)
           {
             bitmapArray[index1] = new Bitmap(this.game.AppPath + "graphics/" + this.SheetName[index1]);
             bitmapArray[index1].SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
@@ -3545,13 +3545,13 @@ label_645:
               bitmapArray[index1].MakeTransparent(Color.FromArgb( byte.MaxValue,  byte.MaxValue, 0,  byte.MaxValue));
             if (bitmapArray[index1].Height <= 96)
             {
-              this.SheetRect[index1] = new Rectangle(-1, -1, bitmapArray[index1].Width, bitmapArray[index1].Height);
+              this.SheetRect[index1] = Rectangle::new(-1, -1, bitmapArray[index1].Width, bitmapArray[index1].Height);
             }
             else
             {
-              int num3 = index1;
-              int num4 = this.SheetCount - 1;
-              for (int index2 = num3; index2 <= num4; index2 += 1)
+              let mut num3: i32 =  index1;
+              let mut num4: i32 =  this.SheetCount - 1;
+              for (let mut index2: i32 =  num3; index2 <= num4; index2 += 1)
               {
                 this.SheetName[index2] = this.SheetName[index2 + 1];
                 this.SheetRect[index2] = this.SheetRect[index2 + 1];
@@ -3560,13 +3560,13 @@ label_645:
               --index1;
             }
           }
-          int sheetCount2 = this.SheetCount;
+          let mut sheetCount2: i32 =  this.SheetCount;
           int index3;
           for (index3 = 1; index3 <= sheetCount2; index3 += 1)
           {
-            int num5 = this.SheetRect[index3].Width * this.SheetRect[index3].Height;
-            int num6 = index3 - 1;
-            for (int index4 = 1; index4 <= num6; index4 += 1)
+            let mut num5: i32 =  this.SheetRect[index3].Width * this.SheetRect[index3].Height;
+            let mut num6: i32 =  index3 - 1;
+            for (let mut index4: i32 =  1; index4 <= num6; index4 += 1)
             {
               if (this.SheetRect[index4].Width * this.SheetRect[index4].Height > num5)
               {
@@ -3582,9 +3582,9 @@ label_645:
               }
             }
           }
-          int num7 = index3;
-          int num8 = 0;
-          int num9 = 0;
+          let mut num7: i32 =  index3;
+          let mut num8: i32 =  0;
+          let mut num9: i32 =  0;
           int sheetCount3;
           int width;
           int height;
@@ -3593,14 +3593,14 @@ label_645:
           {
             if (this.SheetRect[sheetCount3].X == -1)
             {
-              int num10 = 0;
+              let mut num10: i32 =  0;
               while (num10 == 0)
               {
-                int x = 0;
-                int num11 = 0;
+                let mut x: i32 =  0;
+                let mut num11: i32 =  0;
                 do
                 {
-                  int y = 0;
+                  let mut y: i32 =  0;
                   if (num8 > 0)
                   {
                     x += num8;
@@ -3610,7 +3610,7 @@ label_645:
                     x += 10;
                   if (x > width)
                     num11 = 9999999;
-                  int num12 = 0;
+                  let mut num12: i32 =  0;
                   do
                   {
                     if (num9 > 0)
@@ -3625,18 +3625,18 @@ label_645:
                     if (this.SheetRect[sheetCount3].Width + x <= width && this.SheetRect[sheetCount3].Height + y <= height)
                     {
                       num10 = 1;
-                      int sheetCount4 = this.SheetCount;
-                      for (int index5 = 1; index5 <= sheetCount4; index5 += 1)
+                      let mut sheetCount4: i32 =  this.SheetCount;
+                      for (let mut index5: i32 =  1; index5 <= sheetCount4; index5 += 1)
                       {
                         if (this.SheetRect[index5].X > -1)
                         {
-                          rectangle1 = Rectangle.Intersect(this.SheetRect[index5], new Rectangle(x, y, this.SheetRect[sheetCount3].Width, this.SheetRect[sheetCount3].Height));
+                          rectangle1 = Rectangle.Intersect(this.SheetRect[index5], Rectangle::new(x, y, this.SheetRect[sheetCount3].Width, this.SheetRect[sheetCount3].Height));
                           if (rectangle1.Width > 0)
                           {
                             num10 = 0;
                             Rectangle a = this.SheetRect[index5];
-                            rectangle1 = new Rectangle(x, y, this.SheetRect[sheetCount3].Width, this.SheetRect[sheetCount3].Height);
-                            Rectangle b = rectangle1;
+                            rectangle1 = Rectangle::new(x, y, this.SheetRect[sheetCount3].Width, this.SheetRect[sheetCount3].Height);
+                            let mut b: &Rectangle = &rectangle1
                             Rectangle rectangle2 = Rectangle.Intersect(a, b);
                             num8 = rectangle2.Width;
                             num9 = rectangle2.Width;
@@ -3691,14 +3691,14 @@ label_645:
           tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
           Graphics graphics = Graphics.FromImage((Image) tmpbmp);
           graphics.CompositingMode = CompositingMode.SourceCopy;
-          int sheetCount5 = this.SheetCount;
+          let mut sheetCount5: i32 =  this.SheetCount;
           int index6;
           for (index6 = 1; index6 <= sheetCount5; index6 += 1)
           {
-             Graphics local1 =  graphics;
+             let mut local1: &Graphics = &graphics;
              Bitmap local2 =  bitmapArray[index6];
-            rectangle1 = new Rectangle(0, 0, this.SheetRect[index6].Width, this.SheetRect[index6].Height);
-            Rectangle srcrect = rectangle1;
+            rectangle1 = Rectangle::new(0, 0, this.SheetRect[index6].Width, this.SheetRect[index6].Height);
+            let mut srcrect: &Rectangle = &rectangle1
             Rectangle destrect = this.SheetRect[index6];
             DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           }
@@ -3707,8 +3707,8 @@ label_645:
           num7 = index6;
           StreamWriter text = File.CreateText(BitmapStore.GraphicsPath + str1 + "/sheet.txt");
           text.WriteLine(this.SheetCount);
-          int sheetCount6 = this.SheetCount;
-          for (int index7 = 1; index7 <= sheetCount6; index7 += 1)
+          let mut sheetCount6: i32 =  this.SheetCount;
+          for (let mut index7: i32 =  1; index7 <= sheetCount6; index7 += 1)
           {
             text.WriteLine(this.SheetName[index7]);
             text.WriteLine(this.SheetRect[index7].X);
@@ -3717,7 +3717,7 @@ label_645:
             text.WriteLine(this.SheetRect[index7].Height);
           }
           text.Close();
-          int num14 =  Interaction.MsgBox((object) ("Written " + Strings.Trim(Conversion.Str((object) this.SheetCount)) + " files in a sheet."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num14: i32 =   Interaction.MsgBox((object) ("Written " + Strings.Trim(Conversion.Str((object) this.SheetCount)) + " files in a sheet."), Title: ((object) "Shadow Empire : Planetary Conquest"));
         }
       }
     }
@@ -3732,7 +3732,7 @@ label_645:
         {
           this += 1.SheetCount;
           this.SheetName = (string[]) Utils.CopyArray((Array) this.SheetName, (Array) new string[this.SheetCount + 1]);
-          this.SheetRect = (Rectangle[]) Utils.CopyArray((Array) this.SheetRect, (Array) new Rectangle[this.SheetCount + 1]);
+          this.SheetRect = (Rectangle[]) Utils.CopyArray((Array) this.SheetRect, (Array) Rectangle::new[this.SheetCount + 1]);
           this.SheetName[this.SheetCount] = fileSystemInfo.FullName;
           this.SheetName[this.SheetCount] = Strings.Right(fileSystemInfo.FullName, Strings.Len(fileSystemInfo.FullName) - Strings.Len(this.game.AppPath + "graphics/"));
         }
@@ -3748,12 +3748,12 @@ label_645:
       str1: String = Interaction.InputBox("Give version number please, or leave blank", "Shadow Empire : Planetary Conquest");
       str2: String = Interaction.InputBox("Give title", "Shadow Empire : Planetary Conquest");
       ListClass listClass = ListClass::new();
-      int historicalUnitCounter1 = this.game.Data.HistoricalUnitCounter;
-      for (int tdata = 0; tdata <= historicalUnitCounter1; tdata += 1)
+      let mut historicalUnitCounter1: i32 =  this.game.Data.HistoricalUnitCounter;
+      for (let mut tdata: i32 =  0; tdata <= historicalUnitCounter1; tdata += 1)
       {
         if (this.game.Data.HistoricalUnitObj[tdata].Model & this.game.Data.HistoricalUnitObj[tdata].Name.Length > 0 & Strings.InStr(this.game.Data.HistoricalUnitObj[tdata].Name, "depreciated") <= 0 && this.game.Data.HistoricalUnitObj[tdata].SubParts[0] > -1 && this.game.Data.UnitObj[this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[tdata].SubParts[0])].SFCount > -1)
         {
-          int people = this.game.Data.SFObj[this.game.Data.UnitObj[this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[tdata].SubParts[0])].SFList[0]].People;
+          let mut people: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[tdata].SubParts[0])].SFList[0]].People;
           listClass.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, tWeight: (this.game.Data.HistoricalUnitObj[tdata].TempRegime * 500000 + (10 - this.game.Data.HistoricalUnitObj[tdata].Type) * 10000 + people * 100));
         }
       }
@@ -3762,19 +3762,19 @@ label_645:
         return;
       string[] strArray1 = new string[listClass.ListCount + 1];
       SimpleList simpleList1 = SimpleList::new();
-      int listCount1 = listClass.ListCount;
-      for (int index1 = 0; index1 <= listCount1; index1 += 1)
+      let mut listCount1: i32 =  listClass.ListCount;
+      for (let mut index1: i32 =  0; index1 <= listCount1; index1 += 1)
       {
-        int num = listClass.ListData[index1];
+        let mut num: i32 =  listClass.ListData[index1];
         strArray1[index1] = "";
-        int historicalUnitCounter2 = this.game.Data.HistoricalUnitCounter;
-        for (int tid = 0; tid <= historicalUnitCounter2; tid += 1)
+        let mut historicalUnitCounter2: i32 =  this.game.Data.HistoricalUnitCounter;
+        for (let mut tid: i32 =  0; tid <= historicalUnitCounter2; tid += 1)
         {
           if (this.game.Data.HistoricalUnitObj[tid].ModelMaster == num & !this.game.Data.HistoricalUnitObj[tid].Model)
           {
             bool flag2 = false;
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int index2 = 0; index2 <= unitCounter; index2 += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
             {
               if (this.game.Data.UnitObj[index2].X > -1 & this.game.Data.UnitObj[index2].Historical == tid)
                 flag2 = true;
@@ -3789,15 +3789,15 @@ label_645:
           }
         }
         simpleList1.Sort();
-        int counter = simpleList1.Counter;
-        for (int index3 = 0; index3 <= counter; index3 += 1)
+        let mut counter: i32 =  simpleList1.Counter;
+        for (let mut index3: i32 =  0; index3 <= counter; index3 += 1)
         {
-          int index4 = simpleList1.Id[index3];
+          let mut index4: i32 =  simpleList1.Id[index3];
           if (this.game.Data.HistoricalUnitObj[index4].ModelMaster == num & !this.game.Data.HistoricalUnitObj[index4].Model)
           {
             bool flag3 = false;
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int index5 = 0; index5 <= unitCounter; index5 += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut index5: i32 =  0; index5 <= unitCounter; index5 += 1)
             {
               if (this.game.Data.UnitObj[index5].X > -1 & this.game.Data.UnitObj[index5].Historical == index4)
                 flag3 = true;
@@ -3808,8 +3808,8 @@ label_645:
               {
                 string[] strArray2 = strArray1;
                 string[] strArray3 = strArray2;
-                int index6 = index1;
-                int index7 = index6;
+                let mut index6: i32 =  index1;
+                let mut index7: i32 =  index6;
                 str3: String = strArray2[index6] + this.game.Data.HistoricalUnitObj[index4].Name;
                 strArray3[index7] = str3;
               }
@@ -3817,8 +3817,8 @@ label_645:
               {
                 string[] strArray4 = strArray1;
                 string[] strArray5 = strArray4;
-                int index8 = index1;
-                int index9 = index8;
+                let mut index8: i32 =  index1;
+                let mut index9: i32 =  index8;
                 str4: String = strArray4[index8] + ", " + this.game.Data.HistoricalUnitObj[index4].Name;
                 strArray5[index9] = str4;
               }
@@ -3831,19 +3831,19 @@ label_645:
       if (flag1)
       {
         SimpleList simpleList2 = SimpleList::new();
-        int listCount2 = listClass.ListCount;
-        for (int index10 = 0; index10 <= listCount2; index10 += 1)
+        let mut listCount2: i32 =  listClass.ListCount;
+        for (let mut index10: i32 =  0; index10 <= listCount2; index10 += 1)
         {
-          int num = listClass.ListData[index10];
+          let mut num: i32 =  listClass.ListData[index10];
           strArray6[index10] = "";
-          int historicalUnitCounter3 = this.game.Data.HistoricalUnitCounter;
-          for (int tid = 0; tid <= historicalUnitCounter3; tid += 1)
+          let mut historicalUnitCounter3: i32 =  this.game.Data.HistoricalUnitCounter;
+          for (let mut tid: i32 =  0; tid <= historicalUnitCounter3; tid += 1)
           {
             if (this.game.Data.HistoricalUnitObj[tid].ModelMaster == num & !this.game.Data.HistoricalUnitObj[tid].Model & this.game.Data.HistoricalUnitObj[tid].TempVar3 > 0 & this.game.Data.HistoricalUnitObj[tid].TempVar4 > 0 & this.game.Data.HistoricalUnitObj[tid].TempVar5 > 0 && this.game.Data.HistoricalUnitObj[tid].TempVar4 <= 12 & this.game.Data.HistoricalUnitObj[tid].TempVar5 <= 31 && DateTime.Compare(new DateTime(this.game.Data.HistoricalUnitObj[tid].TempVar3, this.game.Data.HistoricalUnitObj[tid].TempVar4, this.game.Data.HistoricalUnitObj[tid].TempVar5), this.game.Data.StartData) >= 0)
             {
               bool flag4 = false;
-              int unitCounter = this.game.Data.UnitCounter;
-              for (int index11 = 0; index11 <= unitCounter; index11 += 1)
+              let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+              for (let mut index11: i32 =  0; index11 <= unitCounter; index11 += 1)
               {
                 if (this.game.Data.UnitObj[index11].X > -1 & this.game.Data.UnitObj[index11].Historical == tid)
                   flag4 = true;
@@ -3853,18 +3853,18 @@ label_645:
             }
           }
           simpleList2.Sort();
-          int counter = simpleList2.Counter;
-          for (int index12 = 0; index12 <= counter; index12 += 1)
+          let mut counter: i32 =  simpleList2.Counter;
+          for (let mut index12: i32 =  0; index12 <= counter; index12 += 1)
           {
-            int index13 = simpleList2.Id[index12];
+            let mut index13: i32 =  simpleList2.Id[index12];
             if (this.game.Data.HistoricalUnitObj[index13].ModelMaster == num & !this.game.Data.HistoricalUnitObj[index13].Model)
             {
               if (Operators.CompareString(strArray6[index10], "", false) == 0)
               {
                 string[] strArray7 = strArray6;
                 string[] strArray8 = strArray7;
-                int index14 = index10;
-                int index15 = index14;
+                let mut index14: i32 =  index10;
+                let mut index15: i32 =  index14;
                 str5: String = strArray7[index14] + this.game.Data.HistoricalUnitObj[index13].Name + "(" + this.game.Data.HistoricalUnitObj[index13].TempVar5.ToString() + " " + Strings.Left(this.game.HandyFunctionsObj.GetMonth(this.game.Data.HistoricalUnitObj[index13].TempVar4), 3) + " " + this.game.Data.HistoricalUnitObj[index13].TempVar3.ToString() + ")";
                 strArray8[index15] = str5;
               }
@@ -3872,8 +3872,8 @@ label_645:
               {
                 string[] strArray9 = strArray6;
                 string[] strArray10 = strArray9;
-                int index16 = index10;
-                int index17 = index16;
+                let mut index16: i32 =  index10;
+                let mut index17: i32 =  index16;
                 str6: String = strArray9[index16] + ", " + this.game.Data.HistoricalUnitObj[index13].Name + "(" + this.game.Data.HistoricalUnitObj[index13].TempVar5.ToString() + " " + Strings.Left(this.game.HandyFunctionsObj.GetMonth(this.game.Data.HistoricalUnitObj[index13].TempVar4), 3) + " " + this.game.Data.HistoricalUnitObj[index13].TempVar3.ToString() + ")";
                 strArray10[index17] = str6;
               }
@@ -3940,8 +3940,8 @@ label_645:
       pdfPage2.Size = PageSize.A4;
       XGraphics xgraphics6 = XGraphics.FromPdfPage(pdfPage2);
       str11: String = "INDEX";
-      int num1 = 0;
-      int num2 = 0;
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  0;
       XGraphics xgraphics7 = xgraphics6;
       text5: String = str11;
       XFont font5 = xfont4;
@@ -3950,8 +3950,8 @@ label_645:
       XRect layoutRectangle5 = xrect;
       XStringFormat center5 = XStringFormats.Center;
       xgraphics7.DrawString(text5, font5, brush5, layoutRectangle5, center5);
-      int listCount3 = listClass.ListCount;
-      for (int index = 0; index <= listCount3; index += 1)
+      let mut listCount3: i32 =  listClass.ListCount;
+      for (let mut index: i32 =  0; index <= listCount3; index += 1)
       {
         num2 += 1;
         str12: String = this.game.Data.HistoricalUnitObj[listClass.ListData[index]].Name;
@@ -3980,13 +3980,13 @@ label_645:
         xgraphics9.DrawString(text7, font7, brush7, layoutRectangle7, topCenter);
       }
       pdfOutline.Outlines.Add("Index", pdfPage2, true);
-      int listCount4 = listClass.ListCount;
-      for (int index18 = 0; index18 <= listCount4; index18 += 1)
+      let mut listCount4: i32 =  listClass.ListCount;
+      for (let mut index18: i32 =  0; index18 <= listCount4; index18 += 1)
       {
-        int hisnr = listClass.ListData[index18];
-        int red = this.game.Data.RegimeObj[this.game.Data.HistoricalUnitObj[hisnr].TempRegime].Red;
-        int green = this.game.Data.RegimeObj[this.game.Data.HistoricalUnitObj[hisnr].TempRegime].Green;
-        int blue = this.game.Data.RegimeObj[this.game.Data.HistoricalUnitObj[hisnr].TempRegime].Blue;
+        let mut hisnr: i32 =  listClass.ListData[index18];
+        let mut red: i32 =  this.game.Data.RegimeObj[this.game.Data.HistoricalUnitObj[hisnr].TempRegime].Red;
+        let mut green: i32 =  this.game.Data.RegimeObj[this.game.Data.HistoricalUnitObj[hisnr].TempRegime].Green;
+        let mut blue: i32 =  this.game.Data.RegimeObj[this.game.Data.HistoricalUnitObj[hisnr].TempRegime].Blue;
         xbrush4 = (XBrush) new XSolidBrush(XColor.FromArgb( byte.MaxValue,  Math.Round((double) red + (double) ( byte.MaxValue - red) * 0.85),  Math.Round((double) green + (double) ( byte.MaxValue - green) * 0.85),  Math.Round((double) blue + (double) ( byte.MaxValue - blue) * 0.85)));
         XBrush brush8 = (XBrush) new XSolidBrush(XColor.FromArgb( byte.MaxValue,  Math.Round((double) red + (double) ( byte.MaxValue - red) * 0.75),  Math.Round((double) green + (double) ( byte.MaxValue - green) * 0.75),  Math.Round((double) blue + (double) ( byte.MaxValue - blue) * 0.75)));
         PdfPage pdfPage3 = pdfDocument.AddPage();
@@ -4010,7 +4010,7 @@ label_645:
         XRect layoutRectangle9 = xrect;
         XStringFormat center7 = XStringFormats.Center;
         xgraphics11.DrawString(text9, font9, brush10, layoutRectangle9, center7);
-        int historicalsSubUnitCount1 = this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(hisnr);
+        let mut historicalsSubUnitCount1: i32 =  this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(hisnr);
         str13: String = historicalsSubUnitCount1 != 1 ? "formation has " + historicalsSubUnitCount1.ToString() + " subunits." : "formation has " + historicalsSubUnitCount1.ToString() + " subunit.";
         XGraphics xgraphics12 = xgraphics6;
         text10: String = str13;
@@ -4020,15 +4020,15 @@ label_645:
         XRect layoutRectangle10 = xrect;
         XStringFormat center8 = XStringFormats.Center;
         xgraphics12.DrawString(text10, font10, brush11, layoutRectangle10, center8);
-        int num3 = 95;
-        int num4 = 0;
-        int historicalsSubUnitCount2 = this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(hisnr);
-        for (int index19 = 0; index19 <= historicalsSubUnitCount2; index19 += 1)
+        let mut num3: i32 =  95;
+        let mut num4: i32 =  0;
+        let mut historicalsSubUnitCount2: i32 =  this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(hisnr);
+        for (let mut index19: i32 =  0; index19 <= historicalsSubUnitCount2; index19 += 1)
         {
-          int num5 = 0;
+          let mut num5: i32 =  0;
           if (this.game.Data.HistoricalUnitObj[hisnr].SubParts[index19] > -1)
           {
-            int preDef = this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[hisnr].SubParts[index19]);
+            let mut preDef: i32 =  this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[hisnr].SubParts[index19]);
             if (preDef > -1)
             {
               num5 = 10 * (this.game.Data.UnitObj[preDef].SFCount + 1) + 8;
@@ -4038,16 +4038,16 @@ label_645:
           }
           num4 += num5;
         }
-        int height1 = num4 + 10;
+        let mut height1: i32 =  num4 + 10;
         xgraphics6.DrawRoundedRectangle(pen, brush8, 40, num3, 515, height1, 20, 20);
         xgraphics6.DrawLine(pen, 257.5, (double) num3, 257.5, (double) (num3 + height1));
-        int index20 = 0;
+        let mut index20: i32 =  0;
         int num6;
         do
         {
           if (this.game.Data.HistoricalUnitObj[hisnr].SubParts[index20] > -1)
           {
-            int preDef = this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[hisnr].SubParts[index20]);
+            let mut preDef: i32 =  this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[hisnr].SubParts[index20]);
             if (preDef > -1)
             {
               num3 += 3;
@@ -4059,9 +4059,9 @@ label_645:
                 num3 += 4;
               }
               num6 = 4;
-              int x1 = 90;
-              int width1 = 158;
-              int height2 = 10;
+              let mut x1: i32 =  90;
+              let mut width1: i32 =  158;
+              let mut height2: i32 =  10;
               if (this.game.Data.HistoricalUnitObj[hisnr].TempRegime > -1)
               {
                 XImage image = XImage.FromGdiPlusImage((Image) this.game.CustomBitmapObj.DrawBigCounter(this.game.Data.HistoricalUnitObj[hisnr].TempRegime));
@@ -4094,14 +4094,14 @@ label_645:
               XRect layoutRectangle11 = xrect;
               XStringFormat topLeft1 = XStringFormats.TopLeft;
               xgraphics13.DrawString(text11, font11, brush12, layoutRectangle11, topLeft1);
-              int x2 = 308;
-              int width2 = 158;
-              int height3 = 10;
-              int sfCount = this.game.Data.UnitObj[preDef].SFCount;
-              for (int index21 = 0; index21 <= sfCount; index21 += 1)
+              let mut x2: i32 =  308;
+              let mut width2: i32 =  158;
+              let mut height3: i32 =  10;
+              let mut sfCount: i32 =  this.game.Data.UnitObj[preDef].SFCount;
+              for (let mut index21: i32 =  0; index21 <= sfCount; index21 += 1)
               {
-                int sf = this.game.Data.UnitObj[preDef].SFList[index21];
-                int type = this.game.Data.SFObj[sf].Type;
+                let mut sf: i32 =  this.game.Data.UnitObj[preDef].SFList[index21];
+                let mut type: i32 =  this.game.Data.SFObj[sf].Type;
                 str14: String = (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].Ratio).ToString() + "x " + this.game.Data.ReinfName[this.game.Data.SFTypeObj[type].ReinforcementType] + " (" + this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].Name + ")";
                 XGraphics xgraphics14 = xgraphics6;
                 text12: String = str14;
@@ -4121,18 +4121,18 @@ label_645:
         while (index20 <= 9);
         if (num6 < 92)
           num3 += 92 - num6;
-        int y1 = num3 + 30;
-        int x3 = 40;
-        int width3 = 700;
-        int height4 = 15;
+        let mut y1: i32 =  num3 + 30;
+        let mut x3: i32 =  40;
+        let mut width3: i32 =  700;
+        let mut height4: i32 =  15;
         let mut game1: GameClass = this.game;
         Font tfont1 = Font::new(this.game.FontCol.Families[1], 8f, FontStyle.Regular);
         tText1: String = strArray1[index18];
         Bitmap bitmap1 = (Bitmap) null;
-         Bitmap local1 =  bitmap1;
+         let mut local1: &Bitmap = &bitmap1;
         TextAreaClass2 textAreaClass2_1 = new TextAreaClass2(game1, 740, 5, tfont1, tText1, tbackbitmap: ( local1));
-        int listCount5 = textAreaClass2_1.ListObj[0].ListCount;
-        for (int index22 = 0; index22 <= listCount5; index22 += 1)
+        let mut listCount5: i32 =  textAreaClass2_1.ListObj[0].ListCount;
+        for (let mut index22: i32 =  0; index22 <= listCount5; index22 += 1)
         {
           XGraphics xgraphics15 = xgraphics6;
           text13: String = textAreaClass2_1.ListObj[0].ListName[index22];
@@ -4144,18 +4144,18 @@ label_645:
           xgraphics15.DrawString(text13, font13, brush14, layoutRectangle13, topLeft);
           y1 += 8;
         }
-        int y2 = y1 + 8;
-        int x4 = 40;
-        int width4 = 700;
-        int height5 = 15;
+        let mut y2: i32 =  y1 + 8;
+        let mut x4: i32 =  40;
+        let mut width4: i32 =  700;
+        let mut height5: i32 =  15;
         let mut game2: GameClass = this.game;
         Font tfont2 = Font::new(this.game.FontCol.Families[1], 8f, FontStyle.Regular);
         tText2: String = strArray6[index18];
         Bitmap bitmap2 = (Bitmap) null;
-         Bitmap local2 =  bitmap2;
+         let mut local2: &Bitmap = &bitmap2;
         TextAreaClass2 textAreaClass2_2 = new TextAreaClass2(game2, 740, 5, tfont2, tText2, tbackbitmap: ( local2));
-        int listCount6 = textAreaClass2_2.ListObj[0].ListCount;
-        for (int index23 = 0; index23 <= listCount6; index23 += 1)
+        let mut listCount6: i32 =  textAreaClass2_2.ListObj[0].ListCount;
+        for (let mut index23: i32 =  0; index23 <= listCount6; index23 += 1)
         {
           XGraphics xgraphics16 = xgraphics6;
           text14: String = textAreaClass2_2.ListObj[0].ListName[index23];
@@ -4187,12 +4187,12 @@ label_645:
       str1: String = Interaction.InputBox("Give version number please, or leave blank", "Shadow Empire : Planetary Conquest");
       str2: String = Interaction.InputBox("Give title", "Shadow Empire : Planetary Conquest");
       SimpleList[] simpleListArray = new SimpleList[this.game.Data.RegimeCounter + 1];
-      int regimeCounter1 = this.game.Data.RegimeCounter;
-      for (int index = 0; index <= regimeCounter1; index += 1)
+      let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter1; index += 1)
       {
         simpleListArray[index] = SimpleList::new();
-        int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
-        for (int tid = 0; tid <= historicalUnitCounter; tid += 1)
+        let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
+        for (let mut tid: i32 =  0; tid <= historicalUnitCounter; tid += 1)
         {
           if (this.game.Data.HistoricalUnitObj[tid].TempVar3 > 0 & this.game.Data.HistoricalUnitObj[tid].TempRegime == index & !this.game.Data.HistoricalUnitObj[tid].Model && this.game.Data.HistoricalUnitObj[tid].TempVar4 > 0 & this.game.Data.HistoricalUnitObj[tid].TempVar4 <= 12 & this.game.Data.HistoricalUnitObj[tid].TempVar5 > 0 & this.game.Data.HistoricalUnitObj[tid].TempVar5 <= 31 && DateTime.Compare(new DateTime(this.game.Data.HistoricalUnitObj[tid].TempVar3, this.game.Data.HistoricalUnitObj[tid].TempVar4, this.game.Data.HistoricalUnitObj[tid].TempVar5), this.game.Data.StartData) >= 0)
             simpleListArray[index].Add(tid, this.game.Data.HistoricalUnitObj[tid].TempVar3 * 1000000 + this.game.Data.HistoricalUnitObj[tid].TempVar4 * 100 + this.game.Data.HistoricalUnitObj[tid].TempVar5 * 1, this.game.Data.HistoricalUnitObj[tid].TempVar3, this.game.Data.HistoricalUnitObj[tid].TempVar4, this.game.Data.HistoricalUnitObj[tid].TempVar5);
@@ -4254,14 +4254,14 @@ label_645:
       xgraphics5.DrawString(text4, font4, brush4, layoutRectangle4, center4);
       title: String = "Reinforcement Units Guide for " + str2;
       PdfOutline pdfOutline = pdfDocument.Outlines.Add(title, pdfPage1, true, PdfOutlineStyle.Bold, XColors.DarkGray);
-      int regimeCounter2 = this.game.Data.RegimeCounter;
-      for (int index = 0; index <= regimeCounter2; index += 1)
+      let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter2; index += 1)
       {
         if (simpleListArray[index].Counter > -1)
         {
-          int red = this.game.Data.RegimeObj[index].Red;
-          int green = this.game.Data.RegimeObj[index].Green;
-          int blue = this.game.Data.RegimeObj[index].Blue;
+          let mut red: i32 =  this.game.Data.RegimeObj[index].Red;
+          let mut green: i32 =  this.game.Data.RegimeObj[index].Green;
+          let mut blue: i32 =  this.game.Data.RegimeObj[index].Blue;
           xbrush4 = (XBrush) new XSolidBrush(XColor.FromArgb( byte.MaxValue,  Math.Round((double) red + (double) ( byte.MaxValue - red) * 0.85),  Math.Round((double) green + (double) ( byte.MaxValue - green) * 0.85),  Math.Round((double) blue + (double) ( byte.MaxValue - blue) * 0.85)));
           xbrush5 = (XBrush) new XSolidBrush(XColor.FromArgb( byte.MaxValue,  Math.Round((double) red + (double) ( byte.MaxValue - red) * 0.75),  Math.Round((double) green + (double) ( byte.MaxValue - green) * 0.75),  Math.Round((double) blue + (double) ( byte.MaxValue - blue) * 0.75)));
           PdfPage pdfPage2 = pdfDocument.AddPage();
@@ -4296,13 +4296,13 @@ label_645:
           XRect layoutRectangle7 = xrect;
           XStringFormat topLeft1 = XStringFormats.TopLeft;
           xgraphics8.DrawString(name, font7, brush7, layoutRectangle7, topLeft1);
-          int y2 = 40;
-          int x = 40;
+          let mut y2: i32 =  40;
+          let mut x: i32 =  40;
           simpleListArray[index].Sort();
           while (simpleListArray[index].Counter > -1)
           {
-            int y3 = y2 + 20;
-            int num = simpleListArray[index].Weight[0];
+            let mut y3: i32 =  y2 + 20;
+            let mut num: i32 =  simpleListArray[index].Weight[0];
             str7: String = simpleListArray[index].Data3[0].ToString() + "-" + this.game.HandyFunctionsObj.GetMonth(simpleListArray[index].Data2[0]) + "-" + simpleListArray[index].Data1[0].ToString();
             XGraphics xgraphics9 = xgraphics1;
             text7: String = str7;
@@ -4313,7 +4313,7 @@ label_645:
             XStringFormat topLeft2 = XStringFormats.TopLeft;
             xgraphics9.DrawString(text7, font8, brush8, layoutRectangle8, topLeft2);
             y2 = y3 + 10;
-            for (int counter = simpleListArray[index].Counter; counter >= 0; counter += -1)
+            for (let mut counter: i32 =  simpleListArray[index].Counter; counter >= 0; counter += -1)
             {
               if (num == simpleListArray[index].Weight[counter])
               {

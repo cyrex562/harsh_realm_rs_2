@@ -45,7 +45,7 @@ namespace WindowsApplication1
      ListClass OptionsList2Obj;
      bool Hq;
 
-    pub NewUnitWindowClass( GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub NewUnitWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.steppy = 0;
@@ -162,10 +162,10 @@ namespace WindowsApplication1
         else
         {
           this.OptionsListObj = ListClass::new();
-          int num = -1;
-          int tlistselect1 = -1;
-          int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
-          for (int tdata = 0; tdata <= historicalUnitCounter; tdata += 1)
+          let mut num: i32 =  -1;
+          let mut tlistselect1: i32 =  -1;
+          let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
+          for (let mut tdata: i32 =  0; tdata <= historicalUnitCounter; tdata += 1)
           {
             if (this.game.Data.HistoricalUnitObj[tdata].Model & this.game.Data.HistoricalUnitObj[tdata].TempRegime == this.game.Data.Turn)
             {
@@ -183,7 +183,7 @@ namespace WindowsApplication1
           else
           {
             ListClass optionsListObj = this.OptionsListObj;
-            int tlistselect2 = tlistselect1;
+            let mut tlistselect2: i32 =  tlistselect1;
             let mut game: GameClass = this.game;
              Bitmap local1 =  this.OwnBitmap;
             Font font =  null;
@@ -224,12 +224,12 @@ namespace WindowsApplication1
       OrderResult orderResult1 = OrderResult::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.B3Id)
             {
               this.game.ProcessingObj.AddNewUnitBasedOnHistorical(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, this.game.Data.Turn, this.detailnr);
@@ -254,9 +254,9 @@ namespace WindowsApplication1
                 SoundMod.PlayAWave(this.game.AppPath + "sound/radio.wav",  this.game.EditObj);
               if (orderResult2.OK)
               {
-                int num2 = 0;
-                int unitCounter = this.game.Data.UnitCounter;
-                for (int index2 = 0; index2 <= unitCounter; index2 += 1)
+                let mut num2: i32 =  0;
+                let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
                 {
                   if (this.game.Data.UnitObj[index2].IsHQ & this.game.Data.UnitObj[index2].PreDef == -1 & this.game.Data.UnitObj[index2].X > -1 && this.game.Data.UnitObj[index2].Regime == this.game.Data.Turn)
                     num2 = 1;
@@ -338,7 +338,7 @@ namespace WindowsApplication1
             {
               if (num1 == this.OptionsListId)
               {
-                int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                 this.SubPartFlag[index1] = true;
                 if (num3 > -1)
                 {
@@ -350,7 +350,7 @@ namespace WindowsApplication1
               }
               if (num1 == this.OptionsList2Id)
               {
-                int num4 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                let mut num4: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                 this.SubPartFlag[index1] = true;
                 if (num4 > -1)
                 {

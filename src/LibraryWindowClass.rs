@@ -64,8 +64,8 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.LibListId);
       this.LibListObj = ListClass::new();
       tLibNr = -1;
-      int libraryCounter = this.game.Data.LibraryCounter;
-      for (int index = 0; index <= libraryCounter; index += 1)
+      let mut libraryCounter: i32 =  this.game.Data.LibraryCounter;
+      for (let mut index: i32 =  0; index <= libraryCounter; index += 1)
       {
         this.LibListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index);
         if (this.LibId == index)
@@ -74,7 +74,7 @@ namespace WindowsApplication1
       if (tLibNr == -1)
         this.LibId = -1;
       ListClass libListObj = this.LibListObj;
-      int libId = this.LibId;
+      let mut libId: i32 =  this.LibId;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -159,11 +159,11 @@ namespace WindowsApplication1
         this.RemoveLibTextId = this.AddSubPart( tsubpart12, 50, 449, 200, 20, 0);
         if (this.LibVarListId > 0)
           this.RemoveSubPart(this.LibVarListId);
-        int num1 = -1;
-        int num2 = -1;
+        let mut num1: i32 =  -1;
+        let mut num2: i32 =  -1;
         this.LibVarListObj = ListClass::new();
-        int libVarCounter = this.game.Data.LibVarCounter;
-        for (int index = 0; index <= libVarCounter; index += 1)
+        let mut libVarCounter: i32 =  this.game.Data.LibVarCounter;
+        for (let mut index: i32 =  0; index <= libVarCounter; index += 1)
         {
           if (this.game.Data.LibVarObj[index].libId.libSlot == this.LibId)
           {
@@ -176,7 +176,7 @@ namespace WindowsApplication1
         if (num1 == -1)
           this.LibVarId = -1;
         ListClass libVarListObj = this.LibVarListObj;
-        int tlistselect = num1;
+        let mut tlistselect: i32 =  num1;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -255,15 +255,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.LibListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -276,7 +276,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.LibVarListId)
             {
-              int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
@@ -345,38 +345,38 @@ namespace WindowsApplication1
               this.game.FormRef.Cursor = Cursors.WaitCursor;
               dataClass: DataClass = this.game.Data.Clone();
               name: String = this.game.Data.LibraryObj[this.LibId].name;
-              for (int regimeCounter = dataClass.RegimeCounter; regimeCounter >= 0; regimeCounter += -1)
+              for (let mut regimeCounter: i32 =  dataClass.RegimeCounter; regimeCounter >= 0; regimeCounter += -1)
                 dataClass.RemoveRegime(regimeCounter);
-              for (int locCounter = dataClass.LocCounter; locCounter >= 0; locCounter += -1)
+              for (let mut locCounter: i32 =  dataClass.LocCounter; locCounter >= 0; locCounter += -1)
                 dataClass.RemoveLoc(locCounter);
               int[] numArray = new int[dataClass.SmallPicCounter + 1];
-              int smallPicCounter1 = dataClass.SmallPicCounter;
-              for (int index2 = 0; index2 <= smallPicCounter1; index2 += 1)
+              let mut smallPicCounter1: i32 =  dataClass.SmallPicCounter;
+              for (let mut index2: i32 =  0; index2 <= smallPicCounter1; index2 += 1)
                 numArray[index2] = index2;
-              int smallPicCounter2 = dataClass.SmallPicCounter;
-              for (int nr = 0; nr <= smallPicCounter2 && dataClass.SmallPicCounter >= 0 && nr <= dataClass.SmallPicCounter; nr += 1)
+              let mut smallPicCounter2: i32 =  dataClass.SmallPicCounter;
+              for (let mut nr: i32 =  0; nr <= smallPicCounter2 && dataClass.SmallPicCounter >= 0 && nr <= dataClass.SmallPicCounter; nr += 1)
               {
                 if (dataClass.SmallLibId[nr].libSlot != this.LibId)
                 {
-                  int num4 = nr;
-                  int num5 = dataClass.SmallPicCounter - 1;
-                  for (int index3 = num4; index3 <= num5; index3 += 1)
+                  let mut num4: i32 =  nr;
+                  let mut num5: i32 =  dataClass.SmallPicCounter - 1;
+                  for (let mut index3: i32 =  num4; index3 <= num5; index3 += 1)
                     numArray[index3] = numArray[index3 + 1];
                   dataClass.RemoveSmallPic(nr);
                   if (dataClass.SmallPicCounter > -1)
                     --nr;
                 }
               }
-              int smallPicCounter3 = dataClass.SmallPicCounter;
-              for (int index4 = 0; index4 <= smallPicCounter3; index4 += 1)
+              let mut smallPicCounter3: i32 =  dataClass.SmallPicCounter;
+              for (let mut index4: i32 =  0; index4 <= smallPicCounter3; index4 += 1)
                 this.game.Data.SmallLibId[numArray[index4]].id = index4;
-              for (int libraryCounter = dataClass.LibraryCounter; libraryCounter >= 0; libraryCounter += -1)
+              for (let mut libraryCounter: i32 =  dataClass.LibraryCounter; libraryCounter >= 0; libraryCounter += -1)
               {
                 if (Operators.CompareString(dataClass.LibraryObj[libraryCounter].name, name, false) != 0)
                   dataClass.RemoveLibrary(libraryCounter);
               }
-              int eventCounter = dataClass.EventCounter;
-              for (int index5 = 0; index5 <= eventCounter; index5 += 1)
+              let mut eventCounter: i32 =  dataClass.EventCounter;
+              for (let mut index5: i32 =  0; index5 <= eventCounter; index5 += 1)
               {
                 if (dataClass.EventObj[index5].LibId.libSlot == 0 && dataClass.EventObj[index5].LibId.id > -1)
                 {
@@ -384,8 +384,8 @@ namespace WindowsApplication1
                   dataClass.EventObj[index5].LibId.id = -1;
                 }
               }
-              int stringListCounter = dataClass.StringListCounter;
-              for (int index6 = 0; index6 <= stringListCounter; index6 += 1)
+              let mut stringListCounter: i32 =  dataClass.StringListCounter;
+              for (let mut index6: i32 =  0; index6 <= stringListCounter; index6 += 1)
               {
                 if (dataClass.StringListObj[index6].LibId.libSlot == 0 && dataClass.StringListObj[index6].LibId.id > -1)
                 {
@@ -393,8 +393,8 @@ namespace WindowsApplication1
                   dataClass.StringListObj[index6].LibId.id = -1;
                 }
               }
-              int eventPicCounter = dataClass.EventPicCounter;
-              for (int index7 = 0; index7 <= eventPicCounter; index7 += 1)
+              let mut eventPicCounter: i32 =  dataClass.EventPicCounter;
+              for (let mut index7: i32 =  0; index7 <= eventPicCounter; index7 += 1)
               {
                 if (dataClass.eventPicLibId[index7].libSlot == 0 && dataClass.eventPicLibId[index7].id > -1)
                 {
@@ -409,7 +409,7 @@ namespace WindowsApplication1
               this.game.HandyFunctionsObj.ZipFile(str);
               windowReturnClass.SetFlag(true);
               this.game.FormRef.Cursor = Cursors.Default;
-              int num6 =  Interaction.MsgBox((object) "Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num6: i32 =   Interaction.MsgBox((object) "Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
             }
             else
             {
@@ -440,14 +440,14 @@ namespace WindowsApplication1
               }
               if (num1 == this.B4Id)
               {
-                int num7 =  Math.Round(Conversion.Val(Interaction.InputBox("Give version number please.", "Shadow Empire : Planetary Conquest")));
+                let mut num7: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give version number please.", "Shadow Empire : Planetary Conquest")));
                 if (num7 >= 1 & num7 <= 9999)
                 {
                   this.game.Data.LibraryObj[this.LibId].version = num7;
                 }
                 else
                 {
-                  int num8 =  Interaction.MsgBox((object) "Value between 1-9999 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num8: i32 =   Interaction.MsgBox((object) "Value between 1-9999 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeLibListGUI(this.LibId);
                 windowReturnClass.SetFlag(true);

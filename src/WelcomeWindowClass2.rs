@@ -204,17 +204,17 @@ namespace WindowsApplication1
       objgraphics.TextContrast = 1;
       if (self.game.Data.Product == 6)
       {
-         Graphics local1 =  objgraphics;
+         let mut local1: &Graphics = &objgraphics;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCINTRO2);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 =  Math.Round((double) (1024 - BitmapStore.GetWidth(self.game.MARCINTRO2)) / 2.0);
         DrawMod.DrawSimple( local1,  local2, x, 50);
       }
       else
       {
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCINTRO2);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         let mut x: i32 =  Math.Round((double) (1024 - BitmapStore.GetWidth(self.game.MARCINTRO2)) / 2.0);
         DrawMod.DrawSimple( local3,  local4, x, 50);
       }

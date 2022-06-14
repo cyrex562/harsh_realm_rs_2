@@ -91,8 +91,8 @@ namespace WindowsApplication1
 
     pub void AddList(ref CoordList listy)
     {
-      int counter = listy.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  listy.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (!this.Exists(listy.coord[index].x, listy.coord[index].y, listy.coord[index].map))
           this.AddCoord(listy.coord[index].x, listy.coord[index].y, listy.coord[index].map);
@@ -105,9 +105,9 @@ namespace WindowsApplication1
     {
       if (nr < this.counter)
       {
-        int num1 = nr;
-        int num2 = this.counter - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.counter - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.coord[index] = this.coord[index + 1];
       }
       --this.counter;
@@ -120,9 +120,9 @@ namespace WindowsApplication1
     {
       if (nr < this.counter)
       {
-        int num1 = nr;
-        int num2 = this.counter - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.counter - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.coord[index] = this.coord[index + 1];
       }
       --this.counter;
@@ -132,8 +132,8 @@ namespace WindowsApplication1
     {
       if (this.counter == -1)
         return false;
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.coord[index].x == x & this.coord[index].y == y & this.coord[index].map == map)
           return true;
@@ -145,8 +145,8 @@ namespace WindowsApplication1
     {
       if (this.counter == -1)
         return -1;
-      int counter = this.counter;
-      for (int slot = 0; slot <= counter; slot += 1)
+      let mut counter: i32 =  this.counter;
+      for (let mut slot: i32 =  0; slot <= counter; slot += 1)
       {
         if (this.coord[slot].x == x & this.coord[slot].y == y & this.coord[slot].map == map)
           return slot;
@@ -158,8 +158,8 @@ namespace WindowsApplication1
     {
       if (this.counter == -1)
         return -1;
-      int counter = this.counter;
-      for (int slot = 0; slot <= counter; slot += 1)
+      let mut counter: i32 =  this.counter;
+      for (let mut slot: i32 =  0; slot <= counter; slot += 1)
       {
         if ((this.coord[slot].x == x | x == -1) & (this.coord[slot].y == y | y == -1) && this.coord[slot].data1 == tdata1 & this.coord[slot].data2 == tdata2)
           return slot;
@@ -184,8 +184,8 @@ namespace WindowsApplication1
       int[] numArray1 = new int[this.counter + 1];
       int[] numArray2 = new int[this.counter + 1];
       int[] numArray3 = new int[this.counter + 1];
-      int counter = this.counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         numArray1[index] = this.coord[index].x;
         numArray2[index] = this.coord[index].y;
@@ -200,7 +200,7 @@ namespace WindowsApplication1
     {
       this.coord = new Coordinate[1000];
       this.noPresized = false;
-      int int32 = info.GetInt32(nameof (counter));
+      let mut int32: i32 =  info.GetInt32(nameof (counter));
       int[] numArray1 = new int[int32 + 1];
       int[] numArray2 = new int[int32 + 1];
       int[] numArray3 = new int[int32 + 1];
@@ -209,8 +209,8 @@ namespace WindowsApplication1
       int[] numArray4 = (int[]) info.GetValue("t1", numArray1.GetType());
       int[] numArray5 = (int[]) info.GetValue("t2", numArray2.GetType());
       int[] numArray6 = (int[]) info.GetValue("t3", numArray3.GetType());
-      int num = int32;
-      for (int index = 0; index <= num; index += 1)
+      let mut num: i32 =  int32;
+      for (let mut index: i32 =  0; index <= num; index += 1)
         this.AddCoord(numArray4[index], numArray5[index], numArray6[index]);
     }
   }

@@ -37,12 +37,12 @@ namespace WindowsApplication1
     {
       if (this.counter <= -1)
         return;
-      int num1 = 0;
+      let mut num1: i32 =  0;
       if (num1 > -1 && num1 < this.counter)
       {
-        int num2 = num1;
-        int num3 = this.counter - 1;
-        for (int index = num2; index <= num3; index += 1)
+        let mut num2: i32 =  num1;
+        let mut num3: i32 =  this.counter - 1;
+        for (let mut index: i32 =  num2; index <= num3; index += 1)
           this.data[index] = this.data[index + 1];
       }
       --this.counter;

@@ -196,11 +196,11 @@ namespace WindowsApplication1
       if (this.game.Data.LocTypeCounter > -1)
       {
         this.LocTypeListObj = ListClass::new();
-        int locTypeCounter = this.game.Data.LocTypeCounter;
-        for (int index = 0; index <= locTypeCounter; index += 1)
+        let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
+        for (let mut index: i32 =  0; index <= locTypeCounter; index += 1)
           this.LocTypeListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LocTypeObj[index].Name, index);
         ListClass locTypeListObj = this.LocTypeListObj;
-        int tlistselect = tLocTypenr;
+        let mut tlistselect: i32 =  tLocTypenr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -310,7 +310,7 @@ namespace WindowsApplication1
         this.OptionsListObj.add("Graphics", 0);
         this.OptionsListObj.add("Statistics", 2);
         ListClass optionsListObj = this.OptionsListObj;
-        int tabSheetNr = this.TabSheetNr;
+        let mut tabSheetNr: i32 =  this.TabSheetNr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -555,7 +555,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.B50Id);
       if (this.B50TextId > 0)
         this.RemoveSubPart(this.B50TextId);
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (this.Bitemid[index] > 0)
@@ -667,7 +667,7 @@ namespace WindowsApplication1
      void maketabsheetnr1()
     {
       this.BuildGroundListObj = ListClass::new();
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.BuildGroundListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 100] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].BuildgroundType[index]), index);
@@ -675,7 +675,7 @@ namespace WindowsApplication1
       }
       while (index <= 99);
       ListClass buildGroundListObj = this.BuildGroundListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -717,7 +717,7 @@ namespace WindowsApplication1
       }
       let mut tsubpart1: SubPartClass =  TextPartClass::new("descript: " + this.game.Data.LocTypeObj[this.LocTypeNr].Description, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 800, 20, false, tDescript: this.ss);
       this.desctxtid = this.AddSubPart( tsubpart1, 50, 380, 800, 20, 0);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         this.ss = "";
@@ -725,45 +725,45 @@ namespace WindowsApplication1
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] resId = this.ResId;
-          int index2 = index1;
+          let mut index2: i32 =  index1;
           tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          int num = this.AddSubPart( tsubpart1, 10, 410 + index1 * 20, 32, 16, 1);
+          let mut num: i32 =  this.AddSubPart( tsubpart1, 10, 410 + index1 * 20, 32, 16, 1);
           resId[index2] = num;
         }
         int[] restxtId = this.RestxtId;
-        int index3 = index1;
+        let mut index3: i32 =  index1;
         tsubpart1 =  TextPartClass::new("Research: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        int num1 = this.AddSubPart( tsubpart1, 50, 410 + index1 * 20 - 1, 200, 20, 0);
+        let mut num1: i32 =  this.AddSubPart( tsubpart1, 50, 410 + index1 * 20 - 1, 200, 20, 0);
         restxtId[index3] = num1;
         this.ss = "";
         str2: String = this.game.Data.LocTypeObj[this.LocTypeNr].VarType[index1] <= -1 ? "-1" : this.game.Data.RegimeSlotName[this.game.Data.LocTypeObj[this.LocTypeNr].VarType[index1]];
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] varTypeId = this.VarTypeId;
-          int index4 = index1;
+          let mut index4: i32 =  index1;
           tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          int num2 = this.AddSubPart( tsubpart1, 10, 530 + index1 * 20, 32, 16, 1);
+          let mut num2: i32 =  this.AddSubPart( tsubpart1, 10, 530 + index1 * 20, 32, 16, 1);
           varTypeId[index4] = num2;
         }
         int[] varTypetxtId = this.VarTypetxtId;
-        int index5 = index1;
+        let mut index5: i32 =  index1;
         tsubpart1 =  TextPartClass::new("VarType: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        int num3 = this.AddSubPart( tsubpart1, 50, 530 + index1 * 20 - 1, 200, 20, 0);
+        let mut num3: i32 =  this.AddSubPart( tsubpart1, 50, 530 + index1 * 20 - 1, 200, 20, 0);
         varTypetxtId[index5] = num3;
         this.ss = "";
         str3: String = Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].VarQty[index1]);
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] varQtyId = this.VarQtyId;
-          int index6 = index1;
+          let mut index6: i32 =  index1;
           tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
-          int num4 = this.AddSubPart( tsubpart1, 310, 530 + index1 * 20, 32, 16, 1);
+          let mut num4: i32 =  this.AddSubPart( tsubpart1, 310, 530 + index1 * 20, 32, 16, 1);
           varQtyId[index6] = num4;
         }
         int[] varQtytxtId = this.VarQtytxtId;
-        int index7 = index1;
+        let mut index7: i32 =  index1;
         tsubpart1 =  TextPartClass::new("Qty: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
-        int num5 = this.AddSubPart( tsubpart1, 350, 530 + index1 * 20 - 1, 200, 20, 0);
+        let mut num5: i32 =  this.AddSubPart( tsubpart1, 350, 530 + index1 * 20 - 1, 200, 20, 0);
         varQtytxtId[index7] = num5;
         index1 += 1;
       }
@@ -1071,7 +1071,7 @@ namespace WindowsApplication1
       this.PGListObj = ListClass::new();
       if (this.DetailNr < -1 | this.DetailNr > 99)
         this.DetailNr = -1;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.PGListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 200] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].PeopleGroup[index]), index);
@@ -1079,7 +1079,7 @@ namespace WindowsApplication1
       }
       while (index <= 99);
       ListClass pgListObj = this.PGListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1119,7 +1119,7 @@ namespace WindowsApplication1
       this.IGListObj = ListClass::new();
       if (this.DetailNr < -1 | this.DetailNr > 99)
         this.DetailNr = -1;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.IGListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 300] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].ItemGroup[index]), index);
@@ -1127,7 +1127,7 @@ namespace WindowsApplication1
       }
       while (index <= 99);
       ListClass igListObj = this.IGListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1159,7 +1159,7 @@ namespace WindowsApplication1
       this.LTListObj = ListClass::new();
       if (this.DetailNr < -1 | this.DetailNr > 99)
         this.DetailNr = -1;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.LTListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 500] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].MinDistance[index]), index);
@@ -1167,7 +1167,7 @@ namespace WindowsApplication1
       }
       while (index <= 99);
       ListClass ltListObj = this.LTListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1199,16 +1199,16 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
+        let mut subPartCounter: i32 =  this.SubPartCounter;
 label_236:
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.LocTypeListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -1227,7 +1227,7 @@ label_236:
             }
             if (num1 == this.BAddLocType2Id)
             {
-              int locTypeNr = this.LocTypeNr;
+              let mut locTypeNr: i32 =  this.LocTypeNr;
               this.game.Data.AddLocType();
               this.game.Data.LocTypeObj[this.game.Data.LocTypeCounter] = this.game.Data.LocTypeObj[locTypeNr].Clone();
               this.game.Data.LocTypeObj[this.game.Data.LocTypeCounter].LoadSprites();
@@ -1251,7 +1251,7 @@ label_236:
             }
             if (num1 == this.OptionsListId)
             {
-              int num3 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num3: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num3 > -1)
               {
@@ -1270,7 +1270,7 @@ label_236:
             }
             if (num1 == this.BRemoveLocTypeId2)
             {
-              for (int locTypeCounter = this.game.Data.LocTypeCounter; locTypeCounter >= 0; locTypeCounter += -1)
+              for (let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter; locTypeCounter >= 0; locTypeCounter += -1)
                 this.game.Data.RemoveLocType(locTypeCounter);
               this.MakeLocTypeListGUI(-1);
               windowReturnClass.SetFlag(true);
@@ -1302,7 +1302,7 @@ label_236:
             }
             if (num1 == this.B24Id)
             {
-              int num4 =  Math.Round(Conversion.Val(Interaction.InputBox("Give SMALL graphic, please. (-1=none)", "Shadow Empire : Planetary Conquest")));
+              let mut num4: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give SMALL graphic, please. (-1=none)", "Shadow Empire : Planetary Conquest")));
               if (num4 >= 0 & num4 <= this.game.Data.SmallPicCounter)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].SmallGraphic = num4;
@@ -1311,14 +1311,14 @@ label_236:
               else
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].SmallGraphic = -1;
-                int num5 =  Math.Round(Conversion.Val(Interaction.InputBox("Give NATO graphic, please. (-1=none)", "Shadow Empire : Planetary Conquest")));
+                let mut num5: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give NATO graphic, please. (-1=none)", "Shadow Empire : Planetary Conquest")));
                 if (num5 >= -1 & num5 <= this.game.NATO.GetUpperBound(0))
                 {
                   this.game.Data.LocTypeObj[this.LocTypeNr].ExtraGraphic = num5;
                 }
                 else
                 {
-                  int num6 =  Interaction.MsgBox((object) ("Invalid input. number between -1 and " + Conversion.Str((object) this.game.NATO.GetUpperBound(0))), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =   Interaction.MsgBox((object) ("Invalid input. number between -1 and " + Conversion.Str((object) this.game.NATO.GetUpperBound(0))), Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
               }
               this.maketabsheet();
@@ -1346,14 +1346,14 @@ label_236:
             }
             if (num1 == this.a10Id)
             {
-              int num7 =  Math.Round(Conversion.Val(Interaction.InputBox("Give AI Priority.", "Shadow Empire : Planetary Conquest")));
+              let mut num7: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give AI Priority.", "Shadow Empire : Planetary Conquest")));
               if (num7 >= -999999 & num7 < 999999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].AIPriority = num7;
               }
               else
               {
-                int num8 =  Interaction.MsgBox((object) "Invalid input. number between -99999 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =   Interaction.MsgBox((object) "Invalid input. number between -99999 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1392,7 +1392,7 @@ label_236:
             }
             if (num1 == this.BuildGroundListId)
             {
-              int num9 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num9: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num9 > -1)
               {
@@ -1432,10 +1432,10 @@ label_236:
             }
             if (num1 == this.B23Id)
             {
-              int locTypeCounter = this.game.Data.LocTypeCounter;
-              for (int index2 = 0; index2 <= locTypeCounter; index2 += 1)
+              let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
+              for (let mut index2: i32 =  0; index2 <= locTypeCounter; index2 += 1)
               {
-                int index3 = 0;
+                let mut index3: i32 =  0;
                 do
                 {
                   this.game.Data.LocTypeObj[index2].PeopleGroup[index3] = true;
@@ -1448,14 +1448,14 @@ label_236:
             }
             if (num1 == this.B6Id)
             {
-              int num10 =  Math.Round(Conversion.Val(Interaction.InputBox("Give ProdMax, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num10: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give ProdMax, please.", "Shadow Empire : Planetary Conquest")));
               if (num10 > -1 & num10 < 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].MaxProd = num10;
               }
               else
               {
-                int num11 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num11: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1463,14 +1463,14 @@ label_236:
             }
             if (num1 == this.B41Id)
             {
-              int num12 =  Math.Round(Conversion.Val(Interaction.InputBox("Max Supply", "Shadow Empire : Planetary Conquest")));
+              let mut num12: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Max Supply", "Shadow Empire : Planetary Conquest")));
               if (num12 > -1 & num12 < 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].maxSupply = num12;
               }
               else
               {
-                int num13 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num13: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1478,14 +1478,14 @@ label_236:
             }
             if (num1 == this.B42Id)
             {
-              int num14 =  Math.Round(Conversion.Val(Interaction.InputBox("Max Fuel", "Shadow Empire : Planetary Conquest")));
+              let mut num14: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Max Fuel", "Shadow Empire : Planetary Conquest")));
               if (num14 > -1 & num14 < 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].maxFuel = num14;
               }
               else
               {
-                int num15 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num15: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1493,14 +1493,14 @@ label_236:
             }
             if (num1 == this.B43Id)
             {
-              int num16 =  Math.Round(Conversion.Val(Interaction.InputBox("Max Evacuation %", "Shadow Empire : Planetary Conquest")));
+              let mut num16: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Max Evacuation %", "Shadow Empire : Planetary Conquest")));
               if (num16 >= 0 & num16 <= 100)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].maxEvacuate = num16;
               }
               else
               {
-                int num17 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num17: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1508,14 +1508,14 @@ label_236:
             }
             if (num1 == this.B44Id)
             {
-              int num18 =  Math.Round(Conversion.Val(Interaction.InputBox("Max Destroy %", "Shadow Empire : Planetary Conquest")));
+              let mut num18: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Max Destroy %", "Shadow Empire : Planetary Conquest")));
               if (num18 >= 0 & num18 <= 100)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].maxDestroy = num18;
               }
               else
               {
-                int num19 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num19: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1523,14 +1523,14 @@ label_236:
             }
             if (num1 == this.B45Id)
             {
-              int num20 =  Math.Round(Conversion.Val(Interaction.InputBox("Needs City Level", "Shadow Empire : Planetary Conquest")));
+              let mut num20: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Needs City Level", "Shadow Empire : Planetary Conquest")));
               if (num20 > -1 & num20 < 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].needsCityLevel = num20;
               }
               else
               {
-                int num21 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num21: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1538,14 +1538,14 @@ label_236:
             }
             if (num1 == this.B46Id)
             {
-              int num22 =  Math.Round(Conversion.Val(Interaction.InputBox("Is City Level", "Shadow Empire : Planetary Conquest")));
+              let mut num22: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Is City Level", "Shadow Empire : Planetary Conquest")));
               if (num22 > -1 & num22 < 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].cityLevel = num22;
               }
               else
               {
-                int num23 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num23: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1553,14 +1553,14 @@ label_236:
             }
             if (num1 == this.B47Id)
             {
-              int num24 =  Math.Round(Conversion.Val(Interaction.InputBox("Outer Supply Range", "Shadow Empire : Planetary Conquest")));
+              let mut num24: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Outer Supply Range", "Shadow Empire : Planetary Conquest")));
               if (num24 > -1 & num24 < 9999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].supplyRange = num24;
               }
               else
               {
-                int num25 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num25: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1568,14 +1568,14 @@ label_236:
             }
             if (num1 == this.B25Id)
             {
-              int num26 =  Math.Round(Conversion.Val(Interaction.InputBox("Give slot 0-9, please. (-1=no condition)", "Shadow Empire : Planetary Conquest")));
+              let mut num26: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give slot 0-9, please. (-1=no condition)", "Shadow Empire : Planetary Conquest")));
               if (num26 >= -1 & num26 <= 9)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].SlotType = num26;
               }
               else
               {
-                int num27 =  Interaction.MsgBox((object) "Invalid input. number between -1 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num27: i32 =   Interaction.MsgBox((object) "Invalid input. number between -1 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1583,14 +1583,14 @@ label_236:
             }
             if (num1 == this.B28Id)
             {
-              int num28 =  Math.Round(Conversion.Val(Interaction.InputBox("Give slot 0-9, please. (-1=no condition)", "Shadow Empire : Planetary Conquest")));
+              let mut num28: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give slot 0-9, please. (-1=no condition)", "Shadow Empire : Planetary Conquest")));
               if (num28 >= -1 & num28 <= 9)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].SetPeopleToSlotX = num28;
               }
               else
               {
-                int num29 =  Interaction.MsgBox((object) "Invalid input. number between -1 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num29: i32 =   Interaction.MsgBox((object) "Invalid input. number between -1 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1598,14 +1598,14 @@ label_236:
             }
             if (num1 == this.B31Id)
             {
-              int num30 =  Math.Round(Conversion.Val(Interaction.InputBox("Give top airstack. 0=unlimited", "Shadow Empire : Planetary Conquest")));
+              let mut num30: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give top airstack. 0=unlimited", "Shadow Empire : Planetary Conquest")));
               if (num30 >= 0 & num30 <= 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].TopAirStack = num30;
               }
               else
               {
-                int num31 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num31: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1620,14 +1620,14 @@ label_236:
             }
             if (num1 == this.B32Id)
             {
-              int num32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Logistical Bonus", "Shadow Empire : Planetary Conquest")));
+              let mut num32: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Logistical Bonus", "Shadow Empire : Planetary Conquest")));
               if (num32 >= 0 & num32 <= 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].Logistical = num32;
               }
               else
               {
-                int num33 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num33: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1635,14 +1635,14 @@ label_236:
             }
             if (num1 == this.B26Id)
             {
-              int num34 =  Math.Round(Conversion.Val(Interaction.InputBox("Give slot value", "Shadow Empire : Planetary Conquest")));
+              let mut num34: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give slot value", "Shadow Empire : Planetary Conquest")));
               if (num34 >= -99999 & num34 <= 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].SlotValue = num34;
               }
               else
               {
-                int num35 =  Interaction.MsgBox((object) "Invalid input. number between -9999 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num35: i32 =   Interaction.MsgBox((object) "Invalid input. number between -9999 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1650,20 +1650,20 @@ label_236:
             }
             if (num1 == this.B27Id)
             {
-              int num36 =  Math.Round(Conversion.Val(Interaction.InputBox("Give picture LT (-1=none)", "Shadow Empire : Planetary Conquest")));
+              let mut num36: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give picture LT (-1=none)", "Shadow Empire : Planetary Conquest")));
               if (num36 >= -1 & num36 <= this.game.Data.LandscapeTypeCounter)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].PictureLT = num36;
                 if (num36 > -1)
                 {
-                  int num37 =  Math.Round(Conversion.Val(Interaction.InputBox("Give sprite LT (-1=none)", "Shadow Empire : Planetary Conquest")));
+                  let mut num37: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give sprite LT (-1=none)", "Shadow Empire : Planetary Conquest")));
                   if (num37 >= -1 & num37 <= this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.LocTypeNr].PictureLT].BasicSpriteCounter)
                   {
                     this.game.Data.LocTypeObj[this.LocTypeNr].PictureSprite = num37;
                   }
                   else
                   {
-                    int num38 =  Interaction.MsgBox((object) "Invalid input. Not a valid sprite", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num38: i32 =   Interaction.MsgBox((object) "Invalid input. Not a valid sprite", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 else
@@ -1672,21 +1672,21 @@ label_236:
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              int num39 =  Interaction.MsgBox((object) "Invalid input. Not a valid LT", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num39: i32 =   Interaction.MsgBox((object) "Invalid input. Not a valid LT", Title: ((object) "Shadow Empire : Planetary Conquest"));
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
             if (num1 == this.B5Id)
             {
-              int num40 =  Math.Round(Conversion.Val(Interaction.InputBox("Give ZOrder, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num40: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give ZOrder, please.", "Shadow Empire : Planetary Conquest")));
               if (num40 > -1 & num40 < 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].ZOrder = num40;
               }
               else
               {
-                int num41 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num41: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1694,14 +1694,14 @@ label_236:
             }
             if (num1 == this.B9Id)
             {
-              int num42 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Struc.Pts, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num42: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Struc.Pts, please.", "Shadow Empire : Planetary Conquest")));
               if (num42 > -1 & num42 < 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].StructuralPts = num42;
               }
               else
               {
-                int num43 =  Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num43: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1721,14 +1721,14 @@ label_236:
             }
             if (num1 == this.upgradeid)
             {
-              int num44 =  Math.Round(Conversion.Val(Interaction.InputBox("Give LocType # to which it can upgrade please. (-1=none)", "Shadow Empire : Planetary Conquest")));
+              let mut num44: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give LocType # to which it can upgrade please. (-1=none)", "Shadow Empire : Planetary Conquest")));
               if (num44 >= -1 & num44 <= this.game.Data.LocTypeCounter)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].UpgradeNr = num44;
               }
               else
               {
-                int num45 =  Interaction.MsgBox((object) "Invalid input. between -1 and LocTypeCounter plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num45: i32 =   Interaction.MsgBox((object) "Invalid input. between -1 and LocTypeCounter plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1743,14 +1743,14 @@ label_236:
             }
             if (num1 == this.B14Id)
             {
-              int num46 =  Math.Round(Conversion.Val(Interaction.InputBox("Give AutoRecov.pts, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num46: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give AutoRecov.pts, please.", "Shadow Empire : Planetary Conquest")));
               if (num46 > -1 & num46 <= 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].AutoRecoverPts = num46;
               }
               else
               {
-                int num47 =  Interaction.MsgBox((object) "Invalid input. between 0 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num47: i32 =   Interaction.MsgBox((object) "Invalid input. between 0 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1764,14 +1764,14 @@ label_236:
             }
             if (num1 == this.B18Id)
             {
-              int num48 =  Math.Round(Conversion.Val(Interaction.InputBox("Give EP COst, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num48: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give EP COst, please.", "Shadow Empire : Planetary Conquest")));
               if (num48 > -1 & num48 <= 9999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].EPCost = num48;
               }
               else
               {
-                int num49 =  Interaction.MsgBox((object) "Invalid input. between 0 and 9999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num49: i32 =   Interaction.MsgBox((object) "Invalid input. between 0 and 9999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1807,7 +1807,7 @@ label_236:
             }
             if (num1 == this.PGListId)
             {
-              int num50 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num50: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num50 > -1)
               {
@@ -1826,7 +1826,7 @@ label_236:
             }
             if (num1 == this.IGListId)
             {
-              int num51 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num51: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num51 > -1)
               {
@@ -1845,7 +1845,7 @@ label_236:
             }
             if (num1 == this.LTListId)
             {
-              int num52 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num52: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num52 > -1)
               {
@@ -1857,14 +1857,14 @@ label_236:
             }
             if (num1 == this.B20Id)
             {
-              int num53 =  Math.Round(Conversion.Val(Interaction.InputBox("Give LocTypeGroup, please.", "Shadow Empire : Planetary Conquest")));
+              let mut num53: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give LocTypeGroup, please.", "Shadow Empire : Planetary Conquest")));
               if (num53 >= -1 & num53 <= 99)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].MinDistance[this.DetailNr] = num53;
               }
               else
               {
-                int num54 =  Interaction.MsgBox((object) "Invalid input. between -1 and 99 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num54: i32 =   Interaction.MsgBox((object) "Invalid input. between -1 and 99 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1872,14 +1872,14 @@ label_236:
             }
             if (num1 == this.B21Id)
             {
-              int num55 =  Math.Round(Conversion.Val(Interaction.InputBox("Give SupplyCost in ProdPoints please", "Shadow Empire : Planetary Conquest")));
+              let mut num55: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give SupplyCost in ProdPoints please", "Shadow Empire : Planetary Conquest")));
               if (num55 >= -1 & num55 <= 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].SupplyCost = num55;
               }
               else
               {
-                int num56 =  Interaction.MsgBox((object) "Invalid input. between -1 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num56: i32 =   Interaction.MsgBox((object) "Invalid input. between -1 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1887,20 +1887,20 @@ label_236:
             }
             if (num1 == this.B22Id)
             {
-              int num57 =  Math.Round(Conversion.Val(Interaction.InputBox("Give PolPoint cost please", "Shadow Empire : Planetary Conquest")));
+              let mut num57: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give PolPoint cost please", "Shadow Empire : Planetary Conquest")));
               if (num57 >= 0 & num57 <= 99999)
               {
                 this.game.Data.LocTypeObj[this.LocTypeNr].PPCost = num57;
               }
               else
               {
-                int num58 =  Interaction.MsgBox((object) "Invalid input. between 0 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num58: i32 =   Interaction.MsgBox((object) "Invalid input. between 0 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            int tnr2 = 0;
+            let mut tnr2: i32 =  0;
             while (this.SubPartID[index1] != this.ResId[tnr2])
             {
               if (this.SubPartID[index1] == this.VarTypeId[tnr2])
@@ -1912,7 +1912,7 @@ label_236:
               }
               if (this.SubPartID[index1] == this.VarQtyId[tnr2])
               {
-                int num59 =  Math.Round(Conversion.Val(Interaction.InputBox("Give qty", "Shadow Empire : Planetary Conquest")));
+                let mut num59: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give qty", "Shadow Empire : Planetary Conquest")));
                 this.game.Data.LocTypeObj[this.LocTypeNr].VarQty[tnr2] = num59;
                 this.maketabsheet();
                 windowReturnClass.SetFlag(true);

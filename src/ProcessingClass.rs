@@ -7952,23 +7952,23 @@ label_81:
                       if (num9 >= num12 | freeOfCost | flag8)
                       {
                         let mut index7: i32 = this.game.Data.LocObj[index5].tempRequestItems.Id[index6];
-                        int num13 = this.game.Data.LocObj[index5].tempRequestItems.Weight[index6];
+                        let mut num13: i32 =  this.game.Data.LocObj[index5].tempRequestItems.Weight[index6];
                         num12 = numArray1[index7];
                         id = this.game.Data.LocObj[index5].tempHandledItems.FindNr(index7);
-                        int num14 = 0;
+                        let mut num14: i32 =  0;
                         if (id > -1)
                           num14 = this.game.Data.LocObj[index5].tempHandledItems.Weight[id];
-                        int num15 =  Math.Round(Math.Ceiling((double) num13 * ((double) num3 / 100.0) * ((double) num11 / 100.0)));
+                        let mut num15: i32 =   Math.Round(Math.Ceiling((double) num13 * ((double) num3 / 100.0) * ((double) num11 / 100.0)));
                         if (num13 > 0 & num15 == 0)
                           num15 = 1;
-                        int num16 = num15 - num14;
+                        let mut num16: i32 =  num15 - num14;
                         if (flag7 & !flag8 && num12 < 1 && this.LIS_HasAirBridgeOnTrajectory(this.game.Data.LocObj[index5].X, this.game.Data.LocObj[index5].Y, this.game.Data.UnitObj[index2].X, this.game.Data.UnitObj[index2].Y))
                         {
                           num12 = 1;
                           if (this.IsItemMaximizer(index7))
                             num16 = 0;
                         }
-                        int num17 = num16;
+                        let mut num17: i32 =  num16;
                         if (flag8)
                           num17 = 0;
                         if (!freeOfCost && num17 > num9)
@@ -7981,7 +7981,7 @@ label_81:
                           id = this.game.Data.UnitObj[index2].items.list.FindNr(index7);
                           if (id > -1)
                           {
-                            int num18 = this.game.Data.UnitObj[index2].items.list.Weight[id];
+                            let mut num18: i32 =  this.game.Data.UnitObj[index2].items.list.Weight[id];
                             if (num18 < 0)
                               num18 = 0;
                             if (num16 > num18)
@@ -8030,7 +8030,7 @@ label_81:
                             id = id;
                           if (this.game.Data.LocObj[index5].X == 14 & this.game.Data.LocObj[index5].Y == 3)
                             index5 = index5;
-                          int num19 = num16;
+                          let mut num19: i32 =  num16;
                           bool ok;
                           if (!(flag8 | num12 < 1))
                           {
@@ -8040,7 +8040,7 @@ label_81:
                               ok = orderResult.OK;
                               if (orderResult.Data > 0)
                               {
-                                int randomizedRoundingDam = this.game.HandyFunctionsObj.Air_GetRandomizedRoundingDam(num19, orderResult.Data);
+                                let mut randomizedRoundingDam: i32 =  this.game.HandyFunctionsObj.Air_GetRandomizedRoundingDam(num19, orderResult.Data);
                                 num19 -= randomizedRoundingDam;
                                 if (flag2)
                                 {
@@ -8108,11 +8108,11 @@ label_81:
         if (num3 < 100)
           flag4 = true;
       }
-      int counter = simpleList.Counter;
-      for (int index8 = 0; index8 <= counter; index8 += 1)
+      let mut counter: i32 =  simpleList.Counter;
+      for (let mut index8: i32 =  0; index8 <= counter; index8 += 1)
       {
-        int index9 = simpleList.Id[index8];
-        int data3 = this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[index9].X, this.game.Data.UnitObj[index9].Y].LIShistory[6] - this.game.Data.UnitObj[index9].tempLisStartHistory;
+        let mut index9: i32 =  simpleList.Id[index8];
+        let mut data3: i32 =  this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[index9].X, this.game.Data.UnitObj[index9].Y].LIShistory[6] - this.game.Data.UnitObj[index9].tempLisStartHistory;
         this.AddPLog("SHQ " + this.game.Data.UnitObj[index9].Name + " total LIS use " + data3.ToString() + " pts.");
         if (flag2)
           this.game.Data.UnitObj[index9].AddLog(502, 1, 0, data3);
@@ -8144,23 +8144,23 @@ label_81:
       int unr)
     {
       bool flag = true;
-      int slot1 = this.game.Data.UnitObj[unr].tempComplexCoords.FindSlot(ox, oy, 0);
-      int slot2 = this.game.Data.UnitObj[unr].tempCoords.FindSlot(ox, oy, 0);
+      let mut slot1: i32 =  this.game.Data.UnitObj[unr].tempComplexCoords.FindSlot(ox, oy, 0);
+      let mut slot2: i32 =  this.game.Data.UnitObj[unr].tempCoords.FindSlot(ox, oy, 0);
       if (slot1 == -1 || slot2 == -1)
         return;
       CoordList coordList = CoordList::new();
-      for (int counter = this.game.Data.UnitObj[unr].tempComplexCoords.coordList[slot1].counter; counter >= 0; counter += -1)
+      for (let mut counter: i32 =  this.game.Data.UnitObj[unr].tempComplexCoords.coordList[slot1].counter; counter >= 0; counter += -1)
         coordList.AddCoord(this.game.Data.UnitObj[unr].tempComplexCoords.coordList[slot1].coord[counter].x, this.game.Data.UnitObj[unr].tempComplexCoords.coordList[slot1].coord[counter].y, this.game.Data.UnitObj[unr].tempComplexCoords.coordList[slot1].coord[counter].map, this.game.Data.UnitObj[unr].tempComplexCoords.coordList[slot1].coord[counter].data1, this.game.Data.UnitObj[unr].tempComplexCoords.coordList[slot1].coord[counter].data2);
       coordList.AddCoord(ox, oy, 0, 0, this.game.Data.UnitObj[unr].tempCoords.coord[slot2].data2);
-      int num1 =  Math.Round(Math.Ceiling((double) coordList.counter / 2.0));
-      for (int index1 = 0; index1 <= num1; index1 += 1)
+      let mut num1: i32 =   Math.Round(Math.Ceiling((double) coordList.counter / 2.0));
+      for (let mut index1: i32 =  0; index1 <= num1; index1 += 1)
       {
-        int index2 = coordList.counter - index1;
-        int data2 = coordList.coord[index1].data2;
+        let mut index2: i32 =  coordList.counter - index1;
+        let mut data2: i32 =  coordList.coord[index1].data2;
         coordList.coord[index1].data2 = coordList.coord[index2].data2;
         coordList.coord[index2].data2 = data2;
       }
-      int num2 = percentageWholeTrajectory;
+      let mut num2: i32 =  percentageWholeTrajectory;
       Coordinate coordinate1;
       coordinate1.x = coordList.coord[0].x;
       coordinate1.y = coordList.coord[0].y;
@@ -8168,51 +8168,51 @@ label_81:
       coordinate1.onmap = true;
       if (this.game.Data.Turn == 2)
         ;
-      int counter1 = coordList.counter;
-      for (int index3 = 1; index3 <= counter1; index3 += 1)
+      let mut counter1: i32 =  coordList.counter;
+      for (let mut index3: i32 =  1; index3 <= counter1; index3 += 1)
       {
         Coordinate coordinate2 = coordList.coord[index3];
-        int data2 = coordinate2.data2;
+        let mut data2: i32 =  coordinate2.data2;
         if (!coordinate2.onmap)
           break;
-        int index4 = this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
-        int index5 = index4 + 3;
+        let mut index4: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
+        let mut index5: i32 =  index4 + 3;
         if (index5 > 5)
           index5 -= 6;
         if (flag)
         {
-          int num3 =  Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[6] * this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganicPercentage[6] + pts * num2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[6]));
+          let mut num3: i32 =   Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[6] * this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganicPercentage[6] + pts * num2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[6]));
           this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganicPercentage[6] = num3;
           int[] liSorganic = this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic;
           int[] numArray = liSorganic;
-          int index6 = 6;
-          int index7 = index6;
-          int num4 = liSorganic[index6] + pts;
+          let mut index6: i32 =  6;
+          let mut index7: i32 =  index6;
+          let mut num4: i32 =  liSorganic[index6] + pts;
           numArray[index7] = num4;
         }
-        int num5 =  Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[index4] * this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganicPercentage[index4] + pts * num2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[index4]));
+        let mut num5: i32 =   Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[index4] * this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganicPercentage[index4] + pts * num2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic[index4]));
         this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganicPercentage[index4] = num5;
         int[] liSorganic1 = this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISorganic;
         int[] numArray1 = liSorganic1;
-        int index8 = index4;
-        int index9 = index8;
-        int num6 = liSorganic1[index8] + pts;
+        let mut index8: i32 =  index4;
+        let mut index9: i32 =  index8;
+        let mut num6: i32 =  liSorganic1[index8] + pts;
         numArray1[index9] = num6;
-        int num7 =  Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[index5] * this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganicPercentage[index5] + pts * num2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[index5]));
+        let mut num7: i32 =   Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[index5] * this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganicPercentage[index5] + pts * num2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[index5]));
         this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganicPercentage[index5] = num7;
         int[] liSorganic2 = this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic;
         int[] numArray2 = liSorganic2;
-        int index10 = index5;
-        int index11 = index10;
-        int num8 = liSorganic2[index10] + pts;
+        let mut index10: i32 =  index5;
+        let mut index11: i32 =  index10;
+        let mut num8: i32 =  liSorganic2[index10] + pts;
         numArray2[index11] = num8;
-        int num9 =  Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[6] * this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganicPercentage[6] + pts * data2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[6]));
+        let mut num9: i32 =   Math.Round((double) (this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[6] * this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganicPercentage[6] + pts * data2) / (double) (pts + this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic[6]));
         this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganicPercentage[6] = num9;
         int[] liSorganic3 = this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISorganic;
         int[] numArray3 = liSorganic3;
-        int index12 = 6;
-        int index13 = index12;
-        int num10 = liSorganic3[index12] + pts;
+        let mut index12: i32 =  6;
+        let mut index13: i32 =  index12;
+        let mut num10: i32 =  liSorganic3[index12] + pts;
         numArray3[index13] = num10;
         flag = false;
         coordinate1 = coordinate2;
@@ -8224,11 +8224,11 @@ label_81:
       int ox,
       int oy,
       int pts,
-      int unrForDam = -1)
+      let mut unrForDam: i32 =  -1)
     {
       bool flag1 = false;
       bool flag2 = true;
-      int num1 = 0;
+      let mut num1: i32 =  0;
       OrderResult orderResult = OrderResult::new();
       orderResult.OK = false;
       orderResult.Data = 0;
@@ -8243,7 +8243,7 @@ label_81:
         coordinate2 = this.game.EditObj.TempCameFrom[0].Value[coordinate1.x, coordinate1.y];
         if (coordinate2.onmap)
         {
-          int index1 = this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
+          let mut index1: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
           bool flag3 = false;
           int index2;
           if (index1 >= 0 & index1 <= 5)
@@ -8257,7 +8257,7 @@ label_81:
             flag3 = true;
             if (unrForDam > -1)
             {
-              int damForAirBridge = this.game.HandyFunctionsObj.Air_GetDamForAirBridge(coordinate2.x, coordinate2.y, coordinate1.x, coordinate1.y);
+              let mut damForAirBridge: i32 =  this.game.HandyFunctionsObj.Air_GetDamForAirBridge(coordinate2.x, coordinate2.y, coordinate1.x, coordinate1.y);
               this.game.HandyFunctionsObj.Air_applyDamToUnit(unrForDam, damForAirBridge);
               if (num1 > 0)
                 num1 +=  Math.Round((double) ((100 - num1) * damForAirBridge) / 100.0);
@@ -8271,67 +8271,67 @@ label_81:
           {
             int[] liSpoints = this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISpoints;
             int[] numArray = liSpoints;
-            int index3 = 6;
-            int index4 = index3;
-            int num2 = liSpoints[index3] - pts;
+            let mut index3: i32 =  6;
+            let mut index4: i32 =  index3;
+            let mut num2: i32 =  liSpoints[index3] - pts;
             numArray[index4] = num2;
           }
           if (!flag3)
           {
             int[] liSpoints = this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISpoints;
             int[] numArray = liSpoints;
-            int index5 = index1;
-            int index6 = index5;
-            int num3 = liSpoints[index5] - pts;
+            let mut index5: i32 =  index1;
+            let mut index6: i32 =  index5;
+            let mut num3: i32 =  liSpoints[index5] - pts;
             numArray[index6] = num3;
           }
           if (!flag3)
           {
             int[] liSpoints = this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISpoints;
             int[] numArray = liSpoints;
-            int index7 = index2;
-            int index8 = index7;
-            int num4 = liSpoints[index7] - pts;
+            let mut index7: i32 =  index2;
+            let mut index8: i32 =  index7;
+            let mut num4: i32 =  liSpoints[index7] - pts;
             numArray[index8] = num4;
           }
           int[] liSpoints1 = this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LISpoints;
           int[] numArray1 = liSpoints1;
-          int index9 = 6;
-          int index10 = index9;
-          int num5 = liSpoints1[index9] - pts;
+          let mut index9: i32 =  6;
+          let mut index10: i32 =  index9;
+          let mut num5: i32 =  liSpoints1[index9] - pts;
           numArray1[index10] = num5;
           if (flag2)
           {
             int[] liShistory = this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LIShistory;
             int[] numArray2 = liShistory;
-            int index11 = 6;
-            int index12 = index11;
-            int num6 = liShistory[index11] + pts;
+            let mut index11: i32 =  6;
+            let mut index12: i32 =  index11;
+            let mut num6: i32 =  liShistory[index11] + pts;
             numArray2[index12] = num6;
           }
           if (!flag3)
           {
             int[] liShistory = this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LIShistory;
             int[] numArray3 = liShistory;
-            int index13 = index1;
-            int index14 = index13;
-            int num7 = liShistory[index13] + pts;
+            let mut index13: i32 =  index1;
+            let mut index14: i32 =  index13;
+            let mut num7: i32 =  liShistory[index13] + pts;
             numArray3[index14] = num7;
           }
           if (!flag3)
           {
             int[] liShistory = this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LIShistory;
             int[] numArray4 = liShistory;
-            int index15 = index2;
-            int index16 = index15;
-            int num8 = liShistory[index15] + pts;
+            let mut index15: i32 =  index2;
+            let mut index16: i32 =  index15;
+            let mut num8: i32 =  liShistory[index15] + pts;
             numArray4[index16] = num8;
           }
           int[] liShistory1 = this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LIShistory;
           int[] numArray5 = liShistory1;
-          int index17 = 6;
-          int index18 = index17;
-          int num9 = liShistory1[index17] + pts;
+          let mut index17: i32 =  6;
+          let mut index18: i32 =  index17;
+          let mut num9: i32 =  liShistory1[index17] + pts;
           numArray5[index18] = num9;
           if (flag2 & this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISpoints[6] <= 0)
             flag1 = true;
@@ -8353,12 +8353,12 @@ label_81:
       CoordList CL,
       int lisPtsNeeded,
       bool lowestOnTrajectCheck = false,
-      int shqX = -1,
-      int shqY = -1)
+      let mut shqX: i32 =  -1,
+      let mut shqY: i32 =  -1)
     {
-      int num1 = 9999999;
-      int num2 = 0;
-      int num3 = 0;
+      let mut num1: i32 =  9999999;
+      let mut num2: i32 =  0;
+      let mut num3: i32 =  0;
       Coordinate unitBestCoordinate;
       unitBestCoordinate.x = -1;
       unitBestCoordinate.y = -1;
@@ -8373,8 +8373,8 @@ label_81:
         lowestOnTrajectCheck = false;
       if (!lowestOnTrajectCheck)
       {
-        int counter1 = CL.counter;
-        for (int index = 0; index <= counter1; index += 1)
+        let mut counter1: i32 =  CL.counter;
+        for (let mut index: i32 =  0; index <= counter1; index += 1)
         {
           if (this.game.Data.MapObj[0].HexObj[CL.coord[index].x, CL.coord[index].y].LISpoints[6] >= lisPtsNeeded && CL.coord[index].data2 > num2 | CL.coord[index].data2 == num2 & this.game.Data.MapObj[0].HexObj[CL.coord[index].x, CL.coord[index].y].LISpoints[6] > num3)
           {
@@ -8389,8 +8389,8 @@ label_81:
         }
         if (!unitBestCoordinate.onmap & lisPtsNeeded > 1)
         {
-          int counter2 = CL.counter;
-          for (int index = 0; index <= counter2; index += 1)
+          let mut counter2: i32 =  CL.counter;
+          for (let mut index: i32 =  0; index <= counter2; index += 1)
           {
             if (this.game.Data.MapObj[0].HexObj[CL.coord[index].x, CL.coord[index].y].LISpoints[6] >= 1 && CL.coord[index].data1 < num1)
             {
@@ -8405,11 +8405,11 @@ label_81:
       }
       else
       {
-        int counter3 = CL.counter;
+        let mut counter3: i32 =  CL.counter;
         int data1;
-        for (int index = 0; index <= counter3; index += 1)
+        for (let mut index: i32 =  0; index <= counter3; index += 1)
         {
-          int pointsOnTrajectory = this.LIS_GetLowestPointsOnTrajectory(CL.coord[index].x, CL.coord[index].y, shqX, shqY, true);
+          let mut pointsOnTrajectory: i32 =  this.LIS_GetLowestPointsOnTrajectory(CL.coord[index].x, CL.coord[index].y, shqX, shqY, true);
           int num4;
           if (pointsOnTrajectory >= lisPtsNeeded && CL.coord[index].data2 > num2 | CL.coord[index].data2 == num2 & pointsOnTrajectory > num3 | pointsOnTrajectory > 0 & CL.coord[index].data2 > 0 & num4 == 1)
           {
@@ -8427,10 +8427,10 @@ label_81:
         }
         if (!unitBestCoordinate.onmap & lisPtsNeeded > 1)
         {
-          int counter4 = CL.counter;
-          for (int index = 0; index <= counter4; index += 1)
+          let mut counter4: i32 =  CL.counter;
+          for (let mut index: i32 =  0; index <= counter4; index += 1)
           {
-            int pointsOnTrajectory = this.LIS_GetLowestPointsOnTrajectory(CL.coord[index].x, CL.coord[index].y, shqX, shqY, true);
+            let mut pointsOnTrajectory: i32 =  this.LIS_GetLowestPointsOnTrajectory(CL.coord[index].x, CL.coord[index].y, shqX, shqY, true);
             if (pointsOnTrajectory >= 1 && CL.coord[index].data2 > num2 | CL.coord[index].data2 == num2 & pointsOnTrajectory > num3)
             {
               data1 = CL.coord[index].data1;
@@ -8455,7 +8455,7 @@ label_81:
       bool verifyTargetReached = false)
     {
       bool flag1 = true;
-      int pointsOnTrajectory = 9999999;
+      let mut pointsOnTrajectory: i32 =  9999999;
       bool flag2 = false;
       Coordinate coordinate1;
       coordinate1.x = ox;
@@ -8466,7 +8466,7 @@ label_81:
         Coordinate coordinate2 = this.game.EditObj.TempCameFrom[0].Value[coordinate1.x, coordinate1.y];
         if (coordinate2.onmap)
         {
-          int index1 = this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
+          let mut index1: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
           bool flag3 = false;
           int index2;
           if (index1 >= 0 & index1 <= 5)
@@ -8478,7 +8478,7 @@ label_81:
           else
           {
             flag3 = true;
-            int integer = Conversions.ToInteger(this.game.HandyFunctionsObj.Air_getLisFromAirBridge(coordinate2.x, coordinate2.y, coordinate1.x, coordinate1.y));
+            let mut integer: i32 =  Conversions.ToInteger(this.game.HandyFunctionsObj.Air_getLisFromAirBridge(coordinate2.x, coordinate2.y, coordinate1.x, coordinate1.y));
             if (integer < pointsOnTrajectory)
               pointsOnTrajectory = integer;
           }
@@ -8533,7 +8533,7 @@ label_81:
         coordinate2 = this.game.EditObj.TempCameFrom[0].Value[coordinate1.x, coordinate1.y];
         if (coordinate2.onmap)
         {
-          int num = this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
+          let mut num: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
           if (!(num >= 0 & num <= 5))
             return true;
         }
@@ -8553,7 +8553,7 @@ label_81:
       bool verifyTargetReached = false)
     {
       bool flag1 = true;
-      int trajectoryPreview = 9999999;
+      let mut trajectoryPreview: i32 =  9999999;
       bool flag2 = false;
       Coordinate coordinate1;
       coordinate1.x = ox;
@@ -8564,8 +8564,8 @@ label_81:
         Coordinate coordinate2 = this.game.EditObj.TempCameFrom[0].Value[coordinate1.x, coordinate1.y];
         if (coordinate2.onmap)
         {
-          int index1 = this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
-          int index2 = index1 + 3;
+          let mut index1: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
+          let mut index2: i32 =  index1 + 3;
           if (index2 > 5)
             index2 -= 6;
           if (flag1 & this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].tempPreviewLIS[6] < trajectoryPreview)
@@ -8603,7 +8603,7 @@ label_81:
     pub int LIS_GetLowestTotalHistoryTrajectory(int ox, int oy)
     {
       bool flag = true;
-      int historyTrajectory = 9999999;
+      let mut historyTrajectory: i32 =  9999999;
       Coordinate coordinate1;
       coordinate1.x = ox;
       coordinate1.y = oy;
@@ -8613,8 +8613,8 @@ label_81:
         coordinate2 = this.game.EditObj.TempCameFrom[0].Value[coordinate1.x, coordinate1.y];
         if (coordinate2.onmap)
         {
-          int index1 = this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
-          int index2 = index1 + 3;
+          let mut index1: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
+          let mut index2: i32 =  index1 + 3;
           if (index2 > 5)
             index2 -= 6;
           if (flag & this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LIShistory[6] + this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISpoints[6] < historyTrajectory)
@@ -8638,7 +8638,7 @@ label_81:
     pub int LIS_GetLowestPotentialPointsOnTrajectory(int ox, int oy)
     {
       bool flag = true;
-      int pointsOnTrajectory = 9999999;
+      let mut pointsOnTrajectory: i32 =  9999999;
       Coordinate coordinate1;
       coordinate1.x = ox;
       coordinate1.y = oy;
@@ -8648,8 +8648,8 @@ label_81:
         coordinate2 = this.game.EditObj.TempCameFrom[0].Value[coordinate1.x, coordinate1.y];
         if (coordinate2.onmap)
         {
-          int index1 = this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
-          int index2 = index1 + 3;
+          let mut index1: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate1.x, coordinate1.y, 0, coordinate2.x, coordinate2.y, 0) - 1;
+          let mut index2: i32 =  index1 + 3;
           if (index2 > 5)
             index2 -= 6;
           if (flag & this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LIStotalHistory[6] - this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LIShistory[6] < pointsOnTrajectory)
@@ -8668,21 +8668,21 @@ label_81:
       return pointsOnTrajectory;
     }
 
-    pub void LIS_SetNetwork(bool isCalibrationCall, bool isPreview = false, int onlyForAssetID = -1)
+    pub void LIS_SetNetwork(bool isCalibrationCall, bool isPreview = false, let mut onlyForAssetID: i32 =  -1)
     {
-      int index1 = -1;
+      let mut index1: i32 =  -1;
       libName1: String = "SE_Data";
-      int stringListById1 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
-      int stringListById2 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 149, 0, 0));
-      int stringListById3 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 148, 0, 0));
-      int stringListById4 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 144, 0, 0));
+      let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
+      let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 149, 0, 0));
+      let mut stringListById3: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 148, 0, 0));
+      let mut stringListById4: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 144, 0, 0));
       object[,] objArray1 = new object[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       object[,] objArray2 = new object[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
-      int mapWidth1 = this.game.Data.MapObj[0].MapWidth;
-      for (int index2 = 0; index2 <= mapWidth1; index2 += 1)
+      let mut mapWidth1: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut index2: i32 =  0; index2 <= mapWidth1; index2 += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
-        for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+        for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
         {
           objArray1[index2, index3] = (object) this.game.EditObj.TempValue[0].Value[index2, index3];
           objArray2[index2, index3] = (object) this.game.EditObj.TempCameFrom[0].Value[index2, index3];
@@ -8716,15 +8716,15 @@ label_81:
         index1 = -1;
       if (isCalibrationCall)
         index1 = -1;
-      int pts1 = 0;
-      int pts2 = 0;
-      int pts3 = 0;
-      int pts4 = 0;
-      int num1 = -1;
-      int num2 = -1;
-      int num3 = -1;
-      int num4 = -1;
-      int num5 = 0;
+      let mut pts1: i32 =  0;
+      let mut pts2: i32 =  0;
+      let mut pts3: i32 =  0;
+      let mut pts4: i32 =  0;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  -1;
+      let mut num3: i32 =  -1;
+      let mut num4: i32 =  -1;
+      let mut num5: i32 =  0;
       this.game.EditObj.layerLisOnlyAssetId_isSupplyBase = false;
       int tid1;
       if (isPreview)
@@ -8732,10 +8732,10 @@ label_81:
         index1 = onlyForAssetID <= -1 ? this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 511, 0, 0)) : this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 512, 0, 0));
         if (onlyForAssetID > -1)
         {
-          int stringListById5 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 361, 0, 0));
+          let mut stringListById5: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 361, 0, 0));
           num1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData(9, onlyForAssetID, 3)));
           num2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData(9, onlyForAssetID, 4)));
-          int length = this.game.Data.StringListObj[stringListById5].Length;
+          let mut length: i32 =  this.game.Data.StringListObj[stringListById5].Length;
           for (tid1 = 0; tid1 <= length; tid1 += 1)
           {
             if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 0])) == onlyForAssetID)
@@ -8743,7 +8743,7 @@ label_81:
               if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 1])) == 6 &&  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 2])) == 14)
               {
                 str: String = this.game.Data.StringListObj[stringListById5].Data[tid1, 3];
-                int num6 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 4]));
+                let mut num6: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 4]));
                 if (Operators.CompareString(str.ToLower(), "truckpoints", false) == 0)
                   pts4 += num6;
                 if (Operators.CompareString(str.ToLower(), "maglevpoints", false) == 0)
@@ -8756,7 +8756,7 @@ label_81:
               if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 1])) == 5 &&  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 2])) == 14)
               {
                 str: String = this.game.Data.StringListObj[stringListById5].Data[tid1, 3];
-                int num7 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 4]));
+                let mut num7: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].Data[tid1, 4]));
                 if (Operators.CompareString(str.ToLower(), "logistical extension", false) == 0)
                   num5 += num7;
               }
@@ -8778,15 +8778,15 @@ label_81:
       int index4;
       if (!isCalibrationCall)
       {
-        int mapWidth2 = this.game.Data.MapObj[0].MapWidth;
-        for (int index5 = 0; index5 <= mapWidth2; index5 += 1)
+        let mut mapWidth2: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index5: i32 =  0; index5 <= mapWidth2; index5 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index6 = 0; index6 <= mapHeight; index6 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index6: i32 =  0; index6 <= mapHeight; index6 += 1)
           {
             if (this.game.Data.MapObj[0].HexObj[index5, index6].Regime == this.game.Data.Turn)
             {
-              int location = this.game.Data.MapObj[0].HexObj[index5, index6].Location;
+              let mut location: i32 =  this.game.Data.MapObj[0].HexObj[index5, index6].Location;
               if (location > -1)
               {
                 if (isPreview)
@@ -8795,26 +8795,26 @@ label_81:
                   str1: String = "truckPoints";
                    local1: String =  str1;
                   libName2: String = libName1;
-                  int libVar1 = data1.FindLibVar( local1, libName2);
+                  let mut libVar1: i32 =  data1.FindLibVar( local1, libName2);
                   index4 = this.game.Data.MapObj[0].HexObj[index5, index6].GetHexLibVarValue(libVar1);
                   data2: DataClass = this.game.Data;
                   str2: String = "truckFreeAp";
                    local2: String =  str2;
                   libName3: String = libName1;
-                  int libVar2 = data2.FindLibVar( local2, libName3);
-                  int hexLibVarValue1 = this.game.Data.MapObj[0].HexObj[index5, index6].GetHexLibVarValue(libVar2);
+                  let mut libVar2: i32 =  data2.FindLibVar( local2, libName3);
+                  let mut hexLibVarValue1: i32 =  this.game.Data.MapObj[0].HexObj[index5, index6].GetHexLibVarValue(libVar2);
                   data3: DataClass = this.game.Data;
                   str3: String = "maglevPoints";
                    local3: String =  str3;
                   libName4: String = libName1;
-                  int libVar3 = data3.FindLibVar( local3, libName4);
-                  int hexLibVarValue2 = this.game.Data.MapObj[0].HexObj[index5, index6].GetHexLibVarValue(libVar3);
+                  let mut libVar3: i32 =  data3.FindLibVar( local3, libName4);
+                  let mut hexLibVarValue2: i32 =  this.game.Data.MapObj[0].HexObj[index5, index6].GetHexLibVarValue(libVar3);
                   data4: DataClass = this.game.Data;
                   str4: String = "maglevFreeAp";
                    local4: String =  str4;
                   libName5: String = libName1;
-                  int libVar4 = data4.FindLibVar( local4, libName5);
-                  int hexLibVarValue3 = this.game.Data.MapObj[0].HexObj[index5, index6].GetHexLibVarValue(libVar4);
+                  let mut libVar4: i32 =  data4.FindLibVar( local4, libName5);
+                  let mut hexLibVarValue3: i32 =  this.game.Data.MapObj[0].HexObj[index5, index6].GetHexLibVarValue(libVar4);
                   if (index4 > 0 & hexLibVarValue1 > 0)
                     numArray1[index5, index6, 1] = index4;
                   if (hexLibVarValue2 > 0 & hexLibVarValue3 > 0)
@@ -8826,7 +8826,7 @@ label_81:
                   do
                   {
                     index4 = this.game.Data.LocObj[location].tempLIS.FindWeight(tid1);
-                    int weight = this.game.Data.LocObj[location].tempLISfreeAP.FindWeight(tid1);
+                    let mut weight: i32 =  this.game.Data.LocObj[location].tempLISfreeAP.FindWeight(tid1);
                     if (index4 > 0 & weight > 0)
                       numArray1[index5, index6, tid1] = index4;
                     tid1 += 1;
@@ -8847,13 +8847,13 @@ label_81:
         this.cacheLISorganic = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 9];
         this.cacheLISorganicPercentage = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 9];
         this.cacheLISpull = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 9];
-        int mapWidth3 = this.game.Data.MapObj[0].MapWidth;
-        for (int index7 = 0; index7 <= mapWidth3; index7 += 1)
+        let mut mapWidth3: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index7: i32 =  0; index7 <= mapWidth3; index7 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index8 = 0; index8 <= mapHeight; index8 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index8: i32 =  0; index8 <= mapHeight; index8 += 1)
           {
-            int index9 = 0;
+            let mut index9: i32 =  0;
             do
             {
               this.tempLISwithoutLogExt[index7, index8, index9] = 0;
@@ -8879,15 +8879,15 @@ label_81:
         this.game.Data.RegimeObj[this.game.Data.Turn].Trafic2[0] = new MapMatrix2(this.game.Data.MapObj[0].MapWidth, this.game.Data.MapObj[0].MapHeight);
       if (this.game.Data.RegimeObj[this.game.Data.Turn].Trafic[0].Value.GetUpperBound(0) >= this.game.Data.MapObj[0].MapWidth)
       {
-        int mapWidth4 = this.game.Data.MapObj[0].MapWidth;
-        for (int x = 0; x <= mapWidth4; x += 1)
+        let mut mapWidth4: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut x: i32 =  0; x <= mapWidth4; x += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int y = 0; y <= mapHeight; y += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut y: i32 =  0; y <= mapHeight; y += 1)
           {
             if (!isCalibrationCall)
             {
-              int index10 = 0;
+              let mut index10: i32 =  0;
               do
               {
                 this.game.Data.MapObj[0].HexObj[x, y].LISpull[index10] = 0;
@@ -8911,19 +8911,19 @@ label_81:
           }
         }
       }
-      int stringListById6 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[405]));
+      let mut stringListById6: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[405]));
       this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]));
       if (isCalibrationCall)
         return;
       if (isCalibrationCall)
       {
-        int mapWidth5 = this.game.Data.MapObj[0].MapWidth;
-        for (int index11 = 0; index11 <= mapWidth5; index11 += 1)
+        let mut mapWidth5: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index11: i32 =  0; index11 <= mapWidth5; index11 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index12 = 0; index12 <= mapHeight; index12 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index12: i32 =  0; index12 <= mapHeight; index12 += 1)
           {
-            int index13 = 0;
+            let mut index13: i32 =  0;
             do
             {
               this.game.Data.MapObj[0].HexObj[index11, index12].tempOldLISpoints[index13] = this.game.Data.MapObj[0].HexObj[index11, index12].LISpoints[index13];
@@ -8936,13 +8936,13 @@ label_81:
       }
       else
       {
-        int mapWidth6 = this.game.Data.MapObj[0].MapWidth;
-        for (int index14 = 0; index14 <= mapWidth6; index14 += 1)
+        let mut mapWidth6: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index14: i32 =  0; index14 <= mapWidth6; index14 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index15 = 0; index15 <= mapHeight; index15 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index15: i32 =  0; index15 <= mapHeight; index15 += 1)
           {
-            int index16 = 0;
+            let mut index16: i32 =  0;
             do
             {
               this.game.Data.MapObj[0].HexObj[index14, index15].tempOldLISpoints[index16] = 0;
@@ -8958,8 +8958,8 @@ label_81:
           }
         }
       }
-      int locCounter1 = this.game.Data.LocCounter;
-      for (int index17 = 0; index17 <= locCounter1; index17 += 1)
+      let mut locCounter1: i32 =  this.game.Data.LocCounter;
+      for (let mut index17: i32 =  0; index17 <= locCounter1; index17 += 1)
       {
         if (Information.IsNothing((object) this.game.Data.LocObj[index17].tempLIS))
           this.game.Data.LocObj[index17].tempLIS = SimpleList::new();
@@ -8979,8 +8979,8 @@ label_81:
       {
         bool[,] flagArray1 = new bool[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
         bool[,] flagArray2 = new bool[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
-        int locCounter2 = this.game.Data.LocCounter;
-        for (int index20 = 0; index20 <= locCounter2; index20 += 1)
+        let mut locCounter2: i32 =  this.game.Data.LocCounter;
+        for (let mut index20: i32 =  0; index20 <= locCounter2; index20 += 1)
         {
           index18 = this.game.Data.LocObj[index20].X;
           y1 = this.game.Data.LocObj[index20].Y;
@@ -9004,9 +9004,9 @@ label_81:
           {
             index19 = 2;
             movetype1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, index19, 4)));
-            int num8 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, index19, 2)));
+            let mut num8: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, index19, 2)));
             index4 = this.game.Data.LocObj[index20].tempLIS.FindNr(index19);
-            int num9 = 0;
+            let mut num9: i32 =  0;
             if (index4 > -1)
               num9 = Convert.ToInt32(Math.Floor(new Decimal(this.game.Data.LocObj[index20].tempLIS.Weight[index4])));
             if (num9 < 1)
@@ -9016,7 +9016,7 @@ label_81:
                local: String =  str;
               libName7: String = libName1;
               index4 = data.FindLibVar( local, libName7);
-              int hexLibVarValue = this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(index4);
+              let mut hexLibVarValue: i32 =  this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(index4);
               if (hexLibVarValue > 0)
                 num9 = hexLibVarValue;
             }
@@ -9024,8 +9024,8 @@ label_81:
               flagArray2[index18, y1] = true;
           }
         }
-        int locCounter3 = this.game.Data.LocCounter;
-        for (int index21 = 0; index21 <= locCounter3; index21 += 1)
+        let mut locCounter3: i32 =  this.game.Data.LocCounter;
+        for (let mut index21: i32 =  0; index21 <= locCounter3; index21 += 1)
         {
           index18 = this.game.Data.LocObj[index21].X;
           y1 = this.game.Data.LocObj[index21].Y;
@@ -9040,7 +9040,7 @@ label_81:
               str: String = "maglevPoints";
                local: String =  str;
               libName8: String = libName1;
-              int libVar = data.FindLibVar( local, libName8);
+              let mut libVar: i32 =  data.FindLibVar( local, libName8);
               if (this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar) > 0)
                 flag3 = true;
             }
@@ -9049,9 +9049,9 @@ label_81:
           {
             index19 = 2;
             movetype1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, index19, 4)));
-            int theater =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, index19, 2)));
+            let mut theater: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, index19, 2)));
             index4 = 0;
-            int num10 = 0;
+            let mut num10: i32 =  0;
             if (!Information.IsNothing((object) this.game.Data.LocObj[index21].tempLIS))
             {
               index4 = this.game.Data.LocObj[index21].tempLIS.FindNr(index19);
@@ -9064,8 +9064,8 @@ label_81:
               str: String = "maglevPoints";
                local: String =  str;
               libName9: String = libName1;
-              int libVar = data.FindLibVar( local, libName9);
-              int hexLibVarValue = this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar);
+              let mut libVar: i32 =  data.FindLibVar( local, libName9);
+              let mut hexLibVarValue: i32 =  this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar);
               if (hexLibVarValue > 0)
                 num10 = hexLibVarValue;
             }
@@ -9074,7 +9074,7 @@ label_81:
               index4 = -1;
               if (!Information.IsNothing((object) this.game.Data.LocObj[index21].tempLISfreeAP))
                 index4 = this.game.Data.LocObj[index21].tempLISfreeAP.FindNr(index19);
-              int num11 = 0;
+              let mut num11: i32 =  0;
               if (index4 > -1)
                 num11 = this.game.Data.LocObj[index21].tempLISfreeAP.Weight[index4];
               if (isPreview)
@@ -9083,8 +9083,8 @@ label_81:
                 str: String = "maglevFreeAp";
                  local: String =  str;
                 libName10: String = libName1;
-                int libVar = data.FindLibVar( local, libName10);
-                int hexLibVarValue = this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar);
+                let mut libVar: i32 =  data.FindLibVar( local, libName10);
+                let mut hexLibVarValue: i32 =  this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar);
                 if (hexLibVarValue > 0)
                   num11 = hexLibVarValue;
               }
@@ -9092,11 +9092,11 @@ label_81:
               flagArray1[index18, y1] = true;
               if (num11 > 0)
               {
-                int mapWidth7 = this.game.Data.MapObj[0].MapWidth;
-                for (int index22 = 0; index22 <= mapWidth7; index22 += 1)
+                let mut mapWidth7: i32 =  this.game.Data.MapObj[0].MapWidth;
+                for (let mut index22: i32 =  0; index22 <= mapWidth7; index22 += 1)
                 {
-                  int mapHeight = this.game.Data.MapObj[0].MapHeight;
-                  for (int index23 = 0; index23 <= mapHeight; index23 += 1)
+                  let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+                  for (let mut index23: i32 =  0; index23 <= mapHeight; index23 += 1)
                   {
                     if (flagArray2[index22, index23] && !(index22 == index18 & index23 == y1) && this.game.EditObj.TempValue[0].Value[index22, index23] < 9999)
                     {
@@ -9111,60 +9111,60 @@ label_81:
             }
           }
         }
-        int mapWidth8 = this.game.Data.MapObj[0].MapWidth;
-        for (int index24 = 0; index24 <= mapWidth8; index24 += 1)
+        let mut mapWidth8: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index24: i32 =  0; index24 <= mapWidth8; index24 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index25 = 0; index25 <= mapHeight; index25 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index25: i32 =  0; index25 <= mapHeight; index25 += 1)
             this.game.EditObj.tempZoneTest[index24, index25] = !flagArray1[index24, index25] ? 0 : 1;
         }
         this.game.HandyFunctionsObj.RedimTempValue(9999);
       }
       else
       {
-        int mapWidth9 = this.game.Data.MapObj[0].MapWidth;
-        for (int index26 = 0; index26 <= mapWidth9; index26 += 1)
+        let mut mapWidth9: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index26: i32 =  0; index26 <= mapWidth9; index26 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index27 = 0; index27 <= mapHeight; index27 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index27: i32 =  0; index27 <= mapHeight; index27 += 1)
             this.game.EditObj.tempZoneTest[index26, index27] = 1;
         }
       }
       if (this.game.Data.Turn == 2)
         ;
       bool flag4 = false;
-      int mapWidth10 = this.game.Data.MapObj[0].MapWidth;
-      for (int index28 = 0; index28 <= mapWidth10; index28 += 1)
+      let mut mapWidth10: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut index28: i32 =  0; index28 <= mapWidth10; index28 += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
-        for (int index29 = 0; index29 <= mapHeight; index29 += 1)
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+        for (let mut index29: i32 =  0; index29 <= mapHeight; index29 += 1)
         {
           if (this.game.Data.RegimeObj[this.game.Data.Turn].Trafic2[0].Value[index28, index29] > 0)
             flag4 = true;
         }
       }
-      int stringListById7 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName1, 210, 0, 0));
-      int num12 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData2(0, this.game.Data.RegimeObj[this.game.Data.Turn].id, 1, "pullAssetsOff", 2)));
-      int num13 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData2(0, this.game.Data.RegimeObj[this.game.Data.Turn].id, 1, "pullUnitsOff", 2)));
-      int num14 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData2(0, this.game.Data.RegimeObj[this.game.Data.Turn].id, 1, "pullCitiesOff", 2)));
+      let mut stringListById7: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName1, 210, 0, 0));
+      let mut num12: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData2(0, this.game.Data.RegimeObj[this.game.Data.Turn].id, 1, "pullAssetsOff", 2)));
+      let mut num13: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData2(0, this.game.Data.RegimeObj[this.game.Data.Turn].id, 1, "pullUnitsOff", 2)));
+      let mut num14: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].GetData2(0, this.game.Data.RegimeObj[this.game.Data.Turn].id, 1, "pullCitiesOff", 2)));
       this.game.EditObj.PossiblePull = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 7];
       this.game.EditObj.origPossiblePull = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 7];
       object[,,] objArray3 = new object[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 7];
       bool flag5;
       if ( Math.Round(Conversion.Val(this.game.Data.Designer)) >= 42 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI & !this.game.Data.RegimeObj[this.game.Data.Turn].minimumDataUsage && !isCalibrationCall & onlyForAssetID < 1 & (flag4 | num12 == 0 | num13 == 0 | num14 == 0))
       {
-        int locCounter4 = this.game.Data.LocCounter;
-        for (int index30 = 0; index30 <= locCounter4; index30 += 1)
+        let mut locCounter4: i32 =  this.game.Data.LocCounter;
+        for (let mut index30: i32 =  0; index30 <= locCounter4; index30 += 1)
         {
           index18 = this.game.Data.LocObj[index30].X;
           y1 = this.game.Data.LocObj[index30].Y;
           if (index18 == 120 & y1 == 65)
             index18 = index18;
           flag5 = false;
-          int num15 = 0;
-          int num16 = 0;
-          int num17 = 0;
-          int num18 = 0;
+          let mut num15: i32 =  0;
+          let mut num16: i32 =  0;
+          let mut num17: i32 =  0;
+          let mut num18: i32 =  0;
           if (this.game.Data.MapObj[0].HexObj[index18, y1].Regime == this.game.Data.Turn)
           {
             if (isPreview)
@@ -9173,25 +9173,25 @@ label_81:
               str5: String = "truckPoints";
                local5: String =  str5;
               libName11: String = libName1;
-              int libVar5 = data5.FindLibVar( local5, libName11);
+              let mut libVar5: i32 =  data5.FindLibVar( local5, libName11);
               num15 = this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar5);
               data6: DataClass = this.game.Data;
               str6: String = "truckFreeAp";
                local6: String =  str6;
               libName12: String = libName1;
-              int libVar6 = data6.FindLibVar( local6, libName12);
+              let mut libVar6: i32 =  data6.FindLibVar( local6, libName12);
               num16 = this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar6);
               data7: DataClass = this.game.Data;
               str7: String = "maglevPoints";
                local7: String =  str7;
               libName13: String = libName1;
-              int libVar7 = data7.FindLibVar( local7, libName13);
+              let mut libVar7: i32 =  data7.FindLibVar( local7, libName13);
               num17 = this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar7);
               data8: DataClass = this.game.Data;
               str8: String = "maglevFreeAp";
                local8: String =  str8;
               libName14: String = libName1;
-              int libVar8 = data8.FindLibVar( local8, libName14);
+              let mut libVar8: i32 =  data8.FindLibVar( local8, libName14);
               num18 = this.game.Data.MapObj[0].HexObj[index18, y1].GetHexLibVarValue(libVar8);
             }
             else
@@ -9207,16 +9207,16 @@ label_81:
                 num18 = this.game.Data.LocObj[index30].tempLISfreeAP.FindWeight(2);
               }
             }
-            int num19 = 1;
+            let mut num19: i32 =  1;
             do
             {
-              int num20 = 1;
+              let mut num20: i32 =  1;
               if (num19 == 2)
                 num20 = 2;
-              int num21 = num20;
-              for (int index31 = 1; index31 <= num21; index31 += 1)
+              let mut num21: i32 =  num20;
+              for (let mut index31: i32 =  1; index31 <= num21; index31 += 1)
               {
-                int theater = 0;
+                let mut theater: i32 =  0;
                 int tdata1;
                 int num22;
                 switch (num19)
@@ -9260,27 +9260,27 @@ label_81:
                   while (flag6)
                   {
                     flag6 = false;
-                    int counter1 = simpleList1.Counter;
-                    for (int index32 = 0; index32 <= counter1; index32 += 1)
+                    let mut counter1: i32 =  simpleList1.Counter;
+                    for (let mut index32: i32 =  0; index32 <= counter1; index32 += 1)
                     {
                       if (simpleList1.Data1[index32] == 1)
                       {
-                        int cx = simpleList1.Data3[index32];
-                        int cy = simpleList1.Data4[index32];
-                        int num23 = this.game.EditObj.TempValue[0].Value[cx, cy];
+                        let mut cx: i32 =  simpleList1.Data3[index32];
+                        let mut cy: i32 =  simpleList1.Data4[index32];
+                        let mut num23: i32 =  this.game.EditObj.TempValue[0].Value[cx, cy];
                         index4 = simpleList1.Weight[index32];
-                        int tweight = simpleList2.Weight[index32];
+                        let mut tweight: i32 =  simpleList2.Weight[index32];
                         tdata1 = simpleList2.Data1[index32];
-                        int tfacing = 1;
+                        let mut tfacing: i32 =  1;
                         do
                         {
                           coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
                           if (coordinate1.onmap)
                           {
-                            int num24 = this.game.EditObj.TempValue[0].Value[coordinate1.x, coordinate1.y];
+                            let mut num24: i32 =  this.game.EditObj.TempValue[0].Value[coordinate1.x, coordinate1.y];
                             if (num24 > num23 & num24 <= num22 * 2)
                             {
-                              int num25 = this.game.HandyFunctionsObj.GetLogisticalBonus(coordinate1.x, coordinate1.y, index19);
+                              let mut num25: i32 =  this.game.HandyFunctionsObj.GetLogisticalBonus(coordinate1.x, coordinate1.y, index19);
                               if (num25 > 0)
                               {
                                 if (num24 < num25)
@@ -9288,8 +9288,8 @@ label_81:
                                 if (num25 > simpleList1.Data2[index32] && num24 > simpleList1.Data2[index32])
                                   simpleList1.Data2[index32] = num24;
                               }
-                              int num26 = num24 - num23;
-                              int num27 = 0;
+                              let mut num26: i32 =  num24 - num23;
+                              let mut num27: i32 =  0;
                               if (simpleList1.Data5[index32] < simpleList1.Data2[index32])
                               {
                                 num27 = simpleList1.Data2[index32] - simpleList1.Data5[index32];
@@ -9301,21 +9301,21 @@ label_81:
                               {
                                 simpleList1.FindWeight(-1, tdata3: coordinate1.x, tdata4: coordinate1.y);
                                 simpleList1.Add(coordinate1.x * 1000 + coordinate1.y, simpleList1.Weight[index32], 1, simpleList1.Data2[index32], coordinate1.x, coordinate1.y, simpleList1.Data5[index32], false);
-                                int counter2 = simpleList1.Counter;
+                                let mut counter2: i32 =  simpleList1.Counter;
                                 int[] weight = simpleList1.Weight;
                                 int[] numArray4 = weight;
-                                int index33 = counter2;
-                                int index34 = index33;
-                                int num28 = weight[index33] + num26;
+                                let mut index33: i32 =  counter2;
+                                let mut index34: i32 =  index33;
+                                let mut num28: i32 =  weight[index33] + num26;
                                 numArray4[index34] = num28;
                                 int[] data5 = simpleList1.Data5;
                                 int[] numArray5 = data5;
-                                int index35 = counter2;
-                                int index36 = index35;
-                                int num29 = data5[index35] + num27;
+                                let mut index35: i32 =  counter2;
+                                let mut index36: i32 =  index35;
+                                let mut num29: i32 =  data5[index35] + num27;
                                 numArray5[index36] = num29;
                                 flag6 = true;
-                                int num30 = tdata1;
+                                let mut num30: i32 =  tdata1;
                                 if (simpleList1.Weight[counter2] > num22)
                                 {
                                   num30 -=  Math.Round((double) (num30 * (simpleList1.Weight[counter2] - num22)) / (double) num22);
@@ -9360,24 +9360,24 @@ label_81:
                       }
                     }
                   }
-                  int mapWidth11 = this.game.Data.MapObj[0].MapWidth;
-                  for (int index37 = 0; index37 <= mapWidth11; index37 += 1)
+                  let mut mapWidth11: i32 =  this.game.Data.MapObj[0].MapWidth;
+                  for (let mut index37: i32 =  0; index37 <= mapWidth11; index37 += 1)
                   {
-                    int mapHeight = this.game.Data.MapObj[0].MapHeight;
-                    for (int index38 = 0; index38 <= mapHeight; index38 += 1)
+                    let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+                    for (let mut index38: i32 =  0; index38 <= mapHeight; index38 += 1)
                     {
-                      int index39 = 0;
+                      let mut index39: i32 =  0;
                       do
                       {
                         int[,,] possiblePull = this.game.EditObj.PossiblePull;
                         int[,,] numArray6 = possiblePull;
-                        int index40 = index37;
-                        int index41 = index40;
-                        int index42 = index38;
-                        int index43 = index42;
-                        int index44 = index39;
-                        int index45 = index44;
-                        int integer = Conversions.ToInteger(Operators.AddObject((object) possiblePull[index40, index42, index44], objArray4[index37, index38, index39]));
+                        let mut index40: i32 =  index37;
+                        let mut index41: i32 =  index40;
+                        let mut index42: i32 =  index38;
+                        let mut index43: i32 =  index42;
+                        let mut index44: i32 =  index39;
+                        let mut index45: i32 =  index44;
+                        let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject((object) possiblePull[index40, index42, index44], objArray4[index37, index38, index39]));
                         numArray6[index41, index43, index45] = integer;
                         index39 += 1;
                       }
@@ -9391,13 +9391,13 @@ label_81:
             while (num19 <= 2);
           }
         }
-        int mapWidth12 = this.game.Data.MapObj[0].MapWidth;
-        for (int index46 = 0; index46 <= mapWidth12; index46 += 1)
+        let mut mapWidth12: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index46: i32 =  0; index46 <= mapWidth12; index46 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index47 = 0; index47 <= mapHeight; index47 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index47: i32 =  0; index47 <= mapHeight; index47 += 1)
           {
-            int index48 = 0;
+            let mut index48: i32 =  0;
             do
             {
               this.game.EditObj.origPossiblePull[index46, index47, index48] = this.game.EditObj.PossiblePull[index46, index47, index48];
@@ -9415,13 +9415,13 @@ label_81:
       {
         if (onlyForAssetID > 0)
         {
-          int mapWidth13 = this.game.Data.MapObj[0].MapWidth;
-          for (int index51 = 0; index51 <= mapWidth13; index51 += 1)
+          let mut mapWidth13: i32 =  this.game.Data.MapObj[0].MapWidth;
+          for (let mut index51: i32 =  0; index51 <= mapWidth13; index51 += 1)
           {
-            int mapHeight = this.game.Data.MapObj[0].MapHeight;
-            for (int index52 = 0; index52 <= mapHeight; index52 += 1)
+            let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+            for (let mut index52: i32 =  0; index52 <= mapHeight; index52 += 1)
             {
-              int index53 = 0;
+              let mut index53: i32 =  0;
               do
               {
                 numArray3[index51, index52, index53] = this.game.Data.MapObj[0].HexObj[index51, index52].tempPreviewRoadPull[index53];
@@ -9443,20 +9443,20 @@ label_81:
           int[] numArray13 = new int[this.game.Data.StringListObj[stringListById1].GetHighestValue(0) + 1000 + 1];
           SimpleList simpleList3 = SimpleList::new();
           SimpleList simpleList4 = SimpleList::new();
-          int length1 = this.game.Data.StringListObj[stringListById1].Length;
-          for (int index54 = 0; index54 <= length1; index54 += 1)
+          let mut length1: i32 =  this.game.Data.StringListObj[stringListById1].Length;
+          for (let mut index54: i32 =  0; index54 <= length1; index54 += 1)
           {
-            int tid2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index54, 0]));
+            let mut tid2: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index54, 0]));
             numArray12[tid2] = -1;
             index4 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index54, 8]));
             if (index4 == this.game.Data.RegimeObj[this.game.Data.Turn].id)
             {
               numArray12[tid2] = this.game.Data.Turn;
               simpleList4.Add(tid2, 1, index18, y1);
-              int id =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index54, 6]));
+              let mut id: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index54, 6]));
               if (id > 0)
               {
-                int locationById = this.game.HandyFunctionsObj.GetLocationByID(id);
+                let mut locationById: i32 =  this.game.HandyFunctionsObj.GetLocationByID(id);
                 if (locationById > -1)
                 {
                   simpleList4.Add(tid2, 1, this.game.Data.LocObj[locationById].X, this.game.Data.LocObj[locationById].Y, locationById);
@@ -9465,8 +9465,8 @@ label_81:
               }
             }
           }
-          int unitCounter1 = this.game.Data.UnitCounter;
-          for (int tid3 = 0; tid3 <= unitCounter1; tid3 += 1)
+          let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
+          for (let mut tid3: i32 =  0; tid3 <= unitCounter1; tid3 += 1)
           {
             if (this.game.Data.UnitObj[tid3].PreDef == -1 & this.game.Data.UnitObj[tid3].Regime == this.game.Data.Turn)
             {
@@ -9475,7 +9475,7 @@ label_81:
                 simpleList3.Add(tid3, 1);
             }
           }
-          int num32 = 1;
+          let mut num32: i32 =  1;
           do
           {
             int counter3;
@@ -9485,13 +9485,13 @@ label_81:
               counter3 = simpleList3.Counter;
             if (num32 == 3)
             {
-              int mapWidth14 = this.game.Data.MapObj[0].MapWidth;
-              for (int index55 = 0; index55 <= mapWidth14; index55 += 1)
+              let mut mapWidth14: i32 =  this.game.Data.MapObj[0].MapWidth;
+              for (let mut index55: i32 =  0; index55 <= mapWidth14; index55 += 1)
               {
-                int mapHeight = this.game.Data.MapObj[0].MapHeight;
+                let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
                 for (index49 = 0; index49 <= mapHeight; index49 += 1)
                 {
-                  int index56 = 0;
+                  let mut index56: i32 =  0;
                   do
                   {
                     numArray7[index55, index49, index56] = numArray3[index55, index49, index56];
@@ -9501,8 +9501,8 @@ label_81:
                 }
               }
             }
-            int num33 = counter3;
-            for (int index57 = 0; index57 <= num33; index57 += 1)
+            let mut num33: i32 =  counter3;
+            for (let mut index57: i32 =  0; index57 <= num33; index57 += 1)
             {
               int[,] numArray14 = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
               int num34;
@@ -9527,10 +9527,10 @@ label_81:
                   case 2:
                     this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, 11, 0, 2000, index18, y1, 0, NoAPPenalties: true, roadsOnly: true, lisMode: -1, specialRuleNumber: 3, specialRuleNumber2: 1);
                     CoordList tCoordList = CoordList::new();
-                    int mapWidth15 = this.game.Data.MapObj[0].MapWidth;
-                    for (int x = 0; x <= mapWidth15; x += 1)
+                    let mut mapWidth15: i32 =  this.game.Data.MapObj[0].MapWidth;
+                    for (let mut x: i32 =  0; x <= mapWidth15; x += 1)
                     {
-                      int mapHeight = this.game.Data.MapObj[0].MapHeight;
+                      let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
                       for (index49 = 0; index49 <= mapHeight; index49 += 1)
                       {
                         numArray14[x, index49] = this.game.EditObj.TempValue[0].Value[x, index49];
@@ -9543,17 +9543,17 @@ label_81:
                     break;
                 }
               }
-              int mapWidth16 = this.game.Data.MapObj[0].MapWidth;
+              let mut mapWidth16: i32 =  this.game.Data.MapObj[0].MapWidth;
               int index58;
               for (index58 = 0; index58 <= mapWidth16; index58 += 1)
               {
-                int mapHeight = this.game.Data.MapObj[0].MapHeight;
+                let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
                 for (index49 = 0; index49 <= mapHeight; index49 += 1)
                 {
                   numArray9[index58, index49] = 0;
                   numArray11[index58, index49] = 0;
                   numArray8[index58, index49] = 0;
-                  int index59 = 0;
+                  let mut index59: i32 =  0;
                   do
                   {
                     numArray10[index58, index49, index59] = 0;
@@ -9564,12 +9564,12 @@ label_81:
               }
               if (num32 == 2 & num13 < 1)
               {
-                int unitCounter2 = this.game.Data.UnitCounter;
-                for (int unr = 0; unr <= unitCounter2; unr += 1)
+                let mut unitCounter2: i32 =  this.game.Data.UnitCounter;
+                for (let mut unr: i32 =  0; unr <= unitCounter2; unr += 1)
                 {
                   if (this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.Data.UnitObj[unr].PreDef == -1 && !(this.game.Data.UnitObj[unr].X == this.game.Data.UnitObj[hq].X & this.game.Data.UnitObj[unr].Y == this.game.Data.UnitObj[hq].Y) && this.game.HandyFunctionsObj.IsUnitInHQChain(unr, hq))
                   {
-                    int num35 = -1;
+                    let mut num35: i32 =  -1;
                     Coordinate coordinate2;
                     coordinate2.onmap = true;
                     coordinate2.x = this.game.Data.UnitObj[unr].X;
@@ -9590,27 +9590,27 @@ label_81:
                       index58 = index58;
                     if (num35 > -1)
                     {
-                      int num36 = 0;
-                      int counter4 = this.game.Data.UnitObj[unr].tempRequestItems.Counter;
+                      let mut num36: i32 =  0;
+                      let mut counter4: i32 =  this.game.Data.UnitObj[unr].tempRequestItems.Counter;
                       for (index50 = 0; index50 <= counter4; index50 += 1)
                       {
-                        int idValue = this.game.Data.UnitObj[unr].tempRequestItems.Id[index50];
-                        int num37 = this.game.Data.UnitObj[unr].tempRequestItems.Weight[index50];
-                        int num38 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, idValue, 3)));
+                        let mut idValue: i32 =  this.game.Data.UnitObj[unr].tempRequestItems.Id[index50];
+                        let mut num37: i32 =  this.game.Data.UnitObj[unr].tempRequestItems.Weight[index50];
+                        let mut num38: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, idValue, 3)));
                         if (num38 > 0)
                           num36 += num37 * num38;
                       }
                       if (num36 > 0)
                       {
-                        int num39 = num35;
-                        int num40 = y2;
+                        let mut num39: i32 =  num35;
+                        let mut num40: i32 =  y2;
                         int[,] numArray15 = numArray8;
                         int[,] numArray16 = numArray15;
-                        int index60 = num39;
-                        int index61 = index60;
-                        int index62 = num40;
-                        int index63 = index62;
-                        int num41 = numArray15[index60, index62] + num36;
+                        let mut index60: i32 =  num39;
+                        let mut index61: i32 =  index60;
+                        let mut index62: i32 =  num40;
+                        let mut index63: i32 =  index62;
+                        let mut num41: i32 =  numArray15[index60, index62] + num36;
                         numArray16[index61, index63] = num41;
                       }
                     }
@@ -9619,21 +9619,21 @@ label_81:
               }
               if (num32 == 3 & num12 < 1)
               {
-                int length2 = this.game.Data.StringListObj[stringListById3].Length;
-                for (int index64 = 0; index64 <= length2; index64 += 1)
+                let mut length2: i32 =  this.game.Data.StringListObj[stringListById3].Length;
+                for (let mut index64: i32 =  0; index64 <= length2; index64 += 1)
                 {
                   index4 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 0]));
-                  int num42 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 14]));
+                  let mut num42: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 14]));
                   if (num42 > 0)
                     index4 = num42;
                   if (index4 == num34 && numArray12[index4] == this.game.Data.Turn)
                   {
-                    int idValue =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 1]));
-                    int num43 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 5]));
-                    int num44 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 8]));
-                    int num45 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData(0, idValue, 2)));
-                    int num46 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData(0, idValue, 5)));
-                    int num47 = 0;
+                    let mut idValue: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 1]));
+                    let mut num43: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 5]));
+                    let mut num44: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 8]));
+                    let mut num45: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData(0, idValue, 2)));
+                    let mut num46: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData(0, idValue, 5)));
+                    let mut num47: i32 =  0;
                     if (num43 >= 0)
                     {
                       num47 = num45 * 100;
@@ -9646,11 +9646,11 @@ label_81:
                     }
                     if (num47 > 0)
                     {
-                      int index65 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 3]));
-                      int index66 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 4]));
+                      let mut index65: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 3]));
+                      let mut index66: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 4]));
                       if (!(index65 == index18 & index66 == y1))
                       {
-                        int num48 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 15]));
+                        let mut num48: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].Data[index64, 15]));
                         if (num48 > 0)
                           num47 =  Math.Round(Math.Ceiling((double) (num47 * num48) / 100.0));
                         if (num47 > numArray9[index65, index66])
@@ -9662,57 +9662,57 @@ label_81:
               }
               if (num32 == 1 & num14 < 1)
               {
-                int counter5 = simpleList4.Counter;
-                for (int index67 = 0; index67 <= counter5; index67 += 1)
+                let mut counter5: i32 =  simpleList4.Counter;
+                for (let mut index67: i32 =  0; index67 <= counter5; index67 += 1)
                 {
                   if (numArray13[simpleList4.Id[index67]] == hq && !(simpleList4.Data1[index67] == this.game.Data.UnitObj[hq].X & simpleList4.Data2[index67] == this.game.Data.UnitObj[hq].Y))
                   {
                     index4 = simpleList4.Data3[index67];
-                    int num49 = 0;
-                    int logCounter = this.game.Data.LocObj[index4].LogCounter;
-                    for (int index68 = 0; index68 <= logCounter; index68 += 1)
+                    let mut num49: i32 =  0;
+                    let mut logCounter: i32 =  this.game.Data.LocObj[index4].LogCounter;
+                    for (let mut index68: i32 =  0; index68 <= logCounter; index68 += 1)
                     {
                       if (isPreview & this.game.Data.LocObj[index4].LogType[index68] == 202 | !isPreview & this.game.Data.LocObj[index4].LogType[index68] == 2202)
                       {
-                        int idValue = this.game.Data.LocObj[index4].LogData1[index68];
-                        int num50 = this.game.Data.LocObj[index4].LogData3[index68];
-                        int num51 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, idValue, 3)));
+                        let mut idValue: i32 =  this.game.Data.LocObj[index4].LogData1[index68];
+                        let mut num50: i32 =  this.game.Data.LocObj[index4].LogData3[index68];
+                        let mut num51: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, idValue, 3)));
                         if (num51 > 0)
                           num49 += num50 * num51;
                       }
                     }
                     this.game.EventRelatedObj.Helper_MakeListForLocationRequests("SE_Data", simpleList4.Id[index67], true, true);
-                    int num52 = 0;
-                    int counter6 = this.game.Data.LocObj[index4].tempRequestItems.Counter;
+                    let mut num52: i32 =  0;
+                    let mut counter6: i32 =  this.game.Data.LocObj[index4].tempRequestItems.Counter;
                     for (index50 = 0; index50 <= counter6; index50 += 1)
                     {
-                      int idValue = this.game.Data.LocObj[index4].tempRequestItems.Id[index50];
-                      int num53 = this.game.Data.LocObj[index4].tempRequestItems.Weight[index50];
-                      int num54 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, idValue, 3)));
+                      let mut idValue: i32 =  this.game.Data.LocObj[index4].tempRequestItems.Id[index50];
+                      let mut num53: i32 =  this.game.Data.LocObj[index4].tempRequestItems.Weight[index50];
+                      let mut num54: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, idValue, 3)));
                       if (num54 > 0)
                         num52 += num53 * num54;
                     }
-                    int num55 = num49 + num52;
+                    let mut num55: i32 =  num49 + num52;
                     if (num55 > 0)
                     {
-                      int num56 = simpleList4.Data1[index67];
-                      int num57 = simpleList4.Data2[index67];
+                      let mut num56: i32 =  simpleList4.Data1[index67];
+                      let mut num57: i32 =  simpleList4.Data2[index67];
                       int[,] numArray17 = numArray11;
                       int[,] numArray18 = numArray17;
-                      int index69 = num56;
-                      int index70 = index69;
-                      int index71 = num57;
-                      int index72 = index71;
-                      int num58 = numArray17[index69, index71] + num55;
+                      let mut index69: i32 =  num56;
+                      let mut index70: i32 =  index69;
+                      let mut index71: i32 =  num57;
+                      let mut index72: i32 =  index71;
+                      let mut num58: i32 =  numArray17[index69, index71] + num55;
                       numArray18[index70, index72] = num58;
                     }
                   }
                 }
               }
-              int mapWidth17 = this.game.Data.MapObj[0].MapWidth;
-              for (int index73 = 0; index73 <= mapWidth17; index73 += 1)
+              let mut mapWidth17: i32 =  this.game.Data.MapObj[0].MapWidth;
+              for (let mut index73: i32 =  0; index73 <= mapWidth17; index73 += 1)
               {
-                int mapHeight1 = this.game.Data.MapObj[0].MapHeight;
+                let mut mapHeight1: i32 =  this.game.Data.MapObj[0].MapHeight;
                 for (index49 = 0; index49 <= mapHeight1; index49 += 1)
                 {
                   index4 = this.game.Data.RegimeObj[this.game.Data.Turn].Trafic2[0].Value[index73, index49];
@@ -9726,21 +9726,21 @@ label_81:
                   }
                   int[] liSpull1 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                   int[] numArray19 = liSpull1;
-                  int index74 = 1;
-                  int index75 = index74;
-                  int num59 = liSpull1[index74] + numArray9[index73, index49];
+                  let mut index74: i32 =  1;
+                  let mut index75: i32 =  index74;
+                  let mut num59: i32 =  liSpull1[index74] + numArray9[index73, index49];
                   numArray19[index75] = num59;
                   int[] liSpull2 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                   int[] numArray20 = liSpull2;
-                  int index76 = 2;
-                  int index77 = index76;
-                  int num60 = liSpull2[index76] + numArray8[index73, index49];
+                  let mut index76: i32 =  2;
+                  let mut index77: i32 =  index76;
+                  let mut num60: i32 =  liSpull2[index76] + numArray8[index73, index49];
                   numArray20[index77] = num60;
                   int[] liSpull3 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                   int[] numArray21 = liSpull3;
-                  int index78 = 3;
-                  int index79 = index78;
-                  int num61 = liSpull3[index78] + numArray11[index73, index49];
+                  let mut index78: i32 =  3;
+                  let mut index79: i32 =  index78;
+                  let mut num61: i32 =  liSpull3[index78] + numArray11[index73, index49];
                   numArray21[index79] = num61;
                   if (numArray9[index73, index49] > 0 & index1 > -1 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
                   {
@@ -9790,48 +9790,48 @@ label_81:
                       if (num32 == 3)
                       {
                         index4 += numArray9[index73, index49];
-                        int num62 = numArray9[index73, index49];
+                        let mut num62: i32 =  numArray9[index73, index49];
                         if (num62 > 0)
                           num62 = num62;
                         int[] liSpull4 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                         int[] numArray22 = liSpull4;
-                        int index80 = 0;
-                        int index81 = index80;
-                        int num63 = liSpull4[index80] + num62;
+                        let mut index80: i32 =  0;
+                        let mut index81: i32 =  index80;
+                        let mut num63: i32 =  liSpull4[index80] + num62;
                         numArray22[index81] = num63;
                       }
                       if (num32 == 2)
                       {
                         index4 += numArray8[index73, index49];
-                        int num64 = numArray8[index73, index49];
+                        let mut num64: i32 =  numArray8[index73, index49];
                         int[] liSpull5 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                         int[] numArray23 = liSpull5;
-                        int index82 = 0;
-                        int index83 = index82;
-                        int num65 = liSpull5[index82] + num64;
+                        let mut index82: i32 =  0;
+                        let mut index83: i32 =  index82;
+                        let mut num65: i32 =  liSpull5[index82] + num64;
                         numArray23[index83] = num65;
                       }
                       if (num32 == 1)
                       {
                         int[] liSpull6 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                         int[] numArray24 = liSpull6;
-                        int index84 = 4;
-                        int index85 = index84;
-                        int num66 = liSpull6[index84] + index4;
+                        let mut index84: i32 =  4;
+                        let mut index85: i32 =  index84;
+                        let mut num66: i32 =  liSpull6[index84] + index4;
                         numArray24[index85] = num66;
                         int[] liSpull7 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                         int[] numArray25 = liSpull7;
-                        int index86 = 0;
-                        int index87 = index86;
-                        int num67 = liSpull7[index86] + index4;
+                        let mut index86: i32 =  0;
+                        let mut index87: i32 =  index86;
+                        let mut num67: i32 =  liSpull7[index86] + index4;
                         numArray25[index87] = num67;
                         index4 += numArray11[index73, index49];
-                        int num68 = numArray11[index73, index49];
+                        let mut num68: i32 =  numArray11[index73, index49];
                         int[] liSpull8 = this.game.Data.MapObj[0].HexObj[index73, index49].LISpull;
                         int[] numArray26 = liSpull8;
-                        int index88 = 0;
-                        int index89 = index88;
-                        int num69 = liSpull8[index88] + num68;
+                        let mut index88: i32 =  0;
+                        let mut index89: i32 =  index88;
+                        let mut num69: i32 =  liSpull8[index88] + num68;
                         numArray26[index89] = num69;
                       }
                     }
@@ -9844,13 +9844,13 @@ label_81:
                   if (index4 > 0)
                   {
                     bool flag8 = true;
-                    int num70 = -1;
+                    let mut num70: i32 =  -1;
                     while (flag8)
                     {
                       num70 += 1;
                       if (num70 <= 0 || num70 <= 10)
                       {
-                        int num71 = index4;
+                        let mut num71: i32 =  index4;
                         flag8 = false;
                         if (num70 > 0)
                         {
@@ -9862,11 +9862,11 @@ label_81:
                             case 2:
                               this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, 11, 0, 2000, index18, y1, 0, NoAPPenalties: true, roadsOnly: true, lisMode: -1, specialRuleNumber: 3, specialRuleNumber2: index4);
                               CoordList tCoordList = CoordList::new();
-                              int mapWidth18 = this.game.Data.MapObj[0].MapWidth;
-                              for (int x = 0; x <= mapWidth18; x += 1)
+                              let mut mapWidth18: i32 =  this.game.Data.MapObj[0].MapWidth;
+                              for (let mut x: i32 =  0; x <= mapWidth18; x += 1)
                               {
-                                int mapHeight2 = this.game.Data.MapObj[0].MapHeight;
-                                for (int y3 = 0; y3 <= mapHeight2; y3 += 1)
+                                let mut mapHeight2: i32 =  this.game.Data.MapObj[0].MapHeight;
+                                for (let mut y3: i32 =  0; y3 <= mapHeight2; y3 += 1)
                                 {
                                   if (this.game.EditObj.TempValue[0].Value[x, y3] < 9999)
                                     tCoordList.AddCoord(x, y3, 0, this.game.EditObj.TempValue[0].Value[x, y3], 0);
@@ -9889,8 +9889,8 @@ label_81:
                           coordinate4 = this.game.EditObj.TempCameFrom[0].Value[coordinate3.x, coordinate3.y];
                           if (coordinate4.onmap | coordinate4.x == index18 & coordinate4.y == y1)
                           {
-                            int index90 = this.game.HandyFunctionsObj.HexFacing(coordinate3.x, coordinate3.y, 0, coordinate4.x, coordinate4.y, 0) - 1;
-                            int index91 = index90 + 3;
+                            let mut index90: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate3.x, coordinate3.y, 0, coordinate4.x, coordinate4.y, 0) - 1;
+                            let mut index91: i32 =  index90 + 3;
                             if (index91 > 5)
                               index91 -= 6;
                             if (numArray2[coordinate4.x, coordinate4.y, index91, 2] < 7)
@@ -9926,13 +9926,13 @@ label_81:
                               {
                                 int[,,] numArray27 = numArray10;
                                 int[,,] numArray28 = numArray27;
-                                int x = coordinate4.x;
-                                int index92 = x;
-                                int y4 = coordinate4.y;
-                                int index93 = y4;
-                                int index94 = 6;
-                                int index95 = index94;
-                                int num72 = numArray27[x, y4, index94] + (index4 - numArray10[coordinate4.x, coordinate4.y, index91]);
+                                let mut x: i32 =  coordinate4.x;
+                                let mut index92: i32 =  x;
+                                let mut y4: i32 =  coordinate4.y;
+                                let mut index93: i32 =  y4;
+                                let mut index94: i32 =  6;
+                                let mut index95: i32 =  index94;
+                                let mut num72: i32 =  numArray27[x, y4, index94] + (index4 - numArray10[coordinate4.x, coordinate4.y, index91]);
                                 numArray28[index92, index93, index95] = num72;
                                 numArray10[coordinate4.x, coordinate4.y, index91] = index4;
                               }
@@ -9941,36 +9941,36 @@ label_81:
                                 if (coordinate3.x == 8 & coordinate3.y == 26)
                                   index4 = index4;
                                 num31 = 0;
-                                int num73 = 0;
+                                let mut num73: i32 =  0;
                                 Coordinate coordinate5 = this.game.EditObj.TempCameFrom[0].Value[coordinate4.x, coordinate4.y];
                                 if (coordinate5.onmap)
                                 {
                                   index50 = this.game.HandyFunctionsObj.HexFacing(coordinate5.x, coordinate5.y, 0, coordinate4.x, coordinate4.y, 0) - 1;
                                   num73 = numArray7[coordinate5.x, coordinate5.y, index50];
                                 }
-                                int num74 = numArray7[coordinate4.x, coordinate4.y, index91];
+                                let mut num74: i32 =  numArray7[coordinate4.x, coordinate4.y, index91];
                                 if (num73 > num74)
                                 {
                                   int[,,] numArray29 = numArray10;
                                   int[,,] numArray30 = numArray29;
-                                  int x = coordinate4.x;
-                                  int index96 = x;
-                                  int y5 = coordinate4.y;
-                                  int index97 = y5;
-                                  int index98 = 6;
-                                  int index99 = index98;
-                                  int num75 = numArray29[x, y5, index98] + (num73 - num74);
+                                  let mut x: i32 =  coordinate4.x;
+                                  let mut index96: i32 =  x;
+                                  let mut y5: i32 =  coordinate4.y;
+                                  let mut index97: i32 =  y5;
+                                  let mut index98: i32 =  6;
+                                  let mut index99: i32 =  index98;
+                                  let mut num75: i32 =  numArray29[x, y5, index98] + (num73 - num74);
                                   numArray30[index96, index97, index99] = num75;
                                 }
                                 int[,,] possiblePull = this.game.EditObj.PossiblePull;
                                 int[,,] numArray31 = possiblePull;
-                                int x1 = coordinate4.x;
-                                int index100 = x1;
-                                int y6 = coordinate4.y;
-                                int index101 = y6;
-                                int index102 = index91;
-                                int index103 = index102;
-                                int num76 = possiblePull[x1, y6, index102] - Math.Max(0, index4 - numArray10[coordinate3.x, coordinate3.y, index90] - numArray3[coordinate4.x, coordinate4.y, index91]);
+                                let mut x1: i32 =  coordinate4.x;
+                                let mut index100: i32 =  x1;
+                                let mut y6: i32 =  coordinate4.y;
+                                let mut index101: i32 =  y6;
+                                let mut index102: i32 =  index91;
+                                let mut index103: i32 =  index102;
+                                let mut num76: i32 =  possiblePull[x1, y6, index102] - Math.Max(0, index4 - numArray10[coordinate3.x, coordinate3.y, index90] - numArray3[coordinate4.x, coordinate4.y, index91]);
                                 numArray31[index100, index101, index103] = num76;
                                 if (0 > this.game.EditObj.PossiblePull[coordinate4.x, coordinate4.y, index91])
                                   this.game.EditObj.PossiblePull[coordinate4.x, coordinate4.y, index91] = 0;
@@ -9982,23 +9982,23 @@ label_81:
                             {
                               int[,,] numArray32 = numArray3;
                               int[,,] numArray33 = numArray32;
-                              int x2 = coordinate4.x;
-                              int index104 = x2;
-                              int y7 = coordinate4.y;
-                              int index105 = y7;
-                              int index106 = index91;
-                              int index107 = index106;
-                              int num77 = numArray32[x2, y7, index106] + index4;
+                              let mut x2: i32 =  coordinate4.x;
+                              let mut index104: i32 =  x2;
+                              let mut y7: i32 =  coordinate4.y;
+                              let mut index105: i32 =  y7;
+                              let mut index106: i32 =  index91;
+                              let mut index107: i32 =  index106;
+                              let mut num77: i32 =  numArray32[x2, y7, index106] + index4;
                               numArray33[index104, index105, index107] = num77;
                               int[,,] possiblePull = this.game.EditObj.PossiblePull;
                               int[,,] numArray34 = possiblePull;
-                              int x3 = coordinate4.x;
-                              int index108 = x3;
-                              int y8 = coordinate4.y;
-                              int index109 = y8;
-                              int index110 = index91;
-                              int index111 = index110;
-                              int num78 = possiblePull[x3, y8, index110] - index4;
+                              let mut x3: i32 =  coordinate4.x;
+                              let mut index108: i32 =  x3;
+                              let mut y8: i32 =  coordinate4.y;
+                              let mut index109: i32 =  y8;
+                              let mut index110: i32 =  index91;
+                              let mut index111: i32 =  index110;
+                              let mut num78: i32 =  possiblePull[x3, y8, index110] - index4;
                               numArray34[index108, index109, index111] = num78;
                             }
                             if (index4 < 1)
@@ -10021,13 +10021,13 @@ label_81:
             num32 += 1;
           }
           while (num32 <= 3);
-          int mapWidth19 = this.game.Data.MapObj[0].MapWidth;
-          for (int index112 = 0; index112 <= mapWidth19; index112 += 1)
+          let mut mapWidth19: i32 =  this.game.Data.MapObj[0].MapWidth;
+          for (let mut index112: i32 =  0; index112 <= mapWidth19; index112 += 1)
           {
-            int mapHeight = this.game.Data.MapObj[0].MapHeight;
+            let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
             for (index49 = 0; index49 <= mapHeight; index49 += 1)
             {
-              int index113 = 0;
+              let mut index113: i32 =  0;
               do
               {
                 this.game.Data.MapObj[0].HexObj[index112, index49].tempPreviewRoadPull[index113] = numArray3[index112, index49, index113];
@@ -10040,11 +10040,11 @@ label_81:
       }
       if (!isCalibrationCall & isPreview)
       {
-        int locCounter5 = this.game.Data.LocCounter;
-        for (int locnr = 0; locnr <= locCounter5; locnr += 1)
+        let mut locCounter5: i32 =  this.game.Data.LocCounter;
+        for (let mut locnr: i32 =  0; locnr <= locCounter5; locnr += 1)
         {
-          int x = this.game.Data.LocObj[locnr].X;
-          int y9 = this.game.Data.LocObj[locnr].Y;
+          let mut x: i32 =  this.game.Data.LocObj[locnr].X;
+          let mut y9: i32 =  this.game.Data.LocObj[locnr].Y;
           flag5 = false;
           this.game.Data.LocObj[locnr].tempLIS = SimpleList::new();
           this.game.Data.LocObj[locnr].tempLISfreeAP = SimpleList::new();
@@ -10052,36 +10052,36 @@ label_81:
           {
             if (num1 == -1)
             {
-              int id = this.game.Data.LocObj[locnr].ID;
-              int num79 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(6, id, 0)));
+              let mut id: i32 =  this.game.Data.LocObj[locnr].ID;
+              let mut num79: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(6, id, 0)));
               data9: DataClass = this.game.Data;
               str9: String = "truckPoints";
                local9: String =  str9;
               libName15: String = libName1;
-              int libVar9 = data9.FindLibVar( local9, libName15);
-              int hexLibVarValue4 = this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar9);
+              let mut libVar9: i32 =  data9.FindLibVar( local9, libName15);
+              let mut hexLibVarValue4: i32 =  this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar9);
               if (this.game.Data.RegimeObj[this.game.Data.Turn].AI & num79 > 0)
                 hexLibVarValue4 += 150000;
               data10: DataClass = this.game.Data;
               str10: String = "truckFreeAp";
                local10: String =  str10;
               libName16: String = libName1;
-              int libVar10 = data10.FindLibVar( local10, libName16);
-              int hexLibVarValue5 = this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar10);
+              let mut libVar10: i32 =  data10.FindLibVar( local10, libName16);
+              let mut hexLibVarValue5: i32 =  this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar10);
               if (this.game.Data.RegimeObj[this.game.Data.Turn].AI & num79 > 0)
                 hexLibVarValue5 += 1000;
               data11: DataClass = this.game.Data;
               str11: String = "maglevPoints";
                local11: String =  str11;
               libName17: String = libName1;
-              int libVar11 = data11.FindLibVar( local11, libName17);
-              int hexLibVarValue6 = this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar11);
+              let mut libVar11: i32 =  data11.FindLibVar( local11, libName17);
+              let mut hexLibVarValue6: i32 =  this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar11);
               data12: DataClass = this.game.Data;
               str12: String = "maglevFreeAp";
                local12: String =  str12;
               libName18: String = libName1;
-              int libVar12 = data12.FindLibVar( local12, libName18);
-              int hexLibVarValue7 = this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar12);
+              let mut libVar12: i32 =  data12.FindLibVar( local12, libName18);
+              let mut hexLibVarValue7: i32 =  this.game.Data.MapObj[0].HexObj[x, y9].GetHexLibVarValue(libVar12);
               this.game.EventRelatedObj.ExecSetLIS(locnr, 1, -1, hexLibVarValue4, "");
               this.game.EventRelatedObj.ExecSetLISfreeAP(locnr, 1, -1, hexLibVarValue5, "");
               this.game.EventRelatedObj.ExecSetLIS(locnr, 2, -1, hexLibVarValue6, "");
@@ -10101,14 +10101,14 @@ label_81:
           }
         }
       }
-      int num80 = 0;
+      let mut num80: i32 =  0;
       do
       {
-        int locCounter6 = this.game.Data.LocCounter;
-        for (int index114 = 0; index114 <= locCounter6; index114 += 1)
+        let mut locCounter6: i32 =  this.game.Data.LocCounter;
+        for (let mut index114: i32 =  0; index114 <= locCounter6; index114 += 1)
         {
-          int x = this.game.Data.LocObj[index114].X;
-          int y10 = this.game.Data.LocObj[index114].Y;
+          let mut x: i32 =  this.game.Data.LocObj[index114].X;
+          let mut y10: i32 =  this.game.Data.LocObj[index114].Y;
           bool flag9 = false;
           if (this.game.Data.MapObj[0].HexObj[x, y10].Regime == this.game.Data.Turn && !Information.IsNothing((object) this.game.Data.LocObj[index114].tempLIS) && this.game.Data.LocObj[index114].tempLIS.Counter > -1)
             flag9 = true;
@@ -10116,11 +10116,11 @@ label_81:
           {
             if (x == 89 & y10 == 13)
               x = x;
-            int num81 = 100;
-            int length = this.game.Data.StringListObj[stringListById6].Length;
-            for (int index115 = 0; index115 <= length; index115 += 1)
+            let mut num81: i32 =  100;
+            let mut length: i32 =  this.game.Data.StringListObj[stringListById6].Length;
+            for (let mut index115: i32 =  0; index115 <= length; index115 += 1)
             {
-              int index116 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].Data[index115, 0]));
+              let mut index116: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].Data[index115, 0]));
               bool flag10 = false;
               if (num80 == 1 & index116 == 1)
                 flag10 = true;
@@ -10128,26 +10128,26 @@ label_81:
                 flag10 = true;
               if (flag10)
               {
-                int movetype2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].Data[index115, 4]));
+                let mut movetype2: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].Data[index115, 4]));
                 str13: String = this.game.Data.StringListObj[stringListById6].Data[index115, 1];
-                int theater =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].Data[index115, 2]));
-                int nr = this.game.Data.LocObj[index114].tempLIS.FindNr(index116);
-                int num82 = 0;
+                let mut theater: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].Data[index115, 2]));
+                let mut nr: i32 =  this.game.Data.LocObj[index114].tempLIS.FindNr(index116);
+                let mut num82: i32 =  0;
                 if (nr > -1)
                   num82 =  Math.Round(Math.Floor((double) (this.game.Data.LocObj[index114].tempLIS.Weight[nr] * num81) / 100.0));
                 if (num82 > 0)
                 {
-                  int index117 = this.game.Data.LocObj[index114].tempLISfreeAP.FindNr(index116);
-                  int num83 = 0;
+                  let mut index117: i32 =  this.game.Data.LocObj[index114].tempLISfreeAP.FindNr(index116);
+                  let mut num83: i32 =  0;
                   if (index117 > -1)
                     num83 = this.game.Data.LocObj[index114].tempLISfreeAP.Weight[index117];
                   if (num83 > 0)
                   {
-                    int num84 = 1;
+                    let mut num84: i32 =  1;
                     if (!isCalibrationCall & index116 == 2 & flag1)
                       num84 = 2;
-                    int num85 = num84;
-                    for (int index118 = 1; index118 <= num85; index118 += 1)
+                    let mut num85: i32 =  num84;
+                    for (let mut index118: i32 =  1; index118 <= num85; index118 += 1)
                     {
                       bool flag11 = flag1;
                       int num86;
@@ -10172,8 +10172,8 @@ label_81:
                       }
                       else
                         coordList = this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, movetype2, theater, num83 * 2, x, y10, 0, NoAPPenalties: isPreview, roadsOnly: true, alwaysUseLogisticalBonus: true, lisMode: index116);
-                      int tid4 = 0;
-                      int num87 = 0;
+                      let mut tid4: i32 =  0;
+                      let mut num87: i32 =  0;
                       LisRunner[] arySrc = new LisRunner[1];
                       arySrc[0].awaitingSplit = true;
                       arySrc[0].originRunner = SimpleList::new();
@@ -10195,9 +10195,9 @@ label_81:
                       simpleListArray[x, y10].AddBlind(0, 1);
                       int[] liSpoints1 = this.game.Data.MapObj[0].HexObj[x, y10].LISpoints;
                       int[] numArray35 = liSpoints1;
-                      int index119 = 6;
-                      int index120 = index119;
-                      int num88 = liSpoints1[index119] + num82;
+                      let mut index119: i32 =  6;
+                      let mut index120: i32 =  index119;
+                      let mut num88: i32 =  liSpoints1[index119] + num82;
                       numArray35[index120] = num88;
                       if (index1 > -1 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
                       {
@@ -10209,10 +10209,10 @@ label_81:
                       while (flag13)
                       {
                         flag13 = false;
-                        int num89 = num87;
-                        int num90 = tid4;
+                        let mut num89: i32 =  num87;
+                        let mut num90: i32 =  tid4;
                         int num91;
-                        for (int index121 = num89; index121 <= num90; index121 += 1)
+                        for (let mut index121: i32 =  num89; index121 <= num90; index121 += 1)
                         {
                           if (arySrc[index121].active)
                           {
@@ -10227,7 +10227,7 @@ label_81:
                               flag14 = false;
                               Coordinate coordinate6 = this.game.HandyFunctionsObj.HexNeighbour(arySrc[index121].x, arySrc[index121].y, 0, arySrc[index121].direction + 1);
                               Coordinate coordinate7 = this.game.HandyFunctionsObj.MoveApCostPreview2(arySrc[index121].x, arySrc[index121].y, this.game.Data.Turn, movetype2, theater, arySrc[index121].x, arySrc[index121].y, 0, coordinate6.x, coordinate6.y, 0, NoAPPenalties: isPreview, roadsOnly: true, alwaysUseLogisticalBonus: true);
-                              int index122 = this.game.Data.MapObj[0].HexObj[arySrc[index121].x, arySrc[index121].y].RoadType[arySrc[index121].direction];
+                              let mut index122: i32 =  this.game.Data.MapObj[0].HexObj[arySrc[index121].x, arySrc[index121].y].RoadType[arySrc[index121].direction];
                               if (index122 > -1)
                               {
                                 if (this.game.Data.RoadTypeObj[index122].MoveCostOverrule[movetype2] >= 999)
@@ -10243,7 +10243,7 @@ label_81:
                                   index121 = index121;
                                 if (arySrc[index121].apUsed + coordinate7.x < num83 * 2)
                                 {
-                                  int num92 = this.game.HandyFunctionsObj.GetLogisticalBonus(arySrc[index121].x, arySrc[index121].y, index116);
+                                  let mut num92: i32 =  this.game.HandyFunctionsObj.GetLogisticalBonus(arySrc[index121].x, arySrc[index121].y, index116);
                                   if ( Math.Round(Conversion.Val(this.game.Data.Designer)) > 40 && arySrc[index121].apUsed < num92)
                                   {
                                     num92 = arySrc[index121].apUsed;
@@ -10258,8 +10258,8 @@ label_81:
                                   }
                                   if (num92 > arySrc[index121].extensionAllowed)
                                     arySrc[index121].extensionAllowed = num92;
-                                  int num93 = arySrc[index121].extensionAllowed - arySrc[index121].extensionUsed;
-                                  int num94 = coordinate7.x;
+                                  let mut num93: i32 =  arySrc[index121].extensionAllowed - arySrc[index121].extensionUsed;
+                                  let mut num94: i32 =  coordinate7.x;
                                   if (num93 > 0)
                                   {
                                     if (num94 > num93)
@@ -10272,7 +10272,7 @@ label_81:
                                       LisRunner[] lisRunnerArray1 = arySrc;
                                       LisRunner[] lisRunnerArray2 = lisRunnerArray1;
                                       index119 = index121;
-                                      int index123 = index119;
+                                      let mut index123: i32 =  index119;
                                       lisRunnerArray2[index123].extensionUsed = lisRunnerArray1[index119].extensionUsed + num94;
                                       num94 = 0;
                                     }
@@ -10281,9 +10281,9 @@ label_81:
                                   LisRunner[] lisRunnerArray3 = arySrc;
                                   LisRunner[] lisRunnerArray4 = lisRunnerArray3;
                                   index119 = index121;
-                                  int index124 = index119;
+                                  let mut index124: i32 =  index119;
                                   lisRunnerArray4[index124].apUsed = lisRunnerArray3[index119].apUsed + num94;
-                                  int num95 = arySrc[index121].direction + 3;
+                                  let mut num95: i32 =  arySrc[index121].direction + 3;
                                   if (num95 > 5)
                                     num95 -= 6;
                                   bool flag15 = false;
@@ -10296,18 +10296,18 @@ label_81:
                                   if (!Information.IsNothing((object) simpleListArray[coordinate6.x, coordinate6.y]))
                                   {
                                     num31 = 0;
-                                    int num96 = 0;
-                                    int num97 = 0;
-                                    int num98 = 0;
-                                    int num99 = 0;
+                                    let mut num96: i32 =  0;
+                                    let mut num97: i32 =  0;
+                                    let mut num98: i32 =  0;
+                                    let mut num99: i32 =  0;
                                     num91 = 0;
-                                    int counter7 = simpleListArray[coordinate6.x, coordinate6.y].Counter;
-                                    for (int index125 = 0; index125 <= counter7; index125 += 1)
+                                    let mut counter7: i32 =  simpleListArray[coordinate6.x, coordinate6.y].Counter;
+                                    for (let mut index125: i32 =  0; index125 <= counter7; index125 += 1)
                                     {
-                                      int num100 = 0;
+                                      let mut num100: i32 =  0;
                                       num97 += 1;
-                                      int counter8 = arySrc[index121].originRunner.Counter;
-                                      for (int index126 = 0; index126 <= counter8; index126 += 1)
+                                      let mut counter8: i32 =  arySrc[index121].originRunner.Counter;
+                                      for (let mut index126: i32 =  0; index126 <= counter8; index126 += 1)
                                       {
                                         if (arySrc[index121].originRunner.Id[index126] == simpleListArray[coordinate6.x, coordinate6.y].Id[index125])
                                           num100 += 1;
@@ -10315,13 +10315,13 @@ label_81:
                                       if (num100 > 0)
                                         num96 += 1;
                                     }
-                                    int counter9 = arySrc[index121].originRunner.Counter;
+                                    let mut counter9: i32 =  arySrc[index121].originRunner.Counter;
                                     for (index50 = 0; index50 <= counter9; index50 += 1)
                                     {
-                                      int num101 = 0;
+                                      let mut num101: i32 =  0;
                                       num99 += 1;
-                                      int counter10 = simpleListArray[coordinate6.x, coordinate6.y].Counter;
-                                      for (int index127 = 0; index127 <= counter10; index127 += 1)
+                                      let mut counter10: i32 =  simpleListArray[coordinate6.x, coordinate6.y].Counter;
+                                      for (let mut index127: i32 =  0; index127 <= counter10; index127 += 1)
                                       {
                                         if (arySrc[index121].originRunner.Id[index50] == simpleListArray[coordinate6.x, coordinate6.y].Id[index127])
                                           num101 += 1;
@@ -10360,8 +10360,8 @@ label_81:
                                     int[] liSpoints2 = this.game.Data.MapObj[0].HexObj[arySrc[index121].x, arySrc[index121].y].LISpoints;
                                     int[] numArray36 = liSpoints2;
                                     index119 = arySrc[index121].direction;
-                                    int index128 = index119;
-                                    int num102 = liSpoints2[index119] + index117;
+                                    let mut index128: i32 =  index119;
+                                    let mut num102: i32 =  liSpoints2[index119] + index117;
                                     numArray36[index128] = num102;
                                     arySrc[index121].awaitingSplit = false;
                                   }
@@ -10411,12 +10411,12 @@ label_81:
                                     int[,,] numArray37 = numArray3;
                                     int[,,] numArray38 = numArray37;
                                     index119 = arySrc[index121].x;
-                                    int index129 = index119;
-                                    int y11 = arySrc[index121].y;
-                                    int index130 = y11;
-                                    int direction = arySrc[index121].direction;
-                                    int index131 = direction;
-                                    int num103 = numArray37[index119, y11, direction] - index117;
+                                    let mut index129: i32 =  index119;
+                                    let mut y11: i32 =  arySrc[index121].y;
+                                    let mut index130: i32 =  y11;
+                                    let mut direction: i32 =  arySrc[index121].direction;
+                                    let mut index131: i32 =  direction;
+                                    let mut num103: i32 =  numArray37[index119, y11, direction] - index117;
                                     numArray38[index129, index130, index131] = num103;
                                     if (0 > numArray3[arySrc[index121].x, arySrc[index121].y, arySrc[index121].direction])
                                       numArray3[arySrc[index121].x, arySrc[index121].y, arySrc[index121].direction] = 0;
@@ -10426,8 +10426,8 @@ label_81:
                                     int[] liSpoints3 = this.game.Data.MapObj[0].HexObj[coordinate6.x, coordinate6.y].LISpoints;
                                     int[] numArray39 = liSpoints3;
                                     index119 = num95;
-                                    int index132 = index119;
-                                    int num104 = liSpoints3[index119] + index117;
+                                    let mut index132: i32 =  index119;
+                                    let mut num104: i32 =  liSpoints3[index119] + index117;
                                     numArray39[index132] = num104;
                                   }
                                   if (index1 > -1 & index117 > 0 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
@@ -10458,8 +10458,8 @@ label_81:
                                     int[] liSpoints4 = this.game.Data.MapObj[0].HexObj[coordinate6.x, coordinate6.y].LISpoints;
                                     int[] numArray40 = liSpoints4;
                                     index119 = 6;
-                                    int index133 = index119;
-                                    int num105 = liSpoints4[index119] + index117;
+                                    let mut index133: i32 =  index119;
+                                    let mut num105: i32 =  liSpoints4[index119] + index117;
                                     numArray40[index133] = num105;
                                   }
                                   arySrc[index121].splitJustDone = false;
@@ -10482,7 +10482,7 @@ label_81:
                                       LisRunner[] lisRunnerArray5 = arySrc;
                                       LisRunner[] lisRunnerArray6 = lisRunnerArray5;
                                       index119 = index121;
-                                      int index134 = index119;
+                                      let mut index134: i32 =  index119;
                                       lisRunnerArray6[index134].reFocusCount = lisRunnerArray5[index119].reFocusCount + 1;
                                       if (arySrc[index121].reFocusCount <= 3)
                                       {
@@ -10502,7 +10502,7 @@ label_81:
                                         strArray2[3] = arySrc[index121].apUsed.ToString();
                                         strArray2[4] = "AP";
                                         str15: String = string.Concat(strArray2);
-                                        int num106 = arySrc[index121].lisPoints -  Math.Round((double) arySrc[index121].lisPoints * ((double) arySrc[index121].apUsed / (double) (num83 * 2)));
+                                        let mut num106: i32 =  arySrc[index121].lisPoints -  Math.Round((double) arySrc[index121].lisPoints * ((double) arySrc[index121].apUsed / (double) (num83 * 2)));
                                         arySrc[index121].apUsed = 0;
                                         if (arySrc[index121].reFocusCount == 1)
                                         {
@@ -10552,15 +10552,15 @@ label_81:
                                   {
                                     arySrc[index121].x = coordinate6.x;
                                     arySrc[index121].y = coordinate6.y;
-                                    int num107 = -1;
-                                    int num108 = 0;
-                                    int num109 = 0;
+                                    let mut num107: i32 =  -1;
+                                    let mut num108: i32 =  0;
+                                    let mut num109: i32 =  0;
                                     if (coordinate6.x == 13 & coordinate6.y == 11)
                                       index121 = index121;
-                                    int num110 = index116 - 1;
+                                    let mut num110: i32 =  index116 - 1;
                                     if (arySrc[index121].isPull)
                                       num110 = 3;
-                                    int index135 = 0;
+                                    let mut index135: i32 =  0;
                                     do
                                     {
                                       if (index135 != num95)
@@ -10569,7 +10569,7 @@ label_81:
                                         if (coordinate8.onmap)
                                         {
                                           Coordinate coordinate9 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordinate6.x, coordinate6.y, this.game.Data.Turn, movetype2, theater, coordinate6.x, coordinate6.y, 0, coordinate8.x, coordinate8.y, 0, roadsOnly: true, alwaysUseLogisticalBonus: true);
-                                          int index136 = this.game.Data.MapObj[0].HexObj[coordinate6.x, coordinate6.y].RoadType[index135];
+                                          let mut index136: i32 =  this.game.Data.MapObj[0].HexObj[coordinate6.x, coordinate6.y].RoadType[index135];
                                           if (index136 > -1)
                                           {
                                             if (this.game.Data.RoadTypeObj[index136].MoveCostOverrule[movetype2] >= 999)
@@ -10622,9 +10622,9 @@ label_81:
                             }
                           }
                         }
-                        int num111 = num87;
-                        int num112 = tid4;
-                        for (int index137 = num111; index137 <= num112; index137 += 1)
+                        let mut num111: i32 =  num87;
+                        let mut num112: i32 =  tid4;
+                        for (let mut index137: i32 =  num111; index137 <= num112; index137 += 1)
                         {
                           if (arySrc[index137].awaitingSplit)
                           {
@@ -10632,7 +10632,7 @@ label_81:
                             arySrc[index137].awaitingSplit = false;
                             arySrc[index137].active = false;
                             SimpleList simpleList = SimpleList::new();
-                            int tid5 = 0;
+                            let mut tid5: i32 =  0;
                             do
                             {
                               if (tid5 != arySrc[index137].direction)
@@ -10643,7 +10643,7 @@ label_81:
                                 if (coordinate10.onmap)
                                 {
                                   Coordinate coordinate11 = this.game.HandyFunctionsObj.MoveApCostPreview2(arySrc[index137].x, arySrc[index137].y, this.game.Data.Turn, movetype2, theater, arySrc[index137].x, arySrc[index137].y, 0, coordinate10.x, coordinate10.y, 0, NoAPPenalties: isPreview, roadsOnly: true, alwaysUseLogisticalBonus: true);
-                                  int index138 = this.game.Data.MapObj[0].HexObj[arySrc[index137].x, arySrc[index137].y].RoadType[tid5];
+                                  let mut index138: i32 =  this.game.Data.MapObj[0].HexObj[arySrc[index137].x, arySrc[index137].y].RoadType[tid5];
                                   if (index138 > -1)
                                   {
                                     if (this.game.Data.RoadTypeObj[index138].MoveCostOverrule[movetype2] >= 999)
@@ -10654,23 +10654,23 @@ label_81:
                                   if (arySrc[index137].apUsed + coordinate11.x < num83 * 2)
                                   {
                                     num31 = 0;
-                                    int num113 = 0;
-                                    int num114 = 0;
-                                    int num115 = 0;
-                                    int num116 = 0;
+                                    let mut num113: i32 =  0;
+                                    let mut num114: i32 =  0;
+                                    let mut num115: i32 =  0;
+                                    let mut num116: i32 =  0;
                                     num91 = 0;
                                     if (arySrc[index137].x == 20 & arySrc[index137].y == 12)
                                       index117 = index117;
                                     bool flag18 = true;
                                     if (!Information.IsNothing((object) simpleListArray[coordinate10.x, coordinate10.y]))
                                     {
-                                      int counter11 = simpleListArray[coordinate10.x, coordinate10.y].Counter;
-                                      for (int index139 = 0; index139 <= counter11; index139 += 1)
+                                      let mut counter11: i32 =  simpleListArray[coordinate10.x, coordinate10.y].Counter;
+                                      for (let mut index139: i32 =  0; index139 <= counter11; index139 += 1)
                                       {
-                                        int num117 = 0;
+                                        let mut num117: i32 =  0;
                                         num114 += 1;
-                                        int counter12 = arySrc[index137].originRunner.Counter;
-                                        for (int index140 = 0; index140 <= counter12; index140 += 1)
+                                        let mut counter12: i32 =  arySrc[index137].originRunner.Counter;
+                                        for (let mut index140: i32 =  0; index140 <= counter12; index140 += 1)
                                         {
                                           if (arySrc[index137].originRunner.Id[index140] == simpleListArray[coordinate10.x, coordinate10.y].Id[index139])
                                             num117 += 1;
@@ -10678,13 +10678,13 @@ label_81:
                                         if (num117 > 0)
                                           num113 += 1;
                                       }
-                                      int counter13 = arySrc[index137].originRunner.Counter;
+                                      let mut counter13: i32 =  arySrc[index137].originRunner.Counter;
                                       for (index50 = 0; index50 <= counter13; index50 += 1)
                                       {
-                                        int num118 = 0;
+                                        let mut num118: i32 =  0;
                                         num116 += 1;
-                                        int counter14 = simpleListArray[coordinate10.x, coordinate10.y].Counter;
-                                        for (int index141 = 0; index141 <= counter14; index141 += 1)
+                                        let mut counter14: i32 =  simpleListArray[coordinate10.x, coordinate10.y].Counter;
+                                        for (let mut index141: i32 =  0; index141 <= counter14; index141 += 1)
                                         {
                                           if (arySrc[index137].originRunner.Id[index50] == simpleListArray[coordinate10.x, coordinate10.y].Id[index141])
                                             num118 += 1;
@@ -10716,20 +10716,20 @@ label_81:
                             while (tid5 <= 5);
                             simpleList.ReverseSort();
                             bool flag19 = false;
-                            int num119 = 0;
+                            let mut num119: i32 =  0;
                             if ( Math.Round(Conversion.Val(this.game.Data.Designer)) >= 42 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI & !this.game.Data.RegimeObj[this.game.Data.Turn].minimumDataUsage)
                             {
                               flag19 = true;
                               num119 = 1;
                             }
-                            int num120 = 0;
-                            int num121 = 0;
-                            int num122 = 0;
-                            int num123 = 0;
+                            let mut num120: i32 =  0;
+                            let mut num121: i32 =  0;
+                            let mut num122: i32 =  0;
+                            let mut num123: i32 =  0;
                             if (flag19)
                             {
-                              int counter = simpleList.Counter;
-                              for (int index142 = 0; index142 <= counter; index142 += 1)
+                              let mut counter: i32 =  simpleList.Counter;
+                              for (let mut index142: i32 =  0; index142 <= counter; index142 += 1)
                               {
                                 if (simpleList.Weight[0] == simpleList.Weight[index142])
                                 {
@@ -10745,14 +10745,14 @@ label_81:
                             }
                             if (num120 < 1 | num123 < 2)
                               num119 = 0;
-                            for (int index143 = num119; index143 >= 0; index143 += -1)
+                            for (let mut index143: i32 =  num119; index143 >= 0; index143 += -1)
                             {
-                              int index144 = index116 - 1;
+                              let mut index144: i32 =  index116 - 1;
                               if (index143 == 1)
                                 index144 = 3;
-                              int num124 = 0;
-                              int num125 = 0;
-                              for (int counter = simpleList.Counter; counter >= 0; counter += -1)
+                              let mut num124: i32 =  0;
+                              let mut num125: i32 =  0;
+                              for (let mut counter: i32 =  simpleList.Counter; counter >= 0; counter += -1)
                               {
                                 if (simpleList.Weight[0] == simpleList.Weight[counter])
                                 {
@@ -10785,7 +10785,7 @@ label_81:
                               if (index50 < 100 & num124 == 1 & simpleList.Counter > 0 && simpleList.Weight[1] > 0)
                               {
                                 simpleList.Weight[1] = simpleList.Weight[0];
-                                int index145 = 1;
+                                let mut index145: i32 =  1;
                                 num124 += 1;
                                 if (numArray2[arySrc[index137].x, arySrc[index137].y, simpleList.Id[index145], index144] < 7)
                                 {
@@ -10797,11 +10797,11 @@ label_81:
                               if (num124 > 0)
                               {
                                 simpleList.SortOnData5();
-                                int num126 = simpleList.Counter <= 0 ? simpleList.Data5[simpleList.Counter] : simpleList.Data5[simpleList.Counter - 1];
+                                let mut num126: i32 =  simpleList.Counter <= 0 ? simpleList.Data5[simpleList.Counter] : simpleList.Data5[simpleList.Counter - 1];
                                 if (index143 == 0)
                                   index137 = index137;
-                                int num127 = num124 - 1;
-                                for (int index146 = 0; index146 <= num127; index146 += 1)
+                                let mut num127: i32 =  num124 - 1;
+                                for (let mut index146: i32 =  0; index146 <= num127; index146 += 1)
                                 {
                                   tid4 += 1;
                                   if (tid4 > arySrc.GetUpperBound(0) - 10)
@@ -10809,8 +10809,8 @@ label_81:
                                   arySrc[tid4].splitJustDone = false;
                                   if (arySrc[index137].x == 153 & arySrc[index137].y == 41 & index116 == 1)
                                     index50 = index50;
-                                  int num128 = 0;
-                                  int num129 = simpleList.Data4[index146];
+                                  let mut num128: i32 =  0;
+                                  let mut num129: i32 =  simpleList.Data4[index146];
                                   switch (index143)
                                   {
                                     case 0:
@@ -10820,8 +10820,8 @@ label_81:
                                       index117 =  Math.Round(Math.Floor((double) arySrc[index137].lisPoints * ((double) simpleList.Data4[index146] / (double) num120)));
                                       if (index117 > 0)
                                       {
-                                        int num130 = index117;
-                                        int num131 = index117;
+                                        let mut num130: i32 =  index117;
+                                        let mut num131: i32 =  index117;
                                         float num132 = 1f;
                                         int num133;
                                         if (arySrc[index137].apUsed + simpleList.Data3[index146] > num83)
@@ -10839,7 +10839,7 @@ label_81:
                                         int num134;
                                         if ((double) num132 > 0.0 & (double) num132 < 1.0)
                                         {
-                                          int num135 = Math.Min(index117,  Math.Round(Math.Ceiling((double) (num131 * 1) / (double) num132)));
+                                          let mut num135: i32 =  Math.Min(index117,  Math.Round(Math.Ceiling((double) (num131 * 1) / (double) num132)));
                                           num121 += num135;
                                           num134 = num135;
                                         }
@@ -10853,15 +10853,15 @@ label_81:
                                         int[,,] numArray41 = numArray3;
                                         int[,,] numArray42 = numArray41;
                                         index119 = arySrc[index137].x;
-                                        int index147 = index119;
-                                        int y12 = arySrc[index137].y;
-                                        int index148 = y12;
+                                        let mut index147: i32 =  index119;
+                                        let mut y12: i32 =  arySrc[index137].y;
+                                        let mut index148: i32 =  y12;
                                         int[] id = simpleList.Id;
                                         int[] numArray43 = id;
-                                        int index149 = index146;
-                                        int index150 = index149;
-                                        int index151 = numArray43[index150];
-                                        int num136 = numArray41[index119, y12, id[index149]] - num133;
+                                        let mut index149: i32 =  index146;
+                                        let mut index150: i32 =  index149;
+                                        let mut index151: i32 =  numArray43[index150];
+                                        let mut num136: i32 =  numArray41[index119, y12, id[index149]] - num133;
                                         numArray42[index147, index148, index151] = num136;
                                         if (0 > numArray3[arySrc[index137].x, arySrc[index137].y, simpleList.Id[index146]])
                                           numArray3[arySrc[index137].x, arySrc[index137].y, simpleList.Id[index146]] = 0;
@@ -10902,17 +10902,17 @@ label_81:
                                   arySrc[tid4].originRunner.AddBlind(tid4, 1);
                                   if (arySrc[tid4].branchCount > 500 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
                                   {
-                                    int num137 =  Math.Round(Math.Ceiling((double) (arySrc[tid4].branchCount - 500) / 100.0));
-                                    int num138 = num137 * num137 * 10;
+                                    let mut num137: i32 =   Math.Round(Math.Ceiling((double) (arySrc[tid4].branchCount - 500) / 100.0));
+                                    let mut num138: i32 =  num137 * num137 * 10;
                                     if (num138 > 999)
                                       num138 = 999;
-                                    int num139 = arySrc[tid4].extensionAllowed - arySrc[tid4].extensionUsed;
+                                    let mut num139: i32 =  arySrc[tid4].extensionAllowed - arySrc[tid4].extensionUsed;
                                     if (num139 >= num138)
                                     {
                                       LisRunner[] lisRunnerArray7 = arySrc;
                                       LisRunner[] lisRunnerArray8 = lisRunnerArray7;
                                       index119 = tid4;
-                                      int index152 = index119;
+                                      let mut index152: i32 =  index119;
                                       lisRunnerArray8[index152].extensionUsed = lisRunnerArray7[index119].extensionUsed + num138;
                                     }
                                     else
@@ -10922,7 +10922,7 @@ label_81:
                                       LisRunner[] lisRunnerArray9 = arySrc;
                                       LisRunner[] lisRunnerArray10 = lisRunnerArray9;
                                       index119 = tid4;
-                                      int index153 = index119;
+                                      let mut index153: i32 =  index119;
                                       lisRunnerArray10[index153].apUsed = lisRunnerArray9[index119].apUsed + num138;
                                     }
                                     if (index146 == 0 && index1 > -1 & num124 > 1 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
@@ -10956,9 +10956,9 @@ label_81:
                           }
                         }
                         index117 = 9999999;
-                        int num140 = num87;
-                        int num141 = tid4;
-                        for (int index154 = num140; index154 <= num141; index154 += 1)
+                        let mut num140: i32 =  num87;
+                        let mut num141: i32 =  tid4;
+                        for (let mut index154: i32 =  num140; index154 <= num141; index154 += 1)
                         {
                           if ((arySrc[index154].active | arySrc[index154].awaitingSplit) & index117 > index154)
                             index117 = index154;
@@ -10975,27 +10975,27 @@ label_81:
         num80 += 1;
       }
       while (num80 <= 1);
-      int mapWidth20 = this.game.Data.MapObj[0].MapWidth;
-      for (int index155 = 0; index155 <= mapWidth20; index155 += 1)
+      let mut mapWidth20: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut index155: i32 =  0; index155 <= mapWidth20; index155 += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
         for (index49 = 0; index49 <= mapHeight; index49 += 1)
         {
           if (this.game.Data.MapObj[0].HexObj[index155, index49].LISpoints[6] > 0)
           {
-            int num142 = 0;
+            let mut num142: i32 =  0;
             do
             {
               coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(index155, index49, 0, num142 + 1);
               if (coordinate1.onmap && this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISpoints[6] > 0)
               {
-                int index156 = this.game.HandyFunctionsObj.HexFacing(index155, index49, 0, coordinate1.x, coordinate1.y, 0) - 1;
-                int index157 = index156 + 3;
+                let mut index156: i32 =  this.game.HandyFunctionsObj.HexFacing(index155, index49, 0, coordinate1.x, coordinate1.y, 0) - 1;
+                let mut index157: i32 =  index156 + 3;
                 if (index157 > 5)
                   index157 -= 6;
                 if (this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LISpoints[index157] == 0 & this.game.Data.MapObj[0].HexObj[index155, index49].LISpoints[index156] == 0)
                 {
-                  int num143 = this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].RoadType[index157] > -1 & this.game.Data.MapObj[0].HexObj[index155, index49].RoadType[index156] > -1 ? 1 : 0;
+                  let mut num143: i32 =  this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].RoadType[index157] > -1 & this.game.Data.MapObj[0].HexObj[index155, index49].RoadType[index156] > -1 ? 1 : 0;
                 }
               }
               num142 += 1;
@@ -11008,13 +11008,13 @@ label_81:
         this.LIS_AddAirBridges(isPreview);
       if (!isCalibrationCall)
       {
-        int mapWidth21 = this.game.Data.MapObj[0].MapWidth;
-        for (int index158 = 0; index158 <= mapWidth21; index158 += 1)
+        let mut mapWidth21: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index158: i32 =  0; index158 <= mapWidth21; index158 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
           for (index49 = 0; index49 <= mapHeight; index49 += 1)
           {
-            int index159 = 0;
+            let mut index159: i32 =  0;
             do
             {
               this.game.Data.MapObj[0].HexObj[index158, index49].LIStotalHistory[index159] = this.game.Data.MapObj[0].HexObj[index158, index49].LISpoints[index159];
@@ -11026,13 +11026,13 @@ label_81:
       }
       if (!isCalibrationCall && isPreview)
       {
-        int mapWidth22 = this.game.Data.MapObj[0].MapWidth;
-        for (int index160 = 0; index160 <= mapWidth22; index160 += 1)
+        let mut mapWidth22: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index160: i32 =  0; index160 <= mapWidth22; index160 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
           for (index49 = 0; index49 <= mapHeight; index49 += 1)
           {
-            int index161 = 0;
+            let mut index161: i32 =  0;
             do
             {
               if (onlyForAssetID > 0)
@@ -11074,16 +11074,16 @@ label_81:
       }
       if (isPreview & !this.game.Data.RegimeObj[this.game.Data.Turn].AI & this.game.Data.InTurn)
         this.game.EventRelatedObj.ExecSuperImposeMessage("", "", 0, 0, "");
-      int mapWidth23 = this.game.Data.MapObj[0].MapWidth;
-      for (int index162 = 0; index162 <= mapWidth23; index162 += 1)
+      let mut mapWidth23: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut index162: i32 =  0; index162 <= mapWidth23; index162 += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
         for (index49 = 0; index49 <= mapHeight; index49 += 1)
         {
           this.game.EditObj.TempValue[0].Value[index162, index49] = Conversions.ToInteger(objArray1[index162, index49]);
           Coordinate[,] coordinateArray = this.game.EditObj.TempCameFrom[0].Value;
-          int index163 = index162;
-          int index164 = index49;
+          let mut index163: i32 =  index162;
+          let mut index164: i32 =  index49;
           object obj = objArray2[index162, index49];
           Coordinate coordinate12;
           Coordinate coordinate13 = obj != null ? (Coordinate) obj : coordinate12;
@@ -11094,63 +11094,63 @@ label_81:
 
     pub void LIS_AddAirBridges(bool preview)
     {
-      int stringListById1 = this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
-      int stringListById2 = this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 535, 0, 0));
-      int stringListById3 = this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 363, 0, 0));
+      let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 534, 0, 0));
+      let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 535, 0, 0));
+      let mut stringListById3: i32 =  this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 363, 0, 0));
       if (stringListById1 < 1)
         return;
-      int id = this.game.Data.RegimeObj[this.game.Data.Turn].id;
-      for (int length = this.game.Data.StringListObj[stringListById2].Length; length >= 0; length += -1)
+      let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
+      for (let mut length: i32 =  this.game.Data.StringListObj[stringListById2].Length; length >= 0; length += -1)
       {
-        int regimeById = this.game.HandyFunctionsObj.GetRegimeByID( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].Data[length, 0])));
+        let mut regimeById: i32 =  this.game.HandyFunctionsObj.GetRegimeByID( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].Data[length, 0])));
         if (regimeById == -1)
           this.game.Data.StringListObj[stringListById2].RemoveRow(length);
         else if (this.game.Data.RegimeObj[regimeById].AI | regimeById == this.game.Data.Turn)
           this.game.Data.StringListObj[stringListById2].RemoveRow(length);
       }
       SimpleList simpleList1 = SimpleList::new();
-      int unitCounter1 = this.game.Data.UnitCounter;
-      for (int index = 0; index <= unitCounter1; index += 1)
+      let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
+      for (let mut index: i32 =  0; index <= unitCounter1; index += 1)
       {
         if (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn)
         {
-          int historical = this.game.Data.UnitObj[index].Historical;
+          let mut historical: i32 =  this.game.Data.UnitObj[index].Historical;
           if (historical > -1 && this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(55) > 0)
           {
-            int x = this.game.Data.UnitObj[index].X;
-            int y = this.game.Data.UnitObj[index].Y;
-            int tdata3 = this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(56);
-            int tdata4 = this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(57);
+            let mut x: i32 =  this.game.Data.UnitObj[index].X;
+            let mut y: i32 =  this.game.Data.UnitObj[index].Y;
+            let mut tdata3: i32 =  this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(56);
+            let mut tdata4: i32 =  this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(57);
             simpleList1.Add(this.game.Data.HistoricalUnitObj[historical].ID, 1, x, y, tdata3, tdata4);
           }
         }
       }
-      for (int length = this.game.Data.StringListObj[stringListById1].Length; length >= 0; length += -1)
+      for (let mut length: i32 =  this.game.Data.StringListObj[stringListById1].Length; length >= 0; length += -1)
       {
         if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 0])) == id)
         {
-          int tdata1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 1]));
-          int tdata2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 2]));
-          int tdata3 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 3]));
-          int tdata4 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 4]));
-          int num1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 9]));
+          let mut tdata1: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 1]));
+          let mut tdata2: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 2]));
+          let mut tdata3: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 3]));
+          let mut tdata4: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 4]));
+          let mut num1: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 9]));
           if (simpleList1.FindNr(-1, tdata1, tdata2, tdata3, tdata4) <= -1)
             num1 = -1;
           if (num1 == -1)
           {
             this.game.Data.StringListObj[stringListById1].RemoveRow(length);
-            int unitCounter2 = this.game.Data.UnitCounter;
-            for (int index = 0; index <= unitCounter2; index += 1)
+            let mut unitCounter2: i32 =  this.game.Data.UnitCounter;
+            for (let mut index: i32 =  0; index <= unitCounter2; index += 1)
             {
               if (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index].PreDef == -1)
               {
-                int historical = this.game.Data.UnitObj[index].Historical;
+                let mut historical: i32 =  this.game.Data.UnitObj[index].Historical;
                 if (this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(55) > 0)
                 {
-                  int x = this.game.Data.UnitObj[index].X;
-                  int y = this.game.Data.UnitObj[index].Y;
-                  int num2 = this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(56);
-                  int num3 = this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(57);
+                  let mut x: i32 =  this.game.Data.UnitObj[index].X;
+                  let mut y: i32 =  this.game.Data.UnitObj[index].Y;
+                  let mut num2: i32 =  this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(56);
+                  let mut num3: i32 =  this.game.Data.HistoricalUnitObj[historical].GiveHisVarValue(57);
                   if (x == tdata1 & y == tdata2 & num2 == tdata3 & num3 == tdata4)
                   {
                     this.game.Data.HistoricalUnitObj[historical].SetHisVarValue(55, 0);
@@ -11167,41 +11167,41 @@ label_81:
         else if (this.game.HandyFunctionsObj.GetRegimeByID( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 0]))) == -1)
           this.game.Data.StringListObj[stringListById1].RemoveRow(length);
       }
-      for (int length = this.game.Data.StringListObj[stringListById1].Length; length >= 0; length += -1)
+      for (let mut length: i32 =  this.game.Data.StringListObj[stringListById1].Length; length >= 0; length += -1)
       {
         if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 0])) == id)
         {
-          int x1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 1]));
-          int y1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 2]));
-          int x2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 3]));
-          int y2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 4]));
-          int num4 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 8]));
-          int num5 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 9]));
+          let mut x1: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 1]));
+          let mut y1: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 2]));
+          let mut x2: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 3]));
+          let mut y2: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 4]));
+          let mut num4: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 8]));
+          let mut num5: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length, 9]));
           this.game.Data.StringListObj[stringListById2].AddRowWithData(id.ToString(), num4.ToString(), "Attempting to execute Air Bridge");
           SimpleList simpleList2 = SimpleList::new();
-          int counter1 = simpleList1.Counter;
-          for (int index = 0; index <= counter1; index += 1)
+          let mut counter1: i32 =  simpleList1.Counter;
+          for (let mut index: i32 =  0; index <= counter1; index += 1)
           {
             if (simpleList1.Data1[index] == x1 & simpleList1.Data2[index] == y1 & simpleList1.Data3[index] == x2 & simpleList1.Data4[index] == y2)
             {
-              int historicalUnitById = this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList1.Id[index]);
+              let mut historicalUnitById: i32 =  this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList1.Id[index]);
               if (historicalUnitById > -1)
               {
-                int unitByHistorical = this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById);
-                int lowestAirRdn = this.game.HandyFunctionsObj.GetLowestAirRdn(unitByHistorical);
-                int lowestAirApRule = this.game.HandyFunctionsObj.GetLowestAirApRule(unitByHistorical);
-                int tdata1 = this.game.HandyFunctionsObj.GetLowestAirAp(unitByHistorical);
-                int minimumAirfieldLevel = this.game.HandyFunctionsObj.SE1_GetUnitMinimumAirfieldLevel(unitByHistorical);
-                int num6 = 0;
-                int num7 = 0;
+                let mut unitByHistorical: i32 =  this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById);
+                let mut lowestAirRdn: i32 =  this.game.HandyFunctionsObj.GetLowestAirRdn(unitByHistorical);
+                let mut lowestAirApRule: i32 =  this.game.HandyFunctionsObj.GetLowestAirApRule(unitByHistorical);
+                let mut tdata1: i32 =  this.game.HandyFunctionsObj.GetLowestAirAp(unitByHistorical);
+                let mut minimumAirfieldLevel: i32 =  this.game.HandyFunctionsObj.SE1_GetUnitMinimumAirfieldLevel(unitByHistorical);
+                let mut num6: i32 =  0;
+                let mut num7: i32 =  0;
                 if (this.game.Data.MapObj[0].HexObj[x1, y1].Location > -1)
                   num6 = this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].tempAirfieldLevel;
                 if (this.game.Data.MapObj[0].HexObj[x2, y2].Location > -1)
                   num7 = this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x2, y2].Location].tempAirfieldLevel;
                 if (tdata1 > lowestAirRdn)
                   tdata1 = lowestAirRdn;
-                int num8 =  Math.Round(Math.Floor((double) tdata1 / (double) lowestAirApRule));
-                int num9 = this.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
+                let mut num8: i32 =   Math.Round(Math.Floor((double) tdata1 / (double) lowestAirApRule));
+                let mut num9: i32 =  this.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0);
                 if (minimumAirfieldLevel > num6)
                   this.game.Data.StringListObj[stringListById2].AddRowWithData(id.ToString(), num4.ToString(), this.game.Data.UnitObj[unitByHistorical].Name + " source Hex Airbase Level was not high enough.", "Current Level is " + num6.ToString() + " instead of " + minimumAirfieldLevel.ToString() + ".");
                 else if (minimumAirfieldLevel > num7)
@@ -11231,31 +11231,31 @@ label_81:
             Target.x = x2;
             Target.y = y2;
             this.game.EditObj.TempUnitList = UnitList::new();
-            int num10 = 0;
-            int counter2 = simpleList2.Counter;
-            for (int index = 0; index <= counter2; index += 1)
+            let mut num10: i32 =  0;
+            let mut counter2: i32 =  simpleList2.Counter;
+            for (let mut index: i32 =  0; index <= counter2; index += 1)
             {
-              int historicalUnitById = this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index]);
+              let mut historicalUnitById: i32 =  this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index]);
               if (historicalUnitById > -1)
                 this.game.EditObj.TempUnitList.add(this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById));
             }
             this.game.TempCombat.Init(Target, 1, this.game.EditObj.TempUnitList, 55, true);
             this.game.TempCombat.DoBattle();
-            int se1carryPointsDelivered = this.game.TempCombat.se1carryPointsDelivered;
-            int se1damagePercentage = this.game.TempCombat.se1damagePercentage;
+            let mut se1carryPointsDelivered: i32 =  this.game.TempCombat.se1carryPointsDelivered;
+            let mut se1damagePercentage: i32 =  this.game.TempCombat.se1damagePercentage;
             SimpleList simpleList3 = SimpleList::new();
             SimpleList simpleList4 = SimpleList::new();
             SimpleList simpleList5 = SimpleList::new();
             SimpleList simpleList6 = SimpleList::new();
-            int num11 = 0;
-            int num12 = 0;
-            int num13 = 0;
-            int num14 = 0;
-            int counter3 = simpleList2.Counter;
-            for (int index1 = 0; index1 <= counter3; index1 += 1)
+            let mut num11: i32 =  0;
+            let mut num12: i32 =  0;
+            let mut num13: i32 =  0;
+            let mut num14: i32 =  0;
+            let mut counter3: i32 =  simpleList2.Counter;
+            for (let mut index1: i32 =  0; index1 <= counter3; index1 += 1)
             {
-              int icounter = this.game.TempCombat.ICounter;
-              for (int index2 = 0; index2 <= icounter; index2 += 1)
+              let mut icounter: i32 =  this.game.TempCombat.ICounter;
+              for (let mut index2: i32 =  0; index2 <= icounter; index2 += 1)
               {
                 if (this.game.TempCombat.IList[index2].IUnr == simpleList2.Data2[index1])
                 {
@@ -11278,8 +11278,8 @@ label_81:
                 }
               }
             }
-            int icounter1 = this.game.TempCombat.ICounter;
-            for (int index = 0; index <= icounter1; index += 1)
+            let mut icounter1: i32 =  this.game.TempCombat.ICounter;
+            for (let mut index: i32 =  0; index <= icounter1; index += 1)
             {
               if (this.game.TempCombat.IList[index].IAttacker == 0 && this.game.Data.SFTypeObj[this.game.TempCombat.IList[index].ISFType].Theater == 2)
               {
@@ -11291,8 +11291,8 @@ label_81:
             {
               s2: String = "Our mission was intercepted by " + num14.ToString() + " enemy aircraft.";
               s3: String = "";
-              int counter4 = simpleList3.Counter;
-              for (int index = 0; index <= counter4; index += 1)
+              let mut counter4: i32 =  simpleList3.Counter;
+              for (let mut index: i32 =  0; index <= counter4; index += 1)
               {
                 if (simpleList3.Weight[index] > 0)
                 {
@@ -11309,8 +11309,8 @@ label_81:
             else
               s2_1 = "Failure to establish Air Bridge. " + num13.ToString() + " air retreated. " + num11.ToString() + " air lost.";
             s3_1: String = "";
-            int counter5 = simpleList4.Counter;
-            for (int index = 0; index <= counter5; index += 1)
+            let mut counter5: i32 =  simpleList4.Counter;
+            for (let mut index: i32 =  0; index <= counter5; index += 1)
             {
               if (simpleList4.Weight[index] > 0)
               {
@@ -11321,35 +11321,35 @@ label_81:
             }
             this.game.Data.StringListObj[stringListById2].AddRowWithData(id.ToString(), num4.ToString(), s2_1, s3_1);
             this.game.TempCombat.EndBattle();
-            int counter6 = simpleList2.Counter;
-            for (int index = 0; index <= counter6; index += 1)
+            let mut counter6: i32 =  simpleList2.Counter;
+            for (let mut index: i32 =  0; index <= counter6; index += 1)
             {
-              int historicalUnitById = this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index]);
+              let mut historicalUnitById: i32 =  this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index]);
               if (historicalUnitById > -1 && this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById) > -1)
                 this.game.EventRelatedObj.Helper_MakeListForUnitRequests("SE_Data", this.game.Data.HistoricalUnitObj[historicalUnitById].ID, false);
             }
-            int num15 = 0;
-            int num16 = 0;
+            let mut num15: i32 =  0;
+            let mut num16: i32 =  0;
             int num17;
             if ( Math.Round(Conversion.Val(this.game.Data.Designer)) >= 82)
             {
-              int counter7 = simpleList2.Counter;
-              for (int index3 = 0; index3 <= counter7; index3 += 1)
+              let mut counter7: i32 =  simpleList2.Counter;
+              for (let mut index3: i32 =  0; index3 <= counter7; index3 += 1)
               {
-                int historicalUnitById = this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index3]);
+                let mut historicalUnitById: i32 =  this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index3]);
                 if (historicalUnitById > -1)
                 {
-                  int unitByHistorical = this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById);
+                  let mut unitByHistorical: i32 =  this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById);
                   if (unitByHistorical > -1)
                   {
-                    int sfCount = this.game.Data.UnitObj[unitByHistorical].SFCount;
-                    for (int index4 = 0; index4 <= sfCount; index4 += 1)
+                    let mut sfCount: i32 =  this.game.Data.UnitObj[unitByHistorical].SFCount;
+                    for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
                     {
-                      int sf = this.game.Data.UnitObj[unitByHistorical].SFList[index4];
-                      int idValue = this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SFTypeVar[81];
+                      let mut sf: i32 =  this.game.Data.UnitObj[unitByHistorical].SFList[index4];
+                      let mut idValue: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SFTypeVar[81];
                       if (idValue > 0)
                       {
-                        int num18 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, idValue, 1, 503, 2)));
+                        let mut num18: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, idValue, 1, 503, 2)));
                         num16 += this.game.Data.SFObj[sf].Qty;
                         num15 += this.game.Data.SFObj[sf].Qty * num18;
                       }
@@ -11363,20 +11363,20 @@ label_81:
             }
             else
             {
-              int counter8 = simpleList2.Counter;
-              for (int index5 = 0; index5 <= counter8; index5 += 1)
+              let mut counter8: i32 =  simpleList2.Counter;
+              for (let mut index5: i32 =  0; index5 <= counter8; index5 += 1)
               {
-                int historicalUnitById = this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index5]);
+                let mut historicalUnitById: i32 =  this.game.HandyFunctionsObj.GetHistoricalUnitByID(simpleList2.Id[index5]);
                 if (historicalUnitById > -1)
                 {
-                  int unitByHistorical = this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById);
+                  let mut unitByHistorical: i32 =  this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById);
                   if (unitByHistorical > -1)
                   {
-                    int sfCount = this.game.Data.UnitObj[unitByHistorical].SFCount;
-                    for (int index6 = 0; index6 <= sfCount; index6 += 1)
+                    let mut sfCount: i32 =  this.game.Data.UnitObj[unitByHistorical].SFCount;
+                    for (let mut index6: i32 =  0; index6 <= sfCount; index6 += 1)
                     {
-                      int sf = this.game.Data.UnitObj[unitByHistorical].SFList[index6];
-                      int num19 = this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SFTypeVar[22];
+                      let mut sf: i32 =  this.game.Data.UnitObj[unitByHistorical].SFList[index6];
+                      let mut num19: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SFTypeVar[22];
                       num16 += this.game.Data.SFObj[sf].Qty;
                       num15 += this.game.Data.SFObj[sf].Qty * num19;
                     }
@@ -11395,15 +11395,15 @@ label_81:
             this.game.Data.StringListObj[stringListById1].Data[length, 11] = num10.ToString();
             int[] liSpoints1 = this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints;
             int[] numArray1 = liSpoints1;
-            int index7 = 6;
-            int index8 = index7;
-            int num20 = liSpoints1[index7] + se1carryPointsDelivered;
+            let mut index7: i32 =  6;
+            let mut index8: i32 =  index7;
+            let mut num20: i32 =  liSpoints1[index7] + se1carryPointsDelivered;
             numArray1[index8] = num20;
             int[] liSpoints2 = this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints;
             int[] numArray2 = liSpoints2;
-            int index9 = 6;
-            int index10 = index9;
-            int num21 = liSpoints2[index9] + se1carryPointsDelivered;
+            let mut index9: i32 =  6;
+            let mut index10: i32 =  index9;
+            let mut num21: i32 =  liSpoints2[index9] + se1carryPointsDelivered;
             numArray2[index10] = num21;
             if (se1carryPointsDelivered > 0)
             {
@@ -11418,17 +11418,17 @@ label_81:
 
     pub void LIS_SetNetwork_BACKUP(bool isCalibrationCall)
     {
-      int stringListById = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[405]));
+      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[405]));
       this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]));
       if (isCalibrationCall)
       {
-        int mapWidth = this.game.Data.MapObj[0].MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
-            int index3 = 0;
+            let mut index3: i32 =  0;
             do
             {
               this.game.Data.MapObj[0].HexObj[index1, index2].tempOldLISpoints[index3] = this.game.Data.MapObj[0].HexObj[index1, index2].LISpoints[index3];
@@ -11441,13 +11441,13 @@ label_81:
       }
       else
       {
-        int mapWidth = this.game.Data.MapObj[0].MapWidth;
-        for (int index4 = 0; index4 <= mapWidth; index4 += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+        for (let mut index4: i32 =  0; index4 <= mapWidth; index4 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[0].MapHeight;
-          for (int index5 = 0; index5 <= mapHeight; index5 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+          for (let mut index5: i32 =  0; index5 <= mapHeight; index5 += 1)
           {
-            int index6 = 0;
+            let mut index6: i32 =  0;
             do
             {
               this.game.Data.MapObj[0].HexObj[index4, index5].tempOldLISpoints[index6] = 0;
@@ -11462,34 +11462,34 @@ label_81:
           }
         }
       }
-      int locCounter = this.game.Data.LocCounter;
-      for (int index7 = 0; index7 <= locCounter; index7 += 1)
+      let mut locCounter: i32 =  this.game.Data.LocCounter;
+      for (let mut index7: i32 =  0; index7 <= locCounter; index7 += 1)
       {
-        int x1 = this.game.Data.LocObj[index7].X;
-        int y1 = this.game.Data.LocObj[index7].Y;
+        let mut x1: i32 =  this.game.Data.LocObj[index7].X;
+        let mut y1: i32 =  this.game.Data.LocObj[index7].Y;
         bool flag = false;
         if (this.game.Data.MapObj[0].HexObj[x1, y1].Regime == this.game.Data.Turn && !Information.IsNothing((object) this.game.Data.LocObj[index7].tempLIS) && this.game.Data.LocObj[index7].tempLIS.Counter > -1)
           flag = true;
         if (flag)
         {
-          int num1 = 100;
+          let mut num1: i32 =  100;
           if (isCalibrationCall)
           {
-            int num2 = 0;
-            int length = this.game.Data.StringListObj[stringListById].Length;
-            for (int index8 = 0; index8 <= length; index8 += 1)
+            let mut num2: i32 =  0;
+            let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
+            for (let mut index8: i32 =  0; index8 <= length; index8 += 1)
             {
-              int tid =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index8, 0]));
-              int num3 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index8, 4]));
-              int num4 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index8, 2]));
-              int nr1 = this.game.Data.LocObj[index7].tempLIS.FindNr(tid);
-              int num5 = 0;
+              let mut tid: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index8, 0]));
+              let mut num3: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index8, 4]));
+              let mut num4: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index8, 2]));
+              let mut nr1: i32 =  this.game.Data.LocObj[index7].tempLIS.FindNr(tid);
+              let mut num5: i32 =  0;
               if (nr1 > -1)
                 num5 = this.game.Data.LocObj[index7].tempLIS.Weight[nr1];
               if (num5 > 0)
               {
-                int nr2 = this.game.Data.LocObj[index7].tempLISfreeAP.FindNr(tid);
-                int num6 = 0;
+                let mut nr2: i32 =  this.game.Data.LocObj[index7].tempLISfreeAP.FindNr(tid);
+                let mut num6: i32 =  0;
                 if (nr2 > -1)
                   num6 = this.game.Data.LocObj[index7].tempLISfreeAP.Weight[nr2];
                 if (num6 > 0)
@@ -11499,58 +11499,58 @@ label_81:
             if (num2 > 0)
               num1 =  Math.Round(Math.Floor((double) (this.game.Data.MapObj[0].HexObj[this.game.Data.LocObj[index7].X, this.game.Data.LocObj[index7].Y].tempOldLISpoints[6] * 100) / (double) num2));
           }
-          int length1 = this.game.Data.StringListObj[stringListById].Length;
-          for (int index9 = 0; index9 <= length1; index9 += 1)
+          let mut length1: i32 =  this.game.Data.StringListObj[stringListById].Length;
+          for (let mut index9: i32 =  0; index9 <= length1; index9 += 1)
           {
-            int tid =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index9, 0]));
-            int movetype =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index9, 4]));
-            int theater =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index9, 2]));
-            int nr3 = this.game.Data.LocObj[index7].tempLIS.FindNr(tid);
-            int num7 = 0;
+            let mut tid: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index9, 0]));
+            let mut movetype: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index9, 4]));
+            let mut theater: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index9, 2]));
+            let mut nr3: i32 =  this.game.Data.LocObj[index7].tempLIS.FindNr(tid);
+            let mut num7: i32 =  0;
             if (nr3 > -1)
               num7 =  Math.Round(Math.Floor((double) (this.game.Data.LocObj[index7].tempLIS.Weight[nr3] * num1) / 100.0));
             if (num7 > 0)
             {
-              int nr4 = this.game.Data.LocObj[index7].tempLISfreeAP.FindNr(tid);
-              int num8 = 0;
+              let mut nr4: i32 =  this.game.Data.LocObj[index7].tempLISfreeAP.FindNr(tid);
+              let mut num8: i32 =  0;
               if (nr4 > -1)
                 num8 = this.game.Data.LocObj[index7].tempLISfreeAP.Weight[nr4];
               if (num8 > 0)
               {
                 int[] liSpoints1 = this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints;
                 int[] numArray1 = liSpoints1;
-                int index10 = 6;
-                int index11 = index10;
-                int num9 = liSpoints1[index10] + num7;
+                let mut index10: i32 =  6;
+                let mut index11: i32 =  index10;
+                let mut num9: i32 =  liSpoints1[index10] + num7;
                 numArray1[index11] = num9;
                 CoordList coordList1 = this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, movetype, theater, num8 * 2, x1, y1, 0, roadsOnly: true, alwaysUseLogisticalBonus: true);
-                int counter1 = coordList1.counter;
-                for (int index12 = 0; index12 <= counter1; index12 += 1)
+                let mut counter1: i32 =  coordList1.counter;
+                for (let mut index12: i32 =  0; index12 <= counter1; index12 += 1)
                 {
                   if (coordList1.coord[index12].onmap)
                   {
-                    int x2 = coordList1.coord[index12].x;
-                    int y2 = coordList1.coord[index12].y;
+                    let mut x2: i32 =  coordList1.coord[index12].x;
+                    let mut y2: i32 =  coordList1.coord[index12].y;
                     if (this.game.EditObj.TempCameFrom[0].Value[x2, y2].onmap & this.game.EditObj.TempValue[0].Value[x2, y2] < 9999)
                     {
-                      int x3 = this.game.EditObj.TempCameFrom[0].Value[x2, y2].x;
-                      int y3 = this.game.EditObj.TempCameFrom[0].Value[x2, y2].y;
-                      int num10 = this.game.HandyFunctionsObj.HexFacing(x3, y3, 0, x2, y2, 0) - 1;
-                      int num11 = num10 + 3;
+                      let mut x3: i32 =  this.game.EditObj.TempCameFrom[0].Value[x2, y2].x;
+                      let mut y3: i32 =  this.game.EditObj.TempCameFrom[0].Value[x2, y2].y;
+                      let mut num10: i32 =  this.game.HandyFunctionsObj.HexFacing(x3, y3, 0, x2, y2, 0) - 1;
+                      let mut num11: i32 =  num10 + 3;
                       if (num11 > 5)
                         num11 -= 6;
-                      int num12 = this.game.EditObj.TempValue[0].Value[x2, y2];
-                      int num13 = num12 <= num8 ? num7 :  Math.Round((double) num7 * ((double) (num8 - (num12 - num8)) / (double) num8));
+                      let mut num12: i32 =  this.game.EditObj.TempValue[0].Value[x2, y2];
+                      let mut num13: i32 =  num12 <= num8 ? num7 :  Math.Round((double) num7 * ((double) (num8 - (num12 - num8)) / (double) num8));
                       if (isCalibrationCall)
                       {
-                        int pointsOnTrajectory = this.LIS_GetLowestPotentialPointsOnTrajectory(x2, y2);
+                        let mut pointsOnTrajectory: i32 =  this.LIS_GetLowestPotentialPointsOnTrajectory(x2, y2);
                         if (num13 > pointsOnTrajectory)
                           num13 = pointsOnTrajectory;
                       }
                       if (((!isCalibrationCall ? 1 : 0) & 0) != 0)
                       {
-                        int num14 = 0;
-                        int num15 = 0;
+                        let mut num14: i32 =  0;
+                        let mut num15: i32 =  0;
                         if (this.game.Data.Turn == 2)
                           num14 = num14;
                         Coordinate coordinate1;
@@ -11559,8 +11559,8 @@ label_81:
                         coordinate1.y = y3;
                         while (coordinate1.onmap)
                         {
-                          int num16 = 0;
-                          int tfacing1 = 1;
+                          let mut num16: i32 =  0;
+                          let mut tfacing1: i32 =  1;
                           do
                           {
                             if (this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].RoadType[tfacing1 - 1] > -1)
@@ -11568,7 +11568,7 @@ label_81:
                               Coordinate coordinate2 = this.game.HandyFunctionsObj.HexNeighbour(coordinate1.x, coordinate1.y, 0, tfacing1);
                               if (coordinate2.onmap && this.game.EditObj.TempValue[0].Value[coordinate2.x, coordinate2.y] < 9999)
                               {
-                                int index13 = tfacing1 - 1 + 3;
+                                let mut index13: i32 =  tfacing1 - 1 + 3;
                                 if (index13 > 5)
                                   index13 -= 6;
                                 if (this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].RoadType[index13] > -1)
@@ -11580,32 +11580,32 @@ label_81:
                           while (tfacing1 <= 6);
                           if (((!isCalibrationCall ? 1 : 0) & 0) != 0)
                           {
-                            int num17 = 0;
+                            let mut num17: i32 =  0;
                             Coordinate coordinate3 = this.game.EditObj.TempCameFrom[0].Value[coordinate1.x, coordinate1.y];
                             CoordList coordList2 = CoordList::new();
                             if (coordinate3.onmap)
                             {
-                              int num18 = 1;
+                              let mut num18: i32 =  1;
                               Coordinate coordinate4;
                               do
                               {
                                 coordinate4 = this.game.HandyFunctionsObj.HexNeighbour(coordinate1.x, coordinate1.y, 0, num18);
                                 if (coordinate4.onmap && !(coordinate4.x == coordinate1.x & coordinate4.y == coordinate1.y) & !(coordinate4.x == coordinate3.x & coordinate4.y == coordinate3.y) && this.game.EditObj.TempCameFrom[0].Value[coordinate4.x, coordinate4.y].onmap & !(this.game.EditObj.TempCameFrom[0].Value[coordinate4.x, coordinate4.y].x == coordinate1.x & this.game.EditObj.TempCameFrom[0].Value[coordinate4.x, coordinate4.y].y == coordinate1.y))
                                 {
-                                  int num19 = num18 + 3;
+                                  let mut num19: i32 =  num18 + 3;
                                   if (num19 > 6)
                                     num19 -= 6;
-                                  int dat2 = 0;
+                                  let mut dat2: i32 =  0;
                                   if (this.game.Data.MapObj[0].HexObj[coordinate4.x, coordinate4.y].RoadType[num19 - 1] > -1 && this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].RoadType[num18 - 1] > -1)
                                   {
                                     num17 += 1;
-                                    int tfacing2 = 1;
+                                    let mut tfacing2: i32 =  1;
                                     do
                                     {
                                       Coordinate coordinate5 = this.game.HandyFunctionsObj.HexNeighbour(coordinate4.x, coordinate4.y, 0, tfacing2);
                                       if (coordinate5.onmap)
                                       {
-                                        int num20 = tfacing2 + 3;
+                                        let mut num20: i32 =  tfacing2 + 3;
                                         if (num20 > 6)
                                           num20 -= 6;
                                         if (this.game.Data.MapObj[0].HexObj[coordinate5.x, coordinate5.y].RoadType[num20 - 1] > -1 && this.game.Data.MapObj[0].HexObj[coordinate4.x, coordinate4.y].RoadType[tfacing2 - 1] > -1)
@@ -11622,27 +11622,27 @@ label_81:
                               while (num18 <= 6);
                               if (num17 > 0)
                               {
-                                int counter2 = coordList2.counter;
-                                for (int index14 = 0; index14 <= counter2; index14 += 1)
+                                let mut counter2: i32 =  coordList2.counter;
+                                for (let mut index14: i32 =  0; index14 <= counter2; index14 += 1)
                                 {
                                   coordinate4.x = coordList2.coord[index14].x;
                                   coordinate4.y = coordList2.coord[index14].y;
                                   coordinate4.onmap = true;
-                                  int data1 = coordList2.coord[index14].data1;
-                                  int data2 = coordList2.coord[index14].data2;
-                                  int num21 = data1 + 3;
+                                  let mut data1: i32 =  coordList2.coord[index14].data1;
+                                  let mut data2: i32 =  coordList2.coord[index14].data2;
+                                  let mut num21: i32 =  data1 + 3;
                                   int num22;
                                   int liSpoint;
                                   if (num21 > 6)
                                   {
-                                    int num23 = num21 - 6;
+                                    let mut num23: i32 =  num21 - 6;
                                     num22 = this.game.EditObj.TempValue[0].Value[coordinate4.x, coordinate4.y];
                                     liSpoint = this.game.Data.MapObj[0].HexObj[coordinate4.x, coordinate4.y].LISpoints[6];
                                   }
                                   Coordinate coordinate6 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordinate4.x, coordinate4.y, this.game.Data.Turn, movetype, theater, coordinate4.x, coordinate4.y, 0, coordinate1.x, coordinate1.y, 0, roadsOnly: true, alwaysUseLogisticalBonus: true);
                                   if (num22 + coordinate6.x <= num8 * 2)
                                   {
-                                    int num24 =  Math.Round(Math.Floor((num22 + coordinate6.x <= num8 ? (double) liSpoint : (double)  Math.Round((double) liSpoint * ((double) (num8 - (num22 + coordinate6.x - num8)) / (double) num8))) / (double) (coordList2.counter + 1)));
+                                    let mut num24: i32 =   Math.Round(Math.Floor((num22 + coordinate6.x <= num8 ? (double) liSpoint : (double)  Math.Round((double) liSpoint * ((double) (num8 - (num22 + coordinate6.x - num8)) / (double) num8))) / (double) (coordList2.counter + 1)));
                                     if (num24 > 0)
                                       num15 += num24;
                                   }
@@ -11661,29 +11661,29 @@ label_81:
                         }
                         if (num14 > 0)
                         {
-                          int num25 = num14;
-                          for (int index15 = 1; index15 <= num25; index15 += 1)
+                          let mut num25: i32 =  num14;
+                          for (let mut index15: i32 =  1; index15 <= num25; index15 += 1)
                             num13 =  Math.Round(Math.Floor((double) num13 / 2.0));
                         }
                         num13 += num15;
                       }
                       int[] liSpoints2 = this.game.Data.MapObj[0].HexObj[x3, y3].LISpoints;
                       int[] numArray2 = liSpoints2;
-                      int index16 = num10;
-                      int index17 = index16;
-                      int num26 = liSpoints2[index16] + num13;
+                      let mut index16: i32 =  num10;
+                      let mut index17: i32 =  index16;
+                      let mut num26: i32 =  liSpoints2[index16] + num13;
                       numArray2[index17] = num26;
                       int[] liSpoints3 = this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints;
                       int[] numArray3 = liSpoints3;
-                      int index18 = num11;
-                      int index19 = index18;
-                      int num27 = liSpoints3[index18] + num13;
+                      let mut index18: i32 =  num11;
+                      let mut index19: i32 =  index18;
+                      let mut num27: i32 =  liSpoints3[index18] + num13;
                       numArray3[index19] = num27;
                       int[] liSpoints4 = this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints;
                       int[] numArray4 = liSpoints4;
-                      int index20 = 6;
-                      int index21 = index20;
-                      int num28 = liSpoints4[index20] + num13;
+                      let mut index20: i32 =  6;
+                      let mut index21: i32 =  index20;
+                      let mut num28: i32 =  liSpoints4[index20] + num13;
                       numArray4[index21] = num28;
                     }
                   }
@@ -11693,27 +11693,27 @@ label_81:
           }
         }
       }
-      int mapWidth1 = this.game.Data.MapObj[0].MapWidth;
-      for (int index22 = 0; index22 <= mapWidth1; index22 += 1)
+      let mut mapWidth1: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut index22: i32 =  0; index22 <= mapWidth1; index22 += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
-        for (int index23 = 0; index23 <= mapHeight; index23 += 1)
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+        for (let mut index23: i32 =  0; index23 <= mapHeight; index23 += 1)
         {
           if (this.game.Data.MapObj[0].HexObj[index22, index23].LISpoints[6] > 0)
           {
-            int num29 = 0;
+            let mut num29: i32 =  0;
             do
             {
               Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(index22, index23, 0, num29 + 1);
               if (coordinate.onmap && this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].LISpoints[6] > 0)
               {
-                int index24 = this.game.HandyFunctionsObj.HexFacing(index22, index23, 0, coordinate.x, coordinate.y, 0) - 1;
-                int index25 = index24 + 3;
+                let mut index24: i32 =  this.game.HandyFunctionsObj.HexFacing(index22, index23, 0, coordinate.x, coordinate.y, 0) - 1;
+                let mut index25: i32 =  index24 + 3;
                 if (index25 > 5)
                   index25 -= 6;
                 if (this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].LISpoints[index25] == 0 & this.game.Data.MapObj[0].HexObj[index22, index23].LISpoints[index24] == 0 && this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].RoadType[index25] > -1 & this.game.Data.MapObj[0].HexObj[index22, index23].RoadType[index24] > -1)
                 {
-                  int num30 = Math.Min(this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].LISpoints[6], this.game.Data.MapObj[0].HexObj[index22, index23].LISpoints[6]);
+                  let mut num30: i32 =  Math.Min(this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].LISpoints[6], this.game.Data.MapObj[0].HexObj[index22, index23].LISpoints[6]);
                   this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].LISpoints[index25] = num30;
                   this.game.Data.MapObj[0].HexObj[index22, index23].LISpoints[index24] = num30;
                 }
@@ -11726,13 +11726,13 @@ label_81:
       }
       if (isCalibrationCall)
         return;
-      int mapWidth2 = this.game.Data.MapObj[0].MapWidth;
-      for (int index26 = 0; index26 <= mapWidth2; index26 += 1)
+      let mut mapWidth2: i32 =  this.game.Data.MapObj[0].MapWidth;
+      for (let mut index26: i32 =  0; index26 <= mapWidth2; index26 += 1)
       {
-        int mapHeight = this.game.Data.MapObj[0].MapHeight;
-        for (int index27 = 0; index27 <= mapHeight; index27 += 1)
+        let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+        for (let mut index27: i32 =  0; index27 <= mapHeight; index27 += 1)
         {
-          int index28 = 0;
+          let mut index28: i32 =  0;
           do
           {
             this.game.Data.MapObj[0].HexObj[index26, index27].LIStotalHistory[index28] = this.game.Data.MapObj[0].HexObj[index26, index27].LISpoints[index28];
@@ -11746,17 +11746,17 @@ label_81:
     pub void LocationProduction()
     {
       SimpleList simpleList1 = SimpleList::new();
-      int movetype =  Math.Round((double) this.game.Data.RuleVar[99]);
-      int ap =  Math.Round((double) this.game.Data.RuleVar[3]);
+      let mut movetype: i32 =   Math.Round((double) this.game.Data.RuleVar[99]);
+      let mut ap: i32 =   Math.Round((double) this.game.Data.RuleVar[3]);
       SimpleList simpleList2 = SimpleList::new();
       if (this.game.Data.LocCounter == -1)
         return;
-      int locCounter = this.game.Data.LocCounter;
+      let mut locCounter: i32 =  this.game.Data.LocCounter;
       int regime;
-      for (int tid = 0; tid <= locCounter; tid += 1)
+      for (let mut tid: i32 =  0; tid <= locCounter; tid += 1)
       {
         regime = this.game.Data.MapObj[this.game.Data.LocObj[tid].Map].HexObj[this.game.Data.LocObj[tid].X, this.game.Data.LocObj[tid].Y].Regime;
-        int type = this.game.Data.LocObj[tid].Type;
+        let mut type: i32 =  this.game.Data.LocObj[tid].Type;
         if (regime == this.game.Data.Turn & (this.game.Data.LocObj[tid].HQ > -1 | (double) this.game.Data.RuleVar[332] == 1.0))
           simpleList2.Add(tid, this.game.Data.LocTypeObj[type].ZOrder);
         else if (regime == this.game.Data.Turn & (this.game.Data.LocTypeObj[this.game.Data.LocObj[tid].Type].NoHQ | (double) this.game.Data.RuleVar[332] == 1.0))
@@ -11765,15 +11765,15 @@ label_81:
       if (simpleList2.Counter == -1)
         return;
       simpleList2.Sort();
-      int counter1 = simpleList2.Counter;
+      let mut counter1: i32 =  simpleList2.Counter;
       CoordList coordList;
-      for (int index1 = 0; index1 <= counter1; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
       {
-        int index2 = simpleList2.Id[index1];
-        int x = this.game.Data.LocObj[index2].X;
-        int y = this.game.Data.LocObj[index2].Y;
-        int map = this.game.Data.LocObj[index2].Map;
-        int hq = this.game.Data.LocObj[index2].HQ;
+        let mut index2: i32 =  simpleList2.Id[index1];
+        let mut x: i32 =  this.game.Data.LocObj[index2].X;
+        let mut y: i32 =  this.game.Data.LocObj[index2].Y;
+        let mut map: i32 =  this.game.Data.LocObj[index2].Map;
+        let mut hq: i32 =  this.game.Data.LocObj[index2].HQ;
         regime = this.game.Data.MapObj[this.game.Data.LocObj[index2].Map].HexObj[this.game.Data.LocObj[index2].X, this.game.Data.LocObj[index2].Y].Regime;
         if (hq > -1 & !this.game.Data.LocTypeObj[this.game.Data.LocObj[index2].Type].NoHQ)
         {
@@ -11791,7 +11791,7 @@ label_81:
             if (this.game.EditObj.TempValue[map].Value[x, y] < 9999)
             {
               simpleList2.Data2[index1] = this.game.EditObj.TempValue[map].Value[x, y];
-              int antiSupply = this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map, x, y, map);
+              let mut antiSupply: i32 =  this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map, x, y, map);
               simpleList2.Data3[index1] = antiSupply;
             }
             else
@@ -11809,23 +11809,23 @@ label_81:
         else if ((double) this.game.Data.RuleVar[332] != 1.0)
           simpleList2.Data1[index1] = 1;
       }
-      int counter2 = simpleList2.Counter;
-      for (int index3 = 0; index3 <= counter2; index3 += 1)
+      let mut counter2: i32 =  simpleList2.Counter;
+      for (let mut index3: i32 =  0; index3 <= counter2; index3 += 1)
       {
-        int locnr = simpleList2.Id[index3];
-        int x = this.game.Data.LocObj[locnr].X;
-        int y = this.game.Data.LocObj[locnr].Y;
-        int map = this.game.Data.LocObj[locnr].Map;
-        int hq = this.game.Data.LocObj[locnr].HQ;
+        let mut locnr: i32 =  simpleList2.Id[index3];
+        let mut x: i32 =  this.game.Data.LocObj[locnr].X;
+        let mut y: i32 =  this.game.Data.LocObj[locnr].Y;
+        let mut map: i32 =  this.game.Data.LocObj[locnr].Map;
+        let mut hq: i32 =  this.game.Data.LocObj[locnr].HQ;
         if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI & (double) this.game.Data.RuleVar[312] == 1.0)
           ap = 0;
-        int type = this.game.Data.LocObj[locnr].Type;
+        let mut type: i32 =  this.game.Data.LocObj[locnr].Type;
         if ((double) this.game.Data.RuleVar[332] == 0.0 & !this.game.Data.LocTypeObj[type].NoHQ)
           coordList = this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, movetype, 99, ap, this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map);
-        int index4 = 0;
+        let mut index4: i32 =  0;
         do
         {
-          int itemtypenr = this.game.Data.LocObj[locnr].Production[index4];
+          let mut itemtypenr: i32 =  this.game.Data.LocObj[locnr].Production[index4];
           if (itemtypenr > -1)
           {
             if (Operators.CompareString(this.game.Data.LocObj[locnr].Name, "Sydney", false) == 0)
@@ -11869,11 +11869,11 @@ label_81:
             }
             if (simpleList2.Data1[index3] == 1)
               num1 = 0;
-            int Qty = num1;
+            let mut Qty: i32 =  num1;
             if (Qty > 0)
               Qty *= this.game.Data.ItemTypeObj[itemtypenr].Multiplier;
-            int num4 = 0;
-            int index5 = 0;
+            let mut num4: i32 =  0;
+            let mut index5: i32 =  0;
             do
             {
               if (this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCost[index5] > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCost[index5]] < num2 * this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCostQty[index5])
@@ -11888,7 +11888,7 @@ label_81:
               {
                 if (this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[itemtypenr].IsSFType].Theater != 1)
                 {
-                  int num6 = Qty;
+                  let mut num6: i32 =  Qty;
                   Qty =  Math.Round(Conversion.Int((double) Qty * (1.0 - (double) simpleList2.Data3[index3] / 100.0)));
                   if (num6 == Qty && (double) VBMath.Rnd() < (double) simpleList2.Data3[index3] / 100.0)
                   {
@@ -11900,9 +11900,9 @@ label_81:
                     num4 = num6 - Qty;
                     int[] sasProdLost = this.game.Data.RegimeObj[this.game.Data.Turn].SASProdLost;
                     int[] numArray = sasProdLost;
-                    int index6 = itemtypenr;
-                    int index7 = index6;
-                    int num7 = sasProdLost[index6] + (num6 - Qty);
+                    let mut index6: i32 =  itemtypenr;
+                    let mut index7: i32 =  index6;
+                    let mut num7: i32 =  sasProdLost[index6] + (num6 - Qty);
                     numArray[index7] = num7;
                     if (this.game.Data.ItemTypeObj[itemtypenr].IsSupply)
                       this.game.HandyFunctionsObj.SetAntiSupplyKills(this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map, x, y, map, num6 - Qty, 0, 0);
@@ -11914,7 +11914,7 @@ label_81:
               }
               else if (this.game.Data.ItemTypeObj[itemtypenr].IsSupply)
               {
-                int num8 = Qty;
+                let mut num8: i32 =  Qty;
                 Qty =  Math.Round(Conversion.Int((double) Qty * (1.0 - (double) simpleList2.Data3[index3] / 100.0)));
                 if (num8 == Qty && (double) VBMath.Rnd() < (double) simpleList2.Data3[index3] / 100.0)
                 {
@@ -11926,9 +11926,9 @@ label_81:
                   num4 = num8 - Qty;
                   int[] sasProdLost = this.game.Data.RegimeObj[this.game.Data.Turn].SASProdLost;
                   int[] numArray = sasProdLost;
-                  int index8 = itemtypenr;
-                  int index9 = index8;
-                  int num9 = sasProdLost[index8] + (num8 - Qty);
+                  let mut index8: i32 =  itemtypenr;
+                  let mut index9: i32 =  index8;
+                  let mut num9: i32 =  sasProdLost[index8] + (num8 - Qty);
                   numArray[index9] = num9;
                   if (this.game.Data.ItemTypeObj[itemtypenr].IsSupply)
                     this.game.HandyFunctionsObj.SetAntiSupplyKills(this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map, x, y, map, num8 - Qty, 0, 0);
@@ -11940,42 +11940,42 @@ label_81:
             }
             if (Qty > 0)
             {
-              int num10 = 0;
-              int Xp = 0 + this.game.Data.ItemTypeObj[itemtypenr].XpMod;
+              let mut num10: i32 =  0;
+              let mut Xp: i32 =  0 + this.game.Data.ItemTypeObj[itemtypenr].XpMod;
               if (Xp < 0)
                 Xp = 0;
               if ((double) Xp > (double) this.game.Data.RuleVar[81])
                 Xp =  Math.Round((double) this.game.Data.RuleVar[81]);
-              int Peopletype = this.game.Data.LocObj[locnr].People;
+              let mut Peopletype: i32 =  this.game.Data.LocObj[locnr].People;
               if (this.game.Data.ItemTypeObj[itemtypenr].PeopleMod > -1)
                 Peopletype = this.game.Data.ItemTypeObj[itemtypenr].PeopleMod;
               if (this.game.Data.ItemTypeObj[itemtypenr].PeopleMod == -2)
                 Peopletype = this.game.Data.RegimeObj[this.game.Data.Turn].People;
-              int Mor = this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].BaseMorale[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].PeopleGroup];
+              let mut Mor: i32 =  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].BaseMorale[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].PeopleGroup];
               if (this.game.Data.ItemTypeObj[itemtypenr].MorMod > 0)
               {
                 Mor += this.game.Data.ItemTypeObj[itemtypenr].MorMod;
                 if (Mor > 100)
                   Mor = 100;
               }
-              int moveTypeMod = this.game.Data.ItemTypeObj[itemtypenr].MoveTypeMod;
+              let mut moveTypeMod: i32 =  this.game.Data.ItemTypeObj[itemtypenr].MoveTypeMod;
               if (this.game.Data.ItemTypeObj[itemtypenr].IsRegimeSlot > -1)
               {
                 int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
                 int[] numArray1 = regimeSlot;
-                int isRegimeSlot = this.game.Data.ItemTypeObj[itemtypenr].IsRegimeSlot;
-                int index10 = isRegimeSlot;
-                int num11 = regimeSlot[isRegimeSlot] + Qty;
+                let mut isRegimeSlot: i32 =  this.game.Data.ItemTypeObj[itemtypenr].IsRegimeSlot;
+                let mut index10: i32 =  isRegimeSlot;
+                let mut num11: i32 =  regimeSlot[isRegimeSlot] + Qty;
                 numArray1[index10] = num11;
                 if (num10 == 0)
                 {
                   int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                   int[,] numArray2 = sprod;
-                  int index11 = itemtypenr;
-                  int index12 = index11;
-                  int round = this.game.Data.Round;
-                  int index13 = round;
-                  int num12 = sprod[index11, round] + Qty;
+                  let mut index11: i32 =  itemtypenr;
+                  let mut index12: i32 =  index11;
+                  let mut round: i32 =  this.game.Data.Round;
+                  let mut index13: i32 =  round;
+                  let mut num12: i32 =  sprod[index11, round] + Qty;
                   numArray2[index12, index13] = num12;
                   num10 = 1;
                 }
@@ -11984,18 +11984,18 @@ label_81:
               {
                 RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                 RegimeClass[] regimeClassArray = regimeObj;
-                int turn = this.game.Data.Turn;
-                int index14 = turn;
+                let mut turn: i32 =  this.game.Data.Turn;
+                let mut index14: i32 =  turn;
                 regimeClassArray[index14].ResPts = regimeObj[turn].ResPts + Qty;
                 if (num10 == 0)
                 {
                   int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                   int[,] numArray = sprod;
-                  int index15 = itemtypenr;
-                  int index16 = index15;
-                  int round = this.game.Data.Round;
-                  int index17 = round;
-                  int num13 = sprod[index15, round] + Qty;
+                  let mut index15: i32 =  itemtypenr;
+                  let mut index16: i32 =  index15;
+                  let mut round: i32 =  this.game.Data.Round;
+                  let mut index17: i32 =  round;
+                  let mut num13: i32 =  sprod[index15, round] + Qty;
                   numArray[index16, index17] = num13;
                   num10 = 1;
                 }
@@ -12009,10 +12009,10 @@ label_81:
                   int[] numArray3 = regimeSlot;
                   int[] regimeSlotsCost = this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCost;
                   int[] numArray4 = regimeSlotsCost;
-                  int index18 = index5;
-                  int index19 = index18;
-                  int index20 = numArray4[index19];
-                  int num14 = regimeSlot[regimeSlotsCost[index18]] - Qty * this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCostQty[index5];
+                  let mut index18: i32 =  index5;
+                  let mut index19: i32 =  index18;
+                  let mut index20: i32 =  numArray4[index19];
+                  let mut num14: i32 =  regimeSlot[regimeSlotsCost[index18]] - Qty * this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCostQty[index5];
                   numArray3[index20] = num14;
                 }
                 index5 += 1;
@@ -12026,18 +12026,18 @@ label_81:
                   this.game.Data.UnitObj[hq].Supply += Qty;
                   UnitClass[] unitObj = this.game.Data.UnitObj;
                   UnitClass[] unitClassArray = unitObj;
-                  int index21 = hq;
-                  int index22 = index21;
+                  let mut index21: i32 =  hq;
+                  let mut index22: i32 =  index21;
                   unitClassArray[index22].SupplyIn = unitObj[index21].SupplyIn + Qty;
                   if (num10 == 0)
                   {
                     int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                     int[,] numArray = sprod;
-                    int index23 = itemtypenr;
-                    int index24 = index23;
-                    int round = this.game.Data.Round;
-                    int index25 = round;
-                    int num16 = sprod[index23, round] + Qty;
+                    let mut index23: i32 =  itemtypenr;
+                    let mut index24: i32 =  index23;
+                    let mut round: i32 =  this.game.Data.Round;
+                    let mut index25: i32 =  round;
+                    let mut num16: i32 =  sprod[index23, round] + Qty;
                     numArray[index24, index25] = num16;
                     num15 = 1;
                   }
@@ -12046,18 +12046,18 @@ label_81:
                 {
                   RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                   RegimeClass[] regimeClassArray = regimeObj;
-                  int turn = this.game.Data.Turn;
-                  int index26 = turn;
+                  let mut turn: i32 =  this.game.Data.Turn;
+                  let mut index26: i32 =  turn;
                   regimeClassArray[index26].ResPts = regimeObj[turn].ResPts + Qty;
                   if (num10 == 0)
                   {
                     int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                     int[,] numArray = sprod;
-                    int index27 = itemtypenr;
-                    int index28 = index27;
-                    int round = this.game.Data.Round;
-                    int index29 = round;
-                    int num17 = sprod[index27, round] + Qty;
+                    let mut index27: i32 =  itemtypenr;
+                    let mut index28: i32 =  index27;
+                    let mut round: i32 =  this.game.Data.Round;
+                    let mut index29: i32 =  round;
+                    let mut num17: i32 =  sprod[index27, round] + Qty;
                     numArray[index28, index29] = num17;
                     num15 = 1;
                   }
@@ -12071,10 +12071,10 @@ label_81:
                     if (this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[itemtypenr].IsSFType].Theater == 0 && this.game.Data.SFTypeObj[isSfType].StaffPts < 1 & !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
                     {
                       isSfType = this.game.Data.ItemTypeObj[itemtypenr].IsSFType;
-                      int staffPoints = this.game.HandyFunctionsObj.GetStaffPoints(hq);
-                      int groupPowerPoints = this.game.HandyFunctionsObj.GetGroupPowerPoints(hq);
-                      int num18 = this.game.Data.SFTypeObj[isSfType].Theater != 0 ? groupPowerPoints : groupPowerPoints + this.game.Data.SFTypeObj[isSfType].PowerPts * Qty;
-                      int num19 = num18 - groupPowerPoints;
+                      let mut staffPoints: i32 =  this.game.HandyFunctionsObj.GetStaffPoints(hq);
+                      let mut groupPowerPoints: i32 =  this.game.HandyFunctionsObj.GetGroupPowerPoints(hq);
+                      let mut num18: i32 =  this.game.Data.SFTypeObj[isSfType].Theater != 0 ? groupPowerPoints : groupPowerPoints + this.game.Data.SFTypeObj[isSfType].PowerPts * Qty;
+                      let mut num19: i32 =  num18 - groupPowerPoints;
                       if (num18 > staffPoints)
                         num19 -= num18 - staffPoints;
                       float num20;
@@ -12086,15 +12086,15 @@ label_81:
                       }
                       else
                         num20 = 0.0f;
-                      int sfCount = this.game.Data.UnitObj[hq].SFCount;
-                      for (int index30 = 0; index30 <= sfCount; index30 += 1)
+                      let mut sfCount: i32 =  this.game.Data.UnitObj[hq].SFCount;
+                      for (let mut index30: i32 =  0; index30 <= sfCount; index30 += 1)
                       {
-                        int sf = this.game.Data.UnitObj[hq].SFList[index30];
+                        let mut sf: i32 =  this.game.Data.UnitObj[hq].SFList[index30];
                         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].StaffPts > 0)
                         {
-                          int xp = this.game.Data.SFObj[sf].Xp;
-                          int num21 = xp;
-                          int num22 =  Math.Round(Math.Ceiling((double) xp * (1.0 - (double) num20)));
+                          let mut xp: i32 =  this.game.Data.SFObj[sf].Xp;
+                          let mut num21: i32 =  xp;
+                          let mut num22: i32 =   Math.Round(Math.Ceiling((double) xp * (1.0 - (double) num20)));
                           float num23 = (float) ((double) num21 * (1.0 - (double) num20) % 1.0);
                           if ((double) num23 > 0.0 && (double) DrawMod.RandyNumber.Next(0, 100) / 100.0 > (double) num23)
                             --num22;
@@ -12106,7 +12106,7 @@ label_81:
                     }
                     if (this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[itemtypenr].IsSFType].Theater == 1 & !(this.game.Data.LocObj[locnr].X == this.game.Data.UnitObj[hq].X & this.game.Data.LocObj[locnr].Y == this.game.Data.UnitObj[hq].Y))
                     {
-                      int unitForProduction = this.game.HandyFunctionsObj.GetNavyUnitForProduction(this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y, this.game.Data.LocObj[locnr].Map, this.game.Data.ItemTypeObj[itemtypenr].IsSFType, this.game.Data.LocObj[locnr].People, moveTypeMod);
+                      let mut unitForProduction: i32 =  this.game.HandyFunctionsObj.GetNavyUnitForProduction(this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y, this.game.Data.LocObj[locnr].Map, this.game.Data.ItemTypeObj[itemtypenr].IsSFType, this.game.Data.LocObj[locnr].People, moveTypeMod);
                       if (unitForProduction > -1)
                       {
                         this.game.HandyFunctionsObj.AddTroops3(unitForProduction, this.game.Data.ItemTypeObj[itemtypenr].IsSFType, Peopletype, Qty, Xp, 100, 100, Mor, MoveType: moveTypeMod);
@@ -12114,19 +12114,19 @@ label_81:
                         {
                           UnitClass[] unitObj = this.game.Data.UnitObj;
                           UnitClass[] unitClassArray = unitObj;
-                          int index31 = unitForProduction;
-                          int index32 = index31;
+                          let mut index31: i32 =  unitForProduction;
+                          let mut index32: i32 =  index31;
                           unitClassArray[index32].Supply = unitObj[index31].Supply + this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[itemtypenr].IsSFType].SupplyCarry * Qty;
                         }
                         if (num10 == 0)
                         {
                           int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                           int[,] numArray = sprod;
-                          int index33 = itemtypenr;
-                          int index34 = index33;
-                          int round = this.game.Data.Round;
-                          int index35 = round;
-                          int num24 = sprod[index33, round] + Qty;
+                          let mut index33: i32 =  itemtypenr;
+                          let mut index34: i32 =  index33;
+                          let mut round: i32 =  this.game.Data.Round;
+                          let mut index35: i32 =  round;
+                          let mut num24: i32 =  sprod[index33, round] + Qty;
                           numArray[index34, index35] = num24;
                           num15 = 1;
                         }
@@ -12139,11 +12139,11 @@ label_81:
                         {
                           int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                           int[,] numArray = sprod;
-                          int index36 = itemtypenr;
-                          int index37 = index36;
-                          int round = this.game.Data.Round;
-                          int index38 = round;
-                          int num25 = sprod[index36, round] + Qty;
+                          let mut index36: i32 =  itemtypenr;
+                          let mut index37: i32 =  index36;
+                          let mut round: i32 =  this.game.Data.Round;
+                          let mut index38: i32 =  round;
+                          let mut num25: i32 =  sprod[index36, round] + Qty;
                           numArray[index37, index38] = num25;
                           num15 = 1;
                         }
@@ -12155,8 +12155,8 @@ label_81:
                       {
                         UnitClass[] unitObj = this.game.Data.UnitObj;
                         UnitClass[] unitClassArray = unitObj;
-                        int index39 = hq;
-                        int index40 = index39;
+                        let mut index39: i32 =  hq;
+                        let mut index40: i32 =  index39;
                         unitClassArray[index40].Supply = unitObj[index39].Supply + this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[itemtypenr].IsSFType].SupplyCarry * Qty;
                       }
                       if (this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[itemtypenr].IsSFType].Theater == 2)
@@ -12166,11 +12166,11 @@ label_81:
                       {
                         int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                         int[,] numArray = sprod;
-                        int index41 = itemtypenr;
-                        int index42 = index41;
-                        int round = this.game.Data.Round;
-                        int index43 = round;
-                        int num26 = sprod[index41, round] + Qty;
+                        let mut index41: i32 =  itemtypenr;
+                        let mut index42: i32 =  index41;
+                        let mut round: i32 =  this.game.Data.Round;
+                        let mut index43: i32 =  round;
+                        let mut num26: i32 =  sprod[index41, round] + Qty;
                         numArray[index42, index43] = num26;
                         num15 = 1;
                       }
@@ -12178,7 +12178,7 @@ label_81:
                   }
                   else
                   {
-                    int unitForProduction = this.game.HandyFunctionsObj.GetAnyUnitForProduction(this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y, this.game.Data.LocObj[locnr].Map, this.game.Data.ItemTypeObj[itemtypenr].IsSFType, this.game.Data.LocObj[locnr].People, moveTypeMod);
+                    let mut unitForProduction: i32 =  this.game.HandyFunctionsObj.GetAnyUnitForProduction(this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y, this.game.Data.LocObj[locnr].Map, this.game.Data.ItemTypeObj[itemtypenr].IsSFType, this.game.Data.LocObj[locnr].People, moveTypeMod);
                     if (unitForProduction > -1)
                     {
                       this.game.HandyFunctionsObj.AddTroops3(unitForProduction, this.game.Data.ItemTypeObj[itemtypenr].IsSFType, Peopletype, Qty, Xp, 100, 0, Mor, MoveType: moveTypeMod);
@@ -12186,19 +12186,19 @@ label_81:
                       {
                         UnitClass[] unitObj = this.game.Data.UnitObj;
                         UnitClass[] unitClassArray = unitObj;
-                        int index44 = unitForProduction;
-                        int index45 = index44;
+                        let mut index44: i32 =  unitForProduction;
+                        let mut index45: i32 =  index44;
                         unitClassArray[index45].Supply = unitObj[index44].Supply + this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[itemtypenr].IsSFType].SupplyCarry * Qty;
                       }
                       if (num10 == 0)
                       {
                         int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                         int[,] numArray = sprod;
-                        int index46 = itemtypenr;
-                        int index47 = index46;
-                        int round = this.game.Data.Round;
-                        int index48 = round;
-                        int num27 = sprod[index46, round] + Qty;
+                        let mut index46: i32 =  itemtypenr;
+                        let mut index47: i32 =  index46;
+                        let mut round: i32 =  this.game.Data.Round;
+                        let mut index48: i32 =  round;
+                        let mut num27: i32 =  sprod[index46, round] + Qty;
                         numArray[index47, index48] = num27;
                         num15 = 1;
                       }
@@ -12211,11 +12211,11 @@ label_81:
                       {
                         int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                         int[,] numArray = sprod;
-                        int index49 = itemtypenr;
-                        int index50 = index49;
-                        int round = this.game.Data.Round;
-                        int index51 = round;
-                        int num28 = sprod[index49, round] + Qty;
+                        let mut index49: i32 =  itemtypenr;
+                        let mut index50: i32 =  index49;
+                        let mut round: i32 =  this.game.Data.Round;
+                        let mut index51: i32 =  round;
+                        let mut num28: i32 =  sprod[index49, round] + Qty;
                         numArray[index50, index51] = num28;
                         num15 = 1;
                       }
@@ -12226,17 +12226,17 @@ label_81:
                 {
                   int[,] sprod = this.game.Data.RegimeObj[regime].SProd;
                   int[,] numArray = sprod;
-                  int index52 = itemtypenr;
-                  int index53 = index52;
-                  int round = this.game.Data.Round;
-                  int index54 = round;
-                  int num29 = sprod[index52, round] + Qty;
+                  let mut index52: i32 =  itemtypenr;
+                  let mut index53: i32 =  index52;
+                  let mut round: i32 =  this.game.Data.Round;
+                  let mut index54: i32 =  round;
+                  let mut num29: i32 =  sprod[index52, round] + Qty;
                   numArray[index53, index54] = num29;
                   num15 = 1;
                 }
               }
             }
-            int num30 = Qty;
+            let mut num30: i32 =  Qty;
             if (flag & num2 > num1)
               Qty += num2 - num1;
             if (!flag)
@@ -12245,9 +12245,9 @@ label_81:
               {
                 int[] prodPointRemainder = this.game.Data.LocObj[locnr].ProdPointRemainder;
                 int[] numArray = prodPointRemainder;
-                int index55 = index4;
-                int index56 = index55;
-                int num31 = prodPointRemainder[index55] + (this.game.HandyFunctionsObj.GetProdPtsForLoc(locnr, index4) - (Qty + num4) * this.game.Data.ItemTypeObj[itemtypenr].ProdWeight);
+                let mut index55: i32 =  index4;
+                let mut index56: i32 =  index55;
+                let mut num31: i32 =  prodPointRemainder[index55] + (this.game.HandyFunctionsObj.GetProdPtsForLoc(locnr, index4) - (Qty + num4) * this.game.Data.ItemTypeObj[itemtypenr].ProdWeight);
                 numArray[index56] = num31;
               }
               else
@@ -12270,19 +12270,19 @@ label_81:
     pub void LocationProductionPrognosis()
     {
       SimpleList simpleList1 = SimpleList::new();
-      int num1 =  Math.Round((double) this.game.Data.RuleVar[0]);
-      int num2 =  Math.Round((double) this.game.Data.RuleVar[3]);
+      let mut num1: i32 =   Math.Round((double) this.game.Data.RuleVar[0]);
+      let mut num2: i32 =   Math.Round((double) this.game.Data.RuleVar[3]);
       SimpleList simpleList2 = SimpleList::new();
-      int regimeCounter = this.game.Data.RegimeCounter;
-      for (int index = 0; index <= regimeCounter; index += 1)
+      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+      for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
         this.game.Data.RegimeObj[index].TempPPIncrease = 0;
       if (this.game.Data.LocCounter == -1)
         return;
-      int locCounter = this.game.Data.LocCounter;
-      for (int tid = 0; tid <= locCounter; tid += 1)
+      let mut locCounter: i32 =  this.game.Data.LocCounter;
+      for (let mut tid: i32 =  0; tid <= locCounter; tid += 1)
       {
-        int regime = this.game.Data.MapObj[this.game.Data.LocObj[tid].Map].HexObj[this.game.Data.LocObj[tid].X, this.game.Data.LocObj[tid].Y].Regime;
-        int type = this.game.Data.LocObj[tid].Type;
+        let mut regime: i32 =  this.game.Data.MapObj[this.game.Data.LocObj[tid].Map].HexObj[this.game.Data.LocObj[tid].X, this.game.Data.LocObj[tid].Y].Regime;
+        let mut type: i32 =  this.game.Data.LocObj[tid].Type;
         if (regime == this.game.Data.Turn & (this.game.Data.LocObj[tid].HQ > -1 | (double) this.game.Data.RuleVar[332] == 1.0))
         {
           if (regime != -1)
@@ -12298,7 +12298,7 @@ label_81:
       int[] numArray2 = new int[500];
       if (this.game.Data.Round > 0 & this.game.Data.Turn > -1)
       {
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           numArray2[index] = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[index];
@@ -12306,46 +12306,46 @@ label_81:
         }
         while (index <= 499);
       }
-      int counter1 = simpleList2.Counter;
+      let mut counter1: i32 =  simpleList2.Counter;
       int x;
       int y;
       int map;
       int hq;
-      for (int index1 = 0; index1 <= counter1; index1 += 1)
+      for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
       {
-        int index2 = simpleList2.Id[index1];
+        let mut index2: i32 =  simpleList2.Id[index1];
         x = this.game.Data.LocObj[index2].X;
         y = this.game.Data.LocObj[index2].Y;
         map = this.game.Data.LocObj[index2].Map;
         hq = this.game.Data.LocObj[index2].HQ;
-        int regime = this.game.Data.MapObj[this.game.Data.LocObj[index2].Map].HexObj[this.game.Data.LocObj[index2].X, this.game.Data.LocObj[index2].Y].Regime;
+        let mut regime: i32 =  this.game.Data.MapObj[this.game.Data.LocObj[index2].Map].HexObj[this.game.Data.LocObj[index2].X, this.game.Data.LocObj[index2].Y].Regime;
         simpleList2.Data2[index1] = 0;
         simpleList2.Data3[index1] = 0;
       }
-      int counter2 = simpleList2.Counter;
-      for (int index3 = 0; index3 <= counter2; index3 += 1)
+      let mut counter2: i32 =  simpleList2.Counter;
+      for (let mut index3: i32 =  0; index3 <= counter2; index3 += 1)
       {
-        int locnr = simpleList2.Id[index3];
-        int regime = this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime;
+        let mut locnr: i32 =  simpleList2.Id[index3];
+        let mut regime: i32 =  this.game.Data.MapObj[this.game.Data.LocObj[locnr].Map].HexObj[this.game.Data.LocObj[locnr].X, this.game.Data.LocObj[locnr].Y].Regime;
         x = this.game.Data.LocObj[locnr].X;
         y = this.game.Data.LocObj[locnr].Y;
         map = this.game.Data.LocObj[locnr].Map;
         hq = this.game.Data.LocObj[locnr].HQ;
-        int type = this.game.Data.LocObj[locnr].Type;
-        int prodslot = 0;
+        let mut type: i32 =  this.game.Data.LocObj[locnr].Type;
+        let mut prodslot: i32 =  0;
         do
         {
           this.game.Data.LocObj[locnr].TempProdPredict[prodslot] = 0;
-          int itemtypenr = this.game.Data.LocObj[locnr].Production[prodslot];
+          let mut itemtypenr: i32 =  this.game.Data.LocObj[locnr].Production[prodslot];
           if (itemtypenr > -1)
           {
-            int num3 =  Math.Round(Conversion.Int(this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false)));
-            int num4 =  Math.Round(Conversion.Int(this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false, true)));
+            let mut num3: i32 =   Math.Round(Conversion.Int(this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false)));
+            let mut num4: i32 =   Math.Round(Conversion.Int(this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false, true)));
             if (itemtypenr > -1 && !this.game.HandyFunctionsObj.CanProduceItem(locnr, regime, itemtypenr).result)
               num3 = 0;
             if (simpleList2.Data1[index3] == 1)
               num3 = 0;
-            int num5 = num3;
+            let mut num5: i32 =  num3;
             if (num5 > 0)
               num5 *= this.game.Data.ItemTypeObj[itemtypenr].Multiplier;
             if (num5 > 0)
@@ -12355,23 +12355,23 @@ label_81:
               {
                 int[] numArray3 = numArray1;
                 int[] numArray4 = numArray3;
-                int isRegimeSlot = this.game.Data.ItemTypeObj[itemtypenr].IsRegimeSlot;
-                int index4 = isRegimeSlot;
-                int num6 = numArray3[isRegimeSlot] + this.game.Data.ItemTypeObj[itemtypenr].Multiplier * num5;
+                let mut isRegimeSlot: i32 =  this.game.Data.ItemTypeObj[itemtypenr].IsRegimeSlot;
+                let mut index4: i32 =  isRegimeSlot;
+                let mut num6: i32 =  numArray3[isRegimeSlot] + this.game.Data.ItemTypeObj[itemtypenr].Multiplier * num5;
                 numArray4[index4] = num6;
               }
               if (this.game.Data.ItemTypeObj[itemtypenr].IsResPt)
               {
                 RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                 RegimeClass[] regimeClassArray = regimeObj;
-                int index5 = regime;
-                int index6 = index5;
+                let mut index5: i32 =  regime;
+                let mut index6: i32 =  index5;
                 regimeClassArray[index6].TempPPIncrease = regimeObj[index5].TempPPIncrease + this.game.Data.ItemTypeObj[itemtypenr].Multiplier * num5;
               }
             }
             if (regime == this.game.Data.Turn && num4 > 0)
             {
-              int index7 = 0;
+              let mut index7: i32 =  0;
               do
               {
                 if (this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCost[index7] > -1)
@@ -12380,10 +12380,10 @@ label_81:
                   int[] numArray5 = regimeSlot;
                   int[] regimeSlotsCost = this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCost;
                   int[] numArray6 = regimeSlotsCost;
-                  int index8 = index7;
-                  int index9 = index8;
-                  int index10 = numArray6[index9];
-                  int num7 = regimeSlot[regimeSlotsCost[index8]] - num4 * this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCostQty[index7];
+                  let mut index8: i32 =  index7;
+                  let mut index9: i32 =  index8;
+                  let mut index10: i32 =  numArray6[index9];
+                  let mut num7: i32 =  regimeSlot[regimeSlotsCost[index8]] - num4 * this.game.Data.ItemTypeObj[itemtypenr].RegimeSlotsCostQty[index7];
                   numArray5[index10] = num7;
                 }
                 index7 += 1;
@@ -12397,7 +12397,7 @@ label_81:
       }
       if (!(this.game.Data.Round > 0 & this.game.Data.Turn > -1))
         return;
-      int index11 = 0;
+      let mut index11: i32 =  0;
       do
       {
         this.game.Data.RegimeObj[this.game.Data.Turn].TempRegimeSlotPredict[index11] = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[index11];
@@ -12411,14 +12411,14 @@ label_81:
 
     pub void GoToMarchMode(int unr)
     {
-      int sfCount = this.game.Data.UnitObj[unr].SFCount;
-      for (int index1 = 0; index1 <= sfCount; index1 += 1)
+      let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+      for (let mut index1: i32 =  0; index1 <= sfCount; index1 += 1)
       {
-        int sf = this.game.Data.UnitObj[unr].SFList[index1];
+        let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index1];
         SFClass[] sfObj = this.game.Data.SFObj;
         SFClass[] sfClassArray = sfObj;
-        int index2 = sf;
-        int index3 = index2;
+        let mut index2: i32 =  sf;
+        let mut index3: i32 =  index2;
         sfClassArray[index3].Ap = sfObj[index2].Ap - 25;
         if (0 > this.game.Data.SFObj[sf].Ap)
           this.game.Data.SFObj[sf].Ap = 0;
@@ -12450,26 +12450,26 @@ label_81:
       bool flag;
       if (this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitlandSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr))
         flag = true;
-      int mapCounter1 = this.game.Data.MapCounter;
-      for (int index1 = 0; index1 <= mapCounter1; index1 += 1)
+      let mut mapCounter1: i32 =  this.game.Data.MapCounter;
+      for (let mut index1: i32 =  0; index1 <= mapCounter1; index1 += 1)
       {
         mapMatrix2Array[index1] = new MapMatrix2(this.game.Data.MapObj[index1].MapWidth, this.game.Data.MapObj[index1].MapHeight);
-        int mapWidth = this.game.Data.MapObj[index1].MapWidth;
-        for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
+        for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[index1].MapHeight;
-          for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[index1].MapHeight;
+          for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
             mapMatrix2Array[index1].Value[index2, index3] = 9999;
         }
       }
-      int index4 = x2;
-      int index5 = y2;
-      int index6 = map2;
+      let mut index4: i32 =  x2;
+      let mut index5: i32 =  y2;
+      let mut index6: i32 =  map2;
       coordinateArray[0].x = x2;
       coordinateArray[0].y = y2;
       coordinateArray[0].map = map2;
-      int index7 = 0;
-      int regime1 = this.game.Data.UnitObj[unr].Regime;
+      let mut index7: i32 =  0;
+      let mut regime1: i32 =  this.game.Data.UnitObj[unr].Regime;
       for (; !(index4 == x1 & index5 == y1 & index6 == map1); index6 = coordinateArray[index7].map)
       {
         index7 += 1;
@@ -12482,14 +12482,14 @@ label_81:
         index4 = coordinateArray[index7].x;
         index5 = coordinateArray[index7].y;
       }
-      int num1 = index7 - 1;
-      int x3 = x1;
-      int y3 = y1;
-      int index8 = map1;
+      let mut num1: i32 =  index7 - 1;
+      let mut x3: i32 =  x1;
+      let mut y3: i32 =  y1;
+      let mut index8: i32 =  map1;
       if ((double) this.game.Data.RuleVar[814] == 1.0)
         num1 = 0;
-      int ox = x3;
-      int oy = y3;
+      let mut ox: i32 =  x3;
+      let mut oy: i32 =  y3;
       if ((this.game.Data.Product == 6 | this.game.Data.Product == 7) & this.game.Data.RegimeObj[this.game.Data.Turn].AI)
       {
         if (Information.IsNothing((object) this.game.Data.UnitObj[unr].tempCoords))
@@ -12498,29 +12498,29 @@ label_81:
       }
       int regime2;
       int num2;
-      for (int index9 = num1; index9 >= 0; index9 += -1)
+      for (let mut index9: i32 =  num1; index9 >= 0; index9 += -1)
       {
-        int hisdata = 0;
+        let mut hisdata: i32 =  0;
         if ((double) this.game.Data.RuleVar[459] > 0.0 & this.game.Data.Product >= 6 && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr))
         {
-          int num3 = this.game.HandyFunctionsObj.HexFacing(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, coordinateArray[index9].x, coordinateArray[index9].y, 0) - 1;
-          int num4 = num3 + 3;
+          let mut num3: i32 =  this.game.HandyFunctionsObj.HexFacing(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, coordinateArray[index9].x, coordinateArray[index9].y, 0) - 1;
+          let mut num4: i32 =  num3 + 3;
           if (num4 > 5)
             num4 -= 6;
-          int num5 =  Math.Round(Math.Ceiling((double) (this.game.HandyFunctionsObj.GetUnitWeight(unr, true) * 1) / (double) this.game.Data.RuleVar[33]));
+          let mut num5: i32 =   Math.Round(Math.Ceiling((double) (this.game.HandyFunctionsObj.GetUnitWeight(unr, true) * 1) / (double) this.game.Data.RuleVar[33]));
           if (this.game.Data.UnitObj[unr].moveMode == 1)
             num5 *= 2;
           int[] liSpoints1 = this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LISpoints;
           int[] numArray1 = liSpoints1;
-          int index10 = num3;
-          int index11 = index10;
-          int num6 = liSpoints1[index10] + num5;
+          let mut index10: i32 =  num3;
+          let mut index11: i32 =  index10;
+          let mut num6: i32 =  liSpoints1[index10] + num5;
           numArray1[index11] = num6;
           int[] liSpoints2 = this.game.Data.MapObj[0].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].LISpoints;
           int[] numArray2 = liSpoints2;
-          int index12 = num4;
-          int index13 = index12;
-          int num7 = liSpoints2[index12] + num5;
+          let mut index12: i32 =  num4;
+          let mut index13: i32 =  index12;
+          let mut num7: i32 =  liSpoints2[index12] + num5;
           numArray2[index13] = num7;
         }
         if (!this.game.HandyFunctionsObj.VisibleEnemyUnitsInHex(coordinateArray[index9].x, coordinateArray[index9].y, coordinateArray[index9].map, regime1, true, true) | this.game.HandyFunctionsObj.HasUnitAirSF(unr) & !this.game.HandyFunctionsObj.HasUnitNavySF(unr))
@@ -12553,7 +12553,7 @@ label_81:
               if (this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].Location > -1)
               {
                 this.game.Data.LocObj[this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].Location].HQ = -1;
-                int index14 = 0;
+                let mut index14: i32 =  0;
                 do
                 {
                   this.game.Data.LocObj[this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].Location].Production[index14] = -1;
@@ -12575,26 +12575,26 @@ label_81:
             }
             hisdata = 1;
           }
-          int sfCount1 = this.game.Data.UnitObj[unr].SFCount;
-          for (int index15 = 0; index15 <= sfCount1; index15 += 1)
+          let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
+          for (let mut index15: i32 =  0; index15 <= sfCount1; index15 += 1)
           {
-            int type = this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index15]].Type;
-            int tweight = this.game.HandyFunctionsObj.MoveApCostPreview2(x1, y1, this.game.Data.Turn, this.game.Data.SFTypeObj[type].MoveType, this.game.Data.SFTypeObj[type].Theater, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, coordinateArray[index9].x, coordinateArray[index9].y, coordinateArray[index9].map, false, redux: this.game.Data.SFTypeObj[type].MoveRedux).x;
+            let mut type: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index15]].Type;
+            let mut tweight: i32 =  this.game.HandyFunctionsObj.MoveApCostPreview2(x1, y1, this.game.Data.Turn, this.game.Data.SFTypeObj[type].MoveType, this.game.Data.SFTypeObj[type].Theater, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, coordinateArray[index9].x, coordinateArray[index9].y, coordinateArray[index9].map, false, redux: this.game.Data.SFTypeObj[type].MoveRedux).x;
             if (this.game.Data.SFTypeObj[type].Theater == 2)
               tweight =  Math.Round((double) tweight / 2.0);
             if (tweight > 4000)
               tweight = 0;
             simpleList1.AddWeight(this.game.Data.UnitObj[unr].SFList[index15], tweight);
           }
-          int transportCounter1 = this.game.Data.UnitObj[unr].TransportCounter;
-          for (int index16 = 0; index16 <= transportCounter1; index16 += 1)
+          let mut transportCounter1: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
+          for (let mut index16: i32 =  0; index16 <= transportCounter1; index16 += 1)
           {
-            int transport = this.game.Data.UnitObj[unr].TransportList[index16];
-            int sfCount2 = this.game.Data.UnitObj[transport].SFCount;
-            for (int index17 = 0; index17 <= sfCount2; index17 += 1)
+            let mut transport: i32 =  this.game.Data.UnitObj[unr].TransportList[index16];
+            let mut sfCount2: i32 =  this.game.Data.UnitObj[transport].SFCount;
+            for (let mut index17: i32 =  0; index17 <= sfCount2; index17 += 1)
             {
-              int type = this.game.Data.SFObj[this.game.Data.UnitObj[transport].SFList[index17]].Type;
-              int tweight = this.game.HandyFunctionsObj.MoveApCostPreview2(x1, y1, this.game.Data.Turn, this.game.Data.SFTypeObj[type].MoveType, this.game.Data.SFTypeObj[type].Theater, this.game.Data.UnitObj[transport].X, this.game.Data.UnitObj[transport].Y, this.game.Data.UnitObj[transport].Map, coordinateArray[index9].x, coordinateArray[index9].y, coordinateArray[index9].map, false, redux: this.game.Data.SFTypeObj[type].MoveRedux).x;
+              let mut type: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[transport].SFList[index17]].Type;
+              let mut tweight: i32 =  this.game.HandyFunctionsObj.MoveApCostPreview2(x1, y1, this.game.Data.Turn, this.game.Data.SFTypeObj[type].MoveType, this.game.Data.SFTypeObj[type].Theater, this.game.Data.UnitObj[transport].X, this.game.Data.UnitObj[transport].Y, this.game.Data.UnitObj[transport].Map, coordinateArray[index9].x, coordinateArray[index9].y, coordinateArray[index9].map, false, redux: this.game.Data.SFTypeObj[type].MoveRedux).x;
               if (this.game.Data.SFTypeObj[type].Theater == 2)
                 tweight =  Math.Round((double) tweight / 2.0);
               if (tweight > 4000)
@@ -12603,8 +12603,8 @@ label_81:
             }
           }
           this.game.Data.MapObj[index8].HexObj[x3, y3].RemoveUnitFromList(unr);
-          int transportCounter2 = this.game.Data.UnitObj[unr].TransportCounter;
-          for (int index18 = 0; index18 <= transportCounter2; index18 += 1)
+          let mut transportCounter2: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
+          for (let mut index18: i32 =  0; index18 <= transportCounter2; index18 += 1)
             this.game.Data.MapObj[index8].HexObj[x3, y3].RemoveUnitFromList(this.game.Data.UnitObj[unr].TransportList[index18]);
           this += 1.game.Data.StepNr;
           infostring1: String = this.game.Data.UnitObj[unr].Name + " moves...";
@@ -12612,30 +12612,30 @@ label_81:
             this.game.HandyFunctionsObj.HistoryAddHex(x3, y3, index8, regime1, 2, 0, unr, infostring: infostring1, allowAddedForCurrentTurn: allowHistoryForOwnRegime, infostringunknown: "Unknown unit moves...", infostringnotseen: "Unseen unit moves...");
           if (this.game.Data.UnitObj[unr].PassengerCounter > -1 && (double) this.game.Data.RuleVar[881] > 0.0 && this.game.HandyFunctionsObj.IsHexPort(x3, y3, 0) & !isSea)
           {
-            int passengerCounter = this.game.Data.UnitObj[unr].PassengerCounter;
-            for (int index19 = 0; index19 <= passengerCounter; index19 += 1)
+            let mut passengerCounter: i32 =  this.game.Data.UnitObj[unr].PassengerCounter;
+            for (let mut index19: i32 =  0; index19 <= passengerCounter; index19 += 1)
             {
-              int passenger = this.game.Data.UnitObj[unr].PassengerList[index19];
-              int sfCount3 = this.game.Data.UnitObj[passenger].SFCount;
-              for (int index20 = 0; index20 <= sfCount3; index20 += 1)
+              let mut passenger: i32 =  this.game.Data.UnitObj[unr].PassengerList[index19];
+              let mut sfCount3: i32 =  this.game.Data.UnitObj[passenger].SFCount;
+              for (let mut index20: i32 =  0; index20 <= sfCount3; index20 += 1)
                 this.game.Data.SFObj[this.game.Data.UnitObj[passenger].SFList[index20]].Ap = 0;
             }
           }
-          int transportCounter3 = this.game.Data.UnitObj[unr].TransportCounter;
-          for (int index21 = 0; index21 <= transportCounter3; index21 += 1)
+          let mut transportCounter3: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
+          for (let mut index21: i32 =  0; index21 <= transportCounter3; index21 += 1)
             this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].AddUnitToList(this.game.Data.UnitObj[unr].TransportList[index21]);
           this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].AddUnitToList(unr);
           if ((this.game.Data.Product == 6 | this.game.Data.Product == 7) & this.game.Data.RegimeObj[this.game.Data.Turn].AI)
             this.game.Data.UnitObj[unr].tempCoords.AddCoord(coordinateArray[index9].x, coordinateArray[index9].y, 0);
-          int x4 = this.game.Data.UnitObj[unr].X;
-          int y4 = this.game.Data.UnitObj[unr].Y;
+          let mut x4: i32 =  this.game.Data.UnitObj[unr].X;
+          let mut y4: i32 =  this.game.Data.UnitObj[unr].Y;
           this.game.Data.UnitObj[unr].X = coordinateArray[index9].x;
           this.game.Data.UnitObj[unr].Y = coordinateArray[index9].y;
           this.game.Data.UnitObj[unr].Map = coordinateArray[index9].map;
           this.game.HandyFunctionsObj.SetHexReconAndZOCUnitMoves(x4, y4, index8, coordinateArray[index9].x, coordinateArray[index9].y, coordinateArray[index9].map, this.game.Data.UnitObj[unr].Regime, unr, dontcountair: true);
           if (this.game.EventRelatedObj.Helper_AirEnabled())
           {
-            int historical = this.game.Data.UnitObj[unr].Historical;
+            let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
             if (historical > -1)
             {
               this.game.Data.HistoricalUnitObj[historical].SetHisVarValue(55, 0);
@@ -12645,12 +12645,12 @@ label_81:
               this.game.Data.HistoricalUnitObj[historical].SetHisVarValue(59, 0);
             }
           }
-          int transportCounter4 = this.game.Data.UnitObj[unr].TransportCounter;
-          for (int index22 = 0; index22 <= transportCounter4; index22 += 1)
+          let mut transportCounter4: i32 =  this.game.Data.UnitObj[unr].TransportCounter;
+          for (let mut index22: i32 =  0; index22 <= transportCounter4; index22 += 1)
           {
-            int transport = this.game.Data.UnitObj[unr].TransportList[index22];
-            int x5 = this.game.Data.UnitObj[transport].X;
-            int y5 = this.game.Data.UnitObj[transport].Y;
+            let mut transport: i32 =  this.game.Data.UnitObj[unr].TransportList[index22];
+            let mut x5: i32 =  this.game.Data.UnitObj[transport].X;
+            let mut y5: i32 =  this.game.Data.UnitObj[transport].Y;
             this.game.Data.UnitObj[transport].X = coordinateArray[index9].x;
             this.game.Data.UnitObj[transport].Y = coordinateArray[index9].y;
             this.game.Data.UnitObj[transport].Map = coordinateArray[index9].map;
@@ -12710,11 +12710,11 @@ label_81:
             {
               int[,] numArray3 = this.game.EditObj.TempValue[map2].Value;
               int[,] numArray4 = numArray3;
-              int index23 = x2;
-              int index24 = index23;
-              int index25 = y2;
-              int index26 = index25;
-              int num8 = numArray3[index23, index25] + 25;
+              let mut index23: i32 =  x2;
+              let mut index24: i32 =  index23;
+              let mut index25: i32 =  y2;
+              let mut index26: i32 =  index25;
+              let mut num8: i32 =  numArray3[index23, index25] + 25;
               numArray4[index24, index26] = num8;
             }
             else
@@ -12726,8 +12726,8 @@ label_81:
             }
             if ((double) this.game.Data.RuleVar[431] < 1.0)
               this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].MaxRecon = 999;
-            int regimeCounter = this.game.Data.RegimeCounter;
-            for (int index27 = 0; index27 <= regimeCounter; index27 += 1)
+            let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+            for (let mut index27: i32 =  0; index27 <= regimeCounter; index27 += 1)
             {
               if (index27 != this.game.Data.Turn && this.game.HandyFunctionsObj.IsAlliedOrSelf(index27, this.game.Data.Turn, true) && this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].MaxRecon > this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].get_ReconPts(index27))
                 this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].set_ReconPts(index27, this.game.Data.MapObj[coordinateArray[index9].map].HexObj[coordinateArray[index9].x, coordinateArray[index9].y].MaxRecon);
@@ -12737,9 +12737,9 @@ label_81:
           break;
         }
       }
-      int index28 = unr;
-      int transportCounter = this.game.Data.UnitObj[index28].TransportCounter;
-      for (int index29 = -1; index29 <= transportCounter; index29 += 1)
+      let mut index28: i32 =  unr;
+      let mut transportCounter: i32 =  this.game.Data.UnitObj[index28].TransportCounter;
+      for (let mut index29: i32 =  -1; index29 <= transportCounter; index29 += 1)
       {
         if (index29 == -1)
           unr = index28;
@@ -12753,23 +12753,23 @@ label_81:
         {
           UnitClass[] unitObj1 = this.game.Data.UnitObj;
           UnitClass[] unitClassArray1 = unitObj1;
-          int index30 = unr;
-          int index31 = index30;
+          let mut index30: i32 =  unr;
+          let mut index31: i32 =  index30;
           unitClassArray1[index31].MoveAPSpent = unitObj1[index30].MoveAPSpent + this.game.EditObj.TempValue[map2].Value[x2, y2];
           SimpleList simpleList2 = SimpleList::new();
           int sf1;
           if (this.game.Data.Product >= 5)
           {
-            int sfCount = this.game.Data.UnitObj[unr].SFCount;
-            for (int index32 = 0; index32 <= sfCount; index32 += 1)
+            let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+            for (let mut index32: i32 =  0; index32 <= sfCount; index32 += 1)
             {
-              int sf2 = this.game.Data.UnitObj[unr].SFList[index32];
+              let mut sf2: i32 =  this.game.Data.UnitObj[unr].SFList[index32];
               if (sf2 != sf1)
               {
-                int type = this.game.Data.SFObj[sf2].Type;
+                let mut type: i32 =  this.game.Data.SFObj[sf2].Type;
                 if (this.game.Data.SFTypeObj[type].CarryCap > 0)
                 {
-                  int readinessLoss = this.game.Data.SFTypeObj[type].ReadinessLoss;
+                  let mut readinessLoss: i32 =  this.game.Data.SFTypeObj[type].ReadinessLoss;
                   if (this.game.Data.UnitObj[unr].moveMode == 1 && readinessLoss * 2 > 30)
                     ;
                   simpleList2.Add(sf2, this.game.Data.SFTypeObj[type].CarryCap * this.game.Data.SFObj[sf2].Qty, this.game.Data.SFTypeObj[type].ReadinessLoss, this.game.Data.SFTypeObj[type].CarryCap, type, tdata5: this.game.Data.SFTypeObj[type].ReadinessLoss, CheckExistence: false);
@@ -12779,11 +12779,11 @@ label_81:
             simpleList2.removeWeight0orLower();
             simpleList2.SortOnData5();
           }
-          int sfCount4 = this.game.Data.UnitObj[unr].SFCount;
-          for (int index33 = 0; index33 <= sfCount4; index33 += 1)
+          let mut sfCount4: i32 =  this.game.Data.UnitObj[unr].SFCount;
+          for (let mut index33: i32 =  0; index33 <= sfCount4; index33 += 1)
           {
             sf1 = this.game.Data.UnitObj[unr].SFList[index33];
-            int type1 = this.game.Data.SFObj[sf1].Type;
+            let mut type1: i32 =  this.game.Data.SFObj[sf1].Type;
             num2 = 1;
             if (this.game.Data.SFTypeObj[type1].Theater == 2 && this.game.HandyFunctionsObj.HasUnitNavySF(unr))
               num2 = 0;
@@ -12794,7 +12794,7 @@ label_81:
               this.game.Data.SFObj[sf1].Ap -= this.game.EditObj.TempValue[map2].Value[x2, y2];
               if ((double) this.game.Data.RuleVar[407] > 0.0)
               {
-                int num9 = 0;
+                let mut num9: i32 =  0;
                 Coordinate coordinate1;
                 coordinate1.x = x2;
                 coordinate1.y = y2;
@@ -12811,8 +12811,8 @@ label_81:
                 }
                 if (num9 > 0)
                 {
-                  int tid = this.game.Data.SFTypeObj[type1].SFTypeVar[ Math.Round((double) (this.game.Data.RuleVar[407] + 0.0f))];
-                  int num10 = this.game.Data.SFTypeObj[type1].SFTypeVar[ Math.Round((double) (this.game.Data.RuleVar[407] + 1f))];
+                  let mut tid: i32 =  this.game.Data.SFTypeObj[type1].SFTypeVar[ Math.Round((double) (this.game.Data.RuleVar[407] + 0.0f))];
+                  let mut num10: i32 =  this.game.Data.SFTypeObj[type1].SFTypeVar[ Math.Round((double) (this.game.Data.RuleVar[407] + 1f))];
                   if (tid > 0 & num10 > 0)
                   {
                     int tweight1;
@@ -12835,7 +12835,7 @@ label_81:
                     }
                     else
                     {
-                      int tweight2 =  Math.Round(Math.Floor((double) d));
+                      let mut tweight2: i32 =   Math.Round(Math.Floor((double) d));
                       if (tweight2 > 0)
                         this.game.Data.UnitObj[unr].items.list.RemoveWeight(tid, tweight2);
                     }
@@ -12845,81 +12845,81 @@ label_81:
                   this.game.Data.UnitObj[unr].items = ItemList::new();
                 this.game.Data.UnitObj[unr].items.list.removeWeight0orLower();
               }
-              int num12 = simpleList1.FindWeight(sf1);
+              let mut num12: i32 =  simpleList1.FindWeight(sf1);
               if (this.game.Data.UnitObj[unr].FreeCombatX == x2 & this.game.Data.UnitObj[unr].FreeCombatY == y2)
                 num12 = 0;
               if (this.game.Data.SFTypeObj[type1].FuelForMove > 0 & this.game.Data.SFTypeObj[type1].FuelRegimeVar > -1)
               {
                 if ((double) this.game.Data.RuleVar[435] > 0.0)
                 {
-                  int fuelForMove = this.game.Data.SFTypeObj[type1].FuelForMove;
-                  int fuelRegimeVar = this.game.Data.SFTypeObj[type1].FuelRegimeVar;
+                  let mut fuelForMove: i32 =  this.game.Data.SFTypeObj[type1].FuelForMove;
+                  let mut fuelRegimeVar: i32 =  this.game.Data.SFTypeObj[type1].FuelRegimeVar;
                   if (this.game.Data.SFTypeObj[type1].FuelForMove > fuelForMove & num12 > 0)
                     fuelForMove = this.game.Data.SFTypeObj[type1].FuelForMove;
-                  int num13 = fuelForMove * this.game.Data.SFObj[sf1].Qty;
+                  let mut num13: i32 =  fuelForMove * this.game.Data.SFObj[sf1].Qty;
                   if (this.game.Data.UnitObj[unr].moveMode == 1)
                     num13 =  Math.Round(Math.Ceiling((double) num13 / 2.0));
                   UnitClass[] unitObj2 = this.game.Data.UnitObj;
                   UnitClass[] unitClassArray2 = unitObj2;
-                  int index34 = unr;
-                  int index35 = index34;
+                  let mut index34: i32 =  unr;
+                  let mut index35: i32 =  index34;
                   unitClassArray2[index35].Fuel = unitObj2[index34].Fuel - num13;
                   if (0 > this.game.Data.UnitObj[unr].Fuel)
                     this.game.Data.UnitObj[unr].Fuel = 0;
                   UnitClass[] unitObj3 = this.game.Data.UnitObj;
                   UnitClass[] unitClassArray3 = unitObj3;
-                  int index36 = unr;
-                  int index37 = index36;
+                  let mut index36: i32 =  unr;
+                  let mut index37: i32 =  index36;
                   unitClassArray3[index37].FuelUsedMove = unitObj3[index36].FuelUsedMove + num13;
                 }
                 else if (num12 > 0)
                 {
-                  int num14 =  Math.Round((double) this.game.Data.SFTypeObj[type1].FuelForMove * ((double) num12 / 10.0));
-                  int currentSlot = this.game.Data.SFTypeObj[type1].FuelRegimeVar;
+                  let mut num14: i32 =   Math.Round((double) this.game.Data.SFTypeObj[type1].FuelForMove * ((double) num12 / 10.0));
+                  let mut currentSlot: i32 =  this.game.Data.SFTypeObj[type1].FuelRegimeVar;
                   if ((double) this.game.Data.RuleVar[949] > 0.0)
                     currentSlot = this.game.HandyFunctionsObj.GetFuelSlot949(currentSlot, x1, y1);
                   if (this.game.Data.SFTypeObj[type1].FuelForMove > num14)
                     num14 = this.game.Data.SFTypeObj[type1].FuelForMove;
-                  int num15 = num14 * this.game.Data.SFObj[sf1].Qty;
+                  let mut num15: i32 =  num14 * this.game.Data.SFObj[sf1].Qty;
                   if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot[currentSlot] >= num15)
                   {
                     int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot;
                     int[] numArray5 = regimeSlot;
-                    int index38 = currentSlot;
-                    int index39 = index38;
-                    int num16 = regimeSlot[index38] - num15;
+                    let mut index38: i32 =  currentSlot;
+                    let mut index39: i32 =  index38;
+                    let mut num16: i32 =  regimeSlot[index38] - num15;
                     numArray5[index39] = num16;
                     int[] regimeSlotPredict = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].TempRegimeSlotPredict;
                     int[] numArray6 = regimeSlotPredict;
-                    int index40 = currentSlot;
-                    int index41 = index40;
-                    int num17 = regimeSlotPredict[index40] - num15;
+                    let mut index40: i32 =  currentSlot;
+                    let mut index41: i32 =  index40;
+                    let mut num17: i32 =  regimeSlotPredict[index40] - num15;
                     numArray6[index41] = num17;
                     UnitClass[] unitObj4 = this.game.Data.UnitObj;
                     UnitClass[] unitClassArray4 = unitObj4;
-                    int index42 = unr;
-                    int index43 = index42;
+                    let mut index42: i32 =  unr;
+                    let mut index43: i32 =  index42;
                     unitClassArray4[index43].FuelUsedMove = unitObj4[index42].FuelUsedMove + num15;
                   }
                   else
                   {
-                    int num18 = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot[currentSlot];
+                    let mut num18: i32 =  this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot[currentSlot];
                     int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot;
                     int[] numArray7 = regimeSlot;
-                    int index44 = currentSlot;
-                    int index45 = index44;
-                    int num19 = regimeSlot[index44] - num18;
+                    let mut index44: i32 =  currentSlot;
+                    let mut index45: i32 =  index44;
+                    let mut num19: i32 =  regimeSlot[index44] - num18;
                     numArray7[index45] = num19;
                     int[] regimeSlotPredict = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].TempRegimeSlotPredict;
                     int[] numArray8 = regimeSlotPredict;
-                    int index46 = currentSlot;
-                    int index47 = index46;
-                    int num20 = regimeSlotPredict[index46] - num18;
+                    let mut index46: i32 =  currentSlot;
+                    let mut index47: i32 =  index46;
+                    let mut num20: i32 =  regimeSlotPredict[index46] - num18;
                     numArray8[index47] = num20;
                     UnitClass[] unitObj5 = this.game.Data.UnitObj;
                     UnitClass[] unitClassArray5 = unitObj5;
-                    int index48 = unr;
-                    int index49 = index48;
+                    let mut index48: i32 =  unr;
+                    let mut index49: i32 =  index48;
                     unitClassArray5[index49].FuelUsedMove = unitObj5[index48].FuelUsedMove + num18;
                   }
                 }
@@ -12932,23 +12932,23 @@ label_81:
                   num21 = 30f;
               }
               float Number = num21 * ((float) this.game.EditObj.TempValue[map2].Value[x2, y2] / 100f);
-              int num22 =  Math.Round((double) Conversion.Int(Number));
+              let mut num22: i32 =   Math.Round((double) Conversion.Int(Number));
               if (this.game.Data.Product >= 5)
               {
-                int num23 = 0;
-                int num24 = 0;
-                int num25 = this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].Weight * this.game.Data.SFObj[sf1].Qty;
-                int num26 = this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].Weight * this.game.Data.SFObj[sf1].Qty;
+                let mut num23: i32 =  0;
+                let mut num24: i32 =  0;
+                let mut num25: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].Weight * this.game.Data.SFObj[sf1].Qty;
+                let mut num26: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].Weight * this.game.Data.SFObj[sf1].Qty;
                 if (this.game.Data.UnitObj[unr].attachedTo > -1 & this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].CarryCap < 1)
                 {
-                  int attachedTo = this.game.Data.UnitObj[unr].attachedTo;
-                  int num27 = 0;
-                  int num28 = 0;
-                  int sfCount5 = this.game.Data.UnitObj[attachedTo].SFCount;
-                  for (int index50 = 0; index50 <= sfCount5; index50 += 1)
+                  let mut attachedTo: i32 =  this.game.Data.UnitObj[unr].attachedTo;
+                  let mut num27: i32 =  0;
+                  let mut num28: i32 =  0;
+                  let mut sfCount5: i32 =  this.game.Data.UnitObj[attachedTo].SFCount;
+                  for (let mut index50: i32 =  0; index50 <= sfCount5; index50 += 1)
                   {
-                    int type2 = this.game.Data.SFObj[this.game.Data.UnitObj[attachedTo].SFList[index50]].Type;
-                    int qty = this.game.Data.SFObj[this.game.Data.UnitObj[attachedTo].SFList[index50]].Qty;
+                    let mut type2: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[attachedTo].SFList[index50]].Type;
+                    let mut qty: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[attachedTo].SFList[index50]].Qty;
                     if (this.game.Data.SFTypeObj[type2].CarryCap > 0)
                     {
                       if (this.game.Data.UnitObj[attachedTo].moveMode == 1)
@@ -12966,12 +12966,12 @@ label_81:
                 }
                 else if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].CarryCap < 1)
                 {
-                  int counter = simpleList2.Counter;
-                  for (int index51 = 0; index51 <= counter; index51 += 1)
+                  let mut counter: i32 =  simpleList2.Counter;
+                  for (let mut index51: i32 =  0; index51 <= counter; index51 += 1)
                   {
                     if (num26 > 0 & simpleList2.Weight[index51] > 0 & this.game.Data.SFTypeObj[simpleList2.Data3[index51]].CarryCap >= this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].Weight)
                     {
-                      int num29 = this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].ReadinessLoss;
+                      let mut num29: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].ReadinessLoss;
                       if (this.game.Data.UnitObj[unr].moveMode == 1)
                       {
                         num29 *= 2;
@@ -12993,9 +12993,9 @@ label_81:
                           num23 += num26;
                           int[] weight = simpleList2.Weight;
                           int[] numArray = weight;
-                          int index52 = index51;
-                          int index53 = index52;
-                          int num30 = weight[index52] - num26;
+                          let mut index52: i32 =  index51;
+                          let mut index53: i32 =  index52;
+                          let mut num30: i32 =  weight[index52] - num26;
                           numArray[index53] = num30;
                           num26 = 0;
                         }
@@ -13004,8 +13004,8 @@ label_81:
                   }
                   if (num24 > 0)
                   {
-                    int num31 =  Math.Round((double) num24 / (double) num23);
-                    int num32 = this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].ReadinessLoss;
+                    let mut num31: i32 =   Math.Round((double) num24 / (double) num23);
+                    let mut num32: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf1].Type].ReadinessLoss;
                     if (this.game.Data.UnitObj[unr].moveMode == 1)
                     {
                       num32 *= 2;
@@ -13034,7 +13034,7 @@ label_81:
             }
             if (this.game.EditObj.TempValue[map2].Value[x2, y2] >= 0 & !(x2 == x1 & y2 == y1 & map2 == map1))
             {
-              int num34 =  Math.Round((double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map2].HexObj[x2, y2].LandscapeType].DefBonus[this.game.Data.SFTypeObj[type1].UnitGroup]);
+              let mut num34: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map2].HexObj[x2, y2].LandscapeType].DefBonus[this.game.Data.SFTypeObj[type1].UnitGroup]);
               if (this.game.Data.MapObj[map2].HexObj[x2, y2].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[map2].HexObj[x2, y2].Location].Type].PictureLT > -1)
                 num34 =  Math.Round((double) ((float) num34 + this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[map2].HexObj[x2, y2].Location].Type].PictureLT].DefBonus[this.game.Data.SFTypeObj[type1].UnitGroup]));
               this.game.Data.SFObj[sf1].CurrentEntrench = num34;
@@ -13049,15 +13049,15 @@ label_81:
       unr = index28;
       if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI & !immediateBattleExecute)
       {
-        int num35 = 3;
+        let mut num35: i32 =  3;
         if ((double) this.game.Data.RuleVar[419] > 0.0 && (double) this.game.Data.RuleVar[422] > 0.0)
           num35 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[422]));
-        int num36 = 9999;
-        int num37 = 0;
-        int num38 = 9999;
-        int num39 = 0;
-        int counter1 = orderResult1.CList.counter;
-        for (int index54 = 0; index54 <= counter1; index54 += 1)
+        let mut num36: i32 =  9999;
+        let mut num37: i32 =  0;
+        let mut num38: i32 =  9999;
+        let mut num39: i32 =  0;
+        let mut counter1: i32 =  orderResult1.CList.counter;
+        for (let mut index54: i32 =  0; index54 <= counter1; index54 += 1)
         {
           if (orderResult1.CList.coord[index54].x < num36)
             num36 = orderResult1.CList.coord[index54].x;
@@ -13068,10 +13068,10 @@ label_81:
           if (orderResult1.CList.coord[index54].y > num39)
             num39 = orderResult1.CList.coord[index54].y;
         }
-        int num40 = num36 - (num35 + 1);
-        int num41 = num37 + (num35 + 1);
-        int num42 = num38 - (num35 + 1);
-        int num43 = num39 + (num35 + 1);
+        let mut num40: i32 =  num36 - (num35 + 1);
+        let mut num41: i32 =  num37 + (num35 + 1);
+        let mut num42: i32 =  num38 - (num35 + 1);
+        let mut num43: i32 =  num39 + (num35 + 1);
         if (num40 < 0)
           num40 = 0;
         if (num41 > this.game.Data.MapObj[0].MapWidth)
@@ -13080,27 +13080,27 @@ label_81:
           num42 = 0;
         if (num43 > this.game.Data.MapObj[0].MapHeight)
           num43 = this.game.Data.MapObj[0].MapHeight;
-        int num44 = 0;
+        let mut num44: i32 =  0;
         do
         {
-          int mapCounter2 = this.game.Data.MapCounter;
-          for (int index55 = 0; index55 <= mapCounter2; index55 += 1)
+          let mut mapCounter2: i32 =  this.game.Data.MapCounter;
+          for (let mut index55: i32 =  0; index55 <= mapCounter2; index55 += 1)
           {
-            int num45 = num40;
-            int num46 = num41;
-            for (int index56 = num45; index56 <= num46; index56 += 1)
+            let mut num45: i32 =  num40;
+            let mut num46: i32 =  num41;
+            for (let mut index56: i32 =  num45; index56 <= num46; index56 += 1)
             {
-              int num47 = num42;
-              int num48 = num43;
-              for (int index57 = num47; index57 <= num48; index57 += 1)
+              let mut num47: i32 =  num42;
+              let mut num48: i32 =  num43;
+              for (let mut index57: i32 =  num47; index57 <= num48; index57 += 1)
               {
                 if (num44 == 0 & num35 > 0)
                 {
-                  int num49 = 999;
-                  int counter2 = orderResult1.CList.counter;
-                  for (int index58 = 0; index58 <= counter2; index58 += 1)
+                  let mut num49: i32 =  999;
+                  let mut counter2: i32 =  orderResult1.CList.counter;
+                  for (let mut index58: i32 =  0; index58 <= counter2; index58 += 1)
                   {
-                    int num50 = this.game.HandyFunctionsObj.Distance(index56, index57, 0, orderResult1.CList.coord[index58].x, orderResult1.CList.coord[index58].y, 0, num35 + 1);
+                    let mut num50: i32 =  this.game.HandyFunctionsObj.Distance(index56, index57, 0, orderResult1.CList.coord[index58].x, orderResult1.CList.coord[index58].y, 0, num35 + 1);
                     if (num50 < num49)
                       num49 = num50;
                   }
@@ -13111,7 +13111,7 @@ label_81:
                 {
                   if (num44 == mapMatrix2Array[index55].Value[index56, index57])
                   {
-                    int tfacing = 1;
+                    let mut tfacing: i32 =  1;
                     do
                     {
                       Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(index56, index57, index55, tfacing);
@@ -13130,7 +13130,7 @@ label_81:
                   num2 = 0;
                   if (this.game.EditObj.TempValue[index55].Value[index56, index57] < 9999)
                     num2 = 1;
-                  int index59 = 0;
+                  let mut index59: i32 =  0;
                   do
                   {
                     if (this.game.EditObj.TempAttack[index55].Value[index56, index57, index59])
@@ -13193,24 +13193,24 @@ label_81:
     {
       if ((double) this.game.Data.RuleVar[817] != 1.0)
       {
-        int unitCounter = this.game.Data.UnitCounter;
-        for (int index1 = 0; index1 <= unitCounter; index1 += 1)
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+        for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
         {
           if (this.game.Data.UnitObj[index1].Historical > -1 && this.game.Data.UnitObj[index1].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index1].PreDef == -1)
           {
-            int historical = this.game.Data.UnitObj[index1].Historical;
+            let mut historical: i32 =  this.game.Data.UnitObj[index1].Historical;
             if (this.game.Data.HistoricalUnitObj[historical].DeckCardCounter > -1)
             {
-              int deckCardCounter = this.game.Data.HistoricalUnitObj[historical].DeckCardCounter;
-              for (int index2 = 0; index2 <= deckCardCounter; index2 += 1)
+              let mut deckCardCounter: i32 =  this.game.Data.HistoricalUnitObj[historical].DeckCardCounter;
+              for (let mut index2: i32 =  0; index2 <= deckCardCounter; index2 += 1)
               {
-                int num1 = this.game.Data.HistoricalUnitObj[historical].DeckCard[index2];
-                int num2 = this.game.Data.HistoricalUnitObj[historical].DeckChance[index2];
+                let mut num1: i32 =  this.game.Data.HistoricalUnitObj[historical].DeckCard[index2];
+                let mut num2: i32 =  this.game.Data.HistoricalUnitObj[historical].DeckChance[index2];
                 if ((double) Conversion.Int(VBMath.Rnd() * 100f) + 1.0 <= (double) num2)
                 {
-                  int num3 = 1;
-                  int handCardCounter = this.game.Data.HistoricalUnitObj[historical].HandCardCounter;
-                  for (int index3 = 0; index3 <= handCardCounter; index3 += 1)
+                  let mut num3: i32 =  1;
+                  let mut handCardCounter: i32 =  this.game.Data.HistoricalUnitObj[historical].HandCardCounter;
+                  for (let mut index3: i32 =  0; index3 <= handCardCounter; index3 += 1)
                   {
                     if (this.game.Data.HistoricalUnitObj[historical].HandCard[index3] == num1)
                       num3 = 0;
@@ -13219,8 +13219,8 @@ label_81:
                   {
                     HistoricalUnitClass[] historicalUnitObj = this.game.Data.HistoricalUnitObj;
                     HistoricalUnitClass[] historicalUnitClassArray = historicalUnitObj;
-                    int index4 = historical;
-                    int index5 = index4;
+                    let mut index4: i32 =  historical;
+                    let mut index5: i32 =  index4;
                     historicalUnitClassArray[index5].HandCardCounter = historicalUnitObj[index4].HandCardCounter + 1;
                     this.game.Data.HistoricalUnitObj[historical].HandCard = (int[]) Utils.CopyArray((Array) this.game.Data.HistoricalUnitObj[historical].HandCard, (Array) new int[this.game.Data.HistoricalUnitObj[historical].HandCardCounter + 1]);
                     this.game.Data.HistoricalUnitObj[historical].HandCard[this.game.Data.HistoricalUnitObj[historical].HandCardCounter] = num1;
@@ -13239,19 +13239,19 @@ label_81:
     {
       if ((double) this.game.Data.RuleVar[817] != 1.0)
       {
-        int unitCounter = this.game.Data.UnitCounter;
-        for (int tv2 = 0; tv2 <= unitCounter; tv2 += 1)
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+        for (let mut tv2: i32 =  0; tv2 <= unitCounter; tv2 += 1)
         {
           if (this.game.Data.UnitObj[tv2].Historical > -1 && this.game.Data.UnitObj[tv2].Regime == this.game.Data.Turn && this.game.Data.UnitObj[tv2].PreDef == -1)
           {
-            int historical = this.game.Data.UnitObj[tv2].Historical;
+            let mut historical: i32 =  this.game.Data.UnitObj[tv2].Historical;
             if (this.game.Data.HistoricalUnitObj[historical].AutoEventCounter > -1)
             {
-              int autoEventCounter = this.game.Data.HistoricalUnitObj[historical].AutoEventCounter;
-              for (int index = 0; index <= autoEventCounter; index += 1)
+              let mut autoEventCounter: i32 =  this.game.Data.HistoricalUnitObj[historical].AutoEventCounter;
+              for (let mut index: i32 =  0; index <= autoEventCounter; index += 1)
               {
-                int enr = this.game.Data.HistoricalUnitObj[historical].AutoEvent[index];
-                int num = this.game.Data.HistoricalUnitObj[historical].AutoChance[index];
+                let mut enr: i32 =  this.game.Data.HistoricalUnitObj[historical].AutoEvent[index];
+                let mut num: i32 =  this.game.Data.HistoricalUnitObj[historical].AutoChance[index];
                 if ((double) Conversion.Int(VBMath.Rnd() * 100f) + 1.0 <= (double) num)
                   this.game.EventRelatedObj.DoCheckSpecificEvent(enr, -1, -1, tv2, -1);
               }
@@ -13293,10 +13293,10 @@ label_81:
       orderResult.OK = true;
       if (this.game.Data.UnitObj[Unr].SFCount > -1)
       {
-        int sfCount = this.game.Data.UnitObj[Unr].SFCount;
-        for (int index = 0; index <= sfCount; index += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[Unr].SFCount;
+        for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
-          int sf = this.game.Data.UnitObj[Unr].SFList[index];
+          let mut sf: i32 =  this.game.Data.UnitObj[Unr].SFList[index];
           if ((double) this.game.Data.RuleVar[880] < 1.0 | !flag)
             this.game.Data.SFObj[sf].Ap = 0;
           this.game.Data.SFObj[sf].CurrentEntrench = 0;
@@ -13306,8 +13306,8 @@ label_81:
       }
       if (!flag & (double) this.game.Data.RuleVar[882] > 0.0 && this.game.Data.UnitObj[OnUnr].SFCount > -1)
       {
-        int sfCount = this.game.Data.UnitObj[OnUnr].SFCount;
-        for (int index = 0; index <= sfCount; index += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[OnUnr].SFCount;
+        for (let mut index: i32 =  0; index <= sfCount; index += 1)
           this.game.Data.SFObj[this.game.Data.UnitObj[OnUnr].SFList[index]].Ap = 0;
       }
       if ((double) this.game.Data.RuleVar[843] > 0.0)
@@ -13319,7 +13319,7 @@ label_81:
     {
       OrderResult orderResult = OrderResult::new();
       this.game.EditObj.SFSelected = -1;
-      int num = 0;
+      let mut num: i32 =  0;
       if (this.game.Data.MapObj[map].HexObj[x, y].Regime != this.game.Data.UnitObj[Unr].Regime && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[Unr].Regime, this.game.Data.MapObj[map].HexObj[x, y].Regime))
       {
         if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
@@ -13336,7 +13336,7 @@ label_81:
             this.game.Data.LocObj[this.game.Data.MapObj[map].HexObj[x, y].Location].HQ = -1;
             if ((double) this.game.Data.RuleVar[898] > 0.0)
               this.game.Data.LocObj[this.game.Data.MapObj[map].HexObj[x, y].Location].StructuralPts = 0;
-            int index = 0;
+            let mut index: i32 =  0;
             do
             {
               this.game.Data.LocObj[this.game.Data.MapObj[map].HexObj[x, y].Location].Production[index] = -1;
@@ -13356,8 +13356,8 @@ label_81:
       this.game.Data.UnitObj[Unr].Y = y;
       this.game.Data.UnitObj[Unr].Map = map;
       this.game.Data.UnitObj[Unr].OnBoard = -1;
-      int sfCount1 = this.game.Data.UnitObj[Unr].SFCount;
-      for (int index = 0; index <= sfCount1; index += 1)
+      let mut sfCount1: i32 =  this.game.Data.UnitObj[Unr].SFCount;
+      for (let mut index: i32 =  0; index <= sfCount1; index += 1)
       {
         if (this.game.Data.Round > 0)
         {
@@ -13367,10 +13367,10 @@ label_81:
       }
       if (!this.game.HandyFunctionsObj.IsHexPort(this.game.Data.UnitObj[OnUnr].X, this.game.Data.UnitObj[OnUnr].Y, 0) && (double) this.game.Data.RuleVar[882] > 0.0 && this.game.Data.UnitObj[OnUnr].SFCount > -1)
       {
-        int sfCount2 = this.game.Data.UnitObj[OnUnr].SFCount;
-        for (int index = 0; index <= sfCount2; index += 1)
+        let mut sfCount2: i32 =  this.game.Data.UnitObj[OnUnr].SFCount;
+        for (let mut index: i32 =  0; index <= sfCount2; index += 1)
         {
-          int sf = this.game.Data.UnitObj[OnUnr].SFList[index];
+          let mut sf: i32 =  this.game.Data.UnitObj[OnUnr].SFList[index];
           if (this.game.Data.Round > 0)
             this.game.Data.SFObj[sf].Ap = 0;
         }
@@ -13379,10 +13379,10 @@ label_81:
       {
         this += 1.game.Data.StepNr;
         infostring: String = this.game.Data.UnitObj[Unr].Name + " disembarks...";
-        int sfCount3 = this.game.Data.UnitObj[Unr].SFCount;
-        for (int index = 0; index <= sfCount3; index += 1)
+        let mut sfCount3: i32 =  this.game.Data.UnitObj[Unr].SFCount;
+        for (let mut index: i32 =  0; index <= sfCount3; index += 1)
         {
-          int sf = this.game.Data.UnitObj[Unr].SFList[index];
+          let mut sf: i32 =  this.game.Data.UnitObj[Unr].SFList[index];
           this.game.Data.SFObj[sf].CurrentEntrench = this.game.HandyFunctionsObj.GetMinimumEntrench(x, y, map, this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup);
           this.game.Data.SFObj[sf].initialEntrench = this.game.Data.SFObj[sf].CurrentEntrench;
         }
@@ -13402,14 +13402,14 @@ label_81:
       this.game.HandyFunctionsObj.SetOnlyZOCAround(x, y, map, this.game.Data.UnitObj[Unr].Regime, Unr);
       if (this.game.Data.Turn > -1 && num == 0)
       {
-        int mapCounter = this.game.Data.MapCounter;
-        for (int map1 = 0; map1 <= mapCounter; map1 += 1)
+        let mut mapCounter: i32 =  this.game.Data.MapCounter;
+        for (let mut map1: i32 =  0; map1 <= mapCounter; map1 += 1)
         {
-          int mapWidth = this.game.Data.MapObj[map1].MapWidth;
-          for (int x1 = 0; x1 <= mapWidth; x1 += 1)
+          let mut mapWidth: i32 =  this.game.Data.MapObj[map1].MapWidth;
+          for (let mut x1: i32 =  0; x1 <= mapWidth; x1 += 1)
           {
-            int mapHeight = this.game.Data.MapObj[map1].MapHeight;
-            for (int y1 = 0; y1 <= mapHeight; y1 += 1)
+            let mut mapHeight: i32 =  this.game.Data.MapObj[map1].MapHeight;
+            for (let mut y1: i32 =  0; y1 <= mapHeight; y1 += 1)
               this.game.HandyFunctionsObj.DoZOCConquest(x1, y1, map1, this.game.Data.Turn);
           }
         }
@@ -13443,16 +13443,16 @@ label_81:
       }
       if (this.game.Data.UnitObj[OnUnr].SFCount > -1)
       {
-        int sfCount = this.game.Data.UnitObj[OnUnr].SFCount;
-        for (int index1 = 0; index1 <= sfCount; index1 += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[OnUnr].SFCount;
+        for (let mut index1: i32 =  0; index1 <= sfCount; index1 += 1)
         {
-          int sf = this.game.Data.UnitObj[OnUnr].SFList[index1];
+          let mut sf: i32 =  this.game.Data.UnitObj[OnUnr].SFList[index1];
           if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater == 2)
           {
             SFClass[] sfObj = this.game.Data.SFObj;
             SFClass[] sfClassArray = sfObj;
-            int index2 = sf;
-            int index3 = index2;
+            let mut index2: i32 =  sf;
+            let mut index3: i32 =  index2;
             sfClassArray[index3].Ap = sfObj[index2].Ap - this.game.EditObj.TempValue[map].Value[x, y];
           }
         }
@@ -13464,8 +13464,8 @@ label_81:
       this.game.Data.UnitObj[Unr].X = x;
       this.game.Data.UnitObj[Unr].Y = y;
       this.game.Data.UnitObj[Unr].Map = map;
-      int sfCount1 = this.game.Data.UnitObj[Unr].SFCount;
-      for (int index = 0; index <= sfCount1; index += 1)
+      let mut sfCount1: i32 =  this.game.Data.UnitObj[Unr].SFCount;
+      for (let mut index: i32 =  0; index <= sfCount1; index += 1)
       {
         this.game.Data.SFObj[this.game.Data.UnitObj[Unr].SFList[index]].Ap = 0;
         this.game.Data.SFObj[this.game.Data.UnitObj[Unr].SFList[index]].EP = 0;
@@ -13486,7 +13486,7 @@ label_81:
       OrderResult orderResult = OrderResult::new();
       if (Unr == Hqnr)
         return orderResult;
-      int num1 = 1;
+      let mut num1: i32 =  1;
       int num2;
       int num3;
       if (this.game.Data.Round > 0 & (double) this.game.Data.RuleVar[814] != 1.0)
@@ -13505,12 +13505,12 @@ label_81:
       int val1;
       if (!recurse)
       {
-        int num5 = 0;
+        let mut num5: i32 =  0;
         if (this.game.Data.Turn > -1)
         {
           if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI & this.game.Data.UnitObj[Unr].Historical > -1)
           {
-            int index = 0;
+            let mut index: i32 =  0;
             do
             {
               if (this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[Unr].Historical].SubParts[index] > -1)
@@ -13522,8 +13522,8 @@ label_81:
               num4 = 1;
             if (num4 == 1)
             {
-              int unitCounter = this.game.Data.UnitCounter;
-              for (int Unr1 = 0; Unr1 <= unitCounter; Unr1 += 1)
+              let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+              for (let mut Unr1: i32 =  0; Unr1 <= unitCounter; Unr1 += 1)
               {
                 if (this.game.Data.UnitObj[Unr1].Historical == this.game.Data.UnitObj[Unr].Historical)
                 {
@@ -13536,7 +13536,7 @@ label_81:
         }
         else if (this.game.Data.Round == 0 & this.game.Data.UnitObj[Unr].Historical > -1)
         {
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             if (this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[Unr].Historical].SubParts[index] > -1)
@@ -13553,8 +13553,8 @@ label_81:
             num4 = 1;
           if (num4 == 1)
           {
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int Unr2 = 0; Unr2 <= unitCounter; Unr2 += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut Unr2: i32 =  0; Unr2 <= unitCounter; Unr2 += 1)
             {
               if (this.game.Data.UnitObj[Unr2].Historical == this.game.Data.UnitObj[Unr].Historical)
               {
@@ -13565,7 +13565,7 @@ label_81:
           }
         }
       }
-      int index1 = Hqnr;
+      let mut index1: i32 =  Hqnr;
       if ((double) this.game.Data.RuleVar[897] == 0.0)
       {
         while (index1 > -1)
@@ -13586,26 +13586,26 @@ label_81:
         {
           RegimeClass[] regimeObj = this.game.Data.RegimeObj;
           RegimeClass[] regimeClassArray = regimeObj;
-          int turn = this.game.Data.Turn;
-          int index2 = turn;
+          let mut turn: i32 =  this.game.Data.Turn;
+          let mut index2: i32 =  turn;
           regimeClassArray[index2].ResPts = regimeObj[turn].ResPts - num2;
         }
         else if (!recurse)
         {
           RegimeClass[] regimeObj = this.game.Data.RegimeObj;
           RegimeClass[] regimeClassArray = regimeObj;
-          int turn = this.game.Data.Turn;
-          int index3 = turn;
+          let mut turn: i32 =  this.game.Data.Turn;
+          let mut index3: i32 =  turn;
           regimeClassArray[index3].ResPts = regimeObj[turn].ResPts - num3;
         }
       }
       if (this.game.Data.Round > 0 & (double) this.game.Data.RuleVar[907] > 0.0 && Hqnr > -1)
       {
-        int historical = this.game.Data.UnitObj[Hqnr].Historical;
+        let mut historical: i32 =  this.game.Data.UnitObj[Hqnr].Historical;
         if (historical > -1)
         {
-          int hisVarCount = this.game.Data.HistoricalUnitObj[historical].HisVarCount;
-          for (int index4 = 0; index4 <= hisVarCount; index4 += 1)
+          let mut hisVarCount: i32 =  this.game.Data.HistoricalUnitObj[historical].HisVarCount;
+          for (let mut index4: i32 =  0; index4 <= hisVarCount; index4 += 1)
           {
             if ((double) this.game.Data.HistoricalUnitObj[historical].HisVarType[index4] == (double) this.game.Data.RuleVar[907])
             {
@@ -13613,18 +13613,18 @@ label_81:
               {
                 int[] hisVarValue = this.game.Data.HistoricalUnitObj[historical].HisVarValue;
                 int[] numArray = hisVarValue;
-                int index5 = index4;
-                int index6 = index5;
-                int num6 =  Math.Round((double) hisVarValue[index5] - Math.Max((double) val1, Conversion.Int((double) howMuchPercentage1 / 100.0 * (double) this.game.Data.HistoricalUnitObj[historical].HisVarValue[index4])));
+                let mut index5: i32 =  index4;
+                let mut index6: i32 =  index5;
+                let mut num6: i32 =   Math.Round((double) hisVarValue[index5] - Math.Max((double) val1, Conversion.Int((double) howMuchPercentage1 / 100.0 * (double) this.game.Data.HistoricalUnitObj[historical].HisVarValue[index4])));
                 numArray[index6] = num6;
               }
               else if (!recurse)
               {
                 int[] hisVarValue = this.game.Data.HistoricalUnitObj[historical].HisVarValue;
                 int[] numArray = hisVarValue;
-                int index7 = index4;
-                int index8 = index7;
-                int num7 =  Math.Round((double) hisVarValue[index7] - Math.Max(1.0, Conversion.Int((double) howMuchPercentage2 / 100.0 * (double) this.game.Data.HistoricalUnitObj[historical].HisVarValue[index4])));
+                let mut index7: i32 =  index4;
+                let mut index8: i32 =  index7;
+                let mut num7: i32 =   Math.Round((double) hisVarValue[index7] - Math.Max(1.0, Conversion.Int((double) howMuchPercentage2 / 100.0 * (double) this.game.Data.HistoricalUnitObj[historical].HisVarValue[index4])));
                 numArray[index8] = num7;
               }
               if (0 > this.game.Data.HistoricalUnitObj[historical].HisVarValue[index4])
@@ -13639,20 +13639,20 @@ label_81:
         {
           if (this.game.Data.UnitObj[Unr].SFCount > -1 && this.game.Data.UnitObj[Unr].HQ != -1 && this.game.Data.UnitObj[Unr].HQ != Hqnr)
           {
-            int sfCount = this.game.Data.UnitObj[Unr].SFCount;
-            for (int index9 = 0; index9 <= sfCount; index9 += 1)
+            let mut sfCount: i32 =  this.game.Data.UnitObj[Unr].SFCount;
+            for (let mut index9: i32 =  0; index9 <= sfCount; index9 += 1)
             {
-              int sf = this.game.Data.UnitObj[Unr].SFList[index9];
+              let mut sf: i32 =  this.game.Data.UnitObj[Unr].SFList[index9];
               if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater < 1)
                 this.game.Data.SFObj[sf].Rdn =  Math.Round((double) ((float) this.game.Data.SFObj[sf].Rdn * this.game.Data.RuleVar[48]));
             }
           }
           if (this.game.Data.Turn > -1 && !this.game.Data.RegimeObj[this.game.Data.Turn].AI && !this.game.Data.RegimeObj[this.game.Data.Turn].AI)
           {
-            int staffPoints = this.game.HandyFunctionsObj.GetStaffPoints(Hqnr);
-            int groupPowerPoints = this.game.HandyFunctionsObj.GetGroupPowerPoints(Hqnr);
-            int num8 = groupPowerPoints + this.game.HandyFunctionsObj.GetPowerPtsAbsolute(Unr, true, false);
-            int num9 = num8 - groupPowerPoints;
+            let mut staffPoints: i32 =  this.game.HandyFunctionsObj.GetStaffPoints(Hqnr);
+            let mut groupPowerPoints: i32 =  this.game.HandyFunctionsObj.GetGroupPowerPoints(Hqnr);
+            let mut num8: i32 =  groupPowerPoints + this.game.HandyFunctionsObj.GetPowerPtsAbsolute(Unr, true, false);
+            let mut num9: i32 =  num8 - groupPowerPoints;
             if (num8 > staffPoints)
               num9 -= num8 - staffPoints;
             float num10;
@@ -13664,15 +13664,15 @@ label_81:
             }
             else
               num10 = 0.0f;
-            int sfCount = this.game.Data.UnitObj[Hqnr].SFCount;
-            for (int index10 = 0; index10 <= sfCount; index10 += 1)
+            let mut sfCount: i32 =  this.game.Data.UnitObj[Hqnr].SFCount;
+            for (let mut index10: i32 =  0; index10 <= sfCount; index10 += 1)
             {
-              int sf = this.game.Data.UnitObj[Hqnr].SFList[index10];
+              let mut sf: i32 =  this.game.Data.UnitObj[Hqnr].SFList[index10];
               if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].StaffPts > 0)
               {
-                int xp = this.game.Data.SFObj[sf].Xp;
-                int num11 = xp;
-                int num12 =  Math.Round(Math.Ceiling((double) xp * (1.0 - (double) num10)));
+                let mut xp: i32 =  this.game.Data.SFObj[sf].Xp;
+                let mut num11: i32 =  xp;
+                let mut num12: i32 =   Math.Round(Math.Ceiling((double) xp * (1.0 - (double) num10)));
                 float num13 = (float) ((double) num11 * (1.0 - (double) num10) % 1.0);
                 if ((double) num13 > 0.0 && (double) DrawMod.RandyNumber.Next() / 100.0 > (double) num13)
                   --num12;
@@ -13685,10 +13685,10 @@ label_81:
         }
         else if (this.game.Data.UnitObj[Unr].SFCount > -1 && this.game.Data.UnitObj[Unr].HQ != -1 && this.game.Data.UnitObj[Unr].HQ != Hqnr)
         {
-          int sfCount = this.game.Data.UnitObj[Unr].SFCount;
-          for (int index11 = 0; index11 <= sfCount; index11 += 1)
+          let mut sfCount: i32 =  this.game.Data.UnitObj[Unr].SFCount;
+          for (let mut index11: i32 =  0; index11 <= sfCount; index11 += 1)
           {
-            int sf = this.game.Data.UnitObj[Unr].SFList[index11];
+            let mut sf: i32 =  this.game.Data.UnitObj[Unr].SFList[index11];
             if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater < 1)
               this.game.Data.SFObj[sf].Rdn =  Math.Round((double) ((float) this.game.Data.SFObj[sf].Rdn * this.game.Data.RuleVar[48]));
           }
@@ -13727,7 +13727,7 @@ label_81:
           return orderResult;
         }
       }
-      int index1 = this.game.Data.AddUnit(x, y, map);
+      let mut index1: i32 =  this.game.Data.AddUnit(x, y, map);
       this.game.Data.UnitObj[index1].Regime = regime;
       if (this.game.Data.Round != 0 && !(this.game.Data.RegimeObj[regime].AI & (double) this.game.Data.RuleVar[863] == 1.0) && !(this.game.Data.RegimeObj[regime].AI & (double) this.game.Data.RuleVar[914] == 1.0))
       {
@@ -13735,16 +13735,16 @@ label_81:
         {
           RegimeClass[] regimeObj = this.game.Data.RegimeObj;
           RegimeClass[] regimeClassArray = regimeObj;
-          int index2 = regime;
-          int index3 = index2;
+          let mut index2: i32 =  regime;
+          let mut index3: i32 =  index2;
           regimeClassArray[index3].ResPts =  Math.Round((double) ((float) regimeObj[index2].ResPts - this.game.Data.RuleVar[46]));
         }
         if (hq)
         {
           RegimeClass[] regimeObj = this.game.Data.RegimeObj;
           RegimeClass[] regimeClassArray = regimeObj;
-          int index4 = regime;
-          int index5 = index4;
+          let mut index4: i32 =  regime;
+          let mut index5: i32 =  index4;
           regimeClassArray[index5].ResPts =  Math.Round((double) ((float) regimeObj[index4].ResPts - this.game.Data.RuleVar[47]));
         }
       }
@@ -13759,8 +13759,8 @@ label_81:
       {
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int index6 = regime;
-        int index7 = index6;
+        let mut index6: i32 =  regime;
+        let mut index7: i32 =  index6;
         regimeClassArray[index7].UnitNumber = regimeObj[index6].UnitNumber + 1;
         str1: String = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[regime].UnitNumber));
         str2: String = (!((this.game.Data.RegimeObj[regime].UnitNumber + 10) % 10 == 1 & (this.game.Data.RegimeObj[regime].UnitNumber + 100) % 100 != 11) ? (!((this.game.Data.RegimeObj[regime].UnitNumber + 10) % 10 == 2 & (this.game.Data.RegimeObj[regime].UnitNumber + 100) % 100 != 12) ? (!((this.game.Data.RegimeObj[regime].UnitNumber + 10) % 10 == 3 & (this.game.Data.RegimeObj[regime].UnitNumber + 100) % 100 != 13) ? str1 + "th" : str1 + "rd") : str1 + "nd") : str1 + "st") + " " + this.game.Data.RegimeObj[regime].UnitName;
@@ -13770,8 +13770,8 @@ label_81:
       {
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int index8 = regime;
-        int index9 = index8;
+        let mut index8: i32 =  regime;
+        let mut index9: i32 =  index8;
         regimeClassArray[index9].HQNumber = regimeObj[index8].HQNumber + 1;
         str3: String = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[regime].HQNumber));
         str4: String = (!((this.game.Data.RegimeObj[regime].HQNumber + 10) % 10 == 1 & (this.game.Data.RegimeObj[regime].HQNumber + 100) % 100 != 11) ? (!((this.game.Data.RegimeObj[regime].HQNumber + 10) % 10 == 2 & (this.game.Data.RegimeObj[regime].HQNumber + 100) % 100 != 12) ? (!((this.game.Data.RegimeObj[regime].HQNumber + 10) % 10 == 3 & (this.game.Data.RegimeObj[regime].HQNumber + 100) % 100 != 13) ? str3 + "th" : str3 + "rd") : str3 + "nd") : str3 + "st") + " " + this.game.Data.RegimeObj[regime].HQName;
@@ -13797,14 +13797,14 @@ label_81:
       int Qty,
       bool OwnPower = false,
       bool AddtoHistory = true,
-      int byHQ = -1,
+      let mut byHQ: i32 =  -1,
       bool MoveMatrixDone = false,
       bool IsDisbandTransfer = false)
     {
       OrderResult orderResult = OrderResult::new();
       Coordinate[] coordinateArray = new Coordinate[251];
       this.game.EditObj.SFSelected = -1;
-      int index1 = -1;
+      let mut index1: i32 =  -1;
       this.game.EditObj.TransferLostQty = 0;
       this.game.EditObj.TransferLostType = -1;
       this.game.EditObj.TransferLostTransports = 0;
@@ -13819,7 +13819,7 @@ label_81:
       }
       if (byHQ > -1)
         index1 = byHQ;
-      int index2 = SfNr != -2 ? this.game.Data.SFObj[SfNr].Type : -2;
+      let mut index2: i32 =  SfNr != -2 ? this.game.Data.SFObj[SfNr].Type : -2;
       this.game.HandyFunctionsObj.SetHexReconAndZOCUnitMoves(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, -1, -1, -1, this.game.Data.UnitObj[unr].Regime, unr, false);
       if (this.game.Data.RegimeObj[this.game.Data.Turn].AI & index2 > -1 && !OwnPower)
       {
@@ -13883,14 +13883,14 @@ label_81:
           num1 = this.game.EditObj.TempValue[this.game.Data.UnitObj[unrT].Map].Value[this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y];
         }
       }
-      int antiSupply = this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y, this.game.Data.UnitObj[unrT].Map);
+      let mut antiSupply: i32 =  this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y, this.game.Data.UnitObj[unrT].Map);
       int Qty1;
       int num2;
       if (antiSupply > 0 & !OwnPower)
       {
         if (SfNr == -2 | theater == 1 | theater == 0 & (double) this.game.Data.RuleVar[309] == 1.0)
         {
-          int num3 =  Math.Round(Conversion.Int((double) Qty * ((double) antiSupply / 100.0)));
+          let mut num3: i32 =   Math.Round(Conversion.Int((double) Qty * ((double) antiSupply / 100.0)));
           if ((double) Qty * ((double) antiSupply / 100.0) % 1.0 > 0.0 && (double) VBMath.Rnd() < (double) antiSupply / 100.0)
             num3 += 1;
           Qty1 = Qty - num3;
@@ -13909,7 +13909,7 @@ label_81:
       }
       else if (SfNr > -1 & antiSupply > 0 & theater == 1 & OwnPower)
       {
-        int qty =  Math.Round(Conversion.Int((double) Qty * ((double) antiSupply / 100.0)));
+        let mut qty: i32 =   Math.Round(Conversion.Int((double) Qty * ((double) antiSupply / 100.0)));
         if ((double) Qty * ((double) antiSupply / 100.0) % 1.0 > 0.0 && (double) VBMath.Rnd() < (double) antiSupply / 100.0)
           qty += 1;
         Qty1 = Qty - qty;
@@ -13952,8 +13952,8 @@ label_81:
         Ep =  Math.Round(Conversion.Int((double) this.game.Data.SFObj[SfNr].EP * ((double) Qty / (double) this.game.Data.SFObj[SfNr].Qty)));
         SFClass[] sfObj = this.game.Data.SFObj;
         SFClass[] sfClassArray = sfObj;
-        int index3 = SfNr;
-        int index4 = index3;
+        let mut index3: i32 =  SfNr;
+        let mut index4: i32 =  index3;
         sfClassArray[index4].EP = sfObj[index3].EP - Ep;
         Ap = this.game.Data.SFObj[SfNr].Ap;
         offMod = this.game.Data.SFObj[SfNr].OffMod;
@@ -13978,7 +13978,7 @@ label_81:
             Ap = 0;
           }
         }
-        int weight = this.game.Data.SFTypeObj[index2].Weight;
+        let mut weight: i32 =  this.game.Data.SFTypeObj[index2].Weight;
         theater1 = this.game.Data.SFTypeObj[index2].Theater;
         num4 = Conversion.Int(num1 * Qty * weight);
         supplyConsume = this.game.Data.UnitObj[unr].SupplyConsume;
@@ -13990,25 +13990,25 @@ label_81:
       {
         UnitClass[] unitObj1 = this.game.Data.UnitObj;
         UnitClass[] unitClassArray1 = unitObj1;
-        int index5 = unrT;
-        int index6 = index5;
+        let mut index5: i32 =  unrT;
+        let mut index6: i32 =  index5;
         unitClassArray1[index6].Supply = unitObj1[index5].Supply + Qty1;
         UnitClass[] unitObj2 = this.game.Data.UnitObj;
         UnitClass[] unitClassArray2 = unitObj2;
-        int index7 = unr;
-        int index8 = index7;
+        let mut index7: i32 =  unr;
+        let mut index8: i32 =  index7;
         unitClassArray2[index8].Supply = unitObj2[index7].Supply - Qty;
       }
       else
       {
-        int sfCount1 = this.game.Data.UnitObj[unr].SFCount;
+        let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
         int num6;
-        for (int index9 = 0; index9 <= sfCount1; index9 += 1)
+        for (let mut index9: i32 =  0; index9 <= sfCount1; index9 += 1)
         {
-          int sf = this.game.Data.UnitObj[unr].SFList[index9];
+          let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index9];
           num6 += Conversion.Int(this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyCarry * this.game.Data.SFObj[sf].Qty);
         }
-        int num7 = this.game.Data.SFTypeObj[index2].SupplyCarry * Qty;
+        let mut num7: i32 =  this.game.Data.SFTypeObj[index2].SupplyCarry * Qty;
         int num8;
         if (num6 > 0)
           num8 =  Math.Round(Conversion.Int((double) this.game.Data.UnitObj[unr].Supply * ((double) num7 / (double) num6)));
@@ -14017,8 +14017,8 @@ label_81:
         this.game.HandyFunctionsObj.RemoveTroops(unr, index2, people, Qty, moveType);
         UnitClass[] unitObj3 = this.game.Data.UnitObj;
         UnitClass[] unitClassArray3 = unitObj3;
-        int index10 = unr;
-        int index11 = index10;
+        let mut index10: i32 =  unr;
+        let mut index11: i32 =  index10;
         unitClassArray3[index11].Supply = unitObj3[index10].Supply - num8;
         if (Qty1 > 0)
         {
@@ -14041,7 +14041,7 @@ label_81:
           {
             if (theater1 == 0)
               Rdn =  Math.Round((double) ((float) Rdn * this.game.Data.RuleVar[50]));
-            int unr1 = this.game.Data.UnitObj[unrT].HQ;
+            let mut unr1: i32 =  this.game.Data.UnitObj[unrT].HQ;
             if (this.game.Data.UnitObj[unrT].IsHQ)
               unr1 = unrT;
             int staffPercent1;
@@ -14051,7 +14051,7 @@ label_81:
             {
               if (this.game.Data.SFTypeObj[index2].StaffPts > 0 & this.game.Data.UnitObj[unrT].IsHQ)
               {
-                int staffPercent2 = this.game.HandyFunctionsObj.GetStaffPercent(unr1, additionalstaffpts: (this.game.Data.SFTypeObj[index2].StaffPts * Qty1));
+                let mut staffPercent2: i32 =  this.game.HandyFunctionsObj.GetStaffPercent(unr1, additionalstaffpts: (this.game.Data.SFTypeObj[index2].StaffPts * Qty1));
                 float num9;
                 if (staffPercent2 <= 100)
                   num9 = this.game.Data.RuleVar[36];
@@ -14061,10 +14061,10 @@ label_81:
                 }
                 else
                 {
-                  int num10 = staffPercent2 - staffPercent1;
+                  let mut num10: i32 =  staffPercent2 - staffPercent1;
                   num9 = this.game.Data.RuleVar[36] * (float) (1.0 - (double) (staffPercent2 - 100) / (double) num10);
                 }
-                int num11 = Xp;
+                let mut num11: i32 =  Xp;
                 Xp =  Math.Round(Math.Ceiling((double) Xp * (1.0 - (double) num9)));
                 float num12 = (float) ((double) num11 * (1.0 - (double) num9) % 1.0);
                 if ((double) num12 > 0.0)
@@ -14077,10 +14077,10 @@ label_81:
               }
               else if (this.game.Data.SFTypeObj[index2].StaffPts < 1)
               {
-                int staffPoints = this.game.HandyFunctionsObj.GetStaffPoints(unr1);
-                int groupPowerPoints = this.game.HandyFunctionsObj.GetGroupPowerPoints(unr1);
-                int num13 = this.game.Data.SFTypeObj[index2].Theater != 0 ? groupPowerPoints : groupPowerPoints + this.game.Data.SFTypeObj[index2].PowerPts * Qty1;
-                int num14 = num13 - groupPowerPoints;
+                let mut staffPoints: i32 =  this.game.HandyFunctionsObj.GetStaffPoints(unr1);
+                let mut groupPowerPoints: i32 =  this.game.HandyFunctionsObj.GetGroupPowerPoints(unr1);
+                let mut num13: i32 =  this.game.Data.SFTypeObj[index2].Theater != 0 ? groupPowerPoints : groupPowerPoints + this.game.Data.SFTypeObj[index2].PowerPts * Qty1;
+                let mut num14: i32 =  num13 - groupPowerPoints;
                 if (num13 > staffPoints)
                   num14 -= num13 - staffPoints;
                 float num15;
@@ -14092,15 +14092,15 @@ label_81:
                 }
                 else
                   num15 = 0.0f;
-                int sfCount2 = this.game.Data.UnitObj[unr1].SFCount;
-                for (int index12 = 0; index12 <= sfCount2; index12 += 1)
+                let mut sfCount2: i32 =  this.game.Data.UnitObj[unr1].SFCount;
+                for (let mut index12: i32 =  0; index12 <= sfCount2; index12 += 1)
                 {
-                  int sf = this.game.Data.UnitObj[unr1].SFList[index12];
+                  let mut sf: i32 =  this.game.Data.UnitObj[unr1].SFList[index12];
                   if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].StaffPts > 0)
                   {
-                    int xp = this.game.Data.SFObj[sf].Xp;
-                    int num16 = xp;
-                    int num17 =  Math.Round(Math.Ceiling((double) xp * (1.0 - (double) num15)));
+                    let mut xp: i32 =  this.game.Data.SFObj[sf].Xp;
+                    let mut num16: i32 =  xp;
+                    let mut num17: i32 =   Math.Round(Math.Ceiling((double) xp * (1.0 - (double) num15)));
                     float num18 = (float) ((double) num16 * (1.0 - (double) num15) % 1.0);
                     if ((double) num18 > 0.0 && (double) DrawMod.RandyNumber.Next(0, 100) / 100.0 > (double) num18)
                       --num17;
@@ -14119,8 +14119,8 @@ label_81:
           this.game.Data.UnitObj[unrT].FreeCombatY = -1;
           UnitClass[] unitObj4 = this.game.Data.UnitObj;
           UnitClass[] unitClassArray4 = unitObj4;
-          int index13 = unrT;
-          int index14 = index13;
+          let mut index13: i32 =  unrT;
+          let mut index14: i32 =  index13;
           unitClassArray4[index14].Supply =  Math.Round((double) unitObj4[index13].Supply + (double) num8 * ((double) Qty1 / (double) Qty));
         }
         if (AddtoHistory)
@@ -14152,7 +14152,7 @@ label_81:
             break;
         }
       }
-      int map = this.game.Data.UnitObj[unrT].Map;
+      let mut map: i32 =  this.game.Data.UnitObj[unrT].Map;
       if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI)
       {
         if (OwnPower)
@@ -14161,71 +14161,71 @@ label_81:
           {
             if ((double) this.game.Data.RuleVar[435] > 0.0)
             {
-              int num19 =  Math.Round((double) this.game.Data.SFTypeObj[index2].FuelForMove * ((double) this.game.EditObj.TempValue[map].Value[this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y] / 10.0));
+              let mut num19: i32 =   Math.Round((double) this.game.Data.SFTypeObj[index2].FuelForMove * ((double) this.game.EditObj.TempValue[map].Value[this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y] / 10.0));
               if (this.game.Data.SFTypeObj[index2].FuelForMove > num19 & this.game.EditObj.TempValue[map].Value[this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y] > 0)
                 num19 = this.game.Data.SFTypeObj[index2].FuelForMove;
-              int num20 = num19 * this.game.Data.SFObj[SfNr].Qty;
+              let mut num20: i32 =  num19 * this.game.Data.SFObj[SfNr].Qty;
               UnitClass[] unitObj5 = this.game.Data.UnitObj;
               UnitClass[] unitClassArray5 = unitObj5;
-              int index15 = unr;
-              int index16 = index15;
+              let mut index15: i32 =  unr;
+              let mut index16: i32 =  index15;
               unitClassArray5[index16].Fuel = unitObj5[index15].Fuel - num20;
               if (0 > this.game.Data.UnitObj[unr].Fuel)
                 this.game.Data.UnitObj[unr].Fuel = 0;
               UnitClass[] unitObj6 = this.game.Data.UnitObj;
               UnitClass[] unitClassArray6 = unitObj6;
-              int index17 = unr;
-              int index18 = index17;
+              let mut index17: i32 =  unr;
+              let mut index18: i32 =  index17;
               unitClassArray6[index18].FuelUsedMove = unitObj6[index17].FuelUsedMove + num20;
             }
             else
             {
-              int currentSlot = this.game.Data.SFTypeObj[index2].FuelRegimeVar;
+              let mut currentSlot: i32 =  this.game.Data.SFTypeObj[index2].FuelRegimeVar;
               if ((double) this.game.Data.RuleVar[949] > 0.0)
                 currentSlot = this.game.HandyFunctionsObj.GetFuelSlot949(currentSlot, this.game.Data.UnitObj[index1].RealX( this.game), this.game.Data.UnitObj[index1].RealY( this.game));
-              int num21 =  Math.Round((double) this.game.Data.SFTypeObj[index2].FuelForMove * ((double) this.game.EditObj.TempValue[map].Value[this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y] / 10.0));
+              let mut num21: i32 =   Math.Round((double) this.game.Data.SFTypeObj[index2].FuelForMove * ((double) this.game.EditObj.TempValue[map].Value[this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y] / 10.0));
               if (this.game.Data.SFTypeObj[index2].FuelForMove > num21 & this.game.EditObj.TempValue[map].Value[this.game.Data.UnitObj[unrT].X, this.game.Data.UnitObj[unrT].Y] > 0)
                 num21 = this.game.Data.SFTypeObj[index2].FuelForMove;
-              int num22 = num21 * Qty;
+              let mut num22: i32 =  num21 * Qty;
               if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot[currentSlot] >= num22)
               {
                 int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot;
                 int[] numArray1 = regimeSlot;
-                int index19 = currentSlot;
-                int index20 = index19;
-                int num23 = regimeSlot[index19] - num22;
+                let mut index19: i32 =  currentSlot;
+                let mut index20: i32 =  index19;
+                let mut num23: i32 =  regimeSlot[index19] - num22;
                 numArray1[index20] = num23;
                 int[] regimeSlotPredict = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].TempRegimeSlotPredict;
                 int[] numArray2 = regimeSlotPredict;
-                int index21 = currentSlot;
-                int index22 = index21;
-                int num24 = regimeSlotPredict[index21] - num22;
+                let mut index21: i32 =  currentSlot;
+                let mut index22: i32 =  index21;
+                let mut num24: i32 =  regimeSlotPredict[index21] - num22;
                 numArray2[index22] = num24;
                 UnitClass[] unitObj = this.game.Data.UnitObj;
                 UnitClass[] unitClassArray = unitObj;
-                int index23 = unr;
-                int index24 = index23;
+                let mut index23: i32 =  unr;
+                let mut index24: i32 =  index23;
                 unitClassArray[index24].FuelUsedMove = unitObj[index23].FuelUsedMove + num22;
               }
               else
               {
-                int num25 = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot[currentSlot];
+                let mut num25: i32 =  this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot[currentSlot];
                 int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot;
                 int[] numArray3 = regimeSlot;
-                int index25 = currentSlot;
-                int index26 = index25;
-                int num26 = regimeSlot[index25] - num25;
+                let mut index25: i32 =  currentSlot;
+                let mut index26: i32 =  index25;
+                let mut num26: i32 =  regimeSlot[index25] - num25;
                 numArray3[index26] = num26;
                 int[] regimeSlotPredict = this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].TempRegimeSlotPredict;
                 int[] numArray4 = regimeSlotPredict;
-                int index27 = currentSlot;
-                int index28 = index27;
-                int num27 = regimeSlotPredict[index27] - num25;
+                let mut index27: i32 =  currentSlot;
+                let mut index28: i32 =  index27;
+                let mut num27: i32 =  regimeSlotPredict[index27] - num25;
                 numArray4[index28] = num27;
                 UnitClass[] unitObj = this.game.Data.UnitObj;
                 UnitClass[] unitClassArray = unitObj;
-                int index29 = unr;
-                int index30 = index29;
+                let mut index29: i32 =  unr;
+                let mut index30: i32 =  index29;
                 unitClassArray[index30].FuelUsedMove = unitObj[index29].FuelUsedMove + num25;
               }
             }
@@ -14235,56 +14235,56 @@ label_81:
         {
           if ((double) this.game.Data.RuleVar[852] > 0.0 & theater == 0 & num4 > 0)
           {
-            int num28 =  Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num4 / 1000.0) * this.game.Data.RuleVar[852])));
+            let mut num28: i32 =   Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num4 / 1000.0) * this.game.Data.RuleVar[852])));
             float fuelSlot949 = this.game.Data.RuleVar[851];
             if ((double) this.game.Data.RuleVar[949] > 0.0)
               fuelSlot949 = (float) this.game.HandyFunctionsObj.GetFuelSlot949( Math.Round((double) fuelSlot949), this.game.Data.UnitObj[index1].RealX( this.game), this.game.Data.UnitObj[index1].RealY( this.game));
             int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
             int[] numArray = regimeSlot;
-            int index31 =  Math.Round((double) fuelSlot949);
-            int index32 = index31;
-            int num29 = regimeSlot[index31] - num28;
+            let mut index31: i32 =   Math.Round((double) fuelSlot949);
+            let mut index32: i32 =  index31;
+            let mut num29: i32 =  regimeSlot[index31] - num28;
             numArray[index32] = num29;
           }
           if ((double) this.game.Data.RuleVar[854] > 0.0 & theater == 1 & num4 > 0)
           {
-            int num30 =  Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num4 / 1000.0) * this.game.Data.RuleVar[854])));
+            let mut num30: i32 =   Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num4 / 1000.0) * this.game.Data.RuleVar[854])));
             float fuelSlot949 = this.game.Data.RuleVar[851];
             if ((double) this.game.Data.RuleVar[949] > 0.0)
               fuelSlot949 = (float) this.game.HandyFunctionsObj.GetFuelSlot949( Math.Round((double) fuelSlot949), this.game.Data.UnitObj[index1].RealX( this.game), this.game.Data.UnitObj[index1].RealY( this.game));
             int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
             int[] numArray = regimeSlot;
-            int index33 =  Math.Round((double) fuelSlot949);
-            int index34 = index33;
-            int num31 = regimeSlot[index33] - num30;
+            let mut index33: i32 =   Math.Round((double) fuelSlot949);
+            let mut index34: i32 =  index33;
+            let mut num31: i32 =  regimeSlot[index33] - num30;
             numArray[index34] = num31;
           }
           if ((double) this.game.Data.RuleVar[856] > 0.0 & theater == 0 & num4 > 0)
           {
-            int num32 =  Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num4 / 1000.0) * this.game.Data.RuleVar[856])));
+            let mut num32: i32 =   Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num4 / 1000.0) * this.game.Data.RuleVar[856])));
             float fuelSlot949 = this.game.Data.RuleVar[851];
             if ((double) this.game.Data.RuleVar[949] > 0.0)
               fuelSlot949 = (float) this.game.HandyFunctionsObj.GetFuelSlot949( Math.Round((double) fuelSlot949), this.game.Data.UnitObj[index1].RealX( this.game), this.game.Data.UnitObj[index1].RealY( this.game));
             int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
             int[] numArray = regimeSlot;
-            int index35 =  Math.Round((double) this.game.Data.RuleVar[ Math.Round((double) fuelSlot949)]);
-            int index36 = index35;
-            int num33 = regimeSlot[index35] - num32;
+            let mut index35: i32 =   Math.Round((double) this.game.Data.RuleVar[ Math.Round((double) fuelSlot949)]);
+            let mut index36: i32 =  index35;
+            let mut num33: i32 =  regimeSlot[index35] - num32;
             numArray[index36] = num33;
           }
         }
       }
       this.game.ProcessingObj.MaxReadinessRule(unrT);
-      int sfCount = this.game.Data.UnitObj[unr].SFCount;
+      let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int num34;
       int num35;
       int num36;
-      for (int index37 = 0; index37 <= sfCount; index37 += 1)
+      for (let mut index37: i32 =  0; index37 <= sfCount; index37 += 1)
       {
-        int sf = this.game.Data.UnitObj[unr].SFList[index37];
-        int type = this.game.Data.SFObj[sf].Type;
-        int qty = this.game.Data.SFObj[sf].Qty;
-        int theater2 = this.game.Data.SFTypeObj[type].Theater;
+        let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index37];
+        let mut type: i32 =  this.game.Data.SFObj[sf].Type;
+        let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
+        let mut theater2: i32 =  this.game.Data.SFTypeObj[type].Theater;
         if (theater2 == 0)
           num34 += this.game.Data.SFTypeObj[type].Cap * qty;
         if (theater2 == 1)
@@ -14317,7 +14317,7 @@ label_81:
       Coordinate[] coordinateArray = new Coordinate[251];
       if (this.game.HandyFunctionsObj.VisibleEnemyUnitsInHex(tarx, tary, 0, 1, true))
       {
-        int num1 = num1;
+        let mut num1: i32 =  num1;
       }
       if (this.game.Data.RegimeObj[this.game.Data.Turn].AI)
       {
@@ -14370,11 +14370,11 @@ label_81:
         int num5;
         if (theater == 1 | theater == 0 & (double) this.game.Data.RuleVar[309] == 1.0)
         {
-          int antiSupply1 = this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[unrH].X, this.game.Data.UnitObj[unrH].Y, this.game.Data.UnitObj[unrH].Map, tarx, tary, tarmap);
+          let mut antiSupply1: i32 =  this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[unrH].X, this.game.Data.UnitObj[unrH].Y, this.game.Data.UnitObj[unrH].Map, tarx, tary, tarmap);
           num4 = antiSupply1;
           if (antiSupply1 > 0)
             this.game.EditObj.TransferLostQty = this.game.HandyFunctionsObj.DoDestroyRandom(unrS, -1, antiSupply1, this.game.Data.UnitObj[unrH].X, this.game.Data.UnitObj[unrH].Y, this.game.Data.UnitObj[unrH].Map, tarx, tary, tarmap);
-          int antiSupply2 = this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[unrH].X, this.game.Data.UnitObj[unrH].Y, this.game.Data.UnitObj[unrH].Map, this.game.Data.UnitObj[unrS].X, this.game.Data.UnitObj[unrS].Y, this.game.Data.UnitObj[unrS].Map);
+          let mut antiSupply2: i32 =  this.game.HandyFunctionsObj.GetAntiSupply(this.game.Data.UnitObj[unrH].X, this.game.Data.UnitObj[unrH].Y, this.game.Data.UnitObj[unrH].Map, this.game.Data.UnitObj[unrS].X, this.game.Data.UnitObj[unrS].Y, this.game.Data.UnitObj[unrS].Map);
           num5 = antiSupply2;
           if (antiSupply2 > 0)
             this.game.EditObj.TransferLostQty = this.game.HandyFunctionsObj.DoDestroyRandom(unrS, -1, antiSupply2, this.game.Data.UnitObj[unrH].X, this.game.Data.UnitObj[unrH].Y, this.game.Data.UnitObj[unrH].Map, this.game.Data.UnitObj[unrS].X, this.game.Data.UnitObj[unrS].Y, this.game.Data.UnitObj[unrS].Map);
@@ -14397,9 +14397,9 @@ label_81:
           this.game.EditObj.TransferLostTransports += this.game.HandyFunctionsObj.DoDestroyTransporters(unrH, theater,  Math.Round(Conversion.Int((double) num2 * ((double) num5 / 100.0))), this.game.Data.UnitObj[unrH].X, this.game.Data.UnitObj[unrH].Y, this.game.Data.UnitObj[unrH].Map, this.game.Data.UnitObj[unrS].X, this.game.Data.UnitObj[unrS].Y, this.game.Data.UnitObj[unrS].Map);
       }
       this.game.Data.MapObj[this.game.Data.UnitObj[unrS].Map].HexObj[this.game.Data.UnitObj[unrS].X, this.game.Data.UnitObj[unrS].Y].RemoveUnitFromList(unrS);
-      int x = this.game.Data.UnitObj[unrS].X;
-      int y = this.game.Data.UnitObj[unrS].Y;
-      int map = this.game.Data.UnitObj[unrS].Map;
+      let mut x: i32 =  this.game.Data.UnitObj[unrS].X;
+      let mut y: i32 =  this.game.Data.UnitObj[unrS].Y;
+      let mut map: i32 =  this.game.Data.UnitObj[unrS].Map;
       this.game.Data.UnitObj[unrS].X = tarx;
       this.game.Data.UnitObj[unrS].Y = tary;
       this.game.Data.UnitObj[unrS].Map = tarmap;
@@ -14407,7 +14407,7 @@ label_81:
       this.game.HandyFunctionsObj.SetHexReconAndZOCUnitMoves(x, y, map, -1, -1, -1, this.game.Data.UnitObj[unrS].Regime, unrS, false);
       if (this.game.EventRelatedObj.Helper_AirEnabled())
       {
-        int historical = this.game.Data.UnitObj[unrS].Historical;
+        let mut historical: i32 =  this.game.Data.UnitObj[unrS].Historical;
         if (historical > -1)
         {
           this.game.Data.HistoricalUnitObj[historical].SetHisVarValue(55, 0);
@@ -14422,10 +14422,10 @@ label_81:
       this.game.HandyFunctionsObj.HistoryAddHex(tarx, tary, tarmap, this.game.Data.UnitObj[unrS].Regime, infostring: "Strategic Transfer...");
       if (this.game.Data.UnitObj[unrS].SFCount > -1)
       {
-        int sfCount = this.game.Data.UnitObj[unrS].SFCount;
-        for (int index = 0; index <= sfCount; index += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[unrS].SFCount;
+        for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
-          int sf = this.game.Data.UnitObj[unrS].SFList[index];
+          let mut sf: i32 =  this.game.Data.UnitObj[unrS].SFList[index];
           this.game.Data.SFObj[sf].Ap = 0;
           this.game.Data.SFObj[sf].EP = 0;
           this.game.Data.SFObj[sf].CurrentEntrench = this.game.HandyFunctionsObj.GetMinimumEntrench(tarx, tary, tarmap, this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup);
@@ -14455,41 +14455,41 @@ label_81:
       {
         if ((double) this.game.Data.RuleVar[852] > 0.0 & theater == 0 & num2 > 0)
         {
-          int num6 =  Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num2 / 1000.0) * this.game.Data.RuleVar[852])));
+          let mut num6: i32 =   Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num2 / 1000.0) * this.game.Data.RuleVar[852])));
           float fuelSlot949 = this.game.Data.RuleVar[851];
           if ((double) this.game.Data.RuleVar[949] > 0.0)
             fuelSlot949 = (float) this.game.HandyFunctionsObj.GetFuelSlot949( Math.Round((double) fuelSlot949), this.game.Data.UnitObj[unrH].RealX( this.game), this.game.Data.UnitObj[unrH].RealY( this.game));
           int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
           int[] numArray = regimeSlot;
-          int index1 =  Math.Round((double) fuelSlot949);
-          int index2 = index1;
-          int num7 = regimeSlot[index1] - num6;
+          let mut index1: i32 =   Math.Round((double) fuelSlot949);
+          let mut index2: i32 =  index1;
+          let mut num7: i32 =  regimeSlot[index1] - num6;
           numArray[index2] = num7;
         }
         if ((double) this.game.Data.RuleVar[854] > 0.0 & theater == 1 & num2 > 0)
         {
-          int num8 =  Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num2 / 1000.0) * this.game.Data.RuleVar[854])));
+          let mut num8: i32 =   Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num2 / 1000.0) * this.game.Data.RuleVar[854])));
           float fuelSlot949 = this.game.Data.RuleVar[851];
           if ((double) this.game.Data.RuleVar[949] > 0.0)
             fuelSlot949 = (float) this.game.HandyFunctionsObj.GetFuelSlot949( Math.Round((double) fuelSlot949), this.game.Data.UnitObj[unrH].RealX( this.game), this.game.Data.UnitObj[unrH].RealY( this.game));
           int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
           int[] numArray = regimeSlot;
-          int index3 =  Math.Round((double) fuelSlot949);
-          int index4 = index3;
-          int num9 = regimeSlot[index3] - num8;
+          let mut index3: i32 =   Math.Round((double) fuelSlot949);
+          let mut index4: i32 =  index3;
+          let mut num9: i32 =  regimeSlot[index3] - num8;
           numArray[index4] = num9;
         }
         if ((double) this.game.Data.RuleVar[856] > 0.0 & theater == 0 & num2 > 0)
         {
-          int num10 =  Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num2 / 1000.0) * this.game.Data.RuleVar[856])));
+          let mut num10: i32 =   Math.Round((double) Math.Max(1f, Conversion.Int((float)  Math.Round((double) num2 / 1000.0) * this.game.Data.RuleVar[856])));
           float fuelSlot949 = this.game.Data.RuleVar[851];
           if ((double) this.game.Data.RuleVar[949] > 0.0)
             fuelSlot949 = (float) this.game.HandyFunctionsObj.GetFuelSlot949( Math.Round((double) fuelSlot949), this.game.Data.UnitObj[unrH].RealX( this.game), this.game.Data.UnitObj[unrH].RealY( this.game));
           int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
           int[] numArray = regimeSlot;
-          int index5 =  Math.Round((double) fuelSlot949);
-          int index6 = index5;
-          int num11 = regimeSlot[index5] - num10;
+          let mut index5: i32 =   Math.Round((double) fuelSlot949);
+          let mut index6: i32 =  index5;
+          let mut num11: i32 =  regimeSlot[index5] - num10;
           numArray[index6] = num11;
         }
       }
@@ -14510,12 +14510,12 @@ label_81:
         this.game.EditObj.TransferLostType = -1;
         this.game.EditObj.TransferLostTransports = 0;
       }
-      int unitWeight = this.game.HandyFunctionsObj.GetUnitWeight(unrS, includeLisWeight: true);
+      let mut unitWeight: i32 =  this.game.HandyFunctionsObj.GetUnitWeight(unrS, includeLisWeight: true);
       this.game.ProcessingObj.LIS_RemovePointsFromTrajectory(tarx, tary, unitWeight, unrS);
       this.game.Data.MapObj[this.game.Data.UnitObj[unrS].Map].HexObj[this.game.Data.UnitObj[unrS].X, this.game.Data.UnitObj[unrS].Y].RemoveUnitFromList(unrS);
-      int x = this.game.Data.UnitObj[unrS].X;
-      int y = this.game.Data.UnitObj[unrS].Y;
-      int map = this.game.Data.UnitObj[unrS].Map;
+      let mut x: i32 =  this.game.Data.UnitObj[unrS].X;
+      let mut y: i32 =  this.game.Data.UnitObj[unrS].Y;
+      let mut map: i32 =  this.game.Data.UnitObj[unrS].Map;
       this.game.Data.UnitObj[unrS].X = tarx;
       this.game.Data.UnitObj[unrS].Y = tary;
       this.game.Data.UnitObj[unrS].Map = tarmap;
@@ -14527,10 +14527,10 @@ label_81:
         this.game.HandyFunctionsObj.HistoryAddHex(tarx, tary, tarmap, this.game.Data.UnitObj[unrS].Regime, infostring: "Strategic Transfer...");
       if (this.game.Data.UnitObj[unrS].SFCount > -1)
       {
-        int sfCount = this.game.Data.UnitObj[unrS].SFCount;
-        for (int index = 0; index <= sfCount; index += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[unrS].SFCount;
+        for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
-          int sf = this.game.Data.UnitObj[unrS].SFList[index];
+          let mut sf: i32 =  this.game.Data.UnitObj[unrS].SFList[index];
           this.game.Data.SFObj[sf].Ap = 0;
           this.game.Data.SFObj[sf].EP = 0;
           this.game.Data.SFObj[sf].CurrentEntrench = this.game.HandyFunctionsObj.GetMinimumEntrench(tarx, tary, tarmap, this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup);
@@ -14554,9 +14554,9 @@ label_81:
 
     pub OrderResult BuyResearch(int pplnr, int regnr, int resnr)
     {
-      int index1 = regnr;
+      let mut index1: i32 =  regnr;
       OrderResult orderResult = OrderResult::new();
-      int num1 =  Math.Round((double) Conversion.Int((float) this.game.Data.ResearchObj[resnr].PointCost[this.game.Data.PeopleObj[pplnr].PeopleGroup] * this.game.Data.ResCostMod));
+      let mut num1: i32 =   Math.Round((double) Conversion.Int((float) this.game.Data.ResearchObj[resnr].PointCost[this.game.Data.PeopleObj[pplnr].PeopleGroup] * this.game.Data.ResCostMod));
       if (this.game.Data.ResearchObj[resnr].CostType == -1)
       {
         if (num1 > this.game.Data.RegimeObj[regnr].ResPts)
@@ -14576,30 +14576,30 @@ label_81:
       {
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int index2 = regnr;
-        int index3 = index2;
+        let mut index2: i32 =  regnr;
+        let mut index3: i32 =  index2;
         regimeClassArray[index3].ResPts = regimeObj[index2].ResPts - num1;
       }
       else
       {
         int[] regimeSlot = this.game.Data.RegimeObj[regnr].RegimeSlot;
         int[] numArray = regimeSlot;
-        int costType = this.game.Data.ResearchObj[resnr].CostType;
-        int index4 = costType;
-        int num2 = regimeSlot[costType] - num1;
+        let mut costType: i32 =  this.game.Data.ResearchObj[resnr].CostType;
+        let mut index4: i32 =  costType;
+        let mut num2: i32 =  regimeSlot[costType] - num1;
         numArray[index4] = num2;
       }
       this.game.Data.RegimeObj[index1].ResField[resnr] = true;
       orderResult.OK = true;
-      int sfTypeCounter = this.game.Data.SFTypeCounter;
-      for (int index5 = 0; index5 <= sfTypeCounter; index5 += 1)
+      let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+      for (let mut index5: i32 =  0; index5 <= sfTypeCounter; index5 += 1)
       {
         if (this.game.Data.SFTypeObj[index5].ModelID >= 0 & this.game.Data.SFTypeObj[index5].ModelRegime == index1)
         {
-          int modelItemType = this.game.Data.SFTypeObj[index5].ModelItemType;
-          int tv9 = index5;
-          int tv7 = 0;
-          int tv8 = 0;
+          let mut modelItemType: i32 =  this.game.Data.SFTypeObj[index5].ModelItemType;
+          let mut tv9: i32 =  index5;
+          let mut tv7: i32 =  0;
+          let mut tv8: i32 =  0;
           if (this.game.Data.SFTypeObj[index5].ModelAutoImprovement[resnr] && this.game.Data.SFTypeObj[index5].ModelLastState[resnr] == 0 & this.game.Data.SFTypeObj[index5].ModelImproveEvent[resnr] > 0 && this.game.Data.RegimeObj[index1].ResField[resnr])
           {
             this.game.EventRelatedObj.DoCheckSpecificEvent(this.game.Data.SFTypeObj[index5].ModelImproveEvent[resnr], tv9: tv9, tv7: tv7, tv8: tv8, tv10: modelItemType);
@@ -14624,28 +14624,28 @@ label_81:
         {
           RegimeClass[] regimeObj = this.game.Data.RegimeObj;
           RegimeClass[] regimeClassArray = regimeObj;
-          int index1 = regnr;
-          int index2 = index1;
+          let mut index1: i32 =  regnr;
+          let mut index2: i32 =  index1;
           regimeClassArray[index2].ResPts =  Math.Round((double) ((float) regimeObj[index1].ResPts - this.game.Data.RuleVar[818]));
           if (0 > this.game.Data.RegimeObj[regnr].ResPts)
             this.game.Data.RegimeObj[regnr].ResPts = 0;
         }
-        int regimeCounter1 = this.game.Data.RegimeCounter;
-        for (int regnr1 = 0; regnr1 <= regimeCounter1; regnr1 += 1)
+        let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
+        for (let mut regnr1: i32 =  0; regnr1 <= regimeCounter1; regnr1 += 1)
         {
           if (this.game.Data.RegimeObj[regnr1].UberRegime == regnr && this.game.Data.RegimeObj[regnr1].RegimeRel[onregnr] != 0)
           {
             this.DeclareWar(regnr1, onregnr, HideMessage, true);
-            int regimeCounter2 = this.game.Data.RegimeCounter;
-            for (int onregnr1 = 0; onregnr1 <= regimeCounter2; onregnr1 += 1)
+            let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
+            for (let mut onregnr1: i32 =  0; onregnr1 <= regimeCounter2; onregnr1 += 1)
             {
               if (this.game.Data.RegimeObj[onregnr1].UberRegime == onregnr && this.game.Data.RegimeObj[regnr1].RegimeRel[onregnr1] != 0)
                 this.DeclareWar(regnr1, onregnr1, HideMessage, true);
             }
           }
         }
-        int regimeCounter3 = this.game.Data.RegimeCounter;
-        for (int onregnr2 = 0; onregnr2 <= regimeCounter3; onregnr2 += 1)
+        let mut regimeCounter3: i32 =  this.game.Data.RegimeCounter;
+        for (let mut onregnr2: i32 =  0; onregnr2 <= regimeCounter3; onregnr2 += 1)
         {
           if (this.game.Data.RegimeObj[onregnr2].UberRegime == onregnr && this.game.Data.RegimeObj[regnr].RegimeRel[onregnr2] != 0)
             this.DeclareWar(regnr, onregnr2, HideMessage, true);
@@ -14668,19 +14668,19 @@ label_81:
         else
           this.game.HandyFunctionsObj.AddMessageForAll(this.game.Data.RegimeObj[regnr].Name + " declares war on " + this.game.Data.RegimeObj[onregnr].Name, -1, 1);
       }
-      int mapCounter1 = this.game.Data.MapCounter;
+      let mut mapCounter1: i32 =  this.game.Data.MapCounter;
       int Number;
-      for (int map = 0; map <= mapCounter1; map += 1)
+      for (let mut map: i32 =  0; map <= mapCounter1; map += 1)
       {
-        int mapWidth = this.game.Data.MapObj[map].MapWidth;
-        for (int x = 0; x <= mapWidth; x += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[map].MapWidth;
+        for (let mut x: i32 =  0; x <= mapWidth; x += 1)
         {
-          int mapHeight = this.game.Data.MapObj[map].MapHeight;
-          for (int y = 0; y <= mapHeight; y += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[map].MapHeight;
+          for (let mut y: i32 =  0; y <= mapHeight; y += 1)
           {
             if (this.game.Data.MapObj[map].HexObj[x, y].Regime != regnr)
             {
-              int num = 0;
+              let mut num: i32 =  0;
               if (this.game.Data.MapObj[map].HexObj[x, y].Regime > -1)
               {
                 if (this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.MapObj[map].HexObj[x, y].Regime] == 0)
@@ -14690,16 +14690,16 @@ label_81:
                 num = 1;
               if (num == 1)
               {
-                int index3 = -1;
-                int unitCounter1 = this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-                for (int index4 = 0; index4 <= unitCounter1; index4 += 1)
+                let mut index3: i32 =  -1;
+                let mut unitCounter1: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
+                for (let mut index4: i32 =  0; index4 <= unitCounter1; index4 += 1)
                 {
-                  int unit = this.game.Data.MapObj[map].HexObj[x, y].UnitList[index4];
+                  let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index4];
                   if (regnr != this.game.Data.UnitObj[unit].Regime && this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.UnitObj[unit].Regime] == 0)
                     index3 = unit;
                 }
-                int unitCounter2 = this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-                for (int index5 = 0; index5 <= unitCounter2; index5 += 1)
+                let mut unitCounter2: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
+                for (let mut index5: i32 =  0; index5 <= unitCounter2; index5 += 1)
                 {
                   if (this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[index5]].Regime == regnr)
                   {
@@ -14711,10 +14711,10 @@ label_81:
                       Target.y = y;
                       Target.map = map;
                       this.game.EditObj.TempUnitList = UnitList::new();
-                      int unitCounter3 = this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-                      for (int index6 = 0; index6 <= unitCounter3; index6 += 1)
+                      let mut unitCounter3: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
+                      for (let mut index6: i32 =  0; index6 <= unitCounter3; index6 += 1)
                       {
-                        int unit = this.game.Data.MapObj[map].HexObj[x, y].UnitList[index6];
+                        let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index6];
                         if (regnr == this.game.Data.UnitObj[unit].Regime && this.game.Data.RegimeObj[this.game.Data.UnitObj[unit].Regime].RegimeRel[this.game.Data.UnitObj[index3].Regime] == 0)
                           this.game.EditObj.TempUnitList.add(unit);
                       }
@@ -14735,10 +14735,10 @@ label_81:
             }
             else
             {
-              int unitCounter4 = this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-              for (int index7 = 0; index7 <= unitCounter4; index7 += 1)
+              let mut unitCounter4: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
+              for (let mut index7: i32 =  0; index7 <= unitCounter4; index7 += 1)
               {
-                int unit1 = this.game.Data.MapObj[map].HexObj[x, y].UnitList[index7];
+                let mut unit1: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index7];
                 if (this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.UnitObj[unit1].Regime] == 0)
                 {
                   if (this.game.HandyFunctionsObj.VisibleEnemyUnitsInHex(x, y, map, this.game.Data.UnitObj[unit1].Regime, true))
@@ -14749,10 +14749,10 @@ label_81:
                     Target.y = y;
                     Target.map = map;
                     this.game.EditObj.TempUnitList = UnitList::new();
-                    int unitCounter5 = this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-                    for (int index8 = 0; index8 <= unitCounter5; index8 += 1)
+                    let mut unitCounter5: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
+                    for (let mut index8: i32 =  0; index8 <= unitCounter5; index8 += 1)
                     {
-                      int unit2 = this.game.Data.MapObj[map].HexObj[x, y].UnitList[index8];
+                      let mut unit2: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index8];
                       if (regnr != this.game.Data.UnitObj[unit2].Regime && this.game.Data.RegimeObj[this.game.Data.UnitObj[unit2].Regime].RegimeRel[regnr] == 0)
                         this.game.EditObj.TempUnitList.add(unit2);
                     }
@@ -14773,16 +14773,16 @@ label_81:
           }
         }
       }
-      int mapCounter2 = this.game.Data.MapCounter;
-      for (int map = 0; map <= mapCounter2; map += 1)
+      let mut mapCounter2: i32 =  this.game.Data.MapCounter;
+      for (let mut map: i32 =  0; map <= mapCounter2; map += 1)
       {
-        int mapWidth = this.game.Data.MapObj[map].MapWidth;
-        for (int x = 0; x <= mapWidth; x += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[map].MapWidth;
+        for (let mut x: i32 =  0; x <= mapWidth; x += 1)
         {
-          int mapHeight = this.game.Data.MapObj[map].MapHeight;
-          for (int y = 0; y <= mapHeight; y += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[map].MapHeight;
+          for (let mut y: i32 =  0; y <= mapHeight; y += 1)
           {
-            int regimeCounter = this.game.Data.RegimeCounter;
+            let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
             for (regnr = 0; regnr <= regimeCounter; regnr += 1)
               this.game.HandyFunctionsObj.DoZOCConquest(x, y, map, regnr);
           }
@@ -14802,22 +14802,22 @@ label_81:
       OrderResult orderResult = OrderResult::new();
       if (!Recurse)
       {
-        int regimeCounter1 = this.game.Data.RegimeCounter;
-        for (int regnr1 = 0; regnr1 <= regimeCounter1; regnr1 += 1)
+        let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
+        for (let mut regnr1: i32 =  0; regnr1 <= regimeCounter1; regnr1 += 1)
         {
           if (this.game.Data.RegimeObj[regnr1].UberRegime == regnr && this.game.Data.RegimeObj[regnr1].RegimeRel[onregnr] != 1)
           {
             this.MakePeace(regnr1, onregnr, HideMessage, true);
-            int regimeCounter2 = this.game.Data.RegimeCounter;
-            for (int onregnr1 = 0; onregnr1 <= regimeCounter2; onregnr1 += 1)
+            let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
+            for (let mut onregnr1: i32 =  0; onregnr1 <= regimeCounter2; onregnr1 += 1)
             {
               if (this.game.Data.RegimeObj[onregnr1].UberRegime == onregnr && this.game.Data.RegimeObj[regnr1].RegimeRel[onregnr1] != 1)
                 this.MakePeace(regnr1, onregnr1, HideMessage, true);
             }
           }
         }
-        int regimeCounter3 = this.game.Data.RegimeCounter;
-        for (int onregnr2 = 0; onregnr2 <= regimeCounter3; onregnr2 += 1)
+        let mut regimeCounter3: i32 =  this.game.Data.RegimeCounter;
+        for (let mut onregnr2: i32 =  0; onregnr2 <= regimeCounter3; onregnr2 += 1)
         {
           if (this.game.Data.RegimeObj[onregnr2].UberRegime == onregnr && this.game.Data.RegimeObj[regnr].RegimeRel[onregnr2] != 1)
             this.MakePeace(regnr, onregnr2, HideMessage, true);
@@ -14848,22 +14848,22 @@ label_81:
       OrderResult orderResult = OrderResult::new();
       if (!recurse)
       {
-        int regimeCounter1 = this.game.Data.RegimeCounter;
-        for (int regnr1 = 0; regnr1 <= regimeCounter1; regnr1 += 1)
+        let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
+        for (let mut regnr1: i32 =  0; regnr1 <= regimeCounter1; regnr1 += 1)
         {
           if (this.game.Data.RegimeObj[regnr1].UberRegime == regnr && this.game.Data.RegimeObj[regnr1].RegimeRel[onregnr] != 2)
           {
             this.MakeAlliance(regnr1, onregnr, HideMessage, true);
-            int regimeCounter2 = this.game.Data.RegimeCounter;
-            for (int onregnr1 = 0; onregnr1 <= regimeCounter2; onregnr1 += 1)
+            let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
+            for (let mut onregnr1: i32 =  0; onregnr1 <= regimeCounter2; onregnr1 += 1)
             {
               if (this.game.Data.RegimeObj[onregnr1].UberRegime == onregnr && this.game.Data.RegimeObj[regnr1].RegimeRel[onregnr1] != 2)
                 this.MakeAlliance(regnr1, onregnr1, HideMessage, true);
             }
           }
         }
-        int regimeCounter3 = this.game.Data.RegimeCounter;
-        for (int onregnr2 = 0; onregnr2 <= regimeCounter3; onregnr2 += 1)
+        let mut regimeCounter3: i32 =  this.game.Data.RegimeCounter;
+        for (let mut onregnr2: i32 =  0; onregnr2 <= regimeCounter3; onregnr2 += 1)
         {
           if (this.game.Data.RegimeObj[onregnr2].UberRegime == onregnr && this.game.Data.RegimeObj[regnr].RegimeRel[onregnr2] != 2)
             this.MakeAlliance(regnr, onregnr2, HideMessage, true);
@@ -14885,7 +14885,7 @@ label_81:
       return orderResult;
     }
 
-    pub OrderResult Build(int unr, int x, int y, int map, int loctype, int regnr = -1)
+    pub OrderResult Build(int unr, int x, int y, int map, int loctype, let mut regnr: i32 =  -1)
     {
       OrderResult orderResult = OrderResult::new();
       orderResult.OK = true;
@@ -14896,18 +14896,18 @@ label_81:
       }
       else
         regnr = this.game.Data.Turn;
-      int index1 = -1;
+      let mut index1: i32 =  -1;
       if (unr > -1)
         index1 = !this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr;
-      int location = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x, y].Location;
-      int num1 = -1;
+      let mut location: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x, y].Location;
+      let mut num1: i32 =  -1;
       if (location > -1)
       {
         num1 = this.game.Data.LocObj[location].People;
         this.game.Data.RemoveLoc(location);
       }
       this.game.Data.AddLoc(x, y, map);
-      int locCounter = this.game.Data.LocCounter;
+      let mut locCounter: i32 =  this.game.Data.LocCounter;
       this.game.Data.MapObj[map].HexObj[x, y].Location = locCounter;
       if (this.game.Data.LocTypeObj[loctype].OverdrawLTNr > -1)
       {
@@ -14929,15 +14929,15 @@ label_81:
       {
         if (unr > -1)
         {
-          int num2 =  Math.Round((double) ((float) this.game.Data.LocTypeObj[loctype].SupplyCost / this.game.Data.RuleVar[77]));
+          let mut num2: i32 =   Math.Round((double) ((float) this.game.Data.LocTypeObj[loctype].SupplyCost / this.game.Data.RuleVar[77]));
           while (index1 > -1 & num2 > 0)
           {
             if (this.game.Data.UnitObj[index1].Supply >= num2)
             {
               UnitClass[] unitObj = this.game.Data.UnitObj;
               UnitClass[] unitClassArray = unitObj;
-              int index2 = index1;
-              int index3 = index2;
+              let mut index2: i32 =  index1;
+              let mut index3: i32 =  index2;
               unitClassArray[index3].Supply = unitObj[index2].Supply - num2;
               num2 = 0;
             }
@@ -14945,7 +14945,7 @@ label_81:
               index1 = this.game.Data.UnitObj[index1].HQ;
           }
         }
-        int index4 = 0;
+        let mut index4: i32 =  0;
         do
         {
           if (this.game.Data.LocTypeObj[loctype].VarType[index4] > -1)
@@ -14954,10 +14954,10 @@ label_81:
             int[] numArray1 = regimeSlot;
             int[] varType = this.game.Data.LocTypeObj[loctype].VarType;
             int[] numArray2 = varType;
-            int index5 = index4;
-            int index6 = index5;
-            int index7 = numArray2[index6];
-            int num3 = regimeSlot[varType[index5]] - this.game.Data.LocTypeObj[loctype].VarQty[index4];
+            let mut index5: i32 =  index4;
+            let mut index6: i32 =  index5;
+            let mut index7: i32 =  numArray2[index6];
+            let mut num3: i32 =  regimeSlot[varType[index5]] - this.game.Data.LocTypeObj[loctype].VarQty[index4];
             numArray1[index7] = num3;
           }
           index4 += 1;
@@ -14965,15 +14965,15 @@ label_81:
         while (index4 <= 4);
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int index8 = regnr;
-        int index9 = index8;
+        let mut index8: i32 =  regnr;
+        let mut index9: i32 =  index8;
         regimeClassArray[index9].ResPts = regimeObj[index8].ResPts - this.game.Data.LocTypeObj[loctype].PPCost;
         epCost = this.game.Data.LocTypeObj[loctype].EPCost;
       }
       this.game.Data.LocObj[this.game.Data.LocCounter].Name = this.game.Data.LocTypeObj[loctype].Name;
       if (this.game.Data.LocTypeObj[loctype].SetPeopleToSlotX > -1)
       {
-        int num4 = this.game.Data.MapObj[0].HexObj[x, y].AreaCode[this.game.Data.LocTypeObj[loctype].SetPeopleToSlotX];
+        let mut num4: i32 =  this.game.Data.MapObj[0].HexObj[x, y].AreaCode[this.game.Data.LocTypeObj[loctype].SetPeopleToSlotX];
         if (num4 > -1 & num4 <= this.game.Data.PeopleCounter)
           this.game.Data.LocObj[this.game.Data.LocCounter].People = num4;
       }
@@ -14981,17 +14981,17 @@ label_81:
         this.game.Data.LocObj[this.game.Data.LocCounter].People = num1;
       if (unr > -1)
       {
-        int sfCount1 = this.game.Data.UnitObj[unr].SFCount;
+        let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
         int num5;
-        for (int index10 = 0; index10 <= sfCount1; index10 += 1)
+        for (let mut index10: i32 =  0; index10 <= sfCount1; index10 += 1)
         {
-          int sf = this.game.Data.UnitObj[unr].SFList[index10];
+          let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index10];
           if (this.game.Data.SFObj[sf].EP > 0)
           {
             SFClass[] sfObj = this.game.Data.SFObj;
             SFClass[] sfClassArray = sfObj;
-            int index11 = sf;
-            int index12 = index11;
+            let mut index11: i32 =  sf;
+            let mut index12: i32 =  index11;
             sfClassArray[index12].Ap = sfObj[index11].Ap - epCost;
             if (0 > this.game.Data.SFObj[sf].Ap)
               this.game.Data.SFObj[sf].Ap = 0;
@@ -15001,25 +15001,25 @@ label_81:
         float num6 = (float) epCost / (float) num5;
         if ((double) num6 > 1.0)
           num6 = 1f;
-        int sfCount2 = this.game.Data.UnitObj[unr].SFCount;
-        for (int index13 = 0; index13 <= sfCount2; index13 += 1)
+        let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
+        for (let mut index13: i32 =  0; index13 <= sfCount2; index13 += 1)
         {
-          int sf = this.game.Data.UnitObj[unr].SFList[index13];
+          let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index13];
           SFClass[] sfObj = this.game.Data.SFObj;
           SFClass[] sfClassArray = sfObj;
-          int index14 = sf;
-          int index15 = index14;
+          let mut index14: i32 =  sf;
+          let mut index15: i32 =  index14;
           sfClassArray[index15].EP =  Math.Round((double) ((float) sfObj[index14].EP - (float) this.game.Data.SFObj[sf].EP * num6));
         }
       }
-      int unitCounter = this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
-      for (int index16 = 0; index16 <= unitCounter; index16 += 1)
+      let mut unitCounter: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
+      for (let mut index16: i32 =  0; index16 <= unitCounter; index16 += 1)
       {
-        int unit = this.game.Data.MapObj[map].HexObj[x, y].UnitList[index16];
-        int sfCount = this.game.Data.UnitObj[unit].SFCount;
-        for (int index17 = 0; index17 <= sfCount; index17 += 1)
+        let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index16];
+        let mut sfCount: i32 =  this.game.Data.UnitObj[unit].SFCount;
+        for (let mut index17: i32 =  0; index17 <= sfCount; index17 += 1)
         {
-          int sf = this.game.Data.UnitObj[unit].SFList[index17];
+          let mut sf: i32 =  this.game.Data.UnitObj[unit].SFList[index17];
           if (this.game.Data.SFObj[sf].CurrentEntrench < this.game.HandyFunctionsObj.GetMinimumEntrench(x, y, map, this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup))
           {
             this.game.Data.SFObj[sf].CurrentEntrench = this.game.HandyFunctionsObj.GetMinimumEntrench(x, y, map, this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup);
@@ -15047,36 +15047,36 @@ label_81:
     {
       OrderResult orderResult = OrderResult::new();
       orderResult.OK = true;
-      int location = this.game.Data.MapObj[map].HexObj[x, y].Location;
-      int type = this.game.Data.LocObj[location].Type;
+      let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
+      let mut type: i32 =  this.game.Data.LocObj[location].Type;
       float num1 = (float) (1.0 - (double) this.game.Data.LocObj[location].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts);
-      int num2 =  Math.Round((double) ((float) this.game.Data.LocTypeObj[type].EPCost * num1));
+      let mut num2: i32 =   Math.Round((double) ((float) this.game.Data.LocTypeObj[type].EPCost * num1));
       if (num2 == 0)
         num2 = 1;
-      int num3 = this.game.HandyFunctionsObj.GetUnitEP(unr);
+      let mut num3: i32 =  this.game.HandyFunctionsObj.GetUnitEP(unr);
       if (num3 > num2)
         num3 = num2;
       float num4 = (float) num3 / (float) num2;
-      int Number =  Math.Round((double) ((float) (this.game.Data.LocTypeObj[type].StructuralPts - this.game.Data.LocObj[location].StructuralPts) * num4));
+      let mut Number: i32 =   Math.Round((double) ((float) (this.game.Data.LocTypeObj[type].StructuralPts - this.game.Data.LocObj[location].StructuralPts) * num4));
       EditClass editObj = this.game.EditObj;
       editObj.FeedBackString = editObj.FeedBackString + "We repaired " + Conversion.Str((object) Number) + " structural points of dammage.";
       LocationClass[] locObj = this.game.Data.LocObj;
       LocationClass[] locationClassArray = locObj;
-      int index1 = location;
-      int index2 = index1;
+      let mut index1: i32 =  location;
+      let mut index2: i32 =  index1;
       locationClassArray[index2].StructuralPts = locObj[index1].StructuralPts + Number;
       if (this.game.Data.LocObj[location].StructuralPts > this.game.Data.LocTypeObj[type].StructuralPts)
         this.game.Data.LocObj[location].StructuralPts = this.game.Data.LocTypeObj[type].StructuralPts;
-      int num5 = num3;
-      int sfCount1 = this.game.Data.UnitObj[unr].SFCount;
+      let mut num5: i32 =  num3;
+      let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int num6;
-      for (int index3 = 0; index3 <= sfCount1; index3 += 1)
+      for (let mut index3: i32 =  0; index3 <= sfCount1; index3 += 1)
       {
-        int sf = this.game.Data.UnitObj[unr].SFList[index3];
+        let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index3];
         SFClass[] sfObj = this.game.Data.SFObj;
         SFClass[] sfClassArray = sfObj;
-        int index4 = sf;
-        int index5 = index4;
+        let mut index4: i32 =  sf;
+        let mut index5: i32 =  index4;
         sfClassArray[index5].Ap = sfObj[index4].Ap - num5;
         if (0 > this.game.Data.SFObj[sf].Ap)
           this.game.Data.SFObj[sf].Ap = 0;
@@ -15085,14 +15085,14 @@ label_81:
       float num7 = num6 != 0 ? (float) num5 / (float) num6 : 0.0f;
       if ((double) num7 > 1.0)
         num7 = 1f;
-      int sfCount2 = this.game.Data.UnitObj[unr].SFCount;
-      for (int index6 = 0; index6 <= sfCount2; index6 += 1)
+      let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
+      for (let mut index6: i32 =  0; index6 <= sfCount2; index6 += 1)
       {
-        int sf = this.game.Data.UnitObj[unr].SFList[index6];
+        let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index6];
         SFClass[] sfObj = this.game.Data.SFObj;
         SFClass[] sfClassArray = sfObj;
-        int index7 = sf;
-        int index8 = index7;
+        let mut index7: i32 =  sf;
+        let mut index8: i32 =  index7;
         sfClassArray[index8].EP =  Math.Round((double) ((float) sfObj[index7].EP - (float) this.game.Data.SFObj[sf].EP * num7));
       }
       this.LocationProductionPrognosis();
@@ -15101,14 +15101,14 @@ label_81:
 
     pub object SetInitialPeek(int regnr)
     {
-      int mapCounter = this.game.Data.MapCounter;
-      for (int index1 = 0; index1 <= mapCounter; index1 += 1)
+      let mut mapCounter: i32 =  this.game.Data.MapCounter;
+      for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
-        int mapWidth = this.game.Data.MapObj[index1].MapWidth;
-        for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+        let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
+        for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
         {
-          int mapHeight = this.game.Data.MapObj[index1].MapHeight;
-          for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+          let mut mapHeight: i32 =  this.game.Data.MapObj[index1].MapHeight;
+          for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
           {
             this.game.Data.MapObj[index1].HexObj[index2, index3].set_LastLT(regnr, this.game.Data.MapObj[index1].HexObj[index2, index3].LandscapeType);
             if (this.game.Data.Product != 7 | !this.game.Data.ShrowdOn)
@@ -15128,7 +15128,7 @@ label_81:
       OrderResult orderResult = OrderResult::new();
       orderResult.OK = true;
       Coordinate coordinate1 = this.game.HandyFunctionsObj.HexNeighbourSameMap(x, y, map, facing + 1);
-      int landscapeType = this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].LandscapeType;
+      let mut landscapeType: i32 =  this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].LandscapeType;
       int Number;
       bool flag1;
       if (this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing] > -1)
@@ -15151,25 +15151,25 @@ label_81:
       }
       Coordinate coordinate2 = this.game.HandyFunctionsObj.HexNeighbourSameMap(x, y, map, facing + 1);
       Coordinate coordinate3 = this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x, y, map, coordinate2.x, coordinate2.y, coordinate2.map, OnlyEngineer: 1);
-      int x1 = coordinate3.x;
+      let mut x1: i32 =  coordinate3.x;
       if (flag1)
       {
-        int index1 = this.game.HandyFunctionsObj.HexFacing(coordinate2.x, coordinate2.y, coordinate2.map, x, y, map) - 1;
+        let mut index1: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate2.x, coordinate2.y, coordinate2.map, x, y, map) - 1;
         this.game.Data.MapObj[map].HexObj[x, y].Bridge[facing] = true;
         this.game.Data.MapObj[map].HexObj[coordinate2.x, coordinate2.y].Bridge[index1] = true;
         if ((double) this.game.Data.RuleVar[822] > -1.0)
         {
           int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
           int[] numArray = regimeSlot;
-          int index2 =  Math.Round((double) this.game.Data.RuleVar[822]);
-          int index3 = index2;
-          int num =  Math.Round((double) ((float) regimeSlot[index2] - this.game.Data.RuleVar[825] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing]].BridgeCostModifier));
+          let mut index2: i32 =   Math.Round((double) this.game.Data.RuleVar[822]);
+          let mut index3: i32 =  index2;
+          let mut num: i32 =   Math.Round((double) ((float) regimeSlot[index2] - this.game.Data.RuleVar[825] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing]].BridgeCostModifier));
           numArray[index3] = num;
         }
       }
       if (flag2)
       {
-        int index4 = this.game.HandyFunctionsObj.HexFacing(coordinate2.x, coordinate2.y, coordinate2.map, x, y, map) - 1;
+        let mut index4: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate2.x, coordinate2.y, coordinate2.map, x, y, map) - 1;
         if (this.game.Data.MapObj[map].HexObj[x, y].RoadType[facing] == -1 | flag1)
         {
           if (this.game.Data.MapObj[map].HexObj[x, y].RoadType[facing] == -1)
@@ -15181,9 +15181,9 @@ label_81:
           {
             int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
             int[] numArray = regimeSlot;
-            int index5 =  Math.Round((double) this.game.Data.RuleVar[822]);
-            int index6 = index5;
-            int num =  Math.Round((double) ((float) regimeSlot[index5] - this.game.Data.RuleVar[823]));
+            let mut index5: i32 =   Math.Round((double) this.game.Data.RuleVar[822]);
+            let mut index6: i32 =  index5;
+            let mut num: i32 =   Math.Round((double) ((float) regimeSlot[index5] - this.game.Data.RuleVar[823]));
             numArray[index6] = num;
           }
         }
@@ -15195,34 +15195,34 @@ label_81:
           {
             int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
             int[] numArray = regimeSlot;
-            int index7 =  Math.Round((double) this.game.Data.RuleVar[822]);
-            int index8 = index7;
-            int num =  Math.Round((double) ((float) regimeSlot[index7] - this.game.Data.RuleVar[824]));
+            let mut index7: i32 =   Math.Round((double) this.game.Data.RuleVar[822]);
+            let mut index8: i32 =  index7;
+            let mut num: i32 =   Math.Round((double) ((float) regimeSlot[index7] - this.game.Data.RuleVar[824]));
             numArray[index8] = num;
           }
         }
       }
       coordinate3 = this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x, y, map, coordinate2.x, coordinate2.y, coordinate2.map, OnlyEngineer: 2);
-      int x2 = coordinate3.x;
-      int sfCount1 = this.game.Data.UnitObj[unr].SFCount;
+      let mut x2: i32 =  coordinate3.x;
+      let mut sfCount1: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int num1;
-      for (int index9 = 0; index9 <= sfCount1; index9 += 1)
+      for (let mut index9: i32 =  0; index9 <= sfCount1; index9 += 1)
       {
-        int sf = this.game.Data.UnitObj[unr].SFList[index9];
+        let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index9];
         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].EP > 0)
         {
           SFClass[] sfObj = this.game.Data.SFObj;
           SFClass[] sfClassArray = sfObj;
-          int index10 = sf;
-          int index11 = index10;
+          let mut index10: i32 =  sf;
+          let mut index11: i32 =  index10;
           sfClassArray[index11].Ap = sfObj[index10].Ap - x1;
         }
         else
         {
           SFClass[] sfObj = this.game.Data.SFObj;
           SFClass[] sfClassArray = sfObj;
-          int index12 = sf;
-          int index13 = index12;
+          let mut index12: i32 =  sf;
+          let mut index13: i32 =  index12;
           sfClassArray[index13].Ap = sfObj[index12].Ap - x2;
         }
         if (this.game.Data.SFObj[sf].Ap < 0)
@@ -15232,14 +15232,14 @@ label_81:
       float num2 = (float) Number / (float) num1;
       if ((double) num2 > 1.0)
         num2 = 1f;
-      int sfCount2 = this.game.Data.UnitObj[unr].SFCount;
-      for (int index14 = 0; index14 <= sfCount2; index14 += 1)
+      let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
+      for (let mut index14: i32 =  0; index14 <= sfCount2; index14 += 1)
       {
-        int sf = this.game.Data.UnitObj[unr].SFList[index14];
+        let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index14];
         SFClass[] sfObj = this.game.Data.SFObj;
         SFClass[] sfClassArray = sfObj;
-        int index15 = sf;
-        int index16 = index15;
+        let mut index15: i32 =  sf;
+        let mut index16: i32 =  index15;
         sfClassArray[index16].EP =  Math.Round((double) ((float) sfObj[index15].EP - (float) this.game.Data.SFObj[sf].EP * num2));
       }
       if ((double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
@@ -15295,23 +15295,23 @@ label_81:
     {
       OrderResult orderResult = OrderResult::new();
       Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(x, y, map, facing + 1);
-      int index1 = this.game.HandyFunctionsObj.HexFacing(coordinate.x, coordinate.y, coordinate.map, x, y, map) - 1;
-      int num1 = Conversion.Int(this.game.HandyFunctionsObj.GetBlowBridgePts(unr));
-      int num2 =  Math.Round((double) Conversion.Int(this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing]].BridgeCostModifier));
+      let mut index1: i32 =  this.game.HandyFunctionsObj.HexFacing(coordinate.x, coordinate.y, coordinate.map, x, y, map) - 1;
+      let mut num1: i32 =  Conversion.Int(this.game.HandyFunctionsObj.GetBlowBridgePts(unr));
+      let mut num2: i32 =   Math.Round((double) Conversion.Int(this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing]].BridgeCostModifier));
       this.game.EditObj.FeedBackString = "";
-      int num3 = 0;
+      let mut num3: i32 =  0;
       if (this.game.Data.Product >= 6 & this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime != this.game.Data.Turn & this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime > -1)
       {
-        int num4 = 0;
-        int unitCounter1 = this.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
-        for (int index2 = 0; index2 <= unitCounter1; index2 += 1)
+        let mut num4: i32 =  0;
+        let mut unitCounter1: i32 =  this.game.Data.MapObj[0].HexObj[x, y].UnitCounter;
+        for (let mut index2: i32 =  0; index2 <= unitCounter1; index2 += 1)
           num4 += this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.Data.MapObj[0].HexObj[x, y].UnitList[index2]);
-        int num5 = 0;
-        int unitCounter2 = this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].UnitCounter;
-        for (int index3 = 0; index3 <= unitCounter2; index3 += 1)
+        let mut num5: i32 =  0;
+        let mut unitCounter2: i32 =  this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].UnitCounter;
+        for (let mut index3: i32 =  0; index3 <= unitCounter2; index3 += 1)
           num5 += this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].UnitList[index3]);
         num3 = 0;
-        int num6 = num4 <= 0 ? 1000 :  Math.Round((double) (100 * num5) / (double) num4);
+        let mut num6: i32 =  num4 <= 0 ? 1000 :  Math.Round((double) (100 * num5) / (double) num4);
         if (num6 > 1000)
           num6 = 1000;
         if (num6 > 0)
@@ -15320,24 +15320,24 @@ label_81:
           this.game.EditObj.FeedBackString = "Due to enemy troops on opposite side of the bridge def score increased with +" + num6.ToString() + "%. ";
         }
       }
-      int Number1 = num1;
-      int Number2 = num2;
-      int Number3 =  Math.Round((double) Conversion.Int((float) num1 * VBMath.Rnd()));
-      int Number4 =  Math.Round((double) Conversion.Int((float) num2 * VBMath.Rnd()));
+      let mut Number1: i32 =  num1;
+      let mut Number2: i32 =  num2;
+      let mut Number3: i32 =   Math.Round((double) Conversion.Int((float) num1 * VBMath.Rnd()));
+      let mut Number4: i32 =   Math.Round((double) Conversion.Int((float) num2 * VBMath.Rnd()));
       EditClass editObj = this.game.EditObj;
       editObj.FeedBackString = editObj.FeedBackString + "Blow attempt score = " + Conversion.Str((object) Number3) + " (max " + Strings.Trim(Conversion.Str((object) Number1)) + "), Bridge def score = " + Conversion.Str((object) Number4) + " (max " + Strings.Trim(Conversion.Str((object) Number2)) + ")";
       if (Number3 >= Number4)
       {
         this.game.Data.MapObj[map].HexObj[x, y].Bridge[facing] = false;
         this.game.Data.MapObj[map].HexObj[coordinate.x, coordinate.y].Bridge[index1] = false;
-        int sfCount = this.game.Data.UnitObj[unr].SFCount;
-        for (int index4 = 0; index4 <= sfCount; index4 += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+        for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
         {
-          int sf = this.game.Data.UnitObj[unr].SFList[index4];
+          let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index4];
           SFClass[] sfObj = this.game.Data.SFObj;
           SFClass[] sfClassArray = sfObj;
-          int index5 = sf;
-          int index6 = index5;
+          let mut index5: i32 =  sf;
+          let mut index6: i32 =  index5;
           sfClassArray[index6].Ap = sfObj[index5].Ap - 50;
           this.game.Data.SFObj[sf].EP = 0;
           if (0 > this.game.Data.SFObj[sf].Ap)
@@ -15350,14 +15350,14 @@ label_81:
       }
       else
       {
-        int sfCount = this.game.Data.UnitObj[unr].SFCount;
-        for (int index7 = 0; index7 <= sfCount; index7 += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+        for (let mut index7: i32 =  0; index7 <= sfCount; index7 += 1)
         {
-          int sf = this.game.Data.UnitObj[unr].SFList[index7];
+          let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index7];
           SFClass[] sfObj = this.game.Data.SFObj;
           SFClass[] sfClassArray = sfObj;
-          int index8 = sf;
-          int index9 = index8;
+          let mut index8: i32 =  sf;
+          let mut index9: i32 =  index8;
           sfClassArray[index9].Ap = sfObj[index8].Ap - 50;
           this.game.Data.SFObj[sf].EP = 0;
           if (0 > this.game.Data.SFObj[sf].Ap)
@@ -15373,29 +15373,29 @@ label_81:
 
     pub void MaxReadinessRule(int unr)
     {
-      int x = this.game.Data.UnitObj[unr].X;
-      int y = this.game.Data.UnitObj[unr].Y;
-      int map = this.game.Data.UnitObj[unr].Map;
+      let mut x: i32 =  this.game.Data.UnitObj[unr].X;
+      let mut y: i32 =  this.game.Data.UnitObj[unr].Y;
+      let mut map: i32 =  this.game.Data.UnitObj[unr].Map;
       if (x == -1 | y == -1)
         return;
-      int location = this.game.Data.MapObj[map].HexObj[x, y].Location;
+      let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
       if (location <= -1)
         return;
-      int type1 = this.game.Data.LocObj[location].Type;
-      int num1 = this.game.Data.LocObj[location].StructuralPts;
-      int structuralPts = this.game.Data.LocTypeObj[type1].StructuralPts;
+      let mut type1: i32 =  this.game.Data.LocObj[location].Type;
+      let mut num1: i32 =  this.game.Data.LocObj[location].StructuralPts;
+      let mut structuralPts: i32 =  this.game.Data.LocTypeObj[type1].StructuralPts;
       if (this.game.Data.Product >= 6 && this.game.Data.LocTypeObj[type1].Invincible)
         num1 = structuralPts;
-      int num2 = structuralPts <= 0 ? 100 :  Math.Round(Conversion.Int(100.0 * ((double) num1 / (double) structuralPts)));
+      let mut num2: i32 =  structuralPts <= 0 ? 100 :  Math.Round(Conversion.Int(100.0 * ((double) num1 / (double) structuralPts)));
       if ((double) num2 < (double) this.game.Data.RuleVar[60])
         num2 =  Math.Round((double) this.game.Data.RuleVar[60]);
       if (num2 < 100)
       {
-        int sfCount = this.game.Data.UnitObj[unr].SFCount;
-        for (int index = 0; index <= sfCount; index += 1)
+        let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+        for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
-          int sf = this.game.Data.UnitObj[unr].SFList[index];
-          int type2 = this.game.Data.SFObj[sf].Type;
+          let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
+          let mut type2: i32 =  this.game.Data.SFObj[sf].Type;
           if (this.game.Data.LocTypeObj[type1].IsPort && this.game.Data.SFTypeObj[type2].Theater == 1 && this.game.Data.SFObj[sf].Rdn > num2)
             this.game.Data.SFObj[sf].Rdn = num2;
           if (this.game.Data.LocTypeObj[type1].IsAirfield | this.game.Data.LocObj[location].isAirfield && this.game.Data.SFTypeObj[type2].Theater == 2 && this.game.Data.SFObj[sf].Rdn > num2)
@@ -15404,24 +15404,24 @@ label_81:
       }
       if ((double) num2 >= (double) this.game.Data.RuleVar[60])
         return;
-      int num3 =  Math.Round((double) this.game.Data.RuleVar[60]);
+      let mut num3: i32 =   Math.Round((double) this.game.Data.RuleVar[60]);
     }
 
     pub OrderResult BlowLocation(int unr, int x, int y, int map)
     {
       OrderResult orderResult = OrderResult::new();
       Conversion.Int(this.game.HandyFunctionsObj.GetBlowBridgePts(unr));
-      int location = this.game.Data.MapObj[map].HexObj[x, y].Location;
-      int type = this.game.Data.LocObj[location].Type;
-      int blowBridgePts = this.game.HandyFunctionsObj.GetBlowBridgePts(unr);
+      let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
+      let mut type: i32 =  this.game.Data.LocObj[location].Type;
+      let mut blowBridgePts: i32 =  this.game.HandyFunctionsObj.GetBlowBridgePts(unr);
       if (!this.game.Data.LocTypeObj[type].Invincible)
       {
-        int Number =  Math.Round((double) Conversion.Int((float) blowBridgePts * VBMath.Rnd()));
+        let mut Number: i32 =   Math.Round((double) Conversion.Int((float) blowBridgePts * VBMath.Rnd()));
         this.game.EditObj.FeedBackString = "Loc has " + Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts) + "pts. Dam done to loc: " + Strings.Trim(Conversion.Str((object) Number)) + ".";
         LocationClass[] locObj = this.game.Data.LocObj;
         LocationClass[] locationClassArray = locObj;
-        int index1 = location;
-        int index2 = index1;
+        let mut index1: i32 =  location;
+        let mut index2: i32 =  index1;
         locationClassArray[index2].StructuralPts = locObj[index1].StructuralPts - Number;
         if (1 > this.game.Data.LocObj[location].StructuralPts)
         {
@@ -15449,14 +15449,14 @@ label_81:
           editObj.FeedBackString = editObj.FeedBackString + ". Loc down to " + Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts)) + " pts.";
         }
       }
-      int sfCount = this.game.Data.UnitObj[unr].SFCount;
-      for (int index3 = 0; index3 <= sfCount; index3 += 1)
+      let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
+      for (let mut index3: i32 =  0; index3 <= sfCount; index3 += 1)
       {
-        int sf = this.game.Data.UnitObj[unr].SFList[index3];
+        let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index3];
         SFClass[] sfObj = this.game.Data.SFObj;
         SFClass[] sfClassArray = sfObj;
-        int index4 = sf;
-        int index5 = index4;
+        let mut index4: i32 =  sf;
+        let mut index5: i32 =  index4;
         sfClassArray[index5].Ap = sfObj[index4].Ap - 50;
         this.game.Data.SFObj[sf].EP = 0;
         if (0 > this.game.Data.SFObj[sf].Ap)
@@ -15471,8 +15471,8 @@ label_81:
     {
       if (this.game.Data.Winner > -1 || this.game.Data.VPWin == -1 || this.game.Data.PbemDrawGame > 0)
         return;
-      int regimeCounter = this.game.Data.RegimeCounter;
-      for (int regnr = 0; regnr <= regimeCounter; regnr += 1)
+      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+      for (let mut regnr: i32 =  0; regnr <= regimeCounter; regnr += 1)
       {
         if (this.game.HandyFunctionsObj.GetRegimeVP(regnr) >= this.game.Data.VPWin)
         {
@@ -15486,12 +15486,12 @@ label_81:
     {
       if (this.game.Data.LocCounter == -1)
         return;
-      int locCounter = this.game.Data.LocCounter;
-      for (int index1 = 0; index1 <= locCounter; index1 += 1)
+      let mut locCounter: i32 =  this.game.Data.LocCounter;
+      for (let mut index1: i32 =  0; index1 <= locCounter; index1 += 1)
       {
         if (this.game.Data.MapObj[this.game.Data.LocObj[index1].Map].HexObj[this.game.Data.LocObj[index1].X, this.game.Data.LocObj[index1].Y].Regime == regnr)
         {
-          int type = this.game.Data.LocObj[index1].Type;
+          let mut type: i32 =  this.game.Data.LocObj[index1].Type;
           bool flag = true;
           if (this.game.Data.LocTypeObj[type].isSupplyBase && this.game.Data.LocObj[index1].supplyBaseMode >= 3)
             flag = false;
@@ -15499,15 +15499,15 @@ label_81:
           {
             LocationClass[] locObj1 = this.game.Data.LocObj;
             LocationClass[] locationClassArray1 = locObj1;
-            int index2 = index1;
-            int index3 = index2;
+            let mut index2: i32 =  index1;
+            let mut index3: i32 =  index2;
             locationClassArray1[index3].StructuralPts = locObj1[index2].StructuralPts + this.game.Data.LocTypeObj[type].AutoRecoverPts;
             if (this.game.Data.MapObj[this.game.Data.LocObj[index1].Map].HexObj[this.game.Data.LocObj[index1].X, this.game.Data.LocObj[index1].Y].Regime > -1 && this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[index1].Map].HexObj[this.game.Data.LocObj[index1].X, this.game.Data.LocObj[index1].Y].Regime].AI && (double) this.game.Data.RuleVar[250] == 1.0)
             {
               LocationClass[] locObj2 = this.game.Data.LocObj;
               LocationClass[] locationClassArray2 = locObj2;
-              int index4 = index1;
-              int index5 = index4;
+              let mut index4: i32 =  index1;
+              let mut index5: i32 =  index4;
               locationClassArray2[index5].StructuralPts =  Math.Round((double) locObj2[index4].StructuralPts + (double) this.game.Data.LocTypeObj[type].StructuralPts * 0.33);
             }
             if (this.game.Data.LocObj[index1].StructuralPts > this.game.Data.LocTypeObj[type].StructuralPts)
@@ -15521,7 +15521,7 @@ label_81:
             }
             else
             {
-              int num =  Math.Round(Math.Floor((double) this.game.Data.LocTypeObj[type].StructuralPts * Math.Max((double) this.game.Data.LocObj[index1].supply / (double) this.game.Data.LocTypeObj[type].maxSupply, (double) this.game.Data.LocObj[index1].fuel / (double) this.game.Data.LocTypeObj[type].maxFuel)));
+              let mut num: i32 =   Math.Round(Math.Floor((double) this.game.Data.LocTypeObj[type].StructuralPts * Math.Max((double) this.game.Data.LocObj[index1].supply / (double) this.game.Data.LocTypeObj[type].maxSupply, (double) this.game.Data.LocObj[index1].fuel / (double) this.game.Data.LocTypeObj[type].maxFuel)));
               if (num < this.game.Data.LocObj[index1].StructuralPts)
                 this.game.Data.LocObj[index1].StructuralPts = num;
             }
@@ -15530,7 +15530,7 @@ label_81:
         }
       }
       int num1;
-      for (int index = 0; index <= -1; index += 1)
+      for (let mut index: i32 =  0; index <= -1; index += 1)
         num1 = 1;
       num1 = 0;
     }
@@ -15542,26 +15542,26 @@ label_81:
       orderResult1.ErrorString = "";
       if ((double) this.game.Data.RuleVar[861] > 0.0)
       {
-        int type = this.game.Data.SFObj[sfnr].Type;
-        int itemTypeCounter = this.game.Data.ItemTypeCounter;
-        for (int index1 = 0; index1 <= itemTypeCounter; index1 += 1)
+        let mut type: i32 =  this.game.Data.SFObj[sfnr].Type;
+        let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
+        for (let mut index1: i32 =  0; index1 <= itemTypeCounter; index1 += 1)
         {
           if (this.game.Data.ItemTypeObj[index1].IsSFType == type)
           {
-            int index2 = 0;
+            let mut index2: i32 =  0;
             do
             {
               if (this.game.Data.ItemTypeObj[index1].RegimeSlotsCost[index2] > -1)
               {
                 int num1;
                 num1 += 1;
-                int index3 = this.game.Data.ItemTypeObj[index1].RegimeSlotsCost[index2];
-                int Number =  Math.Round((double) ((float) (this.game.Data.ItemTypeObj[index1].RegimeSlotsCostQty[index2] * this.game.Data.SFObj[sfnr].Qty) * this.game.Data.RuleVar[861]));
+                let mut index3: i32 =  this.game.Data.ItemTypeObj[index1].RegimeSlotsCost[index2];
+                let mut Number: i32 =   Math.Round((double) ((float) (this.game.Data.ItemTypeObj[index1].RegimeSlotsCostQty[index2] * this.game.Data.SFObj[sfnr].Qty) * this.game.Data.RuleVar[861]));
                 int[] regimeSlot = this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot;
                 int[] numArray = regimeSlot;
-                int index4 = index3;
-                int index5 = index4;
-                int num2 = regimeSlot[index4] + Number;
+                let mut index4: i32 =  index3;
+                let mut index5: i32 =  index4;
+                let mut num2: i32 =  regimeSlot[index4] + Number;
                 numArray[index5] = num2;
                 if (num1 == 1)
                   orderResult1.ErrorString = "Disbanding provided the following recycled resources: ";
@@ -15586,19 +15586,19 @@ label_81:
 
     pub void DoDisbandUnit(int unr)
     {
-      int x = this.game.Data.UnitObj[unr].X;
-      int y = this.game.Data.UnitObj[unr].Y;
+      let mut x: i32 =  this.game.Data.UnitObj[unr].X;
+      let mut y: i32 =  this.game.Data.UnitObj[unr].Y;
       if (this.game.Data.UnitObj[unr].IsHQ)
       {
-        int unitCounter = this.game.Data.UnitCounter;
-        for (int index1 = 0; index1 <= unitCounter; index1 += 1)
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+        for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
         {
           if (this.game.Data.UnitObj[index1].SFCount > -1 && this.game.Data.UnitObj[index1].HQ == unr && !this.game.Data.UnitObj[index1].IsHQ)
           {
-            int sfCount = this.game.Data.UnitObj[index1].SFCount;
-            for (int index2 = 0; index2 <= sfCount; index2 += 1)
+            let mut sfCount: i32 =  this.game.Data.UnitObj[index1].SFCount;
+            for (let mut index2: i32 =  0; index2 <= sfCount; index2 += 1)
             {
-              int sf = this.game.Data.UnitObj[index1].SFList[index2];
+              let mut sf: i32 =  this.game.Data.UnitObj[index1].SFList[index2];
               if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater < 1)
                 this.game.Data.SFObj[sf].Rdn =  Math.Round((double) ((float) this.game.Data.SFObj[sf].Rdn * this.game.Data.RuleVar[48]));
             }
@@ -15606,16 +15606,16 @@ label_81:
         }
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int turn = this.game.Data.Turn;
-        int index = turn;
+        let mut turn: i32 =  this.game.Data.Turn;
+        let mut index: i32 =  turn;
         regimeClassArray[index].ResPts =  Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
       }
       else
       {
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int turn = this.game.Data.Turn;
-        int index = turn;
+        let mut turn: i32 =  this.game.Data.Turn;
+        let mut index: i32 =  turn;
         regimeClassArray[index].ResPts =  Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
       }
       this.game.Data.RemoveUnit(unr,  this.game);
@@ -15627,16 +15627,16 @@ label_81:
       if (qty == 0)
         return orderResult;
       orderResult.OK = true;
-      int upgradeToo = this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
+      let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
       this.game.HandyFunctionsObj.AddTroops3(unr, upgradeToo, this.game.Data.SFObj[sfnr].People, qty, this.game.Data.SFObj[sfnr].Xp, this.game.Data.SFObj[sfnr].Rdn, 0, this.game.Data.SFObj[sfnr].Mor, entr: this.game.Data.SFObj[sfnr].CurrentEntrench, offmod: this.game.Data.SFObj[sfnr].OffMod, defmod: this.game.Data.SFObj[sfnr].DefMod, MoveType: this.game.Data.SFObj[sfnr].MoveType);
       this.game.HandyFunctionsObj.RemoveTroops(unr, this.game.Data.SFObj[sfnr].Type, this.game.Data.SFObj[sfnr].People, qty, this.game.Data.SFObj[sfnr].MoveType);
-      int num = this.game.HandyFunctionsObj.CanUpgradeCost(sfnr, unr, qty);
+      let mut num: i32 =  this.game.HandyFunctionsObj.CanUpgradeCost(sfnr, unr, qty);
       if (hq > -1)
       {
         UnitClass[] unitObj = this.game.Data.UnitObj;
         UnitClass[] unitClassArray = unitObj;
-        int index1 = hq;
-        int index2 = index1;
+        let mut index1: i32 =  hq;
+        let mut index2: i32 =  index1;
         unitClassArray[index2].Supply = unitObj[index1].Supply - num;
       }
       return orderResult;
@@ -15644,7 +15644,7 @@ label_81:
 
     pub OrderResult DoMakeHQ(int unr)
     {
-      int regime = this.game.Data.UnitObj[unr].Regime;
+      let mut regime: i32 =  this.game.Data.UnitObj[unr].Regime;
       OrderResult orderResult = OrderResult::new();
       orderResult.OK = true;
       this.game.Data.UnitObj[unr].IsHQ = !this.game.Data.UnitObj[unr].IsHQ;
@@ -15652,8 +15652,8 @@ label_81:
       {
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int index1 = regime;
-        int index2 = index1;
+        let mut index1: i32 =  regime;
+        let mut index2: i32 =  index1;
         regimeClassArray[index2].UnitNumber = regimeObj[index1].UnitNumber + 1;
         str1: String = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[regime].UnitNumber));
         if (this.game.Data.RegimeObj[regime].UnitNumber == 1)
@@ -15664,8 +15664,8 @@ label_81:
           str1 += "th";
         str2: String = str1 + " " + this.game.Data.RegimeObj[regime].UnitName;
         this.game.Data.UnitObj[unr].Name = str2;
-        int unitCounter = this.game.Data.UnitCounter;
-        for (int index3 = 0; index3 <= unitCounter; index3 += 1)
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+        for (let mut index3: i32 =  0; index3 <= unitCounter; index3 += 1)
         {
           if (this.game.Data.UnitObj[unr].HQ == unr)
             this.game.Data.UnitObj[unr].HQ = -1;
@@ -15675,8 +15675,8 @@ label_81:
       {
         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray = regimeObj;
-        int index4 = regime;
-        int index5 = index4;
+        let mut index4: i32 =  regime;
+        let mut index5: i32 =  index4;
         regimeClassArray[index5].HQNumber = regimeObj[index4].HQNumber + 1;
         str3: String = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[regime].HQNumber));
         if (this.game.Data.RegimeObj[regime].UnitNumber == 1)

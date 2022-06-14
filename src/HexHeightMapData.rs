@@ -36,7 +36,7 @@ namespace WindowsApplication1
       if (flag)
         this.cHeight = 9 - this.cHeight;
       this.seaHex = flag;
-      int tfacing1 = 1;
+      let mut tfacing1: i32 =  1;
       Coordinate coordinate;
       do
       {
@@ -54,7 +54,7 @@ namespace WindowsApplication1
         }
         else
           this.neighbourHeight[tfacing1] = this.cHeight;
-        int num = this.neighbourHeight[tfacing1] - this.cHeight;
+        let mut num: i32 =  this.neighbourHeight[tfacing1] - this.cHeight;
         if (num < this.maxLowerHeight)
           this.maxLowerHeight = num;
         tfacing1 += 1;
@@ -65,35 +65,35 @@ namespace WindowsApplication1
         return;
       if (!flag)
       {
-        int index1 = 1;
+        let mut index1: i32 =  1;
         do
         {
-          int index2 = game.Data.MapObj[cmap].HexObj[cx, cy].RiverType[index1 - 1];
-          int num1 = 0;
+          let mut index2: i32 =  game.Data.MapObj[cmap].HexObj[cx, cy].RiverType[index1 - 1];
+          let mut num1: i32 =  0;
           this.riverHeightApplied[index1] = 0;
           if (index2 > -1)
           {
             num1 = game.Data.RiverTypeObj[index2].GetRiverHeight(game, cx, cy, index1 - 1);
-            int num2 = index1 + 3;
+            let mut num2: i32 =  index1 + 3;
             if (num2 > 6)
               num2 -= 6;
-            int tfacing2 = num2 + 1;
-            int tfacing3 = num2 - 1;
+            let mut tfacing2: i32 =  num2 + 1;
+            let mut tfacing3: i32 =  num2 - 1;
             if (tfacing2 > 6)
               tfacing2 = 1;
             if (tfacing3 < 1)
               tfacing3 = 6;
-            int num3 = 0;
-            int index3 = game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[tfacing2 - 1];
+            let mut num3: i32 =  0;
+            let mut index3: i32 =  game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[tfacing2 - 1];
             if (index3 > -1 && game.Data.RiverTypeObj[index3].GetRiverHeight(game, this.neighbourCoord[index1].x, this.neighbourCoord[index1].y, tfacing2 - 1) > 0 & this.neighbourHeight[tfacing2] > num3)
               num3 = this.neighbourHeight[tfacing2];
-            int index4 = game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[tfacing3 - 1];
+            let mut index4: i32 =  game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[tfacing3 - 1];
             if (index4 > -1 && game.Data.RiverTypeObj[index4].GetRiverHeight(game, this.neighbourCoord[index1].x, this.neighbourCoord[index1].y, tfacing3 - 1) > 0 & this.neighbourHeight[tfacing3] > num3)
               num3 = this.neighbourHeight[tfacing3];
             coordinate = game.HandyFunctionsObj.HexNeighbour(this.neighbourCoord[index1].x, this.neighbourCoord[index1].y, cmap, tfacing2);
             if (coordinate.onmap)
             {
-              int heightLevel = game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].HeightLevel;
+              let mut heightLevel: i32 =  game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].HeightLevel;
               if (heightLevel >= this.neighbourHeight[index1] + 3)
                 num1 = 0;
               if (heightLevel >= this.cHeight + 3)
@@ -102,7 +102,7 @@ namespace WindowsApplication1
             coordinate = game.HandyFunctionsObj.HexNeighbour(this.neighbourCoord[index1].x, this.neighbourCoord[index1].y, cmap, tfacing3);
             if (coordinate.onmap)
             {
-              int heightLevel = game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].HeightLevel;
+              let mut heightLevel: i32 =  game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].HeightLevel;
               if (heightLevel >= this.neighbourHeight[index1] + 3)
                 num1 = 0;
               if (heightLevel >= this.cHeight + 3)
@@ -112,19 +112,19 @@ namespace WindowsApplication1
               num1 = 0;
             if (num1 > 0 & this.neighbourCoord[index1].onmap & num3 >= this.cHeight)
             {
-              int num4 = index1 + 3;
+              let mut num4: i32 =  index1 + 3;
               if (num4 > 6)
                 num4 -= 6;
-              int num5 = num4 + 1;
-              int num6 = num4 - 1;
+              let mut num5: i32 =  num4 + 1;
+              let mut num6: i32 =  num4 - 1;
               if (num5 > 6)
                 num5 = 1;
               if (num6 < 1)
                 num6 = 6;
               if (num1 > 0)
               {
-                int index5 = game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[num5 - 1];
-                int index6 = game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[num6 - 1];
+                let mut index5: i32 =  game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[num5 - 1];
+                let mut index6: i32 =  game.Data.MapObj[cmap].HexObj[this.neighbourCoord[index1].x, this.neighbourCoord[index1].y].RiverType[num6 - 1];
                 if (index5 > -1 && game.Data.RiverTypeObj[index5].GetRiverHeight(game, this.neighbourCoord[index1].x, this.neighbourCoord[index1].y, num5 - 1) < 1)
                   index5 = -1;
                 if (index6 > -1 && game.Data.RiverTypeObj[index6].GetRiverHeight(game, this.neighbourCoord[index1].x, this.neighbourCoord[index1].y, num6 - 1) < 1)
@@ -140,13 +140,13 @@ namespace WindowsApplication1
             }
             if (num1 > 0)
             {
-              int num7 = this.neighbourHeight[index1];
+              let mut num7: i32 =  this.neighbourHeight[index1];
               this.neighbourHeight[index1] = this.neighbourHeight[index1] >= this.cHeight ? this.cHeight - num1 : this.neighbourHeight[index1] - num1;
               if (this.neighbourHeight[index1] < this.cHeight - 3)
                 this.neighbourHeight[index1] = this.cHeight - 3;
               if (this.neighbourHeight[index1] < 0)
                 this.neighbourHeight[index1] = 0;
-              int num8 = this.neighbourHeight[index1] - this.cHeight;
+              let mut num8: i32 =  this.neighbourHeight[index1] - this.cHeight;
               if (num8 < this.maxLowerHeight)
                 this.maxLowerHeight = num8;
               if (num7 > this.neighbourHeight[index1])

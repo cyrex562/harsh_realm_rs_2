@@ -120,7 +120,7 @@ namespace WindowsApplication1
 
     pub void Kill()
     {
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         BitmapStore.RemoveBitmapNr(this.BasicSpriteID[index]);
@@ -143,7 +143,7 @@ namespace WindowsApplication1
 
     pub void LoadSprites()
     {
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.BasicSpriteID[index] = BitmapStore.AddFile(this.BasicSpriteFileName[index], false, true);

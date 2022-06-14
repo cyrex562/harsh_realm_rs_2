@@ -31,8 +31,8 @@ namespace WindowsApplication1
       bool tselected,
       tDescript: String = "",
        Bitmap tBackbitmap = null,
-      int bbx = -1,
-      int bby = -1,
+      let mut bbx: i32 =  -1,
+      let mut bby: i32 =  -1,
       bool tudsFlag = false)
       : base(35, 23)
     {
@@ -46,7 +46,7 @@ namespace WindowsApplication1
       this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
       graphics.CompositingMode = CompositingMode.SourceCopy;
-      graphics.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), new Rectangle(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
+      graphics.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
       graphics.CompositingMode = CompositingMode.SourceOver;
     }
 
@@ -63,16 +63,16 @@ namespace WindowsApplication1
       {
         if (this.selected)
         {
-           Graphics local1 =  objGraphics;
+           let mut local1: &Graphics = &objGraphics;
           Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSSMALLRADIO2);
-           Bitmap local2 =  bitmap;
+           let mut local2: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local1,  local2, 0, 0);
         }
         else
         {
-           Graphics local3 =  objGraphics;
+           let mut local3: &Graphics = &objGraphics;
           Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSSMALLRADIO);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local3,  local4, 0, 0);
         }
       }
@@ -92,16 +92,16 @@ namespace WindowsApplication1
       {
         if (this.selected)
         {
-           Graphics local1 =  objGraphics;
+           let mut local1: &Graphics = &objGraphics;
           Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSSMALLRADIO2HIGH);
-           Bitmap local2 =  bitmap;
+           let mut local2: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local1,  local2, 0, 0);
         }
         else
         {
-           Graphics local3 =  objGraphics;
+           let mut local3: &Graphics = &objGraphics;
           Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.UDSSMALLRADIOHIGH);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           DrawMod.DrawSimple( local3,  local4, 0, 0);
         }
       }

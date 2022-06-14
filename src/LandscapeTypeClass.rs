@@ -216,8 +216,8 @@ namespace WindowsApplication1
       if (DrawMod.TGame.Data.Version < 130)
       {
         this.OverIsTop = new bool[this.BasicSpriteCounter + 1];
-        int basicSpriteCounter = this.BasicSpriteCounter;
-        for (int index = 0; index <= basicSpriteCounter; index += 1)
+        let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+        for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
         {
           this.BasicSpriteRandom[index] = -1;
           this.OverIsTop[index] = false;
@@ -234,8 +234,8 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          int basicSpriteCounter = this.BasicSpriteCounter;
-          for (int index = 0; index <= basicSpriteCounter; index += 1)
+          let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+          for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
             this.BasicSpriteFileName3[index] = "systemgraphics/trans.bmp";
           ProjectData.ClearProjectError();
         }
@@ -247,8 +247,8 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          int basicSpriteCounter = this.BasicSpriteCounter;
-          for (int index = 0; index <= basicSpriteCounter; index += 1)
+          let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+          for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
             this.OverIsTop[index] = false;
           ProjectData.ClearProjectError();
         }
@@ -259,8 +259,8 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          int basicSpriteCounter = this.BasicSpriteCounter;
-          for (int index = 0; index <= basicSpriteCounter; index += 1)
+          let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+          for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
             this.BasicSpriteRandom[index] = -1;
           ProjectData.ClearProjectError();
         }
@@ -390,8 +390,8 @@ namespace WindowsApplication1
         this.SidewaysSPriteID1 = new int[this.BasicSpriteCounter + 1];
         this.SidewaysSPriteID2 = new int[this.BasicSpriteCounter + 1];
         this.SidewaysSPriteID3 = new int[this.BasicSpriteCounter + 1];
-        int basicSpriteCounter = this.BasicSpriteCounter;
-        for (int index = 0; index <= basicSpriteCounter; index += 1)
+        let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+        for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
         {
           this.SidewaysSpriteFileName1[index] = "systemgraphics/trans.bmp";
           this.SidewaysSpriteFileName2[index] = "systemgraphics/trans.bmp";
@@ -487,8 +487,8 @@ namespace WindowsApplication1
             this.SidewaysSpriteFileName1[0] = info.GetString(nameof (SidewaysSpriteFileName1));
             this.SidewaysSpriteFileName2[0] = info.GetString(nameof (SidewaysSpriteFileName2));
             this.SidewaysSpriteFileName3[0] = info.GetString(nameof (SidewaysSpriteFileName3));
-            int basicSpriteCounter = this.BasicSpriteCounter;
-            for (int index = 1; index <= basicSpriteCounter; index += 1)
+            let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+            for (let mut index: i32 =  1; index <= basicSpriteCounter; index += 1)
             {
               this.SidewaysSpriteFileName1[index] = this.SidewaysSpriteFileName1[0];
               this.SidewaysSpriteFileName2[index] = this.SidewaysSpriteFileName2[0];
@@ -498,8 +498,8 @@ namespace WindowsApplication1
           catch (Exception ex2)
           {
             ProjectData.SetProjectError(ex2);
-            int basicSpriteCounter = this.BasicSpriteCounter;
-            for (int index = 0; index <= basicSpriteCounter; index += 1)
+            let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+            for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
             {
               this.SidewaysSpriteFileName1[index] = "systemgraphics/trans.bmp";
               this.SidewaysSpriteFileName2[index] = "systemgraphics/trans.bmp";
@@ -638,9 +638,9 @@ namespace WindowsApplication1
     {
       if (this.OverridesCount <= -1)
         return false;
-      int num = 0;
-      int overridesCount = this.OverridesCount;
-      for (int index = 0; index <= overridesCount; index += 1)
+      let mut num: i32 =  0;
+      let mut overridesCount: i32 =  this.OverridesCount;
+      for (let mut index: i32 =  0; index <= overridesCount; index += 1)
       {
         if (this.OverridesType[index] == lt)
           num = 1;
@@ -652,9 +652,9 @@ namespace WindowsApplication1
     {
       if (this.OverridesCount2 <= -1)
         return false;
-      int num = 0;
-      int overridesCount2 = this.OverridesCount2;
-      for (int index = 0; index <= overridesCount2; index += 1)
+      let mut num: i32 =  0;
+      let mut overridesCount2: i32 =  this.OverridesCount2;
+      for (let mut index: i32 =  0; index <= overridesCount2; index += 1)
       {
         if (this.OverridesType2[index] == lt)
           num = 1;
@@ -675,9 +675,9 @@ namespace WindowsApplication1
     {
       if (nr < this.OverridesCount)
       {
-        int num1 = nr;
-        int num2 = this.OverridesCount - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.OverridesCount - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.OverridesType[index] = this.OverridesType[index + 1];
       }
       --this.OverridesCount;
@@ -699,9 +699,9 @@ namespace WindowsApplication1
     {
       if (nr < this.OverridesCount2)
       {
-        int num1 = nr;
-        int num2 = this.OverridesCount2 - 1;
-        for (int index = num1; index <= num2; index += 1)
+        let mut num1: i32 =  nr;
+        let mut num2: i32 =  this.OverridesCount2 - 1;
+        for (let mut index: i32 =  num1; index <= num2; index += 1)
           this.OverridesType2[index] = this.OverridesType2[index + 1];
       }
       --this.OverridesCount2;
@@ -762,7 +762,7 @@ namespace WindowsApplication1
         this.BasicSpriteRandom[0] = -1;
         this.BasicSpriteID[0] = 0;
         this.SpecialLayer = false;
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           this.MoveCost[index] = 9999;
@@ -784,7 +784,7 @@ namespace WindowsApplication1
         this.BasicSpriteRandom[0] = -1;
         this.BasicSpriteID[0] = 0;
         this.SpecialLayer = true;
-        int index1 = 1;
+        let mut index1: i32 =  1;
         do
         {
           this.LayerSpriteFileName[index1] = "systemgraphics/trans.bmp";
@@ -797,7 +797,7 @@ namespace WindowsApplication1
         this.AirOverride = -1;
         this.OverridesZ = 100;
         this.RoadCostModifier = 1f;
-        int index2 = 0;
+        let mut index2: i32 =  0;
         do
         {
           this.MoveCost[index2] = 999;
@@ -903,8 +903,8 @@ namespace WindowsApplication1
     {
       if (this.BasicSpriteCounter > -1)
       {
-        int basicSpriteCounter = this.BasicSpriteCounter;
-        for (int index = 0; index <= basicSpriteCounter; index += 1)
+        let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+        for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
         {
           BitmapStore.RemoveBitmapNr(this.BasicSpriteID[index]);
           BitmapStore.RemoveBitmapNr(this.BasicPicID[index]);
@@ -915,7 +915,7 @@ namespace WindowsApplication1
       }
       if (this.SpecialLayer && !this.UseSheet)
       {
-        int index = 1;
+        let mut index: i32 =  1;
         do
         {
           BitmapStore.RemoveBitmapNr(this.LayerSpriteID[index]);
@@ -1036,8 +1036,8 @@ namespace WindowsApplication1
     {
       if (this.BasicSpriteCounter > -1)
       {
-        int basicSpriteCounter = this.BasicSpriteCounter;
-        for (int index = 0; index <= basicSpriteCounter; index += 1)
+        let mut basicSpriteCounter: i32 =  this.BasicSpriteCounter;
+        for (let mut index: i32 =  0; index <= basicSpriteCounter; index += 1)
         {
           this.BasicSpriteID[index] = BitmapStore.AddFile(this.BasicSpriteFileName[index], false, true);
           this.BasicSpriteID2[index] = BitmapStore.AddFile(this.BasicSpriteFileName2[index], false, true);
@@ -1050,7 +1050,7 @@ namespace WindowsApplication1
       }
       if (this.SpecialLayer && !this.UseSheet)
       {
-        int index = 1;
+        let mut index: i32 =  1;
         do
         {
           this.LayerSpriteID[index] = BitmapStore.AddFile(this.LayerSpriteFileName[index], false, true);
@@ -1065,7 +1065,7 @@ namespace WindowsApplication1
 
     pub void ReloadSpecialSprites()
     {
-      int index = 1;
+      let mut index: i32 =  1;
       do
       {
         this.LayerSpriteID[index] = this.LayerSpriteID[index] <= 0 ? BitmapStore.AddFile(this.LayerSpriteFileName[index], false, true) : BitmapStore.ReloadFile(this.LayerSpriteID[index], this.LayerSpriteFileName[index], IsBig: true);

@@ -26,70 +26,70 @@ namespace WindowsApplication1
       if (this.Game.EditObj.se1_ManagementTab <= 51)
       {
         SpecialWindowClass1 tmpWindow = new SpecialWindowClass1( tgame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        int screenWidth = this.Game.ScreenWidth;
-        int screenHeight = this.Game.ScreenHeight;
-        rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut screenHeight: i32 =  this.Game.ScreenHeight;
+        rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
       }
       if (this.Game.EditObj.se1_ManagementTab == 52)
       {
         SpecialWindowClass2 tmpWindow = new SpecialWindowClass2( tgame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        int screenWidth = this.Game.ScreenWidth;
-        int screenHeight = this.Game.ScreenHeight;
-        rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut screenHeight: i32 =  this.Game.ScreenHeight;
+        rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
       }
       if (this.Game.EditObj.se1_ManagementTab == 53)
       {
         SpecialWindowClass3 tmpWindow = new SpecialWindowClass3( tgame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        int screenWidth = this.Game.ScreenWidth;
-        int screenHeight = this.Game.ScreenHeight;
-        rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut screenHeight: i32 =  this.Game.ScreenHeight;
+        rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
       }
       if (this.Game.EditObj.se1_ManagementTab == 54)
       {
         SpecialWindowClass4 tmpWindow = new SpecialWindowClass4( tgame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        int screenWidth = this.Game.ScreenWidth;
-        int screenHeight = this.Game.ScreenHeight;
-        rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut screenHeight: i32 =  this.Game.ScreenHeight;
+        rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
       }
       if (this.Game.EditObj.se1_ManagementTab == 55)
       {
         SpecialWindowClass5 tmpWindow = new SpecialWindowClass5( tgame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        int screenWidth = this.Game.ScreenWidth;
-        int screenHeight = this.Game.ScreenHeight;
-        rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut screenHeight: i32 =  this.Game.ScreenHeight;
+        rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
       }
       if (this.Game.EditObj.se1_ManagementTab == 56)
       {
         SpecialWindowClass6 tmpWindow = new SpecialWindowClass6( tgame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        int screenWidth = this.Game.ScreenWidth;
-        int screenHeight = this.Game.ScreenHeight;
-        rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut screenHeight: i32 =  this.Game.ScreenHeight;
+        rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
       }
       if (this.Game.EditObj.se1_ManagementTab == 57)
       {
         SpecialWindowClass7 tmpWindow = new SpecialWindowClass7( tgame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        int screenWidth = this.Game.ScreenWidth;
-        int screenHeight = this.Game.ScreenHeight;
-        rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-        Rectangle tShowRectangle = rectangle1;
+        let mut screenWidth: i32 =  this.Game.ScreenWidth;
+        let mut screenHeight: i32 =  this.Game.ScreenHeight;
+        rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+        let mut tShowRectangle: &Rectangle = &rectangle1
         this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
       }
        let mut local1: GameClass =  tgame;
        WindowClass local2 =  this.WindowList[this.GetNr(this.WMap)];
-      rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, 75);
-      Rectangle rectangle2 = rectangle1;
+      rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, 75);
+      let mut rectangle2: &Rectangle = &rectangle1
        Rectangle local3 =  rectangle2;
       this.WRes = this.AddWindow((WindowClass) new ResourceWindowClass2( local1,  local2,  local3), 0, 0, this.Game.ScreenWidth, 75);
     }
@@ -101,8 +101,8 @@ namespace WindowsApplication1
     {
       if (wr.Counter > -1)
       {
-        int counter = wr.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  wr.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
         {
           if (wr.CommandType[index] == 3)
           {
@@ -162,64 +162,64 @@ namespace WindowsApplication1
               if (this.Game.EditObj.se1_ManagementTab <= 51)
               {
                 SpecialWindowClass1 tmpWindow = new SpecialWindowClass1( DrawMod.TGame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                int screenWidth = this.Game.ScreenWidth;
-                int screenHeight = this.Game.ScreenHeight;
-                rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                Rectangle tShowRectangle = rectangle1;
+                let mut screenWidth: i32 =  this.Game.ScreenWidth;
+                let mut screenHeight: i32 =  this.Game.ScreenHeight;
+                rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+                let mut tShowRectangle: &Rectangle = &rectangle1
                 this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
               }
               if (this.Game.EditObj.se1_ManagementTab == 52)
               {
                 SpecialWindowClass2 tmpWindow = new SpecialWindowClass2( DrawMod.TGame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                int screenWidth = this.Game.ScreenWidth;
-                int screenHeight = this.Game.ScreenHeight;
-                rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                Rectangle tShowRectangle = rectangle1;
+                let mut screenWidth: i32 =  this.Game.ScreenWidth;
+                let mut screenHeight: i32 =  this.Game.ScreenHeight;
+                rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+                let mut tShowRectangle: &Rectangle = &rectangle1
                 this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
               }
               if (this.Game.EditObj.se1_ManagementTab == 53)
               {
                 SpecialWindowClass3 tmpWindow = new SpecialWindowClass3( DrawMod.TGame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                int screenWidth = this.Game.ScreenWidth;
-                int screenHeight = this.Game.ScreenHeight;
-                rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                Rectangle tShowRectangle = rectangle1;
+                let mut screenWidth: i32 =  this.Game.ScreenWidth;
+                let mut screenHeight: i32 =  this.Game.ScreenHeight;
+                rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+                let mut tShowRectangle: &Rectangle = &rectangle1
                 this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
               }
               if (this.Game.EditObj.se1_ManagementTab == 54)
               {
                 SpecialWindowClass4 tmpWindow = new SpecialWindowClass4( DrawMod.TGame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                int screenWidth = this.Game.ScreenWidth;
-                int screenHeight = this.Game.ScreenHeight;
-                rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                Rectangle tShowRectangle = rectangle1;
+                let mut screenWidth: i32 =  this.Game.ScreenWidth;
+                let mut screenHeight: i32 =  this.Game.ScreenHeight;
+                rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+                let mut tShowRectangle: &Rectangle = &rectangle1
                 this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
               }
               if (this.Game.EditObj.se1_ManagementTab == 55)
               {
                 SpecialWindowClass5 tmpWindow = new SpecialWindowClass5( DrawMod.TGame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                int screenWidth = this.Game.ScreenWidth;
-                int screenHeight = this.Game.ScreenHeight;
-                rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                Rectangle tShowRectangle = rectangle1;
+                let mut screenWidth: i32 =  this.Game.ScreenWidth;
+                let mut screenHeight: i32 =  this.Game.ScreenHeight;
+                rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+                let mut tShowRectangle: &Rectangle = &rectangle1
                 this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
               }
               if (this.Game.EditObj.se1_ManagementTab == 56)
               {
                 SpecialWindowClass6 tmpWindow = new SpecialWindowClass6( DrawMod.TGame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                int screenWidth = this.Game.ScreenWidth;
-                int screenHeight = this.Game.ScreenHeight;
-                rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                Rectangle tShowRectangle = rectangle1;
+                let mut screenWidth: i32 =  this.Game.ScreenWidth;
+                let mut screenHeight: i32 =  this.Game.ScreenHeight;
+                rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+                let mut tShowRectangle: &Rectangle = &rectangle1
                 this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
               }
               if (this.Game.EditObj.se1_ManagementTab == 57)
               {
                 SpecialWindowClass7 tmpWindow = new SpecialWindowClass7( DrawMod.TGame, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                int screenWidth = this.Game.ScreenWidth;
-                int screenHeight = this.Game.ScreenHeight;
-                rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
-                Rectangle tShowRectangle = rectangle1;
+                let mut screenWidth: i32 =  this.Game.ScreenWidth;
+                let mut screenHeight: i32 =  this.Game.ScreenHeight;
+                rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
+                let mut tShowRectangle: &Rectangle = &rectangle1
                 this.WMap = this.AddWindow((WindowClass) tmpWindow, 0, 0, screenWidth, screenHeight, tShowRectangle);
               }
             }
@@ -227,8 +227,8 @@ namespace WindowsApplication1
             {
                let mut local1: GameClass =  DrawMod.TGame;
                WindowClass local2 =  this.WindowList[this.GetNr(this.WMap)];
-              rectangle1 = new Rectangle(0, 0, this.Game.ScreenWidth, 75);
-              Rectangle rectangle2 = rectangle1;
+              rectangle1 = Rectangle::new(0, 0, this.Game.ScreenWidth, 75);
+              let mut rectangle2: &Rectangle = &rectangle1
                Rectangle local3 =  rectangle2;
               this.WRes = this.AddWindow((WindowClass) new ResourceWindowClass2( local1,  local2,  local3), 0, 0, this.Game.ScreenWidth, 75);
             }
@@ -248,7 +248,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter > -1)
       {
-        for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+        for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
         {
           if (Strings.InStr(this.WindowList[windowCounter].GetType().FullName, "WindowsApplication1.Special") > 0 && x > this.WindowX[windowCounter] & x < this.WindowX[windowCounter] + this.WindowW[windowCounter] && y > this.WindowY[windowCounter] & y < this.WindowY[windowCounter] + this.WindowH[windowCounter])
           {
@@ -266,7 +266,7 @@ namespace WindowsApplication1
             }
           }
         }
-        for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+        for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
         {
           if (Strings.InStr(this.WindowList[windowCounter].GetType().FullName, "WindowsApplication1.Special") <= 0 && x > this.WindowX[windowCounter] & x < this.WindowX[windowCounter] + this.WindowW[windowCounter] && y > this.WindowY[windowCounter] & y < this.WindowY[windowCounter] + this.WindowH[windowCounter])
           {
@@ -296,8 +296,8 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      int windowCounter = this.WindowCounter;
-      for (int index = 0; index <= windowCounter; index += 1)
+      let mut windowCounter: i32 =  this.WindowCounter;
+      for (let mut index: i32 =  0; index <= windowCounter; index += 1)
       {
         this.WindowList[index].MouseInThisWindow = false;
         if (x >= this.WindowX[index] & x < this.WindowX[index] + this.WindowW[index] && y >= this.WindowY[index] & y < this.WindowY[index] + this.WindowH[index])
@@ -394,7 +394,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         wr: WindowReturnClass = this.WindowList[windowCounter].handleTimer();
         if (!this.WindowFlag[windowCounter] & wr.Flag)
@@ -414,7 +414,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = this.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         wr: WindowReturnClass = this.WindowList[windowCounter].HandleKeyPress(nr);
         if (!this.WindowFlag[windowCounter] & wr.Flag)

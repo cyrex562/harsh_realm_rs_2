@@ -189,17 +189,17 @@ namespace WindowsApplication1
                 this.game.CustomBitmapObj.DrawUnit(nr1, toG: graphics, tx: (num5 + 5), ty: (num14 + 5));
                 DrawMod.DrawTextVic2( graphics, this.game.Data.UnitObj[nr1].Name, this.game.VicFont3, num5 + 45, num14 + 15, this.game.VicColor2, this.game.VicColor2Shade);
               }
-               Graphics local1 =  graphics;
+               let mut local1: &Graphics = &graphics;
               CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
               let mut cx: i32 = num11;
               let mut cy: i32 = num12;
               let mut cmap: i32 = num13;
               Bitmap bitmap1 = (Bitmap) null;
-               Bitmap local2 =  bitmap1;
+               let mut local2: &Bitmap = &bitmap1;
               bool flag = false;
                bool local3 =  flag;
               Bitmap bitmap2 = customBitmapObj.DrawHex(cx, cy, cmap, true, gBitmap: ( local2), tFromMapPopup: ( local3));
-               Bitmap local4 =  bitmap2;
+               let mut local4: &Bitmap = &bitmap2;
               let mut x1: i32 = num5 + 200;
               let mut y1: i32 = num14;
               DrawMod.DrawSimple( local1,  local4, x1, y1);
@@ -242,9 +242,9 @@ namespace WindowsApplication1
                       }
                       else
                         symbolSpriteId = this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[index6].IsSFType].SymbolSpriteID;
-                       Graphics local5 =  graphics;
+                       let mut local5: &Graphics = &graphics;
                       Bitmap bitmap3 = BitmapStore.GetBitmap(symbolSpriteId);
-                       Bitmap local6 =  bitmap3;
+                       let mut local6: &Bitmap = &bitmap3;
                       let mut x2: i32 = num5 + 440 + index5 * 50;
                       let mut y2: i32 = num14 + 5;
                       DrawMod.DrawSimple( local5,  local6, x2, y2);

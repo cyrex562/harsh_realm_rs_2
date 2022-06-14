@@ -59,10 +59,10 @@ namespace WindowsApplication1
       this.lastTime = DateAndTime.Now;
       this.tempCursor = this.Game.FormRef.Cursor;
       this.Game.FormRef.Cursor = Cursors.Default;
-      int stringListById = this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
       this.bmpLink = new int[this.Game.Data.StringListObj[stringListById].Length + 1];
-      int length = this.Game.Data.StringListObj[stringListById].Length;
-      for (int index = 0; index <= length; index += 1)
+      let mut length: i32 =  this.Game.Data.StringListObj[stringListById].Length;
+      for (let mut index: i32 =  0; index <= length; index += 1)
       {
         if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > (double) this.lastpagenr)
           this.lastpagenr = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById].Data[index, 0]);
@@ -100,23 +100,23 @@ namespace WindowsApplication1
         num1 = Math.Max((float) this.Game.ScreenWidth / 1920f, (float) this.Game.ScreenHeight / 1080f);
         float num6 = 1f;
         float num7 = 1f;
-        int num8 = 1920;
-        int num9 = 1080;
-        int num10 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-        int num11 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+        let mut num8: i32 =  1920;
+        let mut num9: i32 =  1080;
+        let mut num10: i32 =   Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+        let mut num11: i32 =   Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
         num2 = num10;
         num3 = num11;
         if ((double) num1 != 1.0)
         {
           num8 =  Math.Round((double) (1920f * num1));
           num9 =  Math.Round((double) (1080f * num1));
-          int num12 = num10 +  Math.Round((double) (num8 - this.Game.ScreenWidth) / 2.0);
-          int num13 = num11 +  Math.Round((double) (num9 - this.Game.ScreenHeight) / 2.0);
+          let mut num12: i32 =  num10 +  Math.Round((double) (num8 - this.Game.ScreenWidth) / 2.0);
+          let mut num13: i32 =  num11 +  Math.Round((double) (num9 - this.Game.ScreenHeight) / 2.0);
         }
-        int x1 =  Math.Round((double) (this.Game.ScreenWidth - num8) / 2.0);
-        int y1 =  Math.Round((double) (this.Game.ScreenHeight - num9) / 2.0);
-        int width1 = num8;
-        int height1 = num9;
+        let mut x1: i32 =   Math.Round((double) (this.Game.ScreenWidth - num8) / 2.0);
+        let mut y1: i32 =   Math.Round((double) (this.Game.ScreenHeight - num9) / 2.0);
+        let mut width1: i32 =  num8;
+        let mut height1: i32 =  num9;
         int x2;
         int y2;
         int width2;
@@ -148,31 +148,31 @@ namespace WindowsApplication1
         num7 = (float) height1 / (float) this.Game.ScreenHeight;
         ref Graphics local1 = ref graphics;
         ref Bitmap local2 = ref this.fullBmp;
-        rectangle1 = new Rectangle(x2, y2, width2, height2);
-        Rectangle srcrect = rectangle1;
-        rectangle2 = new Rectangle(x1, y1, width1, height1);
-        Rectangle destrect = rectangle2;
+        rectangle1 = Rectangle::new(x2, y2, width2, height2);
+        let mut srcrect: &Rectangle = &rectangle1
+        rectangle2 = Rectangle::new(x1, y1, width1, height1);
+        let mut destrect: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect, destrect);
       }
       else
         graphics.Clear(Color.Black);
-      int num14 = 1;
+      let mut num14: i32 =  1;
       do
       {
-        int stringListById1 = this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
-        int length = this.Game.Data.StringListObj[stringListById1].Length;
+        let mut stringListById1: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+        let mut length: i32 =  this.Game.Data.StringListObj[stringListById1].Length;
         int num15;
-        for (int index1 = 0; index1 <= length; index1 += 1)
+        for (let mut index1: i32 =  0; index1 <= length; index1 += 1)
         {
           if ( Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 0])) == this.pagenr)
           {
-            int num16 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]));
+            let mut num16: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]));
             Bitmap bitmap;
             if (num16 != 2 & num14 == 1 | num16 == 2 & num14 == 2)
             {
               if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 2.0)
               {
-                int index2 = this.bmpLink[index1];
+                let mut index2: i32 =  this.bmpLink[index1];
                 if (index2 > -1)
                 {
                   int x;
@@ -181,10 +181,10 @@ namespace WindowsApplication1
                   int height;
                   if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]) == 3.0 | Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]) == 1.0)
                   {
-                    int integer1 = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]);
-                    int integer2 = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]);
-                    int num17 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
-                    int num18 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
+                    let mut integer1: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]);
+                    let mut integer2: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]);
+                    let mut num17: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
+                    let mut num18: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
                     x = num4 +  Math.Round((double) num1 * ((double) integer1 + 448.0));
                     y = num5 +  Math.Round((double) num1 * ((double) integer2 + 156.0));
                     width =  Math.Round((double) ((float) num17 * num1));
@@ -222,18 +222,18 @@ namespace WindowsApplication1
                   {
                     ref Graphics local3 = ref graphics;
                     ref Bitmap local4 = ref this.bmp[index2];
-                    rectangle2 = new Rectangle(0, 0, this.bmp[index2].Width, this.bmp[index2].Height);
-                    Rectangle srcrect = rectangle2;
-                    rectangle1 = new Rectangle(x, y, width, height);
-                    Rectangle destrect = rectangle1;
+                    rectangle2 = Rectangle::new(0, 0, this.bmp[index2].Width, this.bmp[index2].Height);
+                    let mut srcrect: &Rectangle = &rectangle2
+                    rectangle1 = Rectangle::new(x, y, width, height);
+                    let mut destrect: &Rectangle = &rectangle1
                     DrawMod.DrawSimplePart2(ref local3, ref local4, srcrect, destrect);
                   }
                 }
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 100001.0)
               {
-                int num19 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                int num20 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut num19: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
+                let mut num20: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 100000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 199999.0)
                   num19 = 0 +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 100000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 200000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 299999.0)
@@ -246,8 +246,8 @@ namespace WindowsApplication1
                   num20 = 0 +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) - 100000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) >= 200000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) <= 299999.0)
                   num20 = this.Game.ScreenHeight -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) - 200000.0);
-                int num21 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
-                int num22 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
+                let mut num21: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
+                let mut num22: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
                 if (num21 < 1 | num22 < 1)
                 {
                   num21 = 100;
@@ -257,31 +257,31 @@ namespace WindowsApplication1
                 ref Graphics local5 = ref graphics;
                 bitmap = this.Game.CustomBitmapObj.DrawLeaderPortrait( Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2])), num21, num22);
                 ref Bitmap local6 = ref bitmap;
-                rectangle2 = new Rectangle(0, 0, num21, num22);
-                Rectangle srcrect = rectangle2;
-                rectangle1 = new Rectangle(num19, num20, num21, num22);
-                Rectangle destrect = rectangle1;
+                rectangle2 = Rectangle::new(0, 0, num21, num22);
+                let mut srcrect: &Rectangle = &rectangle2
+                rectangle1 = Rectangle::new(num19, num20, num21, num22);
+                let mut destrect: &Rectangle = &rectangle1
                 DrawMod.DrawSimplePart2(ref local5, ref local6, srcrect, destrect);
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 1000001.0)
               {
-                int x =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                int y =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
-                int w =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
-                int h =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
+                let mut x: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
+                let mut y: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut w: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
+                let mut h: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
                 if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]) == 3.0)
                 {
                   w =  Math.Round((double) ((float) w * num1));
                   h =  Math.Round((double) ((float) h * num1));
                 }
-                int sfTypeById = this.Game.HandyFunctionsObj.GetSFTypeByID( Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2])));
+                let mut sfTypeById: i32 =  this.Game.HandyFunctionsObj.GetSFTypeByID( Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2])));
                 if (sfTypeById > -1)
                 {
-                  int stringListById2 = this.Game.HandyFunctionsObj.GetStringListByID(this.Game.EventRelatedObj.CheckStringlistID("SE_Data", 143, 0, 0));
-                  int stringListById3 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 306, 0, 0));
-                  int id = this.Game.Data.RegimeObj[this.Game.Data.Turn].id;
-                  int idValue =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById2].GetData(0, id, 2)));
-                  int cultureGroupId =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById3].GetData(0, idValue, 1)));
+                  let mut stringListById2: i32 =  this.Game.HandyFunctionsObj.GetStringListByID(this.Game.EventRelatedObj.CheckStringlistID("SE_Data", 143, 0, 0));
+                  let mut stringListById3: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 306, 0, 0));
+                  let mut id: i32 =  this.Game.Data.RegimeObj[this.Game.Data.Turn].id;
+                  let mut idValue: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById2].GetData(0, id, 2)));
+                  let mut cultureGroupId: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById3].GetData(0, idValue, 1)));
                   Bitmap objBitmap = this.Game.CustomBitmapObj.DrawSFTypeGraphic(sfTypeById, false, cultureGroupId, this.Game.Data.Turn, -1);
                   DrawMod.DrawScaled(ref graphics, ref objBitmap, x, y, w, h, true);
                   objBitmap.Dispose();
@@ -291,7 +291,7 @@ namespace WindowsApplication1
               {
                 if (!this.timerActive)
                 {
-                  int num23 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 8]));
+                  let mut num23: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 8]));
                   if (num23 > 0)
                   {
                     this.timerActive = true;
@@ -306,12 +306,12 @@ namespace WindowsApplication1
                 {
                   this.udsActive = true;
                   this.udsContainsButton = false;
-                  int sx =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                  int sy =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                  let mut sx: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
+                  let mut sy: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
                   this.udsX = sx;
                   this.udsY = sy;
-                  int num24 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
-                  int num25 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
+                  let mut num24: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
+                  let mut num25: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
                   this.udsW = num24;
                   this.udsH = num25;
                   this.Game.EditObj.UdsInsideTabOpenMode = false;
@@ -325,11 +325,11 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int id =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 8]));
+                    let mut id: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 8]));
                     if (id > 0 & Operators.CompareString(id.ToString(), this.Game.Data.StringListObj[stringListById1].Data[index1, 8], false) == 0)
                     {
-                      int eventById = this.Game.HandyFunctionsObj.GetEventByID(id);
-                      int tv0 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 9]));
+                      let mut eventById: i32 =  this.Game.HandyFunctionsObj.GetEventByID(id);
+                      let mut tv0: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 9]));
                       this.udsTv0 = tv0;
                       this.Game.EventRelatedObj.DoCheckSpecificEvent(eventById, tv0);
                       udSpopupText = this.Game.EditObj.UDSpopupText;
@@ -348,29 +348,29 @@ namespace WindowsApplication1
                   WindowClass udsWindow = this.UdsWindow;
                   let mut subPartClass: SubPartClass =  new UDSPartClass(this.Game, num24, num25, udSpopupText, ref this.UdsWindow.BackBitmap, 0, 0, true, tAlwaysShowBackground: true);
                   ref let mut local7: SubPartClass = ref subPartClass;
-                  int w = num24;
-                  int h = num25;
+                  let mut w: i32 =  num24;
+                  let mut h: i32 =  num25;
                   this.UdsId = udsWindow.AddSubPart(ref local7, 0, 0, w, h, 0);
                   this.UdsWindow.FlagAll();
                   ref Graphics local8 = ref graphics;
                   bitmap = this.UdsWindow.Paint();
                   ref Bitmap local9 = ref bitmap;
-                  int x = sx;
-                  int y = sy;
+                  let mut x: i32 =  sx;
+                  let mut y: i32 =  sy;
                   DrawMod.DrawSimple(ref local8, ref local9, x, y);
                 }
                 else
                 {
-                  int num26 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                  int num27 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                  let mut num26: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
+                  let mut num27: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
                   num15 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
-                  int num28 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
+                  let mut num28: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
                   this.UdsWindow.FlagAll();
                   ref Graphics local10 = ref graphics;
                   bitmap = this.UdsWindow.Paint();
                   ref Bitmap local11 = ref bitmap;
-                  int x = num26;
-                  int y = num27;
+                  let mut x: i32 =  num26;
+                  let mut y: i32 =  num27;
                   DrawMod.DrawSimple(ref local10, ref local11, x, y);
                 }
               }
@@ -382,9 +382,9 @@ namespace WindowsApplication1
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 6.0)
               {
-                int x1 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                int y1 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
-                int nr =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2]));
+                let mut x1: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
+                let mut y1: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut nr: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2]));
                 if (nr > -1)
                 {
                   try
@@ -392,8 +392,8 @@ namespace WindowsApplication1
                     ref Graphics local12 = ref graphics;
                     bitmap = this.Game.CustomBitmapObj.DrawActionCardSe1(this.Game.Data.Turn, nr);
                     ref Bitmap local13 = ref bitmap;
-                    int x = x1;
-                    int y = y1;
+                    let mut x: i32 =  x1;
+                    let mut y: i32 =  y1;
                     DrawMod.DrawSimple(ref local12, ref local13, x, y);
                   }
                   catch (Exception ex)
@@ -407,10 +407,10 @@ namespace WindowsApplication1
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 3.0)
               {
-                int num29 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                int num30 =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
-                int num31 = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]);
-                int integer = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]);
+                let mut num29: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
+                let mut num30: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut num31: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]);
+                let mut integer: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 100000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 199999.0)
                   num29 = 0 +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 100000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 200000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 299999.0)
@@ -431,8 +431,8 @@ namespace WindowsApplication1
                 {
                   try
                   {
-                    int num32 = str1.IndexOf("[text]");
-                    int num33 = str1.IndexOf("[/text]");
+                    let mut num32: i32 =  str1.IndexOf("[text]");
+                    let mut num33: i32 =  str1.IndexOf("[/text]");
                     if (num32 > -1)
                     {
                       String1_1: String = Strings.Mid(str1, num32 + 7, num33 - (num32 + 6));
@@ -447,14 +447,14 @@ namespace WindowsApplication1
                         {
                           String1_1
                         };
-                      int upperBound = strArray.GetUpperBound(0);
-                      int index3 = upperBound <= 0 ? 0 : (upperBound + this.textRotateNumber) % (upperBound + 1);
+                      let mut upperBound: i32 =  strArray.GetUpperBound(0);
+                      let mut index3: i32 =  upperBound <= 0 ? 0 : (upperBound + this.textRotateNumber) % (upperBound + 1);
                       str3: String = strArray[index3];
                       str4: String = this.Game.Data.StringListObj[stringListById1].Data[index1, 8];
                       if (strArray.GetUpperBound(0) > 0)
                       {
-                        int Length = str4.IndexOf("[text]");
-                        int num34 = str4.IndexOf("[/text]");
+                        let mut Length: i32 =  str4.IndexOf("[text]");
+                        let mut num34: i32 =  str4.IndexOf("[/text]");
                         if (str3.Length > this.textSize)
                           this.textSize = str3.Length;
                         String1_2: String = Strings.Left(str4, Length) + "[text]" + str3 + Strings.Mid(str4, num34 + 1);
@@ -478,19 +478,19 @@ namespace WindowsApplication1
                 else
                   str2 = str1;
                 let mut game: GameClass = this.Game;
-                int twidth = num31 + 40;
-                int theight = integer;
+                let mut twidth: i32 =  num31 + 40;
+                let mut theight: i32 =  integer;
                 tTexty: String = str2;
                 bitmap = (Bitmap) null;
                 ref Bitmap local14 = ref bitmap;
-                int bbx = num29;
-                int bby = num30;
+                let mut bbx: i32 =  num29;
+                let mut bby: i32 =  num30;
                 UDSPartClass udsPartClass = new UDSPartClass(game, twidth, theight, tTexty, ref local14, bbx, bby, true);
                 ref Graphics local15 = ref graphics;
                 bitmap = udsPartClass.Paint();
                 ref Bitmap local16 = ref bitmap;
-                int x = num29 - 20;
-                int y = num30 + 30;
+                let mut x: i32 =  num29 - 20;
+                let mut y: i32 =  num30 + 30;
                 DrawMod.DrawSimple(ref local15, ref local16, x, y);
               }
             }
@@ -511,11 +511,11 @@ namespace WindowsApplication1
               flag1 = true;
               str5 = str5.Replace("<FIXEDSYS>", "");
             }
-            int num35 = 100;
-            int num36 = 20;
+            let mut num35: i32 =  100;
+            let mut num36: i32 =  20;
             str6: String = this.Game.EditObj.TipText;
             str7: String = "";
-            int num37 = 0;
+            let mut num37: i32 =  0;
             while (str6.Length > 0)
             {
               Left: String = Strings.Mid(str6, 1, 1);
@@ -543,10 +543,10 @@ namespace WindowsApplication1
               }
             }
             SizeF sizeF3 = !flag1 ? graphics.MeasureString(str7, this.Game.MarcFont4) : graphics.MeasureString(str7, this.Game.MarcFont4b);
-            int x1 = this.FormRef.LastTipX + 20;
-            int num38 = this.FormRef.LastTipY + 20;
+            let mut x1: i32 =  this.FormRef.LastTipX + 20;
+            let mut num38: i32 =  this.FormRef.LastTipY + 20;
             num15 =  Math.Round((double) (sizeF3.Width + 4f));
-            int h =  Math.Round((double) (sizeF3.Height + 4f));
+            let mut h: i32 =   Math.Round((double) (sizeF3.Height + 4f));
             if (str5.Length > 0)
             {
               sizeF2 = !flag1 ? graphics.MeasureString(str5, this.Game.MarcFont4) : graphics.MeasureString(str5, this.Game.MarcFont4b);
@@ -555,21 +555,21 @@ namespace WindowsApplication1
             float width = sizeF3.Width;
             if ((double) sizeF2.Width > (double) width)
               width = sizeF2.Width;
-            int num39 =  Math.Round((double) (width + 4f));
+            let mut num39: i32 =   Math.Round((double) (width + 4f));
             if (x1 + num39 > this.Game.ScreenWidth - 64)
               x1 -= x1 + num39 - (this.Game.ScreenWidth - 64);
             if (num38 + h > this.Game.ScreenHeight - 32)
               num38 -= num38 + h - (this.Game.ScreenHeight - 32);
             if (str5.Length > 0)
-              this.LastToolTipRect = new Rectangle(x1 - 16, num38, num39 + 1 + 32, h + 1 + 16);
+              this.LastToolTipRect = Rectangle::new(x1 - 16, num38, num39 + 1 + 32, h + 1 + 16);
             else
-              this.LastToolTipRect = new Rectangle(x1 - 16, num38, num39 + 1 + 32, h + 1);
-            int r1 = 240;
-            int g1 = 240;
-            int b1 = 160;
-            int num40 = 40;
-            int num41 = 40;
-            int num42 = 20;
+              this.LastToolTipRect = Rectangle::new(x1 - 16, num38, num39 + 1 + 32, h + 1);
+            let mut r1: i32 =  240;
+            let mut g1: i32 =  240;
+            let mut b1: i32 =  160;
+            let mut num40: i32 =  40;
+            let mut num41: i32 =  40;
+            let mut num42: i32 =  20;
             if (this.Game.EditObj.TipColor >= 1)
             {
               r1 =  byte.MaxValue;
@@ -580,9 +580,9 @@ namespace WindowsApplication1
               num42 = 20;
               this.Game.EditObj.TipColor = 0;
             }
-            int r2 = num40;
-            int g2 = num41;
-            int b2 = num42;
+            let mut r2: i32 =  num40;
+            let mut g2: i32 =  num41;
+            let mut b2: i32 =  num42;
             if (flag1)
             {
               r1 = 240;
@@ -646,14 +646,14 @@ namespace WindowsApplication1
     pub ScreenReturnClass HandleMouseClick(int x, int y, int b)
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
-      int num = 9999999;
-      int stringListById = this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+      let mut num: i32 =  9999999;
+      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
       if (b == 2)
         return screenReturnClass;
       if (!Information.IsNothing((object) this.TabList))
       {
-        int counter = this.TabList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.TabList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
         {
           if (x > this.TabList.Data1[index] & y > this.TabList.Data2[index] && x < this.TabList.Data1[index] + this.TabList.Data3[index] & y < this.TabList.Data2[index] + this.TabList.Data4[index])
           {
@@ -690,7 +690,7 @@ namespace WindowsApplication1
         {
           if (!Information.IsNothing((object) this.UdsWindow))
           {
-            int enr = 0;
+            let mut enr: i32 =  0;
             if (x >= this.udsX & y >= this.udsY & x < this.udsX + this.udsW & y < this.udsY + this.udsH)
             {
               enr = this.UdsWindow.SubPartList[0].Click(x - this.udsX, y - this.udsY, b);
@@ -740,8 +740,8 @@ namespace WindowsApplication1
           this.udsNewEvent = 0;
         }
       }
-      int length = this.Game.Data.StringListObj[stringListById].Length;
-      for (int index = 0; index <= length; index += 1)
+      let mut length: i32 =  this.Game.Data.StringListObj[stringListById].Length;
+      for (let mut index: i32 =  0; index <= length; index += 1)
       {
         if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) < (double) num && Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > (double) this.pagenr)
           num = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById].Data[index, 0]);
@@ -766,7 +766,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (this.Game.Data.Product < 7)
         return screenReturnClass;
-      int num = 1000 + this.textSize * 30;
+      let mut num: i32 =  1000 + this.textSize * 30;
       this.Game.FormRef.Timer1.Interval = 1;
       DateTime now = DateAndTime.Now;
       TimeSpan timeSpan1 = now.Subtract(this.lastTime);
@@ -814,8 +814,8 @@ namespace WindowsApplication1
         }
         if (!Information.IsNothing((object) this.TabList))
         {
-          int counter = this.TabList.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  this.TabList.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
           {
             if (this.TabList.Data5[index] == 102 & nr == 72)
             {
@@ -836,10 +836,10 @@ namespace WindowsApplication1
         }
         if (nr == 32)
         {
-          int num = 9999999;
-          int stringListById = this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
-          int length = this.Game.Data.StringListObj[stringListById].Length;
-          for (int index = 0; index <= length; index += 1)
+          let mut num: i32 =  9999999;
+          let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+          let mut length: i32 =  this.Game.Data.StringListObj[stringListById].Length;
+          for (let mut index: i32 =  0; index <= length; index += 1)
           {
             if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > 0.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) < (double) num && Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > (double) this.pagenr)
               num = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById].Data[index, 0]);
@@ -882,7 +882,7 @@ namespace WindowsApplication1
         this.fullBmp.Dispose();
         this.fullBmp = (Bitmap) null;
       }
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         if (!Information.IsNothing((object) this.bmp[index]))
@@ -901,11 +901,11 @@ namespace WindowsApplication1
       str: String = this.Game.AppPath + "graphics/";
       this.fullBmpName = "";
       this.unloadAnyStuff();
-      int slot = 0;
-      int stringListById = this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+      let mut slot: i32 =  0;
+      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
       this.bmpLink = new int[this.Game.Data.StringListObj[stringListById].Length + 1];
-      int length1 = this.Game.Data.StringListObj[stringListById].Length;
-      for (int index = 0; index <= length1; index += 1)
+      let mut length1: i32 =  this.Game.Data.StringListObj[stringListById].Length;
+      for (let mut index: i32 =  0; index <= length1; index += 1)
       {
         if (Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 3]) == 1.0 && Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 0]) == (double) this.pagenr)
         {
@@ -916,13 +916,13 @@ namespace WindowsApplication1
           this.loadSpecificFullBmp(s);
         }
       }
-      int length2 = this.Game.Data.StringListObj[stringListById].Length;
-      for (int index = 0; index <= length2; index += 1)
+      let mut length2: i32 =  this.Game.Data.StringListObj[stringListById].Length;
+      for (let mut index: i32 =  0; index <= length2; index += 1)
       {
         this.bmpLink[index] = -1;
         if (((ulong) (long) Math.Round(Conversion.Val((object) (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 3]) == 2.0))) & (ulong) -(slot < 19 ? 1 : 0)) > 0UL && Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 0]) == (double) this.pagenr)
         {
-          int specialRenderMode =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 1]));
+          let mut specialRenderMode: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 1]));
           this.loadSpecificBmp(str + this.Game.Data.StringListObj[stringListById].Data[index, 2], slot, specialRenderMode);
           this.bmpLink[index] = slot;
           slot += 1;
@@ -930,7 +930,7 @@ namespace WindowsApplication1
       }
     }
 
-    pub void loadSpecificBmp(string s, int slot, int specialRenderMode = -1)
+    pub void loadSpecificBmp(string s, int slot, let mut specialRenderMode: i32 =  -1)
     {
       if (!Information.IsNothing((object) this.bmp[slot]))
       {
@@ -942,7 +942,7 @@ namespace WindowsApplication1
       Bitmap bitmap = (Bitmap) Image.FromStream((Stream) fileStream);
       Bitmap bmp = new Bitmap(bitmap.Width, bitmap.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bmp);
-      graphics.DrawImage((Image) bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+      graphics.DrawImage((Image) bitmap, Rectangle::new(0, 0, bitmap.Width, bitmap.Height));
       if (specialRenderMode == 1)
         DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref bmp,  byte.MaxValue);
       graphics.Dispose();
@@ -955,21 +955,21 @@ namespace WindowsApplication1
 
     pub void SpecialRenderMode1(ref Graphics g, ref Bitmap b)
     {
-      int num1 = 0;
-      int num2 = 0;
-      int num3 = b.Width - 1;
-      int num4 = b.Height - 1;
-      int num5 = num2;
-      int num6 = num4;
-      for (int y = num5; y <= num6; y += 1)
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  0;
+      let mut num3: i32 =  b.Width - 1;
+      let mut num4: i32 =  b.Height - 1;
+      let mut num5: i32 =  num2;
+      let mut num6: i32 =  num4;
+      for (let mut y: i32 =  num5; y <= num6; y += 1)
       {
-        int num7 = num1;
-        int num8 = num3;
-        for (int x = num7; x <= num8; x += 1)
+        let mut num7: i32 =  num1;
+        let mut num8: i32 =  num3;
+        for (let mut x: i32 =  num7; x <= num8; x += 1)
         {
           Color pixel = b.GetPixel(x, y);
-          int green =  Math.Max(pixel.B, Math.Max(pixel.R, pixel.G));
-          int a =  pixel.A;
+          let mut green: i32 =   Math.Max(pixel.B, Math.Max(pixel.R, pixel.G));
+          let mut a: i32 =   pixel.A;
           b.SetPixel(x, y, Color.FromArgb(a, 0, green, 0));
         }
       }
@@ -977,22 +977,22 @@ namespace WindowsApplication1
 
     pub void SpecialRenderMode2(ref Graphics g, ref Bitmap b)
     {
-      int num1 = 0;
-      int num2 = 0;
-      int num3 = b.Width - 1;
-      int num4 = b.Height - 1;
-      int num5 = num2;
-      int num6 = num4;
-      for (int y = num5; y <= num6; y += 1)
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  0;
+      let mut num3: i32 =  b.Width - 1;
+      let mut num4: i32 =  b.Height - 1;
+      let mut num5: i32 =  num2;
+      let mut num6: i32 =  num4;
+      for (let mut y: i32 =  num5; y <= num6; y += 1)
       {
-        int num7 = num1;
-        int num8 = num3;
-        for (int x = num7; x <= num8; x += 1)
+        let mut num7: i32 =  num1;
+        let mut num8: i32 =  num3;
+        for (let mut x: i32 =  num7; x <= num8; x += 1)
         {
           Color pixel = b.GetPixel(x, y);
-          int green =  Math.Max(pixel.B, Math.Max(pixel.R, pixel.G));
-          int a =  pixel.A;
-          int alpha = !(x < 20 | x > num3 - 20 | y < 20 | y > num4 - 20) ? a : 0;
+          let mut green: i32 =   Math.Max(pixel.B, Math.Max(pixel.R, pixel.G));
+          let mut a: i32 =   pixel.A;
+          let mut alpha: i32 =  !(x < 20 | x > num3 - 20 | y < 20 | y > num4 - 20) ? a : 0;
           b.SetPixel(x, y, Color.FromArgb(alpha, 0, green, 0));
         }
       }
@@ -1011,7 +1011,7 @@ namespace WindowsApplication1
       Bitmap bitmap1 = (Bitmap) Image.FromStream((Stream) fileStream);
       Bitmap bitmap2 = new Bitmap(bitmap1.Width, bitmap1.Height, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
-      graphics.DrawImage((Image) bitmap1, new Rectangle(0, 0, bitmap1.Width, bitmap1.Height));
+      graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
       bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       fileStream.Close();
@@ -1033,8 +1033,8 @@ namespace WindowsApplication1
     {
       if (!Information.IsNothing((object) this.TabList))
       {
-        int counter = this.TabList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.TabList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
         {
           if (x > this.TabList.Data1[index] & y > this.TabList.Data2[index] && x < this.TabList.Data1[index] + this.TabList.Data3[index] & y < this.TabList.Data2[index] + this.TabList.Data4[index] && this.TabList.Id[index].Length > 0)
           {

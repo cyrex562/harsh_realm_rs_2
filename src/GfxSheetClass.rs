@@ -22,7 +22,7 @@ namespace WindowsApplication1
     pub GfxSheetClass()
     {
       this.Name = new string[2];
-      this.Rect = new Rectangle[2];
+      this.Rect = Rectangle::new[2];
       this.Counter = 0;
       this.Bmp = (Bitmap) null;
     }
@@ -33,9 +33,9 @@ namespace WindowsApplication1
       StreamReader streamReader = File.OpenText(DrawMod.TGame.AppPath + "graphics/" + this.DirName + "/sheet.txt");
       this.Counter =  Math.Round(Conversion.Val(streamReader.ReadLine()));
       this.Name = new string[this.Counter + 1];
-      this.Rect = new Rectangle[this.Counter + 1];
-      int counter = this.Counter;
-      for (int index = 1; index <= counter; index += 1)
+      this.Rect = Rectangle::new[this.Counter + 1];
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  1; index <= counter; index += 1)
       {
         this.Name[index] = streamReader.ReadLine();
         this.Rect[index].X =  Math.Round(Conversion.Val(streamReader.ReadLine()));

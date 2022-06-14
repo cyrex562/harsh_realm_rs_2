@@ -50,7 +50,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (self.WindowCounter <= -1)
         return screenReturnClass;
-      for (int windowCounter = self.WindowCounter; windowCounter >= 0; windowCounter += -1)
+      for (let mut windowCounter: i32 =  self.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
         windowReturnClass: WindowReturnClass = self.WindowList[windowCounter].handleTimer();
         if (!self.WindowFlag[windowCounter] & windowReturnClass.Flag)
@@ -59,8 +59,8 @@ namespace WindowsApplication1
         {
           if (windowReturnClass.Counter > -1)
           {
-            int counter = windowReturnClass.Counter;
-            for (int index = 0; index <= counter; index += 1)
+            let mut counter: i32 =  windowReturnClass.Counter;
+            for (let mut index: i32 =  0; index <= counter; index += 1)
             {
               if (windowReturnClass.CommandType[index] == 5)
               {
@@ -98,8 +98,8 @@ namespace WindowsApplication1
       }
       if (self.WindowCounter <= -1)
         return screenReturnClass;
-      int windowCounter = self.WindowCounter;
-      for (int index1 = 0; index1 <= windowCounter; index1 += 1)
+      let mut windowCounter: i32 =  self.WindowCounter;
+      for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
       {
         if (x > self.WindowX[index1] & x < self.WindowX[index1] + self.WindowW[index1] && y > self.WindowY[index1] & y < self.WindowY[index1] + self.WindowH[index1])
         {
@@ -107,8 +107,8 @@ namespace WindowsApplication1
           self.WindowFlag[index1] = windowReturnClass.Flag;
           if (windowReturnClass.Counter > -1)
           {
-            int counter = windowReturnClass.Counter;
-            for (int index2 = 0; index2 <= counter; index2 += 1)
+            let mut counter: i32 =  windowReturnClass.Counter;
+            for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
             {
               if (windowReturnClass.CommandType[index2] == 3)
               {
@@ -283,8 +283,8 @@ namespace WindowsApplication1
       }
       if (self.WindowCounter <= -1)
         return screenReturnClass;
-      int windowCounter = self.WindowCounter;
-      for (int index1 = 0; index1 <= windowCounter; index1 += 1)
+      let mut windowCounter: i32 =  self.WindowCounter;
+      for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
       {
         if (x > self.WindowX[index1] & x < self.WindowX[index1] + self.WindowW[index1] & y > self.WindowY[index1] & y < self.WindowY[index1] + self.WindowH[index1])
         {
@@ -299,8 +299,8 @@ namespace WindowsApplication1
           }
           if (windowReturnClass.Counter > -1)
           {
-            int counter = windowReturnClass.Counter;
-            for (int index2 = 0; index2 <= counter; index2 += 1)
+            let mut counter: i32 =  windowReturnClass.Counter;
+            for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
             {
               if (windowReturnClass.CommandType[index2] == 4 && windowReturnClass.CommandData[index2] == 29)
               {
@@ -330,8 +330,8 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (self.WindowCounter > -1)
       {
-        int windowCounter = self.WindowCounter;
-        for (int index1 = 0; index1 <= windowCounter; index1 += 1)
+        let mut windowCounter: i32 =  self.WindowCounter;
+        for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
         {
           windowReturnClass2: WindowReturnClass = self.WindowList[index1].HandleKeyPress(nr);
           if (!self.WindowFlag[index1])
@@ -340,8 +340,8 @@ namespace WindowsApplication1
             screenReturnClass.flag = windowReturnClass2.Flag;
           if (windowReturnClass2.Counter > -1)
           {
-            int counter = windowReturnClass2.Counter;
-            for (int index2 = 0; index2 <= counter; index2 += 1)
+            let mut counter: i32 =  windowReturnClass2.Counter;
+            for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
             {
               if (windowReturnClass2.CommandType[index2] == 3)
               {

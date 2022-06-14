@@ -352,10 +352,10 @@ namespace WindowsApplication1
       let mut num1: i32 = 270;
       let mut y: i32 = 50;
       name: String = this.game.Data.PeopleObj[this.ppl].Name;
-       Graphics local1 =  Expression;
-      Rectangle rect1_1 = new Rectangle(num1, y, 192, 14);
-      Rectangle rectangle1 = new Rectangle(num1, y + 14, 192, 23);
-      Rectangle rect2_1 = rectangle1;
+       let mut local1: &Graphics = &Expression;
+      Rectangle rect1_1 = Rectangle::new(num1, y, 192, 14);
+      Rectangle rectangle1 = Rectangle::new(num1, y + 14, 192, 23);
+      let mut rect2_1: &Rectangle = &rectangle1
       txt2: String = name;
       DrawMod.MakeFullBoxVic2( local1, rect1_1, "SELECTED PEOPLE", rect2_1, txt2);
       SubPartClass tsubpart2;
@@ -399,11 +399,11 @@ namespace WindowsApplication1
         let mut num6: i32 = 115;
         let mut num7: i32 = 375;
         this.OptionsList3Obj = ATListClass::new();
-         Graphics local2 =  Expression;
-        rectangle1 = new Rectangle(num6, num7 - 14, 330, 13);
-        Rectangle rect1_2 = rectangle1;
+         let mut local2: &Graphics = &Expression;
+        rectangle1 = Rectangle::new(num6, num7 - 14, 330, 13);
+        let mut rect1_2: &Rectangle = &rectangle1
         txt1: String = Strings.UCase("Under People      Morale            Bat.For Mod    Ba.Vs Mod");
-        Rectangle rect2_2 = rectangle2;
+        let mut rect2_2: &Rectangle = &rectangle2
         DrawMod.MakeFullBoxVic2( local2, rect1_2, txt1, rect2_2, "");
         let mut peopleCounter2: i32 = this.game.Data.PeopleCounter;
         for (let mut index: i32 = 0; index <= peopleCounter2; index += 1)
@@ -433,11 +433,11 @@ namespace WindowsApplication1
         let mut num10: i32 = 200;
         let mut num11: i32 = 375;
         this.OptionsList4Obj = ATListClass::new();
-         Graphics local3 =  Expression;
-        rectangle1 = new Rectangle(num10, num11 - 14, 730, 13);
-        Rectangle rect1_3 = rectangle1;
+         let mut local3: &Graphics = &Expression;
+        rectangle1 = Rectangle::new(num10, num11 - 14, 730, 13);
+        let mut rect1_3: &Rectangle = &rectangle1
         txt1: String = Strings.UCase("Under Regime People                          ProdMod 1                 ProdMod 2                ProdMod 3               ProdMod4");
-        Rectangle rect2_3 = rectangle2;
+        let mut rect2_3: &Rectangle = &rectangle2
         DrawMod.MakeFullBoxVic2( local3, rect1_3, txt1, rect2_3, "");
         let mut peopleCounter3: i32 = this.game.Data.PeopleCounter;
         for (let mut index: i32 = 0; index <= peopleCounter3; index += 1)
@@ -461,11 +461,11 @@ namespace WindowsApplication1
         let mut num12: i32 = 200;
         let mut num13: i32 = 375;
         this.OptionsList4Obj = ATListClass::new();
-         Graphics local4 =  Expression;
-        rectangle1 = new Rectangle(num12, num13 - 14, 730, 13);
-        Rectangle rect1_4 = rectangle1;
+         let mut local4: &Graphics = &Expression;
+        rectangle1 = Rectangle::new(num12, num13 - 14, 730, 13);
+        let mut rect1_4: &Rectangle = &rectangle1
         txt1: String = Strings.UCase("ItemType                                              ProdMod                                                      People Overrule");
-        Rectangle rect2_4 = rectangle2;
+        let mut rect2_4: &Rectangle = &rectangle2
         DrawMod.MakeFullBoxVic2( local4, rect1_4, txt1, rect2_4, "");
         let mut itemTypeCounter: i32 = this.game.Data.ItemTypeCounter;
         for (let mut index: i32 = 0; index <= itemTypeCounter; index += 1)

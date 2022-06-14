@@ -35,7 +35,7 @@ namespace WindowsApplication1
       self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics Expression = Graphics.FromImage((Image) self.backbitmap);
       Expression.CompositingMode = CompositingMode.SourceCopy;
-      Expression.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), new Rectangle(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
+      Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
       Expression.CompositingMode = CompositingMode.SourceOver;
       if (Information.IsNothing((object) Expression))
         return;
@@ -53,13 +53,13 @@ namespace WindowsApplication1
       }
       if (self.colorized == 0)
       {
-         Graphics local1 =  objGraphics;
+         let mut local1: &Graphics = &objGraphics;
         Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1);
-         Bitmap local2 =  bitmap1;
+         let mut local2: &Bitmap = &bitmap1;
         DrawMod.DrawScaled( local1,  local2, 0, 0, 25, 25);
-         Graphics local3 =  objGraphics;
+         let mut local3: &Graphics = &objGraphics;
         Bitmap bitmap2 = BitmapStore.GetBitmap(self.OwnBitmapNr);
-         Bitmap local4 =  bitmap2;
+         let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawScaled( local3,  local4, 1, 1, 25, 25);
       }
       if (!Information.IsNothing((object) objGraphics))
@@ -81,13 +81,13 @@ namespace WindowsApplication1
       }
       if (self.colorized == 0)
       {
-         Graphics local1 =  objGraphics;
+         let mut local1: &Graphics = &objGraphics;
         Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSTEVE1b);
-         Bitmap local2 =  bitmap1;
+         let mut local2: &Bitmap = &bitmap1;
         DrawMod.DrawScaled( local1,  local2, 0, 0, 25, 25);
-         Graphics local3 =  objGraphics;
+         let mut local3: &Graphics = &objGraphics;
         Bitmap bitmap2 = BitmapStore.GetBitmap(self.OwnBitmapNr);
-         Bitmap local4 =  bitmap2;
+         let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawScaled( local3,  local4, 1, 1, 25, 25);
       }
       if (!Information.IsNothing((object) objGraphics))

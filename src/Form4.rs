@@ -100,8 +100,8 @@ namespace WindowsApplication1
       this.SuspendLayout();
       this.Label1.Font = Font::new("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       Label label1_1 = this.Label1;
-      Point point1 = new Point(68, 30);
-      Point point2 = point1;
+      Polet mut point1: i32 =  new Point(68, 30);
+      Polet mut point2: i32 =  point1;
       label1_1.Location = point2;
       this.Label1.Name = "Label1";
       Label label1_2 = this.Label1;
@@ -114,7 +114,7 @@ namespace WindowsApplication1
       this.ListBox1.ItemHeight = 16;
       ListBox listBox1_1 = this.ListBox1;
       point1 = new Point(50, 57);
-      Point point3 = point1;
+      Polet mut point3: i32 =  point1;
       listBox1_1.Location = point3;
       this.ListBox1.Name = "ListBox1";
       ListBox listBox1_2 = this.ListBox1;
@@ -124,7 +124,7 @@ namespace WindowsApplication1
       this.ListBox1.TabIndex = 1;
       Button button1_1 = this.Button1;
       point1 = new Point(50, 278);
-      Point point4 = point1;
+      Polet mut point4: i32 =  point1;
       button1_1.Location = point4;
       this.Button1.Name = "Button1";
       Button button1_2 = this.Button1;
@@ -135,7 +135,7 @@ namespace WindowsApplication1
       this.Button1.Text = "Start as Mod";
       Button button2_1 = this.Button2;
       point1 = new Point(346, 278);
-      Point point5 = point1;
+      Polet mut point5: i32 =  point1;
       button2_1.Location = point5;
       this.Button2.Name = "Button2";
       Button button2_2 = this.Button2;

@@ -26,8 +26,8 @@ namespace WindowsApplication1
 
     pub int GetIdCounter()
     {
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.Front[index].FrontID > this.idCounter)
         {
@@ -42,8 +42,8 @@ namespace WindowsApplication1
     pub string GetString()
     {
       str: String = "";
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.Front[index].FrontType == 1)
         {
@@ -61,8 +61,8 @@ namespace WindowsApplication1
     pub string GetStringFull()
     {
       stringFull: String = "";
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.Front[index].FrontType == 1)
         {
@@ -104,14 +104,14 @@ namespace WindowsApplication1
 
     pub void RemoveFront(int frontID)
     {
-      int counter = this.Counter;
-      for (int index1 = 0; index1 <= counter; index1 += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
         if (this.Front[index1].FrontID == frontID)
         {
-          int num1 = index1;
-          int num2 = this.Counter - 1;
-          for (int index2 = num1; index2 <= num2; index2 += 1)
+          let mut num1: i32 =  index1;
+          let mut num2: i32 =  this.Counter - 1;
+          for (let mut index2: i32 =  num1; index2 <= num2; index2 += 1)
             this.Front[index2] = this.Front[index2 + 1];
           --this.Counter;
           break;
@@ -121,9 +121,9 @@ namespace WindowsApplication1
 
     pub int GetPowerUnderFrontAndReservesAssignedToIt(int id)
     {
-      int counter = this.Counter;
+      let mut counter: i32 =  this.Counter;
       int reservesAssignedToIt;
-      for (int index = 0; index <= counter; index += 1)
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.Front[index].FrontID == id | this.Front[index].TargetFrontID == id)
           reservesAssignedToIt += this.Front[index].GetPowerUnderFront();
@@ -133,8 +133,8 @@ namespace WindowsApplication1
 
     pub AIFront FindFront(int initialFrontID)
     {
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.Front[index].FrontID == initialFrontID)
           return this.Front[index];
@@ -144,8 +144,8 @@ namespace WindowsApplication1
 
     pub int GetFrontNr(int initialFrontID)
     {
-      int counter = this.Counter;
-      for (int frontNr = 0; frontNr <= counter; frontNr += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut frontNr: i32 =  0; frontNr <= counter; frontNr += 1)
       {
         if (this.Front[frontNr].FrontID == initialFrontID)
           return frontNr;
@@ -157,7 +157,7 @@ namespace WindowsApplication1
     {
       AIFront front1 = this.FindFront(fromFrontID);
       AIFront front2 = this.FindFront(toFrontID);
-      for (int counter = front1.units.counter; counter >= 0; counter += -1)
+      for (let mut counter: i32 =  front1.units.counter; counter >= 0; counter += -1)
       {
         if (this.ai.game.Data.UnitObj[front1.units.unr[counter]].AIGroup == fromFrontID && this.ai.game.Data.UnitObj[front1.units.unr[counter]].AIGroup == hq)
         {
@@ -167,7 +167,7 @@ namespace WindowsApplication1
           front1.RemoveUnitAIid(front1.units.AIid[counter]);
         }
       }
-      for (int counter = front1.artUnits.counter; counter >= 0; counter += -1)
+      for (let mut counter: i32 =  front1.artUnits.counter; counter >= 0; counter += -1)
       {
         if (this.ai.game.Data.UnitObj[front1.artUnits.unr[counter]].AIGroup == fromFrontID && this.ai.game.Data.UnitObj[front1.artUnits.unr[counter]].AIGroup == hq)
         {
@@ -184,7 +184,7 @@ namespace WindowsApplication1
       str: String = "REMOVE ALL UNITS UNDER HIS FROM FRONT " + fromFrontID.ToString() + " TO FRONT " + toFrontID.ToString();
       AIFront front1 = this.FindFront(fromFrontID);
       AIFront front2 = this.FindFront(toFrontID);
-      for (int counter = front1.units.counter; counter >= 0; counter += -1)
+      for (let mut counter: i32 =  front1.units.counter; counter >= 0; counter += -1)
       {
         if (this.ai.game.Data.UnitObj[front1.units.unr[counter]].AIGroup == fromFrontID && this.ai.game.Data.UnitObj[front1.units.unr[counter]].Historical == his)
         {
@@ -195,7 +195,7 @@ namespace WindowsApplication1
           front1.RemoveUnitAIid(front1.units.AIid[counter]);
         }
       }
-      for (int counter = front1.artUnits.counter; counter >= 0; counter += -1)
+      for (let mut counter: i32 =  front1.artUnits.counter; counter >= 0; counter += -1)
       {
         if (this.ai.game.Data.UnitObj[front1.artUnits.unr[counter]].AIGroup == fromFrontID && this.ai.game.Data.UnitObj[front1.artUnits.unr[counter]].Historical == his)
         {
@@ -215,19 +215,19 @@ namespace WindowsApplication1
       aiFrontList.Counter = this.Counter;
       aiFrontList.idCounter = this.idCounter;
       aiFrontList.Front = new AIFront[this.Counter + 1];
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
         aiFrontList.Front[index] = this.Front[index].Clone();
       return aiFrontList;
     }
 
     pub void CopyUnitsFromAIFrontList(ref AIFrontList tempList)
     {
-      int counter1 = tempList.Counter;
-      for (int index1 = 0; index1 <= counter1; index1 += 1)
+      let mut counter1: i32 =  tempList.Counter;
+      for (let mut index1: i32 =  0; index1 <= counter1; index1 += 1)
       {
-        int counter2 = this.Counter;
-        for (int index2 = 0; index2 <= counter2; index2 += 1)
+        let mut counter2: i32 =  this.Counter;
+        for (let mut index2: i32 =  0; index2 <= counter2; index2 += 1)
         {
           if (tempList.Front[index1].FrontID == this.Front[index2].FrontID)
             this.Front[index2].CopyUnitsFromAIFront(tempList.Front[index1]);
@@ -237,8 +237,8 @@ namespace WindowsApplication1
 
     pub void ResetStats()
     {
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         this.Front[index].StatIterationCount = 0;
         this.Front[index].StatLastPercentageOutOfSupply = 0;

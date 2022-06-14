@@ -98,8 +98,8 @@ namespace WindowsApplication1
       this.Button2 = Button::new();
       this.SuspendLayout();
       TextBox textBox1_1 = this.TextBox1;
-      Point point1 = new Point(58, 65);
-      Point point2 = point1;
+      Polet mut point1: i32 =  new Point(58, 65);
+      Polet mut point2: i32 =  point1;
       textBox1_1.Location = point2;
       this.TextBox1.Multiline = true;
       this.TextBox1.Name = "TextBox1";
@@ -110,7 +110,7 @@ namespace WindowsApplication1
       this.TextBox1.TabIndex = 0;
       Button button1_1 = this.Button1;
       point1 = new Point(212, 513);
-      Point point3 = point1;
+      Polet mut point3: i32 =  point1;
       button1_1.Location = point3;
       this.Button1.Name = "Button1";
       Button button1_2 = this.Button1;
@@ -122,7 +122,7 @@ namespace WindowsApplication1
       this.Label1.Font = Font::new("Microsoft Sans Serif", 9.75f, FontStyle.Bold, GraphicsUnit.Point, (byte) 0);
       Label label1_1 = this.Label1;
       point1 = new Point(58, 18);
-      Point point4 = point1;
+      Polet mut point4: i32 =  point1;
       label1_1.Location = point4;
       this.Label1.Name = "Label1";
       Label label1_2 = this.Label1;
@@ -134,7 +134,7 @@ namespace WindowsApplication1
       this.Label1.TextAlign = ContentAlignment.TopCenter;
       Button button2_1 = this.Button2;
       point1 = new Point(355, 513);
-      Point point5 = point1;
+      Polet mut point5: i32 =  point1;
       button2_1.Location = point5;
       this.Button2.Name = "Button2";
       Button button2_2 = this.Button2;
@@ -164,7 +164,7 @@ namespace WindowsApplication1
     {
     }
 
-    pub void Initialize(DataClass tData, int ttype, int tnr, int tnr2 = -1)
+    pub void Initialize(DataClass tData, int ttype, int tnr, let mut tnr2: i32 =  -1)
     {
       this.type = ttype;
       this.nr = tnr;
@@ -250,16 +250,16 @@ namespace WindowsApplication1
         {
           DrawMod.TGame.HandyFunctionsObj.AddMessageForOne("MESSAGE FROM " + DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].Name + "\r\n\r\n'" + this.TextBox1.Text + "'", this.nr, -1, 0);
           DrawMod.TGame.HandyFunctionsObj.AddMessageForOne("YOUR MESSAGE TO " + DrawMod.TGame.Data.RegimeObj[this.nr].Name + "\r\n\r\n'" + this.TextBox1.Text + "'", DrawMod.TGame.Data.Turn, -1, 0);
-          int num =  Interaction.MsgBox((object) "Your message has been sent!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num: i32 =   Interaction.MsgBox((object) "Your message has been sent!", Title: ((object) "Shadow Empire : Planetary Conquest"));
         }
         else
         {
           if (Strings.Len(this.TextBox1.Text) >= 4000)
           {
-            int num =  Interaction.MsgBox((object) ("To many characters. currently " + Conversion.Str((object) Strings.Len(this.TextBox1.Text)) + ". should be less then 1000"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num: i32 =   Interaction.MsgBox((object) ("To many characters. currently " + Conversion.Str((object) Strings.Len(this.TextBox1.Text)) + ". should be less then 1000"), Title: ((object) "Shadow Empire : Planetary Conquest"));
             return;
           }
-          int num1 =  Interaction.MsgBox((object) "Cancelled. Your message has not been sent because there was 1 or less characters in it.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num1: i32 =   Interaction.MsgBox((object) "Cancelled. Your message has not been sent because there was 1 or less characters in it.", Title: ((object) "Shadow Empire : Planetary Conquest"));
         }
       }
       else if (this.type == 8)

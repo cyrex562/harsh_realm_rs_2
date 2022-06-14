@@ -489,226 +489,226 @@ namespace WindowsApplication1
       Bitmap bitmap1;
       if (self.subtab == 2)
       {
-         Graphics local1 =  objgraphics;
+         let mut local1: &Graphics = &objgraphics;
         Bitmap bitmap2 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap2;
-        Rectangle rectangle2 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect1 = rectangle2;
-        rectangle1 = new Rectangle(x1 + 0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect1 = rectangle1;
+         let mut local2: &Bitmap = &bitmap2;
+        Rectangle rectangle2 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect1: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(x1 + 0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect1: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         Bitmap bitmap3 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap3;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect2 = rectangle1;
-        rectangle2 = new Rectangle(x1 + 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect2 = rectangle2;
+         let mut local4: &Bitmap = &bitmap3;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect2: &Rectangle = &rectangle1
+        rectangle2 = Rectangle::new(x1 + 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect2: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
         str1: String = "REGIMES";
         sizeF = objgraphics.MeasureString(str1, self.game.MarcFont16);
         let mut x2: i32 = x1 + 20;
         let mut y1: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str1, self.game.MarcFont16, x2, y1 + 4, Color.White);
-        rectangle1 = new Rectangle(x1, y1, 80, 24);
+        rectangle1 = Rectangle::new(x1, y1, 80, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a regime", 101);
-         Graphics local5 =  objgraphics;
+         let mut local5: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local6 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect3 = rectangle1;
-        trect2 = new Rectangle(x1 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect3 = trect2;
+         let mut local6: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect3: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect3: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local8 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect4 = rectangle1;
-        trect2 = new Rectangle(x1 + 122, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect4 = trect2;
+         let mut local8: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect4: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 122, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect4: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local7,  local8, srcrect4, destrect4);
         str2: String = "ZONES";
         sizeF = objgraphics.MeasureString(str2, self.game.MarcFont16);
         let mut x3: i32 = x1 + 20 + 70;
         let mut y2: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str2, self.game.MarcFont16, x3, y2 + 4, Color.White);
-        rectangle1 = new Rectangle(x1 + 70, y2, 182, 24);
+        rectangle1 = Rectangle::new(x1 + 70, y2, 182, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a Zone", 102);
-         Graphics local9 =  objgraphics;
+         let mut local9: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local10 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect5 = rectangle1;
-        trect2 = new Rectangle(x1 + 140, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect5 = trect2;
+         let mut local10: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect5: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 140, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect5: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local9,  local10, srcrect5, destrect5);
-         Graphics local11 =  objgraphics;
+         let mut local11: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local12 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect6 = rectangle1;
-        trect2 = new Rectangle(x1 + 122 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect6 = trect2;
+         let mut local12: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect6: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 122 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect6: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
         str3: String = "STATS";
         sizeF = objgraphics.MeasureString(str3, self.game.MarcFont16);
         let mut x4: i32 = x1 + 20 + 140;
         let mut y3: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str3, self.game.MarcFont16, x4, y3 + 4, Color.White);
-        rectangle1 = new Rectangle(x1 + 140, y3, 80, 24);
+        rectangle1 = Rectangle::new(x1 + 140, y3, 80, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a specific Stat to inspect", 103);
       }
       if (self.subtab == 1)
       {
-         Graphics local13 =  objgraphics;
+         let mut local13: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local14 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect7 = rectangle1;
-        trect2 = new Rectangle(x1 + 0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect7 = trect2;
+         let mut local14: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect7: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect7: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local13,  local14, srcrect7, destrect7);
-         Graphics local15 =  objgraphics;
+         let mut local15: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local16 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect8 = rectangle1;
-        trect2 = new Rectangle(x1 + 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect8 = trect2;
+         let mut local16: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect8: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect8: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local15,  local16, srcrect8, destrect8);
         str4: String = "REGIMES";
         sizeF = objgraphics.MeasureString(str4, self.game.MarcFont16);
         let mut x5: i32 = x1 + 20;
         let mut y4: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str4, self.game.MarcFont16, x5, y4 + 4, Color.White);
-        rectangle1 = new Rectangle(x1, y4, 80, 24);
+        rectangle1 = Rectangle::new(x1, y4, 80, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a regime", 101);
-         Graphics local17 =  objgraphics;
+         let mut local17: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local18 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect9 = rectangle1;
-        trect2 = new Rectangle(x1 + 140, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect9 = trect2;
+         let mut local18: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect9: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 140, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect9: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local17,  local18, srcrect9, destrect9);
-         Graphics local19 =  objgraphics;
+         let mut local19: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local20 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect10 = rectangle1;
-        trect2 = new Rectangle(x1 + 122 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect10 = trect2;
+         let mut local20: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect10: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 122 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect10: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local19,  local20, srcrect10, destrect10);
         str5: String = "STATS";
         sizeF = objgraphics.MeasureString(str5, self.game.MarcFont16);
         let mut x6: i32 = x1 + 20 + 140;
         let mut y5: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str5, self.game.MarcFont16, x6, y5 + 4, Color.White);
-        rectangle1 = new Rectangle(x1 + 140, y5, 80, 24);
+        rectangle1 = Rectangle::new(x1 + 140, y5, 80, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a specific Stat to inspect", 103);
-         Graphics local21 =  objgraphics;
+         let mut local21: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local22 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect11 = rectangle1;
-        trect2 = new Rectangle(x1 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect11 = trect2;
+         let mut local22: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect11: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect11: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local21,  local22, srcrect11, destrect11);
-         Graphics local23 =  objgraphics;
+         let mut local23: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local24 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect12 = rectangle1;
-        trect2 = new Rectangle(x1 + 122, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect12 = trect2;
+         let mut local24: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect12: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 122, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect12: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local23,  local24, srcrect12, destrect12);
         str6: String = "ZONES";
         sizeF = objgraphics.MeasureString(str6, self.game.MarcFont16);
         let mut x7: i32 = x1 + 20 + 70;
         let mut y6: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str6, self.game.MarcFont16, x7, y6 + 4, Color.White);
-        rectangle1 = new Rectangle(x1 + 70, y6, 182, 24);
+        rectangle1 = Rectangle::new(x1 + 70, y6, 182, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a Zone", 102);
       }
       if (self.subtab == 0)
       {
-         Graphics local25 =  objgraphics;
+         let mut local25: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local26 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect13 = rectangle1;
-        trect2 = new Rectangle(x1 + 140, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect13 = trect2;
+         let mut local26: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect13: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 140, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect13: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local25,  local26, srcrect13, destrect13);
-         Graphics local27 =  objgraphics;
+         let mut local27: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local28 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect14 = rectangle1;
-        trect2 = new Rectangle(x1 + 122 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect14 = trect2;
+         let mut local28: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect14: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 122 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect14: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local27,  local28, srcrect14, destrect14);
         str7: String = "STATS";
         sizeF = objgraphics.MeasureString(str7, self.game.MarcFont16);
         let mut x8: i32 = x1 + 20 + 140;
         let mut y7: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str7, self.game.MarcFont16, x8, y7 + 4, Color.White);
-        rectangle1 = new Rectangle(x1 + 140, y7, 80, 24);
+        rectangle1 = Rectangle::new(x1 + 140, y7, 80, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a specific Stat to inspect", 103);
-         Graphics local29 =  objgraphics;
+         let mut local29: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local30 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect15 = rectangle1;
-        trect2 = new Rectangle(x1 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect15 = trect2;
+         let mut local30: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect15: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 70, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect15: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local29,  local30, srcrect15, destrect15);
-         Graphics local31 =  objgraphics;
+         let mut local31: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local32 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect16 = rectangle1;
-        trect2 = new Rectangle(x1 + 122, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect16 = trect2;
+         let mut local32: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect16: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 122, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect16: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local31,  local32, srcrect16, destrect16);
         str8: String = "ZONES";
         sizeF = objgraphics.MeasureString(str8, self.game.MarcFont16);
         let mut x9: i32 = x1 + 20 + 70;
         let mut y8: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str8, self.game.MarcFont16, x9, y8 + 4, Color.White);
-        rectangle1 = new Rectangle(x1 + 70, y8, 182, 24);
+        rectangle1 = Rectangle::new(x1 + 70, y8, 182, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a Zone", 102);
-         Graphics local33 =  objgraphics;
+         let mut local33: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local34 =  bitmap1;
-        rectangle1 = new Rectangle(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect17 = rectangle1;
-        trect2 = new Rectangle(x1 + 0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect17 = trect2;
+         let mut local34: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect17: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 0, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect17: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local33,  local34, srcrect17, destrect17);
-         Graphics local35 =  objgraphics;
+         let mut local35: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local36 =  bitmap1;
-        rectangle1 = new Rectangle(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle srcrect18 = rectangle1;
-        trect2 = new Rectangle(x1 + 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
-        Rectangle destrect18 = trect2;
+         let mut local36: &Bitmap = &bitmap1;
+        rectangle1 = Rectangle::new(BitmapStore.GetWidth(self.game.MARCLARGETAB) - 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut srcrect18: &Rectangle = &rectangle1
+        trect2 = Rectangle::new(x1 + 52, 0, 52, BitmapStore.Getheight(self.game.MARCLARGETAB));
+        let mut destrect18: &Rectangle = &trect2
         DrawMod.DrawSimplePart2( local35,  local36, srcrect18, destrect18);
         str9: String = "REGIMES";
         sizeF = objgraphics.MeasureString(str9, self.game.MarcFont16);
         let mut x10: i32 = x1 + 20;
         let mut y9: i32 = 0;
         DrawMod.DrawTextColouredMarc( objgraphics, str9, self.game.MarcFont16, x10, y9 + 4, Color.White);
-        rectangle1 = new Rectangle(x1, y9, 80, 24);
+        rectangle1 = Rectangle::new(x1, y9, 80, 24);
         trect2 = rectangle1;
         self.AddMouse( trect2, "", "Click to select a Regime", 101);
       }

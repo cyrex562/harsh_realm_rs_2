@@ -166,16 +166,16 @@ namespace WindowsApplication1
           if (self.game.Data.ExtraTabName4.Length > 0)
           {
             x1 -= width - 12;
-             Graphics local1 =  g;
+             let mut local1: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local2 =  bitmap;
+             let mut local2: &Bitmap = &bitmap;
             let mut x2: i32 = x1;
             let mut w: i32 = width;
             DrawMod.DrawScaledColorized( local1,  local2, x2, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper: String = self.game.Data.ExtraTabName4.ToUpper();
             sizeF2 = g.MeasureString(upper, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
-            trect1 = new Rectangle(x1, 66, width, 24);
+            trect1 = Rectangle::new(x1, 66, width, 24);
             trect2 = trect1;
             self.AddMouse( trect2, "", "Extra data sheet.", 54);
             self.tab54 = self.MouseCounter;
@@ -183,16 +183,16 @@ namespace WindowsApplication1
           if (self.game.Data.ExtraTabName3.Length > 0)
           {
             x1 -= width - 12;
-             Graphics local3 =  g;
+             let mut local3: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local4 =  bitmap;
+             let mut local4: &Bitmap = &bitmap;
             let mut x3: i32 = x1;
             let mut w: i32 = width;
             DrawMod.DrawScaledColorized( local3,  local4, x3, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper: String = self.game.Data.ExtraTabName3.ToUpper();
             sizeF2 = g.MeasureString(upper, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
-            trect2 = new Rectangle(x1, 66, width, 24);
+            trect2 = Rectangle::new(x1, 66, width, 24);
             trect1 = trect2;
             self.AddMouse( trect1, "", "Extra data sheet.", 53);
             self.tab53 = self.MouseCounter;
@@ -200,31 +200,31 @@ namespace WindowsApplication1
           if (self.game.Data.ExtraTabName2.Length > 0)
           {
             x1 -= width - 12;
-             Graphics local5 =  g;
+             let mut local5: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local6 =  bitmap;
+             let mut local6: &Bitmap = &bitmap;
             let mut x4: i32 = x1;
             let mut w: i32 = width;
             DrawMod.DrawScaledColorized( local5,  local6, x4, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper: String = self.game.Data.ExtraTabName2.ToUpper();
             sizeF2 = g.MeasureString(upper, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
-            trect2 = new Rectangle(x1, 66, width, 24);
+            trect2 = Rectangle::new(x1, 66, width, 24);
             trect1 = trect2;
             self.AddMouse( trect1, "", "Extra data sheet.", 52);
             self.tab52 = self.MouseCounter;
           }
           let mut x5: i32 = x1 - (width - 12);
-           Graphics local7 =  g;
+           let mut local7: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-           Bitmap local8 =  bitmap;
+           let mut local8: &Bitmap = &bitmap;
           let mut x6: i32 = x5;
           let mut w1: i32 = width;
           DrawMod.DrawScaledColorized( local7,  local8, x6, 66, w1, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
           upper1: String = self.game.Data.ExtraTabName.ToUpper();
           sizeF2 = g.MeasureString(upper1, self.game.MarcFont16);
           DrawMod.DrawTextColouredMarc( g, upper1, self.game.MarcFont16,  Math.Round((double) x5 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
-          trect2 = new Rectangle(x5, 66, width, 24);
+          trect2 = Rectangle::new(x5, 66, width, 24);
           trect1 = trect2;
           self.AddMouse( trect1, "", "Extra data sheet.", 51);
           self.tab51 = self.MouseCounter;
@@ -239,17 +239,17 @@ namespace WindowsApplication1
           if (self.game.Data.ExtraTabName4.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 4)
           {
             x7 -= width - 12;
-             Graphics local9 =  g;
+             let mut local9: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local10 =  bitmap;
+             let mut local10: &Bitmap = &bitmap;
             let mut x8: i32 = x7;
             let mut w: i32 = width;
             DrawMod.DrawScaledColorized( local9,  local10, x8, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName4.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x7 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x7, 66, width, 24);
-            Rectangle trect = rectangle;
+            rectangle = Rectangle::new(x7, 66, width, 24);
+            let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 54);
             self.tab54 = self.MouseCounter;
           }
@@ -258,17 +258,17 @@ namespace WindowsApplication1
           if (self.game.Data.ExtraTabName3.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 3)
           {
             x7 -= width - 12;
-             Graphics local11 =  g;
+             let mut local11: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local12 =  bitmap;
+             let mut local12: &Bitmap = &bitmap;
             let mut x9: i32 = x7;
             let mut w: i32 = width;
             DrawMod.DrawScaledColorized( local11,  local12, x9, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName3.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x7 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x7, 66, width, 24);
-            Rectangle trect = rectangle;
+            rectangle = Rectangle::new(x7, 66, width, 24);
+            let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 53);
             self.tab53 = self.MouseCounter;
           }
@@ -277,17 +277,17 @@ namespace WindowsApplication1
           if (self.game.Data.ExtraTabName2.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 2)
           {
             x7 -= width - 12;
-             Graphics local13 =  g;
+             let mut local13: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local14 =  bitmap;
+             let mut local14: &Bitmap = &bitmap;
             let mut x10: i32 = x7;
             let mut w: i32 = width;
             DrawMod.DrawScaledColorized( local13,  local14, x10, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName2.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x7 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x7, 66, width, 24);
-            Rectangle trect = rectangle;
+            rectangle = Rectangle::new(x7, 66, width, 24);
+            let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 52);
             self.tab52 = self.MouseCounter;
           }
@@ -296,17 +296,17 @@ namespace WindowsApplication1
           if (self.game.Data.ExtraTabName.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 1)
           {
             let mut x11: i32 = x7 - (width - 12);
-             Graphics local15 =  g;
+             let mut local15: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local16 =  bitmap;
+             let mut local16: &Bitmap = &bitmap;
             let mut x12: i32 = x11;
             let mut w: i32 = width;
             DrawMod.DrawScaledColorized( local15,  local16, x12, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x11 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x11, 66, width, 24);
-            Rectangle trect = rectangle;
+            rectangle = Rectangle::new(x11, 66, width, 24);
+            let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 51);
             self.tab51 = self.MouseCounter;
           }
@@ -333,16 +333,16 @@ namespace WindowsApplication1
             upper = self.game.Data.ExtraTabName4.ToUpper();
             x13 -= (width - 12) * (num3 - 3);
           }
-           Graphics local17 =  g;
+           let mut local17: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-           Bitmap local18 =  bitmap;
+           let mut local18: &Bitmap = &bitmap;
           let mut x14: i32 = x13;
           let mut w2: i32 = width;
           DrawMod.DrawScaledColorized( local17,  local18, x14, 66, w2, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
           sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
           DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x13 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
-          rectangle = new Rectangle(x13, 66, width, 24);
-          Rectangle trect3 = rectangle;
+          rectangle = Rectangle::new(x13, 66, width, 24);
+          let mut trect3: &Rectangle = &rectangle
           self.AddMouse( trect3, "", "Extra data sheet.", 50 + self.game.EditObj.SetViewModeExtraNr);
           if (self.game.EditObj.SetViewModeExtraNr == 1)
             self.tab51 = self.MouseCounter;
@@ -403,80 +403,80 @@ namespace WindowsApplication1
             if (self.game.Data.ExtraTabName4.Length > 0)
             {
               x15 -= width - 12;
-               Graphics local19 =  g;
+               let mut local19: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-               Bitmap local20 =  bitmap;
+               let mut local20: &Bitmap = &bitmap;
               let mut x16: i32 = x15;
               let mut w: i32 = width;
               DrawMod.DrawScaledColorized( local19,  local20, x16, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName4.ToUpper();
               sizeF4 = g.MeasureString(upper, self.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x15, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x15, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 54);
               self.tab54 = self.MouseCounter;
             }
             if (self.game.Data.ExtraTabName3.Length > 0)
             {
               x15 -= width - 12;
-               Graphics local21 =  g;
+               let mut local21: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-               Bitmap local22 =  bitmap;
+               let mut local22: &Bitmap = &bitmap;
               let mut x17: i32 = x15;
               let mut w: i32 = width;
               DrawMod.DrawScaledColorized( local21,  local22, x17, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName3.ToUpper();
               sizeF4 = g.MeasureString(upper, self.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x15, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x15, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 53);
               self.tab53 = self.MouseCounter;
             }
             if (self.game.Data.ExtraTabName2.Length > 0)
             {
               x15 -= width - 12;
-               Graphics local23 =  g;
+               let mut local23: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-               Bitmap local24 =  bitmap;
+               let mut local24: &Bitmap = &bitmap;
               let mut x18: i32 = x15;
               let mut w: i32 = width;
               DrawMod.DrawScaledColorized( local23,  local24, x18, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName2.ToUpper();
               sizeF4 = g.MeasureString(upper, self.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x15, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x15, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 52);
               self.tab52 = self.MouseCounter;
             }
             let mut x19: i32 = x15 - (width - 12);
-             Graphics local25 =  g;
+             let mut local25: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local26 =  bitmap;
+             let mut local26: &Bitmap = &bitmap;
             let mut x20: i32 = x19;
             let mut w3: i32 = width;
             DrawMod.DrawScaledColorized( local25,  local26, x20, 66, w3, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper2: String = self.game.Data.ExtraTabName.ToUpper();
             sizeF4 = g.MeasureString(upper2, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper2, self.game.MarcFont16,  Math.Round((double) x19 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x19, 66, width, 24);
-            Rectangle trect4 = rectangle;
+            rectangle = Rectangle::new(x19, 66, width, 24);
+            let mut trect4: &Rectangle = &rectangle
             self.AddMouse( trect4, "", "Extra data sheet.", 51);
             self.tab51 = self.MouseCounter;
             let mut x21: i32 = x19 - (width - 12);
-             Graphics local27 =  g;
+             let mut local27: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local28 =  bitmap;
+             let mut local28: &Bitmap = &bitmap;
             let mut x22: i32 = x21;
             let mut w4: i32 = width;
             DrawMod.DrawScaledColorized( local27,  local28, x22, 66, w4, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str: String = "UNIT INFO";
             sizeF4 = g.MeasureString(str, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) x21 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x21, 66, width, 24);
-            Rectangle trect5 = rectangle;
+            rectangle = Rectangle::new(x21, 66, width, 24);
+            let mut trect5: &Rectangle = &rectangle
             self.AddMouse( trect5, "", "The base info of the unit is always shown.");
           }
           else
@@ -488,17 +488,17 @@ namespace WindowsApplication1
             if (self.game.Data.ExtraTabName4.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 4)
             {
               x23 -= width - 12;
-               Graphics local29 =  g;
+               let mut local29: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-               Bitmap local30 =  bitmap;
+               let mut local30: &Bitmap = &bitmap;
               let mut x24: i32 = x23;
               let mut w: i32 = width;
               DrawMod.DrawScaledColorized( local29,  local30, x24, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName4.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x23, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x23, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 54);
               self.tab54 = self.MouseCounter;
             }
@@ -507,17 +507,17 @@ namespace WindowsApplication1
             if (self.game.Data.ExtraTabName3.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 3)
             {
               x23 -= width - 12;
-               Graphics local31 =  g;
+               let mut local31: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-               Bitmap local32 =  bitmap;
+               let mut local32: &Bitmap = &bitmap;
               let mut x25: i32 = x23;
               let mut w: i32 = width;
               DrawMod.DrawScaledColorized( local31,  local32, x25, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName3.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x23, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x23, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 53);
               self.tab53 = self.MouseCounter;
             }
@@ -526,17 +526,17 @@ namespace WindowsApplication1
             if (self.game.Data.ExtraTabName2.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 2)
             {
               x23 -= width - 12;
-               Graphics local33 =  g;
+               let mut local33: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-               Bitmap local34 =  bitmap;
+               let mut local34: &Bitmap = &bitmap;
               let mut x26: i32 = x23;
               let mut w: i32 = width;
               DrawMod.DrawScaledColorized( local33,  local34, x26, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName2.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x23, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x23, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 52);
               self.tab52 = self.MouseCounter;
             }
@@ -545,17 +545,17 @@ namespace WindowsApplication1
             if (self.game.Data.ExtraTabName.Length > 0 & self.game.EditObj.SetViewModeExtraNr != 1)
             {
               let mut x27: i32 = x23 - (width - 12);
-               Graphics local35 =  g;
+               let mut local35: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-               Bitmap local36 =  bitmap;
+               let mut local36: &Bitmap = &bitmap;
               let mut x28: i32 = x27;
               let mut w: i32 = width;
               DrawMod.DrawScaledColorized( local35,  local36, x28, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x27 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x27, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x27, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 51);
               self.tab51 = self.MouseCounter;
             }
@@ -571,17 +571,17 @@ namespace WindowsApplication1
             if (self.game.Data.ExtraTabName.Length > 0)
               num7 -= width - 12;
             let mut x29: i32 = num7 - (width - 12);
-             Graphics local37 =  g;
+             let mut local37: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local38 =  bitmap;
+             let mut local38: &Bitmap = &bitmap;
             let mut x30: i32 = x29;
             let mut w5: i32 = width;
             DrawMod.DrawScaledColorized( local37,  local38, x30, 66, w5, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str: String = "UNIT INFO";
             sizeF5 = g.MeasureString(str, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) x29 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x29, 66, width, 24);
-            Rectangle trect6 = rectangle;
+            rectangle = Rectangle::new(x29, 66, width, 24);
+            let mut trect6: &Rectangle = &rectangle
             self.AddMouse( trect6, "", "The base info of the unit is always shown.", 6);
             self.tab6 = self.MouseCounter;
             let mut x31: i32 =  Math.Round((double) num5 + (double) self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
@@ -605,16 +605,16 @@ namespace WindowsApplication1
               str = self.game.Data.ExtraTabName4.ToUpper();
               x31 -= (width - 12) * (num6 - 3);
             }
-             Graphics local39 =  g;
+             let mut local39: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-             Bitmap local40 =  bitmap;
+             let mut local40: &Bitmap = &bitmap;
             let mut x32: i32 = x31;
             let mut w6: i32 = width;
             DrawMod.DrawScaledColorized( local39,  local40, x32, 66, w6, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             sizeF5 = g.MeasureString(str, self.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) x31 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x31, 66, width, 24);
-            Rectangle trect7 = rectangle;
+            rectangle = Rectangle::new(x31, 66, width, 24);
+            let mut trect7: &Rectangle = &rectangle
             self.AddMouse( trect7, "", "Extra data sheet.", 50 + self.game.EditObj.SetViewModeExtraNr);
             if (self.game.EditObj.SetViewModeExtraNr == 1)
               self.tab51 = self.MouseCounter;
@@ -629,15 +629,15 @@ namespace WindowsApplication1
         else
         {
           let mut x33: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
-           Graphics local41 =  g;
+           let mut local41: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-           Bitmap local42 =  bitmap;
+           let mut local42: &Bitmap = &bitmap;
           let mut x34: i32 = x33;
           DrawMod.DrawSimple( local41,  local42, x34, 66);
           str: String = "UNIT BASE INFO";
           SizeF sizeF6 = g.MeasureString(str, self.game.MarcFont16);
           DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) ((float) (x33 + 91) - sizeF6.Width / 2f)), 70, Color.White);
-          Rectangle trect = new Rectangle(x33, 66, BitmapStore.GetWidth(self.game.MARCLARGETAB), 24);
+          Rectangle trect = Rectangle::new(x33, 66, BitmapStore.GetWidth(self.game.MARCLARGETAB), 24);
           self.AddMouse( trect, "", "The base info of the unit is always shown.");
         }
         if (self.game.EditObj.SetViewModeExtraNr != 0)
@@ -763,36 +763,36 @@ namespace WindowsApplication1
       {
         if (active & wideTab)
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1HIGH);
-           Bitmap local2 =  bitmap;
+           let mut local2: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y2: i32 = y1;
           DrawMod.Draw( local1,  local2, x, y2, 0.05f, 0.05f, 0.05f, 1f);
         }
         if (!active & wideTab)
         {
-           Graphics local3 =  g;
+           let mut local3: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1LOW);
-           Bitmap local4 =  bitmap;
+           let mut local4: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y3: i32 = y1;
           DrawMod.Draw( local3,  local4, x, y3, 0.05f, 0.05f, 0.05f, 1f);
         }
         if (active & !wideTab)
         {
-           Graphics local5 =  g;
+           let mut local5: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB2HIGH);
-           Bitmap local6 =  bitmap;
+           let mut local6: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y4: i32 = y1;
           DrawMod.Draw( local5,  local6, x, y4, 0.05f, 0.05f, 0.05f, 1f);
         }
         if (!active & !wideTab)
         {
-           Graphics local7 =  g;
+           let mut local7: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB2LOW);
-           Bitmap local8 =  bitmap;
+           let mut local8: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y5: i32 = y1;
           DrawMod.Draw( local7,  local8, x, y5, 0.05f, 0.05f, 0.05f, 1f);
@@ -802,36 +802,36 @@ namespace WindowsApplication1
       {
         if (active & wideTab)
         {
-           Graphics local9 =  g;
+           let mut local9: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1HIGH);
-           Bitmap local10 =  bitmap;
+           let mut local10: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y6: i32 = y1;
           DrawMod.DrawSimple( local9,  local10, x, y6);
         }
         if (!active & wideTab)
         {
-           Graphics local11 =  g;
+           let mut local11: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB1LOW);
-           Bitmap local12 =  bitmap;
+           let mut local12: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y7: i32 = y1;
           DrawMod.DrawSimple( local11,  local12, x, y7);
         }
         if (active & !wideTab)
         {
-           Graphics local13 =  g;
+           let mut local13: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB2HIGH);
-           Bitmap local14 =  bitmap;
+           let mut local14: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y8: i32 = y1;
           DrawMod.DrawSimple( local13,  local14, x, y8);
         }
         if (!active & !wideTab)
         {
-           Graphics local15 =  g;
+           let mut local15: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_ORDERBAR_TAB2LOW);
-           Bitmap local16 =  bitmap;
+           let mut local16: &Bitmap = &bitmap;
           let mut x: i32 = tx;
           let mut y9: i32 = y1;
           DrawMod.DrawSimple( local15,  local16, x, y9);
@@ -843,18 +843,18 @@ namespace WindowsApplication1
         {
           if (active)
           {
-             Graphics local17 =  g;
+             let mut local17: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(spriteSlot);
-             Bitmap local18 =  bitmap;
+             let mut local18: &Bitmap = &bitmap;
             let mut x: i32 = tx + 3;
             let mut y10: i32 = y1 + 4 + spriteOffsetY;
             DrawMod.DrawSimple( local17,  local18, x, y10);
           }
           if (!active)
           {
-             Graphics local19 =  g;
+             let mut local19: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(spriteSlot);
-             Bitmap local20 =  bitmap;
+             let mut local20: &Bitmap = &bitmap;
             let mut x: i32 = tx + 3;
             let mut y11: i32 = y1 + 11 + spriteOffsetY;
             DrawMod.DrawSimple( local19,  local20, x, y11);
@@ -866,24 +866,24 @@ namespace WindowsApplication1
           Rectangle rectangle2;
           if (active)
           {
-             Graphics local21 =  g;
+             let mut local21: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-             Bitmap local22 =  bitmap;
-            rectangle1 = new Rectangle(iconSlot * 42, 32, 42, 32);
-            Rectangle srcrect = rectangle1;
-            rectangle2 = new Rectangle(tx + 4, y1 + 11, 42, 32);
-            Rectangle destrect = rectangle2;
+             let mut local22: &Bitmap = &bitmap;
+            rectangle1 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle1
+            rectangle2 = Rectangle::new(tx + 4, y1 + 11, 42, 32);
+            let mut destrect: &Rectangle = &rectangle2
             DrawMod.DrawSimplePart2( local21,  local22, srcrect, destrect);
           }
           if (!active)
           {
-             Graphics local23 =  g;
+             let mut local23: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(self.game.SE1_ICONS);
-             Bitmap local24 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 0, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(tx + 4, y1 + 18, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local24: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 0, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(tx + 4, y1 + 18, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local23,  local24, srcrect, destrect);
           }
         }
@@ -985,9 +985,9 @@ namespace WindowsApplication1
       }
       else
         DrawMod.DrawTextColouredConsoleCenter( g, sText, self.game.MarcFont16, tx + 37, y1 + 25, c1);
-      Rectangle rectangle = new Rectangle(tx, y1, 200, 50);
+      Rectangle rectangle = Rectangle::new(tx, y1, 200, 50);
       if (!wideTab)
-        rectangle = new Rectangle(tx, y1, 75, 50);
+        rectangle = Rectangle::new(tx, y1, 75, 50);
       return rectangle;
     }
 
@@ -1012,42 +1012,42 @@ namespace WindowsApplication1
       {
         if (self.game.EditObj.leftSideBarMode == 1 & self.game.ScreenWidth >= 1435)
         {
-           Graphics local1 =  objgraphics;
+           let mut local1: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
-           Bitmap local2 =  bitmap;
-          trect1 = new Rectangle(0, 0, 145, 90);
-          Rectangle srcrect = trect1;
-          rectangle = new Rectangle(0, 0, 145, 90);
-          Rectangle destrect = rectangle;
+           let mut local2: &Bitmap = &bitmap;
+          trect1 = Rectangle::new(0, 0, 145, 90);
+          let mut srcrect: &Rectangle = &trect1
+          rectangle = Rectangle::new(0, 0, 145, 90);
+          let mut destrect: &Rectangle = &rectangle
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
         }
         else
         {
-           Graphics local3 =  objgraphics;
+           let mut local3: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(self.game.SE1_SIDEBAR_TEXTURE);
-           Bitmap local4 =  bitmap;
-          rectangle = new Rectangle(35, 0, 145, 90);
-          Rectangle srcrect = rectangle;
-          trect1 = new Rectangle(0, 0, 145, 90);
-          Rectangle destrect = trect1;
+           let mut local4: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(35, 0, 145, 90);
+          let mut srcrect: &Rectangle = &rectangle
+          trect1 = Rectangle::new(0, 0, 145, 90);
+          let mut destrect: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
         }
-         Graphics local5 =  objgraphics;
+         let mut local5: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(self.game.SE1_MAINFRAME_LEFT);
-         Bitmap local6 =  bitmap;
-        rectangle = new Rectangle(0, 148, 40, self.h);
-        Rectangle srcrect1 = rectangle;
-        trect1 = new Rectangle(145, 0, 40, self.h);
-        Rectangle destrect1 = trect1;
+         let mut local6: &Bitmap = &bitmap;
+        rectangle = Rectangle::new(0, 148, 40, self.h);
+        let mut srcrect1: &Rectangle = &rectangle
+        trect1 = Rectangle::new(145, 0, 40, self.h);
+        let mut destrect1: &Rectangle = &trect1
         DrawMod.DrawSimplePart2( local5,  local6, srcrect1, destrect1);
       }
-       Graphics local7 =  objgraphics;
+       let mut local7: &Graphics = &objgraphics;
       bitmap = BitmapStore.GetBitmap(self.game.SE1_MAINFRAME_MIDDLE);
-       Bitmap local8 =  bitmap;
-      rectangle = new Rectangle(10, 0, 60, 32);
-      Rectangle srcrect2 = rectangle;
-      trect1 = new Rectangle(120, 58, self.w - 595, 32);
-      Rectangle destrect2 = trect1;
+       let mut local8: &Bitmap = &bitmap;
+      rectangle = Rectangle::new(10, 0, 60, 32);
+      let mut srcrect2: &Rectangle = &rectangle
+      trect1 = Rectangle::new(120, 58, self.w - 595, 32);
+      let mut destrect2: &Rectangle = &trect1
       DrawMod.DrawSimplePart2( local7,  local8, srcrect2, destrect2);
       self.dostuff2(objgraphics);
       let mut num1: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 158.0);
@@ -1104,13 +1104,13 @@ namespace WindowsApplication1
           let mut nr: i32 = self.game.Data.EventPicNr[eventPic1];
           num6 = 256;
           num7 = 80;
-           Graphics local10 =  objgraphics;
+           let mut local10: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local11 =  bitmap;
-          rectangle = new Rectangle(0, 0, 256, 80);
-          Rectangle srcrect3 = rectangle;
-          trect1 = new Rectangle(x1, y1, 256, 80);
-          Rectangle destrect3 = trect1;
+           let mut local11: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(0, 0, 256, 80);
+          let mut srcrect3: &Rectangle = &rectangle
+          trect1 = Rectangle::new(x1, y1, 256, 80);
+          let mut destrect3: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local10,  local11, srcrect3, destrect3);
         }
         let mut eventPic2: i32 = self.game.Data.FindEventPic(eventPicOrigSlot2, "SE_Present");
@@ -1119,18 +1119,18 @@ namespace WindowsApplication1
           let mut nr: i32 = self.game.Data.EventPicNr[eventPic2];
           num6 = 256;
           num7 = 80;
-           Graphics local12 =  objgraphics;
+           let mut local12: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local13 =  bitmap;
-          rectangle = new Rectangle(0, 0, 256, 80);
-          Rectangle srcrect4 = rectangle;
-          trect1 = new Rectangle(x1, y1, 256, 80);
-          Rectangle destrect4 = trect1;
+           let mut local13: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(0, 0, 256, 80);
+          let mut srcrect4: &Rectangle = &rectangle
+          trect1 = Rectangle::new(x1, y1, 256, 80);
+          let mut destrect4: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local12,  local13, srcrect4, destrect4);
         }
-         Graphics local14 =  objgraphics;
+         let mut local14: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(self.game.SE1_MAINFRAME_RIGHT2);
-         Bitmap local15 =  bitmap;
+         let mut local15: &Bitmap = &bitmap;
         let mut x2: i32 = self.w - 475;
         DrawMod.DrawSimple( local14,  local15, x2, 0);
         if (idValue > -1 & num3 > -1)
@@ -1175,7 +1175,7 @@ namespace WindowsApplication1
           if (str4.Length > 0)
             ttext = "Zone Name: " + str4 + "\r\n" + ttext;
           ttitle: String = name + " (" + Strings.Trim(Conversion.Str((object) self.game.SelectX)) + "," + Strings.Trim(Conversion.Str((object) self.game.SelectY)) + ")" + "<FIXEDSYS>";
-          rectangle = new Rectangle(x3 - 103, 18, 360, 65);
+          rectangle = Rectangle::new(x3 - 103, 18, 360, 65);
           trect1 = rectangle;
           self.AddMouse( trect1, ttitle, ttext);
           str7: String = "";
@@ -1200,9 +1200,9 @@ namespace WindowsApplication1
           if (Operators.CompareString(str7.ToLower(), "unknown", false) != 0)
           {
             let mut bannerSpriteNr: i32 = self.game.Data.RegimeObj[regime].BannerSpriteNr;
-             Graphics local17 =  objgraphics;
+             let mut local17: &Graphics = &objgraphics;
             bitmap = BitmapStore.GetBitmap(bannerSpriteNr);
-             Bitmap local18 =  bitmap;
+             let mut local18: &Bitmap = &bitmap;
             let mut x4: i32 = num9;
             let mut y3: i32 = y2;
             let mut w1: i32 = num10;
@@ -1214,9 +1214,9 @@ namespace WindowsApplication1
             let mut bannerSpriteNr2: i32 = self.game.Data.RegimeObj[regime].BannerSpriteNr2;
             if (bannerSpriteNr2 > 0)
             {
-               Graphics local19 =  objgraphics;
+               let mut local19: &Graphics = &objgraphics;
               bitmap = BitmapStore.GetBitmap(bannerSpriteNr2);
-               Bitmap local20 =  bitmap;
+               let mut local20: &Bitmap = &bitmap;
               let mut x5: i32 = num9;
               let mut y4: i32 = y2;
               let mut w2: i32 = num10;
@@ -1229,9 +1229,9 @@ namespace WindowsApplication1
             let mut hqSpriteNr2: i32 = self.game.Data.RegimeObj[regime].HQSpriteNr2;
             if (hqSpriteNr2 > 0)
             {
-               Graphics local21 =  objgraphics;
+               let mut local21: &Graphics = &objgraphics;
               bitmap = BitmapStore.GetBitmap(hqSpriteNr2);
-               Bitmap local22 =  bitmap;
+               let mut local22: &Bitmap = &bitmap;
               let mut x6: i32 = num9 + 4;
               let mut y5: i32 = y2 + 18;
               double r3 = (double) ((float) self.game.Data.RegimeObj[regime].Red3 / (float) byte.MaxValue) - 1.0;
@@ -1239,7 +1239,7 @@ namespace WindowsApplication1
               double b3 = (double) ((float) self.game.Data.RegimeObj[regime].Blue3 / (float) byte.MaxValue) - 1.0;
               DrawMod.Draw( local21,  local22, x6, y5, (float) r3, (float) g3, (float) b3, 0.95f);
             }
-            rectangle = new Rectangle(num9 - 20, y2, num10 + 60, height);
+            rectangle = Rectangle::new(num9 - 20, y2, num10 + 60, height);
             trect1 = rectangle;
             self.AddMouse( trect1, "", "Hex is controlled by " + self.game.Data.RegimeObj[regime].Name);
           }
@@ -1254,9 +1254,9 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring1, self.game.MarcFont4, x7, 52, self.game.seColGray);
         }
       }
-       Graphics local23 =  objgraphics;
+       let mut local23: &Graphics = &objgraphics;
       bitmap = BitmapStore.GetBitmap(self.game.SE1_MAINFRAME_LEFT2);
-       Bitmap local24 =  bitmap;
+       let mut local24: &Bitmap = &bitmap;
       DrawMod.DrawSimple( local23,  local24, 0, 0);
       if (self.exitId < 1)
       {
@@ -1936,9 +1936,9 @@ namespace WindowsApplication1
       if (str2.Length > 0)
         str5 = str5 + ": " + str2;
       SizeF sizeF2 = g.MeasureString(str5, DrawMod.TGame.MarcFont16);
-       Graphics local1 =  g;
+       let mut local1: &Graphics = &g;
       Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_BLACKGRADIENT);
-       Bitmap local2 =  bitmap;
+       let mut local2: &Bitmap = &bitmap;
       let mut x: i32 =  Math.Round((double) ((float) self.w - (float) (270.0 + (double) sizeF2.Width + 100.0)));
       let mut w: i32 =  Math.Round((double) (sizeF2.Width + 100f));
       DrawMod.DrawScaled( local1,  local2, x, 3, w, 28, true);
@@ -1974,17 +1974,17 @@ namespace WindowsApplication1
       let mut num: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num + 340 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         let mut x: i32 = num + 340 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
@@ -1993,7 +1993,7 @@ namespace WindowsApplication1
       let mut x1: i32 =  Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
       let mut y: i32 = 66;
       DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 340 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 340 + 420, y, 182, 24);
       self.AddMouse( trect, "", "Click to see the combat setup. [F12]", 3);
       self.tab3 = self.MouseCounter;
     }
@@ -2004,17 +2004,17 @@ namespace WindowsApplication1
       let mut num: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num + 0 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         let mut x: i32 = num + 0 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
@@ -2023,7 +2023,7 @@ namespace WindowsApplication1
       let mut x1: i32 =  Math.Round((double) ((float) (num + 420 + 0 + 91) - sizeF2.Width / 2f));
       let mut y: i32 = 66;
       DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 0 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 0 + 420, y, 182, 24);
       self.AddMouse( trect, "", "Click to see the info on the officer with this unit. [F9]", 4);
       self.tab4 = self.MouseCounter;
     }
@@ -2034,17 +2034,17 @@ namespace WindowsApplication1
       let mut num: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num + 170 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         let mut x: i32 = num + 170 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
@@ -2053,7 +2053,7 @@ namespace WindowsApplication1
       let mut x1: i32 =  Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
       let mut y: i32 = 66;
       DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 170 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 170 + 420, y, 182, 24);
       self.AddMouse( trect, "", "Click to see the info on the officer with this unit. [F9]", 4);
       self.tab4 = self.MouseCounter;
     }

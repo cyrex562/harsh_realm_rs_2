@@ -61,16 +61,16 @@ namespace WindowsApplication1
       self.usageMode = tUsageMode;
       if (tUsageMode == SelectUsageMode.selectHQ)
       {
-        int unitCounter1 = self.game.Data.UnitCounter;
-        for (int index = 0; index <= unitCounter1; index += 1)
+        let mut unitCounter1: i32 =  self.game.Data.UnitCounter;
+        for (let mut index: i32 =  0; index <= unitCounter1; index += 1)
           self.game.Data.UnitObj[index].TempUnitSelectable = false;
-        int unitSelected = self.game.EditObj.UnitSelected;
-        int unitCounter2 = self.game.Data.UnitCounter;
-        for (int unr = 0; unr <= unitCounter2; unr += 1)
+        let mut unitSelected: i32 =  self.game.EditObj.UnitSelected;
+        let mut unitCounter2: i32 =  self.game.Data.UnitCounter;
+        for (let mut unr: i32 =  0; unr <= unitCounter2; unr += 1)
         {
           if (self.game.Data.UnitObj[unr].PreDef == -1 & self.game.Data.UnitObj[unr].X > -1 && unitSelected > -1 && unitSelected != unr & self.game.Data.UnitObj[unitSelected].HQ != unr & self.game.Data.UnitObj[unr].IsHQ & (self.game.Data.UnitObj[unr].Regime == self.game.Data.Turn | self.game.Data.UnitObj[unr].Regime == self.game.Data.UnitObj[unitSelected].Regime) && self.game.HandyFunctionsObj.CanUnitBecomeHQfor(unr, unitSelected))
           {
-            int num = 0;
+            let mut num: i32 =  0;
             if (self.game.Data.UnitObj[unitSelected].IsHQ)
               num = 1;
             if ((double) self.game.Data.RuleVar[304] == 0.0 | (double) (self.game.HandyFunctionsObj.HowmanyHQsAbove(unr) + self.game.HandyFunctionsObj.HowmanyHQsBelow(unitSelected) + 1 + num) <= (double) self.game.Data.RuleVar[304])
@@ -80,12 +80,12 @@ namespace WindowsApplication1
       }
       if (tUsageMode == SelectUsageMode.autoMove)
       {
-        int unitSelected = self.game.EditObj.UnitSelected;
-        int mapWidth = self.game.Data.MapObj[0].MapWidth;
-        for (int x = 0; x <= mapWidth; x += 1)
+        let mut unitSelected: i32 =  self.game.EditObj.UnitSelected;
+        let mut mapWidth: i32 =  self.game.Data.MapObj[0].MapWidth;
+        for (let mut x: i32 =  0; x <= mapWidth; x += 1)
         {
-          int mapHeight = self.game.Data.MapObj[0].MapHeight;
-          for (int y = 0; y <= mapHeight; y += 1)
+          let mut mapHeight: i32 =  self.game.Data.MapObj[0].MapHeight;
+          for (let mut y: i32 =  0; y <= mapHeight; y += 1)
           {
             self.game.Data.MapObj[0].HexObj[x, y].tempSelectable = false;
             if (self.game.Data.MapObj[0].HexObj[x, y].Regime == self.game.Data.Turn && self.game.Data.LandscapeTypeObj[self.game.Data.MapObj[0].HexObj[x, y].LandscapeType].AIBlock == 0)
@@ -98,15 +98,15 @@ namespace WindowsApplication1
       }
       if (tUsageMode == SelectUsageMode.blowBridge)
       {
-        int unitSelected = self.game.EditObj.UnitSelected;
-        int mapWidth = self.game.Data.MapObj[0].MapWidth;
-        for (int index1 = 0; index1 <= mapWidth; index1 += 1)
+        let mut unitSelected: i32 =  self.game.EditObj.UnitSelected;
+        let mut mapWidth: i32 =  self.game.Data.MapObj[0].MapWidth;
+        for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
         {
-          int mapHeight = self.game.Data.MapObj[0].MapHeight;
-          for (int index2 = 0; index2 <= mapHeight; index2 += 1)
+          let mut mapHeight: i32 =  self.game.Data.MapObj[0].MapHeight;
+          for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
             self.game.Data.MapObj[0].HexObj[index1, index2].tempSelectable = false;
         }
-        int num = 1;
+        let mut num: i32 =  1;
         do
         {
           Coordinate coordinate = self.game.HandyFunctionsObj.HexNeighbourSameMap(self.game.Data.UnitObj[unitSelected].X, self.game.Data.UnitObj[unitSelected].Y, 0, num);
@@ -122,20 +122,20 @@ namespace WindowsApplication1
       if (tUsageMode == SelectUsageMode.repairBridge)
       {
         CoordList coordList = self.game.HandyFunctionsObj.InfraHexHighlight_getCoordList(self.game.SelectX, self.game.SelectY, 0, self.game.EditObj.UnitSelected);
-        int mapWidth = self.game.Data.MapObj[0].MapWidth;
-        for (int index3 = 0; index3 <= mapWidth; index3 += 1)
+        let mut mapWidth: i32 =  self.game.Data.MapObj[0].MapWidth;
+        for (let mut index3: i32 =  0; index3 <= mapWidth; index3 += 1)
         {
-          int mapHeight = self.game.Data.MapObj[0].MapHeight;
-          for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+          let mut mapHeight: i32 =  self.game.Data.MapObj[0].MapHeight;
+          for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
             self.game.Data.MapObj[0].HexObj[index3, index4].tempSelectable = false;
         }
-        int counter = coordList.counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  coordList.counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
         {
           Coordinate coordinate = coordList.coord[index];
           if (coordinate.onmap)
           {
-            int dat1 = self.game.HandyFunctionsObj.HexFacing(self.game.SelectX, self.game.SelectY, 0, coordinate.x, coordinate.y, 0);
+            let mut dat1: i32 =  self.game.HandyFunctionsObj.HexFacing(self.game.SelectX, self.game.SelectY, 0, coordinate.x, coordinate.y, 0);
             self.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].tempSelectable = true;
             self.HL.AddCoord(coordinate.x, coordinate.y, 0, dat1, 0);
           }
@@ -145,8 +145,8 @@ namespace WindowsApplication1
       {
         if (self.usageMode == SelectUsageMode.joinAttack)
         {
-          int unitCounter = self.game.Data.UnitCounter;
-          for (int tid = 0; tid <= unitCounter; tid += 1)
+          let mut unitCounter: i32 =  self.game.Data.UnitCounter;
+          for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
           {
             if (self.game.Data.UnitObj[tid].TempUnitSelectable)
               self.UL.Add(tid, 0);
@@ -154,8 +154,8 @@ namespace WindowsApplication1
         }
         else if (self.usageMode == SelectUsageMode.selectHQ)
         {
-          int unitCounter = self.game.Data.UnitCounter;
-          for (int tid = 0; tid <= unitCounter; tid += 1)
+          let mut unitCounter: i32 =  self.game.Data.UnitCounter;
+          for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
           {
             if (self.game.Data.UnitObj[tid].TempUnitSelectable)
               self.UL.Add(tid, 0);
@@ -210,8 +210,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (self.SubPartCounter > -1)
       {
-        int subPartCounter = self.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  self.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
           {
@@ -226,8 +226,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = self.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  self.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height)
         {
@@ -320,8 +320,8 @@ namespace WindowsApplication1
       }
       else
       {
-        int num1 = 0;
-        int num2 = self.usageMode == SelectUsageMode.blowBridge | self.usageMode == SelectUsageMode.repairBridge ? 1 : 0;
+        let mut num1: i32 =  0;
+        let mut num2: i32 =  self.usageMode == SelectUsageMode.blowBridge | self.usageMode == SelectUsageMode.repairBridge ? 1 : 0;
         if (self.mapid == 0)
         {
           let mut tsubpart: SubPartClass =  new MapPartClass(947, 460 + num1, self.game, ZoomLevel: 0, tFromPopupMap: true);
@@ -355,13 +355,13 @@ namespace WindowsApplication1
           }
           else
           {
-             Graphics local1 =  graphics;
-            int num3 = self.UL.Counter + 1;
+             let mut local1: &Graphics = &graphics;
+            let mut num3: i32 =  self.UL.Counter + 1;
             tstring1: String = num3.ToString() + " units selectable.";
             Font marcFont3_1 = self.game.MarcFont3;
             Color white1 = Color.White;
             DrawMod.DrawTextColouredMarc( local1, tstring1, marcFont3_1, 970, 11, white1);
-             Graphics local2 =  graphics;
+             let mut local2: &Graphics = &graphics;
             num3 = self.game.EditObj.TempUnitList.counter + 1;
             tstring2: String = num3.ToString() + " selected.";
             Font marcFont3_2 = self.game.MarcFont3;
@@ -400,14 +400,14 @@ namespace WindowsApplication1
           if (self.usageMode == SelectUsageMode.blowBridge | self.usageMode == SelectUsageMode.repairBridge)
           {
             self.OptionsListObj = ListClass::new();
-            int num4 = -1;
-            int tlistselect = -1;
-            int counter = self.HL.counter;
-            for (int index = 0; index <= counter; index += 1)
+            let mut num4: i32 =  -1;
+            let mut tlistselect: i32 =  -1;
+            let mut counter: i32 =  self.HL.counter;
+            for (let mut index: i32 =  0; index <= counter; index += 1)
             {
-              int x = self.HL.coord[index].x;
-              int y = self.HL.coord[index].y;
-              int data1 = self.HL.coord[index].data1;
+              let mut x: i32 =  self.HL.coord[index].x;
+              let mut y: i32 =  self.HL.coord[index].y;
+              let mut data1: i32 =  self.HL.coord[index].data1;
               num4 += 1;
               if (self.game.SelectX == x & self.game.SelectY == y)
                 tlistselect = num4;
@@ -429,14 +429,14 @@ namespace WindowsApplication1
         else if (self.usageMode == SelectUsageMode.autoMove)
         {
           self.OptionsListObj = ListClass::new();
-          int num5 = -1;
-          int tlistselect = -1;
-          int counter = self.HL.counter;
-          for (int tdata = 0; tdata <= counter; tdata += 1)
+          let mut num5: i32 =  -1;
+          let mut tlistselect: i32 =  -1;
+          let mut counter: i32 =  self.HL.counter;
+          for (let mut tdata: i32 =  0; tdata <= counter; tdata += 1)
           {
-            int x = self.HL.coord[tdata].x;
-            int y = self.HL.coord[tdata].y;
-            int data1 = self.HL.coord[tdata].data1;
+            let mut x: i32 =  self.HL.coord[tdata].x;
+            let mut y: i32 =  self.HL.coord[tdata].y;
+            let mut data1: i32 =  self.HL.coord[tdata].data1;
             if (self.game.Data.MapObj[0].HexObj[x, y].Location > -1 && self.game.Data.LocTypeObj[self.game.Data.LocObj[self.game.Data.MapObj[0].HexObj[x, y].Location].Type].cityLevel >= 3)
             {
               num5 += 1;
@@ -460,16 +460,16 @@ namespace WindowsApplication1
         else
         {
           self.OptionsListObj = ListClass::new();
-          int num6 = -1;
-          int tlistselect = -1;
-          int counter = self.UL.Counter;
-          for (int index1 = 0; index1 <= counter; index1 += 1)
+          let mut num6: i32 =  -1;
+          let mut tlistselect: i32 =  -1;
+          let mut counter: i32 =  self.UL.Counter;
+          for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
           {
-            int index2 = self.UL.Id[index1];
+            let mut index2: i32 =  self.UL.Id[index1];
             num6 += 1;
             if (index2 == self.game.EditObj.UnitSelected)
               tlistselect = num6;
-            int nr = self.game.SMALLCHAR1;
+            let mut nr: i32 =  self.game.SMALLCHAR1;
             if (self.game.EditObj.TempUnitList.CheckIfPresent(index2))
               nr = self.game.SMALLCHAR2;
             name: String = self.game.Data.UnitObj[index2].Name;
@@ -494,12 +494,12 @@ namespace WindowsApplication1
         }
         if (self.usageMode == SelectUsageMode.joinAttack | self.usageMode == SelectUsageMode.selectHQ)
         {
-          int screenWidth = self.game.ScreenWidth;
+          let mut screenWidth: i32 =  self.game.ScreenWidth;
           self.game.ScreenWidth = 1280;
           PlayExtraWindowClass2 extraWindowClass2 = new PlayExtraWindowClass2( self.game, tcalledFromNonCardSelectWindow: true);
           extraWindowClass2.Paint();
-          int mouseCounter = extraWindowClass2.MouseCounter;
-          for (int index = 0; index <= mouseCounter; index += 1)
+          let mut mouseCounter: i32 =  extraWindowClass2.MouseCounter;
+          for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
           {
             Rectangle trect = extraWindowClass2.MouseRect[index];
             trect.X += 0;
@@ -510,7 +510,7 @@ namespace WindowsApplication1
             self.AddMouse( trect, extraWindowClass2.MouseTitle[index], extraWindowClass2.MouseText[index]);
           }
           self.game.ScreenWidth = screenWidth;
-          DrawMod.DrawSimplePart2( graphics,  extraWindowClass2.OwnBitmap, new Rectangle(10, 0, 1240, 222), new Rectangle(10, 529, 1240, 222));
+          DrawMod.DrawSimplePart2( graphics,  extraWindowClass2.OwnBitmap, Rectangle::new(10, 0, 1240, 222), Rectangle::new(10, 529, 1240, 222));
           extraWindowClass2.Dispose();
         }
         if (self.game.EditObj.UnitSelected > -1 && self.usageMode == SelectUsageMode.selectHQ)
@@ -553,7 +553,7 @@ namespace WindowsApplication1
             tsubpart2 =  new TextButtonPartClass("SELECT", 180, "Hex is not selectable.",  self.OwnBitmap, 116, 657, true, theight: 60, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
             self.cancel2id = self.AddSubPart( tsubpart2, 116, 657, 180, 60, 0);
           }
-          int index = -1;
+          let mut index: i32 =  -1;
           if (self.tUnitSelected > -1)
             index = !self.game.Data.UnitObj[self.tUnitSelected].IsHQ ? self.game.Data.UnitObj[self.tUnitSelected].HQ : self.tUnitSelected;
           DrawMod.DrawTextColouredMarc( graphics, "Include Subordinates", self.game.MarcFont3, 456, 617, Color.White);
@@ -620,16 +620,16 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.SubPartCounter > -1)
       {
-        int subPartCounter = self.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  self.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > self.SubPartX[index1] & x < self.SubPartX[index1] + self.SubPartW[index1] && y > self.SubPartY[index1] & y < self.SubPartY[index1] + self.SubPartH[index1])
           {
-            int num1 = self.SubPartID[index1];
+            let mut num1: i32 =  self.SubPartID[index1];
             if (num1 == self.Pic1Id)
             {
-              int selectX = self.game.SelectX;
-              int selectY = self.game.SelectY;
+              let mut selectX: i32 =  self.game.SelectX;
+              let mut selectY: i32 =  self.game.SelectY;
               self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
               self.game.EditObj.TempCoordList = CoordList::new();
               self.SubPartList[self.SubpartNr(self.mapid)].Paint();
@@ -639,7 +639,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.OptionsListId)
             {
-              int index2 = self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
+              let mut index2: i32 =  self.SubPartList[index1].Click(x - self.SubPartX[index1], y - self.SubPartY[index1]);
               self.SubPartFlag[index1] = true;
               if (index2 > -1)
               {
@@ -652,8 +652,8 @@ namespace WindowsApplication1
                 }
                 else if (self.usageMode == SelectUsageMode.repairBridge | self.usageMode == SelectUsageMode.blowBridge)
                 {
-                  int counter = self.HL.counter;
-                  for (int index4 = 0; index4 <= counter; index4 += 1)
+                  let mut counter: i32 =  self.HL.counter;
+                  for (let mut index4: i32 =  0; index4 <= counter; index4 += 1)
                   {
                     if (self.HL.coord[index4].data1 == index2)
                     {
@@ -668,7 +668,7 @@ namespace WindowsApplication1
                   self.game.SelectX = self.game.Data.UnitObj[index3].X;
                   self.game.SelectY = self.game.Data.UnitObj[index3].Y;
                 }
-                int zoom = self.game.EditObj.Zoom;
+                let mut zoom: i32 =  self.game.EditObj.Zoom;
                 self.game.EditObj.Zoom = 0;
                 self.game.HandyFunctionsObj.CenterOnXY(self.game.SelectX, self.game.SelectY, useWidth: 939, useHeight: 538);
                 self.game.EditObj.Zoom = zoom;
@@ -683,15 +683,15 @@ namespace WindowsApplication1
             }
             if (num1 == self.mapid)
             {
-              int selectX = self.game.SelectX;
-              int selectY = self.game.SelectY;
+              let mut selectX: i32 =  self.game.SelectX;
+              let mut selectY: i32 =  self.game.SelectY;
               Coordinate coordinate = self.SubPartList[index1].ClickMap(x - self.SubPartX[index1], y - self.SubPartY[index1]);
               if (coordinate.onmap)
               {
                 self.game.SelectX = coordinate.x;
                 self.game.SelectY = coordinate.y;
                 self.game.EditObj.TempCoordList = CoordList::new();
-                int num2 = !(selectX == self.game.SelectX & selectY == self.game.SelectY) ? self.game.HandyFunctionsObj.ClickOnHexGivesUnit(self.game.SelectX, self.game.SelectY, self.game.EditObj.MapSelected, true, b, coordinate.data1, coordinate.penalty, true) : self.game.HandyFunctionsObj.ClickOnHexGivesUnit(self.game.SelectX, self.game.SelectY, self.game.EditObj.MapSelected, false, b, coordinate.data1, coordinate.penalty, true);
+                let mut num2: i32 =  !(selectX == self.game.SelectX & selectY == self.game.SelectY) ? self.game.HandyFunctionsObj.ClickOnHexGivesUnit(self.game.SelectX, self.game.SelectY, self.game.EditObj.MapSelected, true, b, coordinate.data1, coordinate.penalty, true) : self.game.HandyFunctionsObj.ClickOnHexGivesUnit(self.game.SelectX, self.game.SelectY, self.game.EditObj.MapSelected, false, b, coordinate.data1, coordinate.penalty, true);
                 if (self.game.EditObj.UnitSelected != num2)
                   self.game.EditObj.SFSelected = -1;
                 self.game.EditObj.UnitSelected = num2;
@@ -717,8 +717,8 @@ namespace WindowsApplication1
               self.game.EditObj.MapSelected = self.tSelectMap;
               self.game.EditObj.TempCoordList = CoordList::new();
               self.game.EditObj.AreaSlot = -1;
-              int unitCounter = self.game.Data.UnitCounter;
-              for (int index5 = 0; index5 <= unitCounter; index5 += 1)
+              let mut unitCounter: i32 =  self.game.Data.UnitCounter;
+              for (let mut index5: i32 =  0; index5 <= unitCounter; index5 += 1)
                 self.game.Data.UnitObj[index5].TempUnitSelectable = false;
               self.game.EditObj.UnitSelected = self.tUnitSelected;
               DrawMod.GetWidthForMiniMap();
@@ -739,7 +739,7 @@ namespace WindowsApplication1
                 self.resultString = self.game.ProcessingObj.AutoMoveChange(self.tUnitSelected, true, self.subordinatesToo, self.game.SelectX, self.game.SelectY);
               if (self.usageMode == SelectUsageMode.blowBridge)
               {
-                int slot = self.HL.FindSlot(self.game.SelectX, self.game.SelectY, 0);
+                let mut slot: i32 =  self.HL.FindSlot(self.game.SelectX, self.game.SelectY, 0);
                 self.game.EditObj.UnitSelected = self.tUnitSelected;
                 self.game.EditObj.form3windowClass.form3_orderResult = self.game.ProcessingObj.BlowBridge(self.tUnitSelected, self.tSelectX, self.tSelectY, 0, self.HL.coord[slot].data1 - 1);
                 self.game.EditObj.form3windowClass.form3_returnInstruction = true;
@@ -747,7 +747,7 @@ namespace WindowsApplication1
               }
               if (self.usageMode == SelectUsageMode.repairBridge)
               {
-                int slot = self.HL.FindSlot(self.game.SelectX, self.game.SelectY, 0);
+                let mut slot: i32 =  self.HL.FindSlot(self.game.SelectX, self.game.SelectY, 0);
                 self.game.EditObj.UnitSelected = self.tUnitSelected;
                 self.game.EditObj.form3windowClass.form3_orderResult = self.game.ProcessingObj.BuildInfra(self.game.EditObj.UnitSelected, self.tSelectX, self.tSelectY, 0, self.HL.coord[slot].data1 - 1);
                 self.game.EditObj.form3windowClass.form3_returnInstruction = true;
@@ -785,8 +785,8 @@ namespace WindowsApplication1
               self.game.EditObj.MapSelected = self.tSelectMap;
               self.game.EditObj.TempCoordList = CoordList::new();
               self.game.EditObj.AreaSlot = -1;
-              int unitCounter = self.game.Data.UnitCounter;
-              for (int index6 = 0; index6 <= unitCounter; index6 += 1)
+              let mut unitCounter: i32 =  self.game.Data.UnitCounter;
+              for (let mut index6: i32 =  0; index6 <= unitCounter; index6 += 1)
                 self.game.Data.UnitObj[index6].TempUnitSelectable = false;
               self.game.EditObj.UnitSelected = self.tUnitSelected;
               DrawMod.GetWidthForMiniMap();
@@ -810,8 +810,8 @@ namespace WindowsApplication1
               self.game.EditObj.MapSelected = self.tSelectMap;
               self.game.EditObj.TempCoordList = CoordList::new();
               self.game.EditObj.AreaSlot = -1;
-              int unitCounter = self.game.Data.UnitCounter;
-              for (int index7 = 0; index7 <= unitCounter; index7 += 1)
+              let mut unitCounter: i32 =  self.game.Data.UnitCounter;
+              for (let mut index7: i32 =  0; index7 <= unitCounter; index7 += 1)
                 self.game.Data.UnitObj[index7].TempUnitSelectable = false;
               self.game.EditObj.UnitSelected = self.tUnitSelected;
               DrawMod.GetWidthForMiniMap();
@@ -835,8 +835,8 @@ namespace WindowsApplication1
               self.game.EditObj.MapSelected = self.tSelectMap;
               self.game.EditObj.TempCoordList = CoordList::new();
               self.game.EditObj.AreaSlot = -1;
-              int unitCounter = self.game.Data.UnitCounter;
-              for (int index8 = 0; index8 <= unitCounter; index8 += 1)
+              let mut unitCounter: i32 =  self.game.Data.UnitCounter;
+              for (let mut index8: i32 =  0; index8 <= unitCounter; index8 += 1)
                 self.game.Data.UnitObj[index8].TempUnitSelectable = false;
               self.game.EditObj.UnitSelected = self.tUnitSelected;
               DrawMod.GetWidthForMiniMap();
@@ -925,8 +925,8 @@ namespace WindowsApplication1
     pub HandleKeyup: WindowReturnClass(int nr)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      int cornerX = self.game.CornerX;
-      int cornerY = self.game.CornerY;
+      let mut cornerX: i32 =  self.game.CornerX;
+      let mut cornerY: i32 =  self.game.CornerY;
       if (nr == 27)
         return self.HandleMouseClick(self.SubPartX[self.SubpartNr(self.quitId)] + 1, self.SubPartY[self.SubpartNr(self.quitId)] + 1, 1);
       if (nr == 32 & self.okid > 0)
@@ -938,8 +938,8 @@ namespace WindowsApplication1
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       bool flag = false;
-      int cornerX = self.game.CornerX;
-      int cornerY = self.game.CornerY;
+      let mut cornerX: i32 =  self.game.CornerX;
+      let mut cornerY: i32 =  self.game.CornerY;
       if (nr == 39)
       {
         this += 1.game.CornerX;
@@ -964,13 +964,13 @@ namespace WindowsApplication1
           self.game.CornerY = 0;
         flag = true;
       }
-      int num1 = 230;
+      let mut num1: i32 =  230;
       if (self.game.Data.Round == 0)
         num1 += 100;
-      int num2 =  Math.Round(Conversion.Int((double) (self.OwnBitmap.Width - 250) / (double) (53 * (self.game.EditObj.Zoom + 1))));
-      int num3 =  Math.Round(Conversion.Int((double) (self.OwnBitmap.Height - num1) / (double) (48 * (self.game.EditObj.Zoom + 1))));
-      int num4 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth - self.game.CornerX + 1;
-      int num5 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight - self.game.CornerY + 1;
+      let mut num2: i32 =   Math.Round(Conversion.Int((double) (self.OwnBitmap.Width - 250) / (double) (53 * (self.game.EditObj.Zoom + 1))));
+      let mut num3: i32 =   Math.Round(Conversion.Int((double) (self.OwnBitmap.Height - num1) / (double) (48 * (self.game.EditObj.Zoom + 1))));
+      let mut num4: i32 =  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth - self.game.CornerX + 1;
+      let mut num5: i32 =  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight - self.game.CornerY + 1;
       if (num2 > num4 & !self.game.Data.MapObj[self.game.EditObj.MapSelected].MapLoop)
       {
         flag = true;

@@ -22,13 +22,13 @@ namespace WindowsApplication1
 {
   pub class Form1 : ImmoveableForm
   {
-    pub const int ENUM_CURRENT_SETTINGS = -1;
-    pub const int CDS_UPDATEREGISTRY = 1;
-    pub const int CDS_TEST = 2;
-    pub const int CDS_FULLSCREEN = 4;
-    pub const int DISP_CHANGE_SUCCESSFUL = 0;
-    pub const int DISP_CHANGE_RESTART = 1;
-    pub const int DISP_CHANGE_FAILED = -1;
+    pub const let mut ENUM_CURRENT_SETTINGS: i32 =  -1;
+    pub const let mut CDS_UPDATEREGISTRY: i32 =  1;
+    pub const let mut CDS_TEST: i32 =  2;
+    pub const let mut CDS_FULLSCREEN: i32 =  4;
+    pub const let mut DISP_CHANGE_SUCCESSFUL: i32 =  0;
+    pub const let mut DISP_CHANGE_RESTART: i32 =  1;
+    pub const let mut DISP_CHANGE_FAILED: i32 =  -1;
      int TempKeyTest;
      GameClass Game;
     pub ScreenClass Screeny;
@@ -186,7 +186,7 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          int num =  Interaction.MsgBox((object) "Error trying to read windows.txt file.");
+          let mut num: i32 =   Interaction.MsgBox((object) "Error trying to read windows.txt file.");
           ProjectData.ClearProjectError();
         }
       }
@@ -310,7 +310,7 @@ namespace WindowsApplication1
           str1: String = streamReader1.ReadLine();
           streamReader1.Close();
           Prompt: String = "0] " + str1 + "\r\n";
-          int Number = 0;
+          let mut Number: i32 =  0;
           foreach (FileInfo fileInfo in files)
           {
             Number += 1;
@@ -319,7 +319,7 @@ namespace WindowsApplication1
             streamReader2.Close();
             Prompt = Prompt + Strings.Trim(Conversion.Str((object) Number)) + "] " + str2 + "\r\n";
           }
-          int num =  Math.Round(Conversion.Val(Interaction.InputBox(Prompt, "Shadow Empire : Planetary Conquest : Select Mod")));
+          let mut num: i32 =   Math.Round(Conversion.Val(Interaction.InputBox(Prompt, "Shadow Empire : Planetary Conquest : Select Mod")));
           if (num > 0 & num <= files.Length)
           {
             DrawMod.ModFile = "mods/" + files[num - 1].Name;
@@ -357,7 +357,7 @@ namespace WindowsApplication1
       this.doubleSize = DrawMod.TGame.EditObj.DoubleSize;
       if (Form1.SteamAPI_RestartAppIfNecessary(1154840) == 1)
       {
-        int num =  Interaction.MsgBox((object) "The game is not launched from Steam. The game will close down. Please start the game up from Steam. ", Title: ((object) "Copy protection check"));
+        let mut num: i32 =   Interaction.MsgBox((object) "The game is not launched from Steam. The game will close down. Please start the game up from Steam. ", Title: ((object) "Copy protection check"));
         ProjectData.EndApp();
       }
       this.Game.EditObj.ShownWelcome = false;
@@ -459,7 +459,7 @@ namespace WindowsApplication1
       }
       if (this.Game.ScreenWidth < 1280 | this.Game.ScreenHeight < 768)
       {
-        int num1 =  Interaction.MsgBox((object) "The minimum screen resolution your desktop needs to have is 1280x768.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox((object) "The minimum screen resolution your desktop needs to have is 1280x768.", Title: ((object) "Shadow Empire : Planetary Conquest"));
       }
       if (this.doubleSize)
       {
@@ -491,14 +491,14 @@ namespace WindowsApplication1
 
     pub void SuperImposeMessage(string texty, string texty2)
     {
-      int num1 =  Math.Round((double) this.Game.RealScreenWidth / 2.0 - 185.0);
-      int num2 =  Math.Round((double) this.Game.RealScreenHeight / 2.0 - 106.0);
+      let mut num1: i32 =   Math.Round((double) this.Game.RealScreenWidth / 2.0 - 185.0);
+      let mut num2: i32 =   Math.Round((double) this.Game.RealScreenHeight / 2.0 - 106.0);
       Graphics objgraphics = Graphics.FromHwnd(this.Handle);
-       Graphics local1 =  objgraphics;
+       let mut local1: &Graphics = &objgraphics;
       Bitmap bitmap = BitmapStore.GetBitmap(this.Game.SE1_SUPERIMPOSEBACKGROUND);
-       Bitmap local2 =  bitmap;
-      int x = num1;
-      int y = num2;
+       let mut local2: &Bitmap = &bitmap;
+      let mut x: i32 =  num1;
+      let mut y: i32 =  num2;
       DrawMod.DrawSimple( local1,  local2, x, y);
       if (texty.Length > 1)
       {
@@ -524,9 +524,9 @@ namespace WindowsApplication1
       {
         if (this.Screeny != null)
         {
-          int num1 = e.ClipRectangle.Width > 0 ? 1 : 0;
+          let mut num1: i32 =  e.ClipRectangle.Width > 0 ? 1 : 0;
           Rectangle clipRectangle = e.ClipRectangle;
-          int num2 = clipRectangle.Height > 0 ? 1 : 0;
+          let mut num2: i32 =  clipRectangle.Height > 0 ? 1 : 0;
           if ((num1 & num2) != 0)
           {
             if (this.doubleSize)
@@ -534,11 +534,11 @@ namespace WindowsApplication1
               Rectangle rect;
                Rectangle local =  rect;
               clipRectangle = e.ClipRectangle;
-              int x =  Math.Round((double) ((float) clipRectangle.X * this.doubleModX));
-              int y =  Math.Round((double) ((float) e.ClipRectangle.Y * this.doubleModY));
-              int width =  Math.Round((double) ((float) e.ClipRectangle.Width * this.doubleModX));
-              int height =  Math.Round((double) ((float) e.ClipRectangle.Height * this.doubleModY));
-              local = new Rectangle(x, y, width, height);
+              let mut x: i32 =   Math.Round((double) ((float) clipRectangle.X * this.doubleModX));
+              let mut y: i32 =   Math.Round((double) ((float) e.ClipRectangle.Y * this.doubleModY));
+              let mut width: i32 =   Math.Round((double) ((float) e.ClipRectangle.Width * this.doubleModX));
+              let mut height: i32 =   Math.Round((double) ((float) e.ClipRectangle.Height * this.doubleModY));
+              local = Rectangle::new(x, y, width, height);
               this.PaintScreeny(rect);
             }
             else
@@ -589,13 +589,13 @@ namespace WindowsApplication1
       }
       else
       {
-        int x2 = e.X;
+        let mut x2: i32 =  e.X;
         Rectangle bounds = Screen.FromControl((Control) this).Bounds;
-        int x3 = bounds.X;
+        let mut x3: i32 =  bounds.X;
         x1 = x2 - x3;
-        int y2 = e.Y;
+        let mut y2: i32 =  e.Y;
         bounds = Screen.FromControl((Control) this).Bounds;
-        int y3 = bounds.Y;
+        let mut y3: i32 =  bounds.Y;
         y1 = y2 - y3;
       }
       if (this.doubleSize)
@@ -909,16 +909,16 @@ namespace WindowsApplication1
       if (this.Game.EditObj.mouseScreenLock)
       {
         this.currentlyInMouseLock = true;
-        int num1 = this.hasFocus ? 1 : 0;
-        int x2 = Cursor.Clip.X;
+        let mut num1: i32 =  this.hasFocus ? 1 : 0;
+        let mut x2: i32 =  Cursor.Clip.X;
         Rectangle bounds1 = this.Bounds;
-        int x3 = bounds1.X;
-        int num2 = x2 == x3 ? 1 : 0;
-        int y2 = Cursor.Clip.Y;
+        let mut x3: i32 =  bounds1.X;
+        let mut num2: i32 =  x2 == x3 ? 1 : 0;
+        let mut y2: i32 =  Cursor.Clip.Y;
         Rectangle bounds2 = this.Bounds;
-        int y3 = bounds2.Y;
-        int num3 = y2 == y3 ? 1 : 0;
-        int num4 = (num2 & num3 & (this.Bounds.Width == Cursor.Clip.Width ? 1 : 0) & (this.Bounds.Height == Cursor.Clip.Height ? 1 : 0)) == 0 ? 1 : 0;
+        let mut y3: i32 =  bounds2.Y;
+        let mut num3: i32 =  y2 == y3 ? 1 : 0;
+        let mut num4: i32 =  (num2 & num3 & (this.Bounds.Width == Cursor.Clip.Width ? 1 : 0) & (this.Bounds.Height == Cursor.Clip.Height ? 1 : 0)) == 0 ? 1 : 0;
         if ((num1 & num4) != 0)
         {
           Cursor.Clip = this.Bounds;
@@ -927,14 +927,14 @@ namespace WindowsApplication1
         {
           if (Information.IsNothing((object) Cursor.Clip))
             return;
-          int num5 = !this.hasFocus ? 1 : 0;
-          int num6 = Cursor.Clip.X == Screen.PrimaryScreen.Bounds.X & Cursor.Clip.Y == Screen.PrimaryScreen.Bounds.Y ? 1 : 0;
+          let mut num5: i32 =  !this.hasFocus ? 1 : 0;
+          let mut num6: i32 =  Cursor.Clip.X == Screen.PrimaryScreen.Bounds.X & Cursor.Clip.Y == Screen.PrimaryScreen.Bounds.Y ? 1 : 0;
           bounds2 = Screen.PrimaryScreen.Bounds;
-          int num7 = bounds2.Width == Cursor.Clip.Width ? 1 : 0;
-          int num8 = num6 & num7;
+          let mut num7: i32 =  bounds2.Width == Cursor.Clip.Width ? 1 : 0;
+          let mut num8: i32 =  num6 & num7;
           bounds1 = Screen.PrimaryScreen.Bounds;
-          int num9 = bounds1.Height == Cursor.Clip.Height ? 1 : 0;
-          int num10 = (num8 & num9) == 0 ? 1 : 0;
+          let mut num9: i32 =  bounds1.Height == Cursor.Clip.Height ? 1 : 0;
+          let mut num10: i32 =  (num8 & num9) == 0 ? 1 : 0;
           if ((num5 & num10) == 0)
             return;
           Cursor.Clip = rectangle;
@@ -1286,7 +1286,7 @@ namespace WindowsApplication1
         this.debugPoint3 = 6;
         if (this.FullScreen & this.hasFocus)
         {
-          int num3 = 1;
+          let mut num3: i32 =  1;
           if (this.doubleSize)
           {
             num1 =  Math.Round((double) ((float) num1 * this.doubleModX));
@@ -1297,7 +1297,7 @@ namespace WindowsApplication1
           if (this.FullScreen)
           {
             this.Game.EditObj.ScrollDir = 0;
-            int num4 = 310;
+            let mut num4: i32 =  310;
             if (this.Game.EditObj.GuiDown)
               num4 = 90;
             if (num1 >= this.Game.ScreenWidth - num3 & num2 < this.Game.ScreenHeight - num4)
@@ -1450,9 +1450,9 @@ namespace WindowsApplication1
       if (!this.hasFocus & this.Game.noDrawNoFocus)
         return;
       if (this.doubleSize)
-        this.PaintScreeny(new Rectangle(0, 0,  Math.Round((double) ((float) this.Width * this.doubleModX)),  Math.Round((double) ((float) this.Height * this.doubleModY))));
+        this.PaintScreeny(Rectangle::new(0, 0,  Math.Round((double) ((float) this.Width * this.doubleModX)),  Math.Round((double) ((float) this.Height * this.doubleModY))));
       else
-        this.PaintScreeny(new Rectangle(0, 0, this.Width, this.Height));
+        this.PaintScreeny(Rectangle::new(0, 0, this.Width, this.Height));
     }
 
      void Form1_GotFocus(object sender, EventArgs e)
@@ -1512,7 +1512,7 @@ namespace WindowsApplication1
             objGraphics.InterpolationMode = InterpolationMode.Bilinear;
             if (DrawMod.TGame.EditObj.DoubleSizePercentage == 75)
               objGraphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            DrawMod.DrawSimplePart2( objGraphics,  bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height), new Rectangle(0, 0, this.Width, this.Height));
+            DrawMod.DrawSimplePart2( objGraphics,  bitmap, Rectangle::new(0, 0, bitmap.Width, bitmap.Height), Rectangle::new(0, 0, this.Width, this.Height));
             objGraphics.Dispose();
           }
            Bitmap local1 =  this.sbmp;
@@ -1523,16 +1523,16 @@ namespace WindowsApplication1
         else if (!(rect.X == 0 & rect.Y == 0 & rect.Width == this.Width & rect.Height == this.Height))
         {
           Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
-           Bitmap local3 =  bitmap;
+           let mut local3: &Bitmap = &bitmap;
           Form form =  this;
            Form local4 =  form;
-          Rectangle rect1 = rect;
+          let mut rect1: &Rectangle = &rect
           DrawMod.CopyToForm2rect( local3,  local4, rect1);
         }
         else
         {
           Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
-           Bitmap local5 =  bitmap;
+           let mut local5: &Bitmap = &bitmap;
           Form form =  this;
            Form local6 =  form;
           DrawMod.CopyToForm2( local5,  local6);
@@ -1548,11 +1548,11 @@ namespace WindowsApplication1
         if (this.doubleSize)
         {
           graphics.InterpolationMode = InterpolationMode.Bilinear;
-           Graphics local7 =  graphics;
+           let mut local7: &Graphics = &graphics;
           Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
-           Bitmap local8 =  bitmap;
-          Rectangle srcrect = rect;
-          Rectangle destrect = new Rectangle( Math.Round((double) ((float) rect.X / this.doubleModX)),  Math.Round((double) ((float) rect.Y / this.doubleModY)),  Math.Round((double) ((float) rect.Width / this.doubleModX)),  Math.Round((double) ((float) rect.Height / this.doubleModY)));
+           let mut local8: &Bitmap = &bitmap;
+          let mut srcrect: &Rectangle = &rect
+          Rectangle destrect = Rectangle::new( Math.Round((double) ((float) rect.X / this.doubleModX)),  Math.Round((double) ((float) rect.Y / this.doubleModY)),  Math.Round((double) ((float) rect.Width / this.doubleModX)),  Math.Round((double) ((float) rect.Height / this.doubleModY)));
           DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
         }
         else
@@ -1560,25 +1560,25 @@ namespace WindowsApplication1
           graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
           if (!(rect.X == 0 & rect.Y == 0 & rect.Width == this.Width & rect.Height == this.Height))
           {
-             Graphics local9 =  graphics;
+             let mut local9: &Graphics = &graphics;
             Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
-             Bitmap local10 =  bitmap;
-            Rectangle rect2 = rect;
+             let mut local10: &Bitmap = &bitmap;
+            let mut rect2: &Rectangle = &rect
             DrawMod.DrawSimplePart( local9,  local10, rect2);
           }
           else if (DrawMod.TGame.EditObj.highGfxSpeedOn)
           {
             Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
-             Bitmap local11 =  bitmap;
+             let mut local11: &Bitmap = &bitmap;
             Form form =  this;
              Form local12 =  form;
             DrawMod.CopyToForm2( local11,  local12);
           }
           else
           {
-             Graphics local13 =  graphics;
+             let mut local13: &Graphics = &graphics;
             Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
-             Bitmap local14 =  bitmap;
+             let mut local14: &Bitmap = &bitmap;
             DrawMod.DrawSimple( local13,  local14, 0, 0);
           }
         }

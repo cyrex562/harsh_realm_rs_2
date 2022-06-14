@@ -58,8 +58,8 @@ namespace WindowsApplication1
         str1 = this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] >= 9999 ? "Impossible to strategic transfer here too" : "Strategic Transfer Cost = " + Conversion.Str((object) this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
       if (this.game.Data.Round == 0 & this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1)
       {
-        int unitCounter = this.game.Data.UnitCounter;
-        for (int index = 0; index <= unitCounter; index += 1)
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+        for (let mut index: i32 =  0; index <= unitCounter; index += 1)
         {
           if (this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical)
           {
@@ -70,7 +70,7 @@ namespace WindowsApplication1
       }
       if (this.game.EditObj.UnitSelected > -1)
       {
-        int num1 = this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].AI ? 1 : 0;
+        let mut num1: i32 =  this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].AI ? 1 : 0;
       }
       if (Strings.Len(this.ShowString) > 0)
         str1 = Strings.UCase(this.ShowString);
@@ -79,7 +79,7 @@ namespace WindowsApplication1
       SizeF sizeF2 = Expression.MeasureString(str2, DrawMod.TGame.VicFont5);
       DrawMod.DrawBlock( Expression, 0, 0, this.w, this.h,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
       Rectangle rect2;
-      DrawMod.MakeFullBoxVic2( Expression, new Rectangle( Math.Round(Conversion.Int((double) this.w / 2.0 - (double) sizeF2.Width / 2.0)), 4,  Math.Round((double) sizeF2.Width), 14), str2, rect2, "");
+      DrawMod.MakeFullBoxVic2( Expression, Rectangle::new( Math.Round(Conversion.Int((double) this.w / 2.0 - (double) sizeF2.Width / 2.0)), 4,  Math.Round((double) sizeF2.Width), 14), str2, rect2, "");
       if (!this.game.EditObj.ProdFlap & this.game.EditObj.OrderType != 24)
       {
         if (this.game.EditObj.Layout == 0)
@@ -116,12 +116,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num = this.SubPartID[index];
+            let mut num: i32 =  this.SubPartID[index];
             return windowReturnClass;
           }
         }

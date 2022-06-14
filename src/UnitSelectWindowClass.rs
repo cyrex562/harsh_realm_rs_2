@@ -71,16 +71,16 @@ namespace WindowsApplication1
       DrawMod.DrawTextVic2( Expression, "Select a highlighted unit", self.game.VicFont1, 50, 43, self.game.VicColor2, self.game.VicColor2Shade);
       if (self.game.EditObj.DoCardSlot > -1)
       {
-         Graphics local1 =  Expression;
+         let mut local1: &Graphics = &Expression;
         Bitmap bitmap = self.game.CustomBitmapObj.DrawActionCard(self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.game.EditObj.DoCardSlot]);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local1,  local2, 685, 210, 267, 400);
       }
       else
       {
-         Graphics local3 =  Expression;
+         let mut local3: &Graphics = &Expression;
         Bitmap bitmap = self.game.CustomBitmapObj.DrawActionCard(self.game.EditObj.HandCard);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawScaled( local3,  local4, 685, 210, 267, 400);
       }
       DrawMod.DrawRectangle( Expression, 49, 79, 602, 442,  self.game.GameCol2.R,  self.game.GameCol2.G,  self.game.GameCol2.B,  byte.MaxValue);
@@ -177,7 +177,7 @@ namespace WindowsApplication1
                     let mut y1: i32 = selectY;
                     let mut map: i32 = coordinate.map;
                     Bitmap bitmap = (Bitmap) null;
-                     Bitmap local =  bitmap;
+                     let mut local: &Bitmap = &bitmap;
                     subPart.PaintCoordinate((Graphics) null, x1, y1, map, gBitmap: ( local));
                   }
                   self.game.EditObj.UnitSelected = num2;
@@ -346,7 +346,7 @@ namespace WindowsApplication1
         let mut mapSelected: i32 = self.game.EditObj.MapSelected;
         let mut counterAlpha: i32 = self.game.EditObj.CounterAlpha;
         Bitmap bitmap = (Bitmap) null;
-         Bitmap local =  bitmap;
+         let mut local: &Bitmap = &bitmap;
         subPart.PaintCoordinate((Graphics) null, selectX, selectY, mapSelected, counterAlpha,  local);
         self.PaintCurrentBitmap(self.mapid);
         windowReturnClass.SetFlag(true);

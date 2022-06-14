@@ -22,10 +22,10 @@ namespace WindowsApplication1
 
     pub ButtonPartClass(
       int tbmpnr,
-      int tcolorized = 0,
+      let mut tcolorized: i32 =  0,
       tDescript: String = "",
-      int tResizeX = -1,
-      int tresizeY = -1,
+      let mut tResizeX: i32 =  -1,
+      let mut tresizeY: i32 =  -1,
       bool tVideoMode = false)
       : base(BitmapStore.GetWidth(tbmpnr), BitmapStore.Getheight(tbmpnr))
     {
@@ -67,8 +67,8 @@ namespace WindowsApplication1
             ref Graphics local3 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local4 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
             DrawMod.DrawScaled(ref local3, ref local4, 0, 0, resizex, resizey);
           }
         }
@@ -86,10 +86,10 @@ namespace WindowsApplication1
             ref Graphics local7 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local8 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
-            int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-            int origh = BitmapStore.Getheight(this.OwnBitmapNr);
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
+            let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+            let mut origh: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
             DrawMod.DrawScaledColorized(ref local7, ref local8, 0, 0, resizex, resizey, width, origh, -0.3f, -0.3f, -0.3f, 1f);
           }
         }
@@ -107,10 +107,10 @@ namespace WindowsApplication1
             ref Graphics local11 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local12 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
-            int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-            int origh = BitmapStore.Getheight(this.OwnBitmapNr);
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
+            let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+            let mut origh: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
             DrawMod.DrawScaledColorized(ref local11, ref local12, 0, 0, resizex, resizey, width, origh, -0.6f, -0.6f, -0.6f, 1f);
           }
         }
@@ -128,10 +128,10 @@ namespace WindowsApplication1
             ref Graphics local15 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local16 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
-            int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-            int origh = BitmapStore.Getheight(this.OwnBitmapNr);
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
+            let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+            let mut origh: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
             DrawMod.DrawScaledColorized(ref local15, ref local16, 0, 0, resizex, resizey, width, origh, -0.6f, -0.6f, -0.6f, 1f);
           }
         }
@@ -149,29 +149,29 @@ namespace WindowsApplication1
             ref Graphics local19 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local20 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
-            int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-            int origh = BitmapStore.Getheight(this.OwnBitmapNr);
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
+            let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+            let mut origh: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
             DrawMod.DrawScaledColorized(ref local19, ref local20, 0, 0, resizex, resizey, width, origh, -0.6f, -0.6f, -0.6f, 1f);
           }
         }
       }
       if (this.videoMode)
       {
-        int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-        int num1 = BitmapStore.Getheight(this.OwnBitmapNr);
-        int num2 = (int) Math.Round((double) width / 2.0);
-        int num3 = (int) Math.Round((double) num1 / 2.0);
-        int num4 = (int) Math.Round((double) width / 3.0);
+        let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+        let mut num1: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
+        let mut num2: i32 =  (int) Math.Round((double) width / 2.0);
+        let mut num3: i32 =  (int) Math.Round((double) num1 / 2.0);
+        let mut num4: i32 =  (int) Math.Round((double) width / 3.0);
         if ((int) Math.Round((double) num1 / 3.0) < num4)
           num4 = (int) Math.Round((double) num1 / 3.0);
-        int num5 = num2 - num4;
-        int num6 = num3 - num4;
-        int num7 = num2 - num4;
-        int num8 = num3 + num4;
-        int num9 = num2 + num4;
-        int num10 = num3;
+        let mut num5: i32 =  num2 - num4;
+        let mut num6: i32 =  num3 - num4;
+        let mut num7: i32 =  num2 - num4;
+        let mut num8: i32 =  num3 + num4;
+        let mut num9: i32 =  num2 + num4;
+        let mut num10: i32 =  num3;
         Point[] points = new Point[3];
         points[0].X = num5;
         points[0].Y = num6;
@@ -215,10 +215,10 @@ namespace WindowsApplication1
             ref Graphics local3 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local4 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
-            int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-            int origh = BitmapStore.Getheight(this.OwnBitmapNr);
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
+            let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+            let mut origh: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
             DrawMod.DrawScaledColorized(ref local3, ref local4, 0, 0, resizex, resizey, width, origh, 1f, 0.0f, 0.0f, 1f);
           }
         }
@@ -236,10 +236,10 @@ namespace WindowsApplication1
             ref Graphics local7 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local8 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
-            int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-            int origh = BitmapStore.Getheight(this.OwnBitmapNr);
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
+            let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+            let mut origh: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
             DrawMod.DrawScaledColorized(ref local7, ref local8, 0, 0, resizex, resizey, width, origh, 0.0f, 0.0f, 0.0f, 1f);
           }
         }
@@ -257,29 +257,29 @@ namespace WindowsApplication1
             ref Graphics local11 = ref Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
             ref Bitmap local12 = ref bitmap;
-            int resizex = this.resizex;
-            int resizey = this.resizey;
-            int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-            int origh = BitmapStore.Getheight(this.OwnBitmapNr);
+            let mut resizex: i32 =  this.resizex;
+            let mut resizey: i32 =  this.resizey;
+            let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+            let mut origh: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
             DrawMod.DrawScaledColorized(ref local11, ref local12, 0, 0, resizex, resizey, width, origh, -0.6f, -0.6f, -0.6f, 1f);
           }
         }
       }
       if (this.videoMode)
       {
-        int width = BitmapStore.GetWidth(this.OwnBitmapNr);
-        int num1 = BitmapStore.Getheight(this.OwnBitmapNr);
-        int num2 = (int) Math.Round((double) width / 2.0);
-        int num3 = (int) Math.Round((double) num1 / 2.0);
-        int num4 = (int) Math.Round((double) width / 3.0);
+        let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
+        let mut num1: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
+        let mut num2: i32 =  (int) Math.Round((double) width / 2.0);
+        let mut num3: i32 =  (int) Math.Round((double) num1 / 2.0);
+        let mut num4: i32 =  (int) Math.Round((double) width / 3.0);
         if ((int) Math.Round((double) num1 / 3.0) < num4)
           num4 = (int) Math.Round((double) num1 / 3.0);
-        int num5 = num2 - num4;
-        int num6 = num3 - num4;
-        int num7 = num2 - num4;
-        int num8 = num3 + num4;
-        int num9 = num2 + num4;
-        int num10 = num3;
+        let mut num5: i32 =  num2 - num4;
+        let mut num6: i32 =  num3 - num4;
+        let mut num7: i32 =  num2 - num4;
+        let mut num8: i32 =  num3 + num4;
+        let mut num9: i32 =  num2 + num4;
+        let mut num10: i32 =  num3;
         Point[] points = new Point[3];
         points[0].X = num5;
         points[0].Y = num6;

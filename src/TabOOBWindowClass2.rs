@@ -916,9 +916,9 @@ namespace WindowsApplication1
               forcehighlight = true;
             if (self.UL.Data1[tdata2] == 1)
             {
-               Graphics local3 =  g;
+               let mut local3: &Graphics = &g;
               Bitmap bitmap = self.game.CustomBitmapObj.DrawUnit(self.UL.Id[tdata2], forcehighlight, ForceHideUnitMode: 2);
-               Bitmap local4 =  bitmap;
+               let mut local4: &Bitmap = &bitmap;
               let mut x: i32 = self.Ox[tdata2];
               let mut y: i32 = self.Oy[tdata2];
               DrawMod.DrawSimple( local3,  local4, x, y);
@@ -969,7 +969,7 @@ namespace WindowsApplication1
               DrawMod.DrawBlock( g, self.Ox[tdata2], self.Oy[tdata2], 38, 38, 128, 128, 128,  byte.MaxValue);
               DrawMod.DrawTextColouredConsoleCenter( g, tstring, self.game.MarcFont4, self.Ox[tdata2] + 20, self.Oy[tdata2] + 10, self.game.seColWhite);
             }
-            Rectangle trect2 = new Rectangle(self.Ox[tdata2], self.Oy[tdata2], 38, 38);
+            Rectangle trect2 = Rectangle::new(self.Ox[tdata2], self.Oy[tdata2], 38, 38);
             self.AddMouse( trect2, "", str, tdata2);
             if (tdata2 == self.Oselect[self.Ounit[tdata2]])
               DrawMod.DrawRectangle( g, self.Ox[tdata2] - 2, self.Oy[tdata2] - 2, 41, 41,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 3);
@@ -999,9 +999,9 @@ namespace WindowsApplication1
               ttext = ttext;
             if (Strings.InStr(self.game.Data.UnitObj[index26].Name, "SS") > 0)
               ttext = ttext;
-             Graphics local5 =  g;
+             let mut local5: &Graphics = &g;
             Bitmap bitmap = self.game.CustomBitmapObj.DrawUnit(index26, forcehighlight, ForceHideUnitMode: 2);
-             Bitmap local6 =  bitmap;
+             let mut local6: &Bitmap = &bitmap;
             let mut x: i32 = self.Ox[index26];
             let mut y: i32 = self.Oy[index26];
             DrawMod.DrawSimple( local5,  local6, x, y);
@@ -1009,7 +1009,7 @@ namespace WindowsApplication1
             if (tdata1 > -1)
             {
               let mut num42: i32 = self.UL.Id[tdata1];
-              Rectangle trect3 = new Rectangle(self.Ox[index26], self.Oy[index26], 38, 38);
+              Rectangle trect3 = Rectangle::new(self.Ox[index26], self.Oy[index26], 38, 38);
               self.AddMouse( trect3, "", ttext, tdata1);
               if (index5 == index26)
                 DrawMod.DrawRectangle( g, self.Ox[index26] - 1, self.Oy[index26] - 1, 39, 39,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);

@@ -190,9 +190,9 @@ namespace WindowsApplication1
       BitmapStore.GetBitmap(this.game.MARCTOPBAR).RotateFlip(RotateFlipType.Rotate180FlipX);
       for (; num < this.game.ScreenWidth; num += 100)
       {
-         Graphics local1 =  Expression;
+         let mut local1: &Graphics = &Expression;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCTOPBAR);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num;
         DrawMod.DrawSimple( local1,  local2, x, -4);
       }

@@ -131,29 +131,29 @@ namespace WindowsApplication1
                     this.game.NewAIObj.tempextraaivp = false;
                   if ((double) this.game.Data.RuleVar[840] == 1.0)
                   {
-                    int mapCounter = this.game.Data.MapCounter;
-                    for (int index2 = 0; index2 <= mapCounter; index2 += 1)
+                    let mut mapCounter: i32 =  this.game.Data.MapCounter;
+                    for (let mut index2: i32 =  0; index2 <= mapCounter; index2 += 1)
                     {
-                      int mapWidth = this.game.Data.MapObj[index2].MapWidth;
-                      for (int index3 = 0; index3 <= mapWidth; index3 += 1)
+                      let mut mapWidth: i32 =  this.game.Data.MapObj[index2].MapWidth;
+                      for (let mut index3: i32 =  0; index3 <= mapWidth; index3 += 1)
                       {
-                        int mapHeight = this.game.Data.MapObj[index2].MapHeight;
-                        for (int index4 = 0; index4 <= mapHeight; index4 += 1)
+                        let mut mapHeight: i32 =  this.game.Data.MapObj[index2].MapHeight;
+                        for (let mut index4: i32 =  0; index4 <= mapHeight; index4 += 1)
                           this.game.Data.MapObj[index2].HexObj[index3, index4].OrigOwner = this.game.Data.MapObj[index2].HexObj[index3, index4].Regime;
                       }
                     }
                   }
                   if ((double) this.game.Data.RuleVar[501] == 1.0)
                     this.game.Data.RuleVar[226] = 0.0f;
-                  int regimeCounter1 = this.game.Data.RegimeCounter;
-                  for (int regnr = 0; regnr <= regimeCounter1; regnr += 1)
+                  let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
+                  for (let mut regnr: i32 =  0; regnr <= regimeCounter1; regnr += 1)
                   {
                     this.game.ProcessingObj.InitialAPPenalty(regnr, true);
                     this.game.EditObj.firstroundcheck = true;
-                    int sfCounter = this.game.Data.SFCounter;
-                    for (int index5 = 0; index5 <= sfCounter; index5 += 1)
+                    let mut sfCounter: i32 =  this.game.Data.SFCounter;
+                    for (let mut index5: i32 =  0; index5 <= sfCounter; index5 += 1)
                       this.game.Data.SFObj[index5].Ap = this.game.Data.SFObj[index5].Rdn;
-                    int turn = this.game.Data.Turn;
+                    let mut turn: i32 =  this.game.Data.Turn;
                     this.game.Data.Turn = regnr;
                     this.game.Data.Round = 1;
                     this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
@@ -162,7 +162,7 @@ namespace WindowsApplication1
                     this.game.Data.Turn = turn;
                   }
                   this.game.EventRelatedObj.DoCheckEvents(7);
-                  int regimeCounter2 = this.game.Data.RegimeCounter;
+                  let mut regimeCounter2: i32 =  this.game.Data.RegimeCounter;
                   for (index1 = 0; index1 <= regimeCounter2; index1 += 1)
                   {
                     if (this.game.Data.ShrowdPeek)
@@ -204,7 +204,7 @@ namespace WindowsApplication1
                   this.game.HandyFunctionsObj.ResetRegimeLowData((object) this.game.Data.Turn);
                 if ((double) this.game.Data.RuleVar[336] == 2.0)
                 {
-                  int unitCounter = this.game.Data.UnitCounter;
+                  let mut unitCounter: i32 =  this.game.Data.UnitCounter;
                   for (index1 = 0; index1 <= unitCounter; index1 += 1)
                   {
                     if (this.game.Data.UnitObj[index1].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index1].Supply > this.game.HandyFunctionsObj.UnitSupplyStore(index1))
@@ -213,8 +213,8 @@ namespace WindowsApplication1
                 }
                 if (this.game.Data.RegimeObj[this.game.Data.Turn].Sleep)
                 {
-                  int num = 0;
-                  int regimeCounter = this.game.Data.RegimeCounter;
+                  let mut num: i32 =  0;
+                  let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
                   for (index1 = 0; index1 <= regimeCounter; index1 += 1)
                   {
                     if (this.game.Data.RegimeObj[index1].UberRegime == this.game.Data.Turn)
@@ -255,8 +255,8 @@ namespace WindowsApplication1
                 this.game.ProcessingObj.InitialAPPenalty(this.game.Data.Turn, false);
                 this.game.HandyFunctionsObj.DoAntiInfraDammage();
                 this.game.ProcessingObj.SetUberOn();
-                int unitCounter = this.game.Data.UnitCounter;
-                for (int index6 = 0; index6 <= unitCounter; index6 += 1)
+                let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                for (let mut index6: i32 =  0; index6 <= unitCounter; index6 += 1)
                 {
                   if (this.game.Data.UnitObj[index6].Regime == this.game.Data.Turn)
                     this.game.Data.UnitObj[index6].ClearLogs();
@@ -267,20 +267,20 @@ namespace WindowsApplication1
                     this.game.Data.UnitObj[index6].SupplyInReq = 0;
                   }
                 }
-                int locCounter = this.game.Data.LocCounter;
+                let mut locCounter: i32 =  this.game.Data.LocCounter;
                 for (index1 = 0; index1 <= locCounter; index1 += 1)
                 {
                   if (this.game.Data.LocObj[index1].X > -1 && this.game.Data.MapObj[0].HexObj[this.game.Data.LocObj[index1].X, this.game.Data.LocObj[index1].Y].Regime == this.game.Data.Turn)
                   {
-                    int logCounter = this.game.Data.LocObj[index1].LogCounter;
-                    for (int index7 = 0; index7 <= logCounter; index7 += 1)
+                    let mut logCounter: i32 =  this.game.Data.LocObj[index1].LogCounter;
+                    for (let mut index7: i32 =  0; index7 <= logCounter; index7 += 1)
                     {
-                      int num = this.game.Data.LocObj[index1].LogType[index7];
+                      let mut num: i32 =  this.game.Data.LocObj[index1].LogType[index7];
                       if (num < 2000)
                       {
-                        int data1 = this.game.Data.LocObj[index1].LogData1[index7];
-                        int data2 = this.game.Data.LocObj[index1].LogData2[index7];
-                        int data3 = this.game.Data.LocObj[index1].LogData3[index7];
+                        let mut data1: i32 =  this.game.Data.LocObj[index1].LogData1[index7];
+                        let mut data2: i32 =  this.game.Data.LocObj[index1].LogData2[index7];
+                        let mut data3: i32 =  this.game.Data.LocObj[index1].LogData3[index7];
                         this.game.Data.LocObj[index1].AddLog(num + 2000, data1, data2, data3);
                       }
                     }
@@ -292,18 +292,18 @@ namespace WindowsApplication1
                 this.game.ProcessingObj.InitialAPPenalty(this.game.Data.Turn, false);
                 if ((double) this.game.Data.RuleVar[955] > 0.0)
                 {
-                  int stringListById1 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[955]));
+                  let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[955]));
                   if (stringListById1 > -1)
                   {
-                    for (int length1 = this.game.Data.StringListObj[stringListById1].Length; length1 >= 0; length1 += -1)
+                    for (let mut length1: i32 =  this.game.Data.StringListObj[stringListById1].Length; length1 >= 0; length1 += -1)
                     {
-                      int num =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length1, 0]));
+                      let mut num: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length1, 0]));
                       if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length1, 9])) < this.game.Data.Round &  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length1, 1])) == this.game.Data.Turn)
                       {
-                        int stringListById2 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[956]));
+                        let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[956]));
                         if (stringListById2 > -1)
                         {
-                          for (int length2 = this.game.Data.StringListObj[stringListById2].Length; length2 >= 0; length2 += -1)
+                          for (let mut length2: i32 =  this.game.Data.StringListObj[stringListById2].Length; length2 >= 0; length2 += -1)
                           {
                             if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].Data[length2, 0])) == num)
                               this.game.Data.StringListObj[stringListById2].RemoveRow(length2);
@@ -487,15 +487,15 @@ namespace WindowsApplication1
               this.game.EditObj.AIMoving = false;
               this.game.EditObj.TempAIWatch = false;
             }
-            int unitCounter1 = this.game.Data.UnitCounter;
-            for (int index = 0; index <= unitCounter1; index += 1)
+            let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
+            for (let mut index: i32 =  0; index <= unitCounter1; index += 1)
               this.game.Data.UnitObj[index].TempUnitSelectable = false;
             this.DoingAI = false;
           }
           while (this.game.HandyFunctionsObj.GetHumanPlayers() != 0);
           if (this.game.EditObj.Screenshoton)
             this.game.HandyFunctionsObj.doscreenshot("ai", 0);
-          int num1 = this.game.EditObj.AutoSave ? 1 : 0;
+          let mut num1: i32 =  this.game.EditObj.AutoSave ? 1 : 0;
         }
         while (!(this.game.EditObj.debugAiOnlyTillRound < this.game.Data.Round - 1 & this.game.Data.Winner > -1));
         ProjectData.EndApp();
@@ -515,34 +515,34 @@ namespace WindowsApplication1
 
     pub void DoPresentStats()
     {
-      int regimeCounter = this.game.Data.RegimeCounter;
-      for (int index1 = 0; index1 <= regimeCounter; index1 += 1)
+      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+      for (let mut index1: i32 =  0; index1 <= regimeCounter; index1 += 1)
       {
         this.game.Data.RegimeObj[index1].SPresent = (int[,]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index1].SPresent, (Array) new int[this.game.Data.SFTypeCounter + 1, this.game.Data.Round + 1 + 1]);
-        int sfTypeCounter = this.game.Data.SFTypeCounter;
-        for (int index2 = 0; index2 <= sfTypeCounter; index2 += 1)
+        let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+        for (let mut index2: i32 =  0; index2 <= sfTypeCounter; index2 += 1)
         {
           this.game.Data.RegimeObj[index1].SPresent[index2, 0] = 0;
           this.game.Data.RegimeObj[index1].SPresent[index2, this.game.Data.Round] = 0;
         }
       }
-      int unitCounter = this.game.Data.UnitCounter;
-      for (int index3 = 0; index3 <= unitCounter; index3 += 1)
+      let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+      for (let mut index3: i32 =  0; index3 <= unitCounter; index3 += 1)
       {
         if (this.game.Data.UnitObj[index3].PreDef == -1)
         {
-          int regime = this.game.Data.UnitObj[index3].Regime;
-          int sfCount = this.game.Data.UnitObj[index3].SFCount;
-          for (int index4 = 0; index4 <= sfCount; index4 += 1)
+          let mut regime: i32 =  this.game.Data.UnitObj[index3].Regime;
+          let mut sfCount: i32 =  this.game.Data.UnitObj[index3].SFCount;
+          for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
           {
-            int sf = this.game.Data.UnitObj[index3].SFList[index4];
+            let mut sf: i32 =  this.game.Data.UnitObj[index3].SFList[index4];
             int[,] spresent = this.game.Data.RegimeObj[regime].SPresent;
             int[,] numArray = spresent;
-            int type = this.game.Data.SFObj[sf].Type;
-            int index5 = type;
-            int round = this.game.Data.Round;
-            int index6 = round;
-            int num = spresent[type, round] + this.game.Data.SFObj[sf].Qty;
+            let mut type: i32 =  this.game.Data.SFObj[sf].Type;
+            let mut index5: i32 =  type;
+            let mut round: i32 =  this.game.Data.Round;
+            let mut index6: i32 =  round;
+            let mut num: i32 =  spresent[type, round] + this.game.Data.SFObj[sf].Qty;
             numArray[index5, index6] = num;
           }
         }

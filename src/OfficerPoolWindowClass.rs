@@ -33,7 +33,7 @@ namespace WindowsApplication1
      ListClass OptionsListObj;
      int detailnr;
 
-    pub OfficerPoolWindowClass( GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub OfficerPoolWindowClass( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.LocNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
@@ -86,10 +86,10 @@ namespace WindowsApplication1
       if (this.OptionsListId == 0)
       {
         this.OptionsListObj = ListClass::new();
-        int num = -1;
-        int tlistselect1 = -1;
-        int historicalUnitCounter = this.game.Data.HistoricalUnitCounter;
-        for (int tdata = 0; tdata <= historicalUnitCounter; tdata += 1)
+        let mut num: i32 =  -1;
+        let mut tlistselect1: i32 =  -1;
+        let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
+        for (let mut tdata: i32 =  0; tdata <= historicalUnitCounter; tdata += 1)
         {
           if (this.game.Data.HistoricalUnitObj[tdata].Pool & this.game.Data.HistoricalUnitObj[tdata].TempRegime == this.game.Data.Turn)
           {
@@ -107,7 +107,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsListObj = this.OptionsListObj;
-          int tlistselect2 = tlistselect1;
+          let mut tlistselect2: i32 =  tlistselect1;
           let mut game: GameClass = this.game;
            Bitmap local1 =  this.OwnBitmap;
           Font font =  null;
@@ -223,16 +223,16 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.Text1Id || num1 == this.Text2Id)
             {
-              int num2 = x - this.SubPartX[index1];
-              int num3 = y - this.SubPartY[index1];
+              let mut num2: i32 =  x - this.SubPartX[index1];
+              let mut num3: i32 =  y - this.SubPartY[index1];
               if (num2 > 50 & num3 > 107 & num2 < 350 & num3 < 177)
               {
                 this.game.EditObj.PopupValue = 4;
@@ -286,7 +286,7 @@ namespace WindowsApplication1
               {
                 if (Interaction.MsgBox((object) "Are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 {
-                  int num4 =  Interaction.MsgBox((object) "Officer is removed from the officerpool.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num4: i32 =   Interaction.MsgBox((object) "Officer is removed from the officerpool.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.game.Data.RemoveHistoricalUnit(this.detailnr);
                   this.detailnr = -1;
                   this.RemoveSubPart(this.OptionsListId);
@@ -313,7 +313,7 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.OptionsListId)
                 {
-                  int num5 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                  let mut num5: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                   this.SubPartFlag[index1] = true;
                   if (num5 > -1)
                   {

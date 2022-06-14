@@ -18108,7 +18108,7 @@ label_38:
           let mut cx: i32 = index1;
           let mut cy: i32 = index2;
           Bitmap bitmap = (Bitmap) null;
-           Bitmap local1 =  bitmap;
+           let mut local1: &Bitmap = &bitmap;
           bool flag = false;
            bool local2 =  flag;
           Bitmap objBitmap = customBitmapObj.DrawHex(cx, cy, 0, neverusehistory: true, gBitmap: ( local1), tFromMapPopup: ( local2));

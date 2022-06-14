@@ -236,14 +236,14 @@ namespace WindowsApplication1
         sizeF2 = Expression.MeasureString(text10, this.game.VicFont5);
         if ((double) sizeF2.Width + 20.0 > (double) width1)
           width1 =  Math.Round((double) (sizeF2.Width + 20f));
-         Graphics local1 =  Expression;
-        Rectangle rect1_1 = new Rectangle(x1, 0, width1, 10);
+         let mut local1: &Graphics = &Expression;
+        Rectangle rect1_1 = Rectangle::new(x1, 0, width1, 10);
         txt1_1: String = text10;
-        rectangle1 = new Rectangle(x1, 10, width1, 17);
-        Rectangle rect2_1 = rectangle1;
+        rectangle1 = Rectangle::new(x1, 10, width1, 17);
+        let mut rect2_1: &Rectangle = &rectangle1
         txt2_1: String = name;
         DrawMod.MakeFullBoxVic2( local1, rect1_1, txt1_1, rect2_1, txt2_1);
-        rectangle1 = new Rectangle(x1, 0, width1, 25);
+        rectangle1 = Rectangle::new(x1, 0, width1, 25);
         trect = rectangle1;
         this.AddMouse( trect, "", "Current regime you are giving orders too");
         let mut x2: i32 = x1 + width1 + 20;
@@ -254,15 +254,15 @@ namespace WindowsApplication1
         sizeF2 = Expression.MeasureString(text12, this.game.VicFont5);
         if ((double) sizeF2.Width + 20.0 > (double) width2)
           width2 =  Math.Round((double) (sizeF2.Width + 20f));
-         Graphics local2 =  Expression;
-        rectangle1 = new Rectangle(x2, 0, width2, 10);
-        Rectangle rect1_2 = rectangle1;
+         let mut local2: &Graphics = &Expression;
+        rectangle1 = Rectangle::new(x2, 0, width2, 10);
+        let mut rect1_2: &Rectangle = &rectangle1
         txt1_2: String = text12;
-        trect = new Rectangle(x2, 10, width2, 17);
-        Rectangle rect2_2 = trect;
+        trect = Rectangle::new(x2, 10, width2, 17);
+        let mut rect2_2: &Rectangle = &trect
         txt2_2: String = text11;
         DrawMod.MakeFullBoxVic2( local2, rect1_2, txt1_2, rect2_2, txt2_2);
-        rectangle1 = new Rectangle(x2, 0, width2, 25);
+        rectangle1 = Rectangle::new(x2, 0, width2, 25);
         trect = rectangle1;
         this.AddMouse( trect, "", "The people that are in charge of the regime you are playing");
         let mut num23: i32 = x2 + width2 + 5;
@@ -307,12 +307,12 @@ namespace WindowsApplication1
         sizeF2 = Expression.MeasureString(text14, this.game.VicFont5);
         if ((double) sizeF2.Width > (double) width3)
           width3 =  Math.Round((double) sizeF2.Width);
-         Graphics local3 =  Expression;
-        rectangle1 = new Rectangle(x3, 0, width3, 10);
-        Rectangle rect1_3 = rectangle1;
+         let mut local3: &Graphics = &Expression;
+        rectangle1 = Rectangle::new(x3, 0, width3, 10);
+        let mut rect1_3: &Rectangle = &rectangle1
         txt1_3: String = text14;
-        trect = new Rectangle(x3, 10, width3, 17);
-        Rectangle rect2_3 = trect;
+        trect = Rectangle::new(x3, 10, width3, 17);
+        let mut rect2_3: &Rectangle = &trect
         txt2_3: String = text13;
         DrawMod.MakeFullBoxVic2( local3, rect1_3, txt1_3, rect2_3, txt2_3);
         ttext: String = "The date or the round number. Round number is " + Strings.Trim(Conversion.Str((object) this.game.Data.Round)) + ". ";
@@ -331,7 +331,7 @@ namespace WindowsApplication1
           }
           ttext = str2 + this.game.HandyFunctionsObj.GetMonth(dateTime.Month) + " " + Strings.Trim(Conversion.Str((object) dateTime.Day)) + " " + Strings.Trim(Conversion.Str((object) dateTime.Year));
         }
-        rectangle1 = new Rectangle(x3, 0, width3, 25);
+        rectangle1 = Rectangle::new(x3, 0, width3, 25);
         trect = rectangle1;
         this.AddMouse( trect, "", ttext);
         let mut x4: i32 = x3 + width3 + 20;
@@ -347,16 +347,16 @@ namespace WindowsApplication1
         let mut num25: i32 =  Math.Round((double) Expression.MeasureString(str1, this.game.VicFont2).Width);
         let mut num26: i32 = num24 - 5;
         let mut width4: i32 = num24 + num25;
-         Graphics local4 =  Expression;
-        rectangle1 = new Rectangle(x4, 0, width4, 10);
-        Rectangle rect1_4 = rectangle1;
+         let mut local4: &Graphics = &Expression;
+        rectangle1 = Rectangle::new(x4, 0, width4, 10);
+        let mut rect1_4: &Rectangle = &rectangle1
         txt1_4: String = text16;
-        trect = new Rectangle(x4, 10, width4, 17);
-        Rectangle rect2_4 = trect;
+        trect = Rectangle::new(x4, 10, width4, 17);
+        let mut rect2_4: &Rectangle = &trect
         txt2_4: String = text15;
         DrawMod.MakeFullBoxVic2( local4, rect1_4, txt1_4, rect2_4, txt2_4);
         DrawMod.DrawTextVic2( Expression, str1, this.game.VicFont2, x4 + num26 + 4, 11, Color.YellowGreen, Color.Black);
-        rectangle1 = new Rectangle(x4, 0, width4, 25);
+        rectangle1 = Rectangle::new(x4, 0, width4, 25);
         trect = rectangle1;
         this.AddMouse( trect, "", "Political points. In white the current amount. In green the projected production next round");
         x1 = x4 + width4 + 20;
@@ -379,9 +379,9 @@ namespace WindowsApplication1
           }
           if (this.game.Data.RegimeSlotNato[index10] > 0)
           {
-             Graphics local5 =  Expression;
+             let mut local5: &Graphics = &Expression;
             Bitmap bitmap = BitmapStore.GetBitmap(this.game.NATO[this.game.Data.RegimeSlotNato[index10]]);
-             Bitmap local6 =  bitmap;
+             let mut local6: &Bitmap = &bitmap;
             let mut x5: i32 = x1;
             DrawMod.DrawSimple( local5,  local6, x5, 0);
             x1 += 40;
@@ -390,26 +390,26 @@ namespace WindowsApplication1
             str1 = Strings.UCase(this.game.Data.RegimeSlotName[index10]);
           if (this.game.Data.RegimeSlotNato[index10] < 1)
           {
-             Graphics local =  Expression;
-            rectangle1 = new Rectangle(x1, 0, numArray1[index10], 10);
-            Rectangle rect1 = rectangle1;
+             let mut local: &Graphics = &Expression;
+            rectangle1 = Rectangle::new(x1, 0, numArray1[index10], 10);
+            let mut rect1: &Rectangle = &rectangle1
             txt1: String = str1;
-            trect = new Rectangle(x1, 10, numArray1[index10], 17);
-            Rectangle rect2 = trect;
+            trect = Rectangle::new(x1, 10, numArray1[index10], 17);
+            let mut rect2: &Rectangle = &trect
             DrawMod.MakeFullBoxVic2( local, rect1, txt1, rect2, "");
-            rectangle1 = new Rectangle(x1, 0, numArray1[index10], 25);
+            rectangle1 = Rectangle::new(x1, 0, numArray1[index10], 25);
             trect = rectangle1;
             this.AddMouse( trect, "", this.game.Data.RegimeSlotName[index10] + ": White = current amount, Yellow/Red = projected usage in production, Green =projected new production");
           }
           else
           {
-             Graphics local =  Expression;
+             let mut local: &Graphics = &Expression;
             Rectangle rectangle2;
-            Rectangle rect1 = rectangle2;
-            rectangle1 = new Rectangle(x1, 10, numArray1[index10] - 40, 17);
-            Rectangle rect2 = rectangle1;
+            let mut rect1: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1, 10, numArray1[index10] - 40, 17);
+            let mut rect2: &Rectangle = &rectangle1
             DrawMod.MakeFullBoxVic2( local, rect1, "", rect2, "");
-            rectangle1 = new Rectangle(x1, 0, numArray1[index10] - 40, 25);
+            rectangle1 = Rectangle::new(x1, 0, numArray1[index10] - 40, 25);
             trect = rectangle1;
             this.AddMouse( trect, "", this.game.Data.RegimeSlotName[index10] + ": White = current amount, Yellow/Red = projected usage in production, Green =projected new production");
           }

@@ -306,7 +306,7 @@ namespace WindowsApplication1
             }
             SizeF sizeF = SizeF::new();
             let mut num10: i32 =  Math.Round((double) g.MeasureString(self.subtabname[index1], self.game.MarcFont4).Width);
-            Rectangle trect2 = new Rectangle(num8, num9, width, 40);
+            Rectangle trect2 = Rectangle::new(num8, num9, width, 40);
             self.AddMouse( trect2, self.subtabname[index1], "Click to see all pages for this tab.", 1000 + index1);
             if (num10 > width - 20 & Strings.InStr(self.subtabname[index1], " ") > 0)
             {

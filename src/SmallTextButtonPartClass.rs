@@ -56,7 +56,7 @@ namespace WindowsApplication1
         self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics Expression = Graphics.FromImage((Image) self.backbitmap);
         Expression.CompositingMode = CompositingMode.SourceCopy;
-        Expression.DrawImage((Image) tBackbitmap, new Rectangle(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), new Rectangle(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
+        Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
         Expression.CompositingMode = CompositingMode.SourceOver;
         if (!Information.IsNothing((object) Expression))
           Expression.Dispose();
@@ -90,56 +90,56 @@ namespace WindowsApplication1
       Expression.TextContrast = 1;
       if (self.inactive)
       {
-         Graphics local1 =  Expression;
+         let mut local1: &Graphics = &Expression;
         Bitmap bitmap1 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
-         Bitmap local2 =  bitmap1;
-        Rectangle rectangle1 = new Rectangle(7, 0, 7, 25);
-        Rectangle srcrect1 = rectangle1;
-        Rectangle rectangle2 = new Rectangle(7, 0, self.width - 14, self.height);
-        Rectangle destrect1 = rectangle2;
+         let mut local2: &Bitmap = &bitmap1;
+        Rectangle rectangle1 = Rectangle::new(7, 0, 7, 25);
+        let mut srcrect1: &Rectangle = &rectangle1
+        Rectangle rectangle2 = Rectangle::new(7, 0, self.width - 14, self.height);
+        let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-         Graphics local3 =  Expression;
+         let mut local3: &Graphics = &Expression;
         Bitmap bitmap2 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
-         Bitmap local4 =  bitmap2;
-        rectangle2 = new Rectangle(0, 0, 7, 25);
-        Rectangle srcrect2 = rectangle2;
-        rectangle1 = new Rectangle(0, 0, 7, self.height);
-        Rectangle destrect2 = rectangle1;
+         let mut local4: &Bitmap = &bitmap2;
+        rectangle2 = Rectangle::new(0, 0, 7, 25);
+        let mut srcrect2: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 0, 7, self.height);
+        let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-         Graphics local5 =  Expression;
+         let mut local5: &Graphics = &Expression;
         Bitmap bitmap3 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
-         Bitmap local6 =  bitmap3;
-        rectangle2 = new Rectangle(19, 0, 7, 25);
-        Rectangle srcrect3 = rectangle2;
-        rectangle1 = new Rectangle(self.width - 7, 0, 7, self.height);
-        Rectangle destrect3 = rectangle1;
+         let mut local6: &Bitmap = &bitmap3;
+        rectangle2 = Rectangle::new(19, 0, 7, 25);
+        let mut srcrect3: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(self.width - 7, 0, 7, self.height);
+        let mut destrect3: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       }
       else
       {
-         Graphics local7 =  Expression;
+         let mut local7: &Graphics = &Expression;
         Bitmap bitmap4 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
-         Bitmap local8 =  bitmap4;
-        Rectangle rectangle3 = new Rectangle(7, 0, 7, 25);
-        Rectangle srcrect4 = rectangle3;
-        Rectangle rectangle4 = new Rectangle(7, 0, self.width - 14, self.height);
-        Rectangle destrect4 = rectangle4;
+         let mut local8: &Bitmap = &bitmap4;
+        Rectangle rectangle3 = Rectangle::new(7, 0, 7, 25);
+        let mut srcrect4: &Rectangle = &rectangle3
+        Rectangle rectangle4 = Rectangle::new(7, 0, self.width - 14, self.height);
+        let mut destrect4: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2( local7,  local8, srcrect4, destrect4);
-         Graphics local9 =  Expression;
+         let mut local9: &Graphics = &Expression;
         Bitmap bitmap5 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
-         Bitmap local10 =  bitmap5;
-        rectangle3 = new Rectangle(0, 0, 7, 25);
-        Rectangle srcrect5 = rectangle3;
-        rectangle4 = new Rectangle(0, 0, 7, self.height);
-        Rectangle destrect5 = rectangle4;
+         let mut local10: &Bitmap = &bitmap5;
+        rectangle3 = Rectangle::new(0, 0, 7, 25);
+        let mut srcrect5: &Rectangle = &rectangle3
+        rectangle4 = Rectangle::new(0, 0, 7, self.height);
+        let mut destrect5: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2( local9,  local10, srcrect5, destrect5);
-         Graphics local11 =  Expression;
+         let mut local11: &Graphics = &Expression;
         Bitmap bitmap6 = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALL);
-         Bitmap local12 =  bitmap6;
-        rectangle3 = new Rectangle(19, 0, 7, 25);
-        Rectangle srcrect6 = rectangle3;
-        rectangle4 = new Rectangle(self.width - 7, 0, 7, self.height);
-        Rectangle destrect6 = rectangle4;
+         let mut local12: &Bitmap = &bitmap6;
+        rectangle3 = Rectangle::new(19, 0, 7, 25);
+        let mut srcrect6: &Rectangle = &rectangle3
+        rectangle4 = Rectangle::new(self.width - 7, 0, 7, self.height);
+        let mut destrect6: &Rectangle = &rectangle4
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
       SizeF sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
@@ -169,29 +169,29 @@ namespace WindowsApplication1
       Expression.SmoothingMode = SmoothingMode.AntiAlias;
       Expression.TextRenderingHint = TextRenderingHint.AntiAlias;
       Expression.TextContrast = 1;
-       Graphics local1 =  Expression;
+       let mut local1: &Graphics = &Expression;
       Bitmap bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
-       Bitmap local2 =  bitmap;
-      Rectangle rectangle1 = new Rectangle(7, 0, 7, 25);
-      Rectangle srcrect1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(7, 0, self.width - 14, self.height);
-      Rectangle destrect1 = rectangle2;
+       let mut local2: &Bitmap = &bitmap;
+      Rectangle rectangle1 = Rectangle::new(7, 0, 7, 25);
+      let mut srcrect1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(7, 0, self.width - 14, self.height);
+      let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-       Graphics local3 =  Expression;
+       let mut local3: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
-       Bitmap local4 =  bitmap;
-      rectangle2 = new Rectangle(0, 0, 7, 25);
-      Rectangle srcrect2 = rectangle2;
-      rectangle1 = new Rectangle(0, 0, 7, self.height);
-      Rectangle destrect2 = rectangle1;
+       let mut local4: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(0, 0, 7, 25);
+      let mut srcrect2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(0, 0, 7, self.height);
+      let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-       Graphics local5 =  Expression;
+       let mut local5: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(DrawMod.TGame.BUTTONSMALLHIGH);
-       Bitmap local6 =  bitmap;
-      rectangle2 = new Rectangle(19, 0, 7, 25);
-      Rectangle srcrect3 = rectangle2;
-      rectangle1 = new Rectangle(self.width - 7, 0, 7, self.height);
-      Rectangle destrect3 = rectangle1;
+       let mut local6: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(19, 0, 7, 25);
+      let mut srcrect3: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(self.width - 7, 0, 7, self.height);
+      let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       SizeF sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
       let mut x1: i32 =  Math.Round(2.0 + ((double) self.width - (double) sizeF2.Width) / 2.0);

@@ -1274,21 +1274,21 @@ namespace WindowsApplication1
       }
       self.assetButtonCounter = -1;
       let mut y1: i32 = 80;
-      Rectangle rectangle1 = new Rectangle(0, y1, self.useWidth, 50);
-      Rectangle rectangle2 = new Rectangle(0, self.useHeight - 50, self.useWidth, 50);
-      Rectangle rectangle3 = new Rectangle(0, y1 + rectangle1.Height, 200, self.useHeight - (rectangle1.Height + rectangle2.Height + y1));
-      Rectangle rectangle4 = new Rectangle(self.useWidth - 500, y1 + rectangle1.Height, 500, self.useHeight - (rectangle1.Height + rectangle2.Height + 150 + y1));
-      Rectangle rectangle5 = new Rectangle(rectangle3.Width, self.useHeight - (rectangle2.Height + 150), self.useWidth - rectangle3.Width, 150);
+      Rectangle rectangle1 = Rectangle::new(0, y1, self.useWidth, 50);
+      Rectangle rectangle2 = Rectangle::new(0, self.useHeight - 50, self.useWidth, 50);
+      Rectangle rectangle3 = Rectangle::new(0, y1 + rectangle1.Height, 200, self.useHeight - (rectangle1.Height + rectangle2.Height + y1));
+      Rectangle rectangle4 = Rectangle::new(self.useWidth - 500, y1 + rectangle1.Height, 500, self.useHeight - (rectangle1.Height + rectangle2.Height + 150 + y1));
+      Rectangle rectangle5 = Rectangle::new(rectangle3.Width, self.useHeight - (rectangle2.Height + 150), self.useWidth - rectangle3.Width, 150);
       let mut width1: i32 = rectangle3.Width;
       let mut y2: i32 = y1 + rectangle1.Height;
       let mut width2: i32 = self.useWidth - (rectangle3.Width + rectangle4.Width);
       let mut height1: i32 = self.useHeight - (rectangle1.Height + rectangle2.Height + rectangle5.Height);
       if (self.game.EditObj.se1_assetRightPanel < 1)
         width2 = self.useWidth - rectangle3.Width;
-      Rectangle rectangle6 = new Rectangle(width1, y2, width2, height1);
-      Rectangle rectangle7 = new Rectangle(rectangle3.Left, rectangle3.Top, rectangle3.Width, 150);
-      Rectangle rectangle8 = new Rectangle(rectangle3.Left, rectangle7.Bottom + 10, rectangle3.Width, rectangle3.Height - 380);
-      Rectangle rectangle9 = new Rectangle(rectangle3.Left, rectangle8.Bottom + 10, rectangle3.Width, 200);
+      Rectangle rectangle6 = Rectangle::new(width1, y2, width2, height1);
+      Rectangle rectangle7 = Rectangle::new(rectangle3.Left, rectangle3.Top, rectangle3.Width, 150);
+      Rectangle rectangle8 = Rectangle::new(rectangle3.Left, rectangle7.Bottom + 10, rectangle3.Width, rectangle3.Height - 380);
+      Rectangle rectangle9 = Rectangle::new(rectangle3.Left, rectangle8.Bottom + 10, rectangle3.Width, 200);
       DrawMod.DrawBlock( g, rectangle3.X, rectangle3.Y, rectangle3.Width, rectangle3.Height, 0, 0, 0, 120);
       DrawMod.DrawBlock( g, rectangle1.X, rectangle1.Y, rectangle1.Width, rectangle1.Height, 0, 0, 0, 180);
       DrawMod.DrawBlock( g, rectangle2.X, rectangle2.Y, rectangle2.Width, rectangle2.Height, 0, 0, 0, 180);
@@ -1977,7 +1977,7 @@ namespace WindowsApplication1
               if (self.game.EditObj.se1_SelectAssetButton < 1 & x16 == self.game.SelectX & y13 == self.game.SelectY)
                 self.game.EditObj.se1_SelectAssetButton = assetId;
               CustomBitmapClass customBitmapObj = self.game.CustomBitmapObj;
-               Graphics local3 =  g;
+               let mut local3: &Graphics = &g;
               let mut tx: i32 = x15;
               let mut ty: i32 = y12;
               WindowClass windowClass = (WindowClass) this;
@@ -2042,13 +2042,13 @@ namespace WindowsApplication1
                     num60 = 1;
                   --num60;
                   let mut x17: i32 = 2 + num60 * 134;
-                   Graphics local5 =  g;
+                   let mut local5: &Graphics = &g;
                   Bitmap bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[index15]);
-                   Bitmap local6 =  bitmap;
-                  rectangle11 = new Rectangle(x17, 2, 131, 111);
-                  Rectangle srcrect = rectangle11;
-                  rectangle10 = new Rectangle(num96, y14 + 40, 131, 111);
-                  Rectangle destrect = rectangle10;
+                   let mut local6: &Bitmap = &bitmap;
+                  rectangle11 = Rectangle::new(x17, 2, 131, 111);
+                  let mut srcrect: &Rectangle = &rectangle11
+                  rectangle10 = Rectangle::new(num96, y14 + 40, 131, 111);
+                  let mut destrect: &Rectangle = &rectangle10
                   DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
                   DrawMod.DrawTextColouredMarcCenter( g, tstring2, self.game.MarcFont4, num96 + 110, y14 + 10, Color.White);
                 }
@@ -2373,13 +2373,13 @@ namespace WindowsApplication1
                       num60 = 1;
                     --num60;
                     let mut x19: i32 = 2 + num60 * 134;
-                     Graphics local7 =  g;
+                     let mut local7: &Graphics = &g;
                     Bitmap bitmap = BitmapStore.GetBitmap(self.game.Data.EventPicNr[integer2]);
-                     Bitmap local8 =  bitmap;
-                    rectangle10 = new Rectangle(x19, 2, 131, 111);
-                    Rectangle srcrect = rectangle10;
-                    rectangle11 = new Rectangle(num131, y23 + 40, 131, 111);
-                    Rectangle destrect = rectangle11;
+                     let mut local8: &Bitmap = &bitmap;
+                    rectangle10 = Rectangle::new(x19, 2, 131, 111);
+                    let mut srcrect: &Rectangle = &rectangle10
+                    rectangle11 = Rectangle::new(num131, y23 + 40, 131, 111);
+                    let mut destrect: &Rectangle = &rectangle11
                     DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
                     DrawMod.DrawTextColouredMarcCenter( g, data4, self.game.MarcFont4, num131 + 110, y23 + 10, Color.White);
                   }
@@ -2551,22 +2551,22 @@ namespace WindowsApplication1
           let mut x22: i32 = num136;
           data5: String = self.game.Data.StringListObj[self.slotItemType].GetData(0, simpleList2.Id[index17], 2);
           ttext1: String = simpleStringList.Id[index17];
-           Graphics local9 =  g;
+           let mut local9: &Graphics = &g;
           Bitmap bitmap1 = BitmapStore.GetBitmap(self.game.SE1_SIDEBAR_VARBOX_LONG);
-           Bitmap local10 =  bitmap1;
+           let mut local10: &Bitmap = &bitmap1;
           let mut x23: i32 = x22;
           let mut y28: i32 = y27;
           DrawMod.DrawSimple( local9,  local10, x23, y28);
           let mut eventPicSlotFor: i32 = self.game.EventRelatedObj.GetEventPicSlotFor(simpleList2.Id[index17], "", "");
-           Graphics local11 =  g;
+           let mut local11: &Graphics = &g;
           Bitmap bitmap2 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[eventPicSlotFor]);
-           Bitmap local12 =  bitmap2;
+           let mut local12: &Bitmap = &bitmap2;
           let mut x24: i32 = x22 + 2;
           let mut y29: i32 = y27 + 6;
           DrawMod.DrawSimple( local11,  local12, x24, y29);
           DrawMod.DrawTextColouredConsole( g, data5, self.game.MarcFont16, x22 + 31, y27 + 4, self.game.seColGray);
-          rectangle10 = new Rectangle(x22, y27, 85, height2);
-          Rectangle trect1 = rectangle10;
+          rectangle10 = Rectangle::new(x22, y27, 85, height2);
+          let mut trect1: &Rectangle = &rectangle10
           self.AddMouse( trect1, data5, ttext1);
           let mut x25: i32 = x22 + 85;
           let mut tdata1: i32 = 1;
@@ -2675,22 +2675,22 @@ namespace WindowsApplication1
                 if (flag3)
                 {
                   ttext3: String = ttext2 + "\r\nYOU HAVE CURRENTLY SELECTED THIS ITEM.\r\nClick again or on other column than Prod+Cons to deselect.";
-                  rectangle10 = new Rectangle(x25, y27, 50, height2);
-                  Rectangle trect2 = rectangle10;
+                  rectangle10 = Rectangle::new(x25, y27, 50, height2);
+                  let mut trect2: &Rectangle = &rectangle10
                   self.AddMouse( trect2, ttitle, ttext3, 120 + tdata1, simpleList2.Id[index17]);
                 }
                 else
                 {
                   ttext4: String = ttext2 + "\r\nClick to view only Assets that are concerned.";
-                  rectangle10 = new Rectangle(x25, y27, 50, height2);
-                  Rectangle trect3 = rectangle10;
+                  rectangle10 = Rectangle::new(x25, y27, 50, height2);
+                  let mut trect3: &Rectangle = &rectangle10
                   self.AddMouse( trect3, ttitle, ttext4, 120 + tdata1, simpleList2.Id[index17]);
                 }
               }
               else if (ttext2.Length > 1)
               {
-                rectangle10 = new Rectangle(x25, y27, 50, height2);
-                Rectangle trect4 = rectangle10;
+                rectangle10 = Rectangle::new(x25, y27, 50, height2);
+                let mut trect4: &Rectangle = &rectangle10
                 self.AddMouse( trect4, ttitle, ttext2, 120);
               }
             }

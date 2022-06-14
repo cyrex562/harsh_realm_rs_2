@@ -132,17 +132,17 @@ namespace WindowsApplication1
         this.showtime = DateAndTime.Now;
         if (this.game.EditObj.RealRound == 0 & (double) this.game.Data.RuleVar[319] < 1.0)
         {
-          int sfTypeCounter = this.game.Data.SFTypeCounter;
-          for (int index1 = 0; index1 <= sfTypeCounter; index1 += 1)
+          let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+          for (let mut index1: i32 =  0; index1 <= sfTypeCounter; index1 += 1)
           {
-            int killPercent = this.game.Data.SFTypeObj[index1].KillPercent;
+            let mut killPercent: i32 =  this.game.Data.SFTypeObj[index1].KillPercent;
             if (killPercent > 0)
             {
-              int num =  Math.Round((double) Conversion.Int((float) killPercent * this.game.Data.RuleVar[319]));
+              let mut num: i32 =   Math.Round((double) Conversion.Int((float) killPercent * this.game.Data.RuleVar[319]));
               SFTypeClass[] sfTypeObj = this.game.Data.SFTypeObj;
               SFTypeClass[] sfTypeClassArray = sfTypeObj;
-              int index2 = index1;
-              int index3 = index2;
+              let mut index2: i32 =  index1;
+              let mut index3: i32 =  index2;
               sfTypeClassArray[index3].RetreatPercent = sfTypeObj[index2].RetreatPercent + (this.game.Data.SFTypeObj[index1].KillPercent - num);
               this.game.Data.SFTypeObj[index1].KillPercent = num;
             }
@@ -315,7 +315,7 @@ namespace WindowsApplication1
         windowReturnClass.Flag = false;
         return windowReturnClass;
       }
-      int phase = this.game.EditObj.Phase;
+      let mut phase: i32 =  this.game.EditObj.Phase;
       this.game.EditObj.FromMessage = -1;
       this.game.EditObj.Phase = 0;
       this.game.EditObj.OrderType = 0;
@@ -334,70 +334,70 @@ namespace WindowsApplication1
       if (this.game.EditObj.RealTurn == -1 | this.game.EditObj.RealTurn > this.game.Data.RegimeCounter | this.game.EditObj.RealRound < 1)
         return;
       GC.Collect();
-      int index = this.game.EditObj.RealTurn;
+      let mut index: i32 =  this.game.EditObj.RealTurn;
       this.game.Data.ThreadBlock();
       if (this.game.EditObj.RealTurn > -1 & this.game.EditObj.RealTurn != this.game.Data.Turn & this.game.Data.Turn > -1)
         index =  Math.Round(Conversion.Val(this.game.Data.StringListObj[DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 275, 0, 0))].GetData3(0, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].id, 1, this.game.Data.RegimeObj[this.game.Data.Turn].id, 2, "recon", 3))) <= 0 ? -1 : this.game.Data.Turn;
       this.game.Data.ThreadRelease();
       if (index <= -1)
         return;
-      int red = this.game.Data.RegimeObj[index].Red;
-      int green = this.game.Data.RegimeObj[index].Green;
-      int blue = this.game.Data.RegimeObj[index].Blue;
-      int red2 = this.game.Data.RegimeObj[index].Red2;
-      int green2 = this.game.Data.RegimeObj[index].Green2;
-      int blue2 = this.game.Data.RegimeObj[index].Blue2;
-      int num1 = 1;
+      let mut red: i32 =  this.game.Data.RegimeObj[index].Red;
+      let mut green: i32 =  this.game.Data.RegimeObj[index].Green;
+      let mut blue: i32 =  this.game.Data.RegimeObj[index].Blue;
+      let mut red2: i32 =  this.game.Data.RegimeObj[index].Red2;
+      let mut green2: i32 =  this.game.Data.RegimeObj[index].Green2;
+      let mut blue2: i32 =  this.game.Data.RegimeObj[index].Blue2;
+      let mut num1: i32 =  1;
       do
       {
-        int bannerSpriteNr = this.game.Data.RegimeObj[index].BannerSpriteNr;
-        int num2 = 10;
-        int num3 = 10;
+        let mut bannerSpriteNr: i32 =  this.game.Data.RegimeObj[index].BannerSpriteNr;
+        let mut num2: i32 =  10;
+        let mut num3: i32 =  10;
         if (num1 == 2)
         {
           num2 = 880;
           num3 = 10;
         }
-        int num4 = 124;
-        int num5 = 210;
-         Graphics local1 =  g;
+        let mut num4: i32 =  124;
+        let mut num5: i32 =  210;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap1 = BitmapStore.GetBitmap(bannerSpriteNr);
-         Bitmap local2 =  bitmap1;
-        int x1 = num2;
-        int y1 = num3;
-        int w1 = num4;
-        int h1 = num5;
-        int origw1 = num4;
-        int origh1 = num5;
+         let mut local2: &Bitmap = &bitmap1;
+        let mut x1: i32 =  num2;
+        let mut y1: i32 =  num3;
+        let mut w1: i32 =  num4;
+        let mut h1: i32 =  num5;
+        let mut origw1: i32 =  num4;
+        let mut origh1: i32 =  num5;
         double r1 = (double) ((float) red / (float) byte.MaxValue);
         double g1 = (double) ((float) green / (float) byte.MaxValue);
         double b1 = (double) ((float) blue / (float) byte.MaxValue);
         DrawMod.DrawScaledColorized2( local1,  local2, x1, y1, w1, h1, origw1, origh1, (float) r1, (float) g1, (float) b1, 1f);
-        int bannerSpriteNr2 = this.game.Data.RegimeObj[index].BannerSpriteNr2;
+        let mut bannerSpriteNr2: i32 =  this.game.Data.RegimeObj[index].BannerSpriteNr2;
         if (bannerSpriteNr2 > 0)
         {
-           Graphics local3 =  g;
+           let mut local3: &Graphics = &g;
           Bitmap bitmap2 = BitmapStore.GetBitmap(bannerSpriteNr2);
-           Bitmap local4 =  bitmap2;
-          int x2 = num2;
-          int y2 = num3;
-          int w2 = num4;
-          int h2 = num5;
-          int origw2 = num4;
-          int origh2 = num5;
+           let mut local4: &Bitmap = &bitmap2;
+          let mut x2: i32 =  num2;
+          let mut y2: i32 =  num3;
+          let mut w2: i32 =  num4;
+          let mut h2: i32 =  num5;
+          let mut origw2: i32 =  num4;
+          let mut origh2: i32 =  num5;
           double r2 = (double) ((float) red2 / (float) byte.MaxValue);
           double g2 = (double) ((float) green2 / (float) byte.MaxValue);
           double b2 = (double) ((float) blue2 / (float) byte.MaxValue);
           DrawMod.DrawScaledColorized2( local3,  local4, x2, y2, w2, h2, origw2, origh2, (float) r2, (float) g2, (float) b2, 1f);
         }
-        int hqSpriteNr2 = this.game.Data.RegimeObj[index].HQSpriteNr2;
+        let mut hqSpriteNr2: i32 =  this.game.Data.RegimeObj[index].HQSpriteNr2;
         if (hqSpriteNr2 > 0)
         {
-           Graphics local5 =  g;
+           let mut local5: &Graphics = &g;
           Bitmap bitmap3 = BitmapStore.GetBitmap(hqSpriteNr2, 1);
-           Bitmap local6 =  bitmap3;
-          int x3 = num2 + 16;
-          int y3 = num3 + 60;
+           let mut local6: &Bitmap = &bitmap3;
+          let mut x3: i32 =  num2 + 16;
+          let mut y3: i32 =  num3 + 60;
           double r3 = (double) ((float) this.game.Data.RegimeObj[index].Red3 / (float) byte.MaxValue) - 1.0;
           double g3 = (double) ((float) this.game.Data.RegimeObj[index].Green3 / (float) byte.MaxValue) - 1.0;
           double b3 = (double) ((float) this.game.Data.RegimeObj[index].Blue3 / (float) byte.MaxValue) - 1.0;
@@ -495,7 +495,7 @@ namespace WindowsApplication1
         }
         else
         {
-          int num =  Interaction.MsgBox((object) "Strange error. a player with no pbemPlayer set. should not be possible unless scenario uses some unexpected scripting. Continue might be possible since code allows access to turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num: i32 =   Interaction.MsgBox((object) "Strange error. a player with no pbemPlayer set. should not be possible unless scenario uses some unexpected scripting. Continue might be possible since code allows access to turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
           this.loggedin = true;
         }
       }
@@ -521,20 +521,20 @@ namespace WindowsApplication1
       int[] numArray1 = new int[100];
       int[] numArray2 = new int[100];
       int[] numArray3 = new int[100];
-      int stringListById = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[441]));
-      int num1 = 0;
-      int num2 = 0;
-      int num3 = 0;
-      int num4 = 0;
-      int length = this.game.Data.StringListObj[stringListById].Length;
-      for (int index = 0; index <= length; index += 1)
+      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[441]));
+      let mut num1: i32 =  0;
+      let mut num2: i32 =  0;
+      let mut num3: i32 =  0;
+      let mut num4: i32 =  0;
+      let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
+      for (let mut index: i32 =  0; index <= length; index += 1)
       {
         if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index, 1])) == 3)
         {
-          int idValue =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index, 2]));
+          let mut idValue: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index, 2]));
           if (idValue > 0)
           {
-            int num5 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 2)));
+            let mut num5: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 2)));
             if (num5 > 0)
             {
               if (num5 == 1)
@@ -545,40 +545,40 @@ namespace WindowsApplication1
           }
         }
       }
-      int sfTypeCounter = this.game.Data.SFTypeCounter;
-      for (int index1 = 0; index1 <= sfTypeCounter; index1 += 1)
+      let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+      for (let mut index1: i32 =  0; index1 <= sfTypeCounter; index1 += 1)
       {
         if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SLoss[index1, this.game.EditObj.RealRound] > 0 | this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SKills[index1, this.game.EditObj.RealRound] > 0 | this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SASKilled[index1] > 0)
         {
           int[] numArray4 = numArray1;
           int[] numArray5 = numArray4;
-          int unitGroup1 = this.game.Data.SFTypeObj[index1].UnitGroup;
-          int index2 = unitGroup1;
-          int num6 = numArray4[unitGroup1] + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SLoss[index1, this.game.EditObj.RealRound] * this.game.Data.SFTypeObj[index1].Ratio;
+          let mut unitGroup1: i32 =  this.game.Data.SFTypeObj[index1].UnitGroup;
+          let mut index2: i32 =  unitGroup1;
+          let mut num6: i32 =  numArray4[unitGroup1] + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SLoss[index1, this.game.EditObj.RealRound] * this.game.Data.SFTypeObj[index1].Ratio;
           numArray5[index2] = num6;
           int[] numArray6 = numArray2;
           int[] numArray7 = numArray6;
-          int unitGroup2 = this.game.Data.SFTypeObj[index1].UnitGroup;
-          int index3 = unitGroup2;
-          int num7 = numArray6[unitGroup2] + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SKills[index1, this.game.EditObj.RealRound] * this.game.Data.SFTypeObj[index1].Ratio;
+          let mut unitGroup2: i32 =  this.game.Data.SFTypeObj[index1].UnitGroup;
+          let mut index3: i32 =  unitGroup2;
+          let mut num7: i32 =  numArray6[unitGroup2] + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SKills[index1, this.game.EditObj.RealRound] * this.game.Data.SFTypeObj[index1].Ratio;
           numArray7[index3] = num7;
           int[] numArray8 = numArray2;
           int[] numArray9 = numArray8;
-          int unitGroup3 = this.game.Data.SFTypeObj[index1].UnitGroup;
-          int index4 = unitGroup3;
-          int num8 = numArray8[unitGroup3] + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SASKilled[index1] * this.game.Data.SFTypeObj[index1].Ratio;
+          let mut unitGroup3: i32 =  this.game.Data.SFTypeObj[index1].UnitGroup;
+          let mut index4: i32 =  unitGroup3;
+          let mut num8: i32 =  numArray8[unitGroup3] + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SASKilled[index1] * this.game.Data.SFTypeObj[index1].Ratio;
           numArray9[index4] = num8;
           num3 += this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SLoss[index1, this.game.EditObj.RealRound] * this.game.Data.SFTypeObj[index1].Ratio;
           num4 = num4 + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SKills[index1, this.game.EditObj.RealRound] * this.game.Data.SFTypeObj[index1].Ratio + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].SASKilled[index1] * this.game.Data.SFTypeObj[index1].Ratio;
         }
       }
       str2: String = "";
-      int num9 = 0;
-      int num10 = 0;
+      let mut num9: i32 =  0;
+      let mut num10: i32 =  0;
       if (num4 > 0)
       {
         str2 = "We killed ";
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           if (numArray2[index] > 0)
@@ -595,7 +595,7 @@ namespace WindowsApplication1
       if (num3 > 0)
       {
         str2 = num9 <= 0 ? "We lost " : str2 + " and we lost ";
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           if (numArray1[index] > 0)
@@ -796,12 +796,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.Listid1)
             {
               this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
@@ -874,7 +874,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num2 =  Interaction.MsgBox((object) "Wrong password.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num2: i32 =   Interaction.MsgBox((object) "Wrong password.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     this.loggedin = false;
                     this.EnterTurn();
                     windowReturnClass.SetFlag(true);
@@ -918,7 +918,7 @@ namespace WindowsApplication1
                     if (this.game.Data.Round == 1 & this.game.EditObj.RealTurn > 2 & this.game.Data.PasswordsOn && Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn - 1, this.game.Data.RegimeObj[this.game.EditObj.RealTurn - 1].RandomCode), (object) 0, false))
                     {
                       this.loggedin = false;
-                      int num3 =  Interaction.MsgBox((object) "We cannot allow you to log into this turn as you have already logged in to the previous turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num3: i32 =   Interaction.MsgBox((object) "We cannot allow you to log into this turn as you have already logged in to the previous turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       windowReturnClass.SetFlag(true);
                       return windowReturnClass;
                     }
@@ -936,19 +936,19 @@ namespace WindowsApplication1
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        int num4 =  Interaction.MsgBox((object) "Wiped Logbook. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num4: i32 =   Interaction.MsgBox((object) "Wiped Logbook. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
-                      int regimeCounter = this.game.Data.RegimeCounter;
-                      for (int index2 = 0; index2 <= regimeCounter; index2 += 1)
+                      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                      for (let mut index2: i32 =  0; index2 <= regimeCounter; index2 += 1)
                       {
                         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                         RegimeClass[] regimeClassArray = regimeObj;
-                        int index3 = index2;
-                        int index4 = index3;
+                        let mut index3: i32 =  index2;
+                        let mut index4: i32 =  index3;
                         regimeClassArray[index4].MessCounter = regimeObj[index3].MessCounter + 1;
-                        int messCounter = this.game.Data.RegimeObj[index2].MessCounter;
+                        let mut messCounter: i32 =  this.game.Data.RegimeObj[index2].MessCounter;
                         this.game.Data.RegimeObj[index2].MessString = (string[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index2].MessString, (Array) new string[messCounter + 1]);
                         this.game.Data.RegimeObj[index2].MessBackPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index2].MessBackPic, (Array) new int[messCounter + 1]);
                         this.game.Data.RegimeObj[index2].MessFrontPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index2].MessFrontPic, (Array) new int[messCounter + 1]);
@@ -969,23 +969,23 @@ namespace WindowsApplication1
                     }
                     else if (Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 0, false))
                     {
-                      int integer2 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 1));
+                      let mut integer2: i32 =  Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 1));
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        int num5 =  Interaction.MsgBox((object) "Turn has already been opened before. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num5: i32 =   Interaction.MsgBox((object) "Turn has already been opened before. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
-                      int regimeCounter = this.game.Data.RegimeCounter;
-                      for (int index5 = 0; index5 <= regimeCounter; index5 += 1)
+                      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                      for (let mut index5: i32 =  0; index5 <= regimeCounter; index5 += 1)
                       {
                         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                         RegimeClass[] regimeClassArray = regimeObj;
-                        int index6 = index5;
-                        int index7 = index6;
+                        let mut index6: i32 =  index5;
+                        let mut index7: i32 =  index6;
                         regimeClassArray[index7].MessCounter = regimeObj[index6].MessCounter + 1;
-                        int messCounter = this.game.Data.RegimeObj[index5].MessCounter;
+                        let mut messCounter: i32 =  this.game.Data.RegimeObj[index5].MessCounter;
                         this.game.Data.RegimeObj[index5].MessString = (string[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index5].MessString, (Array) new string[messCounter + 1]);
                         this.game.Data.RegimeObj[index5].MessBackPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index5].MessBackPic, (Array) new int[messCounter + 1]);
                         this.game.Data.RegimeObj[index5].MessFrontPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index5].MessFrontPic, (Array) new int[messCounter + 1]);
@@ -1010,19 +1010,19 @@ namespace WindowsApplication1
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        int num6 =  Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num6: i32 =   Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
-                      int regimeCounter = this.game.Data.RegimeCounter;
-                      for (int index8 = 0; index8 <= regimeCounter; index8 += 1)
+                      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                      for (let mut index8: i32 =  0; index8 <= regimeCounter; index8 += 1)
                       {
                         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                         RegimeClass[] regimeClassArray = regimeObj;
-                        int index9 = index8;
-                        int index10 = index9;
+                        let mut index9: i32 =  index8;
+                        let mut index10: i32 =  index9;
                         regimeClassArray[index10].MessCounter = regimeObj[index9].MessCounter + 1;
-                        int messCounter = this.game.Data.RegimeObj[index8].MessCounter;
+                        let mut messCounter: i32 =  this.game.Data.RegimeObj[index8].MessCounter;
                         this.game.Data.RegimeObj[index8].MessString = (string[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index8].MessString, (Array) new string[messCounter + 1]);
                         this.game.Data.RegimeObj[index8].MessBackPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index8].MessBackPic, (Array) new int[messCounter + 1]);
                         this.game.Data.RegimeObj[index8].MessFrontPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index8].MessFrontPic, (Array) new int[messCounter + 1]);
@@ -1047,19 +1047,19 @@ namespace WindowsApplication1
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        int num7 =  Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num7: i32 =   Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
-                      int regimeCounter = this.game.Data.RegimeCounter;
-                      for (int index11 = 0; index11 <= regimeCounter; index11 += 1)
+                      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+                      for (let mut index11: i32 =  0; index11 <= regimeCounter; index11 += 1)
                       {
                         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                         RegimeClass[] regimeClassArray = regimeObj;
-                        int index12 = index11;
-                        int index13 = index12;
+                        let mut index12: i32 =  index11;
+                        let mut index13: i32 =  index12;
                         regimeClassArray[index13].MessCounter = regimeObj[index12].MessCounter + 1;
-                        int messCounter = this.game.Data.RegimeObj[index11].MessCounter;
+                        let mut messCounter: i32 =  this.game.Data.RegimeObj[index11].MessCounter;
                         this.game.Data.RegimeObj[index11].MessString = (string[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index11].MessString, (Array) new string[messCounter + 1]);
                         this.game.Data.RegimeObj[index11].MessBackPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index11].MessBackPic, (Array) new int[messCounter + 1]);
                         this.game.Data.RegimeObj[index11].MessFrontPic = (int[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index11].MessFrontPic, (Array) new int[messCounter + 1]);
@@ -1117,11 +1117,11 @@ namespace WindowsApplication1
                   this.game.EditObj.pdfGenerated = "";
                   this.game.EventRelatedObj.DoCheckEvents(4);
                   this.Phase = 2;
-                  int stringListById1 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Random", 86, 0, 0));
-                  int stringListById2 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 156, 0, 0));
-                  int stringListById3 = this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 210, 0, 0));
-                  int stringListById4 = this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 292, 0, 0));
-                  int id = this.game.Data.RegimeObj[this.game.Data.Turn].id;
+                  let mut stringListById1: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Random", 86, 0, 0));
+                  let mut stringListById2: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 156, 0, 0));
+                  let mut stringListById3: i32 =  this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 210, 0, 0));
+                  let mut stringListById4: i32 =  this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 292, 0, 0));
+                  let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
                   bool flag1 = false;
                   if (((!Information.IsNothing((object) this.game.EditObj) & !Information.IsNothing((object) this.game.MetricsURL) ? 1 : 0) & 0) != 0 && this.game.EditObj.allowMetrics & this.game.MetricsURL.Length > 4 & (this.game.Data.Round % 20 == 0 | this.game.Data.Winner > -1) && Strings.InStr(this.game.MetricsURL, "http://") > 0 && this.game.Data.Winner == -1 | this.game.Data.LastWinner != this.game.Data.Winner)
                   {
@@ -1171,8 +1171,8 @@ namespace WindowsApplication1
                   this += 1.game.EditObj.TutStep;
                   this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Version = 110;
                   this.game.Data.RegimeObj[this.game.EditObj.RealTurn].subVersion = ".04b";
-                  int messCounter = this.game.Data.RegimeObj[this.game.EditObj.RealTurn].MessCounter;
-                  for (int index14 = 0; index14 <= messCounter; index14 += 1)
+                  let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.EditObj.RealTurn].MessCounter;
+                  for (let mut index14: i32 =  0; index14 <= messCounter; index14 += 1)
                   {
                     if (!this.game.Data.RegimeObj[this.game.EditObj.RealTurn].MesHideFromStart[index14])
                       ;
@@ -1192,7 +1192,7 @@ namespace WindowsApplication1
                   bool flag3 = false;
                   if ((double) this.game.Data.RuleVar[971] > 0.0)
                   {
-                    int stringListById5 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]));
+                    let mut stringListById5: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]));
                     if (stringListById5 > -1 && this.game.Data.StringListObj[stringListById5].Length > -1)
                       flag3 = true;
                   }
@@ -1222,7 +1222,7 @@ namespace WindowsApplication1
                 bool flag = false;
                 if ((double) this.game.Data.RuleVar[971] > 0.0)
                 {
-                  int stringListById = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]));
+                  let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]));
                   if (stringListById > -1 && this.game.Data.StringListObj[stringListById].Length > -1)
                     flag = true;
                 }
@@ -1239,7 +1239,7 @@ namespace WindowsApplication1
                 str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Scenario file (*.se1)|*.se1", "Give save name...", this.game.AppPath_SAVEGAMES, false);
                 if (Strings.Len(str) < 2)
                 {
-                  int num8 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num8: i32 =   Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -1288,9 +1288,9 @@ namespace WindowsApplication1
 
     pub AnyShoweableMessagesLeft: bool()
     {
-      int num = this.PhaseData + 1;
-      int messCounter = this.game.Data.RegimeObj[this.game.EditObj.RealTurn].MessCounter;
-      for (int index = num; index <= messCounter; index += 1)
+      let mut num: i32 =  this.PhaseData + 1;
+      let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.EditObj.RealTurn].MessCounter;
+      for (let mut index: i32 =  num; index <= messCounter; index += 1)
       {
         if (!this.game.Data.RegimeObj[this.game.EditObj.RealTurn].MesHideFromStart[index])
           return true;
@@ -1300,34 +1300,34 @@ namespace WindowsApplication1
 
     pub void DoPresentStats()
     {
-      int regimeCounter = this.game.Data.RegimeCounter;
-      for (int index1 = 0; index1 <= regimeCounter; index1 += 1)
+      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+      for (let mut index1: i32 =  0; index1 <= regimeCounter; index1 += 1)
       {
         this.game.Data.RegimeObj[index1].SPresent = (int[,]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index1].SPresent, (Array) new int[this.game.Data.SFTypeCounter + 1, this.game.EditObj.RealRound + 1 + 1]);
-        int sfTypeCounter = this.game.Data.SFTypeCounter;
-        for (int index2 = 0; index2 <= sfTypeCounter; index2 += 1)
+        let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+        for (let mut index2: i32 =  0; index2 <= sfTypeCounter; index2 += 1)
         {
           this.game.Data.RegimeObj[index1].SPresent[index2, 0] = 0;
           this.game.Data.RegimeObj[index1].SPresent[index2, this.game.EditObj.RealRound] = 0;
         }
       }
-      int unitCounter = this.game.Data.UnitCounter;
-      for (int index3 = 0; index3 <= unitCounter; index3 += 1)
+      let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+      for (let mut index3: i32 =  0; index3 <= unitCounter; index3 += 1)
       {
         if (this.game.Data.UnitObj[index3].PreDef == -1)
         {
-          int regime = this.game.Data.UnitObj[index3].Regime;
-          int sfCount = this.game.Data.UnitObj[index3].SFCount;
-          for (int index4 = 0; index4 <= sfCount; index4 += 1)
+          let mut regime: i32 =  this.game.Data.UnitObj[index3].Regime;
+          let mut sfCount: i32 =  this.game.Data.UnitObj[index3].SFCount;
+          for (let mut index4: i32 =  0; index4 <= sfCount; index4 += 1)
           {
-            int sf = this.game.Data.UnitObj[index3].SFList[index4];
+            let mut sf: i32 =  this.game.Data.UnitObj[index3].SFList[index4];
             int[,] spresent = this.game.Data.RegimeObj[regime].SPresent;
             int[,] numArray = spresent;
-            int type = this.game.Data.SFObj[sf].Type;
-            int index5 = type;
-            int realRound = this.game.EditObj.RealRound;
-            int index6 = realRound;
-            int num = spresent[type, realRound] + this.game.Data.SFObj[sf].Qty;
+            let mut type: i32 =  this.game.Data.SFObj[sf].Type;
+            let mut index5: i32 =  type;
+            let mut realRound: i32 =  this.game.EditObj.RealRound;
+            let mut index6: i32 =  realRound;
+            let mut num: i32 =  spresent[type, realRound] + this.game.Data.SFObj[sf].Qty;
             numArray[index5, index6] = num;
           }
         }
@@ -1338,8 +1338,8 @@ namespace WindowsApplication1
     {
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -1357,8 +1357,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {

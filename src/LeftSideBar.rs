@@ -50,8 +50,8 @@ namespace WindowsApplication1
     pub HandleMouseMove: WindowReturnClass(int x, int y)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
-      int num = -1;
-      for (int mouseCounter = this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
+      let mut num: i32 =  -1;
+      for (let mut mouseCounter: i32 =  this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
       {
         if (this.MouseData[mouseCounter] > 0 && x > this.MouseRect[mouseCounter].X & x < this.MouseRect[mouseCounter].X + this.MouseRect[mouseCounter].Width && y > this.MouseRect[mouseCounter].Y & y < this.MouseRect[mouseCounter].Y + this.MouseRect[mouseCounter].Height)
           num = this.MouseData[mouseCounter];
@@ -99,7 +99,7 @@ namespace WindowsApplication1
       int iconSlot,
       bool mouseOverRightNow = false)
     {
-      int x1 = 11;
+      let mut x1: i32 =  11;
       if (openSideWindow)
         x1 = 150;
       Bitmap bitmap;
@@ -109,22 +109,22 @@ namespace WindowsApplication1
       {
         if (!active & openSideWindow)
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABLEFT);
-           Bitmap local2 =  bitmap;
-          rectangle1 = new Rectangle(7, 0, 28, 70);
-          Rectangle srcrect = rectangle1;
-          rectangle2 = new Rectangle(x1, ty, 28, 70);
-          Rectangle destrect = rectangle2;
+           let mut local2: &Bitmap = &bitmap;
+          rectangle1 = Rectangle::new(7, 0, 28, 70);
+          let mut srcrect: &Rectangle = &rectangle1
+          rectangle2 = Rectangle::new(x1, ty, 28, 70);
+          let mut destrect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2ColouredNew( local1,  local2, srcrect, destrect, 1.1f, 1.1f, 1.1f, 1f);
         }
         if (active | !openSideWindow)
         {
-           Graphics local3 =  g;
+           let mut local3: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABLEFT);
-           Bitmap local4 =  bitmap;
-          int x2 = x1;
-          int y = ty;
+           let mut local4: &Bitmap = &bitmap;
+          let mut x2: i32 =  x1;
+          let mut y: i32 =  ty;
           DrawMod.Draw( local3,  local4, x2, y, 0.05f, 0.05f, 0.05f, 1f);
         }
       }
@@ -132,22 +132,22 @@ namespace WindowsApplication1
       {
         if (!active & openSideWindow)
         {
-           Graphics local5 =  g;
+           let mut local5: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABLEFT);
-           Bitmap local6 =  bitmap;
-          rectangle2 = new Rectangle(7, 0, 28, 70);
-          Rectangle srcrect = rectangle2;
-          rectangle1 = new Rectangle(x1, ty, 28, 70);
-          Rectangle destrect = rectangle1;
+           let mut local6: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(7, 0, 28, 70);
+          let mut srcrect: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x1, ty, 28, 70);
+          let mut destrect: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
         }
         if (active | !openSideWindow)
         {
-           Graphics local7 =  g;
+           let mut local7: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TABLEFT);
-           Bitmap local8 =  bitmap;
-          int x3 = x1;
-          int y = ty;
+           let mut local8: &Bitmap = &bitmap;
+          let mut x3: i32 =  x1;
+          let mut y: i32 =  ty;
           DrawMod.DrawSimple( local7,  local8, x3, y);
         }
       }
@@ -157,24 +157,24 @@ namespace WindowsApplication1
         {
           if (!active & openSideWindow)
           {
-             Graphics local9 =  g;
+             let mut local9: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local10 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 32, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1 - 7 - 3, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local10: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1 - 7 - 3, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
           }
           if (!active & !openSideWindow)
           {
-             Graphics local11 =  g;
+             let mut local11: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local12 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 32, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1 - 7, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local12: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1 - 7, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local11,  local12, srcrect, destrect);
           }
         }
@@ -182,40 +182,40 @@ namespace WindowsApplication1
         {
           if (!active & openSideWindow)
           {
-             Graphics local13 =  g;
+             let mut local13: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local14 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 0, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1 - 7 - 3, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local14: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 0, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1 - 7 - 3, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local13,  local14, srcrect, destrect);
           }
           if (!active & !openSideWindow)
           {
-             Graphics local15 =  g;
+             let mut local15: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-             Bitmap local16 =  bitmap;
-            rectangle2 = new Rectangle(iconSlot * 42, 0, 42, 32);
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(x1 - 7, ty + 17, 42, 32);
-            Rectangle destrect = rectangle1;
+             let mut local16: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(iconSlot * 42, 0, 42, 32);
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(x1 - 7, ty + 17, 42, 32);
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
           }
         }
         if (active)
         {
-           Graphics local17 =  g;
+           let mut local17: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_ICONS);
-           Bitmap local18 =  bitmap;
-          rectangle2 = new Rectangle(iconSlot * 42, 32, 42, 32);
-          Rectangle srcrect = rectangle2;
-          rectangle1 = new Rectangle(x1 - 7, ty + 17, 42, 32);
-          Rectangle destrect = rectangle1;
+           let mut local18: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(iconSlot * 42, 32, 42, 32);
+          let mut srcrect: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x1 - 7, ty + 17, 42, 32);
+          let mut destrect: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local17,  local18, srcrect, destrect);
         }
       }
-      return new Rectangle(x1, ty, 35, 65);
+      return Rectangle::new(x1, ty, 35, 65);
     }
 
     pub void dostuff()
@@ -281,59 +281,59 @@ namespace WindowsApplication1
       bool openSideWindow = false;
       if (this.game.EditObj.leftSideBarMode > 0)
         openSideWindow = true;
-      int x1 = 0;
+      let mut x1: i32 =  0;
       if (openSideWindow)
         x1 = 145;
       Bitmap bitmap;
       if (openSideWindow)
       {
-        for (int h = this.h; h > -185; h -= 185)
+        for (let mut h: i32 =  this.h; h > -185; h -= 185)
         {
-           Graphics local1 =  objgraphics;
+           let mut local1: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TEXTURE);
-           Bitmap local2 =  bitmap;
-          int y = h;
+           let mut local2: &Bitmap = &bitmap;
+          let mut y: i32 =  h;
           DrawMod.DrawSimple( local1,  local2, -35, y);
         }
       }
       if (!openSideWindow)
       {
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_TOPSHADOWLEFT);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local3,  local4, 0, 0);
       }
-       Graphics local5 =  objgraphics;
+       let mut local5: &Graphics = &objgraphics;
       bitmap = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_LEFT);
-       Bitmap local6 =  bitmap;
-      Rectangle rectangle1 = new Rectangle(0, 0, 40, 128);
-      Rectangle srcrect1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(x1, 0, 40, 128);
-      Rectangle destrect1 = rectangle2;
+       let mut local6: &Bitmap = &bitmap;
+      Rectangle rectangle1 = Rectangle::new(0, 0, 40, 128);
+      let mut srcrect1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(x1, 0, 40, 128);
+      let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local5,  local6, srcrect1, destrect1);
-      for (int y = 128; y < this.h - 128; y += 124)
+      for (let mut y: i32 =  128; y < this.h - 128; y += 124)
       {
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_LEFT);
-         Bitmap local8 =  bitmap;
-        rectangle2 = new Rectangle(0, 128, 40, 124);
-        Rectangle srcrect2 = rectangle2;
-        rectangle1 = new Rectangle(x1, y, 40, 124);
-        Rectangle destrect2 = rectangle1;
+         let mut local8: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 128, 40, 124);
+        let mut srcrect2: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(x1, y, 40, 124);
+        let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect2, destrect2);
       }
-       Graphics local9 =  objgraphics;
+       let mut local9: &Graphics = &objgraphics;
       bitmap = BitmapStore.GetBitmap(this.game.SE1_MAINFRAME_LEFT);
-       Bitmap local10 =  bitmap;
-      rectangle2 = new Rectangle(0, 252, 40, 128);
-      Rectangle srcrect3 = rectangle2;
-      rectangle1 = new Rectangle(x1, this.h - 128, 40, 128);
-      Rectangle destrect3 = rectangle1;
+       let mut local10: &Bitmap = &bitmap;
+      rectangle2 = Rectangle::new(0, 252, 40, 128);
+      let mut srcrect3: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(x1, this.h - 128, 40, 128);
+      let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local9,  local10, srcrect3, destrect3);
-      int ty1 = 70;
+      let mut ty1: i32 =  70;
       Rectangle trect1 = this.DrawOneTab(objgraphics, ty1, this.game.EditObj.leftSideBarMode == 2, openSideWindow, 10, this.MouseOverWhichTab == 2);
       this.AddMouse( trect1, "SHQ INVENTORY BAR", "Info on your stockpiles in your SHQ(s).", 2);
-      int ty2 = ty1 + 68;
+      let mut ty2: i32 =  ty1 + 68;
       Rectangle trect2;
       if (this.game.ScreenWidth < 1536)
       {
@@ -343,17 +343,17 @@ namespace WindowsApplication1
       }
       trect2 = this.DrawOneTab(objgraphics, ty2, this.game.EditObj.leftSideBarMode == 1, openSideWindow, 12, this.MouseOverWhichTab == 1);
       this.AddMouse( trect2, "REGIME PROFILE BAR", "Info on your Regime Profile scores.", 1);
-      int ty3 = ty2 + 68;
+      let mut ty3: i32 =  ty2 + 68;
       trect2 = this.DrawOneTab(objgraphics, ty3, this.game.EditObj.leftSideBarMode == 4, openSideWindow, 15, this.MouseOverWhichTab == 4);
       this.AddMouse( trect2, "QUICK ZONE BAR", "Options to switch Map quickly to another Zone.", 4);
-      int y1 = ty3 + 68;
+      let mut y1: i32 =  ty3 + 68;
       if (openSideWindow)
       {
         y1 = this.h - 67;
-         Graphics local11 =  objgraphics;
+         let mut local11: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_EXITLEFT);
-         Bitmap local12 =  bitmap;
-        int y2 = y1;
+         let mut local12: &Bitmap = &bitmap;
+        let mut y2: i32 =  y1;
         DrawMod.DrawSimple( local11,  local12, 153, y2);
         if (this.Info1Id < 1)
         {
@@ -366,48 +366,48 @@ namespace WindowsApplication1
       if (openSideWindow & this.game.EditObj.leftSideBarMode == 4)
       {
         libName: String = "SE_Data";
-        int stringListById1 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 123, 0, 0));
-        int stringListById2 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 160, 0, 0));
-        int integer = Conversions.ToInteger(this.game.EventRelatedObj.CheckLibVarHex(this.game.SelectX, this.game.SelectY, libName, "Zones"));
+        let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 123, 0, 0));
+        let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 160, 0, 0));
+        let mut integer: i32 =  Conversions.ToInteger(this.game.EventRelatedObj.CheckLibVarHex(this.game.SelectX, this.game.SelectY, libName, "Zones"));
         Conversions.ToInteger(this.game.Data.StringListObj[stringListById1].GetData(0, integer, 1));
         Conversions.ToInteger(this.game.Data.StringListObj[stringListById1].GetData(0, integer, 2));
-        int id1 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, integer, 6)));
+        let mut id1: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, integer, 6)));
         this.game.Data.StringListObj[stringListById1].GetData(0, integer, 7);
         this.game.EventRelatedObj.CheckRegimeSlot( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData(0, integer, 8))), 0, 0, 0);
-        int index1 = -1;
+        let mut index1: i32 =  -1;
         if (id1 > 0)
           index1 = this.game.HandyFunctionsObj.GetLocationByID(id1);
-        int num2 = -1;
+        let mut num2: i32 =  -1;
         if (index1 > -1)
           num2 = this.game.Data.LocObj[index1].HQ;
-        int unitSelected = this.game.EditObj.UnitSelected;
-        int num3 = -1;
+        let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
+        let mut num3: i32 =  -1;
         if (unitSelected > -1)
           num3 = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ;
         SimpleList simpleList1 = SimpleList::new();
         SimpleList simpleList2 = SimpleList::new();
-        int unitCounter = this.game.Data.UnitCounter;
-        for (int tid = 0; tid <= unitCounter; tid += 1)
+        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+        for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
         {
           if (this.game.Data.UnitObj[tid].Regime == this.game.Data.Turn && this.game.Data.UnitObj[tid].PreDef == -1 && this.game.Data.UnitObj[tid].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[tid].Historical].Type == 8)
             simpleList1.Add(tid, 0);
         }
         bool flag = false;
-        int length = this.game.Data.StringListObj[stringListById1].Length;
-        for (int index2 = 0; index2 <= length; index2 += 1)
+        let mut length: i32 =  this.game.Data.StringListObj[stringListById1].Length;
+        for (let mut index2: i32 =  0; index2 <= length; index2 += 1)
         {
           if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index2, 8])) == this.game.Data.RegimeObj[this.game.Data.Turn].id)
           {
-            int num4 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index2, 0]));
-            int id2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index2, 6]));
-            int num5 = -1;
+            let mut num4: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index2, 0]));
+            let mut id2: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index2, 6]));
+            let mut num5: i32 =  -1;
             if (id2 > 0)
             {
-              int locationById = this.game.HandyFunctionsObj.GetLocationByID(id2);
+              let mut locationById: i32 =  this.game.HandyFunctionsObj.GetLocationByID(id2);
               if (locationById > -1)
                 num5 = this.game.Data.LocObj[locationById].HQ;
             }
-            int tweight = ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData2(0, num4, 1, "pop", 2))) +  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData2(0, num4, 1, "worker", 2)))) * 100;
+            let mut tweight: i32 =  ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData2(0, num4, 1, "pop", 2))) +  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData2(0, num4, 1, "worker", 2)))) * 100;
             simpleList2.Add(num4, tweight, num5);
             if (num5 > -1)
               simpleList1.AddWeight(num5, tweight);
@@ -417,11 +417,11 @@ namespace WindowsApplication1
         }
         simpleList1.ReverseSort();
         simpleList2.ReverseSort();
-        int num6 = 0;
-        int num7 = this.h + 3;
-        int num8 = num6 + 10 + 42 * (simpleList1.Counter + 1) + 28 * (simpleList2.Counter + 1);
-        int num9 = 1;
-        int num10 = this.game.EditObj.leftSideBarModePage;
+        let mut num6: i32 =  0;
+        let mut num7: i32 =  this.h + 3;
+        let mut num8: i32 =  num6 + 10 + 42 * (simpleList1.Counter + 1) + 28 * (simpleList2.Counter + 1);
+        let mut num9: i32 =  1;
+        let mut num10: i32 =  this.game.EditObj.leftSideBarModePage;
         if (num8 > this.h + 2)
         {
           num7 = this.h - 54;
@@ -434,10 +434,10 @@ namespace WindowsApplication1
         this.game.EditObj.leftSideBarModePage = num10;
         x1 = 5;
         y1 = 10;
-        int width = 135;
-        int height = 28;
-        int num11 = 1;
-        int num12 = simpleList1.Counter + 1;
+        let mut width: i32 =  135;
+        let mut height: i32 =  28;
+        let mut num11: i32 =  1;
+        let mut num12: i32 =  simpleList1.Counter + 1;
         for (groupy = 0; groupy <= num12; groupy += 1)
         {
           int index3;
@@ -458,17 +458,17 @@ namespace WindowsApplication1
           {
             if (num11 == num10)
             {
-               Graphics local13 =  objgraphics;
+               let mut local13: &Graphics = &objgraphics;
               bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-               Bitmap local14 =  bitmap;
-              int x2 = x1;
-              int y3 = y1;
+               let mut local14: &Bitmap = &bitmap;
+              let mut x2: i32 =  x1;
+              let mut y3: i32 =  y1;
               DrawMod.DrawSimple( local13,  local14, x2, y3);
               if (index3 == this.game.EditObj.UnitSelected)
                 DrawMod.DrawTextColouredConsoleCenter( objgraphics, str1, DrawMod.TGame.MarcFont7, x1 + 65, y1 + 12, DrawMod.TGame.seColWhite);
               else
                 DrawMod.DrawTextColouredConsoleCenter( objgraphics, str1, DrawMod.TGame.MarcFont7, x1 + 65, y1 + 12, DrawMod.TGame.seColGray);
-              int tdata = -1;
+              let mut tdata: i32 =  -1;
               string ttitle;
               string ttext;
               if (index3 > -1)
@@ -491,8 +491,8 @@ namespace WindowsApplication1
                 ttitle = "Zones without any SHQ assigned";
                 ttext = "You might want to consider assigning this with the Zone SHQ Order in the Right Order Tab.";
               }
-              rectangle2 = new Rectangle(x1, y1, 137, 39);
-              Rectangle trect3 = rectangle2;
+              rectangle2 = Rectangle::new(x1, y1, 137, 39);
+              let mut trect3: &Rectangle = &rectangle2
               this.AddMouse( trect3, ttitle, ttext, tdata);
             }
             y1 += 42;
@@ -501,21 +501,21 @@ namespace WindowsApplication1
               y1 = 10;
               num11 += 1;
             }
-            int counter = simpleList2.Counter;
-            for (int index4 = 0; index4 <= counter; index4 += 1)
+            let mut counter: i32 =  simpleList2.Counter;
+            for (let mut index4: i32 =  0; index4 <= counter; index4 += 1)
             {
-              int idValue = simpleList2.Id[index4];
-              int num13 = simpleList2.Weight[index4];
+              let mut idValue: i32 =  simpleList2.Id[index4];
+              let mut num13: i32 =  simpleList2.Weight[index4];
               if (simpleList2.Data1[index4] == index3)
               {
                 if (num11 == num10)
                 {
                   data: String = this.game.Data.StringListObj[stringListById1].GetData(0, idValue, 7);
-                   Graphics local15 =  objgraphics;
+                   let mut local15: &Graphics = &objgraphics;
                   bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_VARBOX);
-                   Bitmap local16 =  bitmap;
-                  int x3 = x1;
-                  int y4 = y1;
+                   let mut local16: &Bitmap = &bitmap;
+                  let mut x3: i32 =  x1;
+                  let mut y4: i32 =  y1;
                   DrawMod.DrawSimple( local15,  local16, x3, y4);
                   str2: String = data;
                   if (str2.Length > 9)
@@ -538,15 +538,15 @@ namespace WindowsApplication1
                   if (integer == idValue)
                   {
                     ttext: String = "Zone has " + num13.ToString() + " Populace.\r\n\r\nYou have currently selected this Zone already.";
-                    rectangle2 = new Rectangle(x1, y1, width, height);
-                    Rectangle trect4 = rectangle2;
+                    rectangle2 = Rectangle::new(x1, y1, width, height);
+                    let mut trect4: &Rectangle = &rectangle2
                     this.AddMouse( trect4, ttitle, ttext);
                   }
                   else
                   {
                     ttext: String = "Zone has " + num13.ToString() + " Populace.\r\n\r\nClick to select this Zone";
-                    rectangle2 = new Rectangle(x1, y1, width, height);
-                    Rectangle trect5 = rectangle2;
+                    rectangle2 = Rectangle::new(x1, y1, width, height);
+                    let mut trect5: &Rectangle = &rectangle2
                     this.AddMouse( trect5, ttitle, ttext, idValue + 1000000);
                   }
                 }
@@ -564,12 +564,12 @@ namespace WindowsApplication1
         {
           tstring: String = num10.ToString() + "/" + num9.ToString();
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring, this.game.MarcFont3, x1 +  Math.Round((double) (this.w - 50) / 2.0), this.h - 25, this.game.seColGray);
-          int num14 = 0;
+          let mut num14: i32 =  0;
           if (num10 >= num9)
             num14 = 1;
           let mut tsubpart1: SubPartClass =  new TextButtonPartClass(">", 32, "Next page",  this.OwnBitmap, x1 + 100, this.h - 25, num14 == 1, theight: 25, usefont: DrawMod.TGame.MarcFont4, useshadow: true, tMarcStyle: true);
           this.upId = this.AddSubPart( tsubpart1, x1 + 100, this.h - 25, 32, 25, 1);
-          int num15 = 0;
+          let mut num15: i32 =  0;
           if (num10 <= 1)
             num15 = 1;
           let mut tsubpart2: SubPartClass =  new TextButtonPartClass("<", 32, "Previous page",  this.OwnBitmap, x1 + 5, this.h - 25, num15 == 1, theight: 25, usefont: DrawMod.TGame.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -580,14 +580,14 @@ namespace WindowsApplication1
       {
         if (this.game.SelectX == -1)
           return;
-        int landscapeType = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
-        int spriteNr = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
-        int num16 = -1;
-        int num17 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter;
+        let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
+        let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
+        let mut num16: i32 =  -1;
+        let mut num17: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter;
         if (num17 > 15)
           num17 = 15;
-        int num18 = num17;
-        for (int index = 0; index <= num18; index += 1)
+        let mut num18: i32 =  num17;
+        for (let mut index: i32 =  0; index <= num18; index += 1)
         {
           if (this.game.HandyFunctionsObj.CanWeSeeUnit(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index], this.game.Data.Turn) > 0)
             num16 += 1;
@@ -597,35 +597,35 @@ namespace WindowsApplication1
           Rectangle rectangle3;
           x1 = rectangle3.X;
           y1 = 0;
-          int num19 = -1;
-          int num20 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter;
+          let mut num19: i32 =  -1;
+          let mut num20: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter;
           if (num20 > 15)
             num20 = 15;
           if (this.h > 30 + (num20 + 1) * 80)
           {
-            int num21 = num20;
-            for (int index = 0; index <= num21; index += 1)
+            let mut num21: i32 =  num20;
+            for (let mut index: i32 =  0; index <= num21; index += 1)
             {
-              int unit = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
+              let mut unit: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
               if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
               {
                 num19 += 1;
-                int num22 = x1 + 36;
-                int num23 = 20 + num19 * 80;
+                let mut num22: i32 =  x1 + 36;
+                let mut num23: i32 =  20 + num19 * 80;
                 bool forcehighlight = false;
                 if (this.game.EditObj.UnitSelected == unit)
                   forcehighlight = true;
                 this.game.CustomBitmapObj.DrawUnitBig(unit, forcehighlight, objgraphics, num22, num23, true);
                 if (this.game.EditObj.UnitSelected == unit)
                 {
-                  rectangle2 = new Rectangle(num22, num23, 76, 76);
-                  Rectangle trect6 = rectangle2;
+                  rectangle2 = Rectangle::new(num22, num23, 76, 76);
+                  let mut trect6: &Rectangle = &rectangle2
                   this.AddMouse( trect6, "SELECTED UNIT: " + this.game.Data.UnitObj[unit].Name, "You are currently viewing this unit. Click to put on top of stack.", 10000 + unit);
                 }
                 else
                 {
-                  rectangle2 = new Rectangle(num22, num23, 76, 76);
-                  Rectangle trect7 = rectangle2;
+                  rectangle2 = Rectangle::new(num22, num23, 76, 76);
+                  let mut trect7: &Rectangle = &rectangle2
                   this.AddMouse( trect7, this.game.Data.UnitObj[unit].Name, "Click to select. Double click to put on top of stack.", 10000 + unit);
                 }
               }
@@ -633,10 +633,10 @@ namespace WindowsApplication1
           }
           else
           {
-            int num24 = num20;
-            for (int index = 0; index <= num24; index += 1)
+            let mut num24: i32 =  num20;
+            for (let mut index: i32 =  0; index <= num24; index += 1)
             {
-              int unit = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
+              let mut unit: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[index];
               if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
               {
                 num19 += 1;
@@ -658,14 +658,14 @@ namespace WindowsApplication1
                 this.game.CustomBitmapObj.DrawUnit(unit, forcehighlight, objgraphics, num25, num26, true);
                 if (this.game.EditObj.UnitSelected == unit)
                 {
-                  rectangle2 = new Rectangle(num25, num26, 37, 37);
-                  Rectangle trect8 = rectangle2;
+                  rectangle2 = Rectangle::new(num25, num26, 37, 37);
+                  let mut trect8: &Rectangle = &rectangle2
                   this.AddMouse( trect8, "SELECTED UNIT: " + this.game.Data.UnitObj[unit].Name, "You are currently viewing this unit. Click to put on top of stack.", 10000 + unit);
                 }
                 else
                 {
-                  rectangle2 = new Rectangle(num25, num26, 37, 37);
-                  Rectangle trect9 = rectangle2;
+                  rectangle2 = Rectangle::new(num25, num26, 37, 37);
+                  let mut trect9: &Rectangle = &rectangle2
                   this.AddMouse( trect9, this.game.Data.UnitObj[unit].Name, "Click to select. Double click to put on top of stack.", 10000 + unit);
                 }
               }
@@ -676,24 +676,24 @@ namespace WindowsApplication1
       if (openSideWindow & this.game.EditObj.leftSideBarMode == 2)
       {
         libName: String = "SE_Data";
-        int stringListById3 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 149, 0, 0));
-        int stringListById4 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 284, 0, 0));
-        int stringListById5 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 273, 0, 0));
-        int stringListById6 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 123, 0, 0));
-        int integer = Conversions.ToInteger(this.game.EventRelatedObj.CheckLibVarHex(this.game.SelectX, this.game.SelectY, libName, "Zones"));
+        let mut stringListById3: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 149, 0, 0));
+        let mut stringListById4: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 284, 0, 0));
+        let mut stringListById5: i32 =  DrawMod.TGame.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 273, 0, 0));
+        let mut stringListById6: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 123, 0, 0));
+        let mut integer: i32 =  Conversions.ToInteger(this.game.EventRelatedObj.CheckLibVarHex(this.game.SelectX, this.game.SelectY, libName, "Zones"));
         Conversions.ToInteger(this.game.Data.StringListObj[stringListById6].GetData(0, integer, 1));
         Conversions.ToInteger(this.game.Data.StringListObj[stringListById6].GetData(0, integer, 2));
-        int id =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, integer, 6)));
+        let mut id: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, integer, 6)));
         this.game.Data.StringListObj[stringListById6].GetData(0, integer, 7);
-        int num27 = this.game.EventRelatedObj.CheckRegimeSlot( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, integer, 8))), 0, 0, 0);
-        int index5 = -1;
+        let mut num27: i32 =  this.game.EventRelatedObj.CheckRegimeSlot( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData(0, integer, 8))), 0, 0, 0);
+        let mut index5: i32 =  -1;
         if (id > 0)
           index5 = this.game.HandyFunctionsObj.GetLocationByID(id);
-        int index6 = -1;
+        let mut index6: i32 =  -1;
         if (index5 > -1)
           index6 = this.game.Data.LocObj[index5].HQ;
-        int unitSelected = this.game.EditObj.UnitSelected;
-        int index7 = -1;
+        let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
+        let mut index7: i32 =  -1;
         if (unitSelected > -1)
           index7 = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ;
         SimpleList simpleList = SimpleList::new();
@@ -730,11 +730,11 @@ namespace WindowsApplication1
           x1 = 5;
           y1 = 10;
           tstring: String = "Unfriendly";
-           Graphics local17 =  objgraphics;
+           let mut local17: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-           Bitmap local18 =  bitmap;
-          int x4 = x1;
-          int y5 = y1;
+           let mut local18: &Bitmap = &bitmap;
+          let mut x4: i32 =  x1;
+          let mut y5: i32 =  y1;
           DrawMod.DrawSimple( local17,  local18, x4, y5);
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring, DrawMod.TGame.MarcFont7, x1 + 65, y1 + 12, DrawMod.TGame.seColGray);
           flag = true;
@@ -746,29 +746,29 @@ namespace WindowsApplication1
           x1 = 5;
           y1 = 10;
           tstring: String = "No SHQ";
-           Graphics local19 =  objgraphics;
+           let mut local19: &Graphics = &objgraphics;
           bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-           Bitmap local20 =  bitmap;
-          int x5 = x1;
-          int y6 = y1;
+           let mut local20: &Bitmap = &bitmap;
+          let mut x5: i32 =  x1;
+          let mut y6: i32 =  y1;
           DrawMod.DrawSimple( local19,  local20, x5, y6);
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring, DrawMod.TGame.MarcFont7, x1 + 65, y1 + 12, DrawMod.TGame.seColGray);
           flag = true;
         }
         if (flag)
         {
-          int num28 = y1 + 42;
-          int num29 = 28;
+          let mut num28: i32 =  y1 + 42;
+          let mut num29: i32 =  28;
           if (this.game.ScreenHeight < 920)
             num29 = 25;
-          int num30 = 0;
+          let mut num30: i32 =  0;
           do
           {
-             Graphics local21 =  objgraphics;
+             let mut local21: &Graphics = &objgraphics;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_VARBOX);
-             Bitmap local22 =  bitmap;
-            int x6 = x1;
-            int y7 = num28;
+             let mut local22: &Bitmap = &bitmap;
+            let mut x6: i32 =  x1;
+            let mut y7: i32 =  num28;
             DrawMod.DrawSimple( local21,  local22, x6, y7);
             num28 += num29;
             num30 += 1;
@@ -780,7 +780,7 @@ namespace WindowsApplication1
         {
           if (this.game.Data.UnitObj[unitSelected].Regime == this.game.Data.Turn)
           {
-            int historical1 = this.game.Data.UnitObj[unitSelected].Historical;
+            let mut historical1: i32 =  this.game.Data.UnitObj[unitSelected].Historical;
             if (!this.game.Data.UnitObj[unitSelected].IsHQ | this.game.Data.HistoricalUnitObj[historical1].Type < 8)
             {
               if (index7 > -1)
@@ -789,7 +789,7 @@ namespace WindowsApplication1
                   index6 = index7;
                 else if (this.game.Data.UnitObj[index7].HQ > -1)
                 {
-                  int historical2 = this.game.Data.UnitObj[this.game.Data.UnitObj[index7].HQ].Historical;
+                  let mut historical2: i32 =  this.game.Data.UnitObj[this.game.Data.UnitObj[index7].HQ].Historical;
                   if (historical2 > -1 && this.game.Data.HistoricalUnitObj[historical2].Type == 8)
                     index6 = this.game.Data.UnitObj[index7].HQ;
                 }
@@ -798,30 +798,30 @@ namespace WindowsApplication1
             else
               index6 = unitSelected;
           }
-          int regime = this.game.Data.UnitObj[unitSelected].Regime;
+          let mut regime: i32 =  this.game.Data.UnitObj[unitSelected].Regime;
         }
         if (unitSelected > -1)
         {
-          int historical = this.game.Data.UnitObj[unitSelected].Historical;
+          let mut historical: i32 =  this.game.Data.UnitObj[unitSelected].Historical;
           if (historical > -1 && this.game.Data.UnitObj[unitSelected].IsHQ & this.game.Data.HistoricalUnitObj[historical].Type == 8 && this.game.Data.UnitObj[unitSelected].Regime == this.game.Data.Turn)
             index6 = unitSelected;
         }
         this.currentShqNr = index6;
-        int x7 = 5;
-        int y8 = 10;
-        int width = 135;
-        int eventPic1 = this.game.Data.FindEventPic("", 9, "SE_Present");
-        int eventPic2 = this.game.Data.FindEventPic("", 8, "SE_Present");
-        int eventPic3 = this.game.Data.FindEventPic("", 11, "SE_Present");
+        let mut x7: i32 =  5;
+        let mut y8: i32 =  10;
+        let mut width: i32 =  135;
+        let mut eventPic1: i32 =  this.game.Data.FindEventPic("", 9, "SE_Present");
+        let mut eventPic2: i32 =  this.game.Data.FindEventPic("", 8, "SE_Present");
+        let mut eventPic3: i32 =  this.game.Data.FindEventPic("", 11, "SE_Present");
         str3: String = this.game.SelectX.ToString() + "," + this.game.SelectY.ToString();
         str4: String = this.game.Data.UnitObj[index6].Name;
         if (str4.Length > 15)
           str4 = Strings.Left(str4, 15) + ".";
-         Graphics local23 =  objgraphics;
+         let mut local23: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBARHEADER);
-         Bitmap local24 =  bitmap;
-        int x8 = x7;
-        int y9 = y8;
+         let mut local24: &Bitmap = &bitmap;
+        let mut x8: i32 =  x7;
+        let mut y9: i32 =  y8;
         DrawMod.DrawSimple( local23,  local24, x8, y9);
         if (index6 == this.game.EditObj.UnitSelected)
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, str4, DrawMod.TGame.MarcFont7, x7 + 65, y8 + 12, DrawMod.TGame.seColWhite);
@@ -842,17 +842,17 @@ namespace WindowsApplication1
           ttext1 = "Click to select this SHQ";
           tdata = index6 + 10000;
         }
-        rectangle2 = new Rectangle(x7, y8, 137, 39);
-        Rectangle trect10 = rectangle2;
+        rectangle2 = Rectangle::new(x7, y8, 137, 39);
+        let mut trect10: &Rectangle = &rectangle2
         this.AddMouse( trect10, ttitle1, ttext1, tdata);
-        int num31 = 0;
-        int counter1 = simpleList.Counter;
-        for (int index8 = 0; index8 <= counter1; index8 += 1)
+        let mut num31: i32 =  0;
+        let mut counter1: i32 =  simpleList.Counter;
+        for (let mut index8: i32 =  0; index8 <= counter1; index8 += 1)
         {
           if (this.game.Data.UnitObj[index6].items.list.FindWeight(simpleList.Id[index8]) > 0 |  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index8], 3))) > 0 |  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index8], 3))) > 0)
             num31 += 1;
         }
-        int height = 28;
+        let mut height: i32 =  28;
         if (this.game.ScreenHeight < 920)
         {
           if (num31 > 12)
@@ -860,29 +860,29 @@ namespace WindowsApplication1
           else if (num31 > 11)
             height = 25;
         }
-        int y10 = y8 + 42;
-        int counter2 = simpleList.Counter;
-        for (int index9 = 0; index9 <= counter2; index9 += 1)
+        let mut y10: i32 =  y8 + 42;
+        let mut counter2: i32 =  simpleList.Counter;
+        for (let mut index9: i32 =  0; index9 <= counter2; index9 += 1)
         {
-          int weight = this.game.Data.UnitObj[index6].items.list.FindWeight(simpleList.Id[index9]);
-          int num32 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index9], 3)));
-          int num33 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index9], 3)));
+          let mut weight: i32 =  this.game.Data.UnitObj[index6].items.list.FindWeight(simpleList.Id[index9]);
+          let mut num32: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index9], 3)));
+          let mut num33: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index9], 3)));
           if (weight > 0 | num32 > 0 | num33 > 0 | this.game.ScreenHeight >= 920)
           {
             this.game.Data.StringListObj[stringListById3].GetData(0, simpleList.Id[index9], 2);
             str5: String = simpleStringList.Id[index9];
-             Graphics local25 =  objgraphics;
+             let mut local25: &Graphics = &objgraphics;
             bitmap = BitmapStore.GetBitmap(this.game.SE1_SIDEBAR_VARBOX);
-             Bitmap local26 =  bitmap;
-            int x9 = x7;
-            int y11 = y10;
+             let mut local26: &Bitmap = &bitmap;
+            let mut x9: i32 =  x7;
+            let mut y11: i32 =  y10;
             DrawMod.DrawSimple( local25,  local26, x9, y11);
-            int index10 = this.game.EventRelatedObj.GetEventPicSlotFor(simpleList.Id[index9], "", "");
-             Graphics local27 =  objgraphics;
+            let mut index10: i32 =  this.game.EventRelatedObj.GetEventPicSlotFor(simpleList.Id[index9], "", "");
+             let mut local27: &Graphics = &objgraphics;
             bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[index10]);
-             Bitmap local28 =  bitmap;
-            int x10 = x7 + 2;
-            int y12 = y10 + 6;
+             let mut local28: &Bitmap = &bitmap;
+            let mut x10: i32 =  x7 + 2;
+            let mut y12: i32 =  y10 + 6;
             DrawMod.DrawSimple( local27,  local28, x10, y12);
             if (simpleList.Id[index9] == 9 | simpleList.Id[index9] == 12)
             {
@@ -896,18 +896,18 @@ namespace WindowsApplication1
               num1 = Math.Round((double) weight / 1000.0, 1);
               tstring1 = num1.ToString() + "k";
             }
-            int num34 = num33 - num32;
+            let mut num34: i32 =  num33 - num32;
             ttitle2: String = simpleStringList.Id[index9];
-            int num35 = 0;
-            int num36 = 0;
-            int num37 = 0;
+            let mut num35: i32 =  0;
+            let mut num36: i32 =  0;
+            let mut num37: i32 =  0;
             index10 = 0;
-            int num38 = 0;
-            int num39 = 0;
-            int num40 = 0;
-            int num41 = 0;
-            int num42 = 0;
-            int logCounter = this.game.Data.UnitObj[index6].LogCounter;
+            let mut num38: i32 =  0;
+            let mut num39: i32 =  0;
+            let mut num40: i32 =  0;
+            let mut num41: i32 =  0;
+            let mut num42: i32 =  0;
+            let mut logCounter: i32 =  this.game.Data.UnitObj[index6].LogCounter;
             for (groupy = 0; groupy <= logCounter; groupy += 1)
             {
               if (this.game.Data.UnitObj[index6].LogData1[groupy] == simpleList.Id[index9])
@@ -933,7 +933,7 @@ namespace WindowsApplication1
             if (num38 > 0)
               tstring1 += "*";
             DrawMod.DrawTextColouredConsole( objgraphics, tstring1, this.game.MarcFont16, x7 + 31, y10 + 4, this.game.seColGray);
-            int num43 = Math.Abs(num34);
+            let mut num43: i32 =  Math.Abs(num34);
             tstring2: String = num43.ToString();
             if (num34 > 9999 | num34 < -9999)
             {
@@ -946,35 +946,35 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredConsole( objgraphics, tstring2, this.game.MarcFont7, x7 + 91, y10 + 5, this.game.seColGray);
             if (num34 > 0)
             {
-               Graphics local29 =  objgraphics;
+               let mut local29: &Graphics = &objgraphics;
               bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic2]);
-               Bitmap local30 =  bitmap;
-              rectangle2 = new Rectangle(0, 0, 32, 16);
-              Rectangle srcrect4 = rectangle2;
-              trect10 = new Rectangle(x7 + 76, y10 + 6, 32, 16);
-              Rectangle destrect4 = trect10;
+               let mut local30: &Bitmap = &bitmap;
+              rectangle2 = Rectangle::new(0, 0, 32, 16);
+              let mut srcrect4: &Rectangle = &rectangle2
+              trect10 = Rectangle::new(x7 + 76, y10 + 6, 32, 16);
+              let mut destrect4: &Rectangle = &trect10
               DrawMod.DrawSimplePart2ColouredNew( local29,  local30, srcrect4, destrect4, 0.0f, 1.5f, 0.0f, 1f);
             }
             else if (num34 < 0)
             {
-               Graphics local31 =  objgraphics;
+               let mut local31: &Graphics = &objgraphics;
               bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic1]);
-               Bitmap local32 =  bitmap;
-              rectangle2 = new Rectangle(0, 0, 32, 16);
-              Rectangle srcrect5 = rectangle2;
-              trect10 = new Rectangle(x7 + 76, y10 + 6, 32, 16);
-              Rectangle destrect5 = trect10;
+               let mut local32: &Bitmap = &bitmap;
+              rectangle2 = Rectangle::new(0, 0, 32, 16);
+              let mut srcrect5: &Rectangle = &rectangle2
+              trect10 = Rectangle::new(x7 + 76, y10 + 6, 32, 16);
+              let mut destrect5: &Rectangle = &trect10
               DrawMod.DrawSimplePart2ColouredNew( local31,  local32, srcrect5, destrect5, 1.5f, 0.0f, 0.0f, 1f);
             }
             else
             {
-               Graphics local33 =  objgraphics;
+               let mut local33: &Graphics = &objgraphics;
               bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[eventPic3]);
-               Bitmap local34 =  bitmap;
-              rectangle2 = new Rectangle(0, 0, 32, 16);
-              Rectangle srcrect6 = rectangle2;
-              trect10 = new Rectangle(x7 + 76, y10 + 6, 32, 16);
-              Rectangle destrect6 = trect10;
+               let mut local34: &Bitmap = &bitmap;
+              rectangle2 = Rectangle::new(0, 0, 32, 16);
+              let mut srcrect6: &Rectangle = &rectangle2
+              trect10 = Rectangle::new(x7 + 76, y10 + 6, 32, 16);
+              let mut destrect6: &Rectangle = &trect10
               DrawMod.DrawSimplePart2ColouredNew( local33,  local34, srcrect6, destrect6, 0.0f, 1.8f, 1.8f, 1f);
             }
             if (simpleList.Id[index9] == 9 | simpleList.Id[index9] == 12)
@@ -989,7 +989,7 @@ namespace WindowsApplication1
               num41 *= 100;
               num42 *= 100;
             }
-            int num44 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index9], 3)));
+            let mut num44: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById4].GetData2(0, this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index6].Historical].ID, 2, simpleList.Id[index9], 3)));
             if (simpleList.Id[index9] == 9 | simpleList.Id[index9] == 12)
               num44 *= 100;
             str6: String = "End of last Round stocks: " + num44.ToString() + "\r\n" + "Sent to zones: " + num36.ToString() + "\r\n" + "Items present for delivery to Units: " + (num44 - num36).ToString() + "\r\n" + "Sent to units: " + num37.ToString() + "\r\n" + "Delivered from zones: " + num35.ToString() + "\r\n" + "Consumed by Troops in SHQ: " + index10.ToString() + "\r\n" + "Consumed by Colonists & Recruits: " + num39.ToString() + "\r\n";
@@ -1006,7 +1006,7 @@ namespace WindowsApplication1
             }
             else
               ttext2 = str8 + "\r\nMaximum storage: Unlimited";
-            rectangle2 = new Rectangle(x7, y10, width, height);
+            rectangle2 = Rectangle::new(x7, y10, width, height);
             trect10 = rectangle2;
             this.AddMouse( trect10, ttitle2, ttext2);
             y10 += height;
@@ -1017,22 +1017,22 @@ namespace WindowsApplication1
       }
       if (openSideWindow & this.game.EditObj.leftSideBarMode == 1)
       {
-        int num45 = 0;
-        int id3 = this.game.Data.RegimeObj[this.game.Data.Turn].id;
+        let mut num45: i32 =  0;
+        let mut id3: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
         this.game.Data.FindEventPic("", 9, "SE_Present");
         this.game.Data.FindEventPic("", 8, "SE_Present");
         this.game.Data.FindEventPic("", 11, "SE_Present");
-        int stringListById7 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 291, 0, 0));
-        int stringListById8 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 210, 0, 0));
-        int num46 = 9;
+        let mut stringListById7: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 291, 0, 0));
+        let mut stringListById8: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 210, 0, 0));
+        let mut num46: i32 =  9;
         int num47;
         if (((this.game.ScreenHeight < 1040 ? 1 : 0) | 0) != 0)
         {
           if (Information.IsNothing((object) this.cacheList))
             this.cacheList = "";
-          int id4 = this.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
+          let mut id4: i32 =  this.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
           this.game.EventRelatedObj.IO_AddClear();
-          int val2 = 0;
+          let mut val2: i32 =  0;
           if (this.game.ScreenHeight < 284)
             val2 = 0;
           if (this.game.ScreenHeight > 284)
@@ -1040,8 +1040,8 @@ namespace WindowsApplication1
             val2 += Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 769) / 10.0));
             num47 = num46 + Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 769) / 10.0)) * 7;
           }
-          int num48 = Math.Max(2, val2);
-          int num49 = 1;
+          let mut num48: i32 =  Math.Max(2, val2);
+          let mut num49: i32 =  1;
           do
           {
             if (num49 == 1)
@@ -1056,7 +1056,7 @@ namespace WindowsApplication1
           }
           while (num49 <= 3);
           str: String = "[element][type]layout[/type][h]0[/h][/element]" + this.game.EventRelatedObj.CheckKey(id4, "FINALTEXT", 0, 0);
-          int num50 = 0;
+          let mut num50: i32 =  0;
           if (Operators.CompareString(str, this.cacheList, false) != 0 | this.profId < 1)
           {
             if (this.profId > 0)
@@ -1082,10 +1082,10 @@ namespace WindowsApplication1
         {
           if (Information.IsNothing((object) this.cacheList))
             this.cacheList = "";
-          int id5 = this.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
+          let mut id5: i32 =  this.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
           this.game.EventRelatedObj.IO_AddClear();
-          int val2 = 9;
-          int num51 = 658;
+          let mut val2: i32 =  9;
+          let mut num51: i32 =  658;
           if (this.game.ScreenHeight < 1080)
           {
             val2 = 2;
@@ -1096,8 +1096,8 @@ namespace WindowsApplication1
             val2 += Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 1080) / 10.0));
             num47 = num51 + Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 1080) / 10.0)) * 7;
           }
-          int num52 = Math.Max(4, val2);
-          int num53 = 1;
+          let mut num52: i32 =  Math.Max(4, val2);
+          let mut num53: i32 =  1;
           do
           {
             if (num53 == 1)
@@ -1111,19 +1111,19 @@ namespace WindowsApplication1
             num53 += 1;
           }
           while (num53 <= 3);
-          int tx = 5;
+          let mut tx: i32 =  5;
           if (num52 + 85 < this.h)
           {
             this.game.EventRelatedObj.Helper_AddProfileVisual(id3, -1, "militia", 0, "", 0, tx, num52, 2);
-            int length = this.game.Data.StringListObj[stringListById7].Length;
-            for (int index = 0; index <= length; index += 1)
+            let mut length: i32 =  this.game.Data.StringListObj[stringListById7].Length;
+            for (let mut index: i32 =  0; index <= length; index += 1)
             {
               if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].Data[index, 5])) == 1)
               {
                 str: String = this.game.Data.StringListObj[stringListById7].Data[index, 0];
                 if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].Data[index, 1])) == 3)
                 {
-                  int num54 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById8].GetData2(0, id3, 1, str, 2)));
+                  let mut num54: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById8].GetData2(0, id3, 1, str, 2)));
                   if (num54 > 0 & num54 <= 100)
                   {
                     tx += 70;
@@ -1140,7 +1140,7 @@ namespace WindowsApplication1
             }
           }
           str9: String = "[element][type]layout[/type][h]0[/h][/element]" + this.game.EventRelatedObj.CheckKey(id5, "FINALTEXT", 0, 0);
-          int num55 = 0;
+          let mut num55: i32 =  0;
           if (Operators.CompareString(str9, this.cacheList, false) != 0 | this.profId < 1)
           {
             if (this.profId > 0)
@@ -1175,8 +1175,8 @@ namespace WindowsApplication1
     {
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -1194,8 +1194,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -1218,12 +1218,12 @@ namespace WindowsApplication1
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.TutOrder > -1)
         return windowReturnClass1;
-      int subPartCounter = this.SubPartCounter;
-      for (int index = 0; index <= subPartCounter; index += 1)
+      let mut subPartCounter: i32 =  this.SubPartCounter;
+      for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
       {
         if (this.SubPartCounter > -1 && x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
         {
-          int num = this.SubPartID[index];
+          let mut num: i32 =  this.SubPartID[index];
           if (num == this.Info1Id)
           {
             this.game.EditObj.leftSideBarMode = 0;
@@ -1272,8 +1272,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter1 = this.MouseCounter;
-      for (int index1 = 0; index1 <= mouseCounter1; index1 += 1)
+      let mut mouseCounter1: i32 =  this.MouseCounter;
+      for (let mut index1: i32 =  0; index1 <= mouseCounter1; index1 += 1)
       {
         if (x > this.MouseRect[index1].X & x < this.MouseRect[index1].X + this.MouseRect[index1].Width && y > this.MouseRect[index1].Y & y < this.MouseRect[index1].Y + this.MouseRect[index1].Height)
         {
@@ -1299,13 +1299,13 @@ namespace WindowsApplication1
           }
           if (this.MouseData[index1] >= 1000000)
           {
-            int idValue = this.MouseData[index1] - 1000000;
-            int stringListById = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
-            int id =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 6)));
-            int num = 0;
+            let mut idValue: i32 =  this.MouseData[index1] - 1000000;
+            let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 123, 0, 0));
+            let mut id: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 6)));
+            let mut num: i32 =  0;
             if (id > 0)
             {
-              int locationById = this.game.HandyFunctionsObj.GetLocationByID(id);
+              let mut locationById: i32 =  this.game.HandyFunctionsObj.GetLocationByID(id);
               if (locationById > -1)
               {
                 num = 1;
@@ -1315,8 +1315,8 @@ namespace WindowsApplication1
             }
             if (num == 0)
             {
-              int integer1 = Conversions.ToInteger(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 10));
-              int integer2 = Conversions.ToInteger(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 11));
+              let mut integer1: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 10));
+              let mut integer2: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[stringListById].GetData(0, idValue, 11));
               if (integer1 > 0 & integer2 > 0)
               {
                 this.game.SelectX = integer1;
@@ -1345,8 +1345,8 @@ namespace WindowsApplication1
           }
           else if (this.MouseData[index1] >= 10000)
           {
-            int index2 = this.MouseData[index1] - 10000;
-            int index3 = 0;
+            let mut index2: i32 =  this.MouseData[index1] - 10000;
+            let mut index3: i32 =  0;
             if (index2 > -1)
             {
               if (index2 != this.game.EditObj.UnitSelected)
@@ -1406,11 +1406,11 @@ namespace WindowsApplication1
                 this.game.SelectY = this.game.Data.UnitObj[index2].Y;
                 while (this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] != index2)
                 {
-                  int unit = this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
+                  let mut unit: i32 =  this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitList[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter];
                   index3 = 0;
                   if (this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 0)
                   {
-                    for (int unitCounter = this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter; unitCounter >= 1; unitCounter += -1)
+                    for (let mut unitCounter: i32 =  this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter; unitCounter >= 1; unitCounter += -1)
                       this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitList[unitCounter] = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].UnitList[unitCounter - 1];
                   }
                   this.game.Data.MapObj[index3].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0] = unit;
@@ -1429,9 +1429,9 @@ namespace WindowsApplication1
         }
       }
       windowReturnClass1.NoMouseClickBelow = this.game.EditObj.leftSideBarMode <= 0 ? x < 30 : x <= this.OwnBitmap.Width - 22;
-      int mouseCounter2 = this.MouseCounter;
+      let mut mouseCounter2: i32 =  this.MouseCounter;
       bool flag;
-      for (int index = 0; index <= mouseCounter2; index += 1)
+      for (let mut index: i32 =  0; index <= mouseCounter2; index += 1)
       {
         if (x > this.MouseRect[index].X - 16 & x < this.MouseRect[index].X + this.MouseRect[index].Width + 32 && y > this.MouseRect[index].Y - 16 & y < this.MouseRect[index].Y + this.MouseRect[index].Height + 32)
           flag = true;

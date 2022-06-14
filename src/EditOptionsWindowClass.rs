@@ -82,7 +82,7 @@ namespace WindowsApplication1
 
     pub void PopUpRefresh() => this.dostuff();
 
-    pub EditOptionsWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub EditOptionsWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, tGame.ScreenWidth, 100, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.domenu();
@@ -184,26 +184,26 @@ namespace WindowsApplication1
       this.BLibId = this.AddSubPart(ref tsubpart35, 310, 2, 32, 16, 1);
       let mut tsubpart36: SubPartClass =  TextPartClass::new("Lib", Font::new("Times New Roman", 12f, FontStyle.Regular, GraphicsUnit.Pixel), 30, 16, false);
       this.BLibTextId = this.AddSubPart(ref tsubpart36, 345, 1, 30, 16, 0);
-      int x = 870;
-      int y1 = 0;
+      let mut x: i32 =  870;
+      let mut y1: i32 =  0;
       let mut tsubpart37: SubPartClass =  TextPartClass::new("SHORTKEYS FOR HIST.UNITS:", this.game.MarcFont10, 180, 15, false);
       this.AddSubPart(ref tsubpart37, x, y1, 180, 15, 1);
-      int y2 = y1 + 16;
+      let mut y2: i32 =  y1 + 16;
       let mut tsubpart38: SubPartClass =  TextPartClass::new("HOME = Place instance of a model his", this.game.MarcFont10, 180, 15, false);
       this.AddSubPart(ref tsubpart38, x, y2, 180, 15, 1);
-      int y3 = y2 + 13;
+      let mut y3: i32 =  y2 + 13;
       let mut tsubpart39: SubPartClass =  TextPartClass::new("PAGEUP = Place a non-model his", this.game.MarcFont10, 180, 15, false);
       this.AddSubPart(ref tsubpart39, x, y3, 180, 15, 1);
-      int y4 = y3 + 13;
+      let mut y4: i32 =  y3 + 13;
       let mut tsubpart40: SubPartClass =  TextPartClass::new("BACK= Remove his-link from unit", this.game.MarcFont10, 180, 15, false);
       this.AddSubPart(ref tsubpart40, x, y4, 180, 15, 1);
-      int y5 = y4 + 13;
+      let mut y5: i32 =  y4 + 13;
       let mut tsubpart41: SubPartClass =  TextPartClass::new("D0 = Select type for his of unit", this.game.MarcFont10, 180, 15, false);
       this.AddSubPart(ref tsubpart41, x, y5, 180, 15, 1);
-      int y6 = y5 + 13;
+      let mut y6: i32 =  y5 + 13;
       let mut tsubpart42: SubPartClass =  TextPartClass::new("D9 = Select shortname for his of unit", this.game.MarcFont10, 180, 15, false);
       this.AddSubPart(ref tsubpart42, x, y6, 180, 15, 1);
-      int y7 = y6 + 13;
+      let mut y7: i32 =  y6 + 13;
       let mut tsubpart43: SubPartClass =  TextPartClass::new("D8 = Select nato for his of unit", this.game.MarcFont10, 180, 15, false);
       this.AddSubPart(ref tsubpart43, x, y7, 180, 15, 1);
     }
@@ -299,64 +299,64 @@ namespace WindowsApplication1
           ttext = "I hope you are having a good day!";
         }
       }
-      int x = 735;
+      let mut x: i32 =  735;
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       Left2: String = this.game.EditObj.PencilMode != 0 ? "Fill" : "Draw";
       if (this.game.EditObj.PencilType == 0)
         Left2 = "None";
       ref Graphics local1 = ref graphics;
-      Rectangle rectangle1 = new Rectangle(x, 5, 200, 10);
-      Rectangle rect1_1 = rectangle1;
-      Rectangle rectangle2 = new Rectangle(x, 15, 120, 17);
-      Rectangle rect2_1 = rectangle2;
+      Rectangle rectangle1 = Rectangle::new(x, 5, 200, 10);
+      let mut rect1_1: &Rectangle = &rectangle1
+      Rectangle rectangle2 = Rectangle::new(x, 15, 120, 17);
+      let mut rect2_1: &Rectangle = &rectangle2
       txt2_1: String = Left2;
       DrawMod.MakeFullBoxVic2(ref local1, rect1_1, "DRAW MODE", rect2_1, txt2_1);
       if (Operators.CompareString(Left2, "None", false) != 0)
       {
         ref Graphics local2 = ref graphics;
-        rectangle2 = new Rectangle(x, 35, 200, 10);
-        Rectangle rect1_2 = rectangle2;
-        rectangle1 = new Rectangle(x, 45, 120, 17);
-        Rectangle rect2_2 = rectangle1;
+        rectangle2 = Rectangle::new(x, 35, 200, 10);
+        let mut rect1_2: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(x, 45, 120, 17);
+        let mut rect2_2: &Rectangle = &rectangle1
         txt2_2: String = str;
         DrawMod.MakeFullBoxVic2(ref local2, rect1_2, "DRAW TYPE", rect2_2, txt2_2);
         if (Operators.CompareString(Left1, "", false) != 0)
         {
           ref Graphics local3 = ref graphics;
-          rectangle2 = new Rectangle(x, 65, 200, 10);
-          Rectangle rect1_3 = rectangle2;
-          rectangle1 = new Rectangle(x, 75, 120, 17);
-          Rectangle rect2_3 = rectangle1;
+          rectangle2 = Rectangle::new(x, 65, 200, 10);
+          let mut rect1_3: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, 75, 120, 17);
+          let mut rect2_3: &Rectangle = &rectangle1
           txt2_3: String = Left1;
           DrawMod.MakeFullBoxVic2(ref local3, rect1_3, "DRAW TYPE NAME", rect2_3, txt2_3);
         }
         else
         {
           ref Graphics local4 = ref graphics;
-          rectangle2 = new Rectangle(x, 65, 200, 10);
-          Rectangle rect1_4 = rectangle2;
-          rectangle1 = new Rectangle(x, 75, 120, 17);
-          Rectangle rect2_4 = rectangle1;
+          rectangle2 = Rectangle::new(x, 65, 200, 10);
+          let mut rect1_4: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(x, 75, 120, 17);
+          let mut rect2_4: &Rectangle = &rectangle1
           DrawMod.MakeFullBoxVic2(ref local4, rect1_4, "DRAW TYPE NAME", rect2_4, "");
         }
       }
       else
       {
         ref Graphics local5 = ref graphics;
-        rectangle2 = new Rectangle(x, 35, 200, 10);
-        Rectangle rect1_5 = rectangle2;
-        rectangle1 = new Rectangle(x, 45, 120, 17);
-        Rectangle rect2_5 = rectangle1;
+        rectangle2 = Rectangle::new(x, 35, 200, 10);
+        let mut rect1_5: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(x, 45, 120, 17);
+        let mut rect2_5: &Rectangle = &rectangle1
         DrawMod.MakeFullBoxVic2(ref local5, rect1_5, "DRAW TYPE", rect2_5, "");
         ref Graphics local6 = ref graphics;
-        rectangle2 = new Rectangle(x, 65, 200, 10);
-        Rectangle rect1_6 = rectangle2;
-        rectangle1 = new Rectangle(x, 75, 120, 17);
-        Rectangle rect2_6 = rectangle1;
+        rectangle2 = Rectangle::new(x, 65, 200, 10);
+        let mut rect1_6: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(x, 75, 120, 17);
+        let mut rect2_6: &Rectangle = &rectangle1
         DrawMod.MakeFullBoxVic2(ref local6, rect1_6, "DRAW TYPE NAME", rect2_6, "");
       }
-      rectangle2 = new Rectangle(x, 0, 120, 100);
-      Rectangle trect = rectangle2;
+      rectangle2 = Rectangle::new(x, 0, 120, 100);
+      let mut trect: &Rectangle = &rectangle2
       this.AddMouse(ref trect, "", ttext);
       let mut tsubpart1: SubPartClass =  new TextButtonPartClass("Pick Draw Type", 160, tBackbitmap: (ref this.OwnBitmap), bbx: 535, bby: 5, theight: 30);
       this.pickid = this.AddSubPart(ref tsubpart1, 535, 5, 160, 30, 1);
@@ -396,8 +396,8 @@ namespace WindowsApplication1
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
           return this.MouseText[index];
@@ -410,15 +410,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.MapListId)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               if (num2 > -1)
               {
                 this.detailnr = num2;
@@ -447,12 +447,12 @@ namespace WindowsApplication1
             if (num1 == this.AddMapId)
             {
               str1: String = Conversions.ToString(Conversion.Val(Interaction.InputBox("Give width of map in hexes (10-200)", "Shadow Empire : Planetary Conquest", "20")));
-              int w = Operators.CompareString(Strings.Trim(str1), "", false) == 0 ? 0 : Conversions.ToInteger(str1);
+              let mut w: i32 =  Operators.CompareString(Strings.Trim(str1), "", false) == 0 ? 0 : Conversions.ToInteger(str1);
               str2: String = Conversions.ToString(Conversion.Val(Interaction.InputBox("Give height of map in hexes (10-200)", "Shadow Empire : Planetary Conquest", "20")));
-              int h = Operators.CompareString(Strings.Trim(str2), "", false) == 0 ? 0 : Conversions.ToInteger(str2);
+              let mut h: i32 =  Operators.CompareString(Strings.Trim(str2), "", false) == 0 ? 0 : Conversions.ToInteger(str2);
               if (w < 2 | h < 2 | w > 200 | h > 200)
               {
-                int num3 =  Interaction.MsgBox((object) "Cannot comply. Width and Height must be between 2 and 200", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =   Interaction.MsgBox((object) "Cannot comply. Width and Height must be between 2 and 200", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -487,7 +487,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num4 =  Interaction.MsgBox((object) "Cannot delete. You must keep at least one map.");
+                  let mut num4: i32 =   Interaction.MsgBox((object) "Cannot delete. You must keep at least one map.");
                 }
                 this.game.EditObj.MapSelected = 0;
                 this.game.SelectX = 0;
@@ -661,7 +661,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num5 =  Interaction.MsgBox((object) "No Hex has been selected. Order is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num5: i32 =   Interaction.MsgBox((object) "No Hex has been selected. Order is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
               }
               else if (num1 == this.BDefaultStringsID)

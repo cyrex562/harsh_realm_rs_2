@@ -119,8 +119,8 @@ namespace WindowsApplication1
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionCount > -1)
       {
         this.ConTypeListObj = ListClass::new();
-        int connectionCount = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionCount;
-        for (int index = 0; index <= connectionCount; index += 1)
+        let mut connectionCount: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionCount;
+        for (let mut index: i32 =  0; index <= connectionCount; index += 1)
         {
           string str;
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionX[index] == -1)
@@ -130,7 +130,7 @@ namespace WindowsApplication1
           this.ConTypeListObj.add(Conversion.Str((object) index) + ") " + str, index);
         }
         ListClass conTypeListObj = this.ConTypeListObj;
-        int conTypeNr = this.ConTypeNr;
+        let mut conTypeNr: i32 =  this.ConTypeNr;
         let mut game: GameClass = this.game;
         ref Bitmap local1 = ref this.OwnBitmap;
         Font font =  null;
@@ -331,15 +331,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.ConTypeListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -351,13 +351,13 @@ namespace WindowsApplication1
             }
             if (num1 == this.BAddConTypeId)
             {
-              int map = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give map, please.", "Shadow Empire : Planetary Conquest")));
+              let mut map: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give map, please.", "Shadow Empire : Planetary Conquest")));
               if (!(map > -1 & map <= this.game.Data.MapCounter))
               {
-                int num3 = (int) Interaction.MsgBox((object) "Invalid X", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =  (int) Interaction.MsgBox((object) "Invalid X", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
-              int x1 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
+              let mut x1: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
               if (x1 > -2 & x1 <= this.game.Data.MapObj[map].MapWidth)
               {
                 int y1;
@@ -366,7 +366,7 @@ namespace WindowsApplication1
                   y1 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give Y please.", "Shadow Empire : Planetary Conquest")));
                   if (!(y1 > -1 & y1 <= this.game.Data.MapObj[map].MapHeight))
                   {
-                    int num4 = (int) Interaction.MsgBox((object) "Invalid Y", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num4: i32 =  (int) Interaction.MsgBox((object) "Invalid Y", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     return windowReturnClass;
                   }
                 }
@@ -377,18 +377,18 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              int num5 = (int) Interaction.MsgBox((object) "Invalid map", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num5: i32 =  (int) Interaction.MsgBox((object) "Invalid map", Title: ((object) "Shadow Empire : Planetary Conquest"));
               return windowReturnClass;
             }
             if (num1 == this.B1Id)
             {
-              int map = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give map, please.", "Shadow Empire : Planetary Conquest")));
+              let mut map: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give map, please.", "Shadow Empire : Planetary Conquest")));
               if (!(map > -1 & map <= this.game.Data.MapCounter))
               {
-                int num6 = (int) Interaction.MsgBox((object) "Invalid X", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  (int) Interaction.MsgBox((object) "Invalid X", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
-              int x2 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
+              let mut x2: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
               if (x2 > -2 & x2 <= this.game.Data.MapObj[map].MapWidth)
               {
                 int y2;
@@ -397,24 +397,24 @@ namespace WindowsApplication1
                   y2 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give Y please.", "Shadow Empire : Planetary Conquest")));
                   if (!(y2 > -1 & y2 <= this.game.Data.MapObj[map].MapHeight))
                   {
-                    int num7 = (int) Interaction.MsgBox((object) "Invalid Y", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num7: i32 =  (int) Interaction.MsgBox((object) "Invalid Y", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     return windowReturnClass;
                   }
                 }
                 else
                   y2 = -1;
-                int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-                for (int index2 = 0; index2 <= mapWidth; index2 += 1)
+                let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+                for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
                 {
-                  int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-                  for (int index3 = 0; index3 <= mapHeight; index3 += 1)
+                  let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+                  for (let mut index3: i32 =  0; index3 <= mapHeight; index3 += 1)
                     this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index2, index3].Addconnection(x2, y2, map);
                 }
                 this.MakeConTypeListGUI(this.ConTypeNr);
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              int num8 = (int) Interaction.MsgBox((object) "Invalid map", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num8: i32 =  (int) Interaction.MsgBox((object) "Invalid map", Title: ((object) "Shadow Empire : Planetary Conquest"));
               return windowReturnClass;
             }
             if (num1 == this.BRemoveConTypeId)
@@ -434,11 +434,11 @@ namespace WindowsApplication1
             }
             if (num1 == this.B2Id)
             {
-              int mapWidth = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
-              for (int index4 = 0; index4 <= mapWidth; index4 += 1)
+              let mut mapWidth: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth;
+              for (let mut index4: i32 =  0; index4 <= mapWidth; index4 += 1)
               {
-                int mapHeight = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
-                for (int index5 = 0; index5 <= mapHeight; index5 += 1)
+                let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
+                for (let mut index5: i32 =  0; index5 <= mapHeight; index5 += 1)
                 {
                   while (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index4, index5].ConnectionCount > -1)
                     this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[index4, index5].RemoveConnection(0);

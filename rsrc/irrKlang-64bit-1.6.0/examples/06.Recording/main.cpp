@@ -94,8 +94,8 @@ void writeWaveFile(const char* filename, SAudioStreamFormat format, void* data)
 		unsigned long  bytesPerSecond = format.getBytesPerSecond();
 		unsigned long  dataLen = format.getSampleDataSize();
 			
-		const int fmtChunkLen = 16;
-		const int waveHeaderLen = 4 + 8 + fmtChunkLen + 8;
+		const let mut fmtChunkLen: i32 =  16;
+		const let mut waveHeaderLen: i32 =  4 + 8 + fmtChunkLen + 8;
 
 		unsigned long totalLen = waveHeaderLen + dataLen;
 

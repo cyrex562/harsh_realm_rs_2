@@ -21,14 +21,14 @@ namespace WindowsApplication1
       this.element = new DynamicDataElement[1000];
       string[] strArray1 = new string[1000];
       this.elementCounter = -1;
-      int num1 = 1;
+      let mut num1: i32 =  1;
       while (num1 == 1)
       {
         num1 = 0;
-        int num2 = Strings.InStr(datastring, "[element]");
+        let mut num2: i32 =  Strings.InStr(datastring, "[element]");
         if (num2 > 0)
         {
-          int num3 = Strings.InStr(datastring, "[/element]");
+          let mut num3: i32 =  Strings.InStr(datastring, "[/element]");
           if (num3 > num2 & num3 > 0)
           {
             str: String = Strings.Mid(datastring, num2 + Strings.Len("[element]"), num3 - (num2 + Strings.Len("[element]")));
@@ -39,15 +39,15 @@ namespace WindowsApplication1
           }
         }
       }
-      int elementCounter1 = this.elementCounter;
-      for (int index = 0; index <= elementCounter1; index += 1)
+      let mut elementCounter1: i32 =  this.elementCounter;
+      for (let mut index: i32 =  0; index <= elementCounter1; index += 1)
       {
         datastring = strArray1[index];
         this.element[index] = DynamicDataElement::new();
-        int num4 = 0;
+        let mut num4: i32 =  0;
         do
         {
-          int num5 = 1;
+          let mut num5: i32 =  1;
           string str1;
           if (num4 == 0)
             str1 = "type";
@@ -94,10 +94,10 @@ namespace WindowsApplication1
           while (num5 == 1)
           {
             num5 = 0;
-            int num6 = Strings.InStr(datastring, "[" + str1 + "]");
+            let mut num6: i32 =  Strings.InStr(datastring, "[" + str1 + "]");
             if (num6 > 0)
             {
-              int num7 = Strings.InStr(datastring, "[/" + str1 + "]");
+              let mut num7: i32 =  Strings.InStr(datastring, "[/" + str1 + "]");
               if (num7 > num6 & num7 > 0)
               {
                 str2: String = Strings.Mid(datastring, num6 + Strings.Len("[" + str1 + "]"), num7 - (num6 + Strings.Len("[" + str1 + "]")));
@@ -216,12 +216,12 @@ namespace WindowsApplication1
         }
         while (num4 <= 30);
       }
-      int elementCounter2 = this.elementCounter;
-      for (int index1 = 0; index1 <= elementCounter2; index1 += 1)
+      let mut elementCounter2: i32 =  this.elementCounter;
+      for (let mut index1: i32 =  0; index1 <= elementCounter2; index1 += 1)
       {
-        int num8 = index1;
-        int num9 = this.elementCounter - 1;
-        for (int index2 = num8; index2 <= num9; index2 += 1)
+        let mut num8: i32 =  index1;
+        let mut num9: i32 =  this.elementCounter - 1;
+        for (let mut index2: i32 =  num8; index2 <= num9; index2 += 1)
         {
           if (this.element[index2 + 1].z < this.element[index2].z)
           {
@@ -231,8 +231,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int elementCounter3 = this.elementCounter;
-      for (int index = 0; index <= elementCounter3; index += 1)
+      let mut elementCounter3: i32 =  this.elementCounter;
+      for (let mut index: i32 =  0; index <= elementCounter3; index += 1)
       {
         if (this.element[index].type == DynamicType.TextField && this.element[index].fontSize > 0 & this.element[index].lineHeight < 1)
           this.element[index].lineHeight =  Math.Round(1.2 * (double) this.element[index].fontSize);

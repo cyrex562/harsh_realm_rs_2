@@ -61,14 +61,14 @@ namespace CSharp._02._3DSound
                 // and also print the play position
 
                 stringForDisplay: String = "          +         ";
-                int charpos = (int)((pos3d.X + radius) / radius * 10.0f);
+                let mut charpos: i32 =  (int)((pos3d.X + radius) / radius * 10.0f);
                 if (charpos >= 0 && charpos < 20)
                 {
                     stringForDisplay = stringForDisplay.Remove(charpos, 1);
                     stringForDisplay = stringForDisplay.Insert(charpos, "o");
                 }
 
-                uint playPos = 0;
+                ulet mut playPos: i32 =  0;
                 if (music != null)
                     playPos = music.PlayPosition;
 
@@ -85,7 +85,7 @@ namespace CSharp._02._3DSound
 
                 if (_kbhit() != 0)
                 {
-                    int key = _getch();
+                    let mut key: i32 =  _getch();
 
                     if (key == 27)
                         break; // user pressed ESCAPE key

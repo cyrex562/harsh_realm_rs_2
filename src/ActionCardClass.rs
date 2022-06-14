@@ -12,11 +12,10 @@
 
 // namespace WindowsApplication1
 // {
-  // [Serializable]
-  //pub class ActionCardClass : ISerializable
-  #[derive(Debug,Clone,Default)]
-  pub struct ActionCardClass
-  {
+// [Serializable]
+//pub class ActionCardClass : ISerializable
+#[derive(Debug, Clone, Default)]
+pub struct ActionCardClass {
     pub Title: String,
     pub ColorScheme: i32,
     pub Text: String,
@@ -46,36 +45,42 @@
     pub quickSmall: i32,
     pub customCostType: i32,
     pub customCostQty: i32,
-  }
+}
 
-  impl ActionCardClass {
-
+impl ActionCardClass {
     // SelfActionCardClass()
-    pub fn new() -> Self
-    {
-      Self {
-      Title = "Empty Historical",
-      MouseOver = "",
-      EventPicNr = -1,
-      SmallGfx = -1,
-      LibId = LibIdClass::new(),
-      ColorScheme = 0,
-      ExecuteEvent = -1,
-      TempVar0 = -1,
-      TempVar1 = -1,
-      AILabel2 = 0,
-      AreaSlot = -1,
-      AreaValue = -1,
-      PreExecuteEvent = -1,
-      Nato = -1,
-      HisVarCostQty = 0,
-      HisVarCostType = -1,
-      Category = -1,
-      quickSmall = -1,
-      quickButton = 0,
-      customCostQty = 0,
-      customCostType = 0
-      }
+    pub fn new() -> Self {
+        Self {
+            Title: "Empty Historical".to_string(),
+            MouseOver: "".to_string(),
+            EventPicNr: -1,
+            SmallGfx: -1,
+            LibId: LibIdClass::new(),
+            ColorScheme: 0,
+            ExecuteEvent: -1,
+            TempVar0: -1,
+            TempVar1: -1,
+            AILabel2: 0,
+            AreaSlot: -1,
+            AreaValue: -1,
+            PreExecuteEvent: -1,
+            UnitSelect: false,
+            Nato: -1,
+            HisVarCostQty: 0,
+            HisVarCostType: -1,
+            Category: -1,
+            quickSmall: -1,
+            quickButton: 0,
+            customCostQty: 0,
+            customCostType: 0,
+            Text: "".to_string(),
+            PPCost: 0,
+            AILabel: 0,
+            aILabel3: 0,
+            AlternateEventPicNr: 0,
+            LimitedShow: 0,
+            IgnorePopupIfNoSelect: false,
+        }
     }
 
     // pub ActionCardClass Clone()
@@ -311,7 +316,5 @@
     //     ProjectData.ClearProjectError(),
     //   }
     // }
-
-    
-  }
+}
 // }

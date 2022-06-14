@@ -190,8 +190,8 @@ namespace WindowsApplication1
           tsubpart =  new ListSubPartClass(optionsList5Obj, tlistsize, 250, tlistselect2, game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 25, bby: 17, tMarcStyle: true, overruleFont: ( local2));
           self.OptionsList5id = self.AddSubPart( tsubpart, 25, 17, 250,  Math.Round((10.0 + Conversion.Int((double) num2 / 16.0)) * 16.0), 0);
         }
-        Rectangle rectangle = new Rectangle(25, 17, 250,  Math.Round((10.0 + Conversion.Int((double) num2 / 16.0)) * 16.0));
-        Rectangle trect2 = rectangle;
+        Rectangle rectangle = Rectangle::new(25, 17, 250,  Math.Round((10.0 + Conversion.Int((double) num2 / 16.0)) * 16.0));
+        let mut trect2: &Rectangle = &rectangle
         self.AddMouse( trect2, "List of messages", "Click on a message to read full text");
         if (self.detailnr <= -1)
           return;
@@ -220,24 +220,24 @@ namespace WindowsApplication1
             {
               if (self.game.Data.RegimeObj[self.game.Data.Turn].MesNote2[self.detailnr].Length > 0)
               {
-                 Graphics local3 =  g;
+                 let mut local3: &Graphics = &g;
                 Bitmap bitmap = BitmapStore.GetBitmap(commanderSpriteId);
-                 Bitmap local4 =  bitmap;
-                trect2 = new Rectangle(0, 0, BitmapStore.GetWidth(commanderSpriteId), BitmapStore.Getheight(commanderSpriteId));
-                Rectangle srcrect = trect2;
-                rectangle = new Rectangle(25, 215 + num2, num4, num5);
-                Rectangle destrect = rectangle;
+                 let mut local4: &Bitmap = &bitmap;
+                trect2 = Rectangle::new(0, 0, BitmapStore.GetWidth(commanderSpriteId), BitmapStore.Getheight(commanderSpriteId));
+                let mut srcrect: &Rectangle = &trect2
+                rectangle = Rectangle::new(25, 215 + num2, num4, num5);
+                let mut destrect: &Rectangle = &rectangle
                 DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
               }
               else
               {
-                 Graphics local5 =  g;
+                 let mut local5: &Graphics = &g;
                 Bitmap bitmap = BitmapStore.GetBitmap(commanderSpriteId);
-                 Bitmap local6 =  bitmap;
-                trect2 = new Rectangle(0, 0, BitmapStore.GetWidth(commanderSpriteId), BitmapStore.Getheight(commanderSpriteId));
-                Rectangle srcrect = trect2;
-                rectangle = new Rectangle(25, 200 + num2, num4, num5);
-                Rectangle destrect = rectangle;
+                 let mut local6: &Bitmap = &bitmap;
+                trect2 = Rectangle::new(0, 0, BitmapStore.GetWidth(commanderSpriteId), BitmapStore.Getheight(commanderSpriteId));
+                let mut srcrect: &Rectangle = &trect2
+                rectangle = Rectangle::new(25, 200 + num2, num4, num5);
+                let mut destrect: &Rectangle = &rectangle
                 DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
               }
               if (self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.detailnr] >= 10000)
@@ -247,9 +247,9 @@ namespace WindowsApplication1
                 {
                   if (overdrawSpriteId > -1)
                   {
-                     Graphics local7 =  g;
+                     let mut local7: &Graphics = &g;
                     Bitmap bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
-                     Bitmap local8 =  bitmap;
+                     let mut local8: &Bitmap = &bitmap;
                     let mut y: i32 = 215 + num2;
                     let mut w: i32 = num4;
                     let mut h: i32 = num5;
@@ -258,9 +258,9 @@ namespace WindowsApplication1
                 }
                 else if (overdrawSpriteId > -1)
                 {
-                   Graphics local9 =  g;
+                   let mut local9: &Graphics = &g;
                   Bitmap bitmap = BitmapStore.GetBitmap(overdrawSpriteId);
-                   Bitmap local10 =  bitmap;
+                   let mut local10: &Bitmap = &bitmap;
                   let mut y: i32 = 200 + num2;
                   let mut w: i32 = num4;
                   let mut h: i32 = num5;

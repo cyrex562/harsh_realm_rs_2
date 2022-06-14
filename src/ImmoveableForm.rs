@@ -13,15 +13,15 @@ namespace WindowsApplication1
 {
   pub class ImmoveableForm : Form
   {
-     const int HTCAPTION = 2;
-     const int MF_BYCOMMAND = 0;
-     const int MF_ENABLED = 0;
-     const int MF_GRAYED = 1;
-     const int MF_DISABLED = 2;
-     const int SC_MOVE = 61456;
-     const int WM_NCLBUTTONDOWN = 161;
-     const int WM_SYSCOMMAND = 274;
-     const int WM_INITMENUPOPUP = 279;
+     const let mut HTCAPTION: i32 =  2;
+     const let mut MF_BYCOMMAND: i32 =  0;
+     const let mut MF_ENABLED: i32 =  0;
+     const let mut MF_GRAYED: i32 =  1;
+     const let mut MF_DISABLED: i32 =  2;
+     const let mut SC_MOVE: i32 =  61456;
+     const let mut WM_NCLBUTTONDOWN: i32 =  161;
+     const let mut WM_SYSCOMMAND: i32 =  274;
+     const let mut WM_INITMENUPOPUP: i32 =  279;
     pub bMoveable: bool;
 
     [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
@@ -52,7 +52,7 @@ namespace WindowsApplication1
         num1 = m.LParam;
         if (num1.ToInt32() / 65536 != 0)
         {
-          int num2 = 0;
+          let mut num2: i32 =  0;
           if (!this.Moveable)
             num2 = 3;
           ImmoveableForm.EnableMenuItem(m.WParam, 61456, 0 | num2);

@@ -89,7 +89,7 @@ namespace WindowsApplication1
     pub void MakeShit1(Graphics g, int ty)
     {
       Rectangle rect2;
-      DrawMod.MakeFullBoxVic2( g, new Rectangle(10, ty + 161, 200, 14), "MINIMAP", rect2, "");
+      DrawMod.MakeFullBoxVic2( g, Rectangle::new(10, ty + 161, 200, 14), "MINIMAP", rect2, "");
       if (this.MiniMapId > 0)
         this.RemoveSubPart(this.MiniMapId);
       let mut tsubpart: SubPartClass =  new MiniMapPartClass(this.game, tx: 198, ty: 138);
@@ -141,22 +141,22 @@ namespace WindowsApplication1
       if (location == -1)
       {
         str: String = "No location in hex";
-         Graphics local =  g;
-        rectangle1 = new Rectangle(10, ty + 161, 200, 14);
-        Rectangle rect1 = rectangle1;
-        rectangle2 = new Rectangle(10, ty + 175, 200, 23);
-        Rectangle rect2 = rectangle2;
+         let mut local: &Graphics = &g;
+        rectangle1 = Rectangle::new(10, ty + 161, 200, 14);
+        let mut rect1: &Rectangle = &rectangle1
+        rectangle2 = Rectangle::new(10, ty + 175, 200, 23);
+        let mut rect2: &Rectangle = &rectangle2
         txt2: String = str;
         DrawMod.MakeFullBoxVic2( local, rect1, "LOCATION TYPE", rect2, txt2);
       }
       if (location <= -1)
         return;
       name: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].Name;
-       Graphics local1 =  g;
-      rectangle2 = new Rectangle(10, ty + 161, 165, 14);
-      Rectangle rect1_1 = rectangle2;
-      rectangle1 = new Rectangle(10, ty + 175, 165, 23);
-      Rectangle rect2_1 = rectangle1;
+       let mut local1: &Graphics = &g;
+      rectangle2 = Rectangle::new(10, ty + 161, 165, 14);
+      let mut rect1_1: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(10, ty + 175, 165, 23);
+      let mut rect2_1: &Rectangle = &rectangle1
       txt2_1: String = name;
       DrawMod.MakeFullBoxVic2( local1, rect1_1, "LOCATION TYPE", rect2_1, txt2_1);
       let mut tsubpart: SubPartClass =  new TextButtonPartClass("?", 30, "Get more information on selected landscape and/or location type",  this.OwnBitmap, 180, ty + 175, theight: 25);
@@ -164,27 +164,27 @@ namespace WindowsApplication1
       let mut people: i32 = this.game.Data.LocObj[location].People;
       let mut hq: i32 = this.game.Data.LocObj[location].HQ;
       str1: String = Strings.UCase(Strings.Left(this.game.Data.PeopleObj[people].Name, 3));
-       Graphics local2 =  g;
-      rectangle2 = new Rectangle(10, ty + 203, 35, 14);
-      Rectangle rect1_2 = rectangle2;
-      rectangle1 = new Rectangle(10, ty + 217, 35, 23);
-      Rectangle rect2_2 = rectangle1;
+       let mut local2: &Graphics = &g;
+      rectangle2 = Rectangle::new(10, ty + 203, 35, 14);
+      let mut rect1_2: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(10, ty + 217, 35, 23);
+      let mut rect2_2: &Rectangle = &rectangle1
       txt2_2: String = str1;
       DrawMod.MakeFullBoxVic2( local2, rect1_2, "PPL", rect2_2, txt2_2);
       str2: String = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ReconPts(this.game.Data.Turn) <= 0 ? "? / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts)) : Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts)) + " / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts));
-       Graphics local3 =  g;
-      rectangle2 = new Rectangle(55, ty + 203, 95, 14);
-      Rectangle rect1_3 = rectangle2;
-      rectangle1 = new Rectangle(55, ty + 217, 95, 23);
-      Rectangle rect2_3 = rectangle1;
+       let mut local3: &Graphics = &g;
+      rectangle2 = Rectangle::new(55, ty + 203, 95, 14);
+      let mut rect1_3: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(55, ty + 217, 95, 23);
+      let mut rect2_3: &Rectangle = &rectangle1
       txt2_3: String = str2;
       DrawMod.MakeFullBoxVic2( local3, rect1_3, "STRUCTURAL", rect2_3, txt2_3);
       str3: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts <= 0 ? "0" : "+" + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts));
-       Graphics local4 =  g;
-      rectangle2 = new Rectangle(160, ty + 203, 55, 14);
-      Rectangle rect1_4 = rectangle2;
-      rectangle1 = new Rectangle(160, ty + 217, 50, 23);
-      Rectangle rect2_4 = rectangle1;
+       let mut local4: &Graphics = &g;
+      rectangle2 = Rectangle::new(160, ty + 203, 55, 14);
+      let mut rect1_4: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(160, ty + 217, 50, 23);
+      let mut rect2_4: &Rectangle = &rectangle1
       txt2_4: String = str3;
       DrawMod.MakeFullBoxVic2( local4, rect1_4, "AUTOREP", rect2_4, txt2_4);
       if (!(!this.game.Data.FOWOn | this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[location].X, this.game.Data.LocObj[location].Y].Regime == this.game.Data.Turn | this.game.Data.Round == 0))
@@ -197,11 +197,11 @@ namespace WindowsApplication1
       }
       else
         str4 = hq <= -1 ? "No Hq" : this.game.Data.UnitObj[hq].Name;
-       Graphics local5 =  g;
-      rectangle2 = new Rectangle(10, ty + 245, 200, 14);
-      Rectangle rect1_5 = rectangle2;
-      rectangle1 = new Rectangle(10, ty + 259, 200, 23);
-      Rectangle rect2_5 = rectangle1;
+       let mut local5: &Graphics = &g;
+      rectangle2 = Rectangle::new(10, ty + 245, 200, 14);
+      let mut rect1_5: &Rectangle = &rectangle2
+      rectangle1 = Rectangle::new(10, ty + 259, 200, 23);
+      let mut rect2_5: &Rectangle = &rectangle1
       txt2_5: String = str4;
       DrawMod.MakeFullBoxVic2( local5, rect1_5, "HQ", rect2_5, txt2_5);
       let mut index1: i32 = 0;
@@ -227,39 +227,39 @@ namespace WindowsApplication1
           str4 = "";
         if (index1 == 0)
         {
-           Graphics local6 =  g;
-          rectangle2 = new Rectangle(10, ty + 287, 200, 14);
-          Rectangle rect1_6 = rectangle2;
-          rectangle1 = new Rectangle(10, ty + 301, 200, 23);
-          Rectangle rect2_6 = rectangle1;
+           let mut local6: &Graphics = &g;
+          rectangle2 = Rectangle::new(10, ty + 287, 200, 14);
+          let mut rect1_6: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(10, ty + 301, 200, 23);
+          let mut rect2_6: &Rectangle = &rectangle1
           txt2_6: String = str4;
           DrawMod.MakeFullBoxVic2( local6, rect1_6, "PRODUCTION SLOTS", rect2_6, txt2_6);
         }
         Rectangle rectangle3;
         if (index1 == 2)
         {
-           Graphics local7 =  g;
-          Rectangle rect1_7 = rectangle3;
-          rectangle2 = new Rectangle(10, ty + 357, 200, 23);
-          Rectangle rect2_7 = rectangle2;
+           let mut local7: &Graphics = &g;
+          let mut rect1_7: &Rectangle = &rectangle3
+          rectangle2 = Rectangle::new(10, ty + 357, 200, 23);
+          let mut rect2_7: &Rectangle = &rectangle2
           txt2_7: String = str4;
           DrawMod.MakeFullBoxVic2( local7, rect1_7, "", rect2_7, txt2_7);
         }
         if (index1 == 1)
         {
-           Graphics local8 =  g;
-          Rectangle rect1_8 = rectangle3;
-          rectangle2 = new Rectangle(10, ty + 329, 200, 23);
-          Rectangle rect2_8 = rectangle2;
+           let mut local8: &Graphics = &g;
+          let mut rect1_8: &Rectangle = &rectangle3
+          rectangle2 = Rectangle::new(10, ty + 329, 200, 23);
+          let mut rect2_8: &Rectangle = &rectangle2
           txt2_8: String = str4;
           DrawMod.MakeFullBoxVic2( local8, rect1_8, "", rect2_8, txt2_8);
         }
         if (index1 == 3)
         {
-           Graphics local9 =  g;
-          Rectangle rect1_9 = rectangle3;
-          rectangle2 = new Rectangle(10, ty + 385, 200, 23);
-          Rectangle rect2_9 = rectangle2;
+           let mut local9: &Graphics = &g;
+          let mut rect1_9: &Rectangle = &rectangle3
+          rectangle2 = Rectangle::new(10, ty + 385, 200, 23);
+          let mut rect2_9: &Rectangle = &rectangle2
           txt2_9: String = str4;
           DrawMod.MakeFullBoxVic2( local9, rect1_9, "", rect2_9, txt2_9);
         }

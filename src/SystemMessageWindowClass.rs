@@ -62,7 +62,7 @@ namespace WindowsApplication1
       }
       let mut tsubpart: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( self.OwnBitmap), bbx: 200, bby: 100, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
       self.cancelid = self.AddSubPart( tsubpart, 200, 100, 200, 36, 1);
-      Rectangle trect = new Rectangle(200, 100, 200, 35);
+      Rectangle trect = Rectangle::new(200, 100, 200, 35);
       self.AddMouse( trect, "", "Close this message");
     }
 

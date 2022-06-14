@@ -294,7 +294,7 @@ namespace WindowsApplication1
       this.FuzzyBlock = 0;
       this.MaxLos = 0;
       this.MaxObstruct = 0;
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         this.RoadType[index1] = -1;
@@ -323,8 +323,8 @@ namespace WindowsApplication1
         this.tBattleStackArt = new int[fullRegCount + 1];
         this.tBattlePenalty = new int[fullRegCount + 1];
       }
-      int num1 = fullRegCount;
-      for (int index2 = 0; index2 <= num1; index2 += 1)
+      let mut num1: i32 =  fullRegCount;
+      for (let mut index2: i32 =  0; index2 <= num1; index2 += 1)
       {
         this.tSeeNow[index2] = 0;
         this.tLastLT[index2] = -1;
@@ -345,8 +345,8 @@ namespace WindowsApplication1
         this.tReconPts = new int[regcount + 1];
         this.tZOCPts = new int[regcount + 1];
       }
-      int num2 = regcount;
-      for (int Index = 0; Index <= num2; Index += 1)
+      let mut num2: i32 =  regcount;
+      for (let mut Index: i32 =  0; Index <= num2; Index += 1)
       {
         this.set_ReconPts(Index, 0);
         this.set_ZocPts(Index, 0);
@@ -367,10 +367,10 @@ namespace WindowsApplication1
 
     pub void StreamRead( BinaryReader br)
     {
-      int num = br.ReadInt32();
+      let mut num: i32 =  br.ReadInt32();
       this.LandscapeType = br.ReadInt32();
       this.SpriteNr = br.ReadInt32();
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         this.RoadType[index1] = br.ReadInt32();
@@ -383,8 +383,8 @@ namespace WindowsApplication1
       this.UnitCounter = br.ReadInt32();
       if (this.UnitCounter > -1)
         this.UnitList = new int[this.UnitCounter + 1];
-      int unitCounter = this.UnitCounter;
-      for (int index2 = 0; index2 <= unitCounter; index2 += 1)
+      let mut unitCounter: i32 =  this.UnitCounter;
+      for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
         this.UnitList[index2] = br.ReadInt32();
       this.Location = br.ReadInt32();
       this.DammageToInfra = br.ReadInt32();
@@ -416,8 +416,8 @@ namespace WindowsApplication1
           this.tBattleStackArt = new int[this.RegimeCount + 1];
           this.tBattlePenalty = new int[this.RegimeCount + 1];
         }
-        int regimeCount = this.RegimeCount;
-        for (int index3 = 0; index3 <= regimeCount; index3 += 1)
+        let mut regimeCount: i32 =  this.RegimeCount;
+        for (let mut index3: i32 =  0; index3 <= regimeCount; index3 += 1)
         {
           this.tAPPenalty[index3] = br.ReadInt32();
           this.tSeeNow[index3] = br.ReadInt32();
@@ -444,8 +444,8 @@ namespace WindowsApplication1
           this.tReconPts = new int[this.RegimeCount + 1];
           this.tZOCPts = new int[this.RegimeCount + 1];
         }
-        int regimeCount = this.RegimeCount;
-        for (int Index = 0; Index <= regimeCount; Index += 1)
+        let mut regimeCount: i32 =  this.RegimeCount;
+        for (let mut Index: i32 =  0; Index <= regimeCount; Index += 1)
         {
           this.set_ReconPts(Index, br.ReadInt32());
           this.set_ZocPts(Index, br.ReadInt32());
@@ -467,8 +467,8 @@ namespace WindowsApplication1
           this.tBattleStackArt = new int[this.RegimeCount + 1];
           this.tBattlePenalty = new int[this.RegimeCount + 1];
         }
-        int regimeFullCount = this.RegimeFullCount;
-        for (int index4 = 0; index4 <= regimeFullCount; index4 += 1)
+        let mut regimeFullCount: i32 =  this.RegimeFullCount;
+        for (let mut index4: i32 =  0; index4 <= regimeFullCount; index4 += 1)
         {
           this.tAPPenalty[index4] = br.ReadInt32();
           this.tSeeNow[index4] = br.ReadInt32();
@@ -486,7 +486,7 @@ namespace WindowsApplication1
           this.tBattlePenalty[index4] = br.ReadInt32();
         }
       }
-      int index5 = 0;
+      let mut index5: i32 =  0;
       do
       {
         this.AreaCode[index5] = br.ReadInt32();
@@ -509,8 +509,8 @@ namespace WindowsApplication1
         this.ConnectionY = new int[this.ConnectionCount + 1];
         this.ConnectionMap = new int[this.ConnectionCount + 1];
       }
-      int connectionCount = this.ConnectionCount;
-      for (int index6 = 0; index6 <= connectionCount; index6 += 1)
+      let mut connectionCount: i32 =  this.ConnectionCount;
+      for (let mut index6: i32 =  0; index6 <= connectionCount; index6 += 1)
       {
         this.ConnectionX[index6] = br.ReadInt32();
         this.ConnectionY[index6] = br.ReadInt32();
@@ -532,8 +532,8 @@ namespace WindowsApplication1
           this.HexLibVarSlotNr = new int[1];
           this.HexLibVarValue = new int[1];
         }
-        int hexLibVarCounter = this.HexLibVarCounter;
-        for (int index7 = 0; index7 <= hexLibVarCounter; index7 += 1)
+        let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
+        for (let mut index7: i32 =  0; index7 <= hexLibVarCounter; index7 += 1)
         {
           this.HexLibVarSlotNr[index7] = br.ReadInt32();
           this.HexLibVarValue[index7] = br.ReadInt32();
@@ -551,7 +551,7 @@ namespace WindowsApplication1
       this.Location2 = num <= 14 ? -1 : br.ReadInt32();
       if (num > 5)
       {
-        int index8 = 0;
+        let mut index8: i32 =  0;
         do
         {
           this.LISpoints[index8] = br.ReadInt32();
@@ -581,7 +581,7 @@ namespace WindowsApplication1
       bw.Write(17);
       bw.Write(this.LandscapeType);
       bw.Write(this.SpriteNr);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         bw.Write(this.RoadType[index1]);
@@ -592,8 +592,8 @@ namespace WindowsApplication1
       while (index1 <= 5);
       bw.Write(this.Regime);
       bw.Write(this.UnitCounter);
-      int unitCounter = this.UnitCounter;
-      for (int index2 = 0; index2 <= unitCounter; index2 += 1)
+      let mut unitCounter: i32 =  this.UnitCounter;
+      for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
         bw.Write(this.UnitList[index2]);
       bw.Write(this.Location);
       bw.Write(this.DammageToInfra);
@@ -604,14 +604,14 @@ namespace WindowsApplication1
       bw.Write(this.Name);
       bw.Write(this.RegimeCount);
       bw.Write(this.RegimeFullCount);
-      int regimeCount = this.RegimeCount;
-      for (int Index = 0; Index <= regimeCount; Index += 1)
+      let mut regimeCount: i32 =  this.RegimeCount;
+      for (let mut Index: i32 =  0; Index <= regimeCount; Index += 1)
       {
         bw.Write(this.get_ReconPts(Index));
         bw.Write(this.get_ZocPts(Index));
       }
-      int regimeFullCount = this.RegimeFullCount;
-      for (int Index = 0; Index <= regimeFullCount; Index += 1)
+      let mut regimeFullCount: i32 =  this.RegimeFullCount;
+      for (let mut Index: i32 =  0; Index <= regimeFullCount; Index += 1)
       {
         bw.Write(this.get_APPenalty(Index));
         bw.Write(this.tSeeNow[Index]);
@@ -628,7 +628,7 @@ namespace WindowsApplication1
         bw.Write(this.get_BattleStackArt(Index));
         bw.Write(this.get_BattlePenalty(Index));
       }
-      int index3 = 0;
+      let mut index3: i32 =  0;
       do
       {
         bw.Write(this.AreaCode[index3]);
@@ -649,8 +649,8 @@ namespace WindowsApplication1
       bw.Write(this.randomOverrule);
       bw.Write(this.CardUponConquest);
       bw.Write(this.ConnectionCount);
-      int connectionCount = this.ConnectionCount;
-      for (int index4 = 0; index4 <= connectionCount; index4 += 1)
+      let mut connectionCount: i32 =  this.ConnectionCount;
+      for (let mut index4: i32 =  0; index4 <= connectionCount; index4 += 1)
       {
         bw.Write(this.ConnectionX[index4]);
         bw.Write(this.ConnectionY[index4]);
@@ -660,8 +660,8 @@ namespace WindowsApplication1
       bw.Write(this.SpecialSprite);
       bw.Write(this.OrigOwner);
       bw.Write(this.HexLibVarCounter);
-      int hexLibVarCounter = this.HexLibVarCounter;
-      for (int index5 = 0; index5 <= hexLibVarCounter; index5 += 1)
+      let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
+      for (let mut index5: i32 =  0; index5 <= hexLibVarCounter; index5 += 1)
       {
         bw.Write(this.HexLibVarSlotNr[index5]);
         bw.Write(this.HexLibVarValue[index5]);
@@ -671,7 +671,7 @@ namespace WindowsApplication1
       bw.Write(this.MaxRecon);
       bw.Write(this.FuzzyBlock);
       bw.Write(this.Location2);
-      int index6 = 0;
+      let mut index6: i32 =  0;
       do
       {
         bw.Write(this.LISpoints[index6]);
@@ -1104,9 +1104,9 @@ namespace WindowsApplication1
       {
         if (nr < this.ConnectionCount)
         {
-          int num1 = nr;
-          int num2 = this.ConnectionCount - 1;
-          for (int index = num1; index <= num2; index += 1)
+          let mut num1: i32 =  nr;
+          let mut num2: i32 =  this.ConnectionCount - 1;
+          for (let mut index: i32 =  num1; index <= num2; index += 1)
           {
             this.ConnectionX[index] = this.ConnectionX[index + 1];
             this.ConnectionY[index] = this.ConnectionY[index + 1];
@@ -1129,8 +1129,8 @@ namespace WindowsApplication1
 
     pub int GetHexLibVarValue(int tSlotNr)
     {
-      int hexLibVarCounter = this.HexLibVarCounter;
-      for (int index = 0; index <= hexLibVarCounter; index += 1)
+      let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
+      for (let mut index: i32 =  0; index <= hexLibVarCounter; index += 1)
       {
         if (this.HexLibVarSlotNr[index] == tSlotNr)
           return this.HexLibVarValue[index];
@@ -1140,8 +1140,8 @@ namespace WindowsApplication1
 
     pub HasHexLibVarValue: bool(int tSlotNr)
     {
-      int hexLibVarCounter = this.HexLibVarCounter;
-      for (int index = 0; index <= hexLibVarCounter; index += 1)
+      let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
+      for (let mut index: i32 =  0; index <= hexLibVarCounter; index += 1)
       {
         if (this.HexLibVarSlotNr[index] == tSlotNr)
           return true;
@@ -1151,8 +1151,8 @@ namespace WindowsApplication1
 
     pub void SetHexLibVarValue(int tSlotNr, int tValue)
     {
-      int hexLibVarCounter = this.HexLibVarCounter;
-      for (int nr = 0; nr <= hexLibVarCounter; nr += 1)
+      let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
+      for (let mut nr: i32 =  0; nr <= hexLibVarCounter; nr += 1)
       {
         if (this.HexLibVarSlotNr[nr] == tSlotNr)
         {
@@ -1181,9 +1181,9 @@ namespace WindowsApplication1
     {
       if (this.HexLibVarCounter <= -1)
         return;
-      int nr = -1;
-      int hexLibVarCounter = this.HexLibVarCounter;
-      for (int index = 0; index <= hexLibVarCounter; index += 1)
+      let mut nr: i32 =  -1;
+      let mut hexLibVarCounter: i32 =  this.HexLibVarCounter;
+      for (let mut index: i32 =  0; index <= hexLibVarCounter; index += 1)
       {
         if (slotnr == this.HexLibVarSlotNr[index])
         {
@@ -1204,9 +1204,9 @@ namespace WindowsApplication1
       {
         if (nr < this.HexLibVarCounter)
         {
-          int num1 = nr;
-          int num2 = this.HexLibVarCounter - 1;
-          for (int index = num1; index <= num2; index += 1)
+          let mut num1: i32 =  nr;
+          let mut num2: i32 =  this.HexLibVarCounter - 1;
+          for (let mut index: i32 =  num1; index <= num2; index += 1)
           {
             this.HexLibVarSlotNr[index] = this.HexLibVarSlotNr[index + 1];
             this.HexLibVarValue[index] = this.HexLibVarValue[index + 1];
@@ -1306,9 +1306,9 @@ namespace WindowsApplication1
       {
         if (nr < this.RegimeCount)
         {
-          int num1 = nr;
-          int num2 = this.RegimeCount - 1;
-          for (int Index = num1; Index <= num2; Index += 1)
+          let mut num1: i32 =  nr;
+          let mut num2: i32 =  this.RegimeCount - 1;
+          for (let mut Index: i32 =  num1; Index <= num2; Index += 1)
           {
             this.set_ReconPts(Index, this.get_ReconPts(Index + 1));
             this.set_ZocPts(Index, this.get_ZocPts(Index + 1));
@@ -1316,9 +1316,9 @@ namespace WindowsApplication1
         }
         if (nr < this.RegimeFullCount)
         {
-          int num3 = nr;
-          int num4 = this.RegimeFullCount - 1;
-          for (int Index = num3; Index <= num4; Index += 1)
+          let mut num3: i32 =  nr;
+          let mut num4: i32 =  this.RegimeFullCount - 1;
+          for (let mut Index: i32 =  num3; Index <= num4; Index += 1)
           {
             this.tSeeNow[Index] = this.tSeeNow[Index + 1];
             this.set_LastLT(Index, this.get_LastLT(Index + 1));
@@ -1387,7 +1387,7 @@ namespace WindowsApplication1
       this.UnitList = (int[]) Utils.CopyArray((Array) this.UnitList, (Array) new int[this.UnitCounter + 1]);
       if (this.UnitCounter > 0)
       {
-        for (int unitCounter = this.UnitCounter; unitCounter >= 1; unitCounter += -1)
+        for (let mut unitCounter: i32 =  this.UnitCounter; unitCounter >= 1; unitCounter += -1)
           this.UnitList[unitCounter] = this.UnitList[unitCounter - 1];
       }
       this.UnitList[0] = nr;
@@ -1395,9 +1395,9 @@ namespace WindowsApplication1
 
     pub void RemoveUnitFromList(int nr)
     {
-      int num1 = -1;
-      int unitCounter = this.UnitCounter;
-      for (int index = 0; index <= unitCounter; index += 1)
+      let mut num1: i32 =  -1;
+      let mut unitCounter: i32 =  this.UnitCounter;
+      for (let mut index: i32 =  0; index <= unitCounter; index += 1)
       {
         if (this.UnitList[index] == nr)
           num1 = index;
@@ -1406,9 +1406,9 @@ namespace WindowsApplication1
         return;
       if (num1 < this.UnitCounter)
       {
-        int num2 = num1;
-        int num3 = this.UnitCounter - 1;
-        for (int index = num2; index <= num3; index += 1)
+        let mut num2: i32 =  num1;
+        let mut num3: i32 =  this.UnitCounter - 1;
+        for (let mut index: i32 =  num2; index <= num3; index += 1)
           this.UnitList[index] = this.UnitList[index + 1];
       }
       --this.UnitCounter;

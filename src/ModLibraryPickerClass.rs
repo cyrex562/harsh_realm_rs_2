@@ -75,8 +75,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -91,8 +91,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -194,24 +194,24 @@ namespace WindowsApplication1
       DrawMod.DrawMessFrame( this.OwnBitmap,  graphics, 0, 0, 1000, 700);
       this.BackBitmap = (Bitmap) this.OwnBitmap.Clone();
       this.list1obj = ListClass::new();
-      int num1 = -1;
-      int tlistselect = -1;
-      int x1 = 25;
-      int y1 = 25;
+      let mut num1: i32 =  -1;
+      let mut tlistselect: i32 =  -1;
+      let mut x1: i32 =  25;
+      let mut y1: i32 =  25;
       DrawMod.DrawTextColouredMarc( graphics, "Mod Library Picker", this.game.MarcFont2, x1, y1, Color.White);
-      int modlibCounter = this.game.modlib_Counter;
-      for (int tdata = 0; tdata <= modlibCounter; tdata += 1)
+      let mut modlibCounter: i32 =  this.game.modlib_Counter;
+      for (let mut tdata: i32 =  0; tdata <= modlibCounter; tdata += 1)
       {
         num1 += 1;
         if (num1 == this.detailnr)
           tlistselect = num1;
-        int nr = this.game.SMALLCHAR1;
+        let mut nr: i32 =  this.game.SMALLCHAR1;
         if (this.game.modlib_Flagged[tdata])
           nr = this.game.SMALLCHAR2;
         this.list1obj.add(this.game.modlib_Name[tdata], tdata, tbmp: BitmapStore.GetBitmap(nr));
       }
-      int num2 = 25;
-      int num3 = 80;
+      let mut num2: i32 =  25;
+      let mut num3: i32 =  80;
       if (this.list1obj.ListCount == -1)
       {
         DrawMod.DrawBlock( graphics, num2, num3, 450, 504, 0, 0, 0, 128);
@@ -227,36 +227,36 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new ListSubPartClass(this.list1obj, 20, 450, tlistselect, this.game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: num2, bby: num3, tMarcStyle: true, overruleFont: ( this.game.MarcFont4), overruleItemSize: 24);
         this.list1Id = this.AddSubPart( tsubpart, num2, num3, 450, 504, 0);
       }
-      int x1_1 = 500;
-      int y1_1 = 60;
+      let mut x1_1: i32 =  500;
+      let mut y1_1: i32 =  60;
       DrawMod.DrawBlock( graphics, x1_1, y1_1, 455, 550, 0, 0, 0, 128);
       if (this.detailnr > -1)
       {
-        int x2 = 525;
-        int y2 = 80;
+        let mut x2: i32 =  525;
+        let mut y2: i32 =  80;
         DrawMod.DrawTextColouredMarc( graphics, "Library name".ToUpper(), this.game.MarcFont5, x2, y2, Color.White);
         DrawMod.DrawTextColouredMarc( graphics, this.game.modlib_Name[this.detailnr], this.game.MarcFont4, x2 - 0, y2 + 20, Color.White);
-        int x3 = 775;
-        int y3 = 80;
+        let mut x3: i32 =  775;
+        let mut y3: i32 =  80;
         DrawMod.DrawTextColouredMarc( graphics, "Version".ToUpper(), this.game.MarcFont5, x3, y3, Color.White);
         DrawMod.DrawTextColouredMarc( graphics, this.game.modlib_Version[this.detailnr].ToString(), this.game.MarcFont4, x3 - 0, y3 + 20, Color.White);
-        int x4 = 525;
-        int y4 = 140;
+        let mut x4: i32 =  525;
+        let mut y4: i32 =  140;
         DrawMod.DrawTextColouredMarc( graphics, "File name".ToUpper(), this.game.MarcFont5, x4, y4, Color.White);
         DrawMod.DrawTextColouredMarc( graphics, this.game.modlib_Filename[this.detailnr], this.game.MarcFont4, x4 - 0, y4 + 20, Color.White);
-        int x5 = 775;
-        int y5 = 140;
+        let mut x5: i32 =  775;
+        let mut y5: i32 =  140;
         DrawMod.DrawTextColouredMarc( graphics, "Designer".ToUpper(), this.game.MarcFont5, x5, y5, Color.White);
         DrawMod.DrawTextColouredMarc( graphics, this.game.modlib_Designer[this.detailnr], this.game.MarcFont4, x5 - 0, y5 + 20, Color.White);
-        int x6 = 525;
-        int y6 = 200;
+        let mut x6: i32 =  525;
+        let mut y6: i32 =  200;
         DrawMod.DrawTextColouredMarc( graphics, "Description".ToUpper(), this.game.MarcFont5, x6, y6, Color.White);
-        int num4 = 515;
-        int num5 = 200;
+        let mut num4: i32 =  515;
+        let mut num5: i32 =  200;
         let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 430, 15, this.game.MarcFont8, this.game.modlib_Description[this.detailnr], 20,  this.OwnBitmap, num4, num5, tUseEncy: true, tDarkerFrame: true);
         this.B1Id = this.AddSubPart( tsubpart1, num4, num5, 430, 320, 0);
-        int num6 = 725;
-        int num7 = 565;
+        let mut num6: i32 =  725;
+        let mut num7: i32 =  565;
         if (!this.game.modlib_Flagged[this.detailnr])
         {
           let mut tsubpart2: SubPartClass =  new MarcRadioPartClass(0, false, "Flag this Mod Library to be used when starting a new game.",  this.OwnBitmap, num6, num7);
@@ -301,15 +301,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.list1Id)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               this.detailnr = num2;
               this.View();
@@ -356,12 +356,12 @@ namespace WindowsApplication1
       OrderResult orderResult = OrderResult::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (this.SubPartList[index].Scroller)
           {
-            int num = this.SubPartID[index];
+            let mut num: i32 =  this.SubPartID[index];
             if (num == this.slider1id)
             {
               this.game.EditObj.Volume = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index], b);

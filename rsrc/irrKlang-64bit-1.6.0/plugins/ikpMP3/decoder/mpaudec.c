@@ -2315,7 +2315,7 @@ int mpaudec_decode_frame(MPAuDecContext * mpctx,
 {
     MPADecodeContext *s;
     const uint8_t *buf_ptr = buf;
-    int out_size = 0;
+    let mut out_size: i32 =  0;
     int16_t *out_samples = data;
     assert(mpctx != NULL);
     assert(mpctx->priv_data != NULL);
@@ -2324,7 +2324,7 @@ int mpaudec_decode_frame(MPAuDecContext * mpctx,
     while (buf_size > 0 && out_size == 0) {
         uint32_t header;
         uint32_t free_format_next_header = 0;
-        int len = s->inbuf_ptr - s->inbuf;
+        let mut len: i32 =  s->inbuf_ptr - s->inbuf;
         if (s->frame_size == 0) {
             /* no header seen : find one. We need at least HEADER_SIZE
                bytes to parse it */

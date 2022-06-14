@@ -38,32 +38,60 @@
 
   impl AdviceWindow {
 
-    pub AdviceWindow(
-       GameClass tGame,
-       WindowClass tLowerWindow,
-       Rectangle tLowerRect)
-      : base( tGame, 820, 240, 8)
+    // pub  AdviceWindow(
+    //    GameClass tGame,
+    //    WindowClass tLowerWindow,
+    //    Rectangle tLowerRect)
+    //   : base( tGame, 820, 240, 8)
+      pub fn new(tGame: GameClass, tLowerWindow: WindowClass, tLowerRect: Rectangle) -> Self
     {
-      self.LowerWindow = tLowerWindow;
-      self.LowerRect = tLowerRect;
-      self.w = 820;
-      self.h = 240;
-      self.BlockBlit = false;
-      self.dostuff();
+      LowerWindow = tLowerWindow;
+      LowerRect = tLowerRect;
+      w = 820;
+      h = 240;
+      BlockBlit = false;
+        Self {
+            hideId: 0,
+            Info1Id: 0,
+            info2id: 0,
+            info3id: 0,
+            info4id: 0,
+            info5id: 0,
+            info6id: 0,
+            info7id: 0,
+            // LowerWindow: tLowerWindow,
+            // LowerRect: tLowerRect,
+            w: w,
+            h: h,
+            MouseOverWhichTab: 0,
+            cacheList: (),
+            profId: 0,
+            currentShqNr: 0,
+            special1id: 0,
+            special2id: 0,
+            // BlockBlit: false,
+            info8id: 0,
+            special3id: 0
+        };
+        dostuff();
+        return Self;
     }
 
-    pub HandleMouseMove: WindowReturnClass(int x, int y)
-    {
+    // pub fn HandleMouseMove: WindowReturnClass(int x, int y)
+      pub fn HandleMouseMove(mut self, x: i32, y: i32)
+      {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
-      if (self.game.EditObj.SetViewMode2 > 0)
-        windowReturnClass.Flag = false;
+      if self.game.EditObj.SetViewMode2 > 0 {
+          windowReturnClass.Flag = false;
+      }
       return windowReturnClass;
     }
 
-    pub void DoRefresh() => self.dostuff();
+    pub fn DoRefresh(mut self)  {self.dostuff();}
 
-    pub handleTimer: WindowReturnClass()
-    {
+    // pub handleTimer: WindowReturnClass()
+    pub fn handleTimer(mut self)
+      {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.game.EditObj.SetViewMode2 > 0 || self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0))].Length != -1)
         return windowReturnClass;
@@ -73,10 +101,10 @@
       return windowReturnClass;
     }
 
-    pub void dostuff()
+    pub fn dostuff(mut self)
     {
-      int stringListById1 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
-      int stringListById2 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 191, 0, 0));
+      let mut stringListById1 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+      let mut stringListById2 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 191, 0, 0));
       if (self.hideId > 0)
       {
         self.RemoveSubPart(self.hideId);
@@ -145,62 +173,62 @@
       }
       else
       {
-        Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-         Graphics local1 =  Expression;
-        Bitmap bitmap = BitmapStore.GetBitmap(self.game.BACKGROUND3MARC);
-         Bitmap local2 =  bitmap;
-        Rectangle rectangle1 = new Rectangle(0, 0, 512, self.h - 24);
-        Rectangle srcrect1 = rectangle1;
-        Rectangle rectangle2 = new Rectangle(8, 8, 512, self.h - 24);
-        Rectangle destrect1 = rectangle2;
+        let mut Expression: Graphics = Graphics.FromImage((Image) self.OwnBitmap);
+         let mut local1: &Graphics =  &Expression;
+        let mut bitmap = BitmapStore.GetBitmap(self.game.BACKGROUND3MARC);
+         let mut local2 =  &bitmap;
+        let mut rectangle1 = Rectangle::new(0, 0, 512, self.h - 24);
+        let mut srcrect1 = &rectangle1;
+        let mut rectangle2 = Rectangle::new(8, 8, 512, self.h - 24);
+        let mut destrect1 = &rectangle2;
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-         Graphics local3 =  Expression;
-        Bitmap b = BitmapStore.GetBitmap(self.game.BACKGROUND3MARC);
-         Bitmap local4 =  b;
-        rectangle2 = new Rectangle(0, 0, 264, self.h - 24);
-        Rectangle srcrect2 = rectangle2;
-        rectangle1 = new Rectangle(520, 8, 264, self.h - 24);
-        Rectangle destrect2 = rectangle1;
+         let mut local3 =  Expression;
+        let mut b = BitmapStore.GetBitmap(self.game.BACKGROUND3MARC);
+         let mut local4 =  &b;
+        rectangle2 = Rectangle::new(0, 0, 264, self.h - 24);
+        let mut srcrect2: &Rectangle = &rectangle2;
+        rectangle1 = Rectangle::new(520, 8, 264, self.h - 24);
+        let mut destrect2: &Rectangle = &rectangle1;
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
         b = (Bitmap) null;
         DrawMod.DrawMessFrame( b,  Expression, 0, 0, self.w - 32, self.h - 16);
-         Graphics local5 =  Expression;
+         let mut local5: &Graphics = &Expression;
         b = BitmapStore.GetBitmap(self.game.SE1_SIDEBAR_EXITLEFT);
-         Bitmap local6 =  b;
-        int x = self.w - 32;
-        int y = self.h - 160;
+         let mut local6: &Bitmap = &b;
+        let mut x: i32 =  self.w - 32;
+        let mut y: i32 =  self.h - 160;
         DrawMod.DrawSimple( local5,  local6, x, y);
         let mut tsubpart1: SubPartClass =  new SEButtonPartClass(self.game.SE1_ARROW2, "Hide the advice bar.", 23);
         self.hideId = self.AddSubPart( tsubpart1, self.w - 30, self.h - 160 + 18, 23, 35, 1);
         self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
         if (self.game.Data.StringListObj[stringListById1].Length > -1)
         {
-          int id = self.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
+          let mut id: i32 =  self.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
           if (self.game.EditObj.se1_adviceWindowPage < 0)
             self.game.EditObj.se1_adviceWindowPage = 0;
           if (self.game.EditObj.se1_adviceWindowPage > self.game.Data.StringListObj[stringListById1].Length)
             self.game.EditObj.se1_adviceWindowPage = self.game.Data.StringListObj[stringListById1].Length;
-          int num1 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
-          int charId = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 1]));
-          int idValue1 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 2]));
-          int idValue2 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 3]));
+          let mut num1: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+          let mut charId: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 1]));
+          let mut idValue1: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 2]));
+          let mut idValue2: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 3]));
           str1: String = self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 4];
           str2: String = self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 5];
-           Graphics local7 =  Expression;
+           let mut local7: &Graphics = &Expression;
           b = BitmapStore.GetBitmap(self.game.SE1_PAPER2);
-           Bitmap local8 =  b;
-          rectangle2 = new Rectangle(16, 16, self.w - 58, self.h - 42);
-          Rectangle srcrect3 = rectangle2;
-          rectangle1 = new Rectangle(14, 14, self.w - 58, self.h - 42);
-          Rectangle destrect3 = rectangle1;
+           let mut local8: &Bitmap = &b;
+          rectangle2 = Rectangle::new(16, 16, self.w - 58, self.h - 42);
+          let mut srcrect3: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(14, 14, self.w - 58, self.h - 42);
+          let mut destrect3: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local7,  local8, srcrect3, destrect3);
           tstring1: String = str2 + " " + (self.game.EditObj.se1_adviceWindowPage + 1).ToString() + "/" + (self.game.Data.StringListObj[stringListById1].Length + 1).ToString();
           DrawMod.DrawTextColouredConsoleCenter( Expression, tstring1, DrawMod.TGame.se1TypeWriterBig, (int) Math.Round((double) self.w / 2.0) - 18, 20, DrawMod.TGame.seColTW);
           if (charId > 0)
           {
-             Graphics local9 =  Expression;
+             let mut local9: &Graphics = &Expression;
             b = self.game.CustomBitmapObj.DrawLeaderPortrait(charId, 78, 110);
-             Bitmap local10 =  b;
+             let mut local10: &Bitmap = &b;
             DrawMod.DrawSimple( local9,  local10, 20, 55);
             tstring2: String = self.game.EventRelatedObj.GetLeaderName(charId, true) + " says:";
             DrawMod.DrawTextColouredConsole( Expression, tstring2, DrawMod.TGame.se1TypeWriterSmall, 104, 52, DrawMod.TGame.seColTW);
@@ -216,19 +244,19 @@
           if (idValue1 > 0)
           {
             str3: String = self.game.Data.StringListObj[stringListById2].GetData(0, idValue1, 2);
-            int num2 = Strings.InStr(str3.ToLower(), "How to".ToLower());
+            let mut num2: i32 =  Strings.InStr(str3.ToLower(), "How to".ToLower());
             if (num2 > 0)
               str3 = Strings.Mid(str3, num2 + 7);
-            int num3 = Strings.InStr(str3, " ");
+            let mut num3: i32 =  Strings.InStr(str3, " ");
             if (num3 > 0)
             {
-              int num4 = Strings.InStr(num3 + 1, str3, " ");
+              let mut num4: i32 =  Strings.InStr(num3 + 1, str3, " ");
               if (num4 > 0)
               {
-                int num5 = Strings.InStr(num4 + 1, str3, " ");
+                let mut num5: i32 =  Strings.InStr(num4 + 1, str3, " ");
                 if (num5 > 0)
                 {
-                  int num6 = Strings.InStr(num5 + 1, str3, " ");
+                  let mut num6: i32 =  Strings.InStr(num5 + 1, str3, " ");
                   if (num6 > 0)
                     str3 = Strings.Left(str3, num6 - 1);
                 }
@@ -240,19 +268,19 @@
           if (idValue2 > 0)
           {
             str4: String = self.game.Data.StringListObj[stringListById2].GetData(0, idValue2, 2);
-            int num7 = Strings.InStr(str4.ToLower(), "How to".ToLower());
+            let mut num7: i32 =  Strings.InStr(str4.ToLower(), "How to".ToLower());
             if (num7 > 0)
               str4 = Strings.Mid(str4, num7 + 7);
-            int num8 = Strings.InStr(str4, " ");
+            let mut num8: i32 =  Strings.InStr(str4, " ");
             if (num8 > 0)
             {
-              int num9 = Strings.InStr(num8 + 1, str4, " ");
+              let mut num9: i32 =  Strings.InStr(num8 + 1, str4, " ");
               if (num9 > 0)
               {
-                int num10 = Strings.InStr(num9 + 1, str4, " ");
+                let mut num10: i32 =  Strings.InStr(num9 + 1, str4, " ");
                 if (num10 > 0)
                 {
-                  int num11 = Strings.InStr(num10 + 1, str4, " ");
+                  let mut num11: i32 =  Strings.InStr(num10 + 1, str4, " ");
                   if (num11 > 0)
                     str4 = Strings.Left(str4, num11 - 1);
                 }
@@ -263,12 +291,12 @@
           }
           if (self.game.Data.StringListObj[stringListById1].Length > 0)
           {
-            int num12 = 0;
+            let mut num12: i32 =  0;
             if (self.game.EditObj.se1_adviceWindowPage < 1)
               num12 = 1;
             let mut tsubpart7: SubPartClass =  new TextButtonPartClass("<", 60, "Go to previous Advice...",  self.OwnBitmap, 30, 20, num12 == 1, theight: 30, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
             self.info2id = self.AddSubPart( tsubpart7, 30, 20, 60, 30, 1);
-            int num13 = 1;
+            let mut num13: i32 =  1;
             if (self.game.EditObj.se1_adviceWindowPage < self.game.Data.StringListObj[stringListById1].Length)
               num13 = 0;
             let mut tsubpart8: SubPartClass =  new TextButtonPartClass(">", 60, "Go to next Advice...",  self.OwnBitmap, self.w - 110, 20, num13 == 1, theight: 30, usefont: DrawMod.TGame.se1TypeWriterMedium, tudsButton: true);
@@ -287,8 +315,8 @@
     {
       if (self.SubPartCounter > -1)
       {
-        int subPartCounter = self.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  self.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
           {
@@ -306,8 +334,8 @@
           }
         }
       }
-      int mouseCounter = self.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  self.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height)
         {
@@ -330,12 +358,12 @@
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.game.EditObj.SetViewMode2 > 0 || self.game.EditObj.TutOrder > -1)
         return windowReturnClass;
-      int subPartCounter = self.SubPartCounter;
-      for (int index = 0; index <= subPartCounter; index += 1)
+      let mut subPartCounter: i32 =  self.SubPartCounter;
+      for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
       {
         if (self.SubPartCounter > -1 && x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index])
         {
-          int num1 = self.SubPartID[index];
+          let mut num1: i32 =  self.SubPartID[index];
           if (num1 == self.Info1Id)
           {
             self.dostuff();
@@ -366,10 +394,10 @@
           }
           if (num1 == self.info7id)
           {
-            int stringListById = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            let mut stringListById: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
             self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
-            int num2 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
-            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 2]));
+            let mut num2: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            let mut idValue: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 2]));
             self.game.EditObj.udsManagementTabOverrideId = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Present", 79, 0, 0))].GetData(11, idValue, 0)));
             self.game.EditObj.SetViewMode2 = 12;
             self.ClearMouse();
@@ -398,10 +426,10 @@
           }
           if (num1 == self.info8id)
           {
-            int stringListById = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            let mut stringListById: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
             self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
-            int num3 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
-            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 3]));
+            let mut num3: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            let mut idValue: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[self.game.EditObj.se1_adviceWindowPage, 3]));
             self.game.EditObj.udsManagementTabOverrideId = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Present", 79, 0, 0))].GetData(11, idValue, 0)));
             self.game.EditObj.SetViewMode2 = 12;
             self.ClearMouse();
@@ -430,14 +458,14 @@
           }
           if (num1 == self.info5id)
           {
-            int stringListById1 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
-            int stringListById2 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
-            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            let mut stringListById1: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            let mut stringListById2: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
+            let mut idValue: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
             if (idValue > 0)
             {
-              int num4 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, idValue, 1)));
-              int num5 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, idValue, 2)));
-              int setValue = 999999;
+              let mut num4: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, idValue, 1)));
+              let mut num5: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, idValue, 2)));
+              let mut setValue: i32 =  999999;
               self.game.Data.StringListObj[stringListById2].SetData(0, idValue, 1, setValue, true);
               self.game.Data.StringListObj[stringListById1].RemoveRow(self.game.EditObj.se1_adviceWindowPage);
             }
@@ -447,17 +475,17 @@
           }
           if (num1 == self.info6id)
           {
-            int stringListById3 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
-            int stringListById4 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
-            int idValue = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById3].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
+            let mut stringListById3: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 502, 0, 0));
+            let mut stringListById4: i32 =  self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 503, 0, 0));
+            let mut idValue: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById3].Data[self.game.EditObj.se1_adviceWindowPage, 0]));
             if (idValue > 0)
             {
-              int num6 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, idValue, 1)));
-              int num7 = (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, idValue, 2)));
+              let mut num6: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, idValue, 1)));
+              let mut num7: i32 =  (int) Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById4].GetData(0, idValue, 2)));
               if (num7 < 1)
                 num7 = 1;
-              int setValue1 = num7 + (1 + num7);
-              int setValue2 = self.game.Data.Round + (1 + setValue1);
+              let mut setValue1: i32 =  num7 + (1 + num7);
+              let mut setValue2: i32 =  self.game.Data.Round + (1 + setValue1);
               self.game.Data.StringListObj[stringListById4].SetData(0, idValue, 1, setValue2, true);
               self.game.Data.StringListObj[stringListById4].SetData(0, idValue, 2, setValue1, true);
               self.game.Data.StringListObj[stringListById3].RemoveRow(self.game.EditObj.se1_adviceWindowPage);
@@ -468,8 +496,8 @@
           }
         }
       }
-      int mouseCounter = self.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  self.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > self.MouseRect[index].X & x < self.MouseRect[index].X + self.MouseRect[index].Width && y > self.MouseRect[index].Y & y < self.MouseRect[index].Y + self.MouseRect[index].Height && self.MouseData[index] > 0 & self.MouseData[index] <= 3)
         {

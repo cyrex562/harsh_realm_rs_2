@@ -27,7 +27,7 @@ namespace WindowsApplication1
      int view2id;
      int view3id;
 
-    pub PlayMainWindowClass( GameClass tGame, int tminwidth = 0)
+    pub PlayMainWindowClass( GameClass tGame, let mut tminwidth: i32 =  0)
       : base( tGame, 220, tGame.ScreenHeight - (270 + tminwidth), 8)
     {
       this.minwidth = tminwidth;
@@ -48,8 +48,8 @@ namespace WindowsApplication1
     {
       if (this.game.SelectX < 0 || this.game.Data.Turn == -1)
         return "";
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
           return this.MouseText[index];
@@ -91,8 +91,8 @@ namespace WindowsApplication1
       }
       this.NewBackGroundAndClearAll(220, this.game.ScreenHeight - (270 + this.minwidth), -1);
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      int ty = 70;
-      int h1 = this.game.ScreenHeight - (270 + this.minwidth);
+      let mut ty: i32 =  70;
+      let mut h1: i32 =  this.game.ScreenHeight - (270 + this.minwidth);
       this.ClearMouse();
       if (this.game.Data.Round == 0)
         this.game.Data.Turn = -1;
@@ -111,7 +111,7 @@ namespace WindowsApplication1
         DrawMod.DrawBlock( graphics, 0, 0, 5, h1,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
         DrawMod.DrawBlock( graphics, 5, 0, 220, 34,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
         DrawMod.DrawBlock( graphics, 5, ty + 114, 220, 34,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
-        int h2 = h1 - (ty + 426);
+        let mut h2: i32 =  h1 - (ty + 426);
         DrawMod.DrawBlock( graphics, 5, ty + 426, 220, h2,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
         DrawMod.drawLine( graphics, 0, 34, 0, this.game.ScreenHeight - 265,  this.game.VicColor6.R,  this.game.VicColor6.G,  this.game.VicColor6.B,  this.game.VicColor6.A);
         DrawMod.drawLine( graphics, 5, 34, 218, 34,  this.game.VicColor6.R,  this.game.VicColor6.G,  this.game.VicColor6.B,  this.game.VicColor6.A);
@@ -123,7 +123,7 @@ namespace WindowsApplication1
         DrawMod.drawLine( graphics, 4, ty + 148, 4, ty + 426, 50, 50, 50,  byte.MaxValue);
         DrawMod.drawLine( graphics, 5, ty + 148, 5, ty + 426,  this.game.VicColor6.R,  this.game.VicColor6.G,  this.game.VicColor6.B,  this.game.VicColor6.A);
       }
-      int num1 = ty + 130;
+      let mut num1: i32 =  ty + 130;
       if (this.game.Data.Round == 0)
       {
         ty = -80;
@@ -144,7 +144,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.view3id);
         this.view3id = 0;
       }
-      int num2 = 190;
+      let mut num2: i32 =  190;
       if (this.game.Data.Round == 0)
         num2 = 35;
       if (this.game.Data.Round == 0)
@@ -168,22 +168,22 @@ namespace WindowsApplication1
       }
       if (this.game.Data.Round > 0)
       {
-        int hqSpriteNr = this.game.Data.RegimeObj[this.game.Data.Turn].HQSpriteNr;
+        let mut hqSpriteNr: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].HQSpriteNr;
         str = this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].Name;
         Rectangle paintedPartRect = DrawMod.GetPaintedPartRect(BitmapStore.GetBitmap(hqSpriteNr, 1));
-         Graphics local1 =  graphics;
+         let mut local1: &Graphics = &graphics;
         Bitmap bitmap1 = BitmapStore.GetBitmap(hqSpriteNr, 1);
-         Bitmap local2 =  bitmap1;
-        Rectangle srcrect = paintedPartRect;
-        Rectangle rectangle = new Rectangle(89, 12, 38, 28);
-        Rectangle destrect = rectangle;
+         let mut local2: &Bitmap = &bitmap1;
+        let mut srcrect: &Rectangle = &paintedPartRect
+        Rectangle rectangle = Rectangle::new(89, 12, 38, 28);
+        let mut destrect: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
-        rectangle = new Rectangle(80, 9, 53, 36);
-        Rectangle trect = rectangle;
+        rectangle = Rectangle::new(80, 9, 53, 36);
+        let mut trect: &Rectangle = &rectangle
         this.AddMouse( trect, "", "The current turn is to " + this.game.Data.RegimeObj[this.game.Data.Turn].Name + ". Click to change the color of the regime.", 1);
-         Graphics local3 =  graphics;
+         let mut local3: &Graphics = &graphics;
         Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.ORNAMENT1);
-         Bitmap local4 =  bitmap2;
+         let mut local4: &Bitmap = &bitmap2;
         DrawMod.DrawSimple( local3,  local4, 10, 5);
         if (this.MiniMapId > 0)
           this.RemoveSubPart(this.MiniMapId);
@@ -219,8 +219,8 @@ namespace WindowsApplication1
     {
       if (this.game.SelectX == -1 | this.game.SelectY == -1)
         return;
-      int regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
-      int location1 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
+      let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
+      let mut location1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
       str1: String = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].Name;
       if (location1 > -1)
         str1 = str1 + ", " + this.game.Data.LocTypeObj[this.game.Data.LocObj[location1].Type].Name;
@@ -232,7 +232,7 @@ namespace WindowsApplication1
         str1 = "Unkown type";
         num1 = 1;
       }
-      int num2 = 0;
+      let mut num2: i32 =  0;
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
         num2 = 1;
       if (this.game.Data.Round != 0 && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon > 0)
@@ -261,49 +261,49 @@ namespace WindowsApplication1
       Rectangle trect;
       if (num1 == 0)
       {
-        int index = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
+        let mut index: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
         if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SeeNow(this.game.Data.Turn) < 1)
           index = -2;
         if (index > -1)
         {
-          int hqSpriteNr = this.game.Data.RegimeObj[index].HQSpriteNr;
-           Graphics local1 =  g;
-          Rectangle rect1 = new Rectangle(10, ty + 161, 200, 14);
-          rectangle = new Rectangle(10, ty + 175, 200, 26);
-          Rectangle rect2 = rectangle;
+          let mut hqSpriteNr: i32 =  this.game.Data.RegimeObj[index].HQSpriteNr;
+           let mut local1: &Graphics = &g;
+          Rectangle rect1 = Rectangle::new(10, ty + 161, 200, 14);
+          rectangle = Rectangle::new(10, ty + 175, 200, 26);
+          let mut rect2: &Rectangle = &rectangle
           txt2: String = "        " + str2;
           DrawMod.MakeFullBoxVic2( local1, rect1, "SELECTED HEX", rect2, txt2);
           Rectangle paintedPartRect = DrawMod.GetPaintedPartRect(BitmapStore.GetBitmap(hqSpriteNr));
-           Graphics local2 =  g;
+           let mut local2: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(hqSpriteNr);
-           Bitmap local3 =  bitmap;
-          Rectangle srcrect = paintedPartRect;
-          rectangle = new Rectangle(15, ty + 179, 26, 20);
-          Rectangle destrect = rectangle;
+           let mut local3: &Bitmap = &bitmap;
+          let mut srcrect: &Rectangle = &paintedPartRect
+          rectangle = Rectangle::new(15, ty + 179, 26, 20);
+          let mut destrect: &Rectangle = &rectangle
           DrawMod.DrawSimplePart2( local2,  local3, srcrect, destrect);
         }
         else
         {
-           Graphics local =  g;
-          rectangle = new Rectangle(10, ty + 161, 200, 14);
-          Rectangle rect1 = rectangle;
-          trect = new Rectangle(10, ty + 175, 200, 26);
-          Rectangle rect2 = trect;
+           let mut local: &Graphics = &g;
+          rectangle = Rectangle::new(10, ty + 161, 200, 14);
+          let mut rect1: &Rectangle = &rectangle
+          trect = Rectangle::new(10, ty + 175, 200, 26);
+          let mut rect2: &Rectangle = &trect
           txt2: String = str2;
           DrawMod.MakeFullBoxVic2( local, rect1, "SELECTED HEX", rect2, txt2);
         }
       }
       else
       {
-         Graphics local =  g;
-        rectangle = new Rectangle(10, ty + 161, 200, 14);
-        Rectangle rect1 = rectangle;
-        trect = new Rectangle(10, ty + 175, 200, 26);
-        Rectangle rect2 = trect;
+         let mut local: &Graphics = &g;
+        rectangle = Rectangle::new(10, ty + 161, 200, 14);
+        let mut rect1: &Rectangle = &rectangle
+        trect = Rectangle::new(10, ty + 175, 200, 26);
+        let mut rect2: &Rectangle = &trect
         txt2: String = str2;
         DrawMod.MakeFullBoxVic2( local, rect1, "SELECTED HEX", rect2, txt2);
       }
-      rectangle = new Rectangle(10, ty + 161, 200, 40);
+      rectangle = Rectangle::new(10, ty + 161, 200, 40);
       trect = rectangle;
       this.AddMouse( trect, "", "The hex owners flag, coordinate and if applicable the name of the hex. If location is present you can rename it by clicking.", 2);
       ty += 5;
@@ -324,7 +324,7 @@ namespace WindowsApplication1
       }
       if (Attack & this.game.Data.Round > 0)
       {
-        int num3 = 0;
+        let mut num3: i32 =  0;
         name: String = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].LandscapeType].Name;
         string str5;
         if (location1 > -1)
@@ -338,7 +338,7 @@ namespace WindowsApplication1
         if (num3 == 0)
         {
           str3 = "";
-          int location2 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Location;
+          let mut location2: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Location;
           if (Information.IsNothing((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name))
             this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name = "";
           if (location2 > -1)
@@ -348,14 +348,14 @@ namespace WindowsApplication1
           else
             str4 = Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetX)) + ", " + Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetY));
         }
-         Graphics local =  g;
-        rectangle = new Rectangle(10, ty + 290, 200, 14);
-        Rectangle rect1 = rectangle;
-        trect = new Rectangle(10, ty + 304, 200, 23);
-        Rectangle rect2 = trect;
+         let mut local: &Graphics = &g;
+        rectangle = Rectangle::new(10, ty + 290, 200, 14);
+        let mut rect1: &Rectangle = &rectangle
+        trect = Rectangle::new(10, ty + 304, 200, 23);
+        let mut rect2: &Rectangle = &trect
         txt2: String = str4;
         DrawMod.MakeFullBoxVic2( local, rect1, "TARGET HEX", rect2, txt2);
-        rectangle = new Rectangle(10, ty + 290, 200, 40);
+        rectangle = Rectangle::new(10, ty + 290, 200, 40);
         trect = rectangle;
         this.AddMouse( trect, "", "The hex you are in the process of attacking. Shown below are units selected to participate in attack as well as known defenders.");
         if (!(landscapeType > -1 & spriteNr > -1))
@@ -367,23 +367,23 @@ namespace WindowsApplication1
       {
         if (num1 == 0)
         {
-           Graphics local4 =  g;
-          rectangle = new Rectangle(10, ty + 290, 170, 14);
-          Rectangle rect1_1 = rectangle;
-          trect = new Rectangle(10, ty + 304, 170, 23);
-          Rectangle rect2_1 = trect;
+           let mut local4: &Graphics = &g;
+          rectangle = Rectangle::new(10, ty + 290, 170, 14);
+          let mut rect1_1: &Rectangle = &rectangle
+          trect = Rectangle::new(10, ty + 304, 170, 23);
+          let mut rect2_1: &Rectangle = &trect
           txt2_1: String = str1;
           DrawMod.MakeFullBoxVic2( local4, rect1_1, "LANDSCAPE TYPE", rect2_1, txt2_1);
           ty -= 4;
           str6: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP));
-           Graphics local5 =  g;
-          rectangle = new Rectangle(10, ty + 335, 35, 14);
-          Rectangle rect1_2 = rectangle;
-          trect = new Rectangle(10, ty + 349, 35, 23);
-          Rectangle rect2_2 = trect;
+           let mut local5: &Graphics = &g;
+          rectangle = Rectangle::new(10, ty + 335, 35, 14);
+          let mut rect1_2: &Rectangle = &rectangle
+          trect = Rectangle::new(10, ty + 349, 35, 23);
+          let mut rect2_2: &Rectangle = &trect
           txt2_2: String = str6;
           DrawMod.MakeFullBoxVic2( local5, rect1_2, "VP", rect2_2, txt2_2);
-          rectangle = new Rectangle(10, ty + 335, 35, 40);
+          rectangle = Rectangle::new(10, ty + 335, 35, 40);
           trect = rectangle;
           this.AddMouse( trect, "", "Victory Points");
           if (this.game.Data.Turn > -1)
@@ -391,50 +391,50 @@ namespace WindowsApplication1
             str7: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon));
             if ((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon < (double) this.game.Data.RuleVar[55])
             {
-               Graphics local6 =  g;
-              rectangle = new Rectangle(65, ty + 335, 35, 14);
-              Rectangle rect1_3 = rectangle;
-              trect = new Rectangle(65, ty + 349, 35, 23);
-              Rectangle rect2_3 = trect;
+               let mut local6: &Graphics = &g;
+              rectangle = Rectangle::new(65, ty + 335, 35, 14);
+              let mut rect1_3: &Rectangle = &rectangle
+              trect = Rectangle::new(65, ty + 349, 35, 23);
+              let mut rect2_3: &Rectangle = &trect
               txt2_3: String = str7;
               DrawMod.MakeFullBoxVic2( local6, rect1_3, "REC", rect2_3, txt2_3);
             }
             else if ((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon < (double) this.game.Data.RuleVar[56])
             {
-               Graphics local7 =  g;
-              rectangle = new Rectangle(65, ty + 335, 35, 14);
-              Rectangle rect1_4 = rectangle;
-              trect = new Rectangle(65, ty + 349, 35, 23);
-              Rectangle rect2_4 = trect;
+               let mut local7: &Graphics = &g;
+              rectangle = Rectangle::new(65, ty + 335, 35, 14);
+              let mut rect1_4: &Rectangle = &rectangle
+              trect = Rectangle::new(65, ty + 349, 35, 23);
+              let mut rect2_4: &Rectangle = &trect
               txt2_4: String = str7;
               DrawMod.MakeFullBoxVic2( local7, rect1_4, "REC", rect2_4, txt2_4);
             }
             else
             {
-               Graphics local8 =  g;
-              rectangle = new Rectangle(65, ty + 335, 35, 14);
-              Rectangle rect1_5 = rectangle;
-              trect = new Rectangle(65, ty + 349, 35, 23);
-              Rectangle rect2_5 = trect;
+               let mut local8: &Graphics = &g;
+              rectangle = Rectangle::new(65, ty + 335, 35, 14);
+              let mut rect1_5: &Rectangle = &rectangle
+              trect = Rectangle::new(65, ty + 349, 35, 23);
+              let mut rect2_5: &Rectangle = &trect
               txt2_5: String = str7;
               DrawMod.MakeFullBoxVic2( local8, rect1_5, "REC", rect2_5, txt2_5);
             }
           }
-          rectangle = new Rectangle(65, ty + 335, 35, 40);
+          rectangle = Rectangle::new(65, ty + 335, 35, 40);
           trect = rectangle;
           this.AddMouse( trect, "", "Recon Points");
           if (this.game.Data.Turn > -1)
           {
             str8: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_ZocPts(this.game.Data.Turn)));
-             Graphics local9 =  g;
-            rectangle = new Rectangle(120, ty + 335, 35, 14);
-            Rectangle rect1_6 = rectangle;
-            trect = new Rectangle(120, ty + 349, 35, 23);
-            Rectangle rect2_6 = trect;
+             let mut local9: &Graphics = &g;
+            rectangle = Rectangle::new(120, ty + 335, 35, 14);
+            let mut rect1_6: &Rectangle = &rectangle
+            trect = Rectangle::new(120, ty + 349, 35, 23);
+            let mut rect2_6: &Rectangle = &trect
             txt2_6: String = str8;
             DrawMod.MakeFullBoxVic2( local9, rect1_6, "ZOC", rect2_6, txt2_6);
           }
-          rectangle = new Rectangle(120, ty + 335, 35, 40);
+          rectangle = Rectangle::new(120, ty + 335, 35, 40);
           trect = rectangle;
           this.AddMouse( trect, "", "Zone of Control Points");
           string str9;
@@ -451,63 +451,63 @@ namespace WindowsApplication1
           }
           else
             str9 = "?";
-           Graphics local10 =  g;
-          rectangle = new Rectangle(10, ty + 377, 35, 14);
-          Rectangle rect1_7 = rectangle;
-          trect = new Rectangle(10, ty + 390, 35, 23);
-          Rectangle rect2_7 = trect;
+           let mut local10: &Graphics = &g;
+          rectangle = Rectangle::new(10, ty + 377, 35, 14);
+          let mut rect1_7: &Rectangle = &rectangle
+          trect = Rectangle::new(10, ty + 390, 35, 23);
+          let mut rect2_7: &Rectangle = &trect
           txt2_7: String = str9;
           DrawMod.MakeFullBoxVic2( local10, rect1_7, "STK", rect2_7, txt2_7);
-          rectangle = new Rectangle(10, ty + 377, 35, 40);
+          rectangle = Rectangle::new(10, ty + 377, 35, 40);
           trect = rectangle;
           this.AddMouse( trect, "", "Stack Points");
           if (this.game.Data.Turn > -1)
           {
-            int Number = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.Data.Turn) + this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.Data.Turn);
+            let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.Data.Turn) + this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.Data.Turn);
             str10: String = Strings.Trim(Conversion.Str((object) Number));
             if (0 > Number)
               str10 = "-" + str10;
-             Graphics local11 =  g;
-            rectangle = new Rectangle(65, ty + 377, 45, 14);
-            Rectangle rect1_8 = rectangle;
-            trect = new Rectangle(65, ty + 390, 35, 23);
-            Rectangle rect2_8 = trect;
+             let mut local11: &Graphics = &g;
+            rectangle = Rectangle::new(65, ty + 377, 45, 14);
+            let mut rect1_8: &Rectangle = &rectangle
+            trect = Rectangle::new(65, ty + 390, 35, 23);
+            let mut rect2_8: &Rectangle = &trect
             txt2_8: String = str10;
             DrawMod.MakeFullBoxVic2( local11, rect1_8, "+AP", rect2_8, txt2_8);
-            rectangle = new Rectangle(65, ty + 377, 45, 40);
+            rectangle = Rectangle::new(65, ty + 377, 45, 40);
             trect = rectangle;
             this.AddMouse( trect, "", "Action Point Penalty (for entering hex)");
             str11: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStack(this.game.Data.Turn)));
-             Graphics local12 =  g;
-            rectangle = new Rectangle(120, ty + 377, 45, 14);
-            Rectangle rect1_9 = rectangle;
-            trect = new Rectangle(120, ty + 390, 35, 23);
-            Rectangle rect2_9 = trect;
+             let mut local12: &Graphics = &g;
+            rectangle = Rectangle::new(120, ty + 377, 45, 14);
+            let mut rect1_9: &Rectangle = &rectangle
+            trect = Rectangle::new(120, ty + 390, 35, 23);
+            let mut rect2_9: &Rectangle = &trect
             txt2_9: String = str11;
             DrawMod.MakeFullBoxVic2( local12, rect1_9, "BSLND", rect2_9, txt2_9);
-            rectangle = new Rectangle(120, ty + 377, 45, 40);
+            rectangle = Rectangle::new(120, ty + 377, 45, 40);
             trect = rectangle;
             this.AddMouse( trect, "", "Battlestack points for regular land combat");
             str12: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackArt(this.game.Data.Turn)));
-             Graphics local13 =  g;
-            rectangle = new Rectangle(175, ty + 335, 45, 14);
-            Rectangle rect1_10 = rectangle;
-            trect = new Rectangle(175, ty + 348, 35, 23);
-            Rectangle rect2_10 = trect;
+             let mut local13: &Graphics = &g;
+            rectangle = Rectangle::new(175, ty + 335, 45, 14);
+            let mut rect1_10: &Rectangle = &rectangle
+            trect = Rectangle::new(175, ty + 348, 35, 23);
+            let mut rect2_10: &Rectangle = &trect
             txt2_10: String = str12;
             DrawMod.MakeFullBoxVic2( local13, rect1_10, "BSART", rect2_10, txt2_10);
-            rectangle = new Rectangle(175, ty + 335, 45, 40);
+            rectangle = Rectangle::new(175, ty + 335, 45, 40);
             trect = rectangle;
             this.AddMouse( trect, "", "Battlestack points for artillery barrages");
             str13: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackAir(this.game.Data.Turn)));
-             Graphics local14 =  g;
-            rectangle = new Rectangle(175, ty + 377, 45, 14);
-            Rectangle rect1_11 = rectangle;
-            trect = new Rectangle(175, ty + 390, 35, 23);
-            Rectangle rect2_11 = trect;
+             let mut local14: &Graphics = &g;
+            rectangle = Rectangle::new(175, ty + 377, 45, 14);
+            let mut rect1_11: &Rectangle = &rectangle
+            trect = Rectangle::new(175, ty + 390, 35, 23);
+            let mut rect2_11: &Rectangle = &trect
             txt2_11: String = str13;
             DrawMod.MakeFullBoxVic2( local14, rect1_11, "BSAIR", rect2_11, txt2_11);
-            rectangle = new Rectangle(175, ty + 377, 45, 40);
+            rectangle = Rectangle::new(175, ty + 377, 45, 40);
             trect = rectangle;
             this.AddMouse( trect, "", "Battlestack points for air to ground attacks");
           }
@@ -531,13 +531,13 @@ namespace WindowsApplication1
       DrawMod.DrawRectangle( g, 10, ty + 161 - 1, 200, 135,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
       if (this.game.Data.MapCounter <= 0)
         return;
-      int num1 = -1;
-      int num2 = -1;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  -1;
       this.MapListObj = ListClass::new();
-      int mapCounter = this.game.Data.MapCounter;
-      for (int tdata = 0; tdata <= mapCounter; tdata += 1)
+      let mut mapCounter: i32 =  this.game.Data.MapCounter;
+      for (let mut tdata: i32 =  0; tdata <= mapCounter; tdata += 1)
       {
-        int num3 = 0;
+        let mut num3: i32 =  0;
         if (this.game.Data.Round == 0)
           num3 = 1;
         if (this.game.EditObj.OrderType < 1 & this.game.Data.MapObj[tdata].CanSee)
@@ -555,7 +555,7 @@ namespace WindowsApplication1
         }
       }
       ListClass mapListObj = this.MapListObj;
-      int tlistselect = num1;
+      let mut tlistselect: i32 =  num1;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -568,8 +568,8 @@ namespace WindowsApplication1
     {
       if (this.game.SelectX == -1 | this.game.SelectY == -1)
         return;
-      int regime = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
-      int location = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
+      let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
+      let mut location: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
       if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SeeNow(this.game.Data.Turn) < 1)
       {
         bool Attack;
@@ -592,49 +592,49 @@ namespace WindowsApplication1
         if (location > -1)
         {
           name: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].Name;
-           Graphics local1 =  g;
-          Rectangle rectangle1 = new Rectangle(10, ty + 161, 160, 14);
-          Rectangle rect1_1 = rectangle1;
-          Rectangle rectangle2 = new Rectangle(10, ty + 175, 160, 23);
-          Rectangle rect2_1 = rectangle2;
+           let mut local1: &Graphics = &g;
+          Rectangle rectangle1 = Rectangle::new(10, ty + 161, 160, 14);
+          let mut rect1_1: &Rectangle = &rectangle1
+          Rectangle rectangle2 = Rectangle::new(10, ty + 175, 160, 23);
+          let mut rect2_1: &Rectangle = &rectangle2
           txt2_1: String = name;
           DrawMod.MakeFullBoxVic2( local1, rect1_1, "LOCATION TYPE", rect2_1, txt2_1);
-          int people = this.game.Data.LocObj[location].People;
-          int hq = this.game.Data.LocObj[location].HQ;
+          let mut people: i32 =  this.game.Data.LocObj[location].People;
+          let mut hq: i32 =  this.game.Data.LocObj[location].HQ;
           str1: String = Strings.UCase(Strings.Left(this.game.Data.PeopleObj[people].Name, 3));
-           Graphics local2 =  g;
-          rectangle2 = new Rectangle(10, ty + 203, 35, 14);
-          Rectangle rect1_2 = rectangle2;
-          rectangle1 = new Rectangle(10, ty + 217, 35, 23);
-          Rectangle rect2_2 = rectangle1;
+           let mut local2: &Graphics = &g;
+          rectangle2 = Rectangle::new(10, ty + 203, 35, 14);
+          let mut rect1_2: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(10, ty + 217, 35, 23);
+          let mut rect2_2: &Rectangle = &rectangle1
           txt2_2: String = str1;
           DrawMod.MakeFullBoxVic2( local2, rect1_2, "PPL", rect2_2, txt2_2);
-          rectangle2 = new Rectangle(10, ty + 203, 35, 40);
-          Rectangle trect = rectangle2;
+          rectangle2 = Rectangle::new(10, ty + 203, 35, 40);
+          let mut trect: &Rectangle = &rectangle2
           this.AddMouse( trect, "", "People that live/work in the location");
           if (this.game.Data.Turn > -1)
           {
             str2: String = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ReconPts(this.game.Data.Turn) <= 0 ? "? / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts)) : Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts)) + " / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts));
-             Graphics local3 =  g;
-            rectangle2 = new Rectangle(55, ty + 203, 95, 14);
-            Rectangle rect1_3 = rectangle2;
-            trect = new Rectangle(55, ty + 217, 95, 23);
-            Rectangle rect2_3 = trect;
+             let mut local3: &Graphics = &g;
+            rectangle2 = Rectangle::new(55, ty + 203, 95, 14);
+            let mut rect1_3: &Rectangle = &rectangle2
+            trect = Rectangle::new(55, ty + 217, 95, 23);
+            let mut rect2_3: &Rectangle = &trect
             txt2_3: String = str2;
             DrawMod.MakeFullBoxVic2( local3, rect1_3, "STRUCTURAL", rect2_3, txt2_3);
-            rectangle2 = new Rectangle(55, ty + 203, 95, 40);
+            rectangle2 = Rectangle::new(55, ty + 203, 95, 40);
             trect = rectangle2;
             this.AddMouse( trect, "", "Structural points the location currently has / can maximum have");
           }
           str3: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts <= 0 ? "0" : "+" + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts));
-           Graphics local4 =  g;
-          rectangle2 = new Rectangle(160, ty + 203, 55, 14);
-          Rectangle rect1_4 = rectangle2;
-          trect = new Rectangle(160, ty + 217, 50, 23);
-          Rectangle rect2_4 = trect;
+           let mut local4: &Graphics = &g;
+          rectangle2 = Rectangle::new(160, ty + 203, 55, 14);
+          let mut rect1_4: &Rectangle = &rectangle2
+          trect = Rectangle::new(160, ty + 217, 50, 23);
+          let mut rect2_4: &Rectangle = &trect
           txt2_4: String = str3;
           DrawMod.MakeFullBoxVic2( local4, rect1_4, "AUTOREP", rect2_4, txt2_4);
-          rectangle2 = new Rectangle(160, ty + 203, 55, 40);
+          rectangle2 = Rectangle::new(160, ty + 203, 55, 40);
           trect = rectangle2;
           this.AddMouse( trect, "", "Number of autorepair points that are applied to the location each round");
           if (!this.game.Data.FOWOn | this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.LocObj[location].X, this.game.Data.LocObj[location].Y].Regime == this.game.Data.Turn | this.game.Data.Round == 0)
@@ -647,23 +647,23 @@ namespace WindowsApplication1
             }
             else
               str4 = hq <= -1 ? "No Hq" : this.game.Data.UnitObj[hq].Name;
-             Graphics local5 =  g;
-            rectangle2 = new Rectangle(10, ty + 245, 200, 14);
-            Rectangle rect1_5 = rectangle2;
-            trect = new Rectangle(10, ty + 259, 200, 23);
-            Rectangle rect2_5 = trect;
+             let mut local5: &Graphics = &g;
+            rectangle2 = Rectangle::new(10, ty + 245, 200, 14);
+            let mut rect1_5: &Rectangle = &rectangle2
+            trect = Rectangle::new(10, ty + 259, 200, 23);
+            let mut rect2_5: &Rectangle = &trect
             txt2_5: String = str4;
             DrawMod.MakeFullBoxVic2( local5, rect1_5, "HQ", rect2_5, txt2_5);
-            rectangle2 = new Rectangle(10, ty + 245, 200, 40);
+            rectangle2 = Rectangle::new(10, ty + 245, 200, 40);
             trect = rectangle2;
             this.AddMouse( trect, "", "The HQ that the location tries to deliver its production too");
-            int prodslot = 0;
+            let mut prodslot: i32 =  0;
             do
             {
               float Number = 0.0f;
               if (this.game.Data.LocObj[location].Production[prodslot] > -1)
               {
-                int index = this.game.Data.LocObj[location].Production[prodslot];
+                let mut index: i32 =  this.game.Data.LocObj[location].Production[prodslot];
                 Left: String = Strings.Left(this.game.Data.ItemTypeObj[index].Name, 12);
                 if (this.game.Data.ItemTypeObj[index].IsSupply)
                   Left = "Supplies";
@@ -680,52 +680,52 @@ namespace WindowsApplication1
                 str4 = "";
               if (prodslot == 0)
               {
-                 Graphics local6 =  g;
-                rectangle2 = new Rectangle(10, ty + 287, 200, 14);
-                Rectangle rect1_6 = rectangle2;
-                trect = new Rectangle(10, ty + 301, 200, 23);
-                Rectangle rect2_6 = trect;
+                 let mut local6: &Graphics = &g;
+                rectangle2 = Rectangle::new(10, ty + 287, 200, 14);
+                let mut rect1_6: &Rectangle = &rectangle2
+                trect = Rectangle::new(10, ty + 301, 200, 23);
+                let mut rect2_6: &Rectangle = &trect
                 txt2_6: String = str4;
                 DrawMod.MakeFullBoxVic2( local6, rect1_6, "PRODUCTION SLOTS", rect2_6, txt2_6);
               }
-              rectangle2 = new Rectangle(10, ty + 301, 200, 23);
+              rectangle2 = Rectangle::new(10, ty + 301, 200, 23);
               trect = rectangle2;
               this.AddMouse( trect, "", "Production slot #1");
               Rectangle rectangle3;
               if (prodslot == 2)
               {
-                 Graphics local7 =  g;
-                Rectangle rect1_7 = rectangle3;
-                rectangle2 = new Rectangle(10, ty + 357, 200, 23);
-                Rectangle rect2_7 = rectangle2;
+                 let mut local7: &Graphics = &g;
+                let mut rect1_7: &Rectangle = &rectangle3
+                rectangle2 = Rectangle::new(10, ty + 357, 200, 23);
+                let mut rect2_7: &Rectangle = &rectangle2
                 txt2_7: String = str4;
                 DrawMod.MakeFullBoxVic2( local7, rect1_7, "", rect2_7, txt2_7);
               }
-              rectangle2 = new Rectangle(10, ty + 357, 200, 23);
+              rectangle2 = Rectangle::new(10, ty + 357, 200, 23);
               trect = rectangle2;
               this.AddMouse( trect, "", "Production slot #3");
               if (prodslot == 1)
               {
-                 Graphics local8 =  g;
-                Rectangle rect1_8 = rectangle3;
-                rectangle2 = new Rectangle(10, ty + 329, 200, 23);
-                Rectangle rect2_8 = rectangle2;
+                 let mut local8: &Graphics = &g;
+                let mut rect1_8: &Rectangle = &rectangle3
+                rectangle2 = Rectangle::new(10, ty + 329, 200, 23);
+                let mut rect2_8: &Rectangle = &rectangle2
                 txt2_8: String = str4;
                 DrawMod.MakeFullBoxVic2( local8, rect1_8, "", rect2_8, txt2_8);
               }
-              rectangle2 = new Rectangle(10, ty + 329, 200, 23);
+              rectangle2 = Rectangle::new(10, ty + 329, 200, 23);
               trect = rectangle2;
               this.AddMouse( trect, "", "Production slot #2");
               if (prodslot == 3)
               {
-                 Graphics local9 =  g;
-                Rectangle rect1_9 = rectangle3;
-                rectangle2 = new Rectangle(10, ty + 385, 200, 23);
-                Rectangle rect2_9 = rectangle2;
+                 let mut local9: &Graphics = &g;
+                let mut rect1_9: &Rectangle = &rectangle3
+                rectangle2 = Rectangle::new(10, ty + 385, 200, 23);
+                let mut rect2_9: &Rectangle = &rectangle2
                 txt2_9: String = str4;
                 DrawMod.MakeFullBoxVic2( local9, rect1_9, "", rect2_9, txt2_9);
               }
-              rectangle2 = new Rectangle(10, ty + 385, 200, 23);
+              rectangle2 = Rectangle::new(10, ty + 385, 200, 23);
               trect = rectangle2;
               this.AddMouse( trect, "", "Production slot #4");
               prodslot += 1;
@@ -746,8 +746,8 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (this.MouseData[index] > 0 && x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -772,7 +772,7 @@ namespace WindowsApplication1
           }
           if (this.MouseData[index] == 2 && this.game.SelectX > -1 && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
           {
-            int location = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
+            let mut location: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
             if (location > -1)
             {
               str: String = Interaction.InputBox("Give New Name for Location", "Rename", this.game.Data.LocObj[location].Name);
@@ -793,12 +793,12 @@ namespace WindowsApplication1
       }
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.view1id)
             {
               this.game.EditObj.SetViewMode = 0;
@@ -868,7 +868,7 @@ namespace WindowsApplication1
             {
               if (num1 == this.MapId)
               {
-                int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                 if (num2 > -1)
                 {
                   this.detailnr = num2;
@@ -889,10 +889,10 @@ namespace WindowsApplication1
               }
               if (num1 == this.HexInfoId || num1 == this.hexinfoid2)
               {
-                int num3 = 0;
+                let mut num3: i32 =  0;
                 selectX = this.game.SelectX;
                 selectY = this.game.SelectY;
-                int index2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                let mut index2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                 if (index2 > -1)
                 {
                   this.game.EditObj.UnitSelected = index2;

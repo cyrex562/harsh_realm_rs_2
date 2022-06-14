@@ -182,11 +182,11 @@ namespace WindowsApplication1
         }
         else
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(hqSpriteNr, 1);
-           Bitmap local2 =  bitmap;
-          Rectangle srcrect = new Rectangle(0, 0, BitmapStore.GetWidth(hqSpriteNr, 1), BitmapStore.Getheight(hqSpriteNr, 1));
-          Rectangle destrect = new Rectangle(usex1 + 20, usey1 + 110, 76, 76);
+           let mut local2: &Bitmap = &bitmap;
+          Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(hqSpriteNr, 1), BitmapStore.Getheight(hqSpriteNr, 1));
+          Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 76, 76);
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(hqSpriteNr, 1).ToString() + "x" + BitmapStore.Getheight(hqSpriteNr, 1).ToString(), self.game.MarcFont4, usex1 + 20 + 38, usey1 + 110 + 52, Color.Salmon);
         }
@@ -212,11 +212,11 @@ namespace WindowsApplication1
         }
         else
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
-           Bitmap local2 =  bitmap;
-          Rectangle srcrect = new Rectangle(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
-          Rectangle destrect = new Rectangle(usex1 + 20, usey1 + 110, 140, 80);
+           let mut local2: &Bitmap = &bitmap;
+          Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
+          Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 140, 80);
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(sidewaysSpriteId).ToString() + "x" + BitmapStore.Getheight(sidewaysSpriteId).ToString(), self.game.MarcFont4, usex1 + 20 + 70, usey1 + 110 + 55, Color.Salmon);
         }
@@ -236,11 +236,11 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc( g, "Graphic:", self.game.MarcFont4, usex1 + 20, usey1 + 90, Color.White);
         if (nr > -1 & !Information.IsNothing((object) BitmapStore.GetBitmap(nr)))
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local2 =  bitmap;
-          Rectangle srcrect = new Rectangle(0, 0, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
-          Rectangle destrect = new Rectangle(usex1 + 20, usey1 + 110, 362, 175);
+           let mut local2: &Bitmap = &bitmap;
+          Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
+          Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 362, 175);
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr).ToString() + "x" + BitmapStore.Getheight(nr).ToString(), self.game.MarcFont4, usex1 + 20 + 180, usey1 + 110 + 90, Color.Salmon);
         }
@@ -278,9 +278,9 @@ namespace WindowsApplication1
       if (self.game.Data.HistoricalUnitObj[indId].CommanderSpriteID > -1)
       {
         let mut commanderSpriteId: i32 = self.game.Data.HistoricalUnitObj[indId].CommanderSpriteID;
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(commanderSpriteId);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = num1 + 460;
         let mut y: i32 = num2 + 35;
         DrawMod.DrawSimple( local1,  local2, x, y);
@@ -294,13 +294,13 @@ namespace WindowsApplication1
         DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, num1 + 460, num2 + 35, 177, 194, -1, -1);
       }
       TextAreaClass2 textAreaClass2 = new TextAreaClass2(self.game, 340, 4, self.game.MarcFont13, "", 12,  self.OwnBitmap, num1 + 110, num2 + 22, true);
-       Graphics local3 =  g;
+       let mut local3: &Graphics = &g;
       Bitmap bitmap1 = textAreaClass2.Paint();
-       Bitmap local4 =  bitmap1;
+       let mut local4: &Bitmap = &bitmap1;
       let mut x1: i32 = num1 + 110;
       let mut y1: i32 = num2 + 22;
       DrawMod.DrawSimple( local3,  local4, x1, y1);
-      Rectangle trect1 = new Rectangle(num1 + 105, num2 + 34, 280, 45);
+      Rectangle trect1 = Rectangle::new(num1 + 105, num2 + 34, 280, 45);
       self.AddMouse( trect1, "OFFICER INFO", "Click to get full stats and biography", 50);
       DrawMod.DrawTextColouredMarc( g, self.game.Data.HistoricalUnitObj[indId].CommanderName, self.game.MarcFont6, num1 + 125, num2 + 44, Color.White);
       let mut num3: i32 = 110;
@@ -318,24 +318,24 @@ namespace WindowsApplication1
           Bitmap bitmap2;
           if (self.game.Data.HistoricalUnitObj[indId].HisVarSmall[index] > -1)
           {
-             Graphics local5 =  g;
+             let mut local5: &Graphics = &g;
             bitmap2 = BitmapStore.GetBitmap(self.game.Data.SmallPicNr[self.game.Data.HistoricalUnitObj[indId].HisVarSmall[index]]);
-             Bitmap local6 =  bitmap2;
+             let mut local6: &Bitmap = &bitmap2;
             let mut x3: i32 = x2;
             let mut y2: i32 = num2 + 71;
             DrawMod.DrawSimple( local5,  local6, x3, y2);
           }
           else if (self.game.Data.HistoricalUnitObj[indId].HisVarNato[index] > -1)
           {
-             Graphics local7 =  g;
+             let mut local7: &Graphics = &g;
             bitmap2 = BitmapStore.GetBitmap(self.game.NATO[self.game.Data.HistoricalUnitObj[indId].HisVarNato[index]]);
-             Bitmap local8 =  bitmap2;
+             let mut local8: &Bitmap = &bitmap2;
             let mut x4: i32 = x2;
             let mut y3: i32 = num2 + 71;
             DrawMod.DrawSimple( local7,  local8, x4, y3);
           }
-          trect1 = new Rectangle(x2, num2 + 71, 35, 50);
-          Rectangle trect2 = trect1;
+          trect1 = Rectangle::new(x2, num2 + 71, 35, 50);
+          let mut trect2: &Rectangle = &trect1
           self.AddMouse( trect2, "", self.game.Data.TempString[1200 + self.game.Data.HistoricalUnitObj[indId].HisVarType[index]]);
         }
         index += 1;
@@ -364,13 +364,13 @@ namespace WindowsApplication1
           }
           else
           {
-             Graphics local1 =  g;
+             let mut local1: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(nr, 1);
-             Bitmap local2 =  bitmap;
-            rectangle1 = new Rectangle(0, 0, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
-            Rectangle srcrect = rectangle1;
-            rectangle2 = new Rectangle(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
-            Rectangle destrect = rectangle2;
+             let mut local2: &Bitmap = &bitmap;
+            rectangle1 = Rectangle::new(0, 0, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
+            let mut srcrect: &Rectangle = &rectangle1
+            rectangle2 = Rectangle::new(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
+            let mut destrect: &Rectangle = &rectangle2
             DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
             DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr, 1).ToString() + "x" + BitmapStore.Getheight(nr, 1).ToString(), self.game.MarcFont4,  Math.Round((double) (usex1 + 20) + (double) BitmapStore.GetWidth(nr, 1) / 2.0),  Math.Round((double) (usey1 + 110) + (double) BitmapStore.Getheight(nr, 1) / 2.0), Color.Salmon);
           }
@@ -384,13 +384,13 @@ namespace WindowsApplication1
           }
           else
           {
-             Graphics local3 =  g;
+             let mut local3: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(nr);
-             Bitmap local4 =  bitmap;
-            rectangle2 = new Rectangle(0, 0, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
-            Rectangle destrect = rectangle1;
+             let mut local4: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(0, 0, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
             DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr).ToString() + "x" + BitmapStore.Getheight(nr).ToString(), self.game.MarcFont4,  Math.Round((double) (usex1 + 20) + (double) BitmapStore.GetWidth(nr) / 2.0),  Math.Round((double) (usey1 + 110) + (double) BitmapStore.Getheight(nr) / 2.0), Color.Salmon);
           }
@@ -404,13 +404,13 @@ namespace WindowsApplication1
           }
           else
           {
-             Graphics local5 =  g;
+             let mut local5: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(nr, -1);
-             Bitmap local6 =  bitmap;
-            rectangle2 = new Rectangle(0, 0, BitmapStore.GetWidth(nr, -1), BitmapStore.Getheight(nr, -1));
-            Rectangle srcrect = rectangle2;
-            rectangle1 = new Rectangle(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, -1), BitmapStore.Getheight(nr, -1));
-            Rectangle destrect = rectangle1;
+             let mut local6: &Bitmap = &bitmap;
+            rectangle2 = Rectangle::new(0, 0, BitmapStore.GetWidth(nr, -1), BitmapStore.Getheight(nr, -1));
+            let mut srcrect: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, -1), BitmapStore.Getheight(nr, -1));
+            let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
             DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr, -1).ToString() + "x" + BitmapStore.Getheight(nr, -1).ToString(), self.game.MarcFont4,  Math.Round((double) (usex1 + 20) + (double) BitmapStore.GetWidth(nr, -1) / 2.0), usey1 + 110 + BitmapStore.Getheight(nr, -1) + 4, Color.Salmon);
           }
@@ -461,11 +461,11 @@ namespace WindowsApplication1
         }
         else
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(nr, 1);
-           Bitmap local2 =  bitmap;
-          Rectangle srcrect = new Rectangle(0, 0, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
-          Rectangle destrect = new Rectangle(usex1 + 20, usey1 + 110, 76, 76);
+           let mut local2: &Bitmap = &bitmap;
+          Rectangle srcrect = Rectangle::new(0, 0, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
+          Rectangle destrect = Rectangle::new(usex1 + 20, usey1 + 110, 76, 76);
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr, 1).ToString() + "x" + BitmapStore.Getheight(nr, 1).ToString(), self.game.MarcFont4, usex1 + 20 + 38, usey1 + 110 + 52, Color.Salmon);
         }
@@ -496,13 +496,13 @@ namespace WindowsApplication1
         }
         else
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
-           Bitmap local2 =  bitmap;
-          rectangle1 = new Rectangle(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
-          Rectangle srcrect = rectangle1;
-          rectangle2 = new Rectangle(usex1 + 20, usey1 + 110, 140, 100);
-          Rectangle destrect = rectangle2;
+           let mut local2: &Bitmap = &bitmap;
+          rectangle1 = Rectangle::new(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
+          let mut srcrect: &Rectangle = &rectangle1
+          rectangle2 = Rectangle::new(usex1 + 20, usey1 + 110, 140, 100);
+          let mut destrect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
           DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(sidewaysSpriteId).ToString() + "x" + BitmapStore.Getheight(sidewaysSpriteId).ToString(), self.game.MarcFont4, usex1 + 20 + 70, usey1 + 110 + 5, Color.Salmon);
         }
@@ -520,13 +520,13 @@ namespace WindowsApplication1
         }
         else
         {
-           Graphics local3 =  g;
+           let mut local3: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(picSpriteId);
-           Bitmap local4 =  bitmap;
-          rectangle2 = new Rectangle(0, 0, BitmapStore.GetWidth(picSpriteId), BitmapStore.Getheight(picSpriteId));
-          Rectangle srcrect = rectangle2;
-          rectangle1 = new Rectangle(usex1 + 20, usey1 + 110, 140, 100);
-          Rectangle destrect = rectangle1;
+           let mut local4: &Bitmap = &bitmap;
+          rectangle2 = Rectangle::new(0, 0, BitmapStore.GetWidth(picSpriteId), BitmapStore.Getheight(picSpriteId));
+          let mut srcrect: &Rectangle = &rectangle2
+          rectangle1 = Rectangle::new(usex1 + 20, usey1 + 110, 140, 100);
+          let mut destrect: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
           DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(picSpriteId).ToString() + "x" + BitmapStore.Getheight(picSpriteId).ToString(), self.game.MarcFont4, usex1 + 20 + 70, usey1 + 110 + 5, Color.Salmon);
         }

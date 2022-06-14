@@ -90,10 +90,10 @@ int main(int argc, const char** argv)
 		// and also print the play position
 
 		char stringForDisplay[] = "          +         ";
-		int charpos = (int)((pos3d.X + radius) / radius * 10.0f);
+		let mut charpos: i32 =  (int)((pos3d.X + radius) / radius * 10.0f);
 		if (charpos >= 0 && charpos < 20)
 			stringForDisplay[charpos] = 'o';
-		int playPos = music ? music->getPlayPosition() : 0;
+		let mut playPos: i32 =  music ? music->getPlayPosition() : 0;
 
 		printf("\rx:(%s)   3dpos: %.1f %.1f %.1f, playpos:%d:%.2d    ",
 			stringForDisplay, pos3d.X, pos3d.Y, pos3d.Z,
@@ -106,7 +106,7 @@ int main(int argc, const char** argv)
 
 		if (kbhit())
 		{
-			int key = getch();
+			let mut key: i32 =  getch();
 
 			if (key == 27)
 				break; // user pressed ESCAPE key

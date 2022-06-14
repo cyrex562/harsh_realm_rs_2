@@ -164,7 +164,7 @@ namespace WindowsApplication1
       let mut tsubpart1: SubPartClass =  new TextButtonPartClass("OK", 320, tBackbitmap: (ref this.OwnBitmap), bbx: 312, bby: 680, theight: 45);
       this.but1id = this.AddSubPart(ref tsubpart1, 312, 680, 320, 45, 1);
       this.firstlistObj = ATListClass::new();
-      int tlistselect1 = -1;
+      let mut tlistselect1: i32 =  -1;
       if (this.game.EditObj.inSimpleEditor & !this.game.EditObj.inSimpleMapEditor)
       {
         this.firstlistObj.add("Regimes", 3);
@@ -244,9 +244,9 @@ namespace WindowsApplication1
       {
         this.medListObj = ATListClass::new();
         str1 = "Landscapes";
-        int num = -1;
-        int landscapeTypeCounter = this.game.Data.LandscapeTypeCounter;
-        for (int tdata = 0; tdata <= landscapeTypeCounter; tdata += 1)
+        let mut num: i32 =  -1;
+        let mut landscapeTypeCounter: i32 =  this.game.Data.LandscapeTypeCounter;
+        for (let mut tdata: i32 =  0; tdata <= landscapeTypeCounter; tdata += 1)
         {
           if (!this.game.Data.LandscapeTypeObj[tdata].DontShowInList)
           {
@@ -261,16 +261,16 @@ namespace WindowsApplication1
       {
         this.medListObj = ATListClass::new();
         str1 = "Roads";
-        int roadTypeCounter = this.game.Data.RoadTypeCounter;
-        for (int tdata = 0; tdata <= roadTypeCounter; tdata += 1)
+        let mut roadTypeCounter: i32 =  this.game.Data.RoadTypeCounter;
+        for (let mut tdata: i32 =  0; tdata <= roadTypeCounter; tdata += 1)
           this.medListObj.add(this.game.Data.RoadTypeObj[tdata].Name, tdata);
       }
       else if (this.game.EditObj.PaintShortcut1 == 3)
       {
         this.medListObj = ATListClass::new();
         str1 = "Regimes";
-        int regimeCounter = this.game.Data.RegimeCounter;
-        for (int tdata = 0; tdata <= regimeCounter; tdata += 1)
+        let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+        for (let mut tdata: i32 =  0; tdata <= regimeCounter; tdata += 1)
           this.medListObj.add(this.game.Data.RegimeObj[tdata].Name, tdata);
         this.medListObj.add("Neutral", this.game.Data.RegimeCounter + 1);
       }
@@ -278,9 +278,9 @@ namespace WindowsApplication1
       {
         this.medListObj = ATListClass::new();
         str1 = "LocType";
-        int num = -1;
-        int locTypeCounter = this.game.Data.LocTypeCounter;
-        for (int tdata = 0; tdata <= locTypeCounter; tdata += 1)
+        let mut num: i32 =  -1;
+        let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
+        for (let mut tdata: i32 =  0; tdata <= locTypeCounter; tdata += 1)
         {
           if (!this.game.Data.LocTypeObj[tdata].editorBlock)
           {
@@ -295,8 +295,8 @@ namespace WindowsApplication1
       {
         this.medListObj = ATListClass::new();
         str1 = "Rivers";
-        int riverTypeCounter = this.game.Data.RiverTypeCounter;
-        for (int tdata = 0; tdata <= riverTypeCounter; tdata += 1)
+        let mut riverTypeCounter: i32 =  this.game.Data.RiverTypeCounter;
+        for (let mut tdata: i32 =  0; tdata <= riverTypeCounter; tdata += 1)
           this.medListObj.add(this.game.Data.RiverTypeObj[tdata].Name, tdata);
       }
       else if (this.game.EditObj.PaintShortcut1 == 6)
@@ -309,7 +309,7 @@ namespace WindowsApplication1
       {
         this.medListObj = ATListClass::new();
         str1 = "Slot Numbers (non-library)";
-        int num = 0;
+        let mut num: i32 =  0;
         do
         {
           this.medListObj.add(Strings.Trim(Conversion.Str((object) num)) + ") " + this.game.Data.TempString[710 + num], num);
@@ -322,17 +322,17 @@ namespace WindowsApplication1
         this.medListObj = ATListClass::new();
         str1 = "Landscapes";
         this.medListObj.add("No Special", -1);
-        int landscapeTypeCounter = this.game.Data.LandscapeTypeCounter;
-        for (int tdata = 0; tdata <= landscapeTypeCounter; tdata += 1)
+        let mut landscapeTypeCounter: i32 =  this.game.Data.LandscapeTypeCounter;
+        for (let mut tdata: i32 =  0; tdata <= landscapeTypeCounter; tdata += 1)
           this.medListObj.add(this.game.Data.LandscapeTypeObj[tdata].Name, tdata);
       }
       else if (this.game.EditObj.PaintShortcut1 == 11)
       {
         this.medListObj = ATListClass::new();
         str1 = "LibVar slots";
-        int num = -1;
-        int libVarCounter = this.game.Data.LibVarCounter;
-        for (int tdata = 0; tdata <= libVarCounter; tdata += 1)
+        let mut num: i32 =  -1;
+        let mut libVarCounter: i32 =  this.game.Data.LibVarCounter;
+        for (let mut tdata: i32 =  0; tdata <= libVarCounter; tdata += 1)
         {
           if (this.game.Data.LibVarObj[tdata].type == NewEnums.LibVarType.Hex)
           {
@@ -371,18 +371,18 @@ namespace WindowsApplication1
       {
         this.lastListObj = ATListClass::new();
         str2 = "Sprites";
-        int basicSpriteCounter = this.game.Data.LandscapeTypeObj[this.game.EditObj.PaintShortcut2].BasicSpriteCounter;
-        for (int tdata = 0; tdata <= basicSpriteCounter; tdata += 1)
+        let mut basicSpriteCounter: i32 =  this.game.Data.LandscapeTypeObj[this.game.EditObj.PaintShortcut2].BasicSpriteCounter;
+        for (let mut tdata: i32 =  0; tdata <= basicSpriteCounter; tdata += 1)
           this.lastListObj.add(this.game.Data.LandscapeTypeObj[this.game.EditObj.PaintShortcut2].BasicSpriteFileName[tdata], tdata);
       }
       else if (this.game.EditObj.PaintShortcut1 == 9 & this.game.EditObj.PaintShortcut2 > -1)
       {
         this.lastListObj = ATListClass::new();
         str2 = "Values";
-        int num = 0;
+        let mut num: i32 =  0;
         do
         {
-          int areaBySlot = this.game.HandyFunctionsObj.GetAreaBySlot(this.game.EditObj.PaintShortcut2, num);
+          let mut areaBySlot: i32 =  this.game.HandyFunctionsObj.GetAreaBySlot(this.game.EditObj.PaintShortcut2, num);
           if (areaBySlot > -1)
             this.lastListObj.add(Strings.Trim(Conversion.Str((object) num)) + ") " + this.game.Data.AreaObj[areaBySlot].Name, num);
           else
@@ -395,9 +395,9 @@ namespace WindowsApplication1
       {
         this.lastListObj = ATListClass::new();
         str2 = "Values";
-        int num1 = -1;
+        let mut num1: i32 =  -1;
         tlistselect2 = -1;
-        int num2 = 0;
+        let mut num2: i32 =  0;
         do
         {
           num1 += 1;
@@ -412,10 +412,10 @@ namespace WindowsApplication1
       {
         this.lastListObj = ATListClass::new();
         str2 = "Values";
-        int num3 = -1;
+        let mut num3: i32 =  -1;
         tlistselect2 = -1;
-        int index = -1;
-        int num4 = 0;
+        let mut index: i32 =  -1;
+        let mut num4: i32 =  0;
         do
         {
           num3 += 1;
@@ -428,7 +428,7 @@ namespace WindowsApplication1
           num4 += 1;
         }
         while (num4 <= 100);
-        int num5 = 105;
+        let mut num5: i32 =  105;
         do
         {
           num3 += 1;
@@ -441,7 +441,7 @@ namespace WindowsApplication1
           num5 += 5;
         }
         while (num5 <= 250);
-        int num6 = 260;
+        let mut num6: i32 =  260;
         do
         {
           num3 += 1;
@@ -454,7 +454,7 @@ namespace WindowsApplication1
           num6 += 10;
         }
         while (num6 <= 500);
-        int num7 = 550;
+        let mut num7: i32 =  550;
         do
         {
           num3 += 1;
@@ -467,7 +467,7 @@ namespace WindowsApplication1
           num7 += 50;
         }
         while (num7 <= 2000);
-        int num8 = 2500;
+        let mut num8: i32 =  2500;
         do
         {
           num3 += 1;
@@ -515,12 +515,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.but1id)
             {
               windowReturnClass.AddCommand(6, 0);
@@ -529,7 +529,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.firstlistId)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num2 > -1)
               {
@@ -557,8 +557,8 @@ namespace WindowsApplication1
             }
             if (num1 == this.medlistId)
             {
-              int num3 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
-              int num4 = -1;
+              let mut num3: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num4: i32 =  -1;
               if (this.SubpartNr(this.lastListId) > 0)
                 num4 = this.SubPartList[this.SubpartNr(this.lastListId)].GetSelect();
               this.SubPartFlag[index] = true;
@@ -629,7 +629,7 @@ namespace WindowsApplication1
             }
             if (num1 != this.lastListId)
               return windowReturnClass;
-            int num5 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+            let mut num5: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
             this.SubPartFlag[index] = true;
             if (num5 > -1)
             {

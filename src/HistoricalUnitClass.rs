@@ -247,7 +247,7 @@ namespace WindowsApplication1
           this.Red = 0;
           this.Green = 0;
           this.Blue = 0;
-          int index = 0;
+          let mut index: i32 =  0;
           do
           {
             this.SubParts[index] = -1;
@@ -491,8 +491,8 @@ namespace WindowsApplication1
       {
         ProjectData.SetProjectError(ex);
         this.HisVarSmall = new int[this.HisVarCount + 1];
-        int hisVarCount = this.HisVarCount;
-        for (int index = 0; index <= hisVarCount; index += 1)
+        let mut hisVarCount: i32 =  this.HisVarCount;
+        for (let mut index: i32 =  0; index <= hisVarCount; index += 1)
           this.HisVarSmall[index] = -1;
         ProjectData.ClearProjectError();
       }
@@ -662,7 +662,7 @@ namespace WindowsApplication1
       this.Red = 0;
       this.Green = 0;
       this.Blue = 0;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.SubParts[index] = -1;
@@ -687,8 +687,8 @@ namespace WindowsApplication1
 
     pub int GiveHisVarValue(int typ)
     {
-      int hisVarCount = this.HisVarCount;
-      for (int index = 0; index <= hisVarCount; index += 1)
+      let mut hisVarCount: i32 =  this.HisVarCount;
+      for (let mut index: i32 =  0; index <= hisVarCount; index += 1)
       {
         if (this.HisVarType[index] == typ)
           return this.HisVarValue[index];
@@ -698,8 +698,8 @@ namespace WindowsApplication1
 
     pub void SetHisVarValue(int typ, int value, int smallGfx)
     {
-      int hisVarCount = this.HisVarCount;
-      for (int index = 0; index <= hisVarCount; index += 1)
+      let mut hisVarCount: i32 =  this.HisVarCount;
+      for (let mut index: i32 =  0; index <= hisVarCount; index += 1)
       {
         if (this.HisVarType[index] == typ)
         {
@@ -721,7 +721,7 @@ namespace WindowsApplication1
 
     pub void SetHisVarValue(int typ, int value)
     {
-      int hisVarCount = this.HisVarCount;
+      let mut hisVarCount: i32 =  this.HisVarCount;
       int index;
       for (index = 0; index <= hisVarCount; index += 1)
       {

@@ -184,13 +184,13 @@ namespace WindowsApplication1
       if (this.game.Data.LandscapeTypeCounter > -1)
       {
         this.LTListObj = ListClass::new();
-        int landscapeTypeCounter = this.game.Data.LandscapeTypeCounter;
-        for (int index = 0; index <= landscapeTypeCounter; index += 1)
+        let mut landscapeTypeCounter: i32 =  this.game.Data.LandscapeTypeCounter;
+        for (let mut index: i32 =  0; index <= landscapeTypeCounter; index += 1)
           this.LTListObj.add(Strings.Trim(Conversion.Str((object) index)) + ") " + this.game.Data.LandscapeTypeObj[index].Name, index);
         if (this.LTListId > 0)
           this.RemoveSubPart(this.LTListId);
         ListClass ltListObj = this.LTListObj;
-        int tlistselect = tltnr;
+        let mut tlistselect: i32 =  tltnr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -667,7 +667,7 @@ namespace WindowsApplication1
         this.OptionsListObj.add("Entrench per Unitgroup", 4);
         this.OptionsListObj.add("Landscape Layers", 5);
         ListClass optionsListObj = this.OptionsListObj;
-        int tabSheetNr = this.TabSheetNr;
+        let mut tabSheetNr: i32 =  this.TabSheetNr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -826,11 +826,11 @@ namespace WindowsApplication1
       if (this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter <= -1)
         return;
       this.BasicListObj = ListClass::new();
-      int basicSpriteCounter = this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter;
-      for (int tdata = 0; tdata <= basicSpriteCounter; tdata += 1)
+      let mut basicSpriteCounter: i32 =  this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter;
+      for (let mut tdata: i32 =  0; tdata <= basicSpriteCounter; tdata += 1)
         this.BasicListObj.add(this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteFileName[tdata], tdata);
       ListClass basicListObj = this.BasicListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -877,11 +877,11 @@ namespace WindowsApplication1
       if (this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter > -1)
       {
         this.BasicListObj = ListClass::new();
-        int basicSpriteCounter = this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter;
-        for (int tdata = 0; tdata <= basicSpriteCounter; tdata += 1)
+        let mut basicSpriteCounter: i32 =  this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteCounter;
+        for (let mut tdata: i32 =  0; tdata <= basicSpriteCounter; tdata += 1)
           this.BasicListObj.add(this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteFileName[tdata], tdata);
         ListClass basicListObj = this.BasicListObj;
-        int detailNr = this.DetailNr;
+        let mut detailNr: i32 =  this.DetailNr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -1023,17 +1023,17 @@ namespace WindowsApplication1
      void maketabsheetnr1()
     {
       this.MoveListObj = ListClass::new();
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         this.MoveListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index] + " = " + Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.LTNr].MoveCost[index]), index);
         index += 1;
       }
       while (index <= 99);
-      int num =  Math.Round((double) Math.Max(0, this.game.ScreenHeight - 800) / 16.0);
+      let mut num: i32 =   Math.Round((double) Math.Max(0, this.game.ScreenHeight - 800) / 16.0);
       ListClass moveListObj = this.MoveListObj;
-      int tlistsize = 10 + num;
-      int detailNr = this.DetailNr;
+      let mut tlistsize: i32 =  10 + num;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1105,7 +1105,7 @@ namespace WindowsApplication1
         if (this.game.Data.LandscapeTypeObj[this.LTNr].UsePreHexBorderTexture)
           return;
         this.SpecialListObj = ListClass::new();
-        int tdata = 0;
+        let mut tdata: i32 =  0;
         do
         {
           this.SpecialListObj.add(this.game.Data.LandscapeTypeObj[this.LTNr].LayerSpriteFileName[tdata + 1], tdata);
@@ -1113,7 +1113,7 @@ namespace WindowsApplication1
         }
         while (tdata <= 63);
         ListClass specialListObj = this.SpecialListObj;
-        int detailNr = this.DetailNr;
+        let mut detailNr: i32 =  this.DetailNr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -1178,13 +1178,13 @@ namespace WindowsApplication1
       this.SpecialList2Obj = ListClass::new();
       if (this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount > -1)
       {
-        int overridesCount = this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount;
-        for (int tdata = 0; tdata <= overridesCount; tdata += 1)
+        let mut overridesCount: i32 =  this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount;
+        for (let mut tdata: i32 =  0; tdata <= overridesCount; tdata += 1)
           this.SpecialList2Obj.add(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.LTNr].OverridesType[tdata]) + ") " + this.game.Data.LandscapeTypeObj[this.game.Data.LandscapeTypeObj[this.LTNr].OverridesType[tdata]].Name, tdata);
         if (this.DetailNr > this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount)
           this.DetailNr = this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount;
         ListClass specialList2Obj = this.SpecialList2Obj;
-        int detailNr = this.DetailNr;
+        let mut detailNr: i32 =  this.DetailNr;
         let mut game: GameClass = this.game;
          Bitmap local1 =  this.OwnBitmap;
         Font font =  null;
@@ -1218,13 +1218,13 @@ namespace WindowsApplication1
       this.specialList3Obj = ListClass::new();
       if (this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount2 > -1)
       {
-        int overridesCount2 = this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount2;
-        for (int tdata = 0; tdata <= overridesCount2; tdata += 1)
+        let mut overridesCount2: i32 =  this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount2;
+        for (let mut tdata: i32 =  0; tdata <= overridesCount2; tdata += 1)
           this.specialList3Obj.add(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.LTNr].OverridesType2[tdata]) + ") " + this.game.Data.LandscapeTypeObj[this.game.Data.LandscapeTypeObj[this.LTNr].OverridesType2[tdata]].Name, tdata);
         if (this.Detailnr2 > this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount2)
           this.Detailnr2 = this.game.Data.LandscapeTypeObj[this.LTNr].OverridesCount2;
         ListClass specialList3Obj = this.specialList3Obj;
-        int detailnr2 = this.Detailnr2;
+        let mut detailnr2: i32 =  this.Detailnr2;
         let mut game: GameClass = this.game;
          Bitmap local3 =  this.OwnBitmap;
         Font font =  null;
@@ -1253,7 +1253,7 @@ namespace WindowsApplication1
       this.CombatListObj = ListClass::new();
       if (this.DetailNr < -1 | this.DetailNr > 99)
         this.DetailNr = -1;
-      int index = 0;
+      let mut index: i32 =  0;
       do
       {
         str1: String = "";
@@ -1267,7 +1267,7 @@ namespace WindowsApplication1
       }
       while (index <= 99);
       ListClass combatListObj = this.CombatListObj;
-      int detailNr = this.DetailNr;
+      let mut detailNr: i32 =  this.DetailNr;
       let mut game: GameClass = this.game;
        Bitmap local1 =  this.OwnBitmap;
       Font font =  null;
@@ -1306,15 +1306,15 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.LTListId)
             {
-              int num2 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+              let mut num2: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
               this.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
@@ -1338,8 +1338,8 @@ namespace WindowsApplication1
                 this.game.Data.AddLandscapeType();
                 this.game.Data.LandscapeTypeObj[this.game.Data.LandscapeTypeCounter] = this.game.Data.LandscapeTypeObj[this.LTNr].Clone();
                 this.game.Data.LandscapeTypeObj[this.game.Data.LandscapeTypeCounter].LoadSprites();
-                int sfTypeCounter = this.game.Data.SFTypeCounter;
-                for (int index2 = 0; index2 <= sfTypeCounter; index2 += 1)
+                let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
+                for (let mut index2: i32 =  0; index2 <= sfTypeCounter; index2 += 1)
                 {
                   this.game.Data.SFTypeObj[index2].CombatModAtt = (float[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[index2].CombatModAtt, (Array) new float[this.game.Data.LandscapeTypeCounter + 1]);
                   this.game.Data.SFTypeObj[index2].CombatModDef = (float[]) Utils.CopyArray((Array) this.game.Data.SFTypeObj[index2].CombatModDef, (Array) new float[this.game.Data.LandscapeTypeCounter + 1]);
@@ -1352,7 +1352,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              int num3 =  Interaction.MsgBox((object) "You have to select an existing LT before you can make a clone.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num3: i32 =   Interaction.MsgBox((object) "You have to select an existing LT before you can make a clone.", Title: ((object) "Shadow Empire : Planetary Conquest"));
             }
             else
             {
@@ -1378,15 +1378,15 @@ namespace WindowsApplication1
                 {
                   LandscapeTypeClass landscapeTypeClass1 = this.game.Data.LandscapeTypeObj[this.LTNr];
                   Color color = colorDialog.Color;
-                  int r =  color.R;
+                  let mut r: i32 =   color.R;
                   landscapeTypeClass1.Red = r;
                   LandscapeTypeClass landscapeTypeClass2 = this.game.Data.LandscapeTypeObj[this.LTNr];
                   color = colorDialog.Color;
-                  int g =  color.G;
+                  let mut g: i32 =   color.G;
                   landscapeTypeClass2.Green = g;
                   LandscapeTypeClass landscapeTypeClass3 = this.game.Data.LandscapeTypeObj[this.LTNr];
                   color = colorDialog.Color;
-                  int b1 =  color.B;
+                  let mut b1: i32 =   color.B;
                   landscapeTypeClass3.Blue = b1;
                 }
                 else
@@ -1408,7 +1408,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num5 =  Interaction.MsgBox((object) "between 0-999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num5: i32 =   Interaction.MsgBox((object) "between 0-999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeLTListGUI(this.LTNr);
                 windowReturnClass.SetFlag(true);
@@ -1416,14 +1416,14 @@ namespace WindowsApplication1
               }
               if (num1 == this.e2id)
               {
-                int num6 =  Math.Round(Conversion.Val(Interaction.InputBox("Give AI Block", "Shadow Empire : Planetary Conquest")));
+                let mut num6: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give AI Block", "Shadow Empire : Planetary Conquest")));
                 if (num6 >= 0 & num6 < 1000)
                 {
                   this.game.Data.LandscapeTypeObj[this.LTNr].AIBlock = num6;
                 }
                 else
                 {
-                  int num7 =  Interaction.MsgBox((object) "between 0-999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num7: i32 =   Interaction.MsgBox((object) "between 0-999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeLTListGUI(this.LTNr);
                 windowReturnClass.SetFlag(true);
@@ -1431,14 +1431,14 @@ namespace WindowsApplication1
               }
               if (num1 == this.e86id)
               {
-                int num8 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Obstruct", "Shadow Empire : Planetary Conquest")));
+                let mut num8: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Obstruct", "Shadow Empire : Planetary Conquest")));
                 if (num8 >= 0 & num8 <= 100)
                 {
                   this.game.Data.LandscapeTypeObj[this.LTNr].Obstruction = num8;
                 }
                 else
                 {
-                  int num9 =  Interaction.MsgBox((object) "between 0-100 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num9: i32 =   Interaction.MsgBox((object) "between 0-100 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeLTListGUI(this.LTNr);
                 windowReturnClass.SetFlag(true);
@@ -1468,7 +1468,7 @@ namespace WindowsApplication1
               if (num1 == this.e4id)
               {
                 this.game.HandyFunctionsObj.randomizeLT();
-                int num10 =  Interaction.MsgBox((object) "Done");
+                let mut num10: i32 =   Interaction.MsgBox((object) "Done");
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
@@ -1508,7 +1508,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num11 =  Interaction.MsgBox((object) "You can only set if Special Layer is active", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num11: i32 =   Interaction.MsgBox((object) "You can only set if Special Layer is active", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 if (this.game.Data.LandscapeTypeObj[this.LTNr].PreHexTextureID > -1)
                 {
@@ -1560,7 +1560,7 @@ namespace WindowsApplication1
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
-                      int num12 =  Interaction.MsgBox((object) "Could not find this dir... give it like 'sea' or 'africa/desert', make sure a1 is present.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num12: i32 =   Interaction.MsgBox((object) "Could not find this dir... give it like 'sea' or 'africa/desert', make sure a1 is present.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                   }
                   else
@@ -1573,7 +1573,7 @@ namespace WindowsApplication1
                       windowReturnClass.SetFlag(true);
                       return windowReturnClass;
                     }
-                    int num13 =  Interaction.MsgBox((object) "Could not find this file... ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num13: i32 =   Interaction.MsgBox((object) "Could not find this file... ", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 if (this.game.Data.LandscapeTypeObj[this.LTNr].PreHexTextureID > -1)
@@ -1592,7 +1592,7 @@ namespace WindowsApplication1
               }
               if (num1 == this.OptionsListId)
               {
-                int num14 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                let mut num14: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                 this.SubPartFlag[index1] = true;
                 if (num14 > -1)
                 {
@@ -1612,7 +1612,7 @@ namespace WindowsApplication1
               }
               if (num1 == this.BasicListId)
               {
-                int num15 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                let mut num15: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                 this.SubPartFlag[index1] = true;
                 if (num15 > -1)
                 {
@@ -1634,7 +1634,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int num16 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num16: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                 }
                 this.maketabsheet();
                 windowReturnClass.SetFlag(true);
@@ -1652,7 +1652,7 @@ namespace WindowsApplication1
                 if (Interaction.MsgBox((object) "Are you sure? (keep in mind can take a while)", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 {
                   this.ClearPixelFormat();
-                  int num17 =  Interaction.MsgBox((object) "Finished!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num17: i32 =   Interaction.MsgBox((object) "Finished!", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
@@ -1669,7 +1669,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num18 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num18: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1684,7 +1684,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num19 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num19: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1699,7 +1699,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num20 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num20: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1715,7 +1715,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num21 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num21: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1735,7 +1735,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num22 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num22: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1750,7 +1750,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num23 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num23: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1765,7 +1765,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num24 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num24: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1780,7 +1780,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num25 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num25: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1836,7 +1836,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num26 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num26: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   if (this.game.Data.LandscapeTypeObj[this.LTNr].PreHexTextureID > -1)
                   {
@@ -1854,14 +1854,14 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.BRandomId)
                 {
-                  int num27 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new random value >0. -1=none", "Shadow Empire : Planetary Conquest")));
+                  let mut num27: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new random value >0. -1=none", "Shadow Empire : Planetary Conquest")));
                   if (num27 >= -1 & num27 < 999)
                   {
                     this.game.Data.LandscapeTypeObj[this.LTNr].BasicSpriteRandom[this.DetailNr] = num27;
                   }
                   else
                   {
-                    int num28 =  Interaction.MsgBox((object) "between -1 and 999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num28: i32 =   Interaction.MsgBox((object) "between -1 and 999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1890,7 +1890,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    int num29 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num29: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheet();
                   windowReturnClass.SetFlag(true);
@@ -1914,7 +1914,7 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.SpecialListId)
                 {
-                  int num30 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                  let mut num30: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                   this.SubPartFlag[index1] = true;
                   if (num30 > -1)
                   {
@@ -1926,7 +1926,7 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.SpecialList2Id)
                 {
-                  int num31 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                  let mut num31: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                   this.SubPartFlag[index1] = true;
                   if (num31 > -1)
                   {
@@ -1938,7 +1938,7 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.speciallist3id)
                 {
-                  int num32 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                  let mut num32: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                   this.SubPartFlag[index1] = true;
                   if (num32 > -1)
                   {
@@ -1950,14 +1950,14 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.zoverrideId)
                 {
-                  int num33 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new Z-Override Value (899=the sprites of this lt are drawn after overdraw, >900=even overdraws)", "Shadow Empire : Planetary Conquest")));
+                  let mut num33: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new Z-Override Value (899=the sprites of this lt are drawn after overdraw, >900=even overdraws)", "Shadow Empire : Planetary Conquest")));
                   if (num33 >= -1 & num33 <= 999)
                   {
                     this.game.Data.LandscapeTypeObj[this.LTNr].OverridesZ = num33;
                   }
                   else
                   {
-                    int num34 =  Interaction.MsgBox((object) "between 0-999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num34: i32 =   Interaction.MsgBox((object) "between 0-999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                   }
                   this.maketabsheetnr3();
                   windowReturnClass.SetFlag(true);
@@ -2012,7 +2012,7 @@ namespace WindowsApplication1
                   }
                   if (num1 == this.MoveListId)
                   {
-                    int num35 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                    let mut num35: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                     this.SubPartFlag[index1] = true;
                     if (num35 > -1)
                     {
@@ -2031,7 +2031,7 @@ namespace WindowsApplication1
                     }
                     else
                     {
-                      int num36 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num36: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                     }
                     this.maketabsheet();
                     windowReturnClass.SetFlag(true);
@@ -2039,7 +2039,7 @@ namespace WindowsApplication1
                   }
                   if (num1 == this.BChangeMoveCostId)
                   {
-                    int num37 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Move cost#" + Conversion.Str((object) this.DetailNr) + ":", "Shadow Empire : Planetary Conquest")));
+                    let mut num37: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Move cost#" + Conversion.Str((object) this.DetailNr) + ":", "Shadow Empire : Planetary Conquest")));
                     if (num37 > -1 & num37 < 10000)
                       this.game.Data.LandscapeTypeObj[this.LTNr].MoveCost[this.DetailNr] = num37;
                     this.maketabsheet();
@@ -2053,12 +2053,12 @@ namespace WindowsApplication1
                       str: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Select File. The directory it is in and all its subdirectories (1 level deep only) will be checked.", this.game.AppPath, false);
                       if (File.Exists(str))
                       {
-                        int num38 =  Interaction.MsgBox((object) "Ok hold on... this can take some time.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num38: i32 =   Interaction.MsgBox((object) "Ok hold on... this can take some time.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         this.ClearPixels(str);
                       }
                       else
                       {
-                        int num39 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num39: i32 =   Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       this.maketabsheet();
                       windowReturnClass.SetFlag(true);
@@ -2072,7 +2072,7 @@ namespace WindowsApplication1
                   {
                     if (num1 == this.e12id)
                     {
-                      int num40 =  Math.Round(Conversion.Val(Interaction.InputBox("Give LTnr to use for borders for prehex sprite. -1=dont use", "Shadow Empire : Planetary Conquest")));
+                      let mut num40: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give LTnr to use for borders for prehex sprite. -1=dont use", "Shadow Empire : Planetary Conquest")));
                       if (num40 >= -1 & num40 <= this.game.Data.LandscapeTypeCounter)
                         this.game.Data.LandscapeTypeObj[this.LTNr].PreHexBorder = num40;
                       this.MakeLandscapeTypeItemGUI();
@@ -2081,7 +2081,7 @@ namespace WindowsApplication1
                     }
                     if (num1 == this.c4id)
                     {
-                      int num41 =  Math.Round(Conversion.Val(Interaction.InputBox("Give LTnr to use. -1=dont use", "Shadow Empire : Planetary Conquest")));
+                      let mut num41: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give LTnr to use. -1=dont use", "Shadow Empire : Planetary Conquest")));
                       if (num41 >= -1 & num41 <= this.game.Data.LandscapeTypeCounter)
                         this.game.Data.LandscapeTypeObj[this.LTNr].NavyOverride = num41;
                       this.MakeLandscapeTypeItemGUI();
@@ -2090,7 +2090,7 @@ namespace WindowsApplication1
                     }
                     if (num1 == this.c5id)
                     {
-                      int num42 =  Math.Round(Conversion.Val(Interaction.InputBox("Give LTnr to use. -1=dont use", "Shadow Empire : Planetary Conquest")));
+                      let mut num42: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give LTnr to use. -1=dont use", "Shadow Empire : Planetary Conquest")));
                       if (num42 >= -1 & num42 <= this.game.Data.LandscapeTypeCounter)
                         this.game.Data.LandscapeTypeObj[this.LTNr].AirOverride = num42;
                       this.MakeLandscapeTypeItemGUI();
@@ -2141,7 +2141,7 @@ namespace WindowsApplication1
                     }
                     if (num1 == this.CombatListId)
                     {
-                      int num43 = this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                      let mut num43: i32 =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                       this.SubPartFlag[index1] = true;
                       if (num43 > -1)
                       {
@@ -2156,7 +2156,7 @@ namespace WindowsApplication1
                       float num44 = (float) Conversion.Val(Interaction.InputBox("Give new auto-entrench.", "Shadow Empire : Planetary Conquest"));
                       if ((double) num44 < 0.0 | (double) num44 > 999.0)
                       {
-                        int num45 =  Interaction.MsgBox((object) "Between 0 and 999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num45: i32 =   Interaction.MsgBox((object) "Between 0 and 999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else
                         this.game.Data.LandscapeTypeObj[this.LTNr].DefBonus[this.DetailNr] = num44;
@@ -2169,7 +2169,7 @@ namespace WindowsApplication1
                       float num46 = (float) Conversion.Val(Interaction.InputBox("Give new max-entrench.", "Shadow Empire : Planetary Conquest"));
                       if ((double) num46 < 0.0 | (double) num46 > 999.0)
                       {
-                        int num47 =  Interaction.MsgBox((object) "Between 0 and 999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num47: i32 =   Interaction.MsgBox((object) "Between 0 and 999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else
                         this.game.Data.LandscapeTypeObj[this.LTNr].DefBonusMax[this.DetailNr] = num46;
@@ -2179,11 +2179,11 @@ namespace WindowsApplication1
                     }
                     if (num1 == this.c3id)
                     {
-                      int num48 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new hidepts.", "Shadow Empire : Planetary Conquest")));
+                      let mut num48: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new hidepts.", "Shadow Empire : Planetary Conquest")));
                       float num49;
                       if (num48 < 0 | (double) num49 > 999.0)
                       {
-                        int num50 =  Interaction.MsgBox((object) "Between 0 and 999 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num50: i32 =   Interaction.MsgBox((object) "Between 0 and 999 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       }
                       else
                         this.game.Data.LandscapeTypeObj[this.LTNr].HidePts = num48;
@@ -2211,9 +2211,9 @@ namespace WindowsApplication1
       bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
       Graphics objGraphics = Graphics.FromImage((Image) bitmap);
       objGraphics.CompositingMode = CompositingMode.SourceCopy;
-      int num1 = 131;
-      int num2 = 99;
-      int index = 1;
+      let mut num1: i32 =  131;
+      let mut num2: i32 =  99;
+      let mut index: i32 =  1;
       do
       {
         if (this.game.Data.LandscapeTypeObj[this.LTNr].LayerSpriteID[index] > 0)
@@ -2222,14 +2222,14 @@ namespace WindowsApplication1
       }
       while (index <= 64);
       objGraphics.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.LTNr].PreHexPicID, 1), 2, 2 + 11 * num2);
-      int num3 = 0;
+      let mut num3: i32 =  0;
       do
       {
         DrawMod.drawLine( objGraphics, num3 * num1, 0, num3 * num1, 2 + 11 * num2 - 2, 0,  byte.MaxValue, 0,  byte.MaxValue);
         num3 += 1;
       }
       while (num3 <= 6);
-      int num4 = 0;
+      let mut num4: i32 =  0;
       do
       {
         DrawMod.drawLine( objGraphics, 0, num4 * num2, 2 + 6 * num1 - 2, num4 * num2, 0,  byte.MaxValue, 0,  byte.MaxValue);
@@ -2257,9 +2257,9 @@ namespace WindowsApplication1
         bitmap1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics graphics1 = Graphics.FromImage((Image) bitmap1);
         graphics1.CompositingMode = CompositingMode.SourceCopy;
-        int num1 = 64;
-        int num2 = 48;
-        int index1 = 1;
+        let mut num1: i32 =  64;
+        let mut num2: i32 =  48;
+        let mut index1: i32 =  1;
         do
         {
           graphics1.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.LTNr].LayerSpriteID[index1]), this.game.SHEETX[index1] * num1, this.game.SHEETY[index1] * num2);
@@ -2274,9 +2274,9 @@ namespace WindowsApplication1
         bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
         Graphics graphics2 = Graphics.FromImage((Image) bitmap2);
         graphics2.CompositingMode = CompositingMode.SourceCopy;
-        int num3 = 128;
-        int num4 = 96;
-        int index2 = 1;
+        let mut num3: i32 =  128;
+        let mut num4: i32 =  96;
+        let mut index2: i32 =  1;
         do
         {
           graphics2.DrawImage((Image) BitmapStore.GetBitmap(this.game.Data.LandscapeTypeObj[this.LTNr].LayerSpriteID[index2], 1), this.game.SHEETX[index2] * num3, this.game.SHEETY[index2] * num4);
@@ -2294,7 +2294,7 @@ namespace WindowsApplication1
     pub void DeconstructTileset(string s)
     {
       string[] strArray = new string[65];
-      int num1 = 1;
+      let mut num1: i32 =  1;
       int num2;
       do
       {
@@ -2395,14 +2395,14 @@ namespace WindowsApplication1
         bitmap2.Save((Stream) fileStream, ImageFormat.Png);
         fileStream.Close();
       }
-      int num3 = 0;
+      let mut num3: i32 =  0;
       do
       {
-        int num4 = 0;
+        let mut num4: i32 =  0;
         do
         {
-          graphics.DrawImage((Image) bitmap1, new Rectangle(0, 0, width, height), new Rectangle(num4 * width, num3 * height, width, height), GraphicsUnit.Pixel);
-          int index = 2 + num3 * 6 + num4;
+          graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, width, height), Rectangle::new(num4 * width, num3 * height, width, height), GraphicsUnit.Pixel);
+          let mut index: i32 =  2 + num3 * 6 + num4;
           if (File.Exists(strArray[index]))
             File.Delete(strArray[index]);
           FileStream fileStream = new FileStream(strArray[index], FileMode.Create);
@@ -2422,12 +2422,12 @@ namespace WindowsApplication1
     pub void ClearPixels(string s)
     {
       s = s.Replace("\\", "/");
-      int num1 = 0;
+      let mut num1: i32 =  0;
       while (Strings.InStr(num1 + 1, s, "/") > 0)
         num1 = Strings.InStr(num1 + 1, s, "/");
       s = Strings.Left(s, num1 - 1);
-      int Number1 = 0;
-      int Number2 = 0;
+      let mut Number1: i32 =  0;
+      let mut Number2: i32 =  0;
       DirectoryInfo directoryInfo = new DirectoryInfo(s);
       foreach (FileInfo file in directoryInfo.GetFiles("*.png"))
       {
@@ -2449,7 +2449,7 @@ namespace WindowsApplication1
           }
         }
       }
-      int num2 =  Interaction.MsgBox((object) ("Finished. Revised " + Strings.Trim(Conversion.Str((object) Number1)) + " files in " + Strings.Trim(Conversion.Str((object) Number2)) + " directories."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num2: i32 =   Interaction.MsgBox((object) ("Finished. Revised " + Strings.Trim(Conversion.Str((object) Number1)) + " files in " + Strings.Trim(Conversion.Str((object) Number2)) + " directories."), Title: ((object) "Shadow Empire : Planetary Conquest"));
     }
 
     pub void ClearPixelsOperation(string s)
@@ -2471,14 +2471,14 @@ namespace WindowsApplication1
       else if (bitmap1.Width % 128 == 0 & bitmap1.Height == 96)
       {
         Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.SHADEDHEX, 1);
-        int num2 = 128;
-        int num3 = bitmap3.Height - 1;
-        for (int y = 0; y <= num3; y += 1)
+        let mut num2: i32 =  128;
+        let mut num3: i32 =  bitmap3.Height - 1;
+        for (let mut y: i32 =  0; y <= num3; y += 1)
         {
-          int num4 = bitmap1.Width - 1;
-          for (int x1 = 0; x1 <= num4; x1 += 1)
+          let mut num4: i32 =  bitmap1.Width - 1;
+          for (let mut x1: i32 =  0; x1 <= num4; x1 += 1)
           {
-            int x2 = (num2 + x1) % num2;
+            let mut x2: i32 =  (num2 + x1) % num2;
             Color pixel1 = bitmap3.GetPixel(x2, y);
             Color pixel2;
             if (x2 == 0)
@@ -2547,14 +2547,14 @@ namespace WindowsApplication1
           num5 = 128;
           num6 = 96;
         }
-        int num7 = bitmap4.Height - 1;
-        for (int y1 = 0; y1 <= num7; y1 += 1)
+        let mut num7: i32 =  bitmap4.Height - 1;
+        for (let mut y1: i32 =  0; y1 <= num7; y1 += 1)
         {
-          int num8 = bitmap1.Width - 1;
-          for (int x3 = 0; x3 <= num8; x3 += 1)
+          let mut num8: i32 =  bitmap1.Width - 1;
+          for (let mut x3: i32 =  0; x3 <= num8; x3 += 1)
           {
-            int x4 = (num5 + x3) % num5;
-            int y2 = (num6 + y1) % num6;
+            let mut x4: i32 =  (num5 + x3) % num5;
+            let mut y2: i32 =  (num6 + y1) % num6;
             Color pixel3 = bitmap4.GetPixel(x4, y2);
             Color pixel4;
             if (pixel3.A == (byte) 0)
@@ -2599,9 +2599,9 @@ namespace WindowsApplication1
 
     pub void ClearPixelFormat()
     {
-      int counter = BitmapStore.Counter;
+      let mut counter: i32 =  BitmapStore.Counter;
       int Number;
-      for (int index = 0; index <= counter; index += 1)
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         str1: String = this.game.AppPath + "graphics/" + BitmapStore.tmpFileName[index];
         if (File.Exists(str1))
@@ -2614,7 +2614,7 @@ namespace WindowsApplication1
           this.SetPixelFormatOperations(str3);
         Number += 1;
       }
-      int num =  Interaction.MsgBox((object) ("Finished. Revised " + Strings.Trim(Conversion.Str((object) Number)) + " files in "), Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num: i32 =   Interaction.MsgBox((object) ("Finished. Revised " + Strings.Trim(Conversion.Str((object) Number)) + " files in "), Title: ((object) "Shadow Empire : Planetary Conquest"));
     }
 
     pub void SetPixelFormatOperations(string s)

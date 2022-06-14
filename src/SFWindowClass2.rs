@@ -312,24 +312,24 @@ namespace WindowsApplication1
           {
             let mut sidewaysSpriteId1: i32 = this.game.Data.SFTypeObj[typ].SidewaysSpriteID;
             DrawMod.DrawBlockGradient2( graphics, num1 + 60, num3, 139, 79, this.game.MarcCol1, this.game.MarcCol2);
-             Graphics local1 =  graphics;
+             let mut local1: &Graphics = &graphics;
             Bitmap bitmap1 = BitmapStore.GetBitmap(sidewaysSpriteId1);
-             Bitmap local2 =  bitmap1;
-            Rectangle rectangle2 = new Rectangle(0, 0, BitmapStore.GetWidth(sidewaysSpriteId1), BitmapStore.Getheight(sidewaysSpriteId1));
-            Rectangle srcrect1 = rectangle2;
-            rectangle1 = new Rectangle(num1 + 60, num3, 140, 80);
-            Rectangle destrect1 = rectangle1;
+             let mut local2: &Bitmap = &bitmap1;
+            Rectangle rectangle2 = Rectangle::new(0, 0, BitmapStore.GetWidth(sidewaysSpriteId1), BitmapStore.Getheight(sidewaysSpriteId1));
+            let mut srcrect1: &Rectangle = &rectangle2
+            rectangle1 = Rectangle::new(num1 + 60, num3, 140, 80);
+            let mut destrect1: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
             DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  graphics, num1 + 60, num3, 140, 80, -1, -1);
             let mut sidewaysSpriteId2: i32 = this.game.Data.SFTypeObj[this.comparenr].SidewaysSpriteID;
             DrawMod.DrawBlockGradient2( graphics, num2 + 60, num3, 139, 79, this.game.MarcCol1, this.game.MarcCol2);
-             Graphics local3 =  graphics;
+             let mut local3: &Graphics = &graphics;
             Bitmap bitmap2 = BitmapStore.GetBitmap(sidewaysSpriteId2);
-             Bitmap local4 =  bitmap2;
-            rectangle1 = new Rectangle(0, 0, BitmapStore.GetWidth(sidewaysSpriteId2), BitmapStore.Getheight(sidewaysSpriteId2));
-            Rectangle srcrect2 = rectangle1;
-            rectangle2 = new Rectangle(num2 + 60, num3, 140, 80);
-            Rectangle destrect2 = rectangle2;
+             let mut local4: &Bitmap = &bitmap2;
+            rectangle1 = Rectangle::new(0, 0, BitmapStore.GetWidth(sidewaysSpriteId2), BitmapStore.Getheight(sidewaysSpriteId2));
+            let mut srcrect2: &Rectangle = &rectangle1
+            rectangle2 = Rectangle::new(num2 + 60, num3, 140, 80);
+            let mut destrect2: &Rectangle = &rectangle2
             DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
             DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  graphics, num2 + 60, num3, 140, 80, -1, -1);
           }
@@ -353,53 +353,53 @@ namespace WindowsApplication1
               index10 = 0;
             }
             let mut nr1: i32 = this.game.Data.LandscapeTypeObj[index9].BasicPicID[index10];
-             Graphics local5 =  graphics;
+             let mut local5: &Graphics = &graphics;
             Bitmap bitmap3 = BitmapStore.GetBitmap(nr1);
-             Bitmap local6 =  bitmap3;
-            rectangle1 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr1));
-            Rectangle srcrect3 = rectangle1;
-            trect = new Rectangle(x, y, 280, 160);
-            Rectangle destrect3 = trect;
+             let mut local6: &Bitmap = &bitmap3;
+            rectangle1 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr1));
+            let mut srcrect3: &Rectangle = &rectangle1
+            trect = Rectangle::new(x, y, 280, 160);
+            let mut destrect3: &Rectangle = &trect
             DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
             let mut nr2: i32 = this.game.Data.LandscapeTypeObj[index9].SidewaysSPriteID1[index10];
-             Graphics local7 =  graphics;
+             let mut local7: &Graphics = &graphics;
             Bitmap bitmap4 = BitmapStore.GetBitmap(nr2);
-             Bitmap local8 =  bitmap4;
-            rectangle1 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr2));
-            Rectangle srcrect4 = rectangle1;
-            trect = new Rectangle(x, y, 280, 160);
-            Rectangle destrect4 = trect;
+             let mut local8: &Bitmap = &bitmap4;
+            rectangle1 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr2));
+            let mut srcrect4: &Rectangle = &rectangle1
+            trect = Rectangle::new(x, y, 280, 160);
+            let mut destrect4: &Rectangle = &trect
             DrawMod.DrawSimplePart2( local7,  local8, srcrect4, destrect4);
             if (this.game.Data.SFTypeObj[typ].Theater != 2)
             {
               let mut nr3: i32 = this.game.Data.LandscapeTypeObj[index9].SidewaysSPriteID2[index10];
-               Graphics local9 =  graphics;
+               let mut local9: &Graphics = &graphics;
               Bitmap bitmap5 = BitmapStore.GetBitmap(nr3);
-               Bitmap local10 =  bitmap5;
-              rectangle1 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr3));
-              Rectangle srcrect5 = rectangle1;
-              trect = new Rectangle(x, y, 280, 160);
-              Rectangle destrect5 = trect;
+               let mut local10: &Bitmap = &bitmap5;
+              rectangle1 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr3));
+              let mut srcrect5: &Rectangle = &rectangle1
+              trect = Rectangle::new(x, y, 280, 160);
+              let mut destrect5: &Rectangle = &trect
               DrawMod.DrawSimplePart2( local9,  local10, srcrect5, destrect5);
             }
-             Graphics local11 =  graphics;
+             let mut local11: &Graphics = &graphics;
             Bitmap bitmap6 = BitmapStore.GetBitmap(sidewaysSpriteId);
-             Bitmap local12 =  bitmap6;
-            rectangle1 = new Rectangle(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
-            Rectangle srcrect6 = rectangle1;
-            trect = new Rectangle(x, y, 280, 160);
-            Rectangle destrect6 = trect;
+             let mut local12: &Bitmap = &bitmap6;
+            rectangle1 = Rectangle::new(0, 0, BitmapStore.GetWidth(sidewaysSpriteId), BitmapStore.Getheight(sidewaysSpriteId));
+            let mut srcrect6: &Rectangle = &rectangle1
+            trect = Rectangle::new(x, y, 280, 160);
+            let mut destrect6: &Rectangle = &trect
             DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
             if (this.game.Data.SFTypeObj[typ].Theater != 2)
             {
               let mut nr4: i32 = this.game.Data.LandscapeTypeObj[index9].SidewaysSPriteID3[index10];
-               Graphics local13 =  graphics;
+               let mut local13: &Graphics = &graphics;
               Bitmap bitmap7 = BitmapStore.GetBitmap(nr4);
-               Bitmap local14 =  bitmap7;
-              rectangle1 = new Rectangle(0, 0, 138, BitmapStore.Getheight(nr4));
-              Rectangle srcrect7 = rectangle1;
-              trect = new Rectangle(x, y, 280, 160);
-              Rectangle destrect7 = trect;
+               let mut local14: &Bitmap = &bitmap7;
+              rectangle1 = Rectangle::new(0, 0, 138, BitmapStore.Getheight(nr4));
+              let mut srcrect7: &Rectangle = &rectangle1
+              trect = Rectangle::new(x, y, 280, 160);
+              let mut destrect7: &Rectangle = &trect
               DrawMod.DrawSimplePart2( local13,  local14, srcrect7, destrect7);
             }
             DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  graphics, x, y, 280, 160, -1, -1);
@@ -594,7 +594,7 @@ namespace WindowsApplication1
             this.OptionsList3Id = this.AddSubPart( tsubpart4, 20, 308, 260, 192, 0);
           }
           DrawMod.DrawTextColouredMarc( graphics, "SELECTED TROOPS STATS", this.game.MarcFont5, 90, 291, Color.White);
-          rectangle1 = new Rectangle(20, 335, 290, 144);
+          rectangle1 = Rectangle::new(20, 335, 290, 144);
           trect = rectangle1;
           this.AddMouse( trect, "", "The troops in the slot you clicked\r\nhave their own detailed stats.");
         }

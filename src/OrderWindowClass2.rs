@@ -313,7 +313,7 @@ namespace WindowsApplication1
           catch (Exception ex)
           {
             ProjectData.SetProjectError(ex);
-            int num =  Interaction.MsgBox((object) "PROBLEM", Title: ((object) "Sadly there was a problem trying to let your Windows system open this PDF. Please check the game forums for possible causes."));
+            let mut num: i32 =   Interaction.MsgBox((object) "PROBLEM", Title: ((object) "Sadly there was a problem trying to let your Windows system open this PDF. Please check the game forums for possible causes."));
             this.dostuff();
             windowReturnClass2 = windowReturnClass1;
             ProjectData.ClearProjectError();
@@ -370,35 +370,35 @@ label_10:
       Graphics g = Graphics.FromImage((Image) this.OwnBitmap);
       if (!this.game.EditObj.useLeftRightClickMode | (double) this.game.Data.RuleVar[701] < 1.0 | this.game.EditObj.OrderType == 26)
       {
-        int num1 =  Math.Round((double) this.game.ScreenWidth / 116.0);
+        let mut num1: i32 =   Math.Round((double) this.game.ScreenWidth / 116.0);
         Bitmap bitmap;
-        for (int index = 0; index <= num1; index += 1)
+        for (let mut index: i32 =  0; index <= num1; index += 1)
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARFRAME);
-           Bitmap local2 =  bitmap;
-          int x = index * 116;
+           let mut local2: &Bitmap = &bitmap;
+          let mut x: i32 =  index * 116;
           DrawMod.DrawSimple( local1,  local2, x, 87);
         }
-        int num2 = 0;
+        let mut num2: i32 =  0;
         if (this.game.EditObj.OrderType == 26)
         {
-          int num3 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
-           Graphics local3 =  g;
+          let mut num3: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+           let mut local3: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARHISTORY);
-           Bitmap local4 =  bitmap;
-          int x = num3;
-          int y = num2;
+           let mut local4: &Bitmap = &bitmap;
+          let mut x: i32 =  num3;
+          let mut y: i32 =  num2;
           DrawMod.DrawSimple( local3,  local4, x, y);
         }
         else
         {
-          int num4 =  Math.Round((double) (this.game.ScreenWidth - BitmapStore.GetWidth(this.game.MARCBUTBAR)) / 2.0);
-           Graphics local5 =  g;
+          let mut num4: i32 =   Math.Round((double) (this.game.ScreenWidth - BitmapStore.GetWidth(this.game.MARCBUTBAR)) / 2.0);
+           let mut local5: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBAR);
-           Bitmap local6 =  bitmap;
-          int x = num4;
-          int y = num2;
+           let mut local6: &Bitmap = &bitmap;
+          let mut x: i32 =  num4;
+          let mut y: i32 =  num2;
           DrawMod.DrawSimple( local5,  local6, x, y);
         }
       }
@@ -407,13 +407,13 @@ label_10:
         DrawMod.DrawBlock( g, this.w - 290, 0, 290, 15, 0, 0, 0, 128);
         DrawMod.DrawBlock( g, 0, 15, this.w, 20, 0, 0, 0, 128);
         DrawMod.DrawBlock( g, 0, 33, this.w, this.h - 33, 0, 0, 0,  byte.MaxValue);
-        int num =  Math.Round((double) this.game.ScreenWidth / 116.0);
-        for (int index = 0; index <= num; index += 1)
+        let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 116.0);
+        for (let mut index: i32 =  0; index <= num; index += 1)
         {
-           Graphics local7 =  g;
+           let mut local7: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARFRAME);
-           Bitmap local8 =  bitmap;
-          int x = index * 116;
+           let mut local8: &Bitmap = &bitmap;
+          let mut x: i32 =  index * 116;
           DrawMod.DrawSimple( local7,  local8, x, 87);
         }
       }
@@ -439,7 +439,7 @@ label_10:
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
         return windowReturnClass1;
-      int num1 = 0;
+      let mut num1: i32 =  0;
       if (this.game.EditObj.TutMode)
         num1 = 1;
       if (this.game.EditObj.OrderType == 1 & this.game.EditObj.OrderUnit > -1 && nr == 71 & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical > -1 & this.GroupMoveButtonId > 0)
@@ -513,7 +513,7 @@ label_10:
       }
       if ((nr == 96 | nr == 48) & this.HexUnitButtonId > 0 + num1 & this.game.EditObj.TutOrder == -1)
       {
-        int num2 = 0;
+        let mut num2: i32 =  0;
         if ((double) this.game.Data.RuleVar[344] > (double) (0 + num1))
           num2 = 0;
         if (this.lastHideUnit > -1 & this.lastHideUnit != num2)
@@ -589,7 +589,7 @@ label_10:
         windowReturnClass1.SetFlag(true);
         return windowReturnClass1;
       }
-      int num3 = 0;
+      let mut num3: i32 =  0;
       if (this.game.EditObj.GuiDown)
         num3 = 222;
       if ((nr == 187 | nr == 191 | nr == 107) & this.game.EditObj.Zoom < 1 & this.game.EditObj.TutOrder == -1)
@@ -601,10 +601,10 @@ label_10:
         }
         else
         {
-          int num4 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-          int num5 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-          int num6 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 53.0));
-          int num7 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 106.0));
+          let mut num4: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
+          let mut num5: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
+          let mut num6: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 53.0));
+          let mut num7: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 106.0));
           int num8;
           int num9;
           if (this.game.EditObj.Zoom == 0)
@@ -651,10 +651,10 @@ label_10:
         }
         else
         {
-          int num10 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-          int num11 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-          int num12 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 53.0));
-          int num13 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 106.0));
+          let mut num10: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
+          let mut num11: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
+          let mut num12: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 53.0));
+          let mut num13: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 106.0));
           int num14;
           int num15;
           if (this.game.EditObj.Zoom == 0)
@@ -727,8 +727,8 @@ label_10:
         }
         else if (nr == 77 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         {
-          int mouseCounter = this.MouseCounter;
-          for (int index = 0; index <= mouseCounter; index += 1)
+          let mut mouseCounter: i32 =  this.MouseCounter;
+          for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
           {
             if (this.MouseData[index] == 201)
             {
@@ -752,8 +752,8 @@ label_10:
           }
           else if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
           {
-            int mouseCounter = this.MouseCounter;
-            for (int index = 0; index <= mouseCounter; index += 1)
+            let mut mouseCounter: i32 =  this.MouseCounter;
+            for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
             {
               if (this.MouseData[index] == 202)
               {
@@ -853,8 +853,8 @@ label_10:
       {
         if (nr == 77 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         {
-          int mouseCounter = this.MouseCounter;
-          for (int index = 0; index <= mouseCounter; index += 1)
+          let mut mouseCounter: i32 =  this.MouseCounter;
+          for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
           {
             if (this.MouseData[index] == 201)
             {
@@ -866,8 +866,8 @@ label_10:
         }
         if (nr == 71 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         {
-          int mouseCounter = this.MouseCounter;
-          for (int index = 0; index <= mouseCounter; index += 1)
+          let mut mouseCounter: i32 =  this.MouseCounter;
+          for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
           {
             if (this.MouseData[index] == 202)
             {
@@ -888,8 +888,8 @@ label_10:
       }
       else if (this.game.EditObj.OrderType > 0 & (nr == 27 | nr == 32) & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.udsUnitOrderMode > 0)
       {
-        int mouseCounter = this.MouseCounter;
-        for (int index = 0; index <= mouseCounter; index += 1)
+        let mut mouseCounter: i32 =  this.MouseCounter;
+        for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
         {
           if (this.MouseData[index] == 203)
           {
@@ -933,8 +933,8 @@ label_10:
     pub void dostuff2(Graphics g)
     {
       SizeF sizeF1 = SizeF::new();
-      int num1 = 31;
-      int num2 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  31;
+      let mut num2: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
       if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
         num2 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0 - 128.0) + 240;
@@ -1492,7 +1492,7 @@ label_10:
         this.RemoveSubPart(this.NewUnitButton2Id2);
         this.NewUnitButton2Id2 = 0;
       }
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.ActionButtonId[index1] > 0)
@@ -1567,34 +1567,34 @@ label_10:
       string str1;
       if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
-        int width = 75;
-        int num3 = num2 - 200 + 12;
-        int height = 70;
-        int x = num3;
+        let mut width: i32 =  75;
+        let mut num3: i32 =  num2 - 200 + 12;
+        let mut height: i32 =  70;
+        let mut x: i32 =  num3;
         if (this.game.EditObj.udsUnitOrderMode == 1)
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
-           Bitmap local2 =  bitmap;
-          Rectangle srcrect = new Rectangle(0, 0, 75, height - 3);
-          rectangle = new Rectangle(x, 20, 75, height - 3);
-          Rectangle destrect = rectangle;
+           let mut local2: &Bitmap = &bitmap;
+          Rectangle srcrect = Rectangle::new(0, 0, 75, height - 3);
+          rectangle = Rectangle::new(x, 20, 75, height - 3);
+          let mut destrect: &Rectangle = &rectangle
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
-          rectangle = new Rectangle(x, 20 + (70 - height), width, height);
+          rectangle = Rectangle::new(x, 20 + (70 - height), width, height);
           trect1 = rectangle;
           this.AddMouse( trect1, "", "Currently in Move Mode");
         }
         else
         {
           height = 40;
-           Graphics local3 =  g;
+           let mut local3: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
-           Bitmap local4 =  bitmap;
-          rectangle = new Rectangle(0, 0, 75, height - 3);
-          Rectangle srcrect = rectangle;
-          Rectangle destrect = new Rectangle(x, 50, 75, height - 3);
+           let mut local4: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(0, 0, 75, height - 3);
+          let mut srcrect: &Rectangle = &rectangle
+          Rectangle destrect = Rectangle::new(x, 50, 75, height - 3);
           DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
-          rectangle = new Rectangle(x, 20 + (70 - height), width, height);
+          rectangle = Rectangle::new(x, 20 + (70 - height), width, height);
           trect1 = rectangle;
           this.AddMouse( trect1, "", "Switch to Move Mode [M]", 201);
         }
@@ -1604,36 +1604,36 @@ label_10:
       }
       if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
-        int width = 75;
-        int num4 = num2 - 200 + 12;
-        int height = 70;
-        int x = num4 + 75;
+        let mut width: i32 =  75;
+        let mut num4: i32 =  num2 - 200 + 12;
+        let mut height: i32 =  70;
+        let mut x: i32 =  num4 + 75;
         if (this.game.EditObj.udsUnitOrderMode == 48)
         {
-           Graphics local5 =  g;
+           let mut local5: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
-           Bitmap local6 =  bitmap;
-          rectangle = new Rectangle(0, 0, 75, height - 3);
-          Rectangle srcrect = rectangle;
-          trect1 = new Rectangle(x, 20, 75, height - 3);
-          Rectangle destrect = trect1;
+           let mut local6: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(0, 0, 75, height - 3);
+          let mut srcrect: &Rectangle = &rectangle
+          trect1 = Rectangle::new(x, 20, 75, height - 3);
+          let mut destrect: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
-          rectangle = new Rectangle(x, 20 + (70 - height), width, height);
+          rectangle = Rectangle::new(x, 20 + (70 - height), width, height);
           trect1 = rectangle;
           this.AddMouse( trect1, "", "Currently in Group Move Mode", 202);
         }
         else
         {
           height = 40;
-           Graphics local7 =  g;
+           let mut local7: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
-           Bitmap local8 =  bitmap;
-          rectangle = new Rectangle(0, 0, 75, height - 3);
-          Rectangle srcrect = rectangle;
-          trect1 = new Rectangle(x, 50, 75, height - 3);
-          Rectangle destrect = trect1;
+           let mut local8: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(0, 0, 75, height - 3);
+          let mut srcrect: &Rectangle = &rectangle
+          trect1 = Rectangle::new(x, 50, 75, height - 3);
+          let mut destrect: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
-          rectangle = new Rectangle(x, 20 + (70 - height), width, height);
+          rectangle = Rectangle::new(x, 20 + (70 - height), width, height);
           trect1 = rectangle;
           this.AddMouse( trect1, "", "Switch to Group Move Mode [G]", 202);
         }
@@ -1643,37 +1643,37 @@ label_10:
       }
       if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
-        int width = 75;
-        int num5 = num2 - 200 + 12;
-        int height = 70;
-        int x = num5 + 150;
+        let mut width: i32 =  75;
+        let mut num5: i32 =  num2 - 200 + 12;
+        let mut height: i32 =  70;
+        let mut x: i32 =  num5 + 150;
         if (this.game.EditObj.udsUnitOrderMode < 1)
         {
-           Graphics local9 =  g;
+           let mut local9: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
-           Bitmap local10 =  bitmap;
-          rectangle = new Rectangle(0, 0, 75, height - 3);
-          Rectangle srcrect = rectangle;
-          trect1 = new Rectangle(x, 20, 75, height - 3);
-          Rectangle destrect = trect1;
+           let mut local10: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(0, 0, 75, height - 3);
+          let mut srcrect: &Rectangle = &rectangle
+          trect1 = Rectangle::new(x, 20, 75, height - 3);
+          let mut destrect: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
-          rectangle = new Rectangle(x, 20 + (70 - height), width, height);
-          Rectangle trect2 = rectangle;
+          rectangle = Rectangle::new(x, 20 + (70 - height), width, height);
+          let mut trect2: &Rectangle = &rectangle
           this.AddMouse( trect2, "", "Currently in Order Mode", 203);
         }
         else
         {
           height = 40;
-           Graphics local11 =  g;
+           let mut local11: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCBIGBOTTOMTAB);
-           Bitmap local12 =  bitmap;
-          rectangle = new Rectangle(0, 0, 75, height - 3);
-          Rectangle srcrect = rectangle;
-          trect1 = new Rectangle(x, 50, 75, height - 3);
-          Rectangle destrect = trect1;
+           let mut local12: &Bitmap = &bitmap;
+          rectangle = Rectangle::new(0, 0, 75, height - 3);
+          let mut srcrect: &Rectangle = &rectangle
+          trect1 = Rectangle::new(x, 50, 75, height - 3);
+          let mut destrect: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local11,  local12, srcrect, destrect);
-          rectangle = new Rectangle(x, 20 + (70 - height), width, height);
-          Rectangle trect3 = rectangle;
+          rectangle = Rectangle::new(x, 20 + (70 - height), width, height);
+          let mut trect3: &Rectangle = &rectangle
           this.AddMouse( trect3, "", "Switch to Order Mode [Space/Escape]", 203);
         }
         str1 = "ORDER";
@@ -1686,7 +1686,7 @@ label_10:
         this.GuiDownId = 1;
         if (this.game.Data.Round == 0)
           this.GuiDownId = 0;
-        int num6 = 5;
+        let mut num6: i32 =  5;
         if (this.GuiDownId > 0)
         {
           if (!this.game.EditObj.GuiDown)
@@ -1705,19 +1705,19 @@ label_10:
       {
         if (this.game.EditObj.UnitSelected > -1)
         {
-          int num7 = this.game.EditObj.airRangeTempLos.Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY];
-          int num8 = this.game.EditObj.airRangeMaxObstruct.Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY];
-          int num9 = this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, 0, this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY, 0, 19);
+          let mut num7: i32 =  this.game.EditObj.airRangeTempLos.Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY];
+          let mut num8: i32 =  this.game.EditObj.airRangeMaxObstruct.Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY];
+          let mut num9: i32 =  this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, 0, this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY, 0, 19);
           float num10 = this.game.Data.RuleVar[420];
-          int num11 = num9;
-          for (int index2 = 2; index2 <= num11; index2 += 1)
+          let mut num11: i32 =  num9;
+          for (let mut index2: i32 =  2; index2 <= num11; index2 += 1)
           {
             if ((double) index2 > (double) this.game.Data.RuleVar[422])
               num10 = 0.0f;
             else
               num10 *= this.game.Data.RuleVar[421];
           }
-          int num12 = this.game.ScreenWidth - 290;
+          let mut num12: i32 =  this.game.ScreenWidth - 290;
           string str2;
           if (num7 > 0)
           {
@@ -1732,7 +1732,7 @@ label_10:
         }
         else
         {
-          int num13 = this.game.ScreenWidth - 290;
+          let mut num13: i32 =  this.game.ScreenWidth - 290;
           str1 = "No Unit selected";
           SizeF sizeF6 = g.MeasureString(str1, this.game.MarcFont16);
           DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont4,  Math.Round((double) (num13 + 150) - (double) sizeF6.Width / 2.0 - 2.0), 8, Color.LightGray);
@@ -1745,7 +1745,7 @@ label_10:
           this.GuiDownId = 1;
           if (this.game.Data.Round == 0)
             this.GuiDownId = 0;
-          int num14 = num2 + 40;
+          let mut num14: i32 =  num2 + 40;
           if (this.GuiDownId > 0)
           {
             if (!this.game.EditObj.GuiDown)
@@ -1904,7 +1904,7 @@ label_10:
             }
             if (this.game.Data.Round > 0 & this.game.SelectX > -1)
             {
-              int num15 = 0;
+              let mut num15: i32 =  0;
               if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1 && this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].StructuralPts < this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].StructuralPts && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].EPCost > 0)
                 num15 = 1;
               if (this.game.HandyFunctionsObj.CanUnitBuild(this.game.EditObj.UnitSelected) | num15 == 1)
@@ -2048,9 +2048,9 @@ label_10:
                     this.StrategicButtonId = 1;
                     if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].StartSize > -1)
                     {
-                      int num16 = 1;
-                      int unitCounter = this.game.Data.UnitCounter;
-                      for (int index3 = 0; index3 <= unitCounter; index3 += 1)
+                      let mut num16: i32 =  1;
+                      let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                      for (let mut index3: i32 =  0; index3 <= unitCounter; index3 += 1)
                       {
                         if (this.game.Data.UnitObj[index3].Historical == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical & this.game.Data.UnitObj[index3].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index3].DidAttack)
                           num16 = 0;
@@ -2224,8 +2224,8 @@ label_10:
           this.ChangeModelText = "Not a friendly unit.";
           if (this.game.SelectX > -1 && this.game.Data.Round > 0 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location == -1)
           {
-            int locTypeCounter = this.game.Data.LocTypeCounter;
-            for (int index4 = 0; index4 <= locTypeCounter; index4 += 1)
+            let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
+            for (let mut index4: i32 =  0; index4 <= locTypeCounter; index4 += 1)
             {
               if (this.game.Data.LocTypeObj[index4].Buildable && this.game.Data.LocTypeObj[index4].HumanCanBuild)
                 this.BuildButtonId = 1;
@@ -2272,9 +2272,9 @@ label_10:
                       this.StrategicButtonId = 1;
                       if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].StartSize > -1)
                       {
-                        int num17 = 1;
-                        int unitCounter = this.game.Data.UnitCounter;
-                        for (int index5 = 0; index5 <= unitCounter; index5 += 1)
+                        let mut num17: i32 =  1;
+                        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                        for (let mut index5: i32 =  0; index5 <= unitCounter; index5 += 1)
                         {
                           if (this.game.Data.UnitObj[index5].Historical == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical & this.game.Data.UnitObj[index5].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index5].DidAttack)
                             num17 = 0;
@@ -2508,7 +2508,7 @@ label_10:
           this.ChangeModelId2 = 1;
           this.ChangeModelText = "Cannot use this order in free movement phase.";
         }
-        int num19 = 800 + num2;
+        let mut num19: i32 =  800 + num2;
         int num20;
         int num21;
         if ((double) this.game.Data.RuleVar[343] == 1.0)
@@ -2571,39 +2571,39 @@ label_10:
         }
         if (this.NextButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 50))
         {
-          int num25 = num24 + 1;
+          let mut num25: i32 =  num24 + 1;
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONNEXT, tDescript: "End your Turn", tBackbitmap: ( this.OwnBitmap), bbx: (num19 + num25 * 33), bby: num1, totherback: 4, tsize: 29);
           this.NextButtonId = this.AddSubPart( tsubpart, num19 + num25 * 33, num1, 29, 29, 1);
         }
         else
         {
-          int num26 = num24 + 1;
+          let mut num26: i32 =  num24 + 1;
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONNEXT, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num19 + num26 * 33), bby: num1, totherback: 4, tsize: 29);
           this.NextButtonId = this.AddSubPart( tsubpart, num19 + num26 * 33, num1, 29, 29, 0);
         }
-        int num27 = 40 + num2;
+        let mut num27: i32 =  40 + num2;
         int num28;
         int num29;
         if ((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
         {
           if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
           {
-            int num30 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+            let mut num30: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
             if (num30 > 3)
               num30 = 3;
-            int num31 = num30 * 33;
+            let mut num31: i32 =  num30 * 33;
             if (num18 == 0)
             {
               if (this.MoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 1))
               {
-                int num32 = num28 + 1;
+                let mut num32: i32 =  num28 + 1;
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONMOVE, "Move Unit", tDescript: "Move Unit [M]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num32 * 33), bby: num1, totherback: 1, tWidth: (29 + num31), tHeight: 29);
                 this.MoveButtonId = this.AddSubPart( tsubpart, num27 + num32 * 33, num1, 29 + num31, 29, 1);
                 num29 = num32 + num30;
               }
               else
               {
-                int num33 = num28 + 1;
+                let mut num33: i32 =  num28 + 1;
                 if (this.game.EditObj.TutOrder > -1)
                   this.MoveButtonText = "";
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONMOVE, "Move Unit", 1, this.MoveButtonText,  this.OwnBitmap, num27 + num33 * 33, num1, 1, 29 + num31, 29);
@@ -2614,14 +2614,14 @@ label_10:
               {
                 if ((double) this.game.Data.RuleVar[344] > 0.0 & this.GroupMoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 48))
                 {
-                  int num34 = num29 + 1;
+                  let mut num34: i32 =  num29 + 1;
                   tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONMOVE2, "Group Move", tDescript: "Group Move [G]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num34 * 33), bby: num1, totherback: 1, tWidth: (29 + num31), tHeight: 29);
                   this.GroupMoveButtonId = this.AddSubPart( tsubpart, num27 + num34 * 33, num1, 29 + num31, 29, 1);
                   num29 = num34 + num30;
                 }
                 else
                 {
-                  int num35 = num29 + 1;
+                  let mut num35: i32 =  num29 + 1;
                   if (this.game.EditObj.TutOrder > -1)
                     this.GroupMoveButtonText = "";
                   tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONMOVE2, "Group Move", 1, this.GroupMoveButtonText,  this.OwnBitmap, num27 + num35 * 33, num1, 1, 29 + num31, 29);
@@ -2670,24 +2670,24 @@ label_10:
         {
           if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
           {
-            int num36 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+            let mut num36: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
             if (((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num36 > 1)
               num36 = 1;
             if (num36 > 2)
               num36 = 2;
-            int num37 = num36 * 33;
+            let mut num37: i32 =  num36 * 33;
             if ((double) this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
             {
               if (this.HqUnitButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 3))
               {
-                int num38 = num29 + 1;
+                let mut num38: i32 =  num29 + 1;
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONHQUNIT, "HQ", tDescript: "Set Units HQ [H]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num38 * 33), bby: num1, totherback: 1, tWidth: (29 + num37), tHeight: 29);
                 this.HqUnitButtonId = this.AddSubPart( tsubpart, num27 + num38 * 33, num1, 29 + num37, 29, 1);
                 num29 = num38 + num36;
               }
               else
               {
-                int num39 = num29 + 1;
+                let mut num39: i32 =  num29 + 1;
                 if (this.game.EditObj.TutOrder > -1)
                   this.HqUnitButtonText = "";
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONHQUNIT, "HQ", 1, this.HqUnitButtonText,  this.OwnBitmap, num27 + num39 * 33, num1, 1, 29 + num37, 29);
@@ -2860,22 +2860,22 @@ label_10:
           {
             if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
             {
-              int num40 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+              let mut num40: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
               if (num40 > 2)
                 num40 = 2;
               if (((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num40 > 1)
                 num40 = 1;
-              int num41 = num40 * 33;
+              let mut num41: i32 =  num40 * 33;
               if (this.BlowBridgeButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 35))
               {
-                int num42 = num29 + 1;
+                let mut num42: i32 =  num29 + 1;
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONBLOWBRIDGE, "Blow", tDescript: "Click to blow a bridge", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num42 * 33), bby: num1, totherback: 1, tWidth: (29 + num41), tHeight: 29);
                 this.BlowBridgeButtonId = this.AddSubPart( tsubpart, num27 + num42 * 33, num1, 29 + num41, 29, 1);
                 num29 = num42 + num40;
               }
               else
               {
-                int num43 = num29 + 1;
+                let mut num43: i32 =  num29 + 1;
                 if (this.game.EditObj.TutOrder > -1)
                   this.blowbridgebuttontext = "";
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONBLOWBRIDGE, "Blow", 1, this.blowbridgebuttontext,  this.OwnBitmap, num27 + num43 * 33, num1, 1, 29 + num41, 29);
@@ -2886,14 +2886,14 @@ label_10:
               {
                 if (this.TransportButtonId > 0)
                 {
-                  int num44 = num29 + 1;
+                  let mut num44: i32 =  num29 + 1;
                   tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONLOAD, "Trnp", tDescript: "Click to attach Units for Transport", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num44 * 33), bby: num1, totherback: 1, tWidth: (29 + num41), tHeight: 29);
                   this.TransportButtonId = this.AddSubPart( tsubpart, num27 + num44 * 33, num1, 29 + num41, 29, 1);
                   num29 = num44 + num40;
                 }
                 else
                 {
-                  int num45 = num29 + 1;
+                  let mut num45: i32 =  num29 + 1;
                   tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONLOAD, "Trnp", 1, this.transportButtonText,  this.OwnBitmap, num27 + num45 * 33, num1, 1, 29 + num41, 29);
                   this.TransportButtonId2 = this.AddSubPart( tsubpart, num27 + num45 * 33, num1, 29 + num41, 29, 0);
                   num29 = num45 + num40;
@@ -2903,14 +2903,14 @@ label_10:
               {
                 if (this.BattleGroupButtonId > 0)
                 {
-                  int num46 = num29 + 1;
+                  let mut num46: i32 =  num29 + 1;
                   tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONTRANSFER, "Trnf", tDescript: "Click to create Battlegroup or Transfer", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num46 * 33), bby: num1, totherback: 1, tWidth: (29 + num41), tHeight: 29);
                   this.BattleGroupButtonId = this.AddSubPart( tsubpart, num27 + num46 * 33, num1, 29 + num41, 29, 1);
                   num29 = num46 + num40;
                 }
                 else
                 {
-                  int num47 = num29 + 1;
+                  let mut num47: i32 =  num29 + 1;
                   tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONTRANSFER, "Trnf", 1, this.transportButtonText,  this.OwnBitmap, num27 + num47 * 33, num1, 1, 29 + num41, 29);
                   this.BattleGroupButtonId2 = this.AddSubPart( tsubpart, num27 + num47 * 33, num1, 29 + num41, 29, 0);
                   num29 = num47 + num40;
@@ -2936,22 +2936,22 @@ label_10:
           {
             if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
             {
-              int num48 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+              let mut num48: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
               if (num48 > 2)
                 num48 = 2;
               if (((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num48 > 1)
                 num48 = 1;
-              int num49 = num48 * 33;
+              let mut num49: i32 =  num48 * 33;
               if (this.InfraButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 37))
               {
-                int num50 = num29 + 1;
+                let mut num50: i32 =  num29 + 1;
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONBUILDROAD, "Repair", tDescript: "Click to build bridge [R]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num50 * 33), bby: num1, totherback: 1, tWidth: (29 + num49), tHeight: 29);
                 this.InfraButtonId = this.AddSubPart( tsubpart, num27 + num50 * 33, num1, 29 + num49, 29, 1);
                 num29 = num50 + num48;
               }
               else
               {
-                int num51 = num29 + 1;
+                let mut num51: i32 =  num29 + 1;
                 if (this.game.EditObj.TutMode)
                   this.infrabuttontext = "";
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONBUILDROAD, "Repair", 1, this.infrabuttontext,  this.OwnBitmap, num27 + num51 * 33, num1, 1, 29 + num49, 29);
@@ -3039,20 +3039,20 @@ label_10:
         {
           if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
           {
-            int num52 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+            let mut num52: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
             if (num52 > 3)
               num52 = 3;
-            int num53 = num52 * 33;
+            let mut num53: i32 =  num52 * 33;
             if (this.AttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 2))
             {
-              int num54 = num29 + 1;
+              let mut num54: i32 =  num29 + 1;
               tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONATTACK, "Regular Attack", tDescript: "Do a Land Attack on this Hex [A]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num54 * 33), bby: num1, totherback: 2, tWidth: (29 + num53), tHeight: 29);
               this.AttackButtonId = this.AddSubPart( tsubpart, num27 + num54 * 33, num1, 29 + num53, 29, 1);
               num29 = num54 + num52;
             }
             else
             {
-              int num55 = num29 + 1;
+              let mut num55: i32 =  num29 + 1;
               if (this.game.EditObj.TutOrder > -1)
                 this.AttackButtonText = "";
               tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONATTACK, "Regular Attack", 1, this.AttackButtonText,  this.OwnBitmap, num27 + num55 * 33, num1, 2, 29 + num53, 29);
@@ -3063,14 +3063,14 @@ label_10:
             {
               if (this.ArtAttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 11))
               {
-                int num56 = num29 + 1;
+                let mut num56: i32 =  num29 + 1;
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONARTATTACK, "Ranged Attack", tDescript: "Do an Artillery Barrage on this Hex [B]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num56 * 33), bby: num1, totherback: 2, tWidth: (29 + num53), tHeight: 29);
                 this.ArtAttackButtonId = this.AddSubPart( tsubpart, num27 + num56 * 33, num1, 29 + num53, 29, 1);
                 num29 = num56 + num52;
               }
               else
               {
-                int num57 = num29 + 1;
+                let mut num57: i32 =  num29 + 1;
                 if (this.game.EditObj.TutOrder > -1)
                   this.ArtAttackButtonText = "";
                 tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONARTATTACK, "Ranged Attack", 1, this.ArtAttackButtonText,  this.OwnBitmap, num27 + num57 * 33, num1, 2, 29 + num53, 29);
@@ -3181,11 +3181,11 @@ label_10:
             this.SeaArtAttackButtonId2 = 0;
           }
         }
-        int index6 = 0;
-        int actionCardCounter = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter;
-        for (int index7 = 0; index7 <= actionCardCounter; index7 += 1)
+        let mut index6: i32 =  0;
+        let mut actionCardCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter;
+        for (let mut index7: i32 =  0; index7 <= actionCardCounter; index7 += 1)
         {
-          int index8 = this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index7];
+          let mut index8: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index7];
           if (index6 < 10 && this.game.Data.ActionCardObj[index8].quickButton > 0 & this.game.Data.Round > 0)
           {
             bool flag = false;
@@ -3215,20 +3215,20 @@ label_10:
               this.ActionButtonCardSlot[index6] = index7;
               num29 += 1;
               int[] actionButtonId = this.ActionButtonId;
-              int index9 = index6;
+              let mut index9: i32 =  index6;
               tsubpart =  new MarcButtonPartClass(this.game.Data.SmallPicNr[this.game.Data.ActionCardObj[index8].quickSmall], tDescript: this.game.Data.ActionCardObj[index8].Title, tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num29 * 33), bby: num1, totherback: 2, tsize: 29);
-              int num59 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 1);
+              let mut num59: i32 =  this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 1);
               actionButtonId[index9] = num59;
             }
             this.game.EditObj.AreaX = -1;
             this.game.EditObj.AreaY = -1;
-            int unitCounter = this.game.Data.UnitCounter;
-            for (int index10 = 0; index10 <= unitCounter; index10 += 1)
+            let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+            for (let mut index10: i32 =  0; index10 <= unitCounter; index10 += 1)
               this.game.Data.UnitObj[index10].TempUnitSelectable = false;
           }
         }
-        int num60 = num2 + 600;
-        int num61 = -1;
+        let mut num60: i32 =  num2 + 600;
+        let mut num61: i32 =  -1;
         int num62;
         if (this.HexUnitButtonId > 0 & this.game.EditObj.TutOrder == -1)
         {
@@ -3343,7 +3343,7 @@ label_10:
           return;
         if (this.SupplyLayerButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 51))
         {
-          int num67 = num66 + 1;
+          let mut num67: i32 =  num66 + 1;
           if (this.game.EditObj.LayerSupplyOn)
           {
             tsubpart =  new MarcButtonPartClass(this.game.BUTTONSUPPLYON, tDescript: "Click to turn off Supply layer", tBackbitmap: ( this.OwnBitmap), bbx: (num60 + num67 * 33), bby: num1, totherback: 3, tsize: 29);
@@ -3357,7 +3357,7 @@ label_10:
         }
         else
         {
-          int num68 = num66 + 1;
+          let mut num68: i32 =  num66 + 1;
           if (this.game.EditObj.TutOrder > -1)
             this.supplylayerbuttontext = "";
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONSUPPLYON, 1, this.supplylayerbuttontext,  this.OwnBitmap, num60 + num68 * 33, num1, 3, 29);
@@ -3446,10 +3446,10 @@ label_10:
           str1 = "Model Designer";
         if (this.game.EditObj.LayerSupplyOn)
         {
-          int layerSupplyAp = this.game.EditObj.LayerSupplyAP;
+          let mut layerSupplyAp: i32 =  this.game.EditObj.LayerSupplyAP;
           if ((double) this.game.Data.RuleVar[471] > 0.0 & this.game.Data.Product >= 6)
           {
-            int location2 = this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Location2;
+            let mut location2: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Location2;
             string str5;
             if (location2 > -1)
             {
@@ -3473,10 +3473,10 @@ label_10:
           str1 = "Group Movement Mode";
         bool flag1 = true;
         this.NotOkText = "Option not available";
-        int num69 = this.game.EditObj.LayerSupplyOn ? 1 : 0;
+        let mut num69: i32 =  this.game.EditObj.LayerSupplyOn ? 1 : 0;
         if (this.game.EditObj.OrderType == 6)
         {
-          int Number = this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].MaxProd;
+          let mut Number: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].MaxProd;
           if (this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts > 0)
             Number =  Math.Round(Conversion.Int((double) Number * ((double) this.game.Data.LocObj[this.game.EditObj.OrderLoc].StructuralPts / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts)));
           if (this.game.Data.Round <= 0)
@@ -3534,7 +3534,7 @@ label_10:
                       flag2 = true;
                       if ((double) this.game.Data.RuleVar[304] > 0.0)
                       {
-                        int num70 = 0;
+                        let mut num70: i32 =  0;
                         if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].IsHQ)
                           num70 = 1;
                         if ((double) (this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected) + this.game.HandyFunctionsObj.HowmanyHQsBelow(this.game.EditObj.OrderUnit) + 1 + num70) > (double) this.game.Data.RuleVar[304])
@@ -3655,8 +3655,8 @@ label_10:
           str1 = "Select target unit for air supply.";
           if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].HQ > -1 & this.game.HandyFunctionsObj.GetLowestAirAp(this.game.EditObj.OrderUnit) >= 40)
           {
-            int supply = this.game.Data.UnitObj[this.game.Data.UnitObj[this.game.EditObj.OrderUnit].HQ].Supply;
-            int Number1 =  Math.Round((double) Conversion.Int((float) this.game.HandyFunctionsObj.GetCarryCapPts(this.game.EditObj.OrderUnit, 2) / this.game.Data.RuleVar[33]));
+            let mut supply: i32 =  this.game.Data.UnitObj[this.game.Data.UnitObj[this.game.EditObj.OrderUnit].HQ].Supply;
+            let mut Number1: i32 =   Math.Round((double) Conversion.Int((float) this.game.HandyFunctionsObj.GetCarryCapPts(this.game.EditObj.OrderUnit, 2) / this.game.Data.RuleVar[33]));
             if (Number1 > supply)
               Number1 = supply;
             str6: String = (this.game.EditObj.TempValue2[0].Value[this.game.SelectX, this.game.SelectY] >= 9999 ? str1 + " Ap: out of range" : str1 + " Ap: " + this.game.EditObj.TempValue2[0].Value[this.game.SelectX, this.game.SelectY].ToString()) + ", Max: " + Strings.Trim(Conversion.Str((object) Number1)) + ".";
@@ -3665,23 +3665,23 @@ label_10:
               if (this.LastAirSupplyTarget == this.game.EditObj.UnitSelected)
               {
                 str1 = str6 + ", target area needs: " + Strings.Trim(Conversion.Str((object) this.LastAirSupplyNeed));
-                int mapWidth = this.game.Data.MapObj[0].MapWidth;
-                for (int index11 = 0; index11 <= mapWidth; index11 += 1)
+                let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+                for (let mut index11: i32 =  0; index11 <= mapWidth; index11 += 1)
                 {
-                  int mapHeight = this.game.Data.MapObj[0].MapHeight;
-                  for (int index12 = 0; index12 <= mapHeight; index12 += 1)
+                  let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+                  for (let mut index12: i32 =  0; index12 <= mapHeight; index12 += 1)
                     this.game.EditObj.TempValue[0].Value[index11, index12] = this.game.EditObj.TempValue2[0].Value[index11, index12];
                 }
               }
               else
               {
                 this.game.HandyFunctionsObj.RedimTempValue3(9999);
-                int Number2 = this.game.HandyFunctionsObj.AirSupplyNeeded(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, 0);
-                int mapWidth = this.game.Data.MapObj[0].MapWidth;
-                for (int index13 = 0; index13 <= mapWidth; index13 += 1)
+                let mut Number2: i32 =  this.game.HandyFunctionsObj.AirSupplyNeeded(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, 0);
+                let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+                for (let mut index13: i32 =  0; index13 <= mapWidth; index13 += 1)
                 {
-                  int mapHeight = this.game.Data.MapObj[0].MapHeight;
-                  for (int index14 = 0; index14 <= mapHeight; index14 += 1)
+                  let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+                  for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
                     this.game.EditObj.TempValue[0].Value[index13, index14] = this.game.EditObj.TempValue2[0].Value[index13, index14];
                 }
                 str1 = str6 + ", target area needs: " + Strings.Trim(Conversion.Str((object) Number2));
@@ -3711,18 +3711,18 @@ label_10:
         if (this.game.EditObj.OrderType == 2)
         {
           this.PopupButtonId = 1;
-          int unitCounter = this.game.Data.MapObj[0].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitCounter;
+          let mut unitCounter: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitCounter;
           int num71;
-          for (int index15 = 0; index15 <= unitCounter; index15 += 1)
+          for (let mut index15: i32 =  0; index15 <= unitCounter; index15 += 1)
           {
-            int unit = this.game.Data.MapObj[0].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitList[index15];
+            let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitList[index15];
             num71 += this.game.HandyFunctionsObj.GetStackWithFOW(unit, this.game.Data.Turn);
           }
           str7: String = "Select attackers. Stack: " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + " /" + Conversion.Str((object) this.game.HandyFunctionsObj.maxAttackStack());
           if (num71 > 0)
             str7 = str7 + " vs " + num71.ToString();
           str1 = str7 + ". Concentric: +" + Conversion.Str((object) Conversion.Int((float) (((double) this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
-          int divBonusForAttack = this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
+          let mut divBonusForAttack: i32 =  this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
           if (divBonusForAttack > 0)
             str1 = str1 + ". Divisional: +" + Conversion.Str((object) Conversion.Int(divBonusForAttack)) + "%";
           if (this.game.EditObj.UnitSelected > -1)
@@ -3737,7 +3737,7 @@ label_10:
               this.NotOkText = "Unit does not have enough AP to join in attack.";
               if (this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Map, target.x, target.y, target.map) <= 1)
               {
-                int x = this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.UnitSelected, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Map, target.x, target.y, target.map, true).x;
+                let mut x: i32 =  this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.UnitSelected, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Map, target.x, target.y, target.map, true).x;
                 this.NotOkText = x < 9999 ? "Unit does not have the " + x.ToString() + " AP needed to join in attack." : "Unit can never join in this attack. Landscape or river might be impassible for it.";
               }
               if (this.game.HandyFunctionsObj.CanDoLandAttack(this.game.EditObj.UnitSelected, target))
@@ -3782,7 +3782,7 @@ label_10:
             bool flag5 = false;
             if (this.game.EditObj.MouseOverX > -1)
             {
-              int index16 = 0;
+              let mut index16: i32 =  0;
               do
               {
                 if (this.game.EditObj.TempAttack[0].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY, index16])
@@ -3904,7 +3904,7 @@ label_10:
                 this.NotOkText = "Unit is not yours";
                 if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn | this.game.Data.Round == 0)
                 {
-                  int num72 = 0;
+                  let mut num72: i32 =  0;
                   if (this.game.HandyFunctionsObj.IsHexPort(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap))
                   {
                     if (this.game.HandyFunctionsObj.Distance(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected) > 0)
@@ -3975,12 +3975,12 @@ label_10:
         }
         else if (this.game.EditObj.udsUnitOrderMode > 0)
         {
-          int num73 = 0;
+          let mut num73: i32 =  0;
           if (!((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode))
           {
             if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
             {
-              int num74 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+              let mut num74: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
               if (num74 > 3)
                 num74 = 3;
               num73 = (num74 + 1) * 33;
@@ -4012,7 +4012,7 @@ label_10:
             return;
           if (this.AllId > 0 & this.lastorderx == this.game.EditObj.OrderX & this.lastordery == this.game.EditObj.OrderY)
             this.AllId = 0;
-          int num75 = num2 + 1024 - 300;
+          let mut num75: i32 =  num2 + 1024 - 300;
           if (flag1)
           {
             tsubpart =  new MarcButtonPartClass(this.game.BACKBUTTON, tDescript: "Back to Main Menu [ESC]", tBackbitmap: ( this.OwnBitmap), bbx: (num2 + 42), bby: num1);
@@ -4029,7 +4029,7 @@ label_10:
             tsubpart =  new MarcButtonPartClass(this.game.OKBALL, 1, this.NotOkText,  this.OwnBitmap, num75, num1);
             this.Ok2Id = this.AddSubPart( tsubpart, num75, num1, 32, 32, 0);
           }
-          int num76 = num75 + 40;
+          let mut num76: i32 =  num75 + 40;
           if (this.PopupButtonId > 0)
           {
             tsubpart =  new TextButtonPartClass("LIST", 48, "Select from list",  this.OwnBitmap, num76, num1, tMarcStyle: true);
@@ -4054,7 +4054,7 @@ label_10:
             tsubpart =  new TextButtonPartClass("ATTACK", 96, "You cannot start a battle",  this.OwnBitmap, num76, num1, true, tMarcStyle: true);
             this.Battle2Id = this.AddSubPart( tsubpart, num76, num1, 96, 32, 1);
           }
-          int num77 = num76 + 104;
+          let mut num77: i32 =  num76 + 104;
           if (this.NoneId == 1)
           {
             tsubpart =  new MarcButtonPartClass(this.game.NONEBUTTON, tDescript: "Remove all selected units from attack", tBackbitmap: ( this.OwnBitmap), bbx: num77, bby: (num1 + 2), totherback: 3);
@@ -4065,7 +4065,7 @@ label_10:
             tsubpart =  new MarcButtonPartClass(this.game.NONEBUTTON, 1, "Option not available",  this.OwnBitmap, num77, num1 + 2, 3);
             this.None2Id = this.AddSubPart( tsubpart, num77, num1 + 2, 32, 32, 0);
           }
-          int num78 = num77 + 40;
+          let mut num78: i32 =  num77 + 40;
           if (this.AllId == 1)
           {
             tsubpart =  new MarcButtonPartClass(this.game.ALLBUTTON, tDescript: "Select all eligble units to join attack", tBackbitmap: ( this.OwnBitmap), bbx: num78, bby: (num1 + 2), totherback: 3);
@@ -4109,30 +4109,30 @@ label_10:
       {
         if (flag1)
         {
-          int width = 182;
-          int num2 = 180;
+          let mut width: i32 =  182;
+          let mut num2: i32 =  180;
           if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num2 += 240;
-          int x1 =  Math.Round((double) num2 + (double) this.game.ScreenWidth / 2.0 - 480.0) - (width - 0);
-           Graphics local1 =  g;
+          let mut x1: i32 =   Math.Round((double) num2 + (double) this.game.ScreenWidth / 2.0 - 480.0) - (width - 0);
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-           Bitmap local2 =  bitmap;
-          int x2 = x1;
-          int w = width;
+           let mut local2: &Bitmap = &bitmap;
+          let mut x2: i32 =  x1;
+          let mut w: i32 =  width;
           DrawMod.DrawScaledColorized( local1,  local2, x2, 66, w, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
           str: String = "SUPPLY BASE";
           SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
           DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
-          Rectangle trect = new Rectangle(x1, 66, width, 24);
+          Rectangle trect = Rectangle::new(x1, 66, width, 24);
           this.AddMouse( trect, "", "Information on the Supply Base in this Hex");
         }
         else
         {
           if (this.game.Data.ExtraTabName.Length <= 0)
             return;
-          int width = 182;
-          int num3 = 180;
-          int num4 = 1;
+          let mut width: i32 =  182;
+          let mut num3: i32 =  180;
+          let mut num4: i32 =  1;
           if (this.game.Data.ExtraTabName2.Length > 0)
           {
             width = 140;
@@ -4147,81 +4147,81 @@ label_10:
           }
           if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num3 += 240;
-          int num5 = num3 - width;
+          let mut num5: i32 =  num3 - width;
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
-            int x3 =  Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x3: i32 =   Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0)
             {
               x3 -= width - 12;
-               Graphics local3 =  g;
+               let mut local3: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local4 =  bitmap;
-              int x4 = x3;
-              int w = width;
+               let mut local4: &Bitmap = &bitmap;
+              let mut x4: i32 =  x3;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local3,  local4, x4, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF3 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x3 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x3, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x3, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
               this.tab53 = this.MouseCounter;
             }
             if (this.game.Data.ExtraTabName2.Length > 0)
             {
               x3 -= width - 12;
-               Graphics local5 =  g;
+               let mut local5: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local6 =  bitmap;
-              int x5 = x3;
-              int w = width;
+               let mut local6: &Bitmap = &bitmap;
+              let mut x5: i32 =  x3;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local5,  local6, x5, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF4 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x3 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x3, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x3, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
               this.tab52 = this.MouseCounter;
             }
-            int x6 = x3 - (width - 12);
-             Graphics local7 =  g;
+            let mut x6: i32 =  x3 - (width - 12);
+             let mut local7: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local8 =  bitmap;
-            int x7 = x6;
-            int w1 = width;
+             let mut local8: &Bitmap = &bitmap;
+            let mut x7: i32 =  x6;
+            let mut w1: i32 =  width;
             DrawMod.DrawScaledColorized( local7,  local8, x7, 66, w1, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             upper1: String = this.game.Data.ExtraTabName.ToUpper();
             SizeF sizeF5 = g.MeasureString(upper1, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper1, this.game.MarcFont16,  Math.Round((double) x6 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x6, 66, width, 24);
-            Rectangle trect1 = rectangle;
+            rectangle = Rectangle::new(x6, 66, width, 24);
+            let mut trect1: &Rectangle = &rectangle
             this.AddMouse( trect1, "", "Extra data sheet.", 51);
             this.tab51 = this.MouseCounter;
           }
           else
           {
-            int x8 =  Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x8: i32 =   Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             string upper;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 3)
             {
               x8 -= width - 12;
-               Graphics local9 =  g;
+               let mut local9: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local10 =  bitmap;
-              int x9 = x8;
-              int w = width;
+               let mut local10: &Bitmap = &bitmap;
+              let mut x9: i32 =  x8;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local9,  local10, x9, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF6 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x8 + (double) width / 2.0 - (double) sizeF6.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x8, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x8, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
               this.tab53 = this.MouseCounter;
             }
@@ -4230,17 +4230,17 @@ label_10:
             if (this.game.Data.ExtraTabName2.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 2)
             {
               x8 -= width - 12;
-               Graphics local11 =  g;
+               let mut local11: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local12 =  bitmap;
-              int x10 = x8;
-              int w = width;
+               let mut local12: &Bitmap = &bitmap;
+              let mut x10: i32 =  x8;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local11,  local12, x10, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF7 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x8 + (double) width / 2.0 - (double) sizeF7.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x8, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x8, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
               this.tab52 = this.MouseCounter;
             }
@@ -4248,24 +4248,24 @@ label_10:
               x8 -= width - 12;
             if (this.game.Data.ExtraTabName.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 1)
             {
-              int x11 = x8 - (width - 12);
-               Graphics local13 =  g;
+              let mut x11: i32 =  x8 - (width - 12);
+               let mut local13: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local14 =  bitmap;
-              int x12 = x11;
-              int w = width;
+               let mut local14: &Bitmap = &bitmap;
+              let mut x12: i32 =  x11;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local13,  local14, x12, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper = this.game.Data.ExtraTabName.ToUpper();
               SizeF sizeF8 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x11 + (double) width / 2.0 - (double) sizeF8.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x11, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x11, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 51);
               this.tab51 = this.MouseCounter;
             }
             else if (this.game.Data.ExtraTabName.Length > 0)
               num1 = x8 - (width - 12);
-            int x13 =  Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x13: i32 =   Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (this.game.EditObj.SetViewModeExtraNr == 1)
             {
               upper = this.game.Data.ExtraTabName.ToUpper();
@@ -4281,16 +4281,16 @@ label_10:
               upper = this.game.Data.ExtraTabName3.ToUpper();
               x13 -= (width - 12) * (num4 - 2);
             }
-             Graphics local15 =  g;
+             let mut local15: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local16 =  bitmap;
-            int x14 = x13;
-            int w2 = width;
+             let mut local16: &Bitmap = &bitmap;
+            let mut x14: i32 =  x13;
+            let mut w2: i32 =  width;
             DrawMod.DrawScaledColorized( local15,  local16, x14, 66, w2, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             SizeF sizeF9 = g.MeasureString(upper, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x13 + (double) width / 2.0 - (double) sizeF9.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x13, 66, width, 24);
-            Rectangle trect2 = rectangle;
+            rectangle = Rectangle::new(x13, 66, width, 24);
+            let mut trect2: &Rectangle = &rectangle
             this.AddMouse( trect2, "", "Extra data sheet.", 50 + this.game.EditObj.SetViewModeExtraNr);
             if (this.game.EditObj.SetViewModeExtraNr == 1)
               this.tab51 = this.MouseCounter;
@@ -4322,77 +4322,77 @@ label_10:
           return;
         if (flag1)
         {
-          int width = 182;
-          int num6 = 180;
+          let mut width: i32 =  182;
+          let mut num6: i32 =  180;
           if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num6 += 120;
-          int num7 =  Math.Round((double) num6 + (double) this.game.ScreenWidth / 2.0 - 480.0);
+          let mut num7: i32 =   Math.Round((double) num6 + (double) this.game.ScreenWidth / 2.0 - 480.0);
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
-            int x15 = num7 + (width - 34) - (width - 24);
-             Graphics local17 =  g;
+            let mut x15: i32 =  num7 + (width - 34) - (width - 24);
+             let mut local17: &Graphics = &g;
             Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local18 =  bitmap1;
-            int x16 = x15;
-            int w3 = width;
+             let mut local18: &Bitmap = &bitmap1;
+            let mut x16: i32 =  x15;
+            let mut w3: i32 =  width;
             DrawMod.DrawScaledColorized( local17,  local18, x16, 66, w3, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str1: String = "SUPPLY BASE";
             SizeF sizeF10 = g.MeasureString(str1, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF10.Width / 2.0), 70, Color.White);
-            Rectangle rectangle = new Rectangle(x15, 66, width, 24);
-            Rectangle trect3 = rectangle;
+            Rectangle rectangle = Rectangle::new(x15, 66, width, 24);
+            let mut trect3: &Rectangle = &rectangle
             this.AddMouse( trect3, "", "Information on the Supply Base in this Hex", 101);
             this.tab101 = this.MouseCounter;
-            int x17 = x15 - (width - 12);
-             Graphics local19 =  g;
+            let mut x17: i32 =  x15 - (width - 12);
+             let mut local19: &Graphics = &g;
             Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local20 =  bitmap2;
-            int x18 = x17;
-            int w4 = width;
+             let mut local20: &Bitmap = &bitmap2;
+            let mut x18: i32 =  x17;
+            let mut w4: i32 =  width;
             DrawMod.DrawScaledColorized( local19,  local20, x18, 66, w4, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str2: String = "UNIT BASE INFO";
             SizeF sizeF11 = g.MeasureString(str2, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont16,  Math.Round((double) x17 + (double) width / 2.0 - (double) sizeF11.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x17, 66, width, 24);
-            Rectangle trect4 = rectangle;
+            rectangle = Rectangle::new(x17, 66, width, 24);
+            let mut trect4: &Rectangle = &rectangle
             this.AddMouse( trect4, "", "The base info of the unit is always shown.");
           }
           else
           {
-            int x19 = num7 - (width - 0);
-             Graphics local21 =  g;
+            let mut x19: i32 =  num7 - (width - 0);
+             let mut local21: &Graphics = &g;
             Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local22 =  bitmap;
-            int x20 = x19;
-            int w5 = width;
+             let mut local22: &Bitmap = &bitmap;
+            let mut x20: i32 =  x19;
+            let mut w5: i32 =  width;
             DrawMod.DrawScaledColorized( local21,  local22, x20, 66, w5, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str3: String = "UNIT BASE INFO";
             SizeF sizeF12 = g.MeasureString(str3, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str3, this.game.MarcFont16,  Math.Round((double) x19 + (double) width / 2.0 - (double) sizeF12.Width / 2.0), 70, Color.White);
-            Rectangle rectangle = new Rectangle(x19, 66, width, 24);
-            Rectangle trect5 = rectangle;
+            Rectangle rectangle = Rectangle::new(x19, 66, width, 24);
+            let mut trect5: &Rectangle = &rectangle
             this.AddMouse( trect5, "", "The base info of the unit is always shown.", 6);
             this.tab6 = this.MouseCounter;
-            int x21 = x19 + (width - 12);
-             Graphics local23 =  g;
+            let mut x21: i32 =  x19 + (width - 12);
+             let mut local23: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local24 =  bitmap;
-            int x22 = x21;
-            int w6 = width;
+             let mut local24: &Bitmap = &bitmap;
+            let mut x22: i32 =  x21;
+            let mut w6: i32 =  width;
             DrawMod.DrawScaledColorized( local23,  local24, x22, 66, w6, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str4: String = "SUPPLY BASE";
             SizeF sizeF13 = g.MeasureString(str4, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str4, this.game.MarcFont16,  Math.Round((double) x21 + (double) width / 2.0 - (double) sizeF13.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x21, 66, width, 24);
-            Rectangle trect6 = rectangle;
+            rectangle = Rectangle::new(x21, 66, width, 24);
+            let mut trect6: &Rectangle = &rectangle
             this.AddMouse( trect6, "", "Information on the Supply Base in this Hex");
           }
         }
         else if (this.game.Data.ExtraTabName.Length > 0)
         {
-          int width = 182;
-          int num8 = 180;
-          int num9 = 1;
+          let mut width: i32 =  182;
+          let mut num8: i32 =  180;
+          let mut num9: i32 =  1;
           if (this.game.Data.ExtraTabName2.Length > 0)
           {
             width = 140;
@@ -4409,90 +4409,90 @@ label_10:
             num8 += 120;
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
-            int x23 =  Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x23: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0)
             {
               x23 -= width - 12;
-               Graphics local25 =  g;
+               let mut local25: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local26 =  bitmap;
-              int x24 = x23;
-              int w = width;
+               let mut local26: &Bitmap = &bitmap;
+              let mut x24: i32 =  x23;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local25,  local26, x24, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF14 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF14.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x23, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x23, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
               this.tab53 = this.MouseCounter;
             }
             if (this.game.Data.ExtraTabName2.Length > 0)
             {
               x23 -= width - 12;
-               Graphics local27 =  g;
+               let mut local27: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local28 =  bitmap;
-              int x25 = x23;
-              int w = width;
+               let mut local28: &Bitmap = &bitmap;
+              let mut x25: i32 =  x23;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local27,  local28, x25, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF15 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF15.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x23, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x23, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
               this.tab52 = this.MouseCounter;
             }
-            int x26 = x23 - (width - 12);
-             Graphics local29 =  g;
+            let mut x26: i32 =  x23 - (width - 12);
+             let mut local29: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local30 =  bitmap;
-            int x27 = x26;
-            int w7 = width;
+             let mut local30: &Bitmap = &bitmap;
+            let mut x27: i32 =  x26;
+            let mut w7: i32 =  width;
             DrawMod.DrawScaledColorized( local29,  local30, x27, 66, w7, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper2: String = this.game.Data.ExtraTabName.ToUpper();
             SizeF sizeF16 = g.MeasureString(upper2, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, upper2, this.game.MarcFont16,  Math.Round((double) x26 + (double) width / 2.0 - (double) sizeF16.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x26, 66, width, 24);
-            Rectangle trect7 = rectangle;
+            rectangle = Rectangle::new(x26, 66, width, 24);
+            let mut trect7: &Rectangle = &rectangle
             this.AddMouse( trect7, "", "Extra data sheet.", 51);
             this.tab51 = this.MouseCounter;
-            int x28 = x26 - (width - 12);
-             Graphics local31 =  g;
+            let mut x28: i32 =  x26 - (width - 12);
+             let mut local31: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local32 =  bitmap;
-            int x29 = x28;
-            int w8 = width;
+             let mut local32: &Bitmap = &bitmap;
+            let mut x29: i32 =  x28;
+            let mut w8: i32 =  width;
             DrawMod.DrawScaledColorized( local31,  local32, x29, 66, w8, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str: String = "UNIT INFO";
             SizeF sizeF17 = g.MeasureString(str, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x28 + (double) width / 2.0 - (double) sizeF17.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x28, 66, width, 24);
-            Rectangle trect8 = rectangle;
+            rectangle = Rectangle::new(x28, 66, width, 24);
+            let mut trect8: &Rectangle = &rectangle
             this.AddMouse( trect8, "", "The base info of the unit is always shown.");
           }
           else
           {
-            int x30 =  Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x30: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 3)
             {
               x30 -= width - 12;
-               Graphics local33 =  g;
+               let mut local33: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local34 =  bitmap;
-              int x31 = x30;
-              int w = width;
+               let mut local34: &Bitmap = &bitmap;
+              let mut x31: i32 =  x30;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local33,  local34, x31, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF18 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x30 + (double) width / 2.0 - (double) sizeF18.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x30, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x30, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
               this.tab53 = this.MouseCounter;
             }
@@ -4501,17 +4501,17 @@ label_10:
             if (this.game.Data.ExtraTabName2.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 2)
             {
               x30 -= width - 12;
-               Graphics local35 =  g;
+               let mut local35: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local36 =  bitmap;
-              int x32 = x30;
-              int w = width;
+               let mut local36: &Bitmap = &bitmap;
+              let mut x32: i32 =  x30;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local35,  local36, x32, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF19 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x30 + (double) width / 2.0 - (double) sizeF19.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x30, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x30, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
               this.tab52 = this.MouseCounter;
             }
@@ -4519,45 +4519,45 @@ label_10:
               x30 -= width - 12;
             if (this.game.Data.ExtraTabName.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 1)
             {
-              int x33 = x30 - (width - 12);
-               Graphics local37 =  g;
+              let mut x33: i32 =  x30 - (width - 12);
+               let mut local37: &Graphics = &g;
               bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-               Bitmap local38 =  bitmap;
-              int x34 = x33;
-              int w = width;
+               let mut local38: &Bitmap = &bitmap;
+              let mut x34: i32 =  x33;
+              let mut w: i32 =  width;
               DrawMod.DrawScaledColorized( local37,  local38, x34, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName.ToUpper();
               SizeF sizeF20 = g.MeasureString(upper, this.game.MarcFont16);
               DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x33 + (double) width / 2.0 - (double) sizeF20.Width / 2.0), 70, Color.White);
-              rectangle = new Rectangle(x33, 66, width, 24);
-              Rectangle trect = rectangle;
+              rectangle = Rectangle::new(x33, 66, width, 24);
+              let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 51);
               this.tab51 = this.MouseCounter;
             }
             else if (this.game.Data.ExtraTabName.Length > 0)
               num1 = x30 - (width - 12);
-            int num10 =  Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut num10: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (this.game.Data.ExtraTabName3.Length > 0)
               num10 -= width - 12;
             if (this.game.Data.ExtraTabName2.Length > 0)
               num10 -= width - 12;
             if (this.game.Data.ExtraTabName.Length > 0)
               num10 -= width - 12;
-            int x35 = num10 - (width - 12);
-             Graphics local39 =  g;
+            let mut x35: i32 =  num10 - (width - 12);
+             let mut local39: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local40 =  bitmap;
-            int x36 = x35;
-            int w9 = width;
+             let mut local40: &Bitmap = &bitmap;
+            let mut x36: i32 =  x35;
+            let mut w9: i32 =  width;
             DrawMod.DrawScaledColorized( local39,  local40, x36, 66, w9, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str: String = "UNIT INFO";
             SizeF sizeF21 = g.MeasureString(str, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x35 + (double) width / 2.0 - (double) sizeF21.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x35, 66, width, 24);
-            Rectangle trect9 = rectangle;
+            rectangle = Rectangle::new(x35, 66, width, 24);
+            let mut trect9: &Rectangle = &rectangle
             this.AddMouse( trect9, "", "The base info of the unit is always shown.", 6);
             this.tab6 = this.MouseCounter;
-            int x37 =  Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x37: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (this.game.EditObj.SetViewModeExtraNr == 1)
             {
               str = this.game.Data.ExtraTabName.ToUpper();
@@ -4573,16 +4573,16 @@ label_10:
               str = this.game.Data.ExtraTabName3.ToUpper();
               x37 -= (width - 12) * (num9 - 2);
             }
-             Graphics local41 =  g;
+             let mut local41: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-             Bitmap local42 =  bitmap;
-            int x38 = x37;
-            int w10 = width;
+             let mut local42: &Bitmap = &bitmap;
+            let mut x38: i32 =  x37;
+            let mut w10: i32 =  width;
             DrawMod.DrawScaledColorized( local41,  local42, x38, 66, w10, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             SizeF sizeF22 = g.MeasureString(str, this.game.MarcFont16);
             DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x37 + (double) width / 2.0 - (double) sizeF22.Width / 2.0), 70, Color.White);
-            rectangle = new Rectangle(x37, 66, width, 24);
-            Rectangle trect10 = rectangle;
+            rectangle = Rectangle::new(x37, 66, width, 24);
+            let mut trect10: &Rectangle = &rectangle
             this.AddMouse( trect10, "", "Extra data sheet.", 50 + this.game.EditObj.SetViewModeExtraNr);
             if (this.game.EditObj.SetViewModeExtraNr == 1)
               this.tab51 = this.MouseCounter;
@@ -4594,19 +4594,19 @@ label_10:
         }
         else
         {
-          int num11 = 0;
+          let mut num11: i32 =  0;
           if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num11 += 120;
-          int x39 =  Math.Round((double) num11 + (double) this.game.ScreenWidth / 2.0 - 480.0);
-           Graphics local43 =  g;
+          let mut x39: i32 =   Math.Round((double) num11 + (double) this.game.ScreenWidth / 2.0 - 480.0);
+           let mut local43: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-           Bitmap local44 =  bitmap;
-          int x40 = x39;
+           let mut local44: &Bitmap = &bitmap;
+          let mut x40: i32 =  x39;
           DrawMod.DrawSimple( local43,  local44, x40, 66);
           str: String = "UNIT BASE INFO";
           SizeF sizeF23 = g.MeasureString(str, this.game.MarcFont16);
           DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) ((float) (x39 + 91) - sizeF23.Width / 2f)), 70, Color.White);
-          Rectangle trect = new Rectangle(x39, 66, BitmapStore.GetWidth(this.game.MARCLARGETAB), 24);
+          Rectangle trect = Rectangle::new(x39, 66, BitmapStore.GetWidth(this.game.MARCLARGETAB), 24);
           this.AddMouse( trect, "", "The base info of the unit is always shown.");
         }
         if (!(this.game.EditObj.SetViewModeExtraNr == 0 | !flag1 & this.game.EditObj.SetViewModeExtraNr == 101))
@@ -4730,34 +4730,34 @@ label_10:
     pub void DoTabs1( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int num =  Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
-        int x = num + 420;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
-        int x = num + 420;
+         let mut local4: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
       str: String = "UNIT TROOPS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x1 =  Math.Round((double) ((float) (num + 420 + 91) - sizeF2.Width / 2f));
-      int y = 66;
+      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 91) - sizeF2.Width / 2f));
+      let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount + 1 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].PassengerCounter > 7)
       {
         DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0 + 2.0), y + 8 + 2, 9, 9, 0, 0, 0, 196);
         DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0), y + 8, 9, 9,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       }
-      Rectangle trect = new Rectangle(num + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 420, y, 182, 24);
       this.AddMouse( trect, "", "Click to get more stats on selected unit. [F10]", 1);
       this.tab1 = this.MouseCounter;
     }
@@ -4765,34 +4765,34 @@ label_10:
     pub void DoTabs1B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int num =  Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
-        int x = num + 420 + 170;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 420 + 170;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
-        int x = num + 420 + 170;
+         let mut local4: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 420 + 170;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
       str: String = "UNIT TROOPS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x1 =  Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
-      int y = 66;
+      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
+      let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount + 1 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].PassengerCounter > 7)
       {
         DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0 + 2.0), y + 8 + 2, 9, 9, 0, 0, 0, 196);
         DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0), y + 8, 9, 9,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       }
-      Rectangle trect = new Rectangle(num + 420 + 170, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 420 + 170, y, 182, 24);
       this.AddMouse( trect, "", "Click to get more stats on selected unit. [F10]", 1);
       this.tab1 = this.MouseCounter;
     }
@@ -4802,29 +4802,29 @@ label_10:
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
         return;
-      int num =  Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
-        int x = num + 170 + 420;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 170 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
-        int x = num + 170 + 420;
+         let mut local4: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 170 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
       str: String = "UNIT DETAILS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x1 =  Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
-      int y = 66;
+      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
+      let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 170 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 170 + 420, y, 182, 24);
       this.AddMouse( trect, "", "Click to see detailed stats on the unit. [F11]", 2);
       this.tab2 = this.MouseCounter;
     }
@@ -4834,29 +4834,29 @@ label_10:
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
         return;
-      int num =  Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
-        int x = num + 340 + 420;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 340 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
-        int x = num + 340 + 420;
+         let mut local4: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 340 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
       str: String = "UNIT DETAILS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x1 =  Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
-      int y = 66;
+      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
+      let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 340 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 340 + 420, y, 182, 24);
       this.AddMouse( trect, "", "Click to see detailed stats on the unit. [F11]", 2);
       this.tab2 = this.MouseCounter;
     }
@@ -4866,29 +4866,29 @@ label_10:
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
         return;
-      int num =  Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
-        int x = num + 340 + 420;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 340 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
-        int x = num + 340 + 420;
+         let mut local4: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 340 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
       str: String = "COMBAT SETUP";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x1 =  Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
-      int y = 66;
+      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
+      let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 340 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 340 + 420, y, 182, 24);
       this.AddMouse( trect, "", "Click to see the combat setup. [F12]", 3);
       this.tab3 = this.MouseCounter;
     }
@@ -4896,29 +4896,29 @@ label_10:
     pub void DoTabs4( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int num =  Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
-        int x = num + 0 + 420;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 0 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
-        int x = num + 0 + 420;
+         let mut local4: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 0 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
       str: String = "OFFICER INFO";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x1 =  Math.Round((double) ((float) (num + 420 + 0 + 91) - sizeF2.Width / 2f));
-      int y = 66;
+      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 0 + 91) - sizeF2.Width / 2f));
+      let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 0 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 0 + 420, y, 182, 24);
       this.AddMouse( trect, "", "Click to see the info on the officer with this unit. [F9]", 4);
       this.tab4 = this.MouseCounter;
     }
@@ -4926,29 +4926,29 @@ label_10:
     pub void DoTabs4B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int num =  Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
-         Graphics local1 =  g;
+         let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local2 =  bitmap;
-        int x = num + 170 + 420;
+         let mut local2: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 170 + 420;
         DrawMod.Draw( local1,  local2, x, 66, -0.1f, -0.1f, -0.1f, 1f);
       }
       else
       {
-         Graphics local3 =  g;
+         let mut local3: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
-         Bitmap local4 =  bitmap;
-        int x = num + 170 + 420;
+         let mut local4: &Bitmap = &bitmap;
+        let mut x: i32 =  num + 170 + 420;
         DrawMod.DrawSimple( local3,  local4, x, 66);
       }
       str: String = "OFFICER INFO";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x1 =  Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
-      int y = 66;
+      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
+      let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
-      Rectangle trect = new Rectangle(num + 170 + 420, y, 182, 24);
+      Rectangle trect = Rectangle::new(num + 170 + 420, y, 182, 24);
       this.AddMouse( trect, "", "Click to see the info on the officer with this unit. [F9]", 4);
       this.tab4 = this.MouseCounter;
     }
@@ -4958,8 +4958,8 @@ label_10:
       base.HandleToolTip(x, y);
       if (this.SubPartCounter <= -1)
         return;
-      int subPartCounter = this.SubPartCounter;
-      for (int index = 0; index <= subPartCounter; index += 1)
+      let mut subPartCounter: i32 =  this.SubPartCounter;
+      for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
       {
         if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index] && Operators.CompareString(this.SubPartList[index].Descript, "", false) > 0)
         {
@@ -4989,7 +4989,7 @@ label_10:
         return windowReturnClass1;
       if (y > 18 && (double) this.w / 2.0 - 500.0 < (double) x & (double) x < (double) this.w / 2.0 + 500.0)
         windowReturnClass1.NoMouseClickBelow = true;
-      for (int mouseCounter = this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
+      for (let mut mouseCounter: i32 =  this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
       {
         if (this.MouseData[mouseCounter] > 0 && x > this.MouseRect[mouseCounter].X & x < this.MouseRect[mouseCounter].X + this.MouseRect[mouseCounter].Width && y > this.MouseRect[mouseCounter].Y & y < this.MouseRect[mouseCounter].Y + this.MouseRect[mouseCounter].Height)
         {
@@ -5144,18 +5144,18 @@ label_10:
       }
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int index2 = 1;
+            let mut index2: i32 =  1;
             while (this.ActionButtonId[index2] != this.SubPartID[index1])
             {
               index2 += 1;
               if (index2 > 10)
               {
-                int num1 = this.SubPartID[index1];
+                let mut num1: i32 =  this.SubPartID[index1];
                 if (num1 == this.GuiDownId)
                 {
                   if (!this.game.EditObj.GuiDown)
@@ -5276,8 +5276,8 @@ label_10:
                   this.game.EditObj.TempCoordList = CoordList::new();
                   this.lastorderx = -1;
                   this.lastordery = -1;
-                  int counter = this.game.EditObj.TempUnitList.counter;
-                  for (int index3 = 0; index3 <= counter; index3 += 1)
+                  let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
+                  for (let mut index3: i32 =  0; index3 <= counter; index3 += 1)
                     this.game.EditObj.TempCoordList.AddCoord(this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index3]].X, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index3]].Y, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index3]].Map);
                   this.game.EditObj.TempUnitList = UnitList::new();
                   windowReturnClass1.AddCommand(4, 12);
@@ -5299,14 +5299,14 @@ label_10:
                   this.game.EditObj.TempUnitList = UnitList::new();
                   if (this.game.EditObj.OrderType == 11 | this.game.EditObj.OrderType == 13 | this.game.EditObj.OrderType == 14 | this.game.EditObj.OrderType == 15)
                   {
-                    int mapCounter = this.game.Data.MapCounter;
-                    for (int index4 = 0; index4 <= mapCounter; index4 += 1)
+                    let mut mapCounter: i32 =  this.game.Data.MapCounter;
+                    for (let mut index4: i32 =  0; index4 <= mapCounter; index4 += 1)
                     {
-                      int mapWidth = this.game.Data.MapObj[index4].MapWidth;
-                      for (int index5 = 0; index5 <= mapWidth; index5 += 1)
+                      let mut mapWidth: i32 =  this.game.Data.MapObj[index4].MapWidth;
+                      for (let mut index5: i32 =  0; index5 <= mapWidth; index5 += 1)
                       {
-                        int mapHeight = this.game.Data.MapObj[index4].MapHeight;
-                        for (int index6 = 0; index6 <= mapHeight; index6 += 1)
+                        let mut mapHeight: i32 =  this.game.Data.MapObj[index4].MapHeight;
+                        for (let mut index6: i32 =  0; index6 <= mapHeight; index6 += 1)
                         {
                           Coordinate coordinate;
                           coordinate.x = index5;
@@ -5315,10 +5315,10 @@ label_10:
                           coordinate.onmap = true;
                           if (this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter > -1 && this.game.Data.UnitObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[0]].Regime == this.game.Data.Turn)
                           {
-                            int unitCounter = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
-                            for (int index7 = 0; index7 <= unitCounter; index7 += 1)
+                            let mut unitCounter: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
+                            for (let mut index7: i32 =  0; index7 <= unitCounter; index7 += 1)
                             {
-                              int unit = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index7];
+                              let mut unit: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index7];
                               if (this.game.EditObj.TempCoordList.counter < 15)
                               {
                                 if (this.game.EditObj.OrderType == 11)
@@ -5372,18 +5372,18 @@ label_10:
                   }
                   else
                   {
-                    int num2 = this.game.HandyFunctionsObj.HexNeighbourCount(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap);
-                    for (int tfacing = 1; tfacing <= num2; tfacing += 1)
+                    let mut num2: i32 =  this.game.HandyFunctionsObj.HexNeighbourCount(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap);
+                    for (let mut tfacing: i32 =  1; tfacing <= num2; tfacing += 1)
                     {
                       Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, tfacing);
                       if (coordinate.onmap && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter > -1 && this.game.Data.UnitObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[0]].Regime == this.game.Data.Turn)
                       {
-                        int unitCounter = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
-                        for (int index8 = 0; index8 <= unitCounter; index8 += 1)
+                        let mut unitCounter: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
+                        for (let mut index8: i32 =  0; index8 <= unitCounter; index8 += 1)
                         {
                           if (this.game.EditObj.TempCoordList.counter < 15)
                           {
-                            int unit = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index8];
+                            let mut unit: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index8];
                             if (this.game.EditObj.OrderType == 2)
                             {
                               if (this.game.HandyFunctionsObj.CanDoLandAttack(unit, target))
@@ -5433,7 +5433,7 @@ label_10:
                       windowReturnClass1.SetFlag(true);
                       break;
                     case 3:
-                      int historical = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical;
+                      let mut historical: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical;
                       if (historical > -1 && this.game.Data.HistoricalUnitObj[historical].HandCardCounter > -1 & (double) this.game.Data.RuleVar[897] == 0.0 && Interaction.MsgBox((object) "This action will cause the HQ to lose all handcards. Are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
                       {
                         this.game.EditObj.OrderType = 0;
@@ -5519,13 +5519,13 @@ label_10:
                         windowReturnClass1.SetFlag(true);
                         break;
                       }
-                      int num3 = 0;
+                      let mut num3: i32 =  0;
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
                       {
                         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 14)
                         {
                           num3 = 1;
-                          int num4 =  Interaction.MsgBox((object) "Already 16 units in that hex.");
+                          let mut num4: i32 =   Interaction.MsgBox((object) "Already 16 units in that hex.");
                           this.game.EditObj.OrderType = 0;
                           windowReturnClass1.AddCommand(4, 12);
                           windowReturnClass1.AddCommand(4, 68);
@@ -5580,7 +5580,7 @@ label_10:
                         windowReturnClass1.AddCommand(4, 9);
                         if (this.game.SelectX == this.game.EditObj.OrderX & this.game.SelectY == this.game.EditObj.OrderY)
                         {
-                          int num5 = 0;
+                          let mut num5: i32 =  0;
                           while (this.game.EditObj.OrderUnit != this.game.HandyFunctionsObj.ClickOnHexGivesUnit(this.game.SelectX, this.game.SelectY, 0, false, 1))
                           {
                             num5 += 1;
@@ -5785,22 +5785,22 @@ label_10:
                   this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
                   this.game.EditObj.TempCoordList = CoordList::new();
                   this.game.EditObj.TempValue = new MapMatrix2[this.game.Data.MapCounter + 1];
-                  int mapCounter1 = this.game.Data.MapCounter;
-                  for (int index9 = 0; index9 <= mapCounter1; index9 += 1)
+                  let mut mapCounter1: i32 =  this.game.Data.MapCounter;
+                  for (let mut index9: i32 =  0; index9 <= mapCounter1; index9 += 1)
                     this.game.EditObj.TempValue[index9] = new MapMatrix2(this.game.Data.MapObj[index9].MapWidth, this.game.Data.MapObj[index9].MapHeight);
-                  int mapCounter2 = this.game.Data.MapCounter;
-                  for (int index10 = 0; index10 <= mapCounter2; index10 += 1)
+                  let mut mapCounter2: i32 =  this.game.Data.MapCounter;
+                  for (let mut index10: i32 =  0; index10 <= mapCounter2; index10 += 1)
                   {
-                    int mapWidth = this.game.Data.MapObj[index10].MapWidth;
-                    for (int index11 = 0; index11 <= mapWidth; index11 += 1)
+                    let mut mapWidth: i32 =  this.game.Data.MapObj[index10].MapWidth;
+                    for (let mut index11: i32 =  0; index11 <= mapWidth; index11 += 1)
                     {
-                      int mapHeight = this.game.Data.MapObj[index10].MapHeight;
-                      for (int index12 = 0; index12 <= mapHeight; index12 += 1)
+                      let mut mapHeight: i32 =  this.game.Data.MapObj[index10].MapHeight;
+                      for (let mut index12: i32 =  0; index12 <= mapHeight; index12 += 1)
                         this.game.EditObj.TempValue[index10].Value[index11, index12] = 9999;
                     }
                   }
-                  int num6 = this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                  for (int tfacing = 1; tfacing <= num6; tfacing += 1)
+                  let mut num6: i32 =  this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                  for (let mut tfacing: i32 =  1; tfacing <= num6; tfacing += 1)
                   {
                     Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, tfacing);
                     if (coordinate.onmap && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea)
@@ -5854,22 +5854,22 @@ label_10:
                   this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
                   this.game.EditObj.TempCoordList = CoordList::new();
                   this.game.EditObj.TempValue = new MapMatrix2[this.game.Data.MapCounter + 1];
-                  int mapCounter3 = this.game.Data.MapCounter;
-                  for (int index13 = 0; index13 <= mapCounter3; index13 += 1)
+                  let mut mapCounter3: i32 =  this.game.Data.MapCounter;
+                  for (let mut index13: i32 =  0; index13 <= mapCounter3; index13 += 1)
                     this.game.EditObj.TempValue[index13] = new MapMatrix2(this.game.Data.MapObj[index13].MapWidth, this.game.Data.MapObj[index13].MapHeight);
-                  int mapCounter4 = this.game.Data.MapCounter;
-                  for (int index14 = 0; index14 <= mapCounter4; index14 += 1)
+                  let mut mapCounter4: i32 =  this.game.Data.MapCounter;
+                  for (let mut index14: i32 =  0; index14 <= mapCounter4; index14 += 1)
                   {
-                    int mapWidth = this.game.Data.MapObj[index14].MapWidth;
-                    for (int index15 = 0; index15 <= mapWidth; index15 += 1)
+                    let mut mapWidth: i32 =  this.game.Data.MapObj[index14].MapWidth;
+                    for (let mut index15: i32 =  0; index15 <= mapWidth; index15 += 1)
                     {
-                      int mapHeight = this.game.Data.MapObj[index14].MapHeight;
-                      for (int index16 = 0; index16 <= mapHeight; index16 += 1)
+                      let mut mapHeight: i32 =  this.game.Data.MapObj[index14].MapHeight;
+                      for (let mut index16: i32 =  0; index16 <= mapHeight; index16 += 1)
                         this.game.EditObj.TempValue[index14].Value[index15, index16] = 9999;
                     }
                   }
-                  int num7 = this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-                  for (int tfacing = 1; tfacing <= num7; tfacing += 1)
+                  let mut num7: i32 =  this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+                  for (let mut tfacing: i32 =  1; tfacing <= num7; tfacing += 1)
                   {
                     Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, tfacing);
                     if (coordinate.onmap && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea)
@@ -5923,11 +5923,11 @@ label_10:
                   this.game.EditObj.OrderY = this.game.SelectY;
                   this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
                   this.game.EditObj.TempCoordList = this.game.HandyFunctionsObj.MakeMovePrediction(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map, false, PredictAirOnly: true, attack: true);
-                  int mapWidth = this.game.Data.MapObj[0].MapWidth;
-                  for (int index17 = 0; index17 <= mapWidth; index17 += 1)
+                  let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
+                  for (let mut index17: i32 =  0; index17 <= mapWidth; index17 += 1)
                   {
-                    int mapHeight = this.game.Data.MapObj[0].MapHeight;
-                    for (int index18 = 0; index18 <= mapHeight; index18 += 1)
+                    let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
+                    for (let mut index18: i32 =  0; index18 <= mapHeight; index18 += 1)
                       this.game.EditObj.TempValue2[0].Value[index17, index18] = this.game.EditObj.TempValue[0].Value[index17, index18];
                   }
                   this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
@@ -6009,9 +6009,9 @@ label_10:
                       windowReturnClass2: WindowReturnClass;
                       return windowReturnClass2;
                     }
-                    int messCounter1 = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+                    let mut messCounter1: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
                     int num8;
-                    for (int index19 = 0; index19 <= messCounter1; index19 += 1)
+                    for (let mut index19: i32 =  0; index19 <= messCounter1; index19 += 1)
                     {
                       if (Strings.InStr(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[index19], "YOUR MESSAGE TO") > 0)
                         num8 += 1;
@@ -6035,16 +6035,16 @@ label_10:
                     }
                     this.game.EditObj.OrderType = 0;
                     bool flag1 = false;
-                    int num9 = 0;
-                    int messCounter2 = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
-                    for (int index20 = 0; index20 <= messCounter2; index20 += 1)
+                    let mut num9: i32 =  0;
+                    let mut messCounter2: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+                    for (let mut index20: i32 =  0; index20 <= messCounter2; index20 += 1)
                     {
                       bool flag2 = false;
                       if (this.game.Data.RegimeObj[this.game.Data.Turn].MesStyle[index20] == 3)
                       {
                         DynamicData dynamicData = new DynamicData(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[index20]);
-                        int elementCounter = dynamicData.elementCounter;
-                        for (int index21 = 0; index21 <= elementCounter; index21 += 1)
+                        let mut elementCounter: i32 =  dynamicData.elementCounter;
+                        for (let mut index21: i32 =  0; index21 <= elementCounter; index21 += 1)
                         {
                           if (dynamicData.element[index21].type == DynamicType.OptionField)
                             flag2 = true;
@@ -6108,13 +6108,13 @@ label_10:
                   }
                   else if (num1 == this.ButtonZoomOutId)
                   {
-                    int num10 = 0;
+                    let mut num10: i32 =  0;
                     if (this.game.EditObj.GuiDown)
                       num10 = 222;
-                    int num11 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-                    int num12 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-                    int num13 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num10)) / 53.0));
-                    int num14 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num10)) / 106.0));
+                    let mut num11: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
+                    let mut num12: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
+                    let mut num13: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num10)) / 53.0));
+                    let mut num14: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num10)) / 106.0));
                     int num15;
                     int num16;
                     if (this.game.EditObj.Zoom == 0)
@@ -6152,13 +6152,13 @@ label_10:
                   }
                   else if (num1 == this.ButtonZoomInId)
                   {
-                    int num17 = 0;
+                    let mut num17: i32 =  0;
                     if (this.game.EditObj.GuiDown)
                       num17 = 222;
-                    int num18 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-                    int num19 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-                    int num20 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num17)) / 53.0));
-                    int num21 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num17)) / 106.0));
+                    let mut num18: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
+                    let mut num19: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
+                    let mut num20: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num17)) / 53.0));
+                    let mut num21: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num17)) / 106.0));
                     int num22;
                     int num23;
                     if (this.game.EditObj.Zoom == 0)
@@ -6213,10 +6213,10 @@ label_10:
                     else
                     {
                       this.game.EditObj.LayerSupplyOn = true;
-                      int unr = this.game.EditObj.UnitSelected;
+                      let mut unr: i32 =  this.game.EditObj.UnitSelected;
                       if (this.game.Data.Product >= 6 & (double) this.game.Data.RuleVar[471] > 0.0)
                       {
-                        int index22 = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location2;
+                        let mut index22: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location2;
                         if (index22 > -1)
                         {
                           if (this.game.Data.LocTypeObj[this.game.Data.LocObj[index22].Type].isSupplySource | this.game.Data.LocTypeObj[this.game.Data.LocObj[index22].Type].isSupplyBase)
@@ -6249,8 +6249,8 @@ label_10:
                         }
                         else
                         {
-                          int unitCounter = this.game.Data.UnitCounter;
-                          for (int index23 = 0; index23 <= unitCounter; index23 += 1)
+                          let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                          for (let mut index23: i32 =  0; index23 <= unitCounter; index23 += 1)
                           {
                             if (this.game.Data.UnitObj[index23].Historical > -1 & this.game.Data.UnitObj[index23].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index23].X > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index23].Historical].Type == 8)
                             {
@@ -6376,7 +6376,7 @@ label_10:
                       this.game.EditObj.OrderX = this.game.SelectX;
                       this.game.EditObj.OrderY = this.game.SelectY;
                       this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
-                      int singleCapHq = this.game.HandyFunctionsObj.GetSingleCapHQ();
+                      let mut singleCapHq: i32 =  this.game.HandyFunctionsObj.GetSingleCapHQ();
                       if (singleCapHq > -1)
                       {
                         this.game.EditObj.OrderTarget = singleCapHq;
@@ -6403,7 +6403,7 @@ label_10:
                       this.game.EditObj.OrderX = this.game.SelectX;
                       this.game.EditObj.OrderY = this.game.SelectY;
                       this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
-                      int singleCapHq = this.game.HandyFunctionsObj.GetSingleCapHQ();
+                      let mut singleCapHq: i32 =  this.game.HandyFunctionsObj.GetSingleCapHQ();
                       if (singleCapHq > -1)
                       {
                         this.game.EditObj.OrderTarget = singleCapHq;
@@ -6662,8 +6662,8 @@ label_10:
                               this.game.EditObj.TempCoordList.AddCoord(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.MapSelected);
                               if (this.game.EditObj.TempUnitList.counter > -1)
                               {
-                                int counter = this.game.EditObj.TempUnitList.counter;
-                                for (int index24 = 0; index24 <= counter; index24 += 1)
+                                let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
+                                for (let mut index24: i32 =  0; index24 <= counter; index24 += 1)
                                   this.game.EditObj.TempCoordList.AddCoord(this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index24]].X, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index24]].Y, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index24]].Map);
                               }
                               this.game.EditObj.TargetX = -1;
@@ -6732,14 +6732,14 @@ label_10:
                             case 20:
                             case 21:
                               this.game.EditObj.TempCoordList = CoordList::new();
-                              int mapCounter = this.game.Data.MapCounter;
-                              for (int index25 = 0; index25 <= mapCounter; index25 += 1)
+                              let mut mapCounter: i32 =  this.game.Data.MapCounter;
+                              for (let mut index25: i32 =  0; index25 <= mapCounter; index25 += 1)
                               {
-                                int mapWidth = this.game.Data.MapObj[index25].MapWidth;
-                                for (int index26 = 0; index26 <= mapWidth; index26 += 1)
+                                let mut mapWidth: i32 =  this.game.Data.MapObj[index25].MapWidth;
+                                for (let mut index26: i32 =  0; index26 <= mapWidth; index26 += 1)
                                 {
-                                  int mapHeight = this.game.Data.MapObj[index25].MapHeight;
-                                  for (int index27 = 0; index27 <= mapHeight; index27 += 1)
+                                  let mut mapHeight: i32 =  this.game.Data.MapObj[index25].MapHeight;
+                                  for (let mut index27: i32 =  0; index27 <= mapHeight; index27 += 1)
                                     this.game.EditObj.TempValue[index25].Value[index26, index27] = 9999;
                                 }
                               }
@@ -6797,10 +6797,10 @@ label_10:
                 return windowReturnClass1;
               }
             }
-            int cardinhandnr = this.ActionButtonCardSlot[index2];
+            let mut cardinhandnr: i32 =  this.ActionButtonCardSlot[index2];
             this.game.EditObj.AreaX = this.game.SelectX;
             this.game.EditObj.AreaY = this.game.SelectY;
-            int messCounter = this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
+            let mut messCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter;
             this.game.ProcessingObj.PlayCard(this.game.Data.Turn, cardinhandnr);
             this.game.EditObj.AreaX = -1;
             this.game.EditObj.AreaY = -1;
@@ -6902,7 +6902,7 @@ label_10:
       this.game.EditObj.OrderUnit = -1;
       this.game.EditObj.OrderTarget = -1;
       this.game.EditObj.OldUnit = -1;
-      int humanPlayers = this.game.HandyFunctionsObj.GetHumanPlayers();
+      let mut humanPlayers: i32 =  this.game.HandyFunctionsObj.GetHumanPlayers();
       switch (humanPlayers)
       {
         case 1:
@@ -6921,12 +6921,12 @@ label_10:
       }
       if (humanPlayers > 2)
       {
-        for (int unitCounter = this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
+        for (let mut unitCounter: i32 =  this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
         {
           if (this.game.Data.UnitObj[unitCounter].Regime == this.game.Data.Turn & this.game.Data.UnitObj[unitCounter].PreDef == -1)
           {
             data: DataClass = this.game.Data;
-            int nr = unitCounter;
+            let mut nr: i32 =  unitCounter;
             let mut gameClass: GameClass = (GameClass) null;
              let mut local: GameClass =  gameClass;
             data.RemoveUnit(nr,  local);
@@ -6967,13 +6967,13 @@ label_10:
     pub DoEndTurnStuff: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      int regimeCounter = this.game.Data.RegimeCounter;
-      for (int regnr = 0; regnr <= regimeCounter; regnr += 1)
+      let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
+      for (let mut regnr: i32 =  0; regnr <= regimeCounter; regnr += 1)
       {
         if (this.game.Data.RegimeObj[regnr].Sleep | this.game.Data.RegimeObj[regnr].AI)
           this.game.HandyFunctionsObj.ClearHistory((object) regnr);
       }
-      int humanPlayers = this.game.HandyFunctionsObj.GetHumanPlayers();
+      let mut humanPlayers: i32 =  this.game.HandyFunctionsObj.GetHumanPlayers();
       this.game.EditObj.DoCardSlot = -1;
       this.game.EditObj.HandCard = -1;
       if (this.game.Data.UseAI == 1 && Information.IsNothing((object) this.game.NewAIObj))
@@ -7007,11 +7007,11 @@ label_10:
 
     pub void HighLightAItest()
     {
-      int unitSelected = this.game.EditObj.UnitSelected;
+      let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
       this.game.EditObj.TempCoordList = CoordList::new();
-      int num = -1;
-      int moveMatrixCounter = this.game.NewAIObj.MoveMatrixCounter;
-      for (int index = 0; index <= moveMatrixCounter; index += 1)
+      let mut num: i32 =  -1;
+      let mut moveMatrixCounter: i32 =  this.game.NewAIObj.MoveMatrixCounter;
+      for (let mut index: i32 =  0; index <= moveMatrixCounter; index += 1)
       {
         if (this.game.NewAIObj.MoveMatrixUnit[index] == unitSelected)
         {
@@ -7024,20 +7024,20 @@ label_10:
         return;
       if (this.game.Data.UnitObj[unitSelected].TempCategory == 1)
       {
-        int counter = this.game.NewAIObj.MarkerList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.game.NewAIObj.MarkerList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
           this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.MarkerList.Data1[index], this.game.NewAIObj.MarkerList.Data2[index]] = 0;
       }
       else if (this.game.Data.UnitObj[unitSelected].TempCategory == 2)
       {
-        int counter = this.game.NewAIObj.ArtMarkerList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.game.NewAIObj.ArtMarkerList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
           this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.ArtMarkerList.Data1[index], this.game.NewAIObj.ArtMarkerList.Data2[index]] = 0;
       }
       else if (this.game.Data.UnitObj[unitSelected].TempCategory == 3)
       {
-        int counter = this.game.NewAIObj.AirMarkerList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.game.NewAIObj.AirMarkerList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
           this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.AirMarkerList.Data1[index], this.game.NewAIObj.AirMarkerList.Data2[index]] = 0;
       }
       else
@@ -7046,14 +7046,14 @@ label_10:
           return;
         if (this.game.NewAIObj.EngineerMarkerList.Counter > -1)
         {
-          int counter = this.game.NewAIObj.EngineerMarkerList.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  this.game.NewAIObj.EngineerMarkerList.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
             this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.EngineerMarkerList.Data1[index], this.game.NewAIObj.EngineerMarkerList.Data2[index]] = 0;
         }
         else
         {
-          int counter = this.game.NewAIObj.MarkerList.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  this.game.NewAIObj.MarkerList.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
             this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.MarkerList.Data1[index], this.game.NewAIObj.MarkerList.Data2[index]] = 0;
         }
       }

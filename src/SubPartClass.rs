@@ -33,7 +33,7 @@ namespace WindowsApplication1
     pub void AddMouse( Rectangle trect, string ttitle, string ttext, let mut tdata: i32 = -1, let mut ttype: i32 = 0)
     {
       self += 1.MouseCounter;
-      self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) new Rectangle[self.MouseCounter + 1]);
+      self.MouseRect = (Rectangle[]) Utils.CopyArray((Array) self.MouseRect, (Array) Rectangle::new[self.MouseCounter + 1]);
       self.MouseText = (string[]) Utils.CopyArray((Array) self.MouseText, (Array) new string[self.MouseCounter + 1]);
       self.MouseTitle = (string[]) Utils.CopyArray((Array) self.MouseTitle, (Array) new string[self.MouseCounter + 1]);
       self.MouseData = (int[]) Utils.CopyArray((Array) self.MouseData, (Array) new int[self.MouseCounter + 1]);

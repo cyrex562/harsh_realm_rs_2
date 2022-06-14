@@ -110,7 +110,7 @@ namespace WindowsApplication1
       }
       else
       {
-        int index = 0;
+        let mut index: i32 =  0;
         do
         {
           this.RegimeSlotsCost[index] = -1;
@@ -190,7 +190,7 @@ namespace WindowsApplication1
       this.PeopleGroup = new bool[100];
       this.ResFieldNeeded = new int[5];
       this.Name = "Default Item Type";
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         this.GameSlotsNeeded[index1] = -1;
@@ -203,7 +203,7 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 4);
-      int index2 = 0;
+      let mut index2: i32 =  0;
       do
       {
         this.PeopleGroup[index2] = false;

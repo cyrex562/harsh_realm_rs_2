@@ -92,9 +92,9 @@ SAudioStreamFormat CIrrKlangAudioStreamMP3::getFormat() { return Format; }
 //! tells the audio stream to read n audio frames into the specified buffer
 ik_s32 CIrrKlangAudioStreamMP3::readFrames(void *target,
                                            ik_s32 frameCountToRead) {
-  const int frameSize = Format.getFrameSize();
+  const let mut frameSize: i32 =  Format.getFrameSize();
 
-  int framesRead = 0;
+  let mut framesRead: i32 =  0;
   ik_u8 *out = (ik_u8 *)target;
 
   while (framesRead < frameCountToRead) {
@@ -108,9 +108,9 @@ ik_s32 CIrrKlangAudioStreamMP3::readFrames(void *target,
         return framesRead;
     }
 
-    const int framesLeft = frameCountToRead - framesRead;
-    const int dequeSize = DecodedQueue.getSize() / frameSize;
-    const int framesToRead = framesLeft < dequeSize ? framesLeft : dequeSize;
+    const let mut framesLeft: i32 =  frameCountToRead - framesRead;
+    const let mut dequeSize: i32 =  DecodedQueue.getSize() / frameSize;
+    const let mut framesToRead: i32 =  framesLeft < dequeSize ? framesLeft : dequeSize;
 
     DecodedQueue.read(out, framesToRead * frameSize);
 
@@ -123,7 +123,7 @@ ik_s32 CIrrKlangAudioStreamMP3::readFrames(void *target,
 }
 
 bool CIrrKlangAudioStreamMP3::decodeFrame() {
-  int outputSize = 0;
+  let mut outputSize: i32 =  0;
 
   while (!outputSize) {
     if (InputPosition == InputLength) {
@@ -136,7 +136,7 @@ bool CIrrKlangAudioStreamMP3::decodeFrame() {
       }
     }
 
-    int rv = mpaudec_decode_frame(
+    let mut rv: i32 =  mpaudec_decode_frame(
         TheMPAuDecContext, (ik_s16 *)DecodeBuffer, &outputSize,
         (ik_u8 *)InputBuffer + InputPosition, InputLength - InputPosition);
 
@@ -211,12 +211,12 @@ bool CIrrKlangAudioStreamMP3::setPosition(ik_s32 pos) {
   } else {
     // user wants to seek in the stream, so do this here
 
-    int scan_position = 0;
-    int target_frame = 0;
-    int frame_count = (int)FramePositionData.size();
+    let mut scan_position: i32 =  0;
+    let mut target_frame: i32 =  0;
+    let mut frame_count: i32 =  (int)FramePositionData.size();
 
     while (target_frame < frame_count) {
-      int frame_size = FramePositionData[target_frame].size;
+      let mut frame_size: i32 =  FramePositionData[target_frame].size;
 
       if (pos <= scan_position + frame_size)
         break;
@@ -226,7 +226,7 @@ bool CIrrKlangAudioStreamMP3::setPosition(ik_s32 pos) {
       }
     }
 
-    const int MAX_FRAME_DEPENDENCY = 10;
+    const let mut MAX_FRAME_DEPENDENCY: i32 =  10;
     target_frame = std::max(0, target_frame - MAX_FRAME_DEPENDENCY);
     setPosition(0);
 
@@ -248,7 +248,7 @@ bool CIrrKlangAudioStreamMP3::setPosition(ik_s32 pos) {
       return false;
     }
 
-    int frames_to_consume = pos - Position; // PCM frames now
+    let mut frames_to_consume: i32 =  pos - Position; // PCM frames now
     if (frames_to_consume > 0) {
       ik_u8 *buf = new ik_u8[frames_to_consume * Format.getFrameSize()];
       readFrames(buf, frames_to_consume);
@@ -289,7 +289,7 @@ void CIrrKlangAudioStreamMP3::QueueBuffer::write(const void *buffer, int size) {
 }
 
 int CIrrKlangAudioStreamMP3::QueueBuffer::read(void *buffer, int size) {
-  int toRead = size < Size ? size : Size;
+  let mut toRead: i32 =  size < Size ? size : Size;
 
   memcpy(buffer, Buffer, toRead);
   memmove(Buffer, Buffer + toRead, Size - toRead);
@@ -302,17 +302,17 @@ void CIrrKlangAudioStreamMP3::QueueBuffer::clear() { Size = 0; }
 
 void CIrrKlangAudioStreamMP3::skipID3IfNecessary() {
   char header[10];
-  int read = File->read(&header, 10);
+  let mut read: i32 =  File->read(&header, 10);
 
   if (read == 10 && header[0] == 'I' && header[1] == 'D' && header[2] == '3') {
-    int versionMajor = header[3];
-    int versionMinor = header[4];
-    int flags = header[5];
+    let mut versionMajor: i32 =  header[3];
+    let mut versionMinor: i32 =  header[4];
+    let mut flags: i32 =  header[5];
 
     // IDv2 size looks like the following: ID3v2 size  4 * %0xxxxxxx.
     // Sick, but that's how it works.
 
-    int size = 0;
+    let mut size: i32 =  0;
     size = (header[6] & 0x7f) << (3 * 7);
     size |= (header[7] & 0x7f) << (2 * 7);
     size |= (header[8] & 0x7f) << (1 * 7);

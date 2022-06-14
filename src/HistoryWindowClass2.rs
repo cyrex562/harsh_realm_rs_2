@@ -53,7 +53,7 @@ namespace WindowsApplication1
      int h;
      int lastendstep;
 
-    pub HistoryWindowClass2( GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub HistoryWindowClass2( GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base( tGame, tGame.ScreenWidth, 222, BackSprite: tGame.MARCBOTBAR)
     {
       this.w = tGame.ScreenWidth;
@@ -110,8 +110,8 @@ namespace WindowsApplication1
       this.game.EditObj.HisOwner = new MapMatrix2[this.game.Data.MapCounter + 1];
       this.game.EditObj.HisHis = new MapMatrix2[this.game.Data.MapCounter + 1];
       this.game.EditObj.HisDepth = new MapMatrix2[this.game.Data.MapCounter + 1];
-      int mapCounter = this.game.Data.MapCounter;
-      for (int index = 0; index <= mapCounter; index += 1)
+      let mut mapCounter: i32 =  this.game.Data.MapCounter;
+      for (let mut index: i32 =  0; index <= mapCounter; index += 1)
       {
         this.game.EditObj.HisForce[index] = this.game.Data.RegimeObj[this.Turny].HistoryForce[index].Clone();
         this.game.EditObj.HisSFType[index] = this.game.Data.RegimeObj[this.Turny].HistorySFType[index].Clone();
@@ -136,8 +136,8 @@ namespace WindowsApplication1
 
     pub void Forward(int steps)
     {
-      int num1 = -1;
-      int num2 = 0;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  0;
       this.game.EditObj.HisHotX = -1;
       this.game.EditObj.HisHotY = -1;
       this.game.EditObj.HisHotMap = -1;
@@ -151,9 +151,9 @@ namespace WindowsApplication1
       this.game.EditObj.HisLossAttReg = -1;
       this.game.EditObj.HisInfoString = "";
       this.game.EditObj.HisAttackType = -1;
-      int num3 = 0;
-      int historyStepCounter = this.game.Data.RegimeObj[this.Turny].HistoryStepCounter;
-      for (int index1 = 0; index1 <= historyStepCounter; index1 += 1)
+      let mut num3: i32 =  0;
+      let mut historyStepCounter: i32 =  this.game.Data.RegimeObj[this.Turny].HistoryStepCounter;
+      for (let mut index1: i32 =  0; index1 <= historyStepCounter; index1 += 1)
       {
         HistoryStepClass historyStepClass = this.game.Data.RegimeObj[this.Turny].HistoryStep[index1];
         if (historyStepClass.StepNr > this.RealStepNr)
@@ -186,7 +186,7 @@ namespace WindowsApplication1
           this.game.EditObj.HisHis[historyStepClass.Map].Value[historyStepClass.X, historyStepClass.Y] = historyStepClass.His;
           this.game.EditObj.HisDepth[historyStepClass.Map].Value[historyStepClass.X, historyStepClass.Y] = historyStepClass.Depth;
           this.game.EditObj.TempCoordList.AddCoord(historyStepClass.X, historyStepClass.Y, historyStepClass.Map);
-          int tfacing = 1;
+          let mut tfacing: i32 =  1;
           do
           {
             Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(historyStepClass.X, historyStepClass.Y, historyStepClass.Map, tfacing);
@@ -211,7 +211,7 @@ namespace WindowsApplication1
             this.game.EditObj.HisHotY = historyStepClass.Y;
             this.game.EditObj.HisHotMap = historyStepClass.Map;
             this.game.EditObj.HisNeighbour = Neighbours::new();
-            int index2 = 0;
+            let mut index2: i32 =  0;
             do
             {
               this.game.EditObj.HisNeighbour.data[index2] = historyStepClass.AttackDirection[index2];
@@ -233,8 +233,8 @@ namespace WindowsApplication1
             this.game.EditObj.HisLossOK = new int[historyStepClass.LossCounter + 1];
             this.game.EditObj.HisLossSFType = new int[historyStepClass.LossCounter + 1];
             this.game.EditObj.HisLossCounter = historyStepClass.LossCounter;
-            int lossCounter = historyStepClass.LossCounter;
-            for (int index3 = 0; index3 <= lossCounter; index3 += 1)
+            let mut lossCounter: i32 =  historyStepClass.LossCounter;
+            for (let mut index3: i32 =  0; index3 <= lossCounter; index3 += 1)
             {
               this.game.EditObj.HisLossAttacker[index3] = historyStepClass.LossAttacker[index3];
               this.game.EditObj.HisLossDEAD[index3] = historyStepClass.LossDEAD[index3];
@@ -252,8 +252,8 @@ namespace WindowsApplication1
             this.game.EditObj.HisLossOK = new int[this.game.Data.RegimeObj[this.Turny].HistoryStep[index1 + 1].LossCounter + 1];
             this.game.EditObj.HisLossSFType = new int[this.game.Data.RegimeObj[this.Turny].HistoryStep[index1 + 1].LossCounter + 1];
             this.game.EditObj.HisLossCounter = this.game.Data.RegimeObj[this.Turny].HistoryStep[index1 + 1].LossCounter;
-            int lossCounter = this.game.Data.RegimeObj[this.Turny].HistoryStep[index1 + 1].LossCounter;
-            for (int index4 = 0; index4 <= lossCounter; index4 += 1)
+            let mut lossCounter: i32 =  this.game.Data.RegimeObj[this.Turny].HistoryStep[index1 + 1].LossCounter;
+            for (let mut index4: i32 =  0; index4 <= lossCounter; index4 += 1)
             {
               this.game.EditObj.HisLossAttacker[index4] = this.game.Data.RegimeObj[this.Turny].HistoryStep[index1 + 1].LossAttacker[index4];
               this.game.EditObj.HisLossDEAD[index4] = this.game.Data.RegimeObj[this.Turny].HistoryStep[index1 + 1].LossDEAD[index4];
@@ -268,16 +268,16 @@ namespace WindowsApplication1
           }
         }
       }
-      int num4 =  Math.Round((double) this.game.ScreenWidth / 53.0);
-      int num5 =  Math.Round((double) (this.game.ScreenHeight - 200) / 48.0);
-      int num6 = 0;
+      let mut num4: i32 =   Math.Round((double) this.game.ScreenWidth / 53.0);
+      let mut num5: i32 =   Math.Round((double) (this.game.ScreenHeight - 200) / 48.0);
+      let mut num6: i32 =  0;
       if (this.game.EditObj.HisHotX > -1 & this.game.EditObj.HisHotY > -1)
       {
         if (this.game.Data.MapObj[0].MapLoop)
         {
           if (this.game.EditObj.HisHotX <= this.game.CornerX + 1)
           {
-            int num7 = this.game.CornerX + this.game.Data.MapObj[0].MapWidth + num4 + 5;
+            let mut num7: i32 =  this.game.CornerX + this.game.Data.MapObj[0].MapWidth + num4 + 5;
             if (num7 > this.game.Data.MapObj[0].MapWidth)
               num7 -= this.game.Data.MapObj[0].MapWidth + 1;
             if (this.game.EditObj.HisHotX > num7)
@@ -288,7 +288,7 @@ namespace WindowsApplication1
           num6 = 1;
         if (this.game.EditObj.HisHotY <= this.game.CornerY + 1)
           num6 = 1;
-        int num8 = this.game.CornerX + num4 - 2;
+        let mut num8: i32 =  this.game.CornerX + num4 - 2;
         if (this.game.Data.MapObj[0].MapLoop)
         {
           if (num8 > this.game.Data.MapObj[0].MapWidth)
@@ -312,8 +312,8 @@ namespace WindowsApplication1
       else
       {
         this.game.EditObj.TempCoordList = CoordList::new();
-        int num9 =  Math.Round((double) this.game.EditObj.HisHotX - (double) num4 / 2.0);
-        int num10 =  Math.Round((double) this.game.EditObj.HisHotY - (double) num5 / 2.0);
+        let mut num9: i32 =   Math.Round((double) this.game.EditObj.HisHotX - (double) num4 / 2.0);
+        let mut num10: i32 =   Math.Round((double) this.game.EditObj.HisHotY - (double) num5 / 2.0);
         if (0 > num9)
           num9 = 0;
         if (0 > num10)
@@ -326,13 +326,13 @@ namespace WindowsApplication1
           this.game.CornerX = 0;
         if (num10 == 0 & this.game.CornerY > 0)
           this.game.CornerY = 0;
-        int num11 = 265;
+        let mut num11: i32 =  265;
         if (this.game.EditObj.RealRound == 0)
           num11 += 100;
-        int num12 =  Math.Round((double) (this.game.ScreenWidth - 0) / 53.0);
-        int num13 =  Math.Round((double) (this.game.ScreenHeight - num11) / 48.0);
-        int num14 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
-        int num15 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
+        let mut num12: i32 =   Math.Round((double) (this.game.ScreenWidth - 0) / 53.0);
+        let mut num13: i32 =   Math.Round((double) (this.game.ScreenHeight - num11) / 48.0);
+        let mut num14: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
+        let mut num15: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
         if (num12 > num14)
           this.game.CornerX = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - num12 + 2;
         if (num13 > num15)
@@ -391,7 +391,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.ViewSupplyTextId);
       this.NewBackGroundAndClearAll(this.w, this.h, this.game.MARCBOTBAR);
       this.ClearMouse();
-      int num1 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
       if (this.mapid > 0)
         this.RemoveSubPart(this.mapid);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
@@ -413,22 +413,22 @@ namespace WindowsApplication1
         this.OptionsListObj.add("TYPE", -1, "START", "LOSS", tWeight: 9999999);
         try
         {
-          int hisLossCounter = this.game.EditObj.HisLossCounter;
-          for (int index1 = 0; index1 <= hisLossCounter; index1 += 1)
+          let mut hisLossCounter: i32 =  this.game.EditObj.HisLossCounter;
+          for (let mut index1: i32 =  0; index1 <= hisLossCounter; index1 += 1)
           {
             if (this.game.EditObj.HisLossAttacker[index1] == 1)
             {
-              int index2 = this.game.EditObj.HisLossSFType[index1];
+              let mut index2: i32 =  this.game.EditObj.HisLossSFType[index1];
               if (index2 == -1)
               {
                 this.OptionsListObj.add("Unknown Troops", -1, "?", "?", tWeight: 0);
               }
               else
               {
-                int Number = this.game.EditObj.HisLossOK[index1] + this.game.EditObj.HisLossDEAD[index1];
+                let mut Number: i32 =  this.game.EditObj.HisLossOK[index1] + this.game.EditObj.HisLossDEAD[index1];
                 if (this.game.Data.SFTypeObj[index2].Ratio > 0)
                   Number *= this.game.Data.SFTypeObj[index2].Ratio;
-                int num2 = this.game.EditObj.HisLossDEAD[index1];
+                let mut num2: i32 =  this.game.EditObj.HisLossDEAD[index1];
                 if (this.game.Data.SFTypeObj[index2].Ratio > 0)
                   num2 *= this.game.Data.SFTypeObj[index2].Ratio;
                 str: String = this.game.Data.SFTypeObj[index2].Name;
@@ -454,20 +454,20 @@ namespace WindowsApplication1
         this.OptionsListId = this.AddSubPart( tsubpart1, num1 + 200, 65, 290, 176, 0);
         this.OptionsList2Obj = ListClass::new();
         this.OptionsList2Obj.add("TYPE", -1, "START", "LOSS", tWeight: 9999999);
-        int hisLossCounter1 = this.game.EditObj.HisLossCounter;
-        for (int index3 = 0; index3 <= hisLossCounter1; index3 += 1)
+        let mut hisLossCounter1: i32 =  this.game.EditObj.HisLossCounter;
+        for (let mut index3: i32 =  0; index3 <= hisLossCounter1; index3 += 1)
         {
           if (this.game.EditObj.HisLossAttacker[index3] == 0)
           {
-            int index4 = this.game.EditObj.HisLossSFType[index3];
+            let mut index4: i32 =  this.game.EditObj.HisLossSFType[index3];
             if (index4 == -1)
             {
               this.OptionsList2Obj.add("Unknown Troops", -1, "?", "?", tWeight: 0);
             }
             else
             {
-              int Number = this.game.EditObj.HisLossOK[index3] + this.game.EditObj.HisLossDEAD[index3];
-              int num3 = this.game.EditObj.HisLossDEAD[index3];
+              let mut Number: i32 =  this.game.EditObj.HisLossOK[index3] + this.game.EditObj.HisLossDEAD[index3];
+              let mut num3: i32 =  this.game.EditObj.HisLossDEAD[index3];
               if (this.game.Data.SFTypeObj[index4].Ratio > 0)
                 Number *= this.game.Data.SFTypeObj[index4].Ratio;
               if (this.game.Data.SFTypeObj[index4].Ratio > 0)
@@ -608,8 +608,8 @@ namespace WindowsApplication1
         else
           windowReturnClass.SetFlag(true);
       }
-      int num1 = 1;
-      int index = this.game.EditObj.RealTurn;
+      let mut num1: i32 =  1;
+      let mut index: i32 =  this.game.EditObj.RealTurn;
       bool flag1 = false;
       while (num1 == 1)
       {
@@ -716,12 +716,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             int num2;
             if (num1 == this.OptionsListId)
             {

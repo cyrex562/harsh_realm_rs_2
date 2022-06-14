@@ -39,12 +39,12 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       str1: String = this.game.EditObj.QuestionText;
       sizeF1 = objgraphics.MeasureString(str1, this.game.VicFont3);
-      int num1 = -1;
+      let mut num1: i32 =  -1;
       while (Strings.Len(str1) > 0)
       {
         num1 += 1;
-        int Length = Strings.InStr(str1, ".");
-        int num2 = 0;
+        let mut Length: i32 =  Strings.InStr(str1, ".");
+        let mut num2: i32 =  0;
         if (Length > 0)
           num2 = Strings.InStr(Length + 1, str1, ".");
         string str2;
@@ -63,9 +63,9 @@ namespace WindowsApplication1
       }
       int[] answer = this.Answer;
       let mut tsubpart: SubPartClass =  new TextButtonPartClass(this.game.EditObj.AnswerText[1], 100, tBackbitmap: (ref this.OwnBitmap), bbx: 350, bby: 150);
-      int num3 = this.AddSubPart(ref tsubpart, 350, 150, 100, 36, 1);
+      let mut num3: i32 =  this.AddSubPart(ref tsubpart, 350, 150, 100, 36, 1);
       answer[1] = num3;
-      Rectangle trect = new Rectangle(350, 150, 100, 35);
+      Rectangle trect = Rectangle::new(350, 150, 100, 35);
       this.AddMouse(ref trect, "", this.game.EditObj.AnswerTextMouseOver[1]);
     }
 
@@ -102,13 +102,13 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int answerCount = this.game.EditObj.AnswerCount;
-            for (int index2 = 1; index2 <= answerCount; index2 += 1)
+            let mut answerCount: i32 =  this.game.EditObj.AnswerCount;
+            for (let mut index2: i32 =  1; index2 <= answerCount; index2 += 1)
             {
               if (this.Answer[index2] == this.SubPartID[index1])
               {

@@ -444,60 +444,60 @@ namespace WindowsApplication1
     pub usePullCities: bool;
     pub usePullUnits: bool;
     pub matrixSubPart_BlockMouseUpScroller1time: bool;
-    pub const int ORDERMOVE = 1;
-    pub const int ORDERATTACK = 2;
-    pub const int ORDERUNITHQ = 3;
-    pub const int ORDERPRODHQ = 4;
-    pub const int ORDERRECRUIT = 5;
-    pub const int ORDERPROD = 6;
-    pub const int ORDERNEWUNIT = 7;
-    pub const int ORDERNEWSF = 8;
-    pub const int ORDERTRANSFER = 9;
-    pub const int ORDERARTATTACK = 11;
-    pub const int ORDERSEAATTACK = 12;
-    pub const int ORDERSEAARTATTACK = 13;
-    pub const int ORDERAIRSTRIKE = 14;
-    pub const int ORDERBOMB = 15;
-    pub const int ORDERINTERNALAA = 16;
-    pub const int ORDERINTERNALDOGFIGHT = 17;
-    pub const int ORDERSTRATEGIC = 18;
-    pub const int ORDERPARADROP = 19;
-    pub const int ORDERLOAD = 20;
-    pub const int ORDERUNLOAD = 21;
-    pub const int ORDERPOOL = 22;
-    pub const int ORDERRESEARCH = 23;
-    pub const int ORDERDIP = 24;
-    pub const int ORDERCONSTRUCT = 25;
-    pub const int ORDERHISTORY = 26;
-    pub const int ORDERHISTORYACAP = 27;
-    pub const int ORDERHISTORYACAP2 = 28;
-    pub const int ORDERHISTORYACAP3 = 29;
-    pub const int ORDERPREFS = 30;
-    pub const int ORDERINTERNALREBEL = 31;
-    pub const int ORDERSTATS = 32;
-    pub const int ORDERAIRRECON = 33;
-    pub const int ORDERPEOPLETRANSFER = 34;
-    pub const int ORDERBLOW = 35;
-    pub const int ORDERINFRA = 36;
-    pub const int ORDERBUILD = 37;
-    pub const int ORDERVIEWSUPPLY = 38;
-    pub const int ORDERACAP = 39;
-    pub const int ORDERAIRSUPPLY = 40;
-    pub const int ORDERSURRENDER = 41;
-    pub const int ORDERAIRLIFT = 42;
-    pub const int ORDERAITEST = 43;
-    pub const int ORDERNEWUNIT2 = 44;
-    pub const int ORDEROFFICER = 45;
-    pub const int ORDERCHANGEMODEL = 46;
-    pub const int ORDERMODELDESIGNER = 47;
-    pub const int ORDERGROUPMOVE = 48;
-    pub const int ORDERGROUPSTRATEGIC = 49;
-    pub const int ORDERNEXT = 50;
-    pub const int ORDERSUPPLYLAYER = 51;
-    pub const int ORDERSFDESIGN = 52;
-    pub const int ORDERTRAFIC = 53;
-    pub const int ORDERZONEBORDER = 54;
-    pub const int ORDERAIRBRIDGE = 55;
+    pub const let mut ORDERMOVE: i32 =  1;
+    pub const let mut ORDERATTACK: i32 =  2;
+    pub const let mut ORDERUNITHQ: i32 =  3;
+    pub const let mut ORDERPRODHQ: i32 =  4;
+    pub const let mut ORDERRECRUIT: i32 =  5;
+    pub const let mut ORDERPROD: i32 =  6;
+    pub const let mut ORDERNEWUNIT: i32 =  7;
+    pub const let mut ORDERNEWSF: i32 =  8;
+    pub const let mut ORDERTRANSFER: i32 =  9;
+    pub const let mut ORDERARTATTACK: i32 =  11;
+    pub const let mut ORDERSEAATTACK: i32 =  12;
+    pub const let mut ORDERSEAARTATTACK: i32 =  13;
+    pub const let mut ORDERAIRSTRIKE: i32 =  14;
+    pub const let mut ORDERBOMB: i32 =  15;
+    pub const let mut ORDERINTERNALAA: i32 =  16;
+    pub const let mut ORDERINTERNALDOGFIGHT: i32 =  17;
+    pub const let mut ORDERSTRATEGIC: i32 =  18;
+    pub const let mut ORDERPARADROP: i32 =  19;
+    pub const let mut ORDERLOAD: i32 =  20;
+    pub const let mut ORDERUNLOAD: i32 =  21;
+    pub const let mut ORDERPOOL: i32 =  22;
+    pub const let mut ORDERRESEARCH: i32 =  23;
+    pub const let mut ORDERDIP: i32 =  24;
+    pub const let mut ORDERCONSTRUCT: i32 =  25;
+    pub const let mut ORDERHISTORY: i32 =  26;
+    pub const let mut ORDERHISTORYACAP: i32 =  27;
+    pub const let mut ORDERHISTORYACAP2: i32 =  28;
+    pub const let mut ORDERHISTORYACAP3: i32 =  29;
+    pub const let mut ORDERPREFS: i32 =  30;
+    pub const let mut ORDERINTERNALREBEL: i32 =  31;
+    pub const let mut ORDERSTATS: i32 =  32;
+    pub const let mut ORDERAIRRECON: i32 =  33;
+    pub const let mut ORDERPEOPLETRANSFER: i32 =  34;
+    pub const let mut ORDERBLOW: i32 =  35;
+    pub const let mut ORDERINFRA: i32 =  36;
+    pub const let mut ORDERBUILD: i32 =  37;
+    pub const let mut ORDERVIEWSUPPLY: i32 =  38;
+    pub const let mut ORDERACAP: i32 =  39;
+    pub const let mut ORDERAIRSUPPLY: i32 =  40;
+    pub const let mut ORDERSURRENDER: i32 =  41;
+    pub const let mut ORDERAIRLIFT: i32 =  42;
+    pub const let mut ORDERAITEST: i32 =  43;
+    pub const let mut ORDERNEWUNIT2: i32 =  44;
+    pub const let mut ORDEROFFICER: i32 =  45;
+    pub const let mut ORDERCHANGEMODEL: i32 =  46;
+    pub const let mut ORDERMODELDESIGNER: i32 =  47;
+    pub const let mut ORDERGROUPMOVE: i32 =  48;
+    pub const let mut ORDERGROUPSTRATEGIC: i32 =  49;
+    pub const let mut ORDERNEXT: i32 =  50;
+    pub const let mut ORDERSUPPLYLAYER: i32 =  51;
+    pub const let mut ORDERSFDESIGN: i32 =  52;
+    pub const let mut ORDERTRAFIC: i32 =  53;
+    pub const let mut ORDERZONEBORDER: i32 =  54;
+    pub const let mut ORDERAIRBRIDGE: i32 =  55;
     pub CounterAlpha: i32;
     pub CounterAlpha2: i32;
     pub Bitmap StratMap;
@@ -614,8 +614,8 @@ namespace WindowsApplication1
 
     pub void UDSAddInput(string tkey, int tvalue)
     {
-      int udSinputCounter = this.UDSinputCounter;
-      for (int index = 0; index <= udSinputCounter; index += 1)
+      let mut udSinputCounter: i32 =  this.UDSinputCounter;
+      for (let mut index: i32 =  0; index <= udSinputCounter; index += 1)
       {
         if (Operators.CompareString(this.UDSinputKey[index].ToLower(), tkey.ToLower(), false) == 0)
         {
@@ -1408,14 +1408,14 @@ namespace WindowsApplication1
           ProjectData.SetProjectError(ex);
           Exception exception = ex;
           this.initialSet();
-          int num =  Interaction.MsgBox((object) ("Prefs loading issue: '" + exception.Message + "'.. you can continue game however"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num: i32 =   Interaction.MsgBox((object) ("Prefs loading issue: '" + exception.Message + "'.. you can continue game however"), Title: ((object) "Shadow Empire : Planetary Conquest"));
           ProjectData.ClearProjectError();
         }
         streamReader.Close();
       }
       else
       {
-        int num1 =  Interaction.MsgBox((object) "Prefs not found and could not be loaded at all. you can continue game however", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox((object) "Prefs not found and could not be loaded at all. you can continue game however", Title: ((object) "Shadow Empire : Planetary Conquest"));
       }
       if (this.PbemSerial.Length < 19)
         this.PbemSerial = "0000-0000-0000-0000";

@@ -314,9 +314,9 @@ namespace WindowsApplication1
           {
             let mut sidewaysSpriteId1: i32 = this.game.Data.SFTypeObj[typ].SidewaysSpriteID;
             DrawMod.DrawBlockGradient2( graphics1, num2 + 60, num4, 139, 79, c1, c2_2);
-             Graphics local1 =  graphics1;
+             let mut local1: &Graphics = &graphics1;
             Bitmap bitmap1 = BitmapStore.GetBitmap(sidewaysSpriteId1);
-             Bitmap local2 =  bitmap1;
+             let mut local2: &Bitmap = &bitmap1;
             let mut sftypenr: i32 = typ;
             let mut ppl1: i32 = pplnr;
             let mut tx1: i32 = num2 + 60;
@@ -325,9 +325,9 @@ namespace WindowsApplication1
             DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  graphics1, num2 + 60, num4, 140, 80, -1, -1);
             let mut sidewaysSpriteId2: i32 = this.game.Data.SFTypeObj[this.comparenr].SidewaysSpriteID;
             DrawMod.DrawBlockGradient2( graphics1, num3 + 60, num4, 139, 79, c1, c2_2);
-             Graphics local3 =  graphics1;
+             let mut local3: &Graphics = &graphics1;
             Bitmap bitmap2 = BitmapStore.GetBitmap(sidewaysSpriteId2);
-             Bitmap local4 =  bitmap2;
+             let mut local4: &Bitmap = &bitmap2;
             let mut comparenr: i32 = this.comparenr;
             let mut ppl2: i32 = pplnr;
             let mut tx2: i32 = num3 + 60;
@@ -351,13 +351,13 @@ namespace WindowsApplication1
               let mut newGfxSkyY: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxSkyY;
               if (newGfxSkyEventPic > -1)
               {
-                 Graphics local5 =  graphics1;
+                 let mut local5: &Graphics = &graphics1;
                 Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[newGfxSkyEventPic]);
-                 Bitmap local6 =  bitmap;
-                rectangle2 = new Rectangle(newGfxSkyX * 420, newGfxSkyY * 240, 420, 240);
-                Rectangle srcrect = rectangle2;
-                rectangle1 = new Rectangle(num5, num6, 420, 240);
-                Rectangle destrect = rectangle1;
+                 let mut local6: &Bitmap = &bitmap;
+                rectangle2 = Rectangle::new(newGfxSkyX * 420, newGfxSkyY * 240, 420, 240);
+                let mut srcrect: &Rectangle = &rectangle2
+                rectangle1 = Rectangle::new(num5, num6, 420, 240);
+                let mut destrect: &Rectangle = &rectangle1
                 DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
               }
               let mut backgroundEventPic1: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxBackgroundEventPic;
@@ -365,13 +365,13 @@ namespace WindowsApplication1
               let mut newGfxBackgroundY: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxBackgroundY;
               if (backgroundEventPic1 > -1)
               {
-                 Graphics local7 =  graphics1;
+                 let mut local7: &Graphics = &graphics1;
                 Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[backgroundEventPic1]);
-                 Bitmap local8 =  bitmap;
-                rectangle1 = new Rectangle(newGfxBackgroundX * 420, newGfxBackgroundY * 240, 420, 240);
-                Rectangle srcrect = rectangle1;
-                rectangle2 = new Rectangle(num5, num6, 420, 240);
-                Rectangle destrect = rectangle2;
+                 let mut local8: &Bitmap = &bitmap;
+                rectangle1 = Rectangle::new(newGfxBackgroundX * 420, newGfxBackgroundY * 240, 420, 240);
+                let mut srcrect: &Rectangle = &rectangle1
+                rectangle2 = Rectangle::new(num5, num6, 420, 240);
+                let mut destrect: &Rectangle = &rectangle2
                 DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
               }
               let mut backgroundEventPic2: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxWeatherBackgroundEventPic;
@@ -379,13 +379,13 @@ namespace WindowsApplication1
               let mut weatherBackgroundY: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxWeatherBackgroundY;
               if (backgroundEventPic2 > -1)
               {
-                 Graphics local9 =  graphics1;
+                 let mut local9: &Graphics = &graphics1;
                 Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[backgroundEventPic2]);
-                 Bitmap local10 =  bitmap;
-                rectangle1 = new Rectangle(weatherBackgroundX * 420, weatherBackgroundY * 240, 420, 240);
-                Rectangle srcrect = rectangle1;
-                rectangle2 = new Rectangle(num5, num6, 420, 240);
-                Rectangle destrect = rectangle2;
+                 let mut local10: &Bitmap = &bitmap;
+                rectangle1 = Rectangle::new(weatherBackgroundX * 420, weatherBackgroundY * 240, 420, 240);
+                let mut srcrect: &Rectangle = &rectangle1
+                rectangle2 = Rectangle::new(num5, num6, 420, 240);
+                let mut destrect: &Rectangle = &rectangle2
                 DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
               }
             }
@@ -395,8 +395,8 @@ namespace WindowsApplication1
               DrawMod.DrawBlockGradient2( graphics1, num5, num6 + 160, 419, 79, c1, c2_1);
             }
             Graphics graphics2 = graphics1;
-            rectangle1 = new Rectangle(num5, num6, 420, 240);
-            Rectangle rect1 = rectangle1;
+            rectangle1 = Rectangle::new(num5, num6, 420, 240);
+            let mut rect1: &Rectangle = &rectangle1
             graphics2.SetClip(rect1);
             if (this.game.Data.RegimeObj[this.game.Data.UnitObj[this.unr].Regime].Mirror)
             {
@@ -404,9 +404,9 @@ namespace WindowsApplication1
               matrix.Scale(-1f, 1f);
               matrix.Translate((float) -(2 * num5 + 420), 0.0f);
               graphics1.Transform = matrix;
-               Graphics local11 =  graphics1;
+               let mut local11: &Graphics = &graphics1;
               Bitmap bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
-               Bitmap local12 =  bitmap;
+               let mut local12: &Bitmap = &bitmap;
               let mut sftypenr: i32 = typ;
               let mut ppl: i32 = pplnr;
               let mut tx: i32 = num5;
@@ -416,9 +416,9 @@ namespace WindowsApplication1
             }
             else
             {
-               Graphics local13 =  graphics1;
+               let mut local13: &Graphics = &graphics1;
               Bitmap bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
-               Bitmap local14 =  bitmap;
+               let mut local14: &Bitmap = &bitmap;
               let mut sftypenr: i32 = typ;
               let mut ppl: i32 = pplnr;
               let mut tx: i32 = num5;
@@ -426,8 +426,8 @@ namespace WindowsApplication1
               DrawMod.DrawWithArtCode( local13,  local14, 420, 240, sftypenr, ppl, tx, ty, 420, 240);
             }
             Graphics graphics3 = graphics1;
-            rectangle1 = new Rectangle(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height);
-            Rectangle rect2 = rectangle1;
+            rectangle1 = Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height);
+            let mut rect2: &Rectangle = &rectangle1
             graphics3.SetClip(rect2);
             if (this.game.SelectX > -1 & this.sfnr > -1 & this.game.SelectY > -1)
             {
@@ -437,13 +437,13 @@ namespace WindowsApplication1
               let mut newGfxForegroundY: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxForegroundY;
               if (foregroundEventPic1 > -1)
               {
-                 Graphics local15 =  graphics1;
+                 let mut local15: &Graphics = &graphics1;
                 Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[foregroundEventPic1]);
-                 Bitmap local16 =  bitmap;
-                rectangle1 = new Rectangle(newGfxForegroundX * 420, newGfxForegroundY * 240, 420, 240);
-                Rectangle srcrect = rectangle1;
-                rectangle2 = new Rectangle(num5, num6, 420, 240);
-                Rectangle destrect = rectangle2;
+                 let mut local16: &Bitmap = &bitmap;
+                rectangle1 = Rectangle::new(newGfxForegroundX * 420, newGfxForegroundY * 240, 420, 240);
+                let mut srcrect: &Rectangle = &rectangle1
+                rectangle2 = Rectangle::new(num5, num6, 420, 240);
+                let mut destrect: &Rectangle = &rectangle2
                 DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
               }
               let mut foregroundEventPic2: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxWeatherForegroundEventPic;
@@ -451,13 +451,13 @@ namespace WindowsApplication1
               let mut weatherForegroundY: i32 = this.game.Data.LandscapeTypeObj[landscapeType].NewGfxWeatherForegroundY;
               if (foregroundEventPic2 > -1)
               {
-                 Graphics local17 =  graphics1;
+                 let mut local17: &Graphics = &graphics1;
                 Bitmap bitmap = BitmapStore.GetBitmap(this.game.Data.EventPicNr[foregroundEventPic2]);
-                 Bitmap local18 =  bitmap;
-                rectangle1 = new Rectangle(weatherForegroundX * 420, weatherForegroundY * 240, 420, 240);
-                Rectangle srcrect = rectangle1;
-                rectangle2 = new Rectangle(num5, num6, 420, 240);
-                Rectangle destrect = rectangle2;
+                 let mut local18: &Bitmap = &bitmap;
+                rectangle1 = Rectangle::new(weatherForegroundX * 420, weatherForegroundY * 240, 420, 240);
+                let mut srcrect: &Rectangle = &rectangle1
+                rectangle2 = Rectangle::new(num5, num6, 420, 240);
+                let mut destrect: &Rectangle = &rectangle2
                 DrawMod.DrawSimplePart2( local17,  local18, srcrect, destrect);
               }
             }
@@ -826,8 +826,8 @@ namespace WindowsApplication1
             this.OptionsList3Id = this.AddSubPart( tsubpart6, 20, 308, 260, 460, 0);
           }
           DrawMod.DrawTextColouredMarc( graphics1, "SELECTED TROOPS STATS", this.game.MarcFont5, 90, 291, Color.White);
-          rectangle1 = new Rectangle(20, 335, 290, 144);
-          Rectangle trect = rectangle1;
+          rectangle1 = Rectangle::new(20, 335, 290, 144);
+          let mut trect: &Rectangle = &rectangle1
           this.AddMouse( trect, "", "The troops in the slot you clicked\r\nhave their own detailed stats.");
         }
       }

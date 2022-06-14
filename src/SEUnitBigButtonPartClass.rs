@@ -29,16 +29,16 @@ namespace WindowsApplication1
       Bitmap bitmap;
       if (!this.active)
       {
-         Graphics local1 =  graphics;
+         let mut local1: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBED);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
       }
       if (this.active)
       {
-         Graphics local3 =  graphics;
+         let mut local3: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBEDHIGH);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local3,  local4, 0, 0);
       }
       DrawMod.TGame.CustomBitmapObj.DrawUnitBig(this.unr, toG: graphics, tx: 10, ty: 11);
@@ -53,20 +53,20 @@ namespace WindowsApplication1
       Bitmap bitmap;
       if (!this.active)
       {
-         Graphics local1 =  graphics;
+         let mut local1: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBED);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local1,  local2, 0, 0);
-         Graphics local3 =  graphics;
+         let mut local3: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBEDHIGH);
-         Bitmap local4 =  bitmap;
+         let mut local4: &Bitmap = &bitmap;
         DrawMod.Draw( local3,  local4, 0, 0, 0.0f, 0.0f, 0.0f, 0.2f);
       }
       if (this.active)
       {
-         Graphics local5 =  graphics;
+         let mut local5: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_UNITBEDHIGH);
-         Bitmap local6 =  bitmap;
+         let mut local6: &Bitmap = &bitmap;
         DrawMod.DrawSimple( local5,  local6, 0, 0);
       }
       DrawMod.TGame.CustomBitmapObj.DrawUnitBig(this.unr, toG: graphics, tx: 10, ty: 11);

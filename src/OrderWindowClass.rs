@@ -820,7 +820,7 @@ namespace WindowsApplication1
               this.MoveButtonId = 1;
             else if (this.game.HandyFunctionsObj.CanUnitMove(this.game.EditObj.UnitSelected))
             {
-              int airCarryCapPts = this.game.HandyFunctionsObj.GetAirCarryCapPts(this.game.EditObj.UnitSelected);
+              let mut airCarryCapPts: i32 =  this.game.HandyFunctionsObj.GetAirCarryCapPts(this.game.EditObj.UnitSelected);
               if (Conversions.ToInteger(Operators.SubtractObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(this.game.EditObj.UnitSelected, true), this.game.HandyFunctionsObj.GetUnitNonSeaWeight(this.game.EditObj.UnitSelected, false))) > airCarryCapPts & airCarryCapPts > 0)
               {
                 this.MoveButtonId = 0;
@@ -883,7 +883,7 @@ namespace WindowsApplication1
             }
             if (this.game.Data.Round > 0)
             {
-              int num = 0;
+              let mut num: i32 =  0;
               if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1 && this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].StructuralPts < this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].StructuralPts && (double) this.game.Data.RuleVar[902] < 1.0 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].EPCost > 0)
                 num = 1;
               if (this.game.HandyFunctionsObj.CanUnitBuild(this.game.EditObj.UnitSelected) | num == 1)
@@ -1029,9 +1029,9 @@ namespace WindowsApplication1
                     this.StrategicButtonId = 1;
                     if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].StartSize > -1)
                     {
-                      int num = 1;
-                      int unitCounter = this.game.Data.UnitCounter;
-                      for (int index = 0; index <= unitCounter; index += 1)
+                      let mut num: i32 =  1;
+                      let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                      for (let mut index: i32 =  0; index <= unitCounter; index += 1)
                       {
                         if (this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical & this.game.Data.UnitObj[index].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index].DidAttack)
                           num = 0;
@@ -1189,8 +1189,8 @@ namespace WindowsApplication1
           this.ChangeModelText = "Not a friendly unit.";
           if (this.game.SelectX > -1 && this.game.Data.Round > 0 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location == -1)
           {
-            int locTypeCounter = this.game.Data.LocTypeCounter;
-            for (int index = 0; index <= locTypeCounter; index += 1)
+            let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
+            for (let mut index: i32 =  0; index <= locTypeCounter; index += 1)
             {
               if (this.game.Data.LocTypeObj[index].Buildable && this.game.Data.LocTypeObj[index].HumanCanBuild)
                 this.BuildButtonId = 1;
@@ -1237,9 +1237,9 @@ namespace WindowsApplication1
                       this.StrategicButtonId = 1;
                       if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].StartSize > -1)
                       {
-                        int num = 1;
-                        int unitCounter = this.game.Data.UnitCounter;
-                        for (int index = 0; index <= unitCounter; index += 1)
+                        let mut num: i32 =  1;
+                        let mut unitCounter: i32 =  this.game.Data.UnitCounter;
+                        for (let mut index: i32 =  0; index <= unitCounter; index += 1)
                         {
                           if (this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical & this.game.Data.UnitObj[index].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index].DidAttack)
                             num = 0;
@@ -1482,7 +1482,7 @@ namespace WindowsApplication1
           if (this.GiveUnitId > 0)
             num3 += 1;
         }
-        int num4 =  Math.Round((double) this.game.ScreenWidth / 2.0 - (double) (num3 * 18) + 30.0);
+        let mut num4: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - (double) (num3 * 18) + 30.0);
         int num5;
         int num6;
         if (this.NextButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 50))
@@ -1556,13 +1556,13 @@ namespace WindowsApplication1
         }
         if (this.OrderSurrenderButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 41))
         {
-          int num10 = num9 + 1;
+          let mut num10: i32 =  num9 + 1;
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONSURRENDER, tDescript: "Surrender", tBackbitmap: ( this.OwnBitmap), bbx: (this.game.ScreenWidth - 2 - 32 * num10), bby: 4);
           this.OrderSurrenderButtonId = this.AddSubPart( tsubpart, this.game.ScreenWidth - 2 - 32 * num10, 4, 30, 30, 1);
         }
         else
         {
-          int num11 = num9 + 1;
+          let mut num11: i32 =  num9 + 1;
           if (this.game.EditObj.TutOrder > -1)
             this.ordersurrendertext = "";
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONSURRENDER, 1, this.ordersurrendertext,  this.OwnBitmap, this.game.ScreenWidth - 2 - 32 * num11, 4);
@@ -2023,13 +2023,13 @@ namespace WindowsApplication1
           {
             if (this.ChangeModelId > 0)
             {
-              int num18 = num17 + 1;
+              let mut num18: i32 =  num17 + 1;
               tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONCHANGEMODEL, tDescript: "Click to change model of this unit", tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num18 * 32), bby: 4);
               this.ChangeModelId = this.AddSubPart( tsubpart1, num4 + 32 * num18, 4, 30, 30, 1);
             }
             else
             {
-              int num19 = num17 + 1;
+              let mut num19: i32 =  num17 + 1;
               tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONCHANGEMODEL, 1, this.ChangeModelText,  this.OwnBitmap, num4 + num19 * 32, 4);
               this.ChangeModelId2 = this.AddSubPart( tsubpart1, num4 + 32 * num19, 4, 30, 30, 0);
             }
@@ -2355,13 +2355,13 @@ namespace WindowsApplication1
             {
               if (this.GroupStrategicButtonId > 0)
               {
-                int num28 = num27 + 1;
+                let mut num28: i32 =  num27 + 1;
                 tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONSTRATEGIC2, tDescript: "Group Strategic Transfer", tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num28 * 32), bby: 4);
                 this.GroupStrategicButtonId = this.AddSubPart( tsubpart1, num4 + num28 * 32, 4, 30, 30, 1);
               }
               else
               {
-                int num29 = num27 + 1;
+                let mut num29: i32 =  num27 + 1;
                 tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONSTRATEGIC2, 1, this.groupstrategictext,  this.OwnBitmap, num4 + num29 * 32, 4);
                 this.GroupStrategicButtonId2 = this.AddSubPart( tsubpart1, num4 + num29 * 32, 4, 30, 30, 0);
               }
@@ -2369,7 +2369,7 @@ namespace WindowsApplication1
           }
         }
         int num30;
-        int num31 = num30 + 1;
+        let mut num31: i32 =  num30 + 1;
         tsubpart1 =  new SteveButtonPartClass30(this.game.BACKBUTTON, 1, "Currently in main play window",  this.OwnBitmap, num31 * 32 - 30, 4);
         this.FakeBackButtonId = this.AddSubPart( tsubpart1, num31 * 32 - 32, 4, 30, 30, 0);
         if (this.StatisticsButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 32))
@@ -2401,13 +2401,13 @@ namespace WindowsApplication1
           }
           if (this.ProdButtonId > 0)
           {
-            int num33 = num32 + 1;
+            let mut num33: i32 =  num32 + 1;
             tsubpart1 =  new SteveButtonPartClass30b(this.game.BUTTONPROD, tDescript: "Set production of location [P]", tBackbitmap: ( this.OwnBitmap), bbx: (num33 * 32 - 32), bby: 4);
             this.ProdButtonId = this.AddSubPart( tsubpart1, num33 * 32 - 32, 4, 30, 30, 1);
           }
           else
           {
-            int num34 = num32 + 1;
+            let mut num34: i32 =  num32 + 1;
             tsubpart1 =  new SteveButtonPartClass30b(this.game.BUTTONPROD, 1, this.prodbuttontext,  this.OwnBitmap, num34 * 32 - 32, 4);
             this.ProdButtonId2 = this.AddSubPart( tsubpart1, num34 * 32 - 32, 4, 30, 30, 0);
           }
@@ -2498,7 +2498,7 @@ namespace WindowsApplication1
         this.NotOkText = "Option not available";
         if (this.game.EditObj.OrderType == 6)
         {
-          int Number = this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].MaxProd;
+          let mut Number: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].MaxProd;
           if (this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts > 0)
             Number =  Math.Round(Conversion.Int((double) Number * ((double) this.game.Data.LocObj[this.game.EditObj.OrderLoc].StructuralPts / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts)));
           if (this.game.Data.Round <= 0)
@@ -2554,7 +2554,7 @@ namespace WindowsApplication1
                       flag2 = true;
                       if ((double) this.game.Data.RuleVar[304] > 0.0)
                       {
-                        int num = 0;
+                        let mut num: i32 =  0;
                         if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].IsHQ)
                           num = 1;
                         if ((double) (this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected) + this.game.HandyFunctionsObj.HowmanyHQsBelow(this.game.EditObj.OrderUnit) + 1 + num) > (double) this.game.Data.RuleVar[304])
@@ -2678,7 +2678,7 @@ namespace WindowsApplication1
         if (this.game.EditObj.OrderType == 2)
         {
           str = "Select Land Attack participants. Attack Stack: " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.HandyFunctionsObj.maxAttackStack()) + ". ConcBonus: +" + Conversion.Str((object) Conversion.Int((float) (((double) this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
-          int divBonusForAttack = this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
+          let mut divBonusForAttack: i32 =  this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
           if (divBonusForAttack > 0)
             str = str + ". DivBonus: +" + Conversion.Str((object) Conversion.Int(divBonusForAttack)) + "%";
           if (this.game.EditObj.UnitSelected > -1)
@@ -2828,7 +2828,7 @@ namespace WindowsApplication1
                 this.NotOkText = "Unit is not yours";
                 if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn | this.game.Data.Round == 0)
                 {
-                  int num = 0;
+                  let mut num: i32 =  0;
                   if (this.game.HandyFunctionsObj.IsHexPort(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap))
                   {
                     if (this.game.HandyFunctionsObj.Distance(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected) > 0)
@@ -2887,7 +2887,7 @@ namespace WindowsApplication1
         if (this.AllId > 0 & this.lastorderx == this.game.EditObj.OrderX & this.lastordery == this.game.EditObj.OrderY)
           this.AllId = 0;
         SizeF sizeF2 = Expression.MeasureString(str, this.game.VicFont1);
-        int num35 = this.OwnBitmap.Width;
+        let mut num35: i32 =  this.OwnBitmap.Width;
         SubPartClass tsubpart;
         if (flag1)
         {
@@ -2896,7 +2896,7 @@ namespace WindowsApplication1
         }
         if (this.game.EditObj.OrderType == 2 | this.game.EditObj.OrderType == 11 | this.game.EditObj.OrderType == 14 | this.game.EditObj.OrderType == 13 | this.game.EditObj.OrderType == 12 | this.game.EditObj.OrderType == 15)
         {
-          int num36 = num35 - 40;
+          let mut num36: i32 =  num35 - 40;
           if (this.AllId == 1)
           {
             tsubpart =  new SteveButtonPartClass(this.game.ALLBUTTON, tDescript: "Select all eligble units to join attack", tBackbitmap: ( this.OwnBitmap), bbx: num36, bby: 4);
@@ -2907,7 +2907,7 @@ namespace WindowsApplication1
             tsubpart =  new SteveButtonPartClass(this.game.ALLBUTTON, 1, "Option not available",  this.OwnBitmap, num36, 4);
             this.All2Id = this.AddSubPart( tsubpart, num36, 4, 32, 32, 0);
           }
-          int num37 = num36 - 40;
+          let mut num37: i32 =  num36 - 40;
           if (this.NoneId == 1)
           {
             tsubpart =  new SteveButtonPartClass(this.game.NONEBUTTON, tDescript: "Remove all selected units from attack", tBackbitmap: ( this.OwnBitmap), bbx: num37, bby: 4);
@@ -2942,7 +2942,7 @@ namespace WindowsApplication1
           tsubpart =  new SteveButtonPartClass(this.game.NONEBUTTON, tDescript: tDescript, tBackbitmap: ( this.OwnBitmap), bbx: num35, bby: 4);
           this.KillId = this.AddSubPart( tsubpart, num35, 4, 32, 32, 1);
         }
-        int num38 = num35 - 40;
+        let mut num38: i32 =  num35 - 40;
         if (flag2)
         {
           tsubpart =  new SteveButtonPartClass(this.game.OKBALL, tDescript: "Select / Deselect [SPACE]", tBackbitmap: ( this.OwnBitmap), bbx: num38, bby: 4);
@@ -2953,7 +2953,7 @@ namespace WindowsApplication1
           tsubpart =  new SteveButtonPartClass(this.game.OKBALL, 1, this.NotOkText,  this.OwnBitmap, num38, 4);
           this.Ok2Id = this.AddSubPart( tsubpart, num38, 4, 32, 32, 0);
         }
-        int x =  Math.Round((double) this.OwnBitmap.Width / 2.0 - (double) sizeF2.Width / 2.0);
+        let mut x: i32 =   Math.Round((double) this.OwnBitmap.Width / 2.0 - (double) sizeF2.Width / 2.0);
         if ((double) x + (double) sizeF2.Width > (double) (num38 - 20))
           x =  Math.Round((double) ((float) x - ((float) x + sizeF2.Width - (float) (num38 - 20))));
         DrawMod.DrawTextVic( Expression, str, this.game.VicFont1, x, 12, this.game.VicColor1, this.game.VicColor1Shade);
@@ -3206,11 +3206,11 @@ namespace WindowsApplication1
 
     pub void HighLightAItest()
     {
-      int unitSelected = this.game.EditObj.UnitSelected;
+      let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
       this.game.EditObj.TempCoordList = CoordList::new();
-      int num = -1;
-      int moveMatrixCounter = this.game.NewAIObj.MoveMatrixCounter;
-      for (int index = 0; index <= moveMatrixCounter; index += 1)
+      let mut num: i32 =  -1;
+      let mut moveMatrixCounter: i32 =  this.game.NewAIObj.MoveMatrixCounter;
+      for (let mut index: i32 =  0; index <= moveMatrixCounter; index += 1)
       {
         if (this.game.NewAIObj.MoveMatrixUnit[index] == unitSelected)
         {
@@ -3223,20 +3223,20 @@ namespace WindowsApplication1
         return;
       if (this.game.Data.UnitObj[unitSelected].TempCategory == 1)
       {
-        int counter = this.game.NewAIObj.MarkerList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.game.NewAIObj.MarkerList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
           this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.MarkerList.Data1[index], this.game.NewAIObj.MarkerList.Data2[index]] = 0;
       }
       else if (this.game.Data.UnitObj[unitSelected].TempCategory == 2)
       {
-        int counter = this.game.NewAIObj.ArtMarkerList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.game.NewAIObj.ArtMarkerList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
           this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.ArtMarkerList.Data1[index], this.game.NewAIObj.ArtMarkerList.Data2[index]] = 0;
       }
       else if (this.game.Data.UnitObj[unitSelected].TempCategory == 3)
       {
-        int counter = this.game.NewAIObj.AirMarkerList.Counter;
-        for (int index = 0; index <= counter; index += 1)
+        let mut counter: i32 =  this.game.NewAIObj.AirMarkerList.Counter;
+        for (let mut index: i32 =  0; index <= counter; index += 1)
           this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.AirMarkerList.Data1[index], this.game.NewAIObj.AirMarkerList.Data2[index]] = 0;
       }
       else
@@ -3245,14 +3245,14 @@ namespace WindowsApplication1
           return;
         if (this.game.NewAIObj.EngineerMarkerList.Counter > -1)
         {
-          int counter = this.game.NewAIObj.EngineerMarkerList.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  this.game.NewAIObj.EngineerMarkerList.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
             this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.EngineerMarkerList.Data1[index], this.game.NewAIObj.EngineerMarkerList.Data2[index]] = 0;
         }
         else
         {
-          int counter = this.game.NewAIObj.MarkerList.Counter;
-          for (int index = 0; index <= counter; index += 1)
+          let mut counter: i32 =  this.game.NewAIObj.MarkerList.Counter;
+          for (let mut index: i32 =  0; index <= counter; index += 1)
             this.game.EditObj.TempValue[0].Value[this.game.NewAIObj.MarkerList.Data1[index], this.game.NewAIObj.MarkerList.Data2[index]] = 0;
         }
       }
@@ -3266,12 +3266,12 @@ namespace WindowsApplication1
         return windowReturnClass;
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index1 = 0; index1 <= subPartCounter; index1 += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index1: i32 =  0; index1 <= subPartCounter; index1 += 1)
         {
           if (x > this.SubPartX[index1] & x < this.SubPartX[index1] + this.SubPartW[index1] && y > this.SubPartY[index1] & y < this.SubPartY[index1] + this.SubPartH[index1])
           {
-            int num1 = this.SubPartID[index1];
+            let mut num1: i32 =  this.SubPartID[index1];
             OrderResult orderResult1;
             if (num1 == this.BattleId)
             {
@@ -3336,8 +3336,8 @@ namespace WindowsApplication1
               this.game.EditObj.TempCoordList = CoordList::new();
               this.lastorderx = -1;
               this.lastordery = -1;
-              int counter = this.game.EditObj.TempUnitList.counter;
-              for (int index2 = 0; index2 <= counter; index2 += 1)
+              let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
+              for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
                 this.game.EditObj.TempCoordList.AddCoord(this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index2]].X, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index2]].Y, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index2]].Map);
               this.game.EditObj.TempUnitList = UnitList::new();
               windowReturnClass.AddCommand(4, 18);
@@ -3358,14 +3358,14 @@ namespace WindowsApplication1
               this.game.EditObj.TempUnitList = UnitList::new();
               if (this.game.EditObj.OrderType == 11 | this.game.EditObj.OrderType == 13 | this.game.EditObj.OrderType == 14 | this.game.EditObj.OrderType == 15)
               {
-                int mapCounter = this.game.Data.MapCounter;
-                for (int index3 = 0; index3 <= mapCounter; index3 += 1)
+                let mut mapCounter: i32 =  this.game.Data.MapCounter;
+                for (let mut index3: i32 =  0; index3 <= mapCounter; index3 += 1)
                 {
-                  int mapWidth = this.game.Data.MapObj[index3].MapWidth;
-                  for (int index4 = 0; index4 <= mapWidth; index4 += 1)
+                  let mut mapWidth: i32 =  this.game.Data.MapObj[index3].MapWidth;
+                  for (let mut index4: i32 =  0; index4 <= mapWidth; index4 += 1)
                   {
-                    int mapHeight = this.game.Data.MapObj[index3].MapHeight;
-                    for (int index5 = 0; index5 <= mapHeight; index5 += 1)
+                    let mut mapHeight: i32 =  this.game.Data.MapObj[index3].MapHeight;
+                    for (let mut index5: i32 =  0; index5 <= mapHeight; index5 += 1)
                     {
                       Coordinate coordinate;
                       coordinate.x = index4;
@@ -3374,10 +3374,10 @@ namespace WindowsApplication1
                       coordinate.onmap = true;
                       if (this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter > -1 && this.game.Data.UnitObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[0]].Regime == this.game.Data.Turn)
                       {
-                        int unitCounter = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
-                        for (int index6 = 0; index6 <= unitCounter; index6 += 1)
+                        let mut unitCounter: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
+                        for (let mut index6: i32 =  0; index6 <= unitCounter; index6 += 1)
                         {
-                          int unit = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index6];
+                          let mut unit: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index6];
                           if (this.game.EditObj.OrderType == 11)
                           {
                             if (this.game.HandyFunctionsObj.CanDoArtAttack(unit, target, false))
@@ -3407,16 +3407,16 @@ namespace WindowsApplication1
               }
               else
               {
-                int num2 = this.game.HandyFunctionsObj.HexNeighbourCount(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap);
-                for (int tfacing = 1; tfacing <= num2; tfacing += 1)
+                let mut num2: i32 =  this.game.HandyFunctionsObj.HexNeighbourCount(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap);
+                for (let mut tfacing: i32 =  1; tfacing <= num2; tfacing += 1)
                 {
                   Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, tfacing);
                   if (coordinate.onmap && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter > -1 && this.game.Data.UnitObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[0]].Regime == this.game.Data.Turn)
                   {
-                    int unitCounter = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
-                    for (int index7 = 0; index7 <= unitCounter; index7 += 1)
+                    let mut unitCounter: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitCounter;
+                    for (let mut index7: i32 =  0; index7 <= unitCounter; index7 += 1)
                     {
-                      int unit = this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index7];
+                      let mut unit: i32 =  this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].UnitList[index7];
                       if (this.game.EditObj.OrderType == 2)
                       {
                         if (this.game.HandyFunctionsObj.CanDoLandAttack(unit, target))
@@ -3449,7 +3449,7 @@ namespace WindowsApplication1
                 this.game.EditObj.OrderTarget = -1;
                 if (this.game.HandyFunctionsObj.GetHumanPlayers() < 1)
                 {
-                  int num3 =  Interaction.MsgBox((object) "Since you have surrendered we are quitting the game now.");
+                  let mut num3: i32 =   Interaction.MsgBox((object) "Since you have surrendered we are quitting the game now.");
                   this.game.Data = DataClass::new();
                   this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
                   if (this.game.Data.UseAI == 1)
@@ -3495,7 +3495,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   break;
                 case 3:
-                  int historical = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical;
+                  let mut historical: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical;
                   if (historical > -1 && this.game.Data.HistoricalUnitObj[historical].HandCardCounter > -1 & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].SFCount > -1 && Interaction.MsgBox((object) "This action will cause the HQ to lose all handcards. Are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
                   {
                     this.game.EditObj.OrderType = 0;
@@ -3593,13 +3593,13 @@ namespace WindowsApplication1
                     windowReturnClass.SetFlag(true);
                     break;
                   }
-                  int num4 = 0;
+                  let mut num4: i32 =  0;
                   if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
                   {
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 14)
                     {
                       num4 = 1;
-                      int num5 =  Interaction.MsgBox((object) "Already 16 units in that hex.");
+                      let mut num5: i32 =   Interaction.MsgBox((object) "Already 16 units in that hex.");
                       this.game.EditObj.OrderType = 0;
                       windowReturnClass.AddCommand(4, 12);
                       windowReturnClass.AddCommand(4, 18);
@@ -3808,10 +3808,10 @@ namespace WindowsApplication1
             }
             else if (num1 == this.ButtonZoomOutId)
             {
-              int num6 =  Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 53.0));
-              int num7 =  Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 106.0));
-              int num8 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 53.0));
-              int num9 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 106.0));
+              let mut num6: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 53.0));
+              let mut num7: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 106.0));
+              let mut num8: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 53.0));
+              let mut num9: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 106.0));
               int num10;
               int num11;
               if (this.game.EditObj.Zoom == 0)
@@ -3847,10 +3847,10 @@ namespace WindowsApplication1
             }
             else if (num1 == this.ButtonZoomInId)
             {
-              int num12 =  Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 53.0));
-              int num13 =  Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 106.0));
-              int num14 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 53.0));
-              int num15 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 106.0));
+              let mut num12: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 53.0));
+              let mut num13: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 106.0));
+              let mut num14: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 53.0));
+              let mut num15: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 106.0));
               int num16;
               int num17;
               if (this.game.EditObj.Zoom == 0)
@@ -3902,7 +3902,7 @@ namespace WindowsApplication1
               else
               {
                 this.game.EditObj.LayerSupplyOn = true;
-                int unr = this.game.EditObj.UnitSelected;
+                let mut unr: i32 =  this.game.EditObj.UnitSelected;
                 if (unr != -1)
                 {
                   if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn)
@@ -3991,22 +3991,22 @@ namespace WindowsApplication1
               this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
               this.game.EditObj.TempCoordList = CoordList::new();
               this.game.EditObj.TempValue = new MapMatrix2[this.game.Data.MapCounter + 1];
-              int mapCounter1 = this.game.Data.MapCounter;
-              for (int index8 = 0; index8 <= mapCounter1; index8 += 1)
+              let mut mapCounter1: i32 =  this.game.Data.MapCounter;
+              for (let mut index8: i32 =  0; index8 <= mapCounter1; index8 += 1)
                 this.game.EditObj.TempValue[index8] = new MapMatrix2(this.game.Data.MapObj[index8].MapWidth, this.game.Data.MapObj[index8].MapHeight);
-              int mapCounter2 = this.game.Data.MapCounter;
-              for (int index9 = 0; index9 <= mapCounter2; index9 += 1)
+              let mut mapCounter2: i32 =  this.game.Data.MapCounter;
+              for (let mut index9: i32 =  0; index9 <= mapCounter2; index9 += 1)
               {
-                int mapWidth = this.game.Data.MapObj[index9].MapWidth;
-                for (int index10 = 0; index10 <= mapWidth; index10 += 1)
+                let mut mapWidth: i32 =  this.game.Data.MapObj[index9].MapWidth;
+                for (let mut index10: i32 =  0; index10 <= mapWidth; index10 += 1)
                 {
-                  int mapHeight = this.game.Data.MapObj[index9].MapHeight;
-                  for (int index11 = 0; index11 <= mapHeight; index11 += 1)
+                  let mut mapHeight: i32 =  this.game.Data.MapObj[index9].MapHeight;
+                  for (let mut index11: i32 =  0; index11 <= mapHeight; index11 += 1)
                     this.game.EditObj.TempValue[index9].Value[index10, index11] = 9999;
                 }
               }
-              int num18 = this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-              for (int tfacing = 1; tfacing <= num18; tfacing += 1)
+              let mut num18: i32 =  this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+              for (let mut tfacing: i32 =  1; tfacing <= num18; tfacing += 1)
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, tfacing);
                 if (coordinate.onmap && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea)
@@ -4060,22 +4060,22 @@ namespace WindowsApplication1
               this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
               this.game.EditObj.TempCoordList = CoordList::new();
               this.game.EditObj.TempValue = new MapMatrix2[this.game.Data.MapCounter + 1];
-              int mapCounter3 = this.game.Data.MapCounter;
-              for (int index12 = 0; index12 <= mapCounter3; index12 += 1)
+              let mut mapCounter3: i32 =  this.game.Data.MapCounter;
+              for (let mut index12: i32 =  0; index12 <= mapCounter3; index12 += 1)
                 this.game.EditObj.TempValue[index12] = new MapMatrix2(this.game.Data.MapObj[index12].MapWidth, this.game.Data.MapObj[index12].MapHeight);
-              int mapCounter4 = this.game.Data.MapCounter;
-              for (int index13 = 0; index13 <= mapCounter4; index13 += 1)
+              let mut mapCounter4: i32 =  this.game.Data.MapCounter;
+              for (let mut index13: i32 =  0; index13 <= mapCounter4; index13 += 1)
               {
-                int mapWidth = this.game.Data.MapObj[index13].MapWidth;
-                for (int index14 = 0; index14 <= mapWidth; index14 += 1)
+                let mut mapWidth: i32 =  this.game.Data.MapObj[index13].MapWidth;
+                for (let mut index14: i32 =  0; index14 <= mapWidth; index14 += 1)
                 {
-                  int mapHeight = this.game.Data.MapObj[index13].MapHeight;
-                  for (int index15 = 0; index15 <= mapHeight; index15 += 1)
+                  let mut mapHeight: i32 =  this.game.Data.MapObj[index13].MapHeight;
+                  for (let mut index15: i32 =  0; index15 <= mapHeight; index15 += 1)
                     this.game.EditObj.TempValue[index13].Value[index14, index15] = 9999;
                 }
               }
-              int num19 = this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
-              for (int tfacing = 1; tfacing <= num19; tfacing += 1)
+              let mut num19: i32 =  this.game.HandyFunctionsObj.HexNeighbourCount(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
+              for (let mut tfacing: i32 =  1; tfacing <= num19; tfacing += 1)
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, tfacing);
                 if (coordinate.onmap && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea)
@@ -4146,7 +4146,7 @@ namespace WindowsApplication1
               this.game.EditObj.OrderX = this.game.SelectX;
               this.game.EditObj.OrderY = this.game.SelectY;
               this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
-              int singleCapHq = this.game.HandyFunctionsObj.GetSingleCapHQ();
+              let mut singleCapHq: i32 =  this.game.HandyFunctionsObj.GetSingleCapHQ();
               if (singleCapHq > -1)
               {
                 this.game.EditObj.OrderTarget = singleCapHq;
@@ -4173,7 +4173,7 @@ namespace WindowsApplication1
               this.game.EditObj.OrderX = this.game.SelectX;
               this.game.EditObj.OrderY = this.game.SelectY;
               this.game.EditObj.OrderMap = this.game.EditObj.MapSelected;
-              int singleCapHq = this.game.HandyFunctionsObj.GetSingleCapHQ();
+              let mut singleCapHq: i32 =  this.game.HandyFunctionsObj.GetSingleCapHQ();
               if (singleCapHq > -1)
               {
                 this.game.EditObj.OrderTarget = singleCapHq;
@@ -4272,7 +4272,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  int location = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
+                  let mut location: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location;
                   if (this.game.Data.LocObj[location].StructuralPts >= this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts)
                   {
                     this.game.EditObj.OrderType = 37;
@@ -4591,7 +4591,7 @@ namespace WindowsApplication1
                     tnr =  Math.Round(Conversion.Val(Interaction.InputBox("Give a radius of hexes to give. 1-99", "Shadow Empire : Planetary Conquest")));
                     if (tnr < 1 | tnr > 99)
                     {
-                      int num20 =  Interaction.MsgBox((object) "wrong input. aborting giving of hex(es).", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num20: i32 =   Interaction.MsgBox((object) "wrong input. aborting giving of hex(es).", Title: ((object) "Shadow Empire : Planetary Conquest"));
                       return windowReturnClass;
                     }
                   }
@@ -4683,7 +4683,7 @@ namespace WindowsApplication1
                       this.game.EditObj.UnitSelected = -1;
                       this.game.EditObj.OrderUnit = -1;
                       this.game.EditObj.OrderTarget = -1;
-                      int humanPlayers = this.game.HandyFunctionsObj.GetHumanPlayers();
+                      let mut humanPlayers: i32 =  this.game.HandyFunctionsObj.GetHumanPlayers();
                       if (humanPlayers == 0)
                       {
                         if (Interaction.MsgBox((object) "Are you sure? Next turn will mean you quit this surrendered game...", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
@@ -4717,12 +4717,12 @@ namespace WindowsApplication1
                           this.game.Data.RegimeObj[this.game.Data.Turn].Sleep = true;
                           break;
                       }
-                      for (int unitCounter = this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
+                      for (let mut unitCounter: i32 =  this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
                       {
                         if (this.game.Data.UnitObj[unitCounter].Regime == this.game.Data.Turn & this.game.Data.UnitObj[unitCounter].PreDef == -1)
                         {
                           data: DataClass = this.game.Data;
-                          int nr = unitCounter;
+                          let mut nr: i32 =  unitCounter;
                           let mut gameClass: GameClass = (GameClass) null;
                            let mut local: GameClass =  gameClass;
                           data.RemoveUnit(nr,  local);
@@ -4731,13 +4731,13 @@ namespace WindowsApplication1
                       this.game.EventRelatedObj.ExecMessage2(-1, -1, -1, -1, this.game.Data.RegimeObj[this.game.Data.Turn].Name + " has surrendered.");
                       if (humanPlayers > 2)
                       {
-                        int num21 =  Interaction.MsgBox((object) ("You have surrendered. There are " + Conversion.Str((object) (humanPlayers - 1)) + " other human players left. Dont forget to save and mail the turn if you play PBEM."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num21: i32 =   Interaction.MsgBox((object) ("You have surrendered. There are " + Conversion.Str((object) (humanPlayers - 1)) + " other human players left. Dont forget to save and mail the turn if you play PBEM."), Title: ((object) "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.AddCommand(3, 4);
                         windowReturnClass.SetFlag(true);
                       }
                       else
                       {
-                        int num22 =  Interaction.MsgBox((object) "You have surrendered. All statistics are available now.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num22: i32 =   Interaction.MsgBox((object) "You have surrendered. All statistics are available now.", Title: ((object) "Shadow Empire : Planetary Conquest"));
                         this.dostuff();
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
@@ -4801,8 +4801,8 @@ namespace WindowsApplication1
                         this.game.EditObj.TempCoordList.AddCoord(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.MapSelected);
                         if (this.game.EditObj.TempUnitList.counter > -1)
                         {
-                          int counter = this.game.EditObj.TempUnitList.counter;
-                          for (int index16 = 0; index16 <= counter; index16 += 1)
+                          let mut counter: i32 =  this.game.EditObj.TempUnitList.counter;
+                          for (let mut index16: i32 =  0; index16 <= counter; index16 += 1)
                             this.game.EditObj.TempCoordList.AddCoord(this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index16]].X, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index16]].Y, this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index16]].Map);
                         }
                         this.game.EditObj.TargetX = -1;
@@ -4915,14 +4915,14 @@ namespace WindowsApplication1
                       case 20:
                       case 21:
                         this.game.EditObj.TempCoordList = CoordList::new();
-                        int mapCounter = this.game.Data.MapCounter;
-                        for (int index17 = 0; index17 <= mapCounter; index17 += 1)
+                        let mut mapCounter: i32 =  this.game.Data.MapCounter;
+                        for (let mut index17: i32 =  0; index17 <= mapCounter; index17 += 1)
                         {
-                          int mapWidth = this.game.Data.MapObj[index17].MapWidth;
-                          for (int index18 = 0; index18 <= mapWidth; index18 += 1)
+                          let mut mapWidth: i32 =  this.game.Data.MapObj[index17].MapWidth;
+                          for (let mut index18: i32 =  0; index18 <= mapWidth; index18 += 1)
                           {
-                            int mapHeight = this.game.Data.MapObj[index17].MapHeight;
-                            for (int index19 = 0; index19 <= mapHeight; index19 += 1)
+                            let mut mapHeight: i32 =  this.game.Data.MapObj[index17].MapHeight;
+                            for (let mut index19: i32 =  0; index19 <= mapHeight; index19 += 1)
                               this.game.EditObj.TempValue[index17].Value[index18, index19] = 9999;
                           }
                         }

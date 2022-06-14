@@ -181,7 +181,7 @@ namespace WindowsApplication1
       DrawMod.DrawBlock(ref g, 40, 60, 925, 3, (int) this.game.MarcCol4.R, (int) this.game.MarcCol4.G, (int) this.game.MarcCol4.B, (int) this.game.MarcCol4.A);
       let mut tsubpart1: SubPartClass =  new TextButtonPartClass("EXIT PBEM++", 160, "Go back to the main menu.", ref this.OwnBitmap, 800, 250, theight: 50, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
       this.BackId = this.AddSubPart(ref tsubpart1, 800, 250, 160, 50, 1);
-      int num = -1;
+      let mut num: i32 =  -1;
       if (this.game.EditObj.ServerLostConnect)
       {
         DrawMod.DrawTextColouredMarc(ref g, "Lost connection", this.game.MarcFont4, 800, 80, Color.White);
@@ -344,11 +344,11 @@ namespace WindowsApplication1
       if (this.ChallengeListId > 0)
         this.RemoveSubPart(this.ChallengeListId);
       this.ChallengeListObj = ListClass::new();
-      int num = -1;
+      let mut num: i32 =  -1;
       if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList))
         return;
-      int upperBound = this.game.EditObj.ServerChallengeList.GetUpperBound(0);
-      for (int index = 0; index <= upperBound; index += 1)
+      let mut upperBound: i32 =  this.game.EditObj.ServerChallengeList.GetUpperBound(0);
+      for (let mut index: i32 =  0; index <= upperBound; index += 1)
       {
         if (Operators.CompareString(Strings.UCase(this.game.EditObj.ServerChallengeList[index].challengerUserName), Strings.UCase(this.game.EditObj.PbemUserName), false) == 0)
         {
@@ -369,7 +369,7 @@ namespace WindowsApplication1
         }
       }
       ListClass challengeListObj = this.ChallengeListObj;
-      int tlistselect = num;
+      let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
       ref Bitmap local1 = ref this.OwnBitmap;
       Font font =  null;
@@ -418,12 +418,12 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.CheckPlayerId);
       if (this.CheckPlayerId2 > 0)
         this.RemoveSubPart(this.CheckPlayerId2);
-      int index1 = -1;
+      let mut index1: i32 =  -1;
       string tText;
       if (this.gamenr > -1)
       {
-        int upperBound = this.game.EditObj.ServerChallengeList.GetUpperBound(0);
-        for (int index2 = 0; index2 <= upperBound; index2 += 1)
+        let mut upperBound: i32 =  this.game.EditObj.ServerChallengeList.GetUpperBound(0);
+        for (let mut index2: i32 =  0; index2 <= upperBound; index2 += 1)
         {
           if (this.gamenr == this.game.EditObj.ServerChallengeList[index2].challengeID)
           {
@@ -475,9 +475,9 @@ namespace WindowsApplication1
       if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList))
         return;
       this.ChallengeListObj = ListClass::new();
-      int num = -1;
-      int upperBound = this.game.EditObj.ServerChallengeList.GetUpperBound(0);
-      for (int index = 0; index <= upperBound; index += 1)
+      let mut num: i32 =  -1;
+      let mut upperBound: i32 =  this.game.EditObj.ServerChallengeList.GetUpperBound(0);
+      for (let mut index: i32 =  0; index <= upperBound; index += 1)
       {
         if (Operators.CompareString(Strings.UCase(this.game.EditObj.ServerChallengeList[index].challengerUserName), Strings.UCase(this.game.EditObj.PbemUserName), false) != 0)
         {
@@ -495,7 +495,7 @@ namespace WindowsApplication1
         }
       }
       ListClass challengeListObj = this.ChallengeListObj;
-      int tlistselect = num;
+      let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
       ref Bitmap local1 = ref this.OwnBitmap;
       Font font =  null;
@@ -544,14 +544,14 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.CheckPlayerId);
       if (this.CheckPlayerId2 > 0)
         this.RemoveSubPart(this.CheckPlayerId2);
-      int index1 = -1;
+      let mut index1: i32 =  -1;
       this.selectedid = -1;
       string tText;
       SubPartClass tsubpart1;
       if (this.gamenr > -1)
       {
-        int upperBound = this.game.EditObj.ServerChallengeList.GetUpperBound(0);
-        for (int index2 = 0; index2 <= upperBound; index2 += 1)
+        let mut upperBound: i32 =  this.game.EditObj.ServerChallengeList.GetUpperBound(0);
+        for (let mut index2: i32 =  0; index2 <= upperBound; index2 += 1)
         {
           if (this.gamenr == this.game.EditObj.ServerChallengeList[index2].challengeID)
             index1 = index2;
@@ -576,7 +576,7 @@ namespace WindowsApplication1
         if (index1 > -1)
         {
           str1 = "";
-          int Start = 32;
+          let mut Start: i32 =  32;
           do
           {
             if (Operators.CompareString(Strings.Mid(this.game.EditObj.ServerChallengeList[index1].miscData, Start, 1), " ", false) != 0)
@@ -659,9 +659,9 @@ namespace WindowsApplication1
       if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList) || Information.IsNothing((object) this.game.EditObj.ServerRunningGameList))
         return;
       this.ChallengeListObj = ListClass::new();
-      int num = -1;
-      int upperBound = this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
-      for (int index = 0; index <= upperBound; index += 1)
+      let mut num: i32 =  -1;
+      let mut upperBound: i32 =  this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
+      for (let mut index: i32 =  0; index <= upperBound; index += 1)
       {
         if (this.gamenr == this.game.EditObj.ServerRunningGameList[index].gameInstanceID)
         {
@@ -702,7 +702,7 @@ namespace WindowsApplication1
         }
       }
       ListClass challengeListObj = this.ChallengeListObj;
-      int tlistselect = num;
+      let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
       ref Bitmap local1 = ref this.OwnBitmap;
       Font font =  null;
@@ -757,8 +757,8 @@ namespace WindowsApplication1
       string tText;
       if (this.gamenr > -1)
       {
-        int upperBound = this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
-        for (int index = 0; index <= upperBound; index += 1)
+        let mut upperBound: i32 =  this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
+        for (let mut index: i32 =  0; index <= upperBound; index += 1)
         {
           if (this.gamenr == this.game.EditObj.ServerRunningGameList[index].gameInstanceID)
           {
@@ -860,9 +860,9 @@ namespace WindowsApplication1
       if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList) || Information.IsNothing((object) this.game.EditObj.ServerRunningGameList))
         return;
       this.ChallengeListObj = ListClass::new();
-      int num = -1;
-      int upperBound = this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
-      for (int index = 0; index <= upperBound; index += 1)
+      let mut num: i32 =  -1;
+      let mut upperBound: i32 =  this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
+      for (let mut index: i32 =  0; index <= upperBound; index += 1)
       {
         bool flag = false;
         if (this.gamenr == this.game.EditObj.ServerRunningGameList[index].gameInstanceID)
@@ -903,7 +903,7 @@ namespace WindowsApplication1
         }
       }
       ListClass challengeListObj = this.ChallengeListObj;
-      int tlistselect = num;
+      let mut tlistselect: i32 =  num;
       let mut game: GameClass = this.game;
       ref Bitmap local1 = ref this.OwnBitmap;
       Font font =  null;
@@ -955,8 +955,8 @@ namespace WindowsApplication1
       string tText;
       if (this.gamenr > -1)
       {
-        int upperBound = this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
-        for (int index = 0; index <= upperBound; index += 1)
+        let mut upperBound: i32 =  this.game.EditObj.ServerRunningGameList.GetUpperBound(0);
+        for (let mut index: i32 =  0; index <= upperBound; index += 1)
         {
           if (this.gamenr == this.game.EditObj.ServerRunningGameList[index].gameInstanceID)
           {
@@ -1007,15 +1007,15 @@ namespace WindowsApplication1
     pub void DrawTab0(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int x1 = 40;
-      int y1 = 80;
+      let mut x1: i32 =  40;
+      let mut y1: i32 =  80;
       if (active)
       {
         ref Graphics local1 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local2 = ref bitmap;
-        int x2 = x1;
-        int y2 = y1;
+        let mut x2: i32 =  x1;
+        let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
       }
       else
@@ -1023,30 +1023,30 @@ namespace WindowsApplication1
         ref Graphics local3 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local4 = ref bitmap;
-        int x3 = x1;
-        int y3 = y1;
+        let mut x3: i32 =  x1;
+        let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
       }
       str: String = "FINISHED GAMES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x4 = (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
-      Rectangle trect = new Rectangle(x1, y1, 182, 24);
+      Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See PBEM games you are playing in that are finished.", 100);
     }
 
     pub void DrawTab1(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int x1 = 210;
-      int y1 = 80;
+      let mut x1: i32 =  210;
+      let mut y1: i32 =  80;
       if (active)
       {
         ref Graphics local1 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local2 = ref bitmap;
-        int x2 = x1;
-        int y2 = y1;
+        let mut x2: i32 =  x1;
+        let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
       }
       else
@@ -1054,30 +1054,30 @@ namespace WindowsApplication1
         ref Graphics local3 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local4 = ref bitmap;
-        int x3 = x1;
-        int y3 = y1;
+        let mut x3: i32 =  x1;
+        let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
       }
       str: String = "RUNNING GAMES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x4 = (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
-      Rectangle trect = new Rectangle(x1, y1, 182, 24);
+      Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See PBEM games you are playing in that are currently running.", 101);
     }
 
     pub void DrawTab2(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int x1 = 380;
-      int y1 = 80;
+      let mut x1: i32 =  380;
+      let mut y1: i32 =  80;
       if (active)
       {
         ref Graphics local1 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local2 = ref bitmap;
-        int x2 = x1;
-        int y2 = y1;
+        let mut x2: i32 =  x1;
+        let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
       }
       else
@@ -1085,30 +1085,30 @@ namespace WindowsApplication1
         ref Graphics local3 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local4 = ref bitmap;
-        int x3 = x1;
-        int y3 = y1;
+        let mut x3: i32 =  x1;
+        let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
       }
       str: String = "YOUR CHALLENGES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x4 = (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
-      Rectangle trect = new Rectangle(x1, y1, 182, 24);
+      Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See challenges for PBEM games that you issued..", 102);
     }
 
     pub void DrawTab3(Graphics g, bool active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      int x1 = 550;
-      int y1 = 80;
+      let mut x1: i32 =  550;
+      let mut y1: i32 =  80;
       if (active)
       {
         ref Graphics local1 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local2 = ref bitmap;
-        int x2 = x1;
-        int y2 = y1;
+        let mut x2: i32 =  x1;
+        let mut y2: i32 =  y1;
         DrawMod.DrawSimple(ref local1, ref local2, x2, y2);
       }
       else
@@ -1116,15 +1116,15 @@ namespace WindowsApplication1
         ref Graphics local3 = ref g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
         ref Bitmap local4 = ref bitmap;
-        int x3 = x1;
-        int y3 = y1;
+        let mut x3: i32 =  x1;
+        let mut y3: i32 =  y1;
         DrawMod.Draw(ref local3, ref local4, x3, y3, -0.1f, -0.1f, -0.1f, 1f);
       }
       str: String = "OTHER CHALLENGES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      int x4 = (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
-      Rectangle trect = new Rectangle(x1, y1, 182, 24);
+      Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See challenges that other players have issued.", 103);
     }
 
@@ -1164,7 +1164,7 @@ namespace WindowsApplication1
           return windowReturnClass;
         }
         this.game.EditObj.LoadingResult = LoadType.None;
-        int num = (int) Interaction.MsgBox((object) "You cannot use the selected file for making a challenge since this game has already begun.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =  (int) Interaction.MsgBox((object) "You cannot use the selected file for making a challenge since this game has already begun.", Title: ((object) "Shadow Empire : Planetary Conquest"));
       }
       if (this.game.EditObj.LoadingResult == LoadType.GameLoop)
       {
@@ -1180,7 +1180,7 @@ namespace WindowsApplication1
           return windowReturnClass;
         }
         this.game.EditObj.LoadingResult = LoadType.None;
-        int num = (int) Interaction.MsgBox((object) "You cannot use the selected file for making a challenge since this game has already begun.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =  (int) Interaction.MsgBox((object) "You cannot use the selected file for making a challenge since this game has already begun.", Title: ((object) "Shadow Empire : Planetary Conquest"));
       }
       if (this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.ChallengeMade)
       {
@@ -1256,7 +1256,7 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      for (int mouseCounter = this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
+      for (let mut mouseCounter: i32 =  this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
       {
         if (this.MouseData[mouseCounter] > 0 && x > this.MouseRect[mouseCounter].X & x < this.MouseRect[mouseCounter].X + this.MouseRect[mouseCounter].Width && y > this.MouseRect[mouseCounter].Y & y < this.MouseRect[mouseCounter].Y + this.MouseRect[mouseCounter].Height)
         {
@@ -1293,12 +1293,12 @@ namespace WindowsApplication1
       }
       if (this.SubPartCounter > -1 & b == 1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.PassId)
             {
               this.selectedid = this.PassId;
@@ -1381,7 +1381,7 @@ namespace WindowsApplication1
               this.game.EditObj.PbemGameSetup = PbemGameSetupPhase.Inspecting;
               this.game.EditObj.PbemInspectReturnFromID = this.gamenr;
               str: String = "";
-              int Start = 32;
+              let mut Start: i32 =  32;
               do
               {
                 if (Operators.CompareString(Strings.Mid(this.game.EditObj.PbemChallengeMiscData, Start, 1), " ", false) != 0)
@@ -1398,7 +1398,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.ch1 || num1 == this.ch2 || num1 == this.ch3 || num1 == this.ch4)
             {
-              int num2 = -1;
+              let mut num2: i32 =  -1;
               str: String = this.game.AppPath + this.game.ModScenarioDir + "/";
               switch (num2)
               {
@@ -1440,12 +1440,12 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                int num3 = (int) Interaction.MsgBox((object) ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =  (int) Interaction.MsgBox((object) ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ((object) "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               if (Strings.Len(str) > 1)
               {
-                int num4 = (int) Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  (int) Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -1466,12 +1466,12 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                int num5 = (int) Interaction.MsgBox((object) ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  (int) Interaction.MsgBox((object) ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ((object) "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               if (Strings.Len(str) > 1)
               {
-                int num6 = (int) Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  (int) Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -1500,7 +1500,7 @@ namespace WindowsApplication1
             }
             if (num1 != this.ChallengeListId)
               return windowReturnClass;
-            int num7 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+            let mut num7: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
             if (num7 > -1)
               this.gamenr = num7;
             if (this.currentTab == 0)

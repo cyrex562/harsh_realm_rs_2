@@ -35,8 +35,8 @@ namespace WindowsApplication1
       base.HandleToolTip(x, y);
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
@@ -55,8 +55,8 @@ namespace WindowsApplication1
           }
         }
       }
-      int mouseCounter = this.MouseCounter;
-      for (int index = 0; index <= mouseCounter; index += 1)
+      let mut mouseCounter: i32 =  this.MouseCounter;
+      for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
       {
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
         {
@@ -97,8 +97,8 @@ namespace WindowsApplication1
       int num1;
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage] > -1)
       {
-        int index = this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage];
-        int nr = index < 10000 ? this.game.Data.EventPicNr[index] : this.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
+        let mut index: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage];
+        let mut nr: i32 =  index < 10000 ? this.game.Data.EventPicNr[index] : this.game.Data.HistoricalUnitObj[index - 10000].CommanderSpriteID;
         Rectangle rectangle;
         int num2;
         if (nr > -1)
@@ -115,7 +115,7 @@ namespace WindowsApplication1
             width1 =  Math.Round((double) width1 * (150.0 / (double) height1));
             height1 =  Math.Round((double) height1 * (150.0 / (double) height1));
           }
-          rectangle = new Rectangle( Math.Round(180.0 - (double) width1 / 2.0), 15, width1, height1);
+          rectangle = Rectangle::new( Math.Round(180.0 - (double) width1 / 2.0), 15, width1, height1);
           num2 = height1 + 15;
         }
         if (!Information.IsNothing((object) this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage]) && this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage].Length > 0)
@@ -125,18 +125,18 @@ namespace WindowsApplication1
         num1 = num2 + 30;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage] > 10000)
         {
-          int his = this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage] - 10000;
+          let mut his: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.FromMessage] - 10000;
           DrawMod.DrawOfficer(g, his, rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
         }
         else
         {
-           Graphics local1 =  g;
+           let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(nr);
-           Bitmap local2 =  bitmap;
-          int x = rectangle.X;
-          int y = rectangle.Y;
-          int width2 = rectangle.Width;
-          int height2 = rectangle.Height;
+           let mut local2: &Bitmap = &bitmap;
+          let mut x: i32 =  rectangle.X;
+          let mut y: i32 =  rectangle.Y;
+          let mut width2: i32 =  rectangle.Width;
+          let mut height2: i32 =  rectangle.Height;
           DrawMod.DrawScaled( local1,  local2, x, y, width2, height2);
           DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, rectangle.X, rectangle.Y, rectangle.Width + 1, rectangle.Height + 1, -1, -1);
         }
@@ -157,10 +157,10 @@ namespace WindowsApplication1
           str = Strings.Left(str, Strings.Len(str) - 1) + "...";
         DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont7, 55 + width1 + 15,  Math.Round(30.0 + (double) height1 / 4.0), Color.White);
       }
-      int trows =  Math.Round(Conversion.Int((double) (370 - num1) / 16.0));
+      let mut trows: i32 =   Math.Round(Conversion.Int((double) (370 - num1) / 16.0));
       let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 569, trows, this.game.MarcFont8, this.game.Data.RegimeObj[this.game.Data.Turn].MessString[this.FromMessage], tbackbitmap: ( this.BackBitmap), bbx: 50, bby: num1, tUseEncy: true);
       this.TAid = this.AddSubPart( tsubpart1, 50, num1, 569, 16 * (trows + 2), 0);
-      int num4 = 16 * (trows + 1);
+      let mut num4: i32 =  16 * (trows + 1);
       let mut tsubpart2: SubPartClass =  new TextButtonPartClass("PRESS ANY KEY", 150, "Click to indicate you have read message.\r\nOr press any key instead.",  this.OwnBitmap, 270, num1 + num4 + 36, theight: 30, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
       this.okid = this.AddSubPart( tsubpart2, 270, num1 + num4 + 46, 150, 30, 1);
     }
@@ -233,12 +233,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num = this.SubPartID[index];
+            let mut num: i32 =  this.SubPartID[index];
             if (num == this.TAid)
             {
               this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);

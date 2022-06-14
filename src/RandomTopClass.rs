@@ -58,9 +58,9 @@ namespace WindowsApplication1
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       for (let mut index: i32 = 0; index < this.game.ScreenWidth; index += 100)
       {
-         Graphics local1 =  graphics;
+         let mut local1: &Graphics = &graphics;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCTOPBAR);
-         Bitmap local2 =  bitmap;
+         let mut local2: &Bitmap = &bitmap;
         let mut x: i32 = index;
         DrawMod.DrawSimple( local1,  local2, x, 0);
       }
@@ -83,23 +83,23 @@ namespace WindowsApplication1
       {
         Rectangle rectForTab = DrawMod.GetRectForTab(this.CurrentView);
         objgraphics = (Graphics) g;
-         Graphics local1 =  objgraphics;
+         let mut local1: &Graphics = &objgraphics;
         Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.MARCTAB);
-         Bitmap local2 =  bitmap2;
-        trect1 = new Rectangle(0, 20, 8, 43);
-        Rectangle srcrect1 = trect1;
-        rectangle = new Rectangle(rectForTab.X, 32, 8, 43);
-        Rectangle destrect1 = rectangle;
+         let mut local2: &Bitmap = &bitmap2;
+        trect1 = Rectangle::new(0, 20, 8, 43);
+        let mut srcrect1: &Rectangle = &trect1
+        rectangle = Rectangle::new(rectForTab.X, 32, 8, 43);
+        let mut destrect1: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
         g = (object) objgraphics;
         objgraphics = (Graphics) g;
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(this.game.MARCTAB);
-         Bitmap local4 =  bitmap1;
-        rectangle = new Rectangle(170, 20, 16, 43);
-        Rectangle srcrect2 = rectangle;
-        trect1 = new Rectangle(rectForTab.X + rectForTab.Width - 16, 32, 16, 43);
-        Rectangle destrect2 = trect1;
+         let mut local4: &Bitmap = &bitmap1;
+        rectangle = Rectangle::new(170, 20, 16, 43);
+        let mut srcrect2: &Rectangle = &rectangle
+        trect1 = Rectangle::new(rectForTab.X + rectForTab.Width - 16, 32, 16, 43);
+        let mut destrect2: &Rectangle = &trect1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
         g = (object) objgraphics;
         let mut x: i32 = rectForTab.X + 8;
@@ -109,13 +109,13 @@ namespace WindowsApplication1
           if (x + width > rectForTab.X + rectForTab.Width - 16)
             width = rectForTab.X + rectForTab.Width - 16 - x;
           objgraphics = (Graphics) g;
-           Graphics local5 =  objgraphics;
+           let mut local5: &Graphics = &objgraphics;
           bitmap1 = BitmapStore.GetBitmap(this.game.MARCTAB);
-           Bitmap local6 =  bitmap1;
-          rectangle = new Rectangle(10, 20, width, 43);
-          Rectangle srcrect3 = rectangle;
-          trect1 = new Rectangle(x, 32, width, 43);
-          Rectangle destrect3 = trect1;
+           let mut local6: &Bitmap = &bitmap1;
+          rectangle = Rectangle::new(10, 20, width, 43);
+          let mut srcrect3: &Rectangle = &rectangle
+          trect1 = Rectangle::new(x, 32, width, 43);
+          let mut destrect3: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
           g = (object) objgraphics;
         }
@@ -126,9 +126,9 @@ namespace WindowsApplication1
       {
         let mut x1: i32 = 160;
         objgraphics = (Graphics) g;
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
-         Bitmap local8 =  bitmap1;
+         let mut local8: &Bitmap = &bitmap1;
         let mut x2: i32 = x1;
         DrawMod.DrawSimple( local7,  local8, x2, 32);
         g = (object) objgraphics;
@@ -155,7 +155,7 @@ namespace WindowsApplication1
         objgraphics = (Graphics) g;
         DrawMod.DrawTextColouredMarc( objgraphics, this.tabname, this.game.MarcFont4, x1 +  Math.Round((78.0 - (double) sizeF2.Width) / 2.0), 33, Color.White);
         g = (object) objgraphics;
-        rectangle = new Rectangle(x1, 32, 75, 27);
+        rectangle = Rectangle::new(x1, 32, 75, 27);
         trect1 = rectangle;
         this.AddMouse( trect1, this.tabname, "Random Screen Tab #1", 1);
         this.tab1 = this.MouseCounter;
@@ -166,13 +166,13 @@ namespace WindowsApplication1
       {
         let mut x: i32 =  Math.Round(Math.Max((double) this.game.ScreenWidth / 2.0 + 158.0 + 300.0, (double) (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
         objgraphics = (Graphics) g;
-         Graphics local9 =  objgraphics;
+         let mut local9: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
-         Bitmap local10 =  bitmap1;
-        rectangle = new Rectangle(0, 0, 78, 33);
-        Rectangle srcrect = rectangle;
-        trect1 = new Rectangle(x, 32, 50, 33);
-        Rectangle destrect = trect1;
+         let mut local10: &Bitmap = &bitmap1;
+        rectangle = Rectangle::new(0, 0, 78, 33);
+        let mut srcrect: &Rectangle = &rectangle
+        trect1 = Rectangle::new(x, 32, 50, 33);
+        let mut destrect: &Rectangle = &trect1
         DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
         g = (object) objgraphics;
         object Instance = g;
@@ -196,17 +196,17 @@ namespace WindowsApplication1
         objgraphics = (Graphics) g;
         DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x +  Math.Round((53.0 - (double) sizeF2.Width) / 2.0), 33, Color.White);
         g = (object) objgraphics;
-        rectangle = new Rectangle(x, 32, 50, 27);
-        Rectangle trect2 = rectangle;
+        rectangle = Rectangle::new(x, 32, 50, 27);
+        let mut trect2: &Rectangle = &rectangle
         this.AddMouse( trect2, "MINIMAP", "View the mini-map. [F8]", 7);
       }
       else
       {
         let mut x3: i32 =  Math.Round(Math.Max((double) this.game.ScreenWidth / 2.0 + 158.0 + 300.0, (double) (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
         objgraphics = (Graphics) g;
-         Graphics local11 =  objgraphics;
+         let mut local11: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
-         Bitmap local12 =  bitmap1;
+         let mut local12: &Bitmap = &bitmap1;
         let mut x4: i32 = x3;
         DrawMod.DrawSimple( local11,  local12, x4, 32);
         g = (object) objgraphics;
@@ -231,8 +231,8 @@ namespace WindowsApplication1
         objgraphics = (Graphics) g;
         DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x3 +  Math.Round((78.0 - (double) sizeF2.Width) / 2.0), 33, Color.White);
         g = (object) objgraphics;
-        rectangle = new Rectangle(x3, 32, 75, 27);
-        Rectangle trect3 = rectangle;
+        rectangle = Rectangle::new(x3, 32, 75, 27);
+        let mut trect3: &Rectangle = &rectangle
         this.AddMouse( trect3, "MINIMAP", "View the mini-map. [F8]", 7);
       }
       this.tab2 = this.MouseCounter;

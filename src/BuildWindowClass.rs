@@ -35,7 +35,7 @@ namespace WindowsApplication1
      bool[] LocCanConstr2;
      bool LocCanSetup;
 
-    pub BuildWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, int sx = -1, int sy = -1)
+    pub BuildWindowClass(ref GameClass tGame, Bitmap screenbitmap = null, let mut sx: i32 =  -1, let mut sy: i32 =  -1)
       : base(ref tGame, 1024, 200, 99, screenbitmap: screenbitmap, sx: sx, sy: sy)
     {
       this.VarId = new int[5];
@@ -64,7 +64,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.B2Id);
       if (this.B2TextId > 0)
         this.RemoveSubPart(this.B2TextId);
-      int index1 = 0;
+      let mut index1: i32 =  0;
       do
       {
         if (this.VarId[index1] > 0)
@@ -75,18 +75,18 @@ namespace WindowsApplication1
       this.NewBackGroundAndClearAll(1024, 200, -1);
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       ref Graphics local1 = ref objGraphics;
-      Rectangle rectangle1 = new Rectangle(0, 0, 350, 14);
-      Rectangle rect1_1 = rectangle1;
+      Rectangle rectangle1 = Rectangle::new(0, 0, 350, 14);
+      let mut rect1_1: &Rectangle = &rectangle1
       Rectangle rectangle2;
-      Rectangle rect2_1 = rectangle2;
+      let mut rect2_1: &Rectangle = &rectangle2
       DrawMod.MakeFullBoxVic2(ref local1, rect1_1, "LOCATION TYPE                         EP                   PP                 SUP", rect2_1, "");
       if (!this.LocCanSetup)
       {
         this.game.FormRef.Cursor = Cursors.WaitCursor;
         if (this.game.Data.LocTypeCounter > -1)
         {
-          int locTypeCounter = this.game.Data.LocTypeCounter;
-          for (int loctype = 0; loctype <= locTypeCounter; loctype += 1)
+          let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
+          for (let mut loctype: i32 =  0; loctype <= locTypeCounter; loctype += 1)
           {
             if (this.game.EditObj.OrderUnit > -1)
             {
@@ -109,12 +109,12 @@ namespace WindowsApplication1
         if (this.detailnr > this.game.Data.LocTypeCounter)
           this.detailnr = -1;
         tlistselect = -1;
-        int num = -1;
+        let mut num: i32 =  -1;
         str1 = "NAME";
         if (this.game.Data.LocTypeCounter > -1)
         {
-          int locTypeCounter = this.game.Data.LocTypeCounter;
-          for (int tdata = 0; tdata <= locTypeCounter; tdata += 1)
+          let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
+          for (let mut tdata: i32 =  0; tdata <= locTypeCounter; tdata += 1)
           {
             bool flag = this.LocCanConstr[tdata];
             if (this.game.Data.LocTypeObj[tdata].HumanCanBuild & this.game.Data.LocTypeObj[tdata].Buildable & this.game.Data.LocTypeObj[tdata].EPCost == 0 & this.game.Data.LocTypeObj[tdata].SupplyCost == 0)
@@ -174,20 +174,20 @@ namespace WindowsApplication1
           DrawMod.DrawScaled(ref local8, ref local9, 400, 45, 250, 103);
         }
         ref Graphics local10 = ref objGraphics;
-        rectangle1 = new Rectangle(399, 0, 250, 14);
-        Rectangle rect1_2 = rectangle1;
-        Rectangle rectangle3 = new Rectangle(399, 14, 250, 23);
-        Rectangle rect2_2 = rectangle3;
+        rectangle1 = Rectangle::new(399, 0, 250, 14);
+        let mut rect1_2: &Rectangle = &rectangle1
+        Rectangle rectangle3 = Rectangle::new(399, 14, 250, 23);
+        let mut rect2_2: &Rectangle = &rectangle3
         name: String = this.game.Data.LocTypeObj[this.detailnr].Name;
         DrawMod.MakeFullBoxVic2(ref local10, rect1_2, "SELECTED LOCATION TYPE", rect2_2, name);
         str3: String = this.game.Data.LocTypeObj[this.detailnr].SetPeopleToSlotX <= 0 ? this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].Name : this.game.Data.PeopleObj[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].AreaCode[this.game.Data.LocTypeObj[this.detailnr].SetPeopleToSlotX]].Name;
         if (this.game.Data.LocTypeObj[this.detailnr].UpgradeNr > -1)
           str3 = this.game.Data.PeopleObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Location].People].Name;
         ref Graphics local11 = ref objGraphics;
-        rectangle3 = new Rectangle(700, 0, 130, 14);
-        Rectangle rect1_3 = rectangle3;
-        rectangle1 = new Rectangle(700, 14, 130, 23);
-        Rectangle rect2_3 = rectangle1;
+        rectangle3 = Rectangle::new(700, 0, 130, 14);
+        let mut rect1_3: &Rectangle = &rectangle3
+        rectangle1 = Rectangle::new(700, 14, 130, 23);
+        let mut rect2_3: &Rectangle = &rectangle1
         txt2: String = str3;
         DrawMod.MakeFullBoxVic2(ref local11, rect1_3, "LOC PEOPLE", rect2_3, txt2);
         this.OptionsList2Obj = ATListClass::new();
@@ -207,7 +207,7 @@ namespace WindowsApplication1
         str9: String = Strings.Trim(Conversion.Str((object)  Math.Round((double) ((float) this.game.Data.LocTypeObj[this.detailnr].SupplyCost / this.game.Data.RuleVar[77]))));
         tvalue3_3: String = Conversion.Val(str8) < Conversion.Val(str9) ? "SHORT" : "OK";
         this.OptionsList2Obj.add("SUP", -1, str9, str8, tvalue3_3);
-        int index2 = 0;
+        let mut index2: i32 =  0;
         do
         {
           if (this.game.Data.LocTypeObj[this.detailnr].VarType[index2] > -1)
@@ -221,9 +221,9 @@ namespace WindowsApplication1
         }
         while (index2 <= 4);
         ref Graphics local12 = ref objGraphics;
-        rectangle3 = new Rectangle(700, 50, 310, 14);
-        Rectangle rect1_4 = rectangle3;
-        Rectangle rect2_4 = rectangle2;
+        rectangle3 = Rectangle::new(700, 50, 310, 14);
+        let mut rect1_4: &Rectangle = &rectangle3
+        let mut rect2_4: &Rectangle = &rectangle2
         DrawMod.MakeFullBoxVic2(ref local12, rect1_4, "COST TYPE          NEED               AVAILABLE      STATUS", rect2_4, "");
         if (this.OptionsList2Id > 0)
         {
@@ -260,12 +260,12 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (this.SubPartCounter > -1)
       {
-        int subPartCounter = this.SubPartCounter;
-        for (int index = 0; index <= subPartCounter; index += 1)
+        let mut subPartCounter: i32 =  this.SubPartCounter;
+        for (let mut index: i32 =  0; index <= subPartCounter; index += 1)
         {
           if (x > this.SubPartX[index] & x < this.SubPartX[index] + this.SubPartW[index] && y > this.SubPartY[index] & y < this.SubPartY[index] + this.SubPartH[index])
           {
-            int num1 = this.SubPartID[index];
+            let mut num1: i32 =  this.SubPartID[index];
             if (num1 == this.B1Id)
             {
               this.game.EditObj.LocTypeSelected = this.detailnr;
@@ -303,7 +303,7 @@ namespace WindowsApplication1
             }
             else if (num1 == this.OptionsListId)
             {
-              int num2 = this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
+              let mut num2: i32 =  this.SubPartList[index].Click(x - this.SubPartX[index], y - this.SubPartY[index]);
               this.SubPartFlag[index] = true;
               if (num2 > -1)
               {

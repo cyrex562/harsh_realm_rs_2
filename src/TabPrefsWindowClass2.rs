@@ -349,7 +349,7 @@ namespace WindowsApplication1
           tstring = "Gfx & Resolution";
         if (num1 == 5)
           tstring = "AI Speed";
-        Rectangle trect2 = new Rectangle(15, 40 * num1 - 20, 120, 40);
+        Rectangle trect2 = Rectangle::new(15, 40 * num1 - 20, 120, 40);
         self.AddMouse( trect2, "Preferences Category " + tstring, "Click to see all all preference settings in this category", 1000 + num1);
         let mut y: i32 = 40 * num1 - 20 + 13;
         DrawMod.DrawTextColouredMarcCenter( g, tstring, self.game.MarcFont5, 75, y, Color.White);

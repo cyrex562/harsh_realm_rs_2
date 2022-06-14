@@ -29,8 +29,8 @@ namespace WindowsApplication1
         Counter = this.Counter
       };
       aiMoveList.Move = (AIMove[]) Utils.CopyArray((Array) aiMoveList.Move, (Array) new AIMove[this.Counter + 1]);
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
         aiMoveList.Move[index] = this.Move[index].Clone();
       return aiMoveList;
     }
@@ -44,8 +44,8 @@ namespace WindowsApplication1
 
     pub UnrPresent: bool(int unitAIid)
     {
-      int counter = this.Counter;
-      for (int index = 0; index <= counter; index += 1)
+      let mut counter: i32 =  this.Counter;
+      for (let mut index: i32 =  0; index <= counter; index += 1)
       {
         if (this.Move[index].UnitAIid == unitAIid)
           return true;

@@ -41,56 +41,56 @@ namespace WindowsApplication1
       Rectangle rectangle2;
       if (!this.active)
       {
-         Graphics local1 =  objgraphics;
+         let mut local1: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTON);
-         Bitmap local2 =  bitmap;
-        rectangle1 = new Rectangle(0, 0, 44, 10);
-        Rectangle srcrect1 = rectangle1;
-        rectangle2 = new Rectangle(0, 0, this.tw, 10);
-        Rectangle destrect1 = rectangle2;
+         let mut local2: &Bitmap = &bitmap;
+        rectangle1 = Rectangle::new(0, 0, 44, 10);
+        let mut srcrect1: &Rectangle = &rectangle1
+        rectangle2 = Rectangle::new(0, 0, this.tw, 10);
+        let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTON);
-         Bitmap local4 =  bitmap;
-        rectangle2 = new Rectangle(0, 10, 44, 62);
-        Rectangle srcrect2 = rectangle2;
-        rectangle1 = new Rectangle(0, 10, this.tw, this.th - 10);
-        Rectangle destrect2 = rectangle1;
+         let mut local4: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 10, 44, 62);
+        let mut srcrect2: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 10, this.tw, this.th - 10);
+        let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-         Graphics local5 =  objgraphics;
+         let mut local5: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTON);
-         Bitmap local6 =  bitmap;
-        rectangle2 = new Rectangle(0, 82, 44, 10);
-        Rectangle srcrect3 = rectangle2;
-        rectangle1 = new Rectangle(0, this.th - 10, this.tw, 10);
-        Rectangle destrect3 = rectangle1;
+         let mut local6: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 82, 44, 10);
+        let mut srcrect3: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, this.th - 10, this.tw, 10);
+        let mut destrect3: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       }
       if (this.active)
       {
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local8 =  bitmap;
-        rectangle2 = new Rectangle(0, 0, 44, 10);
-        Rectangle srcrect4 = rectangle2;
-        rectangle1 = new Rectangle(0, 0, this.tw, 10);
-        Rectangle destrect4 = rectangle1;
+         let mut local8: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 0, 44, 10);
+        let mut srcrect4: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 0, this.tw, 10);
+        let mut destrect4: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local7,  local8, srcrect4, destrect4);
-         Graphics local9 =  objgraphics;
+         let mut local9: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local10 =  bitmap;
-        rectangle2 = new Rectangle(0, 10, 44, 62);
-        Rectangle srcrect5 = rectangle2;
-        rectangle1 = new Rectangle(0, 10, this.tw, this.th - 10);
-        Rectangle destrect5 = rectangle1;
+         let mut local10: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 10, 44, 62);
+        let mut srcrect5: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 10, this.tw, this.th - 10);
+        let mut destrect5: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local9,  local10, srcrect5, destrect5);
-         Graphics local11 =  objgraphics;
+         let mut local11: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local12 =  bitmap;
-        rectangle2 = new Rectangle(0, 82, 44, 10);
-        Rectangle srcrect6 = rectangle2;
-        rectangle1 = new Rectangle(0, this.th - 10, this.tw, 10);
-        Rectangle destrect6 = rectangle1;
+         let mut local12: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 82, 44, 10);
+        let mut srcrect6: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, this.th - 10, this.tw, 10);
+        let mut destrect6: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
       if (this.texty.Length > 3)
@@ -128,80 +128,80 @@ namespace WindowsApplication1
       Rectangle rectangle2;
       if (!this.active)
       {
-         Graphics local1 =  objgraphics;
+         let mut local1: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTON);
-         Bitmap local2 =  bitmap;
-        rectangle1 = new Rectangle(0, 0, 44, 10);
-        Rectangle srcrect1 = rectangle1;
-        rectangle2 = new Rectangle(0, 0, this.tw, 10);
-        Rectangle destrect1 = rectangle2;
+         let mut local2: &Bitmap = &bitmap;
+        rectangle1 = Rectangle::new(0, 0, 44, 10);
+        let mut srcrect1: &Rectangle = &rectangle1
+        rectangle2 = Rectangle::new(0, 0, this.tw, 10);
+        let mut destrect1: &Rectangle = &rectangle2
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-         Graphics local3 =  objgraphics;
+         let mut local3: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTON);
-         Bitmap local4 =  bitmap;
-        rectangle2 = new Rectangle(0, 10, 44, 62);
-        Rectangle srcrect2 = rectangle2;
-        rectangle1 = new Rectangle(0, 10, this.tw, this.th - 10);
-        Rectangle destrect2 = rectangle1;
+         let mut local4: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 10, 44, 62);
+        let mut srcrect2: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 10, this.tw, this.th - 10);
+        let mut destrect2: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-         Graphics local5 =  objgraphics;
+         let mut local5: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTON);
-         Bitmap local6 =  bitmap;
-        rectangle2 = new Rectangle(0, 82, 44, 10);
-        Rectangle srcrect3 = rectangle2;
-        rectangle1 = new Rectangle(0, this.th - 10, this.tw, 10);
-        Rectangle destrect3 = rectangle1;
+         let mut local6: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 82, 44, 10);
+        let mut srcrect3: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, this.th - 10, this.tw, 10);
+        let mut destrect3: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
-         Graphics local7 =  objgraphics;
+         let mut local7: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local8 =  bitmap;
-        rectangle2 = new Rectangle(0, 0, 44, 10);
-        Rectangle srcrect4 = rectangle2;
-        rectangle1 = new Rectangle(0, 0, this.tw, 10);
-        Rectangle destrect4 = rectangle1;
+         let mut local8: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 0, 44, 10);
+        let mut srcrect4: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 0, this.tw, 10);
+        let mut destrect4: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2Coloured( local7,  local8, srcrect4, destrect4, 1f, 1f, 1f, 0.2f);
-         Graphics local9 =  objgraphics;
+         let mut local9: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local10 =  bitmap;
-        rectangle2 = new Rectangle(0, 10, 44, 62);
-        Rectangle srcrect5 = rectangle2;
-        rectangle1 = new Rectangle(0, 10, this.tw, this.th - 10);
-        Rectangle destrect5 = rectangle1;
+         let mut local10: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 10, 44, 62);
+        let mut srcrect5: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 10, this.tw, this.th - 10);
+        let mut destrect5: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2Coloured( local9,  local10, srcrect5, destrect5, 1f, 1f, 1f, 0.2f);
-         Graphics local11 =  objgraphics;
+         let mut local11: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local12 =  bitmap;
-        rectangle2 = new Rectangle(0, 82, 44, 10);
-        Rectangle srcrect6 = rectangle2;
-        rectangle1 = new Rectangle(0, this.th - 10, this.tw, 10);
-        Rectangle destrect6 = rectangle1;
+         let mut local12: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 82, 44, 10);
+        let mut srcrect6: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, this.th - 10, this.tw, 10);
+        let mut destrect6: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2Coloured( local11,  local12, srcrect6, destrect6, 1f, 1f, 1f, 0.2f);
       }
       if (this.active)
       {
-         Graphics local13 =  objgraphics;
+         let mut local13: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local14 =  bitmap;
-        rectangle2 = new Rectangle(0, 0, 44, 10);
-        Rectangle srcrect7 = rectangle2;
-        rectangle1 = new Rectangle(0, 0, this.tw, 10);
-        Rectangle destrect7 = rectangle1;
+         let mut local14: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 0, 44, 10);
+        let mut srcrect7: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 0, this.tw, 10);
+        let mut destrect7: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local13,  local14, srcrect7, destrect7);
-         Graphics local15 =  objgraphics;
+         let mut local15: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local16 =  bitmap;
-        rectangle2 = new Rectangle(0, 10, 44, 62);
-        Rectangle srcrect8 = rectangle2;
-        rectangle1 = new Rectangle(0, 10, this.tw, this.th - 10);
-        Rectangle destrect8 = rectangle1;
+         let mut local16: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 10, 44, 62);
+        let mut srcrect8: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, 10, this.tw, this.th - 10);
+        let mut destrect8: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local15,  local16, srcrect8, destrect8);
-         Graphics local17 =  objgraphics;
+         let mut local17: &Graphics = &objgraphics;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.SE1_BOTTOMPAGEBUTTONHIGH);
-         Bitmap local18 =  bitmap;
-        rectangle2 = new Rectangle(0, 82, 44, 10);
-        Rectangle srcrect9 = rectangle2;
-        rectangle1 = new Rectangle(0, this.th - 10, this.tw, 10);
-        Rectangle destrect9 = rectangle1;
+         let mut local18: &Bitmap = &bitmap;
+        rectangle2 = Rectangle::new(0, 82, 44, 10);
+        let mut srcrect9: &Rectangle = &rectangle2
+        rectangle1 = Rectangle::new(0, this.th - 10, this.tw, 10);
+        let mut destrect9: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local17,  local18, srcrect9, destrect9);
       }
       if (this.texty.Length > 3)
