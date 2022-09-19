@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -224,7 +224,7 @@ namespace WindowsApplication1
               }
               if (Number > 0)
               {
-                let mut num2: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num2: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.game.CornerX = this.tCornerX;
               this.game.CornerY = this.tCornerY;
@@ -233,7 +233,7 @@ namespace WindowsApplication1
               this.game.EditObj.MapSelected = this.tSelectMap;
               this.game.EditObj.TempCoordList = CoordList::new();
               this.game.HandyFunctionsObj.RedimTempValue(9999);
-              if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.Data.Product >= 6)
+              if ( this.game.Data.RuleVar[701] > 0.0 & this.game.Data.Product >= 6)
                 this.game.EditObj.udsReturnFromPopup = true;
               if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
               {

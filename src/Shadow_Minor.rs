@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -176,8 +176,8 @@ namespace WindowsApplication1
                 num7 += 1;
               }
             }
-            let mut num8: i32 = num5 <= 0 ? 999 :  Math.Round((double) num4 / (double) num5);
-            let mut num9: i32 = num7 <= 0 ? 999 :  Math.Round((double) num6 / (double) num7);
+            let mut num8: i32 = num5 <= 0 ? 999 :  Math.Round( num4 /  num5);
+            let mut num9: i32 = num7 <= 0 ? 999 :  Math.Round( num6 /  num7);
             let mut num10: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegRegKeys].GetData3(0, id, 1, num2, 2, "distanceCity", 3)));
             let mut num11: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegRegKeys].GetData3(0, id, 1, num2, 2, "distanceUnit", 3)));
             if (this.data.Round == 1)
@@ -231,7 +231,7 @@ namespace WindowsApplication1
             else if (num14 <= 2)
               num12 += 2;
             if (num1 == 0)
-              num12 =  Math.Round((double) num12 / 2.0);
+              num12 =  Math.Round( num12 / 2.0);
             if (num12 != 0)
             {
               let mut setValue: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegRegKeys].GetData3(0, num2, 1, id, 2, "relation", 3))) + num12;

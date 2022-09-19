@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Threading;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -77,7 +77,7 @@ namespace WindowsApplication1
       this.showtime = DateAndTime.Now;
       this.game.EditObj.AIMoving = false;
       this.game.EditObj.HumanPlayer = -1;
-      if (!(this.game.Data.Round == 0 & (double) this.game.Data.RuleVar[319] < 1.0))
+      if (!(this.game.Data.Round == 0 &  this.game.Data.RuleVar[319] < 1.0))
         return;
       let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
       for (let mut index1: i32 =  0; index1 <= sfTypeCounter; index1 += 1)
@@ -85,7 +85,7 @@ namespace WindowsApplication1
         let mut killPercent: i32 =  this.game.Data.SFTypeObj[index1].KillPercent;
         if (killPercent > 0)
         {
-          let mut num: i32 =   Math.Round((double) Conversion.Int((float) killPercent * this.game.Data.RuleVar[319]));
+          let mut num: i32 =   Math.Round( Conversion.Int( killPercent * this.game.Data.RuleVar[319]));
           SFTypeClass[] sfTypeObj = this.game.Data.SFTypeObj;
           SFTypeClass[] sfTypeClassArray = sfTypeObj;
           let mut index2: i32 =  index1;
@@ -102,7 +102,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.opt9);
       if (this.opt3 > 0)
         this.RemoveSubPart(this.opt3);
-      if (!Information.IsNothing((object) this.game.AIThread))
+      if (!Information.IsNothing( this.game.AIThread))
       {
         if (!this.game.AIRunning & this.game.AIThreadRunning & (this.game.EditObj.Test == 10 | this.game.EditObj.Test == 9))
         {
@@ -132,13 +132,13 @@ namespace WindowsApplication1
             this.TempText2 = 0;
           }
           this += 1.refrcount;
-          if ((double) this.game.Data.RuleVar[839] == 1.0)
+          if ( this.game.Data.RuleVar[839] == 1.0)
             this.NewBackGroundAndClearAll(1024, 768, this.game.BACKGROUND1MARC);
           else
             this.NewBackGroundAndClearAll(1024, 768, DrawMod.TGame.BACKGROUND2MARC);
           Font f;
           bool tBlackBack;
-          if ((double) this.game.Data.RuleVar[839] == 1.0)
+          if ( this.game.Data.RuleVar[839] == 1.0)
           {
             f = this.game.MarcFont1;
             tBlackBack = false;
@@ -148,20 +148,20 @@ namespace WindowsApplication1
             f = this.game.VicFont1;
             tBlackBack = true;
           }
-          if ((double) this.game.Data.RuleVar[839] == 1.0 & this.game.Data.UseAI == 1)
+          if ( this.game.Data.RuleVar[839] == 1.0 & this.game.Data.UseAI == 1)
           {
             this.DrawDateAndRegime();
             let mut tsubpart: SubPartClass =  TextPartClass::new(this.game.EditObj.TempAIString, f, 800, 30, true, tBlackBack: tBlackBack, tMarc: (!tBlackBack));
             this.TempText = this.AddSubPart(ref tsubpart, 120, 330, 800, 30, 0);
             if (this.game.EditObj.AIProgressMax > 0)
             {
-              tsubpart =  TextPartClass::new(Strings.Trim(Conversion.Str((object)  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0))) + "% completed", this.game.MarcFont1, 600, 40, true, tBlackBack: true, tProgress: ( Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0)), tMarc: true);
+              tsubpart =  TextPartClass::new(Strings.Trim(Conversion.Str(  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0))) + "% completed", this.game.MarcFont1, 600, 40, true, tBlackBack: true, tProgress: ( Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0)), tMarc: true);
               this.TempText2 = this.AddSubPart(ref tsubpart, 220, 375, 600, 100, 0);
             }
           }
           else
           {
-            let mut tsubpart: SubPartClass =  new ATTextPartClass("AI step " + Strings.Trim(Conversion.Str((object) this.refrcount)), f, 800, 30, true, tBlackBack: tBlackBack, tMarc: (!tBlackBack));
+            let mut tsubpart: SubPartClass =  new ATTextPartClass("AI step " + Strings.Trim(Conversion.Str( this.refrcount)), f, 800, 30, true, tBlackBack: tBlackBack, tMarc: (!tBlackBack));
             this.TempText = this.AddSubPart(ref tsubpart, 110, 365, 800, 30, 0);
           }
           windowReturnClass.Flag = true;
@@ -205,13 +205,13 @@ namespace WindowsApplication1
         if (this.game.Data.Turn > -1 & this.game.Data.Round != 0)
         {
           this.game.ProcessingObj.SetInitialReconAndZOC(this.game.Data.Turn);
-          this.game.HandyFunctionsObj.ClearHistory((object) this.game.Data.Turn);
+          this.game.HandyFunctionsObj.ClearHistory( this.game.Data.Turn);
         }
         if (this.game.Data.Round == 0)
         {
           if (this.game.Data.UseAI == 1)
             this.game.NewAIObj.tempextraaivp = false;
-          if ((double) this.game.Data.RuleVar[840] == 1.0)
+          if ( this.game.Data.RuleVar[840] == 1.0)
           {
             let mut mapCounter: i32 =  this.game.Data.MapCounter;
             for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
@@ -225,7 +225,7 @@ namespace WindowsApplication1
               }
             }
           }
-          if ((double) this.game.Data.RuleVar[501] == 1.0)
+          if ( this.game.Data.RuleVar[501] == 1.0)
             this.game.Data.RuleVar[226] = 0.0f;
           let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
           for (let mut regnr: i32 =  0; regnr <= regimeCounter; regnr += 1)
@@ -241,7 +241,7 @@ namespace WindowsApplication1
             this.game.Data.Turn = regnr;
             this.game.Data.Round = 1;
             this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
-            this.game.HandyFunctionsObj.ClearHistory((object) regnr);
+            this.game.HandyFunctionsObj.ClearHistory( regnr);
             this.game.Data.Round = 0;
             this.game.Data.Turn = turn;
           }
@@ -287,7 +287,7 @@ namespace WindowsApplication1
           if (num == 0)
           {
             this.game.ProcessingObj.SetInitialReconAndZOC(this.game.Data.Turn);
-            this.game.HandyFunctionsObj.ClearHistory((object) this.game.Data.Turn);
+            this.game.HandyFunctionsObj.ClearHistory( this.game.Data.Turn);
             this.game.EditObj.Test = 1;
           }
         }
@@ -309,7 +309,7 @@ namespace WindowsApplication1
           this.game.ProcessingObj.LocationProduction();
         if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
           this.game.ProcessingObj.SetCapForUnitS();
-        if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 & (double) this.game.Data.RuleVar[337] == 1.0)
+        if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 &  this.game.Data.RuleVar[337] == 1.0)
           this.game.ProcessingObj.DoAutoReinforce();
       }
       if (this.game.EditObj.Test == 5)
@@ -317,7 +317,7 @@ namespace WindowsApplication1
       if (this.game.EditObj.Test == 6)
       {
         txt = "Supply consumption";
-        if ((double) this.game.Data.RuleVar[333] == 0.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
+        if ( this.game.Data.RuleVar[333] == 0.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
           this.game.ProcessingObj.DoSupplySystem();
         if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
           this.game.ProcessingObj.ApToSf();
@@ -329,7 +329,7 @@ namespace WindowsApplication1
           this.game.ProcessingObj.DoAutoRecoverLocations(this.game.Data.Turn);
         if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
           this.game.ProcessingObj.DoTraining(this.game.Data.Turn);
-        if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 & (double) this.game.Data.RuleVar[79] == 1.0)
+        if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 &  this.game.Data.RuleVar[79] == 1.0)
           this.game.ProcessingObj.AutoConquerNeutral(this.game.Data.Turn);
         this.game.ProcessingObj.SetUberOff();
       }
@@ -351,10 +351,10 @@ namespace WindowsApplication1
         this.game.ProcessingObj.SetExtraStat(this.game.Data.Turn);
         this.game.ProcessingObj.IntialZOCConquestCheck(this.game.Data.Turn);
         this.game.EditObj.MiniMap = new Bitmap(205, 110);
-        this.game.EditObj.MiniMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.game.EditObj.MiniMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, 205, 110, false);
         this.game.EditObj.StratMap = new Bitmap(this.game.ScreenWidth, this.game.ScreenHeight - 305);
-        this.game.EditObj.StratMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.game.EditObj.StratMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.StratMap, this.game.ScreenWidth, this.game.ScreenHeight - 305, false, true, false);
         if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI)
           this.game.HandyFunctionsObj.SetInitialXY(this.game.Data.Turn);
@@ -396,7 +396,7 @@ namespace WindowsApplication1
       if (this.game.EditObj.Test == 9)
       {
         txt = "AI for " + this.game.Data.RegimeObj[this.game.Data.Turn].Name + " is playing. Executing";
-        if ((double) this.game.Data.RuleVar[814] == 0.0)
+        if ( this.game.Data.RuleVar[814] == 0.0)
         {
           if (this.game.Data.UseAI == 0)
           {
@@ -414,7 +414,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (this.game.EditObj.Test == 10 && (double) this.game.Data.RuleVar[814] == 0.0)
+      if (this.game.EditObj.Test == 10 &&  this.game.Data.RuleVar[814] == 0.0)
       {
         if (this.game.HandyFunctionsObj.GetHumanPlayers() == 1 & !this.game.Data.DontShowAIMove)
         {
@@ -457,7 +457,7 @@ namespace WindowsApplication1
         this.game.EditObj.Test = 0;
         txt = "Finished";
         this.DoingAI = true;
-        if ((double) this.game.Data.RuleVar[814] == 0.0)
+        if ( this.game.Data.RuleVar[814] == 0.0)
         {
           if (this.game.Data.UseAI == 0)
             this.game.AIObj.CloseAI();
@@ -477,7 +477,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.TempText2);
       Font f1;
       bool tBlackBack1;
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
       {
         f1 = this.game.MarcFont1;
         tBlackBack1 = false;
@@ -487,7 +487,7 @@ namespace WindowsApplication1
         f1 = this.game.VicFont1;
         tBlackBack1 = true;
       }
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
         this.DrawDateAndRegime();
       let mut tsubpart1: SubPartClass =  new ATTextPartClass(txt, f1, 800, 30, true, tBlackBack: tBlackBack1, tMarc: (!tBlackBack1));
       this.TempText = this.AddSubPart(ref tsubpart1, 110, 360, 800, 30, 0);
@@ -560,7 +560,7 @@ namespace WindowsApplication1
       {
         DateTime dateTime1 = DateTime::new();
         dateTime1 = dateTime1.AddYears(this.game.Data.StartData.Year - 1);
-        DateTime dateTime2 = dateTime1.AddMonths(this.game.Data.StartData.Month - 1).AddDays((double) (this.game.Data.StartData.Day - 1));
+        DateTime dateTime2 = dateTime1.AddMonths(this.game.Data.StartData.Month - 1).AddDays( (this.game.Data.StartData.Day - 1));
         DateTime dateTime3;
         if (this.game.Data.AlternateRound == 31)
         {
@@ -573,30 +573,30 @@ namespace WindowsApplication1
         }
         str3: String = "";
         str1 = "";
-        str2 = "Date: " + (str3 + this.game.HandyFunctionsObj.GetMonth(dateTime3.Month) + " " + Strings.Trim(Conversion.Str((object) dateTime3.Day)) + " " + Strings.Trim(Conversion.Str((object) dateTime3.Year)));
+        str2 = "Date: " + (str3 + this.game.HandyFunctionsObj.GetMonth(dateTime3.Month) + " " + Strings.Trim(Conversion.Str( dateTime3.Day)) + " " + Strings.Trim(Conversion.Str( dateTime3.Year)));
         name = this.game.Data.RegimeObj[this.game.Data.Turn].Name;
       }
       else
       {
         name = this.game.Data.RegimeObj[this.game.Data.Turn].Name;
-        str2 = "Round " + Strings.Trim(Conversion.Str((object) this.game.Data.Round));
+        str2 = "Round " + Strings.Trim(Conversion.Str( this.game.Data.Round));
         if (this.game.Data.AlternateRound2 > -1)
         {
           DateTime dateTime4 = DateTime::new();
           dateTime4 = dateTime4.AddYears(this.game.Data.StartData.Year - 1);
-          DateTime dateTime5 = dateTime4.AddMonths(this.game.Data.StartData.Month - 1).AddDays((double) (this.game.Data.StartData.Day - 1)).AddHours((double) this.game.Data.StartData.Hour).Add(new TimeSpan(0, (this.game.Data.Round - 1) * this.game.Data.AlternateRound2, 0, 0));
+          DateTime dateTime5 = dateTime4.AddMonths(this.game.Data.StartData.Month - 1).AddDays( (this.game.Data.StartData.Day - 1)).AddHours( this.game.Data.StartData.Hour).Add(new TimeSpan(0, (this.game.Data.Round - 1) * this.game.Data.AlternateRound2, 0, 0));
           str4: String = "";
           str1 = "";
-          str2 = "Date: " + (str4 + this.game.HandyFunctionsObj.GetMonth(dateTime5.Month) + " " + Strings.Trim(Conversion.Str((object) dateTime5.Day)) + " " + Strings.Trim(Conversion.Str((object) dateTime5.Hour)) + ":00" + " " + Strings.Trim(Conversion.Str((object) dateTime5.Year)));
+          str2 = "Date: " + (str4 + this.game.HandyFunctionsObj.GetMonth(dateTime5.Month) + " " + Strings.Trim(Conversion.Str( dateTime5.Day)) + " " + Strings.Trim(Conversion.Str( dateTime5.Hour)) + ":00" + " " + Strings.Trim(Conversion.Str( dateTime5.Year)));
           name = this.game.Data.RegimeObj[this.game.Data.Turn].Name;
         }
       }
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
         this.NewBackGroundAndClearAll(1024, 768, this.game.BACKGROUND1MARC);
       else
         this.NewBackGroundAndClearAll(1024, 768, DrawMod.TGame.BACKGROUND2MARC);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
       {
         ref Graphics local1 = ref Expression;
         Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.LOGOFLATTINY);
@@ -611,7 +611,7 @@ namespace WindowsApplication1
           DrawMod.DrawScaled(ref local3, ref local4, 4, -2, 90, 90);
         }
       }
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
       {
         DrawMod.DrawTextColouredMarc(ref Expression, name, this.game.MarcFont1, 85, 15, Color.White);
         sizeF1 = Expression.MeasureString(str2, this.game.MarcFont3);
@@ -624,9 +624,9 @@ namespace WindowsApplication1
         DrawMod.DrawSteveBlock(ref Expression, 225, 15, 690, 28);
         DrawMod.DrawTextVic2(ref Expression, name, this.game.VicFont1, 225, 15, this.game.VicColor2, this.game.VicColor2Shade);
         SizeF sizeF2 = Expression.MeasureString(str2, this.game.VicFont1);
-        DrawMod.DrawTextVic2(ref Expression, str2, this.game.VicFont1,  Math.Round((double) (900f - sizeF2.Width)), 15, this.game.VicColor2, this.game.VicColor2Shade);
+        DrawMod.DrawTextVic2(ref Expression, str2, this.game.VicFont1,  Math.Round( (900f - sizeF2.Width)), 15, this.game.VicColor2, this.game.VicColor2Shade);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -662,7 +662,7 @@ namespace WindowsApplication1
       this.game.FormRef.Cursor = Cursors.Default;
       if (this.game.EditObj.TutStep < 1)
         this.game.EditObj.TutStep = 1;
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
         this.DrawDateAndRegime();
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       string txt;
@@ -671,11 +671,11 @@ namespace WindowsApplication1
       else if (this.game.Data.VPWin == -1)
         txt = this.game.Data.Winner != -1 ? (!(this.game.Data.Winner == this.game.Data.Turn | this.game.Data.Winner == this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime) ? this.game.Data.RegimeObj[this.game.Data.Winner].Name + " has won this game. You have lost!" : this.game.Data.RegimeObj[this.game.Data.Turn].Name + ", You have won this game!") : this.game.Data.RegimeObj[this.game.Data.Turn].Name + ", Game is in progress. Please start turn.";
       else if (this.game.Data.Winner == -1)
-        txt = this.game.Data.RegimeObj[this.game.Data.Turn].Name + ", You have" + Conversion.Str((object) this.game.HandyFunctionsObj.GetRegimeVP(this.game.Data.Turn)) + " VP of the" + Conversion.Str((object) this.game.Data.VPWin) + " VP required to win.";
+        txt = this.game.Data.RegimeObj[this.game.Data.Turn].Name + ", You have" + Conversion.Str( this.game.HandyFunctionsObj.GetRegimeVP(this.game.Data.Turn)) + " VP of the" + Conversion.Str( this.game.Data.VPWin) + " VP required to win.";
       else
         txt = this.game.Data.Winner != this.game.Data.Turn ? this.game.Data.RegimeObj[this.game.Data.Winner].Name + " has won this game. You have lost!" : this.game.Data.RegimeObj[this.game.Data.Turn].Name + ", You have won this game!";
       bool flag;
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
       {
         Font marcFont1 = this.game.MarcFont1;
         flag = false;
@@ -689,11 +689,11 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new ATTextPartClass(txt, vicFont1, 724, 40, true, tMarc: (!flag));
         this.Heading2Text = this.AddSubPart(ref tsubpart, 150, 150, 724, 30, 0);
       }
-      Font usefont = (double) this.game.Data.RuleVar[839] != 1.0 ?  null : this.game.MarcFont4;
+      Font usefont =  this.game.Data.RuleVar[839] != 1.0 ?  null : this.game.MarcFont4;
       SubPartClass tsubpart1;
       if (!this.loggedin)
       {
-        buttontext: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
+        buttontext: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
         if (!this.saved)
         {
           tsubpart1 =  new TextButtonPartClass(buttontext, 100, "You have to login if playing PBEM and/or using passwords.", ref this.OwnBitmap, 400, 710, usefont: usefont, useshadow: (!flag), tMarcStyle: (!flag));
@@ -705,19 +705,19 @@ namespace WindowsApplication1
           this.LoginId = this.AddSubPart(ref tsubpart1, 455, 710, 100, 35, 1);
         }
       }
-      buttontext1: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Save & Quit" : "SAVE + QUIT";
+      buttontext1: String =  this.game.Data.RuleVar[839] != 1.0 ? "Save & Quit" : "SAVE + QUIT";
       if (!this.loggedin & !this.saved)
       {
         tsubpart1 =  new TextButtonPartClass(buttontext1, 100, "If your playing a PBEM and your not playing\r\nthis regime this is a good place to save and quit.", ref this.OwnBitmap, 530, 710, usefont: usefont, useshadow: (!flag), tMarcStyle: (!flag));
         this.SaveId = this.AddSubPart(ref tsubpart1, 530, 710, 100, 35, 1);
       }
-      buttontext2: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Start Turn" : "START TURN";
+      buttontext2: String =  this.game.Data.RuleVar[839] != 1.0 ? "Start Turn" : "START TURN";
       if (this.loggedin)
       {
         tsubpart1 =  new TextButtonPartClass(buttontext2, 100, "Click to start the turn.", ref this.OwnBitmap, 455, 710, usefont: usefont, useshadow: (!flag), tMarcStyle: (!flag));
         this.EnterTurnId = this.AddSubPart(ref tsubpart1, 455, 710, 100, 35, 1);
       }
-      if ((double) this.game.Data.RuleVar[839] == 0.0 && this.loggedin)
+      if ( this.game.Data.RuleVar[839] == 0.0 && this.loggedin)
       {
         this.ListObj = ATListClass::new();
         let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
@@ -731,13 +731,13 @@ namespace WindowsApplication1
             let mut Number1: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].SProd[tdata1, this.game.Data.Round];
             if (this.game.Data.ItemTypeObj[tdata1].IsSFType > -1)
               Number1 *= this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[tdata1].IsSFType].Ratio;
-            tvalue: String = Strings.Trim(Conversion.Str((object) Number1));
+            tvalue: String = Strings.Trim(Conversion.Str( Number1));
             if (this.game.Data.ASOn && this.game.Data.RegimeObj[this.game.Data.Turn].SASProdLost[tdata1] > 0)
             {
               let mut Number2: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].SASProdLost[tdata1];
               if (this.game.Data.ItemTypeObj[tdata1].IsSFType > -1)
                 Number2 *= this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[tdata1].IsSFType].Ratio;
-              tvalue2 = Strings.Trim(Conversion.Str((object) Number2));
+              tvalue2 = Strings.Trim(Conversion.Str( Number2));
             }
             this.ListObj.add(name, tdata1, tvalue, tvalue2);
           }
@@ -760,9 +760,9 @@ namespace WindowsApplication1
           tvalue2: String = "-";
           tvalue3: String = "-";
           if (this.game.Data.RegimeObj[this.game.Data.Turn].SASSupplyLost > 0)
-            tvalue = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].SASSupplyLost));
+            tvalue = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].SASSupplyLost));
           if (this.game.Data.RegimeObj[this.game.Data.Turn].SASSupplyKilled > 0)
-            tvalue3 = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].SASSupplyKilled));
+            tvalue3 = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].SASSupplyKilled));
           this.ListObj2.add(tname, tdata1, tvalue, tvalue2, tvalue3);
         }
         int[] numArray1 = new int[100];
@@ -805,11 +805,11 @@ namespace WindowsApplication1
             if (Strings.Len(str) > 15)
               str = Strings.Left(str, 15);
             if (numArray1[tdata2] > 0)
-              tvalue = Strings.Trim(Conversion.Str((object) numArray1[tdata2]));
+              tvalue = Strings.Trim(Conversion.Str( numArray1[tdata2]));
             if (numArray2[tdata2] > 0)
-              tvalue2 = Strings.Trim(Conversion.Str((object) numArray2[tdata2]));
+              tvalue2 = Strings.Trim(Conversion.Str( numArray2[tdata2]));
             if (this.game.Data.ASOn && numArray3[tdata2] > 0)
-              tvalue3 = Strings.Trim(Conversion.Str((object) numArray3[tdata2]));
+              tvalue3 = Strings.Trim(Conversion.Str( numArray3[tdata2]));
             this.ListObj2.add(str, tdata2, tvalue, tvalue2, tvalue3);
           }
           tdata2 += 1;
@@ -826,7 +826,7 @@ namespace WindowsApplication1
           this.listid2 = this.AddSubPart(ref tsubpart1, 490, 210, 350, 336, 0);
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -894,11 +894,11 @@ namespace WindowsApplication1
       this.game.FormRef.Cursor = Cursors.Default;
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MessBackPic[this.PhaseData] > -1)
         this.NewBackGroundAndClearAll(1024, 768, this.game.Data.EventPicNr[this.game.Data.RegimeObj[this.game.Data.Turn].MessBackPic[this.PhaseData]]);
-      else if ((double) this.game.Data.RuleVar[839] == 1.0)
+      else if ( this.game.Data.RuleVar[839] == 1.0)
         this.NewBackGroundAndClearAll(1024, 768, this.game.BACKGROUND1MARC);
       else
         this.NewBackGroundAndClearAll(1024, 768, DrawMod.TGame.BACKGROUND2MARC);
-      if ((double) this.game.Data.RuleVar[839] > 0.0)
+      if ( this.game.Data.RuleVar[839] > 0.0)
         this.DrawDateAndRegime();
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MessBackPic[this.PhaseData] != -2)
@@ -949,13 +949,13 @@ namespace WindowsApplication1
           if (BitmapStore.Getheight(num3) <= 300)
           {
             tsubpart1 =  ButtonPartClass::new(num3);
-            this.Pic1Id = this.AddSubPart(ref tsubpart1,  Math.Round(512.0 - (double) BitmapStore.GetWidth(num3) / 2.0), y, BitmapStore.GetWidth(num3), BitmapStore.Getheight(num3), 0);
+            this.Pic1Id = this.AddSubPart(ref tsubpart1,  Math.Round(512.0 -  BitmapStore.GetWidth(num3) / 2.0), y, BitmapStore.GetWidth(num3), BitmapStore.Getheight(num3), 0);
             y = y + BitmapStore.Getheight(num3) + 10;
           }
           else
           {
             let mut tsubpart2: SubPartClass =  ButtonPartClass::new(num3, tResizeX: BitmapStore.GetWidth(num3), tresizeY: 300);
-            this.Pic1Id = this.AddSubPart(ref tsubpart2,  Math.Round(512.0 - (double) BitmapStore.GetWidth(num3) / 2.0), y, BitmapStore.GetWidth(num3), 300, 0);
+            this.Pic1Id = this.AddSubPart(ref tsubpart2,  Math.Round(512.0 -  BitmapStore.GetWidth(num3) / 2.0), y, BitmapStore.GetWidth(num3), 300, 0);
             y = y + 300 + 10;
           }
         }
@@ -1011,7 +1011,7 @@ namespace WindowsApplication1
           SoundMod.STopEventWave();
           SoundMod.PlayEventWave(this.game.AppPath + "sound/" + this.game.Data.RegimeObj[this.game.Data.Turn].MessWav[this.PhaseData], ref this.game.EditObj);
         }
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
           Color.FromArgb( byte.MaxValue, 180, 200, 240);
           Color.FromArgb( byte.MaxValue, 120, 120, 160);
@@ -1029,7 +1029,7 @@ namespace WindowsApplication1
             {
               if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.PhaseData] >= 10000)
               {
-                DrawMod.DrawOfficer(graphics, this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.PhaseData] - 10000,  Math.Round(512.0 - (double) BitmapStore.GetWidth(nr) / 2.0), 70, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
+                DrawMod.DrawOfficer(graphics, this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.PhaseData] - 10000,  Math.Round(512.0 -  BitmapStore.GetWidth(nr) / 2.0), 70, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
                 num13 = BitmapStore.Getheight(nr) + 20;
               }
               else if (BitmapStore.Getheight(nr) <= 200)
@@ -1037,27 +1037,27 @@ namespace WindowsApplication1
                 ref Graphics local1 = ref graphics;
                 Bitmap bitmap = BitmapStore.GetBitmap(nr);
                 ref Bitmap local2 = ref bitmap;
-                let mut x: i32 =   Math.Round(512.0 - (double) BitmapStore.GetWidth(nr) / 2.0);
+                let mut x: i32 =   Math.Round(512.0 -  BitmapStore.GetWidth(nr) / 2.0);
                 let mut width: i32 =  BitmapStore.GetWidth(nr);
                 let mut h: i32 =  BitmapStore.Getheight(nr);
                 DrawMod.DrawScaled(ref local1, ref local2, x, 70, width, h);
                 num13 = BitmapStore.Getheight(nr) + 20;
-                DrawMod.DrawRectangle(ref graphics,  Math.Round(512.0 - (double) BitmapStore.GetWidth(nr) / 2.0), 70, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr),  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
+                DrawMod.DrawRectangle(ref graphics,  Math.Round(512.0 -  BitmapStore.GetWidth(nr) / 2.0), 70, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr),  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
               }
               else
               {
                 ref Graphics local3 = ref graphics;
                 Bitmap bitmap = BitmapStore.GetBitmap(nr);
                 ref Bitmap local4 = ref bitmap;
-                let mut x: i32 =   Math.Round(512.0 - (double) BitmapStore.GetWidth(nr) * (200.0 / (double) BitmapStore.Getheight(nr)) / 2.0);
-                let mut w: i32 =   Math.Round((double) BitmapStore.GetWidth(nr) * (200.0 / (double) BitmapStore.Getheight(nr)));
+                let mut x: i32 =   Math.Round(512.0 -  BitmapStore.GetWidth(nr) * (200.0 /  BitmapStore.Getheight(nr)) / 2.0);
+                let mut w: i32 =   Math.Round( BitmapStore.GetWidth(nr) * (200.0 /  BitmapStore.Getheight(nr)));
                 DrawMod.DrawScaled(ref local3, ref local4, x, 70, w, 200);
                 num13 = 220;
-                DrawMod.DrawRectangle(ref graphics,  Math.Round(510.0 - (double) BitmapStore.GetWidth(nr) * (200.0 / (double) BitmapStore.Getheight(nr)) / 2.0), 68,  Math.Round((double) BitmapStore.GetWidth(nr) * (200.0 / (double) BitmapStore.Getheight(nr)) + 4.0), 204,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
+                DrawMod.DrawRectangle(ref graphics,  Math.Round(510.0 -  BitmapStore.GetWidth(nr) * (200.0 /  BitmapStore.Getheight(nr)) / 2.0), 68,  Math.Round( BitmapStore.GetWidth(nr) * (200.0 /  BitmapStore.Getheight(nr)) + 4.0), 204,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
               }
             }
           }
-          let mut trows: i32 =   Math.Round(30.0 - (double) num13 / 16.0);
+          let mut trows: i32 =   Math.Round(30.0 -  num13 / 16.0);
           if (7 > trows)
             trows = 7;
           let mut num14: i32 =  150;
@@ -1087,30 +1087,30 @@ namespace WindowsApplication1
               {
                 if (width > 194)
                 {
-                  height =  Math.Round((double) height * (194.0 / (double) width));
-                  width =  Math.Round((double) width * (194.0 / (double) width));
+                  height =  Math.Round( height * (194.0 /  width));
+                  width =  Math.Round( width * (194.0 /  width));
                 }
                 if (height > 200)
                 {
-                  width =  Math.Round((double) width * (200.0 / (double) height));
-                  height =  Math.Round((double) height * (200.0 / (double) height));
+                  width =  Math.Round( width * (200.0 /  height));
+                  height =  Math.Round( height * (200.0 /  height));
                 }
-                rectangle = Rectangle::new( Math.Round(500.0 - (double) width / 2.0), 20, width, height);
+                rectangle = Rectangle::new( Math.Round(500.0 -  width / 2.0), 20, width, height);
                 num18 = height + 10;
               }
               else
               {
                 if (width > 515)
                 {
-                  height =  Math.Round((double) height * (515.0 / (double) width));
-                  width =  Math.Round((double) width * (515.0 / (double) width));
+                  height =  Math.Round( height * (515.0 /  width));
+                  width =  Math.Round( width * (515.0 /  width));
                 }
                 if (height > 250)
                 {
-                  width =  Math.Round((double) width * (250.0 / (double) height));
-                  height =  Math.Round((double) height * (250.0 / (double) height));
+                  width =  Math.Round( width * (250.0 /  height));
+                  height =  Math.Round( height * (250.0 /  height));
                 }
-                rectangle = Rectangle::new( Math.Round(512.0 - (double) width / 2.0), 80, width, height);
+                rectangle = Rectangle::new( Math.Round(512.0 -  width / 2.0), 80, width, height);
                 num18 = height + 10;
               }
             }
@@ -1120,10 +1120,10 @@ namespace WindowsApplication1
           let mut tsubpart: SubPartClass =  new TextAreaClass2(this.game, 500, 15, this.game.MarcFont3, this.game.Data.RegimeObj[this.game.Data.Turn].MessString[phaseData], 24, ref this.BackBitmap, 175, 100, true, true, tcenterit: true);
           this.TAid = this.AddSubPart(ref tsubpart, 260, 100, 500, 384, 0);
           let mut num19: i32 =  this.SubPartList[this.SubpartNr(this.TAid)].HeightUsed();
-          let mut num20: i32 =   Math.Round((double) (this.OwnBitmap.Height - 100 - (num18 + num19)) / 2.0);
+          let mut num20: i32 =   Math.Round( (this.OwnBitmap.Height - 100 - (num18 + num19)) / 2.0);
           this.RemoveSubPart(this.TAid);
-          tsubpart =  new TextAreaClass2(this.game, 500,  Math.Round(Conversion.Int((double) num19 / 24.0)), this.game.MarcFont3, this.game.Data.RegimeObj[this.game.Data.Turn].MessString[phaseData], 24, ref this.BackBitmap, 260, num20 + num18, true, true, tcenterit: true);
-          this.TAid = this.AddSubPart(ref tsubpart, 260, num20 + num18, 500, 16 * ( Math.Round((double) num19 / 36.0) + 1), 0);
+          tsubpart =  new TextAreaClass2(this.game, 500,  Math.Round(Conversion.Int( num19 / 24.0)), this.game.MarcFont3, this.game.Data.RegimeObj[this.game.Data.Turn].MessString[phaseData], 24, ref this.BackBitmap, 260, num20 + num18, true, true, tcenterit: true);
+          this.TAid = this.AddSubPart(ref tsubpart, 260, num20 + num18, 500, 16 * ( Math.Round( num19 / 36.0) + 1), 0);
           tsubpart =  new TextButtonPartClass("PRESS ANY KEY", 160, "Click button to continue", ref this.OwnBitmap, 420, 710, theight: 20, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
           this.okid = this.AddSubPart(ref tsubpart, 420, 710, 160, 20, 1);
           rectangle.Y = num20;
@@ -1142,7 +1142,7 @@ namespace WindowsApplication1
                 {
                   SizeF sizeF1 = SizeF::new();
                   SizeF sizeF2 = graphics.MeasureString(this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[phaseData], this.game.MarcFont7);
-                  DrawMod.DrawTextColouredMarc(ref graphics, this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[phaseData], this.game.MarcFont7,  Math.Round((double) rectangle.X + (double) rectangle.Width / 2.0 - (double) sizeF2.Width / 2.0), rectangle.Y + rectangle.Height - 8, Color.White);
+                  DrawMod.DrawTextColouredMarc(ref graphics, this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[phaseData], this.game.MarcFont7,  Math.Round( rectangle.X +  rectangle.Width / 2.0 -  sizeF2.Width / 2.0), rectangle.Y + rectangle.Height - 8, Color.White);
                 }
               }
               else
@@ -1161,7 +1161,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;
@@ -1236,7 +1236,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.QuitId)
             {
-              if (Interaction.MsgBox((object) "Are you Sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you Sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 this.game.Data = DataClass::new();
                 this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
@@ -1269,7 +1269,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    let mut num2: i32 =   Interaction.MsgBox((object) "Wrong password.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num2: i32 =   Interaction.MsgBox( "Wrong password.", Title: ( "Shadow Empire : Planetary Conquest"));
                     this.loggedin = false;
                     this.EnterTurn();
                     windowReturnClass.SetFlag(true);
@@ -1309,21 +1309,21 @@ namespace WindowsApplication1
                     this.game.Data.RegimeObj[this.game.Data.Turn].FirstRound = this.game.Data.Round;
                   if (this.game.Data.Round == 1 | this.game.Data.RegimeObj[this.game.Data.Turn].FirstRound == this.game.Data.Round)
                   {
-                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1), (object) 1, false))
+                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1),  1, false))
                     {
-                      this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode =  Math.Round((double) Conversion.Int(VBMath.Rnd() * 9999f));
+                      this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode =  Math.Round( Conversion.Int(VBMath.Rnd() * 9999f));
                       masterLogClass.SetEntry(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode);
                     }
                   }
                   else
                   {
                     int integer1;
-                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round - 1, this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode), (object) 1, false))
+                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round - 1, this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode),  1, false))
                     {
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num3: i32 =   Interaction.MsgBox((object) "Wiped Logbook. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num3: i32 =   Interaction.MsgBox( "Wiped Logbook. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -1354,13 +1354,13 @@ namespace WindowsApplication1
                         this.game.Data.RegimeObj[index2].MessFrontPic[messCounter] = -1;
                       }
                     }
-                    else if (Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1), (object) 0, false))
+                    else if (Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1),  0, false))
                     {
-                      let mut integer2: i32 =  Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1), (object) 1));
+                      let mut integer2: i32 =  Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1),  1));
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num4: i32 =   Interaction.MsgBox((object) "Turn has already been opened before. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num4: i32 =   Interaction.MsgBox( "Turn has already been opened before. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -1386,18 +1386,18 @@ namespace WindowsApplication1
                         this.game.Data.RegimeObj[index5].MesHideFromStart = (bool[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index5].MesHideFromStart, (Array) new bool[messCounter + 1]);
                         this.game.Data.RegimeObj[index5].MesHideFromTab = (bool[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index5].MesHideFromTab, (Array) new bool[messCounter + 1]);
                         this.game.Data.RegimeObj[index5].MesStyle[messCounter] = 0;
-                        this.game.Data.RegimeObj[index5].MessString[messCounter] = "Possible PBEM cheat\r\n\r\n" + this.game.Data.RegimeObj[this.game.Data.Turn].Name + " has opened round " + Conversion.Str((object) this.game.Data.Round) + " for the " + Conversion.Str((object) integer2) + "th time.";
+                        this.game.Data.RegimeObj[index5].MessString[messCounter] = "Possible PBEM cheat\r\n\r\n" + this.game.Data.RegimeObj[this.game.Data.Turn].Name + " has opened round " + Conversion.Str( this.game.Data.Round) + " for the " + Conversion.Str( integer2) + "th time.";
                         this.game.Data.RegimeObj[index5].MessBackPic[messCounter] = -2;
                         this.game.Data.RegimeObj[index5].MessFrontPic[messCounter] = -1;
                       }
                     }
-                    else if (Information.IsNothing((object) Expression))
+                    else if (Information.IsNothing( Expression))
                     {
-                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1), (object) 1));
+                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1),  1));
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num5: i32 =   Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num5: i32 =   Interaction.MsgBox( "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -1430,11 +1430,11 @@ namespace WindowsApplication1
                     }
                     else if (DateTime.Compare(masterLogClass.LastSave, Expression.CreationTime) != 0)
                     {
-                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1), (object) 1));
+                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, -1),  1));
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num6: i32 =   Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num6: i32 =   Interaction.MsgBox( "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -1465,7 +1465,7 @@ namespace WindowsApplication1
                         this.game.Data.RegimeObj[index11].MessFrontPic[messCounter] = -1;
                       }
                     }
-                    this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode =  Math.Round((double) Conversion.Int(VBMath.Rnd() * 9999f));
+                    this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode =  Math.Round( Conversion.Int(VBMath.Rnd() * 9999f));
                     masterLogClass.SetEntry(this.game.Data.GameID, this.game.Data.Round, this.game.Data.Turn, this.game.Data.RegimeObj[this.game.Data.Turn].RandomCode);
                   }
                   DirectoryInfo directoryInfo1 = (DirectoryInfo) null;
@@ -1526,7 +1526,7 @@ namespace WindowsApplication1
                     {
                       this.game.ProcessingObj.LocationProductionPrognosis();
                       this.game.HandyFunctionsObj.SetInitialXY(this.game.Data.Turn);
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                         windowReturnClass.AddCommand(3, 3);
                       else
                         windowReturnClass.AddCommand(3, 11);
@@ -1560,7 +1560,7 @@ namespace WindowsApplication1
                   {
                     this.game.HandyFunctionsObj.SetInitialXY(this.game.Data.Turn);
                     this.game.ProcessingObj.LocationProductionPrognosis();
-                    if ((double) this.game.Data.RuleVar[839] == 0.0)
+                    if ( this.game.Data.RuleVar[839] == 0.0)
                       windowReturnClass.AddCommand(3, 3);
                     else
                       windowReturnClass.AddCommand(3, 11);
@@ -1579,7 +1579,7 @@ namespace WindowsApplication1
                 str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Scenario file (*.se1)|*.se1", "Give save name...", this.game.AppPath_SAVEGAMES, false);
                 if (Strings.Len(str) < 2)
                 {
-                  let mut num7: i32 =   Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num7: i32 =   Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -1613,7 +1613,7 @@ namespace WindowsApplication1
               else
               {
                 this.game.ProcessingObj.LocationProductionPrognosis();
-                if ((double) this.game.Data.RuleVar[839] == 0.0)
+                if ( this.game.Data.RuleVar[839] == 0.0)
                   windowReturnClass.AddCommand(3, 3);
                 else
                   windowReturnClass.AddCommand(3, 11);

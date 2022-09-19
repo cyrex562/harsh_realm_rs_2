@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -97,7 +97,7 @@ namespace WindowsApplication1
       this.Ta2id = this.AddSubPart(ref tsubpart, 455, 156, 380, 432, 0);
       tsubpart =  new TextButtonPartClass("OK", 150, "Click to return to main screen. [ESC]", ref this.OwnBitmap, 350, 620, theight: 40);
       this.cancelid = this.AddSubPart(ref tsubpart, 350, 620, 150, 40, 1);
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
       objgraphics = (Graphics) null;

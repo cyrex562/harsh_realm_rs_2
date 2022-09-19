@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -14,14 +14,14 @@ namespace WindowsApplication1
   {
     pub ListCount: i32;
     pub string[] ListName;
-    pub int[] ListData;
+    pub ListData: Vec<i32>;
     pub string[] ListValue;
     pub string[] ListValue2;
     pub string[] ListValue3;
     pub string[] ListValue4;
-    pub int[] ListColor;
+    pub ListColor: Vec<i32>;
     pub Bitmap[] ListBmp;
-    pub int[] ListWeight;
+    pub ListWeight: Vec<i32>;
 
     pub ListClass()
     {
@@ -114,35 +114,35 @@ namespace WindowsApplication1
       object Counter;
       object LoopForResult1;
       object CounterResult1;
-      if (this.ListCount < 1 || !ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter, (object) 0, (object) (this.ListCount - 1), (object) 1,  LoopForResult1,  CounterResult1))
+      if (this.ListCount < 1 || !ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter,  0,  (this.ListCount - 1),  1,  LoopForResult1,  CounterResult1))
         return TempInt;
       do
       {
         object CounterResult2;
         object LoopForResult2;
-        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(CounterResult2, (object) 0, (object) (this.ListCount - 1), (object) 1,  LoopForResult2,  CounterResult2))
+        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(CounterResult2,  0,  (this.ListCount - 1),  1,  LoopForResult2,  CounterResult2))
         {
           do
           {
-            if (Operators.CompareString(this.ListName[Conversions.ToInteger(CounterResult2)], this.ListName[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))], false) > 0)
+            if (Operators.CompareString(this.ListName[Conversions.ToInteger(CounterResult2)], this.ListName[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))], false) > 0)
             {
-              str1: String = this.ListName[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))];
-              object obj = (object) this.ListData[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))];
-              str2: String = this.ListValue[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))];
-              str3: String = this.ListValue2[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))];
-              str4: String = this.ListValue3[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))];
-              str5: String = this.ListValue4[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))];
-              if (Operators.ConditionalCompareObjectEqual((object) TempInt, Operators.AddObject(CounterResult2, (object) 1), false))
+              str1: String = this.ListName[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))];
+              object obj =  this.ListData[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))];
+              str2: String = this.ListValue[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))];
+              str3: String = this.ListValue2[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))];
+              str4: String = this.ListValue3[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))];
+              str5: String = this.ListValue4[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))];
+              if (Operators.ConditionalCompareObjectEqual( TempInt, Operators.AddObject(CounterResult2,  1), false))
                 TempInt = Conversions.ToInteger(CounterResult2);
-              else if (Operators.ConditionalCompareObjectEqual((object) TempInt, CounterResult2, false))
-                TempInt = Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1));
-              Bitmap bitmap = this.ListBmp[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))];
-              this.ListName[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))] = this.ListName[Conversions.ToInteger(CounterResult2)];
-              this.ListData[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))] = this.ListData[Conversions.ToInteger(CounterResult2)];
-              this.ListValue[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))] = this.ListValue[Conversions.ToInteger(CounterResult2)];
-              this.ListValue2[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))] = this.ListValue2[Conversions.ToInteger(CounterResult2)];
-              this.ListValue3[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))] = this.ListValue3[Conversions.ToInteger(CounterResult2)];
-              this.ListValue4[Conversions.ToInteger(Operators.AddObject(CounterResult2, (object) 1))] = this.ListValue4[Conversions.ToInteger(CounterResult2)];
+              else if (Operators.ConditionalCompareObjectEqual( TempInt, CounterResult2, false))
+                TempInt = Conversions.ToInteger(Operators.AddObject(CounterResult2,  1));
+              Bitmap bitmap = this.ListBmp[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))];
+              this.ListName[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))] = this.ListName[Conversions.ToInteger(CounterResult2)];
+              this.ListData[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))] = this.ListData[Conversions.ToInteger(CounterResult2)];
+              this.ListValue[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))] = this.ListValue[Conversions.ToInteger(CounterResult2)];
+              this.ListValue2[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))] = this.ListValue2[Conversions.ToInteger(CounterResult2)];
+              this.ListValue3[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))] = this.ListValue3[Conversions.ToInteger(CounterResult2)];
+              this.ListValue4[Conversions.ToInteger(Operators.AddObject(CounterResult2,  1))] = this.ListValue4[Conversions.ToInteger(CounterResult2)];
               this.ListName[Conversions.ToInteger(CounterResult2)] = str1;
               this.ListData[Conversions.ToInteger(CounterResult2)] = Conversions.ToInteger(obj);
               this.ListBmp[Conversions.ToInteger(CounterResult2)] = bitmap;

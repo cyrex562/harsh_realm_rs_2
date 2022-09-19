@@ -223,7 +223,7 @@
           let mut destrect3: &Rectangle = &rectangle1
           DrawMod.DrawSimplePart2( local7,  local8, srcrect3, destrect3);
           tstring1: String = str2 + " " + (self.game.EditObj.se1_adviceWindowPage + 1).ToString() + "/" + (self.game.Data.StringListObj[stringListById1].Length + 1).ToString();
-          DrawMod.DrawTextColouredConsoleCenter( Expression, tstring1, DrawMod.TGame.se1TypeWriterBig, (int) Math.Round((double) self.w / 2.0) - 18, 20, DrawMod.TGame.seColTW);
+          DrawMod.DrawTextColouredConsoleCenter( Expression, tstring1, DrawMod.TGame.se1TypeWriterBig, (int) Math.Round( self.w / 2.0) - 18, 20, DrawMod.TGame.seColTW);
           if (charId > 0)
           {
              let mut local9: &Graphics = &Expression;
@@ -303,7 +303,7 @@
             self.info3id = self.AddSubPart( tsubpart8, self.w - 110, 20, 60, 30, 1);
           }
         }
-        if (Information.IsNothing((object) Expression))
+        if (Information.IsNothing( Expression))
           return;
         Expression.Dispose();
         Expression = (Graphics) null;

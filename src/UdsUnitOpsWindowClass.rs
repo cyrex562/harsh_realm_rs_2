@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -98,7 +98,7 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       str1: String = "Select Order Mode";
       SizeF sizeF2 = graphics.MeasureString(str1, self.game.MarcFont4);
-      DrawMod.DrawTextColouredMarc( graphics, str1, self.game.MarcFont4,  Math.Round(100.0 - (double) sizeF2.Width / 2.0), 10, Color.White);
+      DrawMod.DrawTextColouredMarc( graphics, str1, self.game.MarcFont4,  Math.Round(100.0 -  sizeF2.Width / 2.0), 10, Color.White);
       let mut num1: i32 = 28;
       let mut num2: i32 = 30;
       bool flag1 = false;
@@ -151,7 +151,7 @@ namespace WindowsApplication1
         let mut tsubpart8: SubPartClass =  new TextButtonPartClass("Air Bridge", 160, "Allows your to order Air Bridges",  self.OwnBitmap, 20, num6, flag8, flag8, num1, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
         self.but11 = self.AddSubPart( tsubpart8, 20, num6, 160, num1, 1);
       }
-      if ((double) self.game.Data.RuleVar[702] > 0.0)
+      if ( self.game.Data.RuleVar[702] > 0.0)
       {
         num6 += num1 + 2;
         bool flag9 = false;
@@ -218,7 +218,7 @@ namespace WindowsApplication1
       System.Type type = typeof (MapWindowClass2);
        System.Type local =  type;
       MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-      if (!Information.IsNothing((object) window) & self.game.EditObj.UnitSelected > -1)
+      if (!Information.IsNothing( window) & self.game.EditObj.UnitSelected > -1)
         window.UdsClickUnit(self.game.Data.UnitObj[self.game.EditObj.UnitSelected].X, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Y, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Map, true);
       windowReturnClass.AddCommand(1, 118);
       windowReturnClass.SetFlag(true);
@@ -244,7 +244,7 @@ namespace WindowsApplication1
               System.Type type = typeof (MapWindowClass2);
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 if (self.game.EditObj.UnitSelected > -1)
                   window.UdsClickUnit(self.game.Data.UnitObj[self.game.EditObj.UnitSelected].X, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Y, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Map, true);
@@ -263,7 +263,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -286,7 +286,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -310,7 +310,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -333,7 +333,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -356,7 +356,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -379,7 +379,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -402,7 +402,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -425,7 +425,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -448,7 +448,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -471,7 +471,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 if (self.game.EditObj.UnitSelected > -1)
@@ -488,7 +488,7 @@ namespace WindowsApplication1
             }
             if (num == self.but5)
             {
-              let mut enr: i32 =  Math.Round((double) self.game.Data.RuleVar[705]);
+              let mut enr: i32 =  Math.Round( self.game.Data.RuleVar[705]);
               self.game.EditObj.UDSpopupText = "";
               self.game.EditObj.UDSAddInput("ROADCHOICE", 0);
               if (enr > 0)
@@ -507,7 +507,7 @@ namespace WindowsApplication1
                System.Type local =  type;
               MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
               windowReturnClass.AddCommand(1, 118);
-              if (!Information.IsNothing((object) window))
+              if (!Information.IsNothing( window))
               {
                 self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
                 window.UdsClickUnit(self.game.SelectX, self.game.SelectY, 0, true);

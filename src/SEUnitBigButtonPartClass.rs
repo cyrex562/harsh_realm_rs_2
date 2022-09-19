@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -42,7 +42,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimple( local3,  local4, 0, 0);
       }
       DrawMod.TGame.CustomBitmapObj.DrawUnitBig(this.unr, toG: graphics, tx: 10, ty: 11);
-      if (!Information.IsNothing((object) graphics))
+      if (!Information.IsNothing( graphics))
         graphics.Dispose();
       return this.OwnBitmap;
     }
@@ -70,7 +70,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimple( local5,  local6, 0, 0);
       }
       DrawMod.TGame.CustomBitmapObj.DrawUnitBig(this.unr, toG: graphics, tx: 10, ty: 11);
-      if (!Information.IsNothing((object) graphics))
+      if (!Information.IsNothing( graphics))
         graphics.Dispose();
       return this.OwnBitmap;
     }

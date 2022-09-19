@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -148,7 +148,7 @@ namespace WindowsApplication1
           num2 += 1;
           if (self.libnr == index)
             num1 = num2;
-          self.LibListObj.add(Conversion.Str((object) index) + ") " + self.game.Data.LibraryObj[index].name, index);
+          self.LibListObj.add(Conversion.Str( index) + ") " + self.game.Data.LibraryObj[index].name, index);
         }
         ListClass libListObj = self.LibListObj;
         let mut tlistselect: i32 = num1;
@@ -174,12 +174,12 @@ namespace WindowsApplication1
             num3 += 1;
             if (tDetailnr == index)
               num4 = num3;
-            self.ListObj.add(Conversion.Str((object) index) + ") " + self.game.Data.StringListObj[index].Name + "(ID" + Strings.Trim(Conversion.Str((object) self.game.Data.StringListObj[index].ID)) + ")", index);
+            self.ListObj.add(Conversion.Str( index) + ") " + self.game.Data.StringListObj[index].Name + "(ID" + Strings.Trim(Conversion.Str( self.game.Data.StringListObj[index].ID)) + ")", index);
           }
         }
         let mut num5: i32 = 0;
         if (self.game.ScreenHeight > 768)
-          num5 = Math.Max(0,  Math.Round((double) (self.game.ScreenHeight - 768) / 16.0) - 2);
+          num5 = Math.Max(0,  Math.Round( (self.game.ScreenHeight - 768) / 16.0) - 2);
         ListClass listObj = self.ListObj;
         let mut tlistsize: i32 = 20 + num5;
         let mut tlistselect: i32 = num4;
@@ -401,7 +401,7 @@ namespace WindowsApplication1
       self.b16textid = self.AddSubPart( tsubpart2, 950, 129, 140, 20, 0);
       tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK);
       self.b7id = self.AddSubPart( tsubpart2, 810, 110, 32, 16, 1);
-      tsubpart2 =  TextPartClass::new("ID=" + Conversion.Str((object) self.game.Data.StringListObj[self.detailnr].ID), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 140, 20, false, tDescript: self.ss);
+      tsubpart2 =  TextPartClass::new("ID=" + Conversion.Str( self.game.Data.StringListObj[self.detailnr].ID), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 140, 20, false, tDescript: self.ss);
       self.b7textid = self.AddSubPart( tsubpart2, 850, 109, 140, 20, 0);
       self.ss = "Set the column selected to a lookUp Column of a certain stringlist ID";
       tsubpart2 =  ButtonPartClass::new(self.game.BUTTONBLOCK, tDescript: self.ss);
@@ -425,7 +425,7 @@ namespace WindowsApplication1
       self.b18textid = self.AddSubPart( tsubpart2, 1150, 69, 150, 20, 0);
       let mut num: i32 = 0;
       if (self.game.ScreenHeight > 768)
-        num = Math.Max(0,  Math.Round((double) (self.game.ScreenHeight - 768) / 16.0) - 2);
+        num = Math.Max(0,  Math.Round( (self.game.ScreenHeight - 768) / 16.0) - 2);
       tsubpart2 =  new MatrixSubPartClass(self.game.Data.StringListObj[self.detailnr], 20 + num, Math.Min(1600, self.game.ScreenWidth - 324), self.detailx, self.detaily, self.game, tbackbitmap: ( self.BackBitmap), bbx: 310, bby: 200);
       self.OptionsListId = self.AddSubPart( tsubpart2, 310, 200, Math.Min(1600, self.game.ScreenWidth - 324), (23 + num) * 16, 0);
       self.MakeTab();
@@ -707,7 +707,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num4: i32 =  Interaction.MsgBox((object) "No column selected");
+                let mut num4: i32 =  Interaction.MsgBox( "No column selected");
               }
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -745,14 +745,14 @@ namespace WindowsApplication1
               }
               if (Operators.CompareString(str, "", false) == 0)
                 str = "No results found";
-              let mut num5: i32 =  Interaction.MsgBox((object) str, Title: ((object) "Search results"));
+              let mut num5: i32 =  Interaction.MsgBox( str, Title: ( "Search results"));
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
             if (num1 == self.b20id)
             {
               bool flag = false;
-              if (Interaction.MsgBox((object) "Replace in ALL stringlists?", MsgBoxStyle.YesNo, (object) "Are you sure?") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Replace in ALL stringlists?", MsgBoxStyle.YesNo,  "Are you sure?") == MsgBoxResult.Yes)
                 flag = true;
               str1: String = Interaction.InputBox("Search expression (case sensitive)", "Shadow Empire : Planetary Conquest");
               newValue: String = Interaction.InputBox("Replace expression (case sensitive)", "Shadow Empire : Planetary Conquest");
@@ -780,7 +780,7 @@ namespace WindowsApplication1
                   }
                 }
               }
-              let mut num7: i32 =  Interaction.MsgBox((object) (num6.ToString() + " replacements made."), Title: ((object) "Replace results"));
+              let mut num7: i32 =  Interaction.MsgBox( (num6.ToString() + " replacements made."), Title: ( "Replace results"));
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
@@ -812,7 +812,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.b16id)
             {
-              if (Interaction.MsgBox((object) "Is editable in Simple Editor?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Is editable in Simple Editor?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 self.game.Data.StringListObj[self.detailnr].Editable = true;
                 Form2::new( self.formref).Initialize(self.game.Data, 12, self.detailnr);
@@ -872,7 +872,7 @@ namespace WindowsApplication1
                 text.WriteLine(str);
               }
               text.Close();
-              let mut num12: i32 =  Interaction.MsgBox((object) "finished");
+              let mut num12: i32 =  Interaction.MsgBox( "finished");
             }
             else
             {
@@ -898,7 +898,7 @@ namespace WindowsApplication1
                   let mut stringListCounter: i32 = dataClass.StringListCounter;
                   for (let mut index12: i32 = 0; index12 <= stringListCounter; index12 += 1)
                   {
-                    if ((double) index12 == Conversion.Val(InputStr) | Conversion.Val(InputStr) == -1.0)
+                    if ( index12 == Conversion.Val(InputStr) | Conversion.Val(InputStr) == -1.0)
                     {
                       self.game.Data.AddStringList();
                       self.game.Data.StringListObj[self.game.Data.StringListCounter] = dataClass.StringListObj[index12].Clone();

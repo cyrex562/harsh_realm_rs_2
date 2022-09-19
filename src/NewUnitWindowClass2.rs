@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -219,7 +219,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.OptionsList2Id);
         this.OptionsList2Id = 0;
       }
-      let mut num1: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.w - 1024) / 2.0);
       this.NewBackGroundAndClearAll(this.w, this.h, this.game.MARCBOTBAR);
       this.ClearMouse();
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
@@ -243,8 +243,8 @@ namespace WindowsApplication1
             tvalue4: String = !this.creatable[tdata] ? "-" : "OK";
             tvalue3: String = "Unl.";
             if (this.game.Data.HistoricalUnitObj[tdata].MaxPresent > -1)
-              tvalue3 = Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].MaxPresent);
-            this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].PP), Conversion.Str((object) this.modelcount[tdata]), tvalue3, tvalue4);
+              tvalue3 = Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].MaxPresent);
+            this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].PP), Conversion.Str( this.modelcount[tdata]), tvalue3, tvalue4);
           }
         }
         if (this.OptionsListId > 0)
@@ -283,7 +283,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
     }

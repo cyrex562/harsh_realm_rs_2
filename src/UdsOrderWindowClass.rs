@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -93,7 +93,7 @@ namespace WindowsApplication1
         self.game.EditObj.MouseWheelWait = 4;
         return self.actionZoomOut();
       }
-      if (!self.game.EditObj.GuiDown || Information.IsNothing((object) self.game.EditObj.UDSpushedPopupText) || self.game.EditObj.UDSpushedPopupText.Length <= 1)
+      if (!self.game.EditObj.GuiDown || Information.IsNothing( self.game.EditObj.UDSpushedPopupText) || self.game.EditObj.UDSpushedPopupText.Length <= 1)
         return windowReturnClass;
       self.game.EditObj.UDSpopupText = self.game.EditObj.UDSpushedPopupText;
       self.game.EditObj.UDSpushedPopupText = "";
@@ -158,7 +158,7 @@ namespace WindowsApplication1
         let mut num4: i32 = num2 - width;
         if (self.game.EditObj.SetViewModeExtraNr == 0)
         {
-          let mut x1: i32 =  Math.Round((double) num4 + (double) self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
+          let mut x1: i32 =  Math.Round( num4 +  self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
           Bitmap bitmap;
           SizeF sizeF2;
           Rectangle trect1;
@@ -174,7 +174,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local1,  local2, x2, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper: String = self.game.Data.ExtraTabName4.ToUpper();
             sizeF2 = g.MeasureString(upper, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x1 +  width / 2.0 -  sizeF2.Width / 2.0), 70, Color.White);
             trect1 = Rectangle::new(x1, 66, width, 24);
             trect2 = trect1;
             self.AddMouse( trect2, "", "Extra data sheet.", 54);
@@ -191,7 +191,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local3,  local4, x3, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper: String = self.game.Data.ExtraTabName3.ToUpper();
             sizeF2 = g.MeasureString(upper, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x1 +  width / 2.0 -  sizeF2.Width / 2.0), 70, Color.White);
             trect2 = Rectangle::new(x1, 66, width, 24);
             trect1 = trect2;
             self.AddMouse( trect1, "", "Extra data sheet.", 53);
@@ -208,7 +208,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local5,  local6, x4, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper: String = self.game.Data.ExtraTabName2.ToUpper();
             sizeF2 = g.MeasureString(upper, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x1 +  width / 2.0 -  sizeF2.Width / 2.0), 70, Color.White);
             trect2 = Rectangle::new(x1, 66, width, 24);
             trect1 = trect2;
             self.AddMouse( trect1, "", "Extra data sheet.", 52);
@@ -223,7 +223,7 @@ namespace WindowsApplication1
           DrawMod.DrawScaledColorized( local7,  local8, x6, 66, w1, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
           upper1: String = self.game.Data.ExtraTabName.ToUpper();
           sizeF2 = g.MeasureString(upper1, self.game.MarcFont16);
-          DrawMod.DrawTextColouredMarc( g, upper1, self.game.MarcFont16,  Math.Round((double) x5 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
+          DrawMod.DrawTextColouredMarc( g, upper1, self.game.MarcFont16,  Math.Round( x5 +  width / 2.0 -  sizeF2.Width / 2.0), 70, Color.White);
           trect2 = Rectangle::new(x5, 66, width, 24);
           trect1 = trect2;
           self.AddMouse( trect1, "", "Extra data sheet.", 51);
@@ -231,7 +231,7 @@ namespace WindowsApplication1
         }
         else
         {
-          let mut x7: i32 =  Math.Round((double) num4 + (double) self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
+          let mut x7: i32 =  Math.Round( num4 +  self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
           Bitmap bitmap;
           string upper;
           SizeF sizeF3;
@@ -247,7 +247,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local9,  local10, x8, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName4.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x7 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x7 +  width / 2.0 -  sizeF3.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x7, 66, width, 24);
             let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 54);
@@ -266,7 +266,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local11,  local12, x9, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName3.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x7 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x7 +  width / 2.0 -  sizeF3.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x7, 66, width, 24);
             let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 53);
@@ -285,7 +285,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local13,  local14, x10, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName2.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x7 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x7 +  width / 2.0 -  sizeF3.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x7, 66, width, 24);
             let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 52);
@@ -304,7 +304,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local15,  local16, x12, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper = self.game.Data.ExtraTabName.ToUpper();
             sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x11 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x11 +  width / 2.0 -  sizeF3.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x11, 66, width, 24);
             let mut trect: &Rectangle = &rectangle
             self.AddMouse( trect, "", "Extra data sheet.", 51);
@@ -312,7 +312,7 @@ namespace WindowsApplication1
           }
           else if (self.game.Data.ExtraTabName.Length > 0)
             num1 = x7 - (width - 12);
-          let mut x13: i32 =  Math.Round((double) num4 + (double) self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
+          let mut x13: i32 =  Math.Round( num4 +  self.game.ScreenWidth / 2.0 - 370.0) + (width - 12);
           if (self.game.EditObj.SetViewModeExtraNr == 1)
           {
             upper = self.game.Data.ExtraTabName.ToUpper();
@@ -340,7 +340,7 @@ namespace WindowsApplication1
           let mut w2: i32 = width;
           DrawMod.DrawScaledColorized( local17,  local18, x14, 66, w2, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
           sizeF3 = g.MeasureString(upper, self.game.MarcFont16);
-          DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x13 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
+          DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x13 +  width / 2.0 -  sizeF3.Width / 2.0), 70, Color.White);
           rectangle = Rectangle::new(x13, 66, width, 24);
           let mut trect3: &Rectangle = &rectangle
           self.AddMouse( trect3, "", "Extra data sheet.", 50 + self.game.EditObj.SetViewModeExtraNr);
@@ -359,18 +359,18 @@ namespace WindowsApplication1
       {
         if (self.game.EditObj.UnitSelected <= -1)
           return;
-        object obj = (object) true;
+        object obj =  true;
         if (self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Historical > -1)
         {
-          if (Information.IsNothing((object) self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Historical].CommanderName))
-            obj = (object) false;
+          if (Information.IsNothing( self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Historical].CommanderName))
+            obj =  false;
           else if (self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Historical].CommanderName.Length < 1)
-            obj = (object) false;
+            obj =  false;
           if (!self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
             ;
         }
         else
-          obj = (object) false;
+          obj =  false;
         if (self.game.Data.ExtraTabName.Length > 0)
         {
           let mut width: i32 = 182;
@@ -396,7 +396,7 @@ namespace WindowsApplication1
           }
           if (self.game.EditObj.SetViewModeExtraNr == 0)
           {
-            let mut x15: i32 =  Math.Round((double) num5 + (double) self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x15: i32 =  Math.Round( num5 +  self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             SizeF sizeF4;
             Rectangle rectangle;
@@ -411,7 +411,7 @@ namespace WindowsApplication1
               DrawMod.DrawScaledColorized( local19,  local20, x16, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName4.ToUpper();
               sizeF4 = g.MeasureString(upper, self.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x15 +  width / 2.0 -  sizeF4.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x15, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 54);
@@ -428,7 +428,7 @@ namespace WindowsApplication1
               DrawMod.DrawScaledColorized( local21,  local22, x17, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName3.ToUpper();
               sizeF4 = g.MeasureString(upper, self.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x15 +  width / 2.0 -  sizeF4.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x15, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 53);
@@ -445,7 +445,7 @@ namespace WindowsApplication1
               DrawMod.DrawScaledColorized( local23,  local24, x18, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName2.ToUpper();
               sizeF4 = g.MeasureString(upper, self.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x15 +  width / 2.0 -  sizeF4.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x15, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 52);
@@ -460,7 +460,7 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local25,  local26, x20, 66, w3, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper2: String = self.game.Data.ExtraTabName.ToUpper();
             sizeF4 = g.MeasureString(upper2, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper2, self.game.MarcFont16,  Math.Round((double) x19 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper2, self.game.MarcFont16,  Math.Round( x19 +  width / 2.0 -  sizeF4.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x19, 66, width, 24);
             let mut trect4: &Rectangle = &rectangle
             self.AddMouse( trect4, "", "Extra data sheet.", 51);
@@ -474,14 +474,14 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local27,  local28, x22, 66, w4, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str: String = "UNIT INFO";
             sizeF4 = g.MeasureString(str, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) x21 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round( x21 +  width / 2.0 -  sizeF4.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x21, 66, width, 24);
             let mut trect5: &Rectangle = &rectangle
             self.AddMouse( trect5, "", "The base info of the unit is always shown.");
           }
           else
           {
-            let mut x23: i32 =  Math.Round((double) num5 + (double) self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x23: i32 =  Math.Round( num5 +  self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             SizeF sizeF5;
             Rectangle rectangle;
@@ -496,7 +496,7 @@ namespace WindowsApplication1
               DrawMod.DrawScaledColorized( local29,  local30, x24, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName4.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x23 +  width / 2.0 -  sizeF5.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x23, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 54);
@@ -515,7 +515,7 @@ namespace WindowsApplication1
               DrawMod.DrawScaledColorized( local31,  local32, x25, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName3.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x23 +  width / 2.0 -  sizeF5.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x23, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 53);
@@ -534,7 +534,7 @@ namespace WindowsApplication1
               DrawMod.DrawScaledColorized( local33,  local34, x26, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName2.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x23 +  width / 2.0 -  sizeF5.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x23, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 52);
@@ -553,7 +553,7 @@ namespace WindowsApplication1
               DrawMod.DrawScaledColorized( local35,  local36, x28, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = self.game.Data.ExtraTabName.ToUpper();
               sizeF5 = g.MeasureString(upper, self.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round((double) x27 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont16,  Math.Round( x27 +  width / 2.0 -  sizeF5.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x27, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               self.AddMouse( trect, "", "Extra data sheet.", 51);
@@ -561,7 +561,7 @@ namespace WindowsApplication1
             }
             else if (self.game.Data.ExtraTabName.Length > 0)
               num1 = x23 - (width - 12);
-            let mut num7: i32 =  Math.Round((double) num5 + (double) self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut num7: i32 =  Math.Round( num5 +  self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (self.game.Data.ExtraTabName4.Length > 0)
               num7 -= width - 12;
             if (self.game.Data.ExtraTabName3.Length > 0)
@@ -579,12 +579,12 @@ namespace WindowsApplication1
             DrawMod.DrawScaledColorized( local37,  local38, x30, 66, w5, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str: String = "UNIT INFO";
             sizeF5 = g.MeasureString(str, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) x29 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round( x29 +  width / 2.0 -  sizeF5.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x29, 66, width, 24);
             let mut trect6: &Rectangle = &rectangle
             self.AddMouse( trect6, "", "The base info of the unit is always shown.", 6);
             self.tab6 = self.MouseCounter;
-            let mut x31: i32 =  Math.Round((double) num5 + (double) self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x31: i32 =  Math.Round( num5 +  self.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (self.game.EditObj.SetViewModeExtraNr == 1)
             {
               str = self.game.Data.ExtraTabName.ToUpper();
@@ -612,7 +612,7 @@ namespace WindowsApplication1
             let mut w6: i32 = width;
             DrawMod.DrawScaledColorized( local39,  local40, x32, 66, w6, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             sizeF5 = g.MeasureString(str, self.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) x31 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round( x31 +  width / 2.0 -  sizeF5.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x31, 66, width, 24);
             let mut trect7: &Rectangle = &rectangle
             self.AddMouse( trect7, "", "Extra data sheet.", 50 + self.game.EditObj.SetViewModeExtraNr);
@@ -628,7 +628,7 @@ namespace WindowsApplication1
         }
         else
         {
-          let mut x33: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
+          let mut x33: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 480.0);
            let mut local41: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCLARGETAB);
            let mut local42: &Bitmap = &bitmap;
@@ -636,7 +636,7 @@ namespace WindowsApplication1
           DrawMod.DrawSimple( local41,  local42, x34, 66);
           str: String = "UNIT BASE INFO";
           SizeF sizeF6 = g.MeasureString(str, self.game.MarcFont16);
-          DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round((double) ((float) (x33 + 91) - sizeF6.Width / 2f)), 70, Color.White);
+          DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16,  Math.Round( ( (x33 + 91) - sizeF6.Width / 2f)), 70, Color.White);
           Rectangle trect = Rectangle::new(x33, 66, BitmapStore.GetWidth(self.game.MARCLARGETAB), 24);
           self.AddMouse( trect, "", "The base info of the unit is always shown.");
         }
@@ -662,19 +662,19 @@ namespace WindowsApplication1
           self.currentview = 0;
           self.game.EditObj.SetViewMode = 0;
         }
-        if (Conversions.ToBoolean(Operators.AndObject((object) (self.currentview == 3), Operators.OrObject((object) !self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj, (object) false, false)))))
+        if (Conversions.ToBoolean(Operators.AndObject( (self.currentview == 3), Operators.OrObject( !self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj,  false, false)))))
         {
           self.currentview = 0;
           self.game.EditObj.SetViewMode = 0;
           self.game.EditObj.SetViewMode3 = false;
         }
-        if (Conversions.ToBoolean(Operators.AndObject((object) (self.currentview == 0), Operators.AndObject((object) self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ, obj))) && !self.game.EditObj.SetViewMode3)
+        if (Conversions.ToBoolean(Operators.AndObject( (self.currentview == 0), Operators.AndObject( self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ, obj))) && !self.game.EditObj.SetViewMode3)
         {
           self.currentview = 3;
           self.game.EditObj.SetViewMode = 3;
           self.game.EditObj.SetViewMode3 = true;
         }
-        if (Conversions.ToBoolean(Operators.AndObject((object) self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj, (object) true, false))))
+        if (Conversions.ToBoolean(Operators.AndObject( self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj,  true, false))))
         {
           if (self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Regime, self.game.Data.Turn))
           {
@@ -910,7 +910,7 @@ namespace WindowsApplication1
       {
         if (wideTab)
         {
-          if ((double) sizeF.Width > 150.0)
+          if ( sizeF.Width > 150.0)
           {
             string[] strArray = sText.Split(new char[1]
             {
@@ -919,7 +919,7 @@ namespace WindowsApplication1
             sHeader = "";
             let mut num1: i32 = -1;
             let mut upperBound1: i32 = strArray.GetUpperBound(0);
-            for (let mut index: i32 = 0; index <= upperBound1 && (double) g.MeasureString(sHeader + " " + strArray[index], DrawMod.TGame.MarcFont16).Width < 150.0; index += 1)
+            for (let mut index: i32 = 0; index <= upperBound1 &&  g.MeasureString(sHeader + " " + strArray[index], DrawMod.TGame.MarcFont16).Width < 150.0; index += 1)
             {
               if (sHeader.Length > 0)
                 sHeader += " ";
@@ -931,7 +931,7 @@ namespace WindowsApplication1
             let mut upperBound2: i32 = strArray.GetUpperBound(0);
             for (let mut index: i32 = num2; index <= upperBound2; index += 1)
             {
-              if ((double) g.MeasureString(sText + " " + strArray[index], DrawMod.TGame.MarcFont16).Width < 150.0)
+              if ( g.MeasureString(sText + " " + strArray[index], DrawMod.TGame.MarcFont16).Width < 150.0)
               {
                 if (sText.Length > 0)
                   sText += " ";
@@ -959,7 +959,7 @@ namespace WindowsApplication1
       }
       else if (wideTab)
       {
-        if ((double) sizeF.Width > 150.0)
+        if ( sizeF.Width > 150.0)
         {
           string[] strArray = sText.Split(new char[1]{ ' ' }, StringSplitOptions.RemoveEmptyEntries);
           sText = "";
@@ -967,7 +967,7 @@ namespace WindowsApplication1
           let mut upperBound: i32 = strArray.GetUpperBound(0);
           for (let mut index: i32 = 0; index <= upperBound; index += 1)
           {
-            if ((double) g.MeasureString(sText + " " + strArray[index], DrawMod.TGame.MarcFont16).Width < 141.0)
+            if ( g.MeasureString(sText + " " + strArray[index], DrawMod.TGame.MarcFont16).Width < 141.0)
             {
               if (sText.Length > 0)
                 sText += " ";
@@ -1050,7 +1050,7 @@ namespace WindowsApplication1
       let mut destrect2: &Rectangle = &trect1
       DrawMod.DrawSimplePart2( local7,  local8, srcrect2, destrect2);
       self.dostuff2(objgraphics);
-      let mut num1: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 158.0);
+      let mut num1: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 158.0);
       if (self.game.SelectX > -1 & self.game.SelectY > -1)
       {
         let mut stringListById1: i32 = self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 370, 0, 0));
@@ -1081,7 +1081,7 @@ namespace WindowsApplication1
         }
         if (hexLibVarValue1 > 0)
           num4 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById2].GetData(0, hexLibVarValue1, 13)));
-        let mut num5: i32 =  Math.Round((double) num4 / (double) num2);
+        let mut num5: i32 =  Math.Round( num4 /  num2);
         int eventPicOrigSlot1;
         int eventPicOrigSlot2;
         if (stringListById1 > -1)
@@ -1165,7 +1165,7 @@ namespace WindowsApplication1
             str6 = str5 + " ";
           else if (str3.Length > 0)
             str6 = str3 + " ";
-          tstring: String = str6 + "(" + Strings.Trim(Conversion.Str((object) self.game.SelectX)) + "," + Strings.Trim(Conversion.Str((object) self.game.SelectY)) + ")";
+          tstring: String = str6 + "(" + Strings.Trim(Conversion.Str( self.game.SelectX)) + "," + Strings.Trim(Conversion.Str( self.game.SelectY)) + ")";
           let mut x3: i32 = self.w - 475 + 103;
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, name, self.game.MarcFont16, x3, 35, self.game.seColGray);
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring, self.game.MarcFont4, x3, 52, self.game.seColGray);
@@ -1174,7 +1174,7 @@ namespace WindowsApplication1
             ttext = "Area Name: " + str3 + "\r\n" + ttext;
           if (str4.Length > 0)
             ttext = "Zone Name: " + str4 + "\r\n" + ttext;
-          ttitle: String = name + " (" + Strings.Trim(Conversion.Str((object) self.game.SelectX)) + "," + Strings.Trim(Conversion.Str((object) self.game.SelectY)) + ")" + "<FIXEDSYS>";
+          ttitle: String = name + " (" + Strings.Trim(Conversion.Str( self.game.SelectX)) + "," + Strings.Trim(Conversion.Str( self.game.SelectY)) + ")" + "<FIXEDSYS>";
           rectangle = Rectangle::new(x3 - 103, 18, 360, 65);
           trect1 = rectangle;
           self.AddMouse( trect1, ttitle, ttext);
@@ -1207,10 +1207,10 @@ namespace WindowsApplication1
             let mut y3: i32 = y2;
             let mut w1: i32 = num10;
             let mut h1: i32 = height;
-            double r1 = (double) ((float) self.game.Data.RegimeObj[regime].Red / (float) byte.MaxValue);
-            double g1 = (double) ((float) self.game.Data.RegimeObj[regime].Green / (float) byte.MaxValue);
-            double b1 = (double) ((float) self.game.Data.RegimeObj[regime].Blue / (float) byte.MaxValue);
-            DrawMod.DrawScaledColorized2( local17,  local18, x4, y3, w1, h1, 124, 210, (float) r1, (float) g1, (float) b1, 1f);
+            double r1 =  ( self.game.Data.RegimeObj[regime].Red /  byte.MaxValue);
+            double g1 =  ( self.game.Data.RegimeObj[regime].Green /  byte.MaxValue);
+            double b1 =  ( self.game.Data.RegimeObj[regime].Blue /  byte.MaxValue);
+            DrawMod.DrawScaledColorized2( local17,  local18, x4, y3, w1, h1, 124, 210,  r1,  g1,  b1, 1f);
             let mut bannerSpriteNr2: i32 = self.game.Data.RegimeObj[regime].BannerSpriteNr2;
             if (bannerSpriteNr2 > 0)
             {
@@ -1221,10 +1221,10 @@ namespace WindowsApplication1
               let mut y4: i32 = y2;
               let mut w2: i32 = num10;
               let mut h2: i32 = height;
-              double r2 = (double) ((float) self.game.Data.RegimeObj[regime].Red2 / (float) byte.MaxValue);
-              double g2 = (double) ((float) self.game.Data.RegimeObj[regime].Green2 / (float) byte.MaxValue);
-              double b2 = (double) ((float) self.game.Data.RegimeObj[regime].Blue2 / (float) byte.MaxValue);
-              DrawMod.DrawScaledColorized2( local19,  local20, x5, y4, w2, h2, 124, 210, (float) r2, (float) g2, (float) b2, 1f);
+              double r2 =  ( self.game.Data.RegimeObj[regime].Red2 /  byte.MaxValue);
+              double g2 =  ( self.game.Data.RegimeObj[regime].Green2 /  byte.MaxValue);
+              double b2 =  ( self.game.Data.RegimeObj[regime].Blue2 /  byte.MaxValue);
+              DrawMod.DrawScaledColorized2( local19,  local20, x5, y4, w2, h2, 124, 210,  r2,  g2,  b2, 1f);
             }
             let mut hqSpriteNr2: i32 = self.game.Data.RegimeObj[regime].HQSpriteNr2;
             if (hqSpriteNr2 > 0)
@@ -1234,10 +1234,10 @@ namespace WindowsApplication1
                let mut local22: &Bitmap = &bitmap;
               let mut x6: i32 = num9 + 4;
               let mut y5: i32 = y2 + 18;
-              double r3 = (double) ((float) self.game.Data.RegimeObj[regime].Red3 / (float) byte.MaxValue) - 1.0;
-              double g3 = (double) ((float) self.game.Data.RegimeObj[regime].Green3 / (float) byte.MaxValue) - 1.0;
-              double b3 = (double) ((float) self.game.Data.RegimeObj[regime].Blue3 / (float) byte.MaxValue) - 1.0;
-              DrawMod.Draw( local21,  local22, x6, y5, (float) r3, (float) g3, (float) b3, 0.95f);
+              double r3 =  ( self.game.Data.RegimeObj[regime].Red3 /  byte.MaxValue) - 1.0;
+              double g3 =  ( self.game.Data.RegimeObj[regime].Green3 /  byte.MaxValue) - 1.0;
+              double b3 =  ( self.game.Data.RegimeObj[regime].Blue3 /  byte.MaxValue) - 1.0;
+              DrawMod.Draw( local21,  local22, x6, y5,  r3,  g3,  b3, 0.95f);
             }
             rectangle = Rectangle::new(num9 - 20, y2, num10 + 60, height);
             trect1 = rectangle;
@@ -1248,7 +1248,7 @@ namespace WindowsApplication1
         {
           tstring1: String = "Unknown Landscape";
           string str8;
-          tstring2: String = str8 + "(" + Strings.Trim(Conversion.Str((object) self.game.SelectX)) + "," + Strings.Trim(Conversion.Str((object) self.game.SelectY)) + ")";
+          tstring2: String = str8 + "(" + Strings.Trim(Conversion.Str( self.game.SelectX)) + "," + Strings.Trim(Conversion.Str( self.game.SelectY)) + ")";
           let mut x7: i32 = self.w - 475 + 103;
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring2, self.game.MarcFont16, x7, 35, self.game.seColGray);
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring1, self.game.MarcFont4, x7, 52, self.game.seColGray);
@@ -1273,7 +1273,7 @@ namespace WindowsApplication1
       }
       if (!self.game.EditObj.GuiDown)
       {
-        let mut tx1: i32 =  Math.Round((double) (self.w - 1280) / 2.0);
+        let mut tx1: i32 =  Math.Round( (self.w - 1280) / 2.0);
         if (self.w <= 1280)
           tx1 += 56;
         bool active1 = false;
@@ -1364,7 +1364,7 @@ namespace WindowsApplication1
           num1 = tx6 + 75;
         }
       }
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
       objgraphics = (Graphics) null;
@@ -1389,7 +1389,7 @@ namespace WindowsApplication1
         Type type = typeof (MapWindowClass2);
          Type local =  type;
         MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-        if (!Information.IsNothing((object) window))
+        if (!Information.IsNothing( window))
         {
           self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
           if (self.game.EditObj.UnitSelected > -1)
@@ -1481,7 +1481,7 @@ namespace WindowsApplication1
           Type type1 = typeof (MapWindowClass2);
            Type local1 =  type1;
           MapWindowClass2 window1 = (MapWindowClass2) screeny1.GetWindow( local1);
-          if (!Information.IsNothing((object) window1))
+          if (!Information.IsNothing( window1))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1501,7 +1501,7 @@ namespace WindowsApplication1
           Type type2 = typeof (MapWindowClass2);
            Type local2 =  type2;
           MapWindowClass2 window2 = (MapWindowClass2) screeny2.GetWindow( local2);
-          if (!Information.IsNothing((object) window2))
+          if (!Information.IsNothing( window2))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1534,7 +1534,7 @@ namespace WindowsApplication1
           Type type3 = typeof (MapWindowClass2);
            Type local3 =  type3;
           MapWindowClass2 window3 = (MapWindowClass2) screeny3.GetWindow( local3);
-          if (!Information.IsNothing((object) window3))
+          if (!Information.IsNothing( window3))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1584,7 +1584,7 @@ namespace WindowsApplication1
           windowReturnClass.SetFlag(true);
           return windowReturnClass;
         case 82:
-          let mut enr: i32 =  Math.Round((double) self.game.Data.RuleVar[705]);
+          let mut enr: i32 =  Math.Round( self.game.Data.RuleVar[705]);
           self.game.EditObj.UDSpopupText = "";
           self.game.EditObj.UDSAddInput("ROADCHOICE", 0);
           if (enr > 0)
@@ -1601,7 +1601,7 @@ namespace WindowsApplication1
           Type type4 = typeof (MapWindowClass2);
            Type local4 =  type4;
           MapWindowClass2 window4 = (MapWindowClass2) screeny4.GetWindow( local4);
-          if (!Information.IsNothing((object) window4))
+          if (!Information.IsNothing( window4))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             window4.UdsClickUnit(self.game.SelectX, self.game.SelectY, 0, true);
@@ -1619,7 +1619,7 @@ namespace WindowsApplication1
           Type type5 = typeof (MapWindowClass2);
            Type local5 =  type5;
           MapWindowClass2 window5 = (MapWindowClass2) screeny5.GetWindow( local5);
-          if (!Information.IsNothing((object) window5))
+          if (!Information.IsNothing( window5))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1639,7 +1639,7 @@ namespace WindowsApplication1
           Type type6 = typeof (MapWindowClass2);
            Type local6 =  type6;
           MapWindowClass2 window6 = (MapWindowClass2) screeny6.GetWindow( local6);
-          if (!Information.IsNothing((object) window6))
+          if (!Information.IsNothing( window6))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1660,7 +1660,7 @@ namespace WindowsApplication1
           Type type7 = typeof (MapWindowClass2);
            Type local7 =  type7;
           MapWindowClass2 window7 = (MapWindowClass2) screeny7.GetWindow( local7);
-          if (!Information.IsNothing((object) window7))
+          if (!Information.IsNothing( window7))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1680,7 +1680,7 @@ namespace WindowsApplication1
           Type type8 = typeof (MapWindowClass2);
            Type local8 =  type8;
           MapWindowClass2 window8 = (MapWindowClass2) screeny8.GetWindow( local8);
-          if (!Information.IsNothing((object) window8))
+          if (!Information.IsNothing( window8))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1702,7 +1702,7 @@ namespace WindowsApplication1
            Type local9 =  type9;
           MapWindowClass2 window9 = (MapWindowClass2) screeny9.GetWindow( local9);
           windowReturnClass.AddCommand(1, 118);
-          if (!Information.IsNothing((object) window9))
+          if (!Information.IsNothing( window9))
           {
             self.game.EditObj.OldUnit = self.game.EditObj.UnitSelected;
             if (self.game.EditObj.UnitSelected > -1)
@@ -1728,7 +1728,7 @@ namespace WindowsApplication1
       let mut index1: i32 = self.game.EditObj.UnitSelected;
       if (self.game.EditObj.OrderUnit > -1 & self.game.EditObj.OrderType > 0)
         index1 = self.game.EditObj.OrderUnit;
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0 + 830.0 + 64.0 - 128.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0 + 830.0 + 64.0 - 128.0);
       str1: String = "";
       str2: String = "";
       let mut num2: i32 = -1;
@@ -1764,7 +1764,7 @@ namespace WindowsApplication1
       bool flag2 = false;
       if (self.game.EditObj.OrderType == 36)
       {
-        let mut enr: i32 =  Math.Round((double) self.game.Data.RuleVar[703]);
+        let mut enr: i32 =  Math.Round( self.game.Data.RuleVar[703]);
         if (enr > 0)
         {
           self.game.EventRelatedObj.DoCheckSpecificEvent(enr);
@@ -1939,11 +1939,11 @@ namespace WindowsApplication1
        let mut local1: &Graphics = &g;
       Bitmap bitmap = BitmapStore.GetBitmap(self.game.SE1_BLACKGRADIENT);
        let mut local2: &Bitmap = &bitmap;
-      let mut x: i32 =  Math.Round((double) ((float) self.w - (float) (270.0 + (double) sizeF2.Width + 100.0)));
-      let mut w: i32 =  Math.Round((double) (sizeF2.Width + 100f));
+      let mut x: i32 =  Math.Round( ( self.w -  (270.0 +  sizeF2.Width + 100.0)));
+      let mut w: i32 =  Math.Round( (sizeF2.Width + 100f));
       DrawMod.DrawScaled( local1,  local2, x, 3, w, 28, true);
       Color c = !flag1 ? (!flag2 ? self.game.seColWhite : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 175, 100)) : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 100, 100);
-      DrawMod.DrawTextColouredConsole( g, str5, self.game.MarcFont16,  Math.Round((double) ((float) self.w - (float) (270.0 + (double) sizeF2.Width + 20.0))), 7, c);
+      DrawMod.DrawTextColouredConsole( g, str5, self.game.MarcFont16,  Math.Round( ( self.w -  (270.0 +  sizeF2.Width + 20.0))), 7, c);
     }
 
     pub void DoTabs1( Graphics g, bool Active = false)
@@ -1971,7 +1971,7 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       if (self.game.Data.Round == 0)
         return;
-      let mut num: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -1990,7 +1990,7 @@ namespace WindowsApplication1
       }
       str: String = "COMBAT SETUP";
       SizeF sizeF2 = g.MeasureString(str, self.game.MarcFont16);
-      let mut x1: i32 =  Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =  Math.Round( ( (num + 420 + 340 + 91) - sizeF2.Width / 2f));
       let mut y: i32 = 66;
       DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 340 + 420, y, 182, 24);
@@ -2001,7 +2001,7 @@ namespace WindowsApplication1
     pub void DoTabs4( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut num: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -2020,7 +2020,7 @@ namespace WindowsApplication1
       }
       str: String = "OFFICER INFO";
       SizeF sizeF2 = g.MeasureString(str, self.game.MarcFont16);
-      let mut x1: i32 =  Math.Round((double) ((float) (num + 420 + 0 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =  Math.Round( ( (num + 420 + 0 + 91) - sizeF2.Width / 2f));
       let mut y: i32 = 66;
       DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 0 + 420, y, 182, 24);
@@ -2031,7 +2031,7 @@ namespace WindowsApplication1
     pub void DoTabs4B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut num: i32 =  Math.Round((double) self.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =  Math.Round( self.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -2050,7 +2050,7 @@ namespace WindowsApplication1
       }
       str: String = "OFFICER INFO";
       SizeF sizeF2 = g.MeasureString(str, self.game.MarcFont16);
-      let mut x1: i32 =  Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =  Math.Round( ( (num + 420 + 170 + 91) - sizeF2.Width / 2f));
       let mut y: i32 = 66;
       DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 170 + 420, y, 182, 24);
@@ -2079,7 +2079,7 @@ namespace WindowsApplication1
     pub HandleMouseMove: WindowReturnClass(int x, int y)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
-      if (y > 18 && (double) self.w / 2.0 - 500.0 < (double) x & (double) x < (double) self.w / 2.0 + 500.0)
+      if (y > 18 &&  self.w / 2.0 - 500.0 <  x &  x <  self.w / 2.0 + 500.0)
         windowReturnClass.NoMouseClickBelow = true;
       let mut num: i32 = -1;
       for (let mut mouseCounter: i32 = self.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
@@ -2115,7 +2115,7 @@ namespace WindowsApplication1
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
       if (self.game.EditObj.BattleTimerActive)
         return windowReturnClass;
-      if (y > 18 && (double) self.w / 2.0 - 500.0 < (double) x & (double) x < (double) self.w / 2.0 + 500.0)
+      if (y > 18 &&  self.w / 2.0 - 500.0 <  x &  x <  self.w / 2.0 + 500.0)
         windowReturnClass.NoMouseClickBelow = true;
       for (let mut mouseCounter: i32 = self.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
       {
@@ -2212,7 +2212,7 @@ namespace WindowsApplication1
                 self.game.EditObj.AreaY = self.game.SelectY;
                 self.game.EditObj.UDSinputCounter = -1;
                 self.game.EventRelatedObj.DoCheckSpecificEvent(self.butEvent[index2], self.butTempVar0[index2], self.butTempVar1[index2]);
-                let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[409]));
+                let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[409]));
                 if ( Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].GetData(0, self.butTempVarStringlistId[index2], 9))) < 1)
                 {
                   self.game.EditObj.AreaX = areaX;
@@ -2252,34 +2252,34 @@ namespace WindowsApplication1
       let mut num1: i32 = 0;
       if (self.game.EditObj.GuiDown)
         num1 = 222;
-      let mut num2: i32 =  Math.Round(Conversion.Int((double) self.game.ScreenWidth / 53.0));
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) self.game.ScreenWidth / 106.0));
-      let mut num4: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - (265 - num1)) / 53.0));
-      let mut num5: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - (265 - num1)) / 106.0));
+      let mut num2: i32 =  Math.Round(Conversion.Int( self.game.ScreenWidth / 53.0));
+      let mut num3: i32 =  Math.Round(Conversion.Int( self.game.ScreenWidth / 106.0));
+      let mut num4: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 53.0));
+      let mut num5: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 106.0));
       int num6;
       int num7;
       if (self.game.EditObj.Zoom == 0)
       {
         self.game.EditObj.Zoom = -1;
-        self.game.CornerX -=  Math.Round(Conversion.Int((double) num2 / 2.0));
-        self.game.CornerY -=  Math.Round(Conversion.Int((double) num4 / 2.0));
+        self.game.CornerX -=  Math.Round(Conversion.Int( num2 / 2.0));
+        self.game.CornerY -=  Math.Round(Conversion.Int( num4 / 2.0));
         num6 = 27;
         num7 = 24;
       }
       else
       {
         self.game.EditObj.Zoom = 0;
-        self.game.CornerX -=  Math.Round(Conversion.Int((double) num3 / 2.0));
-        self.game.CornerY -=  Math.Round(Conversion.Int((double) num5 / 2.0));
+        self.game.CornerX -=  Math.Round(Conversion.Int( num3 / 2.0));
+        self.game.CornerY -=  Math.Round(Conversion.Int( num5 / 2.0));
         num6 = 53;
         num7 = 48;
       }
       if (!self.game.Data.MapObj[0].MapLoop)
       {
-        if ((double) self.game.CornerX + (double) self.game.ScreenWidth / (double) num6 > (double) self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth)
-          self.game.CornerX =  Math.Round((double) (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth) - (double) (self.game.ScreenWidth - 200) / (double) num6);
-        if ((double) self.game.CornerY + (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7 > (double) self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
-          self.game.CornerY =  Math.Round((double) (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) - (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7);
+        if ( self.game.CornerX +  self.game.ScreenWidth /  num6 >  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth)
+          self.game.CornerX =  Math.Round( (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth) -  (self.game.ScreenWidth - 200) /  num6);
+        if ( self.game.CornerY +  (self.game.ScreenHeight - (256 - num1)) /  num7 >  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
+          self.game.CornerY =  Math.Round( (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) -  (self.game.ScreenHeight - (256 - num1)) /  num7);
         if (self.game.CornerX < 0)
           self.game.CornerX = 0;
         if (self.game.CornerY < 0)
@@ -2289,11 +2289,11 @@ namespace WindowsApplication1
       {
         if (self.game.CornerX > self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth)
         {
-          self.game.CornerX =  Math.Round((double) self.game.CornerX + (double) self.game.ScreenWidth / (double) num6);
+          self.game.CornerX =  Math.Round( self.game.CornerX +  self.game.ScreenWidth /  num6);
           self.game.CornerX -= self.game.Data.MapObj[0].MapWidth;
         }
-        if ((double) self.game.CornerY + (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7 > (double) self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
-          self.game.CornerY =  Math.Round((double) (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) - (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7);
+        if ( self.game.CornerY +  (self.game.ScreenHeight - (256 - num1)) /  num7 >  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
+          self.game.CornerY =  Math.Round( (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) -  (self.game.ScreenHeight - (256 - num1)) /  num7);
         if (self.game.CornerX < 0)
           self.game.CornerX = self.game.Data.MapObj[0].MapWidth + self.game.CornerX;
         if (self.game.CornerY < 0)
@@ -2316,34 +2316,34 @@ namespace WindowsApplication1
       let mut num1: i32 = 0;
       if (self.game.EditObj.GuiDown)
         num1 = 222;
-      let mut num2: i32 =  Math.Round(Conversion.Int((double) self.game.ScreenWidth / 53.0));
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) self.game.ScreenWidth / 106.0));
-      let mut num4: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - (265 - num1)) / 53.0));
-      let mut num5: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - (265 - num1)) / 106.0));
+      let mut num2: i32 =  Math.Round(Conversion.Int( self.game.ScreenWidth / 53.0));
+      let mut num3: i32 =  Math.Round(Conversion.Int( self.game.ScreenWidth / 106.0));
+      let mut num4: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 53.0));
+      let mut num5: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - (265 - num1)) / 106.0));
       int num6;
       int num7;
       if (self.game.EditObj.Zoom == 0)
       {
         self.game.EditObj.Zoom = 1;
-        self.game.CornerX +=  Math.Round(Conversion.Int((double) num3 / 2.0));
-        self.game.CornerY +=  Math.Round(Conversion.Int((double) num5 / 2.0));
+        self.game.CornerX +=  Math.Round(Conversion.Int( num3 / 2.0));
+        self.game.CornerY +=  Math.Round(Conversion.Int( num5 / 2.0));
         num6 = 106;
         num7 = 96;
       }
       else
       {
         self.game.EditObj.Zoom = 0;
-        self.game.CornerX +=  Math.Round(Conversion.Int((double) num2 / 2.0));
-        self.game.CornerY +=  Math.Round(Conversion.Int((double) num4 / 2.0));
+        self.game.CornerX +=  Math.Round(Conversion.Int( num2 / 2.0));
+        self.game.CornerY +=  Math.Round(Conversion.Int( num4 / 2.0));
         num6 = 53;
         num7 = 48;
       }
       if (!self.game.Data.MapObj[0].MapLoop)
       {
-        if ((double) self.game.CornerX + (double) self.game.ScreenWidth / (double) num6 > (double) self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth)
-          self.game.CornerX =  Math.Round((double) (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth) - (double) (self.game.ScreenWidth - 200) / (double) num6);
-        if ((double) self.game.CornerY + (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7 > (double) self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
-          self.game.CornerY =  Math.Round((double) (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) - (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7);
+        if ( self.game.CornerX +  self.game.ScreenWidth /  num6 >  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth)
+          self.game.CornerX =  Math.Round( (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth) -  (self.game.ScreenWidth - 200) /  num6);
+        if ( self.game.CornerY +  (self.game.ScreenHeight - (256 - num1)) /  num7 >  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
+          self.game.CornerY =  Math.Round( (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) -  (self.game.ScreenHeight - (256 - num1)) /  num7);
         if (self.game.CornerX < 0)
           self.game.CornerX = 0;
         if (self.game.CornerY < 0)
@@ -2353,8 +2353,8 @@ namespace WindowsApplication1
       {
         if (self.game.CornerX > self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth)
           self.game.CornerX -= self.game.Data.MapObj[0].MapWidth;
-        if ((double) self.game.CornerY + (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7 > (double) self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
-          self.game.CornerY =  Math.Round((double) (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) - (double) (self.game.ScreenHeight - (256 - num1)) / (double) num7);
+        if ( self.game.CornerY +  (self.game.ScreenHeight - (256 - num1)) /  num7 >  self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight)
+          self.game.CornerY =  Math.Round( (1 + self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight) -  (self.game.ScreenHeight - (256 - num1)) /  num7);
         if (self.game.CornerX < 0)
           self.game.CornerX = self.game.Data.MapObj[0].MapWidth + self.game.CornerX;
         if (self.game.CornerY < 0)

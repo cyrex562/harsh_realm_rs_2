@@ -1,6 +1,6 @@
-﻿using System;
-using System.Reflection;
-using System.Runtime.InteropServices;
+﻿// usingSystem;
+// usingSystem.Reflection;
+// usingSystem.Runtime.InteropServices;
 
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyTitle("")]

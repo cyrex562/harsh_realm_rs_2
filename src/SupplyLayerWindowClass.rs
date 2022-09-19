@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -199,7 +199,7 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.OptionsListId2);
         self.OptionsListId2 = 0;
       }
-      let mut num1: i32 =  Math.Round((double) (self.w - 1280) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.w - 1280) / 2.0);
       self.NewBackGroundAndClearAll(self.w, self.h, self.game.MARCBOTBAR);
       self.ClearMouse();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
@@ -472,7 +472,7 @@ namespace WindowsApplication1
       else if (self.curMode == 2 | self.curMode == 3)
         tstring3 = "Shows the specific source/base with a white hexe and traces path to selected hex from this source.";
       DrawMod.DrawTextColouredConsoleMultiline( Expression, tstring3, self.game.MarcFont8c, x - 200, y5, Color.LightGray, 390, 80, true);
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -503,7 +503,7 @@ namespace WindowsApplication1
                   flag = true;
                 self.detailnr = num2;
                 self.detailnr2 = -2;
-                if (self.detailnr < 999999 & !Information.IsNothing((object) self.CacheL))
+                if (self.detailnr < 999999 & !Information.IsNothing( self.CacheL))
                 {
                   let mut nr: i32 = self.CacheL.FindNr(self.detailnr);
                   self.game.EditObj.OrderX = self.CacheL.Data1[nr];
@@ -538,7 +538,7 @@ namespace WindowsApplication1
                   flag = true;
                 self.detailnr2 = num3;
                 self.detailnr = -2;
-                if (self.detailnr2 < 999999 & !Information.IsNothing((object) self.CacheL2))
+                if (self.detailnr2 < 999999 & !Information.IsNothing( self.CacheL2))
                 {
                   let mut nr: i32 = self.CacheL2.FindNr(self.detailnr2);
                   self.game.EditObj.OrderX = self.CacheL2.Data1[nr];

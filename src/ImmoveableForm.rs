@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System;
-using System.ComponentModel;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+// usingSystem;
+// usingSystem.ComponentModel;
+// usingSystem.Runtime.InteropServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {

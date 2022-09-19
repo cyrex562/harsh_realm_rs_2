@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -29,10 +29,10 @@ namespace WindowsApplication1
       self.Descript = tDescript;
       self.colorized = tcolorized;
       self.selected = tselected;
-      if (Information.IsNothing((object) tBackbitmap))
+      if (Information.IsNothing( tBackbitmap))
         return;
       self.backbitmap = new Bitmap(self.OwnBitmap.Width, self.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-      self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) self.backbitmap);
       graphics.CompositingMode = CompositingMode.SourceCopy;
       graphics.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -42,7 +42,7 @@ namespace WindowsApplication1
     pub Bitmap Paint()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( objGraphics,  self.backbitmap, 0, 0);
@@ -89,7 +89,7 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( objGraphics,  self.backbitmap, 0, 0);

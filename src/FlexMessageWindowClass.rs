@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -60,7 +60,7 @@ namespace WindowsApplication1
           str1 = "";
         }
         SizeF sizeF2 = graphics.MeasureString(str2, this.game.MarcFont4);
-        DrawMod.DrawTextColouredMarc(ref graphics, str2, this.game.MarcFont4,  Math.Round(300.0 - (double) sizeF2.Width / 2.0), 40 + num1 * 20, Color.White);
+        DrawMod.DrawTextColouredMarc(ref graphics, str2, this.game.MarcFont4,  Math.Round(300.0 -  sizeF2.Width / 2.0), 40 + num1 * 20, Color.White);
       }
       if (this.game.EditObj.AnswerCount == 1)
       {

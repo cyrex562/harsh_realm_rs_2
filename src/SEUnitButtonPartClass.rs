@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -126,7 +126,7 @@ namespace WindowsApplication1
         if (this.active)
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.dataString, DrawMod.TGame.MarcFont16, 22, 58, DrawMod.TGame.seColWhite);
       }
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
       return this.OwnBitmap;
     }
@@ -216,7 +216,7 @@ namespace WindowsApplication1
         if (this.active)
           DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.dataString, DrawMod.TGame.MarcFont16, 22, 58, DrawMod.TGame.seColWhite);
       }
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
       return this.OwnBitmap;
     }

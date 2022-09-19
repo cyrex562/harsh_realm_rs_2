@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -168,13 +168,13 @@ namespace WindowsApplication1
         unitDescription = !(this.game.TempCombat.CombatType == 5 | this.game.TempCombat.CombatType == 13) ? "SURRENDERED" : "HOLDING";
       else if (this.game.TempCombat.BattleEnded > 0)
       {
-        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str((object) (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP";
+        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP";
         if (this.game.TempCombat.UList[uslot].Uattacker < 1)
           unitDescription = "HOLDING";
       }
       else
       {
-        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str((object) (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP";
+        unitDescription = this.game.TempCombat.BattleEnded <= 0 ? Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr) - this.game.TempCombat.UList[uslot].UApSpend))) + "AP" : Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(this.game.TempCombat.UList[uslot].UNr))) + "AP";
         if (this.game.TempCombat.UList[uslot].Uattacker < 1)
           unitDescription = "HOLDING";
       }
@@ -305,10 +305,10 @@ namespace WindowsApplication1
             let mut srcrect: &Rectangle = &rectangle1
             rectangle2 = Rectangle::new(0, y1, 76, 76);
             let mut destrect: &Rectangle = &rectangle2
-            double r = (double) ((float) this.game.Data.SFTypeObj[type].artCode[1] / (float) byte.MaxValue);
-            double g1 = (double) ((float) this.game.Data.SFTypeObj[type].artCode[2] / (float) byte.MaxValue);
-            double b = (double) ((float) this.game.Data.SFTypeObj[type].artCode[3] / (float) byte.MaxValue);
-            DrawMod.DrawSimplePart2ColouredNew(ref local1, ref local2, srcrect, destrect, (float) r, (float) g1, (float) b, 1f);
+            double r =  ( this.game.Data.SFTypeObj[type].artCode[1] /  byte.MaxValue);
+            double g1 =  ( this.game.Data.SFTypeObj[type].artCode[2] /  byte.MaxValue);
+            double b =  ( this.game.Data.SFTypeObj[type].artCode[3] /  byte.MaxValue);
+            DrawMod.DrawSimplePart2ColouredNew(ref local1, ref local2, srcrect, destrect,  r,  g1,  b, 1f);
           }
           else
           {
@@ -327,11 +327,11 @@ namespace WindowsApplication1
             let mut srcrect: &Rectangle = &rectangle2
             rectangle1 = Rectangle::new(0, y1, 76, 76);
             let mut destrect: &Rectangle = &rectangle1
-            double r = (double) ((float) this.game.Data.SFTypeObj[type].artCode[6] / (float) byte.MaxValue);
-            double g2 = (double) ((float) this.game.Data.SFTypeObj[type].artCode[7] / (float) byte.MaxValue);
-            double b = (double) ((float) this.game.Data.SFTypeObj[type].artCode[8] / (float) byte.MaxValue);
-            double a = (double) ((float) this.game.Data.SFTypeObj[type].artCode[9] / (float) byte.MaxValue);
-            DrawMod.DrawSimplePart2ColouredNew(ref local5, ref local6, srcrect, destrect, (float) r, (float) g2, (float) b, (float) a);
+            double r =  ( this.game.Data.SFTypeObj[type].artCode[6] /  byte.MaxValue);
+            double g2 =  ( this.game.Data.SFTypeObj[type].artCode[7] /  byte.MaxValue);
+            double b =  ( this.game.Data.SFTypeObj[type].artCode[8] /  byte.MaxValue);
+            double a =  ( this.game.Data.SFTypeObj[type].artCode[9] /  byte.MaxValue);
+            DrawMod.DrawSimplePart2ColouredNew(ref local5, ref local6, srcrect, destrect,  r,  g2,  b,  a);
           }
           graphics.Dispose();
         }
@@ -344,7 +344,7 @@ namespace WindowsApplication1
         let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[this.slotCulture].GetData(0, tv0, 1));
         objBitmap = this.game.CustomBitmapObj.DrawSFTypeGraphic(type, isMilitia, integer, regimeNr, this.game.TempCombat.IList[islot].IUnr);
       }
-      if (Information.IsNothing((object) objBitmap))
+      if (Information.IsNothing( objBitmap))
         return;
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
@@ -354,29 +354,29 @@ namespace WindowsApplication1
       let mut height: i32 =  objBitmap.Height;
       if (width > w | height > h)
       {
-        if ((double) width / (double) w > (double) height / (double) h)
+        if ( width /  w >  height /  h)
         {
-          float num3 = (float) w / (float) width;
-          let mut num4: i32 =  (int) Math.Round((double) ((float) h - (float) height * num3));
-          num2 += (int) Math.Round((double) num4 / 2.0);
+          float num3 =  w /  width;
+          let mut num4: i32 =  (int) Math.Round( ( h -  height * num3));
+          num2 += (int) Math.Round( num4 / 2.0);
           h -= num4;
         }
         else
         {
-          float num5 = (float) h / (float) height;
-          let mut num6: i32 =  (int) Math.Round((double) ((float) w - (float) width * num5));
-          num1 += (int) Math.Round((double) num6 / 2.0);
+          float num5 =  h /  height;
+          let mut num6: i32 =  (int) Math.Round( ( w -  width * num5));
+          num1 += (int) Math.Round( num6 / 2.0);
           w -= num6;
         }
         if (mirror)
         {
           Matrix matrix = Matrix::new();
           matrix.Scale(-1f, 1f);
-          matrix.Translate((float) -(2 * (tx + num1) + w), 0.0f);
+          matrix.Translate( -(2 * (tx + num1) + w), 0.0f);
           g.Transform = matrix;
         }
         if (useColMod)
-          DrawMod.DrawScaledColorized2(ref g, ref objBitmap, tx + num1, ty + num2, w, h, objBitmap.Width, objBitmap.Height, (float) colMod.R / (float) byte.MaxValue, (float) colMod.G / (float) byte.MaxValue, (float) colMod.B / (float) byte.MaxValue, (float) colMod.A / (float) byte.MaxValue);
+          DrawMod.DrawScaledColorized2(ref g, ref objBitmap, tx + num1, ty + num2, w, h, objBitmap.Width, objBitmap.Height,  colMod.R /  byte.MaxValue,  colMod.G /  byte.MaxValue,  colMod.B /  byte.MaxValue,  colMod.A /  byte.MaxValue);
         else
           DrawMod.DrawScaled(ref g, ref objBitmap, tx + num1, ty + num2, w, h, true);
         if (!mirror)
@@ -402,13 +402,13 @@ namespace WindowsApplication1
         {
           Matrix matrix = Matrix::new();
           matrix.Scale(-1f, 1f);
-          matrix.Translate((float) -(2 * tx + objBitmap.Width + (w - width)), 0.0f);
+          matrix.Translate( -(2 * tx + objBitmap.Width + (w - width)), 0.0f);
           g.Transform = matrix;
         }
         if (useColMod)
-          DrawMod.Draw(ref g, ref objBitmap, tx + num1 + (int) Math.Round((double) (w - width) / 2.0), ty + num2 + (int) Math.Round((double) (h - height) / 2.0), (float) colMod.R / (float) byte.MaxValue - 1f, (float) colMod.G / (float) byte.MaxValue - 1f, (float) colMod.B / (float) byte.MaxValue - 1f, (float) colMod.A / (float) byte.MaxValue);
+          DrawMod.Draw(ref g, ref objBitmap, tx + num1 + (int) Math.Round( (w - width) / 2.0), ty + num2 + (int) Math.Round( (h - height) / 2.0),  colMod.R /  byte.MaxValue - 1f,  colMod.G /  byte.MaxValue - 1f,  colMod.B /  byte.MaxValue - 1f,  colMod.A /  byte.MaxValue);
         else
-          DrawMod.DrawSimple(ref g, ref objBitmap, tx + num1 + (int) Math.Round((double) (w - width) / 2.0), ty + num2 + (int) Math.Round((double) (h - height) / 2.0));
+          DrawMod.DrawSimple(ref g, ref objBitmap, tx + num1 + (int) Math.Round( (w - width) / 2.0), ty + num2 + (int) Math.Round( (h - height) / 2.0));
         if (!mirror)
           return;
         g.ResetTransform();
@@ -509,19 +509,19 @@ namespace WindowsApplication1
       this.NewBackGroundAndClearAll(this.useWidth, this.useHeight, -1);
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       DrawMod.DrawMessFrame(ref this.OwnBitmap, ref graphics, 25, 40, this.useWidth - 50, this.useHeight - 40);
-      if (!Information.IsNothing((object) this.BackBitmap))
+      if (!Information.IsNothing( this.BackBitmap))
       {
         this.BackBitmap.Dispose();
         this.BackBitmap = (Bitmap) null;
       }
       this.BackBitmap = (Bitmap) this.OwnBitmap.Clone();
-      let mut num1: i32 =  (int) Math.Round(Math.Floor((double) (this.useWidth - 1280) / 2.0));
+      let mut num1: i32 =  (int) Math.Round(Math.Floor( (this.useWidth - 1280) / 2.0));
       let mut int32: i32 =  Convert.ToInt32(Math.Floor(new Decimal(this.useHeight - 768)));
       Rectangle rectangle1 = Rectangle::new(35, 160, 595 + num1, 555 + int32);
       Rectangle rectangle2 = Rectangle::new(this.useWidth - (638 + num1), 160, 595 + num1, 555 + int32);
       Rectangle rectangle3 = Rectangle::new(35, 12, 370, 140);
       Rectangle rectangle4 = Rectangle::new(this.useWidth - 413, 12, 370, 140);
-      Rectangle rectangle5 = Rectangle::new((int) Math.Round((double) this.useWidth / 2.0) - 185, 0, 371, 90);
+      Rectangle rectangle5 = Rectangle::new((int) Math.Round( this.useWidth / 2.0) - 185, 0, 371, 90);
       int num2;
       int num3;
       int num4;
@@ -534,10 +534,10 @@ namespace WindowsApplication1
       if (this.useZoom == 1)
       {
         num2 = 85;
-        num3 = (int) Math.Round(Math.Floor((double) (555 + int32) / (double) num2));
-        num4 = (int) Math.Round(Math.Floor((double) (595 + num1) / (double) num2));
-        num5 = (int) Math.Round((double) (rectangle1.Width - num4 * num2) / 2.0);
-        num6 = (int) Math.Round((double) (rectangle1.Height - num3 * num2) / 2.0);
+        num3 = (int) Math.Round(Math.Floor( (555 + int32) /  num2));
+        num4 = (int) Math.Round(Math.Floor( (595 + num1) /  num2));
+        num5 = (int) Math.Round( (rectangle1.Width - num4 * num2) / 2.0);
+        num6 = (int) Math.Round( (rectangle1.Height - num3 * num2) / 2.0);
         num7 = 4;
         num8 = 4;
         num9 = 76;
@@ -546,10 +546,10 @@ namespace WindowsApplication1
       else if (this.useZoom == 0)
       {
         num2 = 43;
-        num3 = (int) Math.Round(Math.Floor((double) (555 + int32) / (double) num2));
-        num4 = (int) Math.Round(Math.Floor((double) (595 + num1) / (double) num2));
-        num5 = (int) Math.Round((double) (rectangle1.Width - num4 * num2) / 2.0);
-        num6 = (int) Math.Round((double) (rectangle1.Height - num3 * num2) / 2.0);
+        num3 = (int) Math.Round(Math.Floor( (555 + int32) /  num2));
+        num4 = (int) Math.Round(Math.Floor( (595 + num1) /  num2));
+        num5 = (int) Math.Round( (rectangle1.Width - num4 * num2) / 2.0);
+        num6 = (int) Math.Round( (rectangle1.Height - num3 * num2) / 2.0);
         num7 = 2;
         num8 = 2;
         num9 = 38;
@@ -568,7 +568,7 @@ namespace WindowsApplication1
         for (let mut index2: i32 =  0; index2 <= ucounter1; index2 += 1)
         {
           let mut num13: i32 =  3;
-          flagArray[index2] = (double) this.game.Data.RuleVar[431] <= 0.0;
+          flagArray[index2] =  this.game.Data.RuleVar[431] <= 0.0;
           if (this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon >= 0)
             flagArray[index2] = true;
           let mut icounter: i32 =  this.game.TempCombat.ICounter;
@@ -578,7 +578,7 @@ namespace WindowsApplication1
             if (this.game.TempCombat.IList[index3].IUnr == this.game.TempCombat.UList[index2].UNr)
             {
               bool flag = true;
-              if ((double) this.game.Data.RuleVar[431] > 0.0)
+              if ( this.game.Data.RuleVar[431] > 0.0)
               {
                 flag = false;
                 if (this.game.TempCombat.IList[index3].IvisibleFromRound <= this.game.TempCombat.CombatRound | this.game.Data.UnitObj[this.game.TempCombat.IList[index3].IUnr].Regime == this.game.Data.Turn)
@@ -605,13 +605,13 @@ namespace WindowsApplication1
           }
           if (flagArray[index2])
           {
-            let mut num15: i32 =  (int) Math.Round(Math.Ceiling((double) num13 / (double) num4));
+            let mut num15: i32 =  (int) Math.Round(Math.Ceiling( num13 /  num4));
             if (this.game.TempCombat.UList[index2].Uattacker == 1)
               num11 += num15;
             else
               num12 += num15;
           }
-          let mut num16: i32 =  (int) Math.Round(Math.Ceiling((double) (num14 + num13) / (double) num4));
+          let mut num16: i32 =  (int) Math.Round(Math.Ceiling( (num14 + num13) /  num4));
           if (this.game.TempCombat.UList[index2].Uattacker == 1)
             val1 += num16;
           else
@@ -777,7 +777,7 @@ namespace WindowsApplication1
               if (this.game.TempCombat.IList[index10].IUnr == this.game.TempCombat.UList[index8].UNr && this.game.TempCombat.IList[index10].IunitFeatStart > 0)
               {
                 bool flag = true;
-                if ((double) this.game.Data.RuleVar[431] > 0.0)
+                if ( this.game.Data.RuleVar[431] > 0.0)
                 {
                   flag = false;
                   if (this.game.TempCombat.IList[index10].IvisibleFromRound <= this.game.TempCombat.CombatRound | this.game.Data.UnitObj[this.game.TempCombat.IList[index10].IUnr].Regime == this.game.Data.Turn)
@@ -816,7 +816,7 @@ namespace WindowsApplication1
               if (this.game.TempCombat.IList[index11].IUnr == this.game.TempCombat.UList[index8].UNr)
               {
                 bool flag = true;
-                if ((double) this.game.Data.RuleVar[431] > 0.0)
+                if ( this.game.Data.RuleVar[431] > 0.0)
                 {
                   flag = false;
                   if (this.game.TempCombat.IList[index11].IvisibleFromRound <= this.game.TempCombat.CombatRound | this.game.Data.UnitObj[this.game.TempCombat.IList[index11].IUnr].Regime == this.game.Data.Turn)
@@ -859,12 +859,12 @@ namespace WindowsApplication1
               index7 = -1;
           }
         }
-        let mut num19: i32 =  (int) Math.Round(Math.Ceiling((double) (index4 + 1) / (double) num3) - 1.0);
+        let mut num19: i32 =  (int) Math.Round(Math.Ceiling( (index4 + 1) /  num3) - 1.0);
         if (num19 < 0)
           num19 = 0;
         this.attPage = 0;
         this.maxAttPage = num19;
-        let mut num20: i32 =  (int) Math.Round(Math.Ceiling((double) index5 / (double) num3) - 1.0);
+        let mut num20: i32 =  (int) Math.Round(Math.Ceiling( index5 /  num3) - 1.0);
         if (num20 < 0)
           num20 = 0;
         this.defPage = 0;
@@ -912,7 +912,7 @@ namespace WindowsApplication1
           if (this.game.TempCombat.IList[index17].IAttacker == num24)
           {
             bool flag = true;
-            if ((double) this.game.Data.RuleVar[431] > 0.0)
+            if ( this.game.Data.RuleVar[431] > 0.0)
             {
               flag = false;
               if (this.game.TempCombat.IList[index17].IvisibleFromRound <= this.game.TempCombat.CombatRound | this.game.Data.UnitObj[this.game.TempCombat.IList[index17].IUnr].Regime == this.game.Data.Turn)
@@ -998,7 +998,7 @@ namespace WindowsApplication1
               val2 += this.game.TempCombat.customCombatObj.logLeaderBonus.Data1[index31];
             }
           }
-          let mut tdata1: i32 =  (int) Math.Round((double) num32 / (double) Math.Max(1, val2));
+          let mut tdata1: i32 =  (int) Math.Round( num32 /  Math.Max(1, val2));
           let mut num33: i32 =  0;
           num31 = 0;
           let mut counter3: i32 =  this.game.TempCombat.customCombatObj.logLeaderBonusDef.Counter;
@@ -1010,9 +1010,9 @@ namespace WindowsApplication1
               num31 += this.game.TempCombat.customCombatObj.logLeaderBonusDef.Data1[index32];
             }
           }
-          let mut tdata2: i32 =  (int) Math.Round((double) num33 / (double) Math.Max(1, num31));
+          let mut tdata2: i32 =  (int) Math.Round( num33 /  Math.Max(1, num31));
           if (tdata1 >= 0 | tdata2 >= 0)
-            simpleList2.Add(tid, (int) Math.Round((double) (tdata1 + tdata2) / 2.0), tdata1, tdata2, tdata3, CheckExistence: false);
+            simpleList2.Add(tid, (int) Math.Round( (tdata1 + tdata2) / 2.0), tdata1, tdata2, tdata3, CheckExistence: false);
         }
       }
       let mut counter4: i32 =  this.game.TempCombat.customCombatObj.logLeaderBonusDef.Counter;
@@ -1033,7 +1033,7 @@ namespace WindowsApplication1
               val2 += this.game.TempCombat.customCombatObj.logLeaderBonus.Data1[index34];
             }
           }
-          let mut tdata1: i32 =  (int) Math.Round((double) num34 / (double) Math.Max(1, val2));
+          let mut tdata1: i32 =  (int) Math.Round( num34 /  Math.Max(1, val2));
           let mut num35: i32 =  0;
           num31 = 0;
           let mut counter6: i32 =  this.game.TempCombat.customCombatObj.logLeaderBonusDef.Counter;
@@ -1045,9 +1045,9 @@ namespace WindowsApplication1
               num31 += this.game.TempCombat.customCombatObj.logLeaderBonusDef.Data1[index35];
             }
           }
-          let mut tdata2: i32 =  (int) Math.Round((double) num35 / (double) Math.Max(1, num31));
+          let mut tdata2: i32 =  (int) Math.Round( num35 /  Math.Max(1, num31));
           if (tdata1 > 0 | tdata2 > 0)
-            simpleList2.Add(tid, (int) Math.Round((double) (tdata1 + tdata2) / 2.0), tdata1, tdata2, tdata3, CheckExistence: false);
+            simpleList2.Add(tid, (int) Math.Round( (tdata1 + tdata2) / 2.0), tdata1, tdata2, tdata3, CheckExistence: false);
         }
       }
       let mut counter7: i32 =  simpleList2.Counter;
@@ -1065,12 +1065,12 @@ namespace WindowsApplication1
             {
               if (simpleList2.Data1[index37] > 0)
               {
-                let mut num36: i32 =  (int) Math.Round((double) (tdata1 * simpleList2.Data1[index37]) / 100.0);
+                let mut num36: i32 =  (int) Math.Round( (tdata1 * simpleList2.Data1[index37]) / 100.0);
                 tdata1 += simpleList2.Data1[index37] + num36;
               }
               if (simpleList2.Data2[index37] > 0)
               {
-                let mut num37: i32 =  (int) Math.Round((double) (tdata2 * simpleList2.Data2[index37]) / 100.0);
+                let mut num37: i32 =  (int) Math.Round( (tdata2 * simpleList2.Data2[index37]) / 100.0);
                 tdata2 += simpleList2.Data2[index37] + num37;
               }
             }
@@ -1118,7 +1118,7 @@ namespace WindowsApplication1
       let mut num41: i32 =  0;
       let mut num42: i32 =  0;
       let mut num43: i32 =  62;
-      let mut w1: i32 =  (int) Math.Round((double) (100 * num43) / 140.0);
+      let mut w1: i32 =  (int) Math.Round( (100 * num43) / 140.0);
       let mut x3: i32 =  rectangle3.X;
       let mut num44: i32 =  rectangle3.Y + 87;
       let mut num45: i32 =  x3 + 100;
@@ -1155,10 +1155,10 @@ namespace WindowsApplication1
             DrawMod.DrawSimple(ref local5, ref local6, x4, y3);
             DrawMod.DrawBlock(ref graphics, num45 + w1, num44, 45, num43, 0, 0, 0, 128);
             DrawMod.DrawSimpleFrame(ref this.game.LINESFRAME, ref graphics, num45 - 6, num44, w1 + 51, num43, 10, 10, 10);
-            str: String = ((int) Math.Round((double) simpleList1.Data1[index39] + (double) simpleList1.Data2[index39] / 2.0)).ToString() + "%";
+            str: String = ((int) Math.Round( simpleList1.Data1[index39] +  simpleList1.Data2[index39] / 2.0)).ToString() + "%";
             if (Operators.CompareString(str, "0%", false) == 0)
               str = "-";
-            else if ((int) Math.Round((double) simpleList1.Data1[index39] + (double) simpleList1.Data2[index39] / 2.0) > 0)
+            else if ((int) Math.Round( simpleList1.Data1[index39] +  simpleList1.Data2[index39] / 2.0) > 0)
               str = "+" + str;
             tstring1: String = "HQ";
             if (num51 < 1)
@@ -1167,21 +1167,21 @@ namespace WindowsApplication1
                 tstring1 = "OHQ";
               if (num50 == 4)
                 tstring1 = "SHQ";
-              DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring1, this.game.MarcFont4, num45 + w1 + 21, num44 + (int) Math.Round((double) num43 * 0.35) - 10, Color.LightGray);
+              DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring1, this.game.MarcFont4, num45 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) - 10, Color.LightGray);
             }
             else
             {
               tstring2: String = "KIA";
-              DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring2, this.game.MarcFont4, num45 + w1 + 21, num44 + (int) Math.Round((double) num43 * 0.35) - 10, Color.Red);
+              DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring2, this.game.MarcFont4, num45 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) - 10, Color.Red);
             }
-            DrawMod.DrawTextColouredMarcCenter(ref graphics, str, this.game.MarcFont16, num45 + w1 + 21, num44 + (int) Math.Round((double) num43 * 0.35) + 10, Color.White);
+            DrawMod.DrawTextColouredMarcCenter(ref graphics, str, this.game.MarcFont16, num45 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) + 10, Color.White);
             num31 = w1 + 55;
             num49 += 1;
           }
           else
             flag2 = true;
         }
-        else if ((double) this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon < (double) this.game.Data.RuleVar[55])
+        else if ( this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon <  this.game.Data.RuleVar[55])
           flag2 = true;
         else if (num48 <= 2)
         {
@@ -1193,18 +1193,18 @@ namespace WindowsApplication1
           DrawMod.DrawSimple(ref local7, ref local8, x5, y4);
           DrawMod.DrawBlock(ref graphics, num47 + w1, num44, 45, num43, 0, 0, 0, 128);
           DrawMod.DrawSimpleFrame(ref this.game.LINESFRAME, ref graphics, num47 - 6, num44, w1 + 51, num43, 10, 10, 10);
-          str: String = ((int) Math.Round((double) simpleList1.Data1[index39] + (double) simpleList1.Data2[index39] / 2.0)).ToString() + "%";
+          str: String = ((int) Math.Round( simpleList1.Data1[index39] +  simpleList1.Data2[index39] / 2.0)).ToString() + "%";
           if (Operators.CompareString(str, "0%", false) == 0)
             str = "-";
-          else if ((int) Math.Round((double) simpleList1.Data1[index39] + (double) simpleList1.Data2[index39] / 2.0) > 0)
+          else if ((int) Math.Round( simpleList1.Data1[index39] +  simpleList1.Data2[index39] / 2.0) > 0)
             str = "+" + str;
           tstring: String = "HQ";
           if (num50 == 3)
             tstring = "OHQ";
           if (num50 == 4)
             tstring = "SHQ";
-          DrawMod.DrawTextColouredMarcCenter(ref graphics, str, this.game.MarcFont16, num47 + w1 + 21, num44 + (int) Math.Round((double) num43 * 0.35) + 10, Color.White);
-          DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring, this.game.MarcFont4, num47 + w1 + 21, num44 + (int) Math.Round((double) num43 * 0.35) - 10, Color.White);
+          DrawMod.DrawTextColouredMarcCenter(ref graphics, str, this.game.MarcFont16, num47 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) + 10, Color.White);
+          DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring, this.game.MarcFont4, num47 + w1 + 21, num44 + (int) Math.Round( num43 * 0.35) - 10, Color.White);
           num31 = w1 + 55;
           num48 += 1;
         }
@@ -1478,16 +1478,16 @@ namespace WindowsApplication1
               }
             }
           }
-          index44 = num57 <= 0 ? 0 : (int) Math.Round((double) num58 / (double) num57);
-          let mut num68: i32 =  index43 <= 0 ? 0 : (int) Math.Round((double) num59 / (double) index43);
-          let mut num69: i32 =  num60 <= 0 ? 0 : (int) Math.Round((double) num61 / (double) num60);
-          let mut num70: i32 =  num62 <= 0 ? 0 : (int) Math.Round((double) num63 / (double) num62);
-          num56 = num64 <= 0 ? 0 : (int) Math.Round((double) num56 / (double) num64);
-          num66 = num65 <= 0 ? 0 : (int) Math.Round((double) num66 / (double) num65);
+          index44 = num57 <= 0 ? 0 : (int) Math.Round( num58 /  num57);
+          let mut num68: i32 =  index43 <= 0 ? 0 : (int) Math.Round( num59 /  index43);
+          let mut num69: i32 =  num60 <= 0 ? 0 : (int) Math.Round( num61 /  num60);
+          let mut num70: i32 =  num62 <= 0 ? 0 : (int) Math.Round( num63 /  num62);
+          num56 = num64 <= 0 ? 0 : (int) Math.Round( num56 /  num64);
+          num66 = num65 <= 0 ? 0 : (int) Math.Round( num66 /  num65);
           if (num55 == 1)
           {
             let mut num71: i32 =  4;
-            index45 = (int) Math.Round((double) (100 + index44) * ((double) (100 + num68) / 100.0) * ((double) (num70 + 100) / 100.0) * ((double) (num56 + 100) / 100.0)) - 100;
+            index45 = (int) Math.Round( (100 + index44) * ( (100 + num68) / 100.0) * ( (num70 + 100) / 100.0) * ( (num56 + 100) / 100.0)) - 100;
             str: String = index45.ToString() + "%";
             if (Operators.CompareString(str, "0%", false) == 0)
               str = "-";
@@ -1562,7 +1562,7 @@ namespace WindowsApplication1
           if (num55 == 2)
           {
             let mut num72: i32 =  30;
-            index45 = (int) Math.Round((double) (100 + index44) * ((double) (100 + num68) / 100.0) * ((double) (num70 + 100) / 100.0) * ((double) (num56 + 100) / 100.0)) - 100;
+            index45 = (int) Math.Round( (100 + index44) * ( (100 + num68) / 100.0) * ( (num70 + 100) / 100.0) * ( (num56 + 100) / 100.0)) - 100;
             str: String = index45.ToString() + "%";
             if (Operators.CompareString(str, "0%", false) == 0)
               str = "-";
@@ -1637,7 +1637,7 @@ namespace WindowsApplication1
           if (num55 == 3)
           {
             let mut num73: i32 =  38;
-            index45 = (int) Math.Round((double) (100 + index44) * ((double) (100 + num68) / 100.0) * ((double) (num70 + 100) / 100.0) * ((double) (num56 + 100) / 100.0) * ((double) (num66 + 100) / 100.0) * ((double) (num69 + 100) / 100.0)) - 100;
+            index45 = (int) Math.Round( (100 + index44) * ( (100 + num68) / 100.0) * ( (num70 + 100) / 100.0) * ( (num56 + 100) / 100.0) * ( (num66 + 100) / 100.0) * ( (num69 + 100) / 100.0)) - 100;
             str: String = index45.ToString() + "%";
             if (Operators.CompareString(str, "0%", false) == 0)
               str = "-";
@@ -1712,7 +1712,7 @@ namespace WindowsApplication1
           if (num55 == 4)
           {
             let mut num74: i32 =  33;
-            index45 = (int) Math.Round((double) (100 + index44) * ((double) (100 + num68) / 100.0) * ((double) (num70 + 100) / 100.0) * ((double) (num56 + 100) / 100.0)) - 100;
+            index45 = (int) Math.Round( (100 + index44) * ( (100 + num68) / 100.0) * ( (num70 + 100) / 100.0) * ( (num56 + 100) / 100.0)) - 100;
             str: String = index45.ToString() + "%";
             if (Operators.CompareString(str, "0%", false) == 0)
               str = "-";
@@ -1787,7 +1787,7 @@ namespace WindowsApplication1
           if (num55 == 5)
           {
             let mut num75: i32 =  37;
-            index45 = (int) Math.Round((double) (100 + index44) * ((double) (100 + num68) / 100.0) * ((double) (num70 + 100) / 100.0) * ((double) (num56 + 100) / 100.0) * ((double) (num66 + 100) / 100.0) * ((double) (num69 + 100) / 100.0)) - 100;
+            index45 = (int) Math.Round( (100 + index44) * ( (100 + num68) / 100.0) * ( (num70 + 100) / 100.0) * ( (num56 + 100) / 100.0) * ( (num66 + 100) / 100.0) * ( (num69 + 100) / 100.0)) - 100;
             str: String = index45.ToString() + "%";
             if (Operators.CompareString(str, "0%", false) == 0)
               str = "-";
@@ -1901,25 +1901,25 @@ namespace WindowsApplication1
             if (index49 == 1)
             {
               let mut num77: i32 =  4;
-              let mut num78: i32 =  (int) Math.Round((double) (num76 * numArray3[index49]) / (double) numArray1[index49]);
+              let mut num78: i32 =  (int) Math.Round( (num76 * numArray3[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num77, rectangle6.Y + 4, num78, rectangle6.Height - 8, (int) color1.R, (int) color1.G, (int) color1.B, (int) color1.A);
               trect2 = Rectangle::new(rectangle6.X + num77, rectangle6.Y + 4, num78, rectangle6.Height - 8);
               let mut trect3: &Rectangle = &trect2
               this.AddMouse(ref trect3, "", "Attacker still has " + numArray3[index49].ToString() + " sub units fighting.");
               let mut num79: i32 =  num77 + num78;
-              let mut num80: i32 =  (int) Math.Round((double) (num76 * numArray2[index49]) / (double) numArray1[index49]);
+              let mut num80: i32 =  (int) Math.Round( (num76 * numArray2[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num79, rectangle6.Y + 4, num80, rectangle6.Height - 8, (int) color2.R, (int) color2.G, (int) color2.B, (int) color2.A);
               trect2 = Rectangle::new(rectangle6.X + num79, rectangle6.Y + 4, num80, rectangle6.Height - 8);
               let mut trect4: &Rectangle = &trect2
               this.AddMouse(ref trect4, "", "Attacker has " + numArray2[index49].ToString() + " sub units that are retreating, or have retreated.");
               let mut num81: i32 =  num79 + num80;
-              let mut num82: i32 =  (int) Math.Round((double) (num76 * numArray5[index49]) / (double) numArray1[index49]);
+              let mut num82: i32 =  (int) Math.Round( (num76 * numArray5[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num81, rectangle6.Y + 4, num82, rectangle6.Height - 8, (int) color3.R, (int) color3.G, (int) color3.B, (int) color3.A);
               trect2 = Rectangle::new(rectangle6.X + num81, rectangle6.Y + 4, num82, rectangle6.Height - 8);
               let mut trect5: &Rectangle = &trect2
               this.AddMouse(ref trect5, "", "Attacker has " + numArray5[index49].ToString() + " sub units that are neither fighting, nor retreating, nor killed.");
               let mut num83: i32 =  num81 + num82;
-              index44 = (int) Math.Round((double) (num76 * numArray4[index49]) / (double) numArray1[index49]);
+              index44 = (int) Math.Round( (num76 * numArray4[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num83, rectangle6.Y + 4, index44, rectangle6.Height - 8, (int) color4.R, (int) color4.G, (int) color4.B, (int) color4.A);
               trect2 = Rectangle::new(rectangle6.X + num83, rectangle6.Y + 4, index44, rectangle6.Height - 8);
               let mut trect6: &Rectangle = &trect2
@@ -1928,37 +1928,37 @@ namespace WindowsApplication1
             else
             {
               let mut num84: i32 =  4;
-              let mut num85: i32 =  (int) Math.Round((double) (num76 * numArray4[index49]) / (double) numArray1[index49]);
+              let mut num85: i32 =  (int) Math.Round( (num76 * numArray4[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num84, rectangle6.Y + 4, num85, rectangle6.Height - 8, (int) color4.R, (int) color4.G, (int) color4.B, (int) color4.A);
               trect2 = Rectangle::new(rectangle6.X + num84, rectangle6.Y + 4, num85, rectangle6.Height - 8);
               let mut trect7: &Rectangle = &trect2
               this.AddMouse(ref trect7, "", "Defender has lost " + numArray4[index49].ToString() + " sub units.");
               let mut num86: i32 =  num84 + num85;
-              let mut num87: i32 =  (int) Math.Round((double) (num76 * numArray5[index49]) / (double) numArray1[index49]);
+              let mut num87: i32 =  (int) Math.Round( (num76 * numArray5[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num86, rectangle6.Y + 4, num87, rectangle6.Height - 8, (int) color3.R, (int) color3.G, (int) color3.B, (int) color3.A);
               trect2 = Rectangle::new(rectangle6.X + num86, rectangle6.Y + 4, num87, rectangle6.Height - 8);
               let mut trect8: &Rectangle = &trect2
               this.AddMouse(ref trect8, "", "Defender has " + numArray5[index49].ToString() + " sub units that are neither fighting, nor retreating, nor killed.");
               let mut num88: i32 =  num86 + num87;
-              let mut num89: i32 =  (int) Math.Round((double) (num76 * numArray2[index49]) / (double) numArray1[index49]);
+              let mut num89: i32 =  (int) Math.Round( (num76 * numArray2[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num88, rectangle6.Y + 4, num89, rectangle6.Height - 8, (int) color2.R, (int) color2.G, (int) color2.B, (int) color2.A);
               trect2 = Rectangle::new(rectangle6.X + num88, rectangle6.Y + 4, num89, rectangle6.Height - 8);
               let mut trect9: &Rectangle = &trect2
               this.AddMouse(ref trect9, "", "Defender has " + numArray2[index49].ToString() + " sub units that are retreating, or have retreated.");
               let mut num90: i32 =  num88 + num89;
-              index44 = (int) Math.Round((double) (num76 * numArray3[index49]) / (double) numArray1[index49]);
+              index44 = (int) Math.Round( (num76 * numArray3[index49]) /  numArray1[index49]);
               DrawMod.DrawBlock(ref graphics, rectangle6.X + num90, rectangle6.Y + 4, index44, rectangle6.Height - 8, (int) color1.R, (int) color1.G, (int) color1.B, (int) color1.A);
               trect2 = Rectangle::new(rectangle6.X + num90, rectangle6.Y + 4, index44, rectangle6.Height - 8);
               let mut trect10: &Rectangle = &trect2
               this.AddMouse(ref trect10, "", "Defender still has " + numArray3[index49].ToString() + " sub units fighting.");
             }
             DrawMod.DrawSimpleFrame(ref this.game.LINESFRAME, ref graphics, rectangle6.X, rectangle6.Y, rectangle6.Width, rectangle6.Height, 10, 10, 10);
-            index45 = (int) Math.Round((double) (100 * numArray3[index49]) / (double) numArray1[index49]);
+            index45 = (int) Math.Round( (100 * numArray3[index49]) /  numArray1[index49]);
             str: String = index45.ToString() + "%";
             if (numArray6[index49] > 0)
               str += " ?";
             tstring: String = str + " Troops Operational";
-            DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring, this.game.MarcFont16, rectangle6.X + (int) Math.Round((double) rectangle6.Width / 2.0), rectangle6.Y + Math.Max(rectangle6.Height - 50, 0) + 6, Color.White);
+            DrawMod.DrawTextColouredMarcCenter(ref graphics, tstring, this.game.MarcFont16, rectangle6.X + (int) Math.Round( rectangle6.Width / 2.0), rectangle6.Y + Math.Max(rectangle6.Height - 50, 0) + 6, Color.White);
           }
         }
         let mut num91: i32 =  rectangle4.Y + 15;
@@ -1982,10 +1982,10 @@ namespace WindowsApplication1
           ref Bitmap local30 = ref bitmap;
           let mut x7: i32 =  num45;
           let mut y5: i32 =  num91;
-          double r1 = (double) ((float) red / (float) byte.MaxValue) - 1.0;
-          double g1 = (double) ((float) green / (float) byte.MaxValue) - 1.0;
-          double b1 = (double) ((float) blue / (float) byte.MaxValue) - 1.0;
-          DrawMod.DrawScaledColorized(ref local29, ref local30, x7, y5, 80, 75, 124, 210, (float) r1, (float) g1, (float) b1, 1f);
+          double r1 =  ( red /  byte.MaxValue) - 1.0;
+          double g1 =  ( green /  byte.MaxValue) - 1.0;
+          double b1 =  ( blue /  byte.MaxValue) - 1.0;
+          DrawMod.DrawScaledColorized(ref local29, ref local30, x7, y5, 80, 75, 124, 210,  r1,  g1,  b1, 1f);
           let mut bannerSpriteNr2: i32 =  this.game.Data.RegimeObj[index44].BannerSpriteNr2;
           if (bannerSpriteNr2 > 0)
           {
@@ -1994,10 +1994,10 @@ namespace WindowsApplication1
             ref Bitmap local32 = ref bitmap;
             let mut x8: i32 =  num45;
             let mut y6: i32 =  num91;
-            double r2 = (double) ((float) red2 / (float) byte.MaxValue) - 1.0;
-            double g2 = (double) ((float) green2 / (float) byte.MaxValue) - 1.0;
-            double b2 = (double) ((float) blue2 / (float) byte.MaxValue) - 1.0;
-            DrawMod.DrawScaledColorized(ref local31, ref local32, x8, y6, 80, 75, 124, 210, (float) r2, (float) g2, (float) b2, 1f);
+            double r2 =  ( red2 /  byte.MaxValue) - 1.0;
+            double g2 =  ( green2 /  byte.MaxValue) - 1.0;
+            double b2 =  ( blue2 /  byte.MaxValue) - 1.0;
+            DrawMod.DrawScaledColorized(ref local31, ref local32, x8, y6, 80, 75, 124, 210,  r2,  g2,  b2, 1f);
           }
           let mut hqSpriteNr2: i32 =  this.game.Data.RegimeObj[index44].HQSpriteNr2;
           if (hqSpriteNr2 > 0)
@@ -2007,10 +2007,10 @@ namespace WindowsApplication1
             ref Bitmap local34 = ref bitmap;
             let mut x9: i32 =  num45 + 20;
             let mut y7: i32 =  num91 + 20;
-            double r3 = (double) ((float) this.game.Data.RegimeObj[index44].Red3 / (float) byte.MaxValue) - 1.0;
-            double g3 = (double) ((float) this.game.Data.RegimeObj[index44].Green3 / (float) byte.MaxValue) - 1.0;
-            double b3 = (double) ((float) this.game.Data.RegimeObj[index44].Blue3 / (float) byte.MaxValue) - 1.0;
-            DrawMod.Draw(ref local33, ref local34, x9, y7, (float) r3, (float) g3, (float) b3, 0.95f);
+            double r3 =  ( this.game.Data.RegimeObj[index44].Red3 /  byte.MaxValue) - 1.0;
+            double g3 =  ( this.game.Data.RegimeObj[index44].Green3 /  byte.MaxValue) - 1.0;
+            double b3 =  ( this.game.Data.RegimeObj[index44].Blue3 /  byte.MaxValue) - 1.0;
+            DrawMod.Draw(ref local33, ref local34, x9, y7,  r3,  g3,  b3, 0.95f);
           }
         }
         else
@@ -2021,10 +2021,10 @@ namespace WindowsApplication1
           ref Bitmap local36 = ref bitmap;
           let mut x10: i32 =  num45;
           let mut y8: i32 =  num91;
-          double r4 = (double) ((float) red / (float) byte.MaxValue) - 1.0;
-          double g4 = (double) ((float) green / (float) byte.MaxValue) - 1.0;
-          double b4 = (double) ((float) blue / (float) byte.MaxValue) - 1.0;
-          DrawMod.DrawScaledColorized(ref local35, ref local36, x10, y8, 80, 135, 124, 210, (float) r4, (float) g4, (float) b4, 1f);
+          double r4 =  ( red /  byte.MaxValue) - 1.0;
+          double g4 =  ( green /  byte.MaxValue) - 1.0;
+          double b4 =  ( blue /  byte.MaxValue) - 1.0;
+          DrawMod.DrawScaledColorized(ref local35, ref local36, x10, y8, 80, 135, 124, 210,  r4,  g4,  b4, 1f);
           let mut bannerSpriteNr2: i32 =  this.game.Data.RegimeObj[index44].BannerSpriteNr2;
           if (bannerSpriteNr2 > 0)
           {
@@ -2033,10 +2033,10 @@ namespace WindowsApplication1
             ref Bitmap local38 = ref bitmap;
             let mut x11: i32 =  num45;
             let mut y9: i32 =  num91;
-            double r5 = (double) ((float) red2 / (float) byte.MaxValue) - 1.0;
-            double g5 = (double) ((float) green2 / (float) byte.MaxValue) - 1.0;
-            double b5 = (double) ((float) blue2 / (float) byte.MaxValue) - 1.0;
-            DrawMod.DrawScaledColorized(ref local37, ref local38, x11, y9, 80, 135, 124, 210, (float) r5, (float) g5, (float) b5, 1f);
+            double r5 =  ( red2 /  byte.MaxValue) - 1.0;
+            double g5 =  ( green2 /  byte.MaxValue) - 1.0;
+            double b5 =  ( blue2 /  byte.MaxValue) - 1.0;
+            DrawMod.DrawScaledColorized(ref local37, ref local38, x11, y9, 80, 135, 124, 210,  r5,  g5,  b5, 1f);
           }
           let mut hqSpriteNr2: i32 =  this.game.Data.RegimeObj[index44].HQSpriteNr2;
           if (hqSpriteNr2 > 0)
@@ -2046,10 +2046,10 @@ namespace WindowsApplication1
             ref Bitmap local40 = ref bitmap;
             let mut x12: i32 =  num45 + 20;
             let mut y10: i32 =  num91 + 44;
-            double r6 = (double) ((float) this.game.Data.RegimeObj[index44].Red3 / (float) byte.MaxValue) - 1.0;
-            double g6 = (double) ((float) this.game.Data.RegimeObj[index44].Green3 / (float) byte.MaxValue) - 1.0;
-            double b6 = (double) ((float) this.game.Data.RegimeObj[index44].Blue3 / (float) byte.MaxValue) - 1.0;
-            DrawMod.Draw(ref local39, ref local40, x12, y10, (float) r6, (float) g6, (float) b6, 0.95f);
+            double r6 =  ( this.game.Data.RegimeObj[index44].Red3 /  byte.MaxValue) - 1.0;
+            double g6 =  ( this.game.Data.RegimeObj[index44].Green3 /  byte.MaxValue) - 1.0;
+            double b6 =  ( this.game.Data.RegimeObj[index44].Blue3 /  byte.MaxValue) - 1.0;
+            DrawMod.Draw(ref local39, ref local40, x12, y10,  r6,  g6,  b6, 0.95f);
           }
         }
         if (index49 == 0)
@@ -2187,11 +2187,11 @@ namespace WindowsApplication1
                   ref Bitmap local44 = ref bitmap;
                   let mut x15: i32 =  x13;
                   let mut y13: i32 =  y11;
-                  double r7 = (double) ((float) color.R / (float) byte.MaxValue) - 1.0;
-                  double g7 = (double) ((float) color.G / (float) byte.MaxValue) - 1.0;
-                  double b7 = (double) ((float) color.B / (float) byte.MaxValue) - 1.0;
-                  double a1 = (double) ((float) color.A / (float) byte.MaxValue);
-                  DrawMod.Draw(ref local43, ref local44, x15, y13, (float) r7, (float) g7, (float) b7, (float) a1);
+                  double r7 =  ( color.R /  byte.MaxValue) - 1.0;
+                  double g7 =  ( color.G /  byte.MaxValue) - 1.0;
+                  double b7 =  ( color.B /  byte.MaxValue) - 1.0;
+                  double a1 =  ( color.A /  byte.MaxValue);
+                  DrawMod.Draw(ref local43, ref local44, x15, y13,  r7,  g7,  b7,  a1);
                   ref Graphics local45 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK2B, this.useZoom);
                   ref Bitmap local46 = ref bitmap;
@@ -2202,7 +2202,7 @@ namespace WindowsApplication1
                 default:
                   if (num95 != 2 & num95 != 5)
                   {
-                    color = Color.FromArgb((int) byte.MaxValue, (int) color.R + (int) Math.Round((double) ((int) byte.MaxValue - (int) color.R) * 0.66), (int) color.G + (int) Math.Round((double) ((int) byte.MaxValue - (int) color.G) * 0.66), (int) color.B + (int) Math.Round((double) ((int) byte.MaxValue - (int) color.B) * 0.66));
+                    color = Color.FromArgb((int) byte.MaxValue, (int) color.R + (int) Math.Round( ((int) byte.MaxValue - (int) color.R) * 0.66), (int) color.G + (int) Math.Round( ((int) byte.MaxValue - (int) color.G) * 0.66), (int) color.B + (int) Math.Round( ((int) byte.MaxValue - (int) color.B) * 0.66));
                     if (color.R == byte.MaxValue & color.G == byte.MaxValue & color.B == byte.MaxValue)
                     {
                       ref Graphics local47 = ref graphics;
@@ -2219,11 +2219,11 @@ namespace WindowsApplication1
                       ref Bitmap local50 = ref bitmap;
                       let mut x18: i32 =  x13;
                       let mut y16: i32 =  y11;
-                      double r8 = (double) ((float) color.R / (float) byte.MaxValue) - 1.0;
-                      double g8 = (double) ((float) color.G / (float) byte.MaxValue) - 1.0;
-                      double b8 = (double) ((float) color.B / (float) byte.MaxValue) - 1.0;
-                      double a2 = (double) ((float) color.A / (float) byte.MaxValue);
-                      DrawMod.Draw(ref local49, ref local50, x18, y16, (float) r8, (float) g8, (float) b8, (float) a2);
+                      double r8 =  ( color.R /  byte.MaxValue) - 1.0;
+                      double g8 =  ( color.G /  byte.MaxValue) - 1.0;
+                      double b8 =  ( color.B /  byte.MaxValue) - 1.0;
+                      double a2 =  ( color.A /  byte.MaxValue);
+                      DrawMod.Draw(ref local49, ref local50, x18, y16,  r8,  g8,  b8,  a2);
                     }
                     ref Graphics local51 = ref graphics;
                     bitmap = BitmapStore.GetBitmap(this.game.SE1_COMBATBLOCK2, this.useZoom);
@@ -2262,27 +2262,27 @@ namespace WindowsApplication1
                 if (this.useZoom == 1)
                 {
                   str3: String = this.game.Data.UnitObj[index52].Name;
-                  if (this.game.Data.UnitObj[index52].Regime != this.game.Data.Turn && (double) this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon < (double) this.game.Data.RuleVar[55])
+                  if (this.game.Data.UnitObj[index52].Regime != this.game.Data.Turn &&  this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon <  this.game.Data.RuleVar[55])
                     str3 = "Unknown Unit";
                   sizeF2 = graphics.MeasureString(str3, this.game.MarcFont4, num2 * 2 - num7);
-                  index43 = (int) Math.Round(((double) (int) Math.Round((double) num2 * 0.2) + (double) sizeF2.Height) / 2.0);
+                  index43 = (int) Math.Round(( (int) Math.Round( num2 * 0.2) +  sizeF2.Height) / 2.0);
                   unitDescription: String = this.GetUnitDescription(index52);
                   if (unitDescription.Length < 2)
-                    index43 = (int) Math.Round((double) (sizeF2.Height / 2f));
-                  DrawMod.DrawTextColouredConsoleMultiline(ref graphics, str3, this.game.MarcFont4, x13 + num7, y11 - index43 + (int) Math.Round((double) num2 * 0.5), Color.LightGray, num2 * 2 - num7, num2);
-                  DrawMod.DrawTextColouredMarc(ref graphics, unitDescription, this.game.MarcFont16, x13 + num7, (int) Math.Round((double) ((float) (y11 - index43 + (int) Math.Round((double) num2 * 0.5)) + sizeF2.Height)), Color.White);
+                    index43 = (int) Math.Round( (sizeF2.Height / 2f));
+                  DrawMod.DrawTextColouredConsoleMultiline(ref graphics, str3, this.game.MarcFont4, x13 + num7, y11 - index43 + (int) Math.Round( num2 * 0.5), Color.LightGray, num2 * 2 - num7, num2);
+                  DrawMod.DrawTextColouredMarc(ref graphics, unitDescription, this.game.MarcFont16, x13 + num7, (int) Math.Round( ( (y11 - index43 + (int) Math.Round( num2 * 0.5)) + sizeF2.Height)), Color.White);
                 }
                 if (this.useZoom == 0)
                 {
                   lower: String = this.GetUnitDescription(index52).ToLower();
-                  DrawMod.DrawTextColouredMarc(ref graphics, lower, this.game.MarcFont16, x13 + num7, y11 + (int) Math.Round((double) num2 * 0.5) - 9, Color.LightGray);
+                  DrawMod.DrawTextColouredMarc(ref graphics, lower, this.game.MarcFont16, x13 + num7, y11 + (int) Math.Round( num2 * 0.5) - 9, Color.LightGray);
                 }
               }
               if (num95 == 3)
               {
                 str4: String = "";
                 index43 = this.game.TempCombat.FindISlot(index52);
-                if (!Information.IsNothing((object) this.game.TempCombat.IList[index43].IunitFeat))
+                if (!Information.IsNothing( this.game.TempCombat.IList[index43].IunitFeat))
                 {
                   let mut counter12: i32 =  this.game.TempCombat.IList[index43].IunitFeat.Counter;
                   for (let mut index53: i32 =  0; index53 <= counter12; index53 += 1)
@@ -2346,11 +2346,11 @@ namespace WindowsApplication1
                           let mut h: i32 =  num99;
                           let mut width: i32 =  BitmapStore.GetWidth(nr10);
                           let mut origh: i32 =  BitmapStore.Getheight(nr10);
-                          double r9 = (double) ((float) colMod.R / (float) byte.MaxValue);
-                          double g9 = (double) ((float) colMod.G / (float) byte.MaxValue);
-                          double b9 = (double) ((float) colMod.B / (float) byte.MaxValue);
-                          double a3 = (double) ((float) colMod.A / (float) byte.MaxValue);
-                          DrawMod.DrawScaledColorized2(ref local53, ref local54, x20, y18, w2, h, width, origh, (float) r9, (float) g9, (float) b9, (float) a3);
+                          double r9 =  ( colMod.R /  byte.MaxValue);
+                          double g9 =  ( colMod.G /  byte.MaxValue);
+                          double b9 =  ( colMod.B /  byte.MaxValue);
+                          double a3 =  ( colMod.A /  byte.MaxValue);
+                          DrawMod.DrawScaledColorized2(ref local53, ref local54, x20, y18, w2, h, width, origh,  r9,  g9,  b9,  a3);
                         }
                       }
                     }
@@ -2369,7 +2369,7 @@ namespace WindowsApplication1
                   {
                     Matrix matrix2 = Matrix::new();
                     matrix2.Scale(-1f, 1f);
-                    matrix2.Translate((float) -(2 * (x13 + num7) + num100), 0.0f);
+                    matrix2.Translate( -(2 * (x13 + num7) + num100), 0.0f);
                     graphics.Transform = matrix2;
                   }
                   ref Graphics local55 = ref graphics;
@@ -2390,11 +2390,11 @@ namespace WindowsApplication1
                     str7: String = "/";
                     str8: String = this.game.TempCombat.IList[index43].ItotalHits.ToString();
                     sizeF2 = graphics.MeasureString(str6, this.game.MarcFont4, 76);
-                    let mut num102: i32 =  (int) Math.Round((double) (sizeF2.Width - 2f));
+                    let mut num102: i32 =  (int) Math.Round( (sizeF2.Width - 2f));
                     sizeF2 = graphics.MeasureString(str7, this.game.MarcFont4, 76);
-                    let mut num103: i32 =  (int) Math.Round((double) (sizeF2.Width - 2f));
+                    let mut num103: i32 =  (int) Math.Round( (sizeF2.Width - 2f));
                     sizeF2 = graphics.MeasureString(str8, this.game.MarcFont4, 76);
-                    let mut num104: i32 =  (int) Math.Round((double) (sizeF2.Width - 2f));
+                    let mut num104: i32 =  (int) Math.Round( (sizeF2.Width - 2f));
                     if (num92 == 0)
                       num101 = 72 - (num102 + num103 + num104);
                     if (num92 == 1)
@@ -2407,7 +2407,7 @@ namespace WindowsApplication1
                   {
                     str9: String = this.game.TempCombat.IList[index43].ItotalKills.ToString();
                     sizeF2 = graphics.MeasureString(str9, this.game.MarcFont4, 76);
-                    let mut num105: i32 =  (int) Math.Round((double) (sizeF2.Width - 2f));
+                    let mut num105: i32 =  (int) Math.Round( (sizeF2.Width - 2f));
                     if (num92 == 0)
                       num101 = 72 - num105;
                     if (num92 == 1)
@@ -2418,7 +2418,7 @@ namespace WindowsApplication1
                   {
                     str10: String = this.game.TempCombat.IList[index43].ItotalHits.ToString();
                     sizeF2 = graphics.MeasureString(str10, this.game.MarcFont4, 76);
-                    let mut num106: i32 =  (int) Math.Round((double) (sizeF2.Width - 2f));
+                    let mut num106: i32 =  (int) Math.Round( (sizeF2.Width - 2f));
                     if (num92 == 0)
                       num101 = 72 - num106;
                     if (num92 == 1)
@@ -2428,7 +2428,7 @@ namespace WindowsApplication1
                 }
                 if (this.useZoom == 1 && this.game.Data.SFTypeObj[this.game.TempCombat.IList[index43].ISFType].DepletingHitpointRule > 0)
                 {
-                  let mut w3: i32 =  (int) Math.Round((double) ((float) (this.game.TempCombat.IList[index43].IHp * 56) / (float) this.game.Data.SFTypeObj[this.game.TempCombat.IList[index43].ISFType].HitPoints[0]));
+                  let mut w3: i32 =  (int) Math.Round( ( (this.game.TempCombat.IList[index43].IHp * 56) /  this.game.Data.SFTypeObj[this.game.TempCombat.IList[index43].ISFType].HitPoints[0]));
                   DrawMod.DrawBlock(ref graphics, x13 + num7 + 7, y11 + 8, 58, 6, 0, 100, 100, 155);
                   DrawMod.DrawBlock(ref graphics, x13 + 1 + num7 + 7, y11 + 9, w3, 4, 0, (int) byte.MaxValue, (int) byte.MaxValue, 155);
                 }
@@ -2449,10 +2449,10 @@ namespace WindowsApplication1
                   if (str4.Length > 0)
                     str11 = str11 + "Has embedded with them: " + str4 + ".\r\n" + "---------------" + "\r\n";
                   str12: String = str11;
-                  index45 = (int) Math.Round((double) (this.game.TempCombat.IList[index43].ILisAmmoMod * 100f));
+                  index45 = (int) Math.Round( (this.game.TempCombat.IList[index43].ILisAmmoMod * 100f));
                   str13: String = index45.ToString();
                   str14: String = str12 + "Ammo modifier: \t" + str13 + "%\r\n";
-                  index45 = (int) Math.Round((double) (this.game.TempCombat.IList[index43].ILisFuelMod * 100f));
+                  index45 = (int) Math.Round( (this.game.TempCombat.IList[index43].ILisFuelMod * 100f));
                   str15: String = index45.ToString();
                   str16: String = str14 + "Fuel modifier: \t" + str15 + "%\r\n" + "---------------" + "\r\n" + "Readiness: \t" + this.game.TempCombat.IList[index43].IRdn.ToString() + " / " + this.game.TempCombat.IList[index43].IRdnInitial.ToString() + "\r\n" + "Morale: \t\t" + this.game.TempCombat.IList[index43].IMor.ToString() + " / " + this.game.TempCombat.IList[index43].IMorInitial.ToString() + "\r\n" + "Experience: \t" + this.game.TempCombat.IList[index43].IXp.ToString() + " / " + this.game.TempCombat.IList[index43].IXpInitial.ToString() + "\r\n" + "Entrenchment: \t" + this.game.TempCombat.IList[index43].IEntrench.ToString() + " / " + this.game.TempCombat.IList[index43].IEntrenchInitial.ToString() + "\r\n" + "Upkeep: \t\t" + this.game.Data.UnitObj[this.game.TempCombat.IList[index43].IUnr].SupplyConsume.ToString() + "\r\n" + "---------------\r\n";
                   if (this.game.TempCombat.IList[index43].IHp > 0)
@@ -2470,10 +2470,10 @@ namespace WindowsApplication1
                   if (str4.Length > 0)
                     str11 = str11 + "Has embedded with them: " + str4 + ".\r\n" + "---------------" + "\r\n";
                   str19: String = str11;
-                  index45 = (int) Math.Round((double) (this.game.TempCombat.IList[index43].ILisAmmoMod * 100f));
+                  index45 = (int) Math.Round( (this.game.TempCombat.IList[index43].ILisAmmoMod * 100f));
                   str20: String = index45.ToString();
                   str21: String = str19 + "Ammo modifier: \t" + str20 + "%\r\n";
-                  index45 = (int) Math.Round((double) (this.game.TempCombat.IList[index43].ILisFuelMod * 100f));
+                  index45 = (int) Math.Round( (this.game.TempCombat.IList[index43].ILisFuelMod * 100f));
                   str22: String = index45.ToString();
                   str23: String = str21 + "Fuel modifier: \t" + str22 + "%\r\n" + "---------------" + "\r\n" + "Readiness: \t" + this.game.TempCombat.IList[index43].IRdn.ToString() + "\r\n" + "Morale: \t\t" + this.game.TempCombat.IList[index43].IMor.ToString() + "\r\n" + "Experience: \t" + this.game.TempCombat.IList[index43].IXp.ToString() + "\r\n" + "Entrenchment: \t" + this.game.TempCombat.IList[index43].IEntrench.ToString() + "\r\n" + "Upkeep: \t\t" + this.game.Data.UnitObj[this.game.TempCombat.IList[index43].IUnr].SupplyConsume.ToString() + "\r\n";
                   if (this.game.TempCombat.IList[index43].IHp > 0)
@@ -2520,36 +2520,36 @@ namespace WindowsApplication1
                 let mut num112: i32 =  BitmapStore.Getheight(nr11);
                 if (this.useZoom == 0)
                 {
-                  num111 = (int) Math.Round((double) num111 / 2.0);
-                  num112 = (int) Math.Round((double) num112 / 2.0);
+                  num111 = (int) Math.Round( num111 / 2.0);
+                  num112 = (int) Math.Round( num112 / 2.0);
                 }
                 if (this.useZoom == 1)
                 {
                   ref Graphics local57 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(nr11);
                   ref Bitmap local58 = ref bitmap;
-                  let mut x22: i32 =  x13 + num107 + (int) Math.Round((double) (num109 - num111) / 2.0);
-                  let mut y20: i32 =  y11 + num108 + (int) Math.Round((double) (num110 - num112) * 0.0) - 12;
-                  double r10 = (double) ((float) colMod.R / (float) byte.MaxValue) - 1.0;
-                  double g10 = (double) ((float) colMod.G / (float) byte.MaxValue) - 1.0;
-                  double b10 = (double) ((float) colMod.B / (float) byte.MaxValue) - 1.0;
-                  double a4 = (double) ((float) colMod.A / (float) byte.MaxValue);
-                  DrawMod.Draw(ref local57, ref local58, x22, y20, (float) r10, (float) g10, (float) b10, (float) a4);
+                  let mut x22: i32 =  x13 + num107 + (int) Math.Round( (num109 - num111) / 2.0);
+                  let mut y20: i32 =  y11 + num108 + (int) Math.Round( (num110 - num112) * 0.0) - 12;
+                  double r10 =  ( colMod.R /  byte.MaxValue) - 1.0;
+                  double g10 =  ( colMod.G /  byte.MaxValue) - 1.0;
+                  double b10 =  ( colMod.B /  byte.MaxValue) - 1.0;
+                  double a4 =  ( colMod.A /  byte.MaxValue);
+                  DrawMod.Draw(ref local57, ref local58, x22, y20,  r10,  g10,  b10,  a4);
                 }
                 else if (this.useZoom == 0)
                 {
                   ref Graphics local59 = ref graphics;
                   bitmap = BitmapStore.GetBitmap(nr11);
                   ref Bitmap local60 = ref bitmap;
-                  let mut x23: i32 =  x13 + num107 + (int) Math.Round((double) (num109 - num111) / 2.0);
-                  let mut y21: i32 =  y11 + num108 + (int) Math.Round((double) (num110 - num112) * 0.0) - 4;
+                  let mut x23: i32 =  x13 + num107 + (int) Math.Round( (num109 - num111) / 2.0);
+                  let mut y21: i32 =  y11 + num108 + (int) Math.Round( (num110 - num112) * 0.0) - 4;
                   let mut w4: i32 =  num109;
                   let mut h: i32 =  num110;
-                  double r11 = (double) ((float) colMod.R / (float) byte.MaxValue);
-                  double g11 = (double) ((float) colMod.G / (float) byte.MaxValue);
-                  double b11 = (double) ((float) colMod.B / (float) byte.MaxValue);
-                  double a5 = (double) ((float) colMod.A / (float) byte.MaxValue);
-                  DrawMod.DrawScaledColorized2(ref local59, ref local60, x23, y21, w4, h, 80, 80, (float) r11, (float) g11, (float) b11, (float) a5);
+                  double r11 =  ( colMod.R /  byte.MaxValue);
+                  double g11 =  ( colMod.G /  byte.MaxValue);
+                  double b11 =  ( colMod.B /  byte.MaxValue);
+                  double a5 =  ( colMod.A /  byte.MaxValue);
+                  DrawMod.DrawScaledColorized2(ref local59, ref local60, x23, y21, w4, h, 80, 80,  r11,  g11,  b11,  a5);
                 }
                 if (nr9 > -1)
                 {
@@ -2562,7 +2562,7 @@ namespace WindowsApplication1
                   {
                     Matrix matrix3 = Matrix::new();
                     matrix3.Scale(-1f, 1f);
-                    matrix3.Translate((float) -(2 * x13 + num109), 0.0f);
+                    matrix3.Translate( -(2 * x13 + num109), 0.0f);
                     graphics.Transform = matrix3;
                   }
                   ref Graphics local61 = ref graphics;
@@ -2613,15 +2613,15 @@ namespace WindowsApplication1
       let mut y25: i32 =  y24;
       DrawMod.DrawSimple(ref local65, ref local66, x27, y25);
       let mut num113: i32 =  this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon;
-      if (num113 > (int) Math.Round((double) this.game.Data.RuleVar[56]))
-        num113 = (int) Math.Round((double) this.game.Data.RuleVar[56]);
+      if (num113 > (int) Math.Round( this.game.Data.RuleVar[56]))
+        num113 = (int) Math.Round( this.game.Data.RuleVar[56]);
       str26: String = "Rec: " + num113.ToString();
-      index45 = (int) Math.Round((double) this.game.Data.RuleVar[56]);
+      index45 = (int) Math.Round( this.game.Data.RuleVar[56]);
       str27: String = index45.ToString();
       tstring3: String = str26 + " / " + str27;
       DrawMod.DrawTextColouredConsoleCenter(ref graphics, tstring3, this.game.MarcFont4, x26 + 70, y24 + 11, Color.LightGray);
       ttitle1: String = "Recon on target Hex";
-      index45 = (int) Math.Round((double) this.game.Data.RuleVar[56]);
+      index45 = (int) Math.Round( this.game.Data.RuleVar[56]);
       ttext1: String = "As long as you have less than " + index45.ToString() + " Recon Points on the Hex you are attacking you'll not be sure to spot all enemy sub formations.";
       trect2 = Rectangle::new(x26, y24, 137, 39);
       trect11 = trect2;
@@ -2698,20 +2698,20 @@ namespace WindowsApplication1
       SubPartClass tsubpart5;
       if (this.game.TempCombat.BattleEnded > 0)
       {
-        let mut tsubpart6: SubPartClass =  new TextButtonPartClass("OK", 200, "Click to return to main screen.\r\nOr press any key instead.", ref this.OwnBitmap, (int) Math.Round((double) this.useWidth / 2.0 - 104.0), this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
-        this.okid = this.AddSubPart(ref tsubpart6, (int) Math.Round((double) this.useWidth / 2.0 - 104.0), this.Hn - 51, 200, 36, 1);
-        num116 = (int) Math.Round((double) this.useWidth / 2.0 - 104.0 + 200.0 + 10.0);
+        let mut tsubpart6: SubPartClass =  new TextButtonPartClass("OK", 200, "Click to return to main screen.\r\nOr press any key instead.", ref this.OwnBitmap, (int) Math.Round( this.useWidth / 2.0 - 104.0), this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
+        this.okid = this.AddSubPart(ref tsubpart6, (int) Math.Round( this.useWidth / 2.0 - 104.0), this.Hn - 51, 200, 36, 1);
+        num116 = (int) Math.Round( this.useWidth / 2.0 - 104.0 + 200.0 + 10.0);
       }
       else
       {
         if (!this.playBattle & !this.game.EditObj.AutoCombat)
         {
-          let mut tsubpart7: SubPartClass =  new TextButtonPartClass("NEXT ROUND", 150, "Click to initiate next Combat Round.\r\nOr press any key instead.", ref this.OwnBitmap, (int) Math.Round((double) this.useWidth / 2.0 - 154.0), this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
-          this.roundId = this.AddSubPart(ref tsubpart7, (int) Math.Round((double) this.useWidth / 2.0 - 154.0), this.Hn - 51, 150, 36, 1);
-          tsubpart5 =  new TextButtonPartClass("AUTOPLAY", 150, "Click to initiate next Combat Round.\r\nOr press any key instead.", ref this.OwnBitmap, (int) Math.Round((double) this.useWidth / 2.0 - 4.0), this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
-          this.playId = this.AddSubPart(ref tsubpart5, (int) Math.Round((double) this.useWidth / 2.0 - 4.0), this.Hn - 51, 150, 36, 1);
+          let mut tsubpart7: SubPartClass =  new TextButtonPartClass("NEXT ROUND", 150, "Click to initiate next Combat Round.\r\nOr press any key instead.", ref this.OwnBitmap, (int) Math.Round( this.useWidth / 2.0 - 154.0), this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
+          this.roundId = this.AddSubPart(ref tsubpart7, (int) Math.Round( this.useWidth / 2.0 - 154.0), this.Hn - 51, 150, 36, 1);
+          tsubpart5 =  new TextButtonPartClass("AUTOPLAY", 150, "Click to initiate next Combat Round.\r\nOr press any key instead.", ref this.OwnBitmap, (int) Math.Round( this.useWidth / 2.0 - 4.0), this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
+          this.playId = this.AddSubPart(ref tsubpart5, (int) Math.Round( this.useWidth / 2.0 - 4.0), this.Hn - 51, 150, 36, 1);
         }
-        num116 = (int) Math.Round((double) this.useWidth / 2.0 - 154.0 + 300.0 + 10.0);
+        num116 = (int) Math.Round( this.useWidth / 2.0 - 154.0 + 300.0 + 10.0);
       }
       tsubpart5 =  new TextButtonPartClass("DETAIL", 90, "Click to get deepest detail level.\r\nOr press any key instead.", ref this.OwnBitmap, this.useWidth - 146, this.Hn - 51, theight: 36, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
       this.detailid = this.AddSubPart(ref tsubpart5, this.useWidth - 146, this.Hn - 51, 90, 36, 1);
@@ -2882,8 +2882,8 @@ namespace WindowsApplication1
         if (this.game.TempCombat.UList[index65].Uattacker == 1)
         {
           index63 += 1;
-          objArray1[1, index63] = (object) this.game.TempCombat.UList[index65].UNr;
-          objArray2[1, index63] = (object) index65;
+          objArray1[1, index63] =  this.game.TempCombat.UList[index65].UNr;
+          objArray2[1, index63] =  index65;
           let mut unr: i32 =  this.game.TempCombat.UList[index65].UNr;
           let mut index66: i32 =  0;
           do
@@ -2902,8 +2902,8 @@ namespace WindowsApplication1
         else
         {
           index64 += 1;
-          objArray1[0, index64] = (object) this.game.TempCombat.UList[index65].UNr;
-          objArray2[0, index64] = (object) index65;
+          objArray1[0, index64] =  this.game.TempCombat.UList[index65].UNr;
+          objArray2[0, index64] =  index65;
           let mut unr: i32 =  this.game.TempCombat.UList[index65].UNr;
           let mut index68: i32 =  0;
           do
@@ -2932,7 +2932,7 @@ namespace WindowsApplication1
         let mut num144: i32 =  index43;
         for (let mut index71: i32 =  0; index71 <= num144; index71 += 1)
         {
-          if (Operators.ConditionalCompareObjectEqual(objArray1[iattacker, index71], (object) this.game.TempCombat.IList[index70].IUnr, false))
+          if (Operators.ConditionalCompareObjectEqual(objArray1[iattacker, index71],  this.game.TempCombat.IList[index70].IUnr, false))
           {
             let mut index72: i32 =  0;
             do
@@ -2949,7 +2949,7 @@ namespace WindowsApplication1
                 let mut index76: i32 =  index75;
                 let mut index77: i32 =  num143;
                 let mut index78: i32 =  index77;
-                object obj = Operators.AddObject(objArray4[index56, index45, index75, index77], (object) 1);
+                object obj = Operators.AddObject(objArray4[index56, index45, index75, index77],  1);
                 objArray5[index73, index74, index76, index78] = obj;
               }
               index72 += 1;
@@ -3007,7 +3007,7 @@ namespace WindowsApplication1
         let mut isfType: i32 =  this.game.TempCombat.IList[index79].ISFType;
         let mut isfNr: i32 =  this.game.TempCombat.IList[index79].ISFNr;
         bool flag6 = false;
-        if ((double) this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon >= (double) this.game.TempCombat.IList[index79].IcoverPoints)
+        if ( this.game.Data.MapObj[0].HexObj[this.game.TempCombat.TargetX, this.game.TempCombat.TargetY].MaxRecon >=  this.game.TempCombat.IList[index79].IcoverPoints)
           flag6 = true;
         if (!this.game.Data.FOWOn)
           flag6 = true;
@@ -3147,10 +3147,10 @@ namespace WindowsApplication1
       {
         if (num56 > 0)
         {
-          this.StartRdn[0] = (int) Math.Round(Conversion.Int((double) this.StartRdn[0] / (double) num56));
-          this.StartXp[0] = (int) Math.Round(Conversion.Int((double) this.StartXp[0] / (double) num56));
-          this.StartMor[0] = (int) Math.Round(Conversion.Int((double) this.StartMor[0] / (double) num56));
-          this.StartEntr[0] = (int) Math.Round(Conversion.Int((double) this.StartEntr[0] / (double) num56));
+          this.StartRdn[0] = (int) Math.Round(Conversion.Int( this.StartRdn[0] /  num56));
+          this.StartXp[0] = (int) Math.Round(Conversion.Int( this.StartXp[0] /  num56));
+          this.StartMor[0] = (int) Math.Round(Conversion.Int( this.StartMor[0] /  num56));
+          this.StartEntr[0] = (int) Math.Round(Conversion.Int( this.StartEntr[0] /  num56));
         }
         else
         {
@@ -3159,10 +3159,10 @@ namespace WindowsApplication1
           this.StartMor[0] = -1;
           this.StartEntr[0] = -1;
         }
-        this.StartRdn[1] = (int) Math.Round(Conversion.Int((double) this.StartRdn[1] / (double) num147));
-        this.StartXp[1] = (int) Math.Round(Conversion.Int((double) this.StartXp[1] / (double) num147));
-        this.StartMor[1] = (int) Math.Round(Conversion.Int((double) this.StartMor[1] / (double) num147));
-        this.StartEntr[1] = (int) Math.Round(Conversion.Int((double) this.StartEntr[1] / (double) num147));
+        this.StartRdn[1] = (int) Math.Round(Conversion.Int( this.StartRdn[1] /  num147));
+        this.StartXp[1] = (int) Math.Round(Conversion.Int( this.StartXp[1] /  num147));
+        this.StartMor[1] = (int) Math.Round(Conversion.Int( this.StartMor[1] /  num147));
+        this.StartEntr[1] = (int) Math.Round(Conversion.Int( this.StartEntr[1] /  num147));
         let mut index118: i32 =  0;
         do
         {
@@ -3176,10 +3176,10 @@ namespace WindowsApplication1
       }
       if (num146 > 0)
       {
-        numArray23[0] = (int) Math.Round(Conversion.Int((double) numArray23[0] / (double) num146));
-        numArray24[0] = (int) Math.Round(Conversion.Int((double) numArray24[0] / (double) num146));
-        numArray25[0] = (int) Math.Round(Conversion.Int((double) numArray25[0] / (double) num146));
-        numArray26[0] = (int) Math.Round(Conversion.Int((double) numArray26[0] / (double) num146));
+        numArray23[0] = (int) Math.Round(Conversion.Int( numArray23[0] /  num146));
+        numArray24[0] = (int) Math.Round(Conversion.Int( numArray24[0] /  num146));
+        numArray25[0] = (int) Math.Round(Conversion.Int( numArray25[0] /  num146));
+        numArray26[0] = (int) Math.Round(Conversion.Int( numArray26[0] /  num146));
       }
       else
       {
@@ -3188,10 +3188,10 @@ namespace WindowsApplication1
         numArray25[0] = -1;
         numArray26[0] = -1;
       }
-      numArray23[1] = (int) Math.Round(Conversion.Int((double) numArray23[1] / (double) num145));
-      numArray24[1] = (int) Math.Round(Conversion.Int((double) numArray24[1] / (double) num145));
-      numArray25[1] = (int) Math.Round(Conversion.Int((double) numArray25[1] / (double) num145));
-      numArray26[1] = (int) Math.Round(Conversion.Int((double) numArray26[1] / (double) num145));
+      numArray23[1] = (int) Math.Round(Conversion.Int( numArray23[1] /  num145));
+      numArray24[1] = (int) Math.Round(Conversion.Int( numArray24[1] /  num145));
+      numArray25[1] = (int) Math.Round(Conversion.Int( numArray25[1] /  num145));
+      numArray26[1] = (int) Math.Round(Conversion.Int( numArray26[1] /  num145));
       let mut index119: i32 =  0;
       do
       {
@@ -3250,27 +3250,27 @@ namespace WindowsApplication1
             if (0 > Number7)
               Number7 = 0;
             str42: String = str41 + Expression7 + Strings.Space(Number7);
-            Expression8: String = Strings.Trim(Conversion.Str((object) (num164 * (numArray22[index120, 1] + numArray20[index120, 1] + numArray21[index120, 1]))));
+            Expression8: String = Strings.Trim(Conversion.Str( (num164 * (numArray22[index120, 1] + numArray20[index120, 1] + numArray21[index120, 1]))));
             let mut Number8: i32 =  10 - Strings.Len(Expression8);
             if (0 > Number8)
               Number8 = 0;
             str43: String = str42 + Expression8 + Strings.Space(Number8);
-            Expression9: String = Strings.Trim(Conversion.Str((object) (num164 * numArray22[index120, 1])));
+            Expression9: String = Strings.Trim(Conversion.Str( (num164 * numArray22[index120, 1])));
             let mut Number9: i32 =  9 - Strings.Len(Expression9);
             if (0 > Number9)
               Number9 = 0;
             str44: String = str43 + Expression9 + Strings.Space(Number9);
-            Expression10: String = Strings.Trim(Conversion.Str((object) (num164 * numArray20[index120, 1])));
+            Expression10: String = Strings.Trim(Conversion.Str( (num164 * numArray20[index120, 1])));
             let mut Number10: i32 =  7 - Strings.Len(Expression10);
             if (0 > Number10)
               Number10 = 0;
             str45: String = str44 + Expression10 + Strings.Space(Number10);
-            Expression11: String = Strings.Trim(Conversion.Str((object) (num164 * numArray21[index120, 1])));
+            Expression11: String = Strings.Trim(Conversion.Str( (num164 * numArray21[index120, 1])));
             let mut Number11: i32 =  9 - Strings.Len(Expression11);
             if (0 > Number11)
               Number11 = 0;
             str46: String = str45 + Expression11 + Strings.Space(Number11);
-            Expression12: String = Strings.Trim(Conversion.Str((object) (num164 * (numArray21[index120, 1] + numArray22[index120, 1]))));
+            Expression12: String = Strings.Trim(Conversion.Str( (num164 * (numArray21[index120, 1] + numArray22[index120, 1]))));
             let mut Number12: i32 =  6 - Strings.Len(Expression12);
             if (0 > Number12)
               Number12 = 0;
@@ -3326,27 +3326,27 @@ namespace WindowsApplication1
             if (0 > Number19)
               Number19 = 0;
             str53: String = str41 + Expression19 + Strings.Space(Number19);
-            Expression20: String = Strings.Trim(Conversion.Str((object) (num165 * (numArray22[index121, 0] + numArray20[index121, 0] + numArray21[index121, 0]))));
+            Expression20: String = Strings.Trim(Conversion.Str( (num165 * (numArray22[index121, 0] + numArray20[index121, 0] + numArray21[index121, 0]))));
             let mut Number20: i32 =  10 - Strings.Len(Expression20);
             if (0 > Number20)
               Number20 = 0;
             str54: String = str53 + Expression20 + Strings.Space(Number20);
-            Expression21: String = Strings.Trim(Conversion.Str((object) (num165 * numArray22[index121, 0])));
+            Expression21: String = Strings.Trim(Conversion.Str( (num165 * numArray22[index121, 0])));
             let mut Number21: i32 =  9 - Strings.Len(Expression21);
             if (0 > Number21)
               Number21 = 0;
             str55: String = str54 + Expression21 + Strings.Space(Number21);
-            Expression22: String = Strings.Trim(Conversion.Str((object) (num165 * numArray20[index121, 0])));
+            Expression22: String = Strings.Trim(Conversion.Str( (num165 * numArray20[index121, 0])));
             let mut Number22: i32 =  7 - Strings.Len(Expression22);
             if (0 > Number22)
               Number22 = 0;
             str56: String = str55 + Expression22 + Strings.Space(Number22);
-            Expression23: String = Strings.Trim(Conversion.Str((object) (num165 * numArray21[index121, 0])));
+            Expression23: String = Strings.Trim(Conversion.Str( (num165 * numArray21[index121, 0])));
             let mut Number23: i32 =  9 - Strings.Len(Expression23);
             if (0 > Number23)
               Number23 = 0;
             str57: String = str56 + Expression23 + Strings.Space(Number23);
-            Expression24: String = Strings.Trim(Conversion.Str((object) (num165 * (numArray21[index121, 0] + numArray22[index121, 0]))));
+            Expression24: String = Strings.Trim(Conversion.Str( (num165 * (numArray21[index121, 0] + numArray22[index121, 0]))));
             let mut Number24: i32 =  6 - Strings.Len(Expression24);
             if (0 > Number24)
               Number24 = 0;
@@ -3396,17 +3396,17 @@ namespace WindowsApplication1
         if (0 > Number31)
           Number31 = 0;
         str66: String = str65 + Expression32 + Strings.Space(Number31);
-        Expression33: String = Strings.Trim(Conversion.Str((object) this.StartRdn[1]));
+        Expression33: String = Strings.Trim(Conversion.Str( this.StartRdn[1]));
         let mut Number32: i32 =  10 - Strings.Len(Expression33);
         if (0 > Number32)
           Number32 = 0;
         str67: String = str66 + Expression33 + Strings.Space(Number32);
-        Expression34: String = Strings.Trim(Conversion.Str((object) numArray23[1]));
+        Expression34: String = Strings.Trim(Conversion.Str( numArray23[1]));
         let mut Number33: i32 =  20 - Strings.Len(Expression34);
         if (0 > Number33)
           Number33 = 0;
         str68: String = str67 + Expression34 + Strings.Space(Number33);
-        str69: String = Strings.Trim(Conversion.Str((object) this.StartRdn[0]));
+        str69: String = Strings.Trim(Conversion.Str( this.StartRdn[0]));
         if (numArray31[0] < 1)
           str69 = "?";
         if (Operators.CompareString(str69, "-1", false) == 0)
@@ -3415,7 +3415,7 @@ namespace WindowsApplication1
         if (0 > Number34)
           Number34 = 0;
         str70: String = str68 + str69 + Strings.Space(Number34);
-        str71: String = Strings.Trim(Conversion.Str((object) numArray23[0]));
+        str71: String = Strings.Trim(Conversion.Str( numArray23[0]));
         if (numArray31[0] < 1)
           str71 = "?";
         if (Operators.CompareString(str71, "-1", false) == 0)
@@ -3431,17 +3431,17 @@ namespace WindowsApplication1
         if (0 > Number36)
           Number36 = 0;
         str73: String = str72 + Expression35 + Strings.Space(Number36);
-        Expression36: String = Strings.Trim(Conversion.Str((object) this.StartXp[1]));
+        Expression36: String = Strings.Trim(Conversion.Str( this.StartXp[1]));
         let mut Number37: i32 =  10 - Strings.Len(Expression36);
         if (0 > Number37)
           Number37 = 0;
         str74: String = str73 + Expression36 + Strings.Space(Number37);
-        Expression37: String = Strings.Trim(Conversion.Str((object) numArray24[1]));
+        Expression37: String = Strings.Trim(Conversion.Str( numArray24[1]));
         let mut Number38: i32 =  20 - Strings.Len(Expression37);
         if (0 > Number38)
           Number38 = 0;
         str75: String = str74 + Expression37 + Strings.Space(Number38);
-        str76: String = Strings.Trim(Conversion.Str((object) this.StartXp[0]));
+        str76: String = Strings.Trim(Conversion.Str( this.StartXp[0]));
         if (numArray31[0] < 1)
           str76 = "?";
         if (Operators.CompareString(str76, "-1", false) == 0)
@@ -3450,7 +3450,7 @@ namespace WindowsApplication1
         if (0 > Number39)
           Number39 = 0;
         str77: String = str75 + str76 + Strings.Space(Number39);
-        str78: String = Strings.Trim(Conversion.Str((object) numArray24[0]));
+        str78: String = Strings.Trim(Conversion.Str( numArray24[0]));
         if (numArray31[0] < 1)
           str78 = "?";
         if (Operators.CompareString(str78, "-1", false) == 0)
@@ -3466,17 +3466,17 @@ namespace WindowsApplication1
         if (0 > Number41)
           Number41 = 0;
         str80: String = str79 + Expression38 + Strings.Space(Number41);
-        Expression39: String = Strings.Trim(Conversion.Str((object) this.StartMor[1]));
+        Expression39: String = Strings.Trim(Conversion.Str( this.StartMor[1]));
         let mut Number42: i32 =  10 - Strings.Len(Expression39);
         if (0 > Number42)
           Number42 = 0;
         str81: String = str80 + Expression39 + Strings.Space(Number42);
-        Expression40: String = Strings.Trim(Conversion.Str((object) numArray25[1]));
+        Expression40: String = Strings.Trim(Conversion.Str( numArray25[1]));
         let mut Number43: i32 =  20 - Strings.Len(Expression40);
         if (0 > Number43)
           Number43 = 0;
         str82: String = str81 + Expression40 + Strings.Space(Number43);
-        str83: String = Strings.Trim(Conversion.Str((object) this.StartMor[0]));
+        str83: String = Strings.Trim(Conversion.Str( this.StartMor[0]));
         if (numArray31[0] < 1)
           str83 = "?";
         if (Operators.CompareString(str83, "-1", false) == 0)
@@ -3485,7 +3485,7 @@ namespace WindowsApplication1
         if (0 > Number44)
           Number44 = 0;
         str84: String = str82 + str83 + Strings.Space(Number44);
-        str85: String = Strings.Trim(Conversion.Str((object) numArray25[0]));
+        str85: String = Strings.Trim(Conversion.Str( numArray25[0]));
         if (numArray31[0] < 1)
           str85 = "?";
         if (Operators.CompareString(str85, "-1", false) == 0)
@@ -3501,17 +3501,17 @@ namespace WindowsApplication1
         if (0 > Number46)
           Number46 = 0;
         str87: String = str86 + Expression41 + Strings.Space(Number46);
-        Expression42: String = Strings.Trim(Conversion.Str((object) this.StartEntr[1]));
+        Expression42: String = Strings.Trim(Conversion.Str( this.StartEntr[1]));
         let mut Number47: i32 =  10 - Strings.Len(Expression42);
         if (0 > Number47)
           Number47 = 0;
         str88: String = str87 + Expression42 + Strings.Space(Number47);
-        Expression43: String = Strings.Trim(Conversion.Str((object) numArray26[1]));
+        Expression43: String = Strings.Trim(Conversion.Str( numArray26[1]));
         let mut Number48: i32 =  20 - Strings.Len(Expression43);
         if (0 > Number48)
           Number48 = 0;
         str89: String = str88 + Expression43 + Strings.Space(Number48);
-        str90: String = Strings.Trim(Conversion.Str((object) this.StartEntr[0]));
+        str90: String = Strings.Trim(Conversion.Str( this.StartEntr[0]));
         if (numArray31[0] < 1)
           str90 = "?";
         if (Operators.CompareString(str90, "-1", false) == 0)
@@ -3520,7 +3520,7 @@ namespace WindowsApplication1
         if (0 > Number49)
           Number49 = 0;
         str91: String = str89 + str90 + Strings.Space(Number49);
-        str92: String = Strings.Trim(Conversion.Str((object) numArray26[0]));
+        str92: String = Strings.Trim(Conversion.Str( numArray26[0]));
         if (numArray31[0] < 1)
           str92 = "?";
         if (Operators.CompareString(str92, "-1", false) == 0)
@@ -3559,7 +3559,7 @@ namespace WindowsApplication1
       }
       graphics.Dispose();
       graphics = (Graphics) null;
-      if (!Information.IsNothing((object) this.bufferBitmap))
+      if (!Information.IsNothing( this.bufferBitmap))
       {
         this.bufferBitmap.Dispose();
         this.bufferBitmap = (Bitmap) null;
@@ -3583,36 +3583,36 @@ namespace WindowsApplication1
         int num2;
         if (qty1 > 0)
         {
-          text: String = Strings.Trim(Conversion.Str((object) qty1));
+          text: String = Strings.Trim(Conversion.Str( qty1));
           SizeF sizeF2 = g.MeasureString(text, this.game.MarcFont11);
           int num3;
-          num2 = (int) Math.Round((double) ((float) num3 + sizeF2.Width));
+          num2 = (int) Math.Round( ( num3 + sizeF2.Width));
         }
         if (qty2 > 0)
         {
-          text: String = Strings.Trim(Conversion.Str((object) qty2));
+          text: String = Strings.Trim(Conversion.Str( qty2));
           SizeF sizeF3 = g.MeasureString(text, this.game.MarcFont11);
-          num2 = (int) Math.Round((double) ((float) num2 + sizeF3.Width));
+          num2 = (int) Math.Round( ( num2 + sizeF3.Width));
         }
         int num4;
         if (num2 < 20)
-          num4 = (int) Math.Round((double) (20 - num2) / 2.0);
+          num4 = (int) Math.Round( (20 - num2) / 2.0);
         x += num4;
         SizeF sizeF4;
         if (qty1 > 0)
         {
-          str: String = Strings.Trim(Conversion.Str((object) qty1));
+          str: String = Strings.Trim(Conversion.Str( qty1));
           sizeF4 = g.MeasureString(str, this.game.MarcFont11);
           DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont11b, x - 1, y - 1, col1);
-          DrawMod.DrawRectangle(ref g, x - 1, y - 1, (int) Math.Round((double) (sizeF4.Width + 1f)), (int) Math.Round((double) (sizeF4.Height + 0.0f)), (int) col1.R, (int) col1.G, (int) col1.B, (int) col1.A);
-          num1 = (int) Math.Round((double) ((float) num1 + (2f + sizeF4.Width)));
+          DrawMod.DrawRectangle(ref g, x - 1, y - 1, (int) Math.Round( (sizeF4.Width + 1f)), (int) Math.Round( (sizeF4.Height + 0.0f)), (int) col1.R, (int) col1.G, (int) col1.B, (int) col1.A);
+          num1 = (int) Math.Round( ( num1 + (2f + sizeF4.Width)));
         }
         if (qty2 <= 0)
           return;
-        str1: String = Strings.Trim(Conversion.Str((object) qty2));
+        str1: String = Strings.Trim(Conversion.Str( qty2));
         sizeF4 = g.MeasureString(str1, this.game.MarcFont11);
         DrawMod.DrawTextColouredMarc(ref g, str1, this.game.MarcFont11b, x + num1 - 1, y - 1, col2);
-        DrawMod.DrawRectangle(ref g, x + num1 - 1, y - 1, (int) Math.Round((double) (sizeF4.Width + 1f)), (int) Math.Round((double) (sizeF4.Height + 0.0f)), (int) col2.R, (int) col2.G, (int) col2.B, (int) col2.A);
+        DrawMod.DrawRectangle(ref g, x + num1 - 1, y - 1, (int) Math.Round( (sizeF4.Width + 1f)), (int) Math.Round( (sizeF4.Height + 0.0f)), (int) col2.R, (int) col2.G, (int) col2.B, (int) col2.A);
       }
       else
       {
@@ -3988,7 +3988,7 @@ namespace WindowsApplication1
               this.bufferBitmap.Dispose();
               this.bufferBitmap = (Bitmap) null;
               windowReturnClass1.AddCommand(6, 0);
-              if (!Information.IsNothing((object) Expression))
+              if (!Information.IsNothing( Expression))
                 windowReturnClass1 = Expression;
               this.game.EditObj.se1_SelectAssetButton = -1;
               windowReturnClass1.SetFlag(true);
@@ -4070,7 +4070,7 @@ namespace WindowsApplication1
         }
         if (Number > 0)
         {
-          let mut num: i32 =  (int) Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num: i32 =  (int) Interaction.MsgBox( (Conversion.Str( Number) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
         }
         if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
         {
@@ -4145,7 +4145,7 @@ namespace WindowsApplication1
               }
             }
           }
-          if (this.animList.Counter > -1 & !Information.IsNothing((object) this.bufferBitmap))
+          if (this.animList.Counter > -1 & !Information.IsNothing( this.bufferBitmap))
           {
             Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
             ref Graphics local1 = ref graphics;
@@ -4168,7 +4168,7 @@ namespace WindowsApplication1
                   ref Bitmap local5 = ref bitmap;
                   rectangle2 = Rectangle::new(128 * (num1 - 1), 0, 128, 96);
                   let mut srcrect2: &Rectangle = &rectangle2
-                  rectangle1 = Rectangle::new(this.animList.Data1[counter] - (int) Math.Round((double) this.animList.Data3[counter] * 0.5), this.animList.Data2[counter] - (int) Math.Round((double) this.animList.Data4[counter] * 0.5), this.animList.Data3[counter] * 2, this.animList.Data4[counter] * 2);
+                  rectangle1 = Rectangle::new(this.animList.Data1[counter] - (int) Math.Round( this.animList.Data3[counter] * 0.5), this.animList.Data2[counter] - (int) Math.Round( this.animList.Data4[counter] * 0.5), this.animList.Data3[counter] * 2, this.animList.Data4[counter] * 2);
                   let mut destrect2: &Rectangle = &rectangle1
                   DrawMod.DrawSimplePart2(ref local4, ref local5, srcrect2, destrect2);
                 }
@@ -4176,16 +4176,16 @@ namespace WindowsApplication1
                 {
                   float num2 = 1f;
                   if (num1 < 23)
-                    num2 = 1f - Math.Min(1f, (float) (23 - num1) / 6f);
+                    num2 = 1f - Math.Min(1f,  (23 - num1) / 6f);
                   ref Graphics local6 = ref graphics;
                   Bitmap bitmap = BitmapStore.GetBitmap(this.game.EXPLOSION, 1);
                   ref Bitmap local7 = ref bitmap;
                   rectangle2 = Rectangle::new(128 * (num1 - 1), 0, 128, 96);
                   let mut srcrect3: &Rectangle = &rectangle2
-                  rectangle1 = Rectangle::new(this.animList.Data1[counter] - (int) Math.Round((double) this.animList.Data3[counter] * 0.5), this.animList.Data2[counter] - (int) Math.Round((double) this.animList.Data4[counter] * 0.5), this.animList.Data3[counter] * 2, this.animList.Data4[counter] * 2);
+                  rectangle1 = Rectangle::new(this.animList.Data1[counter] - (int) Math.Round( this.animList.Data3[counter] * 0.5), this.animList.Data2[counter] - (int) Math.Round( this.animList.Data4[counter] * 0.5), this.animList.Data3[counter] * 2, this.animList.Data4[counter] * 2);
                   let mut destrect3: &Rectangle = &rectangle1
-                  double a = (double) num2;
-                  DrawMod.DrawSimplePart2ColouredNew(ref local6, ref local7, srcrect3, destrect3, 1f, 1f, 1f, (float) a);
+                  double a =  num2;
+                  DrawMod.DrawSimplePart2ColouredNew(ref local6, ref local7, srcrect3, destrect3, 1f, 1f, 1f,  a);
                 }
               }
             }

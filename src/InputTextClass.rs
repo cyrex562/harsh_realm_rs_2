@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -89,7 +89,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc( Expression, this.OwnText, this.OwnFont, x, y, Color.LightGray);
       else
         DrawMod.DrawTextColouredMarc( Expression, this.OwnText, this.OwnFont, x, y, Color.White);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }

@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -410,7 +410,7 @@ namespace WindowsApplication1
                   {
                     UDSPartClass subPart = (UDSPartClass) self.SubPartList[self.SubpartNr(self.pageId)];
                     UDSData Expression = self.backupUdsData[self.backupCounter];
-                    if (!Information.IsNothing((object) Expression))
+                    if (!Information.IsNothing( Expression))
                     {
                       let mut elementCounter: i32 = subPart.dyn.elementCounter;
                       for (let mut index4: i32 = 0; index4 <= elementCounter; index4 += 1)
@@ -426,7 +426,7 @@ namespace WindowsApplication1
                               subPart.dyn.element[index4].texty = Expression.element[index4].texty;
                             }
                           }
-                          if (subPart.dyn.element[index4].type == UDSType.Table & !Information.IsNothing((object) self.backupStrl))
+                          if (subPart.dyn.element[index4].type == UDSType.Table & !Information.IsNothing( self.backupStrl))
                           {
                             StringListClass stringListClass = self.game.Data.StringListObj[ Math.Round(Conversion.Val(subPart.dyn.element[index4].texty))];
                             self.game.Data.StringListObj[ Math.Round(Conversion.Val(subPart.dyn.element[index4].texty))] = self.backupStrl[self.backupCounter];

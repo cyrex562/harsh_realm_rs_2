@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System;
-using System.Drawing;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -44,15 +44,15 @@ namespace WindowsApplication1
       bool tpaintview;
       if (self.game.EditObj.Zoom == 0)
       {
-        if ((double) (self.game.Data.MapObj[0].MapHeight + self.game.Data.MapObj[0].MapWidth) > (double) self.game.ScreenWidth / 52.0 + (double) self.game.ScreenHeight / 48.0)
+        if ( (self.game.Data.MapObj[0].MapHeight + self.game.Data.MapObj[0].MapWidth) >  self.game.ScreenWidth / 52.0 +  self.game.ScreenHeight / 48.0)
           tpaintview = true;
       }
       else if (self.game.EditObj.Zoom == -1)
       {
-        if ((double) (self.game.Data.MapObj[0].MapHeight + self.game.Data.MapObj[0].MapWidth) > (double) self.game.ScreenWidth / 27.0 + (double) self.game.ScreenHeight / 24.0)
+        if ( (self.game.Data.MapObj[0].MapHeight + self.game.Data.MapObj[0].MapWidth) >  self.game.ScreenWidth / 27.0 +  self.game.ScreenHeight / 24.0)
           tpaintview = true;
       }
-      else if (self.game.EditObj.Zoom == 1 && (double) (self.game.Data.MapObj[0].MapHeight + self.game.Data.MapObj[0].MapWidth) > (double) self.game.ScreenWidth / 104.0 + (double) self.game.ScreenHeight / 96.0)
+      else if (self.game.EditObj.Zoom == 1 &&  (self.game.Data.MapObj[0].MapHeight + self.game.Data.MapObj[0].MapWidth) >  self.game.ScreenWidth / 104.0 +  self.game.ScreenHeight / 96.0)
         tpaintview = true;
       if (self.Info1Id == 0)
       {

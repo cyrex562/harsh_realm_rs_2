@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -96,26 +96,26 @@ namespace WindowsApplication1
       if (this.texty.Length > 3)
       {
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColGray);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColGray);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
       }
       else
       {
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColGray);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColGray);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
       }
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
       return this.OwnBitmap;
     }
@@ -207,26 +207,26 @@ namespace WindowsApplication1
       if (this.texty.Length > 3)
       {
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColGray);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColGray);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont3,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
       }
       else
       {
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0) + 1,  Math.Round((double) this.th / 2.0) - 14, Color.Black);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0) + 1,  Math.Round( this.th / 2.0) - 14, Color.Black);
         if (!this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColGray);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColGray);
         if (this.active)
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round((double) this.tw / 2.0),  Math.Round((double) this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, this.texty, DrawMod.TGame.MarcFont1,  Math.Round( this.tw / 2.0),  Math.Round( this.th / 2.0) - 15, DrawMod.TGame.seColWhite);
       }
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
       return this.OwnBitmap;
     }

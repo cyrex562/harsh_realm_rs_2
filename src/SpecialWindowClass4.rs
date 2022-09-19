@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -240,7 +240,7 @@ namespace WindowsApplication1
       SimpleList[] simpleListArray9 = new SimpleList[self.listZone.Counter + 1 + 1];
       SimpleList[] simpleListArray10 = new SimpleList[self.listZone.Counter + 1 + 1];
       let mut num3: i32 = 0;
-      int[] numArray2 = new int[ Math.Round(Conversion.Val((object) self.game.Data.StringListObj[self.slotAssets].GetHighestValue(9))) + 29999 + 1];
+      int[] numArray2 = new int[ Math.Round(Conversion.Val( self.game.Data.StringListObj[self.slotAssets].GetHighestValue(9))) + 29999 + 1];
       let mut length3: i32 = self.game.Data.StringListObj[self.slotAssets].Length;
       for (let mut index1: i32 = 0; index1 <= length3; index1 += 1)
       {
@@ -303,7 +303,7 @@ namespace WindowsApplication1
           }
           if (index6 > -1)
           {
-            if (Information.IsNothing((object) self.game.Data.LocObj[index6].items))
+            if (Information.IsNothing( self.game.Data.LocObj[index6].items))
               self.game.Data.LocObj[index6].items = ItemList::new();
             let mut counter2: i32 = self.game.Data.LocObj[index6].items.list.Counter;
             for (let mut index7: i32 = 0; index7 <= counter2; index7 += 1)
@@ -372,7 +372,7 @@ namespace WindowsApplication1
             {
               if (self.itemWeight[simpleListArray4[index5].Id[index12]] > 0 | numArray1[index5] == 0 && !(x1 == x2 & y1 == y2))
               {
-                let mut num10: i32 =  Math.Round(Math.Floor((double) (simpleListArray4[index5].Weight[index12] * numArray1[index5]) / (double) num8));
+                let mut num10: i32 =  Math.Round(Math.Floor( (simpleListArray4[index5].Weight[index12] * numArray1[index5]) /  num8));
                 simpleListArray4[index5].Weight[index12] = num10;
               }
             }
@@ -387,7 +387,7 @@ namespace WindowsApplication1
         let mut tid: i32 = simpleList2.Id[index];
         let mut num11: i32 = simpleList2.Weight[index];
         let mut weight: i32 = self.game.Data.UnitObj[self.game.EditObj.se1_assetSHQ].items.list.FindWeight(tid);
-        let mut tweight6: i32 = !(weight >= num11 & num11 > 0) ? (num11 <= 0 ? 0 :  Math.Round(Math.Floor((double) (100 * weight) / (double) num11))) : 100;
+        let mut tweight6: i32 = !(weight >= num11 & num11 > 0) ? (num11 <= 0 ? 0 :  Math.Round(Math.Floor( (100 * weight) /  num11))) : 100;
         simpleList5.AddWeight(tid, tweight6);
       }
       let mut tid1: i32 = 1;
@@ -440,7 +440,7 @@ namespace WindowsApplication1
                 let mut num15: i32 = weight1 - weight4;
                 if (num15 < 0)
                   num15 = 0;
-                let mut tweight10: i32 =  Math.Round(Math.Floor((double) (weight3 * weight5) / 100.0));
+                let mut tweight10: i32 =  Math.Round(Math.Floor( (weight3 * weight5) / 100.0));
                 tweight9 = tweight10;
                 let mut num16: i32 = num15 + tweight10;
                 if (num16 >= weight1)
@@ -450,13 +450,13 @@ namespace WindowsApplication1
                 }
                 else if (num16 > weight2 & num16 > 0)
                 {
-                  tweight7 =  Math.Round(Math.Floor((double) (100 * (num16 - weight2)) / (double) weight1));
+                  tweight7 =  Math.Round(Math.Floor( (100 * (num16 - weight2)) /  weight1));
                   tweight8 = 100;
                 }
                 else if (weight1 > 0)
                 {
                   tweight7 = 0;
-                  tweight8 =  Math.Round(Math.Floor((double) (100 * num16) / (double) weight2));
+                  tweight8 =  Math.Round(Math.Floor( (100 * num16) /  weight2));
                 }
                 self.PIL.Add(index15, tweight10, 2, num14, weight4, 1, CheckExistence: false);
                 if (weight4 > 0)
@@ -735,7 +735,7 @@ namespace WindowsApplication1
                 {
                   if (self.itemWeight[simpleListArray9[index13].Id[index26]] > 0 | numArray1[index13] == 0 && !(x1 == x3 & y1 == y3))
                   {
-                    let mut num41: i32 =  Math.Round(Math.Floor((double) (simpleListArray9[index13].Weight[index26] * numArray1[index13]) / (double) num39));
+                    let mut num41: i32 =  Math.Round(Math.Floor( (simpleListArray9[index13].Weight[index26] * numArray1[index13]) /  num39));
                     simpleListArray9[index13].Weight[index26] = num41;
                   }
                 }
@@ -938,7 +938,7 @@ namespace WindowsApplication1
               tid7: String = tweight17.ToString();
               if (tweight17 > 999)
               {
-                num57 = Math.Round((double) tweight17 / 1000.0, 1);
+                num57 = Math.Round( tweight17 / 1000.0, 1);
                 tid7 = num57.ToString() + "k";
               }
               eventPicSlotFor = self.game.EventRelatedObj.GetEventPicSlotFor(num45, "", "");
@@ -956,7 +956,7 @@ namespace WindowsApplication1
               str12: String = tweight17.ToString();
               if (tweight17 > 999)
               {
-                num57 = Math.Round((double) tweight17 / 1000.0, 1);
+                num57 = Math.Round( tweight17 / 1000.0, 1);
                 str12 = num57.ToString() + "k";
               }
               if (num47 > 0)
@@ -1049,7 +1049,7 @@ namespace WindowsApplication1
               str16: String = tweight17.ToString();
               if (tweight17 > 999)
               {
-                num57 = Math.Round((double) tweight17 / 1000.0, 1);
+                num57 = Math.Round( tweight17 / 1000.0, 1);
                 str16 = num57.ToString() + "k";
               }
               if (num49 > 0)
@@ -1112,7 +1112,7 @@ namespace WindowsApplication1
               str15 = tweight17.ToString();
               if (tweight17 > 999)
               {
-                num57 = Math.Round((double) tweight17 / 1000.0, 1);
+                num57 = Math.Round( tweight17 / 1000.0, 1);
                 str15 = num57.ToString() + "k";
               }
               str3 = simpleStringList.Id[index33] + " delivered from Zone to SHQ";
@@ -1123,9 +1123,9 @@ namespace WindowsApplication1
             let mut num73: i32 = 0;
             let mut num74: i32 = 0;
             let mut tdata3_4: i32 = 0;
-            if (Information.IsNothing((object) self.game.Data.LocObj[locationById].items))
+            if (Information.IsNothing( self.game.Data.LocObj[locationById].items))
               self.game.Data.LocObj[locationById].items = ItemList::new();
-            if (Information.IsNothing((object) self.game.Data.LocObj[locationById].items.list))
+            if (Information.IsNothing( self.game.Data.LocObj[locationById].items.list))
               self.game.Data.LocObj[locationById].items.list = SimpleList::new();
             let mut weight: i32 = self.game.Data.LocObj[locationById].items.list.FindWeight(num45);
             let mut num75: i32 = 0;
@@ -1139,7 +1139,7 @@ namespace WindowsApplication1
               str15 = tweight17.ToString();
               if (tweight17 > 999)
               {
-                num57 = Math.Round((double) tweight17 / 1000.0, 1);
+                num57 = Math.Round( tweight17 / 1000.0, 1);
                 str15 = num57.ToString() + "k";
               }
               str3 = simpleStringList.Id[index33] + " Zone Stocks";
@@ -1299,7 +1299,7 @@ namespace WindowsApplication1
       let mut left1: i32 = rectangle7.Left;
       let mut top1: i32 = rectangle7.Top;
       let mut width3: i32 = rectangle7.Width;
-      let mut tlistsize1: i32 =  Math.Round(Math.Floor((double) rectangle7.Height / 20.0)) - 1;
+      let mut tlistsize1: i32 =  Math.Round(Math.Floor( rectangle7.Height / 20.0)) - 1;
       let mut tlistselect1: i32 = -1;
       let mut num2: i32 = -1;
       if (self.anyZoneWithoutSHQ)
@@ -1320,7 +1320,7 @@ namespace WindowsApplication1
       let mut left2: i32 = rectangle8.Left;
       let mut top2: i32 = rectangle8.Top;
       let mut width4: i32 = rectangle8.Width;
-      let mut tlistsize2: i32 =  Math.Round(Math.Floor((double) rectangle8.Height / 20.0)) - 1;
+      let mut tlistsize2: i32 =  Math.Round(Math.Floor( rectangle8.Height / 20.0)) - 1;
       let mut tlistselect2: i32 = -1;
       let mut num3: i32 = -1;
       let mut counter2: i32 = self.listZone.Counter;
@@ -1340,7 +1340,7 @@ namespace WindowsApplication1
       }
       let mut tsubpart2: SubPartClass =  new ListSubPartClass(self.List2Obj, tlistsize2, width4, tlistselect2, self.game, tShowPair: true, tValueWidth: 70, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: left2, bby: top2, tMarcStyle: true, overruleFont: ( self.game.MarcFont7), overruleItemSize: 20);
       self.list2Id = self.AddSubPart( tsubpart2, left2, top2, width4, (tlistsize2 + 1) * 20, 1);
-      let mut x1: i32 = rectangle1.Left +  Math.Round((double) rectangle1.Width / 2.0);
+      let mut x1: i32 = rectangle1.Left +  Math.Round( rectangle1.Width / 2.0);
       let mut y3: i32 = rectangle1.Top + 10;
       tstring1: String = "Zone: " + (self.game.EditObj.se1_assetZone <= 0 ? "None" : self.game.Data.StringListObj[self.slotZones].GetData(0, self.game.EditObj.se1_assetZone, 7));
       if (self.game.EditObj.se1_assetMode == 2)
@@ -1452,12 +1452,12 @@ namespace WindowsApplication1
           let mut setValue1: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotAssetTypes].GetData(0, num16, 11)));
           let mut num17: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotConstruction].GetData3(0, idValue2, 1, 3, 2, "credits", 3)));
           let mut setValue2: i32 = num14 - num17;
-          let mut num18: i32 =  Math.Round((double) num17 / 2.0);
+          let mut num18: i32 =  Math.Round( num17 / 2.0);
           self.game.Data.StringListObj[self.slotRegKey].SetData2(0, id3, 1, "credits", 2, setValue2);
           let mut setValue3: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotZoneKeys].GetData2(0, se1AssetZone, 1, "popCredits", 2))) + num18;
           let mut num19: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotZoneKeys].GetData2(0, se1AssetZone, 1, "popHapiness", 2)));
           let mut num20: i32 = num19;
-          let mut setValue4: i32 =  Math.Round((double) num19 * 0.8);
+          let mut setValue4: i32 =  Math.Round( num19 * 0.8);
           let mut num21: i32 = num20 - setValue4;
           self.game.Data.StringListObj[self.slotZoneKeys].SetData2(0, se1AssetZone, 1, "popCredits", 2, setValue3, true);
           self.game.Data.StringListObj[self.slotZoneKeys].SetData2(0, se1AssetZone, 1, "popHapiness", 2, setValue4, true);
@@ -1481,7 +1481,7 @@ namespace WindowsApplication1
               if ( Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotPaid].Data[index2, 0])) == num10 &&  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotPaid].Data[index2, 1])) == 1)
               {
                 let mut tid: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotPaid].Data[index2, 2]));
-                let mut tweight: i32 =  Math.Round((double)  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotPaid].Data[index2, 3])) / 2.0);
+                let mut tweight: i32 =  Math.Round(  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotPaid].Data[index2, 3])) / 2.0);
                 if (tweight > 0)
                   simpleList.AddWeight(tid, tweight);
               }
@@ -1509,7 +1509,7 @@ namespace WindowsApplication1
       }
       self.AssetOrderNumber = 0;
       let mut num25: i32 = 0;
-      let mut num26: i32 =  Math.Round(Math.Floor((double) rectangle6.Width / 160.0)) *  Math.Round(Math.Floor((double) rectangle6.Height / 210.0));
+      let mut num26: i32 =  Math.Round(Math.Floor( rectangle6.Width / 160.0)) *  Math.Round(Math.Floor( rectangle6.Height / 210.0));
       num15 = -1;
       self.game.Data.FindEventPic("", 0, "SE_Present");
       self.game.Data.FindEventPic("", 109, "SE_Present");
@@ -1723,11 +1723,11 @@ namespace WindowsApplication1
       }
       while (num45 >= 0);
       let mut num56: i32 = 0;
-      let mut num57: i32 =  Math.Round(Math.Floor((double) simpleList1.Counter / (double) num26)) + 1;
+      let mut num57: i32 =  Math.Round(Math.Floor( simpleList1.Counter /  num26)) + 1;
       int num58;
       if (num42 > -1)
       {
-        num56 =  Math.Round(Math.Floor((double) (num42 - 1) / (double) num26));
+        num56 =  Math.Round(Math.Floor( (num42 - 1) /  num26));
         num58 = num56 * num26 + 1;
       }
       else
@@ -1749,10 +1749,10 @@ namespace WindowsApplication1
       let mut num59: i32 = num57;
       if (num59 > 8)
         num59 = 8;
-      let mut num60: i32 =  Math.Round(Math.Floor((double) rectangle6.Width / (double) num59)) - 4;
+      let mut num60: i32 =  Math.Round(Math.Floor( rectangle6.Width /  num59)) - 4;
       if (num60 > 100)
         num60 = 100;
-      let mut x4: i32 = rectangle2.X +  Math.Round((double) rectangle2.Width / 2.0) -  Math.Round((double) (num59 * (num60 + 4)) / 2.0);
+      let mut x4: i32 = rectangle2.X +  Math.Round( rectangle2.Width / 2.0) -  Math.Round( (num59 * (num60 + 4)) / 2.0);
       let mut y6: i32 = rectangle2.Y;
       let mut num61: i32 = 1;
       if (num59 < num57)
@@ -1897,7 +1897,7 @@ namespace WindowsApplication1
       Color color = Color.FromArgb(100,  byte.MaxValue,  byte.MaxValue, 0);
       if (turn > -1)
         color = Color.FromArgb(200, self.game.Data.RegimeObj[turn].Red, self.game.Data.RegimeObj[turn].Green, self.game.Data.RegimeObj[turn].Blue);
-      let mut num78: i32 =  Math.Round((double) (rectangle6.Width -  Math.Round(Math.Floor((double) rectangle6.Width / 160.0)) * 160) / 2.0);
+      let mut num78: i32 =  Math.Round( (rectangle6.Width -  Math.Round(Math.Floor( rectangle6.Width / 160.0)) * 160) / 2.0);
       let mut x15: i32 = rectangle6.X - 160 + num78;
       let mut y12: i32 = rectangle6.Y;
       let mut num79: i32 = 1;
@@ -2081,7 +2081,7 @@ namespace WindowsApplication1
                   let mut y18: i32 = y16 + num97;
                   if (turn == self.game.Data.Turn)
                   {
-                    Left: String = ((float) Math.Round((double) ( Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotAssets].Data[index14, 7])) * 100 -  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotAssets].Data[index14, 12]))) / 100.0, 1)).ToString();
+                    Left: String = ( Math.Round( ( Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotAssets].Data[index14, 7])) * 100 -  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotAssets].Data[index14, 12]))) / 100.0, 1)).ToString();
                     if (Operators.CompareString(Left, "0", false) == 0)
                       Left = "0.1";
                     tstring7: String = "CONS: " + Left + "t.";
@@ -2654,7 +2654,7 @@ namespace WindowsApplication1
               }
               tstring20: String = num138.ToString();
               if (num138 > 9999)
-                tstring20 = Math.Round((double) num138 / 1000.0, 1).ToString() + "k";
+                tstring20 = Math.Round( num138 / 1000.0, 1).ToString() + "k";
               bool flag3 = false;
               if (tdata1 == 4 & self.game.EditObj.se1_assetItemMode1 == simpleList2.Id[index17])
                 flag3 = true;

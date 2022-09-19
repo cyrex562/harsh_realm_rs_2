@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -124,10 +124,10 @@ namespace WindowsApplication1
         {
           string str;
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionX[index] == -1)
-            str = "All Hexes on Map [" + Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index])) + "] " + this.game.Data.MapObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index]].Name;
+            str = "All Hexes on Map [" + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index])) + "] " + this.game.Data.MapObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index]].Name;
           else
-            str = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionX[index])) + "," + Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionY[index])) + " on Map [" + Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index])) + "] " + this.game.Data.MapObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index]].Name;
-          this.ConTypeListObj.add(Conversion.Str((object) index) + ") " + str, index);
+            str = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionX[index])) + "," + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionY[index])) + " on Map [" + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index])) + "] " + this.game.Data.MapObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].ConnectionMap[index]].Name;
+          this.ConTypeListObj.add(Conversion.Str( index) + ") " + str, index);
         }
         ListClass conTypeListObj = this.ConTypeListObj;
         let mut conTypeNr: i32 =  this.ConTypeNr;
@@ -354,7 +354,7 @@ namespace WindowsApplication1
               let mut map: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give map, please.", "Shadow Empire : Planetary Conquest")));
               if (!(map > -1 & map <= this.game.Data.MapCounter))
               {
-                let mut num3: i32 =  (int) Interaction.MsgBox((object) "Invalid X", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =  (int) Interaction.MsgBox( "Invalid X", Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               let mut x1: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
@@ -366,7 +366,7 @@ namespace WindowsApplication1
                   y1 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give Y please.", "Shadow Empire : Planetary Conquest")));
                   if (!(y1 > -1 & y1 <= this.game.Data.MapObj[map].MapHeight))
                   {
-                    let mut num4: i32 =  (int) Interaction.MsgBox((object) "Invalid Y", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num4: i32 =  (int) Interaction.MsgBox( "Invalid Y", Title: ( "Shadow Empire : Planetary Conquest"));
                     return windowReturnClass;
                   }
                 }
@@ -377,7 +377,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num5: i32 =  (int) Interaction.MsgBox((object) "Invalid map", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num5: i32 =  (int) Interaction.MsgBox( "Invalid map", Title: ( "Shadow Empire : Planetary Conquest"));
               return windowReturnClass;
             }
             if (num1 == this.B1Id)
@@ -385,7 +385,7 @@ namespace WindowsApplication1
               let mut map: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give map, please.", "Shadow Empire : Planetary Conquest")));
               if (!(map > -1 & map <= this.game.Data.MapCounter))
               {
-                let mut num6: i32 =  (int) Interaction.MsgBox((object) "Invalid X", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  (int) Interaction.MsgBox( "Invalid X", Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               let mut x2: i32 =  (int) Math.Round(Conversion.Val(Interaction.InputBox("Give X please.", "Shadow Empire : Planetary Conquest")));
@@ -397,7 +397,7 @@ namespace WindowsApplication1
                   y2 = (int) Math.Round(Conversion.Val(Interaction.InputBox("Give Y please.", "Shadow Empire : Planetary Conquest")));
                   if (!(y2 > -1 & y2 <= this.game.Data.MapObj[map].MapHeight))
                   {
-                    let mut num7: i32 =  (int) Interaction.MsgBox((object) "Invalid Y", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num7: i32 =  (int) Interaction.MsgBox( "Invalid Y", Title: ( "Shadow Empire : Planetary Conquest"));
                     return windowReturnClass;
                   }
                 }
@@ -414,7 +414,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num8: i32 =  (int) Interaction.MsgBox((object) "Invalid map", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num8: i32 =  (int) Interaction.MsgBox( "Invalid map", Title: ( "Shadow Empire : Planetary Conquest"));
               return windowReturnClass;
             }
             if (num1 == this.BRemoveConTypeId)

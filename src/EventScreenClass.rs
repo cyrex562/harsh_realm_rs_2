@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -26,7 +26,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         this.Game.Data = DataClass::new();
         this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");

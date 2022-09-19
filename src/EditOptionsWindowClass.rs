@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -240,37 +240,37 @@ namespace WindowsApplication1
           flag = true;
         if (this.game.EditObj.PencilType == 1)
         {
-          str = "Landsc# " + Conversion.Str((object) this.game.EditObj.PencilData1) + "," + Conversion.Str((object) this.game.EditObj.PencilData2);
+          str = "Landsc# " + Conversion.Str( this.game.EditObj.PencilData1) + "," + Conversion.Str( this.game.EditObj.PencilData2);
           Left1 = this.game.Data.LandscapeTypeObj[this.game.EditObj.PencilData1].Name;
           ttext = "Left click to draw this landscape+sprite on a hex, right click to only select a hex.";
         }
         else if (this.game.EditObj.PencilType == 10)
         {
-          str = "Spec.Lt# " + Conversion.Str((object) this.game.EditObj.PencilData1) + "," + Conversion.Str((object) this.game.EditObj.PencilData2);
+          str = "Spec.Lt# " + Conversion.Str( this.game.EditObj.PencilData1) + "," + Conversion.Str( this.game.EditObj.PencilData2);
           Left1 = this.game.EditObj.PencilData1 <= -1 ? "Remove Special" : this.game.Data.LandscapeTypeObj[this.game.EditObj.PencilData1].Name;
           ttext = "Left click to draw this landscape+sprite a a special on a hex, right click to only select a hex.";
         }
         else if (this.game.EditObj.PencilType == 2)
         {
-          str = "Road# " + Conversion.Str((object) this.game.EditObj.PencilData1);
+          str = "Road# " + Conversion.Str( this.game.EditObj.PencilData1);
           Left1 = this.game.Data.RoadTypeObj[this.game.EditObj.PencilData1].Name;
           ttext = "First right click to select a hex, then left click on a neighbouring hex to draw a road between them.";
         }
         else if (this.game.EditObj.PencilType == 3)
         {
-          str = "Reg# " + Conversion.Str((object) this.game.EditObj.PencilData1);
+          str = "Reg# " + Conversion.Str( this.game.EditObj.PencilData1);
           Left1 = this.game.EditObj.PencilData1 <= this.game.Data.RegimeCounter ? this.game.Data.RegimeObj[this.game.EditObj.PencilData1].Name : "Neutral Hex";
           ttext = "Left click to draw this regime on a hex, right click just to select a hex, clicking twice results in hex becoming neutral again.";
         }
         else if (this.game.EditObj.PencilType == 4)
         {
-          str = "LocTyp# " + Conversion.Str((object) this.game.EditObj.PencilData1);
+          str = "LocTyp# " + Conversion.Str( this.game.EditObj.PencilData1);
           Left1 = this.game.Data.LocTypeObj[this.game.EditObj.PencilData1].Name;
           ttext = "Left click on a hex to place a location of this locationtype. Right click is only select.";
         }
         else if (this.game.EditObj.PencilType == 5)
         {
-          str = "RiverTyp# " + Conversion.Str((object) this.game.EditObj.PencilData1);
+          str = "RiverTyp# " + Conversion.Str( this.game.EditObj.PencilData1);
           Left1 = this.game.Data.RiverTypeObj[this.game.EditObj.PencilData1].Name;
           ttext = "First right click to select a hex, then left click on a neighbouring hex to draw a river inbetween them.";
         }
@@ -282,13 +282,13 @@ namespace WindowsApplication1
         }
         else if (this.game.EditObj.PencilType == 9)
         {
-          str = "Slot# " + Conversion.Str((object) this.game.EditObj.PencilData1) + ", => " + Conversion.Str((object) this.game.EditObj.PencilData2);
+          str = "Slot# " + Conversion.Str( this.game.EditObj.PencilData1) + ", => " + Conversion.Str( this.game.EditObj.PencilData2);
           Left1 = "";
           ttext = "Left click to place this value on a hex, right click just to select a hex.";
         }
         else if (this.game.EditObj.PencilType == 11)
         {
-          str = "LibVarSlot " + Conversion.Str((object) this.game.EditObj.PencilData1) + ", => " + Conversion.Str((object) this.game.EditObj.PencilData2);
+          str = "LibVarSlot " + Conversion.Str( this.game.EditObj.PencilData1) + ", => " + Conversion.Str( this.game.EditObj.PencilData2);
           Left1 = "";
           ttext = "Left click to place this value on a hex, right click just to select a hex.";
         }
@@ -452,7 +452,7 @@ namespace WindowsApplication1
               let mut h: i32 =  Operators.CompareString(Strings.Trim(str2), "", false) == 0 ? 0 : Conversions.ToInteger(str2);
               if (w < 2 | h < 2 | w > 200 | h > 200)
               {
-                let mut num3: i32 =   Interaction.MsgBox((object) "Cannot comply. Width and Height must be between 2 and 200", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =   Interaction.MsgBox( "Cannot comply. Width and Height must be between 2 and 200", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -470,9 +470,9 @@ namespace WindowsApplication1
               {
                 if (this.detailnr > -1)
                 {
-                  if (Interaction.MsgBox((object) "You want to rename map?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                  if (Interaction.MsgBox( "You want to rename map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     this.game.Data.MapObj[this.detailnr].Name = Interaction.InputBox("Give Name for Map", "Shadow Empire : Planetary Conquest");
-                  if (Interaction.MsgBox((object) "You want to change looping of the map?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                  if (Interaction.MsgBox( "You want to change looping of the map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     this.game.Data.MapObj[this.detailnr].MapLoop = !this.game.Data.MapObj[this.detailnr].MapLoop;
                 }
                 this.dostuff();
@@ -487,7 +487,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num4: i32 =   Interaction.MsgBox((object) "Cannot delete. You must keep at least one map.");
+                  let mut num4: i32 =   Interaction.MsgBox( "Cannot delete. You must keep at least one map.");
                 }
                 this.game.EditObj.MapSelected = 0;
                 this.game.SelectX = 0;
@@ -661,7 +661,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num5: i32 =   Interaction.MsgBox((object) "No Hex has been selected. Order is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num5: i32 =   Interaction.MsgBox( "No Hex has been selected. Order is cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               else if (num1 == this.BDefaultStringsID)

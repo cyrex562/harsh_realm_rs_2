@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -44,8 +44,8 @@ namespace WindowsApplication1
       str1: String = this.game.EditObj.CurrentDescript;
       if (this.game.EditObj.OrderType == 1 & this.game.Data.Round > 0 && this.game.EditObj.MouseOverX > -1 & this.game.EditObj.MouseOverY > -1)
       {
-        str1 = this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] >= 9999 ? (this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] <= 0 ? "Impossible to move here" : "Impossible to move here. Move Cost = " + Conversion.Str((object) this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY])) : "Move Cost = " + Conversion.Str((object) this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
-        if (Information.IsNothing((object) this.game.EditObj.TempValueSpecial))
+        str1 = this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] >= 9999 ? (this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] <= 0 ? "Impossible to move here" : "Impossible to move here. Move Cost = " + Conversion.Str( this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY])) : "Move Cost = " + Conversion.Str( this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
+        if (Information.IsNothing( this.game.EditObj.TempValueSpecial))
           this.game.HandyFunctionsObj.RedimTempValueSpecial(0);
         if (this.game.EditObj.TempValueSpecial[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] == 1)
           str1 += ". OUT OF FUEL";
@@ -53,9 +53,9 @@ namespace WindowsApplication1
           str1 = this.game.EditObj.TempString[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY];
       }
       if (this.game.EditObj.OrderType == 9 & this.game.Data.Round > 0 && this.game.EditObj.MouseOverX > -1 & this.game.EditObj.MouseOverY > -1)
-        str1 = this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] >= 9999 ? "Impossible to transfer here too" : "Transfer Cost = " + Conversion.Str((object) this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
+        str1 = this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] >= 9999 ? "Impossible to transfer here too" : "Transfer Cost = " + Conversion.Str( this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
       if (this.game.EditObj.OrderType == 18 & this.game.Data.Round > 0 && this.game.EditObj.OrderTarget > -1 & this.game.EditObj.OrderUnit > -1 & this.game.EditObj.TargetX > -1 && this.game.EditObj.MouseOverX > -1 & this.game.EditObj.MouseOverY > -1)
-        str1 = this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] >= 9999 ? "Impossible to strategic transfer here too" : "Strategic Transfer Cost = " + Conversion.Str((object) this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
+        str1 = this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] >= 9999 ? "Impossible to strategic transfer here too" : "Strategic Transfer Cost = " + Conversion.Str( this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
       if (this.game.Data.Round == 0 & this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1)
       {
         let mut unitCounter: i32 =  this.game.Data.UnitCounter;
@@ -79,7 +79,7 @@ namespace WindowsApplication1
       SizeF sizeF2 = Expression.MeasureString(str2, DrawMod.TGame.VicFont5);
       DrawMod.DrawBlock( Expression, 0, 0, this.w, this.h,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
       Rectangle rect2;
-      DrawMod.MakeFullBoxVic2( Expression, Rectangle::new( Math.Round(Conversion.Int((double) this.w / 2.0 - (double) sizeF2.Width / 2.0)), 4,  Math.Round((double) sizeF2.Width), 14), str2, rect2, "");
+      DrawMod.MakeFullBoxVic2( Expression, Rectangle::new( Math.Round(Conversion.Int( this.w / 2.0 -  sizeF2.Width / 2.0)), 4,  Math.Round( sizeF2.Width), 14), str2, rect2, "");
       if (!this.game.EditObj.ProdFlap & this.game.EditObj.OrderType != 24)
       {
         if (this.game.EditObj.Layout == 0)
@@ -89,7 +89,7 @@ namespace WindowsApplication1
       }
       if (this.game.EditObj.OrderType == 26 | this.game.EditObj.OrderType == 24)
         DrawMod.drawLine( Expression, 0, 0, this.w, 0,  this.game.VicColor6.R,  this.game.VicColor6.G,  this.game.VicColor6.B,  this.game.VicColor6.A);
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;

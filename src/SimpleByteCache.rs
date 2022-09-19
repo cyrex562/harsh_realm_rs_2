@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Runtime.InteropServices;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Runtime.InteropServices;
 
 namespace WindowsApplication1
 {
@@ -43,16 +43,16 @@ namespace WindowsApplication1
       int bitmapNr)
     {
       s: String = BitmapStore.tmpFileName[bitmapNr];
-      if (Information.IsNothing((object) bmp))
+      if (Information.IsNothing( bmp))
       {
         bmp = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + s);
-        bmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        bmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         str1: String = BitmapStore.MakeBigString(s);
         bmpBig = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + str1);
-        bmpBig.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        bmpBig.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         str2: String = BitmapStore.MakeSmallString(s);
         bmpSmall = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + str2);
-        bmpSmall.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        bmpSmall.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       }
       this.singleFredCacheMed = new byte[65, 3072];
       let mut index1: i32 = 1;
@@ -274,19 +274,19 @@ namespace WindowsApplication1
         bmp = (Bitmap) null;
         ProjectData.ClearProjectError();
       }
-      if (Information.IsNothing((object) bmp))
+      if (Information.IsNothing( bmp))
       {
         bmp = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + s);
-        bmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        bmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         str1: String = BitmapStore.MakeBigString(s);
         bmpBig = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + str1);
-        bmpBig.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        bmpBig.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         str2: String = BitmapStore.MakeSmallString(s);
         bmpSmall = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + str2);
-        bmpSmall.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
-        if ((double) DrawMod.TGame.Data.RuleVar[451] > 0.0 & DrawMod.TGame.Data.Product >= 7)
+        bmpSmall.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
+        if ( DrawMod.TGame.Data.RuleVar[451] > 0.0 & DrawMod.TGame.Data.Product >= 7)
         {
-          let mut stringListById: i32 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID( Math.Round((double) DrawMod.TGame.Data.RuleVar[451]));
+          let mut stringListById: i32 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID( Math.Round( DrawMod.TGame.Data.RuleVar[451]));
           let mut length: i32 = DrawMod.TGame.Data.StringListObj[stringListById].Length;
           for (let mut index: i32 = 0; index <= length; index += 1)
           {

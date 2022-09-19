@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -62,21 +62,21 @@ namespace WindowsApplication1
       int index2;
       Rectangle rectangle1;
       Rectangle rectangle2;
-      if ((double) DrawMod.TGame.Data.RuleVar[869] >= 1.0)
+      if ( DrawMod.TGame.Data.RuleVar[869] >= 1.0)
       {
-        index1 =  Math.Round((double) DrawMod.TGame.Data.RuleVar[873]);
+        index1 =  Math.Round( DrawMod.TGame.Data.RuleVar[873]);
         index2 = 0;
-        if ((double) DrawMod.TGame.Data.RuleVar[848] > 0.0 & DrawMod.TGame.Data.SFTypeObj[this.typ].Theater == 2)
+        if ( DrawMod.TGame.Data.RuleVar[848] > 0.0 & DrawMod.TGame.Data.SFTypeObj[this.typ].Theater == 2)
         {
-          index1 =  Math.Round((double) DrawMod.TGame.Data.RuleVar[848]);
+          index1 =  Math.Round( DrawMod.TGame.Data.RuleVar[848]);
           index2 = 0;
         }
-        if ((double) DrawMod.TGame.Data.RuleVar[872] > 0.0 & DrawMod.TGame.Data.SFTypeObj[this.typ].Theater == 1)
+        if ( DrawMod.TGame.Data.RuleVar[872] > 0.0 & DrawMod.TGame.Data.SFTypeObj[this.typ].Theater == 1)
         {
-          index1 =  Math.Round((double) DrawMod.TGame.Data.RuleVar[872]);
+          index1 =  Math.Round( DrawMod.TGame.Data.RuleVar[872]);
           index2 = 0;
         }
-        if ((double) DrawMod.TGame.Data.RuleVar[869] == 3.0)
+        if ( DrawMod.TGame.Data.RuleVar[869] == 3.0)
         {
           let mut nr: i32 = DrawMod.TGame.Data.LandscapeTypeObj[index1].BasicPicID[index2];
            let mut local1: &Graphics = &Expression;
@@ -90,7 +90,7 @@ namespace WindowsApplication1
         }
         else
         {
-          if ((double) DrawMod.TGame.Data.RuleVar[869] == 1.0)
+          if ( DrawMod.TGame.Data.RuleVar[869] == 1.0)
           {
             let mut nr: i32 = DrawMod.TGame.Data.LandscapeTypeObj[index1].SidewaysSPriteID1[index2];
              let mut local3: &Graphics = &Expression;
@@ -145,10 +145,10 @@ namespace WindowsApplication1
           let mut h2: i32 = height;
           let mut width2: i32 = BitmapStore.GetWidth(picSpriteId);
           let mut origh1: i32 = BitmapStore.Getheight(picSpriteId);
-          double r1 = (double) ((float) red / 256f);
-          double g1 = (double) ((float) green / 256f);
-          double b1 = (double) ((float) blue / 256f);
-          DrawMod.DrawScaledColorized2( local9,  local10, x3, y3, w2, h2, width2, origh1, (float) r1, (float) g1, (float) b1, 1f);
+          double r1 =  ( red / 256f);
+          double g1 =  ( green / 256f);
+          double b1 =  ( blue / 256f);
+          DrawMod.DrawScaledColorized2( local9,  local10, x3, y3, w2, h2, width2, origh1,  r1,  g1,  b1, 1f);
           break;
         case 2:
           let mut red2: i32 = DrawMod.TGame.Data.RegimeObj[index3].Red2;
@@ -163,10 +163,10 @@ namespace WindowsApplication1
           let mut h3: i32 = height;
           let mut width3: i32 = BitmapStore.GetWidth(picSpriteId);
           let mut origh2: i32 = BitmapStore.Getheight(picSpriteId);
-          double r2 = (double) ((float) red2 / 256f);
-          double g2 = (double) ((float) green2 / 256f);
-          double b2 = (double) ((float) blue2 / 256f);
-          DrawMod.DrawScaledColorized2( local11,  local12, x4, y4, w3, h3, width3, origh2, (float) r2, (float) g2, (float) b2, 1f);
+          double r2 =  ( red2 / 256f);
+          double g2 =  ( green2 / 256f);
+          double b2 =  ( blue2 / 256f);
+          DrawMod.DrawScaledColorized2( local11,  local12, x4, y4, w3, h3, width3, origh2,  r2,  g2,  b2, 1f);
           break;
         case 3:
           let mut red3: i32 = DrawMod.TGame.Data.RegimeObj[index3].Red3;
@@ -181,10 +181,10 @@ namespace WindowsApplication1
           let mut h4: i32 = height;
           let mut width4: i32 = BitmapStore.GetWidth(picSpriteId);
           let mut origh3: i32 = BitmapStore.Getheight(picSpriteId);
-          double r3 = (double) ((float) red3 / 256f);
-          double g3 = (double) ((float) green3 / 256f);
-          double b3 = (double) ((float) blue3 / 256f);
-          DrawMod.DrawScaledColorized2( local13,  local14, x5, y5, w4, h4, width4, origh3, (float) r3, (float) g3, (float) b3, 1f);
+          double r3 =  ( red3 / 256f);
+          double g3 =  ( green3 / 256f);
+          double b3 =  ( blue3 / 256f);
+          DrawMod.DrawScaledColorized2( local13,  local14, x5, y5, w4, h4, width4, origh3,  r3,  g3,  b3, 1f);
           break;
         case 4:
           let mut red4: i32 = DrawMod.TGame.Data.RegimeObj[index3].Red4;
@@ -199,10 +199,10 @@ namespace WindowsApplication1
           let mut h5: i32 = height;
           let mut width5: i32 = BitmapStore.GetWidth(picSpriteId);
           let mut origh4: i32 = BitmapStore.Getheight(picSpriteId);
-          double r4 = (double) ((float) red4 / 256f);
-          double g4 = (double) ((float) green4 / 256f);
-          double b4 = (double) ((float) blue4 / 256f);
-          DrawMod.DrawScaledColorized2( local15,  local16, x6, y6, w5, h5, width5, origh4, (float) r4, (float) g4, (float) b4, 1f);
+          double r4 =  ( red4 / 256f);
+          double g4 =  ( green4 / 256f);
+          double b4 =  ( blue4 / 256f);
+          DrawMod.DrawScaledColorized2( local15,  local16, x6, y6, w5, h5, width5, origh4,  r4,  g4,  b4, 1f);
           break;
         case 5:
            let mut local17: &Graphics = &Expression;
@@ -214,10 +214,10 @@ namespace WindowsApplication1
           let mut h6: i32 = height;
           let mut width6: i32 = BitmapStore.GetWidth(picSpriteId);
           let mut origh5: i32 = BitmapStore.Getheight(picSpriteId);
-          double r5 = (double) ((float) (red + 392) / 1024f);
-          double g5 = (double) ((float) (green + 392) / 1024f);
-          double b5 = (double) ((float) (blue + 392) / 1024f);
-          DrawMod.DrawScaledColorized2( local17,  local18, x7, y7, w6, h6, width6, origh5, (float) r5, (float) g5, (float) b5, 1f);
+          double r5 =  ( (red + 392) / 1024f);
+          double g5 =  ( (green + 392) / 1024f);
+          double b5 =  ( (blue + 392) / 1024f);
+          DrawMod.DrawScaledColorized2( local17,  local18, x7, y7, w6, h6, width6, origh5,  r5,  g5,  b5, 1f);
           break;
         case 6:
            let mut local19: &Graphics = &Expression;
@@ -229,13 +229,13 @@ namespace WindowsApplication1
           let mut h7: i32 = height;
           let mut width7: i32 = BitmapStore.GetWidth(picSpriteId);
           let mut origh6: i32 = BitmapStore.Getheight(picSpriteId);
-          double r6 = (double) ((float) (red + 80) / 512f);
-          double g6 = (double) ((float) (green + 200) / 512f);
-          double b6 = (double) ((float) (blue + 80) / 512f);
-          DrawMod.DrawScaledColorized2( local19,  local20, x8, y8, w7, h7, width7, origh6, (float) r6, (float) g6, (float) b6, 1f);
+          double r6 =  ( (red + 80) / 512f);
+          double g6 =  ( (green + 200) / 512f);
+          double b6 =  ( (blue + 80) / 512f);
+          DrawMod.DrawScaledColorized2( local19,  local20, x8, y8, w7, h7, width7, origh6,  r6,  g6,  b6, 1f);
           break;
       }
-      if ((double) DrawMod.TGame.Data.RuleVar[870] > 0.0 & !Information.IsNothing((object) BitmapStore.GetBitmap(sidewaysSpriteId)))
+      if ( DrawMod.TGame.Data.RuleVar[870] > 0.0 & !Information.IsNothing( BitmapStore.GetBitmap(sidewaysSpriteId)))
       {
          let mut local21: &Graphics = &Expression;
         Bitmap bitmap9 = BitmapStore.GetBitmap(sidewaysSpriteId);
@@ -246,7 +246,7 @@ namespace WindowsApplication1
         let mut h8: i32 = height;
         DrawMod.DrawScaled( local21,  local22, x9, y9, w8, h8);
       }
-      if ((double) DrawMod.TGame.Data.RuleVar[869] >= 1.0 & (double) DrawMod.TGame.Data.RuleVar[869] < 3.0)
+      if ( DrawMod.TGame.Data.RuleVar[869] >= 1.0 &  DrawMod.TGame.Data.RuleVar[869] < 3.0)
       {
         let mut nr: i32 = DrawMod.TGame.Data.LandscapeTypeObj[index1].SidewaysSPriteID3[index2];
          let mut local23: &Graphics = &Expression;
@@ -258,7 +258,7 @@ namespace WindowsApplication1
         let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local23,  local24, srcrect, destrect);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }

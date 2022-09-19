@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Globalization;
-using System.Threading;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Globalization;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -637,12 +637,12 @@ namespace WindowsApplication1
         g = Graphics.FromImage((Image) this.OwnBitmap);
         let mut num1: i32 = 480;
         let mut num2: i32 = 20;
-        let mut w: i32 =  Math.Round(100.0 * ((double) this.game.EditObj.ServerUploadDone / (double) this.game.EditObj.ServerUploadSize));
+        let mut w: i32 =  Math.Round(100.0 * ( this.game.EditObj.ServerUploadDone /  this.game.EditObj.ServerUploadSize));
         let mut num3: i32 = 100 - w;
         DrawMod.DrawBlock( g, num1, num2, 100, 15, 0, 0, 0, 64);
         DrawMod.DrawBlock( g, num1, num2, w, 15, 0,  byte.MaxValue, 0, 100);
         DrawMod.DrawRectangle( g, num1, num2, 100, 15,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 128);
-        DrawMod.DrawTextColouredMarc( g, Conversion.Str((object)  Math.Round((double) this.game.EditObj.ServerUploadDone / 1000.0)) + " KB", this.game.MarcFont14, num1 + 2, num2 + 2, Color.White);
+        DrawMod.DrawTextColouredMarc( g, Conversion.Str(  Math.Round( this.game.EditObj.ServerUploadDone / 1000.0)) + " KB", this.game.MarcFont14, num1 + 2, num2 + 2, Color.White);
         trect1 = Rectangle::new(num1, num2, 100, 15);
         this.AddMouse( trect1, "FILE UPLOAD PROGRESS", "Currently uploaded " + this.game.EditObj.ServerUploadDone.ToString() + " bytes of " + this.game.EditObj.ServerUploadSize.ToString());
       }
@@ -653,7 +653,7 @@ namespace WindowsApplication1
         let mut num5: i32 = 20;
         DrawMod.DrawBlock( g, num4, num5, 100, 15, 0, 0, 0, 64);
         DrawMod.DrawRectangle( g, num4, num5, 100, 15,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 128);
-        DrawMod.DrawTextColouredMarc( g, Conversion.Str((object)  Math.Round((double) this.game.EditObj.ServerDownloadDone / 1000.0)) + " KB", this.game.MarcFont14, num4 + 2, num5 + 2, Color.White);
+        DrawMod.DrawTextColouredMarc( g, Conversion.Str(  Math.Round( this.game.EditObj.ServerDownloadDone / 1000.0)) + " KB", this.game.MarcFont14, num4 + 2, num5 + 2, Color.White);
         trect1 = Rectangle::new(num4, num5, 100, 15);
         let mut trect2: &Rectangle = &trect1
         this.AddMouse( trect2, "FILE DOWNLOAD PROGRESS", "Currently downloaded " + this.game.EditObj.ServerDownloadDone.ToString() + " bytes.");

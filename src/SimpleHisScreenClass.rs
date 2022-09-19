@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -23,7 +23,7 @@ namespace WindowsApplication1
     pub SimpleHisScreenClass( GameClass tgame, Form1 tformref)
       : base( tgame, tgame.BACKGROUND3MARC, tformref)
     {
-      this.OffSetX =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+      this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
       this.AllowRightMouse = true;
       this.Game.EditObj.SimpleEditWindow = 104;
       this.Wmiddle = this.AddWindow((WindowClass) new SimpleHisWindowClass( tgame), 0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight);
@@ -72,7 +72,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit the editor?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit the editor?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         this.Game.Data = DataClass::new();
         this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");

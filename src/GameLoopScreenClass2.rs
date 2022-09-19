@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -22,8 +22,8 @@ namespace WindowsApplication1
       : base( tGame, tGame.BACKGROUND5MARC, tformref)
     {
       this.lastRegime = -1;
-      let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-      let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 236) / 2.0));
+      let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+      let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 236) / 2.0));
       this.DoStuff();
       this.AddWindow((WindowClass) new GameLoopMainWindowClass2( tGame, true), x, y, 1024, 236);
       this.Game.HandyFunctionsObj.SetGameColors();
@@ -35,7 +35,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass1 = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want quit?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want quit?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         if (this.Game.Data.Turn > -1)
         {
@@ -50,7 +50,7 @@ namespace WindowsApplication1
             this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");
             if (this.Game.Data.UseAI == 1)
             {
-              if (Information.IsNothing((object) this.Game.NewAIObj))
+              if (Information.IsNothing( this.Game.NewAIObj))
                 this.Game.NewAIObj = new NewAIClass(this.Game);
               this.Game.NewAIObj.LastRegime = -1;
             }

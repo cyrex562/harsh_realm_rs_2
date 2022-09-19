@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -237,9 +237,9 @@ namespace WindowsApplication1
         pplnr = this.game.Data.SFObj[this.sfnr].People;
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn)
         {
-          str1 = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Qty)) + "x ";
+          str1 = Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Qty)) + "x ";
           if (this.game.Data.SFTypeObj[typ].Ratio > 1)
-            str1 = str1 + " " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[typ].Ratio)) + "x ";
+            str1 = str1 + " " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[typ].Ratio)) + "x ";
         }
       }
       int regnr;
@@ -276,7 +276,7 @@ namespace WindowsApplication1
         if (this.comparenr == -1)
         {
           SizeF sizeF2 = graphics.MeasureString(name + " trooptype details", this.game.MarcFont1);
-          DrawMod.DrawTextColouredMarc( graphics, name + " trooptype details", this.game.MarcFont1, 417 -  Math.Round((double) (sizeF2.Width / 2f)), 19, Color.White);
+          DrawMod.DrawTextColouredMarc( graphics, name + " trooptype details", this.game.MarcFont1, 417 -  Math.Round( (sizeF2.Width / 2f)), 19, Color.White);
         }
         index1 = 0;
         regnr = this.sfnr <= -1 ? this.game.Data.Turn : this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime;
@@ -340,16 +340,16 @@ namespace WindowsApplication1
               ;
             let mut x: i32 = num1 - 310;
             let mut y: i32 = 77;
-            let mut index9: i32 =  Math.Round((double) this.game.Data.RuleVar[873]);
+            let mut index9: i32 =  Math.Round( this.game.Data.RuleVar[873]);
             let mut index10: i32 = 0;
-            if ((double) this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[typ].Theater == 2)
+            if ( this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[typ].Theater == 2)
             {
-              index9 =  Math.Round((double) this.game.Data.RuleVar[848]);
+              index9 =  Math.Round( this.game.Data.RuleVar[848]);
               index10 = 0;
             }
-            if ((double) this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[typ].Theater == 1)
+            if ( this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[typ].Theater == 1)
             {
-              index9 =  Math.Round((double) this.game.Data.RuleVar[872]);
+              index9 =  Math.Round( this.game.Data.RuleVar[872]);
               index10 = 0;
             }
             let mut nr1: i32 = this.game.Data.LandscapeTypeObj[index9].BasicPicID[index10];
@@ -419,7 +419,7 @@ namespace WindowsApplication1
       tListobj1.AddCol(0, "");
       tListobj1.AddCol(0, "");
       tListobj1.TempColumBmp[0] = Conversions.ToString(this.ReturnSFSpriteNr(typ, regnr, pplnr));
-      tListobj1.ColumnName[1] = this.game.Data.SFTypeObj[typ].Ratio <= 1 ? Strings.UCase(this.game.Data.SFTypeObj[typ].Name) : Strings.UCase(this.game.Data.SFTypeObj[typ].Name) + " (" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[typ].Ratio)) + "x)";
+      tListobj1.ColumnName[1] = this.game.Data.SFTypeObj[typ].Ratio <= 1 ? Strings.UCase(this.game.Data.SFTypeObj[typ].Name) : Strings.UCase(this.game.Data.SFTypeObj[typ].Name) + " (" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[typ].Ratio)) + "x)";
       let mut index12: i32 = 0;
       do
       {
@@ -430,7 +430,7 @@ namespace WindowsApplication1
             index11 += 1;
             num4 += 1;
             tListobj1.AddRow(tListobj1.Length);
-            if ((double) this.game.Data.RuleVar[947] == 1.0)
+            if ( this.game.Data.RuleVar[947] == 1.0)
             {
               if (Strings.Len(this.game.Data.TempString[1000 + index12]) > 0)
               {
@@ -449,7 +449,7 @@ namespace WindowsApplication1
           else
           {
             num4 += 1;
-            if ((double) this.game.Data.RuleVar[947] == 1.0)
+            if ( this.game.Data.RuleVar[947] == 1.0)
             {
               if (Strings.Len(this.game.Data.TempString[1000 + index12]) > 0)
               {
@@ -485,7 +485,7 @@ namespace WindowsApplication1
         tListobj2.AddCol(0, "");
         tListobj2.AddCol(0, "");
         tListobj2.TempColumBmp[0] = Conversions.ToString(this.ReturnSFSpriteNr(this.comparenr, regnr, pplnr));
-        tListobj2.ColumnName[1] = this.game.Data.SFTypeObj[this.comparenr].Ratio <= 1 ? Strings.UCase(this.game.Data.SFTypeObj[this.comparenr].Name) : Strings.UCase(this.game.Data.SFTypeObj[this.comparenr].Name) + " (" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].Ratio)) + "x)";
+        tListobj2.ColumnName[1] = this.game.Data.SFTypeObj[this.comparenr].Ratio <= 1 ? Strings.UCase(this.game.Data.SFTypeObj[this.comparenr].Name) : Strings.UCase(this.game.Data.SFTypeObj[this.comparenr].Name) + " (" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].Ratio)) + "x)";
         let mut index14: i32 = 0;
         do
         {
@@ -496,7 +496,7 @@ namespace WindowsApplication1
               index13 += 1;
               num6 += 1;
               tListobj2.AddRow(tListobj2.Length);
-              if ((double) this.game.Data.RuleVar[947] == 1.0)
+              if ( this.game.Data.RuleVar[947] == 1.0)
               {
                 if (Strings.Len(this.game.Data.TempString[1000 + index14]) > 0)
                 {
@@ -515,7 +515,7 @@ namespace WindowsApplication1
             else
             {
               num6 += 1;
-              if ((double) this.game.Data.RuleVar[947] == 1.0)
+              if ( this.game.Data.RuleVar[947] == 1.0)
               {
                 if (Strings.Len(this.game.Data.TempString[1000 + index14]) > 0)
                 {
@@ -556,10 +556,10 @@ namespace WindowsApplication1
           this.OptionsList3Obj = ListClass::new();
           this.OptionsList3Obj.add("People", -1, this.game.Data.PeopleObj[this.game.Data.SFObj[this.sfnr].People].Name);
           float num7 = this.game.Data.PeopleObj[this.game.Data.SFObj[this.sfnr].People].BattleForMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.UnitObj[this.unr].Regime].People].PeopleGroup];
-          if ((double) num7 > 1.0 | (double) num7 < 1.0)
+          if ( num7 > 1.0 |  num7 < 1.0)
           {
-            let mut Number: i32 =  Math.Round((double) ((num7 - 1f) * 100f));
-            tvalue: String = Strings.Trim(Conversion.Str((object) Number)) + "%";
+            let mut Number: i32 =  Math.Round( ((num7 - 1f) * 100f));
+            tvalue: String = Strings.Trim(Conversion.Str( Number)) + "%";
             if (Number >= 0)
               tvalue = "+" + tvalue;
             this.OptionsList3Obj.add("People Combat Bonus", -1, tvalue);
@@ -567,16 +567,16 @@ namespace WindowsApplication1
           this.OptionsList3Obj.add("Class", -1, this.game.Data.TempString[400 + this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].UnitGroup]);
           if (reconMinusHide.x == 3)
           {
-            this.OptionsList3Obj.add("Qty", -1, Strings.Trim(Conversion.Str((object) (this.game.Data.SFObj[this.sfnr].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].Ratio))));
-            this.OptionsList3Obj.add("Readiness", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Rdn)));
-            this.OptionsList3Obj.add("Morale", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Mor)));
-            this.OptionsList3Obj.add("Experience", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Xp)));
-            this.OptionsList3Obj.add("Entrenchment", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].CurrentEntrench)));
-            this.OptionsList3Obj.add("Action Points", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Ap)));
-            this.OptionsList3Obj.add("Engineer Points", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].EP)));
-            this.OptionsList3Obj.add("Ratio", -1, "x" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].Ratio)));
-            this.OptionsList3Obj.add("Individuals", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Qty)));
-            this.OptionsList3Obj.add("Weight/Carry", -1, Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].Weight)) + "/" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].CarryCap)));
+            this.OptionsList3Obj.add("Qty", -1, Strings.Trim(Conversion.Str( (this.game.Data.SFObj[this.sfnr].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].Ratio))));
+            this.OptionsList3Obj.add("Readiness", -1, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Rdn)));
+            this.OptionsList3Obj.add("Morale", -1, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Mor)));
+            this.OptionsList3Obj.add("Experience", -1, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Xp)));
+            this.OptionsList3Obj.add("Entrenchment", -1, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].CurrentEntrench)));
+            this.OptionsList3Obj.add("Action Points", -1, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Ap)));
+            this.OptionsList3Obj.add("Engineer Points", -1, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].EP)));
+            this.OptionsList3Obj.add("Ratio", -1, "x" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].Ratio)));
+            this.OptionsList3Obj.add("Individuals", -1, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Qty)));
+            this.OptionsList3Obj.add("Weight/Carry", -1, Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].Weight)) + "/" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].CarryCap)));
           }
           if (this.OptionsList3Id > 0)
           {
@@ -599,10 +599,10 @@ namespace WindowsApplication1
           this.AddMouse( trect, "", "The troops in the slot you clicked\r\nhave their own detailed stats.");
         }
       }
-      let mut tsubpart5: SubPartClass =  new TextButtonPartClass("OK", 150, "Click to return to main screen.",  this.OwnBitmap,  Math.Round((double) this.OwnBitmap.Width / 2.0 + 15.0), 515, theight: 40, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
-      this.but1id = this.AddSubPart( tsubpart5,  Math.Round((double) this.OwnBitmap.Width / 2.0 + 15.0), 515, 150, 40, 1);
-      let mut tsubpart6: SubPartClass =  new TextButtonPartClass("COMPARE", 150, "Click to select another trooptype to compare stats with.",  this.OwnBitmap,  Math.Round((double) this.OwnBitmap.Width / 2.0 - 175.0), 515, theight: 40, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
-      this.but7id = this.AddSubPart( tsubpart6,  Math.Round((double) this.OwnBitmap.Width / 2.0 - 175.0), 515, 150, 40, 1);
+      let mut tsubpart5: SubPartClass =  new TextButtonPartClass("OK", 150, "Click to return to main screen.",  this.OwnBitmap,  Math.Round( this.OwnBitmap.Width / 2.0 + 15.0), 515, theight: 40, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
+      this.but1id = this.AddSubPart( tsubpart5,  Math.Round( this.OwnBitmap.Width / 2.0 + 15.0), 515, 150, 40, 1);
+      let mut tsubpart6: SubPartClass =  new TextButtonPartClass("COMPARE", 150, "Click to select another trooptype to compare stats with.",  this.OwnBitmap,  Math.Round( this.OwnBitmap.Width / 2.0 - 175.0), 515, theight: 40, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
+      this.but7id = this.AddSubPart( tsubpart6,  Math.Round( this.OwnBitmap.Width / 2.0 - 175.0), 515, 150, 40, 1);
     }
 
     pub object ReturnSFSpriteNr(int typ, int regnr, int pplnr)
@@ -638,7 +638,7 @@ namespace WindowsApplication1
             symbolSpriteId = this.game.Data.SFTypeObj[typ].ExtraSymbolSpriteID[index];
         }
       }
-      return (object) symbolSpriteId;
+      return  symbolSpriteId;
     }
 
     pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)

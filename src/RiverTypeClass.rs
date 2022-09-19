@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.Serialization;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.Serialization;
 
 namespace WindowsApplication1
 {
@@ -16,12 +16,12 @@ namespace WindowsApplication1
   {
     pub Name: String;
     pub string[] BasicSpriteFileName;
-    pub int[] BasicSpriteID;
-    pub int[] LayerSpriteID;
+    pub BasicSpriteID: Vec<i32>;
+    pub LayerSpriteID: Vec<i32>;
     pub string[] LayerSpriteFileName;
     pub SpecialLayer: bool;
     pub float[] AttackPenalty;
-    pub int[] MovePenalty;
+    pub MovePenalty: Vec<i32>;
     pub BridgePossible: bool;
     pub float BridgeCostModifier;
     pub SheetFileName: String;
@@ -35,15 +35,15 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
-      info.AddValue("BasicSpriteFileName", (object) this.BasicSpriteFileName);
-      info.AddValue("AttackPenalty", (object) this.AttackPenalty);
-      info.AddValue("MovePenalty", (object) this.MovePenalty);
+      info.AddValue("Name",  this.Name);
+      info.AddValue("BasicSpriteFileName",  this.BasicSpriteFileName);
+      info.AddValue("AttackPenalty",  this.AttackPenalty);
+      info.AddValue("MovePenalty",  this.MovePenalty);
       info.AddValue("BridgePossible", this.BridgePossible);
       info.AddValue("BridgeCostModifier", this.BridgeCostModifier);
-      info.AddValue("LayerSpriteFileName", (object) this.LayerSpriteFileName);
+      info.AddValue("LayerSpriteFileName",  this.LayerSpriteFileName);
       info.AddValue("SpecialLayer", this.SpecialLayer);
-      info.AddValue("SheetFileName", (object) this.SheetFileName);
+      info.AddValue("SheetFileName",  this.SheetFileName);
       info.AddValue("UseSheet", this.UseSheet);
       info.AddValue("Transparent", this.Transparent);
       info.AddValue("snakeMode", this.snakeMode);
@@ -135,7 +135,7 @@ namespace WindowsApplication1
 
     pub int GetRiverHeight(GameClass game, int x, int y, int z)
     {
-      if (!game.AllowHeightMap || (double) game.Data.RuleVar[418] < 1.0)
+      if (!game.AllowHeightMap ||  game.Data.RuleVar[418] < 1.0)
         return 0;
       let mut num1: i32 = game.Data.MapObj[0].HexObj[x, y].RiverType[z];
       if (num1 < 0)
@@ -153,7 +153,7 @@ namespace WindowsApplication1
         num2 = game.Data.MapObj[0].HexObj[x, y].HeightLevel;
       if (num2 <= 0)
         return 0;
-      let mut stringListById: i32 = game.HandyFunctionsObj.GetStringListByID( Math.Round((double) game.Data.RuleVar[418]));
+      let mut stringListById: i32 = game.HandyFunctionsObj.GetStringListByID( Math.Round( game.Data.RuleVar[418]));
       bool flag = false;
       if (stringListById > -1)
       {

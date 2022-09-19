@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -56,10 +56,10 @@ namespace WindowsApplication1
       if (self.CenterIt)
       {
         SizeF sizeF2 = Expression.MeasureString(self.OwnText, self.OwnFont);
-        if ((double) sizeF2.Width <= (double) self.OwnBitmap.Width)
+        if ( sizeF2.Width <=  self.OwnBitmap.Width)
         {
-          x =  Math.Round((double) Conversion.Int((float) (((double) self.OwnBitmap.Width - (double) sizeF2.Width) / 2.0)));
-          y =  Math.Round((double) Conversion.Int((float) (((double) self.OwnBitmap.Height - (double) sizeF2.Height) / 2.0)));
+          x =  Math.Round( Conversion.Int( (( self.OwnBitmap.Width -  sizeF2.Width) / 2.0)));
+          y =  Math.Round( Conversion.Int( (( self.OwnBitmap.Height -  sizeF2.Height) / 2.0)));
         }
         sizeF1 = SizeF::new();
       }
@@ -71,12 +71,12 @@ namespace WindowsApplication1
           DrawMod.drawLine( Expression, 2, self.OwnBitmap.Height - 1, self.OwnBitmap.Width - 1, self.OwnBitmap.Height - 1, 200, 220, 120,  byte.MaxValue);
           DrawMod.drawLine( Expression, self.OwnBitmap.Width - 1, 3, self.OwnBitmap.Width - 1, self.OwnBitmap.Height - 1, 200, 220, 120,  byte.MaxValue);
           if (self.progress > -1)
-            DrawMod.DrawBlock( Expression, 0, 0,  Math.Round((double) self.OwnBitmap.Width * ((double) self.progress / 100.0)), self.OwnBitmap.Height - 1,  byte.MaxValue, 0, 0, 105);
+            DrawMod.DrawBlock( Expression, 0, 0,  Math.Round( self.OwnBitmap.Width * ( self.progress / 100.0)), self.OwnBitmap.Height - 1,  byte.MaxValue, 0, 0, 105);
         }
         else
         {
           if (self.progress > -1)
-            DrawMod.DrawBlock( Expression, 5, 5,  Math.Round((double) (self.OwnBitmap.Width - 10) * ((double) self.progress / 100.0)), self.OwnBitmap.Height - 10 - 1,  byte.MaxValue, 0, 0, 105);
+            DrawMod.DrawBlock( Expression, 5, 5,  Math.Round( (self.OwnBitmap.Width - 10) * ( self.progress / 100.0)), self.OwnBitmap.Height - 10 - 1,  byte.MaxValue, 0, 0, 105);
           DrawMod.DrawFrame( self.OwnBitmap,  self.OwnBitmap,  Expression, 0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height, -1, -1);
         }
       }
@@ -98,7 +98,7 @@ namespace WindowsApplication1
       }
       else
         DrawMod.DrawTextColouredMarc( Expression, self.OwnText, self.OwnFont, x, y, Color.White);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return self.OwnBitmap;
     }

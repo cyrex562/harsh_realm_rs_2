@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -84,16 +84,16 @@ namespace WindowsApplication1
       DrawMod.DrawOfficer(g, this.His, 20, 70, 177, 194);
       Rectangle trect1;
       Rectangle trect2;
-      if ((double) this.game.Data.RuleVar[976] < 1.0)
+      if ( this.game.Data.RuleVar[976] < 1.0)
       {
         let mut num1: i32 =  270;
         DrawMod.DrawBlockGradient2( g, 20, num1, 79, 19, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, 20, num1, 80, 20, -1, -1);
-        str1: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.His].CombatMod)) + "%";
+        str1: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.His].CombatMod)) + "%";
         if (this.game.Data.HistoricalUnitObj[this.His].CombatMod > 0)
           str1 = "+" + str1;
         DrawMod.DrawTextColouredMarc( g, "COM = " + str1, this.game.MarcFont5, 25, num1 + 4, Color.White);
-        if ((double) this.game.Data.RuleVar[927] > 0.0)
+        if ( this.game.Data.RuleVar[927] > 0.0)
         {
           trect1 = Rectangle::new(20, num1, 80, 20);
           this.AddMouse( trect1, "COMBAT MODIFIER", "How much percent does the officer increase\r\nstaff combat bonus.\r\nMind you: Only if the officer is in command at the lowest HQ level!");
@@ -107,11 +107,11 @@ namespace WindowsApplication1
         let mut num2: i32 =  300;
         DrawMod.DrawBlockGradient2( g, 20, num2, 79, 19, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, 20, num2, 80, 20, -1, -1);
-        str2: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.His].MoraleMod)) + "%";
+        str2: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.His].MoraleMod)) + "%";
         if (this.game.Data.HistoricalUnitObj[this.His].MoraleMod > 0)
           str2 = "+" + str2;
         DrawMod.DrawTextColouredMarc( g, "MOR = " + str2, this.game.MarcFont5, 25, num2 + 4, Color.White);
-        if ((double) this.game.Data.RuleVar[927] > 0.0)
+        if ( this.game.Data.RuleVar[927] > 0.0)
         {
           trect1 = Rectangle::new(20, num2, 80, 20);
           let mut trect4: &Rectangle = &trect1
@@ -126,17 +126,17 @@ namespace WindowsApplication1
         let mut num3: i32 =  270;
         DrawMod.DrawBlockGradient2( g, 110, num3, 79, 19, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, 110, num3, 80, 20, -1, -1);
-        str3: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.His].StaffSize));
+        str3: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.His].StaffSize));
         DrawMod.DrawTextColouredMarc( g, "STAFF = " + str3, this.game.MarcFont5, 120, num3 + 4, Color.White);
         trect1 = Rectangle::new(110, num3, 80, 20);
         let mut trect6: &Rectangle = &trect1
         this.AddMouse( trect6, "STAFF POINTS", "How much staff points can officer \r\n handle in this scenario.");
         let mut num4: i32 =  300;
-        if ((double) this.game.Data.RuleVar[343] == 1.0)
+        if ( this.game.Data.RuleVar[343] == 1.0)
         {
           DrawMod.DrawBlockGradient2( g, 110, num4, 79, 19, this.game.MarcCol1, this.game.MarcCol2);
           DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, 110, num4, 80, 20, -1, -1);
-          str4: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.His].PP));
+          str4: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.His].PP));
           DrawMod.DrawTextColouredMarc( g, "POL = " + str4, this.game.MarcFont5, 120, num4 + 4, Color.White);
           trect1 = Rectangle::new(110, num4, 80, 20);
           trect2 = trect1;
@@ -183,12 +183,12 @@ namespace WindowsApplication1
               flag3 = false;
             if (flag3 & (this.game.Data.HistoricalUnitObj[this.His].HisVarNato[index] > 0 | this.game.Data.HistoricalUnitObj[this.His].HisVarSmall[index] > -1))
             {
-              str: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.His].HisVarValue[index]));
+              str: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.His].HisVarValue[index]));
               SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont8b);
               let mut num7: i32 =  bbx + num6;
               let mut num8: i32 =  num5 + 10;
               DrawMod.DrawBlock( g, num7 + 36, num5 + 13, 2, 64,  this.game.MarcCol3.R,  this.game.MarcCol3.G,  this.game.MarcCol3.B, 128);
-              let mut x2: i32 =   Math.Round((double) ((float) (bbx + num6 + 18) - sizeF2.Width / 2f));
+              let mut x2: i32 =   Math.Round( ( (bbx + num6 + 18) - sizeF2.Width / 2f));
               DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont8b, x2, 105, Color.White);
               if (this.game.Data.HistoricalUnitObj[this.His].HisVarSmall[index] > -1)
               {
@@ -330,7 +330,7 @@ namespace WindowsApplication1
           }
           if (this.game.Data.Product == 6)
           {
-            let mut num24: i32 =   Math.Round(133.0 / (double) Math.Max(1, num19 - 1));
+            let mut num24: i32 =   Math.Round(133.0 /  Math.Max(1, num19 - 1));
              let mut local9: &Graphics = &g;
             bitmap1 = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime, this.game.Data.HistoricalUnitObj[this.His].DeckCard[index], size: 2);
              let mut local10: &Bitmap = &bitmap1;
@@ -441,7 +441,7 @@ namespace WindowsApplication1
           }
           if (this.game.Data.Product == 6)
           {
-            let mut num33: i32 =   Math.Round(133.0 / (double) Math.Max(1, num28 - 1));
+            let mut num33: i32 =   Math.Round(133.0 /  Math.Max(1, num28 - 1));
              let mut local15: &Graphics = &g;
             bitmap1 = this.game.CustomBitmapObj.DrawActionCardMarc2(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime, this.game.Data.HistoricalUnitObj[this.His].DeckCard[index], size: 2);
              let mut local16: &Bitmap = &bitmap1;

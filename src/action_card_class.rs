@@ -1,4 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
+#![allow(non_snake_case)]
 // Type: WindowsApplication1.ActionCardClass
 // Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
@@ -87,16 +88,16 @@ impl ActionCardClass {
     // {
     //   BinaryFormatter binaryFormatter = BinaryFormatter::new(),
     //   MemoryStream serializationStream = MemoryStream::new(),
-    //   binaryFormatter.Serialize((Stream) serializationStream, (object) this),
+    //   binaryFormatter.Serialize((Stream) serializationStream,  this),
     //   serializationStream.Position = 0L,
     //   return (ActionCardClass) binaryFormatter.Deserialize((Stream) serializationStream),
     // }
 
     // pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     // {
-    //   info.AddValue("Title", (object) Title),
+    //   info.AddValue("Title",  Title),
     //   info.AddValue("ColorScheme", ColorScheme),
-    //   info.AddValue("Text", (object) Text),
+    //   info.AddValue("Text",  Text),
     //   info.AddValue("PPCost", PPCost),
     //   info.AddValue("ExecuteEvent", ExecuteEvent),
     //   info.AddValue("AILabel", AILabel),
@@ -110,13 +111,13 @@ impl ActionCardClass {
     //   info.AddValue("PreExecuteEvent", PreExecuteEvent),
     //   info.AddValue("UnitSelect", UnitSelect),
     //   info.AddValue("Nato", Nato),
-    //   info.AddValue("MouseOver", (object) MouseOver),
+    //   info.AddValue("MouseOver",  MouseOver),
     //   info.AddValue("HisVarCostType", HisVarCostType),
     //   info.AddValue("HisVarCostQty", HisVarCostQty),
     //   info.AddValue("Category", Category),
     //   info.AddValue("AlternateEventPicNr", AlternateEventPicNr),
     //   info.AddValue("LimitedShow", LimitedShow),
-    //   info.AddValue("ourid", (object) LibId),
+    //   info.AddValue("ourid",  LibId),
     //   info.AddValue("SmallGfx", SmallGfx),
     //   info.AddValue("IgnorePopupIfNoSelect", IgnorePopupIfNoSelect),
     //   info.AddValue("QuickSmall", quickSmall),

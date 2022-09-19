@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -115,13 +115,13 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       str1: String = "Select/deselect land attack units";
       SizeF sizeF2 = toG.MeasureString(str1, this.game.MarcFont4);
-      DrawMod.DrawTextColouredMarc( toG, str1, this.game.MarcFont4,  Math.Round(335.0 - (double) sizeF2.Width / 2.0), 40, Color.White);
-      str2: String = "Stack: " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.HandyFunctionsObj.maxAttackStack()) + ". Concentric: +" + Conversion.Str((object) Conversion.Int((float) (((double) this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
+      DrawMod.DrawTextColouredMarc( toG, str1, this.game.MarcFont4,  Math.Round(335.0 -  sizeF2.Width / 2.0), 40, Color.White);
+      str2: String = "Stack: " + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.HandyFunctionsObj.maxAttackStack()) + ". Concentric: +" + Conversion.Str( Conversion.Int( (( this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
       let mut divBonusForAttack: i32 =  this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
       if (divBonusForAttack > 0)
-        str2 = str2 + ". Divisional: +" + Conversion.Str((object) Conversion.Int(divBonusForAttack)) + "%";
+        str2 = str2 + ". Divisional: +" + Conversion.Str( Conversion.Int(divBonusForAttack)) + "%";
       SizeF sizeF3 = toG.MeasureString(str2, this.game.MarcFont4);
-      DrawMod.DrawTextColouredMarc( toG, str2, this.game.MarcFont4,  Math.Round(335.0 - (double) sizeF3.Width / 2.0), 278, Color.White);
+      DrawMod.DrawTextColouredMarc( toG, str2, this.game.MarcFont4,  Math.Round(335.0 -  sizeF3.Width / 2.0), 278, Color.White);
       let mut counter: i32 =  this.UL.counter;
       for (let mut index2: i32 =  0; index2 <= counter; index2 += 1)
       {
@@ -144,10 +144,10 @@ namespace WindowsApplication1
             num3 += 1;
             if (num3 > 1)
               str3 += ", ";
-            str3 = str3 + Strings.Trim(Conversion.Str((object) (DrawMod.TGame.Data.SFObj[sf].Qty * DrawMod.TGame.Data.SFTypeObj[type].Ratio))) + "x " + DrawMod.TGame.Data.SFTypeObj[type].Name;
+            str3 = str3 + Strings.Trim(Conversion.Str( (DrawMod.TGame.Data.SFObj[sf].Qty * DrawMod.TGame.Data.SFTypeObj[type].Ratio))) + "x " + DrawMod.TGame.Data.SFTypeObj[type].Name;
           }
         }
-        ttext: String = str3 + "\r\n" + "Average Readiness: " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetAverageRdn(this.UL.unr[index2]))) + "\r\n" + "Action Points: " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetLowestAp(this.UL.unr[index2])));
+        ttext: String = str3 + "\r\n" + "Average Readiness: " + Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetAverageRdn(this.UL.unr[index2]))) + "\r\n" + "Action Points: " + Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(this.UL.unr[index2])));
         this.game.CustomBitmapObj.DrawUnit(this.UL.unr[index2], toG: toG, tx: num1, ty: num2, ShowAttacker: true);
         Rectangle trect = Rectangle::new(num1, num2, 38, 38);
         this.AddMouse( trect, this.game.Data.UnitObj[this.UL.unr[index2]].Name, ttext, this.UL.unr[index2]);
@@ -163,7 +163,7 @@ namespace WindowsApplication1
       {
         if (nr == 27 | nr == 32)
         {
-          if (this.game.Data.Product >= 6 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+          if (this.game.Data.Product >= 6 &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             this.game.EditObj.battleTimerPopupRefreshDoesntStartIt = true;
           windowReturnClass.AddCommand(6, 0);
           windowReturnClass.SetFlag(true);

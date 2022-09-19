@@ -4,7 +4,7 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
+// usingMicrosoft.VisualBasic;
 
 namespace WindowsApplication1
 {
@@ -359,7 +359,7 @@ namespace WindowsApplication1
         if (this.game.TempCombat.BattleEnded <= 0)
           num = 1;
         if (num == 0)
-          "Lost " + Conversion.Str((object) (this.ustats[iulistNr, 40, 4] + this.ustats[iulistNr, 40, 2])) + " troops in combat at " + Conversion.Str((object) this.game.TempCombat.CombatTarget.x) + "," + Conversion.Str((object) this.game.TempCombat.CombatTarget.y);
+          "Lost " + Conversion.Str( (this.ustats[iulistNr, 40, 4] + this.ustats[iulistNr, 40, 2])) + " troops in combat at " + Conversion.Str( this.game.TempCombat.CombatTarget.x) + "," + Conversion.Str( this.game.TempCombat.CombatTarget.y);
       }
     }
   }

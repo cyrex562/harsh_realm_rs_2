@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -94,14 +94,14 @@ namespace WindowsApplication1
       {
         DrawMod.DrawBlock(ref graphics, 0, 0, 200, 82, 0, 0, 0, (int) byte.MaxValue);
         string str;
-        tstring: String = str + "Shrouded (" + Conversion.Str((object) this.x) + "," + Conversion.Str((object) this.y) + ")";
+        tstring: String = str + "Shrouded (" + Conversion.Str( this.x) + "," + Conversion.Str( this.y) + ")";
         DrawMod.DrawText(ref graphics, tstring, Font::new("Times New Roman", 12f, FontStyle.Bold, GraphicsUnit.Pixel), 10, 35);
         return this.OwnBitmap;
       }
       if (landscapeType > -1 & spriteNr > -1)
       {
         Bitmap bitmap;
-        if ((double) this.game.Data.RuleVar[869] == 0.0 | (double) this.game.Data.RuleVar[869] == 3.0)
+        if ( this.game.Data.RuleVar[869] == 0.0 |  this.game.Data.RuleVar[869] == 3.0)
         {
           let mut nr: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].BasicPicID[spriteNr];
           ref Graphics local1 = ref graphics;
@@ -111,7 +111,7 @@ namespace WindowsApplication1
         }
         else
         {
-          if ((double) this.game.Data.RuleVar[869] == 1.0)
+          if ( this.game.Data.RuleVar[869] == 1.0)
           {
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[landscapeType].SidewaysSPriteID1[spriteNr];
             ref Graphics local3 = ref graphics;
@@ -132,7 +132,7 @@ namespace WindowsApplication1
         }
         if (this.game.Data.MapObj[0].HexObj[this.x, this.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT > -1)
         {
-          if ((double) this.game.Data.RuleVar[869] == 0.0 | (double) this.game.Data.RuleVar[869] == 3.0)
+          if ( this.game.Data.RuleVar[869] == 0.0 |  this.game.Data.RuleVar[869] == 3.0)
           {
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
             ref Graphics local9 = ref graphics;
@@ -142,7 +142,7 @@ namespace WindowsApplication1
           }
           else
           {
-            if ((double) this.game.Data.RuleVar[869] == 1.0)
+            if ( this.game.Data.RuleVar[869] == 1.0)
             {
               let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureLT].SidewaysSPriteID1[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.x, this.y].Location].Type].PictureSprite];
               ref Graphics local11 = ref graphics;
@@ -184,10 +184,10 @@ namespace WindowsApplication1
           if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
           {
             --num4;
-            let mut num5: i32 =  (int) Math.Round(170.0 / (Conversion.Int((double) num3 / 2.0) + 1.0));
+            let mut num5: i32 =  (int) Math.Round(170.0 / (Conversion.Int( num3 / 2.0) + 1.0));
             if (num5 > 37)
               num5 = 37;
-            let mut num6: i32 =  (int) Math.Round(Conversion.Int((double) (unitCounter2 + 1) / 2.0));
+            let mut num6: i32 =  (int) Math.Round(Conversion.Int( (unitCounter2 + 1) / 2.0));
             if (num6 < 4)
               num6 = 4;
             int ty;
@@ -224,7 +224,7 @@ namespace WindowsApplication1
             if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
             {
               let mut ty: i32 =  2;
-              let mut num: i32 =  (int) Math.Round(170.0 / (double) (unitCounter + 1));
+              let mut num: i32 =  (int) Math.Round(170.0 /  (unitCounter + 1));
               if (num > 39)
                 num = 39;
               let mut tx: i32 =  2 + index * num;
@@ -245,7 +245,7 @@ namespace WindowsApplication1
             if (this.game.HandyFunctionsObj.CanWeSeeUnit(num7, this.game.Data.Turn) > 0)
             {
               let mut ty: i32 =  41;
-              let mut num8: i32 =  (int) Math.Round(170.0 / (double) (counter + 1));
+              let mut num8: i32 =  (int) Math.Round(170.0 /  (counter + 1));
               if (num8 > 37)
                 num8 = 37;
               let mut tx: i32 =  2 + index * num8;
@@ -258,7 +258,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (!Information.IsNothing((object) graphics))
+      if (!Information.IsNothing( graphics))
       {
         graphics.Dispose();
         graphics = (Graphics) null;

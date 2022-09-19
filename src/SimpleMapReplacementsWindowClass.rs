@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.Windows.Forms;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -130,7 +130,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut val1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut val1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.listId > 0)
         self.RemoveSubPart(self.listId);
       if (self.e1id > 0)
@@ -311,7 +311,7 @@ namespace WindowsApplication1
             }
           }
         }
-        let mut tsubpart1: SubPartClass =  new ListSubPartClass(self.listObj, 18, 500 + Math.Max(0, val1 - 50), tlistselect, self.game, true, "Checklist", false, tShowPair: true, tValueWidth: ( Math.Round(260.0 + (double) val1 * 0.4)), tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: (10 + Math.Min(val1, 50)), bby: num2, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
+        let mut tsubpart1: SubPartClass =  new ListSubPartClass(self.listObj, 18, 500 + Math.Max(0, val1 - 50), tlistselect, self.game, true, "Checklist", false, tShowPair: true, tValueWidth: ( Math.Round(260.0 +  val1 * 0.4)), tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: (10 + Math.Min(val1, 50)), bby: num2, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
         self.listId = self.AddSubPart( tsubpart1, 10 + Math.Min(val1, 50), num2, 540 + Math.Max(0, val1 - 50), 504, 0);
         if (self.detailnr > -1)
         {

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -103,7 +103,7 @@ namespace WindowsApplication1
           flag = true;
         }
         str: String = num1.ToString();
-        let mut num2: i32 =  Math.Round(210.0 - ((double) objgraphics.MeasureString(str, DrawMod.TGame.MarcFont16).Width + 4.0 + 16.0));
+        let mut num2: i32 =  Math.Round(210.0 - ( objgraphics.MeasureString(str, DrawMod.TGame.MarcFont16).Width + 4.0 + 16.0));
         let mut index: i32 = this.eventpicslotZero;
         if (flag)
           index = this.eventpicslotNeg;
@@ -117,7 +117,7 @@ namespace WindowsApplication1
         let mut x2: i32 = num2 + 15;
         DrawMod.DrawTextColouredConsole( objgraphics, str, DrawMod.TGame.MarcFont16, x2, 11, DrawMod.TGame.seColGray);
       }
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
       return this.OwnBitmap;
     }
@@ -183,7 +183,7 @@ namespace WindowsApplication1
           flag = true;
         }
         str: String = num1.ToString();
-        let mut num2: i32 =  Math.Round(210.0 - ((double) objgraphics.MeasureString(str, DrawMod.TGame.MarcFont16).Width + 4.0 + 16.0));
+        let mut num2: i32 =  Math.Round(210.0 - ( objgraphics.MeasureString(str, DrawMod.TGame.MarcFont16).Width + 4.0 + 16.0));
         let mut index: i32 = this.eventpicslotZero;
         if (flag)
           index = this.eventpicslotNeg;
@@ -197,7 +197,7 @@ namespace WindowsApplication1
         let mut x2: i32 = num2 + 15;
         DrawMod.DrawTextColouredConsole( objgraphics, str, DrawMod.TGame.MarcFont16, x2, 11, DrawMod.TGame.seColGray);
       }
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
       {
         objgraphics.Dispose();
         objgraphics = (Graphics) null;

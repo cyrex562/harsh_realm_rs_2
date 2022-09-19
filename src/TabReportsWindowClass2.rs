@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -140,7 +140,7 @@ namespace WindowsApplication1
           else
           {
             let mut num3: i32 = Strings.InStr(self.game.Data.RegimeObj[self.game.Data.Turn].MessString[tdata], "\r\n");
-            if (Information.IsNothing((object) num3) | num3 <= 0)
+            if (Information.IsNothing( num3) | num3 <= 0)
             {
               str = Strings.Left(self.game.Data.RegimeObj[self.game.Data.Turn].MessString[tdata], 50) + "...";
             }
@@ -181,16 +181,16 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList5Obj = self.OptionsList5Obj;
-          let mut tlistsize: i32 =  Math.Round(9.0 + Conversion.Int((double) num2 / 16.0));
+          let mut tlistsize: i32 =  Math.Round(9.0 + Conversion.Int( num2 / 16.0));
           let mut tlistselect2: i32 = tlistselect1;
           let mut game: GameClass = self.game;
            Bitmap local1 =  self.OwnBitmap;
           Font font =  null;
            Font local2 =  font;
           tsubpart =  new ListSubPartClass(optionsList5Obj, tlistsize, 250, tlistselect2, game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( local1), bbx: 25, bby: 17, tMarcStyle: true, overruleFont: ( local2));
-          self.OptionsList5id = self.AddSubPart( tsubpart, 25, 17, 250,  Math.Round((10.0 + Conversion.Int((double) num2 / 16.0)) * 16.0), 0);
+          self.OptionsList5id = self.AddSubPart( tsubpart, 25, 17, 250,  Math.Round((10.0 + Conversion.Int( num2 / 16.0)) * 16.0), 0);
         }
-        Rectangle rectangle = Rectangle::new(25, 17, 250,  Math.Round((10.0 + Conversion.Int((double) num2 / 16.0)) * 16.0));
+        Rectangle rectangle = Rectangle::new(25, 17, 250,  Math.Round((10.0 + Conversion.Int( num2 / 16.0)) * 16.0));
         let mut trect2: &Rectangle = &rectangle
         self.AddMouse( trect2, "List of messages", "Click on a message to read full text");
         if (self.detailnr <= -1)
@@ -208,13 +208,13 @@ namespace WindowsApplication1
             let mut num5: i32 = BitmapStore.Getheight(commanderSpriteId);
             if (num4 > 250)
             {
-              num5 =  Math.Round((double) num5 * (250.0 / (double) num4));
-              num4 =  Math.Round((double) num4 * (250.0 / (double) num4));
+              num5 =  Math.Round( num5 * (250.0 /  num4));
+              num4 =  Math.Round( num4 * (250.0 /  num4));
             }
             if (num5 > 120)
             {
-              num4 =  Math.Round((double) num4 * (120.0 / (double) num5));
-              num5 =  Math.Round((double) num5 * (120.0 / (double) num5));
+              num4 =  Math.Round( num4 * (120.0 /  num5));
+              num5 =  Math.Round( num5 * (120.0 /  num5));
             }
             if (num4 > 64)
             {
@@ -299,8 +299,8 @@ namespace WindowsApplication1
         }
         else if (self.Text2Id == 0)
         {
-          tsubpart =  new TextAreaClass2(self.game, 360 + (self.w - 684),  Math.Round(Conversion.Int((double) (self.h - 100) / 17.0)), self.game.MarcFont8, "[tab]Message," + self.game.Data.RegimeObj[self.game.Data.Turn].MessString[self.detailnr] + "[/tab]", 17,  self.OwnBitmap, 294, 0);
-          self.Text2Id = self.AddSubPart( tsubpart, 294, 0, 360 + (self.w - 684), ( Math.Round(Math.Ceiling((double) (self.h - 100 - 0) / 17.0)) + 1) * 17, 0);
+          tsubpart =  new TextAreaClass2(self.game, 360 + (self.w - 684),  Math.Round(Conversion.Int( (self.h - 100) / 17.0)), self.game.MarcFont8, "[tab]Message," + self.game.Data.RegimeObj[self.game.Data.Turn].MessString[self.detailnr] + "[/tab]", 17,  self.OwnBitmap, 294, 0);
+          self.Text2Id = self.AddSubPart( tsubpart, 294, 0, 360 + (self.w - 684), ( Math.Round(Math.Ceiling( (self.h - 100 - 0) / 17.0)) + 1) * 17, 0);
         }
         else
           self.SubPartFlag[self.SubpartNr(self.Text2Id)] = true;

@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -114,7 +114,7 @@ namespace WindowsApplication1
       this.game.EditObj.TempPeopleSlot = -1;
       if (Operators.CompareString(Strings.Trim(Strings.LCase(this.TData.RuleSetName)), Strings.Trim(Strings.LCase(this.game.Data.RuleSetName)), false) != 0)
       {
-        if (Interaction.MsgBox((object) ("You are attempting to load a library defined with ruleset '" + this.TData.RuleSetName + "'. It is not the same as our currents scenario ruleset '" + this.game.Data.RuleSetName + "'. Combining libraries and simple editor masterfiles from different rulesets can cause problems. Proceed at own risk. Do you want to proceed?"), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+        if (Interaction.MsgBox( ("You are attempting to load a library defined with ruleset '" + this.TData.RuleSetName + "'. It is not the same as our currents scenario ruleset '" + this.game.Data.RuleSetName + "'. Combining libraries and simple editor masterfiles from different rulesets can cause problems. Proceed at own risk. Do you want to proceed?"), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
           this.quitNow = true;
       }
       this.DoStuff();
@@ -276,7 +276,7 @@ namespace WindowsApplication1
         if (flag1)
         {
           num2 += 1;
-          this.LibListObj.add(Conversion.Str((object) index1) + ") " + this.TData.LibraryObj[index1].name, index1);
+          this.LibListObj.add(Conversion.Str( index1) + ") " + this.TData.LibraryObj[index1].name, index1);
           if (this.LibId == index1)
             num1 = num2;
         }
@@ -366,7 +366,7 @@ namespace WindowsApplication1
                 flag8 = true;
               if (this.game.Data.Product == 6 & this.subReg[index] == -1)
                 flag8 = true;
-              this.OpListObj.add(Conversion.Str((object) index) + ") " + this.TData.RegimeObj[index].Name, index, tvalue);
+              this.OpListObj.add(Conversion.Str( index) + ") " + this.TData.RegimeObj[index].Name, index, tvalue);
               if (this.OpId == -1)
                 this.OpId = index;
               if (this.OpId == index)
@@ -412,7 +412,7 @@ namespace WindowsApplication1
                 tvalue = "Subst. with " + this.game.Data.PeopleObj[this.subPpl[index]].Name;
               else if (Strings.InStr(Strings.LCase(this.TData.PeopleObj[index].Name), "only") > 0 & this.subPpl[index] == -1)
                 flag9 = true;
-              this.Op2ListObj.add(Conversion.Str((object) index) + ") " + this.TData.PeopleObj[index].Name, index, tvalue);
+              this.Op2ListObj.add(Conversion.Str( index) + ") " + this.TData.PeopleObj[index].Name, index, tvalue);
               if (this.Op2Id == -1)
                 this.Op2Id = index;
               if (this.Op2Id == index)
@@ -448,7 +448,7 @@ namespace WindowsApplication1
             if (this.subLibAtStart[this.LibId] > -1)
               flag10 = false;
           }
-          this.Op3ListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index, tvalue);
+          this.Op3ListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibraryObj[index].name, index, tvalue);
           if (this.Op3Id == index)
             num11 = num12;
           if (this.Op3Id == -1 & this.subLib[this.LibId] == index)
@@ -600,7 +600,7 @@ namespace WindowsApplication1
             {
               if (num1 == this.Change3Id)
               {
-                if (this.subLib[this.LibId] == this.subLibAtStart[this.LibId] & this.subLibAtStart[this.LibId] > -1 && Interaction.MsgBox((object) "Are you sure? This will cause a duplicate library. ", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+                if (this.subLib[this.LibId] == this.subLibAtStart[this.LibId] & this.subLibAtStart[this.LibId] > -1 && Interaction.MsgBox( "Are you sure? This will cause a duplicate library. ", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
                 {
                   this.DoStuff();
                   windowReturnClass.SetFlag(true);

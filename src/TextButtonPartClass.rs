@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Drawing.Text;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Drawing.Text;
 
 namespace WindowsApplication1
 {
@@ -64,20 +64,20 @@ namespace WindowsApplication1
       : base(twidth, theight)
     {
       if (tfontsize > -1)
-        self.ourfont = Font::new(DrawMod.TGame.FontCol.Families[1], (float) tfontsize, FontStyle.Bold, GraphicsUnit.Pixel);
+        self.ourfont = Font::new(DrawMod.TGame.FontCol.Families[1],  tfontsize, FontStyle.Bold, GraphicsUnit.Pixel);
       self.udsButton = tudsButton;
       self.udsButtonSubType = tudsButtonSubType;
       self.overrule = false;
       self.Descript = tDescript;
-      if (!Information.IsNothing((object) tBackbitmap))
+      if (!Information.IsNothing( tBackbitmap))
       {
         self.backbitmap = new Bitmap(self.OwnBitmap.Width, self.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics Expression = Graphics.FromImage((Image) self.backbitmap);
         Expression.CompositingMode = CompositingMode.SourceCopy;
         Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
         Expression.CompositingMode = CompositingMode.SourceOver;
-        if (!Information.IsNothing((object) Expression))
+        if (!Information.IsNothing( Expression))
           Expression.Dispose();
       }
       self.buttext = buttontext;
@@ -88,9 +88,9 @@ namespace WindowsApplication1
       self.extraS = textras;
       self.marcStyle = tMarcStyle;
       self.tuseshadow = useshadow;
-      if (!Information.IsNothing((object) usefont))
+      if (!Information.IsNothing( usefont))
         self.ourfont = usefont;
-      if (!Information.IsNothing((object) tfont2))
+      if (!Information.IsNothing( tfont2))
         self.ourfont2 = tfont2;
       if (!(toverruleblue > 0 | toverrulegreen > 0 | toverrulered > 0))
         return;
@@ -100,7 +100,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) self.backbitmap))
+      if (Information.IsNothing( self.backbitmap))
         return;
       self.backbitmap.Dispose();
       self.backbitmap = (Bitmap) null;
@@ -110,7 +110,7 @@ namespace WindowsApplication1
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
       {
         Expression.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( Expression,  self.backbitmap, 0, 0);
@@ -417,9 +417,9 @@ namespace WindowsApplication1
         else if (self.inactive & self.marcStyle)
         {
           if (DrawMod.TGame.Data.Product >= 6 & self.red)
-            DrawMod.DrawBlockGradient2( Expression, -1, -1, self.width - 6,  Math.Round((double) self.height - (3.0 + (double) Math.Max(0, self.height - 40) / 7.0)), Color.FromArgb(64, 155, 25, 0), Color.FromArgb(164, 155, 25, 0));
+            DrawMod.DrawBlockGradient2( Expression, -1, -1, self.width - 6,  Math.Round( self.height - (3.0 +  Math.Max(0, self.height - 40) / 7.0)), Color.FromArgb(64, 155, 25, 0), Color.FromArgb(164, 155, 25, 0));
           else
-            DrawMod.DrawBlockGradient2( Expression, 2, 2, self.width - 6,  Math.Round((double) self.height - (3.0 + (double) Math.Max(0, self.height - 40) / 7.0)), Color.FromArgb(128, 0, 0, 0), Color.FromArgb(196, 0, 0, 0));
+            DrawMod.DrawBlockGradient2( Expression, 2, 2, self.width - 6,  Math.Round( self.height - (3.0 +  Math.Max(0, self.height - 40) / 7.0)), Color.FromArgb(128, 0, 0, 0), Color.FromArgb(196, 0, 0, 0));
         }
       }
       Color c = Color.White;
@@ -441,82 +441,82 @@ namespace WindowsApplication1
       if (self.udsButton)
       {
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) (self.width - 6) - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) (self.height + 2) - (double) sizeF2.Height) / 2.0 - 1.0);
+        num =  Math.Round(( (self.width - 6) -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( (self.height + 2) -  sizeF2.Height) / 2.0 - 1.0);
         if (self.udsButtonSubType == 3)
           y1 += 2;
         if (self.inactive)
-          c = Color.FromArgb( Math.Round((double) c.A / 2.0),  c.R,  c.G,  c.B);
+          c = Color.FromArgb( Math.Round( c.A / 2.0),  c.R,  c.G,  c.B);
         DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, num, y1, c);
       }
       else if (!self.marcStyle & !self.tuseshadow)
       {
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) (self.width - 6) - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) (self.height + 2) - (double) sizeF2.Height) / 2.0 - 1.0);
+        num =  Math.Round(( (self.width - 6) -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( (self.height + 2) -  sizeF2.Height) / 2.0 - 1.0);
         DrawMod.DrawTextVic3( Expression, self.buttext, self.ourfont, num, y1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor1Shade);
       }
       else if (self.extraS.Length > 0)
       {
         SizeF sizeF3 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x1: i32 =  Math.Round(2.0 + ((double) self.width - (double) sizeF3.Width) / 2.0);
-        let mut y2: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF3.Height) / 2.0 - 8.0);
+        let mut x1: i32 =  Math.Round(2.0 + ( self.width -  sizeF3.Width) / 2.0);
+        let mut y2: i32 =  Math.Round(2.0 + ( self.height -  sizeF3.Height) / 2.0 - 8.0);
         DrawMod.DrawTextColouredFuzzy( Expression, self.buttext, self.ourfont, x1, y2, Color.FromArgb(200, 0, 0, 0));
         SizeF sizeF4 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x2: i32 =  Math.Round(((double) self.width - (double) sizeF4.Width) / 2.0);
-        let mut y3: i32 =  Math.Round(((double) self.height - (double) sizeF4.Height) / 2.0 - 8.0);
+        let mut x2: i32 =  Math.Round(( self.width -  sizeF4.Width) / 2.0);
+        let mut y3: i32 =  Math.Round(( self.height -  sizeF4.Height) / 2.0 - 8.0);
         DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, x2, y3, c);
         SizeF sizeF5 = Expression.MeasureString(self.extraS, self.ourfont2);
-        let mut x3: i32 =  Math.Round(2.0 + ((double) self.width - (double) sizeF5.Width) / 2.0);
-        let mut y4: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF5.Height) / 2.0 + 8.0);
+        let mut x3: i32 =  Math.Round(2.0 + ( self.width -  sizeF5.Width) / 2.0);
+        let mut y4: i32 =  Math.Round(2.0 + ( self.height -  sizeF5.Height) / 2.0 + 8.0);
         DrawMod.DrawTextColouredFuzzy( Expression, self.extraS, self.ourfont2, x3, y4, Color.FromArgb(200, 0, 0, 0));
         sizeF2 = Expression.MeasureString(self.extraS, self.ourfont2);
-        num =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0 + 8.0);
+        num =  Math.Round(( self.width -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( self.height -  sizeF2.Height) / 2.0 + 8.0);
         DrawMod.DrawTextColouredNicely( Expression, self.extraS, self.ourfont2, num, y1, c);
       }
       else if (self.tuseshadow)
       {
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x: i32 =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0);
-        let mut y5: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF2.Height) / 2.0);
+        let mut x: i32 =  Math.Round(( self.width -  sizeF2.Width) / 2.0);
+        let mut y5: i32 =  Math.Round(2.0 + ( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColouredFuzzy( Expression, self.buttext, self.ourfont, x, y5, Color.FromArgb(200, 0, 0, 0));
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0 - 2.0);
-        y1 =  Math.Round(0.0 + ((double) self.height - (double) sizeF2.Height) / 2.0);
+        num =  Math.Round(( self.width -  sizeF2.Width) / 2.0 - 2.0);
+        y1 =  Math.Round(0.0 + ( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, num, y1, c);
       }
       else
       {
         SizeF sizeF6 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x4: i32 =  Math.Round(((double) self.width - (double) sizeF6.Width) / 2.0);
-        let mut y6: i32 =  Math.Round(((double) self.height - (double) sizeF6.Height) / 2.0 - 1.0);
+        let mut x4: i32 =  Math.Round(( self.width -  sizeF6.Width) / 2.0);
+        let mut y6: i32 =  Math.Round(( self.height -  sizeF6.Height) / 2.0 - 1.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x4, y6, Color.Black);
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x5: i32 =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0);
-        let mut y7: i32 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0 + 1.0);
+        let mut x5: i32 =  Math.Round(( self.width -  sizeF2.Width) / 2.0);
+        let mut y7: i32 =  Math.Round(( self.height -  sizeF2.Height) / 2.0 + 1.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x5, y7, Color.Black);
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x6: i32 =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0 + 1.0);
-        let mut y8: i32 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0);
+        let mut x6: i32 =  Math.Round(( self.width -  sizeF2.Width) / 2.0 + 1.0);
+        let mut y8: i32 =  Math.Round(( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x6, y8, Color.Black);
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x7: i32 =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0 - 1.0);
-        let mut y9: i32 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0);
+        let mut x7: i32 =  Math.Round(( self.width -  sizeF2.Width) / 2.0 - 1.0);
+        let mut y9: i32 =  Math.Round(( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x7, y9, Color.Black);
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0);
+        num =  Math.Round(( self.width -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, num, y1, c);
       }
       if (!self.marcStyle && self.red)
       {
         if (self.height == 26)
-          DrawMod.drawLine( Expression, num,  Math.Round((double) y1 + (double) sizeF2.Height - 1.0),  Math.Round((double) ((float) num + sizeF2.Width)),  Math.Round((double) y1 + (double) sizeF2.Height - 1.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
+          DrawMod.drawLine( Expression, num,  Math.Round( y1 +  sizeF2.Height - 1.0),  Math.Round( ( num + sizeF2.Width)),  Math.Round( y1 +  sizeF2.Height - 1.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
         else
-          DrawMod.drawLine( Expression, num,  Math.Round((double) y1 + (double) sizeF2.Height + 2.0),  Math.Round((double) ((float) num + sizeF2.Width)),  Math.Round((double) y1 + (double) sizeF2.Height + 2.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
+          DrawMod.drawLine( Expression, num,  Math.Round( y1 +  sizeF2.Height + 2.0),  Math.Round( ( num + sizeF2.Width)),  Math.Round( y1 +  sizeF2.Height + 2.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -530,7 +530,7 @@ namespace WindowsApplication1
       if (self.inactive)
         return self.Paint();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
         DrawMod.DrawSimple( Expression,  self.backbitmap, 0, 0);
       Expression.SmoothingMode = SmoothingMode.AntiAlias;
       Expression.TextRenderingHint = TextRenderingHint.AntiAlias;
@@ -825,8 +825,8 @@ namespace WindowsApplication1
       if (self.udsButton)
       {
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) (self.width - 6) - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) (self.height + 2) - (double) sizeF2.Height) / 2.0 - 1.0);
+        num =  Math.Round(( (self.width - 6) -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( (self.height + 2) -  sizeF2.Height) / 2.0 - 1.0);
         if (self.udsButtonSubType == 3)
           y1 += 2;
         DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, num, y1, c);
@@ -834,71 +834,71 @@ namespace WindowsApplication1
       else if (!self.marcStyle & !self.tuseshadow)
       {
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) (self.width - 6) - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) (self.height + 2) - (double) sizeF2.Height) / 2.0 - 1.0);
+        num =  Math.Round(( (self.width - 6) -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( (self.height + 2) -  sizeF2.Height) / 2.0 - 1.0);
         DrawMod.DrawTextVic3( Expression, self.buttext, self.ourfont, num, y1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor1Shade);
       }
       else if (self.extraS.Length > 0)
       {
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x1: i32 =  Math.Round(2.0 + ((double) self.width - (double) sizeF2.Width) / 2.0);
-        let mut y2: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF2.Height) / 2.0 - 8.0);
+        let mut x1: i32 =  Math.Round(2.0 + ( self.width -  sizeF2.Width) / 2.0);
+        let mut y2: i32 =  Math.Round(2.0 + ( self.height -  sizeF2.Height) / 2.0 - 8.0);
         DrawMod.DrawTextColouredFuzzy( Expression, self.buttext, self.ourfont, x1, y2, Color.FromArgb(200, 0, 0, 0));
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x2: i32 =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0);
-        let mut y3: i32 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0 - 8.0);
+        let mut x2: i32 =  Math.Round(( self.width -  sizeF2.Width) / 2.0);
+        let mut y3: i32 =  Math.Round(( self.height -  sizeF2.Height) / 2.0 - 8.0);
         DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, x2, y3, Color.White);
         sizeF2 = Expression.MeasureString(self.extraS, self.ourfont2);
-        let mut x3: i32 =  Math.Round(2.0 + ((double) self.width - (double) sizeF2.Width) / 2.0);
-        let mut y4: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF2.Height) / 2.0 + 8.0);
+        let mut x3: i32 =  Math.Round(2.0 + ( self.width -  sizeF2.Width) / 2.0);
+        let mut y4: i32 =  Math.Round(2.0 + ( self.height -  sizeF2.Height) / 2.0 + 8.0);
         DrawMod.DrawTextColouredFuzzy( Expression, self.extraS, self.ourfont2, x3, y4, Color.FromArgb(200, 0, 0, 0));
         sizeF2 = Expression.MeasureString(self.extraS, self.ourfont2);
-        num =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0 + 8.0);
+        num =  Math.Round(( self.width -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( self.height -  sizeF2.Height) / 2.0 + 8.0);
         DrawMod.DrawTextColouredNicely( Expression, self.extraS, self.ourfont2, num, y1, Color.White);
       }
       else if (self.tuseshadow)
       {
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x: i32 =  Math.Round(0.0 + ((double) self.width - (double) sizeF2.Width) / 2.0);
-        let mut y5: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF2.Height) / 2.0);
+        let mut x: i32 =  Math.Round(0.0 + ( self.width -  sizeF2.Width) / 2.0);
+        let mut y5: i32 =  Math.Round(2.0 + ( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColouredFuzzy( Expression, self.buttext, self.ourfont, x, y5, Color.FromArgb(200, 0, 0, 0));
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0 - 2.0);
-        y1 =  Math.Round(0.0 + ((double) self.height - (double) sizeF2.Height) / 2.0);
+        num =  Math.Round(( self.width -  sizeF2.Width) / 2.0 - 2.0);
+        y1 =  Math.Round(0.0 + ( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, num, y1, c);
       }
       else
       {
         SizeF sizeF3 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x4: i32 =  Math.Round(((double) self.width - (double) sizeF3.Width) / 2.0);
-        let mut y6: i32 =  Math.Round(((double) self.height - (double) sizeF3.Height) / 2.0 - 1.0);
+        let mut x4: i32 =  Math.Round(( self.width -  sizeF3.Width) / 2.0);
+        let mut y6: i32 =  Math.Round(( self.height -  sizeF3.Height) / 2.0 - 1.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x4, y6, Color.Black);
         SizeF sizeF4 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x5: i32 =  Math.Round(((double) self.width - (double) sizeF4.Width) / 2.0);
-        let mut y7: i32 =  Math.Round(((double) self.height - (double) sizeF4.Height) / 2.0 + 1.0);
+        let mut x5: i32 =  Math.Round(( self.width -  sizeF4.Width) / 2.0);
+        let mut y7: i32 =  Math.Round(( self.height -  sizeF4.Height) / 2.0 + 1.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x5, y7, Color.Black);
         SizeF sizeF5 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x6: i32 =  Math.Round(((double) self.width - (double) sizeF5.Width) / 2.0 + 1.0);
-        let mut y8: i32 =  Math.Round(((double) self.height - (double) sizeF5.Height) / 2.0);
+        let mut x6: i32 =  Math.Round(( self.width -  sizeF5.Width) / 2.0 + 1.0);
+        let mut y8: i32 =  Math.Round(( self.height -  sizeF5.Height) / 2.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x6, y8, Color.Black);
         SizeF sizeF6 = Expression.MeasureString(self.buttext, self.ourfont);
-        let mut x7: i32 =  Math.Round(((double) self.width - (double) sizeF6.Width) / 2.0 - 1.0);
-        let mut y9: i32 =  Math.Round(((double) self.height - (double) sizeF6.Height) / 2.0);
+        let mut x7: i32 =  Math.Round(( self.width -  sizeF6.Width) / 2.0 - 1.0);
+        let mut y9: i32 =  Math.Round(( self.height -  sizeF6.Height) / 2.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, x7, y9, Color.Black);
         sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-        num =  Math.Round(((double) self.width - (double) sizeF2.Width) / 2.0);
-        y1 =  Math.Round(((double) self.height - (double) sizeF2.Height) / 2.0);
+        num =  Math.Round(( self.width -  sizeF2.Width) / 2.0);
+        y1 =  Math.Round(( self.height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextColoured( Expression, self.buttext, self.ourfont, num, y1, c);
       }
       if (!self.marcStyle && self.red)
       {
         if (self.height == 26)
-          DrawMod.drawLine( Expression, num,  Math.Round((double) y1 + (double) sizeF2.Height - 1.0),  Math.Round((double) ((float) num + sizeF2.Width)),  Math.Round((double) y1 + (double) sizeF2.Height - 1.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
+          DrawMod.drawLine( Expression, num,  Math.Round( y1 +  sizeF2.Height - 1.0),  Math.Round( ( num + sizeF2.Width)),  Math.Round( y1 +  sizeF2.Height - 1.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
         else
-          DrawMod.drawLine( Expression, num,  Math.Round((double) y1 + (double) sizeF2.Height + 2.0),  Math.Round((double) ((float) num + sizeF2.Width)),  Math.Round((double) y1 + (double) sizeF2.Height + 2.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
+          DrawMod.drawLine( Expression, num,  Math.Round( y1 +  sizeF2.Height + 2.0),  Math.Round( ( num + sizeF2.Width)),  Math.Round( y1 +  sizeF2.Height + 2.0),  DrawMod.TGame.viccolor7.R,  DrawMod.TGame.viccolor7.G,  DrawMod.TGame.viccolor7.B,  DrawMod.TGame.viccolor7.A);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;

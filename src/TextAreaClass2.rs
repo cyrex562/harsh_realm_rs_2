@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -46,7 +46,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) self.backbitmap))
+      if (Information.IsNothing( self.backbitmap))
         return;
       self.backbitmap.Dispose();
       self.backbitmap = (Bitmap) null;
@@ -109,7 +109,7 @@ namespace WindowsApplication1
       }
       if (twidth == 0)
         return;
-      if (!Information.IsNothing((object) tText) && tText.Length > 2)
+      if (!Information.IsNothing( tText) && tText.Length > 2)
       {
         while (tText.IndexOf("\r\n", tText.Length - 2) > 0)
         {
@@ -131,12 +131,12 @@ namespace WindowsApplication1
       self.centerit = tcenterit;
       self.WithoutFrame = tWithoutFrame;
       self.WithoutScrollbars = tWithoutScrollbars;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
-        if (!Information.IsNothing((object) self.backbitmap))
+        if (!Information.IsNothing( self.backbitmap))
           self.backbitmap.Dispose();
         self.backbitmap = new Bitmap(self.OwnBitmap.Width, self.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) self.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -154,7 +154,7 @@ namespace WindowsApplication1
       self.TabCount = -1;
       self.TabName[0] = "";
       let mut num1: i32 = 1;
-      if (Information.IsNothing((object) tText))
+      if (Information.IsNothing( tText))
         tText = "";
       tText = tText.Replace("\t", " ");
       let mut num2: i32 = 0;
@@ -209,15 +209,15 @@ namespace WindowsApplication1
       if (self.useEncy)
       {
         self.encyId = (int[,,]) null;
-        self.encyId = new int[self.TabCount + 1 + 1,  Math.Round((double) (1 + num3) + Math.Ceiling((double) num2 / 20.0)) + 1, 201];
+        self.encyId = new int[self.TabCount + 1 + 1,  Math.Round( (1 + num3) + Math.Ceiling( num2 / 20.0)) + 1, 201];
       }
       else
         self.encyId = (int[,,]) null;
       int[] numArray1 = new int[500];
       self.tStringList = (StringListClass) null;
-      if ((double) self.game.Data.RuleVar[951] > 0.0)
+      if ( self.game.Data.RuleVar[951] > 0.0)
       {
-        let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[951]));
+        let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[951]));
         if (stringListById > -1)
         {
           self.tStringList = self.game.Data.StringListObj[stringListById].Clone();
@@ -300,11 +300,11 @@ namespace WindowsApplication1
               num16 = 0;
               if (num17 != 1)
               {
-                if ((double) graphics.MeasureString(str3 + Strings.Left(tText, num17 - 1), self.OwnFont).Width <= (double) (self.Width - num12))
+                if ( graphics.MeasureString(str3 + Strings.Left(tText, num17 - 1), self.OwnFont).Width <=  (self.Width - num12))
                   str3 += Strings.Left(tText, num17 - 1);
                 else if (self.game.Data.Product >= 6)
                 {
-                  if ((double) graphics.MeasureString(Strings.Left(tText, num17 - 1), self.OwnFont).Width > (double) (self.Width - num12))
+                  if ( graphics.MeasureString(Strings.Left(tText, num17 - 1), self.OwnFont).Width >  (self.Width - num12))
                   {
                     if (Operators.CompareString(str3, "", false) == 0)
                       str3 += Strings.Left(tText, num17 - 1);
@@ -330,7 +330,7 @@ namespace WindowsApplication1
               str4: String = Length <= 0 ? tText : Strings.Left(tText, Length);
               let mut num18: i32 = 0;
               num13 = 0;
-              if ((double) graphics.MeasureString(str3 + str4, self.OwnFont).Width <= (double) (self.Width - num12))
+              if ( graphics.MeasureString(str3 + str4, self.OwnFont).Width <=  (self.Width - num12))
               {
                 num9 = 1;
                 num18 = 1;
@@ -420,7 +420,7 @@ namespace WindowsApplication1
     pub int WidthUsed()
     {
       SizeF sizeF = SizeF::new();
-      return self.ListObj[0].ListCount < 0 ? 0 :  Math.Round((double) Graphics.FromImage((Image) self.OwnBitmap).MeasureString(self.ListObj[0].ListName[0], self.OwnFont).Width);
+      return self.ListObj[0].ListCount < 0 ? 0 :  Math.Round( Graphics.FromImage((Image) self.OwnBitmap).MeasureString(self.ListObj[0].ListName[0], self.OwnFont).Width);
     }
 
     pub void HandleToolTip(int x, int y)
@@ -446,7 +446,7 @@ namespace WindowsApplication1
       SimpleStringList simpleStringList = SimpleStringList::new();
       self.ClearMouse();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
       {
         Expression.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( Expression,  self.backbitmap, 0, 0);
@@ -456,8 +456,8 @@ namespace WindowsApplication1
       {
         if (self.darkerFrame)
         {
-          Color c1 = Color.FromArgb( byte.MaxValue,  Math.Round((double) self.game.MarcCol1.R / 2.0),  Math.Round((double) self.game.MarcCol1.G / 2.0),  Math.Round((double) self.game.MarcCol1.B / 2.0));
-          Color c2 = Color.FromArgb( byte.MaxValue,  Math.Round((double) self.game.MarcCol2.R / 2.0),  Math.Round((double) self.game.MarcCol2.G / 2.0),  Math.Round((double) self.game.MarcCol2.B / 2.0));
+          Color c1 = Color.FromArgb( byte.MaxValue,  Math.Round( self.game.MarcCol1.R / 2.0),  Math.Round( self.game.MarcCol1.G / 2.0),  Math.Round( self.game.MarcCol1.B / 2.0));
+          Color c2 = Color.FromArgb( byte.MaxValue,  Math.Round( self.game.MarcCol2.R / 2.0),  Math.Round( self.game.MarcCol2.G / 2.0),  Math.Round( self.game.MarcCol2.B / 2.0));
           DrawMod.DrawBlockGradient2( Expression, 0, self.ItemSize, self.Width - 10, self.Height - self.ItemSize, c1, c2);
         }
         else
@@ -474,9 +474,9 @@ namespace WindowsApplication1
       {
         self.TabName[index] = Strings.UCase(self.TabName[index]);
         SizeF sizeF2 = index >= self.TabCount ? Expression.MeasureString(self.TabName[index], DrawMod.TGame.MarcFont5) : Expression.MeasureString(self.TabName[index] + " | ", DrawMod.TGame.MarcFont5);
-        num1 =  Math.Round((double) ((float) num1 + sizeF2.Width));
+        num1 =  Math.Round( ( num1 + sizeF2.Width));
       }
-      let mut x1: i32 =  Math.Round(Math.Max(0.0, (double) (self.Width - 10 - num1) / 2.0));
+      let mut x1: i32 =  Math.Round(Math.Max(0.0,  (self.Width - 10 - num1) / 2.0));
       let mut tabCount2: i32 = self.TabCount;
       SizeF sizeF3;
       for (let mut index: i32 = 0; index <= tabCount2; index += 1)
@@ -489,7 +489,7 @@ namespace WindowsApplication1
           {
             DrawMod.DrawTextColouredMarc( Expression, self.TabName[index], DrawMod.TGame.MarcFont5, x1 + 1, 0, DrawMod.TGame.MarcCol5);
             sizeF3 = Expression.MeasureString(self.TabName[index], DrawMod.TGame.MarcFont5);
-            DrawMod.DrawTextColouredMarc( Expression, " | ", DrawMod.TGame.MarcFont5,  Math.Round((double) (x1 + 1) + (double) sizeF3.Width - 4.0), 0, Color.White);
+            DrawMod.DrawTextColouredMarc( Expression, " | ", DrawMod.TGame.MarcFont5,  Math.Round( (x1 + 1) +  sizeF3.Width - 4.0), 0, Color.White);
           }
           sizeF3 = Expression.MeasureString(self.TabName[index] + " | ", DrawMod.TGame.MarcFont5);
         }
@@ -501,8 +501,8 @@ namespace WindowsApplication1
             DrawMod.DrawTextColouredMarc( Expression, self.TabName[index], DrawMod.TGame.MarcFont5, x1 + 1, 0, DrawMod.TGame.MarcCol5);
           sizeF3 = Expression.MeasureString(self.TabName[index], DrawMod.TGame.MarcFont5);
         }
-        self.TabRect[index] = index >= self.TabCount ? Rectangle::new(x1, 0,  Math.Round((double) sizeF3.Width), self.ItemSize) : Rectangle::new(x1, 0,  Math.Round((double) sizeF3.Width - (double) Expression.MeasureString(" | ", DrawMod.TGame.MarcFont5).Width), self.ItemSize);
-        x1 =  Math.Round((double) ((float) x1 + sizeF3.Width));
+        self.TabRect[index] = index >= self.TabCount ? Rectangle::new(x1, 0,  Math.Round( sizeF3.Width), self.ItemSize) : Rectangle::new(x1, 0,  Math.Round( sizeF3.Width -  Expression.MeasureString(" | ", DrawMod.TGame.MarcFont5).Width), self.ItemSize);
+        x1 =  Math.Round( ( x1 + sizeF3.Width));
       }
       let mut num2: i32 = 0;
       let mut num3: i32 = 0;
@@ -528,7 +528,7 @@ namespace WindowsApplication1
           if (self.minimalHeight)
             x2 = 0;
           if (self.centerit)
-            x2 =  Math.Round((double) self.Width / 2.0 - (double) sizeF3.Width / 2.0);
+            x2 =  Math.Round( self.Width / 2.0 -  sizeF3.Width / 2.0);
           int[] ints = new int[200];
           try
           {
@@ -587,7 +587,7 @@ namespace WindowsApplication1
               let mut tdata: i32 = -1;
               if ((str1.Length == 0 | self.game.Data.Product >= 7 | Strings.InStr(str3, "[?") > 0) & num8 == -1 & num7 > -1)
                 num8 = num7;
-              if (!Information.IsNothing((object) self.tStringList) & num8 > 0 && self.tStringList.Width >= 3)
+              if (!Information.IsNothing( self.tStringList) & num8 > 0 && self.tStringList.Width >= 3)
                 tdata =  Math.Round(Conversion.Val(self.tStringList.Data[num8 - 1, 3]));
               int num9;
               int num10;
@@ -601,11 +601,11 @@ namespace WindowsApplication1
               else
               {
                 sizeF3 = Expression.MeasureString(str3, self.OwnFont, 9999, StringFormat.GenericDefault);
-                num9 =  Math.Round((double) sizeF3.Width);
+                num9 =  Math.Round( sizeF3.Width);
                 sizeF3 = Expression.MeasureString("x" + str3 + "x", self.OwnFont, 9999, StringFormat.GenericDefault);
-                num10 =  Math.Round((double) sizeF3.Width);
+                num10 =  Math.Round( sizeF3.Width);
                 sizeF3 = Expression.MeasureString("xx", self.OwnFont, 9999, StringFormat.GenericDefault);
-                num11 =  Math.Round((double) sizeF3.Width);
+                num11 =  Math.Round( sizeF3.Width);
               }
               if (num8 > 0)
               {
@@ -627,7 +627,7 @@ namespace WindowsApplication1
                       DrawMod.DrawBlock( Expression, x2 + num6 + 2, self.ItemSize * num3 + 13 + 1 - num4, num10 - num11 - 4, Math.Max(16, self.ItemSize) - 4,  byte.MaxValue,  byte.MaxValue, 0, 64);
                     DrawMod.DrawRectangle( Expression, x2 + num6 + 2, self.ItemSize * num3 + 13 + 1 - num4, num10 - num11 - 4, Math.Max(16, self.ItemSize) - 4, 0, 0, 0, 224);
                   }
-                  let mut num12: i32 =  Math.Round(0.0 + ((double) num9 / 2.0 - (double) Expression.MeasureString("?", self.OwnFont, 9999, StringFormat.GenericDefault).Width / 2.0));
+                  let mut num12: i32 =  Math.Round(0.0 + ( num9 / 2.0 -  Expression.MeasureString("?", self.OwnFont, 9999, StringFormat.GenericDefault).Width / 2.0));
                   tstring: String = "?";
                   if (!self.shadow)
                     DrawMod.DrawTextColouredNicely( Expression, tstring, self.OwnFont, num12 + x2 + num6, self.ItemSize * num3 + 13 - num4, self.fontColHigh);
@@ -641,12 +641,12 @@ namespace WindowsApplication1
                   {
                     if (simpleStringList.FindNr(str4) == -1)
                     {
-                      DrawMod.DrawBlock( Expression, x2 + num6 + 2, self.ItemSize * num3 + 13 - num4 +  Math.Round((double) self.OwnFont.Height * 0.8), num10 - num11 + 1, 2, 55, 155, 155, 128);
+                      DrawMod.DrawBlock( Expression, x2 + num6 + 2, self.ItemSize * num3 + 13 - num4 +  Math.Round( self.OwnFont.Height * 0.8), num10 - num11 + 1, 2, 55, 155, 155, 128);
                       simpleStringList.Add(str4, 0);
                     }
                   }
                   else
-                    DrawMod.DrawBlock( Expression, x2 + num6 + 2, self.ItemSize * num3 + 13 - num4 +  Math.Round((double) self.OwnFont.Height * 0.8), num10 - num11 + 1, 2, 55, 155, 155, 128);
+                    DrawMod.DrawBlock( Expression, x2 + num6 + 2, self.ItemSize * num3 + 13 - num4 +  Math.Round( self.OwnFont.Height * 0.8), num10 - num11 + 1, 2, 55, 155, 155, 128);
                   if (!self.shadow)
                     DrawMod.DrawTextColouredNicely( Expression, str4, self.OwnFont, x2 + num6, self.ItemSize * num3 + 13 - num4, self.fontColHigh);
                   else
@@ -692,10 +692,10 @@ namespace WindowsApplication1
       if (!self.WithoutScrollbars && self.ListSize < self.ListObj[self.Tab].ListCount)
       {
         let mut num13: i32 = self.Height - (self.ItemSize + 50 + 10);
-        float num14 = self.ListObj[self.Tab].ListCount <= 0 ? 1f : (float) self.TopItem / (float) (self.ListObj[self.Tab].ListCount - self.ListSize);
-        if ((double) num14 > 1.0)
+        float num14 = self.ListObj[self.Tab].ListCount <= 0 ? 1f :  self.TopItem /  (self.ListObj[self.Tab].ListCount - self.ListSize);
+        if ( num14 > 1.0)
           num14 = 1f;
-        let mut num15: i32 =  Math.Round((double) Conversion.Int((float) num13 * num14));
+        let mut num15: i32 =  Math.Round( Conversion.Int( num13 * num14));
         let mut x3: i32 = self.Width - 20;
         let mut num16: i32 = self.ItemSize + 25 + num15;
          let mut local1: &Graphics = &Expression;
@@ -741,7 +741,7 @@ namespace WindowsApplication1
         let mut y3: i32 = num16;
         DrawMod.DrawSimple( local11,  local12, x6, y3);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return self.OwnBitmap;
     }
@@ -802,12 +802,12 @@ namespace WindowsApplication1
       let mut num1: i32 = y;
       if (self.TabCount > 0 & num1 < self.ItemSize)
       {
-        float tabCount = (float) self.TabCount;
-        for (float a = 0.0f; (double) a <= (double) tabCount; a += 1)
+        float tabCount =  self.TabCount;
+        for (float a = 0.0f;  a <=  tabCount; a += 1)
         {
-          if (x >= self.TabRect[ Math.Round((double) a)].X & y >= self.TabRect[ Math.Round((double) a)].Y && x <= self.TabRect[ Math.Round((double) a)].X + self.TabRect[ Math.Round((double) a)].Width & y <= self.TabRect[ Math.Round((double) a)].Y + self.TabRect[ Math.Round((double) a)].Height)
+          if (x >= self.TabRect[ Math.Round( a)].X & y >= self.TabRect[ Math.Round( a)].Y && x <= self.TabRect[ Math.Round( a)].X + self.TabRect[ Math.Round( a)].Width & y <= self.TabRect[ Math.Round( a)].Y + self.TabRect[ Math.Round( a)].Height)
           {
-            self.Tab =  Math.Round((double) a);
+            self.Tab =  Math.Round( a);
             self.TopItem = 0;
             return -1;
           }
@@ -839,7 +839,7 @@ namespace WindowsApplication1
         let mut num3: i32 = num1 - (self.ItemSize + 25);
         if (num3 < 1)
           num3 = 1;
-        self.TopItem =  Math.Round((double) ((float) num3 / (float) num2 * (float) (self.ListObj[self.Tab].ListCount - (self.ListSize - 1))));
+        self.TopItem =  Math.Round( ( num3 /  num2 *  (self.ListObj[self.Tab].ListCount - (self.ListSize - 1))));
         if (self.TopItem > self.ListObj[self.Tab].ListCount - self.ListSize)
           self.TopItem = self.ListObj[self.Tab].ListCount - self.ListSize;
         if (0 > self.TopItem)
@@ -861,7 +861,7 @@ namespace WindowsApplication1
       let mut num3: i32 = num1 - (self.ItemSize + 25);
       if (num3 < 1)
         num3 = 1;
-      self.TopItem =  Math.Round((double) ((float) num3 / (float) num2 * (float) (self.ListObj[self.Tab].ListCount - (self.ListSize - 1))));
+      self.TopItem =  Math.Round( ( num3 /  num2 *  (self.ListObj[self.Tab].ListCount - (self.ListSize - 1))));
       if (self.TopItem > self.ListObj[self.Tab].ListCount - self.ListSize)
         self.TopItem = self.ListObj[self.Tab].ListCount - self.ListSize;
       if (0 > self.TopItem)

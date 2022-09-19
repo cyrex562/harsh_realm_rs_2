@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -235,7 +235,7 @@ namespace WindowsApplication1
       for (let mut index: i32 =  0; index <= elementCounter3; index += 1)
       {
         if (this.element[index].type == DynamicType.TextField && this.element[index].fontSize > 0 & this.element[index].lineHeight < 1)
-          this.element[index].lineHeight =  Math.Round(1.2 * (double) this.element[index].fontSize);
+          this.element[index].lineHeight =  Math.Round(1.2 *  this.element[index].fontSize);
       }
     }
   }

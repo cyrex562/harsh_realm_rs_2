@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -347,7 +347,7 @@ namespace WindowsApplication1
         this.regimeCredits = useRegimeId <= -1 ? Math.Max(0,  Math.Round(Conversion.Val(DrawMod.TGame.Data.StringListObj[this.slotRegimeKeys].GetData2(0, this.currentRegimeId, 1, "credits", 2)))) : Math.Max(0,  Math.Round(Conversion.Val(DrawMod.TGame.Data.StringListObj[this.slotRegimeKeys].GetData2(0, useRegimeId, 1, "credits", 2))));
       if (this.locNr > -1)
       {
-        if (Information.IsNothing((object) DrawMod.TGame.Data.LocObj[this.locNr].items))
+        if (Information.IsNothing( DrawMod.TGame.Data.LocObj[this.locNr].items))
           DrawMod.TGame.Data.LocObj[this.locNr].items = ItemList::new();
         let mut nr1: i32 =  DrawMod.TGame.Data.LocObj[this.locNr].items.list.FindNr(7);
         this.food = nr1 <= -1 ? 0 : DrawMod.TGame.Data.LocObj[this.locNr].items.list.Weight[nr1];

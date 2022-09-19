@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -113,7 +113,7 @@ namespace WindowsApplication1
         this.ItemTypeListObj = ListClass::new();
         let mut itemTypeCounter: i32 =  this.game.Data.ItemTypeCounter;
         for (let mut index: i32 =  0; index <= itemTypeCounter; index += 1)
-          this.ItemTypeListObj.add(Strings.Trim(Conversion.Str((object) index)) + ") " + this.game.Data.ItemTypeObj[index].Name, index);
+          this.ItemTypeListObj.add(Strings.Trim(Conversion.Str( index)) + ") " + this.game.Data.ItemTypeObj[index].Name, index);
         ListClass itemTypeListObj = this.ItemTypeListObj;
         let mut tlistselect: i32 =  tItemTypenr;
         let mut game: GameClass = this.game;
@@ -301,7 +301,7 @@ namespace WindowsApplication1
         let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B1Id = this.AddSubPart( tsubpart2, 10, 610, 32, 16, 1);
       }
-      let mut tsubpart3: SubPartClass =  TextPartClass::new("IsSupply: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].IsSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart3: SubPartClass =  TextPartClass::new("IsSupply: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].IsSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B1TextId = this.AddSubPart( tsubpart3, 50, 609, 200, 20, 0);
       this.ss = "Click to set the itemtypegroup this itemtype belongs to";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -309,7 +309,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B2Id = this.AddSubPart( tsubpart3, 370, 70, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("ItemType Group #: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].ItemGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("ItemType Group #: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].ItemGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B2TextId = this.AddSubPart( tsubpart3, 410, 69, 400, 20, 0);
       let mut index2: i32 =  0;
       do
@@ -325,7 +325,7 @@ namespace WindowsApplication1
         }
         string txt1;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2] > -1)
-          txt1 = "GameSlot: " + this.game.Data.GameSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2]] + "(" + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2]) + ") = " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeededQty[index2]);
+          txt1 = "GameSlot: " + this.game.Data.GameSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2]] + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeeded[index2]) + ") = " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].GameSlotsNeededQty[index2]);
         else
           txt1 = "No GameSlot Needed";
         int[] bgameslottextid = this.Bgameslottextid;
@@ -344,7 +344,7 @@ namespace WindowsApplication1
         }
         string txt2;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2] > -1)
-          txt2 = "RegimeSlot: " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2]] + "(" + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2]) + ") = " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeededQty[index2]);
+          txt2 = "RegimeSlot: " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2]] + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeeded[index2]) + ") = " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsNeededQty[index2]);
         else
           txt2 = "No RegimeSlot Needed";
         int[] bregimeslottextid = this.Bregimeslottextid;
@@ -363,7 +363,7 @@ namespace WindowsApplication1
         }
         string txt3;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2] > -1)
-          txt3 = "RegimeSlotCost: " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2]] + "(" + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2]) + ") = " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCostQty[index2]);
+          txt3 = "RegimeSlotCost: " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2]] + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCost[index2]) + ") = " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSlotsCostQty[index2]);
         else
           txt3 = "No RegimeSlotCost Needed";
         int[] bregimeslotcosttextid = this.Bregimeslotcosttextid;
@@ -382,7 +382,7 @@ namespace WindowsApplication1
         }
         string txt4;
         if (this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2] > -1)
-          txt4 = "ResField: " + this.game.Data.ResearchObj[this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2]].Name + "(" + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2]) + ") ";
+          txt4 = "ResField: " + this.game.Data.ResearchObj[this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2]].Name + "(" + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].ResFieldNeeded[index2]) + ") ";
         else
           txt4 = "No Research needed";
         int[] bresTextId = this.BResTextId;
@@ -399,7 +399,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B5Id = this.AddSubPart( tsubpart3, 370, 430, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("Production Cost: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].ProdWeight), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("Production Cost: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].ProdWeight), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B5TextId = this.AddSubPart( tsubpart3, 410, 429, 400, 20, 0);
       this.ss = "Click to toggle on/off if this itemtype is a Political Point";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -407,7 +407,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B8Id = this.AddSubPart( tsubpart3, 370, 550, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("IsPolPt: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].IsResPt), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("IsPolPt: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].IsResPt), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B8TextId = this.AddSubPart( tsubpart3, 410, 549, 400, 20, 0);
       this.ss = "Click to set a possible production multiplier. Or the ammount of this polpt/supply/sftype that is produced when 1 instance of this itemtype is produced.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -415,7 +415,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B9Id = this.AddSubPart( tsubpart3, 370, 570, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("ProdMultiplier: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].Multiplier), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("ProdMultiplier: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].Multiplier), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B9TextId = this.AddSubPart( tsubpart3, 410, 569, 400, 20, 0);
       this.ss = "Click to set the SFType that is created when this itemtype is produced. -1=no sftype";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -430,7 +430,7 @@ namespace WindowsApplication1
       }
       else if (this.game.Data.ItemTypeObj[this.ItemTypeNr].IsSFType <= this.game.Data.SFTypeCounter)
       {
-        tsubpart3 =  TextPartClass::new("IsSFType#: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].IsSFType) + "," + this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[this.ItemTypeNr].IsSFType].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        tsubpart3 =  TextPartClass::new("IsSFType#: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].IsSFType) + "," + this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[this.ItemTypeNr].IsSFType].Name, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.B10TextId = this.AddSubPart( tsubpart3, 410, 589, 400, 20, 0);
       }
       this.ss = "Click to set which itemtype should be blocked from the production list if it is possible to produce this itemtype";
@@ -455,7 +455,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B12Id = this.AddSubPart( tsubpart3, 370, 630, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("IsRegimeSlot: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].IsRegimeSlot), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("IsRegimeSlot: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].IsRegimeSlot), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B12TextId = this.AddSubPart( tsubpart3, 410, 629, 400, 20, 0);
       this.ss = "Click to set if graphics of itemtype should be overruled by specific SFType (dummies can be made)";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -463,7 +463,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B14Id = this.AddSubPart( tsubpart3, 370, 650, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("UseSFTypeGraphic: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].UseSFType), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("UseSFTypeGraphic: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].UseSFType), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B14TextId = this.AddSubPart( tsubpart3, 410, 649, 400, 20, 0);
       this.ss = "extra XP points +/-";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -471,7 +471,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B15Id = this.AddSubPart( tsubpart3, 810, 110, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("XpMod: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].XpMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("XpMod: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].XpMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B15TextId = this.AddSubPart( tsubpart3, 850, 109, 400, 20, 0);
       this.ss = "extra morale points +/-";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -479,7 +479,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B16Id = this.AddSubPart( tsubpart3, 810, 130, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("MorMod: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].MorMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("MorMod: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].MorMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B16TextId = this.AddSubPart( tsubpart3, 850, 129, 400, 20, 0);
       this.ss = "-1=no mod";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -487,7 +487,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B17Id = this.AddSubPart( tsubpart3, 810, 150, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("PeopleMod: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].PeopleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("PeopleMod: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].PeopleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B17TextId = this.AddSubPart( tsubpart3, 850, 149, 400, 20, 0);
       this.ss = "-1=no mod";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -495,7 +495,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B18Id = this.AddSubPart( tsubpart3, 810, 170, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("MoveTypeMod: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].MoveTypeMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("MoveTypeMod: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].MoveTypeMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B18TextId = this.AddSubPart( tsubpart3, 850, 169, 400, 20, 0);
       this.ss = "Set Regime Specific setting. -1=all. >-1 = a specific regime only. -2= none";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -503,7 +503,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B19Id = this.AddSubPart( tsubpart3, 810, 190, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("RegimeSpecific: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSpecific), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("RegimeSpecific: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].RegimeSpecific), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B19TextId = this.AddSubPart( tsubpart3, 850, 189, 400, 20, 0);
       this.ss = "Set Prod Mod to use (1,2,3,4) (old 0=seen as 1)";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -511,7 +511,7 @@ namespace WindowsApplication1
         tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B20Id = this.AddSubPart( tsubpart3, 810, 210, 32, 16, 1);
       }
-      tsubpart3 =  TextPartClass::new("UseProdMod: " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].UseProdMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart3 =  TextPartClass::new("UseProdMod: " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].UseProdMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B20TextId = this.AddSubPart( tsubpart3, 850, 209, 400, 20, 0);
       this.ss = "Click to remove this itemtype";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -555,7 +555,7 @@ namespace WindowsApplication1
       let mut index11: i32 =  0;
       do
       {
-        this.PGListObj.add(Conversion.Str((object) index11) + ") " + this.game.Data.TempString[index11 + 200] + " = " + Conversion.Str((object) this.game.Data.ItemTypeObj[this.ItemTypeNr].PeopleGroup[index11]), index11);
+        this.PGListObj.add(Conversion.Str( index11) + ") " + this.game.Data.TempString[index11 + 200] + " = " + Conversion.Str( this.game.Data.ItemTypeObj[this.ItemTypeNr].PeopleGroup[index11]), index11);
         index11 += 1;
       }
       while (index11 <= 99);
@@ -646,7 +646,7 @@ label_106:
               let mut num3: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new prodweight, please.", "Shadow Empire : Planetary Conquest")));
               if (num3 < 0 | num3 > 99999)
               {
-                let mut num4: i32 =   Interaction.MsgBox((object) "Between 0 and 99999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =   Interaction.MsgBox( "Between 0 and 99999 please. ", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].ProdWeight = num3;
@@ -683,7 +683,7 @@ label_106:
               let mut num5: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give new multiplier, please.", "Shadow Empire : Planetary Conquest")));
               if (num5 < 1 | num5 > 99999)
               {
-                let mut num6: i32 =   Interaction.MsgBox((object) "Between 1 and 99999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =   Interaction.MsgBox( "Between 1 and 99999 please. ", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].Multiplier = num5;
@@ -714,7 +714,7 @@ label_106:
               let mut num7: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give which regime slot is raised +1 please.", "Shadow Empire : Planetary Conquest")));
               if (num7 < -1 | num7 > 499)
               {
-                let mut num8: i32 =   Interaction.MsgBox((object) "Between -1 and 499 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =   Interaction.MsgBox( "Between -1 and 499 please. ", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].IsRegimeSlot = num7;
@@ -745,7 +745,7 @@ label_106:
               let mut num9: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give XP Modifier", "Shadow Empire : Planetary Conquest")));
               if (num9 < -999 | num9 > 999)
               {
-                let mut num10: i32 =   Interaction.MsgBox((object) "Between -999 and 999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num10: i32 =   Interaction.MsgBox( "Between -999 and 999 please. ", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].XpMod = num9;
@@ -762,7 +762,7 @@ label_106:
               }
               else
               {
-                let mut num12: i32 =   Interaction.MsgBox((object) "Between -2 and regimecount please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num12: i32 =   Interaction.MsgBox( "Between -2 and regimecount please. ", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeItemTypeTypeItemGUI();
               windowReturnClass.SetFlag(true);
@@ -777,7 +777,7 @@ label_106:
               }
               else
               {
-                let mut num14: i32 =   Interaction.MsgBox((object) "Between 1 and 4 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num14: i32 =   Interaction.MsgBox( "Between 1 and 4 please. ", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeItemTypeTypeItemGUI();
               windowReturnClass.SetFlag(true);
@@ -788,7 +788,7 @@ label_106:
               let mut num15: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Mor Modifier", "Shadow Empire : Planetary Conquest")));
               if (num15 < -999 | num15 > 999)
               {
-                let mut num16: i32 =   Interaction.MsgBox((object) "Between -999 and 999 please. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num16: i32 =   Interaction.MsgBox( "Between -999 and 999 please. ", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.ItemTypeObj[this.ItemTypeNr].MorMod = num15;
@@ -845,7 +845,7 @@ label_106:
                 let mut num19: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new value needed for this slot", "Shadow Empire : Planetary Conquest")));
                 if (num18 < -1 | num18 > 499)
                 {
-                  let mut num20: i32 =   Interaction.MsgBox((object) "Regime Slot # Between -1 and 499 please..", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num20: i32 =   Interaction.MsgBox( "Regime Slot # Between -1 and 499 please..", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -862,7 +862,7 @@ label_106:
                 let mut num22: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new ammount of points needed from this regimeslot in order to produce", "Shadow Empire : Planetary Conquest")));
                 if (num21 < -1 | num21 > 499 & num22 > 0)
                 {
-                  let mut num23: i32 =   Interaction.MsgBox((object) "Regime Slot # Between -1 and 499 please.. and qty>0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num23: i32 =   Interaction.MsgBox( "Regime Slot # Between -1 and 499 please.. and qty>0", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -887,7 +887,7 @@ label_106:
             let mut num25: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("QTY: Give new value needed for this slot", "Shadow Empire : Planetary Conquest")));
             if (num24 < -1 | num24 > 499)
             {
-              let mut num26: i32 =   Interaction.MsgBox((object) "Game slot # Between -1 and 499 please..", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num26: i32 =   Interaction.MsgBox( "Game slot # Between -1 and 499 please..", Title: ( "Shadow Empire : Planetary Conquest"));
             }
             else
             {

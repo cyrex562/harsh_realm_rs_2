@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -54,11 +54,11 @@ namespace WindowsApplication1
       Application.DoEvents();
     }
 
-    pub HasOwnBitmap: bool() => !Information.IsNothing((object) this.OwnBitmap);
+    pub HasOwnBitmap: bool() => !Information.IsNothing( this.OwnBitmap);
 
     pub int GetMemorySize()
     {
-      let mut memorySize: i32 =  Math.Round((double) (64 * this.OwnBitmap.Width * this.OwnBitmap.Height) / 8000.0);
+      let mut memorySize: i32 =  Math.Round( (64 * this.OwnBitmap.Width * this.OwnBitmap.Height) / 8000.0);
       let mut windowCounter: i32 = this.WindowCounter;
       for (let mut index: i32 = 0; index <= windowCounter; index += 1)
         memorySize += this.WindowList[index].GetMemorySize();
@@ -67,20 +67,20 @@ namespace WindowsApplication1
 
     pub void RefreshOwnBackground(int backgroundsprite)
     {
-      if (Information.IsNothing((object) this.OwnBackground))
+      if (Information.IsNothing( this.OwnBackground))
       {
         this.OwnBackground = new Bitmap(this.Game.ScreenWidth, this.Game.ScreenHeight, PixelFormat.Format32bppPArgb);
-        this.OwnBackground.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.OwnBackground.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       }
       Graphics graphics = Graphics.FromImage((Image) this.OwnBackground);
       if (BitmapStore.GetWidth(backgroundsprite) <= 512)
       {
         let mut width: i32 = BitmapStore.GetWidth(backgroundsprite);
         let mut num1: i32 = BitmapStore.Getheight(backgroundsprite);
-        let mut num2: i32 =  Math.Round(Conversion.Int((double) this.Game.ScreenWidth / (double) width));
+        let mut num2: i32 =  Math.Round(Conversion.Int( this.Game.ScreenWidth /  width));
         for (let mut index1: i32 = 0; index1 <= num2; index1 += 1)
         {
-          let mut num3: i32 =  Math.Round(Conversion.Int((double) this.Game.ScreenHeight / (double) num1));
+          let mut num3: i32 =  Math.Round(Conversion.Int( this.Game.ScreenHeight /  num1));
           for (let mut index2: i32 = 0; index2 <= num3; index2 += 1)
           {
              let mut local1: &Graphics = &graphics;
@@ -98,18 +98,18 @@ namespace WindowsApplication1
       {
         let mut width: i32 = BitmapStore.GetWidth(backgroundsprite);
         let mut num4: i32 = BitmapStore.Getheight(backgroundsprite);
-        float num5 = (float) this.Game.ScreenWidth / (float) width;
-        float num6 = (float) this.Game.ScreenHeight / (float) num4;
-        if ((double) num5 != (double) num6)
+        float num5 =  this.Game.ScreenWidth /  width;
+        float num6 =  this.Game.ScreenHeight /  num4;
+        if ( num5 !=  num6)
         {
-          if ((double) num5 > (double) num6)
+          if ( num5 >  num6)
             num6 = num5;
           else
             num5 = num6;
-          let mut num7: i32 =  Math.Round((double) ((float) width * num5));
-          let mut num8: i32 =  Math.Round((double) ((float) num4 * num6));
-          let mut num9: i32 =  Math.Round(0.0 + (double) (this.Game.ScreenWidth - num7) / 2.0);
-          let mut num10: i32 =  Math.Round(0.0 + (double) (this.Game.ScreenHeight - num8) / 2.0);
+          let mut num7: i32 =  Math.Round( ( width * num5));
+          let mut num8: i32 =  Math.Round( ( num4 * num6));
+          let mut num9: i32 =  Math.Round(0.0 +  (this.Game.ScreenWidth - num7) / 2.0);
+          let mut num10: i32 =  Math.Round(0.0 +  (this.Game.ScreenHeight - num8) / 2.0);
           if (num9 > 0)
           {
             num7 += num9;
@@ -143,10 +143,10 @@ namespace WindowsApplication1
           DrawMod.DrawScaled( local5,  local6, 0, 0, screenWidth, screenHeight);
         }
       }
-      if (Information.IsNothing((object) this.OwnBitmap))
+      if (Information.IsNothing( this.OwnBitmap))
       {
         this.OwnBitmap = new Bitmap(this.Game.ScreenWidth, this.Game.ScreenHeight, PixelFormat.Format32bppPArgb);
-        this.OwnBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.OwnBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       }
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       objGraphics.CompositingMode = CompositingMode.SourceCopy;
@@ -154,7 +154,7 @@ namespace WindowsApplication1
       objGraphics.CompositingMode = CompositingMode.SourceOver;
       this.WindowCounter = -1;
       this.WindowIDCounter = 0;
-      if (Information.IsNothing((object) objGraphics))
+      if (Information.IsNothing( objGraphics))
         return;
       objGraphics.Dispose();
     }
@@ -164,12 +164,12 @@ namespace WindowsApplication1
       this.Game = tGame;
       this.FormRef = tFormRef;
       this.OwnBackground = new Bitmap(this.Game.ScreenWidth, this.Game.ScreenHeight, PixelFormat.Format32bppPArgb);
-      this.OwnBackground.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.OwnBackground.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBackground);
       switch (backgroundsprite)
       {
         case -4:
-          if (Strings.Len(tGame.EditObj.CampaignRoomTitle) > 0 & (double) this.Game.Data.RuleVar[839] == 0.0)
+          if (Strings.Len(tGame.EditObj.CampaignRoomTitle) > 0 &  this.Game.Data.RuleVar[839] == 0.0)
           {
             DrawMod.DrawBlock( Expression, 0, 0, this.Game.ScreenWidth, this.Game.ScreenHeight, 0, 0, 0,  byte.MaxValue);
             break;
@@ -191,10 +191,10 @@ namespace WindowsApplication1
           {
             let mut width: i32 = BitmapStore.GetWidth(backgroundsprite);
             let mut num1: i32 = BitmapStore.Getheight(backgroundsprite);
-            let mut num2: i32 =  Math.Round(Conversion.Int((double) this.Game.ScreenWidth / (double) width));
+            let mut num2: i32 =  Math.Round(Conversion.Int( this.Game.ScreenWidth /  width));
             for (let mut index1: i32 = 0; index1 <= num2; index1 += 1)
             {
-              let mut num3: i32 =  Math.Round(Conversion.Int((double) this.Game.ScreenHeight / (double) num1));
+              let mut num3: i32 =  Math.Round(Conversion.Int( this.Game.ScreenHeight /  num1));
               for (let mut index2: i32 = 0; index2 <= num3; index2 += 1)
               {
                  let mut local1: &Graphics = &Expression;
@@ -211,18 +211,18 @@ namespace WindowsApplication1
           }
           let mut width1: i32 = BitmapStore.GetWidth(backgroundsprite);
           let mut num4: i32 = BitmapStore.Getheight(backgroundsprite);
-          float num5 = (float) this.Game.ScreenWidth / (float) width1;
-          float num6 = (float) this.Game.ScreenHeight / (float) num4;
-          if ((double) num5 != (double) num6)
+          float num5 =  this.Game.ScreenWidth /  width1;
+          float num6 =  this.Game.ScreenHeight /  num4;
+          if ( num5 !=  num6)
           {
-            if ((double) num5 > (double) num6)
+            if ( num5 >  num6)
               num6 = num5;
             else
               num5 = num6;
-            let mut num7: i32 =  Math.Round((double) ((float) width1 * num5));
-            let mut num8: i32 =  Math.Round((double) ((float) num4 * num6));
-            let mut num9: i32 =  Math.Round(0.0 + (double) (this.Game.ScreenWidth - num7) / 2.0);
-            let mut num10: i32 =  Math.Round(0.0 + (double) (this.Game.ScreenHeight - num8) / 2.0);
+            let mut num7: i32 =  Math.Round( ( width1 * num5));
+            let mut num8: i32 =  Math.Round( ( num4 * num6));
+            let mut num9: i32 =  Math.Round(0.0 +  (this.Game.ScreenWidth - num7) / 2.0);
+            let mut num10: i32 =  Math.Round(0.0 +  (this.Game.ScreenHeight - num8) / 2.0);
             if (num9 > 0)
             {
               num7 += num9;
@@ -256,14 +256,14 @@ namespace WindowsApplication1
           break;
       }
       this.OwnBitmap = new Bitmap(this.Game.ScreenWidth, this.Game.ScreenHeight, PixelFormat.Format32bppPArgb);
-      this.OwnBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.OwnBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Expression = Graphics.FromImage((Image) this.OwnBitmap);
       Expression.CompositingMode = CompositingMode.SourceCopy;
       DrawMod.DrawSimpleFast( Expression,  this.OwnBackground,  this.OwnBitmap, 0, 0);
       Expression.CompositingMode = CompositingMode.SourceOver;
       this.WindowCounter = -1;
       this.WindowIDCounter = 0;
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -352,15 +352,15 @@ namespace WindowsApplication1
     pub virtual Bitmap Paint(bool onlyToolTip = false)
     {
       bool flag1 = false;
-      if (Information.IsNothing((object) this.OwnBitmap))
+      if (Information.IsNothing( this.OwnBitmap))
       {
         this.OwnBitmap = new Bitmap(this.Game.ScreenWidth, this.Game.ScreenHeight, PixelFormat.Format32bppPArgb);
-        this.OwnBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.OwnBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       }
-      if (Information.IsNothing((object) this.OwnBackground))
+      if (Information.IsNothing( this.OwnBackground))
       {
         this.OwnBackground = new Bitmap(this.Game.ScreenWidth, this.Game.ScreenHeight, PixelFormat.Format32bppPArgb);
-        this.OwnBackground.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.OwnBackground.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       }
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (this.LastToolTipRect.Width > 0)
@@ -401,7 +401,7 @@ namespace WindowsApplication1
         int num;
         for (let mut index: i32 = 0; index <= windowCounter1; index += 1)
         {
-          if (!Information.IsNothing((object) this.WindowList[index]) && Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) == 0 | Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0 && this.WindowFlag[index])
+          if (!Information.IsNothing( this.WindowList[index]) && Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) == 0 | Operators.CompareString(this.WindowList[index].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0 && this.WindowFlag[index])
           {
             graphics.CompositingMode = CompositingMode.SourceCopy;
             if (this.WindowList[index].DoShowRect)
@@ -424,12 +424,12 @@ namespace WindowsApplication1
         let mut windowCounter2: i32 = this.WindowCounter;
         for (let mut index1: i32 = 0; index1 <= windowCounter2; index1 += 1)
         {
-          if (!Information.IsNothing((object) this.WindowList[index1]))
+          if (!Information.IsNothing( this.WindowList[index1]))
           {
             if (!(Operators.CompareString(this.WindowList[index1].GetType().FullName, "WindowsApplication1.MapWindowClass2", false) == 0 | Operators.CompareString(this.WindowList[index1].GetType().FullName, "WindowsApplication1.MapWindowClass", false) == 0) && this.WindowFlag[index1])
             {
               Rectangle rectangle1;
-              if (!Information.IsNothing((object) this.WindowList[index1].LowerWindow) | this.WindowList[index1].BlockBlit)
+              if (!Information.IsNothing( this.WindowList[index1].LowerWindow) | this.WindowList[index1].BlockBlit)
               {
                 graphics.CompositingMode = CompositingMode.SourceCopy;
                  let mut local1: &Graphics = &graphics;
@@ -508,8 +508,8 @@ namespace WindowsApplication1
                 let mut w: i32 = this.WindowW[index1] - 10;
                 let mut h: i32 = this.WindowH[index1] - 10;
                 DrawMod.DrawRectangle( graphics, this.WindowX[index1], this.WindowY[index1], w, h,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-                DrawMod.drawLine( graphics,  Math.Round((double) this.WindowX[index1] + (double) w / 2.0), this.WindowY[index1],  Math.Round((double) this.WindowX[index1] + (double) w / 2.0), this.WindowY[index1] + h,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
-                DrawMod.drawLine( graphics, this.WindowX[index1],  Math.Round((double) this.WindowY[index1] + (double) h / 2.0), this.WindowX[index1] + w,  Math.Round((double) this.WindowY[index1] + (double) h / 2.0),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+                DrawMod.drawLine( graphics,  Math.Round( this.WindowX[index1] +  w / 2.0), this.WindowY[index1],  Math.Round( this.WindowX[index1] +  w / 2.0), this.WindowY[index1] + h,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+                DrawMod.drawLine( graphics, this.WindowX[index1],  Math.Round( this.WindowY[index1] +  h / 2.0), this.WindowX[index1] + w,  Math.Round( this.WindowY[index1] +  h / 2.0),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
               }
             }
             if (Operators.CompareString(this.WindowList[index1].GetType().FullName, "WindowsApplication1.UnitSelectWindowClass2", false) == 0)
@@ -662,7 +662,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) this.Game.EditObj.TipText))
+      if (Information.IsNothing( this.Game.EditObj.TipText))
         this.Game.EditObj.TipText = "";
       if (this.Game.EditObj.TipText.Length > 0 & this.Game.ModIntroType >= 1)
       {
@@ -680,7 +680,7 @@ namespace WindowsApplication1
         str2: String = this.Game.EditObj.TipText;
         str3: String = "";
         let mut num3: i32 = 0;
-        if (Information.IsNothing((object) str2))
+        if (Information.IsNothing( str2))
           str2 = "";
         while (str2.Length > 0)
         {
@@ -711,17 +711,17 @@ namespace WindowsApplication1
         SizeF sizeF3 = !flag2 ? graphics.MeasureString(str3, this.Game.MarcFont4) : graphics.MeasureString(str3, this.Game.MarcFont4b);
         let mut x1: i32 = this.FormRef.LastTipX + 20;
         let mut num4: i32 = this.FormRef.LastTipY + 20;
-        let mut num5: i32 =  Math.Round((double) (sizeF3.Width + 4f));
-        let mut h: i32 =  Math.Round((double) (sizeF3.Height + 4f));
+        let mut num5: i32 =  Math.Round( (sizeF3.Width + 4f));
+        let mut h: i32 =  Math.Round( (sizeF3.Height + 4f));
         if (str1.Length > 0)
         {
           sizeF2 = !flag2 ? graphics.MeasureString(str1, this.Game.MarcFont4) : graphics.MeasureString(str1, this.Game.MarcFont4b);
-          h =  Math.Round((double) ((float) (h + 4) + sizeF2.Height));
+          h =  Math.Round( ( (h + 4) + sizeF2.Height));
         }
         float width = sizeF3.Width;
-        if ((double) sizeF2.Width > (double) width)
+        if ( sizeF2.Width >  width)
           width = sizeF2.Width;
-        let mut num6: i32 =  Math.Round((double) (width + 4f));
+        let mut num6: i32 =  Math.Round( (width + 4f));
         if (x1 + num6 > this.Game.ScreenWidth - 64)
           x1 -= x1 + num6 - (this.Game.ScreenWidth - 64);
         if (num4 + h > this.Game.ScreenHeight - 32)
@@ -760,18 +760,18 @@ namespace WindowsApplication1
         }
         if (str1.Length > 0)
         {
-          DrawMod.DrawBlock( graphics, x1 - 16, num4, num6 + 32,  Math.Round((double) (sizeF2.Height + 4f)), r1, g1, b1,  byte.MaxValue);
-          DrawMod.DrawBlock( graphics, x1 - 16,  Math.Round((double) num4 + (double) sizeF2.Height + 4.0), num6 + 32,  Math.Round((double) h - ((double) sizeF2.Height + 4.0) + 16.0), r2, g2, b2,  byte.MaxValue);
+          DrawMod.DrawBlock( graphics, x1 - 16, num4, num6 + 32,  Math.Round( (sizeF2.Height + 4f)), r1, g1, b1,  byte.MaxValue);
+          DrawMod.DrawBlock( graphics, x1 - 16,  Math.Round( num4 +  sizeF2.Height + 4.0), num6 + 32,  Math.Round( h - ( sizeF2.Height + 4.0) + 16.0), r2, g2, b2,  byte.MaxValue);
           if (flag2)
           {
             DrawMod.DrawTextColouredNicely( graphics, str1, this.Game.MarcFont16, x1 + 2, num4 + 2, Color.FromArgb( byte.MaxValue, num7, num8, num9));
-            DrawMod.DrawTextColouredNicely( graphics, str3, this.Game.MarcFont4b, x1 + 3,  Math.Round((double) ((float) (num4 + 6 + 8) + sizeF2.Height)), Color.FromArgb(178, 0, 0, 0));
-            DrawMod.DrawTextColouredNicely( graphics, str3, this.Game.MarcFont4b, x1 + 2,  Math.Round((double) ((float) (num4 + 6 + 8) + sizeF2.Height)), Color.Black);
+            DrawMod.DrawTextColouredNicely( graphics, str3, this.Game.MarcFont4b, x1 + 3,  Math.Round( ( (num4 + 6 + 8) + sizeF2.Height)), Color.FromArgb(178, 0, 0, 0));
+            DrawMod.DrawTextColouredNicely( graphics, str3, this.Game.MarcFont4b, x1 + 2,  Math.Round( ( (num4 + 6 + 8) + sizeF2.Height)), Color.Black);
           }
           else
           {
             DrawMod.DrawTextColouredNicely( graphics, str1, this.Game.MarcFont16, x1 + 2, num4 + 2, Color.FromArgb( byte.MaxValue, num7, num8, num9), 12);
-            DrawMod.DrawTextColouredNicely( graphics, str3, this.Game.MarcFont4, x1 + 2,  Math.Round((double) ((float) (num4 + 8 + 6) + sizeF2.Height)), Color.White);
+            DrawMod.DrawTextColouredNicely( graphics, str3, this.Game.MarcFont4, x1 + 2,  Math.Round( ( (num4 + 8 + 6) + sizeF2.Height)), Color.White);
           }
           DrawMod.DrawRectangle( graphics, x1 - 16, num4, num6 + 32, h + 16, r1, g1, b1,  byte.MaxValue);
         }
@@ -791,7 +791,7 @@ namespace WindowsApplication1
           DrawMod.DrawRectangle( graphics, x1 - 16, num4, num6 + 32, h, r1, g1, b1,  byte.MaxValue);
         }
       }
-      if (!Information.IsNothing((object) graphics))
+      if (!Information.IsNothing( graphics))
         graphics.Dispose();
       return this.OwnBitmap;
     }
@@ -886,7 +886,7 @@ namespace WindowsApplication1
           break;
         }
       }
-      if (index1 == -1 || Information.IsNothing((object) this.WindowList[index1]))
+      if (index1 == -1 || Information.IsNothing( this.WindowList[index1]))
         return;
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (Operators.CompareString(this.WindowList[index1].GetType().FullName, "WindowsApplication1.UdsUnitOpsWindowClass", false) == 0)
@@ -928,7 +928,7 @@ namespace WindowsApplication1
       this.WindowW = (int[]) Utils.CopyArray((Array) this.WindowW, (Array) new int[this.WindowCounter + 1]);
       this.WindowH = (int[]) Utils.CopyArray((Array) this.WindowH, (Array) new int[this.WindowCounter + 1]);
       this.WindowID = (int[]) Utils.CopyArray((Array) this.WindowID, (Array) new int[this.WindowCounter + 1]);
-      if (Information.IsNothing((object) objGraphics))
+      if (Information.IsNothing( objGraphics))
         return;
       objGraphics.Dispose();
     }
@@ -963,7 +963,7 @@ namespace WindowsApplication1
             this.WindowList[index1].HandleToolTip(x - this.WindowX[index1], y - this.WindowY[index1]);
         }
       }
-      if (Information.IsNothing((object) this.Game.EditObj.TipText))
+      if (Information.IsNothing( this.Game.EditObj.TipText))
         this.Game.EditObj.TipText = "";
       if (Strings.InStr(this.Game.EditObj.TipText, "<BR>") > 0)
         this.Game.EditObj.TipText = this.Game.EditObj.TipText.Replace("<BR>", "\r\n");
@@ -1003,7 +1003,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (!Information.IsNothing((object) this.FormRef))
+      if (!Information.IsNothing( this.FormRef))
       {
         if (!(this.FormRef.RightMousePressed | this.Game.EditObj.MouseOverVisible) & this.Game.EditObj.TipText.Length > 0)
         {
@@ -1077,7 +1077,7 @@ namespace WindowsApplication1
       let mut windowCounter: i32 = this.WindowCounter;
       for (let mut index: i32 = 0; index <= windowCounter; index += 1)
       {
-        if (!Information.IsNothing((object) this.WindowList[index]))
+        if (!Information.IsNothing( this.WindowList[index]))
         {
           windowReturnClass: WindowReturnClass = this.WindowList[index].HandleBLOCKEDMouseUp(x - this.WindowX[index], y - this.WindowY[index], b);
           this.WindowFlag[index] = windowReturnClass.Flag;
@@ -1307,8 +1307,8 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredOutline( g, "One of the most important things for new players to know is that you can right click on everything where the mouse", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 70, Color.White);
         DrawMod.DrawTextColouredOutline( g, "shows a question mark or hand.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 95, Color.White);
         DrawMod.DrawTextColouredOutline( g, "Now please press 'start' to start the tutorial.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 135, Color.White);
-        let mut num1: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-        let mut num2: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+        let mut num1: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+        let mut num2: i32 =  Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
         let mut num3: i32 = num1 + 845;
         let mut num4: i32 = num2 + 650;
          let mut local1: &Graphics = &g;
@@ -1324,13 +1324,13 @@ namespace WindowsApplication1
         int num5;
         if (this.WindowPresent( WC2))
         {
-          let mut num6: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+          let mut num6: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
           num5 = 0;
           if (this.Game.EditObj.TutStep == 13 | this.Game.EditObj.TutStep == 18)
           {
             this.Game.EditObj.TutStep = 18;
-            this.Game.EditObj.TutX = (object) 12;
-            this.Game.EditObj.TutY = (object) 7;
+            this.Game.EditObj.TutX =  12;
+            this.Game.EditObj.TutY =  7;
             this.Game.EditObj.TutOrder = 9999;
             DrawMod.DrawTutback(g, 5, 5, 800, 200,  color.R,  color.G,  color.B,  color.A);
             DrawMod.DrawTextColouredOutline( g, "The battle is being fought combat round by combat round.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
@@ -1344,8 +1344,8 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Battle ends when one of the sides has no troops participating anymore. In a nutshell ", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 160, Color.White);
               DrawMod.DrawTextColouredOutline( g, "that is what happens. If you are not easily shaken then click on DETAILS to see whats really going on.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 180, Color.White);
             }
-            let mut num7: i32 =  Math.Round((double) this.Game.ScreenWidth / 2.0);
-            let mut num8: i32 =  Math.Round((double) this.Game.ScreenHeight / 2.0);
+            let mut num7: i32 =  Math.Round( this.Game.ScreenWidth / 2.0);
+            let mut num8: i32 =  Math.Round( this.Game.ScreenHeight / 2.0);
             let mut x1_1: i32 = num7 - 200;
             let mut y1: i32 = num8 - 150;
             DrawMod.DrawBlock( g, x1_1, y1, 5, 300,  color.R,  color.G,  color.B,  color.A);
@@ -1354,20 +1354,20 @@ namespace WindowsApplication1
             let mut num9: i32 = x1_1 - 350;
             DrawMod.DrawBlock( g, num9 + 110, y1 + 20, 220, 25,  color.R,  color.G,  color.B,  color.A);
             DrawMod.DrawTextColouredOutline( g, "RETREATED TROOPS", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), num9 + 120, y1 + 20, Color.White);
-            let mut x1_2: i32 =  Math.Round((double) this.Game.ScreenWidth / 2.0) + 190;
+            let mut x1_2: i32 =  Math.Round( this.Game.ScreenWidth / 2.0) + 190;
             DrawMod.DrawBlock( g, x1_2, y1, 5, 300,  color.R,  color.G,  color.B,  color.A);
             let mut num10: i32 = x1_2 - 80;
             DrawMod.DrawBlock( g, num10 + 110, y1 + 20, 220, 25,  color.R,  color.G,  color.B,  color.A);
             DrawMod.DrawTextColouredOutline( g, "RETREATED TROOPS", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), num10 + 120, y1 + 20, Color.White);
-            let mut num11: i32 =  Math.Round((double) this.Game.ScreenWidth / 2.0);
-            let mut num12: i32 =  Math.Round((double) this.Game.ScreenHeight / 2.0);
+            let mut num11: i32 =  Math.Round( this.Game.ScreenWidth / 2.0);
+            let mut num12: i32 =  Math.Round( this.Game.ScreenHeight / 2.0);
             num5 = 1;
           }
           if (!(this.Game.EditObj.TutStep == 27 | this.Game.EditObj.TutStep == 30))
             return;
           this.Game.EditObj.TutStep = 30;
-          this.Game.EditObj.TutX = (object) -1;
-          this.Game.EditObj.TutY = (object) -1;
+          this.Game.EditObj.TutX =  -1;
+          this.Game.EditObj.TutY =  -1;
           this.Game.Data.MapObj[0].HexObj[this.Game.EditObj.TargetX, this.Game.EditObj.TargetY].set_BattlePenalty(0, 12);
           DrawMod.DrawTutback(g, 5, 5, 900, 90,  color.R,  color.G,  color.B,  color.A);
           DrawMod.DrawTextColouredOutline( g, "And another battle commences.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
@@ -1383,7 +1383,7 @@ namespace WindowsApplication1
           let mut num14: i32 = this.WindowPresent( WC4) ? 1 : 0;
           if ((num13 | num14) != 0)
           {
-            let mut num15: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+            let mut num15: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
             num5 = 0;
             if (this.Game.EditObj.TutStep == 30)
             {
@@ -1483,8 +1483,8 @@ namespace WindowsApplication1
               if (this.Game.EditObj.TutOrder != 9999)
               {
                 this.Game.EditObj.TutOrder = 9999;
-                this.Game.EditObj.TutX = (object) 15;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  15;
+                this.Game.EditObj.TutY =  4;
                 Graphics g4 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local16 =  WC4;
@@ -1506,10 +1506,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 24 & num17 == 0 && this.Game.EditObj.OrderType == 3)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g7 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local19 =  WC4;
@@ -1574,10 +1574,10 @@ namespace WindowsApplication1
             if (this.Game.EditObj.TutStep == 24 & num17 == 0 && !(this.Game.SelectX == 10 & this.Game.SelectY == 4) && !this.Game.EditObj.LayerSupplyOn)
             {
               this.Game.EditObj.TutStep = 24;
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutY, (object) 4, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutY,  4, false))))
               {
-                this.Game.EditObj.TutX = (object) 10;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  10;
+                this.Game.EditObj.TutY =  4;
                 this.Game.SelectX = 8;
                 this.Game.SelectY = 6;
                 Graphics g13 = g;
@@ -1639,10 +1639,10 @@ namespace WindowsApplication1
               let mut x: i32 = num32;
               let mut y: i32 = num33;
               DrawMod.DrawSimple( local37,  local38, x, y);
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 10, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  10, false))))
               {
-                this.Game.EditObj.TutX = (object) 10;
-                this.Game.EditObj.TutY = (object) 0;
+                this.Game.EditObj.TutX =  10;
+                this.Game.EditObj.TutY =  0;
                 Graphics g17 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local39 =  WC4;
@@ -1668,10 +1668,10 @@ namespace WindowsApplication1
             if (this.Game.EditObj.TutStep == 19 | this.Game.EditObj.TutStep == 20 && this.Game.EditObj.LayerSupplyOn)
             {
               this.Game.EditObj.TutStep = 20;
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 10, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  10, false))))
               {
-                this.Game.EditObj.TutX = (object) 12;
-                this.Game.EditObj.TutY = (object) 0;
+                this.Game.EditObj.TutX =  12;
+                this.Game.EditObj.TutY =  0;
                 Graphics g21 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local43 =  WC4;
@@ -1707,10 +1707,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 18 | this.Game.EditObj.TutStep == 19) & num34 == 0 && this.Game.Data.MapObj[0].HexObj[6, 8].UnitCounter > -1)
             {
               this.Game.EditObj.TutStep = 19;
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 8, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  8, false))))
               {
-                this.Game.EditObj.TutX = (object) 8;
-                this.Game.EditObj.TutY = (object) 7;
+                this.Game.EditObj.TutX =  8;
+                this.Game.EditObj.TutY =  7;
                 Graphics g24 = g;
                 WC4 = typeof (StrategicWindowClass2);
                  System.Type local48 =  WC4;
@@ -1745,10 +1745,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 18 && this.Game.EditObj.OrderType == 18)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 6, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  6, false))))
               {
-                this.Game.EditObj.TutX = (object) 6;
-                this.Game.EditObj.TutY = (object) 8;
+                this.Game.EditObj.TutX =  6;
+                this.Game.EditObj.TutY =  8;
                 Graphics g28 = g;
                 WC4 = typeof (StrategicWindowClass2);
                  System.Type local54 =  WC4;
@@ -1769,7 +1769,7 @@ namespace WindowsApplication1
               DrawMod.DrawTutback(g, 5, 5, 860, 60,  color.R,  color.G,  color.B,  color.A);
               DrawMod.DrawTextColouredOutline( g, "The hexes you can strategically transfer the unit to are highlighted.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
               DrawMod.DrawTextColouredOutline( g, "Please select the highlighted hex and press the big 'transfer' button.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
-              if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) this.Game.SelectX, false), Operators.CompareObjectEqual(this.Game.EditObj.TutY, (object) this.Game.SelectY, false))))
+              if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  this.Game.SelectX, false), Operators.CompareObjectEqual(this.Game.EditObj.TutY,  this.Game.SelectY, false))))
               {
                 let mut num39: i32 = num15 + 735;
                 let mut num40: i32 = this.Game.ScreenHeight - 200;
@@ -1784,10 +1784,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 18 & this.Game.EditObj.UnitSelected > -1 & this.Game.EditObj.OrderType == 0 && num34 == 0 & this.Game.Data.UnitObj[this.Game.EditObj.UnitSelected].Historical == 283)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g32 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local60 =  WC4;
@@ -1842,10 +1842,10 @@ namespace WindowsApplication1
                     this.Game.Data.SFObj[this.Game.Data.UnitObj[index1].SFList[index2]].Ap = 100;
                 }
               }
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 12, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  12, false))))
               {
-                this.Game.EditObj.TutX = (object) 12;
-                this.Game.EditObj.TutY = (object) 7;
+                this.Game.EditObj.TutX =  12;
+                this.Game.EditObj.TutY =  7;
                 Graphics g36 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local65 =  WC4;
@@ -1894,10 +1894,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 13 & num34 == 0 && this.Game.EditObj.OrderType == 2)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g39 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local72 =  WC4;
@@ -1953,10 +1953,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 11 | this.Game.EditObj.TutStep == 13) & num34 == 0 && this.Game.Data.UnitObj[this.Game.HandyFunctionsObj.GetUnitByHistorical(178)].DidMove)
             {
               this.Game.EditObj.TutStep = 13;
-              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 12, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  12, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) 15;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  15;
+                this.Game.EditObj.TutY =  4;
                 Graphics g45 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local80 =  WC4;
@@ -1987,10 +1987,10 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Units from different hexes will thus move over different paths to the same target hex.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 55, Color.White);
               DrawMod.DrawTextColouredOutline( g, "Now please move the selected units (of 73rd div) to the selected target hex!", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 80, Color.White);
               this.Game.EditObj.TutOrder = -1;
-              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))
+              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX,  -1, false))
               {
-                this.Game.EditObj.TutX = (object) 12;
-                this.Game.EditObj.TutY = (object) 6;
+                this.Game.EditObj.TutX =  12;
+                this.Game.EditObj.TutY =  6;
                 Graphics g48 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local82 =  WC4;
@@ -2004,10 +2004,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 11 & this.Game.EditObj.UnitSelected > -1 & this.Game.EditObj.OrderType == 0 && num49 == 0 & this.Game.Data.UnitObj[this.Game.EditObj.UnitSelected].Historical == 178)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g50 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local84 =  WC4;
@@ -2041,10 +2041,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 10 | this.Game.EditObj.TutStep == 11) & num49 == 0 && this.Game.Data.UnitObj[this.Game.HandyFunctionsObj.GetUnitByHistorical(277)].DidMove)
             {
               this.Game.EditObj.TutStep = 11;
-              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 14, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  14, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) 13;
-                this.Game.EditObj.TutY = (object) 7;
+                this.Game.EditObj.TutX =  13;
+                this.Game.EditObj.TutY =  7;
                 Graphics g53 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local88 =  WC4;
@@ -2073,10 +2073,10 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "You now see all the hexes highlighted where the unit", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
               DrawMod.DrawTextColouredOutline( g, "can move too. Click on the highlighted hex to move the unit there.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
               this.Game.EditObj.TutOrder = -1;
-              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))
+              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX,  -1, false))
               {
-                this.Game.EditObj.TutX = (object) 14;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  14;
+                this.Game.EditObj.TutY =  4;
                 Graphics g56 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local90 =  WC4;
@@ -2094,10 +2094,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 10 & this.Game.EditObj.UnitSelected > -1 & this.Game.EditObj.OrderType == 0 && num52 == 0 & this.Game.Data.UnitObj[this.Game.EditObj.UnitSelected].Historical == 277)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g59 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local93 =  WC4;
@@ -2131,10 +2131,10 @@ namespace WindowsApplication1
             if (!(this.Game.EditObj.TutStep > 1 & this.Game.EditObj.TutStep <= 10 & num52 == 0))
               return;
             this.Game.EditObj.TutStep = 10;
-            if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 13, false))))
+            if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  13, false))))
             {
-              this.Game.EditObj.TutX = (object) 13;
-              this.Game.EditObj.TutY = (object) 4;
+              this.Game.EditObj.TutX =  13;
+              this.Game.EditObj.TutY =  4;
               Graphics g62 = g;
               WC4 = typeof (MapWindowClass2);
                System.Type local97 =  WC4;
@@ -2178,8 +2178,8 @@ namespace WindowsApplication1
               if (this.Game.EditObj.TutStep != 1)
                 return;
               DrawMod.DrawTextColouredOutline( g, "Once the calculations have completed, you can begin playing.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 35, Color.White);
-              let mut num55: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-              let mut num56: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+              let mut num55: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+              let mut num56: i32 =  Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
               let mut num57: i32 = num55 + 485;
               let mut num58: i32 = num56 + 630;
                let mut local99: &Graphics = &g;
@@ -2194,8 +2194,8 @@ namespace WindowsApplication1
               DrawMod.DrawTutback(g, 5, 5, 800, 60,  color.R,  color.G,  color.B,  color.A);
               DrawMod.DrawTextColouredOutline( g, "You have now started your turn. You get synopsis of what", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
               DrawMod.DrawTextColouredOutline( g, "happened in the turns of your opponent and any other news.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
-              let mut num59: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-              let mut num60: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+              let mut num59: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+              let mut num60: i32 =  Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
               let mut num61: i32 = num59 + 485;
               let mut num62: i32 = num60 + 630;
                let mut local101: &Graphics = &g;
@@ -2235,8 +2235,8 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredOutline( g, "One of the most important things for new players to know is that you can right click on everything where the mouse", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 70, Color.White);
         DrawMod.DrawTextColouredOutline( g, "shows a question mark or hand.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 95, Color.White);
         DrawMod.DrawTextColouredOutline( g, "Now please press 'start' to start the tutorial.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 135, Color.White);
-        let mut num1: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-        let mut num2: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+        let mut num1: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+        let mut num2: i32 =  Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
         let mut num3: i32 = num1 + 845;
         let mut num4: i32 = num2 + 650;
          let mut local1: &Graphics = &g;
@@ -2252,13 +2252,13 @@ namespace WindowsApplication1
         int num5;
         if (this.WindowPresent( WC2))
         {
-          let mut num6: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+          let mut num6: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
           num5 = 0;
           if (this.Game.EditObj.TutStep == 13 | this.Game.EditObj.TutStep == 18)
           {
             this.Game.EditObj.TutStep = 18;
-            this.Game.EditObj.TutX = (object) 12;
-            this.Game.EditObj.TutY = (object) 7;
+            this.Game.EditObj.TutX =  12;
+            this.Game.EditObj.TutY =  7;
             this.Game.EditObj.TutOrder = 9999;
             DrawMod.DrawTutback(g, 5, 5, 800, 200,  color.R,  color.G,  color.B,  color.A);
             DrawMod.DrawTextColouredOutline( g, "The battle is being fought combat round by combat round.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
@@ -2272,8 +2272,8 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Battle ends when one of the sides has no troops participating anymore. In a nutshell ", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 160, Color.White);
               DrawMod.DrawTextColouredOutline( g, "that is what happens. If you are not easily shaken then click on DETAILS to see whats really going on.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 180, Color.White);
             }
-            let mut num7: i32 =  Math.Round((double) this.Game.ScreenWidth / 2.0);
-            let mut num8: i32 =  Math.Round((double) this.Game.ScreenHeight / 2.0);
+            let mut num7: i32 =  Math.Round( this.Game.ScreenWidth / 2.0);
+            let mut num8: i32 =  Math.Round( this.Game.ScreenHeight / 2.0);
             let mut x1_1: i32 = num7 - 200;
             let mut y1: i32 = num8 - 150;
             DrawMod.DrawBlock( g, x1_1, y1, 5, 300,  color.R,  color.G,  color.B,  color.A);
@@ -2282,20 +2282,20 @@ namespace WindowsApplication1
             let mut num9: i32 = x1_1 - 350;
             DrawMod.DrawBlock( g, num9 + 110, y1 + 20, 220, 25,  color.R,  color.G,  color.B,  color.A);
             DrawMod.DrawTextColouredOutline( g, "RETREATED TROOPS", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), num9 + 120, y1 + 20, Color.White);
-            let mut x1_2: i32 =  Math.Round((double) this.Game.ScreenWidth / 2.0) + 190;
+            let mut x1_2: i32 =  Math.Round( this.Game.ScreenWidth / 2.0) + 190;
             DrawMod.DrawBlock( g, x1_2, y1, 5, 300,  color.R,  color.G,  color.B,  color.A);
             let mut num10: i32 = x1_2 - 80;
             DrawMod.DrawBlock( g, num10 + 110, y1 + 20, 220, 25,  color.R,  color.G,  color.B,  color.A);
             DrawMod.DrawTextColouredOutline( g, "RETREATED TROOPS", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), num10 + 120, y1 + 20, Color.White);
-            let mut num11: i32 =  Math.Round((double) this.Game.ScreenWidth / 2.0);
-            let mut num12: i32 =  Math.Round((double) this.Game.ScreenHeight / 2.0);
+            let mut num11: i32 =  Math.Round( this.Game.ScreenWidth / 2.0);
+            let mut num12: i32 =  Math.Round( this.Game.ScreenHeight / 2.0);
             num5 = 1;
           }
           if (!(this.Game.EditObj.TutStep == 27 | this.Game.EditObj.TutStep == 30))
             return;
           this.Game.EditObj.TutStep = 30;
-          this.Game.EditObj.TutX = (object) -1;
-          this.Game.EditObj.TutY = (object) -1;
+          this.Game.EditObj.TutX =  -1;
+          this.Game.EditObj.TutY =  -1;
           this.Game.Data.MapObj[0].HexObj[this.Game.EditObj.TargetX, this.Game.EditObj.TargetY].set_BattlePenalty(0, 12);
           DrawMod.DrawTutback(g, 5, 5, 900, 90,  color.R,  color.G,  color.B,  color.A);
           DrawMod.DrawTextColouredOutline( g, "And another battle commences.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
@@ -2311,7 +2311,7 @@ namespace WindowsApplication1
           let mut num14: i32 = this.WindowPresent( WC4) ? 1 : 0;
           if ((num13 | num14) != 0)
           {
-            let mut num15: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+            let mut num15: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
             num5 = 0;
             if (this.Game.EditObj.TutStep == 30)
             {
@@ -2410,8 +2410,8 @@ namespace WindowsApplication1
               if (this.Game.EditObj.TutOrder != 9999)
               {
                 this.Game.EditObj.TutOrder = 9999;
-                this.Game.EditObj.TutX = (object) 15;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  15;
+                this.Game.EditObj.TutY =  4;
                 Graphics g4 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local16 =  WC4;
@@ -2435,7 +2435,7 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 24 & num17 == 0 && this.Game.EditObj.OrderType == 3)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
                 let mut unitCounter: i32 = this.Game.Data.UnitCounter;
                 for (let mut index1: i32 = 0; index1 <= unitCounter; index1 += 1)
@@ -2453,8 +2453,8 @@ namespace WindowsApplication1
                       this.Game.Data.SFObj[this.Game.Data.UnitObj[index1].SFList[index3]].Ap = 100;
                   }
                 }
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g7 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local19 =  WC4;
@@ -2520,10 +2520,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 20 | this.Game.EditObj.TutStep == 24) & num17 == 0 && !(this.Game.SelectX == 10 & this.Game.SelectY == 4) && !this.Game.EditObj.LayerSupplyOn)
             {
               this.Game.EditObj.TutStep = 24;
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutY, (object) 4, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutY,  4, false))))
               {
-                this.Game.EditObj.TutX = (object) 10;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  10;
+                this.Game.EditObj.TutY =  4;
                 this.Game.SelectX = 8;
                 this.Game.SelectY = 6;
                 Graphics g13 = g;
@@ -2551,10 +2551,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 19 | this.Game.EditObj.TutStep == 20) & num28 == 0 && this.Game.EditObj.LayerSupplyOn)
             {
               this.Game.EditObj.TutStep = 20;
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 10, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  10, false))))
               {
-                this.Game.EditObj.TutX = (object) 12;
-                this.Game.EditObj.TutY = (object) 0;
+                this.Game.EditObj.TutX =  12;
+                this.Game.EditObj.TutY =  0;
                 Graphics g17 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local33 =  WC4;
@@ -2587,10 +2587,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 18 | this.Game.EditObj.TutStep == 19) & num28 == 0 && this.Game.Data.MapObj[0].HexObj[6, 8].UnitCounter > -1)
             {
               this.Game.EditObj.TutStep = 19;
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 8, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  8, false))))
               {
-                this.Game.EditObj.TutX = (object) 8;
-                this.Game.EditObj.TutY = (object) 7;
+                this.Game.EditObj.TutX =  8;
+                this.Game.EditObj.TutY =  7;
                 Graphics g20 = g;
                 WC4 = typeof (StrategicWindowClass2);
                  System.Type local38 =  WC4;
@@ -2630,10 +2630,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 18 && this.Game.EditObj.OrderType == 18)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 6, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  6, false))))
               {
-                this.Game.EditObj.TutX = (object) 6;
-                this.Game.EditObj.TutY = (object) 8;
+                this.Game.EditObj.TutX =  6;
+                this.Game.EditObj.TutY =  8;
                 Graphics g24 = g;
                 WC4 = typeof (StrategicWindowClass2);
                  System.Type local44 =  WC4;
@@ -2654,7 +2654,7 @@ namespace WindowsApplication1
               DrawMod.DrawTutback(g, 5, 5, 860, 60,  color.R,  color.G,  color.B,  color.A);
               DrawMod.DrawTextColouredOutline( g, "The hexes you can strategically transfer the unit to are highlighted.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
               DrawMod.DrawTextColouredOutline( g, "Please select the highlighted hex and press the big 'transfer' button.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
-              if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) this.Game.SelectX, false), Operators.CompareObjectEqual(this.Game.EditObj.TutY, (object) this.Game.SelectY, false))))
+              if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  this.Game.SelectX, false), Operators.CompareObjectEqual(this.Game.EditObj.TutY,  this.Game.SelectY, false))))
               {
                 let mut num33: i32 = num15 + 735;
                 let mut num34: i32 = this.Game.ScreenHeight - 200;
@@ -2669,10 +2669,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 18 & this.Game.EditObj.UnitSelected > -1 & this.Game.EditObj.OrderType == 0 && num28 == 0 & this.Game.Data.UnitObj[this.Game.EditObj.UnitSelected].Historical == 581)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g28 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local50 =  WC4;
@@ -2727,10 +2727,10 @@ namespace WindowsApplication1
                     this.Game.Data.SFObj[this.Game.Data.UnitObj[index4].SFList[index5]].Ap = 100;
                 }
               }
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 12, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  12, false))))
               {
-                this.Game.EditObj.TutX = (object) 12;
-                this.Game.EditObj.TutY = (object) 7;
+                this.Game.EditObj.TutX =  12;
+                this.Game.EditObj.TutY =  7;
                 Graphics g32 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local55 =  WC4;
@@ -2779,10 +2779,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 13 & num28 == 0 && this.Game.EditObj.OrderType == 2)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g35 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local62 =  WC4;
@@ -2838,10 +2838,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 11 | this.Game.EditObj.TutStep == 13) & num28 == 0 && this.Game.Data.UnitObj[this.Game.HandyFunctionsObj.GetUnitByHistorical(531)].DidMove)
             {
               this.Game.EditObj.TutStep = 13;
-              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 12, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  12, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) 15;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  15;
+                this.Game.EditObj.TutY =  4;
                 Graphics g41 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local70 =  WC4;
@@ -2872,10 +2872,10 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "Units from different hexes will thus move over different paths to the same target hex.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 55, Color.White);
               DrawMod.DrawTextColouredOutline( g, "Now please move the selected units (of 73rd div) to the selected target hex!", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 80, Color.White);
               this.Game.EditObj.TutOrder = -1;
-              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))
+              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX,  -1, false))
               {
-                this.Game.EditObj.TutX = (object) 12;
-                this.Game.EditObj.TutY = (object) 6;
+                this.Game.EditObj.TutX =  12;
+                this.Game.EditObj.TutY =  6;
                 Graphics g44 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local72 =  WC4;
@@ -2889,10 +2889,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 11 & this.Game.EditObj.UnitSelected > -1 & this.Game.EditObj.OrderType == 0 && num43 == 0 & this.Game.Data.UnitObj[this.Game.EditObj.UnitSelected].Historical == 531)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g46 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local74 =  WC4;
@@ -2926,10 +2926,10 @@ namespace WindowsApplication1
             if ((this.Game.EditObj.TutStep == 10 | this.Game.EditObj.TutStep == 11) & num43 == 0 && this.Game.Data.UnitObj[this.Game.HandyFunctionsObj.GetUnitByHistorical(1258)].DidMove)
             {
               this.Game.EditObj.TutStep = 11;
-              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 14, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  14, false), Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) 13;
-                this.Game.EditObj.TutY = (object) 7;
+                this.Game.EditObj.TutX =  13;
+                this.Game.EditObj.TutY =  7;
                 Graphics g49 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local78 =  WC4;
@@ -2958,10 +2958,10 @@ namespace WindowsApplication1
               DrawMod.DrawTextColouredOutline( g, "You now see all the hexes highlighted where the unit", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
               DrawMod.DrawTextColouredOutline( g, "can move too. Click on the highlighted hex to move the unit there.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
               this.Game.EditObj.TutOrder = -1;
-              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))
+              if (Operators.ConditionalCompareObjectEqual(this.Game.EditObj.TutX,  -1, false))
               {
-                this.Game.EditObj.TutX = (object) 14;
-                this.Game.EditObj.TutY = (object) 4;
+                this.Game.EditObj.TutX =  14;
+                this.Game.EditObj.TutY =  4;
                 Graphics g52 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local80 =  WC4;
@@ -2979,10 +2979,10 @@ namespace WindowsApplication1
             }
             if (this.Game.EditObj.TutStep == 10 & this.Game.EditObj.UnitSelected > -1 & this.Game.EditObj.OrderType == 0 && num46 == 0 & this.Game.Data.UnitObj[this.Game.EditObj.UnitSelected].Historical == 1258)
             {
-              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  -1, false))))
               {
-                this.Game.EditObj.TutX = (object) -1;
-                this.Game.EditObj.TutY = (object) -1;
+                this.Game.EditObj.TutX =  -1;
+                this.Game.EditObj.TutY =  -1;
                 Graphics g55 = g;
                 WC4 = typeof (MapWindowClass2);
                  System.Type local83 =  WC4;
@@ -3016,10 +3016,10 @@ namespace WindowsApplication1
             if (!(this.Game.EditObj.TutStep > 1 & this.Game.EditObj.TutStep <= 10 & num46 == 0))
               return;
             this.Game.EditObj.TutStep = 10;
-            if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX, (object) 13, false))))
+            if (Conversions.ToBoolean(Operators.NotObject(Operators.CompareObjectEqual(this.Game.EditObj.TutX,  13, false))))
             {
-              this.Game.EditObj.TutX = (object) 13;
-              this.Game.EditObj.TutY = (object) 4;
+              this.Game.EditObj.TutX =  13;
+              this.Game.EditObj.TutY =  4;
               Graphics g58 = g;
               WC4 = typeof (MapWindowClass2);
                System.Type local87 =  WC4;
@@ -3069,8 +3069,8 @@ namespace WindowsApplication1
               if (this.Game.EditObj.TutStep != 1)
                 return;
               DrawMod.DrawTextColouredOutline( g, "Once the calculations have completed, you can begin playing.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 35, Color.White);
-              let mut num49: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-              let mut num50: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+              let mut num49: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+              let mut num50: i32 =  Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
               let mut num51: i32 = num49 + 485;
               let mut num52: i32 = num50 + 630;
                let mut local89: &Graphics = &g;
@@ -3085,8 +3085,8 @@ namespace WindowsApplication1
               DrawMod.DrawTutback(g, 5, 5, 800, 60,  color.R,  color.G,  color.B,  color.A);
               DrawMod.DrawTextColouredOutline( g, "You have now started your turn. You get synopsis of what", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 5, Color.White);
               DrawMod.DrawTextColouredOutline( g, "happened in the turns of your opponent and any other news.", Font::new(this.Game.FontCol.Families[1], 16f, FontStyle.Regular, GraphicsUnit.Pixel), 10, 30, Color.White);
-              let mut num53: i32 =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-              let mut num54: i32 =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+              let mut num53: i32 =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+              let mut num54: i32 =  Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
               let mut num55: i32 = num53 + 485;
               let mut num56: i32 = num54 + 630;
                let mut local91: &Graphics = &g;

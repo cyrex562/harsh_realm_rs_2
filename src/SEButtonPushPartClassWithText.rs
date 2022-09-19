@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -103,7 +103,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
       let mut x: i32 = 0;
-      let mut y: i32 =  Math.Round((double) (this.height - 32) / 2.0);
+      let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
       if (this.gray)
       {
          let mut local13: &Graphics = &objgraphics;
@@ -130,7 +130,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredConsole( objgraphics, this.texty, DrawMod.TGame.MarcFont7, 42, 8, DrawMod.TGame.seColWhite);
       else
         DrawMod.DrawTextColouredConsole( objgraphics, this.texty, DrawMod.TGame.MarcFont7, 42, 8, DrawMod.TGame.seColGray);
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
       return this.OwnBitmap;
     }
@@ -196,7 +196,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
       let mut x: i32 = 0;
-      let mut y: i32 =  Math.Round((double) (this.height - 32) / 2.0);
+      let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
       if (this.gray)
       {
          let mut local13: &Graphics = &objgraphics;
@@ -220,7 +220,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
       }
       DrawMod.DrawTextColouredConsole( objgraphics, this.texty, DrawMod.TGame.MarcFont7, 42, 8, DrawMod.TGame.seColWhite);
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
         objgraphics.Dispose();
       return this.OwnBitmap;
     }

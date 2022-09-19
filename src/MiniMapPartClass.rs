@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -68,37 +68,37 @@ namespace WindowsApplication1
       this.tZoomLevel = ZoomLevel != -1 ? ZoomLevel : this.game.EditObj.Zoom;
       if (this.game.Data.MapCounter > 0)
         this.game.EditObj.StratMap = (Bitmap) null;
-      if (Information.IsNothing((object) this.game.EditObj.MiniMap))
+      if (Information.IsNothing( this.game.EditObj.MiniMap))
       {
         this.game.EditObj.MiniMap = new Bitmap(205, 110, PixelFormat.Format32bppPArgb);
-        this.game.EditObj.MiniMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.game.EditObj.MiniMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, 205, 110, false);
       }
       if (!(this.game.EditObj.MiniMap.Width == this.minix & this.game.EditObj.MiniMap.Height == this.miniy) | humanplayer > -1)
       {
-        if (tx == this.game.ScreenWidth & !Information.IsNothing((object) this.game.EditObj.StratMap))
+        if (tx == this.game.ScreenWidth & !Information.IsNothing( this.game.EditObj.StratMap))
         {
-          if (!Information.IsNothing((object) this.game.CustomBitmapObj.miniMapPredrawnCache))
+          if (!Information.IsNothing( this.game.CustomBitmapObj.miniMapPredrawnCache))
           {
             this.game.CustomBitmapObj.miniMapPredrawnCache.Dispose();
             this.game.CustomBitmapObj.miniMapPredrawnCache = (Bitmap) null;
           }
           this.game.EditObj.MiniMap = (Bitmap) this.game.EditObj.StratMap.Clone();
-          if ((double) this.game.Data.RuleVar[839] < 1.0)
+          if ( this.game.Data.RuleVar[839] < 1.0)
             this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, this.minix, this.miniy, this.alsounits, this.realhex, predrawn: true, humanplayer: humanplayer, showflag: true, alsoHQ: alsoHQ, highlightTempvar4: this.tempValue4mustBe, useTempVar3asAlpha: this.tempValue3usedForAlpha, useTempAi2: this.tempAi2Use, useTempZones: this.tempZones, specialMode1: this.specialMode1);
           else
             this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, this.minix, this.miniy, this.alsounits, this.realhex, predrawn: true, humanplayer: humanplayer, alsoHQ: alsoHQ, highlightTempvar4: this.tempValue4mustBe, useTempVar3asAlpha: this.tempValue3usedForAlpha, useTempAi2: this.tempAi2Use, useTempZones: this.tempZones, specialMode1: this.specialMode1);
         }
         else
         {
-          if (!Information.IsNothing((object) this.game.CustomBitmapObj.miniMapPredrawnCache))
+          if (!Information.IsNothing( this.game.CustomBitmapObj.miniMapPredrawnCache))
           {
             this.game.CustomBitmapObj.miniMapPredrawnCache.Dispose();
             this.game.CustomBitmapObj.miniMapPredrawnCache = (Bitmap) null;
           }
           this.game.EditObj.MiniMap = new Bitmap(this.minix, this.miniy, PixelFormat.Format32bppPArgb);
-          this.game.EditObj.MiniMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
-          if ((double) this.game.Data.RuleVar[839] < 1.0)
+          this.game.EditObj.MiniMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
+          if ( this.game.Data.RuleVar[839] < 1.0)
             this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, this.minix, this.miniy, this.alsounits, this.realhex, humanplayer: humanplayer, showflag: true, alsoHQ: alsoHQ, highlightTempvar4: this.tempValue4mustBe, useTempVar3asAlpha: this.tempValue3usedForAlpha, useTempAi2: this.tempAi2Use, useTempZones: this.tempZones, specialMode1: this.specialMode1);
           else
             this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, this.minix, this.miniy, this.alsounits, this.realhex, humanplayer: humanplayer, alsoHQ: alsoHQ, highlightTempvar4: this.tempValue4mustBe, useTempVar3asAlpha: this.tempValue3usedForAlpha, useTempAi2: this.tempAi2Use, useTempZones: this.tempZones, specialMode1: this.specialMode1);
@@ -106,7 +106,7 @@ namespace WindowsApplication1
       }
       else
       {
-        if (Information.IsNothing((object) this.game.EditObj.StratMap))
+        if (Information.IsNothing( this.game.EditObj.StratMap))
           return;
         this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, this.minix, this.miniy, this.alsounits, this.realhex, humanplayer: humanplayer, alsoHQ: alsoHQ, highlightTempvar4: this.tempValue4mustBe, useTempVar3asAlpha: this.tempValue3usedForAlpha, useTempAi2: this.tempAi2Use, useTempZones: this.tempZones, specialMode1: this.specialMode1);
       }
@@ -142,18 +142,18 @@ namespace WindowsApplication1
         int num6;
         if (this.game.EditObj.OrderType == 24)
         {
-          num5 =  Math.Round((double) (this.game.ScreenWidth - 0) / (double) num3);
-          num6 =  Math.Round((double) (this.game.ScreenHeight - 305) / (double) num4);
+          num5 =  Math.Round( (this.game.ScreenWidth - 0) /  num3);
+          num6 =  Math.Round( (this.game.ScreenHeight - 305) /  num4);
         }
         else
         {
-          num5 = (double) this.game.Data.RuleVar[839] != 0.0 ?  Math.Round((double) (this.game.ScreenWidth - 0 - 106) / (double) num3) : (this.game.EditObj.Layout != 1 ?  Math.Round((double) (this.game.ScreenWidth - 220 - 106) / (double) num3) :  Math.Round((double) (this.game.ScreenWidth - 440 - 106) / (double) num3));
-          num6 = this.game.Data.Product != 7 ?  Math.Round((double) (this.game.ScreenHeight - 265) / (double) num4) : (!(Operators.CompareString(this.game.FormRef.Screeny.GetType().FullName, "WindowsApplication1.RandomScreenClass2", false) == 0 | this.game.EditObj.GuiDown) ?  Math.Round((double) (this.game.ScreenHeight - 265) / (double) num4) :  Math.Round((double) (this.game.ScreenHeight - 45) / (double) num4));
+          num5 =  this.game.Data.RuleVar[839] != 0.0 ?  Math.Round( (this.game.ScreenWidth - 0 - 106) /  num3) : (this.game.EditObj.Layout != 1 ?  Math.Round( (this.game.ScreenWidth - 220 - 106) /  num3) :  Math.Round( (this.game.ScreenWidth - 440 - 106) /  num3));
+          num6 = this.game.Data.Product != 7 ?  Math.Round( (this.game.ScreenHeight - 265) /  num4) : (!(Operators.CompareString(this.game.FormRef.Screeny.GetType().FullName, "WindowsApplication1.RandomScreenClass2", false) == 0 | this.game.EditObj.GuiDown) ?  Math.Round( (this.game.ScreenHeight - 265) /  num4) :  Math.Round( (this.game.ScreenHeight - 45) /  num4));
         }
         if (this.MapWidth > -1)
         {
-          num5 =  Math.Round((double) this.MapWidth / (double) num3);
-          num6 =  Math.Round((double) this.MapHeight / (double) num4);
+          num5 =  Math.Round( this.MapWidth /  num3);
+          num6 =  Math.Round( this.MapHeight /  num4);
         }
         Coordinate realCoord2 = this.GetRealCoord(this.game.CornerX + (num5 + 1) + 1, this.game.CornerY + num6 + 1);
         let mut w: i32 =  realCoord2.x - num1;
@@ -171,7 +171,7 @@ namespace WindowsApplication1
           num1 = 0;
         if (0 > num2)
           num2 = 0;
-        if (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0)
+        if (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0)
         {
           if (num1 + w > this.OwnBitmap.Width)
             num1 = this.OwnBitmap.Width - w;
@@ -186,7 +186,7 @@ namespace WindowsApplication1
         DrawMod.DrawRectangle( Expression, 0, 0, this.OwnBitmap.Width - 1, this.OwnBitmap.Height - 1, 0, 0, 0,  byte.MaxValue);
         if (this.paintview)
         {
-          if (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0 | num1 + w <= x2)
+          if (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0 | num1 + w <= x2)
           {
             DrawMod.DrawRectangle( Expression, num1, num2, w, h,  byte.MaxValue, 0, 0,  byte.MaxValue);
             DrawMod.DrawRectangle( Expression, num1 + 1, num2 + 1, w - 2, h - 2, 0, 0, 0,  byte.MaxValue);
@@ -208,7 +208,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -224,107 +224,107 @@ namespace WindowsApplication1
         if (x < 0)
           x = this.game.Data.MapObj[0].MapWidth + 1 + x;
       }
-      float d1 = (float) this.minix / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
-      float d2 = (float) this.miniy / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1);
+      float d1 =  this.minix /  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
+      float d2 =  this.miniy /  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1);
       if (this.MapWidth > 310)
       {
-        d1 = (float) Math.Floor((double) d1);
-        d2 = (float) Math.Floor((double) d2);
+        d1 =  Math.Floor( d1);
+        d2 =  Math.Floor( d2);
       }
       float num1;
-      if ((double) d1 > (double) d2)
+      if ( d1 >  d2)
       {
-        num1 = (float) ((double) this.minix / 2.0 - (double) d2 / (double) d1 * ((double) this.minix / 2.0));
+        num1 =  ( this.minix / 2.0 -  d2 /  d1 * ( this.minix / 2.0));
         d1 = d2;
       }
       float num2;
-      if ((double) d2 > (double) d1)
+      if ( d2 >  d1)
       {
-        num2 = (float) ((double) this.miniy / 2.0 - (double) d1 / (double) d2 * ((double) this.miniy / 2.0));
+        num2 =  ( this.miniy / 2.0 -  d1 /  d2 * ( this.miniy / 2.0));
         d2 = d1;
       }
       if (this.minix > 310)
       {
-        float num3 = (float) this.minix - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * d1;
-        if ((double) num3 > 0.0)
+        float num3 =  this.minix -  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * d1;
+        if ( num3 > 0.0)
         {
-          float num4 = (float)  Math.Round((double) (num3 / 2f));
-          if ((double) num4 > (double) num1)
+          float num4 =   Math.Round( (num3 / 2f));
+          if ( num4 >  num1)
             num1 = num4;
         }
       }
       if (this.miniy > 220)
       {
-        float num5 = (float) this.miniy - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * d2;
-        if ((double) num5 > 0.0)
+        float num5 =  this.miniy -  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * d2;
+        if ( num5 > 0.0)
         {
-          float num6 = (float)  Math.Round((double) (num5 / 2f));
-          if ((double) num6 > (double) num2)
+          float num6 =   Math.Round( (num5 / 2f));
+          if ( num6 >  num2)
             num2 = num6;
         }
       }
-      float a1 = Conversion.Int(d1 * (float) x) + num1;
-      float a2 = Conversion.Int(d2 * (float) y) - d2 / 2f + num2;
+      float a1 = Conversion.Int(d1 *  x) + num1;
+      float a2 = Conversion.Int(d2 *  y) - d2 / 2f + num2;
       Coordinate realCoord;
-      realCoord.x =  Math.Round((double) a1);
-      realCoord.y =  Math.Round((double) a2);
+      realCoord.x =  Math.Round( a1);
+      realCoord.y =  Math.Round( a2);
       return realCoord;
     }
 
     pub Coordinate GetHexCoord(int x, int y)
     {
-      float d1 = (float) this.minix / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
-      float d2 = (float) this.miniy / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1);
+      float d1 =  this.minix /  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
+      float d2 =  this.miniy /  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1);
       float num1;
-      if ((double) d1 > (double) d2)
+      if ( d1 >  d2)
       {
-        num1 = (float) ((double) this.minix / 2.0 - (double) d2 / (double) d1 * ((double) this.minix / 2.0));
+        num1 =  ( this.minix / 2.0 -  d2 /  d1 * ( this.minix / 2.0));
         d1 = d2;
       }
       float num2;
-      if ((double) d2 > (double) d1)
+      if ( d2 >  d1)
       {
-        num2 = (float) ((double) this.miniy / 2.0 - (double) d1 / (double) d2 * ((double) this.miniy / 2.0));
+        num2 =  ( this.miniy / 2.0 -  d1 /  d2 * ( this.miniy / 2.0));
         d2 = d1;
       }
       if (this.MapWidth > 310)
       {
-        d1 = (float) Math.Floor((double) d1);
-        d2 = (float) Math.Floor((double) d2);
+        d1 =  Math.Floor( d1);
+        d2 =  Math.Floor( d2);
       }
       if (this.minix > 310)
       {
-        float num3 = (float) this.minix - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * d1;
-        if ((double) num3 > 0.0)
+        float num3 =  this.minix -  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * d1;
+        if ( num3 > 0.0)
         {
-          float num4 = (float)  Math.Round((double) (num3 / 2f));
-          if ((double) num4 > (double) num1)
+          float num4 =   Math.Round( (num3 / 2f));
+          if ( num4 >  num1)
             num1 = num4;
         }
       }
       if (this.miniy > 220)
       {
-        float num5 = (float) this.miniy - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * d2;
-        if ((double) num5 > 0.0)
+        float num5 =  this.miniy -  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * d2;
+        if ( num5 > 0.0)
         {
-          float num6 = (float)  Math.Round((double) (num5 / 2f));
-          if ((double) num6 > (double) num2)
+          float num6 =   Math.Round( (num5 / 2f));
+          if ( num6 >  num2)
             num2 = num6;
         }
       }
-      float a1 = (float)  Math.Round(Math.Floor(((double) x - (double) num1) / (double) d1));
-      if (((double) a1 + 10.0) % 2.0 > 0.0)
-        y =  Math.Round((double) ((float) y - d2 / 2f));
-      float a2 = (float)  Math.Round(Math.Floor(((double) y - (double) num2 + (double)  Math.Round((double) (d2 / 2f))) / (double) d2));
+      float a1 =   Math.Round(Math.Floor(( x -  num1) /  d1));
+      if (( a1 + 10.0) % 2.0 > 0.0)
+        y =  Math.Round( ( y - d2 / 2f));
+      float a2 =   Math.Round(Math.Floor(( y -  num2 +   Math.Round( (d2 / 2f))) /  d2));
       if (this.game.EditObj.MiniMapOffset > 0)
       {
-        a1 += (float) this.game.EditObj.MiniMapOffset;
-        if ((double) a1 > (double) this.game.Data.MapObj[0].MapWidth)
-          a1 -= (float) (this.game.Data.MapObj[0].MapWidth + 1);
+        a1 +=  this.game.EditObj.MiniMapOffset;
+        if ( a1 >  this.game.Data.MapObj[0].MapWidth)
+          a1 -=  (this.game.Data.MapObj[0].MapWidth + 1);
       }
       Coordinate hexCoord;
-      hexCoord.x =  Math.Round((double) a1);
-      hexCoord.y =  Math.Round((double) a2);
+      hexCoord.x =  Math.Round( a1);
+      hexCoord.y =  Math.Round( a2);
       hexCoord.onmap = true;
       if (hexCoord.x < 0 | hexCoord.y < 0)
         hexCoord.onmap = false;
@@ -339,7 +339,7 @@ namespace WindowsApplication1
     {
       if (this.game.Data.MapObj[0].MapLoop)
       {
-        let mut num: i32 =   Math.Round(Math.Ceiling((double) this.game.Data.MapObj[0].MapWidth / 20.0));
+        let mut num: i32 =   Math.Round(Math.Ceiling( this.game.Data.MapObj[0].MapWidth / 20.0));
         if (this.game.EditObj.MouseWheel > 0)
         {
           this.game.EditObj.MiniMapOffset -= num;
@@ -376,58 +376,58 @@ namespace WindowsApplication1
     {
       let mut cornerX: i32 =  this.game.CornerX;
       let mut cornerY: i32 =  this.game.CornerY;
-      float d1 = (float) this.minix / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
-      float d2 = (float) this.miniy / (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1);
+      float d1 =  this.minix /  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1);
+      float d2 =  this.miniy /  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1);
       float num1;
-      if ((double) d1 > (double) d2)
+      if ( d1 >  d2)
       {
-        num1 = (float) ((double) this.minix / 2.0 - (double) d2 / (double) d1 * ((double) this.minix / 2.0));
+        num1 =  ( this.minix / 2.0 -  d2 /  d1 * ( this.minix / 2.0));
         d1 = d2;
       }
       float num2;
-      if ((double) d2 > (double) d1)
+      if ( d2 >  d1)
       {
-        num2 = (float) ((double) this.miniy / 2.0 - (double) d1 / (double) d2 * ((double) this.miniy / 2.0));
+        num2 =  ( this.miniy / 2.0 -  d1 /  d2 * ( this.miniy / 2.0));
         d2 = d1;
       }
-      float num3 = (float) Math.Floor((double) d1);
-      float num4 = (float) Math.Floor((double) d2);
+      float num3 =  Math.Floor( d1);
+      float num4 =  Math.Floor( d2);
       if (this.minix > 310)
       {
-        let mut num5: i32 =   Math.Round((double) ((float) this.minix - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * num3));
+        let mut num5: i32 =   Math.Round( ( this.minix -  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1) * num3));
         if (num5 > 0)
         {
-          let mut num6: i32 =   Math.Round((double) num5 / 2.0);
-          if ((double) num6 > (double) num1)
-            num1 = (float) num6;
+          let mut num6: i32 =   Math.Round( num5 / 2.0);
+          if ( num6 >  num1)
+            num1 =  num6;
         }
       }
       if (this.miniy > 220)
       {
-        let mut num7: i32 =   Math.Round((double) ((float) this.miniy - (float) (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * num4));
+        let mut num7: i32 =   Math.Round( ( this.miniy -  (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1) * num4));
         if (num7 > 0)
         {
-          let mut num8: i32 =   Math.Round((double) num7 / 2.0);
-          if ((double) num8 > (double) num2)
-            num2 = (float) num8;
+          let mut num8: i32 =   Math.Round( num7 / 2.0);
+          if ( num8 >  num2)
+            num2 =  num8;
         }
       }
       int Number1;
       int Number2;
       if (this.MapWidth < 310)
       {
-        Number1 =  Math.Round((double) ((float) (((double) x - (double) num1) / ((double) this.minix - (double) num1 * 2.0)) * (float) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth));
-        Number2 =  Math.Round((double) ((float) (((double) y - (double) num2) / ((double) this.miniy - (double) num2 * 2.0)) * (float) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight));
+        Number1 =  Math.Round( ( (( x -  num1) / ( this.minix -  num1 * 2.0)) *  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth));
+        Number2 =  Math.Round( ( (( y -  num2) / ( this.miniy -  num2 * 2.0)) *  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight));
       }
       else
       {
-        Number1 =  Math.Round((double) (Math.Max(0.0f, (float) x - num1 - num3) / num3));
+        Number1 =  Math.Round( (Math.Max(0.0f,  x - num1 - num3) / num3));
         if ((Number1 + 2) % 2 == 1)
         {
           int num9;
-          num9 -=  Math.Round((double) (num4 / 2f));
+          num9 -=  Math.Round( (num4 / 2f));
         }
-        Number2 =  Math.Round((double) (((float) y - num2) / num4));
+        Number2 =  Math.Round( (( y - num2) / num4));
       }
       this.game.EditObj.CurrentMiniX = Conversion.Int(Number1);
       this.game.EditObj.CurrentMiniY = Conversion.Int(Number2);
@@ -437,33 +437,33 @@ namespace WindowsApplication1
         Number2 += 3;
       if (this.tZoomLevel == -1)
         Number2 += 6;
-      let mut num10: i32 =  (double) this.game.Data.RuleVar[839] != 0.0 ? this.game.ScreenWidth - 0 : (this.game.EditObj.Layout != 1 ? this.game.ScreenWidth - 220 : this.game.ScreenWidth - 440);
+      let mut num10: i32 =   this.game.Data.RuleVar[839] != 0.0 ? this.game.ScreenWidth - 0 : (this.game.EditObj.Layout != 1 ? this.game.ScreenWidth - 220 : this.game.ScreenWidth - 440);
       let mut num11: i32 =  this.game.ScreenHeight - 280;
-      let mut num12: i32 =  (double) this.game.Data.RuleVar[839] != 1.0 ? (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 128 : 64) : 32) : (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 106 : 53) : 27);
+      let mut num12: i32 =   this.game.Data.RuleVar[839] != 1.0 ? (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 128 : 64) : 32) : (this.tZoomLevel != -1 ? (this.tZoomLevel != 0 ? 106 : 53) : 27);
       int num13;
       int num14;
       int num15;
       int num16;
       if (this.MapWidth > -1)
       {
-        let mut num17: i32 =   Math.Round((double) this.MapWidth / (double) num12);
-        let mut num18: i32 =   Math.Round((double) this.MapHeight / (double) (24 * (this.tZoomLevel + 2)));
-        num13 = Number1 -  Math.Round((double) num17 / 2.0);
-        num14 = Number2 -  Math.Round((double) num18 / 2.0);
+        let mut num17: i32 =   Math.Round( this.MapWidth /  num12);
+        let mut num18: i32 =   Math.Round( this.MapHeight /  (24 * (this.tZoomLevel + 2)));
+        num13 = Number1 -  Math.Round( num17 / 2.0);
+        num14 = Number2 -  Math.Round( num18 / 2.0);
         num15 = num17;
         num16 = num18;
       }
       else
       {
-        num13 = this.game.EditObj.Layout != 0 ?  Math.Round((double) Number1 - (double) (num10 - 0) / (double) num12 / 2.0) :  Math.Round((double) Number1 - (double) (num10 - 0) / (double) num12 / 2.0);
-        num14 =  Math.Round((double) Number2 - (double) num11 / (double) (24 * (this.tZoomLevel + 2)) / 2.0);
+        num13 = this.game.EditObj.Layout != 0 ?  Math.Round( Number1 -  (num10 - 0) /  num12 / 2.0) :  Math.Round( Number1 -  (num10 - 0) /  num12 / 2.0);
+        num14 =  Math.Round( Number2 -  num11 /  (24 * (this.tZoomLevel + 2)) / 2.0);
         let mut num19: i32 =  265;
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
           num19 = 305;
         if (this.game.Data.Round == 0)
           num19 += 100;
-        num15 =  Math.Round((double) num10 / (double) num12);
-        num16 =  Math.Round((double) (num11 - num19) / (double) (24 * (this.tZoomLevel + 2)));
+        num15 =  Math.Round( num10 /  num12);
+        num16 =  Math.Round( (num11 - num19) /  (24 * (this.tZoomLevel + 2)));
       }
       if (0 > num14)
         num14 = 0;
@@ -478,15 +478,15 @@ namespace WindowsApplication1
       this.game.CornerY = num20;
       let mut num21: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
       let mut num22: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3;
-      if (num15 > num21 & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
+      if (num15 > num21 & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
         this.game.CornerX -= num15 - num21;
       if (num16 > num22)
         this.game.CornerY -= num16 - num22;
-      if (0 > this.game.CornerX & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
+      if (0 > this.game.CornerX & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
         this.game.CornerX = 0;
       if (-1 > this.game.CornerY)
         this.game.CornerY = -1;
-      if (0 > this.game.CornerX & this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop & (double) this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0)
+      if (0 > this.game.CornerX & this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop &  this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0)
         this.game.CornerX = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + this.game.CornerX + 1;
       if (!this.realhex)
         this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, this.minix, this.miniy, this.alsounits, this.realhex);

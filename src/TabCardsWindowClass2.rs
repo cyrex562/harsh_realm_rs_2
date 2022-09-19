@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -144,7 +144,7 @@ namespace WindowsApplication1
         if (self.categorySelectMode[self.currentCat] == 4)
         {
           self.miniSelectLeader = self.game.EditObj.se1_CardsTarget;
-          self.miniSelectValue =  Math.Round(Conversion.Val((object) self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 196, 0, 0))].FindRow(0, self.miniSelectLeader)));
+          self.miniSelectValue =  Math.Round(Conversion.Val( self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 196, 0, 0))].FindRow(0, self.miniSelectLeader)));
           if (self.miniSelectValue < 0)
             self.miniSelectLeader = -1;
         }
@@ -856,7 +856,7 @@ namespace WindowsApplication1
         w1 += self.w - 910;
       if (self.h > 602)
         h1 += self.h - 602;
-      let mut tx1: i32 = self.game.ScreenWidth >= 1400 ? x1_1 +  Math.Round((double) w1 / 2.0) - 200 : x1_1 +  Math.Round((double) w1 / 2.0) - 100;
+      let mut tx1: i32 = self.game.ScreenWidth >= 1400 ? x1_1 +  Math.Round( w1 / 2.0) - 200 : x1_1 +  Math.Round( w1 / 2.0) - 100;
       let mut ty1: i32 = -5;
       bool active1 = false;
       if (self.viewMode == 1)
@@ -1193,8 +1193,8 @@ namespace WindowsApplication1
           num28 = 200;
           num29 = 276;
         }
-        let mut num30: i32 =  Math.Round(Math.Floor((double) num26 / (double) num28));
-        let mut num31: i32 =  Math.Round(Math.Floor((double) num27 / (double) num29));
+        let mut num30: i32 =  Math.Round(Math.Floor( num26 /  num28));
+        let mut num31: i32 =  Math.Round(Math.Floor( num27 /  num29));
         let mut num32: i32 = num30;
         let mut num33: i32 = num31;
         let mut num34: i32 = 1;
@@ -1219,7 +1219,7 @@ namespace WindowsApplication1
           }
           else
           {
-            let mut num39: i32 =  Math.Round(Math.Ceiling(Math.Sqrt((double) d)));
+            let mut num39: i32 =  Math.Round(Math.Ceiling(Math.Sqrt( d)));
             if (num39 < num35)
               num35 = num39;
             if (num39 < num36)
@@ -1234,7 +1234,7 @@ namespace WindowsApplication1
             if (d <= num35)
               num36 = 1;
           }
-          num38 =  Math.Round(Math.Ceiling((double) (SL.Counter + 1) / (double) num37));
+          num38 =  Math.Round(Math.Ceiling( (SL.Counter + 1) /  num37));
           if (self.pageNr > num38)
           {
             self.pageNr = num38;
@@ -1245,31 +1245,31 @@ namespace WindowsApplication1
         }
         while (num34 <= 2);
         tstring1: String = "Page " + self.pageNr.ToString() + " of " + num38.ToString();
-        DrawMod.DrawTextColouredConsoleCenter( g, tstring1, self.game.MarcFont4, num24 +  Math.Round((double) num26 / 2.0), num25 + num27 + 3, self.game.seColWhite);
+        DrawMod.DrawTextColouredConsoleCenter( g, tstring1, self.game.MarcFont4, num24 +  Math.Round( num26 / 2.0), num25 + num27 + 3, self.game.seColWhite);
         if (self.pageNr > 1)
         {
-          let mut tsubpart3: SubPartClass =  new TextButtonPartClass("<", 50, "Previous Page",  self.OwnBitmap, num24 +  Math.Round((double) num26 / 2.0) - 150, num25 + num27, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
-          self.prevId = self.AddSubPart( tsubpart3, num24 +  Math.Round((double) num26 / 2.0) - 100, num25 + num27, 50, 30, 1);
+          let mut tsubpart3: SubPartClass =  new TextButtonPartClass("<", 50, "Previous Page",  self.OwnBitmap, num24 +  Math.Round( num26 / 2.0) - 150, num25 + num27, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+          self.prevId = self.AddSubPart( tsubpart3, num24 +  Math.Round( num26 / 2.0) - 100, num25 + num27, 50, 30, 1);
         }
         else
         {
-          let mut tsubpart4: SubPartClass =  new TextButtonPartClass("<", 50, "Previous Page",  self.OwnBitmap, num24 +  Math.Round((double) num26 / 2.0) - 150, num25 + num27, true, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
-          self.prev2Id = self.AddSubPart( tsubpart4, num24 +  Math.Round((double) num26 / 2.0) - 100, num25 + num27, 50, 30, 0);
+          let mut tsubpart4: SubPartClass =  new TextButtonPartClass("<", 50, "Previous Page",  self.OwnBitmap, num24 +  Math.Round( num26 / 2.0) - 150, num25 + num27, true, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+          self.prev2Id = self.AddSubPart( tsubpart4, num24 +  Math.Round( num26 / 2.0) - 100, num25 + num27, 50, 30, 0);
         }
         if (self.pageNr < num38)
         {
-          let mut tsubpart5: SubPartClass =  new TextButtonPartClass(">", 50, "Next Page",  self.OwnBitmap, num24 +  Math.Round((double) num26 / 2.0) + 60, num25 + num27, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
-          self.nextId = self.AddSubPart( tsubpart5, num24 +  Math.Round((double) num26 / 2.0) + 60, num25 + num27, 50, 30, 1);
+          let mut tsubpart5: SubPartClass =  new TextButtonPartClass(">", 50, "Next Page",  self.OwnBitmap, num24 +  Math.Round( num26 / 2.0) + 60, num25 + num27, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+          self.nextId = self.AddSubPart( tsubpart5, num24 +  Math.Round( num26 / 2.0) + 60, num25 + num27, 50, 30, 1);
         }
         else
         {
-          let mut tsubpart6: SubPartClass =  new TextButtonPartClass(">", 50, "Next Page",  self.OwnBitmap, num24 +  Math.Round((double) num26 / 2.0) + 60, num25 + num27, true, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
-          self.next2Id = self.AddSubPart( tsubpart6, num24 +  Math.Round((double) num26 / 2.0) + 60, num25 + num27, 50, 30, 0);
+          let mut tsubpart6: SubPartClass =  new TextButtonPartClass(">", 50, "Next Page",  self.OwnBitmap, num24 +  Math.Round( num26 / 2.0) + 60, num25 + num27, true, theight: 30, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
+          self.next2Id = self.AddSubPart( tsubpart6, num24 +  Math.Round( num26 / 2.0) + 60, num25 + num27, 50, 30, 0);
         }
         index3 = num26 - num35 * num28;
         let mut num40: i32 = num27 - num36 * num29;
-        let mut num41: i32 = 186 +  Math.Round((double) index3 / 2.0);
-        let mut num42: i32 = 43 +  Math.Round((double) num40 / 2.0) + 10;
+        let mut num41: i32 = 186 +  Math.Round( index3 / 2.0);
+        let mut num42: i32 = 43 +  Math.Round( num40 / 2.0) + 10;
         let mut num43: i32 = num35 * num28;
         let mut num44: i32 = num36 * num29;
         let mut num45: i32 = num41;
@@ -1465,7 +1465,7 @@ namespace WindowsApplication1
                 else
                   str1 = self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]].MouseOver;
               }
-              if (Information.IsNothing((object) self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]].MouseOver))
+              if (Information.IsNothing( self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]].MouseOver))
                 self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[regcardslot]].MouseOver = "";
               if (self.scrapMode)
               {
@@ -1586,8 +1586,8 @@ namespace WindowsApplication1
         self.OptionsListObj = ListClass::new();
         self.OptionsList2Obj = ListClass::new();
         let mut num55: i32 = -1;
-        let mut tlistsize1: i32 =  Math.Round(Math.Floor((double) rectangle3.Height / 24.0)) - 1;
-        let mut tlistsize2: i32 =  Math.Round(Math.Floor((double) rectangle4.Height / 24.0)) - 1;
+        let mut tlistsize1: i32 =  Math.Round(Math.Floor( rectangle3.Height / 24.0)) - 1;
+        let mut tlistsize2: i32 =  Math.Round(Math.Floor( rectangle4.Height / 24.0)) - 1;
         tstring: String = "";
         if (self.currentCat == 1)
           tstring = "Select Major Regime";
@@ -1910,11 +1910,11 @@ namespace WindowsApplication1
           }
           let mut num67: i32 = -1;
           let mut tlistselect2: i32 = -1;
-          let mut tlistsize3: i32 =  Math.Round(Math.Floor((double) rectangle3.Height / 56.0)) - 1;
+          let mut tlistsize3: i32 =  Math.Round(Math.Floor( rectangle3.Height / 56.0)) - 1;
           let mut tValueWidth: i32 = rectangle3.Width - 200;
           index3 = rectangle3.Width - 400;
           if (index3 > 0)
-            tValueWidth =  Math.Round((double) tValueWidth - (double) index3 / 3.0);
+            tValueWidth =  Math.Round( tValueWidth -  index3 / 3.0);
           if (self.detailnr > -1)
           {
             let mut length: i32 = self.game.Data.StringListObj[stringListById7].Length;
@@ -2201,10 +2201,10 @@ namespace WindowsApplication1
         let mut y12: i32 = rectangle2.Y;
         let mut width: i32 = rectangle2.Width;
         let mut height: i32 = rectangle2.Height;
-        let mut num73: i32 =  Math.Round((double) (rectangle2.Width - 324) / 2.0);
+        let mut num73: i32 =  Math.Round( (rectangle2.Width - 324) / 2.0);
         UDSPartClass udsPartClass = new UDSPartClass(self.game, width, height, tTexty1,  self.OwnBitmap, x9, y12, true, true, tAlwaysShowBackground: true);
         let mut num74: i32 = udsPartClass.DoJustCheckHeight(true) + 30;
-        let mut num75: i32 =  Math.Round((double) (height - num74) / 2.0);
+        let mut num75: i32 =  Math.Round( (height - num74) / 2.0);
         udsPartClass.Dispose();
         if (rectangle2.Width > 564)
         {
@@ -2242,29 +2242,29 @@ namespace WindowsApplication1
         self.pageId = self.AddSubPart( tsubpart16, x9, y12, width, height, 0);
       }
       let mut num76: i32 = self.w - 335;
-      let mut num77: i32 = 54 + Math.Max(0,  Math.Round((double) (self.h - 154 - 544) / 2.0));
+      let mut num77: i32 = 54 + Math.Max(0,  Math.Round( (self.h - 154 - 544) / 2.0));
       let mut num78: i32 = 300;
       let mut num79: i32 = 285;
-      let mut num80: i32 =  Math.Round((double) num76 + (double) (num78 - 190) / 2.0 - 10.0);
+      let mut num80: i32 =  Math.Round( num76 +  (num78 - 190) / 2.0 - 10.0);
       let mut num81: i32 = num77 - 5;
       let mut num82: i32 = 235;
       let mut num83: i32 = num80 - 10;
       let mut num84: i32 = num81 + 320;
       if (self.scrapMode)
       {
-        let mut y14: i32 =  Math.Round((double) self.h / 2.0 - 150.0);
+        let mut y14: i32 =  Math.Round( self.h / 2.0 - 150.0);
         let mut num85: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].GetData2(0, id1, 1, "scrapPoints", 2)));
         tstring3: String = "You are in";
-        DrawMod.DrawTextColouredConsoleCenter( g, tstring3, self.game.MarcFont4, num76 +  Math.Round((double) num78 / 2.0), y14, self.game.seColWhite);
+        DrawMod.DrawTextColouredConsoleCenter( g, tstring3, self.game.MarcFont4, num76 +  Math.Round( num78 / 2.0), y14, self.game.seColWhite);
         let mut y15: i32 = y14 + 20;
         tstring4: String = "Scrap Mode";
-        DrawMod.DrawTextColouredConsoleCenter( g, tstring4, self.game.MarcFont3, num76 +  Math.Round((double) num78 / 2.0), y15, self.game.seColWhite);
+        DrawMod.DrawTextColouredConsoleCenter( g, tstring4, self.game.MarcFont3, num76 +  Math.Round( num78 / 2.0), y15, self.game.seColWhite);
         let mut y16: i32 = y15 + 40;
         tstring5: String = "You currently have";
-        DrawMod.DrawTextColouredConsoleCenter( g, tstring5, self.game.MarcFont4, num76 +  Math.Round((double) num78 / 2.0), y16, self.game.seColWhite);
+        DrawMod.DrawTextColouredConsoleCenter( g, tstring5, self.game.MarcFont4, num76 +  Math.Round( num78 / 2.0), y16, self.game.seColWhite);
         let mut y17: i32 = y16 + 20;
         tstring6: String = num85.ToString() + " Scrap Points";
-        DrawMod.DrawTextColouredConsoleCenter( g, tstring6, self.game.MarcFont2, num76 +  Math.Round((double) num78 / 2.0), y17, self.game.seColWhite);
+        DrawMod.DrawTextColouredConsoleCenter( g, tstring6, self.game.MarcFont2, num76 +  Math.Round( num78 / 2.0), y17, self.game.seColWhite);
         num77 = y17 + 40 + 20;
         let mut num86: i32 = num77;
         let mut num87: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById1].GetData2(0, id1, 1, "scrapPointCost", 2)));
@@ -2330,9 +2330,9 @@ namespace WindowsApplication1
           let mut x: i32 = num80 + 10;
           let mut y: i32 = num81 + 10;
           DrawMod.DrawSimple( local21,  local22, x, y);
-          if (Information.IsNothing((object) self.game.Data.ActionCardObj[nr].MouseOver))
+          if (Information.IsNothing( self.game.Data.ActionCardObj[nr].MouseOver))
             self.game.Data.ActionCardObj[nr].MouseOver = "";
-          if (Information.IsNothing((object) self.rememberExtraS))
+          if (Information.IsNothing( self.rememberExtraS))
             self.rememberExtraS = "";
           string ttext;
           if (self.rememberExtraS.Length > 1)
@@ -2416,12 +2416,12 @@ namespace WindowsApplication1
         }
         if (self.detailnr > -1)
         {
-          DrawMod.DrawTextColouredConsoleCenter( g, tstring7, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y18, self.game.seColWhite);
+          DrawMod.DrawTextColouredConsoleCenter( g, tstring7, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18, self.game.seColWhite);
           let mut y19: i32 = y18 + 16;
           int num90;
           if (flag4)
           {
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring8, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y19, self.game.seColRed);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring8, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y19, self.game.seColRed);
             num90 = y19 + 16;
           }
           else
@@ -2431,15 +2431,15 @@ namespace WindowsApplication1
                let mut local23: &Graphics = &g;
               bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(self.miniSelectLeader, 50, 70, true);
                let mut local24: &Bitmap = &bitmap;
-              let mut x12: i32 = x11 +  Math.Round((double) width / 2.0) - 25;
+              let mut x12: i32 = x11 +  Math.Round( width / 2.0) - 25;
               let mut y20: i32 = y19;
               DrawMod.DrawSimple( local23,  local24, x12, y20);
-              trect3 = Rectangle::new(x11 +  Math.Round((double) width / 2.0) - 25, y19, 50, 70);
+              trect3 = Rectangle::new(x11 +  Math.Round( width / 2.0) - 25, y19, 50, 70);
               let mut trect7: &Rectangle = &trect3
               self.AddMouse( trect7, "", "Click for more information", 11, self.miniSelectLeader);
               y19 += 70;
             }
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring8, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y19, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring8, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y19, self.game.seColWhite);
             num90 = y19 + 16;
           }
           y18 = num90 + 10;
@@ -2583,23 +2583,23 @@ namespace WindowsApplication1
           }
           if (self.detailnr > -1)
           {
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring9, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y18, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring9, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18, self.game.seColWhite);
             let mut y21: i32 = y18 + 16;
             if (self.h > 672)
             {
                let mut local25: &Graphics = &g;
               bitmap = self.game.CustomBitmapObj.DrawLeaderPortrait(num101, 50, 70, true);
                let mut local26: &Bitmap = &bitmap;
-              let mut x13: i32 = x11 +  Math.Round((double) width / 2.0) - 25;
+              let mut x13: i32 = x11 +  Math.Round( width / 2.0) - 25;
               let mut y22: i32 = y21;
               DrawMod.DrawSimple( local25,  local26, x13, y22);
-              trect3 = Rectangle::new(x11 +  Math.Round((double) width / 2.0) - 25, y21, 50, 70);
+              trect3 = Rectangle::new(x11 +  Math.Round( width / 2.0) - 25, y21, 50, 70);
               let mut trect8: &Rectangle = &trect3
               self.AddMouse( trect8, "", "Click for more information", 11, num101);
               y21 += 70;
             }
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring10, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y21, self.game.seColWhite);
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring11, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y21 + 16, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring10, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y21, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring11, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y21 + 16, self.game.seColWhite);
             y18 = y21 + 42;
           }
           if (!flag1 & self.miniSelectValue < 0)
@@ -2608,19 +2608,19 @@ namespace WindowsApplication1
             str9: String = "";
             if (SL.FindNr(num91) > -1)
               str9 = self.cardWhyNot[SL.FindNr(num91), 1];
-            if (Information.IsNothing((object) str9))
+            if (Information.IsNothing( str9))
               str9 = "There is a reason this is impossible, but we cannot tell you.";
             if (Operators.CompareString(str9, "", false) == 0)
               str9 = "There is a reason this is impossible, but we cannot tell you.";
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring12, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y18, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring12, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18, self.game.seColWhite);
             let mut y23: i32 = y18 + 16;
-            if (!Information.IsNothing((object) str9))
+            if (!Information.IsNothing( str9))
             {
               SizeF sizeF1 = SizeF::new();
               StringFormat stringFormat = StringFormat::new();
               SizeF sizeF2 = g.MeasureString(str9, self.game.MarcFont4, width - 20);
               DrawMod.DrawTextColouredConsoleMultiline( g, str9, self.game.MarcFont4, x11 + 10, y23, self.game.seColRed, width - 20, 80, true);
-              y23 =  Math.Round((double) ((float) y23 + sizeF2.Height));
+              y23 =  Math.Round( ( y23 + sizeF2.Height));
             }
             y18 = y23 + 10;
           }
@@ -2630,19 +2630,19 @@ namespace WindowsApplication1
             str10: String = "";
             if (SL.FindNr(num91) > -1)
               str10 = self.cardWhyNot[SL.FindNr(num91), self.miniSelectValue];
-            if (Information.IsNothing((object) str10))
+            if (Information.IsNothing( str10))
               str10 = "Invalid Target";
             if (Operators.CompareString(str10, "", false) == 0)
               str10 = "Invalid Target";
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring13, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y18, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring13, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18, self.game.seColWhite);
             let mut y24: i32 = y18 + 16;
-            if (!Information.IsNothing((object) str10))
+            if (!Information.IsNothing( str10))
             {
               SizeF sizeF3 = SizeF::new();
               StringFormat stringFormat = StringFormat::new();
               SizeF sizeF4 = g.MeasureString(str10, self.game.MarcFont4, width - 20);
               DrawMod.DrawTextColouredConsoleMultiline( g, str10, self.game.MarcFont4, x11 + 10, y24, self.game.seColRed, width - 20, 80, true);
-              y24 =  Math.Round((double) ((float) y24 + sizeF4.Height));
+              y24 =  Math.Round( ( y24 + sizeF4.Height));
             }
             y18 = y24 + 10;
           }
@@ -2664,8 +2664,8 @@ namespace WindowsApplication1
             }
             else
               tstring15 = "No Tests";
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring14, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y18, self.game.seColWhite);
-            DrawMod.DrawTextColouredConsoleCenter( g, tstring15, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y18 + 16, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring14, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18, self.game.seColWhite);
+            DrawMod.DrawTextColouredConsoleCenter( g, tstring15, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18 + 16, self.game.seColWhite);
             y18 += 42;
             if (!flag4 & flag1 && simpleList3.Counter > -1)
             {
@@ -2680,7 +2680,7 @@ namespace WindowsApplication1
                   flag7 = true;
               }
               tstring16: String = flag6 ? (!(flag6 & !flag7) ? "ROLLS (BOTH LEADERS)" : "ROLLS FOR TARGET LEADER") : "ROLLS";
-              DrawMod.DrawTextColouredConsoleCenter( g, tstring16, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y18, self.game.seColWhite);
+              DrawMod.DrawTextColouredConsoleCenter( g, tstring16, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y18, self.game.seColWhite);
               let mut y25: i32 = y18 + 16;
               let mut counter4: i32 = simpleList3.Counter;
               for (let mut index24: i32 = 0; index24 <= counter4; index24 += 1)
@@ -2696,7 +2696,7 @@ namespace WindowsApplication1
                 }
                 if (simpleList3.Data1[index24] == 2 | flag8)
                   tstring17 += " *";
-                DrawMod.DrawTextColouredConsoleCenter( g, tstring17, self.game.MarcFont4, x11 +  Math.Round((double) width / 2.0), y25, self.game.seColWhite);
+                DrawMod.DrawTextColouredConsoleCenter( g, tstring17, self.game.MarcFont4, x11 +  Math.Round( width / 2.0), y25, self.game.seColWhite);
                 if (simpleList3.Data1[index24] == 2)
                 {
                   trect3 = Rectangle::new(x11, y25 - 20, width, 40);
@@ -2997,7 +2997,7 @@ namespace WindowsApplication1
       {
         if (self.categorySelectMode[self.currentCat] == 4)
         {
-          self.miniSelectValue =  Math.Round(Conversion.Val((object) self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 196, 0, 0))].FindRow(0, self.miniSelectLeader)));
+          self.miniSelectValue =  Math.Round(Conversion.Val( self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID(self.game.EventRelatedObj.CheckStringlistID("SE_Data", 196, 0, 0))].FindRow(0, self.miniSelectLeader)));
           if (self.miniSelectValue < 0)
             self.miniSelectLeader = -1;
         }
@@ -3504,7 +3504,7 @@ namespace WindowsApplication1
                 let mut setValue1: i32 = num4 - num5;
                 if (0 > setValue1)
                   setValue1 = 0;
-                let mut setValue2: i32 = num5 + Math.Max(1,  Math.Round(Math.Floor((double) num5 / 10.0)));
+                let mut setValue2: i32 = num5 + Math.Max(1,  Math.Round(Math.Floor( num5 / 10.0)));
                 self.game.Data.StringListObj[stringListById].SetData2(0, self.game.Data.RegimeObj[self.game.Data.Turn].id, 1, "scrapPoints", 2, setValue1, true);
                 self.game.Data.StringListObj[stringListById].SetData2(0, self.game.Data.RegimeObj[self.game.Data.Turn].id, 1, "scrapPointCost", 2, setValue2, true);
                 self.game.EditObj.PopupValue = 29;
@@ -3566,7 +3566,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    let mut num6: i32 =  Interaction.MsgBox((object) "Error. Cant have selected an Area X,Y already.");
+                    let mut num6: i32 =  Interaction.MsgBox( "Error. Cant have selected an Area X,Y already.");
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
@@ -3596,7 +3596,7 @@ namespace WindowsApplication1
                 bool dontDelete = false;
                 if ( Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].GetData(0, self.game.Data.ActionCardObj[self.game.Data.RegimeObj[self.game.Data.Turn].ActionCard[self.detailnr]].TempVar0, 16))) > 0)
                   dontDelete = true;
-                if ((double) self.game.Data.RuleVar[408] > 0.0)
+                if ( self.game.Data.RuleVar[408] > 0.0)
                 {
                   let mut selectX: i32 = self.game.SelectX;
                   let mut selectY: i32 = self.game.SelectY;

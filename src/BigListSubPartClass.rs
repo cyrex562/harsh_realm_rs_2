@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -51,7 +51,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
         return;
       this.backbitmap.Dispose();
       this.backbitmap = (Bitmap) null;
@@ -90,10 +90,10 @@ namespace WindowsApplication1
       this.ShowPair = tShowPair;
       this.ValueWidth = tValueWidth;
       this.DoTopAndBottom = tdotopandbottom;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
         this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -117,7 +117,7 @@ namespace WindowsApplication1
         this.Header = tHeader;
       if (tTop == 0)
       {
-        this.TopItem = (int) Math.Round((double) this.ListSelect - Conversion.Int((double) this.ListSize / 2.0));
+        this.TopItem = (int) Math.Round( this.ListSelect - Conversion.Int( this.ListSize / 2.0));
         if (this.TopItem < 0)
           this.TopItem = 0;
       }
@@ -146,7 +146,7 @@ namespace WindowsApplication1
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (this.ListSize >= this.ListObj.ListCount)
         this.TopItem = 0;
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
       {
         graphics.Clear(Color.Transparent);
       }
@@ -194,14 +194,14 @@ namespace WindowsApplication1
         }
       }
       let mut num6: i32 =  (this.ListSize + 1) * 32;
-      float num7 = this.ListObj.ListCount <= 0 ? 1f : (float) this.ListSize / (float) this.ListObj.ListCount;
-      if ((double) num7 > 1.0)
+      float num7 = this.ListObj.ListCount <= 0 ? 1f :  this.ListSize /  this.ListObj.ListCount;
+      if ( num7 > 1.0)
         num7 = 1f;
-      let mut num8: i32 =  (int) Math.Round((double) Conversion.Int((float) num6 * num7));
-      float num9 = this.ListObj.ListCount <= 0 ? 0.0f : (float) this.TopItem / (float) this.ListObj.ListCount;
-      if ((double) num9 > 1.0)
+      let mut num8: i32 =  (int) Math.Round( Conversion.Int( num6 * num7));
+      float num9 = this.ListObj.ListCount <= 0 ? 0.0f :  this.TopItem /  this.ListObj.ListCount;
+      if ( num9 > 1.0)
         num9 = 1f;
-      let mut num10: i32 =  (int) Math.Round((double) Conversion.Int((float) num6 * num9));
+      let mut num10: i32 =  (int) Math.Round( Conversion.Int( num6 * num9));
       if (this.DoTopAndBottom)
         num10 += 32;
       if (num6 < 5)
@@ -347,7 +347,7 @@ namespace WindowsApplication1
     pub int Click(int x, int y, let mut b: i32 =  1)
     {
       let mut num1: i32 =  y;
-      y = (int) Math.Round(Conversion.Int((double) y / 32.0));
+      y = (int) Math.Round(Conversion.Int( y / 32.0));
       this.Scroller = true;
       let mut num2: i32 =  0;
       let mut num3: i32 =  2;
@@ -379,7 +379,7 @@ namespace WindowsApplication1
           num1 -= 32;
         if (num1 < 1)
           num1 = 1;
-        let mut num7: i32 =  (int) Math.Round((double) (int) Math.Round((double) ((float) num1 / (float) num6 * (float) this.ListObj.ListCount)) - (double) this.ListSize / 2.0);
+        let mut num7: i32 =  (int) Math.Round( (int) Math.Round( ( num1 /  num6 *  this.ListObj.ListCount)) -  this.ListSize / 2.0);
         if (0 > num7)
           num7 = 0;
         this.TopItem = num7;
@@ -420,7 +420,7 @@ namespace WindowsApplication1
     pub bool MouseMove(int x, int y)
     {
       let mut num1: i32 =  y;
-      y = (int) Math.Round(Conversion.Int((double) y / 32.0));
+      y = (int) Math.Round(Conversion.Int( y / 32.0));
       let mut num2: i32 =  0;
       let mut num3: i32 =  2;
       let mut num4: i32 =  1;
@@ -440,7 +440,7 @@ namespace WindowsApplication1
         num1 -= 32;
       if (num1 < 1)
         num1 = 1;
-      let mut num7: i32 =  (int) Math.Round((double) (int) Math.Round((double) ((float) num1 / (float) num6 * (float) this.ListObj.ListCount)) - (double) this.ListSize / 2.0);
+      let mut num7: i32 =  (int) Math.Round( (int) Math.Round( ( num1 /  num6 *  this.ListObj.ListCount)) -  this.ListSize / 2.0);
       if (0 > num7)
         num7 = 0;
       this.TopItem = num7;

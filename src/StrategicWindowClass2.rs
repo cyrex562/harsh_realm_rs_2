@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -117,17 +117,17 @@ namespace WindowsApplication1
       {
         self.unr = self.game.EditObj.OrderTarget;
         self.unrS = self.SL.Id[index1];
-        if ((double) self.game.Data.RuleVar[350] == 0.0)
+        if ( self.game.Data.RuleVar[350] == 0.0)
         {
-          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[1]), 1,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y, self.game.Data.UnitObj[self.unr].Map, SeaBlock: true);
+          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[1]), 1,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y, self.game.Data.UnitObj[self.unr].Map, SeaBlock: true);
           if (self.game.EditObj.TargetX > -1)
           {
             self.NavyCost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
             self.NavyCost += self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
-            self.NavyCost =  Math.Round((double) ((float) self.NavyCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
+            self.NavyCost =  Math.Round( ( self.NavyCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
             self.Navy2Cost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
             self.Navy2Cost += self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
-            self.Navy2Cost =  Math.Round((double) ((float) self.Navy2Cost + self.game.Data.RuleVar[351]));
+            self.Navy2Cost =  Math.Round( ( self.Navy2Cost + self.game.Data.RuleVar[351]));
           }
           let mut mapCounter2: i32 = self.game.Data.MapCounter;
           for (let mut index2: i32 = 0; index2 <= mapCounter2; index2 += 1)
@@ -157,15 +157,15 @@ namespace WindowsApplication1
               }
             }
           }
-          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[0]), 0,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y, self.game.Data.UnitObj[self.unr].Map);
+          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[0]), 0,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y, self.game.Data.UnitObj[self.unr].Map);
           if (self.game.EditObj.TargetX > -1)
           {
             self.LandCost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
             self.LandCost += self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
-            self.LandCost =  Math.Round((double) ((float) self.LandCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
+            self.LandCost =  Math.Round( ( self.LandCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
             self.Land2Cost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
             self.Land2Cost += self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
-            self.Land2Cost =  Math.Round((double) ((float) self.Land2Cost + self.game.Data.RuleVar[351]));
+            self.Land2Cost =  Math.Round( ( self.Land2Cost + self.game.Data.RuleVar[351]));
           }
           let mut mapCounter3: i32 = self.game.Data.MapCounter;
           for (let mut index13: i32 = 0; index13 <= mapCounter3; index13 += 1)
@@ -195,15 +195,15 @@ namespace WindowsApplication1
               }
             }
           }
-          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[2]), 0,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y, self.game.Data.UnitObj[self.unr].Map);
-          if ((double) self.game.Data.RuleVar[509] == 0.0 && self.game.EditObj.TargetX > -1)
+          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[2]), 0,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y, self.game.Data.UnitObj[self.unr].Map);
+          if ( self.game.Data.RuleVar[509] == 0.0 && self.game.EditObj.TargetX > -1)
           {
             self.AirCost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
             self.AirCost += self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
-            self.AirCost =  Math.Round((double) ((float) self.AirCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
+            self.AirCost =  Math.Round( ( self.AirCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
             self.Air2Cost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
             self.Air2Cost += self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
-            self.Air2Cost =  Math.Round((double) ((float) self.Air2Cost + self.game.Data.RuleVar[351]));
+            self.Air2Cost =  Math.Round( ( self.Air2Cost + self.game.Data.RuleVar[351]));
           }
           let mut mapCounter4: i32 = self.game.Data.MapCounter;
           for (let mut index24: i32 = 0; index24 <= mapCounter4; index24 += 1)
@@ -236,15 +236,15 @@ namespace WindowsApplication1
         }
         else
         {
-          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[1]), 1,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y, self.game.Data.UnitObj[self.unrS].Map, SeaBlock: true);
-          if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unr].Map].Value[self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y] > (double) self.game.Data.RuleVar[78])
+          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[1]), 1,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y, self.game.Data.UnitObj[self.unrS].Map, SeaBlock: true);
+          if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unr].Map].Value[self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y] >  self.game.Data.RuleVar[78])
             self.game.HandyFunctionsObj.RedimTempValue(9999);
           if (self.game.EditObj.TargetX > -1)
           {
             self.NavyCost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
-            self.NavyCost =  Math.Round((double) ((float) self.NavyCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
+            self.NavyCost =  Math.Round( ( self.NavyCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
             self.Navy2Cost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
-            self.Navy2Cost =  Math.Round((double) ((float) self.Navy2Cost + self.game.Data.RuleVar[351]));
+            self.Navy2Cost =  Math.Round( ( self.Navy2Cost + self.game.Data.RuleVar[351]));
           }
           let mut mapCounter5: i32 = self.game.Data.MapCounter;
           for (let mut index35: i32 = 0; index35 <= mapCounter5; index35 += 1)
@@ -274,15 +274,15 @@ namespace WindowsApplication1
               }
             }
           }
-          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[0]), 0,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y, self.game.Data.UnitObj[self.unrS].Map);
-          if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unr].Map].Value[self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y] > (double) self.game.Data.RuleVar[78])
+          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[0]), 0,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y, self.game.Data.UnitObj[self.unrS].Map);
+          if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unr].Map].Value[self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y] >  self.game.Data.RuleVar[78])
             self.game.HandyFunctionsObj.RedimTempValue(9999);
           if (self.game.EditObj.TargetX > -1)
           {
             self.LandCost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
-            self.LandCost =  Math.Round((double) ((float) self.LandCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
+            self.LandCost =  Math.Round( ( self.LandCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
             self.Land2Cost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
-            self.Land2Cost =  Math.Round((double) ((float) self.Land2Cost + self.game.Data.RuleVar[351]));
+            self.Land2Cost =  Math.Round( ( self.Land2Cost + self.game.Data.RuleVar[351]));
           }
           let mut mapCounter6: i32 = self.game.Data.MapCounter;
           for (let mut index46: i32 = 0; index46 <= mapCounter6; index46 += 1)
@@ -312,15 +312,15 @@ namespace WindowsApplication1
               }
             }
           }
-          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[2]), 0,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y, self.game.Data.UnitObj[self.unrS].Map);
-          if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unr].Map].Value[self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y] > (double) self.game.Data.RuleVar[78])
+          tGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[2]), 0,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y, self.game.Data.UnitObj[self.unrS].Map);
+          if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[self.unr].Map].Value[self.game.Data.UnitObj[self.unr].X, self.game.Data.UnitObj[self.unr].Y] >  self.game.Data.RuleVar[78])
             self.game.HandyFunctionsObj.RedimTempValue(9999);
-          if ((double) self.game.Data.RuleVar[509] == 0.0 && self.game.EditObj.TargetX > -1)
+          if ( self.game.Data.RuleVar[509] == 0.0 && self.game.EditObj.TargetX > -1)
           {
             self.AirCost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] * self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true);
-            self.AirCost =  Math.Round((double) ((float) self.AirCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
+            self.AirCost =  Math.Round( ( self.AirCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.unrS, true)));
             self.Air2Cost += self.game.EditObj.TempValue[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
-            self.Air2Cost =  Math.Round((double) ((float) self.Air2Cost + self.game.Data.RuleVar[351]));
+            self.Air2Cost =  Math.Round( ( self.Air2Cost + self.game.Data.RuleVar[351]));
           }
           let mut mapCounter7: i32 = self.game.Data.MapCounter;
           for (let mut index57: i32 = 0; index57 <= mapCounter7; index57 += 1)
@@ -353,7 +353,7 @@ namespace WindowsApplication1
         }
       }
       self.CapTheater = 0;
-      if (self.Air2Cost < 9999 & (double) self.game.Data.RuleVar[509] == 0.0)
+      if (self.Air2Cost < 9999 &  self.game.Data.RuleVar[509] == 0.0)
         self.CapTheater = 2;
       if (self.game.Data.UnitObj[self.unr].AirCap > self.game.Data.UnitObj[self.unr].LandCap)
         self.CapTheater = 2;
@@ -386,7 +386,7 @@ namespace WindowsApplication1
           let mut mapHeight: i32 = self.game.Data.MapObj[index1].MapHeight;
           for (let mut index3: i32 = 0; index3 <= mapHeight; index3 += 1)
           {
-            if ((double) self.game.Data.RuleVar[350] == 0.0)
+            if ( self.game.Data.RuleVar[350] == 0.0)
             {
               if (self.CapTheater == 0)
                 self.game.EditObj.TempValue[index1].Value[index2, index3] = self.temp2land[index1].Value[index2, index3] + self.temp2land[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
@@ -420,26 +420,26 @@ namespace WindowsApplication1
         self.AirCost = 0;
         self.NavyCost = 0;
         self.LandCost = 0;
-        if ((double) self.game.Data.RuleVar[350] == 0.0)
+        if ( self.game.Data.RuleVar[350] == 0.0)
         {
           self.LandCost = self.templand[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] + self.templand[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
           self.NavyCost = self.tempnavy[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] + self.tempnavy[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
-          if ((double) self.game.Data.RuleVar[509] == 0.0)
-            self.AirCost = (double) self.game.Data.RuleVar[2] <= -1.0 ? 9999 : self.tempair[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] + self.tempair[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
+          if ( self.game.Data.RuleVar[509] == 0.0)
+            self.AirCost =  self.game.Data.RuleVar[2] <= -1.0 ? 9999 : self.tempair[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] + self.tempair[self.game.Data.UnitObj[self.unrS].Map].Value[self.game.Data.UnitObj[self.unrS].X, self.game.Data.UnitObj[self.unrS].Y];
         }
         else
         {
           self.LandCost = self.templand[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
           self.NavyCost = self.tempnavy[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
-          if ((double) self.game.Data.RuleVar[509] == 0.0)
-            self.AirCost = (double) self.game.Data.RuleVar[2] <= -1.0 ? 9999 : self.tempair[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
+          if ( self.game.Data.RuleVar[509] == 0.0)
+            self.AirCost =  self.game.Data.RuleVar[2] <= -1.0 ? 9999 : self.tempair[self.game.EditObj.TargetMap].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY];
         }
         let mut counter: i32 = self.SL.Counter;
         for (let mut index: i32 = 0; index <= counter; index += 1)
         {
-          self.LandCost =  Math.Round((double) ((float) self.LandCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.SL.Id[index], true)));
-          self.NavyCost =  Math.Round((double) ((float) self.NavyCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.SL.Id[index], true)));
-          self.AirCost =  Math.Round((double) ((float) self.AirCost + self.game.Data.RuleVar[351] * (float) self.game.HandyFunctionsObj.GetUnitWeight(self.SL.Id[index], true)));
+          self.LandCost =  Math.Round( ( self.LandCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.SL.Id[index], true)));
+          self.NavyCost =  Math.Round( ( self.NavyCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.SL.Id[index], true)));
+          self.AirCost =  Math.Round( ( self.AirCost + self.game.Data.RuleVar[351] *  self.game.HandyFunctionsObj.GetUnitWeight(self.SL.Id[index], true)));
         }
       }
       self.TempNew = 0;
@@ -535,7 +535,7 @@ namespace WindowsApplication1
       if (self.yesid > 0)
         self.RemoveSubPart(self.yesid);
       self.NewBackGroundAndClearAll(self.w, self.h, self.game.MARCBOTBAR);
-      let mut num1: i32 =  Math.Round((double) (self.w - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.w - 1024) / 2.0);
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       self.ClearMouse();
       DrawMod.DrawBlockGradient2( graphics, num1 + 40, 25, 950, 151, self.game.MarcCol1, self.game.MarcCol2);
@@ -556,7 +556,7 @@ namespace WindowsApplication1
         int[] pic1Id = self.Pic1Id;
         let mut index2: i32 = index1;
         tsubpart =  ButtonPartClass::new(self.game.CustomBitmapObj.DrawUnit(self.SL.Id[index1]), "The Unit you are transferring");
-        let mut num2: i32 = self.AddSubPart( tsubpart, num1 + 115 +  Math.Round(40.0 * ((double) (index1 + 1) / (double) (self.SL.Counter + 1))), 55, 31, 31, 0);
+        let mut num2: i32 = self.AddSubPart( tsubpart, num1 + 115 +  Math.Round(40.0 * ( (index1 + 1) /  (self.SL.Counter + 1))), 55, 31, 31, 0);
         pic1Id[index2] = num2;
       }
       tsubpart =  ButtonPartClass::new(self.game.CustomBitmapObj.DrawUnit(self.game.EditObj.OrderTarget), "The Unit which movement capacity you are using");
@@ -597,7 +597,7 @@ namespace WindowsApplication1
       if (self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.EditObj.TargetX, self.game.EditObj.TargetY].Regime == -1)
         num3 = 9999;
       self.OrderOKId = 0;
-      if (num4 >= num5 && num3 < 9999 && Conversions.ToBoolean(Operators.OrObject((object) !self.game.EditObj.TutMode, Operators.OrObject(Operators.AndObject(Operators.CompareObjectEqual(self.game.EditObj.TutX, (object) self.game.SelectX, false), Operators.CompareObjectEqual(self.game.EditObj.TutY, (object) self.game.SelectY, false)), Operators.CompareObjectEqual(self.game.EditObj.TutX, (object) -1, false)))))
+      if (num4 >= num5 && num3 < 9999 && Conversions.ToBoolean(Operators.OrObject( !self.game.EditObj.TutMode, Operators.OrObject(Operators.AndObject(Operators.CompareObjectEqual(self.game.EditObj.TutX,  self.game.SelectX, false), Operators.CompareObjectEqual(self.game.EditObj.TutY,  self.game.SelectY, false)), Operators.CompareObjectEqual(self.game.EditObj.TutX,  -1, false)))))
       {
         tsubpart =  new TextButtonPartClass("TRANSFER", 190, "Click to execute the strategic transfer [SPACE]\r\nto selected hex.",  self.BackBitmap, num1 + 660, 80, theight: 50, usefont: self.game.MarcFont1, useshadow: true, tMarcStyle: true);
         self.OrderOKId = self.AddSubPart( tsubpart, num1 + 660, 80, 190, 50, 1);
@@ -607,14 +607,14 @@ namespace WindowsApplication1
         tsubpart =  new TextButtonPartClass("TRANSFER", 190, "You cannot strategic transfer to selected hex.",  self.BackBitmap, num1 + 660, 80, true, theight: 50, usefont: self.game.MarcFont1, useshadow: true, tMarcStyle: true);
         self.OrderOKTextId = self.AddSubPart( tsubpart, num1 + 660, 80, 190, 50, 1);
       }
-      if ((double) self.game.Data.RuleVar[509] != 0.0)
+      if ( self.game.Data.RuleVar[509] != 0.0)
         return;
-      tstring1: String = "Rail Transfer Points available: " + Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].AirCap));
+      tstring1: String = "Rail Transfer Points available: " + Strings.Trim(Conversion.Str( self.game.Data.UnitObj[self.unr].AirCap));
       DrawMod.DrawTextColouredMarc( graphics, tstring1, self.game.MarcFont4, num1 + 250, 105, Color.White);
       if (self.game.EditObj.TargetX <= -1)
         return;
       int num6;
-      tstring2: String = !(self.game.EditObj.TempValue[0].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] < 9999 & self.Air2Cost < 9999 & num3 < 9999 & air2Cost < 9999 & num6 != 1 & (double) self.game.Data.RuleVar[509] == 0.0) ? "Target hex not reachable by rail transfer." : "Cost of transfer = " + Conversion.Str((object) airCost);
+      tstring2: String = !(self.game.EditObj.TempValue[0].Value[self.game.EditObj.TargetX, self.game.EditObj.TargetY] < 9999 & self.Air2Cost < 9999 & num3 < 9999 & air2Cost < 9999 & num6 != 1 &  self.game.Data.RuleVar[509] == 0.0) ? "Target hex not reachable by rail transfer." : "Cost of transfer = " + Conversion.Str( airCost);
       DrawMod.DrawTextColouredMarc( graphics, tstring2, self.game.MarcFont4, num1 + 250, 75, Color.White);
     }
 

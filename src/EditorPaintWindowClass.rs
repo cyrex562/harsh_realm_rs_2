@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
 
 namespace WindowsApplication1
 {
@@ -312,7 +312,7 @@ namespace WindowsApplication1
         let mut num: i32 =  0;
         do
         {
-          this.medListObj.add(Strings.Trim(Conversion.Str((object) num)) + ") " + this.game.Data.TempString[710 + num], num);
+          this.medListObj.add(Strings.Trim(Conversion.Str( num)) + ") " + this.game.Data.TempString[710 + num], num);
           num += 1;
         }
         while (num <= 9);
@@ -384,9 +384,9 @@ namespace WindowsApplication1
         {
           let mut areaBySlot: i32 =  this.game.HandyFunctionsObj.GetAreaBySlot(this.game.EditObj.PaintShortcut2, num);
           if (areaBySlot > -1)
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num)) + ") " + this.game.Data.AreaObj[areaBySlot].Name, num);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num)) + ") " + this.game.Data.AreaObj[areaBySlot].Name, num);
           else
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num)), num);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num)), num);
           num += 1;
         }
         while (num <= 125);
@@ -403,7 +403,7 @@ namespace WindowsApplication1
           num1 += 1;
           if (num2 == this.game.EditObj.PaintShortcut3)
             tlistselect2 = num1;
-          this.lastListObj.add("Height Level " + Strings.Trim(Conversion.Str((object) num2)), num2);
+          this.lastListObj.add("Height Level " + Strings.Trim(Conversion.Str( num2)), num2);
           num2 += 1;
         }
         while (num2 <= 9);
@@ -422,9 +422,9 @@ namespace WindowsApplication1
           if (num4 == this.game.EditObj.PaintShortcut3)
             tlistselect2 = num3;
           if (index > -1)
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num4)) + ") " + this.game.Data.AreaObj[index].Name, num4);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num4)) + ") " + this.game.Data.AreaObj[index].Name, num4);
           else
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num4)), num4);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num4)), num4);
           num4 += 1;
         }
         while (num4 <= 100);
@@ -435,9 +435,9 @@ namespace WindowsApplication1
           if (num5 == this.game.EditObj.PaintShortcut3)
             tlistselect2 = num3;
           if (index > -1)
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num5)) + ") " + this.game.Data.AreaObj[index].Name, num5);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num5)) + ") " + this.game.Data.AreaObj[index].Name, num5);
           else
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num5)), num5);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num5)), num5);
           num5 += 5;
         }
         while (num5 <= 250);
@@ -448,9 +448,9 @@ namespace WindowsApplication1
           if (num6 == this.game.EditObj.PaintShortcut3)
             tlistselect2 = num3;
           if (index > -1)
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num6)) + ") " + this.game.Data.AreaObj[index].Name, num6);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num6)) + ") " + this.game.Data.AreaObj[index].Name, num6);
           else
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num6)), num6);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num6)), num6);
           num6 += 10;
         }
         while (num6 <= 500);
@@ -461,9 +461,9 @@ namespace WindowsApplication1
           if (num7 == this.game.EditObj.PaintShortcut3)
             tlistselect2 = num3;
           if (index > -1)
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num7)) + ") " + this.game.Data.AreaObj[index].Name, num7);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num7)) + ") " + this.game.Data.AreaObj[index].Name, num7);
           else
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num7)), num7);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num7)), num7);
           num7 += 50;
         }
         while (num7 <= 2000);
@@ -474,9 +474,9 @@ namespace WindowsApplication1
           if (num8 == this.game.EditObj.PaintShortcut3)
             tlistselect2 = num3;
           if (index > -1)
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num8)) + ") " + this.game.Data.AreaObj[index].Name, num8);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num8)) + ") " + this.game.Data.AreaObj[index].Name, num8);
           else
-            this.lastListObj.add(Strings.Trim(Conversion.Str((object) num8)), num8);
+            this.lastListObj.add(Strings.Trim(Conversion.Str( num8)), num8);
           num8 += 500;
         }
         while (num8 <= 10000);

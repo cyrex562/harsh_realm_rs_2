@@ -25,7 +25,7 @@ namespace WindowsApplication1
     pub IBreakTrough: i32;
     pub IInitThrow: i32;
     pub IID: i32;
-    pub int[] IHistoricInit;
+    pub IHistoricInit: Vec<i32>;
     pub string[] IHistoricState;
     pub string[] IHistoricState2;
     pub IRetreat: i32;
@@ -64,7 +64,7 @@ namespace WindowsApplication1
     pub float IdirectMod;
     pub IdirectFire: bool;
     pub float[] IdirectModDef;
-    pub bool[] IdirectFireDef;
+    pub IdirectFireDef: Vec<bool>;
     pub float IcoverPoints;
     pub IvisibleFromRound: i32;
     pub ItotalKills: i32;

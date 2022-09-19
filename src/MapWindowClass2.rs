@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -60,7 +60,7 @@ namespace WindowsApplication1
       }
       if (this.game.FormRef.WindowState == FormWindowState.Minimized & !this.game.EditObj.BattleTimerActive)
         return windowReturnClass;
-      if ((double) this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.udsReturnFromPopup)
+      if ( this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.udsReturnFromPopup)
       {
         this.DoRefresh();
         return windowReturnClass;
@@ -95,7 +95,7 @@ namespace WindowsApplication1
         if (this.game.EditObj.BattleAnimNr == 0 && this.game.EditObj.udsUnitOrderMode != 33 & this.game.EditObj.OrderType != 33)
         {
           let mut volume2: i32 =  this.game.EditObj.Volume2;
-          this.game.EditObj.Volume2 =  Math.Round((double) this.game.EditObj.Volume2 / 2.0);
+          this.game.EditObj.Volume2 =  Math.Round( this.game.EditObj.Volume2 / 2.0);
           if (this.game.EditObj.SoundOn)
             SoundMod.PlayAWave(this.game.AppPath + "sound/blow.wav",  this.game.EditObj);
           this.game.EditObj.Volume2 = volume2;
@@ -115,7 +115,7 @@ namespace WindowsApplication1
           {
             if (this.game.TempCombat.Init(Target, 1, this.game.EditObj.TempUnitList, this.game.EditObj.OrderType).OK)
             {
-              if ((double) this.game.Data.RuleVar[839] == 1.0)
+              if ( this.game.Data.RuleVar[839] == 1.0)
               {
                 this.game.EditObj.PopupValue = 7;
                 windowReturnClass.AddCommand(5, 14);
@@ -147,7 +147,7 @@ namespace WindowsApplication1
         this.game.EditObj.TempCoordList.active = true;
         this.PaintCurrentBitmap(this.MapId);
         windowReturnClass.SetFlag(true);
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
           windowReturnClass.AddCommand(4, 66);
         }
@@ -175,7 +175,7 @@ namespace WindowsApplication1
       {
         let mut memorySize1: i32 =  this.game.FormRef.GetMemorySize();
         let mut memorySize2: i32 =  BitmapStore.GetMemorySize();
-        let mut num: i32 =   Interaction.MsgBox((object) ("Memory Used Right Now by GUI (" + Conversion.Str((object) memorySize1) + "KB) + Bitmapstore (" + Conversion.Str((object) memorySize2) + "KB) =" + Conversion.Str((object)  Math.Round((double) (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( ("Memory Used Right Now by GUI (" + Conversion.Str( memorySize1) + "KB) + Bitmapstore (" + Conversion.Str( memorySize2) + "KB) =" + Conversion.Str(  Math.Round( (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ( "Shadow Empire : Planetary Conquest"));
         StreamWriter text1 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_missingsystemgraphics.txt");
         let mut counter1: i32 =  BitmapStore.Counter;
         for (let mut nr1: i32 =  0; nr1 <= counter1; nr1 += 1)
@@ -204,10 +204,10 @@ namespace WindowsApplication1
         this += 1.game.CornerX;
         flag = true;
       }
-      if (nr == 37 & (this.game.CornerX > 0 | this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop & ((double) this.game.Data.RuleVar[329] == 0.0 | this.game.Data.Round > 0)))
+      if (nr == 37 & (this.game.CornerX > 0 | this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop & ( this.game.Data.RuleVar[329] == 0.0 | this.game.Data.Round > 0)))
       {
         --this.game.CornerX;
-        if (0 > this.game.CornerX & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
+        if (0 > this.game.CornerX & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
           this.game.CornerX = 0;
         flag = true;
       }
@@ -355,10 +355,10 @@ namespace WindowsApplication1
         return windowReturnClass;
       }
       let mut num1: i32 =  0;
-      let mut num2: i32 =   Math.Round(Conversion.Int((double) this.OwnBitmap.Width / (double) (30 * (this.game.EditObj.Zoom + 2))));
-      let mut num3: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 2))));
+      let mut num2: i32 =   Math.Round(Conversion.Int( this.OwnBitmap.Width /  (30 * (this.game.EditObj.Zoom + 2))));
+      let mut num3: i32 =   Math.Round(Conversion.Int( (this.OwnBitmap.Height - num1) /  (24 * (this.game.EditObj.Zoom + 2))));
       let mut num4: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
-      let mut num5: i32 =  (double) this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 4 - this.game.CornerY + 3;
+      let mut num5: i32 =   this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 4 - this.game.CornerY + 3;
       if (this.game.EditObj.Zoom == 1)
       {
         num2 -= 3;
@@ -369,12 +369,12 @@ namespace WindowsApplication1
         num2 += 3;
         num3 = num3;
       }
-      if (this.game.CornerX > cornerX1 && num2 > num4 & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
+      if (this.game.CornerX > cornerX1 && num2 > num4 & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
       {
         flag = true;
         this.game.CornerX = cornerX1;
       }
-      if ((double) this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0)
+      if ( this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0)
       {
         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop & 0 > this.game.CornerX)
           this.game.CornerX = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + this.game.CornerX + 1;
@@ -409,7 +409,7 @@ namespace WindowsApplication1
       windowReturnClass.SetFlag(true);
       if (this.game.EditObj.OrderType != 9)
       {
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
           windowReturnClass.AddCommand(4, 18);
           windowReturnClass.AddCommand(4, 66);
@@ -450,7 +450,7 @@ namespace WindowsApplication1
       if (this.game.EditObj.OrderType == 26 | this.game.EditObj.AIMoving)
       {
         this.game.EditObj.TempCoordList = CoordList::new();
-        if (!Information.IsNothing((object) this.SubPartList[0]))
+        if (!Information.IsNothing( this.SubPartList[0]))
           this.SubPartList[0].Paint();
       }
       else
@@ -461,7 +461,7 @@ namespace WindowsApplication1
         if (screeny.WindowPresent( local))
         {
           this.game.EditObj.TempCoordList = CoordList::new();
-          if (!Information.IsNothing((object) this.SubPartList[0]))
+          if (!Information.IsNothing( this.SubPartList[0]))
             this.SubPartList[0].Paint();
         }
         else
@@ -471,29 +471,29 @@ namespace WindowsApplication1
             if (this.game.EditObj.OrderType > 0)
             {
               this.game.EditObj.TempCoordList = CoordList::new();
-              if (!Information.IsNothing((object) this.SubPartList[0]))
+              if (!Information.IsNothing( this.SubPartList[0]))
                 this.SubPartList[0].Paint();
             }
             if (this.game.Data.Turn > -1)
             {
-              if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI & this.game.EditObj.OrderType == 0 && !Information.IsNothing((object) this.SubPartList[0]) && !this.DrawLayersAndSuch())
+              if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI & this.game.EditObj.OrderType == 0 && !Information.IsNothing( this.SubPartList[0]) && !this.DrawLayersAndSuch())
                 this.SubPartList[this.SubpartNr(this.MapId)].Paint();
             }
             else
             {
               this.game.EditObj.TempCoordList = CoordList::new();
-              if (!Information.IsNothing((object) this.SubPartList[0]))
+              if (!Information.IsNothing( this.SubPartList[0]))
                 this.SubPartList[0].Paint();
             }
           }
-          else if ((double) this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.UnitSelected > -1)
+          else if ( this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.UnitSelected > -1)
           {
             if (this.game.EditObj.udsReturnFromPopup)
             {
               this.game.EditObj.udsReturnFromPopup = false;
               this.DrawLayersAndSuch();
               this.UdsClickUnit(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, 0, true);
-              if (!Information.IsNothing((object) this.SubPartList[0]))
+              if (!Information.IsNothing( this.SubPartList[0]))
                 this.SubPartList[0].Paint();
             }
             else
@@ -501,32 +501,32 @@ namespace WindowsApplication1
               this.game.EditObj.TempCoordList = CoordList::new();
               if (this.game.EditObj.ShowLISRange)
                 this.DrawLayersAndSuch();
-              if (!Information.IsNothing((object) this.SubPartList[0]))
+              if (!Information.IsNothing( this.SubPartList[0]))
                 this.SubPartList[0].Paint();
               this.PaintCurrentBitmap(this.MapId);
             }
           }
-          else if ((double) this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.udsUnitOrderMode == 36)
+          else if ( this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.udsUnitOrderMode == 36)
           {
             if (this.game.EditObj.udsReturnFromPopup)
             {
               this.game.EditObj.udsReturnFromPopup = false;
               this.DrawLayersAndSuch();
               this.UdsClickUnit(this.game.SelectX, this.game.SelectY, 0, true);
-              if (!Information.IsNothing((object) this.SubPartList[0]))
+              if (!Information.IsNothing( this.SubPartList[0]))
                 this.SubPartList[0].Paint();
             }
             else
             {
               if (this.game.EditObj.ShowLISRange)
                 this.DrawLayersAndSuch();
-              if (!Information.IsNothing((object) this.SubPartList[0]))
+              if (!Information.IsNothing( this.SubPartList[0]))
                 this.SubPartList[0].Paint();
             }
           }
           else
           {
-            if ((double) this.game.Data.RuleVar[701] >= 1.0)
+            if ( this.game.Data.RuleVar[701] >= 1.0)
             {
               this.game.EditObj.OrderType = 0;
               this.game.HandyFunctionsObj.RedimTempValue(9999);
@@ -534,7 +534,7 @@ namespace WindowsApplication1
             this.game.EditObj.TempCoordList = CoordList::new();
             if (this.game.EditObj.ShowLISRange)
               this.DrawLayersAndSuch();
-            if (!Information.IsNothing((object) this.SubPartList[0]))
+            if (!Information.IsNothing( this.SubPartList[0]))
               this.SubPartList[0].Paint();
           }
           this.CheckMovePath(0);
@@ -571,7 +571,7 @@ namespace WindowsApplication1
       if (this.game.EditObj.udsUnitOrderMode == 0 | this.game.EditObj.udsUnitOrderMode == 54)
       {
         this.game.EditObj.OrderUnit = -1;
-        if (Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+        if (Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           this.game.EditObj.TempCoordListLastMove = CoordList::new();
         if (this.game.EditObj.TempCoordListLastMove.counter > -1)
         {
@@ -611,7 +611,7 @@ namespace WindowsApplication1
           this.game.EditObj.TempCoordList.RemoveCoord(0);
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
           this.game.EditObj.TempCoordList.AddCoord(tx, ty, tmap);
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           {
             if (this.game.EditObj.TempCoordListLastMove.counter == -1)
               this.game.EditObj.TempCoordList = CoordList::new();
@@ -633,7 +633,7 @@ namespace WindowsApplication1
         else if (this.game.EditObj.OldUnit > -1 & this.game.EditObj.OrderType > 0)
         {
           this.game.EditObj.OrderUnit = -1;
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           {
             this.game.EditObj.TempCoordList = this.game.EditObj.TempCoordListLastMove.Clone();
             if (this.game.EditObj.TempCoordList.counter > -1)
@@ -690,7 +690,7 @@ namespace WindowsApplication1
             this.game.EditObj.TempCoordList.RemoveCoord(0);
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
           this.game.EditObj.TempCoordList.AddCoord(tx, ty, tmap);
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
             this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempCoordListLastMove);
           if (!outOfWindowCall)
             this.SubPartList[0].Paint();
@@ -707,7 +707,7 @@ namespace WindowsApplication1
         else if (this.game.EditObj.OldUnit > -1 & this.game.EditObj.OrderType > 0)
         {
           this.game.EditObj.OrderUnit = -1;
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           {
             this.game.EditObj.TempCoordList = this.game.EditObj.TempCoordListLastMove.Clone();
             this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
@@ -758,11 +758,11 @@ namespace WindowsApplication1
         this.game.EditObj.OrderUnit = -1;
         this.game.EditObj.OrderType = 36;
         this.game.EditObj.udsOrderPossible = false;
-        this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val((object) this.game.Data.RuleVar[702])));
+        this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val( this.game.Data.RuleVar[702])));
         this.game.EditObj.mouseOverActive = true;
         CoordList coordList = this.game.EditObj.TempCoordList.Clone();
         this.game.EditObj.TempCoordList.AddCoord(tx, ty, tmap);
-        if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+        if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempCoordListLastMove);
         if (this.game.EditObj.OrderData == -1)
         {
@@ -793,7 +793,7 @@ namespace WindowsApplication1
           let mut counter: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Counter;
           for (let mut index: i32 =  0; index <= counter; index += 1)
           {
-            let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]))].GetData(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Id[index], 3));
+            let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[404]))].GetData(0, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Id[index], 3));
             unitWeight += integer * this.game.Data.UnitObj[this.game.EditObj.UnitSelected].items.list.Weight[index];
           }
           let mut sizeForAirBridge: i32 =  this.game.HandyFunctionsObj.GetHighestSizeForAirBridge(this.game.EditObj.UnitSelected);
@@ -817,7 +817,7 @@ namespace WindowsApplication1
           CoordList coordList = this.game.EditObj.TempCoordList.Clone();
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
           this.game.EditObj.TempCoordList.AddCoord(tx, ty, tmap);
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
             this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempCoordListLastMove);
           this.game.EditObj.mouseOverActive = false;
           if (!outOfWindowCall)
@@ -835,7 +835,7 @@ namespace WindowsApplication1
         else if (this.game.EditObj.OldUnit > -1 & this.game.EditObj.OrderType > 0)
         {
           this.game.EditObj.OrderUnit = -1;
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           {
             this.game.EditObj.TempCoordList = this.game.EditObj.TempCoordListLastMove.Clone();
             this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
@@ -893,7 +893,7 @@ namespace WindowsApplication1
             let mut num2: i32 =  Math.Min(this.game.HandyFunctionsObj.GetLowestAirAp(this.game.EditObj.UnitSelected), this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected));
             if (num2 > 100)
               num2 = 100;
-            num1 =  Math.Round(Math.Floor((double) (num1 * num2) / 100.0));
+            num1 =  Math.Round(Math.Floor( (num1 * num2) / 100.0));
           }
           this.game.HandyFunctionsObj.RedimTempValue(9999);
           let mut minimumAirfieldLevel: i32 =  this.game.HandyFunctionsObj.SE1_GetUnitMinimumAirfieldLevel(this.game.EditObj.UnitSelected);
@@ -980,7 +980,7 @@ namespace WindowsApplication1
           CoordList coordList = this.game.EditObj.TempCoordList.Clone();
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
           this.game.EditObj.TempCoordList.AddCoord(tx, ty, tmap);
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
             this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempCoordListLastMove);
           this.game.EditObj.mouseOverActive = false;
           if (!outOfWindowCall)
@@ -998,7 +998,7 @@ namespace WindowsApplication1
         else if (this.game.EditObj.OldUnit > -1 & this.game.EditObj.OrderType > 0)
         {
           this.game.EditObj.OrderUnit = -1;
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           {
             this.game.EditObj.TempCoordList = this.game.EditObj.TempCoordListLastMove.Clone();
             this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
@@ -1097,7 +1097,7 @@ namespace WindowsApplication1
           CoordList coordList = this.game.EditObj.TempCoordList.Clone();
           this.game.EditObj.OrderUnit = this.game.EditObj.UnitSelected;
           this.game.EditObj.TempCoordList.AddCoord(tx, ty, tmap);
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
             this.game.EditObj.TempCoordList.AddList( this.game.EditObj.TempCoordListLastMove);
           this.game.EditObj.mouseOverActive = false;
           if (!outOfWindowCall)
@@ -1115,7 +1115,7 @@ namespace WindowsApplication1
         else if (this.game.EditObj.OldUnit > -1 & this.game.EditObj.OrderType > 0)
         {
           this.game.EditObj.OrderUnit = -1;
-          if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+          if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
           {
             this.game.EditObj.TempCoordList = this.game.EditObj.TempCoordListLastMove.Clone();
             this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
@@ -1161,7 +1161,7 @@ namespace WindowsApplication1
       else
       {
         this.game.EditObj.OrderUnit = -1;
-        if (!Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+        if (!Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
         {
           this.game.EditObj.TempCoordList = this.game.EditObj.TempCoordListLastMove.Clone();
           this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
@@ -1189,7 +1189,7 @@ namespace WindowsApplication1
       }
       this.CheckMovePath(0);
       windowReturnClass.SetFlag(true);
-      return (object) windowReturnClass;
+      return  windowReturnClass;
     }
 
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
@@ -1213,12 +1213,12 @@ namespace WindowsApplication1
             Coordinate coordinate1 = this.SubPartList[index1].ClickMap(x - this.SubPartX[index1], y - this.SubPartY[index1]);
             if (coordinate1.onmap)
             {
-              if (this.game.EditObj.TutMode & this.game.EditObj.OrderType > 0 & this.game.EditObj.OrderType < 9999 && Operators.ConditionalCompareObjectGreater(this.game.EditObj.TutX, (object) -1, false) && Conversions.ToBoolean(Operators.NotObject(Operators.AndObject(Operators.CompareObjectEqual(this.game.EditObj.TutX, (object) coordinate1.x, false), Operators.CompareObjectEqual(this.game.EditObj.TutY, (object) coordinate1.y, false)))))
+              if (this.game.EditObj.TutMode & this.game.EditObj.OrderType > 0 & this.game.EditObj.OrderType < 9999 && Operators.ConditionalCompareObjectGreater(this.game.EditObj.TutX,  -1, false) && Conversions.ToBoolean(Operators.NotObject(Operators.AndObject(Operators.CompareObjectEqual(this.game.EditObj.TutX,  coordinate1.x, false), Operators.CompareObjectEqual(this.game.EditObj.TutY,  coordinate1.y, false)))))
                 return windowReturnClass1;
               this.game.SelectX = coordinate1.x;
               this.game.SelectY = coordinate1.y;
               this.game.EditObj.se1_SelectAssetButton = 0;
-              if ((double) this.game.Data.RuleVar[701] > 0.0 && b == 2)
+              if ( this.game.Data.RuleVar[701] > 0.0 && b == 2)
               {
                 if (this.game.EditObj.UnitSelected > -1 & !this.game.FormRef.MouseClicked & this.game.FormRef.RightMousePressed && index2 == this.game.SelectX & selectY1 == this.game.SelectY & this.game.SelectX == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X & this.game.SelectY == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y && this.game.Data.MapObj[0].HexObj[index2, selectY1].Regime == this.game.Data.Turn)
                 {
@@ -1263,7 +1263,7 @@ namespace WindowsApplication1
                 subPart.PaintCoordinate((Graphics) null, selectX, selectY2, map, counterAlpha,  local);
               }
               Coordinate Target;
-              if ((double) this.game.Data.RuleVar[701] > 0.0)
+              if ( this.game.Data.RuleVar[701] > 0.0)
               {
                 if (b == 1)
                 {
@@ -1291,7 +1291,7 @@ namespace WindowsApplication1
                     {
                       let mut num3: i32 =  0;
                       let mut num4: i32 =  0;
-                      if (Information.IsNothing((object) this.game.EditObj.TempCoordListLastMove))
+                      if (Information.IsNothing( this.game.EditObj.TempCoordListLastMove))
                         this.game.EditObj.TempCoordListLastMove = CoordList::new();
                       let mut tfacing: i32 =  1;
                       Coordinate coordinate2;
@@ -1497,7 +1497,7 @@ namespace WindowsApplication1
                     {
                       if (this.game.EditObj.SoundOn)
                         SoundMod.PlayAWave(this.game.AppPath + "sound/transfer.wav",  this.game.EditObj);
-                      this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val((object) this.game.Data.RuleVar[704])));
+                      this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val( this.game.Data.RuleVar[704])));
                       this.DrawLayersAndSuch();
                       this.game.EditObj.UnitSelected = -1;
                       this.game.EditObj.OrderData = -1;
@@ -1513,7 +1513,7 @@ namespace WindowsApplication1
                   }
                   if (this.game.EditObj.OrderType == 1)
                   {
-                    if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.UnitSelected > -1 & this.game.EditObj.OrderUnit > -1)
+                    if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.UnitSelected > -1 & this.game.EditObj.OrderUnit > -1)
                     {
                       bool flag = false;
                       let mut x1: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X;
@@ -1545,7 +1545,7 @@ namespace WindowsApplication1
                   }
                   if (this.game.EditObj.OrderType == 48)
                   {
-                    if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.UnitSelected > -1 & this.game.EditObj.OrderUnit > -1)
+                    if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.UnitSelected > -1 & this.game.EditObj.OrderUnit > -1)
                     {
                       bool flag = false;
                       let mut x2: i32 =  this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X;
@@ -1591,7 +1591,7 @@ namespace WindowsApplication1
                     this.game.EditObj.OrderTarget = this.game.EditObj.UnitSelected;
                     windowReturnClass1.AddCommand(4, 30);
                   }
-                  if ((double) this.game.Data.RuleVar[839] == 0.0)
+                  if ( this.game.Data.RuleVar[839] == 0.0)
                   {
                     windowReturnClass1.AddCommand(4, 44);
                     windowReturnClass1.AddCommand(4, 18);
@@ -1617,7 +1617,7 @@ namespace WindowsApplication1
                     {
                       index2 = 6;
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
-                        index2 =  Interaction.MsgBox((object) "There is a location in this hex. Are you sure to change landscape?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
+                        index2 =  Interaction.MsgBox( "There is a location in this hex. Are you sure to change landscape?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
                       if (index2 == 6)
                       {
                         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType = this.game.EditObj.PencilData1;
@@ -1793,7 +1793,7 @@ namespace WindowsApplication1
                       this.game.ProcessingObj.EditorMovement(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
                       this.game.EditObj.OrderType = 0;
                       this.game.EditObj.UnitSelected = this.game.EditObj.OrderUnit;
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 18);
                         windowReturnClass1.AddCommand(4, 20);
@@ -1882,7 +1882,7 @@ namespace WindowsApplication1
                   }
                   if (this.game.EditObj.OrderType == 0 | this.game.EditObj.OrderType == 26)
                   {
-                    if ((double) this.game.Data.RuleVar[839] == 0.0)
+                    if ( this.game.Data.RuleVar[839] == 0.0)
                     {
                       windowReturnClass1.AddCommand(4, 18);
                       windowReturnClass1.AddCommand(4, 20);
@@ -1914,7 +1914,7 @@ namespace WindowsApplication1
                       SimpleList simpleList = SimpleList::new();
                       if (this.game.EditObj.OrderType == 48 | this.game.EditObj.OrderType == 1 && this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.SelectX, this.game.SelectY] >= 9999)
                       {
-                        if ((double) this.game.Data.RuleVar[839] == 0.0)
+                        if ( this.game.Data.RuleVar[839] == 0.0)
                         {
                           this.game.EditObj.FeedBackString = "Cannot reach that hex";
                           windowReturnClass1.AddCommand(4, 29);
@@ -1939,7 +1939,7 @@ namespace WindowsApplication1
                       }
                       if (this.game.EditObj.OrderType == 1)
                         simpleList.Add(this.game.EditObj.OrderUnit, 1);
-                      else if ((double) this.game.Data.RuleVar[954] == 1.0)
+                      else if ( this.game.Data.RuleVar[954] == 1.0)
                       {
                         let mut unitCounter: i32 =  this.game.Data.UnitCounter;
                         for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
@@ -1968,7 +1968,7 @@ namespace WindowsApplication1
                         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 14 & (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn | this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == -1))
                         {
                           this.game.EditObj.FeedBackString = "Already max ammount of 16 units in that hex.";
-                          if ((double) this.game.Data.RuleVar[839] == 0.0)
+                          if ( this.game.Data.RuleVar[839] == 0.0)
                           {
                             windowReturnClass1.AddCommand(4, 29);
                             windowReturnClass1.AddCommand(4, 66);
@@ -1993,7 +1993,7 @@ namespace WindowsApplication1
                         if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X == this.game.SelectX & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y == this.game.SelectY & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map == this.game.EditObj.MapSelected & this.game.EditObj.OrderType != 48)
                         {
                           this.game.EditObj.FeedBackString = "Unit is already in this hex.";
-                          if ((double) this.game.Data.RuleVar[839] == 0.0)
+                          if ( this.game.Data.RuleVar[839] == 0.0)
                           {
                             windowReturnClass1.AddCommand(4, 29);
                             windowReturnClass1.AddCommand(4, 66);
@@ -2037,14 +2037,14 @@ namespace WindowsApplication1
                             if (this.game.EditObj.OrderType != 48)
                               this.game.EditObj.OrderType = 0;
                             this.game.EditObj.UnitSelected = this.game.EditObj.OrderUnit;
-                            if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+                            if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
                             {
                               if (orderResult3.OK)
                                 this.game.EditObj.TempCoordListLastMove.AddList( orderResult3.CList);
                             }
                             else if (orderResult3.OK)
                               this.game.EditObj.TempCoordList = orderResult3.CList;
-                            if ((double) this.game.Data.RuleVar[839] == 0.0)
+                            if ( this.game.Data.RuleVar[839] == 0.0)
                             {
                               windowReturnClass1.AddCommand(4, 44);
                               windowReturnClass1.AddCommand(4, 20);
@@ -2153,7 +2153,7 @@ namespace WindowsApplication1
                             this.game.EditObj.DoCardSlot = -1;
                             if (this.game.TempCombat.Init(Target, 1, this.game.EditObj.TempUnitList, this.game.EditObj.OrderType).OK)
                             {
-                              if ((double) this.game.Data.RuleVar[839] == 1.0)
+                              if ( this.game.Data.RuleVar[839] == 1.0)
                               {
                                 this.game.EditObj.PopupValue = 7;
                                 windowReturnClass1.AddCommand(5, 14);
@@ -2165,7 +2165,7 @@ namespace WindowsApplication1
                               windowReturnClass1.SetFlag(true);
                               return windowReturnClass1;
                             }
-                            if ((double) this.game.Data.RuleVar[839] == 0.0)
+                            if ( this.game.Data.RuleVar[839] == 0.0)
                             {
                               windowReturnClass1.AddCommand(4, 44);
                               windowReturnClass1.AddCommand(4, 20);
@@ -2188,7 +2188,7 @@ namespace WindowsApplication1
                         }
                         else
                         {
-                          if ((double) this.game.Data.RuleVar[839] == 0.0)
+                          if ( this.game.Data.RuleVar[839] == 0.0)
                           {
                             this.game.EditObj.FeedBackString = "Cannot reach that hex";
                             windowReturnClass1.AddCommand(4, 29);
@@ -2210,7 +2210,7 @@ namespace WindowsApplication1
                           return (WindowReturnClass) this.UdsClickUnit(this.game.SelectX, this.game.SelectY, mapSelected1, false);
                         }
                       }
-                      if ((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
+                      if ( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
                         this.game.EditObj.OrderType = 0;
                       return windowReturnClass1;
                     }
@@ -2234,7 +2234,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 2)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2251,7 +2251,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 12)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2268,7 +2268,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 11 | this.game.EditObj.OrderType == 14 | this.game.EditObj.OrderType == 33 | this.game.EditObj.OrderType == 55)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2285,7 +2285,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 13)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2302,7 +2302,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 35)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2319,7 +2319,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 36)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2360,7 +2360,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 15)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2377,7 +2377,7 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 3)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2394,12 +2394,12 @@ namespace WindowsApplication1
                     }
                     else if (this.game.EditObj.OrderType == 9)
                     {
-                      if (this.game.EditObj.UnitSelected > -1 && this.game.EditObj.OrderTarget != this.game.EditObj.UnitSelected && this.game.EditObj.UnitSelected != this.game.EditObj.OrderUnit && this.game.Data.Round > 0 & (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn | (double) this.game.Data.RuleVar[528] == 1.0 & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime] == 2))
+                      if (this.game.EditObj.UnitSelected > -1 && this.game.EditObj.OrderTarget != this.game.EditObj.UnitSelected && this.game.EditObj.UnitSelected != this.game.EditObj.OrderUnit && this.game.Data.Round > 0 & (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn |  this.game.Data.RuleVar[528] == 1.0 & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime] == 2))
                       {
                         this.game.EditObj.OrderTarget = this.game.EditObj.UnitSelected;
                         windowReturnClass1.AddCommand(4, 30);
                       }
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass1.AddCommand(4, 44);
                         windowReturnClass1.AddCommand(4, 20);
@@ -2563,7 +2563,7 @@ namespace WindowsApplication1
                 windowReturnClass1.AddCommand(4, 44);
                 windowReturnClass1.AddCommand(4, 12);
               }
-              else if (this.game.EditObj.OrderType == 0 | this.game.EditObj.OrderType == 26 && (double) this.game.Data.RuleVar[839] == 0.0)
+              else if (this.game.EditObj.OrderType == 0 | this.game.EditObj.OrderType == 26 &&  this.game.Data.RuleVar[839] == 0.0)
               {
                 windowReturnClass1.AddCommand(4, 18);
                 windowReturnClass1.AddCommand(4, 20);
@@ -2613,7 +2613,7 @@ namespace WindowsApplication1
                 this.SubPartList[index1].Paint();
               }
               windowReturnClass1.SetFlag(true);
-              if ((double) this.game.Data.RuleVar[839] == 0.0)
+              if ( this.game.Data.RuleVar[839] == 0.0)
               {
                 windowReturnClass1.AddCommand(4, 66);
               }
@@ -2661,7 +2661,7 @@ namespace WindowsApplication1
         {
           if (this.game.HandyFunctionsObj.HasUnitAirSF(this.game.EditObj.UnitSelected))
           {
-            let mut increaseap: i32 =   Math.Round((double) (Conversion.Int((float) this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true) * this.game.Data.RuleVar[147]) - (float) this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true)));
+            let mut increaseap: i32 =   Math.Round( (Conversion.Int( this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true) * this.game.Data.RuleVar[147]) -  this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true)));
             this.game.HandyFunctionsObj.RedimTempValue(9999);
             if (this.game.HandyFunctionsObj.GetLowestAirRdn(this.game.EditObj.UnitSelected, true) - increaseap > 0)
             {
@@ -2695,10 +2695,10 @@ namespace WindowsApplication1
           }
         }
       }
-      if (this.game.EditObj.ShowLISRange & (double) this.game.Data.RuleVar[403] > 0.0)
+      if (this.game.EditObj.ShowLISRange &  this.game.Data.RuleVar[403] > 0.0)
       {
         bool flag2 = false;
-        if (!Information.IsNothing((object) this.game.EditObj.TempSup[0]))
+        if (!Information.IsNothing( this.game.EditObj.TempSup[0]))
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
           for (let mut index3: i32 =  0; index3 <= mapWidth; index3 += 1)
@@ -2716,7 +2716,7 @@ namespace WindowsApplication1
         if (flag2)
         {
           this.game.HandyFunctionsObj.RedimTempSup(9999);
-          if (Information.IsNothing((object) this.game.DC2AIObj))
+          if (Information.IsNothing( this.game.DC2AIObj))
             this.game.DC2AIObj = new DC2AIClass(this.game);
           let mut supplyMaximumRange: i32 =  this.game.DC2AIObj.VAR_SUPPLY_MAXIMUM_RANGE;
           this.game.DC2AIObj.VAR_SUPPLY_MAXIMUM_RANGE = 100;
@@ -2771,7 +2771,7 @@ namespace WindowsApplication1
       if (flag1 & !noClearMap)
       {
         this.game.EditObj.TempCoordList = CoordList::new();
-        if (!Information.IsNothing((object) this.SubPartList[0]))
+        if (!Information.IsNothing( this.SubPartList[0]))
           this.SubPartList[0].Paint();
       }
       else
@@ -2784,7 +2784,7 @@ namespace WindowsApplication1
             let mut unitCounter: i32 =  this.game.Data.UnitCounter;
             for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
-              if (!this.game.Data.UnitObj[index].IsHQ & this.game.Data.UnitObj[index].HQ == this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ | this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ == index && this.game.Data.UnitObj[index].HQ > -1 && this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical].Type < 8 && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
+              if (!this.game.Data.UnitObj[index].IsHQ & this.game.Data.UnitObj[index].HQ == this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ | this.game.Data.UnitObj[this.game.EditObj.OldUnit].HQ == index && this.game.Data.UnitObj[index].HQ > -1 && this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical].Type < 8 && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing( this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
                 let mut x: i32 =  this.game.Data.UnitObj[index].X;
@@ -2801,7 +2801,7 @@ namespace WindowsApplication1
             let mut unitCounter: i32 =  this.game.Data.UnitCounter;
             for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
-              if (this.game.Data.UnitObj[index].HQ == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ | this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ == index && this.game.Data.UnitObj[index].HQ > -1 && this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical].Type < 8 && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
+              if (this.game.Data.UnitObj[index].HQ == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ | this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ == index && this.game.Data.UnitObj[index].HQ > -1 && this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.Data.UnitObj[index].HQ].Historical].Type < 8 && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing( this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
                 let mut x: i32 =  this.game.Data.UnitObj[index].X;
@@ -2821,7 +2821,7 @@ namespace WindowsApplication1
             let mut unitCounter: i32 =  this.game.Data.UnitCounter;
             for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
-              if (this.game.Data.UnitObj[index].HQ == this.game.EditObj.OldUnit && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
+              if (this.game.Data.UnitObj[index].HQ == this.game.EditObj.OldUnit && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing( this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
                 let mut x: i32 =  this.game.Data.UnitObj[index].X;
@@ -2838,7 +2838,7 @@ namespace WindowsApplication1
             let mut unitCounter: i32 =  this.game.Data.UnitCounter;
             for (let mut index: i32 =  0; index <= unitCounter; index += 1)
             {
-              if (this.game.Data.UnitObj[index].HQ == this.game.EditObj.UnitSelected && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing((object) this.SubPartList[0]))
+              if (this.game.Data.UnitObj[index].HQ == this.game.EditObj.UnitSelected && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && !Information.IsNothing( this.SubPartList[0]))
               {
                 let mut subPart: SubPartClass = this.SubPartList[0];
                 let mut x: i32 =  this.game.Data.UnitObj[index].X;
@@ -2857,7 +2857,7 @@ namespace WindowsApplication1
 
     pub CheckMovePath: bool(int subpartMapSlot)
     {
-      if ((double) this.game.Data.RuleVar[540] == 1.0 & this.game.Data.Round > 0 && !(this.game.EditObj.OrderType == 26 | this.game.EditObj.AIMoving))
+      if ( this.game.Data.RuleVar[540] == 1.0 & this.game.Data.Round > 0 && !(this.game.EditObj.OrderType == 26 | this.game.EditObj.AIMoving))
       {
         ScreenClass screeny = this.game.FormRef.Screeny;
         System.Type type = typeof (HistoryWindowClass2);
@@ -2890,7 +2890,7 @@ namespace WindowsApplication1
                   let mut groupMoveCounter: i32 =  this.game.EditObj.tempGroupMoveCounter;
                   for (let mut index: i32 =  0; index <= groupMoveCounter; index += 1)
                   {
-                    if (!Information.IsNothing((object) this.game.EditObj.tempGroupMovePath[index]))
+                    if (!Information.IsNothing( this.game.EditObj.tempGroupMovePath[index]))
                       this.game.EditObj.TempCoordList.AddList( this.game.EditObj.tempGroupMovePath[index]);
                   }
                 }
@@ -2908,7 +2908,7 @@ namespace WindowsApplication1
                   for (let mut index: i32 =  0; index <= groupMoveCounter; index += 1)
                   {
                     this.game.EditObj.tempGroupMovePath[index] = CoordList::new();
-                    if (!Information.IsNothing((object) this.game.EditObj.tempGroupMoveCameFrom[index]))
+                    if (!Information.IsNothing( this.game.EditObj.tempGroupMoveCameFrom[index]))
                     {
                       coordinate.x = this.game.EditObj.MouseOverX;
                       coordinate.y = this.game.EditObj.MouseOverY;
@@ -2942,7 +2942,7 @@ namespace WindowsApplication1
                 this.SubPartList[subpartMapSlot].Paint();
                 this.game.EditObj.TempCoordList = tempCoordList;
                 if (this.game.EditObj.udsUnitOrderMode == 36)
-                  this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val((object) this.game.Data.RuleVar[703])));
+                  this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val( this.game.Data.RuleVar[703])));
                 return true;
               }
             }
@@ -2956,7 +2956,7 @@ namespace WindowsApplication1
             let mut groupMoveCounter: i32 =  this.game.EditObj.tempGroupMoveCounter;
             for (let mut index: i32 =  0; index <= groupMoveCounter; index += 1)
             {
-              if (!Information.IsNothing((object) this.game.EditObj.tempGroupMovePath[index]))
+              if (!Information.IsNothing( this.game.EditObj.tempGroupMovePath[index]))
               {
                 this.game.EditObj.TempCoordList.AddList( this.game.EditObj.tempGroupMovePath[index]);
                 this.game.EditObj.tempGroupMovePath[index] = CoordList::new();
@@ -2966,7 +2966,7 @@ namespace WindowsApplication1
             this.game.EditObj.TempCoordList = tempCoordList;
             this.game.EditObj.TempMovePathList = CoordList::new();
             if (this.game.EditObj.udsUnitOrderMode == 36)
-              this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val((object) this.game.Data.RuleVar[703])));
+              this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round(Conversion.Val( this.game.Data.RuleVar[703])));
             return true;
           }
         }
@@ -3022,17 +3022,17 @@ namespace WindowsApplication1
       {
         str: String = Conversions.ToString(Conversion.Val(Interaction.InputBox("Give People # for town...", "Shadow Empire : Planetary Conquest")));
         if (Operators.CompareString(str, "", false) == 0)
-          return (object) -1;
+          return  -1;
         num1 =  Math.Round(Conversion.Val(str));
         if (num1 == -1 | num1 > this.game.Data.PeopleCounter)
         {
-          let mut num2: i32 =   Interaction.MsgBox((object) "Invalid people#", Title: ((object) "Shadow Empire : Planetary Conquest"));
-          return (object) -1;
+          let mut num2: i32 =   Interaction.MsgBox( "Invalid people#", Title: ( "Shadow Empire : Planetary Conquest"));
+          return  -1;
         }
       }
       Left: String = Interaction.InputBox("Give Name for this location...", "Shadow Empire : Planetary Conquest", this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name);
       if (Operators.CompareString(Left, "", false) == 0)
-        return (object) -1;
+        return  -1;
       let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       if (this.game.Data.LocTypeObj[this.game.EditObj.PencilData1].OverdrawLTNr > -1)
       {
@@ -3060,7 +3060,7 @@ namespace WindowsApplication1
     pub object hexLibVarFill(int slot, int code)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut hexLibVarValue: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(slot);
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
       let mut num: i32 =  1;
@@ -3075,7 +3075,7 @@ namespace WindowsApplication1
           let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].SetHexLibVarValue(slot, code);
@@ -3083,8 +3083,8 @@ namespace WindowsApplication1
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].GetHexLibVarValue(slot) == hexLibVarValue && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].GetHexLibVarValue(slot) == hexLibVarValue && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -3099,7 +3099,7 @@ namespace WindowsApplication1
     pub object regimeFill(int newreg)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
       let mut num: i32 =  1;
@@ -3114,7 +3114,7 @@ namespace WindowsApplication1
           let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].Regime = newreg;
@@ -3122,8 +3122,8 @@ namespace WindowsApplication1
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == regime && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == regime && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -3138,7 +3138,7 @@ namespace WindowsApplication1
     pub object areacodeFill(int slot, int code)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut num1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].AreaCode[slot];
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
       let mut num2: i32 =  1;
@@ -3153,7 +3153,7 @@ namespace WindowsApplication1
           let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num2 = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].AreaCode[slot] = code;
@@ -3161,8 +3161,8 @@ namespace WindowsApplication1
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].AreaCode[slot] == num1 && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].AreaCode[slot] == num1 && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -3177,7 +3177,7 @@ namespace WindowsApplication1
     pub object landscapeFill(int newland, int newspr)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
       let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
       let mut num: i32 =  1;
@@ -3193,7 +3193,7 @@ namespace WindowsApplication1
           let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
           for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[index1, index2], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[index1, index2],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[mapSelected].HexObj[index1, index2].LandscapeType = newland;
@@ -3205,8 +3205,8 @@ namespace WindowsApplication1
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(index1, index2, mapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType == landscapeType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpriteNr == spriteNr && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].Location == -1)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType == landscapeType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpriteNr == spriteNr && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].Location == -1)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -3221,7 +3221,7 @@ namespace WindowsApplication1
     pub object specialFill(int newland, int newspr)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut specialType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialType;
       let mut specialSprite: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialSprite;
       let mut num: i32 =  1;
@@ -3237,7 +3237,7 @@ namespace WindowsApplication1
           let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].SpecialType = newland;
@@ -3246,8 +3246,8 @@ namespace WindowsApplication1
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, mapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialType == specialType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialSprite == specialSprite)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialType == specialType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialSprite == specialSprite)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -3261,7 +3261,7 @@ namespace WindowsApplication1
 
     pub void PopUpRefresh()
     {
-      if (Information.IsNothing((object) this.game))
+      if (Information.IsNothing( this.game))
         this.game = DrawMod.TGame;
       this.game.EditObj.MyDelegateMap = (EditClass.AfterPopUpRefresh) null;
       if (this.game.EditObj.OrderType == 2)
@@ -3303,7 +3303,7 @@ namespace WindowsApplication1
       this.game.EditObj.AreaY = -1;
       this.game.EditObj.AreaMap = -1;
       this.game.EditObj.AreaValue = -1;
-      if ((double) this.game.Data.RuleVar[701] >= 1.0)
+      if ( this.game.Data.RuleVar[701] >= 1.0)
         this.game.EditObj.udsReturnFromPopup = true;
       this.DoRefresh();
     }

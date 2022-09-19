@@ -1,34 +1,41 @@
 ﻿// Decompiled with JetBrains decompiler
+#![allow(non_snake_case)]
 // Type: WindowsApplication1.MapClass
 // Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Windows.Forms;
 
-namespace WindowsApplication1
+// namespace WindowsApplication1
+// {
+//   [Serializable]
+//   pub class MapClass : ISerializable
+pub struct MapClass
 {
-  [Serializable]
-  pub class MapClass : ISerializable
-  {
-    pub Name: String;
-    pub MapWidth: i32;
-    pub MapHeight: i32;
-    pub HexClass[,] HexObj;
-    pub MapLoop: bool;
-    pub CanSee: bool;
-    pub TempCanSee: bool;
+    pub Name: String,
+    pub MapWidth: i32,
+    pub MapHeight: i32,
+    pub HexObj: Vec<HexClass>,
+    pub MapLoop: bool,
+    pub CanSee: bool,
+    pub TempCanSee: bool,
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+
+  }
+// }
+
+impl MapClass {
+     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
       GC.Collect();
       Application.DoEvents();
-      info.AddValue("Name", (object) this.Name);
+      info.AddValue("Name",  this.Name);
       info.AddValue("MapWidth", this.MapWidth);
       info.AddValue("MapHeight", this.MapHeight);
       let mut num1: i32 =  164 * ((this.MapWidth + 1) * (this.MapHeight + 1)) + 24 * ((this.MapWidth + 1) * (this.MapHeight + 1)) + 4 * ((this.MapWidth + 1) * (this.MapHeight + 1));
@@ -50,13 +57,13 @@ namespace WindowsApplication1
             num3 += 12 * (1 + this.HexObj[index1, index2].ConnectionCount);
           if (this.HexObj[index1, index2].UnitCounter > -1)
             num3 += 4 * (1 + this.HexObj[index1, index2].UnitCounter);
-          if (Information.IsNothing((object) this.HexObj[index1, index2].Name))
+          if (Information.IsNothing( this.HexObj[index1, index2].Name))
             this.HexObj[index1, index2].Name = "";
-          if (Information.IsNothing((object) this.HexObj[index1, index2].LabelText1))
+          if (Information.IsNothing( this.HexObj[index1, index2].LabelText1))
             this.HexObj[index1, index2].LabelText1 = "";
-          if (Information.IsNothing((object) this.HexObj[index1, index2].LabelText2))
+          if (Information.IsNothing( this.HexObj[index1, index2].LabelText2))
             this.HexObj[index1, index2].LabelText2 = "";
-          if (Information.IsNothing((object) this.HexObj[index1, index2].SmallLabel))
+          if (Information.IsNothing( this.HexObj[index1, index2].SmallLabel))
             this.HexObj[index1, index2].SmallLabel = "";
           num3 = num3 + (10 + this.HexObj[index1, index2].SmallLabel.Length * num2) + (10 + this.HexObj[index1, index2].Name.Length * num2) + (10 + this.HexObj[index1, index2].LabelText1.Length * num2) + (10 + this.HexObj[index1, index2].LabelText2.Length * num2);
           if (this.HexObj[index1, index2].HexLibVarCounter > -1)
@@ -92,14 +99,14 @@ namespace WindowsApplication1
       {
         ProjectData.SetProjectError(ex);
         Exception exception = ex;
-        let mut num5: i32 =   Interaction.MsgBox((object) ("Error in hex data compression. Current size: " + bw.BaseStream.Position.ToString() + " , SizeDimmed: " + num4.ToString() + "..  ix: " + index1.ToString() + "/" + this.MapWidth.ToString() + " iy: " + index2.ToString() + "/" + this.MapHeight.ToString() + " .. actual error message: " + exception.Message));
+        let mut num5: i32 =   Interaction.MsgBox( ("Error in hex data compression. Current size: " + bw.BaseStream.Position.ToString() + " , SizeDimmed: " + num4.ToString() + "..  ix: " + index1.ToString() + "/" + this.MapWidth.ToString() + " iy: " + index2.ToString() + "/" + this.MapHeight.ToString() + " .. actual error message: " + exception.Message));
         ProjectData.ClearProjectError();
       }
       bw.Flush();
       output.Flush();
       byte[] numArray2 = (byte[]) Utils.CopyArray((Array) numArray1, (Array) new byte[ (output.Position + 1L) + 1]);
       info.AddValue("DataSize", numArray2.GetUpperBound(0));
-      info.AddValue("Data", (object) numArray2);
+      info.AddValue("Data",  numArray2);
       bw.Close();
       output.Close();
       info.AddValue("MapLoop", this.MapLoop);
@@ -173,5 +180,4 @@ namespace WindowsApplication1
         }
       }
     }
-  }
 }

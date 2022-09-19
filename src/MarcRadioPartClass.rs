@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -20,7 +20,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
         return;
       this.backbitmap.Dispose();
       this.backbitmap = (Bitmap) null;
@@ -40,10 +40,10 @@ namespace WindowsApplication1
       this.colorized = tcolorized;
       this.selected = tselected;
       this.udsFlag = tudsFlag;
-      if (Information.IsNothing((object) tBackbitmap))
+      if (Information.IsNothing( tBackbitmap))
         return;
       this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-      this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
       graphics.CompositingMode = CompositingMode.SourceCopy;
       graphics.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -53,7 +53,7 @@ namespace WindowsApplication1
     pub Bitmap Paint()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!Information.IsNothing((object) this.backbitmap))
+      if (!Information.IsNothing( this.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( objGraphics,  this.backbitmap, 0, 0);
@@ -113,7 +113,7 @@ namespace WindowsApplication1
     pub Bitmap PaintOverlay()
     {
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!Information.IsNothing((object) this.backbitmap))
+      if (!Information.IsNothing( this.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( objGraphics,  this.backbitmap, 0, 0);

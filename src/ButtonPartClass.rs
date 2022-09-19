@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
 
 namespace WindowsApplication1
 {
@@ -161,11 +161,11 @@ namespace WindowsApplication1
       {
         let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
         let mut num1: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
-        let mut num2: i32 =  (int) Math.Round((double) width / 2.0);
-        let mut num3: i32 =  (int) Math.Round((double) num1 / 2.0);
-        let mut num4: i32 =  (int) Math.Round((double) width / 3.0);
-        if ((int) Math.Round((double) num1 / 3.0) < num4)
-          num4 = (int) Math.Round((double) num1 / 3.0);
+        let mut num2: i32 =  (int) Math.Round( width / 2.0);
+        let mut num3: i32 =  (int) Math.Round( num1 / 2.0);
+        let mut num4: i32 =  (int) Math.Round( width / 3.0);
+        if ((int) Math.Round( num1 / 3.0) < num4)
+          num4 = (int) Math.Round( num1 / 3.0);
         let mut num5: i32 =  num2 - num4;
         let mut num6: i32 =  num3 - num4;
         let mut num7: i32 =  num2 - num4;
@@ -191,7 +191,7 @@ namespace WindowsApplication1
         SolidBrush solidBrush2 = new SolidBrush(Color.FromArgb(100, (int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue));
         Expression.FillPolygon((Brush) solidBrush2, points);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }
@@ -269,11 +269,11 @@ namespace WindowsApplication1
       {
         let mut width: i32 =  BitmapStore.GetWidth(this.OwnBitmapNr);
         let mut num1: i32 =  BitmapStore.Getheight(this.OwnBitmapNr);
-        let mut num2: i32 =  (int) Math.Round((double) width / 2.0);
-        let mut num3: i32 =  (int) Math.Round((double) num1 / 2.0);
-        let mut num4: i32 =  (int) Math.Round((double) width / 3.0);
-        if ((int) Math.Round((double) num1 / 3.0) < num4)
-          num4 = (int) Math.Round((double) num1 / 3.0);
+        let mut num2: i32 =  (int) Math.Round( width / 2.0);
+        let mut num3: i32 =  (int) Math.Round( num1 / 2.0);
+        let mut num4: i32 =  (int) Math.Round( width / 3.0);
+        if ((int) Math.Round( num1 / 3.0) < num4)
+          num4 = (int) Math.Round( num1 / 3.0);
         let mut num5: i32 =  num2 - num4;
         let mut num6: i32 =  num3 - num4;
         let mut num7: i32 =  num2 - num4;
@@ -299,7 +299,7 @@ namespace WindowsApplication1
         SolidBrush solidBrush2 = new SolidBrush(Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue, (int) byte.MaxValue));
         Expression.FillPolygon((Brush) solidBrush2, points);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }

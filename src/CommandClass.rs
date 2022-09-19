@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -39,11 +39,11 @@ namespace WindowsApplication1
           index1 += 1;
         }
         while (index1 <= 2);
-        info.AddValue("s", (object) str);
+        info.AddValue("s",  str);
       }
       else
-        info.AddValue("Data", (object) this.Data);
-      info.AddValue("DataString", (object) this.DataString);
+        info.AddValue("Data",  this.Data);
+      info.AddValue("DataString",  this.DataString);
     }
 
     protected CommandClass(SerializationInfo info, StreamingContext context)
@@ -103,7 +103,7 @@ namespace WindowsApplication1
               let mut index4: i32 =  0;
               do
               {
-                this.Data[index3, index4] = Strings.Trim(Conversion.Str((object) numArray1[index3, index4]));
+                this.Data[index3, index4] = Strings.Trim(Conversion.Str( numArray1[index3, index4]));
                 index4 += 1;
               }
               while (index4 <= 30);
@@ -131,7 +131,7 @@ namespace WindowsApplication1
             let mut index6: i32 =  0;
             do
             {
-              this.Data[index5, index6] = Strings.Trim(Conversion.Str((object) numArray2[index5, index6]));
+              this.Data[index5, index6] = Strings.Trim(Conversion.Str( numArray2[index5, index6]));
               index6 += 1;
             }
             while (index6 <= 30);
@@ -149,7 +149,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (CommandClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }

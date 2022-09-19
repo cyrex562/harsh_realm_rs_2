@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -59,7 +59,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.loadMapId > 0)
         self.RemoveSubPart(self.loadMapId);
       if (self.saveId > 0)
@@ -233,12 +233,12 @@ namespace WindowsApplication1
                 {
                   if ((tempint + 2) % 2 > 0)
                   {
-                    let mut num3: i32 =  Interaction.MsgBox((object) "You can only add an EVEN number of columns", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num3: i32 =  Interaction.MsgBox( "You can only add an EVEN number of columns", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
                     self.game.HandyFunctionsObj.AddXToMapLeft(tempint);
-                    let mut num4: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num4: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 windowReturnClass.SetFlag(true);
@@ -250,7 +250,7 @@ namespace WindowsApplication1
                 if (tempint > 0 & tempint <= 100)
                 {
                   self.game.HandyFunctionsObj.AddXToMap(tempint);
-                  let mut num5: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num5: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -261,7 +261,7 @@ namespace WindowsApplication1
                 if (tempint > 0 & tempint <= 100)
                 {
                   self.game.HandyFunctionsObj.AddYToMapLeft(tempint);
-                  let mut num6: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -272,7 +272,7 @@ namespace WindowsApplication1
                 if (tempint > 0 & tempint <= 100)
                 {
                   self.game.HandyFunctionsObj.AddYToMap(tempint);
-                  let mut num7: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num7: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -282,20 +282,20 @@ namespace WindowsApplication1
                 let mut num8: i32 = self.game.Data.MapObj[0].MapWidth + 1;
                 if (num8 < 2)
                 {
-                  let mut num9: i32 =  Interaction.MsgBox((object) "Not enough hexes for operation.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num9: i32 =  Interaction.MsgBox( "Not enough hexes for operation.", Title: ( "Shadow Empire : Planetary Conquest"));
                   return windowReturnClass;
                 }
-                let mut tempint: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Remove howmany columns of hexes? (2-" + ( Math.Round(Math.Ceiling((double) num8 / 2.0) * 2.0)).ToString() + ")", "Shadow Empire : Planetary Conquest")));
+                let mut tempint: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Remove howmany columns of hexes? (2-" + ( Math.Round(Math.Ceiling( num8 / 2.0) * 2.0)).ToString() + ")", "Shadow Empire : Planetary Conquest")));
                 if (tempint > 0 & tempint <= num8)
                 {
                   if ((tempint + 2) % 2 > 0)
                   {
-                    let mut num10: i32 =  Interaction.MsgBox((object) "You can only add an EVEN number of columns", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num10: i32 =  Interaction.MsgBox( "You can only add an EVEN number of columns", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
                     self.game.HandyFunctionsObj.RemoveXToMapLeft(tempint);
-                    let mut num11: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num11: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 windowReturnClass.SetFlag(true);
@@ -306,14 +306,14 @@ namespace WindowsApplication1
                 let mut num12: i32 = self.game.Data.MapObj[0].MapWidth + 1;
                 if (num12 < 2)
                 {
-                  let mut num13: i32 =  Interaction.MsgBox((object) "Not enough hexes for operation.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num13: i32 =  Interaction.MsgBox( "Not enough hexes for operation.", Title: ( "Shadow Empire : Planetary Conquest"));
                   return windowReturnClass;
                 }
                 let mut tempint: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Remove howmany columns of hexes? (1-" + num12.ToString() + ")", "Shadow Empire : Planetary Conquest")));
                 if (tempint > 0 & tempint <= num12)
                 {
                   self.game.HandyFunctionsObj.RemoveXToMap(tempint);
-                  let mut num14: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num14: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -323,14 +323,14 @@ namespace WindowsApplication1
                 let mut num15: i32 = self.game.Data.MapObj[0].MapHeight + 1;
                 if (num15 < 2)
                 {
-                  let mut num16: i32 =  Interaction.MsgBox((object) "Not enough hexes for operation.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num16: i32 =  Interaction.MsgBox( "Not enough hexes for operation.", Title: ( "Shadow Empire : Planetary Conquest"));
                   return windowReturnClass;
                 }
                 let mut tempint: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Remove howmany rows of hexes? (1-" + num15.ToString() + ")", "Shadow Empire : Planetary Conquest")));
                 if (tempint > 0 & tempint <= 100)
                 {
                   self.game.HandyFunctionsObj.RemoveYToMapLeft(tempint);
-                  let mut num17: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num17: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -340,14 +340,14 @@ namespace WindowsApplication1
                 let mut num18: i32 = self.game.Data.MapObj[0].MapHeight + 1;
                 if (num18 < 2)
                 {
-                  let mut num19: i32 =  Interaction.MsgBox((object) "Not enough hexes for operation.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num19: i32 =  Interaction.MsgBox( "Not enough hexes for operation.", Title: ( "Shadow Empire : Planetary Conquest"));
                   return windowReturnClass;
                 }
                 let mut tempint: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Remove howmany rows of hexes? (1-" + num18.ToString() + ")", "Shadow Empire : Planetary Conquest")));
                 if (tempint > 0 & tempint <= 100)
                 {
                   self.game.HandyFunctionsObj.RemoveYToMap(tempint);
-                  let mut num20: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num20: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -363,7 +363,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num21: i32 =  Interaction.MsgBox((object) "Could not find graphic. Make sure its located inside the ''graphics'' directory", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num21: i32 =  Interaction.MsgBox( "Could not find graphic. Make sure its located inside the ''graphics'' directory", Title: ( "Shadow Empire : Planetary Conquest"));
                   self.game.Data.PermanentOverlayUse = false;
                   self.game.Data.PermanentOverlayName = "systemgraphics/trans.bmp";
                   self.game.Data.LoadSprites();
@@ -389,7 +389,7 @@ namespace WindowsApplication1
                 let mut theight: i32 = Operators.CompareString(Strings.Trim(str2), "", false) == 0 ? 0 : Conversions.ToInteger(str2);
                 if (twidth < 10 | theight < 10 | twidth > 200 | theight > 200)
                 {
-                  let mut num22: i32 =  Interaction.MsgBox((object) "Cannot comply. Width and Height must be between 10 and 200", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num22: i32 =  Interaction.MsgBox( "Cannot comply. Width and Height must be between 10 and 200", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -408,7 +408,7 @@ namespace WindowsApplication1
                   self.game.SelectY = 0;
                   self.game.CornerX = 0;
                   self.game.CornerY = 0;
-                  let mut num23: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num23: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                   self.game.EditObj.MiddleWindow = true;
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
@@ -428,7 +428,7 @@ namespace WindowsApplication1
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
-                  let mut num24: i32 =  Interaction.MsgBox((object) "Could not find file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num24: i32 =  Interaction.MsgBox( "Could not find file", Title: ( "Shadow Empire : Planetary Conquest"));
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
@@ -436,7 +436,7 @@ namespace WindowsApplication1
                 {
                   self.game.Data.MasterFile = "";
                   tinitdir: String = self.game.AppPath + "scenarios\\";
-                  if (!Information.IsNothing((object) self.game.Data.ScenarioDir))
+                  if (!Information.IsNothing( self.game.Data.ScenarioDir))
                   {
                     if (self.game.Data.ScenarioDir.Length > 1)
                       tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
@@ -448,7 +448,7 @@ namespace WindowsApplication1
                   str: String = self.game.HandyFunctionsObj.SaveSomething("SE1 Map file(*.se1map)|*.se1map", "Give save name...", tinitdir, false);
                   if (Strings.Len(str) < 2)
                   {
-                    let mut num25: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num25: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -460,7 +460,7 @@ namespace WindowsApplication1
                     self.game.Data.LoadGraphics(self.formref);
                     self.game.Data.PermanentOverlaySpriteID = -1;
                     self.game.Data.PermanentOverlayUse = false;
-                    let mut num26: i32 =  Interaction.MsgBox((object) "Completed & Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num26: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
               }

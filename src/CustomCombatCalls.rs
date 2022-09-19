@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -172,20 +172,20 @@ namespace WindowsApplication1
               if (cc.IList[index].IAttacker == 0)
                 num6 += cc.game.Data.SFTypeObj[cc.IList[index].ISFType].PowerPts * 10;
             }
-            let mut num7: i32 =  (int) Math.Round(Math.Sqrt((double) hexLibVarValue) * 10.0);
+            let mut num7: i32 =  (int) Math.Round(Math.Sqrt( hexLibVarValue) * 10.0);
             if (num6 < num7)
               num6 = num7;
             while (num6 > 0 & hexLibVarValue > 0)
             {
-              float num8 = (float) hexLibVarValue / (float) num6;
-              if ((double) num8 > 1.0)
+              float num8 =  hexLibVarValue /  num6;
+              if ( num8 > 1.0)
                 num8 = 1f;
               hexLibVarValue -= num6;
               this.EntrBunkerMod += num8 * 0.25f;
             }
           }
         }
-        entr = (int) Math.Round((double) ((float) entr * this.EntrBunkerMod));
+        entr = (int) Math.Round( ( entr * this.EntrBunkerMod));
       }
       return entr;
     }
@@ -311,7 +311,7 @@ namespace WindowsApplication1
           data1: String = game.Data.StringListObj[this.slotLeaders].GetData(0, integer, 46);
           let mut row: i32 =  game.Data.StringListObj[this.slotLeaders].FindRow(0, integer);
           string texty;
-          if (DrawMod.RandyNumber.Next(0, num4 * 10) <= 10 & (flag1 | Conversions.ToDouble(data1) > (double) DrawMod.RandyNumber.Next(1, 100)) | unitLossCheck & flag1)
+          if (DrawMod.RandyNumber.Next(0, num4 * 10) <= 10 & (flag1 | Conversions.ToDouble(data1) >  DrawMod.RandyNumber.Next(1, 100)) | unitLossCheck & flag1)
           {
             let mut num5: i32 =  game.EventRelatedObj.CheckHardcoded_SkillRoll(integer, 10, false, 0, true);
             this.SL.AddWeight(integer, 1, 10, CheckData1Existence: true);
@@ -415,7 +415,7 @@ namespace WindowsApplication1
           }
           data8: String = game.Data.StringListObj[this.slotLeaders].GetData(0, integer, 46);
           let mut row: i32 =  game.Data.StringListObj[this.slotLeaders].FindRow(0, integer);
-          if (DrawMod.RandyNumber.Next(0, num8 * 10) <= 5 & (flag2 | Conversions.ToDouble(data8) > (double) DrawMod.RandyNumber.Next(1, 100)) | unitLossCheck & flag2)
+          if (DrawMod.RandyNumber.Next(0, num8 * 10) <= 5 & (flag2 | Conversions.ToDouble(data8) >  DrawMod.RandyNumber.Next(1, 100)) | unitLossCheck & flag2)
           {
             let mut num9: i32 =  game.EventRelatedObj.CheckHardcoded_SkillRoll(integer, 10, false, 0, true);
             this.SL.AddWeight(integer, 1, 10, CheckData1Existence: true);
@@ -693,13 +693,13 @@ namespace WindowsApplication1
             let mut icounter: i32 =  cc.ICounter;
             for (let mut tid: i32 =  0; tid <= icounter; tid += 1)
             {
-              if (Information.IsNothing((object) cc.IList[tid].IunitFeat))
+              if (Information.IsNothing( cc.IList[tid].IunitFeat))
                 cc.IList[tid].IunitFeat = SimpleList::new();
               if (cc.IList[tid].IUnr == unr && simpleList1.Data1[index2] == -1 | simpleList1.Data1[index2] == game.Data.SFTypeObj[cc.IList[tid].ISFType].UnitGroup)
               {
                 let mut num3: i32 =  game.Data.SFTypeObj[cc.IList[tid].ISFType].AttackPower[game.Data.SFTypeObj[cc.IList[tid].ISFType].UnitGroup];
                 if (game.Data.SFTypeObj[cc.IList[tid].ISFType].ArtRange < 1 & game.Data.SFTypeObj[cc.IList[tid].ISFType].BackBench)
-                  num3 = (int) Math.Round((double) num3 / 10.0);
+                  num3 = (int) Math.Round( num3 / 10.0);
                 let mut num4: i32 =  0;
                 let mut counter2: i32 =  cc.IList[tid].IunitFeat.Counter;
                 for (let mut index3: i32 =  0; index3 <= counter2; index3 += 1)
@@ -718,7 +718,7 @@ namespace WindowsApplication1
               let mut randomIdbasedOnWeight: i32 =  simpleList2.GetRandomIdbasedOnWeight();
               if (randomIdbasedOnWeight > -1)
               {
-                if (Information.IsNothing((object) cc.IList[randomIdbasedOnWeight].IunitFeat))
+                if (Information.IsNothing( cc.IList[randomIdbasedOnWeight].IunitFeat))
                   cc.IList[randomIdbasedOnWeight].IunitFeat = SimpleList::new();
                 cc.IList[randomIdbasedOnWeight].IunitFeat.Add(simpleList1.Id[index2], 1, cc.IList[randomIdbasedOnWeight].IID);
                 cc.IList[randomIdbasedOnWeight].IunitFeatStart = simpleList1.Id[index2];
@@ -734,13 +734,13 @@ namespace WindowsApplication1
             let mut icounter: i32 =  cc.ICounter;
             for (let mut tid: i32 =  0; tid <= icounter; tid += 1)
             {
-              if (Information.IsNothing((object) cc.IList[tid].IunitFeat))
+              if (Information.IsNothing( cc.IList[tid].IunitFeat))
                 cc.IList[tid].IunitFeat = SimpleList::new();
               if (cc.IList[tid].IUnr == unr && simpleList1.Data1[index6] == -1 | simpleList1.Data1[index6] == game.Data.SFTypeObj[cc.IList[tid].ISFType].UnitGroup && cc.IList[tid].IunitFeat.FindNr(simpleList1.Id[index6]) == -1)
               {
                 let mut num6: i32 =  game.Data.SFTypeObj[cc.IList[tid].ISFType].AttackPower[game.Data.SFTypeObj[cc.IList[tid].ISFType].UnitGroup];
                 if (game.Data.SFTypeObj[cc.IList[tid].ISFType].ArtRange < 1 & game.Data.SFTypeObj[cc.IList[tid].ISFType].BackBench)
-                  num6 = (int) Math.Round((double) num6 / 10.0);
+                  num6 = (int) Math.Round( num6 / 10.0);
                 simpleList3.Add(tid, 10 * num6);
               }
             }
@@ -757,7 +757,7 @@ namespace WindowsApplication1
                   if (randomIdbasedOnWeight > -1)
                   {
                     let mut index10: i32 =  numArray[index6, index7, 1];
-                    if (Information.IsNothing((object) cc.IList[randomIdbasedOnWeight].IunitFeat))
+                    if (Information.IsNothing( cc.IList[randomIdbasedOnWeight].IunitFeat))
                       cc.IList[randomIdbasedOnWeight].IunitFeat = SimpleList::new();
                     cc.IList[randomIdbasedOnWeight].IunitFeat.Add(simpleList1.Id[index6], 1, cc.IList[index10].IID);
                     simpleList3.Remove(randomIdbasedOnWeight);
@@ -772,7 +772,7 @@ namespace WindowsApplication1
 
     pub void DoStructuralDamageCall(ref CombatClass cc, GameClass game, int damPts)
     {
-      let mut num1: i32 =  (int) Math.Round((double) cc.CombatRound / 3.0) + 1;
+      let mut num1: i32 =  (int) Math.Round( cc.CombatRound / 3.0) + 1;
       s: String = "";
       data1: DataClass = game.Data;
       str1: String = "Zones";
@@ -793,10 +793,10 @@ namespace WindowsApplication1
         let mut val1: i32 =  hexLibVarValue2;
         while (val1 > 0 & damPts > 0)
         {
-          float num3 = (float) Math.Min(val1, val2) / (float) val2;
-          if ((double) num3 > 1.0)
+          float num3 =  Math.Min(val1, val2) /  val2;
+          if ( num3 > 1.0)
             num3 = 1f;
-          let mut num4: i32 =  (int) Math.Round(Math.Ceiling((double) damPts * 0.5 * (double) num3));
+          let mut num4: i32 =  (int) Math.Round(Math.Ceiling( damPts * 0.5 *  num3));
           num2 += num3;
           val1 -= val2;
           if (0 > val1)
@@ -805,7 +805,7 @@ namespace WindowsApplication1
           if (0 > damPts)
             damPts = 0;
         }
-        s = s + hexLibVarValue2.ToString() + " Bunker Points halved the structural damage " + Math.Round((double) num2, 1).ToString() + "x times letting: " + damPts.ToString() + " structural damage through.";
+        s = s + hexLibVarValue2.ToString() + " Bunker Points halved the structural damage " + Math.Round( num2, 1).ToString() + "x times letting: " + damPts.ToString() + " structural damage through.";
       }
       if (damPts > 0)
       {
@@ -841,7 +841,7 @@ namespace WindowsApplication1
         }
         if (simpleList.Counter > -1)
         {
-          let mut num10: i32 =  (int) Math.Round((double) damPts / (double) Math.Max(1, simpleList.Counter)) + (int) Math.Round((double) damPts / 3.0);
+          let mut num10: i32 =  (int) Math.Round( damPts /  Math.Max(1, simpleList.Counter)) + (int) Math.Round( damPts / 3.0);
           if (num10 < 1)
             num10 = 1;
           let mut num11: i32 =  0;
@@ -851,22 +851,22 @@ namespace WindowsApplication1
             let mut num12: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotAssets].GetData(9, simpleList.Data1[index], 6)));
             let mut num13: i32 =  num10;
             if (num13 > 100)
-              num13 = 100 + (int) Math.Round((double) (num13 - 100) / 2.0);
+              num13 = 100 + (int) Math.Round( (num13 - 100) / 2.0);
             if (num13 > 200)
-              num13 = 200 + (int) Math.Round((double) (num13 - 200) / 3.0);
+              num13 = 200 + (int) Math.Round( (num13 - 200) / 3.0);
             if (num13 > 300)
-              num13 = 300 + (int) Math.Round((double) (num13 - 300) / 4.0);
+              num13 = 300 + (int) Math.Round( (num13 - 300) / 4.0);
             if (num13 > 400)
-              num13 = 400 + (int) Math.Round((double) (num13 - 400) / 5.0);
+              num13 = 400 + (int) Math.Round( (num13 - 400) / 5.0);
             if (num13 > 500)
-              num13 = 500 + (int) Math.Round((double) (num13 - 500) / 6.0);
+              num13 = 500 + (int) Math.Round( (num13 - 500) / 6.0);
             if (num13 > 600)
-              num13 = 600 + (int) Math.Round((double) (num13 - 600) / 7.0);
+              num13 = 600 + (int) Math.Round( (num13 - 600) / 7.0);
             if (num13 > 700)
               num13 = 700;
             if (simpleList.Data3[index] > 0)
             {
-              num13 = (int) Math.Round((double) num13 - (double) (num13 * simpleList.Data3[index]) / 100.0);
+              num13 = (int) Math.Round( num13 -  (num13 * simpleList.Data3[index]) / 100.0);
               if (num13 < 0)
                 num13 = 0;
             }
@@ -895,7 +895,7 @@ namespace WindowsApplication1
               let mut num15: i32 =  0;
               if (num14 > 200 * nr)
               {
-                let mut num16: i32 =  (int) Math.Round(Math.Ceiling((double) (num14 - 200 * nr) / 10.0));
+                let mut num16: i32 =  (int) Math.Round(Math.Ceiling( (num14 - 200 * nr) / 10.0));
                 if (DrawMod.RandyNumber.Next(0, 100) < num16)
                 {
                   num15 = 1;
@@ -989,13 +989,13 @@ namespace WindowsApplication1
 
     pub void EndCombatCall(ref CombatClass cc, GameClass game)
     {
-      let mut num1: i32 =  (int) Math.Round((double) cc.CombatRound / 3.0) + 1;
+      let mut num1: i32 =  (int) Math.Round( cc.CombatRound / 3.0) + 1;
       SimpleList simpleList1 = SimpleList::new();
       let mut ucounter: i32 =  cc.UCounter;
       for (let mut index: i32 =  0; index <= ucounter; index += 1)
       {
         let mut unr: i32 =  cc.UList[index].UNr;
-        if (!Information.IsNothing((object) game.Data.UnitObj[unr].tempSFTypeBitmap))
+        if (!Information.IsNothing( game.Data.UnitObj[unr].tempSFTypeBitmap))
         {
           game.Data.UnitObj[unr].tempSFTypeBitmap.Dispose();
           game.Data.UnitObj[unr].tempSFTypeBitmap = (Bitmap) null;
@@ -1006,7 +1006,7 @@ namespace WindowsApplication1
       for (let mut index: i32 =  0; index <= counter1; index += 1)
       {
         if (this.SL.Weight[index] > 0)
-          this.SL.Weight[index] = (int) Math.Round(Math.Sqrt(Math.Sqrt((double) this.SL.Weight[index])));
+          this.SL.Weight[index] = (int) Math.Round(Math.Sqrt(Math.Sqrt( this.SL.Weight[index])));
         simpleList1.AddWeight(this.SL.Id[index], DrawMod.RandyNumber.Next(1, 100));
         num2 += 1;
       }
@@ -1052,11 +1052,11 @@ namespace WindowsApplication1
         for (let mut index2: i32 =  1; index2 <= combatRound; index2 += 1)
         {
           if (index2 <= 10)
-            num9 += (int) Math.Round(Math.Ceiling((double) index2 / 3.0));
+            num9 += (int) Math.Round(Math.Ceiling( index2 / 3.0));
         }
         let mut xpGain: i32 =  num8 + num9;
         if ((int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotChar].GetData(0, num5, 6))) == 4)
-          xpGain = (int) Math.Round((double) xpGain / 3.0);
+          xpGain = (int) Math.Round( xpGain / 3.0);
         let mut num10: i32 =  game.EventRelatedObj.Helper_ModifyXPGain(xpGain, num5);
         let mut setValue: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotChar].GetData(0, num5, 17))) + num10;
         game.EventRelatedObj.AddLeaderTempLog(num5, "Gained " + num10.ToString() + " XP during combat in " + game.HandyFunctionsObj.GetHexName(cc.TargetX, cc.TargetY, 0));
@@ -1151,12 +1151,12 @@ namespace WindowsApplication1
 
     pub void EndBattleCall(ref CombatClass cc, GameClass game)
     {
-      let mut index1: i32 =  (int) Math.Round((double) game.Data.RuleVar[407]) + 5;
-      let mut index2: i32 =  (int) Math.Round((double) game.Data.RuleVar[407]) + 9;
-      let mut index3: i32 =  (int) Math.Round((double) game.Data.RuleVar[407]) + 0;
-      let mut index4: i32 =  (int) Math.Round((double) game.Data.RuleVar[407]) + 7;
-      let mut index5: i32 =  (int) Math.Round((double) game.Data.RuleVar[407]) + 2;
-      let mut index6: i32 =  (int) Math.Round((double) game.Data.RuleVar[407]) + 8;
+      let mut index1: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 5;
+      let mut index2: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 9;
+      let mut index3: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 0;
+      let mut index4: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 7;
+      let mut index5: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 2;
+      let mut index6: i32 =  (int) Math.Round( game.Data.RuleVar[407]) + 8;
       let mut ucounter1: i32 =  cc.UCounter;
       for (let mut index7: i32 =  0; index7 <= ucounter1; index7 += 1)
       {
@@ -1199,7 +1199,7 @@ namespace WindowsApplication1
           let mut icounter: i32 =  cc.ICounter;
           for (let mut index11: i32 =  0; index11 <= icounter; index11 += 1)
           {
-            if (cc.IList[index11].IUnr == unr && !Information.IsNothing((object) cc.IList[index11].IunitFeat) && cc.IList[index11].IunitFeatStart > 0 & cc.IList[index11].IunitFeat.Counter > -1 && cc.IList[index11].IunitFeat.Id[0] < 1 | cc.IList[index11].IunitFeatDeadRound > 0 | cc.IList[index11].ICapitulate | cc.IList[index11].IKilled > 0)
+            if (cc.IList[index11].IUnr == unr && !Information.IsNothing( cc.IList[index11].IunitFeat) && cc.IList[index11].IunitFeatStart > 0 & cc.IList[index11].IunitFeat.Counter > -1 && cc.IList[index11].IunitFeat.Id[0] < 1 | cc.IList[index11].IunitFeatDeadRound > 0 | cc.IList[index11].ICapitulate | cc.IList[index11].IKilled > 0)
             {
               let mut num: i32 =  game.Data.HistoricalUnitObj[historical].GiveHisVarValue(100 + cc.IList[index11].IunitFeatStart) - 1;
               game.Data.HistoricalUnitObj[historical].SetHisVarValue(100 + cc.IList[index11].IunitFeatStart, num);
@@ -1216,7 +1216,7 @@ namespace WindowsApplication1
         let mut idValue: i32 =  this.MODL.Id[index13];
         if (idValue > 0)
         {
-          let mut num1: i32 =  (int) Math.Round(Math.Sqrt((double) this.MODL.Weight[index13]));
+          let mut num1: i32 =  (int) Math.Round(Math.Sqrt( this.MODL.Weight[index13]));
           if (num1 > 10)
             num1 = 10;
           if (num1 > 0)
@@ -1292,9 +1292,9 @@ namespace WindowsApplication1
           let mut characterId2: i32 =  game.EventRelatedObj.Helper_GetCharacterId(id, 4, jobSpecificId2, -1, this.slotChar);
           if (id == game.Data.RegimeObj[game.Data.Turn].id)
           {
-            num3 += (int) Math.Round((double) (cc.IList[index1].ILisFuelMod * 100f));
+            num3 += (int) Math.Round( (cc.IList[index1].ILisFuelMod * 100f));
             num4 += 1;
-            num5 += (int) Math.Round((double) (cc.IList[index1].ILisAmmoMod * 100f));
+            num5 += (int) Math.Round( (cc.IList[index1].ILisAmmoMod * 100f));
             num6 += 1;
             num7 += 1;
             if (game.Data.SFTypeObj[cc.IList[index1].ISFType].UnitGroup == 3)
@@ -1350,7 +1350,7 @@ namespace WindowsApplication1
       int index9;
       for (let mut index10: i32 =  0; index10 <= icounter2; index10 += 1)
       {
-        if (Information.IsNothing((object) cc.IList[index10].IunitFeat))
+        if (Information.IsNothing( cc.IList[index10].IunitFeat))
           cc.IList[index10].IunitFeat = SimpleList::new();
         txt: String = "";
         let mut counter: i32 =  cc.IList[index10].IunitFeat.Counter;
@@ -1519,13 +1519,13 @@ namespace WindowsApplication1
       bool flag3;
       if (cc.CombatType == 3)
         flag3 = true;
-      if (DrawMod.RandyNumber.Next(1, num7 + 1) <= (int) Math.Round((double) num9 / 2.0))
+      if (DrawMod.RandyNumber.Next(1, num7 + 1) <= (int) Math.Round( num9 / 2.0))
         flag3 = true;
       bool flag4;
-      if (DrawMod.RandyNumber.Next(1, num7 + 1) <= (int) Math.Round((double) num8 / 2.0))
+      if (DrawMod.RandyNumber.Next(1, num7 + 1) <= (int) Math.Round( num8 / 2.0))
         flag4 = true;
-      let mut num22: i32 =  (int) Math.Round((double) num5 / (double) num6);
-      let mut num23: i32 =  (int) Math.Round((double) num3 / (double) num4);
+      let mut num22: i32 =  (int) Math.Round( num5 /  num6);
+      let mut num23: i32 =  (int) Math.Round( num3 /  num4);
       bool flag5;
       if (num22 < DrawMod.RandyNumber.Next(50, 85))
         flag5 = true;
@@ -1538,7 +1538,7 @@ namespace WindowsApplication1
         flag6 = false;
       }
       bool flag7;
-      if ((double) cc.ConcentricBonus > (double) DrawMod.RandyNumber.Next(40, 120))
+      if ( cc.ConcentricBonus >  DrawMod.RandyNumber.Next(40, 120))
         flag7 = true;
       if (cc.CombatType == 1)
         ;
@@ -1725,7 +1725,7 @@ namespace WindowsApplication1
           index2 = defnr;
           index3 = attnr;
         }
-        if (!Information.IsNothing((object) cc.IList[index2].IunitFeat))
+        if (!Information.IsNothing( cc.IList[index2].IunitFeat))
         {
           let mut counter: i32 =  cc.IList[index2].IunitFeat.Counter;
           for (let mut index4: i32 =  0; index4 <= counter; index4 += 1)
@@ -1762,7 +1762,7 @@ namespace WindowsApplication1
                     flag = false;
                   if (flag && num4 == 1 && index2 == attnr)
                   {
-                    num2 -= (int) Math.Round((double) (num2 * num9) / 100.0);
+                    num2 -= (int) Math.Round( (num2 * num9) / 100.0);
                     s9 = data + " diminished battle startup penalty with " + num9.ToString() + "%.";
                   }
                 }
@@ -1872,7 +1872,7 @@ namespace WindowsApplication1
           index1 = defnr;
           index2 = attnr;
         }
-        if (!Information.IsNothing((object) cc.IList[index1].IunitFeat))
+        if (!Information.IsNothing( cc.IList[index1].IunitFeat))
         {
           let mut counter: i32 =  cc.IList[index1].IunitFeat.Counter;
           for (let mut index3: i32 =  0; index3 <= counter; index3 += 1)
@@ -2073,7 +2073,7 @@ namespace WindowsApplication1
           index1 = defnr;
           index2 = attnr;
         }
-        if (!Information.IsNothing((object) cc.IList[index1].IunitFeat))
+        if (!Information.IsNothing( cc.IList[index1].IunitFeat))
         {
           let mut counter: i32 =  cc.IList[index1].IunitFeat.Counter;
           for (let mut index3: i32 =  0; index3 <= counter; index3 += 1)
@@ -2134,7 +2134,7 @@ namespace WindowsApplication1
                     }
                     if (num8 == 27 && index1 == attnr && result > 0)
                     {
-                      tid1 = (int) Math.Round((double) (cc.IList[defnr].IRdn * num13) / 100.0);
+                      tid1 = (int) Math.Round( (cc.IList[defnr].IRdn * num13) / 100.0);
                       Individual[] ilist1 = cc.IList;
                       Individual[] individualArray1 = ilist1;
                       let mut index6: i32 =  defnr;
@@ -2151,7 +2151,7 @@ namespace WindowsApplication1
                     }
                     if (num8 == 31 && index1 == attnr && result > 0)
                     {
-                      tid1 = (int) Math.Round((double) (cc.IList[defnr].IXp * num13) / 100.0);
+                      tid1 = (int) Math.Round( (cc.IList[defnr].IXp * num13) / 100.0);
                       Individual[] ilist = cc.IList;
                       Individual[] individualArray = ilist;
                       let mut index10: i32 =  defnr;
@@ -2173,7 +2173,7 @@ namespace WindowsApplication1
                     if (num8 == 4 && index1 == attnr && result == 1)
                     {
                       tid1 = game.Data.SFTypeObj[cc.IList[defnr].ISFType].HitPoints[game.Data.SFTypeObj[cc.IList[attnr].ISFType].UnitGroup];
-                      let mut num15: i32 =  (int) Math.Round((double) ((int) Math.Round(Conversion.Val((object) Expression)) * tid1) / 1000.0) + 1;
+                      let mut num15: i32 =  (int) Math.Round( ((int) Math.Round(Conversion.Val( Expression)) * tid1) / 1000.0) + 1;
                       if (num15 > 0)
                       {
                         s9 = data + " took " + num15.ToString() + " " + idValue2 + " of plunder from killed target.";
@@ -2278,7 +2278,7 @@ namespace WindowsApplication1
           if (num22 > 0)
           {
             tid1 = cc.IList[attnr].IMor;
-            tid1 = (int) Math.Round(Math.Ceiling((double) (tid1 * num22) / 20.0));
+            tid1 = (int) Math.Round(Math.Ceiling( (tid1 * num22) / 20.0));
             Individual[] ilist = cc.IList;
             Individual[] individualArray = ilist;
             let mut index24: i32 =  attnr;
@@ -2354,9 +2354,9 @@ namespace WindowsApplication1
             let mut num4: i32 =  (int) Math.Round(Conversion.Val(Strings.Mid(cc.game.Data.SFTypeObj[isfType].SFTypeVar[8].ToString(), 3, 1)));
             if (num4 > 0 && cc.CombatRound == 1 & cc.IList[attnr].IAttacker == 0)
             {
-              let mut num5: i32 =  (int) Math.Round((double) (attval * (float) num4));
+              let mut num5: i32 =  (int) Math.Round( (attval *  num4));
               s9 = s9 + "Traps set by critter adds " + num5.ToString() + " attack points.";
-              attval += (float) num5;
+              attval +=  num5;
             }
           }
         }
@@ -2396,7 +2396,7 @@ namespace WindowsApplication1
           index2 = defnr;
           index3 = attnr;
         }
-        if (!Information.IsNothing((object) cc.IList[index2].IunitFeat))
+        if (!Information.IsNothing( cc.IList[index2].IunitFeat))
         {
           let mut counter: i32 =  cc.IList[index2].IunitFeat.Counter;
           for (let mut index4: i32 =  0; index4 <= counter; index4 += 1)
@@ -2448,7 +2448,7 @@ namespace WindowsApplication1
                       }
                       if (num11 == 16 && index2 == attnr)
                       {
-                        let mut num18: i32 =  (int) Math.Round((double) (cc.IList[defnr].IEntrench * num16) / 100.0);
+                        let mut num18: i32 =  (int) Math.Round( (cc.IList[defnr].IEntrench * num16) / 100.0);
                         Individual[] ilist = cc.IList;
                         Individual[] individualArray = ilist;
                         let mut index7: i32 =  defnr;
@@ -2459,13 +2459,13 @@ namespace WindowsApplication1
                       if (num11 == 33 && index2 == attnr & cc.IList[attnr].IAttacker < 1 & maxValue >= cc.CombatRound & cc.CombatRound <= num17)
                       {
                         let mut num19: i32 =  num16;
-                        attval += (float) num19;
+                        attval +=  num19;
                         s9 = s9 + data + " adds " + num19.ToString() + " attack points.";
                       }
                       if (num11 == 7 && index2 == defnr)
                       {
-                        let mut num20: i32 =  (int) Math.Round((double) attval * (double) num16 / 100.0);
-                        attval -= (float) num20;
+                        let mut num20: i32 =  (int) Math.Round( attval *  num16 / 100.0);
+                        attval -=  num20;
                         s9 = s9 + "Defenders " + data + " diminished attackers attack with " + num16.ToString() + "%.";
                       }
                       if (num11 == 23 && index2 == attnr)
@@ -2476,7 +2476,7 @@ namespace WindowsApplication1
                           s9 += "Succes. ";
                           let mut num21: i32 =  DrawMod.RandyNumber.Next(0, maxValue);
                           s9 = s9 + " Did " + num21.ToString() + " points of attack dammage.";
-                          attval += (float) num21;
+                          attval +=  num21;
                         }
                         else
                           s9 += "Failure. ";
@@ -2496,26 +2496,26 @@ namespace WindowsApplication1
                       {
                         if (num16 > 0)
                         {
-                          let mut num22: i32 =  (int) Math.Round((double) attval * (double) num16 / 100.0);
-                          attval += (float) num22;
+                          let mut num22: i32 =  (int) Math.Round( attval *  num16 / 100.0);
+                          attval +=  num22;
                           s9 = data + " increased our attack with " + num16.ToString() + "%. ";
                         }
                         if (maxValue > 0)
                         {
                           let mut num23: i32 =  maxValue;
-                          attval += (float) num23;
+                          attval +=  num23;
                           s9 = s9 + data + " increased our attack with +" + maxValue.ToString() + " points.";
                         }
                       }
                       if (num11 == 34 && index2 == attnr && maxValue >= cc.CombatRound && game.Data.SFTypeObj[cc.IList[defnr].ISFType].SFTypeVar[42] < num17 && num16 > 0)
                       {
                         let mut num24: i32 =  num16;
-                        attval += (float) num24;
+                        attval +=  num24;
                         s9 = data + " increased our attack with +" + num16.ToString() + " points.";
                       }
                       if (num11 == 15 && index2 == attnr)
                       {
-                        let mut num25: i32 =  (int) Math.Round((double) (game.Data.SFObj[cc.IList[attnr].ISFNr].Rdn * num16) / 100.0);
+                        let mut num25: i32 =  (int) Math.Round( (game.Data.SFObj[cc.IList[attnr].ISFNr].Rdn * num16) / 100.0);
                         let mut num26: i32 =  num25 - cc.IList[attnr].IRdn;
                         if (cc.IList[attnr].IRdn < num25)
                           cc.IList[attnr].IRdn = num25;
@@ -2557,7 +2557,7 @@ namespace WindowsApplication1
               num28 += num8;
             this.SL.AddWeight(characterId1, 1, 51, CheckData1Existence: true);
             if (num28 > 100)
-              attval += (float) ((double) attval * (double) (num28 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num28 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 51;
           }
           if (cc.IList[attnr].IAttacker == 0 && modNr == 19 & game.Data.SFTypeObj[cc.IList[attnr].ISFType].Theater == 2 & game.Data.SFTypeObj[cc.IList[defnr].ISFType].Theater == 2)
@@ -2567,7 +2567,7 @@ namespace WindowsApplication1
               num29 += num8;
             this.SL.AddWeight(characterId1, 1, 52, CheckData1Existence: true);
             if (num29 > 100)
-              attval += (float) ((double) attval * (double) (num29 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num29 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 52;
           }
           if (cc.IList[attnr].IAttacker == 1 & cc.CombatType2 != 16 && modNr == 20 & game.Data.SFTypeObj[cc.IList[attnr].ISFType].Theater == 2 & game.Data.SFTypeObj[cc.IList[defnr].ISFType].Theater == 2)
@@ -2577,7 +2577,7 @@ namespace WindowsApplication1
               num30 += num8;
             this.SL.AddWeight(characterId1, 1, 53, CheckData1Existence: true);
             if (num30 > 100)
-              attval += (float) ((double) attval * (double) (num30 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num30 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 53;
           }
           if (modNr == 21 & game.Data.SFTypeObj[cc.IList[attnr].ISFType].Theater == 2 & game.Data.SFTypeObj[cc.IList[defnr].ISFType].Theater < 2)
@@ -2587,7 +2587,7 @@ namespace WindowsApplication1
               num31 += num8;
             this.SL.AddWeight(characterId1, 1, 54, CheckData1Existence: true);
             if (num31 > 100)
-              attval += (float) ((double) attval * (double) (num31 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num31 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 54;
           }
           if (modNr == 22 & game.Data.SFTypeObj[cc.IList[attnr].ISFType].Theater < 2 & game.Data.SFTypeObj[cc.IList[defnr].ISFType].Theater == 2)
@@ -2597,7 +2597,7 @@ namespace WindowsApplication1
               num32 += num8;
             this.SL.AddWeight(characterId1, 1, 56, CheckData1Existence: true);
             if (num32 > 100)
-              attval += (float) ((double) attval * (double) (num32 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num32 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 56;
           }
         }
@@ -2610,7 +2610,7 @@ namespace WindowsApplication1
               num33 += num8;
             this.SL.AddWeight(characterId1, 1, 24, CheckData1Existence: true);
             if (num33 > 100)
-              attval += (float) ((double) attval * (double) (num33 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num33 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 24;
           }
           if (modNr == 1 & unitGroup1 == 3 & game.Data.SFTypeObj[cc.IList[attnr].ISFType].ArtRange < 1)
@@ -2620,7 +2620,7 @@ namespace WindowsApplication1
               num34 += num8;
             this.SL.AddWeight(characterId1, 1, 31, CheckData1Existence: true);
             if (num34 > 100)
-              attval += (float) ((double) attval * (double) (num34 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num34 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 31;
           }
           if (modNr == 2 & (unitGroup1 == 1 | unitGroup1 == 3 & game.Data.SFTypeObj[cc.IList[attnr].ISFType].ArtRange > 0))
@@ -2630,7 +2630,7 @@ namespace WindowsApplication1
               num35 += num8;
             this.SL.AddWeight(characterId1, 1, 32, CheckData1Existence: true);
             if (num35 > 100)
-              attval += (float) ((double) attval * (double) (num35 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num35 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 32;
           }
           if (modNr == 13 & cc.IList[attnr].IAttacker == 0)
@@ -2641,7 +2641,7 @@ namespace WindowsApplication1
             this.SL.AddWeight(characterId1, 1, 4, CheckData1Existence: true);
             let mut num37: i32 =  num36 - 100;
             if (num37 > 0)
-              attval += (float) (int) Math.Round((double) attval * ((double) cc.IList[attnr].IEntrench / 100.0) * ((double) num37 / 100.0));
+              attval +=  (int) Math.Round( attval * ( cc.IList[attnr].IEntrench / 100.0) * ( num37 / 100.0));
             tdata2 = 4;
           }
           if (modNr == 3 & unitGroup1 == 0)
@@ -2651,7 +2651,7 @@ namespace WindowsApplication1
               num38 += num8;
             this.SL.AddWeight(characterId1, 1, 33, CheckData1Existence: true);
             if (num38 > 100)
-              attval += (float) ((double) attval * (double) (num38 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num38 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 33;
           }
           if (modNr == 6 & cc.IList[attnr].IAttacker == 1)
@@ -2661,7 +2661,7 @@ namespace WindowsApplication1
               num39 += num8;
             this.SL.AddWeight(characterId1, 1, 36, CheckData1Existence: true);
             if (num39 > 100)
-              attval += (float) ((double) attval * (double) (num39 - 100) / 100.0) * this.SKILLEFFECT;
+              attval +=  ( attval *  (num39 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 36;
           }
           if (modNr == 5 & cc.IList[attnr].IAttacker == 1)
@@ -2675,7 +2675,7 @@ namespace WindowsApplication1
               this.SL.AddWeight(characterId1, 1, 23, CheckData1Existence: true);
               if (cc.IList[defnr].IEntrench > 0)
               {
-                let mut num42: i32 =  (int) Math.Round((double) (cc.IList[defnr].IEntrench * num41) / 200.0);
+                let mut num42: i32 =  (int) Math.Round( (cc.IList[defnr].IEntrench * num41) / 200.0);
                 cc.IList[defnr].IEntrench -= num42;
                 if (0 > cc.IList[defnr].IEntrench)
                   cc.IList[defnr].IEntrench = 0;
@@ -2684,7 +2684,7 @@ namespace WindowsApplication1
             tdata2 = 23;
           }
         }
-        let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num27) * 100.0) / num27));
+        let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num27) * 100.0) / num27));
         if (tweight > 0)
           tweight = tweight;
         if (tdata2 > 0)
@@ -2722,10 +2722,10 @@ namespace WindowsApplication1
             num46 += num8;
           this.SL.AddWeight(characterId2, 1, 18, CheckData1Existence: true);
           if (num46 > 100)
-            attval += (float) ((double) attval * (double) (num46 - 100) / 100.0) * this.SKILLEFFECT;
+            attval +=  ( attval *  (num46 - 100) / 100.0) * this.SKILLEFFECT;
           tdata2 = 18;
         }
-        let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num45) * 100.0) / num45));
+        let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num45) * 100.0) / num45));
         if (tdata2 > 0)
         {
           let mut nr: i32 =  this.logLeaderBonus.FindNr(characterId2, tdata2: tdata2);
@@ -2762,17 +2762,17 @@ namespace WindowsApplication1
             if (unitGroup2 == 0)
             {
               let mut num50: i32 =  game.Data.HistoricalUnitObj[index9].GiveHisVarValue(22);
-              attval *= (float) (100 + num50) / 100f;
+              attval *=  (100 + num50) / 100f;
             }
             else if (unitGroup2 == 1 | unitGroup2 == 6)
             {
               let mut num51: i32 =  game.Data.HistoricalUnitObj[index9].GiveHisVarValue(23);
-              attval *= (float) (100 + num51) / 100f;
+              attval *=  (100 + num51) / 100f;
             }
             else if (unitGroup2 == 2 | unitGroup2 == 3)
             {
               let mut num52: i32 =  game.Data.HistoricalUnitObj[index9].GiveHisVarValue(24);
-              attval *= (float) (100 + num52) / 100f;
+              attval *=  (100 + num52) / 100f;
             }
           }
           if (cc.DefenderRegime == game.Data.UnitObj[iunr].Regime)
@@ -2781,17 +2781,17 @@ namespace WindowsApplication1
             if (unitGroup3 == 0)
             {
               let mut num53: i32 =  game.Data.HistoricalUnitObj[index9].GiveHisVarValue(25);
-              attval *= (float) (100 + num53) / 100f;
+              attval *=  (100 + num53) / 100f;
             }
             else if (unitGroup3 == 1 | unitGroup3 == 6)
             {
               let mut num54: i32 =  game.Data.HistoricalUnitObj[index9].GiveHisVarValue(26);
-              attval *= (float) (100 + num54) / 100f;
+              attval *=  (100 + num54) / 100f;
             }
             else if (unitGroup3 == 2 | unitGroup3 == 3)
             {
               let mut num55: i32 =  game.Data.HistoricalUnitObj[index9].GiveHisVarValue(27);
-              attval *= (float) (100 + num55) / 100f;
+              attval *=  (100 + num55) / 100f;
             }
           }
           let mut num56: i32 =  game.Data.HistoricalUnitObj[index9].GiveHisVarValue(40);
@@ -2801,11 +2801,11 @@ namespace WindowsApplication1
           {
             let mut num57: i32 =  cc.IList[attnr].IMor - cc.IList[defnr].IMor;
             if (num57 > 0)
-              attval *= (float) (100 + num57) / 100f;
+              attval *=  (100 + num57) / 100f;
           }
-          if ((double) num49 > 0.0)
+          if ( num49 > 0.0)
           {
-            let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num49) * 100.0) / num49));
+            let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num49) * 100.0) / num49));
             let mut nr: i32 =  this.otherBonus.FindNr(cc.IList[attnr].IAttacker, tdata2: 1);
             if (nr <= -1)
             {
@@ -2835,10 +2835,10 @@ namespace WindowsApplication1
         let mut regime: i32 =  game.Data.UnitObj[cc.IList[attnr].IUnr].Regime;
         let mut id2: i32 =  game.Data.RegimeObj[regime].id;
         let mut num61: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotRegimeKey].GetData2(0, id2, 1, "combatBonus", 2)));
-        attval += (float) ((double) attval * (double) num61 / 100.0);
-        if ((double) num60 > 0.0)
+        attval +=  ( attval *  num61 / 100.0);
+        if ( num60 > 0.0)
         {
-          let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num60) * 100.0) / num60));
+          let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num60) * 100.0) / num60));
           let mut nr: i32 =  this.otherBonus.FindNr(cc.IList[attnr].IAttacker, tdata2: 2);
           if (nr <= -1)
           {
@@ -2875,10 +2875,10 @@ namespace WindowsApplication1
           num67 = num66;
         if (num67 < 0)
           num67 = 0;
-        attval = (float) ((double) attval * (double) num67 / 100.0);
-        if ((double) num64 > 0.0 & num67 != 0)
+        attval =  ( attval *  num67 / 100.0);
+        if ( num64 > 0.0 & num67 != 0)
         {
-          let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num64) * 100.0) / num64));
+          let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num64) * 100.0) / num64));
           let mut nr: i32 =  this.otherBonus.FindNr(cc.IList[attnr].IAttacker, tdata2: 2);
           if (nr <= -1)
           {
@@ -2906,17 +2906,17 @@ namespace WindowsApplication1
         float num70 = attval;
         let mut regime: i32 =  game.Data.UnitObj[cc.IList[attnr].IUnr].Regime;
         let mut id4: i32 =  game.Data.RegimeObj[regime].id;
-        float d = (float) game.Data.SFTypeObj[cc.IList[attnr].ISFType].SFTypeVar[13] / (float) game.Data.SFTypeObj[cc.IList[defnr].ISFType].SFTypeVar[13];
-        if ((double) d > 1.0)
-          d = (float) Math.Sqrt((double) d);
+        float d =  game.Data.SFTypeObj[cc.IList[attnr].ISFType].SFTypeVar[13] /  game.Data.SFTypeObj[cc.IList[defnr].ISFType].SFTypeVar[13];
+        if ( d > 1.0)
+          d =  Math.Sqrt( d);
         if (cc.CombatRound == 1)
-          d = (float) Math.Sqrt(Math.Sqrt((double) d));
+          d =  Math.Sqrt(Math.Sqrt( d));
         if (cc.CombatRound == 2)
-          d = (float) Math.Sqrt((double) d);
+          d =  Math.Sqrt( d);
         attval *= d;
-        if ((double) num70 > 0.0 & (double) d != 0.0)
+        if ( num70 > 0.0 &  d != 0.0)
         {
-          let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num70) * 100.0) / num70));
+          let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num70) * 100.0) / num70));
           let mut nr: i32 =  this.otherBonus.FindNr(cc.IList[attnr].IAttacker, tdata2: 2);
           if (nr <= -1)
           {
@@ -2989,10 +2989,10 @@ namespace WindowsApplication1
           if (num75 == 2)
             num76 = 75;
         }
-        attval = (float) ((double) attval * (double) num76 / 100.0);
-        if ((double) num73 > 0.0)
+        attval =  ( attval *  num76 / 100.0);
+        if ( num73 > 0.0)
         {
-          let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num73) * 100.0) / num73));
+          let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num73) * 100.0) / num73));
           let mut nr: i32 =  this.otherBonus.FindNr(cc.IList[attnr].IAttacker, tdata2: 4);
           if (nr <= -1)
           {
@@ -3028,7 +3028,7 @@ namespace WindowsApplication1
         if (num82 < 1)
           num82 = 1;
         if (game.Data.SFTypeObj[cc.IList[attnr].ISFType].ArtRange > 0)
-          num82 = (int) Math.Round((double) num82 / 3.0);
+          num82 = (int) Math.Round( num82 / 3.0);
         let mut num83: i32 =  (int) Math.Round(Conversion.Val(game.Data.StringListObj[this.slotMM].GetData(0, idValue2, 1)));
         let mut num84: i32 =  100;
         if (num80 != 6 & num80 != 0)
@@ -3037,20 +3037,20 @@ namespace WindowsApplication1
           {
             float num85 = 1f;
             if (num83 > 0)
-              num85 = (float) num82 / (float) num83;
-            if ((double) num85 > 10.0)
+              num85 =  num82 /  num83;
+            if ( num85 > 10.0)
               num85 = 10f;
-            if ((double) num85 < 1.0)
-              num85 += (float) ((1.0 - (double) num85) * 0.1);
-            if ((double) num85 > 1.0)
+            if ( num85 < 1.0)
+              num85 +=  ((1.0 -  num85) * 0.1);
+            if ( num85 > 1.0)
               num85 = 1f;
-            num84 = (int) Math.Round((double) (100f * num85));
+            num84 = (int) Math.Round( (100f * num85));
           }
         }
-        attval = (float) ((double) attval * (double) num84 / 100.0);
-        if ((double) num79 > 0.0)
+        attval =  ( attval *  num84 / 100.0);
+        if ( num79 > 0.0)
         {
-          let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) attval - (double) num79) * 100.0) / num79));
+          let mut tweight: i32 =  (int) Math.Round( ( (( attval -  num79) * 100.0) / num79));
           let mut nr: i32 =  this.otherBonus.FindNr(cc.IList[attnr].IAttacker, tdata2: 5);
           if (nr <= -1)
           {
@@ -3144,7 +3144,7 @@ namespace WindowsApplication1
           index4 = defnr;
           index5 = index3;
         }
-        if (!Information.IsNothing((object) cc.IList[index4].IunitFeat))
+        if (!Information.IsNothing( cc.IList[index4].IunitFeat))
         {
           let mut counter: i32 =  cc.IList[index4].IunitFeat.Counter;
           for (let mut index6: i32 =  0; index6 <= counter; index6 += 1)
@@ -3188,14 +3188,14 @@ namespace WindowsApplication1
                         s9 = "";
                         if (idValue2 > 0)
                         {
-                          let mut num15: i32 =  (int) Math.Round((double) defval * (double) idValue2 / 100.0);
-                          defval += (float) num15;
+                          let mut num15: i32 =  (int) Math.Round( defval *  idValue2 / 100.0);
+                          defval +=  num15;
                           s9 = data + " provided " + idValue2.ToString() + "% extra defensive points. ";
                         }
                         if (num13 > 0)
                         {
                           let mut num16: i32 =  num13;
-                          defval += (float) num16;
+                          defval +=  num16;
                           s9 = s9 + data + " provided " + num13.ToString() + " extra defensive points.";
                         }
                       }
@@ -3205,15 +3205,15 @@ namespace WindowsApplication1
                         if (idValue2 > 0)
                         {
                           let mut ientrench: i32 =  cc.IList[defnr].IEntrench;
-                          num7 = (int) Math.Round((double) (ientrench * idValue2) / 100.0);
-                          let mut num17: i32 =  (int) Math.Round((double) defval * (double) ientrench / 100.0);
-                          defval += (float) num17;
+                          num7 = (int) Math.Round( (ientrench * idValue2) / 100.0);
+                          let mut num17: i32 =  (int) Math.Round( defval *  ientrench / 100.0);
+                          defval +=  num17;
                           s9 = data + " provided " + num17.ToString() + "% extra defensive points. ";
                         }
                       }
                       if (num8 == 15 && index4 == defnr)
                       {
-                        let mut num18: i32 =  (int) Math.Round((double) (game.Data.SFObj[cc.IList[defnr].ISFNr].Rdn * idValue2) / 100.0);
+                        let mut num18: i32 =  (int) Math.Round( (game.Data.SFObj[cc.IList[defnr].ISFNr].Rdn * idValue2) / 100.0);
                         let mut num19: i32 =  num18 - cc.IList[defnr].IRdn;
                         if (cc.IList[defnr].IRdn < num18)
                           cc.IList[defnr].IRdn = num18;
@@ -3250,7 +3250,7 @@ namespace WindowsApplication1
               num21 += num4;
             this.SL.AddWeight(characterId1, 1, 24, CheckData1Existence: true);
             if (num21 > 100)
-              defval += (float) ((double) defval * (double) (num21 - 100) / 100.0) * this.SKILLEFFECT;
+              defval +=  ( defval *  (num21 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 24;
           }
           if (modNr == 1 & unitGroup1 == 3 & game.Data.SFTypeObj[cc.IList[defnr].ISFType].ArtRange < 1)
@@ -3260,7 +3260,7 @@ namespace WindowsApplication1
               num22 += num4;
             this.SL.AddWeight(characterId1, 1, 31, CheckData1Existence: true);
             if (num22 > 100)
-              defval += (float) ((double) defval * (double) (num22 - 100) / 100.0) * this.SKILLEFFECT;
+              defval +=  ( defval *  (num22 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 31;
           }
           if (modNr == 2 & (unitGroup1 == 1 | unitGroup1 == 3 & game.Data.SFTypeObj[cc.IList[defnr].ISFType].ArtRange > 0))
@@ -3270,7 +3270,7 @@ namespace WindowsApplication1
               num23 += num4;
             this.SL.AddWeight(characterId1, 1, 32, CheckData1Existence: true);
             if (num23 > 100)
-              defval += (float) ((double) defval * (double) (num23 - 100) / 100.0) * this.SKILLEFFECT;
+              defval +=  ( defval *  (num23 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 32;
           }
           if (modNr == 3 & unitGroup1 == 0)
@@ -3280,7 +3280,7 @@ namespace WindowsApplication1
               num24 += num4;
             this.SL.AddWeight(characterId1, 1, 33, CheckData1Existence: true);
             if (num24 > 100)
-              defval += (float) ((double) defval * (double) (num24 - 100) / 100.0) * this.SKILLEFFECT;
+              defval +=  ( defval *  (num24 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 33;
           }
           if (modNr == 7 & cc.IList[defnr].IAttacker == 0)
@@ -3290,7 +3290,7 @@ namespace WindowsApplication1
               num25 += num4;
             this.SL.AddWeight(characterId1, 1, 37, CheckData1Existence: true);
             if (num25 > 100)
-              defval += (float) ((double) defval * (double) (num25 - 100) / 100.0) * this.SKILLEFFECT;
+              defval +=  ( defval *  (num25 - 100) / 100.0) * this.SKILLEFFECT;
             tdata2 = 37;
           }
           if (modNr == 4 & cc.IList[defnr].IRetreat > 0)
@@ -3306,7 +3306,7 @@ namespace WindowsApplication1
             tdata2 = 13;
           }
         }
-        let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) defval - (double) num20) * 100.0) / num20));
+        let mut tweight: i32 =  (int) Math.Round( ( (( defval -  num20) * 100.0) / num20));
         if (tweight > 0)
           tweight = tweight;
         if (tdata2 > 0)
@@ -3344,10 +3344,10 @@ namespace WindowsApplication1
             num30 += num4;
           this.SL.AddWeight(characterId2, 1, 18, CheckData1Existence: true);
           if (num30 > 100)
-            defval += (float) ((double) defval * (double) (num30 - 100) / 100.0) * this.SKILLEFFECT;
+            defval +=  ( defval *  (num30 - 100) / 100.0) * this.SKILLEFFECT;
           tdata2 = 18;
         }
-        let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) defval - (double) num29) * 100.0) / num29));
+        let mut tweight: i32 =  (int) Math.Round( ( (( defval -  num29) * 100.0) / num29));
         if (tdata2 > 0)
         {
           let mut nr: i32 =  this.logLeaderBonusDef.FindNr(characterId2, tdata2: tdata2);
@@ -3407,7 +3407,7 @@ namespace WindowsApplication1
             defval = 0.0f;
           if (num34 == 6 & cc.IList[defnr].IRetreat == cc.CombatRound - 1 & cc.IList[defnr].IRetreat > 0 && DrawMod.RandyNumber.Next(0, 1000) < 500)
             defval = 0.0f;
-          let mut tweight: i32 =  (int) Math.Round((double) ((float) (((double) defval - (double) num33) * 100.0) / num33));
+          let mut tweight: i32 =  (int) Math.Round( ( (( defval -  num33) * 100.0) / num33));
           let mut nr: i32 =  this.otherBonusDef.FindNr(cc.IList[index3].IAttacker, tdata2: 1);
           if (nr <= -1)
           {
@@ -3446,8 +3446,8 @@ namespace WindowsApplication1
         return 0;
       let mut isfType: i32 =  cc.IList[attnr].ISFType;
       let mut num1: i32 =  game.Data.SFTypeObj[isfType].SFTypeVar[95];
-      if ((double) cc.IList[attnr].ILisAmmoMod < 1.0)
-        num1 = (int) Math.Round((double) ((float) num1 * cc.IList[attnr].ILisAmmoMod));
+      if ( cc.IList[attnr].ILisAmmoMod < 1.0)
+        num1 = (int) Math.Round( ( num1 * cc.IList[attnr].ILisAmmoMod));
       if (num1 < 1)
         return 0;
       data: DataClass = game.Data;
@@ -3477,13 +3477,13 @@ namespace WindowsApplication1
               if (num6 == 0)
                 num7 = num1;
               if (num6 == 1)
-                num7 = (int) Math.Round((double) num1 / 4.0);
+                num7 = (int) Math.Round( num1 / 4.0);
               if (num6 == 2)
-                num7 = (int) Math.Round((double) num1 / 16.0);
+                num7 = (int) Math.Round( num1 / 16.0);
               if (num6 == 3)
-                num7 = (int) Math.Round((double) num1 / 64.0);
+                num7 = (int) Math.Round( num1 / 64.0);
               if (num6 == 4)
-                num7 = (int) Math.Round((double) num1 / 256.0);
+                num7 = (int) Math.Round( num1 / 256.0);
             }
             if (num7 > 0)
             {
@@ -3498,23 +3498,23 @@ namespace WindowsApplication1
                 num7 -= num9;
               }
               if (num8 > 1000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 2000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 3000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 4000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 5000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 6000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 7000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 8000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               if (hexLibVarValue + num7 > 9000)
-                num7 = (int) Math.Round((double) num7 / 2.0);
+                num7 = (int) Math.Round( num7 / 2.0);
               let mut num10: i32 =  num7 + num9;
               let mut tValue: i32 =  hexLibVarValue + num10;
               game.Data.MapObj[0].HexObj[x2, y2].SetHexLibVarValue(libVar, tValue);

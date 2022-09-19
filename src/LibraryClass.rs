@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -33,18 +33,18 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (LibraryClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("name", (object) this.name);
+      info.AddValue("name",  this.name);
       info.AddValue("version", this.version);
-      info.AddValue("creator", (object) this.creator);
-      info.AddValue("information", (object) this.information);
-      info.AddValue("lastFileLocation", (object) this.lastFileLocation);
+      info.AddValue("creator",  this.creator);
+      info.AddValue("information",  this.information);
+      info.AddValue("lastFileLocation",  this.lastFileLocation);
     }
 
     protected LibraryClass(SerializationInfo info, StreamingContext context)

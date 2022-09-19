@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -99,10 +99,10 @@ namespace WindowsApplication1
      int mzcount;
      bool supplycalcdone;
      int[] supplyneed1;
-    pub int[] supplyneed2;
+    pub supplyneed2: Vec<i32>;
      int[] supplyneed3;
      int[] supplyneed4;
-    pub int[] supplyout1;
+    pub supplyout1: Vec<i32>;
      int[] supplyout2;
      int[] supplyout3;
      int[] supplyin1;
@@ -233,11 +233,11 @@ namespace WindowsApplication1
         flag = true;
       self.mzcount = -1;
       let mut num1: i32 = 0;
-      if ((double) self.game.Data.RuleVar[650] > 0.0)
+      if ( self.game.Data.RuleVar[650] > 0.0)
         num1 += 1;
-      if ((double) self.game.Data.RuleVar[651] > 0.0)
+      if ( self.game.Data.RuleVar[651] > 0.0)
         num1 += 1;
-      if ((double) self.game.Data.RuleVar[652] > 0.0)
+      if ( self.game.Data.RuleVar[652] > 0.0)
         num1 += 1;
       self.truextra = num1;
       let mut num2: i32 = 20;
@@ -385,7 +385,7 @@ namespace WindowsApplication1
           }
           if (num12 > 0)
           {
-            let mut num13: i32 =  Math.Round(850.0 / (double) num12);
+            let mut num13: i32 =  Math.Round(850.0 /  num12);
             if (num13 > 40)
               num13 = 40;
             let mut num14: i32 = 0;
@@ -436,7 +436,7 @@ namespace WindowsApplication1
           }
           if (num16 > 0)
           {
-            let mut num17: i32 =  Math.Round(850.0 / (double) num16);
+            let mut num17: i32 =  Math.Round(850.0 /  num16);
             if (num17 > 40)
               num17 = 40;
             let mut num18: i32 = 0;
@@ -487,7 +487,7 @@ namespace WindowsApplication1
           }
           if (num20 > 0)
           {
-            let mut num21: i32 =  Math.Round(850.0 / (double) num20);
+            let mut num21: i32 =  Math.Round(850.0 /  num20);
             if (num21 > 40)
               num21 = 40;
             let mut num22: i32 = 0;
@@ -547,7 +547,7 @@ namespace WindowsApplication1
           }
           if (num25 > 0)
           {
-            let mut num26: i32 =  Math.Round(5100.0 / (double) num25);
+            let mut num26: i32 =  Math.Round(5100.0 /  num25);
             if (num26 > 40)
               num26 = 40;
             let mut num27: i32 = 0;
@@ -624,33 +624,33 @@ namespace WindowsApplication1
             let mut num31: i32 = 30;
             DrawMod.DrawTextVic2( graphics, "Supply need prognosis", self.game.VicFont2, num30 + 290, num31 + 500, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Clean Supply Request", self.game.VicFont3, num30 + 290, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyneed1[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyneed1[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "    after range penalty", self.game.VicFont3, num30 + 290, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyneed4[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyneed4[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Supply Consumption", self.game.VicFont3, num30 + 290, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyneed2[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyneed2[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Current Supply Pts", self.game.VicFont3, num30 + 290, num31 + 590, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.game.Data.UnitObj[self.detailnr5].Supply), self.game.VicFont3, num30 + 430, num31 + 590, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.game.Data.UnitObj[self.detailnr5].Supply), self.game.VicFont3, num30 + 430, num31 + 590, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Maximum Supply Pts", self.game.VicFont3, num30 + 290, num31 + 610, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyneed3[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 610, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyneed3[self.detailnr5]), self.game.VicFont3, num30 + 430, num31 + 610, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Supply IN prognosis", self.game.VicFont2, num30 + 520, num31 + 500, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Production", self.game.VicFont3, num30 + 520, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyin1[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyin1[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Free Reserves", self.game.VicFont3, num30 + 520, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyin2[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyin2[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Request at high HQ", self.game.VicFont3, num30 + 520, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyin3[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyin3[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
             DrawMod.DrawTextVic2( graphics, "Get from high HQ", self.game.VicFont3, num30 + 520, num31 + 590, self.game.VicColor2, self.game.VicColor2Shade);
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyin4[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 590, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyin4[self.detailnr5]), self.game.VicFont3, num30 + 660, num31 + 590, self.game.VicColor2, self.game.VicColor2Shade);
             if (self.game.Data.UnitObj[self.detailnr5].IsHQ)
             {
               DrawMod.DrawTextVic2( graphics, "Supply OUT prognosis", self.game.VicFont2, num30 + 750, num31 + 500, self.game.VicColor2, self.game.VicColor2Shade);
               DrawMod.DrawTextVic2( graphics, "Subordinate Requests", self.game.VicFont3, num30 + 750, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
-              DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyout1[self.detailnr5]), self.game.VicFont3, num30 + 910, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
+              DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyout1[self.detailnr5]), self.game.VicFont3, num30 + 910, num31 + 530, self.game.VicColor2, self.game.VicColor2Shade);
               DrawMod.DrawTextVic2( graphics, "   after range penalty", self.game.VicFont3, num30 + 750, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
-              DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyout2[self.detailnr5]), self.game.VicFont3, num30 + 910, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
+              DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyout2[self.detailnr5]), self.game.VicFont3, num30 + 910, num31 + 550, self.game.VicColor2, self.game.VicColor2Shade);
               DrawMod.DrawTextVic2( graphics, "Supply to subordinates", self.game.VicFont3, num30 + 750, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
-              DrawMod.DrawTextVic2( graphics, Conversion.Str((object) self.supplyout3[self.detailnr5]), self.game.VicFont3, num30 + 910, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
+              DrawMod.DrawTextVic2( graphics, Conversion.Str( self.supplyout3[self.detailnr5]), self.game.VicFont3, num30 + 910, num31 + 570, self.game.VicColor2, self.game.VicColor2Shade);
             }
           }
           if (self.game.Data.UnitObj[self.detailnr5].X > -1)
@@ -710,7 +710,7 @@ namespace WindowsApplication1
         let mut index17: i32 = self.StatMode - 10;
         if (self.game.Data.Round > num33)
           num33 = self.game.Data.Round;
-        let mut num34: i32 =  Math.Round((double) num33 + Conversion.Int((double) num33 * 0.2));
+        let mut num34: i32 =  Math.Round( num33 + Conversion.Int( num33 * 0.2));
         float[,] numArray10 = new float[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         let mut regimeCounter1: i32 = self.game.Data.RegimeCounter;
         for (let mut index18: i32 = 0; index18 <= regimeCounter1; index18 += 1)
@@ -724,10 +724,10 @@ namespace WindowsApplication1
             let mut index21: i32 = index20;
             let mut index22: i32 = index19;
             let mut index23: i32 = index22;
-            double num35 = (double) numArray11[index20, index22] + (double) self.game.Data.RegimeObj[index18].ExtraStat[index17, index19];
-            numArray12[index21, index23] = (float) num35;
-            if ((double) numArray10[index18, index19] > (double) num32)
-              num32 =  Math.Round((double) numArray10[index18, index19]);
+            double num35 =  numArray11[index20, index22] +  self.game.Data.RegimeObj[index18].ExtraStat[index17, index19];
+            numArray12[index21, index23] =  num35;
+            if ( numArray10[index18, index19] >  num32)
+              num32 =  Math.Round( numArray10[index18, index19]);
           }
         }
         float[,] numArray13 = new float[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
@@ -752,10 +752,10 @@ namespace WindowsApplication1
                 if (index26 > 0 & index26 <= self.game.Data.Round)
                 {
                   num36 += 1;
-                  num37 =  Math.Round((double) ((float) num37 + numArray10[index24, index26]));
+                  num37 =  Math.Round( ( num37 + numArray10[index24, index26]));
                 }
               }
-              numArray13[index24, index25] = (float) num37 / (float) num36;
+              numArray13[index24, index25] =  num37 /  num36;
             }
           }
           let mut regimeCounter3: i32 = self.game.Data.RegimeCounter;
@@ -772,10 +772,10 @@ namespace WindowsApplication1
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local2: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
-        double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
-        double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
-        double b = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Blue / (double) byte.MaxValue - 1.0;
-        DrawMod.Draw( local1,  local2, 101, y, (float) r, (float) g, (float) b, 1f);
+        double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
+        double g =  self.game.Data.RegimeObj[self.game.Data.Turn].Green /  byte.MaxValue - 1.0;
+        double b =  self.game.Data.RegimeObj[self.game.Data.Turn].Blue /  byte.MaxValue - 1.0;
+        DrawMod.Draw( local1,  local2, 101, y,  r,  g,  b, 1f);
         DrawMod.DrawTextVic2( graphics, self.game.Data.TempString[700 + index17], self.game.VicFont2, 15, 85, self.game.VicColor2, self.game.VicColor2Shade);
         DrawMod.DrawTextVic2( graphics, "Round", self.game.VicFont2, 880, 720, self.game.VicColor2, self.game.VicColor2Shade);
         let mut regimeCounter4: i32 = self.game.Data.RegimeCounter;
@@ -783,7 +783,7 @@ namespace WindowsApplication1
         {
           let mut x2: i32 = 0;
           let mut y2: i32 = 0;
-          if ((double) self.game.Data.RuleVar[313] == 1.0 | index29 == self.game.Data.Turn | !self.game.Data.RegimeObj[index29].DipBlock & !(self.game.Data.RegimeObj[index29].AI & self.game.Data.RegimeObj[index29].Sleep) && (double) self.game.Data.RuleVar[313] == 1.0 | flag | index29 == self.game.Data.Turn)
+          if ( self.game.Data.RuleVar[313] == 1.0 | index29 == self.game.Data.Turn | !self.game.Data.RegimeObj[index29].DipBlock & !(self.game.Data.RegimeObj[index29].AI & self.game.Data.RegimeObj[index29].Sleep) &&  self.game.Data.RuleVar[313] == 1.0 | flag | index29 == self.game.Data.Turn)
           {
             let mut round: i32 = self.game.Data.Round;
             for (let mut index30: i32 = 1; index30 <= round; index30 += 1)
@@ -793,8 +793,8 @@ namespace WindowsApplication1
                 let mut red: i32 = self.game.Data.RegimeObj[index29].Red;
                 let mut green: i32 = self.game.Data.RegimeObj[index29].Green;
                 let mut blue: i32 = self.game.Data.RegimeObj[index29].Blue;
-                let mut x1: i32 =  Math.Round((double) (index30 - 1) / (double) num34 * 750.0 + 100.0);
-                let mut y1: i32 =  Math.Round(700.0 - (double) numArray10[index29, index30] / (double) num32 * 600.0);
+                let mut x1: i32 =  Math.Round( (index30 - 1) /  num34 * 750.0 + 100.0);
+                let mut y1: i32 =  Math.Round(700.0 -  numArray10[index29, index30] /  num32 * 600.0);
                 if (x2 > 0)
                 {
                   DrawMod.drawLine( graphics, x1, y1, x2, y2, red, green, blue,  byte.MaxValue, 2);
@@ -815,11 +815,11 @@ namespace WindowsApplication1
         let mut num40: i32 = 1;
         do
         {
-          DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num32 * ((double) num40 / 10.0))), vicFont4, 20, 700 - 60 * num40, self.game.VicColor2, self.game.VicColor2Shade);
+          DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num32 * ( num40 / 10.0))), vicFont4, 20, 700 - 60 * num40, self.game.VicColor2, self.game.VicColor2Shade);
           if (self.game.Data.AlternateRound > -1)
           {
-            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays((double) (self.game.Data.StartData.Day - 1));
-            let mut num41: i32 =  Math.Round(Conversion.Int((double) num34 * ((double) num40 / 10.0)));
+            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays( (self.game.Data.StartData.Day - 1));
+            let mut num41: i32 =  Math.Round(Conversion.Int( num34 * ( num40 / 10.0)));
             if (self.game.Data.AlternateRound == 31)
             {
               dateTime = dateTime.AddMonths((num41 - 1) * 1);
@@ -829,15 +829,15 @@ namespace WindowsApplication1
               timeSpan = new TimeSpan((num41 - 1) * self.game.Data.AlternateRound, 0, 0, 0);
               dateTime = dateTime.Add(timeSpan);
             }
-            tstring1: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str((object) dateTime.Day));
-            DrawMod.DrawTextVic2( graphics, tstring1, vicFont4,  Math.Round(((double) num41 - 1.5) / (double) num34 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
-            tstring2: String = Strings.Trim(Conversion.Str((object) dateTime.Year));
-            DrawMod.DrawTextVic2( graphics, tstring2, vicFont4,  Math.Round(((double) num41 - 1.5) / (double) num34 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring1: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str( dateTime.Day));
+            DrawMod.DrawTextVic2( graphics, tstring1, vicFont4,  Math.Round(( num41 - 1.5) /  num34 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring2: String = Strings.Trim(Conversion.Str( dateTime.Year));
+            DrawMod.DrawTextVic2( graphics, tstring2, vicFont4,  Math.Round(( num41 - 1.5) /  num34 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
           }
           else
           {
-            let mut num42: i32 =  Math.Round(Conversion.Int((double) num34 * ((double) num40 / 10.0)));
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num34 * ((double) num40 / 10.0))), vicFont4,  Math.Round(((double) num42 - 1.5) / (double) num34 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
+            let mut num42: i32 =  Math.Round(Conversion.Int( num34 * ( num40 / 10.0)));
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num34 * ( num40 / 10.0))), vicFont4,  Math.Round(( num42 - 1.5) /  num34 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
           }
           num40 += 1;
         }
@@ -849,7 +849,7 @@ namespace WindowsApplication1
         let mut num44: i32 = 20;
         if (self.game.Data.Round > num44)
           num44 = self.game.Data.Round;
-        let mut num45: i32 =  Math.Round((double) num44 + Conversion.Int((double) num44 * 0.2));
+        let mut num45: i32 =  Math.Round( num44 + Conversion.Int( num44 * 0.2));
         int[,] numArray14 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         let mut regimeCounter5: i32 = self.game.Data.RegimeCounter;
         for (let mut index31: i32 = 0; index31 <= regimeCounter5; index31 += 1)
@@ -898,7 +898,7 @@ namespace WindowsApplication1
                   num48 += numArray14[index38, index40];
                 }
               }
-              numArray17[index38, index39] =  Math.Round(Conversion.Int((double) num48 / (double) num47));
+              numArray17[index38, index39] =  Math.Round(Conversion.Int( num48 /  num47));
             }
           }
           let mut regimeCounter7: i32 = self.game.Data.RegimeCounter;
@@ -915,10 +915,10 @@ namespace WindowsApplication1
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local4: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
-        double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
-        double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
-        double b = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Blue / (double) byte.MaxValue - 1.0;
-        DrawMod.Draw( local3,  local4, 101, y, (float) r, (float) g, (float) b, 1f);
+        double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
+        double g =  self.game.Data.RegimeObj[self.game.Data.Turn].Green /  byte.MaxValue - 1.0;
+        double b =  self.game.Data.RegimeObj[self.game.Data.Turn].Blue /  byte.MaxValue - 1.0;
+        DrawMod.Draw( local3,  local4, 101, y,  r,  g,  b, 1f);
         DrawMod.DrawTextVic2( graphics, "Power Pts", self.game.VicFont2, 15, 85, self.game.VicColor2, self.game.VicColor2Shade);
         DrawMod.DrawTextVic2( graphics, "Round", self.game.VicFont2, 880, 720, self.game.VicColor2, self.game.VicColor2Shade);
         let mut regimeCounter8: i32 = self.game.Data.RegimeCounter;
@@ -926,7 +926,7 @@ namespace WindowsApplication1
         {
           let mut x2: i32 = 0;
           let mut y2: i32 = 0;
-          if ((double) self.game.Data.RuleVar[313] == 1.0 | index43 == self.game.Data.Turn | !self.game.Data.RegimeObj[index43].DipBlock & !(self.game.Data.RegimeObj[index43].AI & self.game.Data.RegimeObj[index43].Sleep) && (double) self.game.Data.RuleVar[313] == 1.0 | flag | index43 == self.game.Data.Turn)
+          if ( self.game.Data.RuleVar[313] == 1.0 | index43 == self.game.Data.Turn | !self.game.Data.RegimeObj[index43].DipBlock & !(self.game.Data.RegimeObj[index43].AI & self.game.Data.RegimeObj[index43].Sleep) &&  self.game.Data.RuleVar[313] == 1.0 | flag | index43 == self.game.Data.Turn)
           {
             let mut round: i32 = self.game.Data.Round;
             for (let mut index44: i32 = 1; index44 <= round; index44 += 1)
@@ -936,8 +936,8 @@ namespace WindowsApplication1
                 let mut red: i32 = self.game.Data.RegimeObj[index43].Red;
                 let mut green: i32 = self.game.Data.RegimeObj[index43].Green;
                 let mut blue: i32 = self.game.Data.RegimeObj[index43].Blue;
-                let mut x1: i32 =  Math.Round((double) (index44 - 1) / (double) num45 * 750.0 + 100.0);
-                let mut y1: i32 =  Math.Round(700.0 - (double) numArray14[index43, index44] / (double) num43 * 600.0);
+                let mut x1: i32 =  Math.Round( (index44 - 1) /  num45 * 750.0 + 100.0);
+                let mut y1: i32 =  Math.Round(700.0 -  numArray14[index43, index44] /  num43 * 600.0);
                 if (x2 > 0)
                 {
                   DrawMod.drawLine( graphics, x1, y1, x2, y2, red, green, blue,  byte.MaxValue, 2);
@@ -958,11 +958,11 @@ namespace WindowsApplication1
         let mut num51: i32 = 1;
         do
         {
-          DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num43 * ((double) num51 / 10.0))), vicFont4, 20, 700 - 60 * num51, self.game.VicColor2, self.game.VicColor2Shade);
+          DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num43 * ( num51 / 10.0))), vicFont4, 20, 700 - 60 * num51, self.game.VicColor2, self.game.VicColor2Shade);
           if (self.game.Data.AlternateRound > -1)
           {
-            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays((double) (self.game.Data.StartData.Day - 1));
-            let mut num52: i32 =  Math.Round(Conversion.Int((double) num45 * ((double) num51 / 10.0)));
+            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays( (self.game.Data.StartData.Day - 1));
+            let mut num52: i32 =  Math.Round(Conversion.Int( num45 * ( num51 / 10.0)));
             if (self.game.Data.AlternateRound == 31)
             {
               dateTime = dateTime.AddMonths((num52 - 1) * 1);
@@ -972,15 +972,15 @@ namespace WindowsApplication1
               timeSpan = new TimeSpan((num52 - 1) * self.game.Data.AlternateRound, 0, 0, 0);
               dateTime = dateTime.Add(timeSpan);
             }
-            tstring3: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str((object) dateTime.Day));
-            DrawMod.DrawTextVic2( graphics, tstring3, vicFont4,  Math.Round(((double) num52 - 1.5) / (double) num45 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
-            tstring4: String = Strings.Trim(Conversion.Str((object) dateTime.Year));
-            DrawMod.DrawTextVic2( graphics, tstring4, vicFont4,  Math.Round(((double) num52 - 1.5) / (double) num45 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring3: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str( dateTime.Day));
+            DrawMod.DrawTextVic2( graphics, tstring3, vicFont4,  Math.Round(( num52 - 1.5) /  num45 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring4: String = Strings.Trim(Conversion.Str( dateTime.Year));
+            DrawMod.DrawTextVic2( graphics, tstring4, vicFont4,  Math.Round(( num52 - 1.5) /  num45 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
           }
           else
           {
-            let mut num53: i32 =  Math.Round(Conversion.Int((double) num45 * ((double) num51 / 10.0)));
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num45 * ((double) num51 / 10.0))), vicFont4,  Math.Round(((double) num53 - 1.5) / (double) num45 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
+            let mut num53: i32 =  Math.Round(Conversion.Int( num45 * ( num51 / 10.0)));
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num45 * ( num51 / 10.0))), vicFont4,  Math.Round(( num53 - 1.5) /  num45 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
           }
           num51 += 1;
         }
@@ -992,7 +992,7 @@ namespace WindowsApplication1
         let mut num55: i32 = 20;
         if (self.game.Data.Round > num55)
           num55 = self.game.Data.Round;
-        let mut num56: i32 =  Math.Round((double) num55 + Conversion.Int((double) num55 * 0.2));
+        let mut num56: i32 =  Math.Round( num55 + Conversion.Int( num55 * 0.2));
         int[,] numArray18 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1];
         let mut regimeCounter9: i32 = self.game.Data.RegimeCounter;
         for (let mut index45: i32 = 0; index45 <= regimeCounter9; index45 += 1)
@@ -1041,7 +1041,7 @@ namespace WindowsApplication1
                   num59 += numArray18[index52, index54];
                 }
               }
-              numArray21[index52, index53] =  Math.Round(Conversion.Int((double) num59 / (double) num58));
+              numArray21[index52, index53] =  Math.Round(Conversion.Int( num59 /  num58));
             }
           }
           let mut regimeCounter11: i32 = self.game.Data.RegimeCounter;
@@ -1058,10 +1058,10 @@ namespace WindowsApplication1
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local6: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
-        double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
-        double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
-        double b = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Blue / (double) byte.MaxValue - 1.0;
-        DrawMod.Draw( local5,  local6, 101, y, (float) r, (float) g, (float) b, 1f);
+        double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
+        double g =  self.game.Data.RegimeObj[self.game.Data.Turn].Green /  byte.MaxValue - 1.0;
+        double b =  self.game.Data.RegimeObj[self.game.Data.Turn].Blue /  byte.MaxValue - 1.0;
+        DrawMod.Draw( local5,  local6, 101, y,  r,  g,  b, 1f);
         DrawMod.DrawTextVic2( graphics, "Prod Pts", self.game.VicFont2, 15, 85, self.game.VicColor2, self.game.VicColor2Shade);
         DrawMod.DrawTextVic2( graphics, "Round", self.game.VicFont2, 880, 720, self.game.VicColor2, self.game.VicColor2Shade);
         let mut regimeCounter12: i32 = self.game.Data.RegimeCounter;
@@ -1069,7 +1069,7 @@ namespace WindowsApplication1
         {
           let mut x2: i32 = 0;
           let mut y2: i32 = 0;
-          if ((double) self.game.Data.RuleVar[313] == 1.0 | index57 == self.game.Data.Turn | !self.game.Data.RegimeObj[index57].DipBlock & !(self.game.Data.RegimeObj[index57].AI & self.game.Data.RegimeObj[index57].Sleep) && (double) self.game.Data.RuleVar[313] == 1.0 | flag | index57 == self.game.Data.Turn)
+          if ( self.game.Data.RuleVar[313] == 1.0 | index57 == self.game.Data.Turn | !self.game.Data.RegimeObj[index57].DipBlock & !(self.game.Data.RegimeObj[index57].AI & self.game.Data.RegimeObj[index57].Sleep) &&  self.game.Data.RuleVar[313] == 1.0 | flag | index57 == self.game.Data.Turn)
           {
             let mut round: i32 = self.game.Data.Round;
             for (let mut index58: i32 = 1; index58 <= round; index58 += 1)
@@ -1079,8 +1079,8 @@ namespace WindowsApplication1
                 let mut red: i32 = self.game.Data.RegimeObj[index57].Red;
                 let mut green: i32 = self.game.Data.RegimeObj[index57].Green;
                 let mut blue: i32 = self.game.Data.RegimeObj[index57].Blue;
-                let mut x1: i32 =  Math.Round((double) (index58 - 1) / (double) num56 * 750.0 + 100.0);
-                let mut y1: i32 =  Math.Round(700.0 - (double) numArray18[index57, index58] / (double) num54 * 600.0);
+                let mut x1: i32 =  Math.Round( (index58 - 1) /  num56 * 750.0 + 100.0);
+                let mut y1: i32 =  Math.Round(700.0 -  numArray18[index57, index58] /  num54 * 600.0);
                 if (x2 > 0)
                 {
                   DrawMod.drawLine( graphics, x1, y1, x2, y2, red, green, blue,  byte.MaxValue, 2);
@@ -1101,11 +1101,11 @@ namespace WindowsApplication1
         let mut num62: i32 = 1;
         do
         {
-          DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num54 * ((double) num62 / 10.0))), vicFont4, 20, 700 - 60 * num62, self.game.VicColor2, self.game.VicColor2Shade);
+          DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num54 * ( num62 / 10.0))), vicFont4, 20, 700 - 60 * num62, self.game.VicColor2, self.game.VicColor2Shade);
           if (self.game.Data.AlternateRound > -1)
           {
-            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays((double) (self.game.Data.StartData.Day - 1));
-            let mut num63: i32 =  Math.Round(Conversion.Int((double) num56 * ((double) num62 / 10.0)));
+            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays( (self.game.Data.StartData.Day - 1));
+            let mut num63: i32 =  Math.Round(Conversion.Int( num56 * ( num62 / 10.0)));
             if (self.game.Data.AlternateRound == 31)
             {
               dateTime = dateTime.AddMonths((num63 - 1) * 1);
@@ -1115,15 +1115,15 @@ namespace WindowsApplication1
               timeSpan = new TimeSpan((num63 - 1) * self.game.Data.AlternateRound, 0, 0, 0);
               dateTime = dateTime.Add(timeSpan);
             }
-            tstring5: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str((object) dateTime.Day));
-            DrawMod.DrawTextVic2( graphics, tstring5, vicFont4,  Math.Round(((double) num63 - 1.5) / (double) num56 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
-            tstring6: String = Strings.Trim(Conversion.Str((object) dateTime.Year));
-            DrawMod.DrawTextVic2( graphics, tstring6, vicFont4,  Math.Round(((double) num63 - 1.5) / (double) num56 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring5: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str( dateTime.Day));
+            DrawMod.DrawTextVic2( graphics, tstring5, vicFont4,  Math.Round(( num63 - 1.5) /  num56 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring6: String = Strings.Trim(Conversion.Str( dateTime.Year));
+            DrawMod.DrawTextVic2( graphics, tstring6, vicFont4,  Math.Round(( num63 - 1.5) /  num56 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
           }
           else
           {
-            let mut num64: i32 =  Math.Round(Conversion.Int((double) num56 * ((double) num62 / 10.0)));
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num56 * ((double) num62 / 10.0))), vicFont4,  Math.Round(((double) num64 - 1.5) / (double) num56 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
+            let mut num64: i32 =  Math.Round(Conversion.Int( num56 * ( num62 / 10.0)));
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num56 * ( num62 / 10.0))), vicFont4,  Math.Round(( num64 - 1.5) /  num56 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
           }
           num62 += 1;
         }
@@ -1136,7 +1136,7 @@ namespace WindowsApplication1
         let mut num66: i32 = 20;
         if (self.game.Data.Round > num66)
           num66 = self.game.Data.Round;
-        let mut num67: i32 =  Math.Round((double) num66 + Conversion.Int((double) num66 * 0.2));
+        let mut num67: i32 =  Math.Round( num66 + Conversion.Int( num66 * 0.2));
         let mut regimeCounter13: i32 = self.game.Data.RegimeCounter;
         for (let mut index59: i32 = 0; index59 <= regimeCounter13; index59 += 1)
         {
@@ -1191,7 +1191,7 @@ namespace WindowsApplication1
                   num71 += numArray22[index67, index69];
                 }
               }
-              numArray25[index67, index68] =  Math.Round(Conversion.Int((double) num71 / (double) num70));
+              numArray25[index67, index68] =  Math.Round(Conversion.Int( num71 /  num70));
             }
           }
           let mut regimeCounter16: i32 = self.game.Data.RegimeCounter;
@@ -1210,10 +1210,10 @@ namespace WindowsApplication1
           Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
            let mut local8: &Bitmap = &bitmap;
           let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
-          double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
-          double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
-          double b = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Blue / (double) byte.MaxValue - 1.0;
-          DrawMod.Draw( local7,  local8, 101, y, (float) r, (float) g, (float) b, 1f);
+          double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
+          double g =  self.game.Data.RegimeObj[self.game.Data.Turn].Green /  byte.MaxValue - 1.0;
+          double b =  self.game.Data.RegimeObj[self.game.Data.Turn].Blue /  byte.MaxValue - 1.0;
+          DrawMod.Draw( local7,  local8, 101, y,  r,  g,  b, 1f);
           DrawMod.DrawTextVic2( graphics, "Power Pts", self.game.VicFont2, 10, 85, self.game.VicColor2, self.game.VicColor2Shade);
           DrawMod.DrawTextVic2( graphics, "Round", self.game.VicFont2, 880, 720, self.game.VicColor2, self.game.VicColor2Shade);
           let mut regimeCounter17: i32 = self.game.Data.RegimeCounter;
@@ -1221,7 +1221,7 @@ namespace WindowsApplication1
           {
             let mut x2: i32 = 0;
             let mut y2: i32 = 0;
-            if ((double) self.game.Data.RuleVar[313] == 1.0 | index72 == self.game.Data.Turn | !self.game.Data.RegimeObj[index72].DipBlock & !(self.game.Data.RegimeObj[index72].AI & self.game.Data.RegimeObj[index72].Sleep) && (double) self.game.Data.RuleVar[313] == 1.0 | flag | index72 == self.game.Data.Turn)
+            if ( self.game.Data.RuleVar[313] == 1.0 | index72 == self.game.Data.Turn | !self.game.Data.RegimeObj[index72].DipBlock & !(self.game.Data.RegimeObj[index72].AI & self.game.Data.RegimeObj[index72].Sleep) &&  self.game.Data.RuleVar[313] == 1.0 | flag | index72 == self.game.Data.Turn)
             {
               let mut round: i32 = self.game.Data.Round;
               for (let mut index73: i32 = 1; index73 <= round; index73 += 1)
@@ -1231,8 +1231,8 @@ namespace WindowsApplication1
                   let mut red: i32 = self.game.Data.RegimeObj[index72].Red;
                   let mut green: i32 = self.game.Data.RegimeObj[index72].Green;
                   let mut blue: i32 = self.game.Data.RegimeObj[index72].Blue;
-                  let mut x1: i32 =  Math.Round((double) (index73 - 1) / (double) num67 * 750.0 + 100.0);
-                  let mut y1: i32 =  Math.Round(700.0 - (double) numArray22[index72, index73] / (double) num65 * 600.0);
+                  let mut x1: i32 =  Math.Round( (index73 - 1) /  num67 * 750.0 + 100.0);
+                  let mut y1: i32 =  Math.Round(700.0 -  numArray22[index72, index73] /  num65 * 600.0);
                   if (x2 > 0)
                   {
                     DrawMod.drawLine( graphics, x1, y1, x2, y2, red, green, blue,  byte.MaxValue, 2);
@@ -1253,11 +1253,11 @@ namespace WindowsApplication1
           let mut num74: i32 = 1;
           do
           {
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num65 * ((double) num74 / 10.0))), vicFont4, 20, 700 - 60 * num74, self.game.VicColor2, self.game.VicColor2Shade);
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num65 * ( num74 / 10.0))), vicFont4, 20, 700 - 60 * num74, self.game.VicColor2, self.game.VicColor2Shade);
             if (self.game.Data.AlternateRound > -1)
             {
-              DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays((double) (self.game.Data.StartData.Day - 1));
-              let mut num75: i32 =  Math.Round(Conversion.Int((double) num67 * ((double) num74 / 10.0)));
+              DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays( (self.game.Data.StartData.Day - 1));
+              let mut num75: i32 =  Math.Round(Conversion.Int( num67 * ( num74 / 10.0)));
               if (self.game.Data.AlternateRound == 31)
               {
                 dateTime = dateTime.AddMonths((num75 - 1) * 1);
@@ -1267,15 +1267,15 @@ namespace WindowsApplication1
                 timeSpan = new TimeSpan((num75 - 1) * self.game.Data.AlternateRound, 0, 0, 0);
                 dateTime = dateTime.Add(timeSpan);
               }
-              tstring7: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str((object) dateTime.Day));
-              DrawMod.DrawTextVic2( graphics, tstring7, vicFont4,  Math.Round(((double) num75 - 1.5) / (double) num67 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
-              tstring8: String = Strings.Trim(Conversion.Str((object) dateTime.Year));
-              DrawMod.DrawTextVic2( graphics, tstring8, vicFont4,  Math.Round(((double) num75 - 1.5) / (double) num67 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
+              tstring7: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str( dateTime.Day));
+              DrawMod.DrawTextVic2( graphics, tstring7, vicFont4,  Math.Round(( num75 - 1.5) /  num67 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
+              tstring8: String = Strings.Trim(Conversion.Str( dateTime.Year));
+              DrawMod.DrawTextVic2( graphics, tstring8, vicFont4,  Math.Round(( num75 - 1.5) /  num67 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
             }
             else
             {
-              let mut num76: i32 =  Math.Round(Conversion.Int((double) num67 * ((double) num74 / 10.0)));
-              DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num67 * ((double) num74 / 10.0))), vicFont4,  Math.Round(((double) num76 - 1.5) / (double) num67 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
+              let mut num76: i32 =  Math.Round(Conversion.Int( num67 * ( num74 / 10.0)));
+              DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num67 * ( num74 / 10.0))), vicFont4,  Math.Round(( num76 - 1.5) /  num67 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
             }
             num74 += 1;
           }
@@ -1288,7 +1288,7 @@ namespace WindowsApplication1
         let mut num78: i32 = 20;
         if (self.game.Data.Round > num78)
           num78 = self.game.Data.Round;
-        let mut num79: i32 =  Math.Round((double) num78 + Conversion.Int((double) num78 * 0.2));
+        let mut num79: i32 =  Math.Round( num78 + Conversion.Int( num78 * 0.2));
         int[,] numArray26 = new int[self.game.Data.RegimeCounter + 1, self.game.Data.Round + 1 + 1];
         let mut regimeCounter18: i32 = self.game.Data.RegimeCounter;
         for (let mut index74: i32 = 0; index74 <= regimeCounter18; index74 += 1)
@@ -1344,7 +1344,7 @@ namespace WindowsApplication1
                   num83 += numArray26[index82, index84];
                 }
               }
-              numArray29[index82, index83] =  Math.Round(Conversion.Int((double) num83 / (double) num82));
+              numArray29[index82, index83] =  Math.Round(Conversion.Int( num83 /  num82));
             }
           }
           let mut regimeCounter21: i32 = self.game.Data.RegimeCounter;
@@ -1361,10 +1361,10 @@ namespace WindowsApplication1
         Bitmap bitmap = BitmapStore.GetBitmap(self.game.STATSGRADIENT);
          let mut local10: &Bitmap = &bitmap;
         let mut y: i32 = 699 - BitmapStore.Getheight(self.game.STATSGRADIENT);
-        double r = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Red / (double) byte.MaxValue - 1.0;
-        double g = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Green / (double) byte.MaxValue - 1.0;
-        double b = (double) self.game.Data.RegimeObj[self.game.Data.Turn].Blue / (double) byte.MaxValue - 1.0;
-        DrawMod.Draw( local9,  local10, 101, y, (float) r, (float) g, (float) b, 1f);
+        double r =  self.game.Data.RegimeObj[self.game.Data.Turn].Red /  byte.MaxValue - 1.0;
+        double g =  self.game.Data.RegimeObj[self.game.Data.Turn].Green /  byte.MaxValue - 1.0;
+        double b =  self.game.Data.RegimeObj[self.game.Data.Turn].Blue /  byte.MaxValue - 1.0;
+        DrawMod.Draw( local9,  local10, 101, y,  r,  g,  b, 1f);
         DrawMod.DrawTextVic2( graphics, "Power Pts", self.game.VicFont2, 10, 85, self.game.VicColor2, self.game.VicColor2Shade);
         DrawMod.DrawTextVic2( graphics, "Round", self.game.VicFont2, 880, 720, self.game.VicColor2, self.game.VicColor2Shade);
         let mut regimeCounter22: i32 = self.game.Data.RegimeCounter;
@@ -1372,7 +1372,7 @@ namespace WindowsApplication1
         {
           let mut x2: i32 = 0;
           let mut y2: i32 = 0;
-          if ((double) self.game.Data.RuleVar[313] == 1.0 | index87 == self.game.Data.Turn | !self.game.Data.RegimeObj[index87].DipBlock & !(self.game.Data.RegimeObj[index87].AI & self.game.Data.RegimeObj[index87].Sleep) && (double) self.game.Data.RuleVar[313] == 1.0 | flag | index87 == self.game.Data.Turn)
+          if ( self.game.Data.RuleVar[313] == 1.0 | index87 == self.game.Data.Turn | !self.game.Data.RegimeObj[index87].DipBlock & !(self.game.Data.RegimeObj[index87].AI & self.game.Data.RegimeObj[index87].Sleep) &&  self.game.Data.RuleVar[313] == 1.0 | flag | index87 == self.game.Data.Turn)
           {
             let mut round: i32 = self.game.Data.Round;
             for (let mut index88: i32 = 1; index88 <= round; index88 += 1)
@@ -1382,8 +1382,8 @@ namespace WindowsApplication1
                 let mut red: i32 = self.game.Data.RegimeObj[index87].Red;
                 let mut green: i32 = self.game.Data.RegimeObj[index87].Green;
                 let mut blue: i32 = self.game.Data.RegimeObj[index87].Blue;
-                let mut x1: i32 =  Math.Round((double) (index88 - 1) / (double) num79 * 750.0 + 100.0);
-                let mut y1: i32 =  Math.Round(700.0 - (double) numArray26[index87, index88] / (double) num77 * 600.0);
+                let mut x1: i32 =  Math.Round( (index88 - 1) /  num79 * 750.0 + 100.0);
+                let mut y1: i32 =  Math.Round(700.0 -  numArray26[index87, index88] /  num77 * 600.0);
                 if (x2 > 0)
                 {
                   DrawMod.drawLine( graphics, x1, y1, x2, y2, red, green, blue,  byte.MaxValue, 2);
@@ -1404,11 +1404,11 @@ namespace WindowsApplication1
         let mut num86: i32 = 1;
         do
         {
-          DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num77 * ((double) num86 / 10.0))), vicFont4, 20, 700 - 60 * num86, self.game.VicColor2, self.game.VicColor2Shade);
+          DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num77 * ( num86 / 10.0))), vicFont4, 20, 700 - 60 * num86, self.game.VicColor2, self.game.VicColor2Shade);
           if (self.game.Data.AlternateRound > -1)
           {
-            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays((double) (self.game.Data.StartData.Day - 1));
-            let mut num87: i32 =  Math.Round(Conversion.Int((double) num79 * ((double) num86 / 10.0)));
+            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays( (self.game.Data.StartData.Day - 1));
+            let mut num87: i32 =  Math.Round(Conversion.Int( num79 * ( num86 / 10.0)));
             if (self.game.Data.AlternateRound == 31)
             {
               dateTime = dateTime.AddMonths((num87 - 1) * 1);
@@ -1418,15 +1418,15 @@ namespace WindowsApplication1
               timeSpan = new TimeSpan((num87 - 1) * self.game.Data.AlternateRound, 0, 0, 0);
               dateTime = dateTime.Add(timeSpan);
             }
-            tstring9: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str((object) dateTime.Day));
-            DrawMod.DrawTextVic2( graphics, tstring9, vicFont4,  Math.Round(((double) num87 - 1.5) / (double) num79 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
-            tstring10: String = Strings.Trim(Conversion.Str((object) dateTime.Year));
-            DrawMod.DrawTextVic2( graphics, tstring10, vicFont4,  Math.Round(((double) num87 - 1.5) / (double) num79 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring9: String = Strings.Left(self.game.HandyFunctionsObj.GetMonth(dateTime.Month), 3) + " " + Strings.Trim(Conversion.Str( dateTime.Day));
+            DrawMod.DrawTextVic2( graphics, tstring9, vicFont4,  Math.Round(( num87 - 1.5) /  num79 * 750.0 + 100.0), 710, self.game.VicColor2, self.game.VicColor2Shade);
+            tstring10: String = Strings.Trim(Conversion.Str( dateTime.Year));
+            DrawMod.DrawTextVic2( graphics, tstring10, vicFont4,  Math.Round(( num87 - 1.5) /  num79 * 750.0 + 100.0), 725, self.game.VicColor2, self.game.VicColor2Shade);
           }
           else
           {
-            let mut num88: i32 =  Math.Round(Conversion.Int((double) num79 * ((double) num86 / 10.0)));
-            DrawMod.DrawTextVic2( graphics, Conversion.Str((object) Conversion.Int((double) num79 * ((double) num86 / 10.0))), vicFont4,  Math.Round(((double) num88 - 1.5) / (double) num79 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
+            let mut num88: i32 =  Math.Round(Conversion.Int( num79 * ( num86 / 10.0)));
+            DrawMod.DrawTextVic2( graphics, Conversion.Str( Conversion.Int( num79 * ( num86 / 10.0))), vicFont4,  Math.Round(( num88 - 1.5) /  num79 * 750.0 + 115.0), 720, self.game.VicColor2, self.game.VicColor2Shade);
           }
           num86 += 1;
         }
@@ -1481,7 +1481,7 @@ namespace WindowsApplication1
           let mut regimeCounter25: i32 = self.game.Data.RegimeCounter;
           for (let mut tdata: i32 = 0; tdata <= regimeCounter25; tdata += 1)
           {
-            if ((double) self.game.Data.RuleVar[313] == 1.0)
+            if ( self.game.Data.RuleVar[313] == 1.0)
             {
               num92 += 1;
               if (self.detailnr == -1)
@@ -1520,7 +1520,7 @@ namespace WindowsApplication1
             for (let mut tdata: i32 = 0; tdata <= sfTypeCounter; tdata += 1)
             {
               if (numArray30[self.detailnr, tdata] > 0)
-                self.OptionsList2Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str((object) numArray30[self.detailnr, tdata]));
+                self.OptionsList2Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str( numArray30[self.detailnr, tdata]));
             }
           }
           if (self.OptionsList2Id > 0)
@@ -1543,7 +1543,7 @@ namespace WindowsApplication1
             for (let mut tdata: i32 = 0; tdata <= sfTypeCounter; tdata += 1)
             {
               if (numArray31[self.detailnr, tdata] > 0)
-                self.OptionsList3Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str((object) numArray31[self.detailnr, tdata]));
+                self.OptionsList3Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str( numArray31[self.detailnr, tdata]));
             }
           }
           if (self.OptionsList3Id > 0)
@@ -1571,9 +1571,9 @@ namespace WindowsApplication1
                 tvalue2: String = "-";
                 if (Strings.Len(str) > 15)
                   str = Strings.Left(str, 15);
-                tvalue: String = Strings.Trim(Conversion.Str((object) self.game.Data.RegimeObj[self.game.Data.Turn].SProd[tdata, self.game.Data.Round]));
+                tvalue: String = Strings.Trim(Conversion.Str( self.game.Data.RegimeObj[self.game.Data.Turn].SProd[tdata, self.game.Data.Round]));
                 if (self.game.Data.ASOn && self.game.Data.RegimeObj[self.game.Data.Turn].SASProdLost[tdata] > 0)
-                  tvalue2 = Strings.Trim(Conversion.Str((object) self.game.Data.RegimeObj[self.game.Data.Turn].SASProdLost[tdata]));
+                  tvalue2 = Strings.Trim(Conversion.Str( self.game.Data.RegimeObj[self.game.Data.Turn].SASProdLost[tdata]));
                 self.OptionsList9Obj.add(str, tdata, tvalue, tvalue2);
               }
             }
@@ -1598,7 +1598,7 @@ namespace WindowsApplication1
               for (let mut tdata: i32 = 0; tdata <= sfTypeCounter; tdata += 1)
               {
                 if (self.game.Data.RegimeObj[self.detailnr].SKills[tdata, 0] > 0)
-                  self.OptionsList4Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str((object) (self.game.Data.SFTypeObj[tdata].Ratio * self.game.Data.RegimeObj[self.detailnr].SKills[tdata, 0])));
+                  self.OptionsList4Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str( (self.game.Data.SFTypeObj[tdata].Ratio * self.game.Data.RegimeObj[self.detailnr].SKills[tdata, 0])));
               }
             }
             if (self.OptionsList4Id > 0)
@@ -1621,7 +1621,7 @@ namespace WindowsApplication1
               for (let mut tdata: i32 = 0; tdata <= sfTypeCounter; tdata += 1)
               {
                 if (self.game.Data.RegimeObj[self.detailnr].SLoss[tdata, 0] > 0)
-                  self.OptionsList5Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str((object) (self.game.Data.SFTypeObj[tdata].Ratio * self.game.Data.RegimeObj[self.detailnr].SLoss[tdata, 0])));
+                  self.OptionsList5Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Conversion.Str( (self.game.Data.SFTypeObj[tdata].Ratio * self.game.Data.RegimeObj[self.detailnr].SLoss[tdata, 0])));
               }
             }
             if (self.OptionsList5Id > 0)
@@ -1685,7 +1685,7 @@ namespace WindowsApplication1
                   object[] objArray3 = objArray2;
                   let mut type: i32 = self.game.Data.SFObj[sf].Type;
                   let mut index102: i32 = type;
-                  object obj = Operators.AddObject(objArray2[type], (object) self.game.Data.SFObj[sf].Qty);
+                  object obj = Operators.AddObject(objArray2[type],  self.game.Data.SFObj[sf].Qty);
                   objArray3[index102] = obj;
                 }
               }
@@ -1699,7 +1699,7 @@ namespace WindowsApplication1
                   object[] objArray5 = objArray4;
                   let mut type: i32 = self.game.Data.SFObj[sf].Type;
                   let mut index104: i32 = type;
-                  object obj = Operators.AddObject(objArray4[type], (object) self.game.Data.SFObj[sf].Qty);
+                  object obj = Operators.AddObject(objArray4[type],  self.game.Data.SFObj[sf].Qty);
                   objArray5[index104] = obj;
                 }
               }
@@ -1708,8 +1708,8 @@ namespace WindowsApplication1
           let mut sfTypeCounter: i32 = self.game.Data.SFTypeCounter;
           for (let mut tdata: i32 = 0; tdata <= sfTypeCounter; tdata += 1)
           {
-            if (Operators.ConditionalCompareObjectGreater(objArray1[tdata], (object) 0, false))
-              self.OptionsList8Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Strings.Trim(Conversion.Str(Operators.MultiplyObject(objArray1[tdata], (object) Math.Max(1, self.game.Data.SFTypeObj[tdata].Ratio)))));
+            if (Operators.ConditionalCompareObjectGreater(objArray1[tdata],  0, false))
+              self.OptionsList8Obj.add(self.game.Data.SFTypeObj[tdata].Name, tdata, Strings.Trim(Conversion.Str(Operators.MultiplyObject(objArray1[tdata],  Math.Max(1, self.game.Data.SFTypeObj[tdata].Ratio)))));
           }
         }
         else if (self.Abstr == 1)
@@ -1733,7 +1733,7 @@ namespace WindowsApplication1
                     object[] objArray8 = objArray7;
                     let mut index106: i32 = unitGroup;
                     let mut index107: i32 = index106;
-                    object obj = Operators.AddObject(objArray7[index106], (object) (self.game.Data.SFObj[sf].Qty * Math.Max(1, self.game.Data.SFTypeObj[self.game.Data.SFObj[sf].Type].Ratio)));
+                    object obj = Operators.AddObject(objArray7[index106],  (self.game.Data.SFObj[sf].Qty * Math.Max(1, self.game.Data.SFTypeObj[self.game.Data.SFObj[sf].Type].Ratio)));
                     objArray8[index107] = obj;
                   }
                 }
@@ -1751,7 +1751,7 @@ namespace WindowsApplication1
                     object[] objArray10 = objArray9;
                     let mut index109: i32 = unitGroup;
                     let mut index110: i32 = index109;
-                    object obj = Operators.AddObject(objArray9[index109], (object) (self.game.Data.SFObj[sf].Qty * Math.Max(1, self.game.Data.SFTypeObj[self.game.Data.SFObj[sf].Type].Ratio)));
+                    object obj = Operators.AddObject(objArray9[index109],  (self.game.Data.SFObj[sf].Qty * Math.Max(1, self.game.Data.SFTypeObj[self.game.Data.SFObj[sf].Type].Ratio)));
                     objArray10[index110] = obj;
                   }
                 }
@@ -1761,7 +1761,7 @@ namespace WindowsApplication1
           let mut tdata: i32 = 0;
           do
           {
-            if (Operators.ConditionalCompareObjectGreater(objArray6[tdata], (object) 0, false))
+            if (Operators.ConditionalCompareObjectGreater(objArray6[tdata],  0, false))
               self.OptionsList8Obj.add(self.game.Data.TempString[400 + tdata], tdata, Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(objArray6[tdata]))));
             tdata += 1;
           }
@@ -1820,12 +1820,12 @@ namespace WindowsApplication1
               {
                 num95 = 1;
                 num94 = 1;
-                self.OptionsList6Obj.add("RULEGROUP " + Strings.Trim(Conversion.Str((object) Number1)), -1);
+                self.OptionsList6Obj.add("RULEGROUP " + Strings.Trim(Conversion.Str( Number1)), -1);
               }
-              str: String = Strings.Trim(Conversion.Str((object) Number2)) + ") " + self.game.Data.RuleString[Number2];
+              str: String = Strings.Trim(Conversion.Str( Number2)) + ") " + self.game.Data.RuleString[Number2];
               if (str.Length > 75)
                 str = Strings.Left(str, 73) + "...";
-              self.OptionsList6Obj.add(str, -1, Strings.Trim(Conversion.Str((object) self.game.Data.RuleVar[Number2])));
+              self.OptionsList6Obj.add(str, -1, Strings.Trim(Conversion.Str( self.game.Data.RuleVar[Number2])));
             }
           }
           Number1 += 1;
@@ -1855,7 +1855,7 @@ namespace WindowsApplication1
           str2: String = !self.game.Data.PBEM ? str1 + "\r\n\r\nAnti PBEM Cheat is turned OFF" : str1 + "\r\n\r\nAnti PBEM Cheat is turned ON";
           tText: String = !self.game.Data.TerrorMode ? str2 + "\r\n\r\nTerror Mode is turned OFF" : str2 + "\r\n\r\nTerror Mode is turned ON";
           if (self.game.Data.VPWin > 0 | self.game.EventRelatedObj.CheckVP(self.game.Data.Turn, 0, 0, 0) > 0)
-            tText = tText + "\r\n\r\nYou currently have " + Conversion.Str((object) self.game.EventRelatedObj.CheckVP(self.game.Data.Turn, 0, 0, 0)) + " Victory Points (VP) in possesion.";
+            tText = tText + "\r\n\r\nYou currently have " + Conversion.Str( self.game.EventRelatedObj.CheckVP(self.game.Data.Turn, 0, 0, 0)) + " Victory Points (VP) in possesion.";
           let mut index111: i32 = 0;
           do
           {
@@ -1868,7 +1868,7 @@ namespace WindowsApplication1
           self.OptionsList2Id = self.AddSubPart( tsubpart1, 90, 90, 840, 640, 0);
         }
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;
@@ -2059,16 +2059,16 @@ namespace WindowsApplication1
                   x1 = self.game.Data.UnitObj[self.game.Data.UnitObj[self.detailnr5].OnBoard].X;
                   y1 = self.game.Data.UnitObj[self.game.Data.UnitObj[self.detailnr5].OnBoard].Y;
                 }
-                self.game.CornerX =  Math.Round((double) x1 - ((double) self.game.ScreenWidth / 2.0 - 0.0) / 53.0);
-                self.game.CornerY =  Math.Round((double) y1 - ((double) self.game.ScreenHeight / 2.0 - (double) num4) / 48.0);
+                self.game.CornerX =  Math.Round( x1 - ( self.game.ScreenWidth / 2.0 - 0.0) / 53.0);
+                self.game.CornerY =  Math.Round( y1 - ( self.game.ScreenHeight / 2.0 -  num4) / 48.0);
                 if (self.game.CornerX < 0)
                   self.game.CornerX = 0;
                 if (self.game.CornerY < 0)
                   self.game.CornerY = 0;
                 if (self.game.Data.Round == 0)
                   num4 += 100;
-                let mut num5: i32 =  Math.Round((double) (self.game.ScreenWidth - 220 - 0) / 53.0);
-                let mut num6: i32 =  Math.Round((double) (self.game.ScreenHeight - num4) / 48.0);
+                let mut num5: i32 =  Math.Round( (self.game.ScreenWidth - 220 - 0) / 53.0);
+                let mut num6: i32 =  Math.Round( (self.game.ScreenHeight - num4) / 48.0);
                 let mut num7: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth - self.game.CornerX;
                 let mut num8: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight - self.game.CornerY;
                 if (num5 > num7)
@@ -2190,7 +2190,7 @@ namespace WindowsApplication1
       object[] objArray = new object[3];
       int num1;
       if (self.game.HandyFunctionsObj.HowmanyHQsBelow(hqused) > 0)
-        num1 =  Interaction.MsgBox((object) "Also auto upgrade units of subordinate HQs?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
+        num1 =  Interaction.MsgBox( "Also auto upgrade units of subordinate HQs?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
       let mut unitCounter: i32 = self.game.Data.UnitCounter;
       int Number1;
       int Number2;
@@ -2202,47 +2202,47 @@ namespace WindowsApplication1
           for (let mut sfCount: i32 = self.game.Data.UnitObj[unr].SFCount; sfCount >= 0; sfCount += -1)
           {
             self.sfnr = self.game.Data.UnitObj[unr].SFList[sfCount];
-            objArray[0] = (object) -1;
-            objArray[1] = (object) -1;
-            objArray[2] = (object) -1;
+            objArray[0] =  -1;
+            objArray[1] =  -1;
+            objArray[2] =  -1;
             if (self.sfnr > -1 && self.game.HandyFunctionsObj.CanUpgrade(self.sfnr, unr))
             {
               if (self.game.Data.UnitObj[unr].IsHQ)
               {
-                objArray[0] = (object) unr;
+                objArray[0] =  unr;
                 let mut hq1: i32 = self.game.Data.UnitObj[Conversions.ToInteger(objArray[0])].HQ;
                 if (hq1 > -1 && self.game.Data.UnitObj[hq1].X > -1)
                 {
-                  self.game.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[unr].Regime,  Math.Round((double) self.game.Data.RuleVar[99]), 99,  Math.Round((double) self.game.Data.RuleVar[3]), self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y, self.game.Data.UnitObj[unr].Map, allowshoredrop: true);
-                  if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq1].Map].Value[self.game.Data.UnitObj[hq1].X, self.game.Data.UnitObj[hq1].Y] <= (double) self.game.Data.RuleVar[53])
+                  self.game.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[unr].Regime,  Math.Round( self.game.Data.RuleVar[99]), 99,  Math.Round( self.game.Data.RuleVar[3]), self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y, self.game.Data.UnitObj[unr].Map, allowshoredrop: true);
+                  if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[hq1].Map].Value[self.game.Data.UnitObj[hq1].X, self.game.Data.UnitObj[hq1].Y] <=  self.game.Data.RuleVar[53])
                   {
-                    objArray[1] = (object) hq1;
+                    objArray[1] =  hq1;
                     let mut hq2: i32 = self.game.Data.UnitObj[Conversions.ToInteger(objArray[1])].HQ;
-                    if (hq2 > -1 && self.game.Data.UnitObj[hq2].X > -1 && (double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq2].Map].Value[self.game.Data.UnitObj[hq2].X, self.game.Data.UnitObj[hq2].Y] <= (double) self.game.Data.RuleVar[53])
-                      objArray[2] = (object) hq2;
+                    if (hq2 > -1 && self.game.Data.UnitObj[hq2].X > -1 &&  self.game.EditObj.TempValue[self.game.Data.UnitObj[hq2].Map].Value[self.game.Data.UnitObj[hq2].X, self.game.Data.UnitObj[hq2].Y] <=  self.game.Data.RuleVar[53])
+                      objArray[2] =  hq2;
                   }
                 }
               }
               else if (self.game.Data.UnitObj[unr].HQ > -1 && self.game.Data.UnitObj[self.game.Data.UnitObj[unr].HQ].X > -1)
               {
-                self.game.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[unr].Regime,  Math.Round((double) self.game.Data.RuleVar[99]), 99,  Math.Round((double) self.game.Data.RuleVar[3]), self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y, self.game.Data.UnitObj[unr].Map, allowshoredrop: true);
+                self.game.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[unr].Regime,  Math.Round( self.game.Data.RuleVar[99]), 99,  Math.Round( self.game.Data.RuleVar[3]), self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y, self.game.Data.UnitObj[unr].Map, allowshoredrop: true);
                 let mut hq3: i32 = self.game.Data.UnitObj[unr].HQ;
-                if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq3].Map].Value[self.game.Data.UnitObj[hq3].X, self.game.Data.UnitObj[hq3].Y] <= (double) self.game.Data.RuleVar[53])
+                if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[hq3].Map].Value[self.game.Data.UnitObj[hq3].X, self.game.Data.UnitObj[hq3].Y] <=  self.game.Data.RuleVar[53])
                 {
-                  objArray[0] = (object) hq3;
+                  objArray[0] =  hq3;
                   let mut hq4: i32 = self.game.Data.UnitObj[Conversions.ToInteger(objArray[0])].HQ;
-                  if (hq4 > -1 && self.game.Data.UnitObj[hq4].X > -1 && (double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq4].Map].Value[self.game.Data.UnitObj[hq4].X, self.game.Data.UnitObj[hq4].Y] <= (double) self.game.Data.RuleVar[53])
+                  if (hq4 > -1 && self.game.Data.UnitObj[hq4].X > -1 &&  self.game.EditObj.TempValue[self.game.Data.UnitObj[hq4].Map].Value[self.game.Data.UnitObj[hq4].X, self.game.Data.UnitObj[hq4].Y] <=  self.game.Data.RuleVar[53])
                   {
-                    objArray[1] = (object) hq4;
+                    objArray[1] =  hq4;
                     let mut hq5: i32 = self.game.Data.UnitObj[Conversions.ToInteger(objArray[1])].HQ;
-                    if (hq5 > -1 && self.game.Data.UnitObj[hq5].X > -1 && (double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq5].Map].Value[self.game.Data.UnitObj[hq5].X, self.game.Data.UnitObj[hq5].Y] <= (double) self.game.Data.RuleVar[53])
-                      objArray[2] = (object) hq5;
+                    if (hq5 > -1 && self.game.Data.UnitObj[hq5].X > -1 &&  self.game.EditObj.TempValue[self.game.Data.UnitObj[hq5].Map].Value[self.game.Data.UnitObj[hq5].X, self.game.Data.UnitObj[hq5].Y] <=  self.game.Data.RuleVar[53])
+                      objArray[2] =  hq5;
                   }
                 }
               }
               let mut qty1: i32 = self.game.Data.SFObj[self.sfnr].Qty;
               let mut num2: i32 = 0;
-              if (Conversions.ToBoolean(Operators.AndObject((object) (qty1 > 0), Operators.CompareObjectGreater(objArray[0], (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.AndObject( (qty1 > 0), Operators.CompareObjectGreater(objArray[0],  -1, false))))
               {
                 let mut qty2: i32 = self.game.HandyFunctionsObj.CanUpgradeMax(self.sfnr, unr, Conversions.ToInteger(objArray[0]));
                 if (qty2 > qty1)
@@ -2255,7 +2255,7 @@ namespace WindowsApplication1
                   num2 = 1;
                 }
               }
-              if (Conversions.ToBoolean(Operators.AndObject((object) (qty1 > 0), Operators.CompareObjectGreater(objArray[1], (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.AndObject( (qty1 > 0), Operators.CompareObjectGreater(objArray[1],  -1, false))))
               {
                 let mut qty3: i32 = self.game.HandyFunctionsObj.CanUpgradeMax(self.sfnr, unr, Conversions.ToInteger(objArray[1]));
                 if (qty3 > qty1)
@@ -2268,7 +2268,7 @@ namespace WindowsApplication1
                   num2 = 1;
                 }
               }
-              if (Conversions.ToBoolean(Operators.AndObject((object) (qty1 > 0), Operators.CompareObjectGreater(objArray[2], (object) -1, false))))
+              if (Conversions.ToBoolean(Operators.AndObject( (qty1 > 0), Operators.CompareObjectGreater(objArray[2],  -1, false))))
               {
                 let mut qty4: i32 = self.game.HandyFunctionsObj.CanUpgradeMax(self.sfnr, unr, Conversions.ToInteger(objArray[2]));
                 if (qty4 > qty1)
@@ -2293,19 +2293,19 @@ namespace WindowsApplication1
       {
         string Prompt;
         if (num1 == 6)
-          Prompt = "Auto upgraded " + Conversion.Str((object) Number1) + " troops in " + Conversion.Str((object) Number2) + " units under indirect and direct command of " + self.game.Data.UnitObj[hqused].Name + ".";
+          Prompt = "Auto upgraded " + Conversion.Str( Number1) + " troops in " + Conversion.Str( Number2) + " units under indirect and direct command of " + self.game.Data.UnitObj[hqused].Name + ".";
         else
-          Prompt = "Auto upgraded " + Conversion.Str((object) Number1) + " troops in " + Conversion.Str((object) Number2) + " units under direct command of " + self.game.Data.UnitObj[hqused].Name + ".";
+          Prompt = "Auto upgraded " + Conversion.Str( Number1) + " troops in " + Conversion.Str( Number2) + " units under direct command of " + self.game.Data.UnitObj[hqused].Name + ".";
         if (Number3 > 0)
-          Prompt = Prompt + "We did not have enough supplies in chain of command to upgrade troops in " + Conversion.Str((object) Number3) + " units.";
-        let mut num3: i32 =  Interaction.MsgBox((object) Prompt, Title: ((object) "Shadow Empire : Planetary Conquest"));
+          Prompt = Prompt + "We did not have enough supplies in chain of command to upgrade troops in " + Conversion.Str( Number3) + " units.";
+        let mut num3: i32 =  Interaction.MsgBox( Prompt, Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
         Prompt: String = "No units have been upgraded. ";
         if (Number3 > 0)
-          Prompt = Prompt + "We did not have enough supplies in chain of command to upgrade troops in " + Conversion.Str((object) Number3) + " units.";
-        let mut num4: i32 =  Interaction.MsgBox((object) Prompt, Title: ((object) "Shadow Empire : Planetary Conquest"));
+          Prompt = Prompt + "We did not have enough supplies in chain of command to upgrade troops in " + Conversion.Str( Number3) + " units.";
+        let mut num4: i32 =  Interaction.MsgBox( Prompt, Title: ( "Shadow Empire : Planetary Conquest"));
       }
     }
 
@@ -2368,7 +2368,7 @@ namespace WindowsApplication1
       self.supplyin4 = new int[self.game.Data.UnitCounter + 1];
       for (let mut index1: i32 = num3; index1 >= 0; index1 += -1)
       {
-        if (index1 == num3 & (double) self.game.Data.RuleVar[335] > 0.0)
+        if (index1 == num3 &  self.game.Data.RuleVar[335] > 0.0)
         {
           let mut regimeCounter: i32 = self.game.Data.RegimeCounter;
           for (let mut regnr: i32 = 0; regnr <= regimeCounter; regnr += 1)
@@ -2378,9 +2378,9 @@ namespace WindowsApplication1
               let mut num4: i32 = 0;
               do
               {
-                if (self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 0.0f + (float) (num4 * 4)))] > 0 && self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 1f + (float) (num4 * 4)))] > 0 && self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 2f + (float) (num4 * 4)))] > -1 && self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 3f + (float) (num4 * 4)))] > 0)
+                if (self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 0.0f +  (num4 * 4)))] > 0 && self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 1f +  (num4 * 4)))] > 0 && self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 2f +  (num4 * 4)))] > -1 && self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 3f +  (num4 * 4)))] > 0)
                 {
-                  SimpleList supplyReceivingHq = self.game.HandyFunctionsObj.GetSupplyReceivingHQ(self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 0.0f + (float) (num4 * 4)))], self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 1f + (float) (num4 * 4)))], self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 2f + (float) (num4 * 4)))], regnr, self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round((double) (self.game.Data.RuleVar[335] + 3f + (float) (num4 * 4)))]);
+                  SimpleList supplyReceivingHq = self.game.HandyFunctionsObj.GetSupplyReceivingHQ(self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 0.0f +  (num4 * 4)))], self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 1f +  (num4 * 4)))], self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 2f +  (num4 * 4)))], regnr, self.game.Data.RegimeObj[regnr].RegimeSlot[ Math.Round( (self.game.Data.RuleVar[335] + 3f +  (num4 * 4)))]);
                   if (supplyReceivingHq.Counter > -1)
                   {
                     let mut counter: i32 = supplyReceivingHq.Counter;
@@ -2409,7 +2409,7 @@ namespace WindowsApplication1
         {
           if (numArray1[index6] == index1 && self.game.Data.UnitObj[index6].X > -1 & self.game.Data.UnitObj[index6].PreDef == -1 && self.game.Data.RegimeObj[self.game.Data.UnitObj[index6].Regime].UberRegime == self.game.Data.Turn | self.game.Data.RegimeObj[self.game.Data.UnitObj[index6].Regime].UberRegime > -1 & self.game.Data.RegimeObj[self.game.Data.UnitObj[index6].Regime].UberRegime == self.game.Data.RegimeObj[self.game.Data.Turn].UberRegime | self.game.Data.RegimeObj[self.game.Data.Turn].UberRegime == self.game.Data.UnitObj[index6].Regime | self.game.Data.Turn == self.game.Data.UnitObj[index6].Regime && self.game.Data.UnitObj[index6].IsHQ)
           {
-            self.game.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.Turn,  Math.Round((double) self.game.Data.RuleVar[99]), 99,  Math.Round((double) self.game.Data.RuleVar[3]), self.game.Data.UnitObj[index6].X, self.game.Data.UnitObj[index6].Y, self.game.Data.UnitObj[index6].Map, allowshoredrop: true);
+            self.game.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.Turn,  Math.Round( self.game.Data.RuleVar[99]), 99,  Math.Round( self.game.Data.RuleVar[3]), self.game.Data.UnitObj[index6].X, self.game.Data.UnitObj[index6].Y, self.game.Data.UnitObj[index6].Map, allowshoredrop: true);
             let mut unitCounter4: i32 = self.game.Data.UnitCounter;
             int num6;
             float num7;
@@ -2425,7 +2425,7 @@ namespace WindowsApplication1
                 for (let mut index7: i32 = 0; index7 <= sfCount; index7 += 1)
                 {
                   let mut sf: i32 = self.game.Data.UnitObj[unr].SFList[index7];
-                  num8 =  Math.Round((double) num8 + (double) self.game.Data.SFObj[sf].Qty * ((double) self.game.Data.SFTypeObj[self.game.Data.SFObj[sf].Type].BasicSupplyNeed * 1.5));
+                  num8 =  Math.Round( num8 +  self.game.Data.SFObj[sf].Qty * ( self.game.Data.SFTypeObj[self.game.Data.SFObj[sf].Type].BasicSupplyNeed * 1.5));
                   num9 += self.game.Data.SFObj[sf].Qty * self.game.Data.SFTypeObj[self.game.Data.SFObj[sf].Type].SupplyCarry;
                 }
                 let mut num10: i32 = num9 + self.game.HandyFunctionsObj.UnitSupplyUse(unr, true);
@@ -2435,7 +2435,7 @@ namespace WindowsApplication1
                   num8 = 0;
                 if (0 > num8)
                   num8 = 0;
-                self.supplyneed1[unr] =  Math.Round((double) num8 * ((double) self.game.Data.UnitObj[unr].SOSupReqPercent / 100.0));
+                self.supplyneed1[unr] =  Math.Round( num8 * ( self.game.Data.UnitObj[unr].SOSupReqPercent / 100.0));
                 let mut hq1: i32 = self.game.Data.UnitObj[unr].HQ;
                 if (hq1 == index6 & !self.game.Data.UnitObj[unr].IsHQ)
                 {
@@ -2446,14 +2446,14 @@ namespace WindowsApplication1
                   let mut num11: i32 = supplyout1[index8] + num8;
                   numArray5[index9] = num11;
                 }
-                if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] > (double) self.game.Data.RuleVar[3])
+                if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] >  self.game.Data.RuleVar[3])
                   num8 = 0;
-                else if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] > (double) self.game.Data.RuleVar[53])
-                  num8 =  Math.Round((double) num8 * 0.25);
-                else if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] > (double) self.game.Data.RuleVar[52])
-                  num8 =  Math.Round((double) num8 * 0.5);
-                else if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] > (double) self.game.Data.RuleVar[51])
-                  num8 =  Math.Round((double) num8 * 0.75);
+                else if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] >  self.game.Data.RuleVar[53])
+                  num8 =  Math.Round( num8 * 0.25);
+                else if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] >  self.game.Data.RuleVar[52])
+                  num8 =  Math.Round( num8 * 0.5);
+                else if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[unr].Map].Value[self.game.Data.UnitObj[unr].X, self.game.Data.UnitObj[unr].Y] >  self.game.Data.RuleVar[51])
+                  num8 =  Math.Round( num8 * 0.75);
                 self.supplyneed4[unr] = num8;
                 let mut hq2: i32 = self.game.Data.UnitObj[unr].HQ;
                 if (hq2 == index6 & !self.game.Data.UnitObj[unr].IsHQ)
@@ -2483,16 +2483,16 @@ namespace WindowsApplication1
                   if (self.game.Data.LocObj[locnr].Production[prodslot] > -1 && self.game.Data.ItemTypeObj[self.game.Data.LocObj[locnr].Production[prodslot]].IsSupply)
                   {
                     num6 = 0;
-                    let mut num13: i32 = (double) self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] <= (double) self.game.Data.RuleVar[51] ?  Math.Round(Conversion.Int(self.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false))) :  Math.Round(Conversion.Int(self.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, false, false)));
+                    let mut num13: i32 =  self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] <=  self.game.Data.RuleVar[51] ?  Math.Round(Conversion.Int(self.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false))) :  Math.Round(Conversion.Int(self.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, false, false)));
                     num7 = 1f;
-                    if ((double) self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] > (double) self.game.Data.RuleVar[3])
+                    if ( self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] >  self.game.Data.RuleVar[3])
                       num13 = 0;
-                    else if ((double) self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] > (double) self.game.Data.RuleVar[53])
-                      num13 =  Math.Round((double) num13 * 0.25);
-                    else if ((double) self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] > (double) self.game.Data.RuleVar[52])
-                      num13 =  Math.Round((double) num13 * 0.5);
-                    else if ((double) self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] > (double) self.game.Data.RuleVar[51])
-                      num13 =  Math.Round((double) num13 * 0.75);
+                    else if ( self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] >  self.game.Data.RuleVar[53])
+                      num13 =  Math.Round( num13 * 0.25);
+                    else if ( self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] >  self.game.Data.RuleVar[52])
+                      num13 =  Math.Round( num13 * 0.5);
+                    else if ( self.game.EditObj.TempValue[self.game.Data.LocObj[locnr].Map].Value[self.game.Data.LocObj[locnr].X, self.game.Data.LocObj[locnr].Y] >  self.game.Data.RuleVar[51])
+                      num13 =  Math.Round( num13 * 0.75);
                     if (num13 > 0)
                       num13 *= self.game.Data.ItemTypeObj[self.game.Data.LocObj[locnr].Production[prodslot]].Multiplier;
                     int[] supplyin1 = self.supplyin1;
@@ -2526,14 +2526,14 @@ namespace WindowsApplication1
                 let mut index15: i32 = index14;
                 let mut num18: i32 = supplyout1[index14] + num17;
                 numArray8[index15] = num18;
-                if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] > (double) self.game.Data.RuleVar[3])
+                if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] >  self.game.Data.RuleVar[3])
                   num17 = 0;
-                else if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] > (double) self.game.Data.RuleVar[53])
-                  num17 =  Math.Round((double) num17 * 0.25);
-                else if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] > (double) self.game.Data.RuleVar[52])
-                  num17 =  Math.Round((double) num17 * 0.5);
-                else if ((double) self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] > (double) self.game.Data.RuleVar[51])
-                  num17 =  Math.Round((double) num17 * 0.75);
+                else if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] >  self.game.Data.RuleVar[53])
+                  num17 =  Math.Round( num17 * 0.25);
+                else if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] >  self.game.Data.RuleVar[52])
+                  num17 =  Math.Round( num17 * 0.5);
+                else if ( self.game.EditObj.TempValue[self.game.Data.UnitObj[hq].Map].Value[self.game.Data.UnitObj[hq].X, self.game.Data.UnitObj[hq].Y] >  self.game.Data.RuleVar[51])
+                  num17 =  Math.Round( num17 * 0.75);
                 int[] supplyout2 = self.supplyout2;
                 int[] numArray9 = supplyout2;
                 let mut index16: i32 = hq;
@@ -2580,15 +2580,15 @@ namespace WindowsApplication1
                   num23 += self.supplyneed4[index20];
               }
             }
-            float num24 = num23 > 0 ? (float) (self.supplyin1[index19] + self.supplyin2[index19] + self.supplyin4[index19]) / (float) num23 : 0.0f;
-            self.supplyout3[index19] = num23 <= self.supplyin1[index19] + self.supplyin2[index19] + self.supplyin4[index19] ? num23 - self.supplyneed4[index19] :  Math.Round((double) ((float) (self.supplyin1[index19] + self.supplyin2[index19] + self.supplyin4[index19]) - (float) self.supplyneed4[index19] * num24));
-            if ((double) num24 > 1.0)
+            float num24 = num23 > 0 ?  (self.supplyin1[index19] + self.supplyin2[index19] + self.supplyin4[index19]) /  num23 : 0.0f;
+            self.supplyout3[index19] = num23 <= self.supplyin1[index19] + self.supplyin2[index19] + self.supplyin4[index19] ? num23 - self.supplyneed4[index19] :  Math.Round( ( (self.supplyin1[index19] + self.supplyin2[index19] + self.supplyin4[index19]) -  self.supplyneed4[index19] * num24));
+            if ( num24 > 1.0)
               num24 = 1f;
             let mut unitCounter7: i32 = self.game.Data.UnitCounter;
             for (let mut index21: i32 = 0; index21 <= unitCounter7; index21 += 1)
             {
               if (self.game.Data.UnitObj[index21].HQ == index19 & self.game.Data.UnitObj[index21].PreDef == -1 & self.game.Data.UnitObj[index21].X > -1)
-                self.supplyin4[index21] = !self.game.Data.UnitObj[index21].IsHQ ?  Math.Round((double) (num24 * (float) self.supplyneed4[index21])) :  Math.Round((double) (num24 * (float) self.supplyin3[index21]));
+                self.supplyin4[index21] = !self.game.Data.UnitObj[index21].IsHQ ?  Math.Round( (num24 *  self.supplyneed4[index21])) :  Math.Round( (num24 *  self.supplyin3[index21]));
             }
           }
         }

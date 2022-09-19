@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -81,11 +81,11 @@ namespace WindowsApplication1
               num3 = 100;
             if (num4 > 100)
               num4 = 100;
-            Number1 =  Math.Round((double)  Math.Round((double) num1 * (double) self.game.HandyFunctionsObj.GetStaffCombatMod(hq) * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0)) + (double) num3 * (double) self.game.Data.RuleVar[140] * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0));
-            Number2 =  Math.Round((double)  Math.Round((double) num2 * (double) self.game.HandyFunctionsObj.GetStaffMoraleMod(hq) * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0)) + (double) num4 * (double) self.game.Data.RuleVar[141] * ((double) self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0));
+            Number1 =  Math.Round(  Math.Round( num1 *  self.game.HandyFunctionsObj.GetStaffCombatMod(hq) * ( self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0)) +  num3 *  self.game.Data.RuleVar[140] * ( self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0));
+            Number2 =  Math.Round(  Math.Round( num2 *  self.game.HandyFunctionsObj.GetStaffMoraleMod(hq) * ( self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0)) +  num4 *  self.game.Data.RuleVar[141] * ( self.game.HandyFunctionsObj.Gethqpow(self.game.EditObj.UnitSelected) / 100.0));
           }
           if (self.game.HandyFunctionsObj.HasUnitlandSF(self.unr))
-            self.Descript = "Staff points in HQ expressed as a % of needed staff points. Current CombatMod = +" + Conversion.Str((object) Number1) + "%. Current MoraleMod = +" + Conversion.Str((object) Number2) + "%";
+            self.Descript = "Staff points in HQ expressed as a % of needed staff points. Current CombatMod = +" + Conversion.Str( Number1) + "%. Current MoraleMod = +" + Conversion.Str( Number2) + "%";
           else
             self.Descript = "Staff only gives bonuses to land theater subformations. not to air and navy.";
         }
@@ -98,7 +98,7 @@ namespace WindowsApplication1
       {
         if (self.game.Data.UnitObj[self.game.EditObj.UnitSelected].IsHQ)
         {
-          if ((double) self.game.Data.RuleVar[509] == 0.0)
+          if ( self.game.Data.RuleVar[509] == 0.0)
             self.Descript = "Rail capacity availabe";
           else
             self.Descript = "";
@@ -165,7 +165,7 @@ namespace WindowsApplication1
       Color.FromArgb( byte.MaxValue, red2, green2, blue2);
       self.game.CustomBitmapObj.DrawUnit(self.unr, toG: toG, tx: 5, ShowAttacker: true);
       str1: String = self.game.Data.UnitObj[self.unr].Name;
-      if ((double) self.game.Data.RuleVar[344] == 1.0 && (double) self.game.Data.RuleVar[337] == 1.0)
+      if ( self.game.Data.RuleVar[344] == 1.0 &&  self.game.Data.RuleVar[337] == 1.0)
       {
         if (self.game.Data.UnitObj[self.unr].Historical > -1)
         {
@@ -185,14 +185,14 @@ namespace WindowsApplication1
       if (coordinate.x < 2)
         str1 = "?";
       SizeF sizeF2 = toG.MeasureString(str1, self.game.GameFont3);
-      if ((double) sizeF2.Width < 150.0)
+      if ( sizeF2.Width < 150.0)
       {
         DrawMod.DrawText( toG, str1, self.game.GameFont3, 45, 0);
       }
       else
       {
         sizeF2 = toG.MeasureString(str1, self.game.GameFont1);
-        if ((double) sizeF2.Width < 150.0)
+        if ( sizeF2.Width < 150.0)
           DrawMod.DrawText( toG, str1, self.game.GameFont1, 45, 0);
         else
           DrawMod.DrawText( toG, str1, self.game.GameFont2, 45, 0);
@@ -221,19 +221,19 @@ namespace WindowsApplication1
         if (self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.Turn, self.game.Data.UnitObj[self.unr].Regime))
           num1 = 1;
       }
-      if (num1 == 1 & (double) self.game.Data.RuleVar[354] == 1.0 && self.game.HandyFunctionsObj.GetStartPower(self.unr) > 0 & !self.game.Data.UnitObj[self.unr].IsHQ)
+      if (num1 == 1 &  self.game.Data.RuleVar[354] == 1.0 && self.game.HandyFunctionsObj.GetStartPower(self.unr) > 0 & !self.game.Data.UnitObj[self.unr].IsHQ)
       {
         DrawMod.DrawBlock( toG, 40, 39, 184, 10,  byte.MaxValue,  byte.MaxValue, 0,  byte.MaxValue);
         let mut breakPercent: i32 = self.game.HandyFunctionsObj.GetBreakPercent(self.unr);
         let mut powerPtsAbsolute: i32 = self.game.HandyFunctionsObj.GetPowerPtsAbsolute(self.unr, true);
-        let mut num2: i32 =  Math.Round((double) self.game.Data.RuleVar[307]);
+        let mut num2: i32 =  Math.Round( self.game.Data.RuleVar[307]);
         let mut startPower: i32 = self.game.HandyFunctionsObj.GetStartPower(self.unr);
-        let mut num3: i32 =  Math.Round((double) startPower * ((double) breakPercent / 100.0));
-        float num4 = startPower < powerPtsAbsolute ? 184f / (float) powerPtsAbsolute : 184f / (float) startPower;
-        let mut w1: i32 =  Math.Round((double) ((float) num3 * num4));
-        let mut num5: i32 =  Math.Round((double) ((float) startPower * num4));
-        let mut num6: i32 =  Math.Round((double) ((float) powerPtsAbsolute * num4));
-        let mut w2: i32 =  Math.Round((double) ((float) num2 * num4));
+        let mut num3: i32 =  Math.Round( startPower * ( breakPercent / 100.0));
+        float num4 = startPower < powerPtsAbsolute ? 184f /  powerPtsAbsolute : 184f /  startPower;
+        let mut w1: i32 =  Math.Round( ( num3 * num4));
+        let mut num5: i32 =  Math.Round( ( startPower * num4));
+        let mut num6: i32 =  Math.Round( ( powerPtsAbsolute * num4));
+        let mut w2: i32 =  Math.Round( ( num2 * num4));
         if (num5 >= num6)
         {
           DrawMod.DrawBlockGradient( toG, 40 + w1 - 5, 39, num5 - w1 + 5, 10, Color.Yellow, Color.Green);
@@ -307,7 +307,7 @@ namespace WindowsApplication1
           if (Strings.Len(str5) > 7)
             str5 = Strings.Left(str5, 7);
           sizeF2 = toG.MeasureString(str5, Font::new(self.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel));
-          DrawMod.DrawText( toG, str5, Font::new(self.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(209.0 - (double) sizeF2.Width / 2.0), 1);
+          DrawMod.DrawText( toG, str5, Font::new(self.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(209.0 -  sizeF2.Width / 2.0), 1);
         }
         else if (nr > -1)
         {
@@ -318,82 +318,82 @@ namespace WindowsApplication1
           if (Strings.Len(str4) > 7)
             str4 = Strings.Left(str4, 7);
           sizeF2 = toG.MeasureString(str4, Font::new(self.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel));
-          DrawMod.DrawText( toG, str4, Font::new(self.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(209.0 - (double) sizeF2.Width / 2.0), 1);
+          DrawMod.DrawText( toG, str4, Font::new(self.game.FontCol.Families[1], 10f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(209.0 -  sizeF2.Width / 2.0), 1);
         }
-        str6: String = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetLowestAp(self.unr)));
+        str6: String = Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetLowestAp(self.unr)));
         if (coordinate.x == 2)
           str6 = "?";
         sizeF2 = toG.MeasureString(str6, self.game.GameFont3);
-        DrawMod.DrawText( toG, str6, self.game.GameFont3,  Math.Round(16.0 - (double) sizeF2.Width / 2.0), 84);
-        str7: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].SupplyConsume));
+        DrawMod.DrawText( toG, str6, self.game.GameFont3,  Math.Round(16.0 -  sizeF2.Width / 2.0), 84);
+        str7: String = Strings.Trim(Conversion.Str( self.game.Data.UnitObj[self.unr].SupplyConsume));
         if (coordinate.x == 2)
           str7 = "?";
         sizeF2 = toG.MeasureString(str7, self.game.GameFont3);
-        DrawMod.DrawText( toG, str7, self.game.GameFont3,  Math.Round(57.0 - (double) sizeF2.Width / 2.0), 84);
+        DrawMod.DrawText( toG, str7, self.game.GameFont3,  Math.Round(57.0 -  sizeF2.Width / 2.0), 84);
         let mut Number1: i32 = self.game.HandyFunctionsObj.GetAverageRdn(self.unr);
         if (coordinate.x == 2)
         {
           self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
-          float num8 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
-          float num9 = (float) ((1.0 - (double) num8) * 2.0);
+          float num8 =  coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num9 =  ((1.0 -  num8) * 2.0);
           float num10 = VBMath.Rnd() * num9 + num8;
-          Number1 =  Math.Round((double) Conversion.Int((float) Number1 * num10));
+          Number1 =  Math.Round( Conversion.Int( Number1 * num10));
           if (Number1 < 0)
             Number1 = 0;
           if (Number1 > 100)
             Number1 = 100;
         }
-        str8: String = Strings.Trim(Conversion.Str((object) Number1));
+        str8: String = Strings.Trim(Conversion.Str( Number1));
         sizeF2 = toG.MeasureString(str8, self.game.GameFont3);
-        DrawMod.DrawText( toG, str8, self.game.GameFont3,  Math.Round(95.0 - (double) sizeF2.Width / 2.0), 84);
+        DrawMod.DrawText( toG, str8, self.game.GameFont3,  Math.Round(95.0 -  sizeF2.Width / 2.0), 84);
         let mut Number2: i32 = self.game.HandyFunctionsObj.GetAverageXp(self.unr);
         if (coordinate.x == 2)
         {
           self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
-          float num11 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
-          float num12 = (float) ((1.0 - (double) num11) * 2.0);
+          float num11 =  coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num12 =  ((1.0 -  num11) * 2.0);
           float num13 = VBMath.Rnd() * num12 + num11;
-          Number2 =  Math.Round((double) Conversion.Int((float) Number2 * num13));
+          Number2 =  Math.Round( Conversion.Int( Number2 * num13));
           if (Number2 < 0)
             Number2 = 0;
           if (Number2 > 100)
             Number2 = 100;
         }
-        str9: String = Strings.Trim(Conversion.Str((object) Number2));
+        str9: String = Strings.Trim(Conversion.Str( Number2));
         sizeF2 = toG.MeasureString(str9, self.game.GameFont3);
-        DrawMod.DrawText( toG, str9, self.game.GameFont3,  Math.Round(133.0 - (double) sizeF2.Width / 2.0), 84);
+        DrawMod.DrawText( toG, str9, self.game.GameFont3,  Math.Round(133.0 -  sizeF2.Width / 2.0), 84);
         let mut Number3: i32 = self.game.HandyFunctionsObj.GetAverageMor(self.unr);
         if (coordinate.x == 2)
         {
           self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
-          float num14 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
-          float num15 = (float) ((1.0 - (double) num14) * 2.0);
+          float num14 =  coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num15 =  ((1.0 -  num14) * 2.0);
           float num16 = VBMath.Rnd() * num15 + num14;
-          Number3 =  Math.Round((double) Conversion.Int((float) Number3 * num16));
+          Number3 =  Math.Round( Conversion.Int( Number3 * num16));
           if (Number3 < 0)
             Number3 = 0;
           if (Number3 > 999)
             Number3 = 999;
         }
-        str10: String = Strings.Trim(Conversion.Str((object) Number3));
+        str10: String = Strings.Trim(Conversion.Str( Number3));
         sizeF2 = toG.MeasureString(str10, self.game.GameFont3);
-        DrawMod.DrawText( toG, str10, self.game.GameFont3,  Math.Round(171.0 - (double) sizeF2.Width / 2.0), 84);
+        DrawMod.DrawText( toG, str10, self.game.GameFont3,  Math.Round(171.0 -  sizeF2.Width / 2.0), 84);
         let mut Number4: i32 = self.game.HandyFunctionsObj.GetAverageEntrench(self.unr);
         if (coordinate.x == 2)
         {
           self.game.HandyFunctionsObj.RandomizeForUnit(self.unr, 0);
-          float num17 = (float) coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
-          float num18 = (float) ((1.0 - (double) num17) * 2.0);
+          float num17 =  coordinate.y / (self.game.Data.RuleVar[56] - self.game.Data.RuleVar[55]);
+          float num18 =  ((1.0 -  num17) * 2.0);
           float num19 = VBMath.Rnd() * num18 + num17;
-          Number4 =  Math.Round((double) Conversion.Int((float) Number4 * num19));
+          Number4 =  Math.Round( Conversion.Int( Number4 * num19));
           if (Number4 < 0)
             Number4 = 0;
           if (Number4 > 999)
             Number4 = 999;
         }
-        str11: String = Strings.Trim(Conversion.Str((object) Number4));
+        str11: String = Strings.Trim(Conversion.Str( Number4));
         sizeF2 = toG.MeasureString(str11, self.game.GameFont3);
-        DrawMod.DrawText( toG, str11, self.game.GameFont3,  Math.Round(209.0 - (double) sizeF2.Width / 2.0), 84);
+        DrawMod.DrawText( toG, str11, self.game.GameFont3,  Math.Round(209.0 -  sizeF2.Width / 2.0), 84);
       }
       let mut num20: i32 = 3;
       do
@@ -434,7 +434,7 @@ namespace WindowsApplication1
       if (coordinate.x <= 2)
         tstring1 = "?";
       DrawMod.DrawText( toG, tstring1, self.game.gamefont1b, 41, 175);
-      tstring2: String = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetUnitStackPts(self.unr)));
+      tstring2: String = Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetUnitStackPts(self.unr)));
       if (coordinate.x <= 2)
         tstring2 = "?";
       DrawMod.DrawText( toG, tstring2, self.game.gamefont1b, 41, 115);
@@ -443,15 +443,15 @@ namespace WindowsApplication1
       {
         let mut unitCarryCap: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 1);
         let mut Number: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 1) - self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 1, true);
-        tstring3 = "N:" + Strings.Trim(Conversion.Str((object) unitCarryCap)) + "/" + Strings.Trim(Conversion.Str((object) Number));
+        tstring3 = "N:" + Strings.Trim(Conversion.Str( unitCarryCap)) + "/" + Strings.Trim(Conversion.Str( Number));
       }
       else if (self.game.HandyFunctionsObj.HasUnitAirSF(self.unr))
-        tstring3 = "A:" + Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 2)));
+        tstring3 = "A:" + Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 2)));
       else if (self.game.HandyFunctionsObj.HasUnitlandSF(self.unr))
       {
         let mut unitCarryCap: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 0);
         let mut Number: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 0) - self.game.HandyFunctionsObj.GetUnitCarryCap(self.unr, 0, true);
-        tstring3 = "L:" + Strings.Trim(Conversion.Str((object) unitCarryCap)) + "/" + Strings.Trim(Conversion.Str((object) Number));
+        tstring3 = "L:" + Strings.Trim(Conversion.Str( unitCarryCap)) + "/" + Strings.Trim(Conversion.Str( Number));
       }
       else
         tstring3 = "N/A";
@@ -466,7 +466,7 @@ namespace WindowsApplication1
         {
           let mut airCarryCapPts: i32 = self.game.HandyFunctionsObj.GetAirCarryCapPts(self.unr);
           let mut integer3: i32 = Conversions.ToInteger(Operators.SubtractObject(self.game.HandyFunctionsObj.GetUnitNonSeaWeight(self.unr, true), self.game.HandyFunctionsObj.GetUnitNonSeaWeight(self.unr, false)));
-          tstring4 = Strings.Trim(Conversion.Str((object) airCarryCapPts)) + "/" + Strings.Trim(Conversion.Str((object) integer3));
+          tstring4 = Strings.Trim(Conversion.Str( airCarryCapPts)) + "/" + Strings.Trim(Conversion.Str( integer3));
           if (coordinate.x <= 2)
             tstring4 = "?";
         }
@@ -476,23 +476,23 @@ namespace WindowsApplication1
       }
       if ((self.game.Data.UnitObj[self.unr].Regime == self.game.Data.Turn | !self.game.Data.FOWOn) & self.game.Data.UnitObj[self.unr].IsHQ)
       {
-        if ((double) self.game.Data.RuleVar[509] == 0.0)
+        if ( self.game.Data.RuleVar[509] == 0.0)
         {
           DrawMod.DrawText( toG, "Rail", self.game.GameFont2, 128, 175);
-          tstring5: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].AirCap));
+          tstring5: String = Strings.Trim(Conversion.Str( self.game.Data.UnitObj[self.unr].AirCap));
           if (coordinate.x <= 2)
             tstring5 = "?";
           DrawMod.DrawText( toG, tstring5, self.game.gamefont1b, 166, 175);
         }
-        tstring6: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].NavyCap));
+        tstring6: String = Strings.Trim(Conversion.Str( self.game.Data.UnitObj[self.unr].NavyCap));
         if (coordinate.x <= 2)
           tstring6 = "?";
         DrawMod.DrawText( toG, tstring6, self.game.gamefont1b, 44, 155);
-        tstring7: String = Strings.Trim(Conversion.Str((object) self.game.Data.UnitObj[self.unr].LandCap));
+        tstring7: String = Strings.Trim(Conversion.Str( self.game.Data.UnitObj[self.unr].LandCap));
         if (coordinate.x <= 2)
           tstring7 = "?";
         DrawMod.DrawText( toG, tstring7, self.game.gamefont1b, 44, 135);
-        tstring8: String = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetStaffPercent(self.unr))) + "%";
+        tstring8: String = Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetStaffPercent(self.unr))) + "%";
         if (coordinate.x <= 2)
           tstring8 = "?";
         DrawMod.DrawText( toG, tstring8, self.game.gamefont1b, 166, 115);
@@ -503,27 +503,27 @@ namespace WindowsApplication1
       }
       else
       {
-        tstring10: String = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.Gethqpow(self.unr))) + "%";
+        tstring10: String = Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.Gethqpow(self.unr))) + "%";
         if (coordinate.x <= 2)
           tstring10 = "?";
         DrawMod.DrawText( toG, tstring10, self.game.gamefont1b, 166, 135);
         if (!self.game.Data.UnitObj[self.unr].IsHQ)
         {
-          tstring11: String = self.game.Data.UnitObj[self.unr].HQ <= -1 ? "N/A" : Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetStaffPercent(self.game.Data.UnitObj[self.unr].HQ))) + "%";
+          tstring11: String = self.game.Data.UnitObj[self.unr].HQ <= -1 ? "N/A" : Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetStaffPercent(self.game.Data.UnitObj[self.unr].HQ))) + "%";
           if (coordinate.x <= 2)
             tstring11 = "?";
           DrawMod.DrawText( toG, tstring11, self.game.gamefont1b, 166, 115);
         }
         else
         {
-          tstring12: String = Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetStaffPoints(self.unr))) + "/" + Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetStaffNeeded(self.unr)));
+          tstring12: String = Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetStaffPoints(self.unr))) + "/" + Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetStaffNeeded(self.unr)));
           if (coordinate.x <= 2)
             tstring12 = "?";
           DrawMod.DrawText( toG, tstring12, self.game.gamefont2b, 166, 115);
         }
         if (self.game.Data.UnitObj[self.unr].Historical > -1)
         {
-          tstring13: String = Strings.Trim(Conversion.Str((object) self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.unr].Historical].StartSize));
+          tstring13: String = Strings.Trim(Conversion.Str( self.game.Data.HistoricalUnitObj[self.game.Data.UnitObj[self.unr].Historical].StartSize));
           if (coordinate.x <= 2)
             tstring13 = "?";
           DrawMod.DrawText( toG, tstring13, self.game.gamefont2b, 44, 135);

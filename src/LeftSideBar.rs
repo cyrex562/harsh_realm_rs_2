@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Runtime.CompilerServices;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Runtime.CompilerServices;
 
 namespace WindowsApplication1
 {
@@ -425,7 +425,7 @@ namespace WindowsApplication1
         if (num8 > this.h + 2)
         {
           num7 = this.h - 54;
-          num9 =  Math.Round(Math.Ceiling((double) num8 / (double) num7));
+          num9 =  Math.Round(Math.Ceiling( num8 /  num7));
         }
         if (num10 < 1)
           num10 = 1;
@@ -527,7 +527,7 @@ namespace WindowsApplication1
                   tstring: String = num13.ToString();
                   if (num13 > 9999)
                   {
-                    num1 = Math.Round((double) num13 / 1000.0, 0);
+                    num1 = Math.Round( num13 / 1000.0, 0);
                     tstring = num1.ToString() + "k";
                   }
                   if (integer == idValue)
@@ -563,7 +563,7 @@ namespace WindowsApplication1
         if (num9 > 1)
         {
           tstring: String = num10.ToString() + "/" + num9.ToString();
-          DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring, this.game.MarcFont3, x1 +  Math.Round((double) (this.w - 50) / 2.0), this.h - 25, this.game.seColGray);
+          DrawMod.DrawTextColouredConsoleCenter( objgraphics, tstring, this.game.MarcFont3, x1 +  Math.Round( (this.w - 50) / 2.0), this.h - 25, this.game.seColGray);
           let mut num14: i32 =  0;
           if (num10 >= num9)
             num14 = 1;
@@ -645,12 +645,12 @@ namespace WindowsApplication1
                 if ((num19 + 2) % 2 == 0)
                 {
                   num25 = x1 + 25;
-                  num26 = 20 +  Math.Round(Math.Floor((double) num19 / 2.0)) * 50;
+                  num26 = 20 +  Math.Round(Math.Floor( num19 / 2.0)) * 50;
                 }
                 else
                 {
                   num25 = x1 + 85;
-                  num26 = 20 +  Math.Round(Math.Floor((double) num19 / 2.0)) * 50;
+                  num26 = 20 +  Math.Round(Math.Floor( num19 / 2.0)) * 50;
                 }
                 bool forcehighlight = false;
                 if (this.game.EditObj.UnitSelected == unit)
@@ -893,7 +893,7 @@ namespace WindowsApplication1
             tstring1: String = weight.ToString();
             if (weight > 9999)
             {
-              num1 = Math.Round((double) weight / 1000.0, 1);
+              num1 = Math.Round( weight / 1000.0, 1);
               tstring1 = num1.ToString() + "k";
             }
             let mut num34: i32 =  num33 - num32;
@@ -937,7 +937,7 @@ namespace WindowsApplication1
             tstring2: String = num43.ToString();
             if (num34 > 9999 | num34 < -9999)
             {
-              num1 = Math.Round((double) Math.Abs(num34) / 1000.0, 1);
+              num1 = Math.Round( Math.Abs(num34) / 1000.0, 1);
               tstring2 = num1.ToString() + "k";
             }
             if (num38 > 0)
@@ -1028,7 +1028,7 @@ namespace WindowsApplication1
         int num47;
         if (((this.game.ScreenHeight < 1040 ? 1 : 0) | 0) != 0)
         {
-          if (Information.IsNothing((object) this.cacheList))
+          if (Information.IsNothing( this.cacheList))
             this.cacheList = "";
           let mut id4: i32 =  this.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
           this.game.EventRelatedObj.IO_AddClear();
@@ -1037,8 +1037,8 @@ namespace WindowsApplication1
             val2 = 0;
           if (this.game.ScreenHeight > 284)
           {
-            val2 += Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 769) / 10.0));
-            num47 = num46 + Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 769) / 10.0)) * 7;
+            val2 += Math.Min(20,  Math.Round( (this.game.ScreenHeight - 769) / 10.0));
+            num47 = num46 + Math.Min(20,  Math.Round( (this.game.ScreenHeight - 769) / 10.0)) * 7;
           }
           let mut num48: i32 =  Math.Max(2, val2);
           let mut num49: i32 =  1;
@@ -1080,7 +1080,7 @@ namespace WindowsApplication1
         }
         else if (this.game.ScreenHeight >= 1040)
         {
-          if (Information.IsNothing((object) this.cacheList))
+          if (Information.IsNothing( this.cacheList))
             this.cacheList = "";
           let mut id5: i32 =  this.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
           this.game.EventRelatedObj.IO_AddClear();
@@ -1093,8 +1093,8 @@ namespace WindowsApplication1
           }
           if (this.game.ScreenHeight > 1080)
           {
-            val2 += Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 1080) / 10.0));
-            num47 = num51 + Math.Min(20,  Math.Round((double) (this.game.ScreenHeight - 1080) / 10.0)) * 7;
+            val2 += Math.Min(20,  Math.Round( (this.game.ScreenHeight - 1080) / 10.0));
+            num47 = num51 + Math.Min(20,  Math.Round( (this.game.ScreenHeight - 1080) / 10.0)) * 7;
           }
           let mut num52: i32 =  Math.Max(4, val2);
           let mut num53: i32 =  1;
@@ -1164,7 +1164,7 @@ namespace WindowsApplication1
             this.SubPartFlag[this.SubpartNr(this.profId)] = true;
         }
       }
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
       objgraphics = (Graphics) null;
@@ -1351,13 +1351,13 @@ namespace WindowsApplication1
             {
               if (index2 != this.game.EditObj.UnitSelected)
               {
-                if ((double) this.game.Data.RuleVar[701] > 0.0)
+                if ( this.game.Data.RuleVar[701] > 0.0)
                 {
                   ScreenClass screeny = this.formref.Screeny;
                   Type type = typeof (MapWindowClass2);
                    Type local =  type;
                   MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-                  if (!Information.IsNothing((object) window))
+                  if (!Information.IsNothing( window))
                   {
                     this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                     this.game.EditObj.UnitSelected = index2;
@@ -1398,7 +1398,7 @@ namespace WindowsApplication1
                   return windowReturnClass1;
                 }
               }
-              else if ((double) this.game.Data.RuleVar[701] > 0.0)
+              else if ( this.game.Data.RuleVar[701] > 0.0)
               {
                 this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                 this.game.EditObj.UnitSelected = index2;

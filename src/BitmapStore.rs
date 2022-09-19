@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Runtime.CompilerServices;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
 
 namespace WindowsApplication1
 {
@@ -44,13 +44,13 @@ namespace WindowsApplication1
 
     pub static void Dispose(int nr)
     {
-      if (!Information.IsNothing((object) BitmapStore.tmpBitmap[nr]))
+      if (!Information.IsNothing( BitmapStore.tmpBitmap[nr]))
         BitmapStore.tmpBitmap[nr].Dispose();
       BitmapStore.tmpBitmap[nr] = (Bitmap) null;
-      if (!Information.IsNothing((object) BitmapStore.tmpBigBitmap[nr]))
+      if (!Information.IsNothing( BitmapStore.tmpBigBitmap[nr]))
         BitmapStore.tmpBigBitmap[nr].Dispose();
       BitmapStore.tmpBigBitmap[nr] = (Bitmap) null;
-      if (!Information.IsNothing((object) BitmapStore.tmpSmallBitmap[nr]))
+      if (!Information.IsNothing( BitmapStore.tmpSmallBitmap[nr]))
         BitmapStore.tmpSmallBitmap[nr].Dispose();
       BitmapStore.tmpSmallBitmap[nr] = (Bitmap) null;
     }
@@ -66,7 +66,7 @@ namespace WindowsApplication1
         {
           if (nr == 448)
             nr = nr;
-          if (!Information.IsNothing((object) BitmapStore.tmpBitmap[nr]))
+          if (!Information.IsNothing( BitmapStore.tmpBitmap[nr]))
             BitmapStore.ReloadFile(nr, BitmapStore.tmpFileName[nr], BitmapStore.tmpIsSystem[nr], BitmapStore.tmpIsBig[nr], forceReload: true);
           else if (BitmapStore.simpleByteCacheSet[nr])
             BitmapStore.ReloadFile(nr, BitmapStore.tmpFileName[nr], BitmapStore.tmpIsSystem[nr], BitmapStore.tmpIsBig[nr], forceReload: true);
@@ -86,9 +86,9 @@ namespace WindowsApplication1
           filename: String = str.Replace(spart, newSpart);
           if (Operators.CompareString(BitmapStore.oldFileName[nr], "", false) == 0)
           {
-            if (!Information.IsNothing((object) BitmapStore.tmpBitmap[nr]))
+            if (!Information.IsNothing( BitmapStore.tmpBitmap[nr]))
               BitmapStore.ReloadFile(nr, filename, BitmapStore.tmpIsSystem[nr], BitmapStore.tmpIsBig[nr], true, true);
-            else if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr]))
+            else if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr]))
               BitmapStore.ReloadFile(nr, filename, BitmapStore.tmpIsSystem[nr], BitmapStore.tmpIsBig[nr], true, true);
           }
         }
@@ -107,26 +107,26 @@ namespace WindowsApplication1
       {
         if (Strings.InStr(Strings.LCase(BitmapStore.tmpFileName[nr].Replace("\\", "/").Replace("//", "/")), Strings.LCase(spart)) > 0)
         {
-          if (!Information.IsNothing((object) BitmapStore.tmpBitmap[nr]))
+          if (!Information.IsNothing( BitmapStore.tmpBitmap[nr]))
           {
             if (!BitmapStore.tmpRecolorDone[nr])
             {
               gray = true;
               DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref BitmapStore.tmpBitmap[nr], effectStrength);
-              if (!Information.IsNothing((object) BitmapStore.tmpBigBitmap[nr]))
+              if (!Information.IsNothing( BitmapStore.tmpBigBitmap[nr]))
                 DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref BitmapStore.tmpBigBitmap[nr], effectStrength);
-              if (!Information.IsNothing((object) BitmapStore.tmpSmallBitmap[nr]))
+              if (!Information.IsNothing( BitmapStore.tmpSmallBitmap[nr]))
                 DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref BitmapStore.tmpSmallBitmap[nr], effectStrength);
               BitmapStore.tmpRecolorDone[nr] = true;
             }
           }
-          else if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr]) & !BitmapStore.tmpRecolorDone[nr])
+          else if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr]) & !BitmapStore.tmpRecolorDone[nr])
           {
             BitmapStore.ReloadFile(nr, BitmapStore.tmpFileName[nr], BitmapStore.tmpIsSystem[nr], BitmapStore.tmpIsBig[nr], forceReload: true);
             DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref BitmapStore.tmpBitmap[nr], effectStrength);
-            if (!Information.IsNothing((object) BitmapStore.tmpBigBitmap[nr]))
+            if (!Information.IsNothing( BitmapStore.tmpBigBitmap[nr]))
               DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref BitmapStore.tmpBigBitmap[nr], effectStrength);
-            if (!Information.IsNothing((object) BitmapStore.tmpSmallBitmap[nr]))
+            if (!Information.IsNothing( BitmapStore.tmpSmallBitmap[nr]))
               DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref BitmapStore.tmpSmallBitmap[nr], effectStrength);
             gray = true;
             BitmapStore.tmpRecolorDone[nr] = true;
@@ -151,20 +151,20 @@ namespace WindowsApplication1
       {
         if (Strings.InStr(Strings.LCase(BitmapStore.tmpFileName[index].Replace("\\", "/").Replace("//", "/")), Strings.LCase(spart)) > 0)
         {
-          if (!Information.IsNothing((object) BitmapStore.tmpBitmap[index]))
+          if (!Information.IsNothing( BitmapStore.tmpBitmap[index]))
           {
             if (!BitmapStore.tmpRecolorDone[index])
             {
               flag = true;
               DrawMod.ModifyColorOfBitmapHighSpeed(ref BitmapStore.tmpBitmap[index], fr, fg, fb, tr, tg, tb);
-              if (!Information.IsNothing((object) BitmapStore.tmpBigBitmap[index]))
+              if (!Information.IsNothing( BitmapStore.tmpBigBitmap[index]))
                 DrawMod.ModifyColorOfBitmapHighSpeed(ref BitmapStore.tmpBigBitmap[index], fr, fg, fb, tr, tg, tb);
-              if (!Information.IsNothing((object) BitmapStore.tmpSmallBitmap[index]))
+              if (!Information.IsNothing( BitmapStore.tmpSmallBitmap[index]))
                 DrawMod.ModifyColorOfBitmapHighSpeed(ref BitmapStore.tmpSmallBitmap[index], fr, fg, fb, tr, tg, tb);
               BitmapStore.tmpRecolorDone[index] = true;
             }
           }
-          else if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[index]) & !BitmapStore.tmpRecolorDone[index])
+          else if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[index]) & !BitmapStore.tmpRecolorDone[index])
           {
             flag = true;
             BitmapStore.tmpRecolorDone[index] = true;
@@ -196,7 +196,7 @@ namespace WindowsApplication1
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
-      bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       if (bitmap2.GetPixel(0, 0) == Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 0, (int) byte.MaxValue))
         bitmap2.MakeTransparent(Color.FromArgb((int) byte.MaxValue, (int) byte.MaxValue, 0, (int) byte.MaxValue));
       else if (Strings.InStr(filename, ".png") <= 0)
@@ -215,8 +215,8 @@ namespace WindowsApplication1
       int memorySize;
       for (let mut index: i32 =  0; index <= counter; index += 1)
       {
-        if (!Information.IsNothing((object) BitmapStore.tmpBitmap[index]))
-          memorySize += (int) Math.Round((double) (32 * BitmapStore.tmpBitmap[index].Width * BitmapStore.tmpBitmap[index].Height) / 8000.0);
+        if (!Information.IsNothing( BitmapStore.tmpBitmap[index]))
+          memorySize += (int) Math.Round( (32 * BitmapStore.tmpBitmap[index].Width * BitmapStore.tmpBitmap[index].Height) / 8000.0);
       }
       return memorySize;
     }
@@ -229,39 +229,39 @@ namespace WindowsApplication1
           switch (zoomnr)
           {
             case -1:
-              return !Information.IsNothing((object) BitmapStore.tmpSmallBitmap[nr]) ? (int) Math.Round((double) (4 * BitmapStore.tmpSmallBitmap[nr].Width * BitmapStore.tmpSmallBitmap[nr].Height) / 1024.0) : 0;
+              return !Information.IsNothing( BitmapStore.tmpSmallBitmap[nr]) ? (int) Math.Round( (4 * BitmapStore.tmpSmallBitmap[nr].Width * BitmapStore.tmpSmallBitmap[nr].Height) / 1024.0) : 0;
             case 0:
-              return !Information.IsNothing((object) BitmapStore.tmpBitmap[nr]) ? (int) Math.Round((double) (4 * BitmapStore.tmpBitmap[nr].Width * BitmapStore.tmpBitmap[nr].Height) / 1024.0) : 0;
+              return !Information.IsNothing( BitmapStore.tmpBitmap[nr]) ? (int) Math.Round( (4 * BitmapStore.tmpBitmap[nr].Width * BitmapStore.tmpBitmap[nr].Height) / 1024.0) : 0;
             case 1:
-              return !Information.IsNothing((object) BitmapStore.tmpBigBitmap[nr]) ? (int) Math.Round((double) (4 * BitmapStore.tmpBigBitmap[nr].Width * BitmapStore.tmpBigBitmap[nr].Height) / 1024.0) : 0;
+              return !Information.IsNothing( BitmapStore.tmpBigBitmap[nr]) ? (int) Math.Round( (4 * BitmapStore.tmpBigBitmap[nr].Width * BitmapStore.tmpBigBitmap[nr].Height) / 1024.0) : 0;
           }
           break;
         case 2:
-          if (Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr]))
+          if (Information.IsNothing( BitmapStore.simpleByteCacheObj[nr]))
             return 0;
           int num1;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].cacheBig))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].cacheBig))
           {
             int num2;
             num1 = num2 + BitmapStore.simpleByteCacheObj[nr].cacheBig.Length;
           }
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].singleCacheBig))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].singleCacheBig))
             num1 += BitmapStore.simpleByteCacheObj[nr].singleCacheBig.Length;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].singleFredCacheBig))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].singleFredCacheBig))
             num1 += BitmapStore.simpleByteCacheObj[nr].singleFredCacheBig.Length;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].cacheMed))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].cacheMed))
             num1 += BitmapStore.simpleByteCacheObj[nr].cacheMed.Length;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].singleCacheMed))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].singleCacheMed))
             num1 += BitmapStore.simpleByteCacheObj[nr].singleCacheMed.Length;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].singleFredCacheMed))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].singleFredCacheMed))
             num1 += BitmapStore.simpleByteCacheObj[nr].singleFredCacheMed.Length;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].cacheSmall))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].cacheSmall))
             num1 += BitmapStore.simpleByteCacheObj[nr].cacheSmall.Length;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].singleCacheSmall))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].singleCacheSmall))
             num1 += BitmapStore.simpleByteCacheObj[nr].singleCacheSmall.Length;
-          if (!Information.IsNothing((object) BitmapStore.simpleByteCacheObj[nr].singleFredCacheSmall))
+          if (!Information.IsNothing( BitmapStore.simpleByteCacheObj[nr].singleFredCacheSmall))
             num1 += BitmapStore.simpleByteCacheObj[nr].singleFredCacheSmall.Length;
-          return (int) Math.Round((double) num1 / 1024.0);
+          return (int) Math.Round( num1 / 1024.0);
       }
       int memorySize;
       return memorySize;
@@ -271,11 +271,11 @@ namespace WindowsApplication1
     {
       BitmapStore.GraphicsPath = s;
       BitmapStore.SmallShape = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + "systemgraphics/smallshape.png");
-      BitmapStore.SmallShape.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      BitmapStore.SmallShape.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       BitmapStore.MediumShape = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + "systemgraphics/mediumshape.png");
-      BitmapStore.MediumShape.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      BitmapStore.MediumShape.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       BitmapStore.BigShape = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + "systemgraphics/bigshape.png");
-      BitmapStore.BigShape.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      BitmapStore.BigShape.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
     }
 
     pub static void RemoveBitmapNr(int nr)
@@ -319,7 +319,7 @@ namespace WindowsApplication1
       let mut counter: i32 =  BitmapStore.Counter;
       for (let mut nr: i32 =  0; nr <= counter; nr += 1)
       {
-        if (!Information.IsNothing((object) BitmapStore.oldFileName[nr]) && BitmapStore.oldFileName[nr].Length > 1)
+        if (!Information.IsNothing( BitmapStore.oldFileName[nr]) && BitmapStore.oldFileName[nr].Length > 1)
         {
           BitmapStore.ReloadFile(nr, BitmapStore.oldFileName[nr], BitmapStore.tmpIsSystem[nr], BitmapStore.tmpIsBig[nr]);
           BitmapStore.oldFileName[nr] = "";
@@ -330,7 +330,7 @@ namespace WindowsApplication1
 
     pub static bool IsKnownTransBitmap(int nr)
     {
-      if (Information.IsNothing((object) BitmapStore.tmpKnownTransparent))
+      if (Information.IsNothing( BitmapStore.tmpKnownTransparent))
         BitmapStore.SetKnownTransparents();
       if (BitmapStore.tmpKnownTransparent.GetUpperBound(0) < BitmapStore.Counter)
         BitmapStore.SetKnownTransparents();
@@ -436,9 +436,9 @@ namespace WindowsApplication1
             Number = Number;
           string path;
           if (Operators.CompareString(ns, "", false) == 0)
-            path = DrawMod.TGame.AppPath + "graphics/systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png";
+            path = DrawMod.TGame.AppPath + "graphics/systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png";
           else
-            path = DrawMod.TGame.AppPath + "graphics/" + ns + "/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png";
+            path = DrawMod.TGame.AppPath + "graphics/" + ns + "/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png";
           let mut gfxReplaceCounter: i32 =  DrawMod.TGame.ModGfxReplaceCounter;
           for (let mut index: i32 =  1; index <= gfxReplaceCounter; index += 1)
           {
@@ -454,17 +454,17 @@ namespace WindowsApplication1
             DrawMod.TGame.NATO = (int[]) Utils.CopyArray((Array) DrawMod.TGame.NATO, (Array) new int[Number + 1]);
             num = 1;
             if (Operators.CompareString(ns, "", false) == 0)
-              DrawMod.TGame.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png", true, true);
+              DrawMod.TGame.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png", true, true);
             else
-              DrawMod.TGame.NATO[Number] = BitmapStore.AddFile(ns + "/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png", true, true);
+              DrawMod.TGame.NATO[Number] = BitmapStore.AddFile(ns + "/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png", true, true);
           }
           else if (Operators.CompareString(ns, "", false) != 0)
           {
-            if (File.Exists(DrawMod.TGame.AppPath + "graphics/systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png"))
+            if (File.Exists(DrawMod.TGame.AppPath + "graphics/systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png"))
             {
               DrawMod.TGame.NATO = (int[]) Utils.CopyArray((Array) DrawMod.TGame.NATO, (Array) new int[Number + 1]);
               num = 1;
-              DrawMod.TGame.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png", true, true);
+              DrawMod.TGame.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + DrawMod.TGame.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png", true, true);
             }
           }
         }
@@ -526,7 +526,7 @@ namespace WindowsApplication1
         Graphics Expression;
         if (BitmapStore.tmpOverloadCounter[nr] == 1 | EventDriven)
         {
-          if (Information.IsNothing((object) BitmapStore.oldFileName[nr]))
+          if (Information.IsNothing( BitmapStore.oldFileName[nr]))
           {
             if (EventDriven)
               BitmapStore.oldFileName[nr] = BitmapStore.tmpFileName[nr];
@@ -549,13 +549,13 @@ namespace WindowsApplication1
             try
             {
               tmpbmp1 = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + String1_1);
-              tmpbmp1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+              tmpbmp1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             }
             catch (Exception ex)
             {
               ProjectData.SetProjectError(ex);
               tmpbmp1 = new Bitmap(BitmapStore.tmpBitmap[nr].Width * 2, BitmapStore.tmpBitmap[nr].Height * 2, PixelFormat.Format32bppPArgb);
-              tmpbmp1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+              tmpbmp1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               let mut num1: i32 =  BitmapStore.tmpBitmap[nr].Height - 1;
               for (let mut y: i32 =  0; y <= num1; y += 1)
               {
@@ -591,8 +591,8 @@ namespace WindowsApplication1
             catch (Exception ex)
             {
               ProjectData.SetProjectError(ex);
-              tmpbmp2 = new Bitmap((int) Math.Round(Conversion.Int((double) BitmapStore.tmpBitmap[nr].Width / 2.0)), (int) Math.Round(Conversion.Int((double) BitmapStore.tmpBitmap[nr].Height / 2.0)), PixelFormat.Format32bppPArgb);
-              tmpbmp2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+              tmpbmp2 = new Bitmap((int) Math.Round(Conversion.Int( BitmapStore.tmpBitmap[nr].Width / 2.0)), (int) Math.Round(Conversion.Int( BitmapStore.tmpBitmap[nr].Height / 2.0)), PixelFormat.Format32bppPArgb);
+              tmpbmp2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               if (tmpbmp2.Height == 24 | tmpbmp2.Height == 264 & tmpbmp2.Width == 192)
               {
                 let mut num3: i32 =  tmpbmp2.Height - 1;
@@ -655,10 +655,10 @@ namespace WindowsApplication1
                       }
                       if (num9 > 0)
                       {
-                        let mut red: i32 =  (int) Math.Round((double) num5 / (double) num9);
-                        let mut green: i32 =  (int) Math.Round((double) num6 / (double) num9);
-                        let mut blue: i32 =  (int) Math.Round((double) num7 / (double) num9);
-                        let mut alpha: i32 =  (int) Math.Round((double) num8 / (double) num9);
+                        let mut red: i32 =  (int) Math.Round( num5 /  num9);
+                        let mut green: i32 =  (int) Math.Round( num6 /  num9);
+                        let mut blue: i32 =  (int) Math.Round( num7 /  num9);
+                        let mut alpha: i32 =  (int) Math.Round( num8 /  num9);
                         if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                         {
                           alpha = (int) byte.MaxValue;
@@ -754,10 +754,10 @@ namespace WindowsApplication1
                     }
                     if (num16 > 0)
                     {
-                      let mut red: i32 =  (int) Math.Round((double) num12 / (double) num16);
-                      let mut green: i32 =  (int) Math.Round((double) num13 / (double) num16);
-                      let mut blue: i32 =  (int) Math.Round((double) num14 / (double) num16);
-                      let mut alpha: i32 =  (int) Math.Round((double) num15 / (double) num16);
+                      let mut red: i32 =  (int) Math.Round( num12 /  num16);
+                      let mut green: i32 =  (int) Math.Round( num13 /  num16);
+                      let mut blue: i32 =  (int) Math.Round( num14 /  num16);
+                      let mut alpha: i32 =  (int) Math.Round( num15 /  num16);
                       if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                       {
                         alpha = (int) byte.MaxValue;
@@ -782,7 +782,7 @@ namespace WindowsApplication1
             }
             BitmapStore.tmpSmallBitmap[nr] = tmpbmp2;
           }
-          if (!Information.IsNothing((object) Expression))
+          if (!Information.IsNothing( Expression))
           {
             Expression.Dispose();
             Expression = (Graphics) null;
@@ -796,7 +796,7 @@ namespace WindowsApplication1
           BitmapStore.tmpOverloadCounter[nr] = BitmapStore.tmpOverloadCounter[nr] - 1;
           if (EventDriven)
             BitmapStore.oldFileName[nr] = BitmapStore.tmpFileName[nr];
-          if (!Information.IsNothing((object) Expression))
+          if (!Information.IsNothing( Expression))
           {
             Expression.Dispose();
             Expression = (Graphics) null;
@@ -840,7 +840,7 @@ namespace WindowsApplication1
       if (index1 > -1 & !forceReload)
       {
         BitmapStore.tmpOverloadCounter[index1] = BitmapStore.tmpOverloadCounter[index1] + 1;
-        if (!Information.IsNothing((object) Expression))
+        if (!Information.IsNothing( Expression))
         {
           Expression.Dispose();
           Expression = (Graphics) null;
@@ -891,7 +891,7 @@ namespace WindowsApplication1
           try
           {
             tmpbmp = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + filename);
-            tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
           }
           catch (Exception ex)
           {
@@ -901,12 +901,12 @@ namespace WindowsApplication1
               if (Strings.InStr(filename.ToLower(), "air") > 0)
               {
                 tmpbmp = new Bitmap(64, 48, PixelFormat.Format32bppPArgb);
-                tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+                tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               }
-              else if (Interaction.MsgBox((object) ("Did not find: " + BitmapStore.GraphicsPath + filename + "  Do you want to continue?"), MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
+              else if (Interaction.MsgBox( ("Did not find: " + BitmapStore.GraphicsPath + filename + "  Do you want to continue?"), MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
               {
                 tmpbmp = new Bitmap(64, 48, PixelFormat.Format32bppPArgb);
-                tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+                tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               }
               else
                 ProjectData.EndApp();
@@ -914,7 +914,7 @@ namespace WindowsApplication1
             else
             {
               tmpbmp = new Bitmap(1, 1);
-              tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+              tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               flag = true;
             }
             ProjectData.ClearProjectError();
@@ -937,12 +937,12 @@ namespace WindowsApplication1
               try
               {
                 tmpbmp = BitmapStore.LoadBitmap(BitmapStore.GraphicsPath + String1_1);
-                tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+                tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               }
               catch (Exception ex)
               {
                 ProjectData.SetProjectError(ex);
-                let mut num: i32 =  (int) Interaction.MsgBox((object) ("Faulty File " + String1_1));
+                let mut num: i32 =  (int) Interaction.MsgBox( ("Faulty File " + String1_1));
                 ProjectData.ClearProjectError();
               }
             }
@@ -952,7 +952,7 @@ namespace WindowsApplication1
           else
           {
             tmpbmp = new Bitmap(BitmapStore.tmpBitmap[BitmapStore.Counter].Width * 2, BitmapStore.tmpBitmap[BitmapStore.Counter].Height * 2, PixelFormat.Format32bppPArgb);
-            tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             let mut num1: i32 =  BitmapStore.tmpBitmap[BitmapStore.Counter].Height - 1;
             for (let mut y: i32 =  0; y <= num1; y += 1)
             {
@@ -992,7 +992,7 @@ namespace WindowsApplication1
               catch (Exception ex)
               {
                 ProjectData.SetProjectError(ex);
-                let mut num: i32 =  (int) Interaction.MsgBox((object) ("Faulty File " + String1_2));
+                let mut num: i32 =  (int) Interaction.MsgBox( ("Faulty File " + String1_2));
                 ProjectData.ClearProjectError();
               }
             }
@@ -1001,8 +1001,8 @@ namespace WindowsApplication1
           }
           else
           {
-            tmpbmp = new Bitmap((int) Math.Round(Conversion.Int((double) BitmapStore.tmpBitmap[BitmapStore.Counter].Width / 2.0)), (int) Math.Round(Conversion.Int((double) BitmapStore.tmpBitmap[BitmapStore.Counter].Height / 2.0)), PixelFormat.Format32bppPArgb);
-            tmpbmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            tmpbmp = new Bitmap((int) Math.Round(Conversion.Int( BitmapStore.tmpBitmap[BitmapStore.Counter].Width / 2.0)), (int) Math.Round(Conversion.Int( BitmapStore.tmpBitmap[BitmapStore.Counter].Height / 2.0)), PixelFormat.Format32bppPArgb);
+            tmpbmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             if (tmpbmp.Height == 24 | tmpbmp.Height == 264 & tmpbmp.Width == 192)
             {
               let mut num3: i32 =  tmpbmp.Height - 1;
@@ -1065,10 +1065,10 @@ namespace WindowsApplication1
                     }
                     if (num9 > 0)
                     {
-                      let mut red: i32 =  (int) Math.Round((double) num5 / (double) num9);
-                      let mut green: i32 =  (int) Math.Round((double) num6 / (double) num9);
-                      let mut blue: i32 =  (int) Math.Round((double) num7 / (double) num9);
-                      let mut alpha: i32 =  (int) Math.Round((double) num8 / (double) num9);
+                      let mut red: i32 =  (int) Math.Round( num5 /  num9);
+                      let mut green: i32 =  (int) Math.Round( num6 /  num9);
+                      let mut blue: i32 =  (int) Math.Round( num7 /  num9);
+                      let mut alpha: i32 =  (int) Math.Round( num8 /  num9);
                       if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                       {
                         alpha = (int) byte.MaxValue;
@@ -1164,10 +1164,10 @@ namespace WindowsApplication1
                   }
                   if (num16 > 0)
                   {
-                    let mut red: i32 =  (int) Math.Round((double) num12 / (double) num16);
-                    let mut green: i32 =  (int) Math.Round((double) num13 / (double) num16);
-                    let mut blue: i32 =  (int) Math.Round((double) num14 / (double) num16);
-                    let mut alpha: i32 =  (int) Math.Round((double) num15 / (double) num16);
+                    let mut red: i32 =  (int) Math.Round( num12 /  num16);
+                    let mut green: i32 =  (int) Math.Round( num13 /  num16);
+                    let mut blue: i32 =  (int) Math.Round( num14 /  num16);
+                    let mut alpha: i32 =  (int) Math.Round( num15 /  num16);
                     if (Strings.InStr(String1_2, ".bmp") > 0 & alpha == 0)
                     {
                       alpha = (int) byte.MaxValue;
@@ -1200,7 +1200,7 @@ namespace WindowsApplication1
           if (coordinate.x == -1)
             BitmapStore.tmpSmallBitmap[BitmapStore.Counter] = tmpbmp;
         }
-        if (!Information.IsNothing((object) Expression))
+        if (!Information.IsNothing( Expression))
         {
           Expression.Dispose();
           Expression = (Graphics) null;
@@ -1221,12 +1221,12 @@ namespace WindowsApplication1
         if (Strings.InStr(filename.ToLower(), "air") > 0)
         {
           bitmap = new Bitmap(64, 48, PixelFormat.Format32bppPArgb);
-          bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         }
-        else if (Interaction.MsgBox((object) ("Did not find: " + BitmapStore.GraphicsPath + filename + "  Do you want to continue?"), MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
+        else if (Interaction.MsgBox( ("Did not find: " + BitmapStore.GraphicsPath + filename + "  Do you want to continue?"), MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
         {
           bitmap = new Bitmap(64, 48, PixelFormat.Format32bppPArgb);
-          bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         }
         else
           ProjectData.EndApp();
@@ -1249,7 +1249,7 @@ namespace WindowsApplication1
         {
           ProjectData.SetProjectError(ex);
           tmpbmp1 = new Bitmap(BitmapStore.tmpBitmap[index1].Width * 2, BitmapStore.tmpBitmap[index1].Height * 2, PixelFormat.Format32bppPArgb);
-          tmpbmp1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          tmpbmp1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
           let mut num17: i32 =  BitmapStore.tmpBitmap[index1].Height - 1;
           for (let mut y: i32 =  0; y <= num17; y += 1)
           {
@@ -1287,8 +1287,8 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          tmpbmp2 = new Bitmap((int) Math.Round(Conversion.Int((double) BitmapStore.tmpBitmap[index1].Width / 2.0)), (int) Math.Round(Conversion.Int((double) BitmapStore.tmpBitmap[index1].Height / 2.0)), PixelFormat.Format32bppPArgb);
-          tmpbmp2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          tmpbmp2 = new Bitmap((int) Math.Round(Conversion.Int( BitmapStore.tmpBitmap[index1].Width / 2.0)), (int) Math.Round(Conversion.Int( BitmapStore.tmpBitmap[index1].Height / 2.0)), PixelFormat.Format32bppPArgb);
+          tmpbmp2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
           if (tmpbmp2.Height == 24 | tmpbmp2.Height == 264 & tmpbmp2.Width == 192)
           {
             let mut num19: i32 =  tmpbmp2.Height - 1;
@@ -1351,10 +1351,10 @@ namespace WindowsApplication1
                   }
                   if (num25 > 0)
                   {
-                    let mut red: i32 =  (int) Math.Round((double) num21 / (double) num25);
-                    let mut green: i32 =  (int) Math.Round((double) num22 / (double) num25);
-                    let mut blue: i32 =  (int) Math.Round((double) num23 / (double) num25);
-                    let mut alpha: i32 =  (int) Math.Round((double) num24 / (double) num25);
+                    let mut red: i32 =  (int) Math.Round( num21 /  num25);
+                    let mut green: i32 =  (int) Math.Round( num22 /  num25);
+                    let mut blue: i32 =  (int) Math.Round( num23 /  num25);
+                    let mut alpha: i32 =  (int) Math.Round( num24 /  num25);
                     if (Strings.InStr(String1_4, ".bmp") > 0 & alpha == 0)
                     {
                       alpha = (int) byte.MaxValue;
@@ -1450,10 +1450,10 @@ namespace WindowsApplication1
                 }
                 if (num32 > 0)
                 {
-                  let mut red: i32 =  (int) Math.Round((double) num28 / (double) num32);
-                  let mut green: i32 =  (int) Math.Round((double) num29 / (double) num32);
-                  let mut blue: i32 =  (int) Math.Round((double) num30 / (double) num32);
-                  let mut alpha: i32 =  (int) Math.Round((double) num31 / (double) num32);
+                  let mut red: i32 =  (int) Math.Round( num28 /  num32);
+                  let mut green: i32 =  (int) Math.Round( num29 /  num32);
+                  let mut blue: i32 =  (int) Math.Round( num30 /  num32);
+                  let mut alpha: i32 =  (int) Math.Round( num31 /  num32);
                   if (Strings.InStr(String1_4, ".bmp") > 0 & alpha == 0)
                   {
                     alpha = (int) byte.MaxValue;
@@ -1486,7 +1486,7 @@ namespace WindowsApplication1
         }
         BitmapStore.tmpSmallBitmap[index1] = tmpbmp2;
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -1584,7 +1584,7 @@ namespace WindowsApplication1
     {
       if (zoom != -1)
         return BitmapStore.tmpWidth[nr] * (zoom + 1);
-      return Information.IsNothing((object) BitmapStore.tmpSmallBitmap[nr]) ? 0 : BitmapStore.tmpSmallBitmap[nr].Width;
+      return Information.IsNothing( BitmapStore.tmpSmallBitmap[nr]) ? 0 : BitmapStore.tmpSmallBitmap[nr].Width;
     }
 
     pub static int Getheight(int nr, let mut zoom: i32 =  0) => zoom == -1 ? BitmapStore.tmpSmallBitmap[nr].Height : BitmapStore.tmpBitmap[nr].Height * (zoom + 1);
@@ -1640,11 +1640,11 @@ namespace WindowsApplication1
         {
           if (num == -1)
             num = index;
-          if (!Information.IsNothing((object) BitmapStore.tmpBitmap[index]))
+          if (!Information.IsNothing( BitmapStore.tmpBitmap[index]))
             BitmapStore.tmpBitmap[index].Dispose();
-          if (!Information.IsNothing((object) BitmapStore.tmpBigBitmap[index]))
+          if (!Information.IsNothing( BitmapStore.tmpBigBitmap[index]))
             BitmapStore.tmpBigBitmap[index].Dispose();
-          if (!Information.IsNothing((object) BitmapStore.tmpSmallBitmap[index]))
+          if (!Information.IsNothing( BitmapStore.tmpSmallBitmap[index]))
             BitmapStore.tmpSmallBitmap[index].Dispose();
           BitmapStore.tmpBitmap[index] = (Bitmap) null;
           BitmapStore.tmpBigBitmap[index] = (Bitmap) null;
@@ -1679,7 +1679,7 @@ namespace WindowsApplication1
       let mut gfxSheetCount: i32 =  BitmapStore.GfxSheetCount;
       for (let mut index: i32 =  1; index <= gfxSheetCount; index += 1)
       {
-        if (!Information.IsNothing((object) BitmapStore.GfxSheetObj[index].Bmp))
+        if (!Information.IsNothing( BitmapStore.GfxSheetObj[index].Bmp))
           BitmapStore.GfxSheetObj[index].Bmp.Dispose();
       }
       BitmapStore.GfxSheetObj = new GfxSheetClass[1];

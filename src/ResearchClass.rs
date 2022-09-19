@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.Serialization;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.Serialization;
 
 namespace WindowsApplication1
 {
@@ -15,7 +15,7 @@ namespace WindowsApplication1
   {
     pub Name: String;
     pub Text: String;
-    pub int[] PointCost;
+    pub PointCost: Vec<i32>;
     pub SFTypePic: i32;
     pub PreReq: i32;
     pub PreReq2: i32;
@@ -26,9 +26,9 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
-      info.AddValue("Text", (object) this.Text);
-      info.AddValue("PointCost", (object) this.PointCost);
+      info.AddValue("Name",  this.Name);
+      info.AddValue("Text",  this.Text);
+      info.AddValue("PointCost",  this.PointCost);
       info.AddValue("SFTypePic", this.SFTypePic);
       info.AddValue("PreReq", this.PreReq);
       info.AddValue("PreReq2", this.PreReq2);

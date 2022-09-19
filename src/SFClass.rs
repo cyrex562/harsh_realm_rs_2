@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -34,7 +34,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (SFClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -126,7 +126,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.OptionsList2Id);
         this.OptionsList2Id = 0;
       }
-      let mut num1: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.w - 1024) / 2.0);
       this.NewBackGroundAndClearAll(this.w, this.h, this.game.MARCBOTBAR);
       this.ClearMouse();
       Graphics objgraphics = Graphics.FromImage((Image) this.OwnBitmap);
@@ -142,7 +142,7 @@ namespace WindowsApplication1
       }
       else if (this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[orderUnit].Historical].ModelMaster == -1)
       {
-        tstring = "Unit is currently an ad hoc formation." + " Current unit consists of " + Conversion.Str((object) Number1) + " subunits.";
+        tstring = "Unit is currently an ad hoc formation." + " Current unit consists of " + Conversion.Str( Number1) + " subunits.";
         hisnr = -1;
       }
       else
@@ -155,7 +155,7 @@ namespace WindowsApplication1
           if (this.game.Data.UnitObj[index].PreDef == -1 && this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[orderUnit].Historical)
             Number2 += 1;
         }
-        tstring = str + " Current unit consists of " + Conversion.Str((object) Number2) + " subunits.";
+        tstring = str + " Current unit consists of " + Conversion.Str( Number2) + " subunits.";
         hisnr = this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[orderUnit].Historical].ModelMaster;
       }
       DrawMod.DrawTextColouredMarc(ref objgraphics, tstring, this.game.MarcFont4, num1 + 15, 10, Color.White);
@@ -170,7 +170,7 @@ namespace WindowsApplication1
           num2 += 1;
           if (index == this.detailnr)
             tlistselect1 = num2;
-          this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[index].Name, index, Conversion.Str((object) this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(index)) + " units", this.game.Data.HistoricalUnitObj[index].PP.ToString() + "PP");
+          this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[index].Name, index, Conversion.Str( this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(index)) + " units", this.game.Data.HistoricalUnitObj[index].PP.ToString() + "PP");
         }
       }
       if (this.OptionsListId > 0)
@@ -212,7 +212,7 @@ namespace WindowsApplication1
         ;
       if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical <= -1)
         ;
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
     }

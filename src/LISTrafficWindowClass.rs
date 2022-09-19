@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -114,7 +114,7 @@ namespace WindowsApplication1
       libName: String = "SE_Data";
       let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 148, 0, 0));
       let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 144, 0, 0));
-      let mut stringListById3: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[405]));
+      let mut stringListById3: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[405]));
       let mut stringListById4: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID(libName, 210, 0, 0));
       if (this.okid > 0)
       {
@@ -286,14 +286,14 @@ namespace WindowsApplication1
       DrawMod.DrawBlock( graphics1, 30, 20, 560, 700, 0, 0, 0, 95);
       SizeF sizeF1 = SizeF::new();
       SizeF sizeF2 = graphics1.MeasureString(str1, this.game.MarcFont2);
-      DrawMod.DrawTextColouredMarc( graphics1, str1, this.game.MarcFont3,  Math.Round(365.0 - (double) sizeF2.Width / 2.0), 35, Color.White);
+      DrawMod.DrawTextColouredMarc( graphics1, str1, this.game.MarcFont3,  Math.Round(365.0 -  sizeF2.Width / 2.0), 35, Color.White);
       DrawMod.DrawBlock( graphics1, 40, 70, 540, 40, 0, 0, 0, 80);
       tstring1: String = "Traffic Signs for:";
       DrawMod.DrawTextColouredMarc( graphics1, tstring1, this.game.MarcFont4, 50, 81, Color.White);
       str2: String = "Logistics Logs for " + this.game.SelectX.ToString() + "," + this.game.SelectY.ToString();
       DrawMod.DrawBlock( graphics1, 600, 20, 560, 640, 0, 0, 0, 95);
       sizeF2 = graphics1.MeasureString(str2, this.game.MarcFont2);
-      DrawMod.DrawTextColouredMarc( graphics1, str2, this.game.MarcFont3,  Math.Round(915.0 - (double) sizeF2.Width / 2.0), 35, Color.White);
+      DrawMod.DrawTextColouredMarc( graphics1, str2, this.game.MarcFont3,  Math.Round(915.0 -  sizeF2.Width / 2.0), 35, Color.White);
       NeighboursExtra lisTraffic = this.game.HandyFunctionsObj.GetLisTraffic(this.game.SelectX, this.game.SelectY);
       let mut x1: i32 =  160;
       let mut y1: i32 =  82;
@@ -357,7 +357,7 @@ namespace WindowsApplication1
       this.game.SelectX = -1;
       this.game.SelectY = -1;
       Bitmap objBitmap = new Bitmap(128, 96, PixelFormat.Format32bppPArgb);
-      objBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      objBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics2 = Graphics.FromImage((Image) objBitmap);
       CustomBitmapClass customBitmapObj = this.game.CustomBitmapObj;
       let mut cx: i32 =  num1;

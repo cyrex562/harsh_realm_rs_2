@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Runtime.InteropServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -419,7 +419,7 @@ namespace WindowsApplication1
         }
         DrawMod.DrawTextColouredMarc( g, "MUSIC", self.game.MarcFont4, num3 + 50, num4 + 8, Color.White);
         let mut num12: i32 = num4 + num5;
-        if ((double) self.game.Data.RuleVar[990] > 0.0 & self.game.Data.TempString[730].Length > 0)
+        if ( self.game.Data.RuleVar[990] > 0.0 & self.game.Data.TempString[730].Length > 0)
         {
           if (!self.game.EditObj.AlternateMusic)
           {
@@ -519,7 +519,7 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredMarc( g, "REGIME COLORING", self.game.MarcFont4, num3 + 50, num15 + 8, Color.White);
           num15 += num5;
         }
-        if ((double) self.game.Data.RuleVar[408] > 0.0)
+        if ( self.game.Data.RuleVar[408] > 0.0)
         {
           if (self.game.EditObj.HideUnit == 2)
           {
@@ -595,7 +595,7 @@ namespace WindowsApplication1
         }
         if (self.game.Data.Product != 7)
         {
-          if ((double) self.game.Data.RuleVar[976] == 1.0)
+          if ( self.game.Data.RuleVar[976] == 1.0)
           {
             if (!self.game.EditObj.ShowSameHistorical)
             {
@@ -628,7 +628,7 @@ namespace WindowsApplication1
         }
         if (self.game.Data.Product != 7)
         {
-          if ((double) self.game.Data.RuleVar[419] > 0.0)
+          if ( self.game.Data.RuleVar[419] > 0.0)
           {
             if (!self.game.EditObj.ShowAirRange)
             {
@@ -643,7 +643,7 @@ namespace WindowsApplication1
             DrawMod.DrawTextColouredMarc( g, "LINE OF SIGHT", self.game.MarcFont4, num3 + 50, num4 + 8, Color.White);
             num4 += num5;
           }
-          else if ((double) self.game.Data.RuleVar[976] < 1.0 && (double) self.game.Data.RuleVar[990] < 1.0)
+          else if ( self.game.Data.RuleVar[976] < 1.0 &&  self.game.Data.RuleVar[990] < 1.0)
           {
             if (!self.game.EditObj.ShowAirRange)
             {
@@ -761,7 +761,7 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredMarc( g, "LEFT/RIGHT CLICK INTERFACE", self.game.MarcFont4, num3 + 50, num20 + 8, Color.White);
           num20 += num5;
         }
-        if ((double) self.game.Data.RuleVar[408] > 0.0)
+        if ( self.game.Data.RuleVar[408] > 0.0)
         {
           if (!self.game.Data.PBEM | self.game.SuperAdminRights)
           {
@@ -826,15 +826,15 @@ namespace WindowsApplication1
         if (self.game.Data.Product == 7)
         {
           num25 = 1280;
-          if (!((double) self.game.RealScreenWidth >= 1600.0 * (double) num24 & (double) self.game.RealScreenHeight >= 960.0 * (double) num24))
+          if (!( self.game.RealScreenWidth >= 1600.0 *  num24 &  self.game.RealScreenHeight >= 960.0 *  num24))
             DrawMod.DrawTextColouredMarc( g, "Your need to have a resolution equal or above 1280x960 to have >100% DPI prefs. ", self.game.MarcFont4, num3, num4, Color.White);
         }
-        else if (!((double) self.game.RealScreenWidth >= 1280.0 * (double) num24 & (double) self.game.RealScreenHeight >= 960.0 * (double) num24))
+        else if (!( self.game.RealScreenWidth >= 1280.0 *  num24 &  self.game.RealScreenHeight >= 960.0 *  num24))
           DrawMod.DrawTextColouredMarc( g, "Your need to have a resolution equal or above 1280x960 to have >100% DPI prefs. ", self.game.MarcFont4, num3, num4, Color.White);
       }
       if (self.game.EditObj.DoubleSizePercentage != 75)
       {
-        if (!self.game.EditObj.DoubleSize & (double) self.game.RealScreenWidth >= (double) num25 * 1.25 * (double) num24 & (double) self.game.RealScreenHeight >= 960.0 * (double) num24)
+        if (!self.game.EditObj.DoubleSize &  self.game.RealScreenWidth >=  num25 * 1.25 *  num24 &  self.game.RealScreenHeight >= 960.0 *  num24)
         {
           tsubpart1 =  new MarcRadioPartClass(0, false, "When option is active your screen resolution will appear to be 7/8 of your real resolution.",  self.OwnBitmap, num3, num4);
           self.B17bId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
@@ -846,14 +846,14 @@ namespace WindowsApplication1
           self.B17bId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
           DrawMod.DrawTextColouredMarc( g, "7/8 RESOLUTION (125% DPI)", self.game.MarcFont4, num3 + 50, num4 + 8, Color.White);
         }
-        else if (self.game.EditObj.DoubleSize & self.game.EditObj.DoubleSizePercentage != 125 & (double) self.game.RealScreenWidth >= (double) num25 * 1.25 * (double) num24 & (double) self.game.RealScreenHeight >= 960.0 * (double) num24)
+        else if (self.game.EditObj.DoubleSize & self.game.EditObj.DoubleSizePercentage != 125 &  self.game.RealScreenWidth >=  num25 * 1.25 *  num24 &  self.game.RealScreenHeight >= 960.0 *  num24)
         {
           tsubpart1 =  new MarcRadioPartClass(0, false, "When option is active your screen resolution will appear to be 7/8 of your real resolution. ",  self.OwnBitmap, num3, num4);
           self.B17bId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
           DrawMod.DrawTextColouredMarc( g, "7/8 RESOLUTION (125% DPI)", self.game.MarcFont4, num3 + 50, num4 + 8, Color.White);
         }
         num4 += num5;
-        if (!self.game.EditObj.DoubleSize & (double) self.game.RealScreenWidth >= (double) num25 * 1.5 * (double) num24 & (double) self.game.RealScreenHeight >= 1152.0 * (double) num24)
+        if (!self.game.EditObj.DoubleSize &  self.game.RealScreenWidth >=  num25 * 1.5 *  num24 &  self.game.RealScreenHeight >= 1152.0 *  num24)
         {
           tsubpart1 =  new MarcRadioPartClass(0, false, "When option is active your screen resolution will appear to be 3/4 of your real resolution.",  self.OwnBitmap, num3, num4);
           self.B17cId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
@@ -865,7 +865,7 @@ namespace WindowsApplication1
           self.B17cId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
           DrawMod.DrawTextColouredMarc( g, "3/4 RESOLUTION (150% DPI)", self.game.MarcFont4, num3 + 50, num4 + 8, Color.White);
         }
-        else if (self.game.EditObj.DoubleSize & self.game.EditObj.DoubleSizePercentage != 150 & (double) self.game.RealScreenWidth >= (double) num25 * 1.5 * (double) num24 & (double) self.game.RealScreenHeight >= 1152.0 * (double) num24)
+        else if (self.game.EditObj.DoubleSize & self.game.EditObj.DoubleSizePercentage != 150 &  self.game.RealScreenWidth >=  num25 * 1.5 *  num24 &  self.game.RealScreenHeight >= 1152.0 *  num24)
         {
           tsubpart1 =  new MarcRadioPartClass(0, false, "When option is active your screen resolution will appear to be 3/4 of your real resolution. ",  self.OwnBitmap, num3, num4);
           self.B17cId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
@@ -873,7 +873,7 @@ namespace WindowsApplication1
         }
         if (self.B17cId > 0)
           num4 += num5;
-        if (!self.game.EditObj.DoubleSize & (double) self.game.RealScreenWidth >= (double) num25 * 1.75 * (double) num24 & (double) self.game.RealScreenHeight >= 1344.0 * (double) num24)
+        if (!self.game.EditObj.DoubleSize &  self.game.RealScreenWidth >=  num25 * 1.75 *  num24 &  self.game.RealScreenHeight >= 1344.0 *  num24)
         {
           tsubpart1 =  new MarcRadioPartClass(0, false, "When option is active your screen resolution will appear to be 5/8 of your real resolution.",  self.OwnBitmap, num3, num4);
           self.B17dId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
@@ -885,7 +885,7 @@ namespace WindowsApplication1
           self.B17dId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
           DrawMod.DrawTextColouredMarc( g, "5/8 RESOLUTION (175% DPI)", self.game.MarcFont4, num3 + 50, num4 + 8, Color.White);
         }
-        else if (self.game.EditObj.DoubleSize & self.game.EditObj.DoubleSizePercentage != 175 & (double) self.game.RealScreenWidth >= (double) num25 * 1.75 * (double) num24 & (double) self.game.RealScreenHeight >= 1344.0 * (double) num24)
+        else if (self.game.EditObj.DoubleSize & self.game.EditObj.DoubleSizePercentage != 175 &  self.game.RealScreenWidth >=  num25 * 1.75 *  num24 &  self.game.RealScreenHeight >= 1344.0 *  num24)
         {
           tsubpart1 =  new MarcRadioPartClass(0, false, "When option is active your screen resolution will appear to be 5/8 of your real resolution. ",  self.OwnBitmap, num3, num4);
           self.B17dId = self.AddSubPart( tsubpart1, num3, num4, 35, 35, 1);
@@ -946,7 +946,7 @@ namespace WindowsApplication1
         num11 = num27 + num5;
       }
       int num28;
-      if (!((double) self.game.RealScreenWidth >= (double) num25 * 1.25 * (double) num24 & (double) self.game.RealScreenHeight >= 960.0 * (double) num24))
+      if (!( self.game.RealScreenWidth >=  num25 * 1.25 *  num24 &  self.game.RealScreenHeight >= 960.0 *  num24))
       {
         num28 = num7 + num5 + num5;
       }
@@ -979,7 +979,7 @@ namespace WindowsApplication1
           self.b36id = self.AddSubPart( tsubpart1, num3 + 85, num28, 35, 35, 1);
         }
         DrawMod.DrawTextColouredMarc( g, "Skip", self.game.MarcFont4, num3 + 85 + 35, num28 + 8, Color.White);
-        if (!((double) self.game.RealScreenWidth >= (double) num25 * 1.25 * (double) num24 & (double) self.game.RealScreenHeight >= 960.0 * (double) num24))
+        if (!( self.game.RealScreenWidth >=  num25 * 1.25 *  num24 &  self.game.RealScreenHeight >= 960.0 *  num24))
         {
           let mut num29: i32 = num28 + num5;
           if (!self.game.EditObj.mouseScreenLock)
@@ -1024,7 +1024,7 @@ namespace WindowsApplication1
       DEVMODE1 lpDevMode2 = DEVMODE1::new();
       self.resList = SimpleList::new();
       Form1.EnumDisplaySettings(0, -1,  lpDevMode2);
-      lpDevMode1.dmSize = (short) Marshal.SizeOf((object) lpDevMode1);
+      lpDevMode1.dmSize = (short) Marshal.SizeOf( lpDevMode1);
       let mut iModeNum: i32 = 0;
       let mut num31: i32 = -1;
       let mut tlistselect: i32 = -1;
@@ -1604,7 +1604,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (!Information.IsNothing((object) self.resList) & self.detailnr > -1)
+              if (!Information.IsNothing( self.resList) & self.detailnr > -1)
               {
                 let mut nr: i32 = self.resList.FindNr(self.detailnr);
                 if (nr > -1)
@@ -1720,7 +1720,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.b25id)
             {
-              if (Interaction.MsgBox((object) "Quitting... are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Quitting... are you sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 self.game.Data = DataClass::new();
                 self.game.EditObj = new EditClass(self.game.AppPath + "editobj.txt");
@@ -1743,7 +1743,7 @@ namespace WindowsApplication1
                 if (self.game.Data.Round == 0)
                 {
                   str2: String = self.game.AppPath + "scenarios\\";
-                  if (!Information.IsNothing((object) self.game.Data.ScenarioDir))
+                  if (!Information.IsNothing( self.game.Data.ScenarioDir))
                   {
                     if (self.game.Data.ScenarioDir.Length > 1)
                       str1 = str2.Replace("scenarios", self.game.Data.ScenarioDir);

@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -129,7 +129,7 @@ namespace WindowsApplication1
               str2: String = this.game.Data.LocTypeObj[tdata].Name;
               if (Strings.Len(str2) > 22)
                 str2 = Strings.Left(str2, 22);
-              this.OptionsListObj.add(str2, tdata, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[tdata].EPCost)), Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[tdata].PPCost)), Strings.Trim(Conversion.Str((object)  Math.Round((double) ((float) this.game.Data.LocTypeObj[tdata].SupplyCost / this.game.Data.RuleVar[77])))));
+              this.OptionsListObj.add(str2, tdata, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[tdata].EPCost)), Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[tdata].PPCost)), Strings.Trim(Conversion.Str(  Math.Round( ( this.game.Data.LocTypeObj[tdata].SupplyCost / this.game.Data.RuleVar[77])))));
             }
           }
           if (this.OptionsListId > 0)
@@ -193,18 +193,18 @@ namespace WindowsApplication1
         this.OptionsList2Obj = ATListClass::new();
         str4: String = "0";
         if (this.game.EditObj.OrderUnit > -1)
-          str4 = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit)));
-        str5: String = Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.detailnr].EPCost));
+          str4 = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit)));
+        str5: String = Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.detailnr].EPCost));
         tvalue3_1: String = Conversion.Val(str4) < Conversion.Val(str5) ? "SHORT" : "OK";
         this.OptionsList2Obj.add("EP", -1, str5, str4, tvalue3_1);
-        str6: String = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts));
-        str7: String = Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.detailnr].PPCost));
+        str6: String = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts));
+        str7: String = Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.detailnr].PPCost));
         tvalue3_2: String = Conversion.Val(str6) < Conversion.Val(str7) ? "SHORT" : "OK";
         this.OptionsList2Obj.add("PP", -1, str7, str6, tvalue3_2);
         str8: String = "0";
         if (this.game.EditObj.OrderUnit > -1)
-          str8 = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.HQSupplyChain(this.game.EditObj.OrderUnit, true)));
-        str9: String = Strings.Trim(Conversion.Str((object)  Math.Round((double) ((float) this.game.Data.LocTypeObj[this.detailnr].SupplyCost / this.game.Data.RuleVar[77]))));
+          str8 = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.HQSupplyChain(this.game.EditObj.OrderUnit, true)));
+        str9: String = Strings.Trim(Conversion.Str(  Math.Round( ( this.game.Data.LocTypeObj[this.detailnr].SupplyCost / this.game.Data.RuleVar[77]))));
         tvalue3_3: String = Conversion.Val(str8) < Conversion.Val(str9) ? "SHORT" : "OK";
         this.OptionsList2Obj.add("SUP", -1, str9, str8, tvalue3_3);
         let mut index2: i32 =  0;
@@ -212,8 +212,8 @@ namespace WindowsApplication1
         {
           if (this.game.Data.LocTypeObj[this.detailnr].VarType[index2] > -1)
           {
-            str10: String = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[this.game.Data.LocTypeObj[this.detailnr].VarType[index2]]));
-            str11: String = Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.detailnr].VarQty[index2]));
+            str10: String = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[this.game.Data.LocTypeObj[this.detailnr].VarType[index2]]));
+            str11: String = Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.detailnr].VarQty[index2]));
             tvalue3_4: String = Conversion.Val(str10) < Conversion.Val(str11) ? "SHORT" : "OK";
             this.OptionsList2Obj.add(this.game.Data.RegimeSlotName[this.game.Data.LocTypeObj[this.detailnr].VarType[index2]], -1, str11, str10, tvalue3_4);
           }
@@ -248,7 +248,7 @@ namespace WindowsApplication1
           this.Text2Id = this.AddSubPart(ref tsubpart, 450, 157, 196, 35, 1);
         }
       }
-      if (Information.IsNothing((object) objGraphics))
+      if (Information.IsNothing( objGraphics))
         return;
       objGraphics.Dispose();
     }

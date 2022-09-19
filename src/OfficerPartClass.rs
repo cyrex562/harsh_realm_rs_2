@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -71,7 +71,7 @@ namespace WindowsApplication1
               let mut num7: i32 =  140 + num1 * 45;
               let mut num8: i32 =  45;
               if (x > num7 & y > num8 & x < num7 + 45 & y < num8 + 60)
-                this.Descript = "Officer has " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.his].DeckChance[index1]) + "% chance to receive " + this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[this.his].DeckCard[index1]].Title + " as a handcard.";
+                this.Descript = "Officer has " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.his].DeckChance[index1]) + "% chance to receive " + this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[this.his].DeckCard[index1]].Title + " as a handcard.";
             }
           }
         }
@@ -156,7 +156,7 @@ namespace WindowsApplication1
           let mut num3: i32 =  this.game.HandyFunctionsObj.GetStaffNeeded(this.unr);
           if (num3 == 0)
             num3 = 1;
-          if ( Math.Round(40.0 * ((double) staffPoints / (double) num3)) > 80)
+          if ( Math.Round(40.0 * ( staffPoints /  num3)) > 80)
             num2 = 80;
           str2: String = this.game.HandyFunctionsObj.GetMaxStaffIndividuals(this.unr, this.his).ToString();
           str3: String = this.game.Data.HistoricalUnitObj[this.his].CombatMod.ToString() + "%";
@@ -254,7 +254,7 @@ namespace WindowsApplication1
                 let mut x3: i32 =  x1;
                 let mut y6: i32 =  num10;
                 DrawMod.Draw( local10,  local11, x3, y6, -1f, -1f, -1f, 0.5f);
-                DrawMod.DrawTextColouredMarc( objgraphics, Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.his].DeckChance[index1])) + "%", this.game.MarcFont4, x1, num10 + 38, Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
+                DrawMod.DrawTextColouredMarc( objgraphics, Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.his].DeckChance[index1])) + "%", this.game.MarcFont4, x1, num10 + 38, Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
               }
             }
           }
@@ -271,7 +271,7 @@ namespace WindowsApplication1
           DrawMod.DrawSimple( local13,  local14, 50, 109);
         }
       }
-      if (!Information.IsNothing((object) objgraphics))
+      if (!Information.IsNothing( objgraphics))
       {
         objgraphics.Dispose();
         objgraphics = (Graphics) null;
@@ -286,7 +286,7 @@ namespace WindowsApplication1
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(this.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }

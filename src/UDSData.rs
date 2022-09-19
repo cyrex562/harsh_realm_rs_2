@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -394,9 +394,9 @@ namespace WindowsApplication1
               self.element[index].h = BitmapStore.Getheight(self.element[index].bitmapSlot);
             }
             else if (self.element[index].w == 0)
-              self.element[index].w =  Math.Round((double) BitmapStore.GetWidth(self.element[index].bitmapSlot) * ((double) self.element[index].h / (double) BitmapStore.Getheight(self.element[index].bitmapSlot)));
+              self.element[index].w =  Math.Round( BitmapStore.GetWidth(self.element[index].bitmapSlot) * ( self.element[index].h /  BitmapStore.Getheight(self.element[index].bitmapSlot)));
             else if (self.element[index].h == 0)
-              self.element[index].h =  Math.Round((double) BitmapStore.Getheight(self.element[index].bitmapSlot) * ((double) self.element[index].w / (double) BitmapStore.GetWidth(self.element[index].bitmapSlot)));
+              self.element[index].h =  Math.Round( BitmapStore.Getheight(self.element[index].bitmapSlot) * ( self.element[index].w /  BitmapStore.GetWidth(self.element[index].bitmapSlot)));
           }
           else if (self.element[index].eventPicture > -1)
           {
@@ -406,9 +406,9 @@ namespace WindowsApplication1
               self.element[index].h = BitmapStore.Getheight(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]);
             }
             else if (self.element[index].w == 0)
-              self.element[index].w =  Math.Round((double) (BitmapStore.GetWidth(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]) * self.element[index].h) / (double) BitmapStore.Getheight(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]));
+              self.element[index].w =  Math.Round( (BitmapStore.GetWidth(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]) * self.element[index].h) /  BitmapStore.Getheight(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]));
             else if (self.element[index].h == 0)
-              self.element[index].h =  Math.Round((double) (BitmapStore.Getheight(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]) * self.element[index].w) / (double) BitmapStore.GetWidth(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]));
+              self.element[index].h =  Math.Round( (BitmapStore.Getheight(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]) * self.element[index].w) /  BitmapStore.GetWidth(DrawMod.TGame.Data.EventPicNr[self.element[index].eventPicture]));
           }
         }
         if (self.element[index].type == UDSType.Flag && self.element[index].w == 0 & self.element[index].h == 0)
@@ -518,14 +518,14 @@ namespace WindowsApplication1
     {
       StringListClass stringListClass = DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))];
       let mut num1: i32 = stringListClass.Length + 1;
-      let mut num2: i32 =  Math.Round(Math.Floor((double) self.element[slot].h / (double) self.element[slot].lineHeight)) - 1;
-      return  Math.Round(Math.Floor((double) Math.Max(0, stringListClass.Length - 1) / (double) num2)) + 1;
+      let mut num2: i32 =  Math.Round(Math.Floor( self.element[slot].h /  self.element[slot].lineHeight)) - 1;
+      return  Math.Round(Math.Floor( Math.Max(0, stringListClass.Length - 1) /  num2)) + 1;
     }
 
     pub int GetRowsPerPage(int slot)
     {
       let mut num: i32 = DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))].Length + 1;
-      return  Math.Round(Math.Floor((double) self.element[slot].h / (double) self.element[slot].lineHeight)) - 1;
+      return  Math.Round(Math.Floor( self.element[slot].h /  self.element[slot].lineHeight)) - 1;
     }
 
     pub int GetTotalRows(int slot) => DrawMod.TGame.Data.StringListObj[ Math.Round(Conversion.Val(self.element[slot].texty))].Length + 1;

@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -105,7 +105,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (!Information.IsNothing((object) self.game.EditObj.TextInputString) && self.game.EditObj.TextInputString.Length > 0)
+      if (!Information.IsNothing( self.game.EditObj.TextInputString) && self.game.EditObj.TextInputString.Length > 0)
       {
         if (self.selectedid == self.userid)
         {

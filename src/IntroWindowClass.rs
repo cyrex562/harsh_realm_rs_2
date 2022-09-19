@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -138,7 +138,7 @@ namespace WindowsApplication1
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       graphics.TextContrast = 1;
-      DrawMod.DrawBlock( graphics, 35, 93, 945, 587,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  Math.Round((double) this.game.VicColor4.A / 2.0));
+      DrawMod.DrawBlock( graphics, 35, 93, 945, 587,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  Math.Round( this.game.VicColor4.A / 2.0));
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  graphics, 35, 93, 945, 587, -1, -1);
       let mut num1: i32 =  115;
       let mut num2: i32 =  25;
@@ -199,7 +199,7 @@ namespace WindowsApplication1
         this.minimapid = this.AddSubPart( tsubpart, 520, 120, 395, 144, 0);
         DrawMod.DrawRectangle( graphics, 519, 119, 397, 146,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
         let mut num7: i32 =  490 + this.game.EditObj.MiniMap.Width;
-        let mut num8: i32 =   Math.Round((double) (graphics.MeasureString(this.game.Data.Name, this.game.VicFont8).Width + 4f));
+        let mut num8: i32 =   Math.Round( (graphics.MeasureString(this.game.Data.Name, this.game.VicFont8).Width + 4f));
         DrawMod.DrawTextVic( graphics, ", " + txt, this.game.VicFont2, 78 + num8, 38, this.game.VicColor2, this.game.VicColor1Shade);
         DrawMod.drawLine( graphics, 82, 58, 78 + num8 - 8, 58,  this.game.VicColor2.R,  this.game.VicColor2.G,  this.game.VicColor2.B,  this.game.VicColor2.A, 2);
         if (Strings.Len(this.game.Data.RuleSetName) > 1)
@@ -244,8 +244,8 @@ namespace WindowsApplication1
       if (Strings.Len(this.game.Data.RuleSetName) > 1)
       {
         SizeF sizeF2 = graphics.MeasureString("Ruleset: " + this.game.Data.RuleSetName, this.game.VicFont3);
-        DrawMod.DrawSteveBlock( graphics,  Math.Round(916.0 - ((double) sizeF2.Width + 10.0)), 682,  Math.Round((double) (sizeF2.Width + 10f)), 20);
-        DrawMod.DrawTextVic2( graphics, "Ruleset: " + this.game.Data.RuleSetName, this.game.VicFont3,  Math.Round(916.0 - ((double) sizeF2.Width + 5.0)), 687, this.game.VicColor2, this.game.VicColor2Shade);
+        DrawMod.DrawSteveBlock( graphics,  Math.Round(916.0 - ( sizeF2.Width + 10.0)), 682,  Math.Round( (sizeF2.Width + 10f)), 20);
+        DrawMod.DrawTextVic2( graphics, "Ruleset: " + this.game.Data.RuleSetName, this.game.VicFont3,  Math.Round(916.0 - ( sizeF2.Width + 5.0)), 687, this.game.VicColor2, this.game.VicColor2Shade);
       }
       if (!this.game.Data.FOWOn)
       {
@@ -283,7 +283,7 @@ namespace WindowsApplication1
       }
       tsubpart =  new ATTextPartClass("PBEM protection", this.game.VicFont2, 110, 16, false, toutline: true);
       this.txt5 = this.AddSubPart( tsubpart, 140, 157, 110, 16, 0);
-      if ((double) this.game.Data.RuleVar[353] == 0.0)
+      if ( this.game.Data.RuleVar[353] == 0.0)
       {
         if (!this.game.Data.ShrowdOn)
         {
@@ -436,7 +436,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num3: i32 =   Interaction.MsgBox((object) "Scenario is not suitable for playing the AI.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num3: i32 =   Interaction.MsgBox( "Scenario is not suitable for playing the AI.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.DoStuff();
               }
@@ -473,7 +473,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num4: i32 =   Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =   Interaction.MsgBox( "Not possible. This is a random game created with a shroud.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
             }
             else if (num1 == this.opt3)
@@ -543,7 +543,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num5: i32 =   Interaction.MsgBox((object) "This option can only be activated if map is shrouded.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =   Interaction.MsgBox( "This option can only be activated if map is shrouded.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
             }
             else if (num1 == this.opt8)
@@ -553,14 +553,14 @@ namespace WindowsApplication1
                 this.game.Data.TerrorMode = !this.game.Data.TerrorMode;
                 if (this.game.Data.TerrorMode)
                 {
-                  let mut num6: i32 =   Interaction.MsgBox((object) "Be warned that you can only play your turn once with Terror Mode on. After it had been opened once it cannot be reopened again. This is a very safe mode, but if anything goes wrong it will ruin your pbem game because it will not allow you to continue play. Be warned if you play with this ultimate protection mode on.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =   Interaction.MsgBox( "Be warned that you can only play your turn once with Terror Mode on. After it had been opened once it cannot be reopened again. This is a very safe mode, but if anything goes wrong it will ruin your pbem game because it will not allow you to continue play. Be warned if you play with this ultimate protection mode on.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.DoStuff();
                 windowReturnClass.SetFlag(true);
               }
               else
               {
-                let mut num7: i32 =   Interaction.MsgBox((object) "This terror mode anti cheat option can only be activated if normal Anti Cheat is already on.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num7: i32 =   Interaction.MsgBox( "This terror mode anti cheat option can only be activated if normal Anti Cheat is already on.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
             }
             else
@@ -617,8 +617,8 @@ namespace WindowsApplication1
                 }
                 if (num8 == this.game.Data.RegimeCounter + 1 & this.game.Data.CampaignRoom == -1)
                 {
-                  let mut num9: i32 =   Interaction.MsgBox((object) "There must be at least 1 human player", Title: ((object) "Shadow Empire : Planetary Conquest"));
-                  if (MsgBoxResult.No == Interaction.MsgBox((object) "Do you want to proceed anyway?", MsgBoxStyle.YesNo))
+                  let mut num9: i32 =   Interaction.MsgBox( "There must be at least 1 human player", Title: ( "Shadow Empire : Planetary Conquest"));
+                  if (MsgBoxResult.No == Interaction.MsgBox( "Do you want to proceed anyway?", MsgBoxStyle.YesNo))
                     goto label_157;
                 }
                 let mut num10: i32 =  0;
@@ -630,7 +630,7 @@ namespace WindowsApplication1
                 }
                 if (this.game.Data.NoAIAdvice & num10 > 0)
                 {
-                  let mut num11: i32 =   Interaction.MsgBox((object) "The scenario creator has allowed no AIs in this scenario. You are not allowed to play for your own good.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num11: i32 =   Interaction.MsgBox( "The scenario creator has allowed no AIs in this scenario. You are not allowed to play for your own good.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -667,7 +667,7 @@ namespace WindowsApplication1
                       {
                         if (index8 != index9 & this.game.Data.RegimeObj[index8].AI & this.game.Data.RegimeObj[index9].AI)
                         {
-                          if ((double) this.game.Data.RuleVar[524] == 1.0)
+                          if ( this.game.Data.RuleVar[524] == 1.0)
                           {
                             this.game.Data.RegimeObj[index8].RegimeRel[index9] = 2;
                             this.game.Data.RegimeObj[index9].RegimeRel[index8] = 2;
@@ -687,11 +687,11 @@ namespace WindowsApplication1
                     for (let mut regnr: i32 =  0; regnr <= turn; regnr += 1)
                     {
                       this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
-                      this.game.HandyFunctionsObj.ClearHistory((object) regnr);
+                      this.game.HandyFunctionsObj.ClearHistory( regnr);
                     }
                   }
                   VBMath.Randomize();
-                  this.game.Data.GameID =  Math.Round((double) (VBMath.Rnd() * 1E+08f));
+                  this.game.Data.GameID =  Math.Round( (VBMath.Rnd() * 1E+08f));
                   this.game.HandyFunctionsObj.RedimStats();
                   this.game.HandyFunctionsObj.DoResMod();
                   windowReturnClass.AddCommand(3, 4);
@@ -703,7 +703,7 @@ namespace WindowsApplication1
                 str: String = this.game.HandyFunctionsObj.SaveSomething("Text Files (*.pt2)|*.pt2", "Give save name...", this.game.AppPath + "scenarios\\", false);
                 if (Strings.Len(str) < 2)
                 {
-                  let mut num12: i32 =   Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num12: i32 =   Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -745,11 +745,11 @@ namespace WindowsApplication1
                   {
                     if (Operators.CompareString(Strings.LCase(Interaction.InputBox("This File is protected by a load password. Please give it in order to load it.", "Shadow Empire : Planetary Conquest")), Strings.LCase(this.game.Data.LoadPass), false) == 0)
                     {
-                      let mut num13: i32 =   Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num13: i32 =   Interaction.MsgBox( "You are cleared.", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
-                      let mut num14: i32 =   Interaction.MsgBox((object) "Wrong Password. You cannot Load this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num14: i32 =   Interaction.MsgBox( "Wrong Password. You cannot Load this file", Title: ( "Shadow Empire : Planetary Conquest"));
                       this.game.Data = DataClass::new();
                       this.RemoveSubPart(this.TempText);
                       let mut tsubpart: SubPartClass =  TextPartClass::new(this.game.Data.Name + " is loaded instead.", this.game.VicFont1, 400, 20, true);
@@ -766,7 +766,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num15: i32 =   Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num15: i32 =   Interaction.MsgBox( "File could not be found or op. is cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               else if (num1 == this.BEditorID)
@@ -785,11 +785,11 @@ namespace WindowsApplication1
                   {
                     if (Operators.CompareString(Strings.LCase(Interaction.InputBox("This File is protected by an edit password. Please give it in order to edit it.", "Shadow Empire : Planetary Conquest")), Strings.LCase(this.game.Data.EditPass), false) == 0)
                     {
-                      let mut num16: i32 =   Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num16: i32 =   Interaction.MsgBox( "You are cleared.", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
-                      let mut num17: i32 =   Interaction.MsgBox((object) "Wrong Password. You cannot Edit this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num17: i32 =   Interaction.MsgBox( "Wrong Password. You cannot Edit this file", Title: ( "Shadow Empire : Planetary Conquest"));
                       return windowReturnClass;
                     }
                   }
@@ -805,7 +805,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num18: i32 =   Interaction.MsgBox((object) "Not possible. This is a random game created with a shroud.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num18: i32 =   Interaction.MsgBox( "Not possible. This is a random game created with a shroud.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
             }

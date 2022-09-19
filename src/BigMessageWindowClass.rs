@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -189,7 +189,7 @@ namespace WindowsApplication1
       let mut tsubpart2: SubPartClass =  new MarcButtonPartClass(this.game.BACKBUTTON, tDescript: "Exit this message popup [ESC]", tBackbitmap: (ref this.OwnBitmap), bbx: 894, bby: 24);
       this.ok2id = this.AddSubPart(ref tsubpart2, 894, 24, 32, 32, 1);
       int num2;
-      let mut num3: i32 =  (int) Math.Round(Conversion.Int((double) (270 - num2) / 16.0));
+      let mut num3: i32 =  (int) Math.Round(Conversion.Int( (270 - num2) / 16.0));
       let mut num4: i32 =  0;
       if (this.OptionsList5Obj.ListCount == -1)
         num4 = 120;
@@ -200,8 +200,8 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut tsubpart4: SubPartClass =  new TextAreaClass2(this.game, 565, (int) Math.Round(Conversion.Int((double) (510 + num4 - 17) / 17.0)), this.game.MarcFont8, "[tab]Message," + this.game.Data.RegimeObj[this.game.Data.Turn].MessString[this.FromMessage] + "[/tab]", 17, ref this.OwnBitmap, 50, 20, tUseEncy: true);
-        this.TAid = this.AddSubPart(ref tsubpart4, 50, 20, 565, (int) Math.Round(Conversion.Int((double) (510 + num4 - 17) / 17.0) * 17.0), 0);
+        let mut tsubpart4: SubPartClass =  new TextAreaClass2(this.game, 565, (int) Math.Round(Conversion.Int( (510 + num4 - 17) / 17.0)), this.game.MarcFont8, "[tab]Message," + this.game.Data.RegimeObj[this.game.Data.Turn].MessString[this.FromMessage] + "[/tab]", 17, ref this.OwnBitmap, 50, 20, tUseEncy: true);
+        this.TAid = this.AddSubPart(ref tsubpart4, 50, 20, 565, (int) Math.Round(Conversion.Int( (510 + num4 - 17) / 17.0) * 17.0), 0);
       }
       if (this.OptionsList5Obj.ListCount > -1)
       {
@@ -286,7 +286,7 @@ namespace WindowsApplication1
       let mut y: i32 =  125;
       DrawMod.DrawBlockGradient2(ref graphics, num6 + 5, y - 1, 79, 20, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame(ref this.OwnBitmap, ref this.BackBitmap, ref graphics, num6 + 5, y, 80, 19, -1, -1);
-      str: String = Strings.Trim(Conversion.Str((object) Math.Round(new Decimal(this.game.Data.RegimeObj[this.game.Data.Turn].ResPts))));
+      str: String = Strings.Trim(Conversion.Str( Math.Round(new Decimal(this.game.Data.RegimeObj[this.game.Data.Turn].ResPts))));
       DrawMod.DrawTextColouredMarc(ref graphics, str + "PP", this.game.MarcFont5, num6 + 10, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num6 + 10, y, 80, 20);
       this.AddMouse(ref trect, "Available political points", Conversions.ToString(-1));

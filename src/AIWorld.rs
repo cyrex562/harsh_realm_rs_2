@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -26,7 +26,7 @@ namespace WindowsApplication1
     pub startEnemyTroops: i32;
     pub startFriendlyVP: i32;
     pub startEnemyVP: i32;
-    pub int[] halfScore;
+    pub halfScore: Vec<i32>;
     pub float AbsoluteFriendlyMod;
     pub float FriendlyMod;
     pub InitialPercentageInSupply: i32;
@@ -49,7 +49,7 @@ namespace WindowsApplication1
         else
           num1 += this.ai.game.Data.SFObj[sf].Qty;
       }
-      return (int) Math.Round((double) ((float) num2 / (float) num1 * 100f));
+      return (int) Math.Round( ( num2 /  num1 * 100f));
     }
 
     pub AIWorld(
@@ -86,7 +86,7 @@ namespace WindowsApplication1
           }
         }
         if (num3 > 0)
-          num1 = (int) Math.Round((double) num1 / (double) num3);
+          num1 = (int) Math.Round( num1 /  num3);
       }
       this.ai.SetTroopsAndAPMatrix(ref this.troops, ref this.move, this.ai.map.MapWidth, this.ai.map.MapHeight, 0, 0, ref this.frontList, tfrontArea: this.frontline);
       this.FriendlyMod = tFriendlyMod;
@@ -110,9 +110,9 @@ namespace WindowsApplication1
             numArray2[index4, index6] = num4;
           }
           if (this.owner.Value[x, y] == 1)
-            this.troops.Value[x, y] = (int) Math.Round((double) ((float) this.troops.Value[x, y] * this.FriendlyMod));
+            this.troops.Value[x, y] = (int) Math.Round( ( this.troops.Value[x, y] * this.FriendlyMod));
           if (this.owner.Value[x, y] == 1 & ModifyForUnitRatio & this.frontline.Value[x, y] > 0)
-            this.troops.Value[x, y] = (int) Math.Round((double) this.troops.Value[x, y] * Math.Max(0.2, (double) Math.Min(1f, this.frontList.Front[this.frontList.GetFrontNr(this.frontline.Value[x, y])].UnitCountRatio)));
+            this.troops.Value[x, y] = (int) Math.Round( this.troops.Value[x, y] * Math.Max(0.2,  Math.Min(1f, this.frontList.Front[this.frontList.GetFrontNr(this.frontline.Value[x, y])].UnitCountRatio)));
           if (this.owner.Value[x, y] == 2)
           {
             let mut num5: i32 =  this.troops.Value[x, y];
@@ -122,15 +122,15 @@ namespace WindowsApplication1
               if (num6 >= num1 * 9)
                 num5 *= 2;
               else if (num6 >= num1 * 7)
-                num5 = (int) Math.Round((double) num5 * 1.75);
+                num5 = (int) Math.Round( num5 * 1.75);
               else if (num6 >= num1 * 5)
-                num5 = (int) Math.Round((double) num5 * 1.5);
+                num5 = (int) Math.Round( num5 * 1.5);
               else if (num6 >= num1 * 3)
-                num5 = (int) Math.Round((double) num5 * 1.25);
+                num5 = (int) Math.Round( num5 * 1.25);
               else if (num6 < 0)
               {
                 if (num6 <= 0)
-                  num5 = (int) Math.Round((double) num5 * 0.75);
+                  num5 = (int) Math.Round( num5 * 0.75);
               }
               this.troops.Value[x, y] = num5;
             }
@@ -151,7 +151,7 @@ namespace WindowsApplication1
             }
             if (num8 > 0 & num7 > 0)
             {
-              let mut num9: i32 =  (int) Math.Round((double) num7 / (double) num8);
+              let mut num9: i32 =  (int) Math.Round( num7 /  num8);
               this.offtroops.Value[x, y] = num9;
             }
           }
@@ -239,7 +239,7 @@ namespace WindowsApplication1
           }
         }
       }
-      this.InitialPercentageInSupply = (int) Math.Round((double) (num3 * 100) / (double) Math.Max(1, val2));
+      this.InitialPercentageInSupply = (int) Math.Round( (num3 * 100) /  Math.Max(1, val2));
       if (num5 == 0)
         num5 = 1;
       if (num4 == 0)
@@ -283,12 +283,12 @@ namespace WindowsApplication1
         num4 = 1;
       if (num3 == 0)
         num3 = 1;
-      float num5 = (float) this.startFriendlyTroops / (float) this.startEnemyTroops;
-      float num6 = (float) num2 / (float) num4;
-      let mut num7: i32 =  (int) Math.Round(((double) num6 - (double) num5) * 100.0);
-      float num8 = (float) this.startFriendlyVP / (float) this.startEnemyVP;
-      float num9 = (float) num1 / (float) num3;
-      let mut num10: i32 =  (int) Math.Round(((double) num9 - (double) num8) * 100.0) * 1;
+      float num5 =  this.startFriendlyTroops /  this.startEnemyTroops;
+      float num6 =  num2 /  num4;
+      let mut num7: i32 =  (int) Math.Round(( num6 -  num5) * 100.0);
+      float num8 =  this.startFriendlyVP /  this.startEnemyVP;
+      float num9 =  num1 /  num3;
+      let mut num10: i32 =  (int) Math.Round(( num9 -  num8) * 100.0) * 1;
       let mut score: i32 =  num7 + num10;
       if (!halfscoreCalc)
       {
@@ -304,7 +304,7 @@ namespace WindowsApplication1
           index += 1;
         }
         while (index <= 99);
-        score = (int) Math.Round((double) score / (double) num11);
+        score = (int) Math.Round( score /  num11);
       }
       if (DoLog)
       {
@@ -445,13 +445,13 @@ namespace WindowsApplication1
         if (this.run <= 1)
           this.CellularAutomatonEnemyAttack(0.2f);
         this.CellularAutomatonEnemySpreadOut(2);
-        this.CellularAutomatonEnemyAttack(1f / (float) this.run);
+        this.CellularAutomatonEnemyAttack(1f /  this.run);
         if (this.ai.VAR_ENEMYMOVE_PROGNOSIS_MODE == 0)
         {
           if (this.run <= 2)
             this.CellularAutomatonEnemySpreadOut(2);
           if (this.run <= 2)
-            this.CellularAutomatonEnemyAttack(0.3f / (float) this.run);
+            this.CellularAutomatonEnemyAttack(0.3f /  this.run);
         }
         else
           this.CellularAutomatonEnemySpreadOut(1);
@@ -510,7 +510,7 @@ namespace WindowsApplication1
               if (this.frontline.Value[index2, index3] == aiFront.FrontID & this.owner.Value[index2, index3] == 1)
               {
                 num6 += this.troops.Value[index2, index3];
-                if (this.friendlySupply.Value[index2, index3] > (int) Math.Round((double) (this.ai.VAR_SUPPLY_50PERCENT_RANGE + this.ai.VAR_SUPPLY_25PERCENT_RANGE) / 2.0) && this.ai.game.Data.MapObj[0].HexObj[index2, index3].Regime == this.ai.game.Data.Turn)
+                if (this.friendlySupply.Value[index2, index3] > (int) Math.Round( (this.ai.VAR_SUPPLY_50PERCENT_RANGE + this.ai.VAR_SUPPLY_25PERCENT_RANGE) / 2.0) && this.ai.game.Data.MapObj[0].HexObj[index2, index3].Regime == this.ai.game.Data.Turn)
                   num7 += this.troops.Value[index2, index3];
               }
               if (this.ai.frontMatrix.Value[index2, index3] == aiFront.FrontID & (this.troops.Value[index2, index3] > 0 | this.ai.frontlinesMatrix.Value[index2, index3] == 1))
@@ -532,34 +532,34 @@ namespace WindowsApplication1
             }
           }
         }
-        let mut num8: i32 =  num7 <= 0 ? 0 : (int) Math.Round((double) (num7 * 100) / (double) num6);
+        let mut num8: i32 =  num7 <= 0 ? 0 : (int) Math.Round( (num7 * 100) /  num6);
         if (this.ai.game.Data.Turn == 4 & aiFront.FrontID == 2)
           num8 = num8;
-        if ((double) num6 > (double) aiFront.OrigPower * 0.1)
+        if ( num6 >  aiFront.OrigPower * 0.1)
         {
-          aiFront.StatAvgPercentageOutOfSupply = (int) Math.Round((double) (aiFront.StatLastPercentageOutOfSupply * (aiFront.StatIterationCount + 1) + num8) / (double) (aiFront.StatIterationCount + 1));
+          aiFront.StatAvgPercentageOutOfSupply = (int) Math.Round( (aiFront.StatLastPercentageOutOfSupply * (aiFront.StatIterationCount + 1) + num8) /  (aiFront.StatIterationCount + 1));
           aiFront.StatLastPercentageOutOfSupply = num8;
           aiFront += 1.StatIterationCount;
         }
         if (num1 > 0)
-          aiFront.statsHexLeftPercentage = (int) Math.Round(Math.Ceiling((double) (100 * num2) / (double) num1));
+          aiFront.statsHexLeftPercentage = (int) Math.Round(Math.Ceiling( (100 * num2) /  num1));
         if (this.run == 1)
         {
-          aiFront.statLastPowerPercentageRun1 = (int) Math.Round((double) ((num6 + 1) * 100) / (double) (aiFront.OrigPower + 1));
+          aiFront.statLastPowerPercentageRun1 = (int) Math.Round( ((num6 + 1) * 100) /  (aiFront.OrigPower + 1));
           if (aiFront.statLastPowerPercentageRun1 > 100)
             aiFront.statLastPowerPercentageRun1 = 100;
         }
         if (num4 > 0)
         {
-          let mut num9: i32 =  (int) Math.Round((double) ((int) Math.Round((double) num3 / (double) num4) + aiFront.retreatAverageScore) / 2.0);
+          let mut num9: i32 =  (int) Math.Round( ((int) Math.Round( num3 /  num4) + aiFront.retreatAverageScore) / 2.0);
           if (d > 0)
-            num9 = (int) Math.Round((double) num9 / Math.Sqrt((double) d));
+            num9 = (int) Math.Round( num9 / Math.Sqrt( d));
           if (num5 > 3)
-            num9 = (int) Math.Round((double) num9 / Math.Sqrt(Math.Sqrt((double) (num5 - 3))));
+            num9 = (int) Math.Round( num9 / Math.Sqrt(Math.Sqrt( (num5 - 3))));
           if (num9 >= 100 & this.run == 1 | num9 > 0 & num9 < 100 & this.run > 1)
-            num6 = (int) Math.Round((double) (num6 + (int) Math.Round((double) aiFront.OrigPower / 8.0)) * (100.0 / (double) num9));
+            num6 = (int) Math.Round( (num6 + (int) Math.Round( aiFront.OrigPower / 8.0)) * (100.0 /  num9));
         }
-        aiFront.StatLastPowerPercentageFullRun = (int) Math.Round((double) ((num6 + 1) * 100) / (double) (aiFront.OrigPower + 1));
+        aiFront.StatLastPowerPercentageFullRun = (int) Math.Round( ((num6 + 1) * 100) /  (aiFront.OrigPower + 1));
         if (aiFront.StatLastPowerPercentageFullRun > 100)
           aiFront.StatLastPowerPercentageFullRun = 100;
       }
@@ -576,11 +576,11 @@ namespace WindowsApplication1
           front.FrontID = front.FrontID;
         if (front.FrontType == 1)
         {
-          let mut num: i32 =  front.Stance != 2 ? (!(front.Stance == 3 & (double) front.OrigAverageStrength >= 3.5) ? (front.Stance != 3 ? 1 : 3) : 4) : 2;
+          let mut num: i32 =  front.Stance != 2 ? (!(front.Stance == 3 &  front.OrigAverageStrength >= 3.5) ? (front.Stance != 3 ? 1 : 3) : 4) : 2;
           if (front.Stance == 3)
           {
             if (front.FrontID < 1000000 | this.run > 1)
-              this.CellularAutomatonAttack(front, Math.Max(1, (int) Math.Round((double) num / 2.0)));
+              this.CellularAutomatonAttack(front, Math.Max(1, (int) Math.Round( num / 2.0)));
             this.CellularAutomatonSpreadOut(front, num + 2);
           }
           else if (front.Stance == 2 | iteration > 1)
@@ -640,8 +640,8 @@ namespace WindowsApplication1
               if (x > -1)
               {
                 float minimumAttackAdvantage = this.CellularAutomatonGetMinimumAttackAdvantage(front.Stance, this.ai.map.HexObj[x, y].LandscapeType, num3);
-                float num4 = (float) attackPower / (float) this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false);
-                if ((double) num4 >= (double) minimumAttackAdvantage)
+                float num4 =  attackPower /  this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false);
+                if ( num4 >=  minimumAttackAdvantage)
                 {
                   let mut lossForAttacker: i32 =  this.CellularAutomatonGetLossForAttacker(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false), this.ai.map.HexObj[x, y].LandscapeType, num3, totalPowerOn1);
                   let mut lossForDefender: i32 =  this.CellularAutomatonGetLossForDefender(front.Stance, attackPower, this.ModifyPower(this.troops.Value[x, y], this.enemySupply.Value[x, y], true, (AIFront) null, false));
@@ -660,7 +660,7 @@ namespace WindowsApplication1
                   aiMatrix.Value[x, y] = 1;
                   if (front.Stance == 2)
                     num6 = 6f;
-                  if ((double) num4 >= (double) num6)
+                  if ( num4 >=  num6)
                   {
                     this.CellularAutomatonRetreatEnemyTroops(x, y, front);
                     this.owner.Value[x, y] = 1;
@@ -750,8 +750,8 @@ namespace WindowsApplication1
                       coordinate.x = coordinate.x;
                   }
                   else
-                    num11 = (int) Math.Round((double) totalEnemyPowerOn2 / 2.0 + (double) totalEnemyPowerOn2 / 2.0 * Math.Max(0.2, Math.Min(5.0, (double) totalEnemyPowerOn2 / (double) this.troops.Value[coordinate.x, coordinate.y])));
-                  let mut num12: i32 =  num11 + (int) Math.Round((double) (this.troops.Value[index1, index2] * 1) * (Math.Sqrt((double) this.friendlyBottleneck.Value[coordinate.x, coordinate.y]) / 50.0));
+                    num11 = (int) Math.Round( totalEnemyPowerOn2 / 2.0 +  totalEnemyPowerOn2 / 2.0 * Math.Max(0.2, Math.Min(5.0,  totalEnemyPowerOn2 /  this.troops.Value[coordinate.x, coordinate.y])));
+                  let mut num12: i32 =  num11 + (int) Math.Round( (this.troops.Value[index1, index2] * 1) * (Math.Sqrt( this.friendlyBottleneck.Value[coordinate.x, coordinate.y]) / 50.0));
                   if (num5 == coordinate.x & num6 == coordinate.y)
                     num12 *= 2;
                   let mut num13: i32 =  num12 + this.vp.Value[index1, index2] * Math.Max(3, this.vp.Value[index1, index2]);
@@ -771,14 +771,14 @@ namespace WindowsApplication1
               {
                 let mut totalEnemyPowerOn3: i32 =  this.CellularAutomatonGetTotalEnemyPowerOn(x, y, aiMatrix);
                 float minimumAttackAdvantage = this.CellularAutomatonGetMinimumAttackAdvantage(3, this.ai.map.HexObj[x, y].LandscapeType, num10);
-                if (totalEnemyPowerOn1 > 10 & (double) totalEnemyPowerOn1 > (double) this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true) * (double) minimumAttackAdvantage)
+                if (totalEnemyPowerOn1 > 10 &  totalEnemyPowerOn1 >  this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true) *  minimumAttackAdvantage)
                 {
                   let mut lossForAttacker: i32 =  this.CellularAutomatonGetLossForAttacker(3, totalEnemyPowerOn3, this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true), this.ai.map.HexObj[x, y].LandscapeType, num10);
                   let mut lossForDefender: i32 =  this.CellularAutomatonGetLossForDefender(3, totalEnemyPowerOn3, this.ModifyPower(this.troops.Value[x, y], this.friendlySupply.Value[x, y], true, (AIFront) null, true));
-                  let mut attLoss: i32 =  (int) Math.Round((double) ((float) lossForAttacker * attackForceModifier));
-                  let mut num14: i32 =  (int) Math.Round((double) ((float) lossForDefender * attackForceModifier));
+                  let mut attLoss: i32 =  (int) Math.Round( ( lossForAttacker * attackForceModifier));
+                  let mut num14: i32 =  (int) Math.Round( ( lossForDefender * attackForceModifier));
                   this.CellularAutomatonModifyEnemyTroopsOn(x, y, attLoss, aiMatrix);
-                  let mut num15: i32 =  (int) Math.Round((double) this.troops.Value[x, y] / 2.0);
+                  let mut num15: i32 =  (int) Math.Round( this.troops.Value[x, y] / 2.0);
                   int[,] numArray1 = this.troops.Value;
                   int[,] numArray2 = numArray1;
                   let mut index5: i32 =  x;
@@ -824,14 +824,14 @@ namespace WindowsApplication1
       while (index1 <= 5);
       if (num1 > 0)
       {
-        let mut num2: i32 =  (int) Math.Round((double) this.troops.Value[x, y] / (double) num1);
+        let mut num2: i32 =  (int) Math.Round( this.troops.Value[x, y] /  num1);
         let mut index2: i32 =  0;
         do
         {
           Coordinate coordinate = this.ai.TempHexNeighbour[x, y, index2];
           if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 2 && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[coordinate.x, coordinate.y].LandscapeType].AIBlock < 1)
           {
-            this.offtroops.Value[coordinate.x, coordinate.y] = (int) Math.Round((double) this.offtroops.Value[coordinate.x, coordinate.y] / (double) (this.troops.Value[coordinate.x, coordinate.y] + num2));
+            this.offtroops.Value[coordinate.x, coordinate.y] = (int) Math.Round( this.offtroops.Value[coordinate.x, coordinate.y] /  (this.troops.Value[coordinate.x, coordinate.y] + num2));
             int[,] numArray1 = this.troops.Value;
             int[,] numArray2 = numArray1;
             let mut x1: i32 =  coordinate.x;
@@ -866,7 +866,7 @@ namespace WindowsApplication1
       while (index1 <= 5);
       if (num1 > 0)
       {
-        let mut num2: i32 =  (int) Math.Round((double) this.troops.Value[x, y] / (double) num1);
+        let mut num2: i32 =  (int) Math.Round( this.troops.Value[x, y] /  num1);
         let mut index2: i32 =  0;
         do
         {
@@ -952,7 +952,7 @@ namespace WindowsApplication1
         {
           let mut num: i32 =  this.ModifyPower(this.troops.Value[coordinate.x, coordinate.y], this.enemySupply.Value[coordinate.x, coordinate.y], false, (AIFront) null, false);
           if (this.offtroops.Value[coordinate.x, coordinate.y] > 0)
-            num += (int) Math.Round((double) num * ((double) this.offtroops.Value[coordinate.x, coordinate.y] / 100.0));
+            num += (int) Math.Round( num * ( this.offtroops.Value[coordinate.x, coordinate.y] / 100.0));
           totalEnemyPowerOn += num;
         }
         index += 1;
@@ -971,29 +971,29 @@ namespace WindowsApplication1
       if (IsDefender)
       {
         if (supply > this.ai.VAR_SUPPLY_MAXIMUM_RANGE)
-          power = (int) Math.Round((double) power * 0.5);
+          power = (int) Math.Round( power * 0.5);
         else if (supply > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
-          power = (int) Math.Round((double) power * 0.75);
+          power = (int) Math.Round( power * 0.75);
         else if (supply > this.ai.VAR_SUPPLY_50PERCENT_RANGE)
-          power = (int) Math.Round((double) power * 0.9);
+          power = (int) Math.Round( power * 0.9);
         else if (supply > this.ai.VAR_SUPPLY_75PERCENT_RANGE)
           power *= 1;
       }
       else
       {
         if (supply > this.ai.VAR_SUPPLY_MAXIMUM_RANGE)
-          power = (int) Math.Round((double) power * 0.4);
+          power = (int) Math.Round( power * 0.4);
         else if (supply > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
-          power = (int) Math.Round((double) power * 0.6);
+          power = (int) Math.Round( power * 0.6);
         else if (supply > this.ai.VAR_SUPPLY_50PERCENT_RANGE)
-          power = (int) Math.Round((double) power * 0.8);
+          power = (int) Math.Round( power * 0.8);
         else if (supply > this.ai.VAR_SUPPLY_75PERCENT_RANGE)
-          power = (int) Math.Round((double) power * 0.9);
-        if (!Information.IsNothing((object) front))
-          power += (int) Math.Round((double) power * ((double) front.OffensiveModifier / 100.0));
+          power = (int) Math.Round( power * 0.9);
+        if (!Information.IsNothing( front))
+          power += (int) Math.Round( power * ( front.OffensiveModifier / 100.0));
       }
       if (IsDefender)
-        power = isFriendly ? (int) Math.Round((double) ((float) power * this.ai.VAR_DEFENSIVE_WORLD_MODIFIER_FRIENDLY)) : (int) Math.Round((double) ((float) power * this.ai.VAR_DEFENSIVE_WORLD_MODIFIER_ENEMY));
+        power = isFriendly ? (int) Math.Round( ( power * this.ai.VAR_DEFENSIVE_WORLD_MODIFIER_FRIENDLY)) : (int) Math.Round( ( power * this.ai.VAR_DEFENSIVE_WORLD_MODIFIER_ENEMY));
       return power;
     }
 
@@ -1006,7 +1006,7 @@ namespace WindowsApplication1
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 1 && this.frontline.Value[coordinate.x, coordinate.y] == front.FrontID && blocked.Value[coordinate.x, coordinate.y] == 0)
         {
           let mut ofEnemyNeighbours: i32 =  this.CellularAutomatonGetNumberOfEnemyNeighbours(coordinate.x, coordinate.y);
-          let mut num1: i32 =  (int) Math.Round((double) this.troops.Value[coordinate.x, coordinate.y] / (double) (ofEnemyNeighbours + 1));
+          let mut num1: i32 =  (int) Math.Round( this.troops.Value[coordinate.x, coordinate.y] /  (ofEnemyNeighbours + 1));
           int[,] numArray1 = this.troops.Value;
           int[,] numArray2 = numArray1;
           let mut index2: i32 =  x;
@@ -1038,8 +1038,8 @@ namespace WindowsApplication1
         if (coordinate.onmap && this.owner.Value[coordinate.x, coordinate.y] == 2 && blocked.Value[coordinate.x, coordinate.y] == 0)
         {
           let mut friendlyNeighbours: i32 =  this.CellularAutomatonGetNumberOfFriendlyNeighbours(coordinate.x, coordinate.y);
-          let mut num1: i32 =  (int) Math.Round((double) this.troops.Value[coordinate.x, coordinate.y] / (double) (friendlyNeighbours + 1));
-          this.offtroops.Value[x, y] = (int) Math.Round((double) (this.offtroops.Value[x, y] * this.troops.Value[x, y] + this.offtroops.Value[coordinate.x, coordinate.y] * num1) / (double) (num1 + this.troops.Value[x, y]));
+          let mut num1: i32 =  (int) Math.Round( this.troops.Value[coordinate.x, coordinate.y] /  (friendlyNeighbours + 1));
+          this.offtroops.Value[x, y] = (int) Math.Round( (this.offtroops.Value[x, y] * this.troops.Value[x, y] + this.offtroops.Value[coordinate.x, coordinate.y] * num1) /  (num1 + this.troops.Value[x, y]));
           int[,] numArray1 = this.troops.Value;
           int[,] numArray2 = numArray1;
           let mut index2: i32 =  x;
@@ -1112,7 +1112,7 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 5);
-      let mut num2: i32 =  (int) Math.Round((double) attLoss / (double) num1);
+      let mut num2: i32 =  (int) Math.Round( attLoss /  num1);
       let mut index2: i32 =  0;
       do
       {
@@ -1146,7 +1146,7 @@ namespace WindowsApplication1
         index1 += 1;
       }
       while (index1 <= 5);
-      let mut num2: i32 =  (int) Math.Round(Conversion.Int((double) attLoss / (double) num1));
+      let mut num2: i32 =  (int) Math.Round(Conversion.Int( attLoss /  num1));
       let mut index2: i32 =  0;
       do
       {
@@ -1183,9 +1183,9 @@ namespace WindowsApplication1
           break;
       }
       if (this.ai.game.Data.LandscapeTypeObj[ltnr].TempDefenseBonus > 0)
-        minimumAttackAdvantage += (float) ((double) minimumAttackAdvantage * 0.33 * ((double) this.ai.game.Data.LandscapeTypeObj[ltnr].TempDefenseBonus / 100.0));
+        minimumAttackAdvantage +=  ( minimumAttackAdvantage * 0.33 * ( this.ai.game.Data.LandscapeTypeObj[ltnr].TempDefenseBonus / 100.0));
       if (riv > -1 && this.ai.game.Data.RiverTypeObj[riv].TempDefenseBonus > 0)
-        minimumAttackAdvantage += (float) ((double) minimumAttackAdvantage * 0.33 * ((double) this.ai.game.Data.RiverTypeObj[riv].TempDefenseBonus / 100.0));
+        minimumAttackAdvantage +=  ( minimumAttackAdvantage * 0.33 * ( this.ai.game.Data.RiverTypeObj[riv].TempDefenseBonus / 100.0));
       return minimumAttackAdvantage;
     }
 
@@ -1201,29 +1201,29 @@ namespace WindowsApplication1
       switch (stance)
       {
         case 1:
-          num = (float) (0.06 / Math.Min(5.0, (double) attackPower / (double) defendPower));
+          num =  (0.06 / Math.Min(5.0,  attackPower /  defendPower));
           break;
         case 2:
-          num = (float) (0.06 / Math.Min(5.0, (double) attackPower / (double) defendPower));
+          num =  (0.06 / Math.Min(5.0,  attackPower /  defendPower));
           break;
         case 3:
-          num = (float) (0.06 / Math.Min(5.0, (double) attackPower / (double) defendPower));
+          num =  (0.06 / Math.Min(5.0,  attackPower /  defendPower));
           break;
       }
       if (this.ai.game.Data.LandscapeTypeObj[ltnr].TempDefenseBonus > 0)
-        num += num * ((float) this.ai.game.Data.LandscapeTypeObj[ltnr].TempDefenseBonus / 100f);
+        num += num * ( this.ai.game.Data.LandscapeTypeObj[ltnr].TempDefenseBonus / 100f);
       if (rivtype > -1 && this.ai.game.Data.RiverTypeObj[rivtype].TempDefenseBonus > 0)
-        num += num * ((float) this.ai.game.Data.RiverTypeObj[rivtype].TempDefenseBonus / 100f);
+        num += num * ( this.ai.game.Data.RiverTypeObj[rivtype].TempDefenseBonus / 100f);
       int lossForAttacker;
       if (realAttackerPower > -1)
       {
-        lossForAttacker = (int) Math.Round((double) ((float) realAttackerPower * num)) + 1;
+        lossForAttacker = (int) Math.Round( ( realAttackerPower * num)) + 1;
         if (lossForAttacker > realAttackerPower)
           lossForAttacker = realAttackerPower;
       }
       else
       {
-        lossForAttacker = (int) Math.Round((double) ((float) attackPower * num)) + 1;
+        lossForAttacker = (int) Math.Round( ( attackPower * num)) + 1;
         if (lossForAttacker > attackPower)
           lossForAttacker = attackPower;
       }
@@ -1234,23 +1234,23 @@ namespace WindowsApplication1
     {
       let mut num1: i32 =  attackPower;
       if (attackPower > this.ai.VAR_HEX_STACK_REGULAR * 4)
-        attackPower = (int) Math.Round((double) (this.ai.VAR_HEX_STACK_REGULAR * 4) + 4.0 * Math.Sqrt((double) (attackPower - this.ai.VAR_HEX_STACK_REGULAR * 4)));
+        attackPower = (int) Math.Round( (this.ai.VAR_HEX_STACK_REGULAR * 4) + 4.0 * Math.Sqrt( (attackPower - this.ai.VAR_HEX_STACK_REGULAR * 4)));
       if (defendPower > this.ai.VAR_HEX_STACK_REGULAR * 4)
-        defendPower = (int) Math.Round((double) (this.ai.VAR_HEX_STACK_REGULAR * 4) + Math.Sqrt((double) (defendPower - this.ai.VAR_HEX_STACK_REGULAR * 4)));
+        defendPower = (int) Math.Round( (this.ai.VAR_HEX_STACK_REGULAR * 4) + Math.Sqrt( (defendPower - this.ai.VAR_HEX_STACK_REGULAR * 4)));
       float num2;
       switch (stance)
       {
         case 1:
-          num2 = (float) (0.012 * Math.Min(5.0, (double) attackPower / (double) defendPower));
+          num2 =  (0.012 * Math.Min(5.0,  attackPower /  defendPower));
           break;
         case 2:
-          num2 = (float) (0.012 * Math.Min(5.0, (double) attackPower / (double) defendPower));
+          num2 =  (0.012 * Math.Min(5.0,  attackPower /  defendPower));
           break;
         case 3:
-          num2 = (float) (0.012 * Math.Min(5.0, (double) attackPower / (double) defendPower));
+          num2 =  (0.012 * Math.Min(5.0,  attackPower /  defendPower));
           break;
       }
-      let mut lossForDefender: i32 =  (int) Math.Round((double) ((float) num1 * num2)) + 1;
+      let mut lossForDefender: i32 =  (int) Math.Round( ( num1 * num2)) + 1;
       if (lossForDefender > defendPower)
         lossForDefender = defendPower;
       return lossForDefender;
@@ -1280,9 +1280,9 @@ namespace WindowsApplication1
         if (unitByAiid > -1)
           num3 += this.ai.game.Data.UnitObj[unitByAiid].TempUnitPower;
       }
-      float Number = (float) (int) Math.Round((double) ((float) num3 * this.FriendlyMod)) / (float) num2;
-      let mut num4: i32 =  (int) Math.Round((double) Conversion.Int(Number));
-      float num5 = Number - (float) num4;
+      float Number =  (int) Math.Round( ( num3 * this.FriendlyMod)) /  num2;
+      let mut num4: i32 =  (int) Math.Round( Conversion.Int(Number));
+      float num5 = Number -  num4;
       let mut mapWidth2: i32 =  this.ai.map.MapWidth;
       for (let mut index3: i32 =  0; index3 <= mapWidth2; index3 += 1)
       {
@@ -1299,7 +1299,7 @@ namespace WindowsApplication1
             let mut index8: i32 =  index7;
             let mut num6: i32 =  numArray1[index5, index7] + num4;
             numArray2[index6, index8] = num6;
-            if ((double) VBMath.Rnd() < (double) num5)
+            if ( VBMath.Rnd() <  num5)
             {
               int[,] numArray3 = this.troops.Value;
               int[,] numArray4 = numArray3;
@@ -1329,9 +1329,9 @@ namespace WindowsApplication1
             num1 += 1;
         }
       }
-      float Number = (float) (int) Math.Round((double) this.ai.VAR_REINFORCEMENTS_ENEMY / (double) num1);
-      let mut num2: i32 =  (int) Math.Round((double) Conversion.Int(Number));
-      float num3 = Number - (float) num2;
+      float Number =  (int) Math.Round( this.ai.VAR_REINFORCEMENTS_ENEMY /  num1);
+      let mut num2: i32 =  (int) Math.Round( Conversion.Int(Number));
+      float num3 = Number -  num2;
       let mut mapWidth2: i32 =  this.ai.map.MapWidth;
       for (let mut index3: i32 =  0; index3 <= mapWidth2; index3 += 1)
       {
@@ -1348,7 +1348,7 @@ namespace WindowsApplication1
             let mut index8: i32 =  index7;
             let mut num4: i32 =  numArray1[index5, index7] + num2;
             numArray2[index6, index8] = num4;
-            if ((double) VBMath.Rnd() < (double) num3)
+            if ( VBMath.Rnd() <  num3)
             {
               int[,] numArray3 = this.troops.Value;
               int[,] numArray4 = numArray3;
@@ -1377,9 +1377,9 @@ namespace WindowsApplication1
             num1 += 1;
         }
       }
-      float Number = (float) this.ai.VAR_REINFORCEMENTS_FRIENDLY / (float) num1;
-      let mut num2: i32 =  (int) Math.Round((double) Conversion.Int(Number));
-      float num3 = Number - (float) num2;
+      float Number =  this.ai.VAR_REINFORCEMENTS_FRIENDLY /  num1;
+      let mut num2: i32 =  (int) Math.Round( Conversion.Int(Number));
+      float num3 = Number -  num2;
       let mut mapWidth2: i32 =  this.ai.map.MapWidth;
       for (let mut index3: i32 =  0; index3 <= mapWidth2; index3 += 1)
       {
@@ -1396,7 +1396,7 @@ namespace WindowsApplication1
             let mut index8: i32 =  index7;
             let mut num4: i32 =  numArray1[index5, index7] + num2;
             numArray2[index6, index8] = num4;
-            if ((double) VBMath.Rnd() < (double) num3)
+            if ( VBMath.Rnd() <  num3)
             {
               int[,] numArray3 = this.troops.Value;
               int[,] numArray4 = numArray3;
@@ -1613,7 +1613,7 @@ namespace WindowsApplication1
               if (index1 > -1)
               {
                 let mut num9: i32 =  this.troops.Value[x1, y1];
-                this.offtroops.Value[index1, index2] = (int) Math.Round((double) (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2]) + (double) (this.offtroops.Value[x1, y1] * num9) / (double) (this.offtroops.Value[index1, index2] + num9));
+                this.offtroops.Value[index1, index2] = (int) Math.Round( (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2]) +  (this.offtroops.Value[x1, y1] * num9) /  (this.offtroops.Value[index1, index2] + num9));
                 int[,] numArray1 = this.troops.Value;
                 int[,] numArray2 = numArray1;
                 let mut index5: i32 =  x1;
@@ -1744,7 +1744,7 @@ namespace WindowsApplication1
               {
                 if (this.troops.Value[index1, index2] + aiMatrix4.Value[index1, index2] < 1)
                   --num3;
-                let mut num13: i32 =  (int) Math.Round((double) (num1 * (float) this.troops.Value[x1, y1]));
+                let mut num13: i32 =  (int) Math.Round( (num1 *  this.troops.Value[x1, y1]));
                 if (num13 < num2)
                   num13 = this.troops.Value[x1, y1] < num2 ? this.troops.Value[x1, y1] : num2;
                 if (this.frontline.Value[index1, index2] == 0)
@@ -1765,8 +1765,8 @@ namespace WindowsApplication1
                 let mut index12: i32 =  index11;
                 let mut num15: i32 =  numArray3[index9, index11] + num13;
                 numArray4[index10, index12] = num15;
-                aiMatrix3.Value[x1, y1] = enemy.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ((double) this.troops.Value[x1, y1] / (double) enemy.Value[x1, y1])) : 999;
-                aiMatrix3.Value[index1, index2] = enemy.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ((double) (this.troops.Value[index1, index2] + aiMatrix4.Value[index1, index2]) / (double) enemy.Value[index1, index2])) : 999;
+                aiMatrix3.Value[x1, y1] = enemy.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ( this.troops.Value[x1, y1] /  enemy.Value[x1, y1])) : 999;
+                aiMatrix3.Value[index1, index2] = enemy.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ( (this.troops.Value[index1, index2] + aiMatrix4.Value[index1, index2]) /  enemy.Value[index1, index2])) : 999;
                 num4 = 1;
               }
             }
@@ -1857,8 +1857,8 @@ namespace WindowsApplication1
                 let mut index10: i32 =  index9;
                 let mut num12: i32 =  numArray3[index7, index9] + num10;
                 numArray4[index8, index10] = num12;
-                aiMatrix2.Value[x1, y1] = enemy.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ((double) this.troops.Value[x1, y1] / (double) enemy.Value[x1, y1])) : 999;
-                aiMatrix2.Value[index1, index2] = enemy.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ((double) (this.troops.Value[index1, index2] + num10) / (double) enemy.Value[index1, index2])) : 999;
+                aiMatrix2.Value[x1, y1] = enemy.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ( this.troops.Value[x1, y1] /  enemy.Value[x1, y1])) : 999;
+                aiMatrix2.Value[index1, index2] = enemy.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ( (this.troops.Value[index1, index2] + num10) /  enemy.Value[index1, index2])) : 999;
                 num2 = 1;
               }
             }
@@ -1940,12 +1940,12 @@ namespace WindowsApplication1
                         num11 = -10;
                       float num12 = 10f;
                       if (num11 > 0)
-                        num12 += (float) num11 / 1.25f;
+                        num12 +=  num11 / 1.25f;
                       if (num11 < 0)
-                        num12 -= (float) Math.Abs(num11) / 1.25f;
-                      if ((double) (aiMatrix2.Value[x2, y2] * 100) / (double) num12 < (double) num5)
+                        num12 -=  Math.Abs(num11) / 1.25f;
+                      if ( (aiMatrix2.Value[x2, y2] * 100) /  num12 <  num5)
                       {
-                        num5 = (int) Math.Round((double) ((float) (aiMatrix2.Value[x2, y2] * 100) / num12));
+                        num5 = (int) Math.Round( ( (aiMatrix2.Value[x2, y2] * 100) / num12));
                         index1 = x2;
                         index2 = y2;
                       }
@@ -1953,12 +1953,12 @@ namespace WindowsApplication1
                   }
                 }
               }
-              if (index1 > -1 && aiMatrix3.Value[index1, index2] + (int) Math.Round((double) (num1 * (float) aiMatrix2.Value[x1, y1])) < aiMatrix2.Value[x1, y1] - (int) Math.Round((double) (num1 * (float) aiMatrix2.Value[x1, y1])))
+              if (index1 > -1 && aiMatrix3.Value[index1, index2] + (int) Math.Round( (num1 *  aiMatrix2.Value[x1, y1])) < aiMatrix2.Value[x1, y1] - (int) Math.Round( (num1 *  aiMatrix2.Value[x1, y1])))
               {
-                let mut num13: i32 =  (int) Math.Round((double) (num1 * (float) this.troops.Value[x1, y1]));
+                let mut num13: i32 =  (int) Math.Round( (num1 *  this.troops.Value[x1, y1]));
                 if (num13 < num2)
                   num13 = this.troops.Value[x1, y1] < num2 ? this.troops.Value[x1, y1] : num2;
-                this.offtroops.Value[index1, index2] = (int) Math.Round((double) (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2] + this.offtroops.Value[x1, y1] * this.troops.Value[x1, y1]) / (double) (this.troops.Value[x1, y1] + this.troops.Value[index1, index2]));
+                this.offtroops.Value[index1, index2] = (int) Math.Round( (this.offtroops.Value[index1, index2] * this.troops.Value[index1, index2] + this.offtroops.Value[x1, y1] * this.troops.Value[x1, y1]) /  (this.troops.Value[x1, y1] + this.troops.Value[index1, index2]));
                 int[,] numArray1 = this.troops.Value;
                 int[,] numArray2 = numArray1;
                 let mut index5: i32 =  x1;
@@ -1977,8 +1977,8 @@ namespace WindowsApplication1
                 let mut index12: i32 =  index11;
                 let mut num15: i32 =  numArray3[index9, index11] + num13;
                 numArray4[index10, index12] = num15;
-                aiMatrix2.Value[x1, y1] = friendly.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ((double) this.troops.Value[x1, y1] / (double) friendly.Value[x1, y1])) : 999;
-                aiMatrix2.Value[index1, index2] = friendly.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ((double) (this.troops.Value[index1, index2] + aiMatrix3.Value[index1, index2]) / (double) friendly.Value[index1, index2])) : 999;
+                aiMatrix2.Value[x1, y1] = friendly.Value[x1, y1] != 0 ? (int) Math.Round(100.0 * ( this.troops.Value[x1, y1] /  friendly.Value[x1, y1])) : 999;
+                aiMatrix2.Value[index1, index2] = friendly.Value[index1, index2] != 0 ? (int) Math.Round(100.0 * ( (this.troops.Value[index1, index2] + aiMatrix3.Value[index1, index2]) /  friendly.Value[index1, index2])) : 999;
                 num3 = 1;
               }
             }

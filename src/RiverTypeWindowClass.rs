@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.IO;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
 
 namespace WindowsApplication1
 {
@@ -75,7 +75,7 @@ namespace WindowsApplication1
         this.riverListObj = ListClass::new();
         let mut riverTypeCounter: i32 = this.game.Data.RiverTypeCounter;
         for (let mut index: i32 = 0; index <= riverTypeCounter; index += 1)
-          this.riverListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.RiverTypeObj[index].Name, index);
+          this.riverListObj.add(Conversion.Str( index) + ") " + this.game.Data.RiverTypeObj[index].Name, index);
         ListClass riverListObj = this.riverListObj;
         let mut tlistselect: i32 = trivernr;
         let mut game: GameClass = this.game;
@@ -168,7 +168,7 @@ namespace WindowsApplication1
           let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.BCostModId = this.AddSubPart( tsubpart2, 370, 70, 32, 16, 1);
         }
-        let mut tsubpart3: SubPartClass =  TextPartClass::new("BridgeCostMod: " + Conversion.Str((object) this.game.Data.RiverTypeObj[this.riverNr].BridgeCostModifier), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        let mut tsubpart3: SubPartClass =  TextPartClass::new("BridgeCostMod: " + Conversion.Str( this.game.Data.RiverTypeObj[this.riverNr].BridgeCostModifier), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.BCostModTextid = this.AddSubPart( tsubpart3, 410, 69, 400, 20, 0);
         this.ss = "Click to change transparent setting (works best in combination with overlay map)";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -176,7 +176,7 @@ namespace WindowsApplication1
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.b3id = this.AddSubPart( tsubpart3, 370, 90, 32, 16, 1);
         }
-        tsubpart3 =  TextPartClass::new("Transparent: " + Conversion.Str((object) this.game.Data.RiverTypeObj[this.riverNr].Transparent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        tsubpart3 =  TextPartClass::new("Transparent: " + Conversion.Str( this.game.Data.RiverTypeObj[this.riverNr].Transparent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.b3textid = this.AddSubPart( tsubpart3, 410, 89, 400, 20, 0);
         this.ss = "Click to change the thickness for mini/strat. map";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -184,7 +184,7 @@ namespace WindowsApplication1
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.b6id = this.AddSubPart( tsubpart3, 370, 110, 32, 16, 1);
         }
-        tsubpart3 =  TextPartClass::new("Thickness: " + Conversion.Str((object) this.game.Data.RiverTypeObj[this.riverNr].Thickness), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        tsubpart3 =  TextPartClass::new("Thickness: " + Conversion.Str( this.game.Data.RiverTypeObj[this.riverNr].Thickness), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.b6textid = this.AddSubPart( tsubpart3, 410, 109, 400, 20, 0);
         this.ss = "Click to set to Snake Mode drawing style";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -192,7 +192,7 @@ namespace WindowsApplication1
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.b4id = this.AddSubPart( tsubpart3, 770, 90, 32, 16, 1);
         }
-        tsubpart3 =  TextPartClass::new("SnakeMode: " + Conversion.Str((object) this.game.Data.RiverTypeObj[this.riverNr].snakeMode), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        tsubpart3 =  TextPartClass::new("SnakeMode: " + Conversion.Str( this.game.Data.RiverTypeObj[this.riverNr].snakeMode), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.b4textid = this.AddSubPart( tsubpart3, 810, 89, 400, 20, 0);
         this.ss = "Click to set draw mode in editor.";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -200,7 +200,7 @@ namespace WindowsApplication1
           tsubpart3 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.b5id = this.AddSubPart( tsubpart3, 770, 70, 32, 16, 1);
         }
-        tsubpart3 =  TextPartClass::new("drawInteriorOnly: " + Conversion.Str((object) this.game.Data.RiverTypeObj[this.riverNr].drawInteriorOnly), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        tsubpart3 =  TextPartClass::new("drawInteriorOnly: " + Conversion.Str( this.game.Data.RiverTypeObj[this.riverNr].drawInteriorOnly), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.b5textid = this.AddSubPart( tsubpart3, 810, 69, 400, 20, 0);
         this.ss = "Click to remove this rivertype";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -360,7 +360,7 @@ namespace WindowsApplication1
       let mut index: i32 = 0;
       do
       {
-        this.BasicList2Obj.add(this.game.Data.TempString[index] + "(" + Conversion.Str((object) index) + ") = " + Conversion.Str((object) this.game.Data.RiverTypeObj[this.riverNr].MovePenalty[index]) + "ap", index);
+        this.BasicList2Obj.add(this.game.Data.TempString[index] + "(" + Conversion.Str( index) + ") = " + Conversion.Str( this.game.Data.RiverTypeObj[this.riverNr].MovePenalty[index]) + "ap", index);
         index += 1;
       }
       while (index <= 99);
@@ -400,7 +400,7 @@ namespace WindowsApplication1
       let mut index: i32 = 0;
       do
       {
-        this.BasicList3Obj.add(this.game.Data.TempString[index + 400] + "(" + Conversion.Str((object) index) + ") = " + Conversion.Str((object) this.game.Data.RiverTypeObj[this.riverNr].AttackPenalty[index]), index);
+        this.BasicList3Obj.add(this.game.Data.TempString[index + 400] + "(" + Conversion.Str( index) + ") = " + Conversion.Str( this.game.Data.RiverTypeObj[this.riverNr].AttackPenalty[index]), index);
         index += 1;
       }
       while (index <= 99);
@@ -469,14 +469,14 @@ namespace WindowsApplication1
             }
             if (num1 == this.BCostModId)
             {
-              float num3 = (float) Conversion.Val(Interaction.InputBox("Give new attack-over river mod.", "Shadow Empire : Planetary Conquest"));
-              if ((double) num3 < -1.0 | (double) num3 > 999.0)
+              float num3 =  Conversion.Val(Interaction.InputBox("Give new attack-over river mod.", "Shadow Empire : Planetary Conquest"));
+              if ( num3 < -1.0 |  num3 > 999.0)
               {
-                let mut num4: i32 =  Interaction.MsgBox((object) "Between -1 and 999 please. You can use 0.5 or 3.5 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  Interaction.MsgBox( "Between -1 and 999 please. You can use 0.5 or 3.5 like values.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
                 this.game.Data.RiverTypeObj[this.riverNr].BridgeCostModifier = num3;
-              if ((double) num3 == -1.0)
+              if ( num3 == -1.0)
               {
                 let mut num5: i32 = 0;
                 let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
@@ -500,7 +500,7 @@ namespace WindowsApplication1
                 }
                 if (num5 > 0)
                 {
-                  let mut num6: i32 =  Interaction.MsgBox((object) ("Removed " + num5.ToString() + " bridges that were across this river type."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =  Interaction.MsgBox( ("Removed " + num5.ToString() + " bridges that were across this river type."), Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               this.MakeriverListGUI(this.riverNr);
@@ -524,7 +524,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num8: i32 =  Interaction.MsgBox((object) "Thickness must be in range 0-9.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num8: i32 =  Interaction.MsgBox( "Thickness must be in range 0-9.", Title: ( "Shadow Empire : Planetary Conquest"));
             }
             else
             {
@@ -582,7 +582,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num11: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num11: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.maketabsheet();
                 windowReturnClass.SetFlag(true);
@@ -618,7 +618,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num14: i32 =  Interaction.MsgBox((object) "Value between 0 and 10000 please...", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num14: i32 =  Interaction.MsgBox( "Value between 0 and 10000 please...", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.maketabsheet();
                 windowReturnClass.SetFlag(true);
@@ -638,10 +638,10 @@ namespace WindowsApplication1
               }
               if (num1 == this.ChangePenaltyId)
               {
-                float num16 = (float) Conversion.Val(Interaction.InputBox("Give new attack-over river mod.", "Shadow Empire : Planetary Conquest"));
-                if ((double) num16 < 0.0 | (double) num16 > 1.0)
+                float num16 =  Conversion.Val(Interaction.InputBox("Give new attack-over river mod.", "Shadow Empire : Planetary Conquest"));
+                if ( num16 < 0.0 |  num16 > 1.0)
                 {
-                  let mut num17: i32 =  Interaction.MsgBox((object) "Between 0 and 1 please. You can use 0.5 or 0.87 like values.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num17: i32 =  Interaction.MsgBox( "Between 0 and 1 please. You can use 0.5 or 0.87 like values.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                   this.game.Data.RiverTypeObj[this.riverNr].AttackPenalty[this.DetailNr] = num16;
@@ -659,7 +659,7 @@ namespace WindowsApplication1
                 }
                 if (this.game.Data.RiverTypeObj[this.riverNr].SpecialLayer)
                 {
-                  if (Interaction.MsgBox((object) "Use Fred SpriteSheet?", MsgBoxStyle.YesNo) == MsgBoxResult.No)
+                  if (Interaction.MsgBox( "Use Fred SpriteSheet?", MsgBoxStyle.YesNo) == MsgBoxResult.No)
                     this.game.Data.RiverTypeObj[this.riverNr].UseSheet = false;
                   else
                     this.game.Data.RiverTypeObj[this.riverNr].UseSheet = true;
@@ -675,7 +675,7 @@ namespace WindowsApplication1
                       return windowReturnClass;
                     }
                     this.game.Data.RiverTypeObj[this.riverNr].SpecialLayer = false;
-                    let mut num18: i32 =  Interaction.MsgBox((object) "Could not find this dir... give it like 'sea' or 'africa/desert', make sure a1 is present.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num18: i32 =  Interaction.MsgBox( "Could not find this dir... give it like 'sea' or 'africa/desert', make sure a1 is present.", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -687,7 +687,7 @@ namespace WindowsApplication1
                       windowReturnClass.SetFlag(true);
                       return windowReturnClass;
                     }
-                    let mut num19: i32 =  Interaction.MsgBox((object) "Could not find this file... ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num19: i32 =  Interaction.MsgBox( "Could not find this file... ", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 this.maketabsheet();

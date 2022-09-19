@@ -8,7 +8,7 @@ namespace WindowsApplication1
 {
   pub class NeighboursExtra
   {
-    pub int[] data;
+    pub data: Vec<i32>;
     pub truck: bool;
     pub rail: bool;
     pub pull: bool;

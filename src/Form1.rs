@@ -4,19 +4,19 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Globalization;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.ComponentModel;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Globalization;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Runtime.InteropServices;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -186,7 +186,7 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          let mut num: i32 =   Interaction.MsgBox((object) "Error trying to read windows.txt file.");
+          let mut num: i32 =   Interaction.MsgBox( "Error trying to read windows.txt file.");
           ProjectData.ClearProjectError();
         }
       }
@@ -196,7 +196,7 @@ namespace WindowsApplication1
 
     protected void Dispose(bool disposing)
     {
-      if (!Information.IsNothing((object) this.Game))
+      if (!Information.IsNothing( this.Game))
         SoundMod.EndSound();
       if (disposing && this.components != null)
         this.components.Dispose();
@@ -317,7 +317,7 @@ namespace WindowsApplication1
             StreamReader streamReader2 = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + "mods/" + fileInfo.Name);
             str2: String = streamReader2.ReadLine();
             streamReader2.Close();
-            Prompt = Prompt + Strings.Trim(Conversion.Str((object) Number)) + "] " + str2 + "\r\n";
+            Prompt = Prompt + Strings.Trim(Conversion.Str( Number)) + "] " + str2 + "\r\n";
           }
           let mut num: i32 =   Math.Round(Conversion.Val(Interaction.InputBox(Prompt, "Shadow Empire : Planetary Conquest : Select Mod")));
           if (num > 0 & num <= files.Length)
@@ -348,8 +348,8 @@ namespace WindowsApplication1
     pub void FinishUp()
     {
       Graphics Expression = Graphics.FromHwnd(this.Handle);
-      DrawMod.DPIx =  Math.Round((double) Expression.DpiX);
-      DrawMod.DPIy =  Math.Round((double) Expression.DpiY);
+      DrawMod.DPIx =  Math.Round( Expression.DpiX);
+      DrawMod.DPIy =  Math.Round( Expression.DpiY);
       this.Game = new GameClass(this);
       DrawMod.TGame = this.Game;
       if (!this.startedWithDPIaware)
@@ -357,7 +357,7 @@ namespace WindowsApplication1
       this.doubleSize = DrawMod.TGame.EditObj.DoubleSize;
       if (Form1.SteamAPI_RestartAppIfNecessary(1154840) == 1)
       {
-        let mut num: i32 =   Interaction.MsgBox((object) "The game is not launched from Steam. The game will close down. Please start the game up from Steam. ", Title: ((object) "Copy protection check"));
+        let mut num: i32 =   Interaction.MsgBox( "The game is not launched from Steam. The game will close down. Please start the game up from Steam. ", Title: ( "Copy protection check"));
         ProjectData.EndApp();
       }
       this.Game.EditObj.ShownWelcome = false;
@@ -370,13 +370,13 @@ namespace WindowsApplication1
         this.Height = this.windowsFormHeight;
         if (this.Game.Data.Product >= 7 && this.Game.EditObj.DoubleSizePercentage > 100)
         {
-          if ( Math.Round((double) (this.Width * 100) / (double) this.Game.EditObj.DoubleSizePercentage) < 1280)
+          if ( Math.Round( (this.Width * 100) /  this.Game.EditObj.DoubleSizePercentage) < 1280)
           {
             this.Game.EditObj.DoubleSizePercentage = 100;
             this.Game.EditObj.DoubleSize = false;
             this.Game.EditObj.Save(this.Game.AppPath + "editobj.txt");
           }
-          if ( Math.Round((double) (this.Height * 100) / (double) this.Game.EditObj.DoubleSizePercentage) < 768)
+          if ( Math.Round( (this.Height * 100) /  this.Game.EditObj.DoubleSizePercentage) < 768)
           {
             this.Game.EditObj.DoubleSizePercentage = 100;
             this.Game.EditObj.DoubleSize = false;
@@ -397,14 +397,14 @@ namespace WindowsApplication1
         if (this.Game.Data.Product >= 6 & this.Game.EditObj.overruleScreenResWidth >= 1280 & this.Game.EditObj.overruleScreenResHeight >= 768)
         {
           DEVMODE1 lpDevMode = DEVMODE1::new();
-          lpDevMode.dmSize = (short) Marshal.SizeOf((object) lpDevMode);
+          lpDevMode.dmSize = (short) Marshal.SizeOf( lpDevMode);
           if (Form1.EnumDisplaySettings(0, 0,  lpDevMode))
           {
             this.Game.StartupScreenWidth = Screen.PrimaryScreen.Bounds.Width;
             this.Game.StartupScreenHeight = Screen.PrimaryScreen.Bounds.Height;
             lpDevMode.dmDeviceName = new string(new char[33]);
             lpDevMode.dmFormName = new string(new char[33]);
-            lpDevMode.dmSize = (short) Marshal.SizeOf((object) lpDevMode);
+            lpDevMode.dmSize = (short) Marshal.SizeOf( lpDevMode);
             lpDevMode.dmPelsWidth = this.Game.EditObj.overruleScreenResWidth;
             lpDevMode.dmPelsHeight = this.Game.EditObj.overruleScreenResHeight;
             if (Form1.ChangeDisplaySettings( lpDevMode, 4) == 0)
@@ -459,7 +459,7 @@ namespace WindowsApplication1
       }
       if (this.Game.ScreenWidth < 1280 | this.Game.ScreenHeight < 768)
       {
-        let mut num1: i32 =   Interaction.MsgBox((object) "The minimum screen resolution your desktop needs to have is 1280x768.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox( "The minimum screen resolution your desktop needs to have is 1280x768.", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       if (this.doubleSize)
       {
@@ -475,7 +475,7 @@ namespace WindowsApplication1
       this.Timer1.Enabled = true;
       this.StartupPhase = 2;
       this.Cursor = Cursors.Default;
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -487,12 +487,12 @@ namespace WindowsApplication1
       base.OnPaintBackground(e);
     }
 
-    pub int GetMemorySize() =>  Math.Round((double) (32 * this.Width * this.Height) / 8000.0) + this.Screeny.GetMemorySize();
+    pub int GetMemorySize() =>  Math.Round( (32 * this.Width * this.Height) / 8000.0) + this.Screeny.GetMemorySize();
 
     pub void SuperImposeMessage(string texty, string texty2)
     {
-      let mut num1: i32 =   Math.Round((double) this.Game.RealScreenWidth / 2.0 - 185.0);
-      let mut num2: i32 =   Math.Round((double) this.Game.RealScreenHeight / 2.0 - 106.0);
+      let mut num1: i32 =   Math.Round( this.Game.RealScreenWidth / 2.0 - 185.0);
+      let mut num2: i32 =   Math.Round( this.Game.RealScreenHeight / 2.0 - 106.0);
       Graphics objgraphics = Graphics.FromHwnd(this.Handle);
        let mut local1: &Graphics = &objgraphics;
       Bitmap bitmap = BitmapStore.GetBitmap(this.Game.SE1_SUPERIMPOSEBACKGROUND);
@@ -534,10 +534,10 @@ namespace WindowsApplication1
               Rectangle rect;
                Rectangle local =  rect;
               clipRectangle = e.ClipRectangle;
-              let mut x: i32 =   Math.Round((double) ((float) clipRectangle.X * this.doubleModX));
-              let mut y: i32 =   Math.Round((double) ((float) e.ClipRectangle.Y * this.doubleModY));
-              let mut width: i32 =   Math.Round((double) ((float) e.ClipRectangle.Width * this.doubleModX));
-              let mut height: i32 =   Math.Round((double) ((float) e.ClipRectangle.Height * this.doubleModY));
+              let mut x: i32 =   Math.Round( ( clipRectangle.X * this.doubleModX));
+              let mut y: i32 =   Math.Round( ( e.ClipRectangle.Y * this.doubleModY));
+              let mut width: i32 =   Math.Round( ( e.ClipRectangle.Width * this.doubleModX));
+              let mut height: i32 =   Math.Round( ( e.ClipRectangle.Height * this.doubleModY));
               local = Rectangle::new(x, y, width, height);
               this.PaintScreeny(rect);
             }
@@ -559,7 +559,7 @@ namespace WindowsApplication1
       if (this.StartupPhase < 2 || e.Button != MouseButtons.Left & e.Button != MouseButtons.Right || this.Buisy || Conversions.ToBoolean(this.OnlyTimerCall()))
         return;
       this.Buisy = true;
-      if (SoundMod.NOSOUND && !Information.IsNothing((object) this.Game) && !Information.IsNothing((object) this.Game.EditObj) && !this.Game.EditObj.InEditor)
+      if (SoundMod.NOSOUND && !Information.IsNothing( this.Game) && !Information.IsNothing( this.Game.EditObj) && !this.Game.EditObj.InEditor)
       {
         SoundMod.NOSOUND = false;
         SoundMod.RestartLastBackground( this.Game.EditObj);
@@ -600,8 +600,8 @@ namespace WindowsApplication1
       }
       if (this.doubleSize)
       {
-        x1 =  Math.Round((double) ((float) x1 * this.doubleModX));
-        y1 =  Math.Round((double) ((float) y1 * this.doubleModY));
+        x1 =  Math.Round( ( x1 * this.doubleModX));
+        y1 =  Math.Round( ( y1 * this.doubleModY));
       }
       this.LastMouseX = x1;
       this.LastMouseY = y1;
@@ -610,7 +610,7 @@ namespace WindowsApplication1
       {
         if (screenReturnClass.OpenPopUp)
         {
-          if (Information.IsNothing((object) this.StoredScreeny))
+          if (Information.IsNothing( this.StoredScreeny))
             this.StoredScreeny = this.Screeny;
         }
         else
@@ -682,7 +682,7 @@ namespace WindowsApplication1
         this.Game.EditObj.MapPopupMode = false;
         this.Game.EditObj.TempCoordList = CoordList::new();
         this.Game.EditObj.MyDelegate();
-        if (this.Game.Data.Product >= 7 && !Information.IsNothing((object) this.Game.EditObj.MyDelegateMap))
+        if (this.Game.Data.Product >= 7 && !Information.IsNothing( this.Game.EditObj.MyDelegateMap))
           this.Game.EditObj.MyDelegateMap();
         this.Screeny.FlagAllIncludingRefresh();
         this.PaintScreeny();
@@ -716,10 +716,10 @@ namespace WindowsApplication1
         }
         if (this.doubleSize)
         {
-          x =  Math.Round((double) ((float) x * this.doubleModX));
-          y =  Math.Round((double) ((float) y * this.doubleModY));
+          x =  Math.Round( ( x * this.doubleModX));
+          y =  Math.Round( ( y * this.doubleModY));
         }
-        if (!Information.IsNothing((object) this.Screeny))
+        if (!Information.IsNothing( this.Screeny))
           return;
         try
         {
@@ -753,8 +753,8 @@ namespace WindowsApplication1
         }
         if (this.doubleSize)
         {
-          x =  Math.Round((double) ((float) x * this.doubleModX));
-          y =  Math.Round((double) ((float) y * this.doubleModY));
+          x =  Math.Round( ( x * this.doubleModX));
+          y =  Math.Round( ( y * this.doubleModY));
         }
         this.LastMouseX = x;
         this.LastMouseY = y;
@@ -763,7 +763,7 @@ namespace WindowsApplication1
         {
           if (screenReturnClass.OpenPopUp)
           {
-            if (Information.IsNothing((object) this.StoredScreeny))
+            if (Information.IsNothing( this.StoredScreeny))
               this.StoredScreeny = this.Screeny;
           }
           else
@@ -871,14 +871,14 @@ namespace WindowsApplication1
       }
       if (this.doubleSize)
       {
-        x1 =  Math.Round((double) ((float) x1 * this.doubleModX));
-        y1 =  Math.Round((double) ((float) y1 * this.doubleModY));
+        x1 =  Math.Round( ( x1 * this.doubleModX));
+        y1 =  Math.Round( ( y1 * this.doubleModY));
       }
       if (this.StartupPhase < 2)
         return;
-      if (Information.IsNothing((object) this.LastTipText))
+      if (Information.IsNothing( this.LastTipText))
         this.LastTipText = "";
-      if (Information.IsNothing((object) this.Game.EditObj.TipText))
+      if (Information.IsNothing( this.Game.EditObj.TipText))
         this.Game.EditObj.TipText = "";
       if (Operators.CompareString(this.LastTipText, this.Game.EditObj.TipText, false) != 0 & this.Game.EditObj.MouseOverVisible)
       {
@@ -925,7 +925,7 @@ namespace WindowsApplication1
         }
         else
         {
-          if (Information.IsNothing((object) Cursor.Clip))
+          if (Information.IsNothing( Cursor.Clip))
             return;
           let mut num5: i32 =  !this.hasFocus ? 1 : 0;
           let mut num6: i32 =  Cursor.Clip.X == Screen.PrimaryScreen.Bounds.X & Cursor.Clip.Y == Screen.PrimaryScreen.Bounds.Y ? 1 : 0;
@@ -945,7 +945,7 @@ namespace WindowsApplication1
         if (!this.currentlyInMouseLock)
           return;
         this.currentlyInMouseLock = false;
-        if (Information.IsNothing((object) Cursor.Clip))
+        if (Information.IsNothing( Cursor.Clip))
           return;
         Cursor.Clip = rectangle;
       }
@@ -984,12 +984,12 @@ namespace WindowsApplication1
       this += 1.TempKeyTest;
       if (this.TempKeyTest == 2)
         this.TempKeyTest = this.TempKeyTest;
-      ScreenReturnClass screenReturnClass = this.Screeny.HandleKeyPress( Math.Round(Conversion.Val((object) e.KeyValue)));
+      ScreenReturnClass screenReturnClass = this.Screeny.HandleKeyPress( Math.Round(Conversion.Val( e.KeyValue)));
       if (screenReturnClass.NewScreen > 0)
       {
         if (screenReturnClass.OpenPopUp)
         {
-          if (Information.IsNothing((object) this.StoredScreeny))
+          if (Information.IsNothing( this.StoredScreeny))
             this.StoredScreeny = this.Screeny;
         }
         else
@@ -1077,12 +1077,12 @@ namespace WindowsApplication1
       if (this.StartupPhase < 2 || this.Buisy || Conversions.ToBoolean(this.OnlyTimerCall()))
         return;
       this.Buisy = true;
-      ScreenReturnClass screenReturnClass = this.Screeny.HandleKeyup( Math.Round(Conversion.Val((object) e.KeyValue)));
+      ScreenReturnClass screenReturnClass = this.Screeny.HandleKeyup( Math.Round(Conversion.Val( e.KeyValue)));
       if (screenReturnClass.NewScreen > 0)
       {
         if (screenReturnClass.OpenPopUp)
         {
-          if (Information.IsNothing((object) this.StoredScreeny))
+          if (Information.IsNothing( this.StoredScreeny))
             this.StoredScreeny = this.Screeny;
         }
         else
@@ -1175,7 +1175,7 @@ namespace WindowsApplication1
       this.Buisy = false;
     }
 
-    pub object OnlyTimerCall() => (object) false;
+    pub object OnlyTimerCall() =>  false;
 
      void Form1_MouseWheel(object sender, MouseEventArgs e)
     {
@@ -1202,7 +1202,7 @@ namespace WindowsApplication1
       this.Timer1.Interval = 50;
       this.debugPoint2 = 1;
       this.debugPoint3 = 1;
-      if (!Information.IsNothing((object) this.Game) && !Information.IsNothing((object) this.Game.Data) && this.Game.Data.Turn > -1 && this.Game.Data.DontShowAIMove && this.Game.Data.RegimeCounter >= this.Game.Data.Turn && this.Game.Data.RegimeObj[this.Game.Data.Turn].AI)
+      if (!Information.IsNothing( this.Game) && !Information.IsNothing( this.Game.Data) && this.Game.Data.Turn > -1 && this.Game.Data.DontShowAIMove && this.Game.Data.RegimeCounter >= this.Game.Data.Turn && this.Game.Data.RegimeObj[this.Game.Data.Turn].AI)
         this.Timer1.Interval = 250;
       if (this.StartupPhase < 2)
       {
@@ -1244,7 +1244,7 @@ namespace WindowsApplication1
         this.debugPoint3 = 5;
         tipText: String = this.Game.EditObj.TipText;
         this.Screeny.HandleTooltip(this.LastMouseX, this.LastMouseY);
-        if (!Information.IsNothing((object) this.Game.EditObj.TipText) && Operators.CompareString(this.Game.EditObj.TipText, this.LastTipText, false) != 0)
+        if (!Information.IsNothing( this.Game.EditObj.TipText) && Operators.CompareString(this.Game.EditObj.TipText, this.LastTipText, false) != 0)
         {
           this.LastTipText = this.Game.EditObj.TipText;
           this.LastTipTextX = this.LastMouseX;
@@ -1289,10 +1289,10 @@ namespace WindowsApplication1
           let mut num3: i32 =  1;
           if (this.doubleSize)
           {
-            num1 =  Math.Round((double) ((float) num1 * this.doubleModX));
-            num2 =  Math.Round((double) ((float) num2 * this.doubleModY));
-            if ((double) this.doubleModX >= 2.0)
-              num3 =  Math.Round((double) this.doubleModX);
+            num1 =  Math.Round( ( num1 * this.doubleModX));
+            num2 =  Math.Round( ( num2 * this.doubleModY));
+            if ( this.doubleModX >= 2.0)
+              num3 =  Math.Round( this.doubleModX);
           }
           if (this.FullScreen)
           {
@@ -1450,7 +1450,7 @@ namespace WindowsApplication1
       if (!this.hasFocus & this.Game.noDrawNoFocus)
         return;
       if (this.doubleSize)
-        this.PaintScreeny(Rectangle::new(0, 0,  Math.Round((double) ((float) this.Width * this.doubleModX)),  Math.Round((double) ((float) this.Height * this.doubleModY))));
+        this.PaintScreeny(Rectangle::new(0, 0,  Math.Round( ( this.Width * this.doubleModX)),  Math.Round( ( this.Height * this.doubleModY))));
       else
         this.PaintScreeny(Rectangle::new(0, 0, this.Width, this.Height));
     }
@@ -1460,7 +1460,7 @@ namespace WindowsApplication1
       this.hasFocus = true;
       if (this.StartupPhase < 2)
         return;
-      if (SoundMod.NOSOUND && !Information.IsNothing((object) this.Game) && !Information.IsNothing((object) this.Game.EditObj) && !this.Game.EditObj.InEditor)
+      if (SoundMod.NOSOUND && !Information.IsNothing( this.Game) && !Information.IsNothing( this.Game.EditObj) && !this.Game.EditObj.InEditor)
       {
         SoundMod.NOSOUND = false;
         SoundMod.RestartLastBackground( this.Game.EditObj);
@@ -1492,7 +1492,7 @@ namespace WindowsApplication1
         {
           Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
           bool flag = false;
-          if (Information.IsNothing((object) this.sbmp))
+          if (Information.IsNothing( this.sbmp))
             flag = true;
           else if (!(this.sbmp.Width == this.Width & this.sbmp.Height == this.Height))
             flag = true;
@@ -1552,7 +1552,7 @@ namespace WindowsApplication1
           Bitmap bitmap = this.Screeny.Paint(this.tempOnlyToolTip);
            let mut local8: &Bitmap = &bitmap;
           let mut srcrect: &Rectangle = &rect
-          Rectangle destrect = Rectangle::new( Math.Round((double) ((float) rect.X / this.doubleModX)),  Math.Round((double) ((float) rect.Y / this.doubleModY)),  Math.Round((double) ((float) rect.Width / this.doubleModX)),  Math.Round((double) ((float) rect.Height / this.doubleModY)));
+          Rectangle destrect = Rectangle::new( Math.Round( ( rect.X / this.doubleModX)),  Math.Round( ( rect.Y / this.doubleModY)),  Math.Round( ( rect.Width / this.doubleModX)),  Math.Round( ( rect.Height / this.doubleModY)));
           DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
         }
         else

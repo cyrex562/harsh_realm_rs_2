@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Threading;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Threading;
 
 namespace WindowsApplication1
 {
@@ -14,7 +14,7 @@ namespace WindowsApplication1
   {
     pub counter: i32;
     pub Coordinate[] coord;
-    pub int[] moveType;
+    pub moveType: Vec<i32>;
     pub maxcounter: i32;
      bool blocked;
 

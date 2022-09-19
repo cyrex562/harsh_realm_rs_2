@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -565,8 +565,8 @@ namespace WindowsApplication1
       if (num1 > 0)
       {
         averageFrontCoordinate.onmap = true;
-        averageFrontCoordinate.x = (int) Math.Round((double) num2 / (double) num1);
-        averageFrontCoordinate.y = (int) Math.Round((double) num3 / (double) num1);
+        averageFrontCoordinate.x = (int) Math.Round( num2 /  num1);
+        averageFrontCoordinate.y = (int) Math.Round( num3 /  num1);
       }
       else
       {
@@ -597,8 +597,8 @@ namespace WindowsApplication1
         if (num1 > 0)
         {
           averageFrontCoordinate.onmap = true;
-          averageFrontCoordinate.x = (int) Math.Round((double) num2 / (double) num1);
-          averageFrontCoordinate.y = (int) Math.Round((double) num3 / (double) num1);
+          averageFrontCoordinate.x = (int) Math.Round( num2 /  num1);
+          averageFrontCoordinate.y = (int) Math.Round( num3 /  num1);
         }
         else
           averageFrontCoordinate.onmap = false;
@@ -648,8 +648,8 @@ namespace WindowsApplication1
       if (num1 > 0)
       {
         averageUnitsCoordinate.onmap = true;
-        averageUnitsCoordinate.x = (int) Math.Round((double) num2 / (double) num1);
-        averageUnitsCoordinate.y = (int) Math.Round((double) num3 / (double) num1);
+        averageUnitsCoordinate.x = (int) Math.Round( num2 /  num1);
+        averageUnitsCoordinate.y = (int) Math.Round( num3 /  num1);
       }
       else
         averageUnitsCoordinate.onmap = false;

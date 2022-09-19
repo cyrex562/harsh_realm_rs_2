@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -85,7 +85,7 @@ namespace WindowsApplication1
       }
       DrawMod.DrawRectangle( Expression, 49, 79, 602, 442,  self.game.GameCol2.R,  self.game.GameCol2.G,  self.game.GameCol2.B,  byte.MaxValue);
       self.ViewMessage();
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -393,8 +393,8 @@ namespace WindowsApplication1
       let mut num1: i32 = 230;
       if (self.game.Data.Round == 0)
         num1 += 100;
-      let mut num2: i32 =  Math.Round(Conversion.Int((double) (self.OwnBitmap.Width - 250) / (double) (53 * (self.game.EditObj.Zoom + 1))));
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) (self.OwnBitmap.Height - num1) / (double) (48 * (self.game.EditObj.Zoom + 1))));
+      let mut num2: i32 =  Math.Round(Conversion.Int( (self.OwnBitmap.Width - 250) /  (53 * (self.game.EditObj.Zoom + 1))));
+      let mut num3: i32 =  Math.Round(Conversion.Int( (self.OwnBitmap.Height - num1) /  (48 * (self.game.EditObj.Zoom + 1))));
       let mut num4: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth - self.game.CornerX + 1;
       let mut num5: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight - self.game.CornerY + 1;
       if (num2 > num4 & !self.game.Data.MapObj[self.game.EditObj.MapSelected].MapLoop)

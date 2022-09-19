@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -14,16 +14,16 @@ namespace WindowsApplication1
   {
     pub ListCount: i32;
     pub string[] ListName;
-    pub int[] ListData;
+    pub ListData: Vec<i32>;
     pub string[] ListValue;
     pub string[] ListValue2;
     pub string[] ListValue3;
     pub string[] ListValue4;
-    pub int[] ListColor;
+    pub ListColor: Vec<i32>;
     pub Bitmap[] ListBmp;
-    pub int[] ListR;
-    pub int[] ListG;
-    pub int[] ListB;
+    pub ListR: Vec<i32>;
+    pub ListG: Vec<i32>;
+    pub ListB: Vec<i32>;
 
     pub ATListClass()
     {

@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -234,7 +234,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc( g, self.game.Data.EventPicName[self.IndId] + str, self.game.MarcFont4, usex1 + 20, usey1 + 50, Color.White);
         let mut nr: i32 = self.game.Data.EventPicNr[self.IndId];
         DrawMod.DrawTextColouredMarc( g, "Graphic:", self.game.MarcFont4, usex1 + 20, usey1 + 90, Color.White);
-        if (nr > -1 & !Information.IsNothing((object) BitmapStore.GetBitmap(nr)))
+        if (nr > -1 & !Information.IsNothing( BitmapStore.GetBitmap(nr)))
         {
            let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(nr);
@@ -311,9 +311,9 @@ namespace WindowsApplication1
         int index;
         if (self.game.Data.HistoricalUnitObj[indId].HisVarCount >= index)
         {
-          str: String = Strings.Trim(Conversion.Str((object) self.game.Data.HistoricalUnitObj[indId].HisVarValue[index]));
+          str: String = Strings.Trim(Conversion.Str( self.game.Data.HistoricalUnitObj[indId].HisVarValue[index]));
           SizeF sizeF2 = g.MeasureString(str, self.game.MarcFont8b);
-          let mut x2: i32 =  Math.Round((double) ((float) (num1 + num3 + 18) - sizeF2.Width / 2f));
+          let mut x2: i32 =  Math.Round( ( (num1 + num3 + 18) - sizeF2.Width / 2f));
           DrawMod.DrawTextColouredMarc( g, str, self.game.MarcFont8b, x2, num2 + 90, Color.White);
           Bitmap bitmap2;
           if (self.game.Data.HistoricalUnitObj[indId].HisVarSmall[index] > -1)
@@ -372,7 +372,7 @@ namespace WindowsApplication1
             rectangle2 = Rectangle::new(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1));
             let mut destrect: &Rectangle = &rectangle2
             DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
-            DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr, 1).ToString() + "x" + BitmapStore.Getheight(nr, 1).ToString(), self.game.MarcFont4,  Math.Round((double) (usex1 + 20) + (double) BitmapStore.GetWidth(nr, 1) / 2.0),  Math.Round((double) (usey1 + 110) + (double) BitmapStore.Getheight(nr, 1) / 2.0), Color.Salmon);
+            DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr, 1).ToString() + "x" + BitmapStore.Getheight(nr, 1).ToString(), self.game.MarcFont4,  Math.Round( (usex1 + 20) +  BitmapStore.GetWidth(nr, 1) / 2.0),  Math.Round( (usey1 + 110) +  BitmapStore.Getheight(nr, 1) / 2.0), Color.Salmon);
           }
           DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, 1), BitmapStore.Getheight(nr, 1), -1, -1);
           usex1 += 140;
@@ -392,7 +392,7 @@ namespace WindowsApplication1
             rectangle1 = Rectangle::new(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
             let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
-            DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr).ToString() + "x" + BitmapStore.Getheight(nr).ToString(), self.game.MarcFont4,  Math.Round((double) (usex1 + 20) + (double) BitmapStore.GetWidth(nr) / 2.0),  Math.Round((double) (usey1 + 110) + (double) BitmapStore.Getheight(nr) / 2.0), Color.Salmon);
+            DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr).ToString() + "x" + BitmapStore.Getheight(nr).ToString(), self.game.MarcFont4,  Math.Round( (usex1 + 20) +  BitmapStore.GetWidth(nr) / 2.0),  Math.Round( (usey1 + 110) +  BitmapStore.Getheight(nr) / 2.0), Color.Salmon);
           }
           DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr), -1, -1);
           usex1 += 100;
@@ -412,7 +412,7 @@ namespace WindowsApplication1
             rectangle1 = Rectangle::new(usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, -1), BitmapStore.Getheight(nr, -1));
             let mut destrect: &Rectangle = &rectangle1
             DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
-            DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr, -1).ToString() + "x" + BitmapStore.Getheight(nr, -1).ToString(), self.game.MarcFont4,  Math.Round((double) (usex1 + 20) + (double) BitmapStore.GetWidth(nr, -1) / 2.0), usey1 + 110 + BitmapStore.Getheight(nr, -1) + 4, Color.Salmon);
+            DrawMod.DrawTextColouredMarcCenter( g, BitmapStore.GetWidth(nr, -1).ToString() + "x" + BitmapStore.Getheight(nr, -1).ToString(), self.game.MarcFont4,  Math.Round( (usex1 + 20) +  BitmapStore.GetWidth(nr, -1) / 2.0), usey1 + 110 + BitmapStore.Getheight(nr, -1) + 4, Color.Salmon);
           }
           DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, usex1 + 20, usey1 + 110, BitmapStore.GetWidth(nr, -1), BitmapStore.Getheight(nr, -1), -1, -1);
         }
@@ -548,7 +548,7 @@ namespace WindowsApplication1
 
      void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768 - 30;
       if (num2 < 0)
         num2 = 0;
@@ -793,21 +793,21 @@ namespace WindowsApplication1
       self.LibListObj = ListClass::new();
       let mut num7: i32 = 0;
       let mut tlistselect1: i32 = -1;
-      self.LibListObj.add(Conversion.Str((object) -1) + ") ** No library **", -2);
+      self.LibListObj.add(Conversion.Str( -1) + ") ** No library **", -2);
       if (self.LibId == -1)
         tlistselect1 = 0;
       let mut libraryCounter: i32 = self.game.Data.LibraryCounter;
       for (let mut index: i32 = 0; index <= libraryCounter; index += 1)
       {
         num7 += 1;
-        self.LibListObj.add(Conversion.Str((object) index) + ") " + self.game.Data.LibraryObj[index].name, index);
+        self.LibListObj.add(Conversion.Str( index) + ") " + self.game.Data.LibraryObj[index].name, index);
         if (self.LibId == index)
           tlistselect1 = num7;
       }
       if (tlistselect1 == -1)
         self.LibId = -1;
-      let mut tsubpart1: SubPartClass =  new ListSubPartClass(self.LibListObj, 16,  Math.Round(200.0 + (double) num1 / 2.0), tlistselect1, self.game, true, "Libraries", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: ( Math.Round(10.0 + (double) num1 / 2.0)), bby: 72, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
-      self.LibListId = self.AddSubPart( tsubpart1,  Math.Round(10.0 + (double) num1 / 2.0), 72,  Math.Round(200.0 + (double) num1 / 2.0), 408, 0);
+      let mut tsubpart1: SubPartClass =  new ListSubPartClass(self.LibListObj, 16,  Math.Round(200.0 +  num1 / 2.0), tlistselect1, self.game, true, "Libraries", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: ( Math.Round(10.0 +  num1 / 2.0)), bby: 72, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
+      self.LibListId = self.AddSubPart( tsubpart1,  Math.Round(10.0 +  num1 / 2.0), 72,  Math.Round(200.0 +  num1 / 2.0), 408, 0);
       self.ss = "Click to load a library compatible with the current ruleset";
       let mut tsubpart2: SubPartClass =  new TextButtonPartClass("Load library", 200, self.ss,  self.OwnBitmap, num1 + 10, 486, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
       self.AddLibEventId = self.AddSubPart( tsubpart2, num1 + 10, 486, 200, 35, 1);
@@ -1000,7 +1000,7 @@ namespace WindowsApplication1
         let mut historicalUnitCounter2: i32 = self.game.Data.HistoricalUnitCounter;
         for (let mut index: i32 = 0; index <= historicalUnitCounter2; index += 1)
         {
-          if (Information.IsNothing((object) self.game.Data.HistoricalUnitObj[index].CommanderName))
+          if (Information.IsNothing( self.game.Data.HistoricalUnitObj[index].CommanderName))
             self.game.Data.HistoricalUnitObj[index].CommanderName = "";
           if (self.game.Data.HistoricalUnitObj[index].LibId.libSlot == self.LibId & self.game.Data.HistoricalUnitObj[index].Model & self.game.Data.HistoricalUnitObj[index].CommanderName.Length < 1)
             num17 += 1;
@@ -1113,8 +1113,8 @@ namespace WindowsApplication1
             tlistselect2 = num25;
         }
       }
-      tsubpart7 =  new ListSubPartClass(self.CatListObj, 4 +  Math.Round((double) num2 / 24.0), 200, tlistselect2, self.game, true, "Variable categories", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: (10 + num1 + 240), bby: 72, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
-      self.CatListId = self.AddSubPart( tsubpart7, 10 + num1 + 240, 72, 200, (5 +  Math.Round((double) num2 / 24.0)) * 24, 0);
+      tsubpart7 =  new ListSubPartClass(self.CatListObj, 4 +  Math.Round( num2 / 24.0), 200, tlistselect2, self.game, true, "Variable categories", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: (10 + num1 + 240), bby: 72, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
+      self.CatListId = self.AddSubPart( tsubpart7, 10 + num1 + 240, 72, 200, (5 +  Math.Round( num2 / 24.0)) * 24, 0);
       if (self.IndListId > 0)
         self.RemoveSubPart(self.IndListId);
       self.IndListObj = ListClass::new();
@@ -1411,7 +1411,7 @@ namespace WindowsApplication1
         }
       }
       ListClass indListObj = self.IndListObj;
-      let mut tlistsize1: i32 = 7 +  Math.Round((double) num2 / 16.0);
+      let mut tlistsize1: i32 = 7 +  Math.Round( num2 / 16.0);
       let mut tlistselect3: i32 = num26;
       let mut game1: GameClass = self.game;
        Bitmap local1 =  self.OwnBitmap;
@@ -1419,7 +1419,7 @@ namespace WindowsApplication1
       Font font =  null;
        Font local2 =  font;
       tsubpart7 =  new ListSubPartClass(indListObj, tlistsize1, 200, tlistselect3, game1, true, "Instances", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx1, bby: 72, tMarcStyle: true, overruleFont: ( local2));
-      self.IndListId = self.AddSubPart( tsubpart7, 10 + num1 + 480, 72, 220, (9 +  Math.Round((double) num2 / 16.0)) * 16, 0);
+      self.IndListId = self.AddSubPart( tsubpart7, 10 + num1 + 480, 72, 220, (9 +  Math.Round( num2 / 16.0)) * 16, 0);
       if (self.LibVarListId > 0)
         self.RemoveSubPart(self.LibVarListId);
       self.LibVarListObj = ListClass::new();
@@ -1538,17 +1538,17 @@ namespace WindowsApplication1
           if (self.LibVarListObj.ListCount > -1)
           {
             ListClass libVarListObj = self.LibVarListObj;
-            let mut tlistsize2: i32 = 13 +  Math.Round((double) num2 / 16.0);
-            let mut twidth: i32 =  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0));
+            let mut tlistsize2: i32 = 13 +  Math.Round( num2 / 16.0);
+            let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
             let mut tlistselect4: i32 = num28;
             let mut game2: GameClass = self.game;
-            let mut tValueWidth: i32 =  Math.Round(Conversion.Int(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0) * 0.66));
+            let mut tValueWidth: i32 =  Math.Round(Conversion.Int(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0) * 0.66));
              Bitmap local3 =  self.OwnBitmap;
             let mut bbx2: i32 = 10 + num1 + 720;
             font =  null;
              Font local4 =  font;
             tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize2, twidth, tlistselect4, game2, true, "Variables", false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local3), bbx: bbx2, bby: 72, tMarcStyle: true, overruleFont: ( local4));
-            self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round((double) num2 / 16.0)) * 16, 0);
+            self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
           }
         }
         else if (self.CatId == 5)
@@ -1582,8 +1582,8 @@ namespace WindowsApplication1
             }
           }
           ListClass libVarListObj = self.LibVarListObj;
-          let mut tlistsize3: i32 = 13 +  Math.Round((double) num2 / 16.0);
-          let mut twidth: i32 =  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0));
+          let mut tlistsize3: i32 = 13 +  Math.Round( num2 / 16.0);
+          let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect5: i32 = num28;
           let mut game3: GameClass = self.game;
            Bitmap local5 =  self.OwnBitmap;
@@ -1591,7 +1591,7 @@ namespace WindowsApplication1
           font =  null;
            Font local6 =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize3, twidth, tlistselect5, game3, true, "Variables", false, tShowPair: true, tValueWidth: 75, tdotopandbottom: false, tbackbitmap: ( local5), bbx: bbx3, bby: 72, tMarcStyle: true, overruleFont: ( local6));
-          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round((double) num2 / 16.0)) * 16, 0);
+          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
         else if (self.CatId == 101)
         {
@@ -1607,8 +1607,8 @@ namespace WindowsApplication1
             }
           }
           ListClass libVarListObj = self.LibVarListObj;
-          let mut tlistsize4: i32 = 13 +  Math.Round((double) num2 / 16.0);
-          let mut twidth: i32 =  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0));
+          let mut tlistsize4: i32 = 13 +  Math.Round( num2 / 16.0);
+          let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect6: i32 = num28;
           let mut game4: GameClass = self.game;
            Bitmap local7 =  self.OwnBitmap;
@@ -1616,7 +1616,7 @@ namespace WindowsApplication1
           font =  null;
            Font local8 =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize4, twidth, tlistselect6, game4, true, "Events", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local7), bbx: bbx4, bby: 72, tMarcStyle: true, overruleFont: ( local8));
-          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round((double) num2 / 16.0)) * 16, 0);
+          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
         else if (self.CatId == 109)
         {
@@ -1632,8 +1632,8 @@ namespace WindowsApplication1
             }
           }
           ListClass libVarListObj = self.LibVarListObj;
-          let mut tlistsize5: i32 = 13 +  Math.Round((double) num2 / 16.0);
-          let mut twidth: i32 =  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0));
+          let mut tlistsize5: i32 = 13 +  Math.Round( num2 / 16.0);
+          let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect7: i32 = num28;
           let mut game5: GameClass = self.game;
            Bitmap local9 =  self.OwnBitmap;
@@ -1641,7 +1641,7 @@ namespace WindowsApplication1
           font =  null;
            Font local10 =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize5, twidth, tlistselect7, game5, true, "Events", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local9), bbx: bbx5, bby: 72, tMarcStyle: true, overruleFont: ( local10));
-          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round((double) num2 / 16.0)) * 16, 0);
+          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
         else if (self.CatId == 108)
         {
@@ -1657,8 +1657,8 @@ namespace WindowsApplication1
             }
           }
           ListClass libVarListObj = self.LibVarListObj;
-          let mut tlistsize6: i32 = 13 +  Math.Round((double) num2 / 16.0);
-          let mut twidth: i32 =  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0));
+          let mut tlistsize6: i32 = 13 +  Math.Round( num2 / 16.0);
+          let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect8: i32 = num28;
           let mut game6: GameClass = self.game;
            Bitmap local11 =  self.OwnBitmap;
@@ -1666,7 +1666,7 @@ namespace WindowsApplication1
           font =  null;
            Font local12 =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize6, twidth, tlistselect8, game6, true, "Tables", false, tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local11), bbx: bbx6, bby: 72, tMarcStyle: true, overruleFont: ( local12));
-          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round((double) num2 / 16.0)) * 16, 0);
+          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
         else
         {
@@ -1698,8 +1698,8 @@ namespace WindowsApplication1
             }
           }
           ListClass libVarListObj = self.LibVarListObj;
-          let mut tlistsize7: i32 = 13 +  Math.Round((double) num2 / 16.0);
-          let mut twidth: i32 =  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0));
+          let mut tlistsize7: i32 = 13 +  Math.Round( num2 / 16.0);
+          let mut twidth: i32 =  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0));
           let mut tlistselect9: i32 = num28;
           let mut game7: GameClass = self.game;
            Bitmap local13 =  self.OwnBitmap;
@@ -1707,7 +1707,7 @@ namespace WindowsApplication1
           font =  null;
            Font local14 =  font;
           tsubpart7 =  new ListSubPartClass(libVarListObj, tlistsize7, twidth, tlistselect9, game7, true, "Variables", false, tShowPair: true, tValueWidth: 75, tdotopandbottom: false, tbackbitmap: ( local13), bbx: bbx7, bby: 72, tMarcStyle: true, overruleFont: ( local14));
-          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0, (double) self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round((double) num2 / 16.0)) * 16, 0);
+          self.LibVarListId = self.AddSubPart( tsubpart7, 10 + num1 + 720, 72,  Math.Round(Math.Max(200.0,  self.game.ScreenWidth / 2.0 - 312.0)), (15 +  Math.Round( num2 / 16.0)) * 16, 0);
         }
       }
       if (!(self.LibVarListObj.ListCount == -1 & self.LibVarListId > 0))
@@ -1718,7 +1718,7 @@ namespace WindowsApplication1
 
      void MakeLibItemGUI()
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.LibVarListId > 0)
         self.RemoveSubPart(self.LibVarListId);
       if (self.BNameId > 0)
@@ -1770,7 +1770,7 @@ namespace WindowsApplication1
           if (this.game.Data.LibVarObj[index].libId.libSlot == this.LibId)
           {
             num3 += 1;
-            this.LibVarListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibVarObj[index].name, index);
+            this.LibVarListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibVarObj[index].name, index);
             if (this.LibVarId == index)
               num2 = num3;
           }
@@ -1875,7 +1875,7 @@ namespace WindowsApplication1
     pub void SaveOfficerLib()
     {
       tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+      if (!Information.IsNothing( this.game.Data.ScenarioDir))
       {
         if (this.game.Data.ScenarioDir.Length > 1)
           tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -1887,7 +1887,7 @@ namespace WindowsApplication1
       str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Officer library(*.se1off)|*.se1off", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
-        let mut num1: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
@@ -1896,7 +1896,7 @@ namespace WindowsApplication1
         this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
         this.game.HandyFunctionsObj.ZipFile(str);
         this.game.FormRef.Cursor = Cursors.Default;
-        let mut num2: i32 =  Interaction.MsgBox((object) "Completed & Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
         this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
@@ -1904,7 +1904,7 @@ namespace WindowsApplication1
     pub void SaveMap()
     {
       tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+      if (!Information.IsNothing( this.game.Data.ScenarioDir))
       {
         if (this.game.Data.ScenarioDir.Length > 1)
           tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -1916,7 +1916,7 @@ namespace WindowsApplication1
       str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Map file(*.se1map)|*.se1map", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
-        let mut num1: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
@@ -1925,7 +1925,7 @@ namespace WindowsApplication1
         this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
         this.game.HandyFunctionsObj.ZipFile(str);
         this.game.FormRef.Cursor = Cursors.Default;
-        let mut num2: i32 =  Interaction.MsgBox((object) "Completed & Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
         this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
@@ -1933,7 +1933,7 @@ namespace WindowsApplication1
     pub void SaveTroopTypeLib()
     {
       tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+      if (!Information.IsNothing( this.game.Data.ScenarioDir))
       {
         if (this.game.Data.ScenarioDir.Length > 1)
           tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -1945,7 +1945,7 @@ namespace WindowsApplication1
       str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Troops&Equipment library(*.se1troops)|*.se1troops", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
-        let mut num1: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
@@ -1954,7 +1954,7 @@ namespace WindowsApplication1
         this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
         this.game.HandyFunctionsObj.ZipFile(str);
         this.game.FormRef.Cursor = Cursors.Default;
-        let mut num2: i32 =  Interaction.MsgBox((object) "Completed & Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
         this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
@@ -1962,7 +1962,7 @@ namespace WindowsApplication1
     pub void SaveHisLib()
     {
       tinitdir: String = this.game.AppPath + "scenarios\\";
-      if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+      if (!Information.IsNothing( this.game.Data.ScenarioDir))
       {
         if (this.game.Data.ScenarioDir.Length > 1)
           tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -1974,7 +1974,7 @@ namespace WindowsApplication1
       str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Historical library(*.se1his)|*.se1his", "Give save name...", tinitdir, false);
       if (Strings.Len(str) < 2)
       {
-        let mut num1: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
@@ -1983,7 +1983,7 @@ namespace WindowsApplication1
         this.game.HandyFunctionsObj.ActuallyExportLib(this.LibId).serialize(str);
         this.game.HandyFunctionsObj.ZipFile(str);
         this.game.FormRef.Cursor = Cursors.Default;
-        let mut num2: i32 =  Interaction.MsgBox((object) "Completed & Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
         this.game.EditObj.TempFileType = NewEnums.LibFileType.None;
       }
     }
@@ -2278,7 +2278,7 @@ namespace WindowsApplication1
               }
               if (this.game.Data.LibVarObj[tnr].valueType == NewEnums.LibVarValueType.YesNo)
               {
-                if (Interaction.MsgBox((object) "Set value of to Yes or No?", MsgBoxStyle.YesNo, (object) "Variable value") == MsgBoxResult.Yes)
+                if (Interaction.MsgBox( "Set value of to Yes or No?", MsgBoxStyle.YesNo,  "Variable value") == MsgBoxResult.Yes)
                   this.game.Data.LibVarObj[tnr].value = 1;
                 else
                   this.game.Data.LibVarObj[tnr].value = 0;
@@ -2324,7 +2324,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num8: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.DoStuff();
               windowReturnClass.SetFlag(true);
@@ -2339,7 +2339,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num9: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num9: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.DoStuff();
               windowReturnClass.SetFlag(true);
@@ -2363,7 +2363,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num10: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num10: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.DoStuff();
               windowReturnClass.SetFlag(true);
@@ -2378,7 +2378,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num11: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num11: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.DoStuff();
               windowReturnClass.SetFlag(true);
@@ -2390,21 +2390,21 @@ namespace WindowsApplication1
               let mut regimeCounter: i32 = this.game.Data.RegimeCounter;
               for (let mut regnr: i32 = 0; regnr <= regimeCounter; regnr += 1)
               {
-                this.game.HandyFunctionsObj.ClearHistory((object) regnr);
+                this.game.HandyFunctionsObj.ClearHistory( regnr);
                 this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
               }
               let mut turn: i32 = this.game.Data.Turn;
               this.game.Data.Turn = 0;
               this.game.EventRelatedObj.DoCheckSpecificEvent(this.LibVarId);
               this.game.Data.Turn = turn;
-              let mut num12: i32 =  Interaction.MsgBox((object) "Event has been executed", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num12: i32 =  Interaction.MsgBox( "Event has been executed", Title: ( "Shadow Empire : Planetary Conquest"));
               this.DoStuff();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
             if (num1 == this.RemoveLibEventId)
             {
-              if (Interaction.MsgBox((object) "Are you sure? Removing a library will usually cause any stringlist or units or other data related to this  library to be removed from your scenario.", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you sure? Removing a library will usually cause any stringlist or units or other data related to this  library to be removed from your scenario.", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 this.game.Data.RemoveLibrary(this.LibId);
                 this.game.HandyFunctionsObj.Libraries_ClearUpAllRemnants();
@@ -2473,12 +2473,12 @@ namespace WindowsApplication1
                     }
                   }
                 }
-                let mut num13: i32 =  Interaction.MsgBox((object) "Done.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num13: i32 =  Interaction.MsgBox( "Done.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               catch (Exception ex)
               {
                 ProjectData.SetProjectError(ex);
-                let mut num14: i32 =  Interaction.MsgBox((object) "Something went wrong. Sorry. Could not execute.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num14: i32 =  Interaction.MsgBox( "Something went wrong. Sorry. Could not execute.", Title: ( "Shadow Empire : Planetary Conquest"));
                 ProjectData.ClearProjectError();
               }
             }
@@ -2502,7 +2502,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num15: i32 =  Interaction.MsgBox((object) "Sorry no go. You can only import Troops, Historical, Events, Officer or Officer Card Libraries in the Simple Editor.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num15: i32 =  Interaction.MsgBox( "Sorry no go. You can only import Troops, Historical, Events, Officer or Officer Card Libraries in the Simple Editor.", Title: ( "Shadow Empire : Planetary Conquest"));
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
@@ -2516,7 +2516,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num16: i32 =  Interaction.MsgBox((object) "Could not find file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num16: i32 =  Interaction.MsgBox( "Could not find file", Title: ( "Shadow Empire : Planetary Conquest"));
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
@@ -2564,7 +2564,7 @@ namespace WindowsApplication1
       path: String = this.game.HandyFunctionsObj.LoadSomething("SE1 Scenario file (*.se1)|*.se1", "Pick a scenario to import libvars from...", this.game.AppPath + this.game.ModScenarioDir, false);
       if (!File.Exists(path))
         return;
-      let mut num1: i32 =  Interaction.MsgBox((object) "Ok hold on... this can take some time", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num1: i32 =  Interaction.MsgBox( "Ok hold on... this can take some time", Title: ( "Shadow Empire : Planetary Conquest"));
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       this.game.EditObj.TempFileName = path;
       tempFileName: String = this.game.EditObj.TempFileName;
@@ -2663,7 +2663,7 @@ namespace WindowsApplication1
       this.game.EditObj.UnitSelected = -1;
       this.game.EditObj.OldUnit = -1;
       this.game.FormRef.Cursor = Cursors.Default;
-      let mut num4: i32 =  Interaction.MsgBox((object) ("Import completed succesfully. Imported " + num2.ToString() + " libvars and skipped " + num3.ToString() + "."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num4: i32 =  Interaction.MsgBox( ("Import completed succesfully. Imported " + num2.ToString() + " libvars and skipped " + num3.ToString() + "."), Title: ( "Shadow Empire : Planetary Conquest"));
     }
   }
 }

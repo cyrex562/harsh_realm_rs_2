@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -26,12 +26,12 @@ namespace WindowsApplication1
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
         this.RefreshOwnBackground(tGame.BACKGROUND5MARC);
         this.Game.HandyFunctionsObj.SetGameColors();
-        this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+        this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
       }
       else if (!this.Game.EditObj.ShownWelcome)
       {
-        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref tGame, true, (ScreenClass) this, true), x, y, 1024, 768);
       }
       else if (this.Game.EditObj.ShowInitialMenu)
@@ -40,15 +40,15 @@ namespace WindowsApplication1
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
         this.RefreshOwnBackground(tGame.BACKGROUND5MARC);
         this.Game.HandyFunctionsObj.SetGameColors();
-        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref tGame, true, (ScreenClass) this, true), x, y, 1024, 768);
         this.Game.EditObj.ShowInitialMenu = false;
       }
       else
       {
-        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = this.AddWindow((WindowClass) new IntroWindowClass2(ref tGame), x, y, 1024, 768);
       }
     }
@@ -60,23 +60,23 @@ namespace WindowsApplication1
       {
         BitmapStore.ReloadSomeGfx();
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
-        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref tGame, true, (ScreenClass) this, true), x, y, 1024, 768);
       }
       else if (this.Game.EditObj.ShowInitialMenu)
       {
         BitmapStore.ReloadSomeGfx();
         BitmapStore.ReloadSystemGraphics(this.Game.ModSystemGraphicsDirectory);
-        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref tGame, true, (ScreenClass) this, true), x, y, 1024, 768);
         this.Game.EditObj.ShowInitialMenu = false;
       }
       else
       {
-        let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-        let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
         this.wTop = this.AddWindow((WindowClass) new IntroWindowClass2(ref tGame), x, y, 1024, 768);
       }
     }
@@ -120,11 +120,11 @@ namespace WindowsApplication1
               if (windowReturnClass.CommandType[index] == 2)
               {
                 if (windowReturnClass.CommandData[index] == 55)
-                  this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                  this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
                 if (windowReturnClass.CommandData[index] == 91)
-                  this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                  this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
                 if (windowReturnClass.CommandData[index] == 92)
-                  this.wTop = this.AddWindow((WindowClass) new PbemInitializeWindowClass(ref this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                  this.wTop = this.AddWindow((WindowClass) new PbemInitializeWindowClass(ref this.Game),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
               }
             }
           }
@@ -145,7 +145,7 @@ namespace WindowsApplication1
       {
         if (Operators.CompareString(this.WindowList[0].GetType().FullName, "WindowsApplication1.WelcomeWindowClass2", false) == 0)
         {
-          if (Interaction.MsgBox((object) "Are you sure you want to quit?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+          if (Interaction.MsgBox( "Are you sure you want to quit?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
           {
             SoundMod.StopWave();
             SoundMod.EndSound();
@@ -156,7 +156,7 @@ namespace WindowsApplication1
         else
         {
           this.RemoveWindow(this.wTop);
-          this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+          this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
           screenReturnClass.flag = true;
           return screenReturnClass;
         }
@@ -197,11 +197,11 @@ namespace WindowsApplication1
               if (windowReturnClass.CommandType[index2] == 2)
               {
                 if (windowReturnClass.CommandData[index2] == 55)
-                  this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                  this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
                 if (windowReturnClass.CommandData[index2] == 91)
-                  this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                  this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
                 if (windowReturnClass.CommandData[index2] == 92)
-                  this.wTop = this.AddWindow((WindowClass) new PbemInitializeWindowClass(ref this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                  this.wTop = this.AddWindow((WindowClass) new PbemInitializeWindowClass(ref this.Game),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
               }
             }
           }
@@ -239,11 +239,11 @@ namespace WindowsApplication1
             if (windowReturnClass2.CommandType[index] == 2)
             {
               if (windowReturnClass2.CommandData[index] == 55)
-                this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                this.wTop = this.AddWindow((WindowClass) new WelcomeWindowClass2(ref this.Game, true, (ScreenClass) this, true),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
               if (windowReturnClass2.CommandData[index] == 91)
-                this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                this.wTop = this.AddWindow((WindowClass) new CorePbemWindowClass(ref this.Game),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
               if (windowReturnClass2.CommandData[index] == 92)
-                this.wTop = this.AddWindow((WindowClass) new PbemInitializeWindowClass(ref this.Game),  Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
+                this.wTop = this.AddWindow((WindowClass) new PbemInitializeWindowClass(ref this.Game),  Math.Round(Conversion.Int( (this.Game.ScreenWidth - 1024) / 2.0)),  Math.Round(Conversion.Int( (this.Game.ScreenHeight - 768) / 2.0)), 1024, 768);
             }
           }
         }

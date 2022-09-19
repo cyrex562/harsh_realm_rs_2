@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -85,7 +85,7 @@ namespace WindowsApplication1
             map = this.game.EditObj.TargetMap
           }, 1, this.game.EditObj.TempUnitList, this.game.EditObj.OrderType).OK)
           {
-            if ((double) this.game.Data.RuleVar[839] == 1.0)
+            if ( this.game.Data.RuleVar[839] == 1.0)
             {
               this.game.EditObj.PopupValue = 7;
               windowReturnClass.AddCommand(5, 10);
@@ -112,7 +112,7 @@ namespace WindowsApplication1
         subPart.PaintCoordinate((Graphics) null, targetX, targetY, mapSelected, gBitmap: ( local));
         this.PaintCurrentBitmap(this.MapId);
         windowReturnClass.SetFlag(true);
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
           windowReturnClass.AddCommand(4, 66);
         }
@@ -170,7 +170,7 @@ namespace WindowsApplication1
       {
         let mut memorySize1: i32 =  this.game.FormRef.GetMemorySize();
         let mut memorySize2: i32 =  BitmapStore.GetMemorySize();
-        let mut num: i32 =   Interaction.MsgBox((object) ("Memory Used Right Now by GUI (" + Conversion.Str((object) memorySize1) + "KB) + Bitmapstore (" + Conversion.Str((object) memorySize2) + "KB) =" + Conversion.Str((object)  Math.Round((double) (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( ("Memory Used Right Now by GUI (" + Conversion.Str( memorySize1) + "KB) + Bitmapstore (" + Conversion.Str( memorySize2) + "KB) =" + Conversion.Str(  Math.Round( (memorySize1 + memorySize2) / 1000.0)) + "MB. (Will write log files after you press OK)"), Title: ( "Shadow Empire : Planetary Conquest"));
         StreamWriter text1 = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_missingsystemgraphics.txt");
         let mut counter1: i32 =  BitmapStore.Counter;
         for (let mut nr1: i32 =  0; nr1 <= counter1; nr1 += 1)
@@ -199,10 +199,10 @@ namespace WindowsApplication1
         this += 1.game.CornerX;
         flag1 = true;
       }
-      if (nr == 37 & (this.game.CornerX > 0 | this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop & ((double) this.game.Data.RuleVar[329] == 0.0 | this.game.Data.Round > 0)))
+      if (nr == 37 & (this.game.CornerX > 0 | this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop & ( this.game.Data.RuleVar[329] == 0.0 | this.game.Data.Round > 0)))
       {
         --this.game.CornerX;
-        if (0 > this.game.CornerX & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
+        if (0 > this.game.CornerX & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
           this.game.CornerX = 0;
         flag1 = true;
       }
@@ -335,7 +335,7 @@ namespace WindowsApplication1
               let mut Number: i32 =   Math.Round(Conversion.Val(Strings.Mid(this.game.Data.UnitObj[unitSelected].Name, Start)));
               if (Number > 0)
               {
-                this.game.Data.HistoricalUnitObj[historicalUnitCounter].CounterString = Strings.Trim(Conversion.Str((object) Number));
+                this.game.Data.HistoricalUnitObj[historicalUnitCounter].CounterString = Strings.Trim(Conversion.Str( Number));
                 break;
               }
             }
@@ -353,7 +353,7 @@ namespace WindowsApplication1
           }
           if (num == 1)
           {
-            if (Interaction.MsgBox((object) "This is last unit attached to this historical unit. Delete Historical Unit? ", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
+            if (Interaction.MsgBox( "This is last unit attached to this historical unit. Delete Historical Unit? ", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
               this.game.Data.RemoveHistoricalUnit(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical);
           }
           else
@@ -364,10 +364,10 @@ namespace WindowsApplication1
         }
       }
       let mut num1: i32 =  0;
-      let mut num2: i32 =   Math.Round(Conversion.Int((double) this.OwnBitmap.Width / (double) (30 * (this.game.EditObj.Zoom + 2))));
-      let mut num3: i32 =  this.game.EditObj.Zoom != 1 ?  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 2)))) :  Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (24 * (this.game.EditObj.Zoom + 3))));
+      let mut num2: i32 =   Math.Round(Conversion.Int( this.OwnBitmap.Width /  (30 * (this.game.EditObj.Zoom + 2))));
+      let mut num3: i32 =  this.game.EditObj.Zoom != 1 ?  Math.Round(Conversion.Int( (this.OwnBitmap.Height - num1) /  (24 * (this.game.EditObj.Zoom + 2)))) :  Math.Round(Conversion.Int( (this.OwnBitmap.Height - num1) /  (24 * (this.game.EditObj.Zoom + 3))));
       let mut num4: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 2;
-      let mut num5: i32 =  (double) this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 2 - this.game.CornerY + 3;
+      let mut num5: i32 =   this.game.Data.RuleVar[839] != 1.0 ? this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 3 : this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 2 - this.game.CornerY + 3;
       if (this.game.EditObj.Zoom == 1)
       {
         num2 -= 3;
@@ -378,12 +378,12 @@ namespace WindowsApplication1
         num2 += 3;
         num3 = num3;
       }
-      if (this.game.CornerX > cornerX && num2 > num4 & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop | (double) this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
+      if (this.game.CornerX > cornerX && num2 > num4 & (!this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop |  this.game.Data.RuleVar[329] == 1.0 | this.game.Data.Round == 0))
       {
         flag1 = true;
         this.game.CornerX = cornerX;
       }
-      if ((double) this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0)
+      if ( this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0)
       {
         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop & 0 > this.game.CornerX)
           this.game.CornerX = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + this.game.CornerX + 1;
@@ -414,7 +414,7 @@ namespace WindowsApplication1
       windowReturnClass.SetFlag(true);
       if (this.game.EditObj.OrderType != 9)
       {
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
           windowReturnClass.AddCommand(4, 18);
           windowReturnClass.AddCommand(4, 66);
@@ -450,7 +450,7 @@ label_329:
             Coordinate coordinate1 = this.SubPartList[index1].ClickMap(x - this.SubPartX[index1], y - this.SubPartY[index1]);
             if (coordinate1.onmap)
             {
-              if (this.game.EditObj.TutMode & this.game.EditObj.OrderType > 0 & this.game.EditObj.OrderType < 9999 && Operators.ConditionalCompareObjectGreater(this.game.EditObj.TutX, (object) -1, false) && Conversions.ToBoolean(Operators.NotObject(Operators.AndObject(Operators.CompareObjectEqual(this.game.EditObj.TutX, (object) coordinate1.x, false), Operators.CompareObjectEqual(this.game.EditObj.TutY, (object) coordinate1.y, false)))))
+              if (this.game.EditObj.TutMode & this.game.EditObj.OrderType > 0 & this.game.EditObj.OrderType < 9999 && Operators.ConditionalCompareObjectGreater(this.game.EditObj.TutX,  -1, false) && Conversions.ToBoolean(Operators.NotObject(Operators.AndObject(Operators.CompareObjectEqual(this.game.EditObj.TutX,  coordinate1.x, false), Operators.CompareObjectEqual(this.game.EditObj.TutY,  coordinate1.y, false)))))
                 return windowReturnClass;
               this.game.EditObj.TempCoordList = CoordList::new();
               this.game.EditObj.TempCoordList.AddCoord(this.game.SelectX, this.game.SelectY, 0);
@@ -561,7 +561,7 @@ label_329:
                     {
                       num1 = 6;
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
-                        num1 =  Interaction.MsgBox((object) "There is a location in this hex. Are you sure to change landscape?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
+                        num1 =  Interaction.MsgBox( "There is a location in this hex. Are you sure to change landscape?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
                       if (num1 == 6)
                       {
                         this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType = this.game.EditObj.PencilData1;
@@ -715,7 +715,7 @@ label_329:
                   {
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location == -1)
                       integer = Conversions.ToInteger(this.EditorPlaceLocation());
-                    else if (Interaction.MsgBox((object) "Replace existing location?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                    else if (Interaction.MsgBox( "Replace existing location?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     {
                       this.game.Data.RemoveLoc(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location);
                       integer = Conversions.ToInteger(this.EditorPlaceLocation());
@@ -782,7 +782,7 @@ label_329:
                     {
                       this.game.ProcessingObj.EditorMovement(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
                       this.game.EditObj.OrderType = 0;
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 18);
                         windowReturnClass.AddCommand(4, 20);
@@ -839,7 +839,7 @@ label_329:
                 {
                   if (this.game.EditObj.OrderType == 0 | this.game.EditObj.OrderType == 26)
                   {
-                    if ((double) this.game.Data.RuleVar[839] == 0.0)
+                    if ( this.game.Data.RuleVar[839] == 0.0)
                     {
                       windowReturnClass.AddCommand(4, 18);
                       windowReturnClass.AddCommand(4, 20);
@@ -892,7 +892,7 @@ label_329:
                         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 14 & (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn | this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == -1))
                         {
                           this.game.EditObj.FeedBackString = "Already max ammount of 16 units in that hex.";
-                          if ((double) this.game.Data.RuleVar[839] == 0.0)
+                          if ( this.game.Data.RuleVar[839] == 0.0)
                           {
                             windowReturnClass.AddCommand(4, 29);
                             windowReturnClass.AddCommand(4, 66);
@@ -912,7 +912,7 @@ label_329:
                         if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X == this.game.SelectX & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y == this.game.SelectY & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map == this.game.EditObj.MapSelected & this.game.EditObj.OrderType != 48)
                         {
                           this.game.EditObj.FeedBackString = "Unit is already in this hex.";
-                          if ((double) this.game.Data.RuleVar[839] == 0.0)
+                          if ( this.game.Data.RuleVar[839] == 0.0)
                           {
                             windowReturnClass.AddCommand(4, 29);
                             windowReturnClass.AddCommand(4, 66);
@@ -932,7 +932,7 @@ label_329:
                         }
                         else if (this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.SelectX, this.game.SelectY] < 9999)
                         {
-                          if (!(this.game.HandyFunctionsObj.HasUnitAirSF(this.game.EditObj.OrderUnit) | this.game.HandyFunctionsObj.HasUnitNavySF(this.game.EditObj.OrderUnit)) || this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location <= -1 || !(index10 == 0 & this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].StructuralPts < this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].StructuralPts) || Interaction.MsgBox((object) "Are you sure you want to move into a damaged location?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") != MsgBoxResult.No)
+                          if (!(this.game.HandyFunctionsObj.HasUnitAirSF(this.game.EditObj.OrderUnit) | this.game.HandyFunctionsObj.HasUnitNavySF(this.game.EditObj.OrderUnit)) || this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location <= -1 || !(index10 == 0 & this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].StructuralPts < this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].StructuralPts) || Interaction.MsgBox( "Are you sure you want to move into a damaged location?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") != MsgBoxResult.No)
                           {
                             this.game.EditObj.DoCardSlot = -1;
                             this.game.EditObj.AreaX = -1;
@@ -958,7 +958,7 @@ label_329:
                               this.game.EditObj.UnitSelected = this.game.EditObj.OrderUnit;
                               if (orderResult2.OK)
                                 this.game.EditObj.TempCoordList = orderResult2.CList;
-                              if ((double) this.game.Data.RuleVar[839] == 0.0)
+                              if ( this.game.Data.RuleVar[839] == 0.0)
                               {
                                 windowReturnClass.AddCommand(4, 44);
                                 windowReturnClass.AddCommand(4, 20);
@@ -1062,7 +1062,7 @@ label_329:
                               this.game.EditObj.DoCardSlot = -1;
                               if (this.game.TempCombat.Init(Target, 1, this.game.EditObj.TempUnitList, this.game.EditObj.OrderType).OK)
                               {
-                                if ((double) this.game.Data.RuleVar[839] == 1.0)
+                                if ( this.game.Data.RuleVar[839] == 1.0)
                                 {
                                   this.game.EditObj.PopupValue = 7;
                                   windowReturnClass.AddCommand(5, 10);
@@ -1074,7 +1074,7 @@ label_329:
                                 windowReturnClass.SetFlag(true);
                                 return windowReturnClass;
                               }
-                              if ((double) this.game.Data.RuleVar[839] == 0.0)
+                              if ( this.game.Data.RuleVar[839] == 0.0)
                               {
                                 windowReturnClass.AddCommand(4, 44);
                                 windowReturnClass.AddCommand(4, 20);
@@ -1100,7 +1100,7 @@ label_329:
                         }
                         else
                         {
-                          if ((double) this.game.Data.RuleVar[839] == 0.0)
+                          if ( this.game.Data.RuleVar[839] == 0.0)
                           {
                             this.game.EditObj.FeedBackString = "Cannot reach that hex";
                             windowReturnClass.AddCommand(4, 29);
@@ -1140,7 +1140,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 2)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1157,7 +1157,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 12)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1174,7 +1174,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 11)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1191,7 +1191,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 13)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1208,7 +1208,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 14)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1225,7 +1225,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 35)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1242,7 +1242,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 36)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1259,7 +1259,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 33)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1276,7 +1276,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 40)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1294,7 +1294,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 15)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1311,7 +1311,7 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 3)
                     {
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1328,12 +1328,12 @@ label_329:
                     }
                     else if (this.game.EditObj.OrderType == 9)
                     {
-                      if (this.game.EditObj.UnitSelected > -1 && this.game.EditObj.OrderTarget != this.game.EditObj.UnitSelected && this.game.EditObj.UnitSelected != this.game.EditObj.OrderUnit && this.game.Data.Round > 0 & (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn | (double) this.game.Data.RuleVar[528] == 1.0 & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime] == 2))
+                      if (this.game.EditObj.UnitSelected > -1 && this.game.EditObj.OrderTarget != this.game.EditObj.UnitSelected && this.game.EditObj.UnitSelected != this.game.EditObj.OrderUnit && this.game.Data.Round > 0 & (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn |  this.game.Data.RuleVar[528] == 1.0 & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime] == 2))
                       {
                         this.game.EditObj.OrderTarget = this.game.EditObj.UnitSelected;
                         windowReturnClass.AddCommand(4, 30);
                       }
-                      if ((double) this.game.Data.RuleVar[839] == 0.0)
+                      if ( this.game.Data.RuleVar[839] == 0.0)
                       {
                         windowReturnClass.AddCommand(4, 44);
                         windowReturnClass.AddCommand(4, 20);
@@ -1459,7 +1459,7 @@ label_329:
                 windowReturnClass.AddCommand(4, 44);
                 windowReturnClass.AddCommand(4, 12);
               }
-              else if (this.game.EditObj.OrderType == 0 | this.game.EditObj.OrderType == 26 && (double) this.game.Data.RuleVar[839] == 0.0)
+              else if (this.game.EditObj.OrderType == 0 | this.game.EditObj.OrderType == 26 &&  this.game.Data.RuleVar[839] == 0.0)
               {
                 windowReturnClass.AddCommand(4, 18);
                 windowReturnClass.AddCommand(4, 20);
@@ -1540,7 +1540,7 @@ label_329:
                 this.SubPartFlag[index1] = true;
               }
               windowReturnClass.SetFlag(true);
-              if ((double) this.game.Data.RuleVar[839] == 0.0)
+              if ( this.game.Data.RuleVar[839] == 0.0)
               {
                 windowReturnClass.AddCommand(4, 66);
               }
@@ -1580,7 +1580,7 @@ label_329:
               {
                 if (!this.game.EditObj.LayerSupplyOn)
                 {
-                  str1: String = this.game.HandyFunctionsObj.GetHexName(coordinate.x, coordinate.y, coordinate.map) + "(" + Strings.Trim(Conversion.Str((object) coordinate.x)) + "," + Strings.Trim(Conversion.Str((object) coordinate.y)) + ")";
+                  str1: String = this.game.HandyFunctionsObj.GetHexName(coordinate.x, coordinate.y, coordinate.map) + "(" + Strings.Trim(Conversion.Str( coordinate.x)) + "," + Strings.Trim(Conversion.Str( coordinate.y)) + ")";
                   str2: String = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].Regime != -1 ? str1 + " - " + this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].Regime].Name : str1 + " - Unoccupied Territory";
                   if (!this.game.EditObj.HideAS & this.game.Data.Round > 0)
                   {
@@ -1589,57 +1589,57 @@ label_329:
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyLost(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyLost(this.game.Data.Turn);
-                      str2 = str2 + ", SupplyLost = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", SupplyLost = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsLost(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsLost(this.game.Data.Turn);
-                      str2 = str2 + ", PowerPtsLost = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", PowerPtsLost = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyKilled(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_SupplyKilled(this.game.Data.Turn);
-                      str2 = str2 + ", SupplyKilled = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", SupplyKilled = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsKilled(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_PowerPointsKilled(this.game.Data.Turn);
-                      str2 = str2 + ", PowerPtsKilled = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", PowerPtsKilled = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStack(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStack(this.game.Data.Turn);
-                      str2 = str2 + ", BattleStack = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", BattleStack = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackArt(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackArt(this.game.Data.Turn);
-                      str2 = str2 + ", BattleStackArt = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", BattleStackArt = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackAir(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattleStackAir(this.game.Data.Turn);
-                      str2 = str2 + ", BattleStackAir = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", BattleStackAir = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattlePenalty(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].get_BattlePenalty(this.game.Data.Turn);
-                      str2 = str2 + ", Battle AP Penalty = " + Strings.Trim(Conversion.Str((object) Number));
+                      str2 = str2 + ", Battle AP Penalty = " + Strings.Trim(Conversion.Str( Number));
                     }
                   }
                   this.game.EditObj.CurrentDescript = str2;
                 }
                 else
                 {
-                  str3: String = Strings.Trim(Conversion.Str((object) this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y])) + "ap/" + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[3]));
+                  str3: String = Strings.Trim(Conversion.Str( this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y])) + "ap/" + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[3]));
                   str4: String = "";
-                  if ((double) this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] > (double) this.game.Data.RuleVar[51])
+                  if ( this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] >  this.game.Data.RuleVar[51])
                     str4 = ", 25% supply penalty";
-                  if ((double) this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] > (double) this.game.Data.RuleVar[52])
+                  if ( this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] >  this.game.Data.RuleVar[52])
                     str4 = ", 50% supply penalty";
-                  if ((double) this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] > (double) this.game.Data.RuleVar[53])
+                  if ( this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] >  this.game.Data.RuleVar[53])
                     str4 = ", 75% supply penalty";
-                  if ((double) this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] > (double) this.game.Data.RuleVar[3])
+                  if ( this.game.EditObj.TempSup[coordinate.map].Value[coordinate.x, coordinate.y] >  this.game.Data.RuleVar[3])
                     str4 = ", No supply";
                   if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea)
                   {
@@ -1655,25 +1655,25 @@ label_329:
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyLost(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
-                      editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyLost = " + Strings.Trim(Conversion.Str((object) Number));
+                      editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyLost = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsLost(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsLost(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
-                      editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsLost = " + Strings.Trim(Conversion.Str((object) Number));
+                      editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsLost = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyKilled(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_SupplyKilled(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
-                      editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyKilled = " + Strings.Trim(Conversion.Str((object) Number));
+                      editObj.CurrentDescript = editObj.CurrentDescript + ", SupplyKilled = " + Strings.Trim(Conversion.Str( Number));
                     }
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsKilled(this.game.Data.Turn) > 0)
                     {
                       let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].get_PowerPointsKilled(this.game.Data.Turn);
                       EditClass editObj = this.game.EditObj;
-                      editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsKilled = " + Strings.Trim(Conversion.Str((object) Number));
+                      editObj.CurrentDescript = editObj.CurrentDescript + ", PowerPtsKilled = " + Strings.Trim(Conversion.Str( Number));
                     }
                     this.game.EditObj.CurrentDescript += ", Right click a hex to see supply path";
                   }
@@ -1687,27 +1687,27 @@ label_329:
                 {
                   if (this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] < 999)
                   {
-                    this.game.EditObj.CurrentDescript = "Move Cost = " + Conversion.Str((object) this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
+                    this.game.EditObj.CurrentDescript = "Move Cost = " + Conversion.Str( this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
                     if (this.game.EditObj.OrderType == 1)
                     {
                       let mut integer: i32 =  Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
                       if (integer > 0)
                       {
                         EditClass editObj = this.game.EditObj;
-                        editObj.CurrentDescript = editObj.CurrentDescript + " , Fuel Cost = " + Conversion.Str((object) integer);
+                        editObj.CurrentDescript = editObj.CurrentDescript + " , Fuel Cost = " + Conversion.Str( integer);
                       }
                     }
                   }
                   else if (this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] > 0)
                   {
-                    this.game.EditObj.CurrentDescript = "Impossible to move here. Move Cost = " + Conversion.Str((object) this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
+                    this.game.EditObj.CurrentDescript = "Impossible to move here. Move Cost = " + Conversion.Str( this.game.EditObj.TempValue2[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]);
                     if (this.game.EditObj.OrderType == 1)
                     {
                       let mut integer: i32 =  Conversions.ToInteger(this.game.HandyFunctionsObj.UnitFuelPrognosis(this.game.EditObj.OrderUnit, this.game.EditObj.TempValue[this.game.EditObj.MapSelected].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY]));
                       if (integer > 0)
                       {
                         EditClass editObj = this.game.EditObj;
-                        editObj.CurrentDescript = editObj.CurrentDescript + " , Fuel Cost = " + Conversion.Str((object) integer);
+                        editObj.CurrentDescript = editObj.CurrentDescript + " , Fuel Cost = " + Conversion.Str( integer);
                       }
                     }
                   }
@@ -1732,15 +1732,15 @@ label_329:
                       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Bridge[index2])
                       {
                         let mut Number1: i32 =  Conversion.Int(this.game.HandyFunctionsObj.GetBlowBridgePts(this.game.EditObj.OrderUnit));
-                        let mut Number2: i32 =   Math.Round((double) Conversion.Int(this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[index2]].BridgeCostModifier));
-                        str = "Unit has a chance of " + Conversion.Str((object) Number1) + " : " + Conversion.Str((object) Number2) + " to demolish this bridge. ";
+                        let mut Number2: i32 =   Math.Round( Conversion.Int(this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[index2]].BridgeCostModifier));
+                        str = "Unit has a chance of " + Conversion.Str( Number1) + " : " + Conversion.Str( Number2) + " to demolish this bridge. ";
                       }
                       else
                         str = "No bridge.";
                     }
                   }
                   this.game.EditObj.CurrentDescript = str;
-                  if ((double) this.game.Data.RuleVar[839] == 0.0)
+                  if ( this.game.Data.RuleVar[839] == 0.0)
                     windowReturnClass.AddCommand(4, 29);
                   else
                     windowReturnClass.AddCommand(4, 44);
@@ -1761,19 +1761,19 @@ label_329:
                     {
                       let mut facing: i32 =  num - 1;
                       string str6;
-                      if ((double) this.game.Data.RuleVar[32] == -1.0)
+                      if ( this.game.Data.RuleVar[32] == -1.0)
                       {
                         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing] > -1 & this.game.HandyFunctionsObj.CanConstructBridge(this.game.EditObj.OrderUnit, this.game.EditObj.OrderX, this.game.EditObj.OrderY, this.game.EditObj.OrderMap, facing))
                         {
-                          if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])
+                          if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])
                           {
-                            str6 = (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier > (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit) ? "Not enough EP. Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP" : "Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
+                            str6 =  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier >  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit) ? "Not enough EP. Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP" : "Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
                           }
                           else
                           {
                             str6 = "Not enough resources to build bridge.";
-                            if ((double) this.game.Data.RuleVar[822] > -1.0)
-                              str6 = str6 + ". " + Conversion.Str((object) (float) ((double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                            if ( this.game.Data.RuleVar[822] > -1.0)
+                              str6 = str6 + ". " + Conversion.Str(  ( this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                           }
                         }
                         else
@@ -1781,75 +1781,75 @@ label_329:
                       }
                       else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing] > -1 & !this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Bridge[facing])
                       {
-                        if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])
+                        if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])
                         {
-                          if ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
+                          if ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
                           {
-                            str6 = "Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
-                            if ((double) this.game.Data.RuleVar[822] > -1.0)
-                              str6 = str6 + ". " + Conversion.Str((object) (float) ((double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                            str6 = "Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
+                            if ( this.game.Data.RuleVar[822] > -1.0)
+                              str6 = str6 + ". " + Conversion.Str(  ( this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                           }
                           else
-                            str6 = "Not enough EP. Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
+                            str6 = "Not enough EP. Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
                         }
                         else
                         {
                           str6 = "Not enough resources to build bridge.";
-                          if ((double) this.game.Data.RuleVar[822] > -1.0)
-                            str6 = str6 + ". " + Conversion.Str((object) (float) ((double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                          if ( this.game.Data.RuleVar[822] > -1.0)
+                            str6 = str6 + ". " + Conversion.Str(  ( this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                         }
                       }
                       else if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].CanBuildRoad)
                         str6 = "You are not allowed to build roads on this landscape type";
                       else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RoadType[facing] == -1)
                       {
-                        if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823])
+                        if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823])
                         {
-                          if ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
+                          if ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
                           {
-                            str6 = "Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
-                            if ((double) this.game.Data.RuleVar[822] > -1.0)
-                              str6 = str6 + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                            str6 = "Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
+                            if ( this.game.Data.RuleVar[822] > -1.0)
+                              str6 = str6 + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                           }
                           else
-                            str6 = "Not enough EP. Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
+                            str6 = "Not enough EP. Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
                         }
                         else
                         {
                           str6 = "Not enough resources to construct road.";
-                          if ((double) this.game.Data.RuleVar[822] > -1.0)
-                            str6 = str6 + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                          if ( this.game.Data.RuleVar[822] > -1.0)
+                            str6 = str6 + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                         }
                       }
-                      else if ((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RoadType[facing] == (double) this.game.Data.RuleVar[821])
+                      else if ( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RoadType[facing] ==  this.game.Data.RuleVar[821])
                       {
-                        if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[824])
+                        if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[824])
                         {
-                          if ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[821])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
+                          if ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[821])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
                           {
-                            str6 = "Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[821])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
-                            if ((double) this.game.Data.RuleVar[822] > -1.0)
-                              str6 = str6 + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                            str6 = "Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[821])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
+                            if ( this.game.Data.RuleVar[822] > -1.0)
+                              str6 = str6 + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                           }
                           else
-                            str6 = "Not enough EP. Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[821])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
+                            str6 = "Not enough EP. Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[821])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].RoadCostModifier)) + " EP";
                         }
                         else
                         {
                           str6 = "Not enough resources to construct road.";
-                          if ((double) this.game.Data.RuleVar[822] > -1.0)
-                            str6 = str6 + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                          if ( this.game.Data.RuleVar[822] > -1.0)
+                            str6 = str6 + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                         }
                       }
-                      else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RoadType[facing] > -1 & !((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RoadType[facing] == (double) this.game.Data.RuleVar[821] & (double) this.game.Data.RuleVar[820] > -1.0))
+                      else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RoadType[facing] > -1 & !( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].RoadType[facing] ==  this.game.Data.RuleVar[821] &  this.game.Data.RuleVar[820] > -1.0))
                       {
                         str6 = "Already road/bridge here.";
                       }
                       else
                       {
                         str6 = "Not enough resources to construct road.";
-                        if ((double) this.game.Data.RuleVar[822] > -1.0)
-                          str6 = str6 + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                        if ( this.game.Data.RuleVar[822] > -1.0)
+                          str6 = str6 + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
                       }
                       str5 = str6 + " AP Cost = " + x3.ToString();
                     }
@@ -1859,7 +1859,7 @@ label_329:
                   this.game.EditObj.CurrentDescript = str5;
                 }
               }
-              if ((double) this.game.Data.RuleVar[839] == 0.0)
+              if ( this.game.Data.RuleVar[839] == 0.0)
                 windowReturnClass.AddCommand(4, 29);
               else if (Operators.CompareString(currentDescript, this.game.EditObj.CurrentDescript, false) != 0)
                 windowReturnClass.AddCommand(4, 68);
@@ -1891,12 +1891,12 @@ label_329:
             str1 = str1 + index.ToString() + ") " + this.game.Data.PeopleObj[index].Name + "\r\n";
           str2: String = Conversions.ToString(Conversion.Val(Interaction.InputBox("Give People # for town..." + str1, "Shadow Empire : Planetary Conquest")));
           if (Operators.CompareString(str2, "", false) == 0)
-            return (object) -1;
+            return  -1;
           num1 =  Math.Round(Conversion.Val(str2));
           if (num1 == -1 | num1 > this.game.Data.PeopleCounter)
           {
-            let mut num2: i32 =   Interaction.MsgBox((object) "Invalid people#", Title: ((object) "Shadow Empire : Planetary Conquest"));
-            return (object) -1;
+            let mut num2: i32 =   Interaction.MsgBox( "Invalid people#", Title: ( "Shadow Empire : Planetary Conquest"));
+            return  -1;
           }
         }
         else
@@ -1904,7 +1904,7 @@ label_329:
       }
       Left: String = Interaction.InputBox("Give Name for this location...", "Shadow Empire : Planetary Conquest", this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name);
       if (Operators.CompareString(Left, "", false) == 0)
-        return (object) -1;
+        return  -1;
       let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       if (this.game.Data.LocTypeObj[this.game.EditObj.PencilData1].OverdrawLTNr > -1)
       {
@@ -1932,7 +1932,7 @@ label_329:
     pub object regimeFill(int newreg)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut regime: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime;
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
       let mut num: i32 =  1;
@@ -1947,7 +1947,7 @@ label_329:
           let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].Regime = newreg;
@@ -1955,8 +1955,8 @@ label_329:
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == regime && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == regime && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -1971,7 +1971,7 @@ label_329:
     pub object areacodeFill(int slot, int code)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut num1: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].AreaCode[slot];
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
       let mut num2: i32 =  1;
@@ -1986,7 +1986,7 @@ label_329:
           let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num2 = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].AreaCode[slot] = code;
@@ -1994,8 +1994,8 @@ label_329:
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].AreaCode[slot] == num1 && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].AreaCode[slot] == num1 && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -2010,7 +2010,7 @@ label_329:
     pub object hexLibVarFill(int slot, int code)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut hexLibVarValue: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(slot);
       bool isSea = this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].IsSea;
       let mut num: i32 =  1;
@@ -2025,7 +2025,7 @@ label_329:
           let mut mapHeight: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[cx, cy].SetHexLibVarValue(slot, code);
@@ -2033,8 +2033,8 @@ label_329:
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, this.game.EditObj.MapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].GetHexLibVarValue(slot) == hexLibVarValue && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].GetHexLibVarValue(slot) == hexLibVarValue && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == isSea)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -2049,7 +2049,7 @@ label_329:
     pub object landscapeFill(int newland, int newspr)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
       let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
       let mut num: i32 =  1;
@@ -2065,7 +2065,7 @@ label_329:
           let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
           for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[index1, index2], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[index1, index2],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[mapSelected].HexObj[index1, index2].LandscapeType = newland;
@@ -2077,8 +2077,8 @@ label_329:
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(index1, index2, mapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType == landscapeType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpriteNr == spriteNr && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].Location == -1)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType == landscapeType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpriteNr == spriteNr && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].Location == -1)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -2093,7 +2093,7 @@ label_329:
     pub object heightLevelFill(int newHeight)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
       let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpriteNr;
       let mut num1: i32 =  1;
@@ -2109,7 +2109,7 @@ label_329:
           let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num1 = 1;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].HeightLevel = newHeight;
@@ -2117,8 +2117,8 @@ label_329:
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, mapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == this.game.Data.LandscapeTypeObj[landscapeType].IsSea && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].HeightLevel == spriteNr)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea == this.game.Data.LandscapeTypeObj[landscapeType].IsSea && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].HeightLevel == spriteNr)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);
@@ -2161,7 +2161,7 @@ label_329:
     pub object specialFill(int newland, int newspr)
     {
       object[,] objArray = new object[this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth + 1, this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight + 1];
-      objArray[this.game.SelectX, this.game.SelectY] = (object) 1;
+      objArray[this.game.SelectX, this.game.SelectY] =  1;
       let mut specialType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialType;
       let mut specialSprite: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].SpecialSprite;
       let mut num: i32 =  1;
@@ -2177,7 +2177,7 @@ label_329:
           let mut mapHeight: i32 =  this.game.Data.MapObj[mapSelected].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               num = 1;
               this.game.Data.MapObj[mapSelected].HexObj[cx, cy].SpecialType = newland;
@@ -2186,8 +2186,8 @@ label_329:
               do
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbourSameMap(cx, cy, mapSelected, tfacing);
-                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y], (object) 0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialType == specialType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialSprite == specialSprite)
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                if (coordinate.onmap && Operators.ConditionalCompareObjectEqual(objArray[coordinate.x, coordinate.y],  0, false) && this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialType == specialType & this.game.Data.MapObj[mapSelected].HexObj[coordinate.x, coordinate.y].SpecialSprite == specialSprite)
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                 tfacing += 1;
               }
               while (tfacing <= 6);

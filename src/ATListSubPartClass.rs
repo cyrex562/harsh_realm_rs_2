@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -51,7 +51,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
         return;
       this.backbitmap.Dispose();
       this.backbitmap = (Bitmap) null;
@@ -83,10 +83,10 @@ namespace WindowsApplication1
       this.ShowPair = tShowPair;
       this.ValueWidth = tValueWidth;
       this.DoTopAndBottom = tdotopandbottom;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
         this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -110,7 +110,7 @@ namespace WindowsApplication1
       this.Header = Strings.UCase(this.Header);
       if (tTop == 0)
       {
-        this.TopItem = (int) Math.Round((double) this.ListSelect - Conversion.Int((double) this.ListSize / 2.0));
+        this.TopItem = (int) Math.Round( this.ListSelect - Conversion.Int( this.ListSize / 2.0));
         if (this.TopItem < 0)
           this.TopItem = 0;
       }
@@ -156,7 +156,7 @@ namespace WindowsApplication1
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (this.ListSize >= this.ListObj.ListCount)
         this.TopItem = 0;
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
       {
         Expression.Clear(Color.Transparent);
       }
@@ -205,7 +205,7 @@ namespace WindowsApplication1
           {
             SizeF sizeF2 = Expression.MeasureString(this.Header, this.ownfont2);
             if (this.HeaderCenter)
-              DrawMod.DrawTextVic(ref Expression, this.Header, this.ownfont2, (int) Math.Round((double) this.Width / 2.0 - (double) sizeF2.Width / 2.0), 16 * num4 + this.ItemFontOffset - 1, this.game.VicColor1, this.game.VicColor1Shade);
+              DrawMod.DrawTextVic(ref Expression, this.Header, this.ownfont2, (int) Math.Round( this.Width / 2.0 -  sizeF2.Width / 2.0), 16 * num4 + this.ItemFontOffset - 1, this.game.VicColor1, this.game.VicColor1Shade);
             else
               DrawMod.DrawTextVic(ref Expression, this.Header, this.ownfont2, this.LeftTextOffset, 16 * num4 + this.ItemFontOffset - 1, this.game.VicColor1, this.game.VicColor1Shade);
           }
@@ -259,10 +259,10 @@ namespace WindowsApplication1
           {
             if (this.ListObj.ListColor[index - num3] < 0)
             {
-              if (!Information.IsNothing((object) this.ListObj.ListBmp[index - num3]))
+              if (!Information.IsNothing( this.ListObj.ListBmp[index - num3]))
               {
                 if (this.ListObj.ListR[index - num3] > -1)
-                  DrawMod.DrawBlockGradient2(ref Expression, 0, 16 * num4, 24, 16, Color.FromArgb((int) byte.MaxValue, (int) Math.Round((double) this.ListObj.ListR[index - num3] / 2.0), (int) Math.Round((double) this.ListObj.ListG[index - num3] / 2.0), (int) Math.Round((double) this.ListObj.ListB[index - num3] / 2.0)), Color.FromArgb((int) byte.MaxValue, (int) Math.Round((double) this.ListObj.ListR[index - num3] / 4.0), (int) Math.Round((double) this.ListObj.ListG[index - num3] / 4.0), (int) Math.Round((double) this.ListObj.ListB[index - num3] / 4.0)));
+                  DrawMod.DrawBlockGradient2(ref Expression, 0, 16 * num4, 24, 16, Color.FromArgb((int) byte.MaxValue, (int) Math.Round( this.ListObj.ListR[index - num3] / 2.0), (int) Math.Round( this.ListObj.ListG[index - num3] / 2.0), (int) Math.Round( this.ListObj.ListB[index - num3] / 2.0)), Color.FromArgb((int) byte.MaxValue, (int) Math.Round( this.ListObj.ListR[index - num3] / 4.0), (int) Math.Round( this.ListObj.ListG[index - num3] / 4.0), (int) Math.Round( this.ListObj.ListB[index - num3] / 4.0)));
                 ref Graphics local9 = ref Expression;
                 ref Bitmap local10 = ref this.ListObj.ListBmp[index - num3];
                 rectangle1 = Rectangle::new(0, 0, 32, 16);
@@ -288,26 +288,26 @@ namespace WindowsApplication1
             if (Operators.CompareString(this.ListObj.ListValue4[index - num3], "", false) != 0)
             {
               DrawMod.drawLine(ref Expression, this.Width - num1 - (this.ValueWidth - 3), 16 * num4, this.Width - num1 - (this.ValueWidth - 3), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
-              DrawMod.drawLine(ref Expression, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.75 - 3.0)), 16 * num4, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.75 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
-              DrawMod.drawLine(ref Expression, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.5 - 3.0)), 16 * num4, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.5 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
-              DrawMod.drawLine(ref Expression, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.25 - 3.0)), 16 * num4, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.25 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
+              DrawMod.drawLine(ref Expression, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.75 - 3.0)), 16 * num4, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.75 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
+              DrawMod.drawLine(ref Expression, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.5 - 3.0)), 16 * num4, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.5 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
+              DrawMod.drawLine(ref Expression, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.25 - 3.0)), 16 * num4, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.25 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
               DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue[index - num3], this.OwnFont, this.Width - num1 - (this.ValueWidth - 3), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
-              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue2[index - num3], this.OwnFont, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.75 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
-              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue3[index - num3], this.OwnFont, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.5 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
-              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue4[index - num3], this.OwnFont, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.25 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
+              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue2[index - num3], this.OwnFont, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.75 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
+              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue3[index - num3], this.OwnFont, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.5 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
+              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue4[index - num3], this.OwnFont, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.25 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
             }
             else if (Operators.CompareString(this.ListObj.ListValue3[index - num3], "", false) != 0)
             {
               DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue[index - num3], this.OwnFont, this.Width - num1 - (this.ValueWidth - 3), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
-              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue2[index - num3], this.OwnFont, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.66 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
-              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue3[index - num3], this.OwnFont, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth * 0.33 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
+              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue2[index - num3], this.OwnFont, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.66 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
+              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue3[index - num3], this.OwnFont, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth * 0.33 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
             }
             else if (Operators.CompareString(this.ListObj.ListValue2[index - num3], "", false) != 0)
             {
               DrawMod.drawLine(ref Expression, this.Width - num1 - (this.ValueWidth - 3), 16 * num4, this.Width - num1 - (this.ValueWidth - 3), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
-              DrawMod.drawLine(ref Expression, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth / 2.0 - 3.0)), 16 * num4, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth / 2.0 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
+              DrawMod.drawLine(ref Expression, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth / 2.0 - 3.0)), 16 * num4, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth / 2.0 - 3.0)), 16 * (num4 + 1), (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
               DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue[index - num3], this.OwnFont, this.Width - num1 - (this.ValueWidth - 3), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
-              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue2[index - num3], this.OwnFont, (int) Math.Round((double) (this.Width - num1) - ((double) this.ValueWidth / 2.0 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
+              DrawMod.DrawTextVic2(ref Expression, this.ListObj.ListValue2[index - num3], this.OwnFont, (int) Math.Round( (this.Width - num1) - ( this.ValueWidth / 2.0 - 3.0)), 16 * num4 + this.ItemFontOffset, this.game.VicColor2, this.game.VicColor2Shade);
             }
             else
             {
@@ -318,14 +318,14 @@ namespace WindowsApplication1
         }
       }
       let mut num6: i32 =  (this.ListSize + 1) * 16;
-      float num7 = this.ListObj.ListCount <= 0 ? 1f : (float) this.ListSize / (float) this.ListObj.ListCount;
-      if ((double) num7 > 1.0)
+      float num7 = this.ListObj.ListCount <= 0 ? 1f :  this.ListSize /  this.ListObj.ListCount;
+      if ( num7 > 1.0)
         num7 = 1f;
-      let mut num8: i32 =  (int) Math.Round((double) Conversion.Int((float) num6 * num7));
-      float num9 = this.ListObj.ListCount <= 0 ? 0.0f : (float) this.TopItem / (float) this.ListObj.ListCount;
-      if ((double) num9 > 1.0)
+      let mut num8: i32 =  (int) Math.Round( Conversion.Int( num6 * num7));
+      float num9 = this.ListObj.ListCount <= 0 ? 0.0f :  this.TopItem /  this.ListObj.ListCount;
+      if ( num9 > 1.0)
         num9 = 1f;
-      let mut num10: i32 =  (int) Math.Round((double) Conversion.Int((float) num6 * num9));
+      let mut num10: i32 =  (int) Math.Round( Conversion.Int( num6 * num9));
       if (this.DoTopAndBottom)
         num10 += 16;
       if (num6 < 5)
@@ -428,7 +428,7 @@ namespace WindowsApplication1
         DrawMod.DrawRectangle(ref Expression, 0, 0, this.Width - 21, this.Height - 1, (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
       else
         DrawMod.DrawRectangle(ref Expression, 0, 0, this.Width - 1, this.Height - 1, (int) DrawMod.TGame.VicColor3.R, (int) DrawMod.TGame.VicColor3.G, (int) DrawMod.TGame.VicColor3.B, (int) DrawMod.TGame.VicColor3.A);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -441,7 +441,7 @@ namespace WindowsApplication1
     pub int Click(int x, int y, let mut b: i32 =  1)
     {
       let mut num1: i32 =  y;
-      y = (int) Math.Round(Conversion.Int((double) y / 16.0));
+      y = (int) Math.Round(Conversion.Int( y / 16.0));
       this.Scroller = true;
       let mut num2: i32 =  0;
       let mut num3: i32 =  2;
@@ -473,7 +473,7 @@ namespace WindowsApplication1
           num1 -= 16;
         if (num1 < 1)
           num1 = 1;
-        let mut num7: i32 =  (int) Math.Round((double) (int) Math.Round((double) ((float) num1 / (float) num6 * (float) this.ListObj.ListCount)) - (double) this.ListSize / 2.0);
+        let mut num7: i32 =  (int) Math.Round( (int) Math.Round( ( num1 /  num6 *  this.ListObj.ListCount)) -  this.ListSize / 2.0);
         if (0 > num7)
           num7 = 0;
         this.TopItem = num7;
@@ -514,7 +514,7 @@ namespace WindowsApplication1
     pub bool MouseMove(int x, int y)
     {
       let mut num1: i32 =  y;
-      y = (int) Math.Round(Conversion.Int((double) y / 16.0));
+      y = (int) Math.Round(Conversion.Int( y / 16.0));
       let mut num2: i32 =  0;
       let mut num3: i32 =  2;
       let mut num4: i32 =  1;
@@ -534,7 +534,7 @@ namespace WindowsApplication1
         num1 -= 16;
       if (num1 < 1)
         num1 = 1;
-      let mut num7: i32 =  (int) Math.Round((double) (int) Math.Round((double) ((float) num1 / (float) num6 * (float) this.ListObj.ListCount)) - (double) this.ListSize / 2.0);
+      let mut num7: i32 =  (int) Math.Round( (int) Math.Round( ( num1 /  num6 *  this.ListObj.ListCount)) -  this.ListSize / 2.0);
       if (0 > num7)
         num7 = 0;
       this.TopItem = num7;

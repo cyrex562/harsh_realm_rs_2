@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Diagnostics;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
 
 namespace WindowsApplication1
 {
@@ -50,7 +50,7 @@ namespace WindowsApplication1
       Graphics g = Graphics.FromImage((Image) self.OwnBitmap);
       Rectangle trect1 = DrawMod.DrawBackTab(g, self.w, self.h, "HELP", 1);
       self.AddMouse( trect1, "CLOSE TAB", "Click here to close this tab. [ESC/F2]", 999);
-      let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[988]));
+      let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[988]));
       if (self.game.Data.StringListObj[stringListById].Length > -1)
       {
         g.SmoothingMode = SmoothingMode.None;
@@ -184,7 +184,7 @@ namespace WindowsApplication1
       {
         if (x > self.SubPartX[index] & x < self.SubPartX[index] + self.SubPartW[index] && y > self.SubPartY[index] & y < self.SubPartY[index] + self.SubPartH[index] && self.SubPartID[index] == self.Info1Id)
         {
-          str: String = self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[988]))].Data[self.currentHelp, 4];
+          str: String = self.game.Data.StringListObj[self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[988]))].Data[self.currentHelp, 4];
           self.SubPartFlag[index] = true;
           windowReturnClass1.SetFlag(true);
           windowReturnClass2: WindowReturnClass;
@@ -199,7 +199,7 @@ namespace WindowsApplication1
           catch (Exception ex)
           {
             ProjectData.SetProjectError(ex);
-            let mut num: i32 =  Interaction.MsgBox((object) "PROBLEM", Title: ((object) "Sadly there was a problem trying to let your Windows system run this video. Please check the game forums for possible causes."));
+            let mut num: i32 =  Interaction.MsgBox( "PROBLEM", Title: ( "Sadly there was a problem trying to let your Windows system run this video. Please check the game forums for possible causes."));
             self.dostuff();
             windowReturnClass2 = windowReturnClass1;
             ProjectData.ClearProjectError();

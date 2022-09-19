@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -74,7 +74,7 @@ namespace WindowsApplication1
         this.ResearchListObj = ListClass::new();
         let mut researchCounter: i32 = this.game.Data.ResearchCounter;
         for (let mut index: i32 = 0; index <= researchCounter; index += 1)
-          this.ResearchListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.ResearchObj[index].Name, index);
+          this.ResearchListObj.add(Conversion.Str( index) + ") " + this.game.Data.ResearchObj[index].Name, index);
         ListClass researchListObj = this.ResearchListObj;
         let mut tlistselect: i32 = tResearchnr;
         let mut game: GameClass = this.game;
@@ -223,7 +223,7 @@ namespace WindowsApplication1
       }
       if (this.game.Data.ResearchObj[this.ResearchNr].SFTypePic > -1)
       {
-        let mut tsubpart5: SubPartClass =  TextPartClass::new("SFTypeNr Sprite: " + this.game.Data.SFTypeObj[this.game.Data.ResearchObj[this.ResearchNr].SFTypePic].Name + " (" + Conversion.Str((object) this.game.Data.ResearchObj[this.ResearchNr].SFTypePic) + ")", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        let mut tsubpart5: SubPartClass =  TextPartClass::new("SFTypeNr Sprite: " + this.game.Data.SFTypeObj[this.game.Data.ResearchObj[this.ResearchNr].SFTypePic].Name + " (" + Conversion.Str( this.game.Data.ResearchObj[this.ResearchNr].SFTypePic) + ")", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.B2TextId = this.AddSubPart( tsubpart5, 410, 89, 400, 20, 0);
       }
       else
@@ -237,7 +237,7 @@ namespace WindowsApplication1
         let mut tsubpart7: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B4Id = this.AddSubPart( tsubpart7, 370, 110, 32, 16, 1);
       }
-      let mut tsubpart8: SubPartClass =  TextPartClass::new("PreReq: " + Conversion.Str((object) this.game.Data.ResearchObj[this.ResearchNr].PreReq), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      let mut tsubpart8: SubPartClass =  TextPartClass::new("PreReq: " + Conversion.Str( this.game.Data.ResearchObj[this.ResearchNr].PreReq), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B4TextId = this.AddSubPart( tsubpart8, 410, 109, 400, 20, 0);
       this.ss = "Click to set which other researchfield is a prerequisite for this one";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -245,7 +245,7 @@ namespace WindowsApplication1
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B5Id = this.AddSubPart( tsubpart8, 370, 130, 32, 16, 1);
       }
-      tsubpart8 =  TextPartClass::new("PreReq2: " + Conversion.Str((object) this.game.Data.ResearchObj[this.ResearchNr].PreReq2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart8 =  TextPartClass::new("PreReq2: " + Conversion.Str( this.game.Data.ResearchObj[this.ResearchNr].PreReq2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B5TextId = this.AddSubPart( tsubpart8, 410, 129, 400, 20, 0);
       this.ss = "Click to set which researchfield is blocked once this researchfield is bought by a regime. -1=none";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -253,7 +253,7 @@ namespace WindowsApplication1
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B6Id = this.AddSubPart( tsubpart8, 370, 150, 32, 16, 1);
       }
-      tsubpart8 =  TextPartClass::new("Blocks: " + Conversion.Str((object) this.game.Data.ResearchObj[this.ResearchNr].Blocks), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart8 =  TextPartClass::new("Blocks: " + Conversion.Str( this.game.Data.ResearchObj[this.ResearchNr].Blocks), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B6TextId = this.AddSubPart( tsubpart8, 410, 149, 400, 20, 0);
       this.ss = "Click to set tech level (used in regime menu and by random game). -1/0 = no tech level assigned.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -261,7 +261,7 @@ namespace WindowsApplication1
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B9Id = this.AddSubPart( tsubpart8, 370, 170, 32, 16, 1);
       }
-      tsubpart8 =  TextPartClass::new("TechLevel: " + Conversion.Str((object) this.game.Data.ResearchObj[this.ResearchNr].TechLevel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart8 =  TextPartClass::new("TechLevel: " + Conversion.Str( this.game.Data.ResearchObj[this.ResearchNr].TechLevel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B9TextId = this.AddSubPart( tsubpart8, 410, 169, 400, 20, 0);
       this.ss = "Click to set cost type. -1=PP =>0 is the regimevar specified";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -269,7 +269,7 @@ namespace WindowsApplication1
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B10Id = this.AddSubPart( tsubpart8, 370, 190, 32, 16, 1);
       }
-      tsubpart8 =  TextPartClass::new("CostType: " + Conversion.Str((object) this.game.Data.ResearchObj[this.ResearchNr].CostType), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart8 =  TextPartClass::new("CostType: " + Conversion.Str( this.game.Data.ResearchObj[this.ResearchNr].CostType), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B10TextId = this.AddSubPart( tsubpart8, 410, 189, 400, 20, 0);
       this.ss = "Click to remove this researchfield";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -299,7 +299,7 @@ namespace WindowsApplication1
       let mut index: i32 = 0;
       do
       {
-        this.PGListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 200] + " = " + Conversion.Str((object) this.game.Data.ResearchObj[this.ResearchNr].PointCost[index]), index);
+        this.PGListObj.add(Conversion.Str( index) + ") " + this.game.Data.TempString[index + 200] + " = " + Conversion.Str( this.game.Data.ResearchObj[this.ResearchNr].PointCost[index]), index);
         index += 1;
       }
       while (index <= 99);
@@ -369,7 +369,7 @@ namespace WindowsApplication1
               str: String = Interaction.InputBox("We will set all to ppg0 pp cost, with the following mod (1.0 is none)", "Shadow Empire : Planetary Conquest", "1");
               if (Operators.CompareString(str, "", false) != 0)
               {
-                float num3 = (float) Conversion.Val(str);
+                float num3 =  Conversion.Val(str);
                 let mut researchCounter: i32 = this.game.Data.ResearchCounter;
                 for (let mut index2: i32 = 0; index2 <= researchCounter; index2 += 1)
                 {
@@ -377,7 +377,7 @@ namespace WindowsApplication1
                   let mut index3: i32 = 1;
                   do
                   {
-                    this.game.Data.ResearchObj[index2].PointCost[index3] =  Math.Round((double) Conversion.Int((float) num4 * num3));
+                    this.game.Data.ResearchObj[index2].PointCost[index3] =  Math.Round( Conversion.Int( num4 * num3));
                     index3 += 1;
                   }
                   while (index3 <= 99);
@@ -429,7 +429,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num6: i32 =  Interaction.MsgBox((object) "number between -1 and 999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =  Interaction.MsgBox( "number between -1 and 999 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeResearchListGUI(this.ResearchNr);
                 windowReturnClass.SetFlag(true);
@@ -444,7 +444,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num8: i32 =  Interaction.MsgBox((object) "number between -1 and 499 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num8: i32 =  Interaction.MsgBox( "number between -1 and 499 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeResearchListGUI(this.ResearchNr);
                 windowReturnClass.SetFlag(true);
@@ -459,7 +459,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num10: i32 =  Interaction.MsgBox((object) "number between -1 and 999999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num10: i32 =  Interaction.MsgBox( "number between -1 and 999999 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeResearchListGUI(this.ResearchNr);
                 windowReturnClass.SetFlag(true);
@@ -503,7 +503,7 @@ namespace WindowsApplication1
                 let mut num12: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new point cost for this peoplegroup 0-9999 (-1 or 9999 = impossible) ", "Shadow Empire : Planetary Conquest")));
                 if (num12 < -1 | num12 > 9999)
                 {
-                  let mut num13: i32 =  Interaction.MsgBox((object) "Between 0 and 1000 please!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num13: i32 =  Interaction.MsgBox( "Between 0 and 1000 please!", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {

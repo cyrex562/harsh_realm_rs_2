@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -119,9 +119,9 @@ namespace WindowsApplication1
       }
       else
         self.hq = -1;
-      DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[0]), 0,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.game.EditObj.OrderUnit].X, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Y, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Map);
+      DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[0]), 0,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.game.EditObj.OrderUnit].X, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Y, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Map);
       if (self.unrT > -1)
-        self.LandCost = (object) self.game.EditObj.TempValue[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
+        self.LandCost =  self.game.EditObj.TempValue[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
       let mut mapCounter2: i32 = self.game.Data.MapCounter;
       for (let mut index1: i32 = 0; index1 <= mapCounter2; index1 += 1)
       {
@@ -133,9 +133,9 @@ namespace WindowsApplication1
             self.templand[index1].Value[index2, index3] = self.game.EditObj.TempValue[index1].Value[index2, index3];
         }
       }
-      DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[1]), 1,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.game.EditObj.OrderUnit].X, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Y, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Map, false, muststartonairfield: false, SeaBlock: true);
+      DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[1]), 1,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.game.EditObj.OrderUnit].X, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Y, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Map, false, muststartonairfield: false, SeaBlock: true);
       if (self.unrT > -1)
-        self.NavyCost = (object) self.game.EditObj.TempValue[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
+        self.NavyCost =  self.game.EditObj.TempValue[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
       let mut mapCounter3: i32 = self.game.Data.MapCounter;
       for (let mut index4: i32 = 0; index4 <= mapCounter3; index4 += 1)
       {
@@ -147,13 +147,13 @@ namespace WindowsApplication1
             self.tempnavy[index4].Value[index5, index6] = self.game.EditObj.TempValue[index4].Value[index5, index6];
         }
       }
-      if ((double) self.game.Data.RuleVar[509] == 0.0)
+      if ( self.game.Data.RuleVar[509] == 0.0)
       {
-        if ((double) self.game.Data.RuleVar[2] > -1.0)
+        if ( self.game.Data.RuleVar[2] > -1.0)
         {
-          DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round((double) self.game.Data.RuleVar[2]), 0,  Math.Round((double) self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.game.EditObj.OrderUnit].X, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Y, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Map);
+          DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(self.game.Data.UnitObj[self.unr].Regime,  Math.Round( self.game.Data.RuleVar[2]), 0,  Math.Round( self.game.Data.RuleVar[78]), self.game.Data.UnitObj[self.game.EditObj.OrderUnit].X, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Y, self.game.Data.UnitObj[self.game.EditObj.OrderUnit].Map);
           if (self.unrT > -1)
-            self.AirCost = (object) self.game.EditObj.TempValue[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
+            self.AirCost =  self.game.EditObj.TempValue[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
           let mut mapCounter4: i32 = self.game.Data.MapCounter;
           for (let mut index7: i32 = 0; index7 <= mapCounter4; index7 += 1)
           {
@@ -167,15 +167,15 @@ namespace WindowsApplication1
           }
         }
         else
-          self.AirCost = (object) 9999;
+          self.AirCost =  9999;
       }
       self.CapTheater = 0;
       self.TempNew = 1;
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost, (object) 9999, false), Operators.CompareObjectLess(self.NavyCost, (object) 9999, false))))
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost,  9999, false), Operators.CompareObjectLess(self.NavyCost,  9999, false))))
         self.CapTheater = 1;
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.AndObject(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost, (object) 9999, false), Operators.CompareObjectGreaterEqual(self.NavyCost, (object) 9999, false)), Operators.CompareObjectLess(self.AirCost, (object) 9999, false)), (object) ((double) self.game.Data.RuleVar[509] == 0.0))))
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.AndObject(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost,  9999, false), Operators.CompareObjectGreaterEqual(self.NavyCost,  9999, false)), Operators.CompareObjectLess(self.AirCost,  9999, false)),  ( self.game.Data.RuleVar[509] == 0.0))))
         self.CapTheater = 2;
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.AirCost, (object) 9999, false), (object) ((double) self.game.Data.RuleVar[509] == 0.0))))
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.AirCost,  9999, false),  ( self.game.Data.RuleVar[509] == 0.0))))
         self.CapTheater = 2;
       if (self.hq > -1 && self.game.Data.UnitObj[self.hq].AirCap <= 1 & self.CapTheater == 2)
         self.CapTheater = self.game.Data.UnitObj[self.hq].LandCap <= self.game.Data.UnitObj[self.hq].NavyCap ? 1 : 0;
@@ -232,16 +232,16 @@ namespace WindowsApplication1
         self.hq = self.overrulehq;
       if (self.unrT > -1)
       {
-        self.LandCost = (object) self.templand[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
-        self.NavyCost = (object) self.tempnavy[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
-        if ((double) self.game.Data.RuleVar[509] == 0.0)
-          self.AirCost = (double) self.game.Data.RuleVar[2] <= -1.0 ? (object) 9999 : (object) self.tempair[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
+        self.LandCost =  self.templand[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
+        self.NavyCost =  self.tempnavy[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
+        if ( self.game.Data.RuleVar[509] == 0.0)
+          self.AirCost =  self.game.Data.RuleVar[2] <= -1.0 ?  9999 :  self.tempair[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Map].Value[self.game.Data.UnitObj[self.game.EditObj.OrderTarget].X, self.game.Data.UnitObj[self.game.EditObj.OrderTarget].Y];
       }
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost, (object) 9999, false), Operators.CompareObjectLess(self.NavyCost, (object) 9999, false))))
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost,  9999, false), Operators.CompareObjectLess(self.NavyCost,  9999, false))))
         self.CapTheater = 1;
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.AndObject(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost, (object) 9999, false), Operators.CompareObjectGreaterEqual(self.NavyCost, (object) 9999, false)), Operators.CompareObjectLess(self.AirCost, (object) 9999, false)), (object) ((double) self.game.Data.RuleVar[509] == 0.0))))
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.AndObject(Operators.AndObject(Operators.CompareObjectGreaterEqual(self.LandCost,  9999, false), Operators.CompareObjectGreaterEqual(self.NavyCost,  9999, false)), Operators.CompareObjectLess(self.AirCost,  9999, false)),  ( self.game.Data.RuleVar[509] == 0.0))))
         self.CapTheater = 2;
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.AirCost, (object) 9999, false), (object) ((double) self.game.Data.RuleVar[509] == 0.0))))
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.AirCost,  9999, false),  ( self.game.Data.RuleVar[509] == 0.0))))
         self.CapTheater = 2;
       if (self.hq > -1 && self.game.Data.UnitObj[self.hq].AirCap <= 1 & self.CapTheater == 2)
         self.CapTheater = self.game.Data.UnitObj[self.hq].LandCap <= self.game.Data.UnitObj[self.hq].NavyCap ? 1 : 0;
@@ -332,9 +332,9 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.YesId);
       if (self.SwitchId > 0)
         self.RemoveSubPart(self.SwitchId);
-      self.LandCost = (object) self.RemLandCost;
-      self.NavyCost = (object) self.RemNavyCost;
-      self.AirCost = (object) self.RemAirCost;
+      self.LandCost =  self.RemLandCost;
+      self.NavyCost =  self.RemNavyCost;
+      self.AirCost =  self.RemAirCost;
       self.NewBackGroundAndClearAll(1024, 200, -1);
       self.seltheater = 0;
       self.OwnPowerTransfer = 0;
@@ -382,9 +382,9 @@ namespace WindowsApplication1
           str = "Supplies";
         string txt;
         if (self.game.EditObj.TransferLostTransports > 0)
-          txt = "Lost " + Strings.Trim(Conversion.Str((object) self.game.EditObj.TransferLostQty)) + " " + str + " and " + Strings.Trim(Conversion.Str((object) self.game.EditObj.TransferLostTransports)) + " transport troops due to enemy Anti-Cap.";
+          txt = "Lost " + Strings.Trim(Conversion.Str( self.game.EditObj.TransferLostQty)) + " " + str + " and " + Strings.Trim(Conversion.Str( self.game.EditObj.TransferLostTransports)) + " transport troops due to enemy Anti-Cap.";
         else
-          txt = "Lost " + Strings.Trim(Conversion.Str((object) self.game.EditObj.TransferLostQty)) + " " + str + " due to enemy Air/Navy.";
+          txt = "Lost " + Strings.Trim(Conversion.Str( self.game.EditObj.TransferLostQty)) + " " + str + " due to enemy Air/Navy.";
         let mut tsubpart1: SubPartClass =  new ATTextPartClass(txt, self.game.VicFont1, 600, 20, true);
         self.Text1Id = self.AddSubPart( tsubpart1, 0, 70, 600, 20, 0);
         let mut tsubpart2: SubPartClass =  ButtonPartClass::new(self.game.OKBALL, tDescript: "Click to continue");
@@ -408,9 +408,9 @@ namespace WindowsApplication1
               num2 = 1;
             if (!self.game.Data.UnitObj[self.unrT].IsHQ & !self.game.HandyFunctionsObj.HasUnitNavySF(self.unrT))
               num2 = 0;
-            if (num2 == 1 & (double) self.game.Data.RuleVar[322] == 0.0)
+            if (num2 == 1 &  self.game.Data.RuleVar[322] == 0.0)
             {
-              self.OptionsListObj.add(Conversion.Str((object) self.game.Data.UnitObj[self.unr].Supply) + "x Supply Pts", -2);
+              self.OptionsListObj.add(Conversion.Str( self.game.Data.UnitObj[self.unr].Supply) + "x Supply Pts", -2);
               num1 = 1;
               if (self.detailnr == -2)
                 tlistselect1 = 0;
@@ -427,7 +427,7 @@ namespace WindowsApplication1
               let mut type: i32 = self.game.Data.SFObj[sf].Type;
               if (sf == self.detailnr)
                 self.tempSfType = type;
-              self.OptionsListObj.add(Conversion.Str((object) self.game.Data.SFObj[sf].Qty) + "x " + self.game.Data.SFTypeObj[type].Name + "(" + Strings.Left(self.game.Data.PeopleObj[self.game.Data.SFObj[sf].People].Name, 3) + ")", sf);
+              self.OptionsListObj.add(Conversion.Str( self.game.Data.SFObj[sf].Qty) + "x " + self.game.Data.SFTypeObj[type].Name + "(" + Strings.Left(self.game.Data.PeopleObj[self.game.Data.SFObj[sf].People].Name, 3) + ")", sf);
             }
           }
           if (self.OptionsListId > 0)
@@ -446,8 +446,8 @@ namespace WindowsApplication1
           {
             self.OptionsList2Obj = ATListClass::new();
             let mut tlistselect2: i32 = -1;
-            if (self.game.Data.UnitObj[self.unr].IsHQ & (self.game.Data.UnitObj[self.unrT].IsHQ | self.game.Data.LandscapeTypeObj[self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.Data.UnitObj[self.unrT].X, self.game.Data.UnitObj[self.unrT].Y].LandscapeType].IsSea) && (double) self.game.Data.RuleVar[322] == 0.0)
-              self.OptionsList2Obj.add(Conversion.Str((object) self.game.Data.UnitObj[self.unrT].Supply) + "x Supply Pts", -2);
+            if (self.game.Data.UnitObj[self.unr].IsHQ & (self.game.Data.UnitObj[self.unrT].IsHQ | self.game.Data.LandscapeTypeObj[self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.Data.UnitObj[self.unrT].X, self.game.Data.UnitObj[self.unrT].Y].LandscapeType].IsSea) &&  self.game.Data.RuleVar[322] == 0.0)
+              self.OptionsList2Obj.add(Conversion.Str( self.game.Data.UnitObj[self.unrT].Supply) + "x Supply Pts", -2);
             if (self.game.Data.UnitObj[self.unrT].SFCount > -1)
             {
               let mut sfCount: i32 = self.game.Data.UnitObj[self.unrT].SFCount;
@@ -459,7 +459,7 @@ namespace WindowsApplication1
                 let mut type: i32 = self.game.Data.SFObj[sf].Type;
                 if (sf == self.detailnr)
                   self.tempSfType = type;
-                self.OptionsList2Obj.add(Conversion.Str((object) self.game.Data.SFObj[sf].Qty) + "x " + self.game.Data.SFTypeObj[type].Name + "(" + Strings.Left(self.game.Data.PeopleObj[self.game.Data.SFObj[sf].People].Name, 3) + ")", sf);
+                self.OptionsList2Obj.add(Conversion.Str( self.game.Data.SFObj[sf].Qty) + "x " + self.game.Data.SFTypeObj[type].Name + "(" + Strings.Left(self.game.Data.PeopleObj[self.game.Data.SFObj[sf].People].Name, 3) + ")", sf);
               }
             }
             if (self.OptionsList2Id > 0)
@@ -477,15 +477,15 @@ namespace WindowsApplication1
             {
               let mut unitCarryCap: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 1);
               let mut Number: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 1) - self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 1, true);
-              txt1 = "Naval Carry:" + Strings.Trim(Conversion.Str((object) unitCarryCap)) + " Weight: " + Strings.Trim(Conversion.Str((object) Number));
+              txt1 = "Naval Carry:" + Strings.Trim(Conversion.Str( unitCarryCap)) + " Weight: " + Strings.Trim(Conversion.Str( Number));
             }
             else if (self.game.HandyFunctionsObj.HasUnitAirSF(self.unrT))
-              txt1 = "Air Carry:" + Strings.Trim(Conversion.Str((object) self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 2)));
+              txt1 = "Air Carry:" + Strings.Trim(Conversion.Str( self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 2)));
             else if (self.game.HandyFunctionsObj.HasUnitlandSF(self.unrT))
             {
               let mut unitCarryCap: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 0);
               let mut Number: i32 = self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 0) - self.game.HandyFunctionsObj.GetUnitCarryCap(self.unrT, 0, true);
-              txt1 = "Land Carry:" + Strings.Trim(Conversion.Str((object) unitCarryCap)) + " Weight: " + Strings.Trim(Conversion.Str((object) Number));
+              txt1 = "Land Carry:" + Strings.Trim(Conversion.Str( unitCarryCap)) + " Weight: " + Strings.Trim(Conversion.Str( Number));
             }
             else
               txt1 = "";
@@ -493,7 +493,7 @@ namespace WindowsApplication1
             self.text7id = self.AddSubPart( tsubpart3, 300, 170, 200, 20, 0);
             if (self.detailnr > -1)
             {
-              txt2: String = "Weight: " + Strings.Trim(Conversion.Str((object) self.game.Data.SFTypeObj[self.game.Data.SFObj[self.detailnr].Type].Weight));
+              txt2: String = "Weight: " + Strings.Trim(Conversion.Str( self.game.Data.SFTypeObj[self.game.Data.SFObj[self.detailnr].Type].Weight));
               if (self.game.Data.SFTypeObj[self.game.Data.SFObj[self.detailnr].Type].StaffPts > 0 & self.game.Data.UnitObj[self.unrT].Historical > -1)
                 txt2 = txt2 + ", Max Leader Staff=" + self.game.HandyFunctionsObj.GetMaxStaffIndividuals(self.unrT, -1).ToString();
               let mut tsubpart4: SubPartClass =  new ATTextPartClass(txt2, self.game.VicFont5, 195, 20, false);
@@ -541,14 +541,14 @@ namespace WindowsApplication1
             }
             else if (self.detailtype == 1)
             {
-              weight = (float) self.game.Data.SFTypeObj[self.tempSfType].Weight;
+              weight =  self.game.Data.SFTypeObj[self.tempSfType].Weight;
               moveType = self.game.Data.SFTypeObj[self.tempSfType].MoveType;
               ap = self.game.Data.SFObj[self.detailnr].Ap;
               redux = self.game.Data.SFTypeObj[self.tempSfType].MoveRedux;
             }
-            let mut integer1: i32 = Conversions.ToInteger(Conversion.Int(Operators.MultiplyObject(Operators.MultiplyObject(self.LandCost, (object) self.TempNew), (object) weight)));
-            let mut integer2: i32 = Conversions.ToInteger(Conversion.Int(Operators.MultiplyObject(Operators.MultiplyObject(self.NavyCost, (object) self.TempNew), (object) weight)));
-            let mut integer3: i32 = Conversions.ToInteger(Conversion.Int(Operators.MultiplyObject(Operators.MultiplyObject(self.AirCost, (object) self.TempNew), (object) weight)));
+            let mut integer1: i32 = Conversions.ToInteger(Conversion.Int(Operators.MultiplyObject(Operators.MultiplyObject(self.LandCost,  self.TempNew),  weight)));
+            let mut integer2: i32 = Conversions.ToInteger(Conversion.Int(Operators.MultiplyObject(Operators.MultiplyObject(self.NavyCost,  self.TempNew),  weight)));
+            let mut integer3: i32 = Conversions.ToInteger(Conversion.Int(Operators.MultiplyObject(Operators.MultiplyObject(self.AirCost,  self.TempNew),  weight)));
             if (self.detailnr != -2 && self.detailtype == 1)
               self.seltheater = self.game.Data.SFTypeObj[self.tempSfType].Theater;
             int Number2;
@@ -562,43 +562,43 @@ namespace WindowsApplication1
               Number2 = self.game.Data.UnitObj[self.hq].LandCap;
               Number3 = self.game.Data.UnitObj[self.hq].NavyCap;
               Number4 = self.game.Data.UnitObj[self.hq].AirCap;
-              if ((double) self.game.Data.RuleVar[852] > 0.0)
+              if ( self.game.Data.RuleVar[852] > 0.0)
               {
-                let mut num3: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].RegimeSlot[ Math.Round((double) self.game.Data.RuleVar[851])];
-                let mut num4: i32 =  Math.Round((double) Number2 / 1000.0 * (double) self.game.Data.RuleVar[852]);
+                let mut num3: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].RegimeSlot[ Math.Round( self.game.Data.RuleVar[851])];
+                let mut num4: i32 =  Math.Round( Number2 / 1000.0 *  self.game.Data.RuleVar[852]);
                 if (1 > num4)
                   num4 = 1;
                 if (num4 > num3)
                 {
-                  Number2 =  Math.Round(Conversion.Int((double) Number2 * ((double) num3 / (double) num4)));
+                  Number2 =  Math.Round(Conversion.Int( Number2 * ( num3 /  num4)));
                   flag3 = true;
                 }
                 if (Number2 < 1)
                   Number2 = 0;
               }
-              if ((double) self.game.Data.RuleVar[854] > 0.0)
+              if ( self.game.Data.RuleVar[854] > 0.0)
               {
-                let mut num5: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].RegimeSlot[ Math.Round((double) self.game.Data.RuleVar[853])];
-                let mut num6: i32 =  Math.Round((double) Number3 / 1000.0 * (double) self.game.Data.RuleVar[854]);
+                let mut num5: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].RegimeSlot[ Math.Round( self.game.Data.RuleVar[853])];
+                let mut num6: i32 =  Math.Round( Number3 / 1000.0 *  self.game.Data.RuleVar[854]);
                 if (1 > num6)
                   num6 = 1;
                 if (num6 > num5)
                 {
-                  Number3 =  Math.Round(Conversion.Int((double) Number3 * ((double) num5 / (double) num6)));
+                  Number3 =  Math.Round(Conversion.Int( Number3 * ( num5 /  num6)));
                   flag4 = true;
                 }
                 if (Number3 < 1)
                   Number3 = 0;
               }
-              if ((double) self.game.Data.RuleVar[856] > 0.0)
+              if ( self.game.Data.RuleVar[856] > 0.0)
               {
-                let mut num7: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].RegimeSlot[ Math.Round((double) self.game.Data.RuleVar[855])];
-                let mut num8: i32 =  Math.Round((double) Number4 / 1000.0 * (double) self.game.Data.RuleVar[856]);
+                let mut num7: i32 = self.game.Data.RegimeObj[self.game.Data.Turn].RegimeSlot[ Math.Round( self.game.Data.RuleVar[855])];
+                let mut num8: i32 =  Math.Round( Number4 / 1000.0 *  self.game.Data.RuleVar[856]);
                 if (1 > num8)
                   num8 = 1;
                 if (num8 > num7)
                 {
-                  Number4 =  Math.Round(Conversion.Int((double) Number4 * ((double) num7 / (double) num8)));
+                  Number4 =  Math.Round(Conversion.Int( Number4 * ( num7 /  num8)));
                   flag5 = true;
                 }
                 if (Number4 < 1)
@@ -672,20 +672,20 @@ namespace WindowsApplication1
             if (self.seltheater == 1 & self.OwnPowerTransfer < 1 & self.detailnr > -1 && self.game.Data.SFTypeObj[self.game.Data.SFObj[self.detailnr].Type].Theater == 1)
             {
               Number1 = 9999;
-              self.NavyCost = (object) 9999;
-              self.LandCost = (object) 9999;
-              self.AirCost = (object) 9999;
+              self.NavyCost =  9999;
+              self.LandCost =  9999;
+              self.AirCost =  9999;
               str1 = "navy can only be transferred under 'own power'";
             }
             if (self.unrT > -1 & self.detailnr > -1 && !self.game.HandyFunctionsObj.CanAddTroops(self.unrT, self.game.Data.SFObj[self.detailnr].Type, self.game.Data.SFObj[self.detailnr].People, self.game.Data.SFObj[self.detailnr].MoveType))
             {
               Number1 = 9999;
-              self.NavyCost = (object) 9999;
-              self.LandCost = (object) 9999;
-              self.AirCost = (object) 9999;
+              self.NavyCost =  9999;
+              self.LandCost =  9999;
+              self.AirCost =  9999;
               str1 = "target unit is full. these troops cannot be added";
             }
-            if ((double) self.game.Data.RuleVar[801] == 1.0)
+            if ( self.game.Data.RuleVar[801] == 1.0)
             {
               let mut reinforcementType: i32 = self.game.Data.SFTypeObj[self.game.Data.SFObj[self.detailnr].Type].ReinforcementType;
               if (self.unrT > -1 && reinforcementType > -1 & self.game.Data.UnitObj[self.unrT].Historical > -1 && self.game.Data.UnitObj[self.unrT].HistoricalSubPart > -1)
@@ -797,9 +797,9 @@ namespace WindowsApplication1
               }
             }
             string txt3;
-            if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.LandCost, (object) 9999, false), (object) (self.seltheater != 1))))
+            if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.LandCost,  9999, false),  (self.seltheater != 1))))
             {
-              txt3 = self.hq <= -1 ? "LandCap = " + Conversion.Str((object) integer1) : "LandCap = " + Conversion.Str((object) integer1) + " / " + Conversion.Str((object) Number2);
+              txt3 = self.hq <= -1 ? "LandCap = " + Conversion.Str( integer1) : "LandCap = " + Conversion.Str( integer1) + " / " + Conversion.Str( Number2);
               if (flag3)
                 txt3 += " (fuel!)";
             }
@@ -825,15 +825,15 @@ namespace WindowsApplication1
               }
             }
             string txt4;
-            if (Operators.ConditionalCompareObjectLess(self.NavyCost, (object) 9999, false))
+            if (Operators.ConditionalCompareObjectLess(self.NavyCost,  9999, false))
             {
-              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(self.NavyCost, (object) 0, false), (object) (self.seltheater == 1 & Number1 == 0))))
+              if (Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectEqual(self.NavyCost,  0, false),  (self.seltheater == 1 & Number1 == 0))))
               {
                 txt4 = "Self Transfer";
               }
               else
               {
-                txt4 = self.hq <= -1 ? "NavyCap = " + Conversion.Str((object) integer2) : "NavyCap = " + Conversion.Str((object) integer2) + " / " + Conversion.Str((object) Number3);
+                txt4 = self.hq <= -1 ? "NavyCap = " + Conversion.Str( integer2) : "NavyCap = " + Conversion.Str( integer2) + " / " + Conversion.Str( Number3);
                 if (flag4)
                   txt4 += " (fuel!)";
               }
@@ -859,12 +859,12 @@ namespace WindowsApplication1
                 self.text5id = self.AddSubPart( tsubpart8, 800, 100, 190, 20, 0);
               }
             }
-            if ((double) self.game.Data.RuleVar[509] == 0.0)
+            if ( self.game.Data.RuleVar[509] == 0.0)
             {
               string txt5;
-              if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.AirCost, (object) 9999, false), (object) ((double) self.game.Data.RuleVar[509] == 0.0))))
+              if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(self.AirCost,  9999, false),  ( self.game.Data.RuleVar[509] == 0.0))))
               {
-                txt5 = self.hq <= -1 ? "RailCap = " + Conversion.Str((object) integer3) : "RailCap = " + Conversion.Str((object) integer3) + " / " + Conversion.Str((object) Number4);
+                txt5 = self.hq <= -1 ? "RailCap = " + Conversion.Str( integer3) : "RailCap = " + Conversion.Str( integer3) + " / " + Conversion.Str( Number4);
                 if (flag5)
                   txt5 += " (fuel!)";
               }
@@ -890,7 +890,7 @@ namespace WindowsApplication1
                 }
               }
             }
-            txt6: String = self.OwnPowerTransfer != 0 ? "Own Power" : (self.hq != -1 ? "Basic Cost = " + Conversion.Str((object) Number1) : "Not enough Ap");
+            txt6: String = self.OwnPowerTransfer != 0 ? "Own Power" : (self.hq != -1 ? "Basic Cost = " + Conversion.Str( Number1) : "Not enough Ap");
             if (self.unrT > -1)
             {
               tsubpart8 =  new ATTextPartClass(txt6, self.game.VicFont2, 205, 20, true, tBlackBack: true);
@@ -1047,7 +1047,7 @@ namespace WindowsApplication1
             }
             if (num1 == self.OrderALLId)
             {
-              if (Interaction.MsgBox((object) "Are you sure you want to transfer all subformations?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you sure you want to transfer all subformations?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 for (let mut sfCount: i32 = self.game.Data.UnitObj[self.unr].SFCount; sfCount >= 0; sfCount += -1)
                 {
@@ -1084,7 +1084,7 @@ namespace WindowsApplication1
                 self.TempNew = self.game.Data.SFObj[self.detailnr].Qty;
               if (self.detailnr != -2)
               {
-                if ((double) self.game.Data.RuleVar[801] == 1.0)
+                if ( self.game.Data.RuleVar[801] == 1.0)
                 {
                   let mut reinforcementType: i32 = self.game.Data.SFTypeObj[self.game.Data.SFObj[self.detailnr].Type].ReinforcementType;
                   if (reinforcementType > -1 & self.game.Data.UnitObj[self.unrT].Historical > -1 && self.game.Data.UnitObj[self.unrT].HistoricalSubPart > -1)
@@ -1093,7 +1093,7 @@ namespace WindowsApplication1
                     if (self.game.HandyFunctionsObj.GetPowerInReinforcementPoints(self.unrT, reinforcementType) + self.TempNew > reinforcementPoints)
                     {
                       self.TempNew = tempNew;
-                      self.game.EditObj.FeedBackString = "Maximum " + Conversion.Str((object) reinforcementPoints) + " is powerpts of " + self.game.Data.ReinfName[reinforcementType];
+                      self.game.EditObj.FeedBackString = "Maximum " + Conversion.Str( reinforcementPoints) + " is powerpts of " + self.game.Data.ReinfName[reinforcementType];
                       windowReturnClass.AddCommand(4, 29);
                     }
                   }

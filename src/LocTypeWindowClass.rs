@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -198,7 +198,7 @@ namespace WindowsApplication1
         this.LocTypeListObj = ListClass::new();
         let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
         for (let mut index: i32 =  0; index <= locTypeCounter; index += 1)
-          this.LocTypeListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LocTypeObj[index].Name, index);
+          this.LocTypeListObj.add(Conversion.Str( index) + ") " + this.game.Data.LocTypeObj[index].Name, index);
         ListClass locTypeListObj = this.LocTypeListObj;
         let mut tlistselect: i32 =  tLocTypenr;
         let mut game: GameClass = this.game;
@@ -631,7 +631,7 @@ namespace WindowsApplication1
         this.BLTSpriteTextId = this.AddSubPart( tsubpart2, 50, 389, 400, 20, 0);
       }
       this.ss = "Click to set the Small graphic and/or NATO graphic for the loctype.  The extra graphic will always be overdrawn on the hex.";
-      str3: String = this.game.Data.LocTypeObj[this.LocTypeNr].ExtraGraphic <= 0 ? (this.game.Data.LocTypeObj[this.LocTypeNr].SmallGraphic <= 0 ? "-none-" : "small #" + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].SmallGraphic)) : "nato #" + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].ExtraGraphic);
+      str3: String = this.game.Data.LocTypeObj[this.LocTypeNr].ExtraGraphic <= 0 ? (this.game.Data.LocTypeObj[this.LocTypeNr].SmallGraphic <= 0 ? "-none-" : "small #" + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].SmallGraphic)) : "nato #" + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].ExtraGraphic);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -670,7 +670,7 @@ namespace WindowsApplication1
       let mut index: i32 =  0;
       do
       {
-        this.BuildGroundListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 100] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].BuildgroundType[index]), index);
+        this.BuildGroundListObj.add(Conversion.Str( index) + ") " + this.game.Data.TempString[index + 100] + " = " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].BuildgroundType[index]), index);
         index += 1;
       }
       while (index <= 99);
@@ -691,7 +691,7 @@ namespace WindowsApplication1
 
      void maketabsheetnr1b()
     {
-      txt: String = "Buildable? = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].BuildgroundType[this.DetailNr]);
+      txt: String = "Buildable? = " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].BuildgroundType[this.DetailNr]);
       if (this.ChangeBGId > 0)
         this.RemoveSubPart(this.ChangeBGId);
       if (this.ChangeBGText > 0)
@@ -751,7 +751,7 @@ namespace WindowsApplication1
         let mut num3: i32 =  this.AddSubPart( tsubpart1, 50, 530 + index1 * 20 - 1, 200, 20, 0);
         varTypetxtId[index5] = num3;
         this.ss = "";
-        str3: String = Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].VarQty[index1]);
+        str3: String = Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].VarQty[index1]);
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           int[] varQtyId = this.VarQtyId;
@@ -786,7 +786,7 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONUNFLAGGED, tDescript: this.ss);
         this.b7id = this.AddSubPart( tsubpart, 10, 430, 32, 16, 1);
       }
-      let mut tsubpart1: SubPartClass =  TextPartClass::new("Is Port: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].IsPort), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 50, false, tDescript: this.ss);
+      let mut tsubpart1: SubPartClass =  TextPartClass::new("Is Port: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].IsPort), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 50, false, tDescript: this.ss);
       this.b7textid = this.AddSubPart( tsubpart1, 50, 429, 200, 20, 0);
       this.ss = "Click to toggle on/off if this locationtype has airfield functionality";
       if (this.game.Data.LocTypeObj[this.LocTypeNr].IsAirfield)
@@ -802,7 +802,7 @@ namespace WindowsApplication1
         let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONUNFLAGGED, tDescript: this.ss);
         this.b8id = this.AddSubPart( tsubpart3, 10, 450, 32, 16, 1);
       }
-      let mut tsubpart4: SubPartClass =  TextPartClass::new("Is Airfield: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].IsAirfield), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 50, false, tDescript: this.ss);
+      let mut tsubpart4: SubPartClass =  TextPartClass::new("Is Airfield: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].IsAirfield), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 50, false, tDescript: this.ss);
       this.b8textid = this.AddSubPart( tsubpart4, 50, 449, 200, 20, 0);
       this.ss = "Click to set the number of structural points this loctype has";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -810,7 +810,7 @@ namespace WindowsApplication1
         let mut tsubpart5: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B9Id = this.AddSubPart( tsubpart5, 10, 470, 32, 16, 1);
       }
-      let mut tsubpart6: SubPartClass =  TextPartClass::new("Struc.Points: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].StructuralPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart6: SubPartClass =  TextPartClass::new("Struc.Points: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].StructuralPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B9TextId = this.AddSubPart( tsubpart6, 50, 469, 200, 20, 0);
       this.ss = "Click to set the LandscapeType that will appear if locationtype is destroyed. -1 means its structural points can go to 0 but loc cant be destroyed. -2=it can be destroyed but LT is not morphed";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -818,7 +818,7 @@ namespace WindowsApplication1
         let mut tsubpart7: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B10Id = this.AddSubPart( tsubpart7, 10, 490, 32, 16, 1);
       }
-      let mut tsubpart8: SubPartClass =  TextPartClass::new("OnDestruct: LT: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].OnDestructLT), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart8: SubPartClass =  TextPartClass::new("OnDestruct: LT: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].OnDestructLT), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B10TextId = this.AddSubPart( tsubpart8, 50, 489, 200, 20, 0);
       SubPartClass tsubpart9;
       if (this.game.Data.LocTypeObj[this.LocTypeNr].OnDestructLT > -1)
@@ -829,7 +829,7 @@ namespace WindowsApplication1
           let mut tsubpart10: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.B11Id = this.AddSubPart( tsubpart10, 10, 510, 32, 16, 1);
         }
-        tsubpart9 =  TextPartClass::new("OnDestruct: SpriteNr: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].OnDestructSpriteNr), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart9 =  TextPartClass::new("OnDestruct: SpriteNr: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].OnDestructSpriteNr), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.B11TextId = this.AddSubPart( tsubpart9, 50, 509, 200, 20, 0);
       }
       this.ss = "TopAirStack=0 means that unlimited aircraft can be stationed on airfield. >0 = ideal ammount of stack points stationed on airfield.";
@@ -838,7 +838,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B31Id = this.AddSubPart( tsubpart9, 10, 530, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("TopAirStack: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].TopAirStack), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("TopAirStack: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].TopAirStack), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B31TextId = this.AddSubPart( tsubpart9, 50, 529, 200, 20, 0);
       this.ss = "Logistical Bonus";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -846,7 +846,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B32Id = this.AddSubPart( tsubpart9, 10, 550, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("Logistical Bonus: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].Logistical), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("Logistical Bonus: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].Logistical), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B32TextId = this.AddSubPart( tsubpart9, 50, 549, 200, 20, 0);
       if (this.game.Data.Product >= 5)
       {
@@ -856,7 +856,7 @@ namespace WindowsApplication1
           tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.B35Id = this.AddSubPart( tsubpart9, 10, 570, 32, 16, 1);
         }
-        tsubpart9 =  TextPartClass::new("Use Small Label: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].useSmallLabel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart9 =  TextPartClass::new("Use Small Label: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].useSmallLabel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.B35TextId = this.AddSubPart( tsubpart9, 50, 569, 200, 20, 0);
       }
       this.ss = "Click to give the number of autorecovering structural points per round";
@@ -865,7 +865,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B14Id = this.AddSubPart( tsubpart9, 410, 390, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("AutoRecoverPts: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].AutoRecoverPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("AutoRecoverPts: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].AutoRecoverPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B14TextId = this.AddSubPart( tsubpart9, 450, 389, 200, 20, 0);
       this.ss = "Click to set the LocationType Group this loctype belongs to";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -873,7 +873,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B15Id = this.AddSubPart( tsubpart9, 410, 410, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("LocTypeGroup: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].LocTypeGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("LocTypeGroup: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].LocTypeGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B15TextId = this.AddSubPart( tsubpart9, 450, 409, 200, 20, 0);
       this.ss = "Click to toggle on/off if this loctype is buildable by a player";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -881,7 +881,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B16Id = this.AddSubPart( tsubpart9, 410, 430, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("Buildable " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].Buildable), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("Buildable " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].Buildable), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B16TextId = this.AddSubPart( tsubpart9, 450, 429, 200, 20, 0);
       this.ss = "Click to toggle on/off if this loctypes structuralpoints can be damaged in anyway";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -889,7 +889,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B19Id = this.AddSubPart( tsubpart9, 410, 470, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("Invincible: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].Invincible), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("Invincible: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].Invincible), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B19TextId = this.AddSubPart( tsubpart9, 450, 469, 200, 20, 0);
       this.ss = "Click to set number of supply points, expressed in prodpoints, it costs to build this loctype";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -897,7 +897,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B21Id = this.AddSubPart( tsubpart9, 410, 490, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("SupplyCost in ProdPoints: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].SupplyCost), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("SupplyCost in ProdPoints: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].SupplyCost), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B21TextId = this.AddSubPart( tsubpart9, 450, 489, 200, 20, 0);
       this.ss = "Click to set Slot neccessary to construct on specific hex";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -905,7 +905,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B25Id = this.AddSubPart( tsubpart9, 410, 550, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("Slot: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].SlotType), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("Slot: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].SlotType), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B25TextId = this.AddSubPart( tsubpart9, 450, 549, 200, 20, 0);
       this.ss = "Click to set Slot value to construct on specific hex";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -913,7 +913,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B26Id = this.AddSubPart( tsubpart9, 410, 570, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("SlotValue: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].SlotValue), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("SlotValue: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].SlotValue), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B26TextId = this.AddSubPart( tsubpart9, 450, 569, 200, 20, 0);
       this.ss = "The specified LandscapeType will be used for entrench+combatmod and picture overdraw!";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -921,7 +921,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B27Id = this.AddSubPart( tsubpart9, 410, 590, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("LT Use: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].PictureLT) + "," + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].PictureSprite), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("LT Use: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].PictureLT) + "," + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].PictureSprite), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B27TextId = this.AddSubPart( tsubpart9, 450, 589, 200, 20, 0);
       this.ss = "Click to set if people of new location of this type get ovverruled by a slot to set people";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -929,7 +929,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B28Id = this.AddSubPart( tsubpart9, 410, 610, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("SetPeopleToSlotX: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].SetPeopleToSlotX), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("SetPeopleToSlotX: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].SetPeopleToSlotX), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B28TextId = this.AddSubPart( tsubpart9, 450, 609, 200, 20, 0);
       this.ss = "Click to set NoHQ. If true you cannot specify a HQ and only regimevar production will be executed.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -937,7 +937,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B29Id = this.AddSubPart( tsubpart9, 710, 390, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("NoHQ: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].NoHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("NoHQ: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].NoHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B29TextId = this.AddSubPart( tsubpart9, 750, 389, 200, 20, 0);
       this.ss = "Hide from Map Editor";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -945,7 +945,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B48Id = this.AddSubPart( tsubpart9, 710, 370, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("editorBlock: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].editorBlock), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("editorBlock: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].editorBlock), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B48TextId = this.AddSubPart( tsubpart9, 750, 369, 200, 20, 0);
       this.ss = "Supply Base Settings. Is it?";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -953,7 +953,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B40Id = this.AddSubPart( tsubpart9, 710, 410, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("IsSupplyBase: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].isSupplyBase), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("IsSupplyBase: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].isSupplyBase), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B40TextId = this.AddSubPart( tsubpart9, 750, 409, 200, 20, 0);
       this.ss = "Supply Base Settings. Max Supply Store.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -961,7 +961,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B41Id = this.AddSubPart( tsubpart9, 710, 430, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("Max Supply Store: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].maxSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("Max Supply Store: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].maxSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B41TextId = this.AddSubPart( tsubpart9, 750, 429, 200, 20, 0);
       this.ss = "Supply Base Settings. Max Fuel Store";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -969,7 +969,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B42Id = this.AddSubPart( tsubpart9, 710, 450, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("Max Fuel Store: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].maxFuel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("Max Fuel Store: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].maxFuel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B42TextId = this.AddSubPart( tsubpart9, 750, 449, 200, 20, 0);
       this.ss = "Supply Base Settings. Max Evacuate % of max stores per turn";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -977,7 +977,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B43Id = this.AddSubPart( tsubpart9, 710, 470, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("MaxEvacuate%: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].maxEvacuate), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("MaxEvacuate%: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].maxEvacuate), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B43TextId = this.AddSubPart( tsubpart9, 750, 469, 200, 20, 0);
       this.ss = "Supply Base Settings. Max Destroy % of max stores per turn";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -985,7 +985,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B44Id = this.AddSubPart( tsubpart9, 710, 490, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("MaxDestroy%: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].maxDestroy), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("MaxDestroy%: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].maxDestroy), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B44TextId = this.AddSubPart( tsubpart9, 750, 489, 200, 20, 0);
       this.ss = "Supply Base Settings. Needs City Level";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -993,7 +993,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B45Id = this.AddSubPart( tsubpart9, 710, 510, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("Needs City Level: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].needsCityLevel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("Needs City Level: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].needsCityLevel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B45TextId = this.AddSubPart( tsubpart9, 750, 509, 200, 20, 0);
       this.ss = "Supply Base Settings. Has City Level ";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1001,7 +1001,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B46Id = this.AddSubPart( tsubpart9, 710, 530, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("City Level: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].cityLevel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("City Level: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].cityLevel), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B46TextId = this.AddSubPart( tsubpart9, 750, 529, 200, 20, 0);
       this.ss = "Supply Base Settings. Outer Supply Range in AP ";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1009,7 +1009,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B47Id = this.AddSubPart( tsubpart9, 710, 550, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("SupplyRange: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].supplyRange), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("SupplyRange: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].supplyRange), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B47TextId = this.AddSubPart( tsubpart9, 750, 549, 200, 20, 0);
       this.ss = "Supply Source. Is it?";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1017,7 +1017,7 @@ namespace WindowsApplication1
         tsubpart9 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B50Id = this.AddSubPart( tsubpart9, 710, 570, 32, 16, 1);
       }
-      tsubpart9 =  TextPartClass::new("IsSupplySource: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].isSupplySource), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart9 =  TextPartClass::new("IsSupplySource: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].isSupplySource), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B50TextId = this.AddSubPart( tsubpart9, 750, 569, 200, 20, 0);
     }
 
@@ -1030,7 +1030,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a10Id = this.AddSubPart( tsubpart, 10, 410, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("AI Priority: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].AIPriority), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("AI Priority: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].AIPriority), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.a10TextId = this.AddSubPart( tsubpart, 50, 409, 400, 20, 0);
       this.ss = "Points can be subtracted or added by specified event. -1=no event. Tempvar0 is set to LocType# for called event.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1038,7 +1038,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a11Id = this.AddSubPart( tsubpart, 10, 430, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("AI Prio Mod Event: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].AIEvent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("AI Prio Mod Event: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].AIEvent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.a11TextId = this.AddSubPart( tsubpart, 50, 429, 400, 20, 0);
       this.ss = "If -1 no event is called and AI decideds on loc itself. If >-1 then event must set AreaXY. Tempvar0 is set to loctype# for called event.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1046,7 +1046,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a12Id = this.AddSubPart( tsubpart, 10, 450, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("AI Loc Event: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].AILocEvent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("AI Loc Event: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].AILocEvent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.a12TextId = this.AddSubPart( tsubpart, 50, 449, 400, 20, 0);
       this.ss = "If TRUE the AI will consider to construct this locationtype if Priority>0. If FALSE the AI will not construct.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1054,7 +1054,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a13Id = this.AddSubPart( tsubpart, 10, 470, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("AI Can Free Build: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].AICanBuild), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("AI Can Free Build: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].AICanBuild), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.a13TextId = this.AddSubPart( tsubpart, 50, 469, 400, 20, 0);
       this.ss = "-=1 no event. This event is called directly after building of the loctype. Tempvar 0 is set as loctype for called event.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1062,7 +1062,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a14Id = this.AddSubPart( tsubpart, 10, 490, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("AIAfterBuildEvent: " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].AIAfterBuildEvent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("AIAfterBuildEvent: " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].AIAfterBuildEvent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.a14TextId = this.AddSubPart( tsubpart, 50, 489, 400, 20, 0);
     }
 
@@ -1074,7 +1074,7 @@ namespace WindowsApplication1
       let mut index: i32 =  0;
       do
       {
-        this.PGListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 200] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].PeopleGroup[index]), index);
+        this.PGListObj.add(Conversion.Str( index) + ") " + this.game.Data.TempString[index + 200] + " = " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].PeopleGroup[index]), index);
         index += 1;
       }
       while (index <= 99);
@@ -1122,7 +1122,7 @@ namespace WindowsApplication1
       let mut index: i32 =  0;
       do
       {
-        this.IGListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 300] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].ItemGroup[index]), index);
+        this.IGListObj.add(Conversion.Str( index) + ") " + this.game.Data.TempString[index + 300] + " = " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].ItemGroup[index]), index);
         index += 1;
       }
       while (index <= 99);
@@ -1162,7 +1162,7 @@ namespace WindowsApplication1
       let mut index: i32 =  0;
       do
       {
-        this.LTListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 500] + " = " + Conversion.Str((object) this.game.Data.LocTypeObj[this.LocTypeNr].MinDistance[index]), index);
+        this.LTListObj.add(Conversion.Str( index) + ") " + this.game.Data.TempString[index + 500] + " = " + Conversion.Str( this.game.Data.LocTypeObj[this.LocTypeNr].MinDistance[index]), index);
         index += 1;
       }
       while (index <= 99);
@@ -1318,7 +1318,7 @@ label_236:
                 }
                 else
                 {
-                  let mut num6: i32 =   Interaction.MsgBox((object) ("Invalid input. number between -1 and " + Conversion.Str((object) this.game.NATO.GetUpperBound(0))), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =   Interaction.MsgBox( ("Invalid input. number between -1 and " + Conversion.Str( this.game.NATO.GetUpperBound(0))), Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               this.maketabsheet();
@@ -1353,7 +1353,7 @@ label_236:
               }
               else
               {
-                let mut num8: i32 =   Interaction.MsgBox((object) "Invalid input. number between -99999 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =   Interaction.MsgBox( "Invalid input. number between -99999 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1455,7 +1455,7 @@ label_236:
               }
               else
               {
-                let mut num11: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num11: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1470,7 +1470,7 @@ label_236:
               }
               else
               {
-                let mut num13: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num13: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1485,7 +1485,7 @@ label_236:
               }
               else
               {
-                let mut num15: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num15: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1500,7 +1500,7 @@ label_236:
               }
               else
               {
-                let mut num17: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num17: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 100", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1515,7 +1515,7 @@ label_236:
               }
               else
               {
-                let mut num19: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num19: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 100", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1530,7 +1530,7 @@ label_236:
               }
               else
               {
-                let mut num21: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num21: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1545,7 +1545,7 @@ label_236:
               }
               else
               {
-                let mut num23: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num23: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1560,7 +1560,7 @@ label_236:
               }
               else
               {
-                let mut num25: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num25: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1575,7 +1575,7 @@ label_236:
               }
               else
               {
-                let mut num27: i32 =   Interaction.MsgBox((object) "Invalid input. number between -1 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num27: i32 =   Interaction.MsgBox( "Invalid input. number between -1 and 9", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1590,7 +1590,7 @@ label_236:
               }
               else
               {
-                let mut num29: i32 =   Interaction.MsgBox((object) "Invalid input. number between -1 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num29: i32 =   Interaction.MsgBox( "Invalid input. number between -1 and 9", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1605,7 +1605,7 @@ label_236:
               }
               else
               {
-                let mut num31: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num31: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1627,7 +1627,7 @@ label_236:
               }
               else
               {
-                let mut num33: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num33: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1642,7 +1642,7 @@ label_236:
               }
               else
               {
-                let mut num35: i32 =   Interaction.MsgBox((object) "Invalid input. number between -9999 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num35: i32 =   Interaction.MsgBox( "Invalid input. number between -9999 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1663,7 +1663,7 @@ label_236:
                   }
                   else
                   {
-                    let mut num38: i32 =   Interaction.MsgBox((object) "Invalid input. Not a valid sprite", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num38: i32 =   Interaction.MsgBox( "Invalid input. Not a valid sprite", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 else
@@ -1672,7 +1672,7 @@ label_236:
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num39: i32 =   Interaction.MsgBox((object) "Invalid input. Not a valid LT", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num39: i32 =   Interaction.MsgBox( "Invalid input. Not a valid LT", Title: ( "Shadow Empire : Planetary Conquest"));
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -1686,7 +1686,7 @@ label_236:
               }
               else
               {
-                let mut num41: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num41: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1701,7 +1701,7 @@ label_236:
               }
               else
               {
-                let mut num43: i32 =   Interaction.MsgBox((object) "Invalid input. number between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num43: i32 =   Interaction.MsgBox( "Invalid input. number between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1728,7 +1728,7 @@ label_236:
               }
               else
               {
-                let mut num45: i32 =   Interaction.MsgBox((object) "Invalid input. between -1 and LocTypeCounter plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num45: i32 =   Interaction.MsgBox( "Invalid input. between -1 and LocTypeCounter plz", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1750,7 +1750,7 @@ label_236:
               }
               else
               {
-                let mut num47: i32 =   Interaction.MsgBox((object) "Invalid input. between 0 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num47: i32 =   Interaction.MsgBox( "Invalid input. between 0 and 99999 plz", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1771,7 +1771,7 @@ label_236:
               }
               else
               {
-                let mut num49: i32 =   Interaction.MsgBox((object) "Invalid input. between 0 and 9999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num49: i32 =   Interaction.MsgBox( "Invalid input. between 0 and 9999 plz", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1864,7 +1864,7 @@ label_236:
               }
               else
               {
-                let mut num54: i32 =   Interaction.MsgBox((object) "Invalid input. between -1 and 99 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num54: i32 =   Interaction.MsgBox( "Invalid input. between -1 and 99 plz", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1879,7 +1879,7 @@ label_236:
               }
               else
               {
-                let mut num56: i32 =   Interaction.MsgBox((object) "Invalid input. between -1 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num56: i32 =   Interaction.MsgBox( "Invalid input. between -1 and 99999 plz", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -1894,7 +1894,7 @@ label_236:
               }
               else
               {
-                let mut num58: i32 =   Interaction.MsgBox((object) "Invalid input. between 0 and 99999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num58: i32 =   Interaction.MsgBox( "Invalid input. between 0 and 99999 plz", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);

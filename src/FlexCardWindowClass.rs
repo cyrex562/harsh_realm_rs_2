@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -40,7 +40,7 @@ namespace WindowsApplication1
       questionText: String = this.game.EditObj.QuestionText;
       let mut questionCard: i32 =  this.game.EditObj.QuestionCard;
       SizeF sizeF2 = graphics.MeasureString(questionText, this.game.MarcFont3);
-      DrawMod.DrawTextColouredMarc(ref graphics, questionText, this.game.MarcFont3,  Math.Round(200.0 - (double) sizeF2.Width / 2.0), 20, Color.White);
+      DrawMod.DrawTextColouredMarc(ref graphics, questionText, this.game.MarcFont3,  Math.Round(200.0 -  sizeF2.Width / 2.0), 20, Color.White);
       ref Graphics local1 = ref graphics;
       Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCardSe1(this.game.Data.Turn, questionCard);
       ref Bitmap local2 = ref bitmap;

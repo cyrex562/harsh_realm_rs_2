@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Threading;
-using System.Web;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Net;
+// usingSystem.Text;
+// usingSystem.Threading;
+// usingSystem.Web;
 
 namespace WindowsApplication1
 {
@@ -52,7 +52,7 @@ namespace WindowsApplication1
       asyncState.lastRead = DateAndTime.Now;
       if (asyncState.e.ServerOrderCancel)
       {
-        if (!Information.IsNothing((object) asyncState.Response))
+        if (!Information.IsNothing( asyncState.Response))
           asyncState.Response.Close();
         request.Abort();
         asyncState.e.ServerLostConnect = true;
@@ -63,13 +63,13 @@ namespace WindowsApplication1
         {
           asyncState.Response = request.EndGetResponse(ar);
           asyncState.RespStream = asyncState.Response.GetResponseStream();
-          asyncState.RespStream.BeginRead(asyncState.buf, 0, 131072, new AsyncCallback(this.ReadResponse), (object) asyncState);
+          asyncState.RespStream.BeginRead(asyncState.buf, 0, 131072, new AsyncCallback(this.ReadResponse),  asyncState);
         }
         catch (WebException ex)
         {
           ProjectData.SetProjectError((Exception) ex);
           asyncState.e.ServerOrderCancel = true;
-          if (!Information.IsNothing((object) asyncState.Response))
+          if (!Information.IsNothing( asyncState.Response))
             asyncState.Response.Close();
           request.Abort();
           asyncState.e.ServerLostConnect = true;
@@ -119,7 +119,7 @@ namespace WindowsApplication1
           while (!respStream.CanRead)
             Thread.Sleep(1);
           this.auto.Set();
-          respStream.BeginRead(asyncState.buf, 0, 131072, new AsyncCallback(this.ReadResponse), (object) asyncState);
+          respStream.BeginRead(asyncState.buf, 0, 131072, new AsyncCallback(this.ReadResponse),  asyncState);
           if (this.e.ServerOrderCancel)
           {
             asyncState.e.ServerLostConnect = true;
@@ -158,7 +158,7 @@ namespace WindowsApplication1
       {
         ProjectData.SetProjectError(ex);
         this.e.ServerOrderCancel = true;
-        if (!Information.IsNothing((object) respStream))
+        if (!Information.IsNothing( respStream))
           respStream.Close();
         request.Abort();
         asyncState.completed = true;
@@ -199,7 +199,7 @@ namespace WindowsApplication1
           if (Operators.CompareString(this.e.ServerCookieValue, "", false) != 0)
             this.wr.Headers.Add(HttpRequestHeader.Cookie, this.e.ServerCookieValue);
           DateTime now;
-          if (this.e.ServerCommand == ServerCommandType.Challenge | this.e.ServerCommand == ServerCommandType.UploadInstance & this.e.ServerCommandStep == 3 && !Information.IsNothing((object) this.e.ServerUploadFile))
+          if (this.e.ServerCommand == ServerCommandType.Challenge | this.e.ServerCommand == ServerCommandType.UploadInstance & this.e.ServerCommandStep == 3 && !Information.IsNothing( this.e.ServerUploadFile))
           {
             now = DateTime.Now;
             str: String = "----------------------------" + now.Ticks.ToString("x");
@@ -245,7 +245,7 @@ namespace WindowsApplication1
           if (!this.e.ServerOrderCancel)
           {
             this.auto = new AutoResetEvent(true);
-            this.wr.BeginGetResponse(new AsyncCallback(this.Response), (object) state);
+            this.wr.BeginGetResponse(new AsyncCallback(this.Response),  state);
             state.lastRead = DateAndTime.Now;
             while (!state.completed)
             {
@@ -311,7 +311,7 @@ namespace WindowsApplication1
       if (!timedOut)
         return;
       ServerClass.WebRequestState Expression = (ServerClass.WebRequestState) state;
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Request.Abort();
     }
@@ -535,7 +535,7 @@ namespace WindowsApplication1
           this.url = this.url + "&ArmyPoints=" + HttpUtility.UrlEncode("0");
           this.url = this.url + "&ShowName=" + HttpUtility.UrlEncode("1");
           this.url = this.url + "&MiscData=" + HttpUtility.UrlEncode(this.game.EditObj.PbemMiscString);
-          this.url = this.url + "&FileSize=" + HttpUtility.UrlEncode(Strings.Trim(Conversion.Str((object) (this.game.EditObj.ServerUploadFile.GetUpperBound(0) + 1))));
+          this.url = this.url + "&FileSize=" + HttpUtility.UrlEncode(Strings.Trim(Conversion.Str( (this.game.EditObj.ServerUploadFile.GetUpperBound(0) + 1))));
         }
       }
       if (this.e.ServerCommand == ServerCommandType.UploadInstance)
@@ -577,7 +577,7 @@ namespace WindowsApplication1
             this.url = this.url + "&TurnNo=" + HttpUtility.UrlEncode(Conversions.ToString(this.game.Data.Round));
             this.url = !(this.game.Data.LastWinner > -1 | this.game.Data.PbemDrawGame == 1) ? this.url + "&GameOver=" + HttpUtility.UrlEncode("0") : this.url + "&GameOver=" + HttpUtility.UrlEncode("1");
             this.url = this.url + "&AccepterArmyName=" + HttpUtility.UrlEncode("n/a");
-            this.url = this.url + "&FileSize=" + HttpUtility.UrlEncode(Strings.Trim(Conversion.Str((object) (this.game.EditObj.ServerUploadFile.GetUpperBound(0) + 1))));
+            this.url = this.url + "&FileSize=" + HttpUtility.UrlEncode(Strings.Trim(Conversion.Str( (this.game.EditObj.ServerUploadFile.GetUpperBound(0) + 1))));
             if (this.game.Data.LastWinner > -1 | this.game.Data.PbemDrawGame == 1)
             {
               if (this.game.Data.PbemDrawGame == 1)
@@ -610,7 +610,7 @@ namespace WindowsApplication1
     pub void ReadReceive()
     {
       this.WriteLog("READING");
-      if (Information.IsNothing((object) this.receive))
+      if (Information.IsNothing( this.receive))
       {
         this.receive = "99 ***ZERO LENGTH STRING RETURNED BY PBEM++ SERVER***";
         if (this.e.ServerCommand == ServerCommandType.PlayTurn)

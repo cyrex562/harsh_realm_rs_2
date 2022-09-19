@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -17,21 +17,21 @@ namespace WindowsApplication1
   {
     pub Counter: i32;
     pub DateTime LastSave;
-    pub int[] Code;
-    pub int[] Round;
-    pub int[] Qty;
-    pub int[] Turn;
-    pub int[] RandomCode;
+    pub Code: Vec<i32>;
+    pub Round: Vec<i32>;
+    pub Qty: Vec<i32>;
+    pub Turn: Vec<i32>;
+    pub RandomCode: Vec<i32>;
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("Counter", this.Counter);
-      info.AddValue("Code", (object) this.Code);
-      info.AddValue("Round", (object) this.Round);
-      info.AddValue("Qty", (object) this.Qty);
-      info.AddValue("Turn", (object) this.Turn);
+      info.AddValue("Code",  this.Code);
+      info.AddValue("Round",  this.Round);
+      info.AddValue("Qty",  this.Qty);
+      info.AddValue("Turn",  this.Turn);
       info.AddValue("LastSave", this.LastSave);
-      info.AddValue("RandomCode", (object) this.RandomCode);
+      info.AddValue("RandomCode",  this.RandomCode);
     }
 
     protected MasterLogClass(SerializationInfo info, StreamingContext context)
@@ -65,7 +65,7 @@ namespace WindowsApplication1
     pub void serialize(string fileloc)
     {
       FileStream serializationStream = new FileStream(fileloc, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
-      BinaryFormatter::new().Serialize((Stream) serializationStream, (object) this);
+      BinaryFormatter::new().Serialize((Stream) serializationStream,  this);
       serializationStream.Close();
     }
 
@@ -124,7 +124,7 @@ namespace WindowsApplication1
           break;
         }
       }
-      return index1 > -1 ? (object) this.Qty[index1] : (object) 0;
+      return index1 > -1 ?  this.Qty[index1] :  0;
     }
 
     pub MasterLogClass()

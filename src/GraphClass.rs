@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -34,7 +34,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
         return;
       this.backbitmap.Dispose();
       this.backbitmap = (Bitmap) null;
@@ -69,10 +69,10 @@ namespace WindowsApplication1
       this.RegCount = tregcount;
       this.MatTitle = tMatTitle;
       this.Multiplier = tMultiplier;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
         this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -87,7 +87,7 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       Rectangle[] rectangleArray = Rectangle::new[10000];
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!Information.IsNothing((object) this.backbitmap))
+      if (!Information.IsNothing( this.backbitmap))
       {
         graphics.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( graphics,  this.backbitmap, 0, 0);
@@ -98,9 +98,9 @@ namespace WindowsApplication1
       int[,] numArray2 = new int[this.Mat.GetUpperBound(0) + 1, this.Mat.GetUpperBound(1) + 1];
       let mut num1: i32 =  this.Width - 70;
       let mut num2: i32 =  60;
-      let mut num3: i32 =   Math.Round((double) this.Height - (50.0 + Math.Max(2.0, (double) this.RegCount / 2.0 + 0.5) * 15.0));
-      let mut num4: i32 =   Math.Round(20.0 + Math.Max(2.0, (double) this.RegCount / 2.0 + 0.5) * 15.0);
-      let mut num5: i32 =   Math.Round(Conversion.Int((double) num1 / (double) Math.Max(10, this.game.Data.Round)));
+      let mut num3: i32 =   Math.Round( this.Height - (50.0 + Math.Max(2.0,  this.RegCount / 2.0 + 0.5) * 15.0));
+      let mut num4: i32 =   Math.Round(20.0 + Math.Max(2.0,  this.RegCount / 2.0 + 0.5) * 15.0);
+      let mut num5: i32 =   Math.Round(Conversion.Int( num1 /  Math.Max(10, this.game.Data.Round)));
       if (!this.tminRun)
       {
         this.tmin = 0;
@@ -156,18 +156,18 @@ label_43:
         {
           int num10;
           if (num9 == 1)
-            num10 =  Math.Round((double) a1);
+            num10 =  Math.Round( a1);
           if (num9 == 2)
-            num10 =  Math.Round((double) a1 * 0.8);
+            num10 =  Math.Round( a1 * 0.8);
           if (num9 == 3)
-            num10 =  Math.Round((double) a1 * 0.6);
+            num10 =  Math.Round( a1 * 0.6);
           if (num9 == 4)
-            num10 =  Math.Round((double) (a1 / 2f));
+            num10 =  Math.Round( (a1 / 2f));
           if (num9 == 5)
-            num10 =  Math.Round((double) a1 * 0.4);
+            num10 =  Math.Round( a1 * 0.4);
           if (num9 >= 6)
-            num10 =  Math.Round((double) a1 * 0.2);
-          if (num10 > num7 & num10 <= num7 * 2 | (double) a1 < 10.0)
+            num10 =  Math.Round( a1 * 0.2);
+          if (num10 > num7 & num10 <= num7 * 2 |  a1 < 10.0)
           {
             num7 = num10;
             goto label_44;
@@ -185,8 +185,8 @@ label_44:
         let mut regCount1: i32 =  this.RegCount;
         for (let mut index12: i32 =  1; index12 <= regCount1; index12 += 1)
         {
-          numArray1[index11, index12] =  Math.Round((double) Conversion.Int(num5 * index11) - Conversion.Int((double) num5 / 2.0));
-          numArray2[index11, index12] =  Math.Round(Conversion.Int((double) this.Mat[index11, index12] / (double) num7 * (double) num3));
+          numArray1[index11, index12] =  Math.Round( Conversion.Int(num5 * index11) - Conversion.Int( num5 / 2.0));
+          numArray2[index11, index12] =  Math.Round(Conversion.Int( this.Mat[index11, index12] /  num7 *  num3));
         }
         let mut num11: i32 =  1;
         while (num11 == 1)
@@ -226,41 +226,41 @@ label_44:
       {
         str: String = this.DateString(round5);
         sizeF2 = graphics.MeasureString(str, this.game.MarcFont5);
-        float num14 = (float) num5;
+        float num14 =  num5;
         let mut num15: i32 =  1;
-        for (; (double) num14 < (double) sizeF2.Width + 10.0; num14 = (float) (num5 * num15))
+        for (;  num14 <  sizeF2.Width + 10.0; num14 =  (num5 * num15))
           num15 += 1;
         if (round5 % num15 == 0)
-          DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont5,  Math.Round((double) (num2 + num5 * round5) - (double) num5 / 2.0 - (double) sizeF2.Width / 2.0), num4 + num3 + 12, c2);
+          DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont5,  Math.Round( (num2 + num5 * round5) -  num5 / 2.0 -  sizeF2.Width / 2.0), num4 + num3 + 12, c2);
       }
       let mut num16: i32 =  0;
       do
       {
-        float num17 = (float) ( Math.Round((double) num7 / 10.0) * num16);
-        let mut num18: i32 =   Math.Round((double) ((float) (num4 + num3) - (float) num3 * (num17 / (float) num7)));
+        float num17 =  ( Math.Round( num7 / 10.0) * num16);
+        let mut num18: i32 =   Math.Round( ( (num4 + num3) -  num3 * (num17 /  num7)));
         DrawMod.drawLineDot( graphics, num2 - 20, num18, num2 + num1, num18, c1);
-        str: String = Strings.Trim(Conversion.Str((object) (( Math.Round((double) num7 / 10.0) * num16 - Math.Abs(this.tmin)) * this.Multiplier)));
+        str: String = Strings.Trim(Conversion.Str( (( Math.Round( num7 / 10.0) * num16 - Math.Abs(this.tmin)) * this.Multiplier)));
         if (Operators.CompareString(Strings.Right(str, 4), "0000", false) == 0)
           str = Strings.Left(str, Strings.Len(str) - 3) + "K";
         sizeF2 = graphics.MeasureString(str, this.game.MarcFont5);
-        DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont5,  Math.Round((double) ((float) (num2 - 25) - sizeF2.Width / 2f)),  Math.Round((double) ((float) num18 - sizeF2.Height)), c2);
+        DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont5,  Math.Round( ( (num2 - 25) - sizeF2.Width / 2f)),  Math.Round( ( num18 - sizeF2.Height)), c2);
         num16 += 1;
       }
       while (num16 <= 10);
       DrawMod.DrawTextColouredMarc( graphics, this.MatTitle, this.game.MarcFont4, 20, 5, c2);
       sizeF2 = graphics.MeasureString(this.MatTitle, this.game.MarcFont4);
-      let mut num19: i32 =   Math.Round((double) Math.Max(0.0f, 220f - sizeF2.Width));
+      let mut num19: i32 =   Math.Round( Math.Max(0.0f, 220f - sizeF2.Width));
       let mut y1_1: i32 =  -5;
-      let mut x1_1: i32 =   Math.Round((double) ((float) num2 + sizeF2.Width));
+      let mut x1_1: i32 =   Math.Round( ( num2 + sizeF2.Width));
       let mut num20: i32 =  0;
       let mut regCount5: i32 =  this.RegCount;
       for (let mut index: i32 =  1; index <= regCount5; index += 1)
       {
-        if ((double) index > Math.Max(2.0, Conversion.Int((double) this.RegCount / 2.0 + 0.5)) & num20 == 0)
+        if ( index > Math.Max(2.0, Conversion.Int( this.RegCount / 2.0 + 0.5)) & num20 == 0)
         {
           num20 = 1;
           y1_1 = -5;
-          x1_1 =  Math.Round((double) num2 + (double) num1 / 2.0 + (double) num1 / 5.0 - (double) num19) + 75;
+          x1_1 =  Math.Round( num2 +  num1 / 2.0 +  num1 / 5.0 -  num19) + 75;
         }
         y1_1 += 15;
         Color color = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index].A,  this.RegCol[index].R,  this.RegCol[index].G,  this.RegCol[index].B), 66);
@@ -281,13 +281,13 @@ label_44:
             let mut num23: i32 =  numArray2[index16, index17];
             let mut x1_2: i32 =  num22;
             let mut num24: i32 =  num23;
-            float a2 = (float) numArray1[index16 + 1, index17];
+            float a2 =  numArray1[index16 + 1, index17];
             let mut num25: i32 =  numArray2[index16 + 1, index17];
             let mut y1_2: i32 =  num24 + 0;
             let mut y2: i32 =  num25 + 0;
             Color color = DrawMod.LightenColor(Color.FromArgb( this.RegCol[index17].A,  this.RegCol[index17].R,  this.RegCol[index17].G,  this.RegCol[index17].B), 66);
-            DrawMod.drawLine( graphics, x1_2, y1_2 + 1,  Math.Round((double) a2), y2 + 1,  this.RegCol[index17].R,  this.RegCol[index17].G,  this.RegCol[index17].B,  this.RegCol[index17].A);
-            DrawMod.drawLine( graphics, x1_2, y1_2,  Math.Round((double) a2), y2,  color.R,  color.G,  color.B,  color.A);
+            DrawMod.drawLine( graphics, x1_2, y1_2 + 1,  Math.Round( a2), y2 + 1,  this.RegCol[index17].R,  this.RegCol[index17].G,  this.RegCol[index17].B,  this.RegCol[index17].A);
+            DrawMod.drawLine( graphics, x1_2, y1_2,  Math.Round( a2), y2,  color.R,  color.G,  color.B,  color.A);
           }
         }
       }
@@ -306,21 +306,21 @@ label_44:
             DrawMod.LightenColor(Color.FromArgb( this.RegCol[index19].A,  this.RegCol[index19].R,  this.RegCol[index19].G,  this.RegCol[index19].B), 66);
             if (this.showNumbers)
             {
-              float num30 = (float) ((this.Mat[index18, index19] - Math.Abs(this.tmin)) * this.Multiplier);
-              str: String = !((double) num30 > 9999.0 | (double) num30 < -9999.0) ? num30.ToString() : Strings.Format((object) (float) ((double) num30 / 1000.0), "0.0") + "K";
+              float num30 =  ((this.Mat[index18, index19] - Math.Abs(this.tmin)) * this.Multiplier);
+              str: String = !( num30 > 9999.0 |  num30 < -9999.0) ? num30.ToString() : Strings.Format(  ( num30 / 1000.0), "0.0") + "K";
               sizeF2 = graphics.MeasureString(str, this.game.MarcFont5);
               let mut num31: i32 =  0;
               int index20;
               let mut num32: i32 =  index20;
               for (let mut index21: i32 =  1; index21 <= num32; index21 += 1)
               {
-                if (rectangleArray[index21].X >= num28 & (double) rectangleArray[index21].X <= (double) num28 + (double) sizeF2.Width && rectangleArray[index21].Y >= num29 & (double) rectangleArray[index21].Y <= (double) num29 + (double) sizeF2.Height)
+                if (rectangleArray[index21].X >= num28 &  rectangleArray[index21].X <=  num28 +  sizeF2.Width && rectangleArray[index21].Y >= num29 &  rectangleArray[index21].Y <=  num29 +  sizeF2.Height)
                   num31 = 1;
-                if (rectangleArray[index21].X >= num28 & (double) rectangleArray[index21].X <= (double) num28 + (double) sizeF2.Width && rectangleArray[index21].Y + rectangleArray[index21].Height >= num29 & (double) (rectangleArray[index21].Y + rectangleArray[index21].Height) <= (double) num29 + (double) sizeF2.Height)
+                if (rectangleArray[index21].X >= num28 &  rectangleArray[index21].X <=  num28 +  sizeF2.Width && rectangleArray[index21].Y + rectangleArray[index21].Height >= num29 &  (rectangleArray[index21].Y + rectangleArray[index21].Height) <=  num29 +  sizeF2.Height)
                   num31 = 1;
-                if (rectangleArray[index21].X + rectangleArray[index21].Width >= num28 & (double) (rectangleArray[index21].X + rectangleArray[index21].Width) <= (double) num28 + (double) sizeF2.Width && rectangleArray[index21].Y >= num29 & (double) rectangleArray[index21].Y <= (double) num29 + (double) sizeF2.Height)
+                if (rectangleArray[index21].X + rectangleArray[index21].Width >= num28 &  (rectangleArray[index21].X + rectangleArray[index21].Width) <=  num28 +  sizeF2.Width && rectangleArray[index21].Y >= num29 &  rectangleArray[index21].Y <=  num29 +  sizeF2.Height)
                   num31 = 1;
-                if (rectangleArray[index21].X + rectangleArray[index21].Width >= num28 & (double) (rectangleArray[index21].X + rectangleArray[index21].Width) <= (double) num28 + (double) sizeF2.Width && rectangleArray[index21].Y + rectangleArray[index21].Height >= num29 & (double) rectangleArray[index21].Y <= (double) num29 + (double) sizeF2.Height)
+                if (rectangleArray[index21].X + rectangleArray[index21].Width >= num28 &  (rectangleArray[index21].X + rectangleArray[index21].Width) <=  num28 +  sizeF2.Width && rectangleArray[index21].Y + rectangleArray[index21].Height >= num29 &  rectangleArray[index21].Y <=  num29 +  sizeF2.Height)
                   num31 = 1;
               }
               if (num31 == 0)
@@ -330,8 +330,8 @@ label_44:
                 DrawMod.DrawBlock( graphics, num28, num29, 5, 5,  this.RegCol[index19].R,  this.RegCol[index19].G,  this.RegCol[index19].B,  this.RegCol[index19].A);
                 DrawMod.DrawRectangle( graphics, num28, num29, 5, 5,  c3.R,  c3.G,  c3.B,  c3.A);
                 DrawMod.DrawRectangle( graphics, num28 - 1, num29 - 1, 7, 7, 0, 0, 0, 80);
-                DrawMod.DrawBlock( graphics, num28 + 6, num29 - 2,  Math.Round((double) sizeF2.Width),  Math.Round((double) (sizeF2.Height - 3f)), 0, 0, 0, 100);
-                rectangleArray[index20] = this.game.Data.Product < 6 ? Rectangle::new(num28, num29,  Math.Round((double) sizeF2.Width),  Math.Round((double) sizeF2.Height)) : Rectangle::new(num28 - 8, num29 - 4,  Math.Round((double) (sizeF2.Width + 16f)),  Math.Round((double) (sizeF2.Height + 8f)));
+                DrawMod.DrawBlock( graphics, num28 + 6, num29 - 2,  Math.Round( sizeF2.Width),  Math.Round( (sizeF2.Height - 3f)), 0, 0, 0, 100);
+                rectangleArray[index20] = this.game.Data.Product < 6 ? Rectangle::new(num28, num29,  Math.Round( sizeF2.Width),  Math.Round( sizeF2.Height)) : Rectangle::new(num28 - 8, num29 - 4,  Math.Round( (sizeF2.Width + 16f)),  Math.Round( (sizeF2.Height + 8f)));
                 DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont5, num28 + 6, num29 - 3, c3);
               }
             }
@@ -348,10 +348,10 @@ label_44:
       string str;
       if (this.game.Data.AlternateRound > -1)
       {
-        DateTime dateTime = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays((double) (this.game.Data.StartData.Day - 1));
+        DateTime dateTime = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays( (this.game.Data.StartData.Day - 1));
         object LoopForResult;
         object CounterResult;
-        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter, (object) 2, (object) round, (object) 1,  LoopForResult,  CounterResult))
+        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter,  2,  round,  1,  LoopForResult,  CounterResult))
         {
           do
           {
@@ -367,14 +367,14 @@ label_44:
           }
           while (ObjectFlowControl.ForLoopControl.ForNextCheckObj(CounterResult, LoopForResult,  CounterResult));
         }
-        str = Strings.Trim(Conversion.Str((object) dateTime.Day)) + "/" + Strings.Trim(Conversion.Str((object) dateTime.Month));
+        str = Strings.Trim(Conversion.Str( dateTime.Day)) + "/" + Strings.Trim(Conversion.Str( dateTime.Month));
       }
       else if (this.game.Data.AlternateRound2 > -1)
       {
-        DateTime dateTime = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays((double) (this.game.Data.StartData.Day - 1)).AddHours((double) this.game.Data.StartData.Hour);
+        DateTime dateTime = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays( (this.game.Data.StartData.Day - 1)).AddHours( this.game.Data.StartData.Hour);
         object LoopForResult;
         object CounterResult;
-        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter, (object) 2, (object) round, (object) 1,  LoopForResult,  CounterResult))
+        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter,  2,  round,  1,  LoopForResult,  CounterResult))
         {
           do
           {
@@ -384,12 +384,12 @@ label_44:
           while (ObjectFlowControl.ForLoopControl.ForNextCheckObj(CounterResult, LoopForResult,  CounterResult));
         }
         if (((this.game.Data.Round <= 10 ? 1 : 0) & 0) != 0)
-          str = Strings.Trim(Conversion.Str((object) dateTime.Day)) + "/" + Strings.Trim(Conversion.Str((object) dateTime.Month)) + " " + Strings.Trim(Conversion.Str((object) dateTime.Hour)) + ":00";
+          str = Strings.Trim(Conversion.Str( dateTime.Day)) + "/" + Strings.Trim(Conversion.Str( dateTime.Month)) + " " + Strings.Trim(Conversion.Str( dateTime.Hour)) + ":00";
         else
-          str = Strings.Trim(Conversion.Str((object) dateTime.Day)) + "/" + Strings.Trim(Conversion.Str((object) dateTime.Month)) + " " + Strings.Trim(Conversion.Str((object) dateTime.Hour)) + "h";
+          str = Strings.Trim(Conversion.Str( dateTime.Day)) + "/" + Strings.Trim(Conversion.Str( dateTime.Month)) + " " + Strings.Trim(Conversion.Str( dateTime.Hour)) + "h";
       }
       else
-        str = Strings.Trim(Conversion.Str((object) round));
+        str = Strings.Trim(Conversion.Str( round));
       return str;
     }
   }

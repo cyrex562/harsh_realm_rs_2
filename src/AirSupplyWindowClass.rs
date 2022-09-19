@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -90,30 +90,30 @@ namespace WindowsApplication1
         let mut hq1: i32 =  this.game.Data.UnitObj[this.ChainHq[0]].HQ;
         if (hq1 > -1)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.unr].Regime, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
-          if ((double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq1].Map].Value[this.game.Data.UnitObj[hq1].X, this.game.Data.UnitObj[hq1].Y] <= (double) this.game.Data.RuleVar[51])
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.unr].Regime, (int) Math.Round( this.game.Data.RuleVar[99]), 99, (int) Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
+          if ( this.game.EditObj.TempValue[this.game.Data.UnitObj[hq1].Map].Value[this.game.Data.UnitObj[hq1].X, this.game.Data.UnitObj[hq1].Y] <=  this.game.Data.RuleVar[51])
           {
             this.ChainHq[1] = hq1;
             let mut hq2: i32 =  this.game.Data.UnitObj[this.ChainHq[1]].HQ;
-            if (hq2 > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq2].Map].Value[this.game.Data.UnitObj[hq2].X, this.game.Data.UnitObj[hq2].Y] <= (double) this.game.Data.RuleVar[51])
+            if (hq2 > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq2].Map].Value[this.game.Data.UnitObj[hq2].X, this.game.Data.UnitObj[hq2].Y] <=  this.game.Data.RuleVar[51])
               this.ChainHq[2] = hq2;
           }
         }
       }
       else if (this.game.Data.UnitObj[this.unr].HQ > -1)
       {
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.unr].Regime, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.unr].Regime, (int) Math.Round( this.game.Data.RuleVar[99]), 99, (int) Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
         let mut hq3: i32 =  this.game.Data.UnitObj[this.unr].HQ;
-        if (this.game.Data.UnitObj[hq3].X > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq3].Map].Value[this.game.Data.UnitObj[hq3].X, this.game.Data.UnitObj[hq3].Y] <= (double) this.game.Data.RuleVar[51])
+        if (this.game.Data.UnitObj[hq3].X > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq3].Map].Value[this.game.Data.UnitObj[hq3].X, this.game.Data.UnitObj[hq3].Y] <=  this.game.Data.RuleVar[51])
         {
           this.ChainHq[0] = hq3;
           this.HQSelect = hq3;
           let mut hq4: i32 =  this.game.Data.UnitObj[this.ChainHq[0]].HQ;
-          if (hq4 > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq4].Map].Value[this.game.Data.UnitObj[hq4].X, this.game.Data.UnitObj[hq4].Y] <= (double) this.game.Data.RuleVar[51])
+          if (hq4 > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq4].Map].Value[this.game.Data.UnitObj[hq4].X, this.game.Data.UnitObj[hq4].Y] <=  this.game.Data.RuleVar[51])
           {
             this.ChainHq[1] = hq4;
             let mut hq5: i32 =  this.game.Data.UnitObj[this.ChainHq[1]].HQ;
-            if (hq5 > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq5].Map].Value[this.game.Data.UnitObj[hq5].X, this.game.Data.UnitObj[hq5].Y] <= (double) this.game.Data.RuleVar[51])
+            if (hq5 > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq5].Map].Value[this.game.Data.UnitObj[hq5].X, this.game.Data.UnitObj[hq5].Y] <=  this.game.Data.RuleVar[51])
               this.ChainHq[2] = hq5;
           }
         }
@@ -278,14 +278,14 @@ namespace WindowsApplication1
             DrawMod.DrawRectangle(ref Expression, 342, 30, 40, 40, (int) byte.MaxValue, 0, 0, (int) byte.MaxValue, 2);
         }
         let mut carryCapPts: i32 =  this.game.HandyFunctionsObj.GetCarryCapPts(this.unr, 2);
-        this.max = (int) Math.Round((double) Conversion.Int((float) carryCapPts / this.game.Data.RuleVar[33]));
+        this.max = (int) Math.Round( Conversion.Int( carryCapPts / this.game.Data.RuleVar[33]));
         if (this.max > this.game.Data.UnitObj[this.HQSelect].Supply)
           this.max = this.game.Data.UnitObj[this.HQSelect].Supply;
         if (this.maxneed < this.max)
           this.max = this.maxneed;
         if (this.TempNew > this.max)
           this.TempNew = this.max;
-        tsubpart2 =  new ATTextPartClass("With " + Conversion.Str((object) carryCapPts) + " transport pts you can airsupply " + Conversion.Str((object) Conversion.Int((float) carryCapPts / this.game.Data.RuleVar[33])) + " pts. Max needed is " + Conversion.Str((object) this.maxneed) + ". HQ has " + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[this.HQSelect].Supply)), this.game.VicFont2, 700, 20, true);
+        tsubpart2 =  new ATTextPartClass("With " + Conversion.Str( carryCapPts) + " transport pts you can airsupply " + Conversion.Str( Conversion.Int( carryCapPts / this.game.Data.RuleVar[33])) + " pts. Max needed is " + Conversion.Str( this.maxneed) + ". HQ has " + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[this.HQSelect].Supply)), this.game.VicFont2, 700, 20, true);
         this.Text3Id = this.AddSubPart(ref tsubpart2, 150, 95, 700, 20, 0);
         if (this.max > 0)
         {
@@ -326,7 +326,7 @@ namespace WindowsApplication1
         tsubpart2 =  new ATTextPartClass("HQ of Air unit is to far away to provide the supply for the air operation.", this.game.VicFont2, 700, 20, true);
         this.Text3Id = this.AddSubPart(ref tsubpart2, 150, 95, 700, 20, 0);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;

@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -18,17 +18,17 @@ namespace WindowsApplication1
     pub Name: String;
     pub IsSupply: bool;
     pub ItemGroup: i32;
-    pub int[] GameSlotsNeeded;
-    pub int[] GameSlotsNeededQty;
-    pub int[] RegimeSlotsNeeded;
-    pub int[] RegimeSlotsNeededQty;
-    pub int[] RegimeSlotsCost;
-    pub int[] RegimeSlotsCostQty;
+    pub GameSlotsNeeded: Vec<i32>;
+    pub GameSlotsNeededQty: Vec<i32>;
+    pub RegimeSlotsNeeded: Vec<i32>;
+    pub RegimeSlotsNeededQty: Vec<i32>;
+    pub RegimeSlotsCost: Vec<i32>;
+    pub RegimeSlotsCostQty: Vec<i32>;
     pub ProdWeight: i32;
-    pub bool[] PeopleGroup;
+    pub PeopleGroup: Vec<bool>;
     pub IsResPt: bool;
     pub IsSFType: i32;
-    pub int[] ResFieldNeeded;
+    pub ResFieldNeeded: Vec<i32>;
     pub Multiplier: i32;
     pub Blocks: i32;
     pub IsRegimeSlot: i32;
@@ -44,26 +44,26 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (ItemTypeClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
+      info.AddValue("Name",  this.Name);
       info.AddValue("IsSupply", this.IsSupply);
       info.AddValue("ItemGroup", this.ItemGroup);
-      info.AddValue("GameSlotsNeeded", (object) this.GameSlotsNeeded);
-      info.AddValue("GameSlotsNeededQty", (object) this.GameSlotsNeededQty);
-      info.AddValue("RegimeSlotsNeeded", (object) this.RegimeSlotsNeeded);
-      info.AddValue("RegimeSlotsNeededQty", (object) this.RegimeSlotsNeededQty);
-      info.AddValue("RegimeSlotsCost", (object) this.RegimeSlotsCost);
-      info.AddValue("RegimeSlotsCostQty", (object) this.RegimeSlotsCostQty);
+      info.AddValue("GameSlotsNeeded",  this.GameSlotsNeeded);
+      info.AddValue("GameSlotsNeededQty",  this.GameSlotsNeededQty);
+      info.AddValue("RegimeSlotsNeeded",  this.RegimeSlotsNeeded);
+      info.AddValue("RegimeSlotsNeededQty",  this.RegimeSlotsNeededQty);
+      info.AddValue("RegimeSlotsCost",  this.RegimeSlotsCost);
+      info.AddValue("RegimeSlotsCostQty",  this.RegimeSlotsCostQty);
       info.AddValue("ProdWeight", this.ProdWeight);
-      info.AddValue("PeopleGroup", (object) this.PeopleGroup);
+      info.AddValue("PeopleGroup",  this.PeopleGroup);
       info.AddValue("IsResPt", this.IsResPt);
-      info.AddValue("ResFieldNeeded", (object) this.ResFieldNeeded);
+      info.AddValue("ResFieldNeeded",  this.ResFieldNeeded);
       info.AddValue("Multiplier", this.Multiplier);
       info.AddValue("IsSFType", this.IsSFType);
       info.AddValue("Blocks", this.Blocks);

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.Serialization;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.Serialization;
 
 namespace WindowsApplication1
 {
@@ -15,11 +15,11 @@ namespace WindowsApplication1
   {
     pub Name: String;
     pub string[] BasicSpriteFileName;
-    pub int[] BasicSpriteID;
-    pub int[] MoveCostOverrule;
+    pub BasicSpriteID: Vec<i32>;
+    pub MoveCostOverrule: Vec<i32>;
     pub EPCost: i32;
     pub Thickness: i32;
-    pub int[] LayerSpriteID;
+    pub LayerSpriteID: Vec<i32>;
     pub string[] LayerSpriteFileName;
     pub SpecialLayer: bool;
     pub FirstDrawOther: i32;
@@ -29,7 +29,7 @@ namespace WindowsApplication1
     pub Transparent: bool;
     pub Category: i32;
     pub string[] BridgeOverruleSpriteFileName;
-    pub int[] BridgeOverruleSpriteID;
+    pub BridgeOverruleSpriteID: Vec<i32>;
     pub BridgeOverrule: bool;
     pub useCenter6: bool;
     pub center6spriteId: i32;
@@ -38,23 +38,23 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
-      info.AddValue("BasicSpriteFileName", (object) this.BasicSpriteFileName);
-      info.AddValue("MoveCostOverrule", (object) this.MoveCostOverrule);
+      info.AddValue("Name",  this.Name);
+      info.AddValue("BasicSpriteFileName",  this.BasicSpriteFileName);
+      info.AddValue("MoveCostOverrule",  this.MoveCostOverrule);
       info.AddValue("EPCost", this.EPCost);
       info.AddValue("Thickness", this.Thickness);
-      info.AddValue("LayerSpriteFileName", (object) this.LayerSpriteFileName);
+      info.AddValue("LayerSpriteFileName",  this.LayerSpriteFileName);
       info.AddValue("SpecialLayer", this.SpecialLayer);
       info.AddValue("FirstDrawOther", this.FirstDrawOther);
-      info.AddValue("SheetFileName", (object) this.SheetFileName);
+      info.AddValue("SheetFileName",  this.SheetFileName);
       info.AddValue("UseSheet", this.UseSheet);
       info.AddValue("Transparent", this.Transparent);
       info.AddValue("Category", this.Category);
       info.AddValue("BridgeOverrule", this.BridgeOverrule);
-      info.AddValue("BridgeOverruleSpriteFileName", (object) this.BridgeOverruleSpriteFileName);
-      info.AddValue("BridgeOverruleSpriteID", (object) this.BridgeOverruleSpriteID);
+      info.AddValue("BridgeOverruleSpriteFileName",  this.BridgeOverruleSpriteFileName);
+      info.AddValue("BridgeOverruleSpriteID",  this.BridgeOverruleSpriteID);
       info.AddValue("useCenter6", this.useCenter6);
-      info.AddValue("center6spriteFileName", (object) this.center6spriteFileName);
+      info.AddValue("center6spriteFileName",  this.center6spriteFileName);
       info.AddValue("trafficPoints", this.trafficPoints);
     }
 

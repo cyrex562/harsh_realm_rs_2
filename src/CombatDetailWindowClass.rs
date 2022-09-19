@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -143,7 +143,7 @@ namespace WindowsApplication1
       }
       SizeF sizeF = SizeF::new();
       bool flag1;
-      if ((double) this.game.Data.RuleVar[839] >= 1.0)
+      if ( this.game.Data.RuleVar[839] >= 1.0)
       {
         flag1 = true;
         this.NewBackGroundAndClearAll(this.useWidth, this.useHeight, -1);
@@ -173,7 +173,7 @@ namespace WindowsApplication1
             this.detailnr = index;
           if (this.detailnr == index)
             tlistselect1 = num1;
-          this.OptionsListObj.add("Round " + Strings.Trim(Conversion.Str((object) index)), index);
+          this.OptionsListObj.add("Round " + Strings.Trim(Conversion.Str( index)), index);
         }
         if (this.OptionsListId > 0)
         {
@@ -206,7 +206,7 @@ namespace WindowsApplication1
         {
           bool flag2 = true;
           bool flag3 = true;
-          if ((double) this.game.Data.RuleVar[431] > 0.0)
+          if ( this.game.Data.RuleVar[431] > 0.0)
           {
             flag2 = false;
             let mut icounter: i32 =  this.game.TempCombat.ICounter;
@@ -232,7 +232,7 @@ namespace WindowsApplication1
             if (this.detailnr1 == tdata)
               tlistselect3 = num3;
             str: String = this.game.Data.UnitObj[this.game.TempCombat.UList[tdata].UNr].Name;
-            if ((double) this.game.Data.RuleVar[431] > 0.0 & this.game.Data.FOWOn && (double) this.game.HandyFunctionsObj.CanWeSeeUnit(this.game.TempCombat.UList[tdata].UNr, this.game.Data.Turn) < (double) this.game.Data.RuleVar[55])
+            if ( this.game.Data.RuleVar[431] > 0.0 & this.game.Data.FOWOn &&  this.game.HandyFunctionsObj.CanWeSeeUnit(this.game.TempCombat.UList[tdata].UNr, this.game.Data.Turn) <  this.game.Data.RuleVar[55])
               str = "Unknown Unit";
             if (flag3)
               str += " [Hidden]";
@@ -258,7 +258,7 @@ namespace WindowsApplication1
         }
       }
       bool flag4 = true;
-      if ((double) this.game.Data.RuleVar[431] > 0.0)
+      if ( this.game.Data.RuleVar[431] > 0.0)
       {
         flag4 = false;
         let mut icounter: i32 =  this.game.TempCombat.ICounter;
@@ -331,7 +331,7 @@ namespace WindowsApplication1
           {
             bool flag5 = true;
             bool flag6 = false;
-            if ((double) this.game.Data.RuleVar[431] > 0.0)
+            if ( this.game.Data.RuleVar[431] > 0.0)
             {
               flag5 = false;
               if (this.game.TempCombat.IList[tdata].IvisibleFromRound < this.detailnr | this.game.Data.UnitObj[this.game.TempCombat.IList[tdata].IUnr].Regime == this.game.Data.Turn)
@@ -351,7 +351,7 @@ namespace WindowsApplication1
                 tlistselect7 = num8;
               string tvalue;
               string tvalue2;
-              if (!Information.IsNothing((object) this.game.TempCombat.IList[tdata].IHistoricState))
+              if (!Information.IsNothing( this.game.TempCombat.IList[tdata].IHistoricState))
               {
                 tvalue = this.game.TempCombat.IList[tdata].IHistoricState[this.detailnr];
                 tvalue2 = this.game.TempCombat.IList[tdata].IHistoricState2[this.detailnr];
@@ -365,12 +365,12 @@ namespace WindowsApplication1
               Left: String = "";
               if (flag6)
                 str1 += " [Hidden]";
-              if (!Information.IsNothing((object) this.game.TempCombat.IList[tdata].IunitFeat) && this.game.TempCombat.IList[tdata].IunitFeat.Counter > -1)
+              if (!Information.IsNothing( this.game.TempCombat.IList[tdata].IunitFeat) && this.game.TempCombat.IList[tdata].IunitFeat.Counter > -1)
               {
-                if (this.game.TempCombat.IList[tdata].IunitFeatStart > 0 & !Information.IsNothing((object) this.game.TempCombat.customCombatObj) & this.game.TempCombat.IList[tdata].IunitFeat.Data1[0] == this.game.TempCombat.IList[tdata].IID && this.game.TempCombat.IList[tdata].IunitFeatDeadRound >= this.detailnr | this.game.TempCombat.IList[tdata].IunitFeatDeadRound < 1)
+                if (this.game.TempCombat.IList[tdata].IunitFeatStart > 0 & !Information.IsNothing( this.game.TempCombat.customCombatObj) & this.game.TempCombat.IList[tdata].IunitFeat.Data1[0] == this.game.TempCombat.IList[tdata].IID && this.game.TempCombat.IList[tdata].IunitFeatDeadRound >= this.detailnr | this.game.TempCombat.IList[tdata].IunitFeatDeadRound < 1)
                   Left = " + " + this.game.TempCombat.customCombatObj.GetUnitFeatName(this.game, this.game.TempCombat.IList[tdata].IunitFeatStart) + "*";
                 str2: String = "";
-                if (!Information.IsNothing((object) this.game.TempCombat.customCombatObj))
+                if (!Information.IsNothing( this.game.TempCombat.customCombatObj))
                 {
                   let mut num9: i32 =  0;
                   let mut counter: i32 =  this.game.TempCombat.IList[tdata].IunitFeat.Counter;
@@ -396,7 +396,7 @@ namespace WindowsApplication1
                     str1 += Left;
                 }
               }
-              this.OptionsList3Obj.add(Strings.Left(Strings.Trim(Conversion.Str((object) this.game.TempCombat.IList[tdata].IID)) + ") " + str1, 30), tdata, tvalue, tvalue2);
+              this.OptionsList3Obj.add(Strings.Left(Strings.Trim(Conversion.Str( this.game.TempCombat.IList[tdata].IID)) + ") " + str1, 30), tdata, tvalue, tvalue2);
             }
           }
         }
@@ -410,7 +410,7 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut num11: i32 =   Math.Round((double) (this.useHeight - 768) / 16.0);
+        let mut num11: i32 =   Math.Round( (this.useHeight - 768) / 16.0);
         ListClass optionsList3Obj = this.OptionsList3Obj;
         let mut tlistsize: i32 =  36 + num11;
         let mut tlistselect8: i32 =  tlistselect7;
@@ -451,7 +451,7 @@ namespace WindowsApplication1
         }
       }
       let mut num15: i32 =  Math.Min(300, this.useWidth - 1024);
-      let mut num16: i32 =   Math.Round((double) num15 / 2.0);
+      let mut num16: i32 =   Math.Round( num15 / 2.0);
       if (this.OptionsList4Id > 0)
       {
         this.SubPartList[this.SubpartNr(this.OptionsList4Id)].Refresh(this.OptionsList4Obj, tlistselect9);
@@ -505,12 +505,12 @@ namespace WindowsApplication1
           let mut index2: i32 =  1;
           do
           {
-            if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index2, 0, index1]) && this.game.TempCombat.RepCom[index2, 0, index1].Length > 0 & (index2 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index2 - 1, 2, index1], this.game.TempCombat.RepCom[index2, 2, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index2, 0, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index2, 2, index1], "?", false) != 0)
-              this.OptionsList5Obj.add(this.game.TempCombat.RepCom[index2, 0, index1], -1, this.game.TempCombat.RepCom[index2, 1, index1], Conversions.ToString(Math.Round((double) Conversions.ToSingle(this.game.TempCombat.RepCom[index2, 2, index1]), 1)));
+            if (!Information.IsNothing( this.game.TempCombat.RepCom[index2, 0, index1]) && this.game.TempCombat.RepCom[index2, 0, index1].Length > 0 & (index2 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index2 - 1, 2, index1], this.game.TempCombat.RepCom[index2, 2, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index2, 0, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index2, 2, index1], "?", false) != 0)
+              this.OptionsList5Obj.add(this.game.TempCombat.RepCom[index2, 0, index1], -1, this.game.TempCombat.RepCom[index2, 1, index1], Conversions.ToString(Math.Round( Conversions.ToSingle(this.game.TempCombat.RepCom[index2, 2, index1]), 1)));
             index2 += 1;
           }
           while (index2 <= 60);
-          let mut num18: i32 =   Math.Round((double) (this.useWidth - 1024) / 5.0);
+          let mut num18: i32 =   Math.Round( (this.useWidth - 1024) / 5.0);
           ListClass optionsList5Obj = this.OptionsList5Obj;
           let mut twidth1: i32 =  170 + num16;
           let mut tlistselect11: i32 =  tlistselect9;
@@ -527,12 +527,12 @@ namespace WindowsApplication1
           let mut index3: i32 =  1;
           do
           {
-            if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index3, 3, index1]) & !Information.IsNothing((object) this.game.TempCombat.RepCom[index3, 5, index1]) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0 & this.game.TempCombat.RepCom[index3, 3, index1].Length > 0 & (index3 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index3 - 1, 5, index1], this.game.TempCombat.RepCom[index3, 5, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index3, 3, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0)
-              this.OptionsList6Obj.add(this.game.TempCombat.RepCom[index3, 3, index1], -1, this.game.TempCombat.RepCom[index3, 4, index1], Conversions.ToString(Math.Round((double) Conversions.ToSingle(this.game.TempCombat.RepCom[index3, 5, index1]), 1)));
+            if (!Information.IsNothing( this.game.TempCombat.RepCom[index3, 3, index1]) & !Information.IsNothing( this.game.TempCombat.RepCom[index3, 5, index1]) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0 & this.game.TempCombat.RepCom[index3, 3, index1].Length > 0 & (index3 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index3 - 1, 5, index1], this.game.TempCombat.RepCom[index3, 5, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index3, 3, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0)
+              this.OptionsList6Obj.add(this.game.TempCombat.RepCom[index3, 3, index1], -1, this.game.TempCombat.RepCom[index3, 4, index1], Conversions.ToString(Math.Round( Conversions.ToSingle(this.game.TempCombat.RepCom[index3, 5, index1]), 1)));
             index3 += 1;
           }
           while (index3 <= 60);
-          let mut num20: i32 =   Math.Round((double) (this.useWidth - 1024) / 5.0);
+          let mut num20: i32 =   Math.Round( (this.useWidth - 1024) / 5.0);
           ListClass optionsList6Obj = this.OptionsList6Obj;
           let mut twidth2: i32 =  170 + num16;
           let mut tlistselect12: i32 =  tlistselect9;
@@ -554,12 +554,12 @@ namespace WindowsApplication1
           let mut index4: i32 =  1;
           do
           {
-            if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index4, 0, index1]) && this.game.TempCombat.RepCom[index4, 0, index1].Length > 0)
+            if (!Information.IsNothing( this.game.TempCombat.RepCom[index4, 0, index1]) && this.game.TempCombat.RepCom[index4, 0, index1].Length > 0)
               this.OptionsList5Obj.add(this.game.TempCombat.RepCom[index4, 0, index1], -1, this.game.TempCombat.RepCom[index4, 1, index1]);
             index4 += 1;
           }
           while (index4 <= 60);
-          let mut num23: i32 =   Math.Round((double) num22 / 16.0);
+          let mut num23: i32 =   Math.Round( num22 / 16.0);
           ListClass optionsList5Obj = this.OptionsList5Obj;
           let mut tlistsize: i32 =  19 + num23;
           let mut tlistselect13: i32 =  tlistselect9;
@@ -597,7 +597,7 @@ namespace WindowsApplication1
           this.Ta2Id = this.AddSubPart(ref tsubpart1, 310, 620, 290, 60, 0);
         }
       }
-      let mut num25: i32 =   Math.Round((double) this.useWidth / 2.0 - 50.0);
+      let mut num25: i32 =   Math.Round( this.useWidth / 2.0 - 50.0);
       if (flag1)
       {
         tsubpart1 =  new TextButtonPartClass("BACK", 100, "Click to return to regular combat screen\r\nOr press any key instead.", ref this.OwnBitmap, num25, this.useHeight - 40, theight: 20, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
@@ -729,7 +729,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.okid)
             {
-              if ((double) this.game.Data.RuleVar[839] == 1.0)
+              if ( this.game.Data.RuleVar[839] == 1.0)
               {
                 this.game.EditObj.PopupValue = 7;
                 windowReturnClass.AddCommand(5, 14);

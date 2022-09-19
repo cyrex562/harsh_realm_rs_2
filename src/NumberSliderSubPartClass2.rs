@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -31,7 +31,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
         return;
       this.backbitmap.Dispose();
       this.backbitmap = (Bitmap) null;
@@ -60,10 +60,10 @@ namespace WindowsApplication1
       this.curval = startval;
       this.suffix = tsuffix;
       this.Marc = tMarc;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
         this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -84,20 +84,20 @@ namespace WindowsApplication1
     pub Bitmap Paint()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!Information.IsNothing((object) this.backbitmap))
+      if (!Information.IsNothing( this.backbitmap))
       {
         Expression.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( Expression,  this.backbitmap, 0, 0);
         Expression.CompositingMode = CompositingMode.SourceOver;
       }
-      if ((double) DrawMod.TGame.Data.RuleVar[839] <= 0.0)
+      if ( DrawMod.TGame.Data.RuleVar[839] <= 0.0)
         DrawMod.DrawBlock( Expression, 0, 0, this.Width, 20, 0, 0, 0, 128);
       if (DrawMod.TGame.Data.Product == 7)
         DrawMod.DrawBlock( Expression, 0, 20, this.Width, 20, 65, 40, 20,  byte.MaxValue);
       else
         DrawMod.DrawBlock( Expression, 0, 20, this.Width, 20, 50, 70, 125,  byte.MaxValue);
       let mut num1: i32 =  this.Width - 91;
-      let mut num2: i32 =  (this.maxval <= 0 ? num1 :  Math.Round(Conversion.Int((double) this.curval / (double) this.maxval * (double) num1))) - 11;
+      let mut num2: i32 =  (this.maxval <= 0 ? num1 :  Math.Round(Conversion.Int( this.curval /  this.maxval *  num1))) - 11;
       if (num2 < 0)
         num2 = 0;
        let mut local1: &Graphics = &Expression;
@@ -125,14 +125,14 @@ namespace WindowsApplication1
       DrawMod.DrawSimple( local9,  local10, x3, 20);
       if (this.Marc)
       {
-        str: String = Strings.UCase(this.prefix + Conversion.Str((object) this.curval) + this.suffix);
+        str: String = Strings.UCase(this.prefix + Conversion.Str( this.curval) + this.suffix);
         SizeF sizeF1 = SizeF::new();
         SizeF sizeF2 = Expression.MeasureString(str, this.game.MarcFont4);
-        DrawMod.DrawTextColouredMarc( Expression, str, this.game.MarcFont4,  Math.Round(((double) this.Width - (double) sizeF2.Width) / 2.0), 2, Color.White);
+        DrawMod.DrawTextColouredMarc( Expression, str, this.game.MarcFont4,  Math.Round(( this.Width -  sizeF2.Width) / 2.0), 2, Color.White);
       }
       else
-        DrawMod.DrawTextVic2( Expression, this.prefix + Conversion.Str((object) this.curval) + this.suffix, this.OwnFont, 2, 3, this.game.VicColor2, this.game.VicColor2Shade);
-      if (!Information.IsNothing((object) Expression))
+        DrawMod.DrawTextVic2( Expression, this.prefix + Conversion.Str( this.curval) + this.suffix, this.OwnFont, 2, 3, this.game.VicColor2, this.game.VicColor2Shade);
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -144,7 +144,7 @@ namespace WindowsApplication1
     {
       if (!(this.Scroller | this.clickscroll == 1))
         return -1;
-      this.curval =  Math.Round(Conversion.Int((double) (x - 40) / (double) (this.Width - 91) * (double) this.maxval));
+      this.curval =  Math.Round(Conversion.Int( (x - 40) /  (this.Width - 91) *  this.maxval));
       if (this.curval % this.smallchange > 0)
         this.curval -= this.curval % this.smallchange;
       if (this.curval < this.minval)
@@ -161,7 +161,7 @@ namespace WindowsApplication1
       if (this.clickscroll != 1)
         return false;
       this.clickscroll = 1;
-      this.curval =  Math.Round(Conversion.Int((double) (x - 40) / (double) (this.Width - 91) * (double) this.maxval));
+      this.curval =  Math.Round(Conversion.Int( (x - 40) /  (this.Width - 91) *  this.maxval));
       if (this.curval % this.smallchange > 0)
         this.curval -= this.curval % this.smallchange;
       if (this.curval < this.minval)
@@ -215,7 +215,7 @@ namespace WindowsApplication1
         {
           this.clickscroll = 1;
           this.Scroller = true;
-          this.curval =  Math.Round(Conversion.Int((double) (x - 40) / (double) (this.Width - 91) * (double) this.maxval));
+          this.curval =  Math.Round(Conversion.Int( (x - 40) /  (this.Width - 91) *  this.maxval));
           if (this.curval % this.smallchange > 0)
             this.curval -= this.curval % this.smallchange;
         }

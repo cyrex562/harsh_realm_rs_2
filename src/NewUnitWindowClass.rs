@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -119,43 +119,43 @@ namespace WindowsApplication1
       this.ExtraId = this.AddSubPart( tsubpart1, 410, 22, 400, 24, 0);
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].UnitCounter < 15)
       {
-        if ((double) this.game.Data.RuleVar[526] == 0.0)
+        if ( this.game.Data.RuleVar[526] == 0.0)
         {
-          if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46])
+          if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46])
           {
             let mut tsubpart2: SubPartClass =  new SteveButtonPartClass(this.game.CANCELBALL, tBackbitmap: ( this.OwnBitmap), bbx: 440, bby: 60);
             this.B1Id = this.AddSubPart( tsubpart2, 440, 60, 32, 32, 1);
           }
-          let mut tsubpart3: SubPartClass =  new ATTextPartClass("Formation (" + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[46])) + " pp)", this.game.VicFont2, 400, 24, false);
+          let mut tsubpart3: SubPartClass =  new ATTextPartClass("Formation (" + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[46])) + " pp)", this.game.VicFont2, 400, 24, false);
           this.B1TextId = this.AddSubPart( tsubpart3, 480, 69, 400, 24, 0);
-          if ((double) this.game.Data.RuleVar[343] > 0.0)
+          if ( this.game.Data.RuleVar[343] > 0.0)
           {
-            if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[47] + (double) this.game.Data.RuleVar[345])
+            if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[47] +  this.game.Data.RuleVar[345])
             {
               let mut tsubpart4: SubPartClass =  new SteveButtonPartClass(this.game.CANCELBALL, tBackbitmap: ( this.OwnBitmap), bbx: 440, bby: 100);
               this.B2bId = this.AddSubPart( tsubpart4, 440, 100, 32, 32, 1);
             }
-            let mut tsubpart5: SubPartClass =  new ATTextPartClass("HQ (" + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[47])) + " pp)", this.game.VicFont2, 400, 24, false);
+            let mut tsubpart5: SubPartClass =  new ATTextPartClass("HQ (" + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[47])) + " pp)", this.game.VicFont2, 400, 24, false);
             this.B2bTextId = this.AddSubPart( tsubpart5, 480, 109, 400, 24, 0);
-            if ((double) this.game.Data.RuleVar[345] > 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].OfficerPool > -1 & this.game.Data.Round > 0)
+            if ( this.game.Data.RuleVar[345] > 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].OfficerPool > -1 & this.game.Data.Round > 0)
             {
-              if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[47] + (double) this.game.Data.RuleVar[345])
+              if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[47] +  this.game.Data.RuleVar[345])
               {
                 let mut tsubpart6: SubPartClass =  new SteveButtonPartClass(this.game.CANCELBALL, tBackbitmap: ( this.OwnBitmap), bbx: 440, bby: 140);
                 this.B2Id = this.AddSubPart( tsubpart6, 440, 140, 32, 32, 1);
               }
-              let mut tsubpart7: SubPartClass =  new ATTextPartClass("HQ + Leader (" + Strings.Trim(Conversion.Str((object) (float) ((double) this.game.Data.RuleVar[47] + (double) this.game.Data.RuleVar[345]))) + " pp)", this.game.VicFont2, 400, 24, false);
+              let mut tsubpart7: SubPartClass =  new ATTextPartClass("HQ + Leader (" + Strings.Trim(Conversion.Str(  ( this.game.Data.RuleVar[47] +  this.game.Data.RuleVar[345]))) + " pp)", this.game.VicFont2, 400, 24, false);
               this.B2TextId = this.AddSubPart( tsubpart7, 480, 149, 400, 24, 0);
             }
           }
           else
           {
-            if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[47])
+            if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[47])
             {
               let mut tsubpart8: SubPartClass =  new SteveButtonPartClass(this.game.CANCELBALL, tBackbitmap: ( this.OwnBitmap), bbx: 440, bby: 100);
               this.B2Id = this.AddSubPart( tsubpart8, 440, 100, 32, 32, 1);
             }
-            let mut tsubpart9: SubPartClass =  new ATTextPartClass("HQ (" + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[47])) + " pp)", this.game.VicFont2, 400, 24, false);
+            let mut tsubpart9: SubPartClass =  new ATTextPartClass("HQ (" + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[47])) + " pp)", this.game.VicFont2, 400, 24, false);
             this.B2TextId = this.AddSubPart( tsubpart9, 480, 109, 400, 24, 0);
           }
         }
@@ -172,7 +172,7 @@ namespace WindowsApplication1
               num += 1;
               if (tdata == this.detailnr)
                 tlistselect1 = num;
-              this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].PP));
+              this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].PP));
             }
           }
           if (this.OptionsListId > 0)
@@ -213,7 +213,7 @@ namespace WindowsApplication1
         let mut tsubpart14: SubPartClass =  new ATTextPartClass("To many units on hex to create a new one.", this.game.VicFont2, 400, 24, false);
         this.B1TextId = this.AddSubPart( tsubpart14, 50, 89, 400, 24, 0);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }

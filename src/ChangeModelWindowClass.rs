@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -120,7 +120,7 @@ namespace WindowsApplication1
       else if (this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[orderUnit].Historical].ModelMaster == -1)
       {
         int Number2;
-        txt = "Unit is currently an ad hoc formation." + " Current unit consists of " + Conversion.Str((object) Number2) + " subunits.";
+        txt = "Unit is currently an ad hoc formation." + " Current unit consists of " + Conversion.Str( Number2) + " subunits.";
         num1 = -1;
       }
       else
@@ -132,7 +132,7 @@ namespace WindowsApplication1
           if (this.game.Data.UnitObj[index].PreDef == -1 && this.game.Data.UnitObj[index].Historical == this.game.Data.UnitObj[orderUnit].Historical)
             Number1 += 1;
         }
-        txt = str + " Current unit consists of " + Conversion.Str((object) Number1) + " subunits.";
+        txt = str + " Current unit consists of " + Conversion.Str( Number1) + " subunits.";
         num1 = this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[orderUnit].Historical].ModelMaster;
       }
       let mut tsubpart: SubPartClass =  TextPartClass::new(txt, Font::new("Times New Roman", 22f, FontStyle.Regular, GraphicsUnit.Pixel), 700, 24, false);
@@ -148,7 +148,7 @@ namespace WindowsApplication1
           num2 += 1;
           if (index == this.detailnr)
             tlistselect1 = num2;
-          this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[index].Name, index, Conversion.Str((object) this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(index)) + " units");
+          this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[index].Name, index, Conversion.Str( this.game.HandyFunctionsObj.GetHistoricalsSubUnitCount(index)) + " units");
         }
       }
       if (this.OptionsListId > 0)
@@ -188,7 +188,7 @@ namespace WindowsApplication1
         tsubpart =  TextPartClass::new("Set for Disband", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 24, false);
         this.B5TextId = this.AddSubPart(ref tsubpart, 580, 119, 200, 24, 0);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }

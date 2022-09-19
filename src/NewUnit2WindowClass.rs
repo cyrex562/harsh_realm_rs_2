@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -239,7 +239,7 @@ namespace WindowsApplication1
               num2 += 1;
               if (tdata == this.detailnr2)
                 tlistselect3 = num2;
-              this.OptionsList2Obj.add(this.game.Data.UnitObj[this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[tdata])].Name, tdata, Conversion.Str((object)  Math.Round((double) this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[this.detailnr].ModelMaster].PP / (double) this.ModCnt[this.detailnr])));
+              this.OptionsList2Obj.add(this.game.Data.UnitObj[this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[tdata])].Name, tdata, Conversion.Str(  Math.Round( this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[this.detailnr].ModelMaster].PP /  this.ModCnt[this.detailnr])));
             }
             tdata += 1;
           }
@@ -262,7 +262,7 @@ namespace WindowsApplication1
           }
           if (this.detailnr2 > -1)
           {
-            if (this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  Math.Round((double) this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[this.detailnr].ModelMaster].PP / (double) this.ModCnt[this.detailnr]) & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter < 15)
+            if (this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  Math.Round( this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[this.detailnr].ModelMaster].PP /  this.ModCnt[this.detailnr]) & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter < 15)
             {
               tsubpart2 =  ButtonPartClass::new(this.game.OKBALL);
               this.B3Id = this.AddSubPart( tsubpart2, 750, 30, 32, 32, 1);
@@ -306,7 +306,7 @@ namespace WindowsApplication1
         tsubpart2 =  TextPartClass::new("Unassign Subunit", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 24, false);
         this.B6TextId = this.AddSubPart( tsubpart2, 835, 170, 200, 24, 0);
       }
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
     }

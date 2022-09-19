@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -42,7 +42,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (LibVarClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
@@ -96,14 +96,14 @@ namespace WindowsApplication1
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
       info.AddValue("type",  this.type);
-      info.AddValue("libId", (object) this.libId);
-      info.AddValue("name", (object) this.name);
+      info.AddValue("libId",  this.libId);
+      info.AddValue("name",  this.name);
       info.AddValue("valueType",  this.valueType);
       info.AddValue("value", this.value);
-      info.AddValue("valueText", (object) this.valueText);
+      info.AddValue("valueText",  this.valueText);
       if (this.libId.id == -1)
-        info.AddValue("information", (object) this.information);
-      info.AddValue("instanceId", (object) this.instanceId);
+        info.AddValue("information",  this.information);
+      info.AddValue("instanceId",  this.instanceId);
     }
 
     protected LibVarClass(SerializationInfo info, StreamingContext context)

@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -25,46 +25,46 @@ namespace WindowsApplication1
     pub int[,] TempBmp;
     pub string[] TempColumBmp;
     pub string[,] TempDesc;
-    pub int[] LookUpCol;
+    pub LookUpCol: Vec<i32>;
     pub LookUpId: i32;
     pub LookUpLabel: i32;
-    pub bool[] logEnabled;
+    pub logEnabled: Vec<bool>;
     pub LibIdClass LibId;
     pub Description: String;
     pub Editable: bool;
     pub NewEnums.LibVarValueType[] ColValueType;
-    pub int[] ColSort;
-    pub int[] ColWidth;
-    pub int[] SSID;
+    pub ColSort: Vec<i32>;
+    pub ColWidth: Vec<i32>;
+    pub SSID: Vec<i32>;
 
     pub StringListClass Clone()
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (StringListClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) self.Name);
-      info.AddValue("ColumnName", (object) self.ColumnName);
+      info.AddValue("Name",  self.Name);
+      info.AddValue("ColumnName",  self.ColumnName);
       info.AddValue("Length", self.Length);
       info.AddValue("Width", self.Width);
-      info.AddValue("Data", (object) self.Data);
+      info.AddValue("Data",  self.Data);
       info.AddValue("ID", self.ID);
-      info.AddValue("LibId", (object) self.LibId);
-      info.AddValue("Description", (object) self.Description);
-      info.AddValue("ColValueType", (object) self.ColValueType);
+      info.AddValue("LibId",  self.LibId);
+      info.AddValue("Description",  self.Description);
+      info.AddValue("ColValueType",  self.ColValueType);
       info.AddValue("Editable", self.Editable);
-      info.AddValue("LookUpCol", (object) self.LookUpCol);
+      info.AddValue("LookUpCol",  self.LookUpCol);
       info.AddValue("LookUpId", self.LookUpId);
       info.AddValue("LookUpLabel", self.LookUpLabel);
-      info.AddValue("ColSort", (object) self.ColSort);
-      info.AddValue("ColWidth", (object) self.ColWidth);
-      info.AddValue("logEnabled", (object) self.logEnabled);
-      info.AddValue("SSID", (object) self.SSID);
+      info.AddValue("ColSort",  self.ColSort);
+      info.AddValue("ColWidth",  self.ColWidth);
+      info.AddValue("logEnabled",  self.logEnabled);
+      info.AddValue("SSID",  self.SSID);
     }
 
     pub int GetRandomId(int idInCol, int weightInCol)
@@ -123,7 +123,7 @@ namespace WindowsApplication1
       let mut length: i32 = self.Length;
       for (let mut index: i32 = 0; index <= length; index += 1)
       {
-        if (Conversions.ToDouble(Strings.LCase(self.Data[index, col])) == (double) tval && Conversions.ToDouble(Strings.LCase(self.Data[index, col2])) == (double) tval2)
+        if (Conversions.ToDouble(Strings.LCase(self.Data[index, col])) ==  tval && Conversions.ToDouble(Strings.LCase(self.Data[index, col2])) ==  tval2)
           return true;
       }
       return false;
@@ -890,7 +890,7 @@ namespace WindowsApplication1
         let mut upperBound2: i32 = self.Data.GetUpperBound(1);
         for (let mut index2: i32 = 0; index2 <= upperBound2; index2 += 1)
         {
-          if (Information.IsNothing((object) self.Data[index1, index2]))
+          if (Information.IsNothing( self.Data[index1, index2]))
             self.Data[index1, index2] = "";
         }
       }
@@ -1387,7 +1387,7 @@ namespace WindowsApplication1
       {
         let mut width: i32 = self.Width;
         for (let mut index2: i32 = 0; index2 <= width; index2 += 1)
-          objArray[index1, index2] = (object) self.Data[index1, index2];
+          objArray[index1, index2] =  self.Data[index1, index2];
       }
       if (row < self.Length)
       {
@@ -1397,7 +1397,7 @@ namespace WindowsApplication1
         {
           let mut width: i32 = self.Width;
           for (let mut index4: i32 = 0; index4 <= width; index4 += 1)
-            objArray[index3, index4] = (object) self.Data[index3 + 1, index4];
+            objArray[index3, index4] =  self.Data[index3 + 1, index4];
         }
       }
       --self.Length;
@@ -1424,7 +1424,7 @@ namespace WindowsApplication1
           index1 += 1;
           let mut width: i32 = self.Width;
           for (let mut index3: i32 = 0; index3 <= width; index3 += 1)
-            objArray[index1, index3] = (object) self.Data[index2, index3];
+            objArray[index1, index3] =  self.Data[index2, index3];
         }
         else
           num += 1;
@@ -1460,7 +1460,7 @@ namespace WindowsApplication1
       {
         let mut width: i32 = self.Width;
         for (let mut index2: i32 = 0; index2 <= width; index2 += 1)
-          objArray[index1, index2] = (object) self.Data[index1, index2];
+          objArray[index1, index2] =  self.Data[index1, index2];
       }
       if (col < self.Width)
       {
@@ -1470,7 +1470,7 @@ namespace WindowsApplication1
           let mut num1: i32 = col;
           let mut num2: i32 = self.Width - 1;
           for (let mut index4: i32 = num1; index4 <= num2; index4 += 1)
-            objArray[index3, index4] = (object) self.Data[index3, index4 + 1];
+            objArray[index3, index4] =  self.Data[index3, index4 + 1];
         }
         let mut num3: i32 = col;
         let mut num4: i32 = self.Width - 1;
@@ -1519,9 +1519,9 @@ namespace WindowsApplication1
           let mut width: i32 = self.Width;
           for (let mut index2: i32 = 0; index2 <= width; index2 += 1)
           {
-            objArray1[index1, index2] = (object) self.Data[index1, index2];
-            objArray2[index1, index2] = (object) self.TempBmp[index1, index2];
-            objArray3[index1, index2] = (object) self.TempDesc[index1, index2];
+            objArray1[index1, index2] =  self.Data[index1, index2];
+            objArray2[index1, index2] =  self.TempBmp[index1, index2];
+            objArray3[index1, index2] =  self.TempDesc[index1, index2];
           }
         }
         if (row < self.Length)
@@ -1592,7 +1592,7 @@ namespace WindowsApplication1
           let mut upperBound2: i32 = self.Data.GetUpperBound(1);
           for (let mut index10: i32 = 0; index10 <= upperBound2; index10 += 1)
           {
-            if (Information.IsNothing((object) self.Data[index9, index10]))
+            if (Information.IsNothing( self.Data[index9, index10]))
               self.Data[index9, index10] = "";
           }
         }
@@ -1603,7 +1603,7 @@ namespace WindowsApplication1
     {
       if (row < self.Length)
       {
-        let mut num1: i32 =  Interaction.MsgBox((object) "Error, can only add at end of list with AddRowFast");
+        let mut num1: i32 =  Interaction.MsgBox( "Error, can only add at end of list with AddRowFast");
       }
       else
       {
@@ -1618,9 +1618,9 @@ namespace WindowsApplication1
             let mut width: i32 = self.Width;
             for (let mut index2: i32 = 0; index2 <= width; index2 += 1)
             {
-              objArray1[index1, index2] = (object) self.Data[index1, index2];
-              objArray2[index1, index2] = (object) self.TempBmp[index1, index2];
-              objArray3[index1, index2] = (object) self.TempDesc[index1, index2];
+              objArray1[index1, index2] =  self.Data[index1, index2];
+              objArray2[index1, index2] =  self.TempBmp[index1, index2];
+              objArray3[index1, index2] =  self.TempDesc[index1, index2];
             }
           }
           this += 1.Length;
@@ -1699,7 +1699,7 @@ namespace WindowsApplication1
       {
         let mut width: i32 = self.Width;
         for (let mut index2: i32 = 0; index2 <= width; index2 += 1)
-          objArray[index1, index2] = (object) self.Data[index1, index2];
+          objArray[index1, index2] =  self.Data[index1, index2];
       }
       if (col + 1 < self.Width)
       {
@@ -1757,7 +1757,7 @@ namespace WindowsApplication1
         let mut upperBound2: i32 = self.Data.GetUpperBound(1);
         for (let mut index6: i32 = 0; index6 <= upperBound2; index6 += 1)
         {
-          if (Information.IsNothing((object) self.Data[index5, index6]))
+          if (Information.IsNothing( self.Data[index5, index6]))
             self.Data[index5, index6] = "";
         }
       }

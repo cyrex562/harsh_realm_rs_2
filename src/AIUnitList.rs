@@ -4,18 +4,18 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
 
 namespace WindowsApplication1
 {
   pub class AIUnitList
   {
     pub counter: i32;
-    pub int[] unr;
-    pub int[] AIid;
-    pub int[] data;
-    pub int[] data2;
+    pub unr: Vec<i32>;
+    pub AIid: Vec<i32>;
+    pub data: Vec<i32>;
+    pub data2: Vec<i32>;
     pub maxcounter: i32;
 
     pub AIUnitList()

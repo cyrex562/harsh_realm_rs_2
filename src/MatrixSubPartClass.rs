@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -47,7 +47,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
         return;
       this.backbitmap.Dispose();
       this.backbitmap = (Bitmap) null;
@@ -79,10 +79,10 @@ namespace WindowsApplication1
 
     pub void ShiftRight()
     {
-      let mut num1: i32 =   Math.Round(Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1)));
+      let mut num1: i32 =   Math.Round(Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1)));
       if (num1 < this.colWidth)
         num1 = this.colWidth;
-      let mut num2: i32 =   Math.Round((double) (this.Width - 20) / (double) num1) - 2;
+      let mut num2: i32 =   Math.Round( (this.Width - 20) /  num1) - 2;
       if (num2 < 0)
         num2 = 0;
       this += 1.ColSelect;
@@ -144,12 +144,12 @@ namespace WindowsApplication1
     {
       this.LibSlot = -1;
       this.nolines = tnolines;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
-        if (!Information.IsNothing((object) this.backbitmap))
+        if (!Information.IsNothing( this.backbitmap))
           this.backbitmap.Dispose();
         this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -177,16 +177,16 @@ namespace WindowsApplication1
       this.game = tgame;
       if (tTop == 0)
       {
-        this.TopItemY =  Math.Round((double) this.ListSelect - Conversion.Int((double) this.ListSize / 2.0));
+        this.TopItemY =  Math.Round( this.ListSelect - Conversion.Int( this.ListSize / 2.0));
         if (this.TopItemY < 0)
           this.TopItemY = 0;
       }
-      if ( Math.Round(Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1))) < this.colWidth)
+      if ( Math.Round(Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1))) < this.colWidth)
       {
         let mut colWidth: i32 =  this.colWidth;
         if (this.ColSelect > 0)
         {
-          this.TopItemX =  Math.Round((double) this.ColSelect - Conversion.Int((double) this.ColSelect / 2.0));
+          this.TopItemX =  Math.Round( this.ColSelect - Conversion.Int( this.ColSelect / 2.0));
           if (this.TopItemX < 0)
             this.TopItemX = 0;
         }
@@ -210,8 +210,8 @@ namespace WindowsApplication1
         }
         else
         {
-          this.OwnFont = Font::new(this.game.FontCol.Families[1], (float) this.fontsize, FontStyle.Regular, GraphicsUnit.Pixel);
-          this.ownfont2 = Font::new(this.game.FontCol.Families[1], (float)  Math.Round((double) this.fontsize * 0.9), FontStyle.Regular, GraphicsUnit.Pixel);
+          this.OwnFont = Font::new(this.game.FontCol.Families[1],  this.fontsize, FontStyle.Regular, GraphicsUnit.Pixel);
+          this.ownfont2 = Font::new(this.game.FontCol.Families[1],   Math.Round( this.fontsize * 0.9), FontStyle.Regular, GraphicsUnit.Pixel);
         }
       }
       else
@@ -222,7 +222,7 @@ namespace WindowsApplication1
       this.minimumColWidth = 70;
       if (tMinColValue > 0)
         this.minimumColWidth = tMinColValue;
-      this.colWidth =  Math.Round(Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1)));
+      this.colWidth =  Math.Round(Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1)));
       if (this.minimumColWidth > this.colWidth)
       {
         this.colWidth = this.minimumColWidth;
@@ -242,7 +242,7 @@ namespace WindowsApplication1
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
       if (this.ListSize >= this.ListObj.Length)
         this.TopItemY = 0;
-      if (Information.IsNothing((object) this.backbitmap))
+      if (Information.IsNothing( this.backbitmap))
       {
         Expression.Clear(Color.Transparent);
       }
@@ -277,7 +277,7 @@ namespace WindowsApplication1
         {
           if (this.ListObj.Width > -1)
           {
-            let mut num6: i32 =   Math.Round(Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1)));
+            let mut num6: i32 =   Math.Round(Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1)));
             if (num6 < this.colWidth)
               num6 = this.colWidth;
             if (this.ListObj.Width > this.ListObj.ColumnName.GetUpperBound(0))
@@ -306,7 +306,7 @@ namespace WindowsApplication1
                   str: String = this.ListObj.ColumnName[index2];
                   if (this.game.Data.Round == 0)
                   {
-                    for (SizeF sizeF2 = Expression.MeasureString(str, this.OwnFont); (double) sizeF2.Width > (double) num6 & str.Length > 0; sizeF2 = Expression.MeasureString(str, this.OwnFont))
+                    for (SizeF sizeF2 = Expression.MeasureString(str, this.OwnFont);  sizeF2.Width >  num6 & str.Length > 0; sizeF2 = Expression.MeasureString(str, this.OwnFont))
                       str = Strings.Left(str, Strings.Len(str) - 1);
                     if (this.ListObj.ColumnName[index2].Length <= str.Length & this.game.Data.Round == 0)
                     {
@@ -345,7 +345,7 @@ namespace WindowsApplication1
                       if (this.ListObj.ColValueType[index2] == NewEnums.LibVarValueType.LocationTypeId)
                         str += "<loctyp>";
                     }
-                    for (SizeF sizeF3 = Expression.MeasureString(str, this.OwnFont); (double) sizeF3.Width > (double) num6 & str.Length > 0; sizeF3 = Expression.MeasureString(str, this.OwnFont))
+                    for (SizeF sizeF3 = Expression.MeasureString(str, this.OwnFont);  sizeF3.Width >  num6 & str.Length > 0; sizeF3 = Expression.MeasureString(str, this.OwnFont))
                       str = Strings.Left(str, Strings.Len(str) - 1);
                   }
                   if (this.Marcy)
@@ -404,7 +404,7 @@ namespace WindowsApplication1
         {
           if (!this.nolines)
             DrawMod.drawLine( Expression, 0, this.ItemSize * num4 + this.ItemSize, this.Width - 20, this.ItemSize * num4 + this.ItemSize, 128, 128, 128,  byte.MaxValue);
-          let mut w1: i32 =   Math.Round(Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1)));
+          let mut w1: i32 =   Math.Round(Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1)));
           if (w1 < this.colWidth)
             w1 = this.colWidth;
           let mut width: i32 =  this.ListObj.Width;
@@ -477,8 +477,8 @@ namespace WindowsApplication1
                 str: String = this.ListObj.GetValue( this.game.Data, index1 - num3, col, this.LibSlot).valueText;
                 try
                 {
-                  while ((double) Expression.MeasureString(str, this.ownfont2).Width > (double) w1)
-                    str = (double) Expression.MeasureString(str, this.ownfont2).Width <= (double) w1 * 2.2 ? Strings.Left(str, str.Length - 1) : Strings.Left(str,  Math.Round((double) str.Length / 2.0));
+                  while ( Expression.MeasureString(str, this.ownfont2).Width >  w1)
+                    str =  Expression.MeasureString(str, this.ownfont2).Width <=  w1 * 2.2 ? Strings.Left(str, str.Length - 1) : Strings.Left(str,  Math.Round( str.Length / 2.0));
                   if (this.Marcy)
                     DrawMod.DrawTextColouredMarc( Expression, str, this.ownfont2, x3, this.ItemSize * num4 + 1 - 1 + this.fontoffsety, Color.White);
                   else
@@ -499,14 +499,14 @@ namespace WindowsApplication1
         }
       }
       let mut num9: i32 =  (this.ListSize + 1) * this.ItemSize;
-      float num10 = this.ListObj.Length <= 0 ? 1f : (float) this.ListSize / (float) this.ListObj.Length;
-      if ((double) num10 > 1.0)
+      float num10 = this.ListObj.Length <= 0 ? 1f :  this.ListSize /  this.ListObj.Length;
+      if ( num10 > 1.0)
         num10 = 1f;
-      let mut num11: i32 =   Math.Round((double) Conversion.Int((float) num9 * num10));
-      float num12 = this.ListObj.Length <= 0 ? 0.0f : (float) this.TopItemY / (float) this.ListObj.Length;
-      if ((double) num12 > 1.0)
+      let mut num11: i32 =   Math.Round( Conversion.Int( num9 * num10));
+      float num12 = this.ListObj.Length <= 0 ? 0.0f :  this.TopItemY /  this.ListObj.Length;
+      if ( num12 > 1.0)
         num12 = 1f;
-      let mut num13: i32 =   Math.Round((double) Conversion.Int((float) num9 * num12)) + this.ItemSize;
+      let mut num13: i32 =   Math.Round( Conversion.Int( num9 * num12)) + this.ItemSize;
       if (num9 < 5)
         num9 = 5;
       if (num13 + num11 > num9 + this.ItemSize)
@@ -546,20 +546,20 @@ namespace WindowsApplication1
       }
       if (this.totalColWidth > this.Width - 20)
       {
-        let mut num15: i32 =   Math.Round(Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1)));
+        let mut num15: i32 =   Math.Round(Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1)));
         if (num15 < this.colWidth)
           num15 = this.colWidth;
-        let mut num16: i32 =   Math.Round((double) (this.Width - 20) / (double) num15) - 2;
+        let mut num16: i32 =   Math.Round( (this.Width - 20) /  num15) - 2;
         if (num16 < 0)
           num16 = 0;
         let mut num17: i32 =  4;
         let mut y: i32 =  this.Height - 2 * this.ItemSize;
         let mut num18: i32 =  this.Width - 20 - 24;
-        let mut num19: i32 =   Math.Round((double) this.Width * ((double) (this.Width - 20) / (double) this.totalColWidth));
+        let mut num19: i32 =   Math.Round( this.Width * ( (this.Width - 20) /  this.totalColWidth));
         let mut num20: i32 =  this.Width - 20 - 24 - num19;
-        double num21 = (double) this.TopItemX / (double) (this.ListObj.Width - num16) * (double) num20;
+        double num21 =  this.TopItemX /  (this.ListObj.Width - num16) *  num20;
         DrawMod.DrawBlock( Expression, 0, y - 1, this.Width - 20, 24, 0, 0, 0, 128);
-        let mut x: i32 =   Math.Round((double) num17 + num21);
+        let mut x: i32 =   Math.Round( num17 + num21);
          let mut local19: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(DrawMod.TGame.VSLIDER);
          let mut local20: &Bitmap = &bitmap;
@@ -597,7 +597,7 @@ namespace WindowsApplication1
       }
       if (this.Marcy)
         DrawMod.DrawFrame( this.OwnBitmap,  this.backbitmap,  Expression, 0, 0, this.Width, this.Height - 1 * this.ItemSize, -1, -1);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -609,7 +609,7 @@ namespace WindowsApplication1
     {
       let mut num1: i32 =  y;
       let mut num2: i32 =  x;
-      y =  Math.Round(Conversion.Int((double) y / (double) this.ItemSize));
+      y =  Math.Round(Conversion.Int( y /  this.ItemSize));
       this.Scroller = true;
       let mut num3: i32 =  1;
       let mut num4: i32 =  20;
@@ -621,9 +621,9 @@ namespace WindowsApplication1
         {
           y -= num3;
           y += this.TopItemY;
-          float num5 = (float) Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1));
-          if ((double) num5 < (double) this.colWidth)
-            num5 = (float) this.colWidth;
+          float num5 =  Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1));
+          if ( num5 <  this.colWidth)
+            num5 =  this.colWidth;
           this.clickscroll = 0;
           if (y > this.ListObj.Length)
           {
@@ -650,8 +650,8 @@ namespace WindowsApplication1
           }
           else
           {
-            coordinate1.y =  Math.Round((double) (Conversion.Int((float) x / num5) + (float) this.TopItemX));
-            this.ColSelect =  Math.Round((double) (Conversion.Int((float) x / num5) + (float) this.TopItemX));
+            coordinate1.y =  Math.Round( (Conversion.Int( x / num5) +  this.TopItemX));
+            this.ColSelect =  Math.Round( (Conversion.Int( x / num5) +  this.TopItemX));
           }
           return coordinate1;
         }
@@ -660,7 +660,7 @@ namespace WindowsApplication1
         let mut num7: i32 =  num1 - this.ItemSize;
         if (num7 < 1)
           num7 = 1;
-        let mut num8: i32 =   Math.Round((double)  Math.Round((double) ((float) num7 / (float) num6 * (float) this.ListObj.Length)) - (double) this.ListSize / 2.0);
+        let mut num8: i32 =   Math.Round(  Math.Round( ( num7 /  num6 *  this.ListObj.Length)) -  this.ListSize / 2.0);
         if (0 > num8)
           num8 = 0;
         this.TopItemY = num8;
@@ -693,14 +693,14 @@ namespace WindowsApplication1
             x = this.Width - 20 + 8;
           if (4 > x)
             x = 4;
-          float num9 = (float) Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1));
-          if ((double) num9 < (double) this.colWidth)
-            num9 = (float) this.colWidth;
-          let mut num10: i32 =   Math.Round((double) ((float) (this.Width - 20) / num9)) - 2;
+          float num9 =  Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1));
+          if ( num9 <  this.colWidth)
+            num9 =  this.colWidth;
+          let mut num10: i32 =   Math.Round( ( (this.Width - 20) / num9)) - 2;
           if (num10 < 0)
             num10 = 0;
-          this.TopItemX =  Math.Round(((double) this.ListObj.Width + 0.5) * ((double) num2 / (double) (this.Width - 20)));
-          this.TopItemX =  Math.Round((double) this.TopItemX - (double) num10 / 2.0);
+          this.TopItemX =  Math.Round(( this.ListObj.Width + 0.5) * ( num2 /  (this.Width - 20)));
+          this.TopItemX =  Math.Round( this.TopItemX -  num10 / 2.0);
           if (0 > this.TopItemX)
             this.TopItemX = 0;
           if (this.TopItemX > this.ListObj.Width - num10)
@@ -751,7 +751,7 @@ namespace WindowsApplication1
     {
       let mut num1: i32 =  y;
       let mut num2: i32 =  x;
-      y =  Math.Round(Conversion.Int((double) y / (double) this.ItemSize));
+      y =  Math.Round(Conversion.Int( y /  this.ItemSize));
       let mut num3: i32 =  0;
       let mut num4: i32 =  2;
       let mut num5: i32 =  20;
@@ -763,7 +763,7 @@ namespace WindowsApplication1
         let mut num7: i32 =  num1 - this.ItemSize;
         if (num7 < 1)
           num7 = 1;
-        let mut num8: i32 =   Math.Round((double)  Math.Round((double) ((float) num7 / (float) num6 * (float) this.ListObj.Length)) - (double) this.ListSize / 2.0);
+        let mut num8: i32 =   Math.Round(  Math.Round( ( num7 /  num6 *  this.ListObj.Length)) -  this.ListSize / 2.0);
         if (0 > num8)
           num8 = 0;
         this.TopItemY = num8;
@@ -779,14 +779,14 @@ namespace WindowsApplication1
         x = this.Width - 20 + 8;
       if (4 > x)
         x = 4;
-      float num9 = (float) Conversion.Int((double) (this.Width - 20) / (double) (this.ListObj.Width + 1));
-      if ((double) num9 < (double) this.colWidth)
-        num9 = (float) this.colWidth;
-      let mut num10: i32 =   Math.Round((double) ((float) (this.Width - 20) / num9)) - 2;
+      float num9 =  Conversion.Int( (this.Width - 20) /  (this.ListObj.Width + 1));
+      if ( num9 <  this.colWidth)
+        num9 =  this.colWidth;
+      let mut num10: i32 =   Math.Round( ( (this.Width - 20) / num9)) - 2;
       if (num10 < 0)
         num10 = 0;
-      this.TopItemX =  Math.Round(((double) this.ListObj.Width + 0.5) * ((double) num2 / (double) (this.Width - 20)));
-      this.TopItemX =  Math.Round((double) this.TopItemX - (double) num10 / 2.0);
+      this.TopItemX =  Math.Round(( this.ListObj.Width + 0.5) * ( num2 /  (this.Width - 20)));
+      this.TopItemX =  Math.Round( this.TopItemX -  num10 / 2.0);
       if (0 > this.TopItemX)
         this.TopItemX = 0;
       if (this.TopItemX > this.ListObj.Width - num10)

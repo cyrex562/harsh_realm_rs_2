@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -22,9 +22,9 @@ namespace WindowsApplication1
     pub SmallGraphic: i32;
     pub SmallGraphicSpecialMode: i32;
     pub SmallGraphicSpecialData: i32;
-    pub bool[] BuildgroundType;
-    pub bool[] PeopleGroup;
-    pub bool[] ItemGroup;
+    pub BuildgroundType: Vec<bool>;
+    pub PeopleGroup: Vec<bool>;
+    pub ItemGroup: Vec<bool>;
     pub MaxProd: i32;
     pub IsPort: bool;
     pub IsAirfield: bool;
@@ -36,15 +36,15 @@ namespace WindowsApplication1
     pub UpgradeNr: i32;
     pub DowngradeNr: i32;
     pub LocTypeGroup: i32;
-    pub int[] MinDistance;
+    pub MinDistance: Vec<i32>;
     pub Buildable: bool;
     pub SupplyCost: i32;
     pub PPCost: i32;
     pub EPCost: i32;
     pub ZOrder: i32;
-    pub int[] Research;
-    pub int[] VarType;
-    pub int[] VarQty;
+    pub Research: Vec<i32>;
+    pub VarType: Vec<i32>;
+    pub VarQty: Vec<i32>;
     pub Description: String;
     pub SlotType: i32;
     pub SlotValue: i32;
@@ -76,12 +76,12 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
+      info.AddValue("Name",  this.Name);
       info.AddValue("OverdrawLTNr", this.OverdrawLTNr);
       info.AddValue("OverdrawSpriteNr", this.OverdrawSpriteNr);
-      info.AddValue("BuildgroundType", (object) this.BuildgroundType);
-      info.AddValue("PeopleGroup", (object) this.PeopleGroup);
-      info.AddValue("ItemGroup", (object) this.ItemGroup);
+      info.AddValue("BuildgroundType",  this.BuildgroundType);
+      info.AddValue("PeopleGroup",  this.PeopleGroup);
+      info.AddValue("ItemGroup",  this.ItemGroup);
       info.AddValue("Repairable", this.Repairable);
       info.AddValue("MaxProd", this.MaxProd);
       info.AddValue("IsPort", this.IsPort);
@@ -91,7 +91,7 @@ namespace WindowsApplication1
       info.AddValue("OnDestructSpriteNr", this.OnDestructSpriteNr);
       info.AddValue("AutoRecoverPts", this.AutoRecoverPts);
       info.AddValue("LocTypeGroup", this.LocTypeGroup);
-      info.AddValue("MinDistance", (object) this.MinDistance);
+      info.AddValue("MinDistance",  this.MinDistance);
       info.AddValue("Buildable", this.Buildable);
       info.AddValue("EPCost", this.EPCost);
       info.AddValue("Invincible", this.Invincible);
@@ -104,10 +104,10 @@ namespace WindowsApplication1
       info.AddValue("SmallGraphic", this.SmallGraphic);
       info.AddValue("SmallGraphicSpecialMode", this.SmallGraphicSpecialMode);
       info.AddValue("SmallGraphicSpecialData", this.SmallGraphicSpecialData);
-      info.AddValue("Research", (object) this.Research);
-      info.AddValue("VarType", (object) this.VarType);
-      info.AddValue("VarQty", (object) this.VarQty);
-      info.AddValue("Description", (object) this.Description);
+      info.AddValue("Research",  this.Research);
+      info.AddValue("VarType",  this.VarType);
+      info.AddValue("VarQty",  this.VarQty);
+      info.AddValue("Description",  this.Description);
       info.AddValue("SlotType", this.SlotType);
       info.AddValue("SlotValue", this.SlotValue);
       info.AddValue("PictureLT", this.PictureLT);
@@ -478,7 +478,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (LocationTypeClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }

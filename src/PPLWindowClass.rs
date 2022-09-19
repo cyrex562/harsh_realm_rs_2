@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -409,7 +409,7 @@ namespace WindowsApplication1
         for (let mut index: i32 = 0; index <= peopleCounter2; index += 1)
         {
           let mut peopleGroup: i32 = this.game.Data.PeopleObj[index].PeopleGroup;
-          this.OptionsList3Obj.add(this.game.Data.PeopleObj[index].Name, -1, Strings.Trim(Conversion.Str((object) this.game.Data.PeopleObj[this.ppl].BaseMorale[peopleGroup])), Strings.Trim(Conversion.Str((object) this.game.Data.PeopleObj[this.ppl].BattleForMod[peopleGroup])), Strings.Trim(Conversion.Str((object) this.game.Data.PeopleObj[this.ppl].BattleVSMod[peopleGroup])));
+          this.OptionsList3Obj.add(this.game.Data.PeopleObj[index].Name, -1, Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.ppl].BaseMorale[peopleGroup])), Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.ppl].BattleForMod[peopleGroup])), Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.ppl].BattleVSMod[peopleGroup])));
         }
         if (this.OptionsList3Id > 0)
         {
@@ -443,7 +443,7 @@ namespace WindowsApplication1
         for (let mut index: i32 = 0; index <= peopleCounter3; index += 1)
         {
           let mut peopleGroup: i32 = this.game.Data.PeopleObj[index].PeopleGroup;
-          this.OptionsList4Obj.add(this.game.Data.PeopleObj[index].Name, -1, Strings.Trim(Conversion.Str((object) this.game.Data.PeopleObj[this.ppl].ProdMod[peopleGroup])), Strings.Trim(Conversion.Str((object) this.game.Data.PeopleObj[this.ppl].ProdMod2[peopleGroup])), Strings.Trim(Conversion.Str((object) this.game.Data.PeopleObj[this.ppl].ProdMod3[peopleGroup])), Strings.Trim(Conversion.Str((object) this.game.Data.PeopleObj[this.ppl].ProdMod4[peopleGroup])));
+          this.OptionsList4Obj.add(this.game.Data.PeopleObj[index].Name, -1, Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.ppl].ProdMod[peopleGroup])), Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.ppl].ProdMod2[peopleGroup])), Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.ppl].ProdMod3[peopleGroup])), Strings.Trim(Conversion.Str( this.game.Data.PeopleObj[this.ppl].ProdMod4[peopleGroup])));
         }
         if (this.OptionsList4Id > 0)
         {
@@ -469,7 +469,7 @@ namespace WindowsApplication1
         DrawMod.MakeFullBoxVic2( local4, rect1_4, txt1, rect2_4, "");
         let mut itemTypeCounter: i32 = this.game.Data.ItemTypeCounter;
         for (let mut index: i32 = 0; index <= itemTypeCounter; index += 1)
-          this.OptionsList4Obj.add(this.game.Data.ItemTypeObj[index].Name, -1, this.game.Data.ItemTypeObj[index].UseProdMod > 1 ? Strings.Trim(Conversion.Str((object) this.game.Data.ItemTypeObj[index].UseProdMod)) : "1", this.game.Data.ItemTypeObj[index].PeopleMod <= 0 ? "none" : this.game.Data.PeopleObj[this.game.Data.ItemTypeObj[index].PeopleMod].Name);
+          this.OptionsList4Obj.add(this.game.Data.ItemTypeObj[index].Name, -1, this.game.Data.ItemTypeObj[index].UseProdMod > 1 ? Strings.Trim(Conversion.Str( this.game.Data.ItemTypeObj[index].UseProdMod)) : "1", this.game.Data.ItemTypeObj[index].PeopleMod <= 0 ? "none" : this.game.Data.PeopleObj[this.game.Data.ItemTypeObj[index].PeopleMod].Name);
         if (this.OptionsList4Id > 0)
         {
           this.SubPartList[this.SubpartNr(this.OptionsList4Id)].Refresh(this.OptionsList4Obj, -1);
@@ -481,7 +481,7 @@ namespace WindowsApplication1
           this.OptionsList4Id = this.AddSubPart( tsubpart2, num12, num13, 630, 256, 0);
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -519,7 +519,7 @@ namespace WindowsApplication1
             symbolSpriteId = this.game.Data.SFTypeObj[typ].ExtraSymbolSpriteID[index];
         }
       }
-      return (object) symbolSpriteId;
+      return  symbolSpriteId;
     }
 
     pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
@@ -728,7 +728,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.but2id)
             {
-              if (Interaction.MsgBox((object) "Are you sure you want to disband this subformation?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you sure you want to disband this subformation?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 if (this.game.EditObj.SoundOn)
                   SoundMod.PlayAWave(this.game.AppPath + "sound/disband.wav",  this.game.EditObj);
@@ -737,7 +737,7 @@ namespace WindowsApplication1
                 {
                   if (orderResult.ErrorString.Length > 1)
                   {
-                    let mut num5: i32 =  Interaction.MsgBox((object) orderResult.ErrorString, Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num5: i32 =  Interaction.MsgBox( orderResult.ErrorString, Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   windowReturnClass.AddCommand(6, 0);
                   windowReturnClass.SetFlag(true);
@@ -758,7 +758,7 @@ namespace WindowsApplication1
               {
                 if (!this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount > 6 && this.game.Data.SFObj[this.sfnr].Qty != this.detailnr2)
                 {
-                  let mut num6: i32 =  Interaction.MsgBox((object) "You can only upgrade ALL because there is already 8 subformations in unit.");
+                  let mut num6: i32 =  Interaction.MsgBox( "You can only upgrade ALL because there is already 8 subformations in unit.");
                   return windowReturnClass;
                 }
                 OrderResult orderResult = this.game.ProcessingObj.DoUpgrade(this.game.EditObj.UnitSelected, this.sfnr, this.detailnr2, this.HQselect);

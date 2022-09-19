@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -85,13 +85,13 @@ namespace WindowsApplication1
       self.BackBitmap = (Bitmap) self.OwnBitmap.Clone();
       let mut num1: i32 = 50;
       let mut num2: i32 = 88;
-      let mut num3: i32 =  Math.Round((double) (self.useHeight - 768) / 9.0) - 1;
+      let mut num3: i32 =  Math.Round( (self.useHeight - 768) / 9.0) - 1;
       if (num3 < 0)
         num3 = 0;
-      let mut num4: i32 =  Math.Round((double) (self.useWidth - 310) / 6.0);
+      let mut num4: i32 =  Math.Round( (self.useWidth - 310) / 6.0);
       if (num4 < 160)
         num4 = 160;
-      let mut Length: i32 =  Math.Round((double) num4 / 8.0) - 1;
+      let mut Length: i32 =  Math.Round( num4 / 8.0) - 1;
       if (Length < 19)
         Length = 10;
       let mut num5: i32 = 1;
@@ -129,11 +129,11 @@ namespace WindowsApplication1
          let mut local2: &Bitmap = &bitmap1;
         Rectangle trect = Rectangle::new(num9 * 32, 0, 32, 32);
         let mut srcrect: &Rectangle = &trect
-        Rectangle rectangle = Rectangle::new(num6 + 20, num7 + 20 +  Math.Round((double) num3 / 2.0), 32, 32);
+        Rectangle rectangle = Rectangle::new(num6 + 20, num7 + 20 +  Math.Round( num3 / 2.0), 32, 32);
         let mut destrect: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
-        DrawMod.DrawTextColouredMarc( g, num8.ToString(), self.game.MarcFont3, num6 + 58, num7 + 25 +  Math.Round((double) num3 / 2.0), Color.White);
-        DrawMod.DrawTextColouredMarc( g, str1, self.game.MarcFont4, num6 + 88, num7 + 26 +  Math.Round((double) num3 / 2.0), Color.White);
+        DrawMod.DrawTextColouredMarc( g, num8.ToString(), self.game.MarcFont3, num6 + 58, num7 + 25 +  Math.Round( num3 / 2.0), Color.White);
+        DrawMod.DrawTextColouredMarc( g, str1, self.game.MarcFont4, num6 + 88, num7 + 26 +  Math.Round( num3 / 2.0), Color.White);
         let mut num10: i32 = num7 + 7;
         let mut num11: i32 = 1;
         do
@@ -224,9 +224,9 @@ namespace WindowsApplication1
                   str4 = "No Organisation is needed to generate these Stratagems.\r\n\r\n";
                 ttext: String = str4 + self.game.Data.StringListObj[stringListById5].Data[index, 4];
                 let mut x1: i32 = num21;
-                let mut y1: i32 =  Math.Round((double) (num10 + 19) + (double) num3 * 0.33);
-                let mut width: i32 =  Math.Round(20.0 + (double) num3 * 0.44);
-                let mut height: i32 =  Math.Round(30.0 + (double) num3 * 0.66);
+                let mut y1: i32 =  Math.Round( (num10 + 19) +  num3 * 0.33);
+                let mut width: i32 =  Math.Round(20.0 +  num3 * 0.44);
+                let mut height: i32 =  Math.Round(30.0 +  num3 * 0.66);
                  let mut local3: &Graphics = &g;
                 Bitmap bitmap2 = self.game.CustomBitmapObj.DrawActionCardSe1(self.game.Data.Turn, -1, size: 2, tCardId: tCardId);
                  let mut local4: &Bitmap = &bitmap2;
@@ -251,9 +251,9 @@ namespace WindowsApplication1
                 ttext: String = self.game.Data.StringListObj[stringListById6].Data[index, 12];
                 Bitmap bitmap3 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[tCardId]);
                 let mut x: i32 = num21 - 4;
-                let mut y: i32 =  Math.Round((double) (num10 + 10) + (double) num3 * 0.5);
-                let mut num24: i32 =  Math.Round(40.0 + (double) num3 * 0.5);
-                let mut num25: i32 =  Math.Round(40.0 + (double) num3 * 0.5);
+                let mut y: i32 =  Math.Round( (num10 + 10) +  num3 * 0.5);
+                let mut num24: i32 =  Math.Round(40.0 +  num3 * 0.5);
+                let mut num25: i32 =  Math.Round(40.0 +  num3 * 0.5);
                 DrawMod.DrawScaled( g,  bitmap3, x, y, num24, num25, true);
                 rectangle = Rectangle::new(x, y, num24, num25);
                 trect = rectangle;
@@ -261,9 +261,9 @@ namespace WindowsApplication1
               }
             }
             if (flag1)
-              DrawMod.DrawTextColouredMarc( g, str2, self.game.MarcFont8c, num12 + 8,  Math.Round((double) (num10 + 4) + (double) num3 / 8.0), Color.White);
+              DrawMod.DrawTextColouredMarc( g, str2, self.game.MarcFont8c, num12 + 8,  Math.Round( (num10 + 4) +  num3 / 8.0), Color.White);
             else if (!flag1)
-              DrawMod.DrawTextColouredMarc( g, str2, self.game.MarcFont8c, num12 + 8,  Math.Round((double) (num10 + 4) + (double) num3 / 8.0), Color.LightGray);
+              DrawMod.DrawTextColouredMarc( g, str2, self.game.MarcFont8c, num12 + 8,  Math.Round( (num10 + 4) +  num3 / 8.0), Color.LightGray);
             DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, num12, num10, num4 - 5, 55 + num3, -1, -1);
             tCardId = self.game.Data.StringListObj[stringListById8].FindRow(0, "{regimefeat}" + currentName);
             if (tCardId > -1)

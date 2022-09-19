@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -50,12 +50,12 @@ namespace WindowsApplication1
     pub void SubDispose()
     {
       self.unloadAnyStuff();
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
       {
         self.backbitmap.Dispose();
         self.backbitmap = (Bitmap) null;
       }
-      if (!Information.IsNothing((object) self.paper))
+      if (!Information.IsNothing( self.paper))
       {
         self.paper.Dispose();
         self.paper = (Bitmap) null;
@@ -118,10 +118,10 @@ namespace WindowsApplication1
       self.alwaysShowBackground = tAlwaysShowBackground;
       self.noBackground = tNoBackground;
       self.curY = 0;
-      if (!Information.IsNothing((object) tbackbitmap) & !self.justCheckHeight)
+      if (!Information.IsNothing( tbackbitmap) & !self.justCheckHeight)
       {
         self.backbitmap = new Bitmap(self.OwnBitmap.Width, self.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) self.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -136,7 +136,7 @@ namespace WindowsApplication1
       }
       else
       {
-        if (noBitmapDraw || !Information.IsNothing((object) self.dyn))
+        if (noBitmapDraw || !Information.IsNothing( self.dyn))
           return;
         self.dyn = new UDSData(self.texty, self.allGray);
       }
@@ -157,7 +157,7 @@ namespace WindowsApplication1
       {
         if (self.dyn.element[tid].type == UDSType.Slider & self.dyn.element[tid].group == self.dyn.element[activeSliderNr].group)
         {
-          num1 =  Math.Round((double) num1 + Conversions.ToDouble(self.dyn.element[tid].value));
+          num1 =  Math.Round( num1 + Conversions.ToDouble(self.dyn.element[tid].value));
           numArray1[tid] = Conversions.ToInteger(self.dyn.element[tid].value);
           if (tid != activeSliderNr)
           {
@@ -180,8 +180,8 @@ namespace WindowsApplication1
           UDSElement[] udsElementArray = element;
           let mut index1: i32 = activeSliderNr;
           let mut index2: i32 = index1;
-          udsElementArray[index2].value = Conversions.ToString(Conversions.ToDouble(element[index1].value) - (double) (num1 - 100));
-          if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) < (double) self.dyn.element[activeSliderNr].minvalue)
+          udsElementArray[index2].value = Conversions.ToString(Conversions.ToDouble(element[index1].value) -  (num1 - 100));
+          if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) <  self.dyn.element[activeSliderNr].minvalue)
             self.dyn.element[activeSliderNr].value = Conversions.ToString(self.dyn.element[activeSliderNr].minvalue);
         }
         else if (num1 < 100)
@@ -190,8 +190,8 @@ namespace WindowsApplication1
           UDSElement[] udsElementArray = element;
           let mut index3: i32 = activeSliderNr;
           let mut index4: i32 = index3;
-          udsElementArray[index4].value = Conversions.ToString(Conversions.ToDouble(element[index3].value) + (double) (100 - num1));
-          if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) > (double) self.dyn.element[activeSliderNr].maxvalue)
+          udsElementArray[index4].value = Conversions.ToString(Conversions.ToDouble(element[index3].value) +  (100 - num1));
+          if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) >  self.dyn.element[activeSliderNr].maxvalue)
             self.dyn.element[activeSliderNr].value = Conversions.ToString(self.dyn.element[activeSliderNr].maxvalue);
         }
         return false;
@@ -274,8 +274,8 @@ namespace WindowsApplication1
         UDSElement[] udsElementArray = element;
         let mut index15: i32 = activeSliderNr;
         let mut index16: i32 = index15;
-        udsElementArray[index16].value = Conversions.ToString(Conversions.ToDouble(element[index15].value) - (double) (num1 - 100));
-        if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) < (double) self.dyn.element[activeSliderNr].minvalue)
+        udsElementArray[index16].value = Conversions.ToString(Conversions.ToDouble(element[index15].value) -  (num1 - 100));
+        if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) <  self.dyn.element[activeSliderNr].minvalue)
           self.dyn.element[activeSliderNr].value = Conversions.ToString(self.dyn.element[activeSliderNr].minvalue);
       }
       else if (num1 < 100)
@@ -284,8 +284,8 @@ namespace WindowsApplication1
         UDSElement[] udsElementArray = element;
         let mut index17: i32 = activeSliderNr;
         let mut index18: i32 = index17;
-        udsElementArray[index18].value = Conversions.ToString(Conversions.ToDouble(element[index17].value) + (double) (100 - num1));
-        if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) > (double) self.dyn.element[activeSliderNr].maxvalue)
+        udsElementArray[index18].value = Conversions.ToString(Conversions.ToDouble(element[index17].value) +  (100 - num1));
+        if (Conversions.ToDouble(self.dyn.element[activeSliderNr].value) >  self.dyn.element[activeSliderNr].maxvalue)
           self.dyn.element[activeSliderNr].value = Conversions.ToString(self.dyn.element[activeSliderNr].maxvalue);
       }
       return true;
@@ -305,20 +305,20 @@ namespace WindowsApplication1
           if (self.scrollelementclicked == activeSliderNr)
           {
             self.dyn.element[activeSliderNr].flagged = true;
-            let mut num1: i32 =  Math.Round(Math.Max(20.0, (double) self.MouseRect[index].Width / 10.0));
+            let mut num1: i32 =  Math.Round(Math.Max(20.0,  self.MouseRect[index].Width / 10.0));
             let mut num2: i32 = x - self.MouseRect[index].X;
             let mut num3: i32 = self.MouseRect[index].Width - num1;
             int num4;
-            if ((double) num2 < (double) num1 / 2.0)
+            if ( num2 <  num1 / 2.0)
               num4 = self.dyn.element[activeSliderNr].minvalue;
-            else if ((double) num2 > (double) self.MouseRect[index].Width - (double) num1 / 2.0)
+            else if ( num2 >  self.MouseRect[index].Width -  num1 / 2.0)
             {
               num4 = self.dyn.element[activeSliderNr].maxvalue;
             }
             else
             {
-              let mut num5: i32 =  Math.Round((double) num2 - (double) num1 / 2.0);
-              num4 =  Math.Round((double) (self.dyn.element[activeSliderNr].maxvalue - self.dyn.element[activeSliderNr].minvalue) * ((double) num5 / (double) num3)) + self.dyn.element[activeSliderNr].minvalue;
+              let mut num5: i32 =  Math.Round( num2 -  num1 / 2.0);
+              num4 =  Math.Round( (self.dyn.element[activeSliderNr].maxvalue - self.dyn.element[activeSliderNr].minvalue) * ( num5 /  num3)) + self.dyn.element[activeSliderNr].minvalue;
             }
             self.dyn.element[activeSliderNr].value = Conversions.ToString(num4);
             if (self.AdjustSliders(activeSliderNr))
@@ -419,8 +419,8 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num4: i32 =  Math.Round((double) self.dyn.element[self.MouseData[index1]].w / (double) (stringListClass.Width + 1));
-                index2 =  Math.Round(Math.Floor((double) (x - self.dyn.element[self.MouseData[index1]].x) / (double) num4));
+                let mut num4: i32 =  Math.Round( self.dyn.element[self.MouseData[index1]].w /  (stringListClass.Width + 1));
+                index2 =  Math.Round(Math.Floor( (x - self.dyn.element[self.MouseData[index1]].x) /  num4));
               }
               if (stringListClass.ColValueType[index2] == NewEnums.LibVarValueType.Number)
               {
@@ -478,15 +478,15 @@ namespace WindowsApplication1
             }
             else
             {
-              let mut num7: i32 =  Math.Round((double) self.dyn.element[self.MouseData[index1]].w / (double) (stringListClass.Width + 1));
-              index4 =  Math.Round(Math.Floor((double) (x - self.dyn.element[self.MouseData[index1]].x) / (double) num7));
+              let mut num7: i32 =  Math.Round( self.dyn.element[self.MouseData[index1]].w /  (stringListClass.Width + 1));
+              index4 =  Math.Round(Math.Floor( (x - self.dyn.element[self.MouseData[index1]].x) /  num7));
             }
-            let mut index6: i32 =  Math.Round(Math.Floor((double) (num1 - self.dyn.element[self.MouseData[index1]].lineHeight) / (double) self.dyn.element[self.MouseData[index1]].lineHeight)) + self.dyn.element[self.MouseData[index1]].topRow;
+            let mut index6: i32 =  Math.Round(Math.Floor( (num1 - self.dyn.element[self.MouseData[index1]].lineHeight) /  self.dyn.element[self.MouseData[index1]].lineHeight)) + self.dyn.element[self.MouseData[index1]].topRow;
             str1: String = "";
             if (index6 <= stringListClass.Length)
             {
               str2: String = stringListClass.TempDesc[index6, index4];
-              if (!Information.IsNothing((object) str2))
+              if (!Information.IsNothing( str2))
               {
                 if (Strings.InStr(str2, "#") > 0)
                   str1 = str2.Split('#')[0];
@@ -503,7 +503,7 @@ namespace WindowsApplication1
           }
           self.game.EditObj.TipTitle = self.MouseTitle[index1];
           self.game.EditObj.TipText = self.MouseText[index1];
-          if (Information.IsNothing((object) self.MouseText[index1]))
+          if (Information.IsNothing( self.MouseText[index1]))
             break;
           self.game.EditObj.TipColor = self.MouseType[index1] >= 1 ? 0 : self.MouseData[index1];
           if (self.game.EditObj.TipText.Length != 0)
@@ -528,7 +528,7 @@ namespace WindowsApplication1
           {
             let mut game: GameClass = self.game;
             let mut w: i32 = self.dyn.element[index1].w;
-            let mut trows: i32 =  Math.Round((double) self.dyn.element[index1].h / (double) self.dyn.element[index1].lineHeight);
+            let mut trows: i32 =  Math.Round( self.dyn.element[index1].h /  self.dyn.element[index1].lineHeight);
             Font tfont = self.game.DynFont[index2];
             texty: String = self.dyn.element[index1].texty;
             let mut lineHeight: i32 = self.dyn.element[index1].lineHeight;
@@ -575,7 +575,7 @@ namespace WindowsApplication1
           {
             let mut game: GameClass = self.game;
             let mut w: i32 = self.dyn.element[index1].w;
-            let mut trows: i32 =  Math.Round((double) self.dyn.element[index1].h / (double) self.dyn.element[index1].lineHeight);
+            let mut trows: i32 =  Math.Round( self.dyn.element[index1].h /  self.dyn.element[index1].lineHeight);
             Font tfont = self.game.DynFont[index2];
             texty: String = self.dyn.element[index1].texty;
             let mut lineHeight: i32 = self.dyn.element[index1].lineHeight;
@@ -607,7 +607,7 @@ namespace WindowsApplication1
     pub void MakeBitmap()
     {
       self.ClearMouse();
-      if (Information.IsNothing((object) self.dyn))
+      if (Information.IsNothing( self.dyn))
         self.dyn = new UDSData(self.texty, self.allGray);
       self.loadPageStuff();
       Graphics graphics1 = Graphics.FromImage((Image) self.OwnBitmap);
@@ -621,13 +621,13 @@ namespace WindowsApplication1
           if (index2 > -1)
           {
             SizeF sizeF = graphics1.MeasureString(self.dyn.element[index1].texty, self.game.DynFont[index2], self.dyn.element[index1].w);
-            let mut num2: i32 =  Math.Round((double) sizeF.Height);
+            let mut num2: i32 =  Math.Round( sizeF.Height);
             if (num2 < self.dyn.element[index1].lineHeight)
               num2 = self.dyn.element[index1].lineHeight;
             let mut num3: i32 = num2 + self.dyn.element[index1].y;
             if (num3 > num1)
               num1 = num3 + self.dyn.element[index1].lineHeight * 1 + 48;
-            self.dyn.element[index1].h =  Math.Round((double) sizeF.Height + (double) (self.dyn.element[index1].lineHeight * 1) + 48.0);
+            self.dyn.element[index1].h =  Math.Round( sizeF.Height +  (self.dyn.element[index1].lineHeight * 1) + 48.0);
           }
         }
         else if (self.dyn.element[index1].type == UDSType.PictureField)
@@ -664,7 +664,7 @@ namespace WindowsApplication1
       if (self.maxY > 5000)
         self.maxY = 5000;
       self.paper = new Bitmap(self.Width, self.maxY, PixelFormat.Format32bppPArgb);
-      self.paper.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      self.paper.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics2 = Graphics.FromImage((Image) self.paper);
       int num4;
       if (!self.noBackground)
@@ -765,7 +765,7 @@ namespace WindowsApplication1
       for (let mut i: i32 = 0; i <= elementCounter3; i += 1)
         self.DrawElement(i,  graphics2, true);
       graphics2.Dispose();
-      if (!(!Information.IsNothing((object) self.dyn) & !self.justCheckHeight))
+      if (!(!Information.IsNothing( self.dyn) & !self.justCheckHeight))
         return;
       let mut elementCounter4: i32 = self.dyn.elementCounter;
       for (let mut index: i32 = 0; index <= elementCounter4; index += 1)
@@ -796,7 +796,7 @@ namespace WindowsApplication1
             {
               self += 1.backBitmapCounter;
               self.backBmp[self.backBitmapCounter] = new Bitmap(self.dyn.element[i].w, self.dyn.element[i].h, PixelFormat.Format32bppPArgb);
-              self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+              self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
               Expression.CompositingMode = CompositingMode.SourceCopy;
               Graphics graphics = Expression;
@@ -814,7 +814,7 @@ namespace WindowsApplication1
           }
           let mut game: GameClass = self.game;
           let mut w: i32 = self.dyn.element[i].w;
-          let mut trows: i32 =  Math.Round((double) self.dyn.element[i].h / (double) self.dyn.element[i].lineHeight);
+          let mut trows: i32 =  Math.Round( self.dyn.element[i].h /  self.dyn.element[i].lineHeight);
           Font tfont = self.game.DynFont[index1];
           texty: String = self.dyn.element[i].texty;
           let mut lineHeight: i32 = self.dyn.element[i].lineHeight;
@@ -850,7 +850,7 @@ namespace WindowsApplication1
           {
             self += 1.backBitmapCounter;
             self.backBmp[self.backBitmapCounter] = new Bitmap(self.dyn.element[i].w, self.dyn.element[i].h, PixelFormat.Format32bppPArgb);
-            self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
             Expression.CompositingMode = CompositingMode.SourceCopy;
             Graphics graphics = Expression;
@@ -867,7 +867,7 @@ namespace WindowsApplication1
             g.DrawImage((Image) self.backBmp[self.backBmpLink[i]], self.dyn.element[i].x, self.dyn.element[i].y);
           StringListClass stringListClass = self.game.Data.StringListObj[ Math.Round(Conversion.Val(self.dyn.element[i].texty))];
           let mut num1: i32 = stringListClass.Length + 1;
-          let mut num2: i32 =  Math.Round(Math.Floor((double) self.dyn.element[i].h / (double) self.dyn.element[i].lineHeight)) - 2;
+          let mut num2: i32 =  Math.Round(Math.Floor( self.dyn.element[i].h /  self.dyn.element[i].lineHeight)) - 2;
           StringListClass tListobj = stringListClass;
           let mut tlistsize: i32 = num2;
           let mut w: i32 = self.dyn.element[i].w;
@@ -892,7 +892,7 @@ namespace WindowsApplication1
       Bitmap bitmap1;
       if (self.dyn.element[i].type == UDSType.PictureField)
       {
-        if (Information.IsNothing((object) self.dyn.element[i].mouseOver))
+        if (Information.IsNothing( self.dyn.element[i].mouseOver))
           self.dyn.element[i].mouseOver = "";
         if (self.dyn.element[i].historicalUnitPortrait > 0)
         {
@@ -923,11 +923,11 @@ namespace WindowsApplication1
              let mut local6: &Bitmap = &bitmap3;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
-            double r = (double) ((float) self.dyn.element[i].color.R / (float) byte.MaxValue) - 1.0;
-            double g2 = (double) ((float) self.dyn.element[i].color.G / (float) byte.MaxValue) - 1.0;
-            double b = (double) ((float) self.dyn.element[i].color.B / (float) byte.MaxValue) - 1.0;
-            double a = (double) ((float) self.dyn.element[i].color.A / (float) byte.MaxValue);
-            DrawMod.Draw( local5,  local6, x, y, (float) r, (float) g2, (float) b, (float) a);
+            double r =  ( self.dyn.element[i].color.R /  byte.MaxValue) - 1.0;
+            double g2 =  ( self.dyn.element[i].color.G /  byte.MaxValue) - 1.0;
+            double b =  ( self.dyn.element[i].color.B /  byte.MaxValue) - 1.0;
+            double a =  ( self.dyn.element[i].color.A /  byte.MaxValue);
+            DrawMod.Draw( local5,  local6, x, y,  r,  g2,  b,  a);
           }
           else
           {
@@ -971,11 +971,11 @@ namespace WindowsApplication1
              let mut local12: &Bitmap = &bitmap6;
             let mut x: i32 = self.dyn.element[i].x;
             let mut y: i32 = self.dyn.element[i].y;
-            double r = (double) ((float) self.dyn.element[i].color.R / (float) byte.MaxValue) - 1.0;
-            double g3 = (double) ((float) self.dyn.element[i].color.G / (float) byte.MaxValue) - 1.0;
-            double b = (double) ((float) self.dyn.element[i].color.B / (float) byte.MaxValue) - 1.0;
-            double a = (double) ((float) self.dyn.element[i].color.A / (float) byte.MaxValue);
-            DrawMod.Draw( local11,  local12, x, y, (float) r, (float) g3, (float) b, (float) a);
+            double r =  ( self.dyn.element[i].color.R /  byte.MaxValue) - 1.0;
+            double g3 =  ( self.dyn.element[i].color.G /  byte.MaxValue) - 1.0;
+            double b =  ( self.dyn.element[i].color.B /  byte.MaxValue) - 1.0;
+            double a =  ( self.dyn.element[i].color.A /  byte.MaxValue);
+            DrawMod.Draw( local11,  local12, x, y,  r,  g3,  b,  a);
           }
           else
           {
@@ -1003,24 +1003,24 @@ namespace WindowsApplication1
               let mut height: i32 = objBitmap.Height;
               if (width > w | height > h)
               {
-                if ((double) width / (double) w > (double) height / (double) h)
+                if ( width /  w >  height /  h)
                 {
-                  float num5 = (float) w / (float) width;
-                  let mut num6: i32 =  Math.Round((double) ((float) h - (float) height * num5));
-                  num4 +=  Math.Round((double) num6 / 2.0);
+                  float num5 =  w /  width;
+                  let mut num6: i32 =  Math.Round( ( h -  height * num5));
+                  num4 +=  Math.Round( num6 / 2.0);
                   h -= num6;
                 }
                 else
                 {
-                  float num7 = (float) h / (float) height;
-                  let mut num8: i32 =  Math.Round((double) ((float) w - (float) width * num7));
-                  num3 +=  Math.Round((double) num8 / 2.0);
+                  float num7 =  h /  height;
+                  let mut num8: i32 =  Math.Round( ( w -  width * num7));
+                  num3 +=  Math.Round( num8 / 2.0);
                   w -= num8;
                 }
                 DrawMod.DrawScaled( g,  objBitmap, self.dyn.element[i].x + num3, self.dyn.element[i].y + num4, w, h);
               }
               else
-                DrawMod.DrawSimple( g,  objBitmap, self.dyn.element[i].x + num3 +  Math.Round((double) (w - width) / 2.0), self.dyn.element[i].y + num4 +  Math.Round((double) (h - height) / 2.0));
+                DrawMod.DrawSimple( g,  objBitmap, self.dyn.element[i].x + num3 +  Math.Round( (w - width) / 2.0), self.dyn.element[i].y + num4 +  Math.Round( (h - height) / 2.0));
             }
             else if (self.dyn.element[i].w < objBitmap.Width)
             {
@@ -1032,29 +1032,29 @@ namespace WindowsApplication1
               let mut height: i32 = objBitmap.Height;
               if (width > w | height > h)
               {
-                if ((double) width / (double) w > (double) height / (double) h)
+                if ( width /  w >  height /  h)
                 {
-                  float num11 = (float) w / (float) width;
-                  let mut num12: i32 =  Math.Round((double) ((float) h - (float) height * num11));
-                  num10 +=  Math.Round((double) num12 / 2.0);
+                  float num11 =  w /  width;
+                  let mut num12: i32 =  Math.Round( ( h -  height * num11));
+                  num10 +=  Math.Round( num12 / 2.0);
                   h -= num12;
                 }
                 else
                 {
-                  float num13 = (float) h / (float) height;
-                  let mut num14: i32 =  Math.Round((double) ((float) w - (float) width * num13));
-                  num9 +=  Math.Round((double) num14 / 2.0);
+                  float num13 =  h /  height;
+                  let mut num14: i32 =  Math.Round( ( w -  width * num13));
+                  num9 +=  Math.Round( num14 / 2.0);
                   w -= num14;
                 }
                 DrawMod.DrawScaled( g,  objBitmap, self.dyn.element[i].x + num9, self.dyn.element[i].y + num10, w, h);
               }
               else
-                DrawMod.DrawSimple( g,  objBitmap, self.dyn.element[i].x + num9 +  Math.Round((double) (w - width) / 2.0), self.dyn.element[i].y + num10 +  Math.Round((double) (h - height) / 2.0));
+                DrawMod.DrawSimple( g,  objBitmap, self.dyn.element[i].x + num9 +  Math.Round( (w - width) / 2.0), self.dyn.element[i].y + num10 +  Math.Round( (h - height) / 2.0));
             }
             else if (self.dyn.element[i].color.R == (byte) 0 & self.dyn.element[i].color.G == (byte) 0 & self.dyn.element[i].color.B == (byte) 0)
               DrawMod.DrawSimple( g,  objBitmap, self.dyn.element[i].x, self.dyn.element[i].y);
             else if (self.dyn.element[i].color.A != byte.MaxValue | self.dyn.element[i].color.R != byte.MaxValue | self.dyn.element[i].color.G != byte.MaxValue | self.dyn.element[i].color.B != byte.MaxValue)
-              DrawMod.Draw( g,  objBitmap, self.dyn.element[i].x, self.dyn.element[i].y, (float) self.dyn.element[i].color.R / (float) byte.MaxValue - 1f, (float) self.dyn.element[i].color.G / (float) byte.MaxValue - 1f, (float) self.dyn.element[i].color.B / (float) byte.MaxValue - 1f, (float) self.dyn.element[i].color.A / (float) byte.MaxValue);
+              DrawMod.Draw( g,  objBitmap, self.dyn.element[i].x, self.dyn.element[i].y,  self.dyn.element[i].color.R /  byte.MaxValue - 1f,  self.dyn.element[i].color.G /  byte.MaxValue - 1f,  self.dyn.element[i].color.B /  byte.MaxValue - 1f,  self.dyn.element[i].color.A /  byte.MaxValue);
             else
               DrawMod.DrawSimple( g,  objBitmap, self.dyn.element[i].x, self.dyn.element[i].y);
           }
@@ -1072,11 +1072,11 @@ namespace WindowsApplication1
             let mut h: i32 = self.dyn.element[i].h;
             let mut width: i32 = BitmapStore.GetWidth(self.dyn.element[i].bitmapSlot);
             let mut origh: i32 = BitmapStore.Getheight(self.dyn.element[i].bitmapSlot);
-            double r = (double) ((float) self.dyn.element[i].color.R / (float) byte.MaxValue);
-            double g4 = (double) ((float) self.dyn.element[i].color.G / (float) byte.MaxValue);
-            double b = (double) ((float) self.dyn.element[i].color.B / (float) byte.MaxValue);
-            double a = (double) ((float) self.dyn.element[i].color.A / (float) byte.MaxValue);
-            DrawMod.DrawScaledColorized2( local15,  local16, x, y, w, h, width, origh, (float) r, (float) g4, (float) b, (float) a);
+            double r =  ( self.dyn.element[i].color.R /  byte.MaxValue);
+            double g4 =  ( self.dyn.element[i].color.G /  byte.MaxValue);
+            double b =  ( self.dyn.element[i].color.B /  byte.MaxValue);
+            double a =  ( self.dyn.element[i].color.A /  byte.MaxValue);
+            DrawMod.DrawScaledColorized2( local15,  local16, x, y, w, h, width, origh,  r,  g4,  b,  a);
           }
           else
           {
@@ -1095,7 +1095,7 @@ namespace WindowsApplication1
           if (BitmapStore.GetWidth(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]) > self.dyn.element[i].w)
           {
             if (self.dyn.element[i].h == 0)
-              self.dyn.element[i].h =  Math.Round((double) BitmapStore.Getheight(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]) * ((double) self.dyn.element[i].w / (double) BitmapStore.GetWidth(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx])));
+              self.dyn.element[i].h =  Math.Round( BitmapStore.Getheight(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]) * ( self.dyn.element[i].w /  BitmapStore.GetWidth(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx])));
              let mut local19: &Graphics = &g;
             Bitmap bitmap10 = BitmapStore.GetBitmap(self.game.Data.SmallPicNr[self.dyn.element[i].smallgfx]);
              let mut local20: &Bitmap = &bitmap10;
@@ -1129,7 +1129,7 @@ namespace WindowsApplication1
           if (self.dyn.element[i].w > 0)
           {
             if (self.dyn.element[i].color.A != byte.MaxValue | self.dyn.element[i].color.R != byte.MaxValue | self.dyn.element[i].color.G != byte.MaxValue | self.dyn.element[i].color.B != byte.MaxValue)
-              DrawMod.DrawScaledColorized2( g,  self.bmp[self.bmpLink[i]], self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h, self.bmp[self.bmpLink[i]].Width, self.bmp[self.bmpLink[i]].Height, (float) self.dyn.element[i].color.R / (float) byte.MaxValue, (float) self.dyn.element[i].color.G / (float) byte.MaxValue, (float) self.dyn.element[i].color.B / (float) byte.MaxValue, (float) self.dyn.element[i].color.A / (float) byte.MaxValue);
+              DrawMod.DrawScaledColorized2( g,  self.bmp[self.bmpLink[i]], self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h, self.bmp[self.bmpLink[i]].Width, self.bmp[self.bmpLink[i]].Height,  self.dyn.element[i].color.R /  byte.MaxValue,  self.dyn.element[i].color.G /  byte.MaxValue,  self.dyn.element[i].color.B /  byte.MaxValue,  self.dyn.element[i].color.A /  byte.MaxValue);
             else if (self.bmpLink[i] > -1)
               DrawMod.DrawScaled( g,  self.bmp[self.bmpLink[i]], self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h);
           }
@@ -1156,8 +1156,8 @@ namespace WindowsApplication1
             let mut srcrect: &Rectangle = &rectangle
             trect = Rectangle::new(self.dyn.element[i].x, self.dyn.element[i].y, self.dyn.element[i].w, self.dyn.element[i].h);
             let mut destrect: &Rectangle = &trect
-            double alpha = (double) ((float) self.dyn.element[i].color.A / (float) byte.MaxValue);
-            DrawMod.DrawSimplePartAlpha( local27,  local28, srcrect, destrect, (float) alpha);
+            double alpha =  ( self.dyn.element[i].color.A /  byte.MaxValue);
+            DrawMod.DrawSimplePartAlpha( local27,  local28, srcrect, destrect,  alpha);
           }
           else if (self.dyn.element[i].color.R != byte.MaxValue | self.dyn.element[i].color.G != byte.MaxValue | self.dyn.element[i].color.B != byte.MaxValue)
           {
@@ -1170,10 +1170,10 @@ namespace WindowsApplication1
             let mut h: i32 = self.dyn.element[i].h;
             let mut width: i32 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]).Width;
             let mut height: i32 = BitmapStore.GetBitmap(self.game.Data.EventPicNr[self.dyn.element[i].eventPicture]).Height;
-            double r = (double) ((float) self.dyn.element[i].color.R / (float) byte.MaxValue);
-            double g5 = (double) ((float) self.dyn.element[i].color.G / (float) byte.MaxValue);
-            double b = (double) ((float) self.dyn.element[i].color.B / (float) byte.MaxValue);
-            DrawMod.DrawScaledColorized2( local29,  local30, x, y, w, h, width, height, (float) r, (float) g5, (float) b, (float) byte.MaxValue);
+            double r =  ( self.dyn.element[i].color.R /  byte.MaxValue);
+            double g5 =  ( self.dyn.element[i].color.G /  byte.MaxValue);
+            double b =  ( self.dyn.element[i].color.B /  byte.MaxValue);
+            DrawMod.DrawScaledColorized2( local29,  local30, x, y, w, h, width, height,  r,  g5,  b,  byte.MaxValue);
           }
           else if (self.dyn.element[i].h > 0)
           {
@@ -1189,7 +1189,7 @@ namespace WindowsApplication1
         }
         else if (Conversions.ToDouble(self.dyn.element[i].value) > 0.0 & Operators.CompareString(self.dyn.element[i].mouseOver, "", false) == 0 && Operators.CompareString(self.dyn.element[i].key, "", false) == 0)
         {
-          if (Conversions.ToDouble(self.dyn.element[i].value) > 0.0 & self.dyn.element[i].x > 0 & Conversions.ToDouble(self.dyn.element[i].value) <= (double) self.game.Data.UnitCounter)
+          if (Conversions.ToDouble(self.dyn.element[i].value) > 0.0 & self.dyn.element[i].x > 0 & Conversions.ToDouble(self.dyn.element[i].value) <=  self.game.Data.UnitCounter)
           {
             self.game.CustomBitmapObj.DrawUnitBig(Conversions.ToInteger(self.dyn.element[i].value), toG: g, tx: self.dyn.element[i].x, ty: self.dyn.element[i].y);
           }
@@ -1198,7 +1198,7 @@ namespace WindowsApplication1
             let mut num15: i32 = num15;
           }
         }
-        if (!Information.IsNothing((object) self.dyn.element[i].mouseOver) && firstCall & self.dyn.element[i].mouseOver.Length > 1)
+        if (!Information.IsNothing( self.dyn.element[i].mouseOver) && firstCall & self.dyn.element[i].mouseOver.Length > 1)
         {
           if (self.dyn.element[i].eventNr > 0)
           {
@@ -1223,7 +1223,7 @@ namespace WindowsApplication1
           {
             self += 1.backBitmapCounter;
             self.backBmp[self.backBitmapCounter] = new Bitmap(self.dyn.element[i].w, self.dyn.element[i].h, PixelFormat.Format32bppPArgb);
-            self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
             Expression.CompositingMode = CompositingMode.SourceCopy;
             Graphics graphics = Expression;
@@ -1319,7 +1319,7 @@ namespace WindowsApplication1
           }
           let mut game: GameClass = self.game;
           let mut w2: i32 = self.dyn.element[i].w;
-          let mut trows: i32 =  Math.Round((double) self.dyn.element[i].h / (double) self.dyn.element[i].lineHeight);
+          let mut trows: i32 =  Math.Round( self.dyn.element[i].h /  self.dyn.element[i].lineHeight);
           Font tfont = self.game.DynFont[index];
           tText: String = str1;
           let mut lineHeight2: i32 = self.dyn.element[i].lineHeight;
@@ -1350,7 +1350,7 @@ namespace WindowsApplication1
         {
           self += 1.backBitmapCounter;
           self.backBmp[self.backBitmapCounter] = new Bitmap(self.dyn.element[i].w, self.dyn.element[i].h, PixelFormat.Format32bppPArgb);
-          self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
           Expression = Graphics.FromImage((Image) self.backBmp[self.backBitmapCounter]);
           Expression.CompositingMode = CompositingMode.SourceCopy;
           Graphics graphics = Expression;
@@ -1426,7 +1426,7 @@ namespace WindowsApplication1
           self.AddMouse( trect, "", self.dyn.element[i].mouseOver, i, 2);
         }
       }
-      if (!firstCall || Information.IsNothing((object) Expression))
+      if (!firstCall || Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -1449,7 +1449,7 @@ namespace WindowsApplication1
         }
         self.lastY = self.curY;
       }
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimpleFast( objGraphics,  self.backbitmap,  self.OwnBitmap, 0, 0);
@@ -1465,7 +1465,7 @@ namespace WindowsApplication1
       if (!self.alwaysBlockScrollBar && self.maxY > self.Height)
       {
         let mut x1: i32 = self.Width - 20;
-        let mut num: i32 =  Math.Round((double) (self.Height - 16) * ((double) self.curY / (double) (self.maxY - self.Height)) + 8.0);
+        let mut num: i32 =  Math.Round( (self.Height - 16) * ( self.curY /  (self.maxY - self.Height)) + 8.0);
         if (num > self.Height - 16)
           num = self.Height - 16;
          let mut local1: &Graphics = &objGraphics;
@@ -1577,7 +1577,7 @@ namespace WindowsApplication1
       let mut elementCounter1: i32 = self.dyn.elementCounter;
       for (let mut index1: i32 = 0; index1 <= elementCounter1; index1 += 1)
       {
-        if (!Information.IsNothing((object) self.dyn.element[index1].key) && elementSlotClicked != index1 & self.dyn.element[index1].key.Length > 0)
+        if (!Information.IsNothing( self.dyn.element[index1].key) && elementSlotClicked != index1 & self.dyn.element[index1].key.Length > 0)
         {
           if (self.dyn.element[index1].type == UDSType.Hidden)
             self.game.EditObj.UDSAddInput(self.dyn.element[index1].key, self.dyn.element[index1].value);
@@ -1615,51 +1615,51 @@ namespace WindowsApplication1
       {
         if (x > self.MouseRect[index1].X & x < self.MouseRect[index1].X + self.MouseRect[index1].Width && y > self.MouseRect[index1].Y & y < self.MouseRect[index1].Y + self.MouseRect[index1].Height)
         {
-          float a1 = (float) self.MouseData[index1];
-          if ((double) a1 > -1.0 && !Information.IsNothing((object) self.dyn.element[ Math.Round((double) a1)].key) & (self.MouseType[index1] == 0 | self.MouseType[index1] == 1))
+          float a1 =  self.MouseData[index1];
+          if ( a1 > -1.0 && !Information.IsNothing( self.dyn.element[ Math.Round( a1)].key) & (self.MouseType[index1] == 0 | self.MouseType[index1] == 1))
           {
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_RENAMEUNIT", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round((double) a1)].value)) > -1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_RENAMEUNIT", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round( a1)].value)) > -1)
             {
               self.game.EditObj.interfaceCue = 2;
-              float integer = (float) Conversions.ToInteger(self.dyn.element[ Math.Round((double) a1)].value);
-              str: String = Interaction.InputBox("Give new name for unit", "Rename unit", self.game.Data.UnitObj[ Math.Round((double) integer)].Name);
-              self.game.Data.UnitObj[ Math.Round((double) integer)].Name = str;
-              if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+              float integer =  Conversions.ToInteger(self.dyn.element[ Math.Round( a1)].value);
+              str: String = Interaction.InputBox("Give new name for unit", "Rename unit", self.game.Data.UnitObj[ Math.Round( integer)].Name);
+              self.game.Data.UnitObj[ Math.Round( integer)].Name = str;
+              if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
             float integer1;
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_TEMPRENAME", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round((double) a1)].value)) > -1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_TEMPRENAME", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round( a1)].value)) > -1)
             {
               self.game.EditObj.interfaceCue = 2;
-              integer1 = (float) Conversions.ToInteger(self.dyn.element[ Math.Round((double) a1)].value);
+              integer1 =  Conversions.ToInteger(self.dyn.element[ Math.Round( a1)].value);
               self.game.EditObj.tempRenameString = Interaction.InputBox("Give new name", "Rename", self.game.EditObj.tempRenameString);
-              if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+              if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_TEMPRENAME2", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round((double) a1)].value)) > -1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_TEMPRENAME2", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round( a1)].value)) > -1)
             {
               self.game.EditObj.interfaceCue = 2;
-              integer1 = (float) Conversions.ToInteger(self.dyn.element[ Math.Round((double) a1)].value);
+              integer1 =  Conversions.ToInteger(self.dyn.element[ Math.Round( a1)].value);
               self.game.EditObj.tempRenameString2 = Interaction.InputBox("Give new name", "Rename", self.game.EditObj.tempRenameString2);
-              if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+              if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_TEMPRENAME3", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round((double) a1)].value)) > -1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_TEMPRENAME3", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round( a1)].value)) > -1)
             {
               self.game.EditObj.interfaceCue = 2;
-              integer1 = (float) Conversions.ToInteger(self.dyn.element[ Math.Round((double) a1)].value);
+              integer1 =  Conversions.ToInteger(self.dyn.element[ Math.Round( a1)].value);
               self.game.EditObj.tempRenameString3 = Interaction.InputBox("Give new name", "Rename", self.game.EditObj.tempRenameString3);
-              if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+              if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_RENAMEKEY", false) == 0 & self.dyn.element[ Math.Round((double) a1)].value.Length > 1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_RENAMEKEY", false) == 0 & self.dyn.element[ Math.Round( a1)].value.Length > 1)
             {
               self.game.EditObj.interfaceCue = 2;
               DefaultResponse: String = "";
               let mut elementCounter1: i32 = self.dyn.elementCounter;
               for (let mut index2: i32 = 0; index2 <= elementCounter1; index2 += 1)
               {
-                if (Operators.CompareString(Strings.LCase(self.dyn.element[index2].key), Strings.LCase(self.dyn.element[ Math.Round((double) a1)].value), false) == 0)
+                if (Operators.CompareString(Strings.LCase(self.dyn.element[index2].key), Strings.LCase(self.dyn.element[ Math.Round( a1)].value), false) == 0)
                 {
                   DefaultResponse = self.dyn.element[index2].value;
                   break;
@@ -1669,25 +1669,25 @@ namespace WindowsApplication1
               let mut elementCounter2: i32 = self.dyn.elementCounter;
               for (let mut elementSlotClicked: i32 = 0; elementSlotClicked <= elementCounter2; elementSlotClicked += 1)
               {
-                if (Operators.CompareString(Strings.LCase(self.dyn.element[elementSlotClicked].key), Strings.LCase(self.dyn.element[ Math.Round((double) a1)].value), false) == 0)
+                if (Operators.CompareString(Strings.LCase(self.dyn.element[elementSlotClicked].key), Strings.LCase(self.dyn.element[ Math.Round( a1)].value), false) == 0)
                 {
                   self.dyn.element[elementSlotClicked].value = str;
                   self.SetHiddenAndBaseData(elementSlotClicked, self.dyn.element[elementSlotClicked].key, self.dyn.element[elementSlotClicked].value);
                   break;
                 }
               }
-              if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+              if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
             Color color;
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_RECOLORKEY", false) == 0 & self.dyn.element[ Math.Round((double) a1)].value.Length > 1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_RECOLORKEY", false) == 0 & self.dyn.element[ Math.Round( a1)].value.Length > 1)
             {
               self.game.EditObj.interfaceCue = 2;
               str1: String = "";
               let mut elementCounter3: i32 = self.dyn.elementCounter;
               for (let mut index3: i32 = 0; index3 <= elementCounter3; index3 += 1)
               {
-                if (Operators.CompareString(Strings.LCase(self.dyn.element[index3].key), Strings.LCase(self.dyn.element[ Math.Round((double) a1)].value), false) == 0)
+                if (Operators.CompareString(Strings.LCase(self.dyn.element[index3].key), Strings.LCase(self.dyn.element[ Math.Round( a1)].value), false) == 0)
                 {
                   str1 = self.dyn.element[index3].value;
                   break;
@@ -1712,46 +1712,46 @@ namespace WindowsApplication1
               let mut elementCounter4: i32 = self.dyn.elementCounter;
               for (let mut index4: i32 = 0; index4 <= elementCounter4; index4 += 1)
               {
-                if (Operators.CompareString(Strings.LCase(self.dyn.element[index4].key), Strings.LCase(self.dyn.element[ Math.Round((double) a1)].value), false) == 0)
+                if (Operators.CompareString(Strings.LCase(self.dyn.element[index4].key), Strings.LCase(self.dyn.element[ Math.Round( a1)].value), false) == 0)
                 {
                   self.dyn.element[index4].value = str2;
                   break;
                 }
               }
-              if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+              if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_RECOLORUNIT", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round((double) a1)].value)) > -1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_RECOLORUNIT", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round( a1)].value)) > -1)
             {
               self.game.EditObj.interfaceCue = 2;
-              float integer2 = (float) Conversions.ToInteger(self.dyn.element[ Math.Round((double) a1)].value);
+              float integer2 =  Conversions.ToInteger(self.dyn.element[ Math.Round( a1)].value);
               ColorDialog colorDialog = ColorDialog::new();
-              colorDialog.Color = Color.FromArgb( byte.MaxValue, self.game.Data.UnitObj[ Math.Round((double) integer2)].Red, self.game.Data.UnitObj[ Math.Round((double) integer2)].Green, self.game.Data.UnitObj[ Math.Round((double) integer2)].Blue);
+              colorDialog.Color = Color.FromArgb( byte.MaxValue, self.game.Data.UnitObj[ Math.Round( integer2)].Red, self.game.Data.UnitObj[ Math.Round( integer2)].Green, self.game.Data.UnitObj[ Math.Round( integer2)].Blue);
               if (colorDialog.ShowDialog() == DialogResult.OK)
               {
-                UnitClass unitClass1 = self.game.Data.UnitObj[ Math.Round((double) integer2)];
+                UnitClass unitClass1 = self.game.Data.UnitObj[ Math.Round( integer2)];
                 color = colorDialog.Color;
                 let mut b1: i32 =  color.B;
                 unitClass1.Blue = b1;
-                UnitClass unitClass2 = self.game.Data.UnitObj[ Math.Round((double) integer2)];
+                UnitClass unitClass2 = self.game.Data.UnitObj[ Math.Round( integer2)];
                 color = colorDialog.Color;
                 let mut g: i32 =  color.G;
                 unitClass2.Green = g;
-                UnitClass unitClass3 = self.game.Data.UnitObj[ Math.Round((double) integer2)];
+                UnitClass unitClass3 = self.game.Data.UnitObj[ Math.Round( integer2)];
                 color = colorDialog.Color;
                 let mut r: i32 =  color.R;
                 unitClass3.Red = r;
               }
-              if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+              if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                 return -1;
             }
-            if (Operators.CompareString(self.dyn.element[ Math.Round((double) a1)].key, "HARD_SELECTUNIT", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round((double) a1)].value)) > -1)
+            if (Operators.CompareString(self.dyn.element[ Math.Round( a1)].key, "HARD_SELECTUNIT", false) == 0 &  Math.Round(Conversion.Val(self.dyn.element[ Math.Round( a1)].value)) > -1)
             {
               self.game.EditObj.interfaceCue = 2;
-              float integer3 = (float) Conversions.ToInteger(self.dyn.element[ Math.Round((double) a1)].value);
-              if ((double) integer3 > -1.0)
+              float integer3 =  Conversions.ToInteger(self.dyn.element[ Math.Round( a1)].value);
+              if ( integer3 > -1.0)
               {
-                let mut index5: i32 =  Math.Round((double) integer3);
+                let mut index5: i32 =  Math.Round( integer3);
                 let mut index6: i32 = 0;
                 if (self.game.Data.UnitObj[index5].X > -1)
                 {
@@ -1777,7 +1777,7 @@ namespace WindowsApplication1
                 self.game.EditObj.UnitSelected = index5;
                 self.game.HandyFunctionsObj.SetcornerXY2();
                 self.game.EditObj.TempCoordList = CoordList::new();
-                if (self.dyn.element[ Math.Round((double) a1)].eventNr < 0)
+                if (self.dyn.element[ Math.Round( a1)].eventNr < 0)
                   return -1;
               }
             }
@@ -1809,8 +1809,8 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num4: i32 =  Math.Round((double) self.dyn.element[self.MouseData[index1]].w / (double) (stringListClass.Width + 1));
-                col =  Math.Round(Math.Floor((double) (x - self.dyn.element[self.MouseData[index1]].x) / (double) num4));
+                let mut num4: i32 =  Math.Round( self.dyn.element[self.MouseData[index1]].w /  (stringListClass.Width + 1));
+                col =  Math.Round(Math.Floor( (x - self.dyn.element[self.MouseData[index1]].x) /  num4));
               }
               stringListClass.Sort(col);
               if (DrawMod.TGame.EmpireStyle)
@@ -1842,14 +1842,14 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num7: i32 =  Math.Round((double) self.dyn.element[self.MouseData[index1]].w / (double) (stringListClass.Width + 1));
-                index8 =  Math.Round(Math.Floor((double) (x - self.dyn.element[self.MouseData[index1]].x) / (double) num7));
+                let mut num7: i32 =  Math.Round( self.dyn.element[self.MouseData[index1]].w /  (stringListClass.Width + 1));
+                index8 =  Math.Round(Math.Floor( (x - self.dyn.element[self.MouseData[index1]].x) /  num7));
               }
-              let mut index10: i32 =  Math.Round(Math.Floor((double) (num1 - self.dyn.element[self.MouseData[index1]].lineHeight) / (double) self.dyn.element[self.MouseData[index1]].lineHeight)) + self.dyn.element[self.MouseData[index1]].topRow;
+              let mut index10: i32 =  Math.Round(Math.Floor( (num1 - self.dyn.element[self.MouseData[index1]].lineHeight) /  self.dyn.element[self.MouseData[index1]].lineHeight)) + self.dyn.element[self.MouseData[index1]].topRow;
               if (index10 <= stringListClass.Length)
               {
                 Expression: String = stringListClass.TempDesc[index10, index8];
-                if (!Information.IsNothing((object) Expression))
+                if (!Information.IsNothing( Expression))
                 {
                   string[] strArray = Expression.Split('#');
                   if (strArray.GetUpperBound(0) >= 1)
@@ -1868,7 +1868,7 @@ namespace WindowsApplication1
                       if (strArray.GetUpperBound(0) >= 5)
                       {
                         self.game.EditObj.SetViewModeExtraNr =  Math.Round(Conversion.Val(strArray[4]));
-                        if ((double) self.game.Data.RuleVar[701] > 0.0)
+                        if ( self.game.Data.RuleVar[701] > 0.0)
                         {
                           self.game.EditObj.UnitSelected =  Math.Round(Conversion.Val(strArray[5]));
                           ScreenClass screeny = self.game.FormRef.Screeny;
@@ -1942,8 +1942,8 @@ namespace WindowsApplication1
                     }
                     if (self.dyn.element[i].type == UDSType.TextField)
                     {
-                      float num9 = (float) ( Math.Round(Math.Floor((double) self.dyn.element[parentElement].topRow / (double) self.dyn.element[parentElement].rowsPerPage)) + 1);
-                      float num10 = (float) ( Math.Round(Math.Floor((double) (self.dyn.element[parentElement].totalRows - 1) / (double) self.dyn.element[parentElement].rowsPerPage)) + 1);
+                      float num9 =  ( Math.Round(Math.Floor( self.dyn.element[parentElement].topRow /  self.dyn.element[parentElement].rowsPerPage)) + 1);
+                      float num10 =  ( Math.Round(Math.Floor( (self.dyn.element[parentElement].totalRows - 1) /  self.dyn.element[parentElement].rowsPerPage)) + 1);
                       self.dyn.element[i].texty = "Page " + num9.ToString() + "/" + num10.ToString();
                     }
                     self.DrawElement(i,  g, false, elementSlotClicked == i);
@@ -1960,13 +1960,13 @@ namespace WindowsApplication1
           }
           if (self.MouseType[index1] == 2)
           {
-            float a2 = (float) self.MouseData[index1];
-            if (self.dyn.element[ Math.Round((double) a2)].grayed < 1)
+            float a2 =  self.MouseData[index1];
+            if (self.dyn.element[ Math.Round( a2)].grayed < 1)
             {
               if (DrawMod.TGame.EmpireStyle)
                 SoundMod.PlayAWave(DrawMod.TGame.AppPath + "sound/interface/click.wav",  DrawMod.TGame.EditObj);
               Graphics g = Graphics.FromImage((Image) self.paper);
-              if (self.dyn.element[ Math.Round((double) a2)].flagged)
+              if (self.dyn.element[ Math.Round( a2)].flagged)
               {
                 let mut num11: i32 = 0;
                 let mut num12: i32 = 0;
@@ -1975,10 +1975,10 @@ namespace WindowsApplication1
                 {
                   if (index1 != index11 & self.MouseType[index11] == 2)
                   {
-                    float a3 = (float) self.MouseData[index11];
-                    if (self.dyn.element[ Math.Round((double) a2)].group == self.dyn.element[ Math.Round((double) a3)].group & self.dyn.element[ Math.Round((double) a2)].group > 0)
+                    float a3 =  self.MouseData[index11];
+                    if (self.dyn.element[ Math.Round( a2)].group == self.dyn.element[ Math.Round( a3)].group & self.dyn.element[ Math.Round( a2)].group > 0)
                     {
-                      if (self.dyn.element[ Math.Round((double) a3)].flagged)
+                      if (self.dyn.element[ Math.Round( a3)].flagged)
                       {
                         num12 += 1;
                         num11 += 1;
@@ -1989,84 +1989,84 @@ namespace WindowsApplication1
                   }
                 }
                 if (num12 > 0 | num11 == 0)
-                  self.dyn.element[ Math.Round((double) a2)].flagged = false;
+                  self.dyn.element[ Math.Round( a2)].flagged = false;
               }
               else
-                self.dyn.element[ Math.Round((double) a2)].flagged = true;
+                self.dyn.element[ Math.Round( a2)].flagged = true;
               let mut mouseCounter3: i32 = self.MouseCounter;
               for (let mut index12: i32 = 0; index12 <= mouseCounter3; index12 += 1)
               {
                 if (index1 != index12 & self.MouseType[index12] == 2)
                 {
-                  float a4 = (float) self.MouseData[index12];
-                  if (self.dyn.element[ Math.Round((double) a2)].group == self.dyn.element[ Math.Round((double) a4)].group & self.dyn.element[ Math.Round((double) a2)].group > 0 && self.dyn.element[ Math.Round((double) a2)].flagged)
+                  float a4 =  self.MouseData[index12];
+                  if (self.dyn.element[ Math.Round( a2)].group == self.dyn.element[ Math.Round( a4)].group & self.dyn.element[ Math.Round( a2)].group > 0 && self.dyn.element[ Math.Round( a2)].flagged)
                   {
-                    self.dyn.element[ Math.Round((double) a4)].flagged = false;
-                    self.DrawElement( Math.Round((double) a4),  g, false);
+                    self.dyn.element[ Math.Round( a4)].flagged = false;
+                    self.DrawElement( Math.Round( a4),  g, false);
                   }
                 }
               }
-              if (self.dyn.element[ Math.Round((double) a2)].eventNr > 0)
+              if (self.dyn.element[ Math.Round( a2)].eventNr > 0)
               {
-                if (self.dyn.element[ Math.Round((double) a2)].flagged)
-                  self.SetHiddenAndBaseData( Math.Round((double) a2), self.dyn.element[ Math.Round((double) a2)].key, self.dyn.element[ Math.Round((double) a2)].value);
-                if (!self.dyn.element[ Math.Round((double) a2)].flagged)
-                  self.SetHiddenAndBaseData( Math.Round((double) a2), self.dyn.element[ Math.Round((double) a2)].key, Conversions.ToString(0));
-                return self.dyn.element[ Math.Round((double) a2)].eventNr;
+                if (self.dyn.element[ Math.Round( a2)].flagged)
+                  self.SetHiddenAndBaseData( Math.Round( a2), self.dyn.element[ Math.Round( a2)].key, self.dyn.element[ Math.Round( a2)].value);
+                if (!self.dyn.element[ Math.Round( a2)].flagged)
+                  self.SetHiddenAndBaseData( Math.Round( a2), self.dyn.element[ Math.Round( a2)].key, Conversions.ToString(0));
+                return self.dyn.element[ Math.Round( a2)].eventNr;
               }
-              self.DrawElement( Math.Round((double) a2),  g, false);
+              self.DrawElement( Math.Round( a2),  g, false);
               return -1;
             }
           }
           if (self.MouseType[index1] == 3)
           {
             Graphics g = Graphics.FromImage((Image) self.paper);
-            float a5 = (float) self.MouseData[index1];
-            self.dyn.element[ Math.Round((double) a5)].flagged = !self.dyn.element[ Math.Round((double) a5)].flagged;
-            let mut num13: i32 =  Math.Round(Math.Max(20.0, (double) self.MouseRect[index1].Width / 10.0));
+            float a5 =  self.MouseData[index1];
+            self.dyn.element[ Math.Round( a5)].flagged = !self.dyn.element[ Math.Round( a5)].flagged;
+            let mut num13: i32 =  Math.Round(Math.Max(20.0,  self.MouseRect[index1].Width / 10.0));
             let mut num14: i32 = x - self.MouseRect[index1].X;
             let mut num15: i32 = self.MouseRect[index1].Width - num13;
             int num16;
             if (num14 < self.MouseRect[index1].Height)
             {
-              num16 = Conversions.ToInteger(self.dyn.element[ Math.Round((double) a5)].value) - 1;
-              if (num16 < self.dyn.element[ Math.Round((double) a5)].minvalue)
-                num16 = self.dyn.element[ Math.Round((double) a5)].minvalue;
-              self.scrollelementclicked2 =  Math.Round((double) a5);
+              num16 = Conversions.ToInteger(self.dyn.element[ Math.Round( a5)].value) - 1;
+              if (num16 < self.dyn.element[ Math.Round( a5)].minvalue)
+                num16 = self.dyn.element[ Math.Round( a5)].minvalue;
+              self.scrollelementclicked2 =  Math.Round( a5);
             }
             else if (num14 > self.MouseRect[index1].Width - self.MouseRect[index1].Height)
             {
-              num16 = Conversions.ToInteger(self.dyn.element[ Math.Round((double) a5)].value) + 1;
-              if (num16 > self.dyn.element[ Math.Round((double) a5)].maxvalue)
-                num16 = self.dyn.element[ Math.Round((double) a5)].maxvalue;
-              self.scrollelementclicked2 =  Math.Round((double) a5);
+              num16 = Conversions.ToInteger(self.dyn.element[ Math.Round( a5)].value) + 1;
+              if (num16 > self.dyn.element[ Math.Round( a5)].maxvalue)
+                num16 = self.dyn.element[ Math.Round( a5)].maxvalue;
+              self.scrollelementclicked2 =  Math.Round( a5);
             }
             else
             {
-              if ((double) num14 < (double) num13 / 2.0)
-                num16 = self.dyn.element[ Math.Round((double) a5)].minvalue;
-              else if ((double) num14 > (double) self.MouseRect[index1].Width - (double) num13 / 2.0)
+              if ( num14 <  num13 / 2.0)
+                num16 = self.dyn.element[ Math.Round( a5)].minvalue;
+              else if ( num14 >  self.MouseRect[index1].Width -  num13 / 2.0)
               {
-                num16 = self.dyn.element[ Math.Round((double) a5)].maxvalue;
+                num16 = self.dyn.element[ Math.Round( a5)].maxvalue;
               }
               else
               {
-                let mut num17: i32 =  Math.Round((double) num14 - (double) num13 / 2.0);
-                num16 =  Math.Round((double) (self.dyn.element[ Math.Round((double) a5)].maxvalue - self.dyn.element[ Math.Round((double) a5)].minvalue) * ((double) num17 / (double) num15)) + self.dyn.element[ Math.Round((double) a5)].minvalue;
+                let mut num17: i32 =  Math.Round( num14 -  num13 / 2.0);
+                num16 =  Math.Round( (self.dyn.element[ Math.Round( a5)].maxvalue - self.dyn.element[ Math.Round( a5)].minvalue) * ( num17 /  num15)) + self.dyn.element[ Math.Round( a5)].minvalue;
               }
-              self.scrollelementclicked =  Math.Round((double) a5);
+              self.scrollelementclicked =  Math.Round( a5);
             }
-            self.dyn.element[ Math.Round((double) a5)].value = Conversions.ToString(num16);
-            if (self.AdjustSliders( Math.Round((double) a5)))
+            self.dyn.element[ Math.Round( a5)].value = Conversions.ToString(num16);
+            if (self.AdjustSliders( Math.Round( a5)))
             {
-              float elementCounter = (float) self.dyn.elementCounter;
-              for (float a6 = 0.0f; (double) a6 <= (double) elementCounter; a6 += 1)
+              float elementCounter =  self.dyn.elementCounter;
+              for (float a6 = 0.0f;  a6 <=  elementCounter; a6 += 1)
               {
-                if ((double) a5 != (double) a6 & self.dyn.element[ Math.Round((double) a6)].type == UDSType.Slider & self.dyn.element[ Math.Round((double) a6)].group == self.dyn.element[ Math.Round((double) a5)].group)
-                  self.DrawElement( Math.Round((double) a6),  g, false, true);
+                if ( a5 !=  a6 & self.dyn.element[ Math.Round( a6)].type == UDSType.Slider & self.dyn.element[ Math.Round( a6)].group == self.dyn.element[ Math.Round( a5)].group)
+                  self.DrawElement( Math.Round( a6),  g, false, true);
               }
             }
-            self.DrawElement( Math.Round((double) a5),  g, false, true);
+            self.DrawElement( Math.Round( a5),  g, false, true);
             return -1;
           }
         }
@@ -2091,7 +2091,7 @@ namespace WindowsApplication1
       }
       self.clickscroll = 1;
       self.Scroller = true;
-      self.curY =  Math.Round((double) (self.maxY - self.Height) * ((double) (y - 8) / (double) (self.Height - 16)));
+      self.curY =  Math.Round( (self.maxY - self.Height) * ( (y - 8) /  (self.Height - 16)));
       if (0 > self.curY)
         self.curY = 0;
       if (self.curY > self.maxY - self.Height)
@@ -2107,7 +2107,7 @@ namespace WindowsApplication1
       self.Scroller = true;
       self.clickscroll = 1;
       self.Scroller = true;
-      self.curY =  Math.Round((double) (self.maxY - self.Height) * ((double) (y - 8) / (double) (self.Height - 16)));
+      self.curY =  Math.Round( (self.maxY - self.Height) * ( (y - 8) /  (self.Height - 16)));
       if (0 > self.curY)
         self.curY = 0;
       if (self.curY > self.maxY - self.Height)
@@ -2120,7 +2120,7 @@ namespace WindowsApplication1
       let mut index1: i32 = 0;
       do
       {
-        if (!Information.IsNothing((object) self.bmp[index1]))
+        if (!Information.IsNothing( self.bmp[index1]))
         {
           self.bmp[index1].Dispose();
           self.bmp[index1] = (Bitmap) null;
@@ -2131,7 +2131,7 @@ namespace WindowsApplication1
       let mut upperBound: i32 = self.backBmp.GetUpperBound(0);
       for (let mut index2: i32 = 0; index2 <= upperBound; index2 += 1)
       {
-        if (!Information.IsNothing((object) self.backBmp[index2]))
+        if (!Information.IsNothing( self.backBmp[index2]))
         {
           self.backBmp[index2].Dispose();
           self.backBmp[index2] = (Bitmap) null;
@@ -2149,7 +2149,7 @@ namespace WindowsApplication1
       for (let mut index: i32 = 0; index <= elementCounter; index += 1)
       {
         self.bmpLink[index] = -1;
-        if (!Information.IsNothing((object) self.dyn.element[index].tempPicture) && self.dyn.element[index].type == UDSType.PictureField & self.dyn.element[index].tempPicture.Length > 1)
+        if (!Information.IsNothing( self.dyn.element[index].tempPicture) && self.dyn.element[index].type == UDSType.PictureField & self.dyn.element[index].tempPicture.Length > 1)
         {
           self.bmpLink[index] = -1;
           self.loadSpecificBmp(str + self.dyn.element[index].tempPicture, slot, self.dyn.element[index].rotation);
@@ -2168,7 +2168,7 @@ namespace WindowsApplication1
 
     pub void loadSpecificBmp(string s, int slot, int rotate)
     {
-      if (!Information.IsNothing((object) self.bmp[slot]))
+      if (!Information.IsNothing( self.bmp[slot]))
       {
         self.bmp[slot].Dispose();
         self.bmp[slot] = (Bitmap) null;
@@ -2179,16 +2179,16 @@ namespace WindowsApplication1
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       if (rotate > 0)
       {
-        graphics.TranslateTransform((float) bitmap1.Width / -2f, (float) bitmap1.Height / -2f);
-        graphics.RotateTransform((float) rotate, MatrixOrder.Append);
-        graphics.TranslateTransform((float) bitmap1.Width / 2f, (float) bitmap1.Height / 2f, MatrixOrder.Append);
-        graphics.TranslateTransform((float) (bitmap2.Width - bitmap1.Width) / 2f, (float) (bitmap2.Height - bitmap1.Height) / 2f, MatrixOrder.Append);
+        graphics.TranslateTransform( bitmap1.Width / -2f,  bitmap1.Height / -2f);
+        graphics.RotateTransform( rotate, MatrixOrder.Append);
+        graphics.TranslateTransform( bitmap1.Width / 2f,  bitmap1.Height / 2f, MatrixOrder.Append);
+        graphics.TranslateTransform( (bitmap2.Width - bitmap1.Width) / 2f,  (bitmap2.Height - bitmap1.Height) / 2f, MatrixOrder.Append);
         graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       }
       else
         graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
-      bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       fileStream.Close();
       fileStream.Dispose();
       bitmap1.Dispose();

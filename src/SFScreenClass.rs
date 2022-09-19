@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -20,26 +20,26 @@ namespace WindowsApplication1
       if (this.Game.EditObj.OrderType == 23 | this.Game.Data.CampaignRoom > -1)
       {
         if (this.Game.Data.CampaignRoom > -1)
-          this.wtop = this.AddWindow((WindowClass) new OldResearchWindowClass( tGame, 0),  Math.Round((double) this.Game.ScreenWidth / 2.0 - 500.0),  Math.Round((double) this.Game.ScreenHeight / 2.0 - 375.0), 1024, 768);
+          this.wtop = this.AddWindow((WindowClass) new OldResearchWindowClass( tGame, 0),  Math.Round( this.Game.ScreenWidth / 2.0 - 500.0),  Math.Round( this.Game.ScreenHeight / 2.0 - 375.0), 1024, 768);
         else
-          this.wtop = this.AddWindow((WindowClass) new OldResearchWindowClass( tGame),  Math.Round((double) this.Game.ScreenWidth / 2.0 - 500.0),  Math.Round((double) this.Game.ScreenHeight / 2.0 - 375.0), 1024, 768);
+          this.wtop = this.AddWindow((WindowClass) new OldResearchWindowClass( tGame),  Math.Round( this.Game.ScreenWidth / 2.0 - 500.0),  Math.Round( this.Game.ScreenHeight / 2.0 - 375.0), 1024, 768);
       }
       else if (this.Game.EditObj.OrderType == 47)
-        this.wtop = this.AddWindow((WindowClass) new ModelDesignerWindowClass( tGame),  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
+        this.wtop = this.AddWindow((WindowClass) new ModelDesignerWindowClass( tGame),  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round( (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
       else
-        this.wtop = this.AddWindow((WindowClass) new SFWindowClass( tGame),  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
+        this.wtop = this.AddWindow((WindowClass) new SFWindowClass( tGame),  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round( (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
     }
 
     pub SFScreenClass( GameClass tGame, Form1 tformref, bool Marc)
       : base( tGame, tGame.BACKGROUND3MARC, tformref)
     {
-      let mut x: i32 =  Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-      let mut y: i32 =  Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+      let mut x: i32 =  Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+      let mut y: i32 =  Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
       if (this.Game.EditObj.OrderType == 23 | this.Game.Data.CampaignRoom > -1)
       {
         if (this.Game.Data.CampaignRoom > -1)
         {
-          if ((double) this.Game.Data.RuleVar[839] == 1.0)
+          if ( this.Game.Data.RuleVar[839] == 1.0)
             this.wtop = this.AddWindow((WindowClass) new PlayResearchWindowClass( tGame, true), x, y, 1024, 768);
           else
             this.wtop = this.AddWindow((WindowClass) new PlayResearchWindowClass( tGame, 0), x, y, 1024, 768);
@@ -48,9 +48,9 @@ namespace WindowsApplication1
           this.wtop = this.AddWindow((WindowClass) new PlayResearchWindowClass( tGame), x, y, 1024, 768);
       }
       else if (this.Game.EditObj.OrderType == 47)
-        this.wtop = this.AddWindow((WindowClass) new ModelDesignerWindowClass( tGame),  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
+        this.wtop = this.AddWindow((WindowClass) new ModelDesignerWindowClass( tGame),  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round( (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
       else
-        this.wtop = this.AddWindow((WindowClass) new SFWindowClass( tGame),  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
+        this.wtop = this.AddWindow((WindowClass) new SFWindowClass( tGame),  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0),  Math.Round( (this.Game.ScreenHeight - 768) / 2.0), 1024, 768);
     }
 
     pub ScreenReturnClass HandleTimer()
@@ -101,7 +101,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         this.Game.Data = DataClass::new();
         this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");

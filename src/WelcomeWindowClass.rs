@@ -4,16 +4,16 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Diagnostics;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -178,7 +178,7 @@ namespace WindowsApplication1
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.TextContrast = 1;
-      tstring: String = "v " + Conversion.Str((object) 110) + Strings.Trim(".04b");
+      tstring: String = "v " + Conversion.Str( 110) + Strings.Trim(".04b");
       DrawMod.DrawTextColouredMarc( objgraphics, tstring, self.game.GameFont1, 5, 5, Color.White);
       self.dobuttons(0);
     }
@@ -193,16 +193,16 @@ namespace WindowsApplication1
        let mut local1: &Graphics = &graphics;
       Bitmap bitmap = BitmapStore.GetBitmap(self.game.MARCINTRO2);
        let mut local2: &Bitmap = &bitmap;
-      let mut x: i32 =  Math.Round((double) (1024 - BitmapStore.GetWidth(self.game.MARCINTRO2)) / 2.0);
+      let mut x: i32 =  Math.Round( (1024 - BitmapStore.GetWidth(self.game.MARCINTRO2)) / 2.0);
       DrawMod.DrawSimple( local1,  local2, x, 50);
-      str1: String = "v " + Strings.Trim(Conversion.Str((object) 110)) + Strings.Trim(".04b");
+      str1: String = "v " + Strings.Trim(Conversion.Str( 110)) + Strings.Trim(".04b");
       DrawMod.DrawTextColouredMarc( graphics, str1, self.game.GameFont1, 5, 5, Color.White);
       SizeF sizeF2 = graphics.MeasureString(str1, self.game.GameFont1);
-      DrawMod.DrawBlock( graphics, 5, 25,  Math.Round((double) sizeF2.Width),  Math.Round((double) sizeF2.Height),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+      DrawMod.DrawBlock( graphics, 5, 25,  Math.Round( sizeF2.Width),  Math.Round( sizeF2.Height),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       DrawMod.DrawTextColoured( graphics, str1, self.game.GameFont1, 5, 25, Color.Black);
       str2: String = "Please remember: Scenarios saved with this editor can only be loaded in this editor! Distribution has to go through Vic! :)";
       SizeF sizeF3 = graphics.MeasureString(str2, self.game.GameFont1);
-      DrawMod.DrawBlock( graphics, 5, 50,  Math.Round((double) sizeF3.Width),  Math.Round((double) sizeF3.Height), 0, 0, 200,  byte.MaxValue);
+      DrawMod.DrawBlock( graphics, 5, 50,  Math.Round( sizeF3.Width),  Math.Round( sizeF3.Height), 0, 0, 200,  byte.MaxValue);
       DrawMod.DrawTextColoured( graphics, str2, self.game.GameFont1, 5, 50, Color.White);
       self.dobuttons(0);
     }
@@ -226,14 +226,14 @@ namespace WindowsApplication1
               tfont = Font::new("Arial", 14f, FontStyle.Regular, GraphicsUnit.Pixel);
             if (flag2)
             {
-              DrawMod.DrawTextColouredMarc( graphics, self.game.ModButText[index1], tfont,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], Color.White);
-              DrawMod.DrawBlock( graphics,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1] + 20, 200, 2,  byte.MaxValue, 0, 0, 200);
+              DrawMod.DrawTextColouredMarc( graphics, self.game.ModButText[index1], tfont,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], Color.White);
+              DrawMod.DrawBlock( graphics,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1] + 20, 200, 2,  byte.MaxValue, 0, 0, 200);
             }
             else
             {
-              DrawMod.DrawTextColouredOutline( graphics, self.game.ModButText[index1], tfont,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], Color.White);
-              DrawMod.DrawBlock( graphics,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]) + 1, top + self.game.ModButY[index1] + 21, 200, 2,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 200);
-              DrawMod.DrawBlock( graphics,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1] + 20, 200, 2,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 200);
+              DrawMod.DrawTextColouredOutline( graphics, self.game.ModButText[index1], tfont,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], Color.White);
+              DrawMod.DrawBlock( graphics,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]) + 1, top + self.game.ModButY[index1] + 21, 200, 2,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 200);
+              DrawMod.DrawBlock( graphics,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1] + 20, 200, 2,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 200);
             }
           }
           else if (self.game.ModButSize[index1] == 8)
@@ -243,8 +243,8 @@ namespace WindowsApplication1
               usefont =  null;
             int[] opti = self.opti;
             let mut index2: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 200, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 25, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 200, 25, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 200, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 25, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 200, 25, 1);
             opti[index2] = num;
           }
           else if (self.game.ModButSize[index1] == 7)
@@ -254,8 +254,8 @@ namespace WindowsApplication1
               usefont =  null;
             int[] opti = self.opti;
             let mut index3: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 200, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 30, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 200, 30, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 200, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 30, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 200, 30, 1);
             opti[index3] = num;
           }
           else if (self.game.ModButSize[index1] == 6)
@@ -265,8 +265,8 @@ namespace WindowsApplication1
               usefont =  null;
             int[] opti = self.opti;
             let mut index4: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 250, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 50, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 250, 50, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 250, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 50, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 250, 50, 1);
             opti[index4] = num;
           }
           else if (self.game.ModButSize[index1] == 5)
@@ -276,40 +276,40 @@ namespace WindowsApplication1
               usefont =  null;
             int[] opti = self.opti;
             let mut index5: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 250, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 50, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 250, 50, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 250, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 50, usefont: usefont, useshadow: flag2, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 250, 50, 1);
             opti[index5] = num;
           }
           else if (self.game.ModButSize[index1] == 4)
           {
             int[] opti = self.opti;
             let mut index6: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 400, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 50, tfontsize: 16, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 400, 50, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 400, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 50, tfontsize: 16, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 400, 50, 1);
             opti[index6] = num;
           }
           else if (self.game.ModButSize[index1] == 3)
           {
             int[] opti = self.opti;
             let mut index7: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 300, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), tfontsize: 14, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 300, 35, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 300, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), tfontsize: 14, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 300, 35, 1);
             opti[index7] = num;
           }
           else if (self.game.ModButSize[index1] == 2)
           {
             int[] opti = self.opti;
             let mut index8: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 200, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 25, tfontsize: 12, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 200, 25, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 200, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 25, tfontsize: 12, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 200, 25, 1);
             opti[index8] = num;
           }
           else if (self.game.ModButSize[index1] == 1)
           {
             int[] opti = self.opti;
             let mut index9: i32 = index1;
-            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 100, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 15, tfontsize: 10, tMarcStyle: flag2);
-            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round((double) self.OwnBitmap.Width / 2.0 + (double) self.game.ModButX[index1]), top + self.game.ModButY[index1], 100, 15, 1);
+            let mut tsubpart: SubPartClass =  new TextButtonPartClass(self.game.ModButText[index1], 100, tBackbitmap: ( self.BackBitmap), bbx: ( Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1])), bby: (top + self.game.ModButY[index1]), tinactive: (!flag1), theight: 15, tfontsize: 10, tMarcStyle: flag2);
+            let mut num: i32 = self.AddSubPart( tsubpart,  Math.Round( self.OwnBitmap.Width / 2.0 +  self.game.ModButX[index1]), top + self.game.ModButY[index1], 100, 15, 1);
             opti[index9] = num;
           }
         }
@@ -377,7 +377,7 @@ namespace WindowsApplication1
                 catch (Exception ex)
                 {
                   ProjectData.SetProjectError(ex);
-                  let mut num: i32 =  Interaction.MsgBox((object) "Your system does not allow Shadow Empire : Planetary Conquest to open a browser.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num: i32 =  Interaction.MsgBox( "Your system does not allow Shadow Empire : Planetary Conquest to open a browser.", Title: ( "Shadow Empire : Planetary Conquest"));
                   ProjectData.ClearProjectError();
                 }
                 return windowReturnClass1;
@@ -416,7 +416,7 @@ namespace WindowsApplication1
                 let mut theight: i32 = Operators.CompareString(Strings.Trim(str2), "", false) == 0 ? 0 : Conversions.ToInteger(str2);
                 if (twidth < 10 | theight < 10 | twidth > 200 | theight > 200)
                 {
-                  let mut num: i32 =  Interaction.MsgBox((object) "Cannot comply. Width and Height must be between 10 and 200", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num: i32 =  Interaction.MsgBox( "Cannot comply. Width and Height must be between 10 and 200", Title: ( "Shadow Empire : Planetary Conquest"));
                   return windowReturnClass1;
                 }
                 self.game.FormRef.Cursor = Cursors.WaitCursor;
@@ -463,7 +463,7 @@ namespace WindowsApplication1
                     masterFile: String = self.game.Data.MasterFile;
                     self.game.HandyFunctionsObj.LoadMasterFile(self.game.HandyFunctionsObj.ReturnLongMaster(str, masterFile));
                   }
-                  if ((double) self.game.Data.RuleVar[344] == 1.0 & self.game.EditObj.HideUnit == 0)
+                  if ( self.game.Data.RuleVar[344] == 1.0 & self.game.EditObj.HideUnit == 0)
                     self.game.EditObj.HideUnit = 2;
                   self.game.EditObj.TempValue = new MapMatrix2[self.game.Data.MapCounter + 1];
                   self.game.EditObj.TempValue2 = new MapMatrix2[self.game.Data.MapCounter + 1];
@@ -479,7 +479,7 @@ namespace WindowsApplication1
                     self.game.Data.LoadGraphics((Form1) null);
                     self.game.CustomBitmapObj.MakeMiniMap(self.game.EditObj.MiniMap, 200, 150, false);
                     self.game.EditObj.StratMap = new Bitmap(self.game.ScreenWidth, self.game.ScreenHeight - 305);
-                    self.game.EditObj.StratMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+                    self.game.EditObj.StratMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
                     self.game.CustomBitmapObj.MakeMiniMap(self.game.EditObj.StratMap, self.game.ScreenWidth, self.game.ScreenHeight - 305, false, true, false);
                     SoundMod.StopWave();
                     self.game.FormRef.Cursor = Cursors.Default;
@@ -494,7 +494,7 @@ namespace WindowsApplication1
                       self.game.FormRef.Cursor = Cursors.Default;
                       self.game.EventRelatedObj.DoCheckEvents(4);
                       self.game.ProcessingObj.LocationProductionPrognosis();
-                      if ((double) self.game.Data.RuleVar[839] == 0.0)
+                      if ( self.game.Data.RuleVar[839] == 0.0)
                         windowReturnClass1.AddCommand(3, 3);
                       else
                         windowReturnClass1.AddCommand(3, 11);
@@ -506,11 +506,11 @@ namespace WindowsApplication1
                     self.game.FormRef.Cursor = Cursors.Default;
                     if (Operators.CompareString(Strings.LCase(Interaction.InputBox("This File is protected by a load password. Please give it in order to load it.", "Shadow Empire : Planetary Conquest")), Strings.LCase(self.game.Data.LoadPass), false) == 0)
                     {
-                      let mut num1: i32 =  Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num1: i32 =  Interaction.MsgBox( "You are cleared.", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
-                      let mut num2: i32 =  Interaction.MsgBox((object) "Wrong Password. You cannot Load this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num2: i32 =  Interaction.MsgBox( "Wrong Password. You cannot Load this file", Title: ( "Shadow Empire : Planetary Conquest"));
                       self.game.Data = DataClass::new();
                       self.RemoveSubPart(self.TempText);
                       let mut tsubpart: SubPartClass =  TextPartClass::new(self.game.Data.Name + " is loaded instead.", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, true);
@@ -530,7 +530,7 @@ namespace WindowsApplication1
                 }
                 if (Strings.Len(str) > 1)
                 {
-                  let mut num: i32 =  Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num: i32 =  Interaction.MsgBox( "File could not be found or op. is cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass1;
               }
@@ -546,11 +546,11 @@ namespace WindowsApplication1
     pub void Import()
     {
       str: String = self.game.HandyFunctionsObj.LoadSomething("AT Zip Package File (*.atzip)|*.atzip|AT2 file(*.at2)|*.at2|Regular Zip(*.zip)|*.zip", "Pick a zip archive or scenario file to install.", self.game.AppPath, false);
-      if (Information.IsNothing((object) str))
+      if (Information.IsNothing( str))
         return;
       if (Strings.InStr(str, ".zip") > 0 | Strings.InStr(str, ".atzip") > 0)
       {
-        let mut num1: i32 =  Interaction.MsgBox((object) "Hold on... this can take some time", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =  Interaction.MsgBox( "Hold on... this can take some time", Title: ( "Shadow Empire : Planetary Conquest"));
         self.game.FormRef.Cursor = Cursors.WaitCursor;
         try
         {
@@ -559,23 +559,23 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          let mut num2: i32 =  Interaction.MsgBox((object) "Error in unpacking. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num2: i32 =  Interaction.MsgBox( "Error in unpacking. ", Title: ( "Shadow Empire : Planetary Conquest"));
           ProjectData.ClearProjectError();
           return;
         }
         self.game.FormRef.Cursor = Cursors.Default;
-        let mut num3: i32 =  Interaction.MsgBox((object) "Succesfully unpacked the .zip archive.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num3: i32 =  Interaction.MsgBox( "Succesfully unpacked the .zip archive.", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
-        if (Information.IsNothing((object) str))
+        if (Information.IsNothing( str))
           return;
         path: String = self.game.AppPath + self.game.ModScenarioDir + "/DOWNLOADED_SCENARIOS/";
         if (!Directory.Exists(path))
           Directory.CreateDirectory(path);
         destFileName: String = path + Path.GetFileName(str);
         File.Copy(str, destFileName, true);
-        let mut num: i32 =  Interaction.MsgBox((object) "Succesfully placed the file in the downloaded scenarios directory.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =  Interaction.MsgBox( "Succesfully placed the file in the downloaded scenarios directory.", Title: ( "Shadow Empire : Planetary Conquest"));
       }
     }
   }

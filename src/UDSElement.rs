@@ -4,7 +4,7 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System.Drawing;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -35,8 +35,8 @@ namespace WindowsApplication1
     pub optionevent: i32;
     pub optiontitle: String;
     pub optiontext: String;
-    pub int[] optiontempvar;
-    pub bool[] optiontempvarOn;
+    pub optiontempvar: Vec<i32>;
+    pub optiontempvarOn: Vec<bool>;
     pub eventNr: i32;
     pub grayed: i32;
     pub key: String;

@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.Serialization;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.Serialization;
 
 namespace WindowsApplication1
 {
@@ -16,9 +16,9 @@ namespace WindowsApplication1
   {
     pub Name: String;
     pub People: i32;
-    pub int[] Production;
-    pub int[] ProdPercent;
-    pub int[] TempProdPredict;
+    pub Production: Vec<i32>;
+    pub ProdPercent: Vec<i32>;
+    pub TempProdPredict: Vec<i32>;
     pub HQ: i32;
     pub Type: i32;
     pub X: i32;
@@ -27,8 +27,8 @@ namespace WindowsApplication1
     pub ID: i32;
     pub LocSlot: i32;
     pub StructuralPts: i32;
-    pub int[] ProdPointRemainder;
-    pub int[] Reorg;
+    pub ProdPointRemainder: Vec<i32>;
+    pub Reorg: Vec<i32>;
     pub ItemList items;
     pub SimpleList tempReserveItems;
     pub SimpleList tempRequestItems;
@@ -36,10 +36,10 @@ namespace WindowsApplication1
     pub SimpleList tempLIS;
     pub SimpleList tempLISfreeAP;
     pub LogCounter: i32;
-    pub int[] LogType;
-    pub int[] LogData1;
-    pub int[] LogData2;
-    pub int[] LogData3;
+    pub LogType: Vec<i32>;
+    pub LogData1: Vec<i32>;
+    pub LogData2: Vec<i32>;
+    pub LogData3: Vec<i32>;
     pub supply: i32;
     pub fuel: i32;
     pub supplyReq: i32;
@@ -64,24 +64,24 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
+      info.AddValue("Name",  this.Name);
       info.AddValue("People", this.People);
-      info.AddValue("Production", (object) this.Production);
+      info.AddValue("Production",  this.Production);
       info.AddValue("HQ", this.HQ);
       info.AddValue("Type", this.Type);
       info.AddValue("X", this.X);
       info.AddValue("Y", this.Y);
       info.AddValue("StructuralPts", this.StructuralPts);
-      info.AddValue("ProdPointRemainder", (object) this.ProdPointRemainder);
-      info.AddValue("ProdPercent", (object) this.ProdPercent);
+      info.AddValue("ProdPointRemainder",  this.ProdPointRemainder);
+      info.AddValue("ProdPercent",  this.ProdPercent);
       info.AddValue("Map", this.Map);
       info.AddValue("ID", this.ID);
-      info.AddValue("items", (object) this.items);
+      info.AddValue("items",  this.items);
       info.AddValue("LogCounter", this.LogCounter);
-      info.AddValue("LogType", (object) this.LogType);
-      info.AddValue("LogData1", (object) this.LogData1);
-      info.AddValue("LogData2", (object) this.LogData2);
-      info.AddValue("LogData3", (object) this.LogData3);
+      info.AddValue("LogType",  this.LogType);
+      info.AddValue("LogData1",  this.LogData1);
+      info.AddValue("LogData2",  this.LogData2);
+      info.AddValue("LogData3",  this.LogData3);
       info.AddValue("isAirfield", this.isAirfield);
       info.AddValue("supply", this.supply);
       info.AddValue("fuel", this.fuel);
@@ -155,7 +155,7 @@ namespace WindowsApplication1
       {
         this.items = ItemList::new();
         this.items = (ItemList) info.GetValue(nameof (items), this.items.GetType());
-        if (Information.IsNothing((object) this.items))
+        if (Information.IsNothing( this.items))
           this.items = ItemList::new();
       }
       catch (Exception ex)

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -302,14 +302,14 @@ namespace WindowsApplication1
           str1: String = tText + "This is a concept. \r\n" + "Designing a model based on it is possible.\r\n";
           string str2;
           if (this.game.Data.SFTypeObj[this.detailnr].ModelCostType == -1)
-            str2 = str1 + "This costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempNewCost) + " PP.\r\n";
+            str2 = str1 + "This costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempNewCost) + " PP.\r\n";
           else
-            str2 = str1 + "This costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempNewCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
-          tText = str2 + "A new model will use " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempNewLevels) + " new core research levels and " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " improvement research fields.";
+            str2 = str1 + "This costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempNewCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
+          tText = str2 + "A new model will use " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempNewLevels) + " new core research levels and " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " improvement research fields.";
         }
         else if (this.game.Data.SFTypeObj[this.detailnr].TempUpgradeCost > -1)
         {
-          str3: String = tText + "This is a model you can upgrade. " + "It uses " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelLevel)) + " core research levels. " + "Its Mark " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelMark)) + ". Its Version " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelVersion));
+          str3: String = tText + "This is a model you can upgrade. " + "It uses " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelLevel)) + " core research levels. " + "Its Mark " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelMark)) + ". Its Version " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelVersion));
           let mut num5: i32 = 0;
           let mut researchCounter: i32 = this.game.Data.ResearchCounter;
           for (let mut index: i32 = 0; index <= researchCounter; index += 1)
@@ -327,22 +327,22 @@ namespace WindowsApplication1
           str4: String = str3 + "\r\n";
           string str5;
           if (this.game.Data.SFTypeObj[this.detailnr].ModelCostType == -1)
-            str5 = str4 + "Upgrade costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempUpgradeCost) + " PP.\r\n";
+            str5 = str4 + "Upgrade costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempUpgradeCost) + " PP.\r\n";
           else
-            str5 = str4 + "Upgrade costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempUpgradeCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
-          tText = str5 + "A upgraded model will use " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempUpgradeLevels) + " new core research levels and " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " improvement research fields.";
+            str5 = str4 + "Upgrade costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempUpgradeCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
+          tText = str5 + "A upgraded model will use " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempUpgradeLevels) + " new core research levels and " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " improvement research fields.";
           if (this.game.Data.SFTypeObj[this.detailnr].TempImproveCost > -1)
           {
-            str6: String = tText + "\r\n" + "Improving it will use " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " new improvement research levels." + "\r\n";
+            str6: String = tText + "\r\n" + "Improving it will use " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " new improvement research levels." + "\r\n";
             if (this.game.Data.SFTypeObj[this.detailnr].ModelCostType == -1)
-              tText = str6 + "It can be improved upon. Improving this model costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " PP.\r\n";
+              tText = str6 + "It can be improved upon. Improving this model costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " PP.\r\n";
             else
-              tText = str6 + "It can be improved upon. Improving this model costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
+              tText = str6 + "It can be improved upon. Improving this model costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
           }
         }
         else if (this.game.Data.SFTypeObj[this.detailnr].TempImproveCost > -1)
         {
-          str7: String = tText + "This is a model you have developed..\r\n" + "It uses " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelLevel)) + " core research levels." + "\r\n" + "Its Mark " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelMark)) + ". Its Version " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelVersion));
+          str7: String = tText + "This is a model you have developed..\r\n" + "It uses " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelLevel)) + " core research levels." + "\r\n" + "Its Mark " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelMark)) + ". Its Version " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelVersion));
           let mut num6: i32 = 0;
           let mut researchCounter: i32 = this.game.Data.ResearchCounter;
           for (let mut index: i32 = 0; index <= researchCounter; index += 1)
@@ -357,15 +357,15 @@ namespace WindowsApplication1
               str7 += this.game.Data.ResearchObj[index].Name;
             }
           }
-          str8: String = str7 + "\r\n" + "Improving it will use " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " new improvement research levels." + "\r\n";
+          str8: String = str7 + "\r\n" + "Improving it will use " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImprovementFields) + " new improvement research levels." + "\r\n";
           if (this.game.Data.SFTypeObj[this.detailnr].ModelCostType == -1)
-            tText = str8 + "It can be improved upon. Improving this model costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " PP.\r\n";
+            tText = str8 + "It can be improved upon. Improving this model costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " PP.\r\n";
           else
-            tText = str8 + "It can be improved upon. Improving this model costs " + Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
+            tText = str8 + "It can be improved upon. Improving this model costs " + Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].TempImproveCost) + " " + this.game.Data.RegimeSlotName[this.game.Data.SFTypeObj[this.detailnr].ModelCostType] + "\r\n";
         }
         else if (this.game.Data.SFTypeObj[this.detailnr].ModelID > 0 & this.game.Data.SFTypeObj[this.detailnr].ModelRegime == this.game.Data.Turn)
         {
-          str: String = tText + "This is a model you have developed..\r\n" + "It uses " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelLevel)) + " core research levels." + "\r\n" + "Its Mark " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelMark)) + ". Its Version " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.detailnr].ModelVersion));
+          str: String = tText + "This is a model you have developed..\r\n" + "It uses " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelLevel)) + " core research levels." + "\r\n" + "Its Mark " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelMark)) + ". Its Version " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.detailnr].ModelVersion));
           let mut num7: i32 = 0;
           let mut researchCounter: i32 = this.game.Data.ResearchCounter;
           for (let mut index: i32 = 0; index <= researchCounter; index += 1)
@@ -472,7 +472,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -518,7 +518,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num2: i32 =  Interaction.MsgBox((object) "Cancelled");
+              let mut num2: i32 =  Interaction.MsgBox( "Cancelled");
             }
             else
             {
@@ -665,7 +665,7 @@ namespace WindowsApplication1
       }
       if (Number <= 0)
         return;
-      let mut num: i32 =  Interaction.MsgBox((object) ("Automatically switched " + Conversion.Str((object) Number) + " production line(s)."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num: i32 =  Interaction.MsgBox( ("Automatically switched " + Conversion.Str( Number) + " production line(s)."), Title: ( "Shadow Empire : Planetary Conquest"));
     }
   }
 }

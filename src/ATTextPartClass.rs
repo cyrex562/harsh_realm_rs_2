@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -53,11 +53,11 @@ namespace WindowsApplication1
       SizeF sizeF2 = Expression.MeasureString(this.OwnText, this.OwnFont);
       int x;
       int y;
-      if ((double) sizeF2.Width <= (double) this.OwnBitmap.Width)
+      if ( sizeF2.Width <=  this.OwnBitmap.Width)
       {
         if (this.CenterIt)
-          x = (int) Math.Round((double) Conversion.Int((float) (((double) this.OwnBitmap.Width - (double) sizeF2.Width) / 2.0)));
-        y = (int) Math.Round((double) Conversion.Int((float) (((double) this.OwnBitmap.Height - (double) sizeF2.Height) / 2.0)));
+          x = (int) Math.Round( Conversion.Int( (( this.OwnBitmap.Width -  sizeF2.Width) / 2.0)));
+        y = (int) Math.Round( Conversion.Int( (( this.OwnBitmap.Height -  sizeF2.Height) / 2.0)));
       }
       sizeF1 = SizeF::new();
       if (this.BlackBack)
@@ -66,17 +66,17 @@ namespace WindowsApplication1
         {
           DrawMod.DrawBlock(ref Expression, 0, 0, this.OwnBitmap.Width - 1, this.OwnBitmap.Height - 1, (int) DrawMod.TGame.VicColor4.R, (int) DrawMod.TGame.VicColor4.G, (int) DrawMod.TGame.VicColor4.B, (int) DrawMod.TGame.VicColor4.A);
           if (this.progress > -1)
-            DrawMod.DrawBlock(ref Expression, 0, 0, (int) Math.Round((double) this.OwnBitmap.Width * ((double) this.progress / 100.0)), this.OwnBitmap.Height - 1, (int) byte.MaxValue, 0, 0, 105);
+            DrawMod.DrawBlock(ref Expression, 0, 0, (int) Math.Round( this.OwnBitmap.Width * ( this.progress / 100.0)), this.OwnBitmap.Height - 1, (int) byte.MaxValue, 0, 0, 105);
         }
         else
         {
           if (this.progress > -1)
-            DrawMod.DrawBlock(ref Expression, 5, 5, (int) Math.Round((double) (this.OwnBitmap.Width - 10) * ((double) this.progress / 100.0)), this.OwnBitmap.Height - 10 - 1, (int) byte.MaxValue, 0, 0, 105);
+            DrawMod.DrawBlock(ref Expression, 5, 5, (int) Math.Round( (this.OwnBitmap.Width - 10) * ( this.progress / 100.0)), this.OwnBitmap.Height - 10 - 1, (int) byte.MaxValue, 0, 0, 105);
           DrawMod.DrawFrame(ref this.OwnBitmap, ref this.OwnBitmap, ref Expression, 0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height, -1, -1);
         }
       }
       DrawMod.DrawTextVic2(ref Expression, this.OwnText, this.OwnFont, x, y, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }

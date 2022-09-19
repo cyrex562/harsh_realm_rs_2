@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -160,12 +160,12 @@ namespace WindowsApplication1
       let mut num2: i32 =  -1;
       let mut tlistselect2: i32 =  -1;
       if (this.game.Data.VPWin > 0)
-        this.OptionsList2Obj.add("VP Win", -1, Conversion.Str((object) this.game.Data.VPWin));
+        this.OptionsList2Obj.add("VP Win", -1, Conversion.Str( this.game.Data.VPWin));
       let mut tdata1: i32 =  0;
       do
       {
         if (this.game.Data.GameSlotShow[tdata1])
-          this.OptionsList2Obj.add(this.game.Data.GameSlotName[tdata1], tdata1, Conversion.Str((object) this.game.Data.GameSlot[tdata1]));
+          this.OptionsList2Obj.add(this.game.Data.GameSlotName[tdata1], tdata1, Conversion.Str( this.game.Data.GameSlot[tdata1]));
         tdata1 += 1;
       }
       while (tdata1 <= 499);
@@ -193,8 +193,8 @@ namespace WindowsApplication1
           this.OptionsList3Obj = ATListClass::new();
           this.OptionsList3Obj.add("Name", -1, this.game.Data.RegimeObj[this.detailnr].Name);
           this.OptionsList3Obj.add("People", -1, this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.detailnr].People].Name);
-          this.OptionsList3Obj.add("BaseMor", -1, Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].BaseMorale)));
-          tvalue = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetRegimeVP(this.detailnr)));
+          this.OptionsList3Obj.add("BaseMor", -1, Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.detailnr].BaseMorale)));
+          tvalue = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetRegimeVP(this.detailnr)));
           this.OptionsList3Obj.add("VP", -1, tvalue);
           if (this.game.Data.RegimeObj[this.detailnr].Sleep)
             this.OptionsList3Obj.add("Sleeping", -1, "Yes");
@@ -203,12 +203,12 @@ namespace WindowsApplication1
           if (this.game.Data.RegimeObj[this.detailnr].AI)
           {
             this.OptionsList3Obj.add("AI", -1, "Yes");
-            this.OptionsList3Obj.add("Prod Bonus", -1, Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].ProdBonus)) + "%");
+            this.OptionsList3Obj.add("Prod Bonus", -1, Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.detailnr].ProdBonus)) + "%");
           }
           else if (this.game.Data.RegimeObj[this.detailnr].Version == 0)
             this.OptionsList3Obj.add("Version", -1, "?");
           else
-            this.OptionsList3Obj.add("Version", -1, Strings.Trim(Conversion.Str((object) ((double) (this.game.Data.RegimeObj[this.detailnr].Version - 314) / 100.0))));
+            this.OptionsList3Obj.add("Version", -1, Strings.Trim(Conversion.Str( ( (this.game.Data.RegimeObj[this.detailnr].Version - 314) / 100.0))));
           if (this.OptionsList3Id > 0)
           {
             this.SubPartList[this.SubpartNr(this.OptionsList3Id)].Refresh(this.OptionsList3Obj, tlistselect2);
@@ -258,12 +258,12 @@ namespace WindowsApplication1
             if (this.detailnr == this.game.Data.Turn)
             {
               if (this.game.Data.RegimeObj[this.detailnr].TempPPIncrease > 0)
-                this.OptionsList5Obj.add("PP", -1, Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].ResPts), ".", "+" + Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].TempPPIncrease)));
+                this.OptionsList5Obj.add("PP", -1, Conversion.Str( this.game.Data.RegimeObj[this.detailnr].ResPts), ".", "+" + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.detailnr].TempPPIncrease)));
               else
-                this.OptionsList5Obj.add("PP", -1, Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].ResPts), ".", "0");
+                this.OptionsList5Obj.add("PP", -1, Conversion.Str( this.game.Data.RegimeObj[this.detailnr].ResPts), ".", "0");
             }
             else
-              this.OptionsList5Obj.add("PP", -1, Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].ResPts), ".", ".");
+              this.OptionsList5Obj.add("PP", -1, Conversion.Str( this.game.Data.RegimeObj[this.detailnr].ResPts), ".", ".");
             let mut tdata2: i32 =  0;
             do
             {
@@ -271,10 +271,10 @@ namespace WindowsApplication1
               tvalue3: String = ".";
               let mut Number1: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[tdata2] - this.game.Data.RegimeObj[this.game.Data.Turn].TempRegimeSlotPredict[tdata2];
               if (Number1 > 0)
-                tvalue2 = "-" + Strings.Trim(Conversion.Str((object) Number1));
+                tvalue2 = "-" + Strings.Trim(Conversion.Str( Number1));
               let mut Number2: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].TempRegimeSlotIncrease[tdata2];
               if (Number2 > 0)
-                tvalue3 = "+" + Strings.Trim(Conversion.Str((object) Number2));
+                tvalue3 = "+" + Strings.Trim(Conversion.Str( Number2));
               if (this.game.Data.Turn != this.detailnr)
               {
                 tvalue2 = ".";
@@ -283,12 +283,12 @@ namespace WindowsApplication1
               if (this.game.Data.RegimeSlotShow[tdata2] & this.game.Data.RegimeSlotShow2[tdata2] == 0 | this.game.Data.RegimeSlotShow2[tdata2] == 2)
               {
                 if (!this.game.Data.FOWOn | this.game.Data.Turn == this.detailnr)
-                  this.OptionsList5Obj.add(Strings.Left(this.game.Data.RegimeSlotName[tdata2], 6), tdata2, Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].RegimeSlot[tdata2]), tvalue2, tvalue3);
+                  this.OptionsList5Obj.add(Strings.Left(this.game.Data.RegimeSlotName[tdata2], 6), tdata2, Conversion.Str( this.game.Data.RegimeObj[this.detailnr].RegimeSlot[tdata2]), tvalue2, tvalue3);
               }
               else if (this.game.Data.RegimeSlotShow2[tdata2] == 1)
-                this.OptionsList5Obj.add(Strings.Left(this.game.Data.RegimeSlotName[tdata2], 6), tdata2, Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].RegimeSlot[tdata2]), tvalue2, tvalue3);
+                this.OptionsList5Obj.add(Strings.Left(this.game.Data.RegimeSlotName[tdata2], 6), tdata2, Conversion.Str( this.game.Data.RegimeObj[this.detailnr].RegimeSlot[tdata2]), tvalue2, tvalue3);
               else if (this.game.Data.RegimeSlotShow2[tdata2] == 3 & this.game.HandyFunctionsObj.IsAlliedOrSelf(this.detailnr, this.game.Data.Turn))
-                this.OptionsList5Obj.add(Strings.Left(this.game.Data.RegimeSlotName[tdata2], 6), tdata2, Conversion.Str((object) this.game.Data.RegimeObj[this.detailnr].RegimeSlot[tdata2]), tvalue2, tvalue3);
+                this.OptionsList5Obj.add(Strings.Left(this.game.Data.RegimeSlotName[tdata2], 6), tdata2, Conversion.Str( this.game.Data.RegimeObj[this.detailnr].RegimeSlot[tdata2]), tvalue2, tvalue3);
               tdata2 += 1;
             }
             while (tdata2 <= 499);
@@ -319,7 +319,7 @@ namespace WindowsApplication1
           if (index != this.game.Data.Turn & index != this.detailnr && this.game.Data.RegimeObj[index].RegimeRel[this.detailnr] == 2 & this.game.Data.RegimeObj[index].RegimeRel[this.game.Data.Turn] == 0)
             flag = false;
         }
-        if ((double) this.game.Data.RuleVar[524] < 1.0)
+        if ( this.game.Data.RuleVar[524] < 1.0)
           flag = false;
         if (this.detailnr != this.regnr)
         {
@@ -360,7 +360,7 @@ namespace WindowsApplication1
               }
               else if (this.game.Data.RegimeObj[this.regnr].RegimeRel[this.detailnr] == 1)
               {
-                if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[818])
+                if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[818])
                 {
                   tsubpart =  new TextButtonPartClass("Declare War", 120, "Declare war on selected regime", ref this.OwnBitmap, num3 + 0, 160);
                   this.B2Id = this.AddSubPart(ref tsubpart, num3 + 0, 160, 100, 35, 1);
@@ -391,7 +391,7 @@ namespace WindowsApplication1
               }
               else if (this.game.Data.RegimeObj[this.regnr].RegimeRel[this.detailnr] == 2)
               {
-                if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[818])
+                if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[818])
                 {
                   tsubpart =  new TextButtonPartClass("Declare War", 120, "Declare war on selected regime", ref this.OwnBitmap, num3 + 0, 160);
                   this.B2Id = this.AddSubPart(ref tsubpart, num3 + 0, 160, 100, 35, 1);
@@ -456,7 +456,7 @@ namespace WindowsApplication1
         tsubpart =  new TextButtonPartClass("Offer Alliance", 120, "You cannot offer alliance to this regime..", ref this.OwnBitmap, num3 + 150, 160, true);
         this.F5id = this.AddSubPart(ref tsubpart, num3 + 150, 160, 120, 35, 1);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -474,9 +474,9 @@ namespace WindowsApplication1
             let mut num1: i32 =  this.SubPartID[index1];
             if (num1 == this.B2Id)
             {
-              if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[818])
+              if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[818])
               {
-                if ((double) this.game.Data.RuleVar[818] < 1.0 | Interaction.MsgBox((object) ("Declaring war wil cost " + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[818])) + " PP. Are you sure"), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                if ( this.game.Data.RuleVar[818] < 1.0 | Interaction.MsgBox( ("Declaring war wil cost " + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[818])) + " PP. Are you sure"), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 {
                   OrderResult orderResult = this.game.ProcessingObj.DeclareWar(this.regnr, this.detailnr);
                   let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
@@ -484,15 +484,15 @@ namespace WindowsApplication1
                   {
                     if (onregnr != this.game.Data.Turn & onregnr != this.detailnr && this.game.Data.RegimeObj[onregnr].RegimeRel[this.detailnr] == 2)
                     {
-                      let mut num2: i32 =   Interaction.MsgBox((object) ("Also declared war on " + this.game.Data.RegimeObj[onregnr].Name), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num2: i32 =   Interaction.MsgBox( ("Also declared war on " + this.game.Data.RegimeObj[onregnr].Name), Title: ( "Shadow Empire : Planetary Conquest"));
                       orderResult = this.game.ProcessingObj.DeclareWar(this.regnr, onregnr);
-                      if ((double) this.game.Data.RuleVar[818] > 0.0)
+                      if ( this.game.Data.RuleVar[818] > 0.0)
                       {
                         RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                         RegimeClass[] regimeClassArray = regimeObj;
                         let mut turn: i32 =  this.game.Data.Turn;
                         let mut index2: i32 =  turn;
-                        regimeClassArray[index2].ResPts =  Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[818]));
+                        regimeClassArray[index2].ResPts =  Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[818]));
                       }
                     }
                   }
@@ -504,7 +504,7 @@ namespace WindowsApplication1
                   }
                   if (Strings.Len(orderResult.ErrorString) > 0)
                   {
-                    let mut num3: i32 =   Interaction.MsgBox((object) (orderResult.ErrorString + " battles have been fought due to your declaration of war."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num3: i32 =   Interaction.MsgBox( (orderResult.ErrorString + " battles have been fought due to your declaration of war."), Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 this.dostuff();
@@ -522,7 +522,7 @@ namespace WindowsApplication1
               }
               if (num1 == this.B3Id)
               {
-                if (MsgBoxResult.Yes == Interaction.MsgBox((object) "Only change the password of a regime that has become inactive so that you give it a new player. Are you sure you want to change the password of this regime?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest"))
+                if (MsgBoxResult.Yes == Interaction.MsgBox( "Only change the password of a regime that has become inactive so that you give it a new player. Are you sure you want to change the password of this regime?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest"))
                 {
                   this.game.Data.RegimeObj[this.detailnr].PassWord = Interaction.InputBox("Give new password", "Shadow Empire : Planetary Conquest");
                   let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
@@ -542,7 +542,7 @@ namespace WindowsApplication1
                     this.game.Data.RegimeObj[index4].MessBackPic[messCounter] = -2;
                     this.game.Data.RegimeObj[index4].MessFrontPic[messCounter] = -1;
                   }
-                  let mut num4: i32 =   Interaction.MsgBox((object) "Done! Password has been reset. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num4: i32 =   Interaction.MsgBox( "Done! Password has been reset. ", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.dostuff();
                 windowReturnClass.SetFlag(true);

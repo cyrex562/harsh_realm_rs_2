@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -404,14 +404,14 @@ namespace WindowsApplication1
           num10 = 1;
         if (this.game.TempCombat.CombatRound == 0)
         {
-          this.StartRdn[0] =  Math.Round(Conversion.Int((double) this.StartRdn[0] / (double) num10));
-          this.StartXp[0] =  Math.Round(Conversion.Int((double) this.StartXp[0] / (double) num10));
-          this.StartMor[0] =  Math.Round(Conversion.Int((double) this.StartMor[0] / (double) num10));
-          this.StartEntr[0] =  Math.Round(Conversion.Int((double) this.StartEntr[0] / (double) num10));
-          this.StartRdn[1] =  Math.Round(Conversion.Int((double) this.StartRdn[1] / (double) num9));
-          this.StartXp[1] =  Math.Round(Conversion.Int((double) this.StartXp[1] / (double) num9));
-          this.StartMor[1] =  Math.Round(Conversion.Int((double) this.StartMor[1] / (double) num9));
-          this.StartEntr[1] =  Math.Round(Conversion.Int((double) this.StartEntr[1] / (double) num9));
+          this.StartRdn[0] =  Math.Round(Conversion.Int( this.StartRdn[0] /  num10));
+          this.StartXp[0] =  Math.Round(Conversion.Int( this.StartXp[0] /  num10));
+          this.StartMor[0] =  Math.Round(Conversion.Int( this.StartMor[0] /  num10));
+          this.StartEntr[0] =  Math.Round(Conversion.Int( this.StartEntr[0] /  num10));
+          this.StartRdn[1] =  Math.Round(Conversion.Int( this.StartRdn[1] /  num9));
+          this.StartXp[1] =  Math.Round(Conversion.Int( this.StartXp[1] /  num9));
+          this.StartMor[1] =  Math.Round(Conversion.Int( this.StartMor[1] /  num9));
+          this.StartEntr[1] =  Math.Round(Conversion.Int( this.StartEntr[1] /  num9));
           let mut index50: i32 =  0;
           do
           {
@@ -425,14 +425,14 @@ namespace WindowsApplication1
         }
         else
         {
-          numArray4[0] =  Math.Round(Conversion.Int((double) numArray4[0] / (double) num10));
-          numArray5[0] =  Math.Round(Conversion.Int((double) numArray5[0] / (double) num10));
-          numArray6[0] =  Math.Round(Conversion.Int((double) numArray6[0] / (double) num10));
-          numArray7[0] =  Math.Round(Conversion.Int((double) numArray7[0] / (double) num10));
-          numArray4[1] =  Math.Round(Conversion.Int((double) numArray4[1] / (double) num9));
-          numArray5[1] =  Math.Round(Conversion.Int((double) numArray5[1] / (double) num9));
-          numArray6[1] =  Math.Round(Conversion.Int((double) numArray6[1] / (double) num9));
-          numArray7[1] =  Math.Round(Conversion.Int((double) numArray7[1] / (double) num9));
+          numArray4[0] =  Math.Round(Conversion.Int( numArray4[0] /  num10));
+          numArray5[0] =  Math.Round(Conversion.Int( numArray5[0] /  num10));
+          numArray6[0] =  Math.Round(Conversion.Int( numArray6[0] /  num10));
+          numArray7[0] =  Math.Round(Conversion.Int( numArray7[0] /  num10));
+          numArray4[1] =  Math.Round(Conversion.Int( numArray4[1] /  num9));
+          numArray5[1] =  Math.Round(Conversion.Int( numArray5[1] /  num9));
+          numArray6[1] =  Math.Round(Conversion.Int( numArray6[1] /  num9));
+          numArray7[1] =  Math.Round(Conversion.Int( numArray7[1] /  num9));
           let mut index51: i32 =  0;
           do
           {
@@ -454,10 +454,10 @@ namespace WindowsApplication1
             bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
             ref Bitmap local2 = ref bitmap;
             let mut y: i32 =  num26;
-            double r = (double) this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Red / (double) byte.MaxValue - 1.0;
-            double g = (double) this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Green / (double) byte.MaxValue - 1.0;
-            double b = (double) this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Blue / (double) byte.MaxValue - 1.0;
-            DrawMod.Draw(ref local1, ref local2, 150, y, (float) r, (float) g, (float) b, 1f);
+            double r =  this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Red /  byte.MaxValue - 1.0;
+            double g =  this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Green /  byte.MaxValue - 1.0;
+            double b =  this.game.Data.RegimeObj[this.game.TempCombat.DefenderRegime].Blue /  byte.MaxValue - 1.0;
+            DrawMod.Draw(ref local1, ref local2, 150, y,  r,  g,  b, 1f);
           }
           else
           {
@@ -472,23 +472,23 @@ namespace WindowsApplication1
           bitmap = BitmapStore.GetBitmap(this.game.COMBATGRADIENT);
           ref Bitmap local6 = ref bitmap;
           let mut y1: i32 =  num27;
-          double r1 = (double) ((float) this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Red / (float) byte.MaxValue);
-          double g1 = (double) ((float) this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Green / (float) byte.MaxValue);
-          double b1 = (double) ((float) this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Blue / (float) byte.MaxValue);
-          DrawMod.Draw(ref local5, ref local6, 150, y1, (float) r1, (float) g1, (float) b1, 1f);
+          double r1 =  ( this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Red /  byte.MaxValue);
+          double g1 =  ( this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Green /  byte.MaxValue);
+          double b1 =  ( this.game.Data.RegimeObj[this.game.TempCombat.AttackerRegime].Blue /  byte.MaxValue);
+          DrawMod.Draw(ref local5, ref local6, 150, y1,  r1,  g1,  b1, 1f);
           DrawMod.DrawBlock(ref Expression1, 150, 110, 840, 310,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
           DrawMod.DrawBlock(ref Expression1, 150, 420, 840, 310,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
           let mut unitC1: i32 =  this.UnitC;
           for (let mut index52: i32 =  0; index52 <= unitC1; index52 += 1)
           {
-            let mut num28: i32 =   Math.Round(640.0 / (double) (this.UnitC + 1));
+            let mut num28: i32 =   Math.Round(640.0 /  (this.UnitC + 1));
             let mut num29: i32 =  num28 * (index52 + 1);
             let mut num30: i32 =  num28 * index52;
-            let mut Length: i32 =   Math.Round(100.0 / (double) (this.UnitC + 1));
+            let mut Length: i32 =   Math.Round(100.0 /  (this.UnitC + 1));
             if (index52 > -1)
             {
-              num29 =  Math.Round((double) num29 + 100.0 / (double) (this.UnitC + 1) * (double) (index52 + 1));
-              num30 =  Math.Round((double) num30 + 100.0 / (double) (this.UnitC + 1) * (double) index52);
+              num29 =  Math.Round( num29 + 100.0 /  (this.UnitC + 1) *  (index52 + 1));
+              num30 =  Math.Round( num30 + 100.0 /  (this.UnitC + 1) *  index52);
             }
             if (index52 < this.UnitC)
             {
@@ -551,13 +551,13 @@ namespace WindowsApplication1
             }
           }
           DrawMod.drawLine(ref Expression1, 150, 110, 990, 110,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
-          DrawMod.drawLine(ref Expression1, 150, 180, 990, 180,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round((double) this.game.VicColor3.A / 2.0));
-          DrawMod.drawLine(ref Expression1, 150, 260, 990, 260,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round((double) this.game.VicColor3.A / 2.0));
-          DrawMod.drawLine(ref Expression1, 150, 340, 990, 340,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round((double) this.game.VicColor3.A / 2.0));
+          DrawMod.drawLine(ref Expression1, 150, 180, 990, 180,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round( this.game.VicColor3.A / 2.0));
+          DrawMod.drawLine(ref Expression1, 150, 260, 990, 260,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round( this.game.VicColor3.A / 2.0));
+          DrawMod.drawLine(ref Expression1, 150, 340, 990, 340,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round( this.game.VicColor3.A / 2.0));
           DrawMod.drawLine(ref Expression1, 150, 420, 990, 420,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
-          DrawMod.drawLine(ref Expression1, 150, 490, 990, 490,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round((double) this.game.VicColor3.A / 2.0));
-          DrawMod.drawLine(ref Expression1, 150, 570, 990, 570,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round((double) this.game.VicColor3.A / 2.0));
-          DrawMod.drawLine(ref Expression1, 150, 650, 990, 650,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round((double) this.game.VicColor3.A / 2.0));
+          DrawMod.drawLine(ref Expression1, 150, 490, 990, 490,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round( this.game.VicColor3.A / 2.0));
+          DrawMod.drawLine(ref Expression1, 150, 570, 990, 570,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round( this.game.VicColor3.A / 2.0));
+          DrawMod.drawLine(ref Expression1, 150, 650, 990, 650,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  Math.Round( this.game.VicColor3.A / 2.0));
           DrawMod.drawLine(ref Expression1, 150, 730, 990, 730,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
           DrawMod.drawLine(ref Expression1, 990, 110, 990, 350,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
           DrawMod.drawLine(ref Expression1, 990, 350, 990, 730,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
@@ -677,8 +677,8 @@ namespace WindowsApplication1
                           }
                         }
                         num33 += 1;
-                        let mut num36: i32 =   Math.Round(640.0 / (double) (this.UnitC + 1));
-                        let mut num37: i32 =   Math.Round(Conversion.Int((double) (num36 * 4) / (double) num34));
+                        let mut num36: i32 =   Math.Round(640.0 /  (this.UnitC + 1));
+                        let mut num37: i32 =   Math.Round(Conversion.Int( (num36 * 4) /  num34));
                         if (num37 > 25)
                           num37 = 25;
                         if (num37 < 1)
@@ -688,7 +688,7 @@ namespace WindowsApplication1
                         let mut num40: i32 =  num36 - num39;
                         let mut num41: i32 =  (num40 + num39) * index54;
                         if (index54 > 0)
-                          num41 =  Math.Round((double) num41 + 100.0 / (double) (this.UnitC + 1) * (double) index54);
+                          num41 =  Math.Round( num41 + 100.0 /  (this.UnitC + 1) *  index54);
                         int num42;
                         int num43;
                         if (num38 <= num40)
@@ -749,7 +749,7 @@ namespace WindowsApplication1
                             DrawMod.Draw(ref local13, ref local14, x4, y5, 0.0f, 0.0f, -1f, 1f);
                             break;
                         }
-                        let mut num45: i32 =   Math.Round(Conversion.Int((double) this.game.TempCombat.IList[index58].IRdn / 10.0));
+                        let mut num45: i32 =   Math.Round(Conversion.Int( this.game.TempCombat.IList[index58].IRdn / 10.0));
                         DrawMod.drawLine(ref Expression1, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43 + 10, 0, 0, 0,  byte.MaxValue);
                         DrawMod.drawLine(ref Expression1, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43 + 10 - num45, num41 + 150 + 8 + num37 * num33 - num42, num32 + num43 + 10, 0,  byte.MaxValue, 0,  byte.MaxValue);
                       }
@@ -812,27 +812,27 @@ namespace WindowsApplication1
               if (0 > Number7)
                 Number7 = 0;
               str8: String = str7 + Expression8 + Strings.Space(Number7);
-              Expression9: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray3[index62, 1] + numArray1[index62, 1] + numArray2[index62, 1]))));
+              Expression9: String = Strings.Trim(Conversion.Str( (index12 * (numArray3[index62, 1] + numArray1[index62, 1] + numArray2[index62, 1]))));
               let mut Number8: i32 =  10 - Strings.Len(Expression9);
               if (0 > Number8)
                 Number8 = 0;
               str9: String = str8 + Expression9 + Strings.Space(Number8);
-              Expression10: String = Strings.Trim(Conversion.Str((object) (index12 * numArray3[index62, 1])));
+              Expression10: String = Strings.Trim(Conversion.Str( (index12 * numArray3[index62, 1])));
               let mut Number9: i32 =  9 - Strings.Len(Expression10);
               if (0 > Number9)
                 Number9 = 0;
               str10: String = str9 + Expression10 + Strings.Space(Number9);
-              Expression11: String = Strings.Trim(Conversion.Str((object) (index12 * numArray1[index62, 1])));
+              Expression11: String = Strings.Trim(Conversion.Str( (index12 * numArray1[index62, 1])));
               let mut Number10: i32 =  7 - Strings.Len(Expression11);
               if (0 > Number10)
                 Number10 = 0;
               str11: String = str10 + Expression11 + Strings.Space(Number10);
-              Expression12: String = Strings.Trim(Conversion.Str((object) (index12 * numArray2[index62, 1])));
+              Expression12: String = Strings.Trim(Conversion.Str( (index12 * numArray2[index62, 1])));
               let mut Number11: i32 =  9 - Strings.Len(Expression12);
               if (0 > Number11)
                 Number11 = 0;
               str12: String = str11 + Expression12 + Strings.Space(Number11);
-              Expression13: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray2[index62, 1] + numArray3[index62, 1]))));
+              Expression13: String = Strings.Trim(Conversion.Str( (index12 * (numArray2[index62, 1] + numArray3[index62, 1]))));
               let mut Number12: i32 =  6 - Strings.Len(Expression13);
               if (0 > Number12)
                 Number12 = 0;
@@ -846,27 +846,27 @@ namespace WindowsApplication1
           if (0 > Number13)
             Number13 = 0;
           str13: String = str7 + Expression14 + Strings.Space(Number13);
-          Expression15: String = Strings.Trim(Conversion.Str((object) (numArray10[1] + numArray8[1] + numArray9[1])));
+          Expression15: String = Strings.Trim(Conversion.Str( (numArray10[1] + numArray8[1] + numArray9[1])));
           let mut Number14: i32 =  10 - Strings.Len(Expression15);
           if (0 > Number14)
             Number14 = 0;
           str14: String = str13 + Expression15 + Strings.Space(Number14);
-          Expression16: String = Strings.Trim(Conversion.Str((object) numArray10[1]));
+          Expression16: String = Strings.Trim(Conversion.Str( numArray10[1]));
           let mut Number15: i32 =  9 - Strings.Len(Expression16);
           if (0 > Number15)
             Number15 = 0;
           str15: String = str14 + Expression16 + Strings.Space(Number15);
-          Expression17: String = Strings.Trim(Conversion.Str((object) numArray8[1]));
+          Expression17: String = Strings.Trim(Conversion.Str( numArray8[1]));
           let mut Number16: i32 =  7 - Strings.Len(Expression17);
           if (0 > Number16)
             Number16 = 0;
           str16: String = str15 + Expression17 + Strings.Space(Number16);
-          Expression18: String = Strings.Trim(Conversion.Str((object) numArray9[1]));
+          Expression18: String = Strings.Trim(Conversion.Str( numArray9[1]));
           let mut Number17: i32 =  9 - Strings.Len(Expression18);
           if (0 > Number17)
             Number17 = 0;
           str17: String = str16 + Expression18 + Strings.Space(Number17);
-          Expression19: String = Strings.Trim(Conversion.Str((object) (numArray9[1] + numArray10[1])));
+          Expression19: String = Strings.Trim(Conversion.Str( (numArray9[1] + numArray10[1])));
           let mut Number18: i32 =  6 - Strings.Len(Expression19);
           if (0 > Number18)
             Number18 = 0;
@@ -916,27 +916,27 @@ namespace WindowsApplication1
               if (0 > Number25)
                 Number25 = 0;
               str25: String = str24 + Expression26 + Strings.Space(Number25);
-              Expression27: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray3[index63, 0] + numArray1[index63, 0] + numArray2[index63, 0]))));
+              Expression27: String = Strings.Trim(Conversion.Str( (index12 * (numArray3[index63, 0] + numArray1[index63, 0] + numArray2[index63, 0]))));
               let mut Number26: i32 =  10 - Strings.Len(Expression27);
               if (0 > Number26)
                 Number26 = 0;
               str26: String = str25 + Expression27 + Strings.Space(Number26);
-              Expression28: String = Strings.Trim(Conversion.Str((object) (index12 * numArray3[index63, 0])));
+              Expression28: String = Strings.Trim(Conversion.Str( (index12 * numArray3[index63, 0])));
               let mut Number27: i32 =  9 - Strings.Len(Expression28);
               if (0 > Number27)
                 Number27 = 0;
               str27: String = str26 + Expression28 + Strings.Space(Number27);
-              Expression29: String = Strings.Trim(Conversion.Str((object) (index12 * numArray1[index63, 0])));
+              Expression29: String = Strings.Trim(Conversion.Str( (index12 * numArray1[index63, 0])));
               let mut Number28: i32 =  7 - Strings.Len(Expression29);
               if (0 > Number28)
                 Number28 = 0;
               str28: String = str27 + Expression29 + Strings.Space(Number28);
-              Expression30: String = Strings.Trim(Conversion.Str((object) (index12 * numArray2[index63, 0])));
+              Expression30: String = Strings.Trim(Conversion.Str( (index12 * numArray2[index63, 0])));
               let mut Number29: i32 =  9 - Strings.Len(Expression30);
               if (0 > Number29)
                 Number29 = 0;
               str29: String = str28 + Expression30 + Strings.Space(Number29);
-              Expression31: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray2[index63, 0] + numArray3[index63, 0]))));
+              Expression31: String = Strings.Trim(Conversion.Str( (index12 * (numArray2[index63, 0] + numArray3[index63, 0]))));
               let mut Number30: i32 =  6 - Strings.Len(Expression31);
               if (0 > Number30)
                 Number30 = 0;
@@ -950,27 +950,27 @@ namespace WindowsApplication1
           if (0 > Number31)
             Number31 = 0;
           str30: String = str24 + Expression32 + Strings.Space(Number31);
-          Expression33: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray10[0] + numArray8[0] + numArray9[0]))));
+          Expression33: String = Strings.Trim(Conversion.Str( (index12 * (numArray10[0] + numArray8[0] + numArray9[0]))));
           let mut Number32: i32 =  10 - Strings.Len(Expression33);
           if (0 > Number32)
             Number32 = 0;
           str31: String = str30 + Expression33 + Strings.Space(Number32);
-          Expression34: String = Strings.Trim(Conversion.Str((object) (index12 * numArray10[0])));
+          Expression34: String = Strings.Trim(Conversion.Str( (index12 * numArray10[0])));
           let mut Number33: i32 =  9 - Strings.Len(Expression34);
           if (0 > Number33)
             Number33 = 0;
           str32: String = str31 + Expression34 + Strings.Space(Number33);
-          Expression35: String = Strings.Trim(Conversion.Str((object) (index12 * numArray8[0])));
+          Expression35: String = Strings.Trim(Conversion.Str( (index12 * numArray8[0])));
           let mut Number34: i32 =  7 - Strings.Len(Expression35);
           if (0 > Number34)
             Number34 = 0;
           str33: String = str32 + Expression35 + Strings.Space(Number34);
-          Expression36: String = Strings.Trim(Conversion.Str((object) (index12 * numArray9[0])));
+          Expression36: String = Strings.Trim(Conversion.Str( (index12 * numArray9[0])));
           let mut Number35: i32 =  9 - Strings.Len(Expression36);
           if (0 > Number35)
             Number35 = 0;
           str34: String = str33 + Expression36 + Strings.Space(Number35);
-          Expression37: String = Strings.Trim(Conversion.Str((object) (index12 * (numArray9[0] + numArray10[0]))));
+          Expression37: String = Strings.Trim(Conversion.Str( (index12 * (numArray9[0] + numArray10[0]))));
           let mut Number36: i32 =  6 - Strings.Len(Expression37);
           if (0 > Number36)
             Number36 = 0;
@@ -1017,22 +1017,22 @@ namespace WindowsApplication1
           if (0 > Number43)
             Number43 = 0;
           str43: String = str42 + Expression45 + Strings.Space(Number43);
-          Expression46: String = Strings.Trim(Conversion.Str((object) this.StartRdn[1]));
+          Expression46: String = Strings.Trim(Conversion.Str( this.StartRdn[1]));
           let mut Number44: i32 =  10 - Strings.Len(Expression46);
           if (0 > Number44)
             Number44 = 0;
           str44: String = str43 + Expression46 + Strings.Space(Number44);
-          Expression47: String = Strings.Trim(Conversion.Str((object) numArray4[1]));
+          Expression47: String = Strings.Trim(Conversion.Str( numArray4[1]));
           let mut Number45: i32 =  20 - Strings.Len(Expression47);
           if (0 > Number45)
             Number45 = 0;
           str45: String = str44 + Expression47 + Strings.Space(Number45);
-          Expression48: String = Strings.Trim(Conversion.Str((object) this.StartRdn[0]));
+          Expression48: String = Strings.Trim(Conversion.Str( this.StartRdn[0]));
           let mut Number46: i32 =  10 - Strings.Len(Expression48);
           if (0 > Number46)
             Number46 = 0;
           str46: String = str45 + Expression48 + Strings.Space(Number46);
-          Expression49: String = Strings.Trim(Conversion.Str((object) numArray4[0]));
+          Expression49: String = Strings.Trim(Conversion.Str( numArray4[0]));
           let mut Number47: i32 =  10 - Strings.Len(Expression49);
           if (0 > Number47)
             Number47 = 0;
@@ -1044,22 +1044,22 @@ namespace WindowsApplication1
           if (0 > Number48)
             Number48 = 0;
           str48: String = str47 + Expression50 + Strings.Space(Number48);
-          Expression51: String = Strings.Trim(Conversion.Str((object) this.StartXp[1]));
+          Expression51: String = Strings.Trim(Conversion.Str( this.StartXp[1]));
           let mut Number49: i32 =  10 - Strings.Len(Expression51);
           if (0 > Number49)
             Number49 = 0;
           str49: String = str48 + Expression51 + Strings.Space(Number49);
-          Expression52: String = Strings.Trim(Conversion.Str((object) numArray5[1]));
+          Expression52: String = Strings.Trim(Conversion.Str( numArray5[1]));
           let mut Number50: i32 =  20 - Strings.Len(Expression52);
           if (0 > Number50)
             Number50 = 0;
           str50: String = str49 + Expression52 + Strings.Space(Number50);
-          Expression53: String = Strings.Trim(Conversion.Str((object) this.StartXp[0]));
+          Expression53: String = Strings.Trim(Conversion.Str( this.StartXp[0]));
           let mut Number51: i32 =  10 - Strings.Len(Expression53);
           if (0 > Number51)
             Number51 = 0;
           str51: String = str50 + Expression53 + Strings.Space(Number51);
-          Expression54: String = Strings.Trim(Conversion.Str((object) numArray5[0]));
+          Expression54: String = Strings.Trim(Conversion.Str( numArray5[0]));
           let mut Number52: i32 =  10 - Strings.Len(Expression54);
           if (0 > Number52)
             Number52 = 0;
@@ -1071,22 +1071,22 @@ namespace WindowsApplication1
           if (0 > Number53)
             Number53 = 0;
           str53: String = str52 + Expression55 + Strings.Space(Number53);
-          Expression56: String = Strings.Trim(Conversion.Str((object) this.StartMor[1]));
+          Expression56: String = Strings.Trim(Conversion.Str( this.StartMor[1]));
           let mut Number54: i32 =  10 - Strings.Len(Expression56);
           if (0 > Number54)
             Number54 = 0;
           str54: String = str53 + Expression56 + Strings.Space(Number54);
-          Expression57: String = Strings.Trim(Conversion.Str((object) numArray6[1]));
+          Expression57: String = Strings.Trim(Conversion.Str( numArray6[1]));
           let mut Number55: i32 =  20 - Strings.Len(Expression57);
           if (0 > Number55)
             Number55 = 0;
           str55: String = str54 + Expression57 + Strings.Space(Number55);
-          Expression58: String = Strings.Trim(Conversion.Str((object) this.StartMor[0]));
+          Expression58: String = Strings.Trim(Conversion.Str( this.StartMor[0]));
           let mut Number56: i32 =  10 - Strings.Len(Expression58);
           if (0 > Number56)
             Number56 = 0;
           str56: String = str55 + Expression58 + Strings.Space(Number56);
-          Expression59: String = Strings.Trim(Conversion.Str((object) numArray6[0]));
+          Expression59: String = Strings.Trim(Conversion.Str( numArray6[0]));
           let mut Number57: i32 =  10 - Strings.Len(Expression59);
           if (0 > Number57)
             Number57 = 0;
@@ -1098,22 +1098,22 @@ namespace WindowsApplication1
           if (0 > Number58)
             Number58 = 0;
           str58: String = str57 + Expression60 + Strings.Space(Number58);
-          Expression61: String = Strings.Trim(Conversion.Str((object) this.StartEntr[1]));
+          Expression61: String = Strings.Trim(Conversion.Str( this.StartEntr[1]));
           let mut Number59: i32 =  10 - Strings.Len(Expression61);
           if (0 > Number59)
             Number59 = 0;
           str59: String = str58 + Expression61 + Strings.Space(Number59);
-          Expression62: String = Strings.Trim(Conversion.Str((object) numArray7[1]));
+          Expression62: String = Strings.Trim(Conversion.Str( numArray7[1]));
           let mut Number60: i32 =  20 - Strings.Len(Expression62);
           if (0 > Number60)
             Number60 = 0;
           str60: String = str59 + Expression62 + Strings.Space(Number60);
-          Expression63: String = Strings.Trim(Conversion.Str((object) this.StartEntr[0]));
+          Expression63: String = Strings.Trim(Conversion.Str( this.StartEntr[0]));
           let mut Number61: i32 =  10 - Strings.Len(Expression63);
           if (0 > Number61)
             Number61 = 0;
           str61: String = str60 + Expression63 + Strings.Space(Number61);
-          Expression64: String = Strings.Trim(Conversion.Str((object) numArray7[0]));
+          Expression64: String = Strings.Trim(Conversion.Str( numArray7[0]));
           let mut Number62: i32 =  10 - Strings.Len(Expression64);
           if (0 > Number62)
             Number62 = 0;
@@ -1133,57 +1133,57 @@ namespace WindowsApplication1
         if (this.game.TempCombat.CombatType == 11)
         {
           if (this.game.TempCombat.BattleEnded == 0)
-            tText = "Surprise Combat  at round " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Surprise Combat  at round " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 1)
-            tText = "VICTORY: Attacker won in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "VICTORY: Attacker won in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 2)
-            tText = "Surprise Combat ended. " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Surprise Combat ended. " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 3)
-            tText = "STANDOFF: at Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "STANDOFF: at Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
         }
         else if (this.game.TempCombat.CombatType == 1 | this.game.TempCombat.CombatType == 2 | this.game.TempCombat.CombatType == 10 | this.game.TempCombat.CombatType == 9)
         {
           if (this.game.TempCombat.BattleEnded == 0)
-            tText = "Battle at Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Battle at Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 1)
-            tText = "VICTORY: Attacker won in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "VICTORY: Attacker won in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 2)
-            tText = "ATTACK STALLED: in CombatRound " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "ATTACK STALLED: in CombatRound " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 3)
-            tText = "STANDOFF: in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "STANDOFF: in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
         }
         else if (this.game.TempCombat.CombatType == 3 | this.game.TempCombat.CombatType == 4)
         {
           if (this.game.TempCombat.BattleEnded == 0)
-            tText = "Artillery Bombardment at Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Artillery Bombardment at Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 1)
-            tText = "Defender has retreated in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Defender has retreated in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 2)
-            tText = "Artillery run out of AP in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Artillery run out of AP in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 3)
-            tText = "Defender has retreated in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Defender has retreated in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
         }
         else if (this.game.TempCombat.CombatType == 5 | this.game.TempCombat.CombatType == 6 | this.game.TempCombat.CombatType == 13)
         {
           if (this.game.TempCombat.BattleEnded == 0)
-            tText = "Air attack at Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Air attack at Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 1)
-            tText = "Defender has retreated in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Defender has retreated in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 2)
-            tText = "Air attack broken off in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Air attack broken off in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 3)
-            tText = "Defender has retreated in Combatround  " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Defender has retreated in Combatround  " + Conversion.Str( this.game.TempCombat.CombatRound);
         }
         else if (this.game.TempCombat.CombatType == 14)
         {
           if (this.game.TempCombat.BattleEnded == 0)
-            tText = "Air Supply at Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Air Supply at Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 1)
-            tText = "Air Supply retreated in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Air Supply retreated in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 2)
-            tText = "Air Supply broken off in Combatround " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Air Supply broken off in Combatround " + Conversion.Str( this.game.TempCombat.CombatRound);
           else if (this.game.TempCombat.BattleEnded == 3)
-            tText = "Defender has retreated in Combatround  " + Conversion.Str((object) this.game.TempCombat.CombatRound);
+            tText = "Defender has retreated in Combatround  " + Conversion.Str( this.game.TempCombat.CombatRound);
         }
       }
       else
@@ -1209,22 +1209,22 @@ namespace WindowsApplication1
         Font vicFont1 = this.game.VicFont1;
         str62: String = "DEFENDERS";
         SizeF sizeF2 = Expression1.MeasureString(str62, vicFont1);
-        DrawMod.DrawTextVic2(ref Expression1, str62, vicFont1,  Math.Round((double) (140f - sizeF2.Width)), 180, this.game.VicColor2, this.game.VicColor1Shade);
+        DrawMod.DrawTextVic2(ref Expression1, str62, vicFont1,  Math.Round( (140f - sizeF2.Width)), 180, this.game.VicColor2, this.game.VicColor1Shade);
         str63: String = "CASUALTIES";
         SizeF sizeF3 = Expression1.MeasureString(str63, vicFont1);
-        DrawMod.DrawTextVic2(ref Expression1, str63, vicFont1,  Math.Round((double) (140f - sizeF3.Width)), 260, this.game.VicColor2, this.game.VicColor1Shade);
+        DrawMod.DrawTextVic2(ref Expression1, str63, vicFont1,  Math.Round( (140f - sizeF3.Width)), 260, this.game.VicColor2, this.game.VicColor1Shade);
         str64: String = "RETREATED";
         SizeF sizeF4 = Expression1.MeasureString(str64, vicFont1);
-        DrawMod.DrawTextVic2(ref Expression1, str64, vicFont1,  Math.Round((double) (140f - sizeF4.Width)), 340, this.game.VicColor2, this.game.VicColor1Shade);
+        DrawMod.DrawTextVic2(ref Expression1, str64, vicFont1,  Math.Round( (140f - sizeF4.Width)), 340, this.game.VicColor2, this.game.VicColor1Shade);
         str65: String = "ATTACKERS";
         SizeF sizeF5 = Expression1.MeasureString(str65, vicFont1);
-        DrawMod.DrawTextVic2(ref Expression1, str65, vicFont1,  Math.Round((double) (140f - sizeF5.Width)), 490, this.game.VicColor2, this.game.VicColor1Shade);
+        DrawMod.DrawTextVic2(ref Expression1, str65, vicFont1,  Math.Round( (140f - sizeF5.Width)), 490, this.game.VicColor2, this.game.VicColor1Shade);
         str66: String = "CASUALTIES";
         SizeF sizeF6 = Expression1.MeasureString(str66, vicFont1);
-        DrawMod.DrawTextVic2(ref Expression1, str66, vicFont1,  Math.Round((double) (140f - sizeF6.Width)), 570, this.game.VicColor2, this.game.VicColor1Shade);
+        DrawMod.DrawTextVic2(ref Expression1, str66, vicFont1,  Math.Round( (140f - sizeF6.Width)), 570, this.game.VicColor2, this.game.VicColor1Shade);
         str67: String = "RETREATED";
         SizeF sizeF7 = Expression1.MeasureString(str67, vicFont1);
-        DrawMod.DrawTextVic2(ref Expression1, str67, vicFont1,  Math.Round((double) (140f - sizeF7.Width)), 650, this.game.VicColor2, this.game.VicColor1Shade);
+        DrawMod.DrawTextVic2(ref Expression1, str67, vicFont1,  Math.Round( (140f - sizeF7.Width)), 650, this.game.VicColor2, this.game.VicColor1Shade);
       }
       if (this.game.TempCombat.BattleEnded == 0 && !this.game.EditObj.AutoCombat)
       {
@@ -1278,7 +1278,7 @@ namespace WindowsApplication1
           this.CombatListId = this.AddSubPart(ref tsubpart, 10, 50, 800, 528, 0);
         }
       }
-      if (Information.IsNothing((object) Expression1))
+      if (Information.IsNothing( Expression1))
         return;
       Expression1.Dispose();
       Expression1 = (Graphics) null;
@@ -1353,7 +1353,7 @@ namespace WindowsApplication1
             }
             if (Number > 0)
             {
-              let mut num: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
             }
             if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
             {
@@ -1400,7 +1400,7 @@ namespace WindowsApplication1
               this.game.EditObj.TargetX = -1;
               this.game.EditObj.TargetY = -1;
               this.game.EditObj.OrderBombMode = 0;
-              if ((double) this.game.Data.RuleVar[839] == 0.0)
+              if ( this.game.Data.RuleVar[839] == 0.0)
                 windowReturnClass.AddCommand(3, 3);
               else
                 windowReturnClass.AddCommand(3, 11);
@@ -1522,7 +1522,7 @@ namespace WindowsApplication1
             this.game.EditObj.TargetX = -1;
             this.game.EditObj.TargetY = -1;
             this.game.EditObj.OrderBombMode = 0;
-            if ((double) this.game.Data.RuleVar[839] == 0.0)
+            if ( this.game.Data.RuleVar[839] == 0.0)
               windowReturnClass.AddCommand(3, 3);
             else
               windowReturnClass.AddCommand(3, 11);
@@ -1616,24 +1616,24 @@ namespace WindowsApplication1
           let mut index20: i32 =  index19;
           let mut index21: i32 =  iattacker;
           let mut index22: i32 =  index21;
-          double num7 = (double) numArray21[index19, index21] + 1.0;
-          numArray22[index20, index22] = (float) num7;
+          double num7 =  numArray21[index19, index21] + 1.0;
+          numArray22[index20, index22] =  num7;
           float[,] numArray23 = numArray11;
           float[,] numArray24 = numArray23;
           let mut index23: i32 =  isfType;
           let mut index24: i32 =  index23;
           let mut index25: i32 =  iattacker;
           let mut index26: i32 =  index25;
-          double num8 = (double) numArray23[index23, index25] + (double) this.game.TempCombat.IList[index2].IMor;
-          numArray24[index24, index26] = (float) num8;
+          double num8 =  numArray23[index23, index25] +  this.game.TempCombat.IList[index2].IMor;
+          numArray24[index24, index26] =  num8;
           float[,] numArray25 = numArray12;
           float[,] numArray26 = numArray25;
           let mut index27: i32 =  isfType;
           let mut index28: i32 =  index27;
           let mut index29: i32 =  iattacker;
           let mut index30: i32 =  index29;
-          double num9 = (double) numArray25[index27, index29] + 1.0;
-          numArray26[index28, index30] = (float) num9;
+          double num9 =  numArray25[index27, index29] + 1.0;
+          numArray26[index28, index30] =  num9;
         }
         if (this.game.TempCombat.BattleEnded == 1)
           Number2 += 1;
@@ -1641,48 +1641,48 @@ namespace WindowsApplication1
           Number3 += 1;
         if (this.game.TempCombat.BattleEnded == 2)
           Number4 += 1;
-        num2 += (float) this.game.TempCombat.AntiStrucDam;
+        num2 +=  this.game.TempCombat.AntiStrucDam;
         if (index1 != Number1)
         {
           this.game.TempCombat = new CombatClass(this.game);
           this.game.TempCombat.Init(tempTarget, tempType, tempUnits, tempattacktype);
         }
       }
-      float Number5 = num2 / (float) Number1;
+      float Number5 = num2 /  Number1;
       let mut sfTypeCounter1: i32 =  this.game.Data.SFTypeCounter;
       for (let mut index31: i32 =  0; index31 <= sfTypeCounter1; index31 += 1)
       {
         let mut index32: i32 =  0;
         do
         {
-          numArray5[index31, index32] = (float) numArray1[index31, index32] / (float) Number1;
-          numArray6[index31, index32] = (float) numArray2[index31, index32] / (float) Number1;
-          numArray7[index31, index32] = (float) numArray3[index31, index32] / (float) Number1;
-          numArray8[index31, index32] = (float) ((double) numArray4[index31, index32] / (double) Number1 / ((double) numArray9[index31, index32] / (double) Number1));
-          numArray10[index31, index32] = (float) ((double) numArray11[index31, index32] / (double) Number1 / ((double) numArray12[index31, index32] / (double) Number1));
+          numArray5[index31, index32] =  numArray1[index31, index32] /  Number1;
+          numArray6[index31, index32] =  numArray2[index31, index32] /  Number1;
+          numArray7[index31, index32] =  numArray3[index31, index32] /  Number1;
+          numArray8[index31, index32] =  ( numArray4[index31, index32] /  Number1 / ( numArray9[index31, index32] /  Number1));
+          numArray10[index31, index32] =  ( numArray11[index31, index32] /  Number1 / ( numArray12[index31, index32] /  Number1));
           index32 += 1;
         }
         while (index32 <= 1);
       }
-      this.AddLog("We did " + Conversion.Str((object) Number1) + " simulations. and these are averages:");
+      this.AddLog("We did " + Conversion.Str( Number1) + " simulations. and these are averages:");
       this.AddLog(" ");
       this.AddLog("COMBAT OUTCOME:");
-      this.AddLog(Strings.Space(3) + "Attack succeeded: " + Conversion.Str((object) Number2));
-      this.AddLog(Strings.Space(3) + "Standoff: " + Conversion.Str((object) Number3));
-      this.AddLog(Strings.Space(3) + "Attack failed: " + Conversion.Str((object) Number4));
+      this.AddLog(Strings.Space(3) + "Attack succeeded: " + Conversion.Str( Number2));
+      this.AddLog(Strings.Space(3) + "Standoff: " + Conversion.Str( Number3));
+      this.AddLog(Strings.Space(3) + "Attack failed: " + Conversion.Str( Number4));
       this.AddLog(" ");
       this.AddLog("DEFENDER AVERAGES:");
       let mut sfTypeCounter2: i32 =  this.game.Data.SFTypeCounter;
       for (let mut index: i32 =  0; index <= sfTypeCounter2; index += 1)
       {
-        if ((double) numArray5[index, 0] > 0.0 | (double) numArray6[index, 0] > 0.0 | (double) numArray7[index, 0] > 0.0)
+        if ( numArray5[index, 0] > 0.0 |  numArray6[index, 0] > 0.0 |  numArray7[index, 0] > 0.0)
         {
           this.AddLog(Strings.Space(3) + "*" + this.game.Data.SFTypeObj[index].Name + ":");
-          this.AddLog(Strings.Space(6) + "Death: " + Conversion.Str((object) numArray5[index, 0]));
-          this.AddLog(Strings.Space(6) + "Retreat: " + Conversion.Str((object) numArray6[index, 0]));
-          this.AddLog(Strings.Space(6) + "Live: " + Conversion.Str((object) numArray7[index, 0]));
-          this.AddLog(Strings.Space(6) + "Rdn: " + Conversion.Str((object) numArray8[index, 0]));
-          this.AddLog(Strings.Space(6) + "Mor: " + Conversion.Str((object) numArray10[index, 0]));
+          this.AddLog(Strings.Space(6) + "Death: " + Conversion.Str( numArray5[index, 0]));
+          this.AddLog(Strings.Space(6) + "Retreat: " + Conversion.Str( numArray6[index, 0]));
+          this.AddLog(Strings.Space(6) + "Live: " + Conversion.Str( numArray7[index, 0]));
+          this.AddLog(Strings.Space(6) + "Rdn: " + Conversion.Str( numArray8[index, 0]));
+          this.AddLog(Strings.Space(6) + "Mor: " + Conversion.Str( numArray10[index, 0]));
         }
       }
       this.AddLog(" ");
@@ -1690,18 +1690,18 @@ namespace WindowsApplication1
       let mut sfTypeCounter3: i32 =  this.game.Data.SFTypeCounter;
       for (let mut index: i32 =  0; index <= sfTypeCounter3; index += 1)
       {
-        if ((double) numArray5[index, 1] > 0.0 | (double) numArray6[index, 1] > 0.0 | (double) numArray7[index, 1] > 0.0)
+        if ( numArray5[index, 1] > 0.0 |  numArray6[index, 1] > 0.0 |  numArray7[index, 1] > 0.0)
         {
           this.AddLog(Strings.Space(3) + "*" + this.game.Data.SFTypeObj[index].Name + ":");
-          this.AddLog(Strings.Space(6) + "Death: " + Conversion.Str((object) numArray5[index, 1]));
-          this.AddLog(Strings.Space(6) + "Retreat: " + Conversion.Str((object) numArray6[index, 1]));
-          this.AddLog(Strings.Space(6) + "Live: " + Conversion.Str((object) numArray7[index, 1]));
-          this.AddLog(Strings.Space(6) + "Rdn: " + Conversion.Str((object) numArray8[index, 1]));
-          this.AddLog(Strings.Space(6) + "Mor: " + Conversion.Str((object) numArray10[index, 1]));
+          this.AddLog(Strings.Space(6) + "Death: " + Conversion.Str( numArray5[index, 1]));
+          this.AddLog(Strings.Space(6) + "Retreat: " + Conversion.Str( numArray6[index, 1]));
+          this.AddLog(Strings.Space(6) + "Live: " + Conversion.Str( numArray7[index, 1]));
+          this.AddLog(Strings.Space(6) + "Rdn: " + Conversion.Str( numArray8[index, 1]));
+          this.AddLog(Strings.Space(6) + "Mor: " + Conversion.Str( numArray10[index, 1]));
         }
       }
       this.AddLog(" ");
-      this.AddLog("Structural Damage =" + Conversion.Str((object) Number5));
+      this.AddLog("Structural Damage =" + Conversion.Str( Number5));
       this.WriteLog();
     }
 

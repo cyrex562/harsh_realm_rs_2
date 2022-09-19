@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Runtime.CompilerServices;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Runtime.CompilerServices;
 
 namespace WindowsApplication1
 {
@@ -64,8 +64,8 @@ namespace WindowsApplication1
         let mut x: i32 = index;
         DrawMod.DrawSimple( local1,  local2, x, 0);
       }
-      this.DrawTabs((object) graphics);
-      if (Information.IsNothing((object) graphics))
+      this.DrawTabs( graphics);
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
     }
@@ -91,7 +91,7 @@ namespace WindowsApplication1
         rectangle = Rectangle::new(rectForTab.X, 32, 8, 43);
         let mut destrect1: &Rectangle = &rectangle
         DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-        g = (object) objgraphics;
+        g =  objgraphics;
         objgraphics = (Graphics) g;
          let mut local3: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(this.game.MARCTAB);
@@ -101,7 +101,7 @@ namespace WindowsApplication1
         trect1 = Rectangle::new(rectForTab.X + rectForTab.Width - 16, 32, 16, 43);
         let mut destrect2: &Rectangle = &trect1
         DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-        g = (object) objgraphics;
+        g =  objgraphics;
         let mut x: i32 = rectForTab.X + 8;
         let mut width: i32 = 160;
         for (; x < rectForTab.X + rectForTab.Width; x += 160)
@@ -117,7 +117,7 @@ namespace WindowsApplication1
           trect1 = Rectangle::new(x, 32, width, 43);
           let mut destrect3: &Rectangle = &trect1
           DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
-          g = (object) objgraphics;
+          g =  objgraphics;
         }
       }
       SizeF sizeF1;
@@ -131,17 +131,17 @@ namespace WindowsApplication1
          let mut local8: &Bitmap = &bitmap1;
         let mut x2: i32 = x1;
         DrawMod.DrawSimple( local7,  local8, x2, 32);
-        g = (object) objgraphics;
+        g =  objgraphics;
         object Instance = g;
         object[] objArray1 = new object[2]
         {
-          (object) this.tabname,
+           this.tabname,
           null
         };
         object[] objArray2 = objArray1;
         let mut tgame: GameClass = DrawMod.TGame;
         Font marcFont4 = tgame.MarcFont4;
-        objArray2[1] = (object) marcFont4;
+        objArray2[1] =  marcFont4;
         object[] objArray3 = objArray1;
         object[] Arguments = objArray3;
         bool[] flagArray = new bool[2]{ true, true };
@@ -153,8 +153,8 @@ namespace WindowsApplication1
           tgame.MarcFont4 =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray3[1]), typeof );
         sizeF2 = obj != null ? (SizeF) obj : sizeF1;
         objgraphics = (Graphics) g;
-        DrawMod.DrawTextColouredMarc( objgraphics, this.tabname, this.game.MarcFont4, x1 +  Math.Round((78.0 - (double) sizeF2.Width) / 2.0), 33, Color.White);
-        g = (object) objgraphics;
+        DrawMod.DrawTextColouredMarc( objgraphics, this.tabname, this.game.MarcFont4, x1 +  Math.Round((78.0 -  sizeF2.Width) / 2.0), 33, Color.White);
+        g =  objgraphics;
         rectangle = Rectangle::new(x1, 32, 75, 27);
         trect1 = rectangle;
         this.AddMouse( trect1, this.tabname, "Random Screen Tab #1", 1);
@@ -164,7 +164,7 @@ namespace WindowsApplication1
         return;
       if (this.game.ScreenWidth <= 1040)
       {
-        let mut x: i32 =  Math.Round(Math.Max((double) this.game.ScreenWidth / 2.0 + 158.0 + 300.0, (double) (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
+        let mut x: i32 =  Math.Round(Math.Max( this.game.ScreenWidth / 2.0 + 158.0 + 300.0,  (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
         objgraphics = (Graphics) g;
          let mut local9: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
@@ -174,17 +174,17 @@ namespace WindowsApplication1
         trect1 = Rectangle::new(x, 32, 50, 33);
         let mut destrect: &Rectangle = &trect1
         DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
-        g = (object) objgraphics;
+        g =  objgraphics;
         object Instance = g;
         object[] objArray4 = new object[2]
         {
-          (object) "MINI",
+           "MINI",
           null
         };
         object[] objArray5 = objArray4;
         let mut tgame: GameClass = DrawMod.TGame;
         Font marcFont4 = tgame.MarcFont4;
-        objArray5[1] = (object) marcFont4;
+        objArray5[1] =  marcFont4;
         object[] objArray6 = objArray4;
         object[] Arguments = objArray6;
         bool[] flagArray = new bool[2]{ false, true };
@@ -194,32 +194,32 @@ namespace WindowsApplication1
           tgame.MarcFont4 =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray6[1]), typeof );
         sizeF2 = obj != null ? (SizeF) obj : sizeF1;
         objgraphics = (Graphics) g;
-        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x +  Math.Round((53.0 - (double) sizeF2.Width) / 2.0), 33, Color.White);
-        g = (object) objgraphics;
+        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x +  Math.Round((53.0 -  sizeF2.Width) / 2.0), 33, Color.White);
+        g =  objgraphics;
         rectangle = Rectangle::new(x, 32, 50, 27);
         let mut trect2: &Rectangle = &rectangle
         this.AddMouse( trect2, "MINIMAP", "View the mini-map. [F8]", 7);
       }
       else
       {
-        let mut x3: i32 =  Math.Round(Math.Max((double) this.game.ScreenWidth / 2.0 + 158.0 + 300.0, (double) (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
+        let mut x3: i32 =  Math.Round(Math.Max( this.game.ScreenWidth / 2.0 + 158.0 + 300.0,  (this.game.ScreenWidth - DrawMod.GetWidthForMiniMap())));
         objgraphics = (Graphics) g;
          let mut local11: &Graphics = &objgraphics;
         bitmap1 = BitmapStore.GetBitmap(this.game.MARCTABBUTTON);
          let mut local12: &Bitmap = &bitmap1;
         let mut x4: i32 = x3;
         DrawMod.DrawSimple( local11,  local12, x4, 32);
-        g = (object) objgraphics;
+        g =  objgraphics;
         object Instance = g;
         object[] objArray7 = new object[2]
         {
-          (object) "MINI",
+           "MINI",
           null
         };
         object[] objArray8 = objArray7;
         let mut tgame: GameClass = DrawMod.TGame;
         Font marcFont4 = tgame.MarcFont4;
-        objArray8[1] = (object) marcFont4;
+        objArray8[1] =  marcFont4;
         object[] objArray9 = objArray7;
         object[] Arguments = objArray9;
         bool[] flagArray = new bool[2]{ false, true };
@@ -229,8 +229,8 @@ namespace WindowsApplication1
           tgame.MarcFont4 =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray9[1]), typeof );
         sizeF2 = obj != null ? (SizeF) obj : sizeF1;
         objgraphics = (Graphics) g;
-        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x3 +  Math.Round((78.0 - (double) sizeF2.Width) / 2.0), 33, Color.White);
-        g = (object) objgraphics;
+        DrawMod.DrawTextColouredMarc( objgraphics, "MINI", this.game.MarcFont4, x3 +  Math.Round((78.0 -  sizeF2.Width) / 2.0), 33, Color.White);
+        g =  objgraphics;
         rectangle = Rectangle::new(x3, 32, 75, 27);
         let mut trect3: &Rectangle = &rectangle
         this.AddMouse( trect3, "MINIMAP", "View the mini-map. [F8]", 7);

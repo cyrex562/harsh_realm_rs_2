@@ -4,15 +4,15 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -137,7 +137,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -280,7 +280,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( graphics, self.game.Data.LibraryObj[0].version.ToString(), self.game.MarcFont3, num1 + 910, 75, Color.White);
       tsubpart2 =  new TextButtonPartClass("Change version", 190, tBackbitmap: ( self.OwnBitmap), bbx: (num1 + 910), bby: 100, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
       self.versionid = self.AddSubPart( tsubpart2, num1 + 910, 100, 190, 35, 1);
-      if (self.detailx > -1 & self.detaily > -1 & !Information.IsNothing((object) self.stringy))
+      if (self.detailx > -1 & self.detaily > -1 & !Information.IsNothing( self.stringy))
         self.RefreshCellInfo();
       let mut y1: i32 = 60;
       let mut num3: i32 = 40;
@@ -409,9 +409,9 @@ namespace WindowsApplication1
 
     pub void Tab2( Graphics g)
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - 322) / 24.0)) - 1;
+      let mut num3: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - 322) / 24.0)) - 1;
       let mut num4: i32 = 172 + num3 * 24 + 56;
       if (self.tableId == 0)
       {
@@ -554,9 +554,9 @@ namespace WindowsApplication1
 
     pub void Tab3( Graphics g)
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - 322) / 24.0)) - 1;
+      let mut num3: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - 322) / 24.0)) - 1;
       let mut num4: i32 = 172 + num3 * 24 + 56;
       if (self.tableId == 0)
       {
@@ -739,9 +739,9 @@ namespace WindowsApplication1
 
     pub void Tab4( Graphics g)
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - 322) / 24.0)) - 1;
+      let mut num3: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - 322) / 24.0)) - 1;
       let mut num4: i32 = 172 + num3 * 24 + 56;
       if (self.tableId == 0)
       {
@@ -834,9 +834,9 @@ namespace WindowsApplication1
 
     pub void Tab1( Graphics g)
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = self.game.ScreenHeight - 768;
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) (self.game.ScreenHeight - 322) / 24.0)) - 1;
+      let mut num3: i32 =  Math.Round(Conversion.Int( (self.game.ScreenHeight - 322) / 24.0)) - 1;
       let mut num4: i32 = 172 + num3 * 24 + 56;
       if (self.tableId == 0)
       {
@@ -918,7 +918,7 @@ namespace WindowsApplication1
     pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
-      if (self.strId == -1 || Information.IsNothing((object) self.stringy))
+      if (self.strId == -1 || Information.IsNothing( self.stringy))
         return windowReturnClass1;
       if (nr == 32 & self.detailx > -1 & self.editId > 0)
       {
@@ -1022,7 +1022,7 @@ namespace WindowsApplication1
             if (num1 == self.loadId)
             {
               tinitdir: String = self.game.AppPath + "scenarios\\";
-              if (!Information.IsNothing((object) self.game.Data.ScenarioDir))
+              if (!Information.IsNothing( self.game.Data.ScenarioDir))
               {
                 if (self.game.Data.ScenarioDir.Length > 1)
                   tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
@@ -1046,7 +1046,7 @@ namespace WindowsApplication1
                 self.game.HandyFunctionsObj.Unzip(str);
                 self.game.Data = DataClass.deserialize(str);
                 self.game.HandyFunctionsObj.ZipFile(str);
-                if (Interaction.MsgBox((object) "Update with masterfile?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                if (Interaction.MsgBox( "Update with masterfile?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 {
                   self.game.Data.MasterfileReadPeople = false;
                   masterfileStart: String = self.masterfileStart;
@@ -1057,7 +1057,7 @@ namespace WindowsApplication1
                 self.game.Data.MasterFile = "";
                 self.game.Data.Round = 0;
                 self.game.Data.Turn = 0;
-                if ((double) self.game.Data.RuleVar[344] == 1.0 & self.game.EditObj.HideUnit == 0)
+                if ( self.game.Data.RuleVar[344] == 1.0 & self.game.EditObj.HideUnit == 0)
                   self.game.EditObj.HideUnit = 2;
                 self.game.EditObj.TempValue = new MapMatrix2[self.game.Data.MapCounter + 1];
                 self.game.EditObj.TempValue2 = new MapMatrix2[self.game.Data.MapCounter + 1];
@@ -1072,11 +1072,11 @@ namespace WindowsApplication1
                   self.game.FormRef.Cursor = Cursors.Default;
                   if (Operators.CompareString(Strings.LCase(Interaction.InputBox("This File is protected by a load password. Please give it in order to load it.", "Shadow Empire : Planetary Conquest")), Strings.LCase(self.game.Data.LoadPass), false) == 0)
                   {
-                    let mut num2: i32 =  Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num2: i32 =  Interaction.MsgBox( "You are cleared.", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
-                    let mut num3: i32 =  Interaction.MsgBox((object) "Wrong Password. You cannot Load this file. Exiting whole app.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num3: i32 =  Interaction.MsgBox( "Wrong Password. You cannot Load this file. Exiting whole app.", Title: ( "Shadow Empire : Planetary Conquest"));
                     ProjectData.EndApp();
                   }
                 }
@@ -1084,10 +1084,10 @@ namespace WindowsApplication1
                 self.game.Data.LoadGraphics((Form1) null);
                 self.game.CustomBitmapObj.MakeMiniMap(self.game.EditObj.MiniMap, 200, 150, false);
                 self.game.EditObj.StratMap = new Bitmap(self.game.ScreenWidth, self.game.ScreenHeight - 265);
-                self.game.EditObj.StratMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+                self.game.EditObj.StratMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
                 self.game.CustomBitmapObj.MakeMiniMap(self.game.EditObj.StratMap, self.game.ScreenWidth, self.game.ScreenHeight - 265, false, true, false);
                 self.game.FormRef.Cursor = Cursors.Default;
-                let mut num4: i32 =  Interaction.MsgBox((object) "Loaded Historical Library", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  Interaction.MsgBox( "Loaded Historical Library", Title: ( "Shadow Empire : Planetary Conquest"));
                 self.detailx = -1;
                 self.detaily = -1;
                 self.RemoveSubPart(self.tableId);
@@ -1101,7 +1101,7 @@ namespace WindowsApplication1
             {
               self.game.Data.MasterFile = "";
               tinitdir: String = self.game.AppPath + "scenarios\\";
-              if (!Information.IsNothing((object) self.game.Data.ScenarioDir))
+              if (!Information.IsNothing( self.game.Data.ScenarioDir))
               {
                 if (self.game.Data.ScenarioDir.Length > 1)
                   tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
@@ -1113,7 +1113,7 @@ namespace WindowsApplication1
               str: String = self.game.HandyFunctionsObj.SaveSomething("SE1 Historical library(*.se1his)|*.se1his", "Give save name...", tinitdir, false);
               if (Strings.Len(str) < 2)
               {
-                let mut num5: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -1124,7 +1124,7 @@ namespace WindowsApplication1
                 windowReturnClass1.SetFlag(true);
                 self.game.FormRef.Cursor = Cursors.Default;
                 self.game.Data.LoadGraphics(self.formref);
-                let mut num6: i32 =  Interaction.MsgBox((object) "Completed & Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
               }
             }
             else
@@ -1174,7 +1174,7 @@ namespace WindowsApplication1
                 {
                   if (self.detaily <= 1)
                   {
-                    let mut num7: i32 =  Interaction.MsgBox((object) "Cannot change", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num7: i32 =  Interaction.MsgBox( "Cannot change", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -1192,7 +1192,7 @@ namespace WindowsApplication1
                     if (self.detaily >= 14)
                     {
                       self.currentHisNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      let mut index3: i32 =  Math.Round((double) self.detaily / 2.0 - 7.0);
+                      let mut index3: i32 =  Math.Round( self.detaily / 2.0 - 7.0);
                       self.stringy.Data[self.detailx, self.detaily] = "-1";
                       self.game.Data.HistoricalUnitObj[self.currentHisNr].DesignationSmall[index3] = -1;
                       self.RemoveSubPart(self.tableId);
@@ -1212,8 +1212,8 @@ namespace WindowsApplication1
                 {
                   if (self.detaily == 0)
                   {
-                    let mut num8: i32 =  Interaction.MsgBox((object) "Changeing the ID# is not advised and for EXPERT USE ONLY. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
-                    if (Interaction.MsgBox((object) "Change ID# ?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                    let mut num8: i32 =  Interaction.MsgBox( "Changeing the ID# is not advised and for EXPERT USE ONLY. ", Title: ( "Shadow Empire : Planetary Conquest"));
+                    if (Interaction.MsgBox( "Change ID# ?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     {
                       self.currentPplNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
                       let mut num9: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new ID#", "Shadow Empire : Planetary Conquest", self.game.Data.PeopleObj[self.currentPplNr].id.ToString())));
@@ -1257,7 +1257,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num11: i32 =  Interaction.MsgBox((object) "no go. Between 0-100 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num11: i32 =  Interaction.MsgBox( "no go. Between 0-100 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       return windowReturnClass1;
                     }
@@ -1276,7 +1276,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num13: i32 =  Interaction.MsgBox((object) "no go. Between 0-100 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num13: i32 =  Interaction.MsgBox( "no go. Between 0-100 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       return windowReturnClass1;
                     }
@@ -1301,14 +1301,14 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num15: i32 =  Interaction.MsgBox((object) "no go. Between 0-100 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num15: i32 =  Interaction.MsgBox( "no go. Between 0-100 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       return windowReturnClass1;
                     }
                     if (self.detaily == 6)
                     {
                       self.currentPplNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      if (Interaction.MsgBox((object) "Use Color?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                      if (Interaction.MsgBox( "Use Color?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                       {
                         let mut num16: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Red (0-255).", "Shadow Empire : Planetary Conquest")));
                         if (num16 >= 0 & num16 <=  byte.MaxValue)
@@ -1317,7 +1317,7 @@ namespace WindowsApplication1
                         }
                         else
                         {
-                          let mut num17: i32 =  Interaction.MsgBox((object) "no go. Between 0-255 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num17: i32 =  Interaction.MsgBox( "no go. Between 0-255 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                         }
                         let mut num18: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Green (0-255).", "Shadow Empire : Planetary Conquest")));
                         if (num18 >= 0 & num18 <=  byte.MaxValue)
@@ -1326,7 +1326,7 @@ namespace WindowsApplication1
                         }
                         else
                         {
-                          let mut num19: i32 =  Interaction.MsgBox((object) "no go. Between 0-255 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num19: i32 =  Interaction.MsgBox( "no go. Between 0-255 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                         }
                         let mut num20: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Blue (0-255).", "Shadow Empire : Planetary Conquest")));
                         if (num20 >= 0 & num20 <=  byte.MaxValue)
@@ -1335,7 +1335,7 @@ namespace WindowsApplication1
                         }
                         else
                         {
-                          let mut num21: i32 =  Interaction.MsgBox((object) "no go. Between 0-255 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num21: i32 =  Interaction.MsgBox( "no go. Between 0-255 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                         }
                       }
                       else
@@ -1370,7 +1370,7 @@ namespace WindowsApplication1
                         windowReturnClass1.SetFlag(true);
                         return windowReturnClass1;
                       }
-                      let mut num22: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to self.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num22: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                     else if (self.detaily == 4)
                     {
@@ -1379,7 +1379,7 @@ namespace WindowsApplication1
                       {
                         if (Strings.InStr(String1, "BIG") > 0 | Strings.InStr(String1, "SMALL") > 0)
                         {
-                          let mut num23: i32 =  Interaction.MsgBox((object) "You cannot load a file that in the path include 'BIG' or 'SMALL'.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num23: i32 =  Interaction.MsgBox( "You cannot load a file that in the path include 'BIG' or 'SMALL'.", Title: ( "Shadow Empire : Planetary Conquest"));
                         }
                         else
                         {
@@ -1395,7 +1395,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num24: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to self.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num24: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                     }
                   }
@@ -1404,7 +1404,7 @@ namespace WindowsApplication1
                 {
                   if (self.detaily <= 1)
                   {
-                    let mut num25: i32 =  Interaction.MsgBox((object) "Cannot change", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num25: i32 =  Interaction.MsgBox( "Cannot change", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -1423,7 +1423,7 @@ namespace WindowsApplication1
                     if (self.detaily == 3)
                     {
                       self.currentUnitNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      if (Interaction.MsgBox((object) "Is HQ?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                      if (Interaction.MsgBox( "Is HQ?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                         self.game.Data.UnitObj[self.currentUnitNr].IsHQ = true;
                       else
                         self.game.Data.UnitObj[self.currentUnitNr].IsHQ = false;
@@ -1437,7 +1437,7 @@ namespace WindowsApplication1
                     if ((self.detaily - 4 + 5) % 5 == 0)
                     {
                       self.currentUnitNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      let mut index5: i32 =  Math.Round(Conversion.Int((double) (self.detaily - 4) / 5.0));
+                      let mut index5: i32 =  Math.Round(Conversion.Int( (self.detaily - 4) / 5.0));
                       while (index5 > self.game.Data.UnitObj[self.currentUnitNr].SFCount)
                       {
                         self.game.Data.AddSF(self.currentUnitNr);
@@ -1451,7 +1451,7 @@ namespace WindowsApplication1
                     if ((self.detaily - 4 + 5) % 5 == 1)
                     {
                       self.currentUnitNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      let mut index6: i32 =  Math.Round(Conversion.Int((double) (self.detaily - 4) / 5.0));
+                      let mut index6: i32 =  Math.Round(Conversion.Int( (self.detaily - 4) / 5.0));
                       while (index6 > self.game.Data.UnitObj[self.currentUnitNr].SFCount)
                       {
                         self.game.Data.AddSF(self.currentUnitNr);
@@ -1465,7 +1465,7 @@ namespace WindowsApplication1
                     if ((self.detaily - 4 + 5) % 5 == 2)
                     {
                       self.currentUnitNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      let mut index7: i32 =  Math.Round(Conversion.Int((double) (self.detaily - 4) / 5.0));
+                      let mut index7: i32 =  Math.Round(Conversion.Int( (self.detaily - 4) / 5.0));
                       while (index7 > self.game.Data.UnitObj[self.currentUnitNr].SFCount)
                       {
                         self.game.Data.AddSF(self.currentUnitNr);
@@ -1484,14 +1484,14 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num27: i32 =  Interaction.MsgBox((object) "no go. Between 0-999 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num27: i32 =  Interaction.MsgBox( "no go. Between 0-999 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       return windowReturnClass1;
                     }
                     if ((self.detaily - 4 + 5) % 5 == 3)
                     {
                       self.currentUnitNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      let mut index8: i32 =  Math.Round(Conversion.Int((double) (self.detaily - 4) / 5.0));
+                      let mut index8: i32 =  Math.Round(Conversion.Int( (self.detaily - 4) / 5.0));
                       while (index8 > self.game.Data.UnitObj[self.currentUnitNr].SFCount)
                       {
                         self.game.Data.AddSF(self.currentUnitNr);
@@ -1510,14 +1510,14 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num29: i32 =  Interaction.MsgBox((object) "no go. Between 0-100 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num29: i32 =  Interaction.MsgBox( "no go. Between 0-100 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       return windowReturnClass1;
                     }
                     if ((self.detaily - 4 + 5) % 5 == 4)
                     {
                       self.currentUnitNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                      let mut index9: i32 =  Math.Round(Conversion.Int((double) (self.detaily - 4) / 5.0));
+                      let mut index9: i32 =  Math.Round(Conversion.Int( (self.detaily - 4) / 5.0));
                       while (index9 > self.game.Data.UnitObj[self.currentUnitNr].SFCount)
                       {
                         self.game.Data.AddSF(self.currentUnitNr);
@@ -1536,7 +1536,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num31: i32 =  Interaction.MsgBox((object) "no go. Between 0-100 plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num31: i32 =  Interaction.MsgBox( "no go. Between 0-100 plz", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       return windowReturnClass1;
                     }
@@ -1546,7 +1546,7 @@ namespace WindowsApplication1
                 {
                   if (self.detaily <= 1)
                   {
-                    let mut num32: i32 =  Interaction.MsgBox((object) "Cannot change", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num32: i32 =  Interaction.MsgBox( "Cannot change", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -1573,7 +1573,7 @@ namespace WindowsApplication1
                     if (self.detaily == 4)
                     {
                       str: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Small Gfx:", self.game.AppPath + "graphics\\", true);
-                      if (Information.IsNothing((object) str))
+                      if (Information.IsNothing( str))
                       {
                         self.currentHisNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
                         self.stringy.TempBmp[self.detailx, self.detaily] = 0;
@@ -1589,7 +1589,7 @@ namespace WindowsApplication1
                       {
                         if (Strings.InStr(str, "BIG") > 0 | Strings.InStr(str, "SMALL") > 0)
                         {
-                          let mut num33: i32 =  Interaction.MsgBox((object) "You cannot load a file that in the path include 'BIG' or 'SMALL'.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num33: i32 =  Interaction.MsgBox( "You cannot load a file that in the path include 'BIG' or 'SMALL'.", Title: ( "Shadow Empire : Planetary Conquest"));
                         }
                         else
                         {
@@ -1614,7 +1614,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num34: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to self.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num34: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                     }
                     else
@@ -1666,7 +1666,7 @@ namespace WindowsApplication1
                       if (self.detaily == 9)
                       {
                         self.currentHisNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                        if (Interaction.MsgBox((object) "Use Roman Numerals?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                        if (Interaction.MsgBox( "Use Roman Numerals?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                         {
                           self.stringy.Data[self.detailx, self.detaily] = "True";
                           self.game.Data.HistoricalUnitObj[self.currentHisNr].UseRomans = true;
@@ -1725,7 +1725,7 @@ namespace WindowsApplication1
                       if (self.detaily >= 14 & self.detaily % 2 == 0)
                       {
                         self.currentHisNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                        let mut tnr2_2: i32 =  Math.Round(Conversion.Int((double) (self.detaily - 13) / 2.0));
+                        let mut tnr2_2: i32 =  Math.Round(Conversion.Int( (self.detaily - 13) / 2.0));
                         self.Change = true;
                         Form3::new( self.formref).Initialize(self.game.Data, 136, self.currentHisNr, tnr2_2, self.game);
                         windowReturnClass1.SetFlag(true);
@@ -1734,15 +1734,15 @@ namespace WindowsApplication1
                       if (self.detaily >= 15 & self.detaily % 2 == 1)
                       {
                         self.currentHisNr =  Math.Round(Conversion.Val(self.stringy.Data[self.detailx, 0]));
-                        let mut index11: i32 =  Math.Round(Conversion.Int((double) (self.detaily - 13) / 2.0)) - 1;
+                        let mut index11: i32 =  Math.Round(Conversion.Int( (self.detaily - 13) / 2.0)) - 1;
                         str: String = self.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give File Name For Small Gfx", self.game.AppPath + "graphics\\", true);
-                        if (!Information.IsNothing((object) str))
+                        if (!Information.IsNothing( str))
                         {
                           if (File.Exists(self.game.AppPath + "graphics/" + str))
                           {
                             if (Strings.InStr(str, "BIG") > 0 | Strings.InStr(str, "SMALL") > 0)
                             {
-                              let mut num35: i32 =  Interaction.MsgBox((object) "You cannot load a file that in the path include 'BIG' or 'SMALL'.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                              let mut num35: i32 =  Interaction.MsgBox( "You cannot load a file that in the path include 'BIG' or 'SMALL'.", Title: ( "Shadow Empire : Planetary Conquest"));
                             }
                             else
                             {
@@ -1767,7 +1767,7 @@ namespace WindowsApplication1
                           }
                           else
                           {
-                            let mut num36: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to self.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                            let mut num36: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
                           }
                         }
                       }
@@ -1778,7 +1778,7 @@ namespace WindowsApplication1
                 {
                   if (self.detaily <= 1)
                   {
-                    let mut num37: i32 =  Interaction.MsgBox((object) "Cannot change", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num37: i32 =  Interaction.MsgBox( "Cannot change", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -1993,7 +1993,7 @@ namespace WindowsApplication1
                       }
                     }
                     self.game.HandyFunctionsObj.ActuallyImportLibs( dataClass,  import,  sublib,  subPpl,  subreg);
-                    let mut num39: i32 =  Interaction.MsgBox((object) "Import completed", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num39: i32 =  Interaction.MsgBox( "Import completed", Title: ( "Shadow Empire : Planetary Conquest"));
                     self.game.FormRef.Cursor = Cursors.Default;
                     self.RemoveSubPart(self.tableId);
                     self.tableId = 0;
@@ -2001,7 +2001,7 @@ namespace WindowsApplication1
                     windowReturnClass1.SetFlag(true);
                     return windowReturnClass1;
                   }
-                  let mut num40: i32 =  Interaction.MsgBox((object) "Could not find file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num40: i32 =  Interaction.MsgBox( "Could not find file", Title: ( "Shadow Empire : Planetary Conquest"));
                   self.DoStuff();
                   windowReturnClass1.SetFlag(true);
                   return windowReturnClass1;
@@ -2042,7 +2042,7 @@ namespace WindowsApplication1
                   str1: String = self.game.HandyFunctionsObj.LoadSomething("CSV (*.csv)|*.csv|TXT (*.txt)|*.txt|All (*.*)|*.*", "Select file to import...", self.game.AppPath + "csv/", false);
                   if (Strings.Len(str1) < 2)
                   {
-                    let mut num42: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num42: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -2123,9 +2123,9 @@ namespace WindowsApplication1
                     {
                       ProjectData.SetProjectError(ex);
                       Exception exception = ex;
-                      if (!Information.IsNothing((object) Expression))
+                      if (!Information.IsNothing( Expression))
                         Expression.Close();
-                      let mut num44: i32 =  Interaction.MsgBox((object) ("Import problem encountered: '" + exception.Message + "'. Your current data might be corrupted. "), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num44: i32 =  Interaction.MsgBox( ("Import problem encountered: '" + exception.Message + "'. Your current data might be corrupted. "), Title: ( "Shadow Empire : Planetary Conquest"));
                       self.RemoveSubPart(self.tableId);
                       self.tableId = 0;
                       self.DoStuff();
@@ -2135,7 +2135,7 @@ namespace WindowsApplication1
                       goto label_350;
                     }
                     Expression.Close();
-                    let mut num45: i32 =  Interaction.MsgBox((object) "Import finished", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num45: i32 =  Interaction.MsgBox( "Import finished", Title: ( "Shadow Empire : Planetary Conquest"));
                     self.RemoveSubPart(self.tableId);
                     self.tableId = 0;
                     self.DoStuff();
@@ -2150,7 +2150,7 @@ label_350:
                   str4: String = self.game.HandyFunctionsObj.SaveSomething("CSV (*.csv)|*.csv|TXT (*.txt)|*.txt|All (*.*)|*.*", "Give save name...", self.game.AppPath + "csv/", false);
                   if (Strings.Len(str4) < 2)
                   {
-                    let mut num46: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num46: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -2173,21 +2173,21 @@ label_350:
                           }
                         }
                         text.Close();
-                        let mut num47: i32 =  Interaction.MsgBox((object) "Export has been written to the csv/ directory", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num47: i32 =  Interaction.MsgBox( "Export has been written to the csv/ directory", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       catch (Exception ex)
                       {
                         ProjectData.SetProjectError(ex);
                         Exception exception = ex;
                         text.Close();
-                        let mut num48: i32 =  Interaction.MsgBox((object) ("Problem writing: " + exception.Message), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num48: i32 =  Interaction.MsgBox( ("Problem writing: " + exception.Message), Title: ( "Shadow Empire : Planetary Conquest"));
                         ProjectData.ClearProjectError();
                       }
                     }
                     catch (Exception ex)
                     {
                       ProjectData.SetProjectError(ex);
-                      let mut num49: i32 =  Interaction.MsgBox((object) "Problem writing. Check if the file is not opened in other application please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num49: i32 =  Interaction.MsgBox( "Problem writing. Check if the file is not opened in other application please.", Title: ( "Shadow Empire : Planetary Conquest"));
                       ProjectData.ClearProjectError();
                     }
                   }

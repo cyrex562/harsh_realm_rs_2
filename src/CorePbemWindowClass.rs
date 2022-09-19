@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -345,7 +345,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.ChallengeListId);
       this.ChallengeListObj = ListClass::new();
       let mut num: i32 =  -1;
-      if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList))
+      if (Information.IsNothing( this.game.EditObj.ServerChallengeList))
         return;
       let mut upperBound: i32 =  this.game.EditObj.ServerChallengeList.GetUpperBound(0);
       for (let mut index: i32 =  0; index <= upperBound; index += 1)
@@ -472,7 +472,7 @@ namespace WindowsApplication1
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.ChallengeListId > 0)
         this.RemoveSubPart(this.ChallengeListId);
-      if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList))
+      if (Information.IsNothing( this.game.EditObj.ServerChallengeList))
         return;
       this.ChallengeListObj = ListClass::new();
       let mut num: i32 =  -1;
@@ -612,7 +612,7 @@ namespace WindowsApplication1
         {
           this.AcceptUsePass = true;
           Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
-          if (Information.IsNothing((object) this.game.EditObj.PbemPrivatePassword))
+          if (Information.IsNothing( this.game.EditObj.PbemPrivatePassword))
             this.game.EditObj.PbemPrivatePassword = "";
           let mut tsubpart4: SubPartClass =  TextPartClass::new("Private Password:", this.game.MarcFont4, 160, 20, false, tMarc: true);
           this.PassTextId = this.AddSubPart(ref tsubpart4, 580, 620, 160, 20, 0);
@@ -656,7 +656,7 @@ namespace WindowsApplication1
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.ChallengeListId > 0)
         this.RemoveSubPart(this.ChallengeListId);
-      if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList) || Information.IsNothing((object) this.game.EditObj.ServerRunningGameList))
+      if (Information.IsNothing( this.game.EditObj.ServerChallengeList) || Information.IsNothing( this.game.EditObj.ServerRunningGameList))
         return;
       this.ChallengeListObj = ListClass::new();
       let mut num: i32 =  -1;
@@ -676,12 +676,12 @@ namespace WindowsApplication1
           this.game.EditObj.PbemChallengeMiscData = "";
         }
         bool flag = true;
-        str1: String = "Round " + Strings.Trim(Conversion.Str((object) this.game.EditObj.ServerRunningGameList[index].TurnNo)) + ", Turn: ";
+        str1: String = "Round " + Strings.Trim(Conversion.Str( this.game.EditObj.ServerRunningGameList[index].TurnNo)) + ", Turn: ";
         tvalue2: String = Operators.CompareString(this.game.EditObj.ServerRunningGameList[index].playerToUserName, this.game.EditObj.ServerRunningGameList[index].Player1UserName, false) != 0 ? str1 + this.game.EditObj.ServerRunningGameList[index].Player2UserName : str1 + this.game.EditObj.ServerRunningGameList[index].Player1UserName;
         tvalue3: String = Conversions.ToString(this.game.EditObj.ServerRunningGameList[index].lastUploaded);
         if (this.game.EditObj.ServerRunningGameList[index].GameOver)
         {
-          tvalue3 = (double) this.game.EditObj.ServerRunningGameList[index].Player1Losses != (double) this.game.EditObj.ServerRunningGameList[index].Player2Losses ? ((double) this.game.EditObj.ServerRunningGameList[index].Player1Losses >= (double) this.game.EditObj.ServerRunningGameList[index].Player2Losses ? this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ") : "DRAW GAME ";
+          tvalue3 =  this.game.EditObj.ServerRunningGameList[index].Player1Losses !=  this.game.EditObj.ServerRunningGameList[index].Player2Losses ? ( this.game.EditObj.ServerRunningGameList[index].Player1Losses >=  this.game.EditObj.ServerRunningGameList[index].Player2Losses ? this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ") : "DRAW GAME ";
           if (this.game.EditObj.ServerRunningGameList[index].Viewed == 1)
           {
             flag = false;
@@ -802,7 +802,7 @@ namespace WindowsApplication1
               if (this.game.EditObj.ServerRunningGameList[index].GameOver)
               {
                 str3: String = tText + "GAME IS OVER. GAME ENDED ON: " + Conversions.ToString(this.game.EditObj.ServerRunningGameList[index].lastTurnUploaded) + "\r\n";
-                str4: String = (double) this.game.EditObj.ServerRunningGameList[index].Player1Losses >= (double) this.game.EditObj.ServerRunningGameList[index].Player2Losses ? str3 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : str3 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ";
+                str4: String =  this.game.EditObj.ServerRunningGameList[index].Player1Losses >=  this.game.EditObj.ServerRunningGameList[index].Player2Losses ? str3 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : str3 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ";
                 tText = (this.game.EditObj.ServerRunningGameList[index].Viewed != 1 ? str4 + ", VIEWED: NO" : str4 + ", VIEWED: YES") + "\r\n";
               }
             }
@@ -857,7 +857,7 @@ namespace WindowsApplication1
       this.game.EditObj.PbemCheckPlayer = "";
       if (this.ChallengeListId > 0)
         this.RemoveSubPart(this.ChallengeListId);
-      if (Information.IsNothing((object) this.game.EditObj.ServerChallengeList) || Information.IsNothing((object) this.game.EditObj.ServerRunningGameList))
+      if (Information.IsNothing( this.game.EditObj.ServerChallengeList) || Information.IsNothing( this.game.EditObj.ServerRunningGameList))
         return;
       this.ChallengeListObj = ListClass::new();
       let mut num: i32 =  -1;
@@ -877,12 +877,12 @@ namespace WindowsApplication1
             this.game.EditObj.PbemGameOver = 0;
           this.game.EditObj.PbemChallengeMiscData = "";
         }
-        str1: String = "Round " + Strings.Trim(Conversion.Str((object) this.game.EditObj.ServerRunningGameList[index].TurnNo)) + ", Turn: ";
+        str1: String = "Round " + Strings.Trim(Conversion.Str( this.game.EditObj.ServerRunningGameList[index].TurnNo)) + ", Turn: ";
         tvalue2: String = Operators.CompareString(this.game.EditObj.ServerRunningGameList[index].playerToUserName, this.game.EditObj.ServerRunningGameList[index].Player1UserName, false) != 0 ? str1 + this.game.EditObj.ServerRunningGameList[index].Player2UserName : str1 + this.game.EditObj.ServerRunningGameList[index].Player1UserName;
         Conversions.ToString(this.game.EditObj.ServerRunningGameList[index].lastUploaded);
         if (this.game.EditObj.ServerRunningGameList[index].GameOver)
         {
-          tvalue3: String = (double) this.game.EditObj.ServerRunningGameList[index].Player1Losses != (double) this.game.EditObj.ServerRunningGameList[index].Player2Losses ? ((double) this.game.EditObj.ServerRunningGameList[index].Player1Losses >= (double) this.game.EditObj.ServerRunningGameList[index].Player2Losses ? this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ") : "DRAW GAME ";
+          tvalue3: String =  this.game.EditObj.ServerRunningGameList[index].Player1Losses !=  this.game.EditObj.ServerRunningGameList[index].Player2Losses ? ( this.game.EditObj.ServerRunningGameList[index].Player1Losses >=  this.game.EditObj.ServerRunningGameList[index].Player2Losses ? this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ") : "DRAW GAME ";
           if (this.game.EditObj.ServerRunningGameList[index].Viewed == 1)
           {
             tvalue3 += "(viewed)";
@@ -981,7 +981,7 @@ namespace WindowsApplication1
               if (this.game.EditObj.ServerRunningGameList[index].GameOver)
               {
                 str2: String = tText + "GAME IS OVER. GAME ENDED ON: " + Conversions.ToString(this.game.EditObj.ServerRunningGameList[index].lastTurnUploaded) + "\r\n";
-                str3: String = (double) this.game.EditObj.ServerRunningGameList[index].Player1Losses >= (double) this.game.EditObj.ServerRunningGameList[index].Player2Losses ? str2 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : str2 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ";
+                str3: String =  this.game.EditObj.ServerRunningGameList[index].Player1Losses >=  this.game.EditObj.ServerRunningGameList[index].Player2Losses ? str2 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player2UserName + " WON GAME " : str2 + "WINNER: " + this.game.EditObj.ServerRunningGameList[index].Player1UserName + " WON GAME ";
                 tText = (this.game.EditObj.ServerRunningGameList[index].Viewed != 1 ? str3 + ", VIEWED BY BOTH: NO" : str3 + ", VIEWED BY BOTH: YES") + "\r\n";
               }
             }
@@ -1029,7 +1029,7 @@ namespace WindowsApplication1
       }
       str: String = "FINISHED GAMES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round( ( (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
       Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See PBEM games you are playing in that are finished.", 100);
@@ -1060,7 +1060,7 @@ namespace WindowsApplication1
       }
       str: String = "RUNNING GAMES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round( ( (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
       Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See PBEM games you are playing in that are currently running.", 101);
@@ -1091,7 +1091,7 @@ namespace WindowsApplication1
       }
       str: String = "YOUR CHALLENGES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round( ( (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
       Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See challenges for PBEM games that you issued..", 102);
@@ -1122,7 +1122,7 @@ namespace WindowsApplication1
       }
       str: String = "OTHER CHALLENGES";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x4: i32 =  (int) Math.Round((double) ((float) (x1 + 91) - sizeF2.Width / 2f));
+      let mut x4: i32 =  (int) Math.Round( ( (x1 + 91) - sizeF2.Width / 2f));
       DrawMod.DrawTextColouredMarc(ref g, str, this.game.MarcFont16, x4, y1 + 4, Color.White);
       Rectangle trect = Rectangle::new(x1, y1, 182, 24);
       this.AddMouse(ref trect, "", "See challenges that other players have issued.", 103);
@@ -1164,7 +1164,7 @@ namespace WindowsApplication1
           return windowReturnClass;
         }
         this.game.EditObj.LoadingResult = LoadType.None;
-        let mut num: i32 =  (int) Interaction.MsgBox((object) "You cannot use the selected file for making a challenge since this game has already begun.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =  (int) Interaction.MsgBox( "You cannot use the selected file for making a challenge since this game has already begun.", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       if (this.game.EditObj.LoadingResult == LoadType.GameLoop)
       {
@@ -1180,7 +1180,7 @@ namespace WindowsApplication1
           return windowReturnClass;
         }
         this.game.EditObj.LoadingResult = LoadType.None;
-        let mut num: i32 =  (int) Interaction.MsgBox((object) "You cannot use the selected file for making a challenge since this game has already begun.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =  (int) Interaction.MsgBox( "You cannot use the selected file for making a challenge since this game has already begun.", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       if (this.game.EditObj.PbemGameSetup == PbemGameSetupPhase.ChallengeMade)
       {
@@ -1238,7 +1238,7 @@ namespace WindowsApplication1
         windowReturnClass.SetFlag(true);
         return windowReturnClass;
       }
-      if (!Information.IsNothing((object) this.game.EditObj.TextInputString) && this.game.EditObj.TextInputString.Length > 0)
+      if (!Information.IsNothing( this.game.EditObj.TextInputString) && this.game.EditObj.TextInputString.Length > 0)
       {
         if (this.selectedid == this.PassId)
         {
@@ -1440,12 +1440,12 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num3: i32 =  (int) Interaction.MsgBox((object) ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =  (int) Interaction.MsgBox( ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               if (Strings.Len(str) > 1)
               {
-                let mut num4: i32 =  (int) Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  (int) Interaction.MsgBox( "File could not be found or op. is cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -1466,12 +1466,12 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num5: i32 =  (int) Interaction.MsgBox((object) ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  (int) Interaction.MsgBox( ("The actual scenario name and location must be 36 characters or less. The current path '" + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "") + "' is " + str.Replace(this.game.AppPath + this.game.ModScenarioDir, "").Length.ToString() + " characters long."), Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               if (Strings.Len(str) > 1)
               {
-                let mut num6: i32 =  (int) Interaction.MsgBox((object) "File could not be found or op. is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  (int) Interaction.MsgBox( "File could not be found or op. is cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }

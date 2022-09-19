@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -809,7 +809,7 @@ namespace WindowsApplication1
           }
           if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn | this.game.Data.Round == 0)
           {
-            if (this.game.Data.Turn > -1 && (double) this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
+            if (this.game.Data.Turn > -1 &&  this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
             {
               if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true))
                 this.GiveUnitId = 1;
@@ -846,9 +846,9 @@ namespace WindowsApplication1
             if (this.game.Data.Turn > -1 && this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false) > this.game.Data.RegimeObj[this.game.Data.Turn].ResPts)
             {
               this.HqUnitButtonId = 0;
-              this.HqUnitButtonText = "You dont have the required " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
+              this.HqUnitButtonText = "You dont have the required " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
             }
-            if (this.game.Data.Turn > -1 && (double) this.game.Data.RuleVar[343] == 1.0 & this.game.Data.Turn > -1 & this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime <= -1)
+            if (this.game.Data.Turn > -1 &&  this.game.Data.RuleVar[343] == 1.0 & this.game.Data.Turn > -1 & this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime <= -1)
             {
               if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
               {
@@ -884,13 +884,13 @@ namespace WindowsApplication1
             if (this.game.Data.Round > 0)
             {
               let mut num: i32 =  0;
-              if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1 && this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].StructuralPts < this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].StructuralPts && (double) this.game.Data.RuleVar[902] < 1.0 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].EPCost > 0)
+              if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1 && this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].StructuralPts < this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].StructuralPts &&  this.game.Data.RuleVar[902] < 1.0 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].EPCost > 0)
                 num = 1;
               if (this.game.HandyFunctionsObj.CanUnitBuild(this.game.EditObj.UnitSelected) | num == 1)
               {
                 if (this.game.HandyFunctionsObj.GetLowestAp(this.game.EditObj.UnitSelected) > 0)
                 {
-                  if ((double) this.game.Data.RuleVar[868] > 0.0 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.Data.Turn) > 0)
+                  if ( this.game.Data.RuleVar[868] > 0.0 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.Data.Turn) > 0)
                     this.buildbuttontext = "You cannot build/repair something if you conquered the hex in the current turn. Please wait a full turn.";
                   else
                     this.BuildButtonId = 1;
@@ -900,7 +900,7 @@ namespace WindowsApplication1
               }
               else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
               {
-                if ((double) this.game.Data.RuleVar[902] < 1.0)
+                if ( this.game.Data.RuleVar[902] < 1.0)
                 {
                   this.BuildButtonId = 0;
                   this.buildbuttontext = "Location is not damaged / Unit cannot repair this location";
@@ -1010,7 +1010,7 @@ namespace WindowsApplication1
             {
               if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].PassengerCounter == -1)
               {
-                if ((double) this.game.Data.RuleVar[315] == 1.0 & !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
+                if ( this.game.Data.RuleVar[315] == 1.0 & !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
                 {
                   this.TransferButtonId = 0;
                   this.TransferButtonText = "You can only transfer from a HQ.";
@@ -1141,7 +1141,7 @@ namespace WindowsApplication1
               if (this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false) > this.game.Data.RegimeObj[this.game.Data.Turn].ResPts)
               {
                 this.HqUnitButtonId = 0;
-                this.HqUnitButtonText = "You dont have the required " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
+                this.HqUnitButtonText = "You dont have the required " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
               }
             }
             this.supplylayerbuttontext = "Not a friendly unit.";
@@ -1197,7 +1197,7 @@ namespace WindowsApplication1
             }
           }
         }
-        if (this.game.SelectX > -1 & this.game.SelectY > -1 && this.game.Data.Turn > -1 && (double) this.game.Data.RuleVar[529] == 1.0)
+        if (this.game.SelectX > -1 & this.game.SelectY > -1 && this.game.Data.Turn > -1 &&  this.game.Data.RuleVar[529] == 1.0)
         {
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
           {
@@ -1221,7 +1221,7 @@ namespace WindowsApplication1
                 this.HqUnitButtonId = 1;
               if (this.game.Data.Turn > -1)
               {
-                if ((double) this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].UberRegime == this.game.Data.Turn)
+                if ( this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].UberRegime == this.game.Data.Turn)
                   this.GiveUnitId = 1;
                 if (this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].UberRegime == this.game.Data.Turn)
                 {
@@ -1285,7 +1285,7 @@ namespace WindowsApplication1
               this.SeaAttackButtonText = str;
               this.SeaArtAttackButtonText = str;
               this.AirAttackButtonText = str;
-              if ((double) this.game.Data.RuleVar[318] > 0.0)
+              if ( this.game.Data.RuleVar[318] > 0.0)
                 this.AirAttackButtonId = 1;
             }
             if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime] == 0)
@@ -1347,7 +1347,7 @@ namespace WindowsApplication1
           this.NewUnitButtonText = "No hex selected";
           this.newunitbutton2text = "No hex selected";
         }
-        if ((double) this.game.Data.RuleVar[527] == 0.0)
+        if ( this.game.Data.RuleVar[527] == 0.0)
         {
           this.newunitbutton2text = "";
           this.NewUnitButton2Id = 0;
@@ -1388,39 +1388,39 @@ namespace WindowsApplication1
         {
           if (this.MoveButtonId >= 0)
             num3 = num2 + 1;
-          if ((double) this.game.Data.RuleVar[344] > 0.0 & (double) this.game.Data.RuleVar[533] == 0.0 & this.GroupMoveButtonId >= 0)
+          if ( this.game.Data.RuleVar[344] > 0.0 &  this.game.Data.RuleVar[533] == 0.0 & this.GroupMoveButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[521] == 0.0 & this.HqUnitButtonId >= 0)
+          if ( this.game.Data.RuleVar[521] == 0.0 & this.HqUnitButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[519] == 0.0 & this.TransferButtonId >= 0)
+          if ( this.game.Data.RuleVar[519] == 0.0 & this.TransferButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[520] == 0.0 & this.StrategicButtonId >= 0)
+          if ( this.game.Data.RuleVar[520] == 0.0 & this.StrategicButtonId >= 0)
             num3 += 1;
-          if (this.GroupStrategicButtonId >= 0 & (double) this.game.Data.RuleVar[344] > 0.0 & (double) this.game.Data.RuleVar[533] == 0.0)
+          if (this.GroupStrategicButtonId >= 0 &  this.game.Data.RuleVar[344] > 0.0 &  this.game.Data.RuleVar[533] == 0.0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[515] == 0.0 & this.ParadropButtonId >= 0)
+          if ( this.game.Data.RuleVar[515] == 0.0 & this.ParadropButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[507] == 0.0 & this.LoadButtonId >= 0)
+          if ( this.game.Data.RuleVar[507] == 0.0 & this.LoadButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[507] == 0.0 & this.UnLoadButtonID >= 0)
+          if ( this.game.Data.RuleVar[507] == 0.0 & this.UnLoadButtonID >= 0)
             num3 += 1;
           if (this.NewUnitButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[518] == 0.0 & this.disbandid >= 0)
+          if ( this.game.Data.RuleVar[518] == 0.0 & this.disbandid >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[522] == 0.0 & this.AirReconButtonId >= 0)
+          if ( this.game.Data.RuleVar[522] == 0.0 & this.AirReconButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[516] == 0.0 & this.AirSupplyButtonId >= 0)
+          if ( this.game.Data.RuleVar[516] == 0.0 & this.AirSupplyButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[505] == 0.0 & this.BlowBridgeButtonId >= 0)
+          if ( this.game.Data.RuleVar[505] == 0.0 & this.BlowBridgeButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[506] == 0.0 & this.BlowLocationButtonId >= 0)
+          if ( this.game.Data.RuleVar[506] == 0.0 & this.BlowLocationButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[503] == 0.0 & this.InfraButtonId >= 0)
+          if ( this.game.Data.RuleVar[503] == 0.0 & this.InfraButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[504] == 0.0 & this.BuildButtonId >= 0)
+          if ( this.game.Data.RuleVar[504] == 0.0 & this.BuildButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[523] == 0.0 & this.SupplyLayerButtonId >= 0)
+          if ( this.game.Data.RuleVar[523] == 0.0 & this.SupplyLayerButtonId >= 0)
             num3 += 1;
           if (this.HexUnitButtonId >= 0)
             num3 += 1;
@@ -1430,17 +1430,17 @@ namespace WindowsApplication1
             num3 += 1;
           if (this.ButtonStackedUnitId >= 0)
             num3 += 1;
-          if (this.NewUnitButton2Id >= 0 & (double) this.game.Data.RuleVar[527] > 0.0)
+          if (this.NewUnitButton2Id >= 0 &  this.game.Data.RuleVar[527] > 0.0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[512] == 0.0 & this.NewUnitButtonId >= 0)
+          if ( this.game.Data.RuleVar[512] == 0.0 & this.NewUnitButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[529] == 1.0 & this.GiveHexId >= 0)
+          if ( this.game.Data.RuleVar[529] == 1.0 & this.GiveHexId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[528] == 1.0 & this.GiveUnitId >= 0)
+          if ( this.game.Data.RuleVar[528] == 1.0 & this.GiveUnitId >= 0)
             num3 += 1;
           if (this.OfficerId > 0)
             num3 += 1;
-          if (this.ChangeModelId > 0 & (double) this.game.Data.RuleVar[531] == 1.0)
+          if (this.ChangeModelId > 0 &  this.game.Data.RuleVar[531] == 1.0)
             num3 += 1;
         }
         else
@@ -1449,9 +1449,9 @@ namespace WindowsApplication1
             num3 = num2 + 1;
           if (this.ArtAttackButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[511] == 0.0 & this.seaAttackButtonId >= 0)
+          if ( this.game.Data.RuleVar[511] == 0.0 & this.seaAttackButtonId >= 0)
             num3 += 1;
-          if ((double) this.game.Data.RuleVar[511] == 0.0 & this.SeaArtAttackButtonId >= 0)
+          if ( this.game.Data.RuleVar[511] == 0.0 & this.SeaArtAttackButtonId >= 0)
             num3 += 1;
           if (this.AirAttackButtonId >= 0)
             num3 += 1;
@@ -1463,7 +1463,7 @@ namespace WindowsApplication1
             num3 += 1;
           if (this.HqUnitButtonId >= 0)
             num3 += 1;
-          if (this.NewUnitButton2Id >= 0 & (double) this.game.Data.RuleVar[527] > 0.0)
+          if (this.NewUnitButton2Id >= 0 &  this.game.Data.RuleVar[527] > 0.0)
             num3 += 1;
           if (this.NewUnitButtonId >= 0)
             num3 += 1;
@@ -1482,7 +1482,7 @@ namespace WindowsApplication1
           if (this.GiveUnitId > 0)
             num3 += 1;
         }
-        let mut num4: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - (double) (num3 * 18) + 30.0);
+        let mut num4: i32 =   Math.Round( this.game.ScreenWidth / 2.0 -  (num3 * 18) + 30.0);
         int num5;
         int num6;
         if (this.NextButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 50))
@@ -1512,7 +1512,7 @@ namespace WindowsApplication1
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONRESEARCH, 1, this.researchtext,  this.OwnBitmap, this.game.ScreenWidth - 2 - 32 * num7, 4);
           this.ResearchId2 = this.AddSubPart( tsubpart, this.game.ScreenWidth - 2 - 32 * num7, 4, 30, 30, 0);
         }
-        if ((double) this.game.Data.RuleVar[534] == 1.0 && this.SFDesignButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 52))
+        if ( this.game.Data.RuleVar[534] == 1.0 && this.SFDesignButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 52))
         {
           num7 += 1;
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONDESIGNSF, tDescript: "Subformationtype Model Design", tBackbitmap: ( this.OwnBitmap), bbx: (this.game.ScreenWidth - 2 - 32 * num7), bby: 4);
@@ -1533,7 +1533,7 @@ namespace WindowsApplication1
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONDIP, 1, this.diptext,  this.OwnBitmap, this.game.ScreenWidth - 2 - 32 * num8, 4);
           this.DipId2 = this.AddSubPart( tsubpart, this.game.ScreenWidth - 2 - 32 * num8, 4, 30, 30, 0);
         }
-        if ((double) this.game.Data.RuleVar[531] > 0.0 & (double) this.game.Data.RuleVar[532] > 0.0 && this.ModelDesignerId > 0)
+        if ( this.game.Data.RuleVar[531] > 0.0 &  this.game.Data.RuleVar[532] > 0.0 && this.ModelDesignerId > 0)
         {
           num8 += 1;
           let mut tsubpart: SubPartClass =  new SteveButtonPartClass30b(this.game.BUTTONMODELDESIGNER, tDescript: "Model Designer", tBackbitmap: ( this.OwnBitmap), bbx: (this.game.ScreenWidth - 2 - 32 * num8), bby: 4);
@@ -1587,9 +1587,9 @@ namespace WindowsApplication1
             let mut tsubpart3: SubPartClass =  new SteveButtonPartClass30(this.game.BUTTONMOVE, 1, this.MoveButtonText,  this.OwnBitmap, num4 + num13 * 32, 4);
             this.MoveButtonId2 = this.AddSubPart( tsubpart3, num4 + num13 * 32, 4, 30, 30, 0);
           }
-          if ((double) this.game.Data.RuleVar[533] == 0.0 & (double) this.game.Data.RuleVar[344] > 0.0)
+          if ( this.game.Data.RuleVar[533] == 0.0 &  this.game.Data.RuleVar[344] > 0.0)
           {
-            if ((double) this.game.Data.RuleVar[344] > 0.0 & this.GroupMoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 48))
+            if ( this.game.Data.RuleVar[344] > 0.0 & this.GroupMoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 48))
             {
               num13 += 1;
               let mut tsubpart4: SubPartClass =  new SteveButtonPartClass30(this.game.BUTTONMOVE2, tDescript: "Group Move Unit [G]", tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num13 * 32), bby: 4);
@@ -1604,7 +1604,7 @@ namespace WindowsApplication1
               this.GroupMoveButtonId2 = this.AddSubPart( tsubpart5, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[519] == 0.0)
+          if ( this.game.Data.RuleVar[519] == 0.0)
           {
             if (this.TransferButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 9))
             {
@@ -1621,7 +1621,7 @@ namespace WindowsApplication1
               this.TransferButtonId2 = this.AddSubPart( tsubpart7, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[520] == 0.0)
+          if ( this.game.Data.RuleVar[520] == 0.0)
           {
             if (this.StrategicButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 18))
             {
@@ -1637,7 +1637,7 @@ namespace WindowsApplication1
               let mut tsubpart9: SubPartClass =  new SteveButtonPartClass30(this.game.BUTTONSTRATEGIC, 1, this.strategicbuttontext,  this.OwnBitmap, num4 + num13 * 32, 4);
               this.StrategicButtonId2 = this.AddSubPart( tsubpart9, num4 + num13 * 32, 4, 30, 30, 0);
             }
-            if ((double) this.game.Data.RuleVar[533] == 0.0 & (double) this.game.Data.RuleVar[344] > 0.0)
+            if ( this.game.Data.RuleVar[533] == 0.0 &  this.game.Data.RuleVar[344] > 0.0)
             {
               if (this.GroupStrategicButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 49))
               {
@@ -1655,7 +1655,7 @@ namespace WindowsApplication1
               }
             }
           }
-          if ((double) this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
+          if ( this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
           {
             if (this.HqUnitButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 3))
             {
@@ -1672,7 +1672,7 @@ namespace WindowsApplication1
               this.HqUnitButtonId2 = this.AddSubPart( tsubpart13, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[515] == 0.0)
+          if ( this.game.Data.RuleVar[515] == 0.0)
           {
             if (this.ParadropButtonId > 0)
             {
@@ -1687,7 +1687,7 @@ namespace WindowsApplication1
               this.ParadropButtonId2 = this.AddSubPart( tsubpart15, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[516] == 0.0)
+          if ( this.game.Data.RuleVar[516] == 0.0)
           {
             if (this.AirSupplyButtonId > 0)
             {
@@ -1702,7 +1702,7 @@ namespace WindowsApplication1
               this.AirSupplyButtonId2 = this.AddSubPart( tsubpart17, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[507] == 0.0)
+          if ( this.game.Data.RuleVar[507] == 0.0)
           {
             if (this.LoadButtonId > 0)
             {
@@ -1717,7 +1717,7 @@ namespace WindowsApplication1
               this.LoadButtonId2 = this.AddSubPart( tsubpart19, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[507] == 0.0)
+          if ( this.game.Data.RuleVar[507] == 0.0)
           {
             if (this.UnLoadButtonID > 0)
             {
@@ -1732,7 +1732,7 @@ namespace WindowsApplication1
               this.UnLoadButtonID2 = this.AddSubPart( tsubpart21, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[512] == 0.0)
+          if ( this.game.Data.RuleVar[512] == 0.0)
           {
             if (this.NewUnitButtonId > 0)
             {
@@ -1747,7 +1747,7 @@ namespace WindowsApplication1
               this.NewUnitButtonId2 = this.AddSubPart( tsubpart23, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[527] > 0.0)
+          if ( this.game.Data.RuleVar[527] > 0.0)
           {
             if (this.NewUnitButton2Id > 0)
             {
@@ -1762,7 +1762,7 @@ namespace WindowsApplication1
               this.NewUnitButton2Id2 = this.AddSubPart( tsubpart25, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[518] == 0.0)
+          if ( this.game.Data.RuleVar[518] == 0.0)
           {
             if (this.disbandid > 0)
             {
@@ -1777,7 +1777,7 @@ namespace WindowsApplication1
               this.disbandid2 = this.AddSubPart( tsubpart27, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[522] == 0.0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 33))
+          if ( this.game.Data.RuleVar[522] == 0.0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 33))
           {
             if (this.AirReconButtonId > 0)
             {
@@ -1794,7 +1794,7 @@ namespace WindowsApplication1
               this.AirReconButtonId2 = this.AddSubPart( tsubpart29, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[505] == 0.0)
+          if ( this.game.Data.RuleVar[505] == 0.0)
           {
             if (this.BlowBridgeButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 35))
             {
@@ -1811,12 +1811,12 @@ namespace WindowsApplication1
               this.BlowBridgeButtonId2 = this.AddSubPart( tsubpart31, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[506] == 0.0)
+          if ( this.game.Data.RuleVar[506] == 0.0)
           {
             if (this.BlowLocationButtonId > 0)
             {
               num13 += 1;
-              let mut tsubpart32: SubPartClass =  new SteveButtonPartClass30(this.game.BLOWLOCATIONBUTTON, tDescript: ("Click to blow the location. Will do between 0 and " + Conversion.Str((object) this.game.HandyFunctionsObj.GetBlowBridgePts(this.game.EditObj.UnitSelected)) + " points of structural damage."), tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num13 * 32), bby: 4);
+              let mut tsubpart32: SubPartClass =  new SteveButtonPartClass30(this.game.BLOWLOCATIONBUTTON, tDescript: ("Click to blow the location. Will do between 0 and " + Conversion.Str( this.game.HandyFunctionsObj.GetBlowBridgePts(this.game.EditObj.UnitSelected)) + " points of structural damage."), tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num13 * 32), bby: 4);
               this.BlowLocationButtonId = this.AddSubPart( tsubpart32, num4 + num13 * 32, 4, 30, 30, 1);
             }
             else
@@ -1826,7 +1826,7 @@ namespace WindowsApplication1
               this.BlowLocationButtonId2 = this.AddSubPart( tsubpart33, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[503] == 0.0)
+          if ( this.game.Data.RuleVar[503] == 0.0)
           {
             if (this.InfraButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 36))
             {
@@ -1843,7 +1843,7 @@ namespace WindowsApplication1
               this.InfraButtonId2 = this.AddSubPart( tsubpart35, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[504] == 0.0)
+          if ( this.game.Data.RuleVar[504] == 0.0)
           {
             if (this.BuildButtonId > 0)
             {
@@ -1858,7 +1858,7 @@ namespace WindowsApplication1
               this.BuildButtonId2 = this.AddSubPart( tsubpart37, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[528] == 1.0)
+          if ( this.game.Data.RuleVar[528] == 1.0)
           {
             if (this.GiveUnitId > 0)
             {
@@ -1875,7 +1875,7 @@ namespace WindowsApplication1
               this.GiveUnitId2 = this.AddSubPart( tsubpart39, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[529] == 1.0)
+          if ( this.game.Data.RuleVar[529] == 1.0)
           {
             if (this.GiveHexId > 0)
             {
@@ -1890,7 +1890,7 @@ namespace WindowsApplication1
               this.GiveHexId2 = this.AddSubPart( tsubpart41, num4 + num13 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[523] == 0.0)
+          if ( this.game.Data.RuleVar[523] == 0.0)
           {
             if (this.SupplyLayerButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 51))
             {
@@ -2004,7 +2004,7 @@ namespace WindowsApplication1
             tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONSPREADUNIT, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num4 + num17 * 32), bby: 4);
             this.ButtonStackedUnitId2 = this.AddSubPart( tsubpart1, num4 + 32 * num17, 4, 30, 30, 0);
           }
-          if ((double) this.game.Data.RuleVar[343] == 1.0)
+          if ( this.game.Data.RuleVar[343] == 1.0)
           {
             if (this.OfficerId > 0)
             {
@@ -2019,7 +2019,7 @@ namespace WindowsApplication1
               this.OfficerId2 = this.AddSubPart( tsubpart1, num4 + 32 * num17, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[531] == 1.0)
+          if ( this.game.Data.RuleVar[531] == 1.0)
           {
             if (this.ChangeModelId > 0)
             {
@@ -2067,7 +2067,7 @@ namespace WindowsApplication1
             let mut tsubpart46: SubPartClass =  new SteveButtonPartClass30(this.game.BUTTONARTATTACK, 1, this.ArtAttackButtonText,  this.OwnBitmap, num4 + num21 * 32, 4);
             this.ArtAttackButtonId2 = this.AddSubPart( tsubpart46, num4 + num21 * 32, 4, 30, 30, 0);
           }
-          if ((double) this.game.Data.RuleVar[511] == 0.0)
+          if ( this.game.Data.RuleVar[511] == 0.0)
           {
             int num22;
             if (this.seaAttackButtonId > 0)
@@ -2110,7 +2110,7 @@ namespace WindowsApplication1
             let mut tsubpart52: SubPartClass =  new SteveButtonPartClass30(this.game.BUTTONAIRATTACK, 1, this.AirAttackButtonText,  this.OwnBitmap, num4 + num23 * 32, 4);
             this.AirAttackButtonId2 = this.AddSubPart( tsubpart52, num4 + num23 * 32, 4, 30, 30, 0);
           }
-          if ((double) this.game.Data.RuleVar[517] == 0.0)
+          if ( this.game.Data.RuleVar[517] == 0.0)
           {
             if (this.InterdictButtonId > 0)
             {
@@ -2125,7 +2125,7 @@ namespace WindowsApplication1
               this.InterdictButtonId2 = this.AddSubPart( tsubpart54, num4 + num23 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[523] == 0.0)
+          if ( this.game.Data.RuleVar[523] == 0.0)
           {
             if (this.SupplyLayerButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 51))
             {
@@ -2150,7 +2150,7 @@ namespace WindowsApplication1
               this.SupplyLayerButtonId2 = this.AddSubPart( tsubpart55, num4 + 32 * num23, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[528] == 1.0)
+          if ( this.game.Data.RuleVar[528] == 1.0)
           {
             if (this.GiveUnitId > 0)
             {
@@ -2165,7 +2165,7 @@ namespace WindowsApplication1
               this.GiveUnitId2 = this.AddSubPart( tsubpart1, num4 + num23 * 32, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
+          if ( this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
           {
             if (this.HqUnitButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 3))
             {
@@ -2275,7 +2275,7 @@ namespace WindowsApplication1
           }
           if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime))
           {
-            if ((double) this.game.Data.RuleVar[512] == 0.0)
+            if ( this.game.Data.RuleVar[512] == 0.0)
             {
               if (this.NewUnitButtonId > 0)
               {
@@ -2290,7 +2290,7 @@ namespace WindowsApplication1
                 this.NewUnitButtonId2 = this.AddSubPart( tsubpart1, num4 + num26 * 32, 4, 30, 30, 0);
               }
             }
-            if ((double) this.game.Data.RuleVar[527] > 0.0)
+            if ( this.game.Data.RuleVar[527] > 0.0)
             {
               if (this.NewUnitButton2Id > 0)
               {
@@ -2306,7 +2306,7 @@ namespace WindowsApplication1
               }
             }
           }
-          if ((double) this.game.Data.RuleVar[343] == 1.0)
+          if ( this.game.Data.RuleVar[343] == 1.0)
           {
             if (this.OfficerId > 0)
             {
@@ -2321,7 +2321,7 @@ namespace WindowsApplication1
               this.OfficerId2 = this.AddSubPart( tsubpart1, num4 + 32 * num26, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[531] == 1.0)
+          if ( this.game.Data.RuleVar[531] == 1.0)
           {
             if (this.ChangeModelId > 0)
             {
@@ -2336,7 +2336,7 @@ namespace WindowsApplication1
               this.ChangeModelId2 = this.AddSubPart( tsubpart1, num4 + 32 * num26, 4, 30, 30, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[520] == 0.0)
+          if ( this.game.Data.RuleVar[520] == 0.0)
           {
             int num27;
             if (this.StrategicButtonId > 0)
@@ -2351,7 +2351,7 @@ namespace WindowsApplication1
               tsubpart1 =  new SteveButtonPartClass30(this.game.BUTTONSTRATEGIC, 1, this.strategicbuttontext,  this.OwnBitmap, num4 + num27 * 32, 4);
               this.StrategicButtonId2 = this.AddSubPart( tsubpart1, num4 + num27 * 32, 4, 30, 30, 0);
             }
-            if ((double) this.game.Data.RuleVar[533] == 0.0 & (double) this.game.Data.RuleVar[344] > 0.0)
+            if ( this.game.Data.RuleVar[533] == 0.0 &  this.game.Data.RuleVar[344] > 0.0)
             {
               if (this.GroupStrategicButtonId > 0)
               {
@@ -2384,7 +2384,7 @@ namespace WindowsApplication1
           tsubpart1 =  new SteveButtonPartClass30b(this.game.BUTTONPREFS, tDescript: "System Options (prefs,save,quit)", tBackbitmap: ( this.OwnBitmap), bbx: (num31 * 32 - 30), bby: 4);
           this.PrefsButtonId = this.AddSubPart( tsubpart1, num31 * 32 - 32, 4, 30, 30, 1);
         }
-        if ((double) this.game.Data.RuleVar[513] == 0.0)
+        if ( this.game.Data.RuleVar[513] == 0.0)
         {
           int num32;
           if (this.HqProdButtonId > 0)
@@ -2500,10 +2500,10 @@ namespace WindowsApplication1
         {
           let mut Number: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].MaxProd;
           if (this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts > 0)
-            Number =  Math.Round(Conversion.Int((double) Number * ((double) this.game.Data.LocObj[this.game.EditObj.OrderLoc].StructuralPts / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts)));
+            Number =  Math.Round(Conversion.Int( Number * ( this.game.Data.LocObj[this.game.EditObj.OrderLoc].StructuralPts /  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts)));
           if (this.game.Data.Round <= 0)
             ;
-          str = "Production for " + this.game.Data.LocObj[this.game.EditObj.OrderLoc].Name + " (" + Strings.Trim(Conversion.Str((object) Number)) + "points)";
+          str = "Production for " + this.game.Data.LocObj[this.game.EditObj.OrderLoc].Name + " (" + Strings.Trim(Conversion.Str( Number)) + "points)";
           if (this.game.HandyFunctionsObj.GetProdTotalPercent(this.game.EditObj.OrderLoc) > 100)
             flag1 = false;
         }
@@ -2530,10 +2530,10 @@ namespace WindowsApplication1
           if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical > -1)
           {
             if (this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, true) > 0)
-              str = str + ". Costs " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP - " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, true)) + " PP to switch due to the negative PP ranking of its current commander.";
+              str = str + ". Costs " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP - " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, true)) + " PP to switch due to the negative PP ranking of its current commander.";
           }
           else if (this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false) > 0)
-            str = str + ". Costs " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP due to the negative PP ranking of its current commander.";
+            str = str + ". Costs " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP due to the negative PP ranking of its current commander.";
           if (this.game.EditObj.UnitSelected > -1)
           {
             this.NotOkText = "Unit is not a HQ";
@@ -2552,18 +2552,18 @@ namespace WindowsApplication1
                     if (this.game.HandyFunctionsObj.CanUnitBecomeHQfor(this.game.EditObj.UnitSelected, this.game.EditObj.OrderUnit))
                     {
                       flag2 = true;
-                      if ((double) this.game.Data.RuleVar[304] > 0.0)
+                      if ( this.game.Data.RuleVar[304] > 0.0)
                       {
                         let mut num: i32 =  0;
                         if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].IsHQ)
                           num = 1;
-                        if ((double) (this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected) + this.game.HandyFunctionsObj.HowmanyHQsBelow(this.game.EditObj.OrderUnit) + 1 + num) > (double) this.game.Data.RuleVar[304])
+                        if ( (this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected) + this.game.HandyFunctionsObj.HowmanyHQsBelow(this.game.EditObj.OrderUnit) + 1 + num) >  this.game.Data.RuleVar[304])
                         {
-                          this.NotOkText = "Cannot select as HQ because it would exceed the maximum amount of " + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[304])) + " HQs in HQ chain. Current HQs above selected unit is " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected)));
+                          this.NotOkText = "Cannot select as HQ because it would exceed the maximum amount of " + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[304])) + " HQs in HQ chain. Current HQs above selected unit is " + Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected)));
                           flag2 = false;
                         }
                       }
-                      if (!((double) this.game.Data.RuleVar[344] == 1.0 & (double) this.game.Data.RuleVar[348] == 1.0) || this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical <= -1 || this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical <= -1 || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical].Type < this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].Type)
+                      if (!( this.game.Data.RuleVar[344] == 1.0 &  this.game.Data.RuleVar[348] == 1.0) || this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical <= -1 || this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical <= -1 || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical].Type < this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].Type)
                         ;
                     }
                   }
@@ -2629,8 +2629,8 @@ namespace WindowsApplication1
                 this.NotOkText = "Option not available..";
                 if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime))
                 {
-                  this.NotOkText = "Unit needs at least " + Conversion.Str((object) this.game.Data.RuleVar[307]) + " power points to capture enemy territory.";
-                  if ((double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
+                  this.NotOkText = "Unit needs at least " + Conversion.Str( this.game.Data.RuleVar[307]) + " power points to capture enemy territory.";
+                  if ( this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
                   {
                     this.NotOkText = "Unit does not only have paratroopers.";
                     if (this.game.HandyFunctionsObj.HasUnitOnlyParaLandSF(this.game.EditObj.OrderTarget))
@@ -2677,18 +2677,18 @@ namespace WindowsApplication1
         bool flag3;
         if (this.game.EditObj.OrderType == 2)
         {
-          str = "Select Land Attack participants. Attack Stack: " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.HandyFunctionsObj.maxAttackStack()) + ". ConcBonus: +" + Conversion.Str((object) Conversion.Int((float) (((double) this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
+          str = "Select Land Attack participants. Attack Stack: " + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.HandyFunctionsObj.maxAttackStack()) + ". ConcBonus: +" + Conversion.Str( Conversion.Int( (( this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
           let mut divBonusForAttack: i32 =  this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
           if (divBonusForAttack > 0)
-            str = str + ". DivBonus: +" + Conversion.Str((object) Conversion.Int(divBonusForAttack)) + "%";
+            str = str + ". DivBonus: +" + Conversion.Str( Conversion.Int(divBonusForAttack)) + "%";
           if (this.game.EditObj.UnitSelected > -1)
           {
             Coordinate target = Coordinate::new();
             target.x = this.game.EditObj.TargetX;
             target.y = this.game.EditObj.TargetY;
             target.map = this.game.EditObj.MapSelected;
-            this.NotOkText = "Unit needs at least " + Conversion.Str((object) this.game.Data.RuleVar[307]) + " power points to join in attack.";
-            if ((double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.UnitSelected))
+            this.NotOkText = "Unit needs at least " + Conversion.Str( this.game.Data.RuleVar[307]) + " power points to join in attack.";
+            if ( this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.UnitSelected))
             {
               this.NotOkText = "Unit does not have enough AP to move into hex or one of its subformationtypes cannot move into this landscape type.";
               if (this.game.HandyFunctionsObj.CanDoLandAttack(this.game.EditObj.UnitSelected, target))
@@ -2706,8 +2706,8 @@ namespace WindowsApplication1
         {
           this.PopupButtonId = 1;
           str = "Preparing Air Strike. Select participants. ";
-          if ((double) this.game.Data.RuleVar[833] > 0.0)
-            str = str + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[833]);
+          if ( this.game.Data.RuleVar[833] > 0.0)
+            str = str + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[833]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             if (this.game.HandyFunctionsObj.CanDoAirStrike(this.game.EditObj.UnitSelected, Coordinate::new()
@@ -2727,7 +2727,7 @@ namespace WindowsApplication1
         if (this.game.EditObj.OrderType == 15)
         {
           this.PopupButtonId = 1;
-          str = "Preparing Bombing Run. Select participants." + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[833]);
+          str = "Preparing Bombing Run. Select participants." + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[833]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             if (this.game.HandyFunctionsObj.CanDoAirStrike(this.game.EditObj.UnitSelected, Coordinate::new()
@@ -2747,8 +2747,8 @@ namespace WindowsApplication1
         if (this.game.EditObj.OrderType == 11)
         {
           str = "Preparing Land Artillery Attack. Select participants. ";
-          if ((double) this.game.Data.RuleVar[834] > 0.0)
-            str = str + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[834]);
+          if ( this.game.Data.RuleVar[834] > 0.0)
+            str = str + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[834]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             if (this.game.HandyFunctionsObj.CanDoArtAttack(this.game.EditObj.UnitSelected, Coordinate::new()
@@ -2767,7 +2767,7 @@ namespace WindowsApplication1
         }
         if (this.game.EditObj.OrderType == 13)
         {
-          str = "Preparing Shore Bombardment. Select participants. " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[834]);
+          str = "Preparing Shore Bombardment. Select participants. " + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[834]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             if (this.game.HandyFunctionsObj.CanDoSeaArtAttack(this.game.EditObj.UnitSelected, Coordinate::new()
@@ -2874,8 +2874,8 @@ namespace WindowsApplication1
               {
                 if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime))
                 {
-                  this.NotOkText = "Unit needs at least " + Conversion.Str((object) this.game.Data.RuleVar[307]) + " power points to do amphibious invasion.";
-                  if ((double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
+                  this.NotOkText = "Unit needs at least " + Conversion.Str( this.game.Data.RuleVar[307]) + " power points to do amphibious invasion.";
+                  if ( this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
                     flag2 = true;
                 }
                 else if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime, this.game.Data.Turn) && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter < 15)
@@ -2953,12 +2953,12 @@ namespace WindowsApplication1
           tsubpart =  new SteveButtonPartClass(this.game.OKBALL, 1, this.NotOkText,  this.OwnBitmap, num38, 4);
           this.Ok2Id = this.AddSubPart( tsubpart, num38, 4, 32, 32, 0);
         }
-        let mut x: i32 =   Math.Round((double) this.OwnBitmap.Width / 2.0 - (double) sizeF2.Width / 2.0);
-        if ((double) x + (double) sizeF2.Width > (double) (num38 - 20))
-          x =  Math.Round((double) ((float) x - ((float) x + sizeF2.Width - (float) (num38 - 20))));
+        let mut x: i32 =   Math.Round( this.OwnBitmap.Width / 2.0 -  sizeF2.Width / 2.0);
+        if ( x +  sizeF2.Width >  (num38 - 20))
+          x =  Math.Round( ( x - ( x + sizeF2.Width -  (num38 - 20))));
         DrawMod.DrawTextVic( Expression, str, this.game.VicFont1, x, 12, this.game.VicColor1, this.game.VicColor1Shade);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -3442,14 +3442,14 @@ namespace WindowsApplication1
             }
             else if (num1 == this.NextButtonId)
             {
-              if (MsgBoxResult.Yes == Interaction.MsgBox((object) "End turn?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest"))
+              if (MsgBoxResult.Yes == Interaction.MsgBox( "End turn?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest"))
               {
                 this.game.EditObj.UnitSelected = -1;
                 this.game.EditObj.OrderUnit = -1;
                 this.game.EditObj.OrderTarget = -1;
                 if (this.game.HandyFunctionsObj.GetHumanPlayers() < 1)
                 {
-                  let mut num3: i32 =   Interaction.MsgBox((object) "Since you have surrendered we are quitting the game now.");
+                  let mut num3: i32 =   Interaction.MsgBox( "Since you have surrendered we are quitting the game now.");
                   this.game.Data = DataClass::new();
                   this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
                   if (this.game.Data.UseAI == 1)
@@ -3496,7 +3496,7 @@ namespace WindowsApplication1
                   break;
                 case 3:
                   let mut historical: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical;
-                  if (historical > -1 && this.game.Data.HistoricalUnitObj[historical].HandCardCounter > -1 & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].SFCount > -1 && Interaction.MsgBox((object) "This action will cause the HQ to lose all handcards. Are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+                  if (historical > -1 && this.game.Data.HistoricalUnitObj[historical].HandCardCounter > -1 & this.game.Data.UnitObj[this.game.EditObj.OrderUnit].SFCount > -1 && Interaction.MsgBox( "This action will cause the HQ to lose all handcards. Are you sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
                   {
                     this.game.EditObj.OrderType = 0;
                     this.game.EditObj.TempCoordList = CoordList::new();
@@ -3572,7 +3572,7 @@ namespace WindowsApplication1
                     this.game.EditObj.OrderTarget = this.game.EditObj.UnitSelected;
                     if (this.game.HandyFunctionsObj.HasUnitOnlyParaLandSF(this.game.EditObj.OrderTarget))
                     {
-                      if (Interaction.MsgBox((object) "Do you want to paradrop?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                      if (Interaction.MsgBox( "Do you want to paradrop?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                       {
                         this.game.EditObj.OrderType = 19;
                         this.game.EditObj.TempCoordList = this.game.HandyFunctionsObj.MakeMovePrediction(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map, false, PredictAirOnly: true, ClearSea: true, attack: true, isparadrop: true);
@@ -3599,7 +3599,7 @@ namespace WindowsApplication1
                     if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 14)
                     {
                       num4 = 1;
-                      let mut num5: i32 =   Interaction.MsgBox((object) "Already 16 units in that hex.");
+                      let mut num5: i32 =   Interaction.MsgBox( "Already 16 units in that hex.");
                       this.game.EditObj.OrderType = 0;
                       windowReturnClass.AddCommand(4, 12);
                       windowReturnClass.AddCommand(4, 18);
@@ -3793,7 +3793,7 @@ namespace WindowsApplication1
                 this.game.EditObj.HideUnit = 1;
               else if (this.game.EditObj.HideUnit == 1)
               {
-                if ((double) this.game.Data.RuleVar[344] == 1.0)
+                if ( this.game.Data.RuleVar[344] == 1.0)
                   this.game.EditObj.HideUnit = 2;
                 else
                   this.game.EditObj.HideUnit = 0;
@@ -3808,32 +3808,32 @@ namespace WindowsApplication1
             }
             else if (num1 == this.ButtonZoomOutId)
             {
-              let mut num6: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 53.0));
-              let mut num7: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 106.0));
-              let mut num8: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 53.0));
-              let mut num9: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 106.0));
+              let mut num6: i32 =   Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 53.0));
+              let mut num7: i32 =   Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 106.0));
+              let mut num8: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 53.0));
+              let mut num9: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 106.0));
               int num10;
               int num11;
               if (this.game.EditObj.Zoom == 0)
               {
                 this.game.EditObj.Zoom = -1;
-                this.game.CornerX -=  Math.Round(Conversion.Int((double) num6 / 2.0));
-                this.game.CornerY -=  Math.Round(Conversion.Int((double) num8 / 2.0));
+                this.game.CornerX -=  Math.Round(Conversion.Int( num6 / 2.0));
+                this.game.CornerY -=  Math.Round(Conversion.Int( num8 / 2.0));
                 num10 = 27;
                 num11 = 24;
               }
               else
               {
                 this.game.EditObj.Zoom = 0;
-                this.game.CornerX -=  Math.Round(Conversion.Int((double) num7 / 2.0));
-                this.game.CornerY -=  Math.Round(Conversion.Int((double) num9 / 2.0));
+                this.game.CornerX -=  Math.Round(Conversion.Int( num7 / 2.0));
+                this.game.CornerY -=  Math.Round(Conversion.Int( num9 / 2.0));
                 num10 = 53;
                 num11 = 48;
               }
-              if ((double) this.game.CornerX + (double) (this.game.ScreenWidth - 200) / (double) num10 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-                this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num10);
-              if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - 256) / (double) num11 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-                this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - 256) / (double) num11);
+              if ( this.game.CornerX +  (this.game.ScreenWidth - 200) /  num10 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+                this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num10);
+              if ( this.game.CornerY +  (this.game.ScreenHeight - 256) /  num11 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+                this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - 256) /  num11);
               if (this.game.CornerX < 0)
                 this.game.CornerX = 0;
               if (this.game.CornerY < 0)
@@ -3847,32 +3847,32 @@ namespace WindowsApplication1
             }
             else if (num1 == this.ButtonZoomInId)
             {
-              let mut num12: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 53.0));
-              let mut num13: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 106.0));
-              let mut num14: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 53.0));
-              let mut num15: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 106.0));
+              let mut num12: i32 =   Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 53.0));
+              let mut num13: i32 =   Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 106.0));
+              let mut num14: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 53.0));
+              let mut num15: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 106.0));
               int num16;
               int num17;
               if (this.game.EditObj.Zoom == 0)
               {
                 this.game.EditObj.Zoom = 1;
-                this.game.CornerX +=  Math.Round(Conversion.Int((double) num13 / 2.0));
-                this.game.CornerY +=  Math.Round(Conversion.Int((double) num15 / 2.0));
+                this.game.CornerX +=  Math.Round(Conversion.Int( num13 / 2.0));
+                this.game.CornerY +=  Math.Round(Conversion.Int( num15 / 2.0));
                 num16 = 106;
                 num17 = 96;
               }
               else
               {
                 this.game.EditObj.Zoom = 0;
-                this.game.CornerX +=  Math.Round(Conversion.Int((double) num12 / 2.0));
-                this.game.CornerY +=  Math.Round(Conversion.Int((double) num14 / 2.0));
+                this.game.CornerX +=  Math.Round(Conversion.Int( num12 / 2.0));
+                this.game.CornerY +=  Math.Round(Conversion.Int( num14 / 2.0));
                 num16 = 53;
                 num17 = 48;
               }
-              if ((double) this.game.CornerX + (double) (this.game.ScreenWidth - 200) / (double) num16 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-                this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num16);
-              if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - 256) / (double) num17 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-                this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - 256) / (double) num17);
+              if ( this.game.CornerX +  (this.game.ScreenWidth - 200) /  num16 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+                this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num16);
+              if ( this.game.CornerY +  (this.game.ScreenHeight - 256) /  num17 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+                this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - 256) /  num17);
               if (this.game.CornerX < 0)
                 this.game.CornerX = 0;
               if (this.game.CornerY < 0)
@@ -4287,7 +4287,7 @@ namespace WindowsApplication1
                     windowReturnClass.SetFlag(true);
                   }
                 }
-                if ((double) this.game.Data.RuleVar[902] < 1.0 & !flag & this.game.EditObj.UnitSelected > -1 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
+                if ( this.game.Data.RuleVar[902] < 1.0 & !flag & this.game.EditObj.UnitSelected > -1 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
                 {
                   if (this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].StructuralPts < this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].StructuralPts)
                   {
@@ -4534,7 +4534,7 @@ namespace WindowsApplication1
                 {
                   if (!this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].Invincible)
                   {
-                    if (Interaction.MsgBox((object) "Attack the location/town? (answer 'No' if you want to attack the bridge(s))", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                    if (Interaction.MsgBox( "Attack the location/town? (answer 'No' if you want to attack the bridge(s))", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                       this.game.EditObj.OrderBombMode = 1;
                     else
                       this.game.EditObj.OrderBombMode = 0;
@@ -4586,12 +4586,12 @@ namespace WindowsApplication1
                 if (num1 == this.GiveHexId)
                 {
                   int tnr;
-                  if (Interaction.MsgBox((object) "Set a radius of hexes to give? Say no if you only want to give this hex.", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                  if (Interaction.MsgBox( "Set a radius of hexes to give? Say no if you only want to give this hex.", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                   {
                     tnr =  Math.Round(Conversion.Val(Interaction.InputBox("Give a radius of hexes to give. 1-99", "Shadow Empire : Planetary Conquest")));
                     if (tnr < 1 | tnr > 99)
                     {
-                      let mut num20: i32 =   Interaction.MsgBox((object) "wrong input. aborting giving of hex(es).", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num20: i32 =   Interaction.MsgBox( "wrong input. aborting giving of hex(es).", Title: ( "Shadow Empire : Planetary Conquest"));
                       return windowReturnClass;
                     }
                   }
@@ -4663,7 +4663,7 @@ namespace WindowsApplication1
                   }
                   else if (num1 == this.BlowLocationButtonId)
                   {
-                    if (Interaction.MsgBox((object) "Are you Sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                    if (Interaction.MsgBox( "Are you Sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     {
                       this.game.ProcessingObj.BlowLocation(this.game.EditObj.UnitSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
                       SoundMod.PlayAWave(this.game.AppPath + "sound/blow.wav",  this.game.EditObj);
@@ -4678,7 +4678,7 @@ namespace WindowsApplication1
                   }
                   else if (num1 == this.OrderSurrenderButtonId)
                   {
-                    if (Interaction.MsgBox((object) "Are you Sure you wish to surrender?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                    if (Interaction.MsgBox( "Are you Sure you wish to surrender?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     {
                       this.game.EditObj.UnitSelected = -1;
                       this.game.EditObj.OrderUnit = -1;
@@ -4686,7 +4686,7 @@ namespace WindowsApplication1
                       let mut humanPlayers: i32 =  this.game.HandyFunctionsObj.GetHumanPlayers();
                       if (humanPlayers == 0)
                       {
-                        if (Interaction.MsgBox((object) "Are you sure? Next turn will mean you quit this surrendered game...", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                        if (Interaction.MsgBox( "Are you sure? Next turn will mean you quit this surrendered game...", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                         {
                           this.game.Data = DataClass::new();
                           this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
@@ -4731,13 +4731,13 @@ namespace WindowsApplication1
                       this.game.EventRelatedObj.ExecMessage2(-1, -1, -1, -1, this.game.Data.RegimeObj[this.game.Data.Turn].Name + " has surrendered.");
                       if (humanPlayers > 2)
                       {
-                        let mut num21: i32 =   Interaction.MsgBox((object) ("You have surrendered. There are " + Conversion.Str((object) (humanPlayers - 1)) + " other human players left. Dont forget to save and mail the turn if you play PBEM."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num21: i32 =   Interaction.MsgBox( ("You have surrendered. There are " + Conversion.Str( (humanPlayers - 1)) + " other human players left. Dont forget to save and mail the turn if you play PBEM."), Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.AddCommand(3, 4);
                         windowReturnClass.SetFlag(true);
                       }
                       else
                       {
-                        let mut num22: i32 =   Interaction.MsgBox((object) "You have surrendered. All statistics are available now.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num22: i32 =   Interaction.MsgBox( "You have surrendered. All statistics are available now.", Title: ( "Shadow Empire : Planetary Conquest"));
                         this.dostuff();
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;

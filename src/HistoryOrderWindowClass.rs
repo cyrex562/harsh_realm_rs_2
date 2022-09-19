@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -105,7 +105,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.autoplayid);
       this.NewBackGroundAndClearAll(this.w, this.h, -1);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      let mut num1: i32 =   Math.Round((double) this.game.ScreenWidth / 116.0);
+      let mut num1: i32 =   Math.Round( this.game.ScreenWidth / 116.0);
       Bitmap bitmap;
       for (let mut index: i32 =  0; index <= num1; index += 1)
       {
@@ -115,7 +115,7 @@ namespace WindowsApplication1
         let mut x: i32 =  index * 116;
         DrawMod.DrawSimple( local1,  local2, x, 87);
       }
-      let mut num2: i32 =   Math.Round((double) (this.game.ScreenWidth - 1152) / 2.0);
+      let mut num2: i32 =   Math.Round( (this.game.ScreenWidth - 1152) / 2.0);
       let mut num3: i32 =  -3;
        let mut local3: &Graphics = &Expression;
       bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARHISTORY);
@@ -143,7 +143,7 @@ namespace WindowsApplication1
       }
       if (this.HisW.StartStep > -1 & this.HisW.EndStep > -1)
       {
-        let mut tsubpart: SubPartClass =  new NumberSliderSubPartClass2(this.game, "Step", " of " + Conversion.Str((object) Math.Max(Math.Max(0, this.HisW.Curstep), Math.Max(0, this.HisW.EndStep))), 550, 0, Math.Max(0, this.HisW.EndStep), Math.Max(0, this.HisW.Curstep), tbackbitmap: ( this.OwnBitmap), bbx: (num5 + 170), bby: (num4 - 14), tMarc: true);
+        let mut tsubpart: SubPartClass =  new NumberSliderSubPartClass2(this.game, "Step", " of " + Conversion.Str( Math.Max(Math.Max(0, this.HisW.Curstep), Math.Max(0, this.HisW.EndStep))), 550, 0, Math.Max(0, this.HisW.EndStep), Math.Max(0, this.HisW.Curstep), tbackbitmap: ( this.OwnBitmap), bbx: (num5 + 170), bby: (num4 - 14), tMarc: true);
         this.slider1id = this.AddSubPart( tsubpart, num5 + 170, num4 - 14, 550, 40, 0);
       }
       if (this.HisW.Curstep >= this.HisW.EndStep)
@@ -168,7 +168,7 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new TextButtonPartClass("STOP", 60, "Click to pause Autoplay [shortkey P]",  this.OwnBitmap, num5 + 610 + 130, num4, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
         this.autoplayid = this.AddSubPart( tsubpart, num5 + 610 + 130, num4, 60, 35, 1);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -177,7 +177,7 @@ namespace WindowsApplication1
     pub HandleMouseClick: WindowReturnClass(int x, int y, int b)
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (y > 18 && (double) this.w / 2.0 - 500.0 < (double) x & (double) x < (double) this.w / 2.0 + 500.0)
+      if (y > 18 &&  this.w / 2.0 - 500.0 <  x &  x <  this.w / 2.0 + 500.0)
         windowReturnClass.NoMouseClickBelow = true;
       if (this.SubPartCounter > -1)
       {

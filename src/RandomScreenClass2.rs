@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -24,28 +24,28 @@ namespace WindowsApplication1
       : base( tgame, -3, tformref)
     {
       this.Game.HandyFunctionsObj.RedimTempValue3(9999);
-      if ((double) this.Game.Data.RuleVar[701] > 0.0)
+      if ( this.Game.Data.RuleVar[701] > 0.0)
         this.Game.HandyFunctionsObj.RedimTempValue4(9999);
-      this.OffSetX =  Math.Round((double) (this.Game.ScreenWidth - 1280) / 2.0);
+      this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1280) / 2.0);
       this.Game.SelectX = -1;
       this.Game.SelectY = -1;
       this.Game.EditObj.interfaceCue = 0;
       if (this.Game.Data.UseAI == 1)
       {
-        if (Information.IsNothing((object) this.Game.NewAIObj))
+        if (Information.IsNothing( this.Game.NewAIObj))
           this.Game.NewAIObj = new NewAIClass(this.Game);
         this.Game.DC2AIObj = (DC2AIClass) null;
         this.Game.AIObj = (AIClass) null;
       }
       else if (this.Game.Data.UseAI == 2)
       {
-        if (Information.IsNothing((object) this.Game.DC2AIObj))
+        if (Information.IsNothing( this.Game.DC2AIObj))
           this.Game.DC2AIObj = new DC2AIClass(this.Game);
         this.Game.NewAIObj = (NewAIClass) null;
         this.Game.AIObj = (AIClass) null;
       }
-      if ((double) this.Game.Data.RuleVar[442] > 0.0)
-        this.Game.EventRelatedObj.DoCheckSpecificEvent( Math.Round((double) this.Game.Data.RuleVar[442]));
+      if ( this.Game.Data.RuleVar[442] > 0.0)
+        this.Game.EventRelatedObj.DoCheckSpecificEvent( Math.Round( this.Game.Data.RuleVar[442]));
       this.Game.EditObj.inRandomScreen = true;
       MapWindowClass2 tmpWindow = new MapWindowClass2( tgame, 32, 0);
       let mut screenWidth: i32 = this.Game.ScreenWidth;
@@ -227,13 +227,13 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         this.Game.Data = DataClass::new();
         this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");
         if (this.Game.Data.UseAI == 1)
         {
-          if (Information.IsNothing((object) this.Game.NewAIObj))
+          if (Information.IsNothing( this.Game.NewAIObj))
             this.Game.NewAIObj = new NewAIClass(this.Game);
           this.Game.NewAIObj.LastRegime = -1;
         }
@@ -374,7 +374,7 @@ namespace WindowsApplication1
         }
       }
       int num;
-      if (Information.IsNothing((object) windowReturnClass))
+      if (Information.IsNothing( windowReturnClass))
         num = 1;
       else if (!windowReturnClass.NoMouseClickBelow)
         num = 1;

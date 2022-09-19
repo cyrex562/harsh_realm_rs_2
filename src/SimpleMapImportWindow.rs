@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -202,7 +202,7 @@ namespace WindowsApplication1
           tvalue: String = "Import this people";
           if (self.subPpl[index] > -1)
             tvalue = "Subst. with " + self.game.Data.PeopleObj[self.subPpl[index]].Name;
-          self.Op2ListObj.add(Conversion.Str((object) index) + ") " + self.TData.PeopleObj[index].Name, index, tvalue);
+          self.Op2ListObj.add(Conversion.Str( index) + ") " + self.TData.PeopleObj[index].Name, index, tvalue);
           if (self.Op2Id == -1)
             self.Op2Id = index;
           if (self.Op2Id == index)
@@ -297,13 +297,13 @@ namespace WindowsApplication1
       data.MapObj[0].MapLoop = self.TData.MapObj[0].MapLoop;
       if (flag1 && !(data.MapObj[0].MapWidth == self.TData.MapObj[0].MapWidth & data.MapObj[0].MapHeight == self.TData.MapObj[0].MapHeight))
       {
-        if (Interaction.MsgBox((object) "Map not same size. Reload is cancelled. Are you sure you want to continue", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+        if (Interaction.MsgBox( "Map not same size. Reload is cancelled. Are you sure you want to continue", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
           return;
         flag4 = true;
       }
-      if (flag1 && Interaction.MsgBox((object) "Do you want to overwrite the current Victory Point settings on your current map?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+      if (flag1 && Interaction.MsgBox( "Do you want to overwrite the current Victory Point settings on your current map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
         flag2 = true;
-      if (self.TData.LocTypeCounter > data.LocTypeCounter && Interaction.MsgBox((object) "Do you want to add extra locationtypes present in the map file (that are not present in the master)?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (self.TData.LocTypeCounter > data.LocTypeCounter && Interaction.MsgBox( "Do you want to add extra locationtypes present in the map file (that are not present in the master)?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         flag3 = true;
       if (flag3 && self.TData.LocTypeCounter > data.LocTypeCounter)
       {
@@ -426,7 +426,7 @@ namespace WindowsApplication1
       }
       if (num1 > 0)
       {
-        let mut num2: i32 =  Interaction.MsgBox((object) ("Removed " + num1.ToString() + " locations since they were set to a locationType that was not present in master."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =  Interaction.MsgBox( ("Removed " + num1.ToString() + " locations since they were set to a locationType that was not present in master."), Title: ( "Shadow Empire : Planetary Conquest"));
       }
       let mut num3: i32 = 0;
       for (let mut locTypeCounter: i32 = data.LocTypeCounter; locTypeCounter >= 0; locTypeCounter += -1)
@@ -439,7 +439,7 @@ namespace WindowsApplication1
       }
       if (num3 > 0)
       {
-        let mut num4: i32 =  Interaction.MsgBox((object) ("Replaced " + num3.ToString() + " small graphics from locationTypes because they were not present in master."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num4: i32 =  Interaction.MsgBox( ("Replaced " + num3.ToString() + " small graphics from locationTypes because they were not present in master."), Title: ( "Shadow Empire : Planetary Conquest"));
       }
       self.game.Data.LoadGraphics(self.formref);
     }
@@ -499,20 +499,20 @@ namespace WindowsApplication1
       let mut num2: i32 = integer2 + self.TData.MapObj[0].MapHeight;
       if ((integer1 + 2) % 2 > 0)
       {
-        let mut num3: i32 =  Interaction.MsgBox((object) "You picked an UNEVEN X Coordinate. Aborting Insert Operation. ", (MsgBoxStyle) Conversions.ToInteger("Shadow Empire : Planetary Conquest"));
+        let mut num3: i32 =  Interaction.MsgBox( "You picked an UNEVEN X Coordinate. Aborting Insert Operation. ", (MsgBoxStyle) Conversions.ToInteger("Shadow Empire : Planetary Conquest"));
       }
       else if (num1 > self.game.Data.MapObj[0].MapWidth | num2 > self.game.Data.MapObj[0].MapHeight)
       {
-        let mut num4: i32 =  Interaction.MsgBox((object) "Invalid insert coordinate. The inserted map will exceed the current map width or height. Aborting Insert Operation. ", (MsgBoxStyle) Conversions.ToInteger("Shadow Empire : Planetary Conquest"));
+        let mut num4: i32 =  Interaction.MsgBox( "Invalid insert coordinate. The inserted map will exceed the current map width or height. Aborting Insert Operation. ", (MsgBoxStyle) Conversions.ToInteger("Shadow Empire : Planetary Conquest"));
       }
-      else if (Interaction.MsgBox((object) ("This operation requires you to be sure that the map you are inserting is using the same masterfile/ruleset as the one it is being inserted in. Are you sure to insert this map on the area " + integer1.ToString() + "," + integer2.ToString() + " - " + num1.ToString() + "," + num2.ToString() + " ?"), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+      else if (Interaction.MsgBox( ("This operation requires you to be sure that the map you are inserting is using the same masterfile/ruleset as the one it is being inserted in. Are you sure to insert this map on the area " + integer1.ToString() + "," + integer2.ToString() + " - " + num1.ToString() + "," + num2.ToString() + " ?"), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
       {
-        let mut num5: i32 =  Interaction.MsgBox((object) "Aborting Insert Operation", (MsgBoxStyle) Conversions.ToInteger("Shadow Empire : Planetary Conquest"));
+        let mut num5: i32 =  Interaction.MsgBox( "Aborting Insert Operation", (MsgBoxStyle) Conversions.ToInteger("Shadow Empire : Planetary Conquest"));
       }
       else
       {
         bool flag = false;
-        if (Interaction.MsgBox((object) "Do you want to overwrite the current Victory Point settings on your current map?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+        if (Interaction.MsgBox( "Do you want to overwrite the current Victory Point settings on your current map?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
           flag = true;
         let mut num6: i32 = integer1;
         let mut num7: i32 = num1;
@@ -617,7 +617,7 @@ namespace WindowsApplication1
               self.game.FormRef.Cursor = Cursors.WaitCursor;
               self.ActuallyImportLibs();
               self.game.FormRef.Cursor = Cursors.Default;
-              let mut num3: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num3: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
               self.TData = (DataClass) null;
               windowReturnClass.AddCommand(6, 0);
               windowReturnClass.SetFlag(true);
@@ -628,7 +628,7 @@ namespace WindowsApplication1
             self.game.FormRef.Cursor = Cursors.WaitCursor;
             self.ActuallyImportLibs2();
             self.game.FormRef.Cursor = Cursors.Default;
-            let mut num4: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num4: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
             self.TData = (DataClass) null;
             windowReturnClass.AddCommand(6, 0);
             windowReturnClass.SetFlag(true);

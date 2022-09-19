@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -20,124 +20,124 @@ namespace WindowsApplication1
       : base( tGame, -4, tformref)
     {
       if (tGame.EditObj.PopupValue == 1)
-        this.wup = this.AddWindow((WindowClass) new MapSelectWindowClass2( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 435.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 350.0), 860, 700);
+        this.wup = this.AddWindow((WindowClass) new MapSelectWindowClass2( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 435.0),  Math.Round( tGame.ScreenHeight / 2.0 - 350.0), 860, 700);
       else if (tGame.EditObj.PopupValue == 2)
-        this.wup = this.AddWindow((WindowClass) new HandCardWindowClass2( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 190.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 190.0), 380, 380);
+        this.wup = this.AddWindow((WindowClass) new HandCardWindowClass2( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 190.0),  Math.Round( tGame.ScreenHeight / 2.0 - 190.0), 380, 380);
       else if (tGame.EditObj.PopupValue == 3)
-        this.wup = this.AddWindow((WindowClass) new UnitSelectWindowClass2( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 505.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 350.0), 1010, 700);
+        this.wup = this.AddWindow((WindowClass) new UnitSelectWindowClass2( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 505.0),  Math.Round( tGame.ScreenHeight / 2.0 - 350.0), 1010, 700);
       else if (tGame.EditObj.PopupValue == 4)
-        this.wup = this.AddWindow((WindowClass) new OfficerInfoWindowClass2( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 340.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 340.0), 680, 680);
+        this.wup = this.AddWindow((WindowClass) new OfficerInfoWindowClass2( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 340.0),  Math.Round( tGame.ScreenHeight / 2.0 - 340.0), 680, 680);
       else if (tGame.EditObj.PopupValue == 5)
-        this.wup = this.AddWindow((WindowClass) new SystemMessageWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 300.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 100.0), 600, 200);
+        this.wup = this.AddWindow((WindowClass) new SystemMessageWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 300.0),  Math.Round( tGame.ScreenHeight / 2.0 - 100.0), 600, 200);
       else if (tGame.EditObj.PopupValue == 6)
       {
-        if ((double) this.Game.Data.RuleVar[460] > 0.0)
-          this.wup = this.AddWindow((WindowClass) new SFWindowClass3( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 440.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 880, 768);
+        if ( this.Game.Data.RuleVar[460] > 0.0)
+          this.wup = this.AddWindow((WindowClass) new SFWindowClass3( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 440.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 880, 768);
         else
-          this.wup = this.AddWindow((WindowClass) new SFWindowClass2( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 440.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 340.0), 880, 580);
+          this.wup = this.AddWindow((WindowClass) new SFWindowClass2( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 440.0),  Math.Round( tGame.ScreenHeight / 2.0 - 340.0), 880, 580);
       }
       else if (tGame.EditObj.PopupValue == 7)
       {
         let mut num1: i32 =  Math.Max(1280, this.Game.ScreenWidth - 400);
         let mut num2: i32 =  Math.Max(768, this.Game.ScreenHeight - 200);
-        this.wup = this.AddWindow((WindowClass) new CombatResultWindowClass2( tGame, num1, num2),  Math.Round((double) (this.Game.ScreenWidth - num1) / 2.0),  Math.Round((double) (this.Game.ScreenHeight - num2) / 2.0), num1, num2);
+        this.wup = this.AddWindow((WindowClass) new CombatResultWindowClass2( tGame, num1, num2),  Math.Round( (this.Game.ScreenWidth - num1) / 2.0),  Math.Round( (this.Game.ScreenHeight - num2) / 2.0), num1, num2);
       }
       else if (tGame.EditObj.PopupValue == 8)
       {
         let mut num3: i32 =  Math.Min(1324, this.Game.ScreenWidth);
         let mut num4: i32 =  Math.Min(968, this.Game.ScreenHeight);
-        let mut x: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenWidth - num3) / 2.0));
-        let mut y: i32 =   Math.Round(Conversion.Int((double) (this.Game.ScreenHeight - num4) / 2.0));
+        let mut x: i32 =   Math.Round(Conversion.Int( (this.Game.ScreenWidth - num3) / 2.0));
+        let mut y: i32 =   Math.Round(Conversion.Int( (this.Game.ScreenHeight - num4) / 2.0));
         this.wup = this.AddWindow((WindowClass) new CombatDetailWindowClass( tGame, 0, num3, num4), x, y, num3, num4);
       }
       else if (tGame.EditObj.PopupValue == 9)
-        this.wup = this.AddWindow((WindowClass) new CreditsInfoWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 440.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 340.0), 880, 680);
+        this.wup = this.AddWindow((WindowClass) new CreditsInfoWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 440.0),  Math.Round( tGame.ScreenHeight / 2.0 - 340.0), 880, 680);
       else if (tGame.EditObj.PopupValue == 10)
-        this.wup = this.AddWindow((WindowClass) new FlexMessageWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 300.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 100.0), 600, 200);
+        this.wup = this.AddWindow((WindowClass) new FlexMessageWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 300.0),  Math.Round( tGame.ScreenHeight / 2.0 - 100.0), 600, 200);
       else if (tGame.EditObj.PopupValue == 11)
-        this.wup = this.AddWindow((WindowClass) new AirSelectWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 440.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 290.0), 880, 580);
+        this.wup = this.AddWindow((WindowClass) new AirSelectWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 440.0),  Math.Round( tGame.ScreenHeight / 2.0 - 290.0), 880, 580);
       else if (tGame.EditObj.PopupValue == 12)
-        this.wup = this.AddWindow((WindowClass) new ArtSelectWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 340.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 190.0), 680, 380);
+        this.wup = this.AddWindow((WindowClass) new ArtSelectWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 340.0),  Math.Round( tGame.ScreenHeight / 2.0 - 190.0), 680, 380);
       else if (tGame.EditObj.PopupValue == 14)
-        this.wup = this.AddWindow((WindowClass) new RegisterPopup( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 300.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 240.0), 600, 480);
+        this.wup = this.AddWindow((WindowClass) new RegisterPopup( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 300.0),  Math.Round( tGame.ScreenHeight / 2.0 - 240.0), 600, 480);
       else if (tGame.EditObj.PopupValue == 15)
-        this.wup = this.AddWindow((WindowClass) new ServerPopup( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 300.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 200.0), 600, 400);
+        this.wup = this.AddWindow((WindowClass) new ServerPopup( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 300.0),  Math.Round( tGame.ScreenHeight / 2.0 - 200.0), 600, 400);
       else if (tGame.EditObj.PopupValue == 16)
-        this.wup = this.AddWindow((WindowClass) new LoginPopup( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 300.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 240.0), 600, 480);
+        this.wup = this.AddWindow((WindowClass) new LoginPopup( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 300.0),  Math.Round( tGame.ScreenHeight / 2.0 - 240.0), 600, 480);
       else if (tGame.EditObj.PopupValue == 17)
-        this.wup = this.AddWindow((WindowClass) new LoadWindow( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 200.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 120.0), 400, 240);
+        this.wup = this.AddWindow((WindowClass) new LoadWindow( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 200.0),  Math.Round( tGame.ScreenHeight / 2.0 - 120.0), 400, 240);
       else if (tGame.EditObj.PopupValue == 18)
-        this.wup = this.AddWindow((WindowClass) new LandSelectWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 340.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 190.0), 680, 380);
+        this.wup = this.AddWindow((WindowClass) new LandSelectWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 340.0),  Math.Round( tGame.ScreenHeight / 2.0 - 190.0), 680, 380);
       else if (tGame.EditObj.PopupValue == 19)
-        this.wup = this.AddWindow((WindowClass) new BigMessageWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 480.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 375.0), 960, 750);
+        this.wup = this.AddWindow((WindowClass) new BigMessageWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 480.0),  Math.Round( tGame.ScreenHeight / 2.0 - 375.0), 960, 750);
       else if (tGame.EditObj.PopupValue == 20)
-        this.wup = this.AddWindow((WindowClass) new SimplePrefsWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 240.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 125.0), 480, 250);
+        this.wup = this.AddWindow((WindowClass) new SimplePrefsWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 240.0),  Math.Round( tGame.ScreenHeight / 2.0 - 125.0), 480, 250);
       else if (tGame.EditObj.PopupValue == 21)
       {
-        let mut extraHeight: i32 =   Math.Round((double) (this.Game.ScreenHeight - 750) / 2.0);
+        let mut extraHeight: i32 =   Math.Round( (this.Game.ScreenHeight - 750) / 2.0);
         if (extraHeight > 120)
           extraHeight = 120;
         if (Strings.InStr(Strings.LCase(this.Game.EditObj.UDSpopupText), "[key]nobackground[/key]") < 1)
-          this.wup = this.AddWindow((WindowClass) new UDSMessageWindowClass( tGame, extraHeight),  Math.Round((double) tGame.ScreenWidth / 2.0 - 630.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double) (375 +  Math.Round((double) extraHeight / 2.0))), 1260, 750 + extraHeight);
+          this.wup = this.AddWindow((WindowClass) new UDSMessageWindowClass( tGame, extraHeight),  Math.Round( tGame.ScreenWidth / 2.0 - 630.0),  Math.Round( tGame.ScreenHeight / 2.0 -  (375 +  Math.Round( extraHeight / 2.0))), 1260, 750 + extraHeight);
         else
-          this.wup = this.AddWindow((WindowClass) new UDSMessageWindowClass( tGame, true, extraHeight),  Math.Round((double) tGame.ScreenWidth / 2.0 - 630.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double) (375 +  Math.Round((double) extraHeight / 2.0))), 1260, 750 + extraHeight);
+          this.wup = this.AddWindow((WindowClass) new UDSMessageWindowClass( tGame, true, extraHeight),  Math.Round( tGame.ScreenWidth / 2.0 - 630.0),  Math.Round( tGame.ScreenHeight / 2.0 -  (375 +  Math.Round( extraHeight / 2.0))), 1260, 750 + extraHeight);
       }
       else if (tGame.EditObj.PopupValue == 22)
-        this.wup = this.AddWindow((WindowClass) new CombatSelectWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
+        this.wup = this.AddWindow((WindowClass) new CombatSelectWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 640.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
       else if (tGame.EditObj.PopupValue == 23)
       {
-        let mut num: i32 =  Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
+        let mut num: i32 =  Math.Max( Math.Round( this.Game.ScreenHeight * 0.9), 768);
         if (num > 1280)
           num = 1280;
-        this.wup = this.AddWindow((WindowClass) new SpecialWindowClass1( tGame, 1280, num),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double)  Math.Round((double) num / 2.0)), 1280, num);
+        this.wup = this.AddWindow((WindowClass) new SpecialWindowClass1( tGame, 1280, num),  Math.Round( tGame.ScreenWidth / 2.0 - 640.0),  Math.Round( tGame.ScreenHeight / 2.0 -   Math.Round( num / 2.0)), 1280, num);
       }
       else if (tGame.EditObj.PopupValue == 24)
       {
-        let mut num5: i32 =  Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
+        let mut num5: i32 =  Math.Max( Math.Round( this.Game.ScreenHeight * 0.9), 768);
         if (num5 > 1280)
           num5 = 1280;
-        let mut num6: i32 =  Math.Max( Math.Round((double) this.Game.ScreenWidth * 0.9), 1280);
+        let mut num6: i32 =  Math.Max( Math.Round( this.Game.ScreenWidth * 0.9), 1280);
         if (num6 > 1920)
           num6 = 1920;
-        this.wup = this.AddWindow((WindowClass) new SpecialWindowClass2( tGame, num6, num5),  Math.Round((double) tGame.ScreenWidth / 2.0 - (double)  Math.Round((double) num6 / 2.0)),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double)  Math.Round((double) num5 / 2.0)), num6, num5);
+        this.wup = this.AddWindow((WindowClass) new SpecialWindowClass2( tGame, num6, num5),  Math.Round( tGame.ScreenWidth / 2.0 -   Math.Round( num6 / 2.0)),  Math.Round( tGame.ScreenHeight / 2.0 -   Math.Round( num5 / 2.0)), num6, num5);
       }
       else if (tGame.EditObj.PopupValue == 25)
       {
-        let mut num7: i32 =  Math.Max( Math.Round((double) this.Game.ScreenHeight * 0.9), 768);
+        let mut num7: i32 =  Math.Max( Math.Round( this.Game.ScreenHeight * 0.9), 768);
         if (num7 > 1280)
           num7 = 1280;
-        let mut num8: i32 =  Math.Max( Math.Round((double) this.Game.ScreenWidth * 0.9), 1280);
+        let mut num8: i32 =  Math.Max( Math.Round( this.Game.ScreenWidth * 0.9), 1280);
         if (num8 > 1920)
           num8 = 1920;
-        this.wup = this.AddWindow((WindowClass) new SpecialWindowClass3( tGame, num8, num7),  Math.Round((double) tGame.ScreenWidth / 2.0 - (double)  Math.Round((double) num8 / 2.0)),  Math.Round((double) tGame.ScreenHeight / 2.0 - (double)  Math.Round((double) num7 / 2.0)), num8, num7);
+        this.wup = this.AddWindow((WindowClass) new SpecialWindowClass3( tGame, num8, num7),  Math.Round( tGame.ScreenWidth / 2.0 -   Math.Round( num8 / 2.0)),  Math.Round( tGame.ScreenHeight / 2.0 -   Math.Round( num7 / 2.0)), num8, num7);
       }
       else if (tGame.EditObj.PopupValue == 26)
-        this.wup = this.AddWindow((WindowClass) new TransportWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 500.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 380.0), 1000, 760);
+        this.wup = this.AddWindow((WindowClass) new TransportWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 500.0),  Math.Round( tGame.ScreenHeight / 2.0 - 380.0), 1000, 760);
       else if (tGame.EditObj.PopupValue == 27)
-        this.wup = this.AddWindow((WindowClass) new BattlegroupWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 500.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 380.0), 1000, 760);
+        this.wup = this.AddWindow((WindowClass) new BattlegroupWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 500.0),  Math.Round( tGame.ScreenHeight / 2.0 - 380.0), 1000, 760);
       else if (tGame.EditObj.PopupValue == 28)
-        this.wup = this.AddWindow((WindowClass) new LISTrafficWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 600.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1200, 768);
+        this.wup = this.AddWindow((WindowClass) new LISTrafficWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 600.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 1200, 768);
       else if (tGame.EditObj.PopupValue == 29)
-        this.wup = this.AddWindow((WindowClass) new FlexCardWindowClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 200.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 200.0), 400, 400);
+        this.wup = this.AddWindow((WindowClass) new FlexCardWindowClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 200.0),  Math.Round( tGame.ScreenHeight / 2.0 - 200.0), 400, 400);
       else if (tGame.EditObj.PopupValue == 30)
-        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.joinAttack),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
+        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.joinAttack),  Math.Round( tGame.ScreenWidth / 2.0 - 640.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
       else if (tGame.EditObj.PopupValue == 31)
-        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.selectHQ),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
+        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.selectHQ),  Math.Round( tGame.ScreenWidth / 2.0 - 640.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
       else if (tGame.EditObj.PopupValue == 32)
-        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.blowBridge),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
+        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.blowBridge),  Math.Round( tGame.ScreenWidth / 2.0 - 640.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
       else if (tGame.EditObj.PopupValue == 33)
-        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.repairBridge),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
+        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.repairBridge),  Math.Round( tGame.ScreenWidth / 2.0 - 640.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
       else if (tGame.EditObj.PopupValue == 34)
-        this.wup = this.AddWindow((WindowClass) new ModLibraryPickerClass( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 500.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 350.0), 1000, 700);
+        this.wup = this.AddWindow((WindowClass) new ModLibraryPickerClass( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 500.0),  Math.Round( tGame.ScreenHeight / 2.0 - 350.0), 1000, 700);
       else if (tGame.EditObj.PopupValue == 35)
       {
-        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.autoMove),  Math.Round((double) tGame.ScreenWidth / 2.0 - 640.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
+        this.wup = this.AddWindow((WindowClass) new NonCardSelectWindowClass( tGame, SelectUsageMode.autoMove),  Math.Round( tGame.ScreenWidth / 2.0 - 640.0),  Math.Round( tGame.ScreenHeight / 2.0 - 384.0), 1280, 768);
       }
       else
       {
         if (tGame.EditObj.PopupValue != 0)
           return;
-        this.wup = this.AddWindow((WindowClass) new MessageWindowClass2( tGame),  Math.Round((double) tGame.ScreenWidth / 2.0 - 340.0),  Math.Round((double) tGame.ScreenHeight / 2.0 - 290.0), 680, 480);
+        this.wup = this.AddWindow((WindowClass) new MessageWindowClass2( tGame),  Math.Round( tGame.ScreenWidth / 2.0 - 340.0),  Math.Round( tGame.ScreenHeight / 2.0 - 290.0), 680, 480);
       }
     }
 
@@ -159,7 +159,7 @@ namespace WindowsApplication1
       let mut windowCounter: i32 =  this.WindowCounter;
       for (let mut index1: i32 =  0; index1 <= windowCounter; index1 += 1)
       {
-        if (Conversions.ToBoolean(Operators.OrObject((object) (x > this.WindowX[index1] & x < this.WindowX[index1] + this.WindowW[index1]), Operators.CompareObjectEqual(this.WindowList[index1].allowClickOutsideWindow(), (object) true, false))) && Conversions.ToBoolean(Operators.OrObject((object) (y > this.WindowY[index1] & y < this.WindowY[index1] + this.WindowH[index1]), this.WindowList[index1].allowClickOutsideWindow())))
+        if (Conversions.ToBoolean(Operators.OrObject( (x > this.WindowX[index1] & x < this.WindowX[index1] + this.WindowW[index1]), Operators.CompareObjectEqual(this.WindowList[index1].allowClickOutsideWindow(),  true, false))) && Conversions.ToBoolean(Operators.OrObject( (y > this.WindowY[index1] & y < this.WindowY[index1] + this.WindowH[index1]), this.WindowList[index1].allowClickOutsideWindow())))
         {
           windowReturnClass: WindowReturnClass = this.WindowList[index1].HandleMouseClick(x - this.WindowX[index1], y - this.WindowY[index1], b);
           this.WindowFlag[index1] = windowReturnClass.Flag;

@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingSystem;
+// usingSystem.ComponentModel;
+// usingSystem.Diagnostics;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -176,7 +176,7 @@ namespace WindowsApplication1
         StreamReader streamReader = File.OpenText(AppDomain.CurrentDomain.BaseDirectory + "mods/" + file.Name);
         Name: String = streamReader.ReadLine();
         streamReader.Close();
-        this.ListBox1.Items.Add((object) new ListItem(ID, Name, file.Name));
+        this.ListBox1.Items.Add( new ListItem(ID, Name, file.Name));
       }
       this.Button1.Text = "OK";
       this.Show();

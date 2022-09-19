@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -99,17 +99,17 @@ namespace WindowsApplication1
       this.front = tfront;
       this.frontList = tfrontList;
       this.Score = 125;
-      if ((double) this.front.UnitCountRatio > 3.0)
+      if ( this.front.UnitCountRatio > 3.0)
         this.Score = 20;
-      else if ((double) this.front.UnitCountRatio > 2.0)
+      else if ( this.front.UnitCountRatio > 2.0)
         this.Score = 50;
-      else if ((double) this.front.UnitCountRatio > 1.5)
+      else if ( this.front.UnitCountRatio > 1.5)
       {
         this.Score = 75;
       }
       else
       {
-        if ((double) this.front.UnitCountRatio <= 1.0)
+        if ( this.front.UnitCountRatio <= 1.0)
           return;
         this.Score = 100;
       }
@@ -299,7 +299,7 @@ namespace WindowsApplication1
       this.SetMatrixDimensionsAir();
       this.Owner = this.ai.SetOwnerMatrix(this.Left, this.Top, this.Width, this.Height);
       this.SetMoveCost();
-      if (!Information.IsNothing((object) this.enemyDistance))
+      if (!Information.IsNothing( this.enemyDistance))
         this.origEnemyDistance = this.enemyDistance.Clone();
       this.origOwner = this.Owner.Clone();
     }
@@ -494,7 +494,7 @@ namespace WindowsApplication1
       AIMatrix troops = this.troopsstrength.AverageAndDivideValuesForSameRegime(3, this.Owner, OnlyOwnerX: 2, dividy: 6);
       this.enemyPressureFull = this.ai.SetEnemyPressureFullMatrix(this.Owner, troops, this.FrontAreaForAttack, this.front.FrontID);
       this.enemyPressureFull = this.enemyPressureFull.AverageValuesForAnyRegime(2);
-      this.EnemyPressure = (double) this.front.UnitCountRatio >= 0.45 ? ((double) this.front.UnitCountRatio >= 0.8 ? this.ai.SetEnemyPressureMatrix(this.Owner, troops.Clone().AverageValuesForSameRegime(2, this.Owner, OnlyOwnerX: 2), this.FrontAreaForAttack, this.front.FrontID) : this.ai.SetEnemyPressureMatrix(this.Owner, troops.Clone().AverageValuesForSameRegime(1, this.Owner, OnlyOwnerX: 2), this.FrontAreaForAttack, this.front.FrontID)) : this.ai.SetEnemyPressureMatrix(this.Owner, troops.Clone().AverageValuesForSameRegime(0, this.Owner, OnlyOwnerX: 2), this.FrontAreaForAttack, this.front.FrontID);
+      this.EnemyPressure =  this.front.UnitCountRatio >= 0.45 ? ( this.front.UnitCountRatio >= 0.8 ? this.ai.SetEnemyPressureMatrix(this.Owner, troops.Clone().AverageValuesForSameRegime(2, this.Owner, OnlyOwnerX: 2), this.FrontAreaForAttack, this.front.FrontID) : this.ai.SetEnemyPressureMatrix(this.Owner, troops.Clone().AverageValuesForSameRegime(1, this.Owner, OnlyOwnerX: 2), this.FrontAreaForAttack, this.front.FrontID)) : this.ai.SetEnemyPressureMatrix(this.Owner, troops.Clone().AverageValuesForSameRegime(0, this.Owner, OnlyOwnerX: 2), this.FrontAreaForAttack, this.front.FrontID);
       this.ForceRatio = this.ai.SetRatioInPercentage(ref this.troopsstrength, ref this.EnemyPressure, this.FrontAreaForAttack, this.front.FrontID);
       this.ForceRatio.SetValueXToValueY(999, 0);
       this.ForceRatio.ExpandAndAddValueForSameOwner(998, ref this.Owner);
@@ -543,13 +543,13 @@ namespace WindowsApplication1
       if (num1 > 0)
       {
         this.LowestRetreatModifierAllowed = 100;
-        let mut num6: i32 =  (int) Math.Round((double) num1 / (double) this.ai.VAR_FRONTLINE_DEPTH);
+        let mut num6: i32 =  (int) Math.Round( num1 /  this.ai.VAR_FRONTLINE_DEPTH);
         if (num5 + num4 + num3 >= num6)
           this.LowestRetreatModifierAllowed = 75;
-        let mut num7: i32 =  (int) Math.Round((double) num1 / ((double) this.ai.VAR_FRONTLINE_DEPTH * 1.5));
+        let mut num7: i32 =  (int) Math.Round( num1 / ( this.ai.VAR_FRONTLINE_DEPTH * 1.5));
         if (num4 + num3 >= num7)
           this.LowestRetreatModifierAllowed = 50;
-        let mut num8: i32 =  (int) Math.Round((double) num1 / (double) (this.ai.VAR_FRONTLINE_DEPTH * 2));
+        let mut num8: i32 =  (int) Math.Round( num1 /  (this.ai.VAR_FRONTLINE_DEPTH * 2));
         if (num3 >= num8)
           this.LowestRetreatModifierAllowed = 25;
       }
@@ -661,13 +661,13 @@ namespace WindowsApplication1
                     num2 += 2 * num1;
                 }
                 if (!this.front.RealRetreat & num2 > 0 & this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top] > 0 & this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top] < 100)
-                  num2 = (int) Math.Round((double) num2 * (100.0 / (double) this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top]));
+                  num2 = (int) Math.Round( num2 * (100.0 /  this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top]));
                 if (this.ai.game.HandyFunctionsObj.HasHexRoad(this.GetRealX(tx + this.Left), index + this.Top, 0))
                 {
                   if (this.FriendlyBottleneckIdealOwnFrontOnly.Value[tx, index] > 10)
-                    num2 = (int) Math.Round((double) (num2 * this.FriendlyBottleneckIdealOwnFrontOnly.Value[tx, index]) / 10.0);
+                    num2 = (int) Math.Round( (num2 * this.FriendlyBottleneckIdealOwnFrontOnly.Value[tx, index]) / 10.0);
                   if (this.EnemyBottleneckOwnFrontOnly.Value[tx, index] > 10)
-                    num2 = (int) Math.Round((double) (num2 * this.EnemyBottleneckOwnFrontOnly.Value[tx, index]) / 10.0);
+                    num2 = (int) Math.Round( (num2 * this.EnemyBottleneckOwnFrontOnly.Value[tx, index]) / 10.0);
                 }
                 initialFrontAreaHexes += num2;
               }
@@ -711,15 +711,15 @@ namespace WindowsApplication1
               num2 = 6 + num2 * 4;
             let mut num3: i32 =  num2 + 1;
             if (num3 > 0 & !this.front.RealRetreat & this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top] > 0 & this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top] < 100)
-              num3 = (int) Math.Round((double) num3 * (100.0 / (double) this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top]));
+              num3 = (int) Math.Round( num3 * (100.0 /  this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(tx), index + this.Top]));
             if (this.ai.game.HandyFunctionsObj.HasHexRoad(this.GetRealX(tx + this.Left), index + this.Top, 0))
             {
               if (this.FriendlyBottleneckIdeal.Value[tx, index] > 10)
-                num3 = (int) Math.Round((double) (num3 * this.FriendlyBottleneckIdeal.Value[tx, index]) / 10.0);
+                num3 = (int) Math.Round( (num3 * this.FriendlyBottleneckIdeal.Value[tx, index]) / 10.0);
               if (this.FriendlyBottleneck.Value[tx, index] > 10)
-                num3 = (int) Math.Round((double) (num3 * this.FriendlyBottleneck.Value[tx, index]) / 10.0);
+                num3 = (int) Math.Round( (num3 * this.FriendlyBottleneck.Value[tx, index]) / 10.0);
               if (this.EnemyBottleneck.Value[tx, index] > 10)
-                num3 = (int) Math.Round((double) (num3 * this.EnemyBottleneck.Value[tx, index]) / 10.0);
+                num3 = (int) Math.Round( (num3 * this.EnemyBottleneck.Value[tx, index]) / 10.0);
             }
             initialHexes += num3;
           }
@@ -758,7 +758,7 @@ namespace WindowsApplication1
           }
         }
       }
-      return num1 <= 0 ? 0.0f : (float) num2 / (float) num1;
+      return num1 <= 0 ? 0.0f :  num2 /  num1;
     }
 
     pub float GetTroopsFrontRatioOutOfSupply(
@@ -797,7 +797,7 @@ namespace WindowsApplication1
           }
         }
       }
-      return num1 <= 0 ? 0.0f : (float) num2 / (float) num1;
+      return num1 <= 0 ? 0.0f :  num2 /  num1;
     }
 
     pub void Setsupplymatrix(
@@ -989,13 +989,13 @@ namespace WindowsApplication1
                     if (num8 <= RANGE)
                     {
                       if (tOwner.Value[x2, y2] == 2)
-                        num3 += (int) Math.Round((double) tTroops.Value[x2, y2] * ((double) (RANGE + 1 - num8) / (double) RANGE));
+                        num3 += (int) Math.Round( tTroops.Value[x2, y2] * ( (RANGE + 1 - num8) /  RANGE));
                       else if (tOwner.Value[x2, y2] == 1)
                       {
                         if (num8 == 0)
-                          num1 += (int) Math.Round((double) tTroops.Value[x2, y2] * ((double) (RANGE + 1 - num8) / (double) RANGE));
+                          num1 += (int) Math.Round( tTroops.Value[x2, y2] * ( (RANGE + 1 - num8) /  RANGE));
                         else
-                          num1 += (int) Math.Round((double) tTroops.Value[x2, y2] * ((double) (RANGE + 1 - num8) / (double) (RANGE * 4)));
+                          num1 += (int) Math.Round( tTroops.Value[x2, y2] * ( (RANGE + 1 - num8) /  (RANGE * 4)));
                       }
                     }
                   }
@@ -1003,10 +1003,10 @@ namespace WindowsApplication1
               }
               if (num1 > 0)
               {
-                num2 = (float) num3 / (float) num1;
-                if ((double) num2 > 1.0)
+                num2 =  num3 /  num1;
+                if ( num2 > 1.0)
                   num2 = 1f;
-                if ((double) num2 < 0.3)
+                if ( num2 < 0.3)
                   num2 = 0.3f;
               }
             }
@@ -1025,7 +1025,7 @@ namespace WindowsApplication1
                     let mut num13: i32 =  this.ai.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0, RANGE);
                     if (num13 <= RANGE && this.ai.game.HandyFunctionsObj.HexFacing(index1, index2, 0, index3, index4, 0) - 1 > -1)
                     {
-                      let mut num14: i32 =  (int) Math.Round((double) ((float) (int) Math.Round((double) tTroops.Value[index3, index4] * ((double) (RANGE + 1 - num13) / (double) RANGE)) * num2));
+                      let mut num14: i32 =  (int) Math.Round( ( (int) Math.Round( tTroops.Value[index3, index4] * ( (RANGE + 1 - num13) /  RANGE)) * num2));
                       int[,] numArray2 = numArray1;
                       int[,] numArray3 = numArray2;
                       let mut index5: i32 =  index1;
@@ -1074,23 +1074,23 @@ namespace WindowsApplication1
               bool flag2 = false;
               ref bool local2 = ref flag2;
               float num17 = handyFunctionsObj.GetConcentricBonus(ref local1, ref local2, false);
-              if ((double) num17 > 1.0)
+              if ( num17 > 1.0)
               {
-                if ((double) num17 >= 1.5)
+                if ( num17 >= 1.5)
                   num17 = num17;
                 num16 /= num17;
               }
             }
             let mut num18: i32 =  tTroops.Value[index9, index10];
-            if (this.allTroops.Value[index9, index10] > (int) Math.Round((double) (this.ai.game.Data.RuleVar[476] * 3f)))
-              num18 += (int) Math.Round((double) this.ai.game.Data.RuleVar[476] * 2.2);
-            else if (this.allTroops.Value[index9, index10] > (int) Math.Round((double) (this.ai.game.Data.RuleVar[476] * 2f)))
-              num18 += (int) Math.Round((double) (this.ai.game.Data.RuleVar[476] * 2f));
-            else if (this.allTroops.Value[index9, index10] > (int) Math.Round((double) (this.ai.game.Data.RuleVar[476] * 1f)))
-              num18 += (int) Math.Round((double) this.ai.game.Data.RuleVar[476] * 1.66);
-            else if (this.allTroops.Value[index9, index10] > (int) Math.Round((double) this.ai.game.Data.RuleVar[476] * 0.5))
-              num18 += (int) Math.Round((double) this.ai.game.Data.RuleVar[476]);
-            if (numArray1[index9, index10] > (int) Math.Round((double) (num16 * (float) num18)) & (!onlyOverRoad | flag1))
+            if (this.allTroops.Value[index9, index10] > (int) Math.Round( (this.ai.game.Data.RuleVar[476] * 3f)))
+              num18 += (int) Math.Round( this.ai.game.Data.RuleVar[476] * 2.2);
+            else if (this.allTroops.Value[index9, index10] > (int) Math.Round( (this.ai.game.Data.RuleVar[476] * 2f)))
+              num18 += (int) Math.Round( (this.ai.game.Data.RuleVar[476] * 2f));
+            else if (this.allTroops.Value[index9, index10] > (int) Math.Round( (this.ai.game.Data.RuleVar[476] * 1f)))
+              num18 += (int) Math.Round( this.ai.game.Data.RuleVar[476] * 1.66);
+            else if (this.allTroops.Value[index9, index10] > (int) Math.Round( this.ai.game.Data.RuleVar[476] * 0.5))
+              num18 += (int) Math.Round( this.ai.game.Data.RuleVar[476]);
+            if (numArray1[index9, index10] > (int) Math.Round( (num16 *  num18)) & (!onlyOverRoad | flag1))
             {
               let mut num19: i32 =  0;
               let mut num20: i32 =  0;
@@ -1124,12 +1124,12 @@ namespace WindowsApplication1
                 index12 += 1;
               }
               while (index12 <= 5);
-              float num21 = (float) numArray1[index9, index10] / (float) num19;
-              if ((double) num21 > 1.0)
+              float num21 =  numArray1[index9, index10] /  num19;
+              if ( num21 > 1.0)
                 num21 = 1f;
               float num22 = 1f - num21;
               tOwner.Value[index9, index10] = 2;
-              tTroops.Value[index9, index10] = (int) Math.Round((double) numArray1[index9, index10] / 2.0);
+              tTroops.Value[index9, index10] = (int) Math.Round( numArray1[index9, index10] / 2.0);
               let mut index14: i32 =  0;
               do
               {
@@ -1137,13 +1137,13 @@ namespace WindowsApplication1
                 if (coordinate1.onmap & coordinate1.x <= this.Width & coordinate1.y <= this.Height)
                 {
                   if (tOwner.Value[coordinate1.x, coordinate1.y] == 2 & tTroops.Value[coordinate1.x, coordinate1.y] > 0 & !(coordinate1.x == index9 & coordinate1.y == index10))
-                    tTroops.Value[coordinate1.x, coordinate1.y] = (int) Math.Round((double) ((float) tTroops.Value[coordinate1.x, coordinate1.y] * num22));
+                    tTroops.Value[coordinate1.x, coordinate1.y] = (int) Math.Round( ( tTroops.Value[coordinate1.x, coordinate1.y] * num22));
                   let mut index15: i32 =  0;
                   do
                   {
                     coordinate2 = this.ai.TempHexNeighbour[coordinate1.x, coordinate1.y, index15];
                     if (coordinate2.onmap & coordinate2.x <= this.Width & coordinate2.y <= this.Height && tOwner.Value[coordinate2.x, coordinate2.y] == 2 & tTroops.Value[coordinate2.x, coordinate2.y] > 0 & !(coordinate2.x == index9 & coordinate2.y == index10))
-                      tTroops.Value[coordinate2.x, coordinate2.y] = (int) Math.Round((double) ((float) tTroops.Value[coordinate2.x, coordinate2.y] * num22));
+                      tTroops.Value[coordinate2.x, coordinate2.y] = (int) Math.Round( ( tTroops.Value[coordinate2.x, coordinate2.y] * num22));
                     index15 += 1;
                   }
                   while (index15 <= 5);
@@ -1193,19 +1193,19 @@ namespace WindowsApplication1
                     if (num8 <= RANGE)
                     {
                       if (tOwner.Value[x2, y2] == 2)
-                        num3 += (int) Math.Round((double) tTroops.Value[x2, y2] * ((double) (RANGE + 1 - num8) / (double) RANGE));
+                        num3 += (int) Math.Round( tTroops.Value[x2, y2] * ( (RANGE + 1 - num8) /  RANGE));
                       else if (tOwner.Value[x2, y2] == 1)
-                        num1 += (int) Math.Round((double) tTroops.Value[x2, y2] * ((double) (RANGE + 1 - num8) / (double) RANGE));
+                        num1 += (int) Math.Round( tTroops.Value[x2, y2] * ( (RANGE + 1 - num8) /  RANGE));
                     }
                   }
                 }
               }
               if (num1 > 0)
               {
-                num2 = (float) num3 / (float) num1;
-                if ((double) num2 > 1.0)
+                num2 =  num3 /  num1;
+                if ( num2 > 1.0)
                   num2 = 1f;
-                if ((double) num2 < 0.3)
+                if ( num2 < 0.3)
                   num2 = 0.3f;
               }
             }
@@ -1224,7 +1224,7 @@ namespace WindowsApplication1
                     let mut num13: i32 =  this.ai.game.HandyFunctionsObj.Distance(x1, y1, 0, x2, y2, 0, RANGE);
                     if (num13 <= RANGE)
                     {
-                      let mut num14: i32 =  (int) Math.Round((double) ((float) (int) Math.Round((double) tTroops.Value[x2, y2] * ((double) (RANGE + 1 - num13) / (double) RANGE)) * num2));
+                      let mut num14: i32 =  (int) Math.Round( ( (int) Math.Round( tTroops.Value[x2, y2] * ( (RANGE + 1 - num13) /  RANGE)) * num2));
                       int[,] numArray2 = numArray1;
                       int[,] numArray3 = numArray2;
                       let mut index1: i32 =  x1;
@@ -1273,14 +1273,14 @@ namespace WindowsApplication1
               bool flag2 = false;
               ref bool local2 = ref flag2;
               float num17 = handyFunctionsObj.GetConcentricBonus(ref local1, ref local2, false);
-              if ((double) num17 > 1.0)
+              if ( num17 > 1.0)
               {
-                if ((double) num17 >= 1.5)
+                if ( num17 >= 1.5)
                   num17 = num17;
                 num16 /= num17;
               }
             }
-            if (numArray1[index5, index6] > (int) Math.Round((double) (num16 * (float) tTroops.Value[index5, index6])) & (!onlyOverRoad | flag1))
+            if (numArray1[index5, index6] > (int) Math.Round( (num16 *  tTroops.Value[index5, index6])) & (!onlyOverRoad | flag1))
             {
               let mut num18: i32 =  0;
               let mut num19: i32 =  0;
@@ -1314,12 +1314,12 @@ namespace WindowsApplication1
                 index8 += 1;
               }
               while (index8 <= 5);
-              float num20 = (float) numArray1[index5, index6] / (float) num18;
-              if ((double) num20 > 1.0)
+              float num20 =  numArray1[index5, index6] /  num18;
+              if ( num20 > 1.0)
                 num20 = 1f;
               float num21 = 1f - num20;
               tOwner.Value[index5, index6] = 2;
-              tTroops.Value[index5, index6] = (int) Math.Round((double) numArray1[index5, index6] / 2.0);
+              tTroops.Value[index5, index6] = (int) Math.Round( numArray1[index5, index6] / 2.0);
               let mut index10: i32 =  0;
               do
               {
@@ -1327,13 +1327,13 @@ namespace WindowsApplication1
                 if (coordinate1.onmap & coordinate1.x <= this.Width & coordinate1.y <= this.Height)
                 {
                   if (tOwner.Value[coordinate1.x, coordinate1.y] == 2 & tTroops.Value[coordinate1.x, coordinate1.y] > 0 & !(coordinate1.x == index5 & coordinate1.y == index6))
-                    tTroops.Value[coordinate1.x, coordinate1.y] = (int) Math.Round((double) ((float) tTroops.Value[coordinate1.x, coordinate1.y] * num21));
+                    tTroops.Value[coordinate1.x, coordinate1.y] = (int) Math.Round( ( tTroops.Value[coordinate1.x, coordinate1.y] * num21));
                   let mut index11: i32 =  0;
                   do
                   {
                     coordinate2 = this.ai.TempHexNeighbour[coordinate1.x, coordinate1.y, index11];
                     if (coordinate2.onmap & coordinate2.x <= this.Width & coordinate2.y <= this.Height && tOwner.Value[coordinate2.x, coordinate2.y] == 2 & tTroops.Value[coordinate2.x, coordinate2.y] > 0 & !(coordinate2.x == index5 & coordinate2.y == index6))
-                      tTroops.Value[coordinate2.x, coordinate2.y] = (int) Math.Round((double) ((float) tTroops.Value[coordinate2.x, coordinate2.y] * num21));
+                      tTroops.Value[coordinate2.x, coordinate2.y] = (int) Math.Round( ( tTroops.Value[coordinate2.x, coordinate2.y] * num21));
                     index11 += 1;
                   }
                   while (index11 <= 5);
@@ -1487,7 +1487,7 @@ namespace WindowsApplication1
                 do
                 {
                   let mut num5: i32 =  0;
-                  if (!Information.IsNothing((object) this.ai.game.EditObj.TempAttack[0]) && this.ai.game.EditObj.TempAttack[0].Value[this.GetRealX(index6), this.Top + y2_1, index7])
+                  if (!Information.IsNothing( this.ai.game.EditObj.TempAttack[0]) && this.ai.game.EditObj.TempAttack[0].Value[this.GetRealX(index6), this.Top + y2_1, index7])
                     num5 = 1;
                   if (num5 == 1)
                   {
@@ -1670,7 +1670,7 @@ namespace WindowsApplication1
                 let mut num10: i32 =  0;
                 if (unitByAiid1 == 82 & index24 + this.Left == 22 & y2 + this.Top == 8)
                   num10 = num10;
-                if (!Information.IsNothing((object) this.ai.game.EditObj.TempAttack[0]) && this.ai.game.EditObj.TempAttack[0].Value[this.GetRealX(index24), this.Top + y2, index25])
+                if (!Information.IsNothing( this.ai.game.EditObj.TempAttack[0]) && this.ai.game.EditObj.TempAttack[0].Value[this.GetRealX(index24), this.Top + y2, index25])
                   num10 = 1;
                 if (num10 == 1)
                 {
@@ -2037,7 +2037,7 @@ namespace WindowsApplication1
         }
         let mut num: i32 =  this.ai.VAR_MOVE_MAXIMUM_RANGE;
         if (this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].ProdBonus == 0)
-          num = (int) Math.Round((double) num / 2.0);
+          num = (int) Math.Round( num / 2.0);
         this.Left -= num;
         this.Right += num;
         this.Top -= num;
@@ -2184,14 +2184,14 @@ namespace WindowsApplication1
             num2 = lowestMoveCostForAi;
         }
       }
-      let mut num3: i32 =  (int) Math.Round(Math.Ceiling((double) num1 / (double) num2)) + 1;
+      let mut num3: i32 =  (int) Math.Round(Math.Ceiling( num1 /  num2)) + 1;
       int num4;
       int num5;
       if (num3 < 6)
         num5 = num4;
       let mut num6: i32 =  num3 - 2;
       if (DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].AIHelpMove > 0)
-        num6 = (int) Math.Round((double) (num6 * (100 + DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].AIHelpMove)) / 100.0);
+        num6 = (int) Math.Round( (num6 * (100 + DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].AIHelpMove)) / 100.0);
       if (num6 < 6)
         num6 = 6;
       if (DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].ProdBonus >= 250 && num6 < 8)
@@ -2199,9 +2199,9 @@ namespace WindowsApplication1
       if (num6 > this.ai.VAR_MOVE_MAXIMUM_RANGE)
         num6 = this.ai.VAR_MOVE_MAXIMUM_RANGE;
       if (num6 > 9)
-        num6 = 9 + (int) Math.Round((double) (num6 - 9) / 2.0);
+        num6 = 9 + (int) Math.Round( (num6 - 9) / 2.0);
       if (num6 > 12)
-        num6 = 12 + (int) Math.Round((double) (num6 - 12) / 2.0);
+        num6 = 12 + (int) Math.Round( (num6 - 12) / 2.0);
       if (num6 > 14)
         num6 = 14;
       this.Top -= num6;
@@ -2301,7 +2301,7 @@ namespace WindowsApplication1
 
     pub int HexAttackOpportunity(int x, int y)
     {
-      let mut num1: i32 =  0 + this.TroopsReach.Value[x, y] + (int) Math.Round(1.5 * (double) this.Advance.Value[x, y]);
+      let mut num1: i32 =  0 + this.TroopsReach.Value[x, y] + (int) Math.Round(1.5 *  this.Advance.Value[x, y]);
       if (this.front.Stance == 3)
         num1 += this.Advance.Value[x, y];
       let mut unitCounter: i32 =  this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(x), this.Top + y].UnitCounter;
@@ -2322,7 +2322,7 @@ namespace WindowsApplication1
           num1 = (num1 + 100 * num4) * (num4 + 1);
         if (num2 > 0)
         {
-          let mut num5: i32 =  (int) Math.Round((double) num3 / (double) num2);
+          let mut num5: i32 =  (int) Math.Round( num3 /  num2);
           if (num5 <= 10)
             num1 = (num1 + 50) * 20;
           else if (num5 <= 33)
@@ -2332,7 +2332,7 @@ namespace WindowsApplication1
           else if (num5 > 75 & this.enemySupply.Value[x, y] > this.ai.VAR_SUPPLY_25PERCENT_RANGE & this.ai.VAR_HAMMER_OUT_POCKETS)
             num1 = (num1 + 10) * 2;
           else if (num5 > 75 & this.enemySupply.Value[x, y] > this.ai.VAR_SUPPLY_25PERCENT_RANGE & !this.ai.VAR_HAMMER_OUT_POCKETS)
-            num1 = (int) Math.Round((double) num1 / 6.0);
+            num1 = (int) Math.Round( num1 / 6.0);
         }
       }
       if (this.troopsstrength.Value[x, y] == 0 && this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(x + this.Left), y + this.Top].VP > 0 | this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].AIVP[0].Value[this.GetRealX(x + this.Left), y + this.Top] > 0)
@@ -2365,7 +2365,7 @@ namespace WindowsApplication1
       if (d == 0)
         d = 1;
       if (this.troopsstrength.Value[x, y] > 0)
-        num1 = (int) Math.Round((double) num1 * Math.Sqrt((double) d));
+        num1 = (int) Math.Round( num1 * Math.Sqrt( d));
       return num1;
     }
 
@@ -2409,19 +2409,19 @@ namespace WindowsApplication1
         num1 += num5;
       if (this.enemySupply.Value[x, y] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE && this.allTroops.Value[x, y] > 0 & this.front.enemyPower > 0)
       {
-        let mut num6: i32 =  (int) Math.Round(300.0 * ((double) this.allTroops.Value[x, y] / (double) this.front.enemyPower));
+        let mut num6: i32 =  (int) Math.Round(300.0 * ( this.allTroops.Value[x, y] /  this.front.enemyPower));
         num1 += num6;
       }
       let mut num7: i32 =  this.vpMatrix.Value[x, y];
       if (this.ai.CustomCalls.HasCustumCalls())
-        num7 = (int) Math.Round((double) ((float) num7 * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y)));
-      let mut num8: i32 =  (int) Math.Round((double) num7 / 2.0);
+        num7 = (int) Math.Round( ( num7 * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y)));
+      let mut num8: i32 =  (int) Math.Round( num7 / 2.0);
       let mut num9: i32 =  num1 + num8;
       if (this.front.Stance == 3 && this.FrontAreaForAttack.Value[x, y] == this.front.FrontID)
       {
         if (this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE == 2)
         {
-          num9 += (int) Math.Round((double) this.Advance.Value[x, y] * 1.5);
+          num9 += (int) Math.Round( this.Advance.Value[x, y] * 1.5);
           if (this.origAdvance.Value[x, y] >= 100)
             num9 += 300;
           else if (this.origAdvance.Value[x, y] >= 85)
@@ -2436,7 +2436,7 @@ namespace WindowsApplication1
             num9 += 25;
         }
         else if (this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE == 1)
-          num9 += (int) Math.Round((double) this.Advance.Value[x, y] * 0.5);
+          num9 += (int) Math.Round( this.Advance.Value[x, y] * 0.5);
       }
       return num9;
     }
@@ -2457,7 +2457,7 @@ namespace WindowsApplication1
         else
           num1 += this.ai.game.Data.SFObj[sf].Qty;
       }
-      return (float) num2 / (float) num1;
+      return  num2 /  num1;
     }
 
     pub int CountUnitsWithSameHistoricalPresent(int his, UnitList UL)
@@ -2488,7 +2488,7 @@ namespace WindowsApplication1
             num1 += 1;
         }
       }
-      return (int) Math.Round((double) num1 / 2.0);
+      return (int) Math.Round( num1 / 2.0);
     }
 
     pub AIMoveList SetAttackMove(
@@ -2525,7 +2525,7 @@ namespace WindowsApplication1
               {
                 num3 = this.HexAttackOpportunity(index3, y) + this.HexAttackImportance(index3, y);
                 if (this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index3), y + this.Top].LandscapeType].TempDefenseBonus > 0)
-                  num3 = (int) Math.Round((double) num3 / (1.0 + (double) this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index3), y + this.Top].LandscapeType].TempDefenseBonus / 100.0));
+                  num3 = (int) Math.Round( num3 / (1.0 +  this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index3), y + this.Top].LandscapeType].TempDefenseBonus / 100.0));
                 Coordinate coordinate1;
                 if (this.ai.VAR_EMPHASIS_FOR_CONCENTRIC & this.troopsstrength.Value[index3, y] > 0)
                 {
@@ -2554,19 +2554,19 @@ namespace WindowsApplication1
                   bool flag = false;
                   ref bool local2 = ref flag;
                   float concentricBonus = handyFunctionsObj.GetConcentricBonus(ref local1, ref local2, true);
-                  if (num3 > 0 & (double) concentricBonus > 1.0)
-                    num3 = (int) Math.Round((double) ((float) num3 * concentricBonus));
+                  if (num3 > 0 &  concentricBonus > 1.0)
+                    num3 = (int) Math.Round( ( num3 * concentricBonus));
                   if (num5 > 0)
                   {
-                    float num6 = (float) num4 / (float) num5;
-                    if ((double) num6 <= 0.0)
-                      num3 = (int) Math.Round((double) num3 * 0.15);
-                    else if ((double) num6 <= 0.200000002980232)
-                      num3 = (int) Math.Round((double) num3 * 0.3);
-                    else if ((double) num6 <= 0.300000011920929)
-                      num3 = (int) Math.Round((double) num3 * 0.52);
-                    else if ((double) num6 <= 0.400000005960464)
-                      num3 = (int) Math.Round((double) num3 * 0.75);
+                    float num6 =  num4 /  num5;
+                    if ( num6 <= 0.0)
+                      num3 = (int) Math.Round( num3 * 0.15);
+                    else if ( num6 <= 0.200000002980232)
+                      num3 = (int) Math.Round( num3 * 0.3);
+                    else if ( num6 <= 0.300000011920929)
+                      num3 = (int) Math.Round( num3 * 0.52);
+                    else if ( num6 <= 0.400000005960464)
+                      num3 = (int) Math.Round( num3 * 0.75);
                   }
                 }
                 if (this.ai.VAR_EMPHASIS_AGAINST_CONCENTRIC & this.troopsstrength.Value[index3, y] > 0)
@@ -2593,14 +2593,14 @@ namespace WindowsApplication1
                       bool flag = false;
                       ref bool local4 = ref flag;
                       float concentricBonus = handyFunctionsObj.GetConcentricBonus(ref local3, ref local4, true);
-                      if ((double) concentricBonus > (double) num7)
+                      if ( concentricBonus >  num7)
                         num7 = concentricBonus;
                     }
                     index6 += 1;
                   }
                   while (index6 <= 5);
-                  if (num3 > 0 & (double) num7 > 1.0)
-                    num3 = (int) Math.Round((double) ((float) num3 * num7)) + (int) Math.Round(((double) num7 - 1.0) * 100.0);
+                  if (num3 > 0 &  num7 > 1.0)
+                    num3 = (int) Math.Round( ( num3 * num7)) + (int) Math.Round(( num7 - 1.0) * 100.0);
                 }
                 if (this.friendlySupplyIdeal.Value[index3, y] > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
                   num3 -= 250;
@@ -2613,7 +2613,7 @@ namespace WindowsApplication1
               {
                 let mut num8: i32 =  this.HexAttackOpportunity(index3, y) + this.FriendlyBottleneckIdealOwnFrontOnly.Value[index3, y] * 200;
                 if (this.map.HexObj[this.GetRealX(index3), y + this.Top].get_BattleStack(this.ai.game.Data.Turn) > 0)
-                  num8 = (int) Math.Round((double) num8 / Math.Sqrt((double) this.map.HexObj[this.GetRealX(index3), y + this.Top].get_BattleStack(this.ai.game.Data.Turn)));
+                  num8 = (int) Math.Round( num8 / Math.Sqrt( this.map.HexObj[this.GetRealX(index3), y + this.Top].get_BattleStack(this.ai.game.Data.Turn)));
                 let mut num9: i32 =  0;
                 let mut counter: i32 =  this.front.units.counter;
 label_57:
@@ -2640,7 +2640,7 @@ label_57:
                     num9 += 1;
                   }
                 }
-                num3 = num9 <= 0 ? -9999999 : (int) Math.Round((double) (num8 * num9) / 2.0);
+                num3 = num9 <= 0 ? -9999999 : (int) Math.Round( (num8 * num9) / 2.0);
               }
             }
             else
@@ -2711,12 +2711,12 @@ label_57:
           if (this.front.Stance == 2)
           {
             float num14 = 3.75f;
-            currentMinimal = (double) this.front.AverageStrength <= 2.25 ? ((double) this.front.AverageStrength <= 2.1 ? ((double) this.front.AverageStrength <= 1.9 ? ((double) this.front.AverageStrength <= 1.75 ? num14 + 1.25f : num14 + 1f) : num14 + 0.75f) : num14 + 0.5f) : num14 + 0.25f;
+            currentMinimal =  this.front.AverageStrength <= 2.25 ? ( this.front.AverageStrength <= 2.1 ? ( this.front.AverageStrength <= 1.9 ? ( this.front.AverageStrength <= 1.75 ? num14 + 1.25f : num14 + 1f) : num14 + 0.75f) : num14 + 0.5f) : num14 + 0.25f;
           }
           if (this.front.Stance == 3)
           {
             float num15 = 3.25f;
-            currentMinimal = (double) this.front.AverageStrength <= 3.25 ? ((double) this.front.AverageStrength <= 3.1 ? ((double) this.front.AverageStrength <= 2.9 ? ((double) this.front.AverageStrength <= 2.75 ? num15 + 0.6f : num15 + 0.45f) : num15 + 0.3f) : num15 + 0.15f) : num15 - 0.0f;
+            currentMinimal =  this.front.AverageStrength <= 3.25 ? ( this.front.AverageStrength <= 3.1 ? ( this.front.AverageStrength <= 2.9 ? ( this.front.AverageStrength <= 2.75 ? num15 + 0.6f : num15 + 0.45f) : num15 + 0.3f) : num15 + 0.15f) : num15 - 0.0f;
           }
           switch (num11)
           {
@@ -2729,24 +2729,24 @@ label_57:
               currentMinimal *= 2f;
               break;
           }
-          if ((double) this.front.UnitCountRatio >= 0.33 && (double) this.front.UnitCountRatio >= 0.66 && (double) this.front.UnitCountRatio >= 1.33)
+          if ( this.front.UnitCountRatio >= 0.33 &&  this.front.UnitCountRatio >= 0.66 &&  this.front.UnitCountRatio >= 1.33)
           {
-            if ((double) this.front.UnitCountRatio < 1.6 & this.front.Stance == 3)
+            if ( this.front.UnitCountRatio < 1.6 & this.front.Stance == 3)
             {
               num13 *= 1.2f;
               currentMinimal *= 0.95f;
             }
-            else if ((double) this.front.UnitCountRatio < 2.1 & this.front.Stance == 3)
+            else if ( this.front.UnitCountRatio < 2.1 & this.front.Stance == 3)
             {
               num13 *= 1.3f;
               currentMinimal *= 0.9f;
             }
-            else if ((double) this.front.UnitCountRatio < 3.2 & this.front.Stance == 3)
+            else if ( this.front.UnitCountRatio < 3.2 & this.front.Stance == 3)
             {
               num13 *= 1.4f;
               currentMinimal *= 0.85f;
             }
-            else if ((double) this.front.UnitCountRatio < 5.0 & this.front.Stance == 3)
+            else if ( this.front.UnitCountRatio < 5.0 & this.front.Stance == 3)
             {
               num13 *= 1.5f;
               currentMinimal *= 0.8f;
@@ -2758,29 +2758,29 @@ label_57:
             }
           }
           if (this.front.Stance != 3 && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].TempDefenseBonus > 0)
-            currentMinimal += currentMinimal * ((float) Math.Max(this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].TempDefenseBonus - 50, 0) / 200f);
+            currentMinimal += currentMinimal * ( Math.Max(this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].TempDefenseBonus - 50, 0) / 200f);
           if (this.front.Stance == 3)
           {
-            float num16 = num13 + (float) ((double) num13 * 0.1 * ((double) this.FriendlyBottleneckIdealOwnFrontOnly.Value[index1, index2] / 30.0));
-            float num17 = currentMinimal - (float) ((double) currentMinimal * 0.4 * ((double) this.FriendlyBottleneckIdealOwnFrontOnly.Value[index1, index2] / 100.0));
-            num13 = num16 + (float) ((double) num16 * 0.1 * ((double) this.FriendlyBottleneckIdeal.Value[index1, index2] / 30.0));
-            currentMinimal = num17 - (float) ((double) num17 * 0.3 * ((double) this.FriendlyBottleneckIdeal.Value[index1, index2] / 50.0));
+            float num16 = num13 +  ( num13 * 0.1 * ( this.FriendlyBottleneckIdealOwnFrontOnly.Value[index1, index2] / 30.0));
+            float num17 = currentMinimal -  ( currentMinimal * 0.4 * ( this.FriendlyBottleneckIdealOwnFrontOnly.Value[index1, index2] / 100.0));
+            num13 = num16 +  ( num16 * 0.1 * ( this.FriendlyBottleneckIdeal.Value[index1, index2] / 30.0));
+            currentMinimal = num17 -  ( num17 * 0.3 * ( this.FriendlyBottleneckIdeal.Value[index1, index2] / 50.0));
           }
           if (forEncircled)
             currentMinimal /= 4f;
-          if ((double) currentMinimal < 0.5)
+          if ( currentMinimal < 0.5)
             currentMinimal = 0.5f;
           if (flag1)
           {
             currentMinimal = 1.5f;
             num13 = 16f;
           }
-          if ((double) this.ai.VAR_MODIFY_MINIMUM_ATTACK > 0.0)
+          if ( this.ai.VAR_MODIFY_MINIMUM_ATTACK > 0.0)
             currentMinimal *= this.ai.VAR_MODIFY_MINIMUM_ATTACK;
           if (this.ai.CustomCalls.HasCustumCalls())
             currentMinimal *= this.ai.CustomCalls.CustomRuleTheater_MinimalAttackModifier(this.GetRealX(index1), index2 + this.Top, currentMinimal);
           if (this.ai.VAR_STRENGTH_MOD_IS_ALSO_COMBAT_ADV_MOD && this.ai.VAR_MATRIX_STRENGTH.Value[this.GetRealX(index1), index2 + this.Top] != 100)
-            currentMinimal = (float) ((double) currentMinimal * (double) this.ai.VAR_MATRIX_STRENGTH.Value[this.GetRealX(index1), index2 + this.Top] / 100.0);
+            currentMinimal =  ( currentMinimal *  this.ai.VAR_MATRIX_STRENGTH.Value[this.GetRealX(index1), index2 + this.Top] / 100.0);
           if (this.front.OffensiveZone > 0)
           {
             if (this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE == 1)
@@ -2794,7 +2794,7 @@ label_57:
               num13 *= 2f;
             }
           }
-          if ((double) num13 <= (double) currentMinimal + 2.0)
+          if ( num13 <=  currentMinimal + 2.0)
             num13 = currentMinimal + 2f;
           UnitList UL = UnitList::new();
           SimpleList simpleList1 = SimpleList::new();
@@ -2819,13 +2819,13 @@ label_57:
           {
             index4 = this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].UnitList[index12];
             let mut tempUnitPowerAbs: i32 =  this.ai.game.Data.UnitObj[index4].TempUnitPowerAbs;
-            let mut num27: i32 =  (int) Math.Round((double) tempUnitPowerAbs * 0.1) + (int) Math.Round((double) tempUnitPowerAbs * 0.9 * (double) this.ai.game.Data.UnitObj[index4].SupplyConsume / 100.0);
-            let mut num28: i32 =  (int) Math.Round((double) num27 * 1.0) + (int) Math.Round((double) (num27 * 1 * this.ai.game.HandyFunctionsObj.GetAverageXp(index4)) / 60.0);
-            let mut num29: i32 =  this.front.FrontType != 12 ? (this.front.Stance != 3 ? num28 + (int) Math.Round((double) (num28 * this.ai.game.HandyFunctionsObj.GetAverageEntrench(index4)) / 200.0) : num28 + (int) Math.Round((double) (num28 * this.ai.game.HandyFunctionsObj.GetAverageEntrench(index4)) / 300.0)) : num28;
-            let mut num30: i32 =  (int) Math.Round((double) num29 * 0.5 + (double) num29 * 0.5 * (double) this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) / 100.0);
-            num12 = (int) Math.Round((double) num30 * 0.1 + (double) num30 * 0.9 * (double) (this.GetAverageDefensiveMod2(index4) + 100) / 100.0);
+            let mut num27: i32 =  (int) Math.Round( tempUnitPowerAbs * 0.1) + (int) Math.Round( tempUnitPowerAbs * 0.9 *  this.ai.game.Data.UnitObj[index4].SupplyConsume / 100.0);
+            let mut num28: i32 =  (int) Math.Round( num27 * 1.0) + (int) Math.Round( (num27 * 1 * this.ai.game.HandyFunctionsObj.GetAverageXp(index4)) / 60.0);
+            let mut num29: i32 =  this.front.FrontType != 12 ? (this.front.Stance != 3 ? num28 + (int) Math.Round( (num28 * this.ai.game.HandyFunctionsObj.GetAverageEntrench(index4)) / 200.0) : num28 + (int) Math.Round( (num28 * this.ai.game.HandyFunctionsObj.GetAverageEntrench(index4)) / 300.0)) : num28;
+            let mut num30: i32 =  (int) Math.Round( num29 * 0.5 +  num29 * 0.5 *  this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) / 100.0);
+            num12 = (int) Math.Round( num30 * 0.1 +  num30 * 0.9 *  (this.GetAverageDefensiveMod2(index4) + 100) / 100.0);
             if (!this.ai.game.Data.UnitObj[index4].IsHQ & this.ai.game.Data.UnitObj[index4].HQ > -1 && !this.ai.game.Data.UnitObj[index4].IsHQ & this.ai.game.Data.UnitObj[index4].HQ > -1)
-              num12 += (int) Math.Round((double) (num12 * this.ai.game.HandyFunctionsObj.GetRealHqCombatImprovementPercentage(this.ai.game.Data.UnitObj[index4].HQ)) / 100.0 * ((double) this.ai.game.HandyFunctionsObj.Gethqpow(index4) / 100.0));
+              num12 += (int) Math.Round( (num12 * this.ai.game.HandyFunctionsObj.GetRealHqCombatImprovementPercentage(this.ai.game.Data.UnitObj[index4].HQ)) / 100.0 * ( this.ai.game.HandyFunctionsObj.Gethqpow(index4) / 100.0));
             if (!this.ai.game.HandyFunctionsObj.HasUnitlandSF(index4))
               num12 = 0;
             val2 += num12;
@@ -2840,8 +2840,8 @@ label_57:
           }
           if (num21 > this.ai.VAR_HEX_STACK_REGULAR)
           {
-            val2 = (int) Math.Round((double) (val2 * this.ai.VAR_HEX_STACK_REGULAR) / (double) num21);
-            currentMinimal = currentMinimal * 0.6f + currentMinimal * 0.4f * (float) this.ai.VAR_HEX_STACK_REGULAR / (float) num21;
+            val2 = (int) Math.Round( (val2 * this.ai.VAR_HEX_STACK_REGULAR) /  num21);
+            currentMinimal = currentMinimal * 0.6f + currentMinimal * 0.4f *  this.ai.VAR_HEX_STACK_REGULAR /  num21;
           }
           let mut num31: i32 =  this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].get_BattleStack(this.ai.game.Data.Turn);
           bool flag2;
@@ -2870,26 +2870,26 @@ label_57:
                   {
                     let mut num34: i32 =  20 + this.MoveCostAttack[index14, tdata2_2].Value[index1, index2] - 16 * this.CountUnitsWithSameHistoricalPresent(this.ai.game.Data.UnitObj[index4].Historical, UL);
                     if (this.enemyDistance.Value[index16, index17] > 1)
-                      num34 = (int) Math.Round((double) num34 / (double) this.enemyDistance.Value[index16, index17]);
-                    let mut num35: i32 =  (int) Math.Round((double) (int) Math.Round((double) (int) Math.Round((double) num34 / ((double) this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) / 100.0)) / ((double) this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) / 100.0)) / ((double) this.ai.game.Data.UnitObj[index4].SupplyConsume / 100.0));
-                    let mut num36: i32 =  (int) Math.Round((double) num35 * 0.1 + (double) num35 * 0.9 * ((double) (100 + this.GetAverageOffensiveMod2(index4)) / 100.0));
+                      num34 = (int) Math.Round( num34 /  this.enemyDistance.Value[index16, index17]);
+                    let mut num35: i32 =  (int) Math.Round( (int) Math.Round( (int) Math.Round( num34 / ( this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) / 100.0)) / ( this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) / 100.0)) / ( this.ai.game.Data.UnitObj[index4].SupplyConsume / 100.0));
+                    let mut num36: i32 =  (int) Math.Round( num35 * 0.1 +  num35 * 0.9 * ( (100 + this.GetAverageOffensiveMod2(index4)) / 100.0));
                     Coordinate coordinate4 = this.ai.game.HandyFunctionsObj.HexNeighbour(index1, index2, 0, tdata2_2 + 1);
                     if (coordinate4.onmap & coordinate4.x <= this.Width & coordinate4.y <= this.Height)
-                      num36 = (int) Math.Round((double) num36 / ((double) Math.Max(20, Math.Min(50, this.ai.game.HandyFunctionsObj.GetLowestAp(index4) - this.MoveCostMove[index14].Value[coordinate4.x, coordinate4.y])) / 50.0));
+                      num36 = (int) Math.Round( num36 / ( Math.Max(20, Math.Min(50, this.ai.game.HandyFunctionsObj.GetLowestAp(index4) - this.MoveCostMove[index14].Value[coordinate4.x, coordinate4.y])) / 50.0));
                     if (this.ai.game.Data.UnitObj[index4].TempProtector)
-                      num36 = (int) Math.Round((double) num36 / 20.0);
+                      num36 = (int) Math.Round( num36 / 20.0);
                     float num37 = 0.0f;
                     let mut num38: i32 =  0;
                     let mut sfCount: i32 =  this.ai.game.Data.UnitObj[index4].SFCount;
                     for (let mut index18: i32 =  0; index18 <= sfCount; index18 += 1)
                     {
-                      num37 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Type].CombatModAtt[this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType] * (float) this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Qty * (float) this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Type].PowerPts;
+                      num37 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Type].CombatModAtt[this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType] *  this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Qty *  this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Type].PowerPts;
                       num38 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Type].PowerPts * this.ai.game.Data.SFObj[this.ai.game.Data.UnitObj[index4].SFList[index18]].Qty;
                     }
-                    float num39 = (float) Math.Pow((double) (1f / (num37 / (float) num38)), 2.0);
-                    let mut num40: i32 =  (int) Math.Round((double) ((float) num36 * num39));
-                    if ((double) num39 <= 1.0)
-                      num40 -= (int) Math.Round((double) (100f * this.UnitOffensiveModifier(index4)));
+                    float num39 =  Math.Pow( (1f / (num37 /  num38)), 2.0);
+                    let mut num40: i32 =  (int) Math.Round( ( num36 * num39));
+                    if ( num39 <= 1.0)
+                      num40 -= (int) Math.Round( (100f * this.UnitOffensiveModifier(index4)));
                     this.ai.game.EditObj.TempUnitList = UnitList::new();
                     let mut counter5: i32 =  UL.counter;
                     for (let mut index19: i32 =  0; index19 <= counter5; index19 += 1)
@@ -2902,8 +2902,8 @@ label_57:
                     this.ai.game.EditObj.TempUnitList.add(index4, tdata2: tdata2_2);
                     float concentricBonus2Prognosis3 = this.ai.game.HandyFunctionsObj.GetConcentricBonus2Prognosis(true, true);
                     this.ai.game.EditObj.TempUnitList = UnitList::new();
-                    if ((double) concentricBonus2Prognosis3 > (double) concentricBonus2Prognosis2)
-                      num40 -= (int) Math.Round((double) ((float) num40 * (Math.Min(90f, (float) (((double) concentricBonus2Prognosis3 - (double) concentricBonus2Prognosis2) * 100.0)) / 50f)));
+                    if ( concentricBonus2Prognosis3 >  concentricBonus2Prognosis2)
+                      num40 -= (int) Math.Round( ( num40 * (Math.Min(90f,  (( concentricBonus2Prognosis3 -  concentricBonus2Prognosis2) * 100.0)) / 50f)));
                     if (this.ai.VAR_TOPUNIT_STIMULUS > 0)
                     {
                       let mut tempType: i32 =  this.ai.game.Data.UnitObj[index4].TempType;
@@ -2912,21 +2912,21 @@ label_57:
                         let mut moveType: i32 =  this.ai.game.Data.SFTypeObj[tempType].MoveType;
                         if (this.ai.game.Data.LandscapeTypeObj[this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].MoveCost[moveType] <= 33)
                         {
-                          num40 = (int) Math.Round((double) num40 / 2.0);
+                          num40 = (int) Math.Round( num40 / 2.0);
                           if (this.ai.VAR_TOPUNIT_STIMULUS >= 200)
-                            num40 = (int) Math.Round((double) ((float) num40 / 3f));
+                            num40 = (int) Math.Round( ( num40 / 3f));
                           else if (this.ai.VAR_TOPUNIT_STIMULUS >= 150)
-                            num40 = (int) Math.Round((double) ((float) num40 / 2.5f));
+                            num40 = (int) Math.Round( ( num40 / 2.5f));
                           else if (this.ai.VAR_TOPUNIT_STIMULUS >= 100)
-                            num40 = (int) Math.Round((double) ((float) num40 / 2f));
+                            num40 = (int) Math.Round( ( num40 / 2f));
                           else if (this.ai.VAR_TOPUNIT_STIMULUS >= 50)
-                            num40 = (int) Math.Round((double) ((float) num40 / 1.5f));
+                            num40 = (int) Math.Round( ( num40 / 1.5f));
                         }
                       }
                     }
                     if (!forEncircled & this.front.FrontType != 12)
                     {
-                      if (val2 > (int) Math.Round((double) this.ai.game.Data.UnitObj[index4].TempUnitPower / 3.0))
+                      if (val2 > (int) Math.Round( this.ai.game.Data.UnitObj[index4].TempUnitPower / 3.0))
                       {
                         if (new Random(this.ai.game.Data.GameID + this.front.FrontID + this.ai.game.Data.Round).Next(0, 100) < 50)
                         {
@@ -2936,9 +2936,9 @@ label_57:
                         else if (this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) < 80 & this.front.Stance == 3)
                           num40 = 99999999;
                       }
-                      else if (this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) < 40 & this.front.Stance == 3 && val2 > (int) Math.Round((double) this.ai.game.Data.UnitObj[index4].TempUnitPower / 15.0))
+                      else if (this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) < 40 & this.front.Stance == 3 && val2 > (int) Math.Round( this.ai.game.Data.UnitObj[index4].TempUnitPower / 15.0))
                         num40 = 99999999;
-                      if ((double) this.ai.game.Data.RuleVar[434] > 0.0)
+                      if ( this.ai.game.Data.RuleVar[434] > 0.0)
                       {
                         if (this.GetAverageOffensiveMod2(index4) < -50)
                           num40 = 99999999;
@@ -2947,9 +2947,9 @@ label_57:
                         else if (this.GetAverageOffensiveMod2(index4) < -5)
                           num40 = 99999999;
                       }
-                      if (this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) < 75 & this.front.Stance == 2 && val2 > (int) Math.Round((double) this.ai.game.Data.UnitObj[index4].TempUnitPower / 6.0))
+                      if (this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) < 75 & this.front.Stance == 2 && val2 > (int) Math.Round( this.ai.game.Data.UnitObj[index4].TempUnitPower / 6.0))
                         num40 = 99999999;
-                      if (this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) < 80 & flag1 && val2 > (int) Math.Round((double) this.ai.game.Data.UnitObj[index4].TempUnitPower / 6.0))
+                      if (this.ai.game.HandyFunctionsObj.GetAverageRdn(index4) < 80 & flag1 && val2 > (int) Math.Round( this.ai.game.Data.UnitObj[index4].TempUnitPower / 6.0))
                         num40 = 99999999;
                     }
                     if (num40 < num32)
@@ -2967,22 +2967,22 @@ label_57:
                             index1 = index1;
                           let mut num41: i32 =  this.HexDefendedScore(index16, index17, -1, index4, numArray1[index16, index17], 0, true) - this.HexDefendImportance(index16, index17) + stimulateAttack;
                           if (num41 > 300)
-                            num41 = 300 + (int) Math.Round(Math.Sqrt((double) (num41 - 300)) * 3.0);
+                            num41 = 300 + (int) Math.Round(Math.Sqrt( (num41 - 300)) * 3.0);
                           let mut num42: i32 =  this.HexAttackImportance(index1, index2);
                           let mut num43: i32 =  this.ai.game.HandyFunctionsObj.GetHexStackPts(this.GetRealX(coordinate3.x), coordinate3.y + this.Top, 0) + numArray2[coordinate3.x, coordinate3.y] + this.ai.game.HandyFunctionsObj.GetUnitStackPts(unr);
                           if (this.IsLastUnit(index4, this.front) & this.ForceRatio.Value[index16, index17] > 0 & this.ForceRatio.Value[index16, index17] < 600 && this.FrontArea.Value[index16, index17] == this.front.FrontID)
                           {
                             if (this.front.FrontType == 1)
-                              num41 -= Math.Abs((int) Math.Round((double) num42 / 3.0));
+                              num41 -= Math.Abs((int) Math.Round( num42 / 3.0));
                             else
-                              num41 -= Math.Abs((int) Math.Round((double) num42 / 2.0));
+                              num41 -= Math.Abs((int) Math.Round( num42 / 2.0));
                           }
                           if (numArray1[index16, index17] > 0)
                             index16 = index16;
                           if (num42 > 200)
                             index16 = index16;
-                          if ((double) num43 > (double) this.ai.VAR_HEX_STACK_REGULAR * 0.66)
-                            num41 = (int) Math.Round((double) num41 * ((double) this.ai.VAR_HEX_STACK_REGULAR * 0.66 / (double) num43));
+                          if ( num43 >  this.ai.VAR_HEX_STACK_REGULAR * 0.66)
+                            num41 = (int) Math.Round( num41 * ( this.ai.VAR_HEX_STACK_REGULAR * 0.66 /  num43));
                           if (this.enemyDistance.Value[index16, index17] == 1)
                           {
                             if (num41 >= 150 - num42)
@@ -2995,30 +2995,30 @@ label_57:
                           flag3 = true;
                         if (forEncircled)
                           flag3 = true;
-                        if (!forEncircled && this.friendlySupplyIdeal.Value[index1, index2] < 999 && this.friendlySupplyIdeal.Value[coordinate3.x, coordinate3.y] > this.ai.VAR_SUPPLY_75PERCENT_RANGE && (double) this.ai.game.Data.UnitObj[index4].SupplyIn < (double) this.ai.game.Data.UnitObj[index4].SupplyInReq * 0.6)
+                        if (!forEncircled && this.friendlySupplyIdeal.Value[index1, index2] < 999 && this.friendlySupplyIdeal.Value[coordinate3.x, coordinate3.y] > this.ai.VAR_SUPPLY_75PERCENT_RANGE &&  this.ai.game.Data.UnitObj[index4].SupplyIn <  this.ai.game.Data.UnitObj[index4].SupplyInReq * 0.6)
                           flag3 = false;
                         if (flag3)
                         {
                           if (this.ai.game.Data.UnitObj[index4].TempTopUnit)
                           {
-                            num40 += (int) Math.Round((double) num40 * ((double) this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].TempDefenseBonus / 100.0));
+                            num40 += (int) Math.Round( num40 * ( this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].TempDefenseBonus / 100.0));
                             if (this.MoveFromAttack[index14, tdata2_2].Value[index1, index2].onmap)
                             {
                               let mut num44: i32 =  this.ai.game.HandyFunctionsObj.HexFacing(this.GetRealX(index1), index2 + this.Top, 0, this.GetRealX(this.MoveFromAttack[index14, tdata2_2].Value[index1, index2].x), this.MoveFromAttack[index14, tdata2_2].Value[index1, index2].y + this.Top, 0);
                               let mut index20: i32 =  this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), index2 + this.Top].RiverType[num44 - 1];
                               if (index20 > -1)
-                                num40 += (int) Math.Round((double) num40 * ((double) this.ai.game.Data.RiverTypeObj[index20].TempDefenseBonus / 100.0));
+                                num40 += (int) Math.Round( num40 * ( this.ai.game.Data.RiverTypeObj[index20].TempDefenseBonus / 100.0));
                             }
                           }
-                          else if ((double) this.UnitOffensiveModifier(index4) > 0.0)
+                          else if ( this.UnitOffensiveModifier(index4) > 0.0)
                           {
-                            num40 += (int) Math.Round((double) num40 * (double) this.UnitOffensiveModifier(index4) * ((double) this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].TempDefenseBonus / 100.0));
+                            num40 += (int) Math.Round( num40 *  this.UnitOffensiveModifier(index4) * ( this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].TempDefenseBonus / 100.0));
                             if (this.MoveFromAttack[index14, tdata2_2].Value[index1, index2].onmap)
                             {
                               let mut num45: i32 =  this.ai.game.HandyFunctionsObj.HexFacing(index1, index2, 0, this.MoveFromAttack[index14, tdata2_2].Value[index1, index2].x, this.MoveFromAttack[index14, tdata2_2].Value[index1, index2].y, 0);
                               let mut index21: i32 =  this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), index2 + this.Top].RiverType[num45 - 1];
                               if (index21 > -1)
-                                num40 += (int) Math.Round((double) num40 * (double) this.UnitOffensiveModifier(index4) * ((double) this.ai.game.Data.RiverTypeObj[index21].TempDefenseBonus / 100.0));
+                                num40 += (int) Math.Round( num40 *  this.UnitOffensiveModifier(index4) * ( this.ai.game.Data.RiverTypeObj[index21].TempDefenseBonus / 100.0));
                             }
                           }
                           if (num40 < num32)
@@ -3084,16 +3084,16 @@ label_57:
                 {
                   let mut moveType: i32 =  this.ai.game.Data.SFTypeObj[tempType].MoveType;
                   if (this.ai.game.Data.LandscapeTypeObj[this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), index2 + this.Top].LandscapeType].MoveCost[moveType] <= 33)
-                    tempUnitPowerAbs += (int) Math.Round((double) (tempUnitPowerAbs * this.ai.VAR_TOPUNIT_STIMULUS) / 100.0);
+                    tempUnitPowerAbs += (int) Math.Round( (tempUnitPowerAbs * this.ai.VAR_TOPUNIT_STIMULUS) / 100.0);
                 }
               }
-              let mut num48: i32 =  (int) Math.Round((double) ((float) tempUnitPowerAbs * this.ai.GetCombatMatrixModifierVersusHex(index22, this.GetRealX(index1), index2 + this.Top)));
+              let mut num48: i32 =  (int) Math.Round( ( tempUnitPowerAbs * this.ai.GetCombatMatrixModifierVersusHex(index22, this.GetRealX(index1), index2 + this.Top)));
               if (!this.ai.game.Data.UnitObj[index22].IsHQ & this.ai.game.Data.UnitObj[index22].HQ > -1)
-                num48 += (int) Math.Round((double) (num48 * this.ai.game.HandyFunctionsObj.GetRealHqCombatImprovementPercentage(this.ai.game.Data.UnitObj[index22].HQ)) / 100.0 * ((double) this.ai.game.HandyFunctionsObj.Gethqpow(index22) / 100.0));
-              let mut num49: i32 =  1 * num48 + (int) Math.Round((double) num48 * ((double) this.ai.game.HandyFunctionsObj.GetAverageXp(index22) / 60.0));
-              let mut num50: i32 =  (int) Math.Round((double) num49 * 0.1 + (double) num49 * 0.9 * ((double) this.ai.game.HandyFunctionsObj.GetAverageRdn(index22) / 100.0));
-              let mut num51: i32 =  (int) Math.Round((double) num50 * 0.3 + (double) num50 * 0.7 * ((double) this.ai.game.HandyFunctionsObj.GetAverageRdn(index22) / 100.0));
-              let mut num52: i32 =  (int) Math.Round((double) num51 * 0.1 + (double) num51 * 0.9 * ((double) (100 + this.GetAverageOffensiveMod2(index22)) / 100.0));
+                num48 += (int) Math.Round( (num48 * this.ai.game.HandyFunctionsObj.GetRealHqCombatImprovementPercentage(this.ai.game.Data.UnitObj[index22].HQ)) / 100.0 * ( this.ai.game.HandyFunctionsObj.Gethqpow(index22) / 100.0));
+              let mut num49: i32 =  1 * num48 + (int) Math.Round( num48 * ( this.ai.game.HandyFunctionsObj.GetAverageXp(index22) / 60.0));
+              let mut num50: i32 =  (int) Math.Round( num49 * 0.1 +  num49 * 0.9 * ( this.ai.game.HandyFunctionsObj.GetAverageRdn(index22) / 100.0));
+              let mut num51: i32 =  (int) Math.Round( num50 * 0.3 +  num50 * 0.7 * ( this.ai.game.HandyFunctionsObj.GetAverageRdn(index22) / 100.0));
+              let mut num52: i32 =  (int) Math.Round( num51 * 0.1 +  num51 * 0.9 * ( (100 + this.GetAverageOffensiveMod2(index22)) / 100.0));
               let mut num53: i32 =  num19 + num52;
               let mut num54: i32 =  this.ai.game.HandyFunctionsObj.GetLowestAp(index22) - this.MoveCostAttack[index15, tdata2_1].Value[index1, index2];
               Coordinate coordinate5 = this.MoveFromAttack[index15, tdata2_1].Value[index1, index2];
@@ -3102,22 +3102,22 @@ label_57:
                 num55 = 80;
               num12 = num54 + num55;
               if (num12 < 30)
-                num52 = (int) Math.Round((double) num52 * 0.2);
+                num52 = (int) Math.Round( num52 * 0.2);
               else if (num12 < 40)
-                num52 = (int) Math.Round((double) num52 * 0.4);
+                num52 = (int) Math.Round( num52 * 0.4);
               else if (num12 < 50)
-                num52 = (int) Math.Round((double) num52 * 0.7);
+                num52 = (int) Math.Round( num52 * 0.7);
               else if (num12 < 60)
-                num52 = (int) Math.Round((double) num52 * 0.9);
+                num52 = (int) Math.Round( num52 * 0.9);
               let mut num56: i32 =  num25 + num52;
-              if ((double) this.UnitOffensiveModifier(index22) > 0.0)
+              if ( this.UnitOffensiveModifier(index22) > 0.0)
                 index16 = index16;
-              if ((double) this.UnitOffensiveModifier(index22) < 0.0)
+              if ( this.UnitOffensiveModifier(index22) < 0.0)
                 index16 = index16;
-              num25 = num56 + (int) Math.Round((double) num52 * 0.75 * (double) this.UnitOffensiveModifier(index22));
-              num19 = num53 + (int) Math.Round((double) num52 * 0.75 * (double) this.UnitOffensiveModifier(index22));
-              num26 = (float) num25 / (float) Math.Max(0.25, (double) val2);
-              num20 = (float) num19 / (float) Math.Max(0.25, (double) val2);
+              num25 = num56 + (int) Math.Round( num52 * 0.75 *  this.UnitOffensiveModifier(index22));
+              num19 = num53 + (int) Math.Round( num52 * 0.75 *  this.UnitOffensiveModifier(index22));
+              num26 =  num25 /  Math.Max(0.25,  val2);
+              num20 =  num19 /  Math.Max(0.25,  val2);
               num31 += this.ai.game.HandyFunctionsObj.GetUnitStackPts(index22);
               flag2 = true;
             }
@@ -3134,22 +3134,22 @@ label_57:
             if (flag1)
               num57 *= 2;
             this.ai.game.EditObj.TempUnitList = UnitList::new();
-            if ((double) concentricBonus2Prognosis1 * (double) num26 >= (double) num13)
+            if ( concentricBonus2Prognosis1 *  num26 >=  num13)
             {
               if (val2 > 0)
                 ;
               flag2 = false;
             }
-            if (!forEncircled & (double) this.front.UnitCountRatio > 0.0)
+            if (!forEncircled &  this.front.UnitCountRatio > 0.0)
             {
               if (this.front.OffensiveZone > 0 & this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE > 0)
               {
-                if (this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE == 2 & (double) num31 > (double) num57 * 1.4 * Math.Max(1.0, Math.Sqrt(1.0 / (double) this.front.UnitCountRatio)))
+                if (this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE == 2 &  num31 >  num57 * 1.4 * Math.Max(1.0, Math.Sqrt(1.0 /  this.front.UnitCountRatio)))
                   flag2 = false;
-                if (this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE == 1 & (double) num31 > (double) num57 * 1.15 * Math.Max(1.0, Math.Sqrt(1.0 / (double) this.front.UnitCountRatio)))
+                if (this.ai.VAR_OFFENSIVE_ZONE_IS_ALL_OUT_MODE == 1 &  num31 >  num57 * 1.15 * Math.Max(1.0, Math.Sqrt(1.0 /  this.front.UnitCountRatio)))
                   flag2 = false;
               }
-              else if ((double) num31 > (double) (num57 * 1) * Math.Max(1.0, Math.Sqrt((double) this.front.UnitCountRatio / 1.0)))
+              else if ( num31 >  (num57 * 1) * Math.Max(1.0, Math.Sqrt( this.front.UnitCountRatio / 1.0)))
                 flag2 = false;
             }
           }
@@ -3196,9 +3196,9 @@ label_57:
                         else if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index32), y2 + this.Top].UnitCounter == 0)
                           num12 *= 1;
                         else if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index32), y2 + this.Top].UnitCounter == 1)
-                          num12 = (int) Math.Round((double) num12 * 0.66);
+                          num12 = (int) Math.Round( num12 * 0.66);
                         else if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index32), y2 + this.Top].UnitCounter >= 2)
-                          num12 = (int) Math.Round((double) num12 * 0.5);
+                          num12 = (int) Math.Round( num12 * 0.5);
                         if (num12 < tweight)
                         {
                           tweight = num12;
@@ -3223,11 +3223,11 @@ label_57:
             {
               index4 = simpleList1.Id[index14];
               num59 += this.ai.game.Data.UnitObj[index4].TempUnitPower;
-              if ((double) num59 > (double) (val2 + 10) * Math.Sqrt((double) (simpleList1.Counter + 1)) / 3.0)
+              if ( num59 >  (val2 + 10) * Math.Sqrt( (simpleList1.Counter + 1)) / 3.0)
                 flag5 = true;
-              if ((double) num59 > (double) num25 * Math.Sqrt((double) (simpleList1.Counter + 1)) / 2.0)
+              if ( num59 >  num25 * Math.Sqrt( (simpleList1.Counter + 1)) / 2.0)
                 flag5 = true;
-              if ((double) index14 > (double) UL.counter * Math.Sqrt((double) (simpleList1.Counter + 1)))
+              if ( index14 >  UL.counter * Math.Sqrt( (simpleList1.Counter + 1)))
                 flag5 = true;
               if (flag5)
               {
@@ -3240,14 +3240,14 @@ label_57:
             }
             if (num59 > 0)
             {
-              num26 = (float) (num25 + num59 * 2) / (float) Math.Max(0.1, (double) val2);
-              num20 = (float) (num19 + num59 * 2) / (float) Math.Max(0.1, (double) val2);
+              num26 =  (num25 + num59 * 2) /  Math.Max(0.1,  val2);
+              num20 =  (num19 + num59 * 2) /  Math.Max(0.1,  val2);
             }
           }
           let mut num67: i32 =  0;
           if (index1 + this.Left == 22 & index2 + this.Top == 8)
             num12 = num12;
-          if ((double) num26 > 0.0 & val2 > 0 & UL.counter > -1)
+          if ( num26 > 0.0 & val2 > 0 & UL.counter > -1)
           {
             let mut counter10: i32 =  this.front.artUnits.counter;
             for (let mut index33: i32 =  0; index33 <= counter10; index33 += 1)
@@ -3298,7 +3298,7 @@ label_57:
             for (index14 = 0; index14 <= counter11; index14 += 1)
             {
               index4 = simpleList3.Id[index14];
-              if ((double) index14 > (double) simpleList3.Counter * Math.Sqrt((double) (simpleList3.Counter + 1)))
+              if ( index14 >  simpleList3.Counter * Math.Sqrt( (simpleList3.Counter + 1)))
                 flag7 = true;
               if (flag7)
               {
@@ -3320,31 +3320,31 @@ label_57:
           float num74 = num20 * concentricBonus2Prognosis1;
           if (num24 > 0 & num22 > 0 && num24 > num22 * 3)
           {
-            float num75 = (float) Math.Sqrt((double) ((float) num24 / (float) (num22 * 3)));
-            if ((double) num75 > 1.5)
-              num75 = 1.5f + (float) Math.Sqrt((double) num75 - 1.5);
+            float num75 =  Math.Sqrt( ( num24 /  (num22 * 3)));
+            if ( num75 > 1.5)
+              num75 = 1.5f +  Math.Sqrt( num75 - 1.5);
             num73 *= num75;
             num74 *= num75;
           }
           if (forEncircled & stimulateAttack > 0)
             currentMinimal /= 5f;
-          if ((double) num73 < (double) currentMinimal & UL.counter > -1 & simpleList1.Counter > -1)
+          if ( num73 <  currentMinimal & UL.counter > -1 & simpleList1.Counter > -1)
           {
             UL.counter = -1;
             simpleList3.Counter = -1;
           }
-          if ((double) num73 < (double) currentMinimal & (double) num73 > 0.0)
+          if ( num73 <  currentMinimal &  num73 > 0.0)
             num12 = num12;
           int num76;
           float num77;
           AIMove tempMove;
-          if ((double) num73 > (double) currentMinimal | UL.counter == -1 & simpleList1.Counter > -1)
+          if ( num73 >  currentMinimal | UL.counter == -1 & simpleList1.Counter > -1)
           {
             if (UL.counter == -1 & simpleList1.Counter > -1)
               num76 = num12;
             num77 = num73 / currentMinimal;
             num11 = -1;
-            if ((double) num73 > 0.0 & val2 > 0)
+            if ( num73 > 0.0 & val2 > 0)
               flag8 = flag8;
             if (num59 > 0)
               num59 = num59;
@@ -3442,7 +3442,7 @@ label_57:
               }
             }
           }
-          else if ((double) num74 > (double) currentMinimal & UL.counter > -1)
+          else if ( num74 >  currentMinimal & UL.counter > -1)
           {
             if (UL.counter == -1 & simpleList1.Counter > -1)
               num76 = num12;
@@ -3472,7 +3472,7 @@ label_57:
           if (flag8)
           {
             int num78;
-            if ((double) num73 > (double) currentMinimal)
+            if ( num73 >  currentMinimal)
             {
               let mut counter18: i32 =  this.frontList.Counter;
               for (let mut index42: i32 =  0; index42 <= counter18; index42 += 1)
@@ -3573,7 +3573,7 @@ label_57:
               }
             }
           }
-          if ((double) num73 > (double) currentMinimal | UL.counter == -1 & simpleList1.Counter > -1)
+          if ( num73 >  currentMinimal | UL.counter == -1 & simpleList1.Counter > -1)
           {
             let mut counter20: i32 =  simpleList1.Counter;
             for (let mut index44: i32 =  0; index44 <= counter20; index44 += 1)
@@ -3604,7 +3604,7 @@ label_57:
               this.MoveList.AddMove(ref tempMove);
             }
           }
-          if ((double) num73 < (double) currentMinimal | UL.counter == -1 & simpleList1.Counter == -1 & simpleList2.Counter > -1)
+          if ( num73 <  currentMinimal | UL.counter == -1 & simpleList1.Counter == -1 & simpleList2.Counter > -1)
           {
             num1 = 0;
             let mut num81: i32 =  0;
@@ -3641,7 +3641,7 @@ label_57:
               }
             }
             if (num82 > 0)
-              num1 = (int) Math.Round((double) num81 / (double) num82);
+              num1 = (int) Math.Round( num81 /  num82);
           }
           counter1 = simpleList1.Counter;
           counter2 = UL.counter;
@@ -3652,23 +3652,23 @@ label_57:
       }
       if (this.MoveList.Counter > -1)
       {
-        this.Score = (int) Math.Round((double) num2 / 1.5) - stimulateAttack * 2;
+        this.Score = (int) Math.Round( num2 / 1.5) - stimulateAttack * 2;
         if (this.ai.map.HexObj[this.GetRealX(index1), index2 + this.Top].UnitCounter == -1)
-          this.Score = (int) Math.Round((double) this.Score / 1.5);
+          this.Score = (int) Math.Round( this.Score / 1.5);
         if (this.front.Stance == 2)
-          this.Score = (int) Math.Round((double) this.Score / 1.5);
-        if ((double) this.front.UnitCountRatio < 0.33)
+          this.Score = (int) Math.Round( this.Score / 1.5);
+        if ( this.front.UnitCountRatio < 0.33)
           this.Score *= 2;
-        else if ((double) this.front.UnitCountRatio < 0.66)
-          this.Score = (int) Math.Round((double) this.Score * 1.7);
-        else if ((double) this.front.UnitCountRatio < 0.85)
-          this.Score = (int) Math.Round((double) this.Score * 1.4);
-        else if ((double) this.front.UnitCountRatio < 1.5)
-          this.Score = (int) Math.Round((double) this.Score * 1.2);
-        else if ((double) this.front.UnitCountRatio < 2.1)
+        else if ( this.front.UnitCountRatio < 0.66)
+          this.Score = (int) Math.Round( this.Score * 1.7);
+        else if ( this.front.UnitCountRatio < 0.85)
+          this.Score = (int) Math.Round( this.Score * 1.4);
+        else if ( this.front.UnitCountRatio < 1.5)
+          this.Score = (int) Math.Round( this.Score * 1.2);
+        else if ( this.front.UnitCountRatio < 2.1)
           this.Score *= 1;
         else
-          this.Score = (double) this.front.UnitCountRatio >= 3.5 ? ((double) this.front.UnitCountRatio >= 4.5 ? (int) Math.Round((double) this.Score * 0.7) : (int) Math.Round((double) this.Score * 0.8)) : (int) Math.Round((double) this.Score * 0.9);
+          this.Score =  this.front.UnitCountRatio >= 3.5 ? ( this.front.UnitCountRatio >= 4.5 ? (int) Math.Round( this.Score * 0.7) : (int) Math.Round( this.Score * 0.8)) : (int) Math.Round( this.Score * 0.9);
         let mut counter23: i32 =  this.MoveList.Counter;
         int num84;
         int num85;
@@ -3687,32 +3687,32 @@ label_57:
         }
         if (num85 > 0)
         {
-          float num86 = (float) ((double) num84 / (double) num85 / 100.0);
-          this.Score = (int) Math.Round((double) ((float) this.Score * num86));
-          this.Score = (int) Math.Round((double) this.Score * 0.33) + (int) Math.Round((double) this.Score * 0.66 * (double) num86);
+          float num86 =  ( num84 /  num85 / 100.0);
+          this.Score = (int) Math.Round( ( this.Score * num86));
+          this.Score = (int) Math.Round( this.Score * 0.33) + (int) Math.Round( this.Score * 0.66 *  num86);
         }
         if (this.front.Stance == 3)
           this.Score = this.Score * 2 + 50;
-        if ((double) this.front.OrigAverageStrength >= 3.5)
-          this.Score = (int) Math.Round((double) this.Score * 1.25);
-        if ((double) this.front.OrigAverageStrength >= 4.0)
-          this.Score = (int) Math.Round((double) this.Score * 1.5);
-        if ((double) this.front.OrigAverageStrength >= 4.5)
+        if ( this.front.OrigAverageStrength >= 3.5)
+          this.Score = (int) Math.Round( this.Score * 1.25);
+        if ( this.front.OrigAverageStrength >= 4.0)
+          this.Score = (int) Math.Round( this.Score * 1.5);
+        if ( this.front.OrigAverageStrength >= 4.5)
           this.Score *= 2;
-        this.Score = (int) Math.Round((double) this.Score / 1.8);
+        this.Score = (int) Math.Round( this.Score / 1.8);
         if (this.front.Stance == 3)
         {
           if (counter2 < 0 & counter1 > -1 & counter3 < 0)
-            this.Score = (int) Math.Round((double) this.Score * 0.66);
+            this.Score = (int) Math.Round( this.Score * 0.66);
           else if (counter2 < 0 & counter3 > -1)
-            this.Score = (int) Math.Round((double) this.Score * 0.66 * (double) num1 / 100.0);
+            this.Score = (int) Math.Round( this.Score * 0.66 *  num1 / 100.0);
         }
         else if (this.front.Stance == 2)
         {
           if (counter2 < 0 & counter1 > -1 & counter3 < 0)
-            this.Score = (int) Math.Round((double) this.Score * 0.85);
+            this.Score = (int) Math.Round( this.Score * 0.85);
           else if (counter2 < 0 & counter3 > -1)
-            this.Score = (int) Math.Round((double) this.Score * 1.22 * (double) num1 / 100.0);
+            this.Score = (int) Math.Round( this.Score * 1.22 *  num1 / 100.0);
         }
         this.Score += 0;
       }
@@ -3776,19 +3776,19 @@ label_57:
       }
       else
         num3 = 0;
-      if (num3 >= 5 & (this.front.Stance != 3 | (double) this.front.UnitCountRatio < 0.9) || num3 >= 4 & (double) this.front.UnitCountRatio < 0.57 || num3 >= 3 & (double) this.front.UnitCountRatio < 0.2)
+      if (num3 >= 5 & (this.front.Stance != 3 |  this.front.UnitCountRatio < 0.9) || num3 >= 4 &  this.front.UnitCountRatio < 0.57 || num3 >= 3 &  this.front.UnitCountRatio < 0.2)
         return true;
       if (num1 > 0 & num3 >= 3)
       {
-        float num4 = (float) num1 / (float) num2;
-        if ((double) num4 <= 0.25)
+        float num4 =  num1 /  num2;
+        if ( num4 <= 0.25)
           return true;
-        if ((double) num4 <= 0.5)
+        if ( num4 <= 0.5)
         {
           if (this.front.Stance != 3)
             return true;
         }
-        else if ((double) num4 <= 0.75 && this.front.Stance != 3 & this.front.Stance != 2)
+        else if ( num4 <= 0.75 && this.front.Stance != 3 & this.front.Stance != 2)
           return true;
       }
       return false;
@@ -3814,7 +3814,7 @@ label_57:
         if (withUnit > -1)
           num2 += this.ai.game.Data.UnitObj[withUnit].TempUnitPower;
         if (withoutUnit > -1)
-          num2 -= (int) Math.Round((double) this.ai.game.Data.UnitObj[withoutUnit].TempUnitPower * 1.1);
+          num2 -= (int) Math.Round( this.ai.game.Data.UnitObj[withoutUnit].TempUnitPower * 1.1);
         let mut num3: i32 =  num2 - otherForcesMovedOut + otherForcesMovedIn;
         if (0 > num3)
           num3 = 0;
@@ -3823,12 +3823,12 @@ label_57:
         if (this.front.Stance == 3)
           num3 *= 2;
         if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(x), y + this.Top].VP >= 10)
-          num3 = (int) Math.Round((double) num3 * 0.4);
+          num3 = (int) Math.Round( num3 * 0.4);
         else if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(x), y + this.Top].VP >= 5)
-          num3 = (int) Math.Round((double) num3 * 0.66);
+          num3 = (int) Math.Round( num3 * 0.66);
         let mut num4: i32 =  999;
         if (val2_2 > 0)
-          num4 = (int) Math.Round((double) num3 / (double) Math.Max(1, val2_2) * 100.0);
+          num4 = (int) Math.Round( num3 /  Math.Max(1, val2_2) * 100.0);
         let mut num5: i32 =  999;
         if (this.enemyDistance.Value[x, y] > 0)
         {
@@ -3844,7 +3844,7 @@ label_57:
               let mut val2_3: i32 =  this.enemyPressureFull.Value[coordinate.x, coordinate.y];
               if (val2_3 > 0)
               {
-                let mut num8: i32 =  (int) Math.Round((double) num7 / (double) Math.Max(1, val2_3) * 100.0);
+                let mut num8: i32 =  (int) Math.Round( num7 /  Math.Max(1, val2_3) * 100.0);
                 if (num8 < num6)
                   num6 = num8;
               }
@@ -3853,7 +3853,7 @@ label_57:
           }
           while (tfacing <= 6);
           if (num6 < num5)
-            num5 = (int) Math.Round((double) (num6 + num5) / 2.0);
+            num5 = (int) Math.Round( (num6 + num5) / 2.0);
           if (this.front.Stance == 3)
             num5 = num5 * 2 + 75;
         }
@@ -3876,11 +3876,11 @@ label_57:
           bool flag = false;
           ref bool local2 = ref flag;
           float num9 = handyFunctionsObj.GetConcentricBonus(ref local1, ref local2, true);
-          if ((double) num9 > 1.0)
+          if ( num9 > 1.0)
           {
-            if ((double) num9 >= 1.6)
+            if ( num9 >= 1.6)
               num9 = num9;
-            num5 = (int) Math.Round((double) ((float) num5 / num9));
+            num5 = (int) Math.Round( ( num5 / num9));
           }
         }
         val2_1 = num1 + num5 + 100;
@@ -3888,25 +3888,25 @@ label_57:
         {
           let mut val1: i32 =  50;
           if (this.enemyPressureFull.Value[x, y] < 33)
-            val1 = (int) Math.Round((double) (val1 * this.enemyPressureFull.Value[x, y]) / 33.0);
-          let mut num10: i32 =  val2_1 - (int) Math.Round((double) (val2_1 * Math.Min(val1, this.FriendlyBottleneckIdealOwnFrontOnly.Value[x, y])) / 100.0);
-          val2_1 = num10 - (int) Math.Round((double) (num10 * Math.Min(val1, this.FriendlyBottleneck.Value[x, y])) / 100.0);
+            val1 = (int) Math.Round( (val1 * this.enemyPressureFull.Value[x, y]) / 33.0);
+          let mut num10: i32 =  val2_1 - (int) Math.Round( (val2_1 * Math.Min(val1, this.FriendlyBottleneckIdealOwnFrontOnly.Value[x, y])) / 100.0);
+          val2_1 = num10 - (int) Math.Round( (num10 * Math.Min(val1, this.FriendlyBottleneck.Value[x, y])) / 100.0);
           if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(x), y + this.Top].Location > -1)
           {
-            let mut val2_4: i32 =  val2_1 - (int) Math.Round((double) (Math.Min(val1, val2_1) * Math.Min(val1, this.FriendlyBottleneckIdealOwnFrontOnly.Value[x, y])) / 100.0);
-            let mut val2_5: i32 =  val2_4 - (int) Math.Round((double) (Math.Min(val1, val2_4) * Math.Min(val1, this.FriendlyBottleneck.Value[x, y])) / 100.0);
-            val2_1 = val2_5 - (int) Math.Round((double) (Math.Min(val1, val2_5) * Math.Min(val1, this.FriendlyBottleneck.Value[x, y])) / 100.0);
+            let mut val2_4: i32 =  val2_1 - (int) Math.Round( (Math.Min(val1, val2_1) * Math.Min(val1, this.FriendlyBottleneckIdealOwnFrontOnly.Value[x, y])) / 100.0);
+            let mut val2_5: i32 =  val2_4 - (int) Math.Round( (Math.Min(val1, val2_4) * Math.Min(val1, this.FriendlyBottleneck.Value[x, y])) / 100.0);
+            val2_1 = val2_5 - (int) Math.Round( (Math.Min(val1, val2_5) * Math.Min(val1, this.FriendlyBottleneck.Value[x, y])) / 100.0);
           }
         }
       }
       else
         val2_1 = this.FrontArea.Value[x, y] != this.front.FrontID ? num1 + 9999 : (this.ForceRatio.Value[x, y] <= 0 ? (this.Owner.Value[x, y] != 2 ? num1 + 999 : num1 + 0) : num1 + this.ForceRatio.Value[x, y]);
       if (this.front.Stance == 3 & this.Advance.Value[x, y] > 0)
-        val2_1 -= (int) Math.Round((double) this.Advance.Value[x, y] / 3.0);
+        val2_1 -= (int) Math.Round( this.Advance.Value[x, y] / 3.0);
       if (emphasisOnDistance & this.enemyDistance.Value[x, y] > 1)
         val2_1 *= Math.Min(9, Math.Max(1, this.enemyDistance.Value[x, y]));
       else if (this.enemyDistance.Value[x, y] > 1)
-        val2_1 = (int) Math.Round((double) val2_1 * Math.Sqrt((double) Math.Min(9, Math.Max(1, this.enemyDistance.Value[x, y]))));
+        val2_1 = (int) Math.Round( val2_1 * Math.Sqrt( Math.Min(9, Math.Max(1, this.enemyDistance.Value[x, y]))));
       return val2_1;
     }
 
@@ -3915,18 +3915,18 @@ label_57:
       let mut num1: i32 =  0;
       let mut num2: i32 =  Math.Max(0, this.FriendlyBottleneck.Value[x, y] * 2 + 15);
       if (this.front.Stance == 3)
-        num2 = (int) Math.Round((double) num2 * 0.1);
+        num2 = (int) Math.Round( num2 * 0.1);
       if (this.front.Stance == 2)
-        num2 = (int) Math.Round((double) num2 * 0.2);
+        num2 = (int) Math.Round( num2 * 0.2);
       let mut num3: i32 =  num2 * 1;
       if (this.enemyDistance.Value[x, y] >= 1)
-        num3 = (int) Math.Round((double) num3 / (double) Math.Max(1, this.enemyDistance.Value[x, y]));
+        num3 = (int) Math.Round( num3 /  Math.Max(1, this.enemyDistance.Value[x, y]));
       let mut num4: i32 =  num1 + num3;
       let mut num5: i32 =  Math.Max(0, this.FriendlyBottleneckIdealOwnFrontOnly.Value[x, y] * 2 + 15) * 1;
       if (this.front.Stance == 3)
-        num5 = (int) Math.Round((double) num5 * 0.5);
+        num5 = (int) Math.Round( num5 * 0.5);
       if (this.enemyDistance.Value[x, y] >= 1)
-        num5 = (int) Math.Round((double) num5 / (double) Math.Max(2, this.enemyDistance.Value[x, y]));
+        num5 = (int) Math.Round( num5 /  Math.Max(2, this.enemyDistance.Value[x, y]));
       let mut num6: i32 =  num4 + num5;
       if (this.EvacuateHex(x, y))
       {
@@ -3942,16 +3942,16 @@ label_57:
       {
         let mut num8: i32 =  this.vpMatrix.Value[x, y];
         if (this.ai.CustomCalls.HasCustumCalls())
-          num8 = (int) Math.Round((double) ((float) num8 * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y)));
-        let mut num9: i32 =  (int) Math.Round((double) num8 / 4.0);
-        num7 = num6 + num9 + (int) Math.Round((double) (int) Math.Round((double) ((float) (this.ai.map.HexObj[this.GetRealX(x), y + this.Top].VP + this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].AIVP[0].Value[this.GetRealX(x), y + this.Top]) * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y) * (float) (int) Math.Round(1.0 + (double) this.front.vpScoreAveragePercent / 10.0))) / 20.0);
+          num8 = (int) Math.Round( ( num8 * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y)));
+        let mut num9: i32 =  (int) Math.Round( num8 / 4.0);
+        num7 = num6 + num9 + (int) Math.Round( (int) Math.Round( ( (this.ai.map.HexObj[this.GetRealX(x), y + this.Top].VP + this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].AIVP[0].Value[this.GetRealX(x), y + this.Top]) * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y) *  (int) Math.Round(1.0 +  this.front.vpScoreAveragePercent / 10.0))) / 20.0);
       }
       else
       {
         let mut num10: i32 =  this.vpMatrix.Value[x, y];
         if (this.ai.CustomCalls.HasCustumCalls())
-          num10 = (int) Math.Round((double) ((float) num10 * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y)));
-        num7 = num6 + num10 + (int) Math.Round((double) (int) Math.Round((double) ((float) (this.ai.map.HexObj[this.GetRealX(x), y + this.Top].VP + this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].AIVP[0].Value[this.GetRealX(x), y + this.Top]) * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y) * (float) (int) Math.Round(3.0 + (double) this.front.vpScoreAveragePercent / 10.0))) / 10.0);
+          num10 = (int) Math.Round( ( num10 * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y)));
+        num7 = num6 + num10 + (int) Math.Round( (int) Math.Round( ( (this.ai.map.HexObj[this.GetRealX(x), y + this.Top].VP + this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].AIVP[0].Value[this.GetRealX(x), y + this.Top]) * this.ai.CustomCalls.CustomRuleTheaterModifiers_VpModifier(x, y) *  (int) Math.Round(3.0 +  this.front.vpScoreAveragePercent / 10.0))) / 10.0);
       }
       if (this.ai.map.HexObj[this.GetRealX(x), y + this.Top].Location > -1)
         num7 += 150;
@@ -3966,9 +3966,9 @@ label_57:
             if (coordinate.onmap & x > 0 & y > 0 & x < this.Width & y < this.Height && this.enemyDistance.Value[this.GetMatrixX(coordinate.x), coordinate.y - this.Top] >= 0 & this.enemyDistance.Value[x, y] >= 0)
             {
               if (this.enemyDistance.Value[x, y] > this.enemyDistance.Value[this.GetMatrixX(coordinate.x), coordinate.y - this.Top])
-                num7 += (int) Math.Round((double) this.ai.game.Data.RiverTypeObj[this.ai.map.HexObj[this.GetRealX(x), y + this.Top].RiverType[tfacing - 1]].TempDefenseBonus / 3.0);
+                num7 += (int) Math.Round( this.ai.game.Data.RiverTypeObj[this.ai.map.HexObj[this.GetRealX(x), y + this.Top].RiverType[tfacing - 1]].TempDefenseBonus / 3.0);
               else if (this.enemyDistance.Value[x, y] < this.enemyDistance.Value[this.GetMatrixX(coordinate.x), coordinate.y - this.Top])
-                num7 -= (int) Math.Round((double) this.ai.game.Data.RiverTypeObj[this.ai.map.HexObj[this.GetRealX(x), y + this.Top].RiverType[tfacing - 1]].TempDefenseBonus / 3.0);
+                num7 -= (int) Math.Round( this.ai.game.Data.RiverTypeObj[this.ai.map.HexObj[this.GetRealX(x), y + this.Top].RiverType[tfacing - 1]].TempDefenseBonus / 3.0);
             }
           }
           tfacing += 1;
@@ -3989,7 +3989,7 @@ label_57:
         num7 -= 25;
       if (((this.front.Stance == 3 ? 1 : 0) & 0) != 0)
       {
-        let mut num11: i32 =  num7 + (int) Math.Round((double) this.Advance.Value[x, y] / 2.0);
+        let mut num11: i32 =  num7 + (int) Math.Round( this.Advance.Value[x, y] / 2.0);
         if (this.FrontAreaForAttack.Value[x, y] == this.front.FrontID)
         {
           num11 += this.Advance.Value[x, y];
@@ -4008,10 +4008,10 @@ label_57:
         }
         if (this.FrontAreaForAttack.Value[x, y] == this.front.FrontID)
           num11 += this.Advance.Value[x, y] * 1;
-        num7 = num11 + (int) Math.Round((double) this.Advance.Value[x, y] / 2.0);
+        num7 = num11 + (int) Math.Round( this.Advance.Value[x, y] / 2.0);
       }
       if (this.front.Stance == 2)
-        num7 += (int) Math.Round((double) this.Advance.Value[x, y] / 3.0);
+        num7 += (int) Math.Round( this.Advance.Value[x, y] / 3.0);
       if (this.enemyDistance.Value[x, y] == 1)
         num7 += 40;
       if (this.enemyDistance.Value[x, y] == 2)
@@ -4029,15 +4029,15 @@ label_57:
       if (this.Owner.Value[x, y] == 1 & this.ai.map.HexObj[this.GetRealX(x), y + this.Top].VP > 0 && this.currentVP - this.ai.map.HexObj[this.GetRealX(x), y + this.Top].VP <= this.ai.VAR_VP_AT_DEFEAT & this.ai.VAR_VP_AT_DEFEAT > 0)
         num7 += 450;
       if (this.enemyPressureFull.Value[x, y] < 1)
-        num7 = (int) Math.Round((double) num7 * 0.1);
+        num7 = (int) Math.Round( num7 * 0.1);
       else if (this.enemyPressureFull.Value[x, y] < 5)
-        num7 = (int) Math.Round((double) num7 * 0.2);
+        num7 = (int) Math.Round( num7 * 0.2);
       else if (this.enemyPressureFull.Value[x, y] < 15)
-        num7 = (int) Math.Round((double) num7 * 0.3);
+        num7 = (int) Math.Round( num7 * 0.3);
       else if (this.enemyPressureFull.Value[x, y] < 50)
-        num7 = (int) Math.Round((double) num7 * 0.6);
+        num7 = (int) Math.Round( num7 * 0.6);
       else if (this.enemyPressureFull.Value[x, y] < 100)
-        num7 = (int) Math.Round((double) num7 * 0.8);
+        num7 = (int) Math.Round( num7 * 0.8);
       return num7;
     }
 
@@ -4222,7 +4222,7 @@ label_57:
                       this.Score += 50;
                     if (this.front.Stance == 1)
                       this.Score += 100;
-                    this.Score = (int) Math.Round((double) this.Score / 5.0);
+                    this.Score = (int) Math.Round( this.Score / 5.0);
                     this.MoveList.AddMove(ref tempMove);
                     return;
                   }
@@ -4358,26 +4358,26 @@ label_57:
                   {
                     if (num7 == 0)
                     {
-                      num4 = (int) Math.Round((double) num4 / 7.0) - 10;
+                      num4 = (int) Math.Round( num4 / 7.0) - 10;
                       num5 = 4000000;
                     }
                     else if (num7 == 1)
                     {
-                      num4 = (int) Math.Round((double) num4 / 5.0) - 8;
+                      num4 = (int) Math.Round( num4 / 5.0) - 8;
                       num5 = 2890000;
                     }
                     else if (num7 == 2)
                     {
-                      num4 = (int) Math.Round((double) num4 / 3.0) - 6;
+                      num4 = (int) Math.Round( num4 / 3.0) - 6;
                       num5 = 1690000;
                     }
                     else if (num7 >= 3)
                     {
-                      num4 = (int) Math.Round((double) num4 / 2.0) - 4;
+                      num4 = (int) Math.Round( num4 / 2.0) - 4;
                       num5 = 1000000;
                     }
-                    num4 -= (int) Math.Round(20.0 * ((double) (10 + this.vpMatrix.Value[index3, y]) / 100.0));
-                    num5 = (int) Math.Round((double) (num5 * this.vpMatrix.Value[index3, y]) / 10.0);
+                    num4 -= (int) Math.Round(20.0 * ( (10 + this.vpMatrix.Value[index3, y]) / 100.0));
+                    num5 = (int) Math.Round( (num5 * this.vpMatrix.Value[index3, y]) / 10.0);
                   }
                 }
                 else
@@ -4438,7 +4438,7 @@ label_57:
       if (this.front.TargetFrontID > 0)
       {
         AIFront front = this.frontList.FindFront(this.front.TargetFrontID);
-        if (!Information.IsNothing((object) front) && front.Stance == 4 | front.FrontType == 12)
+        if (!Information.IsNothing( front) && front.Stance == 4 | front.FrontType == 12)
         {
           let mut num: i32 =  0;
           SimpleList neighbourFrontList = front.GetNeighbourFrontList();
@@ -4485,7 +4485,7 @@ label_57:
                 {
                   let mut num4: i32 =  aiMatrix3.Value[tx, index2] * 2;
                   let mut num5: i32 =  Math.Min(10, Math.Max(1, this.enemyDistance.Value[tx, index2]));
-                  let mut num6: i32 =  num4 + (int) Math.Round((double) this.MoveCostMove[index1].Value[tx, index2] / 2.0);
+                  let mut num6: i32 =  num4 + (int) Math.Round( this.MoveCostMove[index1].Value[tx, index2] / 2.0);
                   let mut num7: i32 =  this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(tx), index2 + this.Top].UnitCounter + 1;
                   let mut num8: i32 =  !(num5 >= 1 & num5 <= 2) ? (!(num5 >= 1 & num5 <= 3) ? num6 + num6 * 3 : num6 + 0) : num6 * 2;
                   if (num8 < num2)
@@ -4543,7 +4543,7 @@ label_57:
           {
             let mut num10: i32 =  99999999;
             let mut num11: i32 =  -1;
-            if (!Information.IsNothing((object) this.MoveCostArtMove) && index3 <= this.MoveCostArtMove.GetUpperBound(0))
+            if (!Information.IsNothing( this.MoveCostArtMove) && index3 <= this.MoveCostArtMove.GetUpperBound(0))
             {
               let mut width3: i32 =  this.Width;
               for (let mut tx: i32 =  0; tx <= width3; tx += 1)
@@ -4555,7 +4555,7 @@ label_57:
                   {
                     let mut num12: i32 =  aiMatrix4.Value[tx, index4] * 2;
                     let mut num13: i32 =  Math.Min(10, Math.Max(1, this.enemyDistance.Value[tx, index4]));
-                    let mut num14: i32 =  num12 + (int) Math.Round((double) this.MoveCostArtMove[index3].Value[tx, index4] / 2.0);
+                    let mut num14: i32 =  num12 + (int) Math.Round( this.MoveCostArtMove[index3].Value[tx, index4] / 2.0);
                     let mut num15: i32 =  this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(tx), index4 + this.Top].UnitCounter + 1;
                     if (num15 > 3 & this.front.TargetFrontID == 200)
                       index3 = index3;
@@ -4619,7 +4619,7 @@ label_57:
             unr = unr;
           if (!this.ai.game.Data.UnitObj[unitByAiid].DidMove & !this.ai.game.Data.UnitObj[unitByAiid].DidAttack)
           {
-            let mut maxdistance: i32 =  (int) Math.Round(Math.Floor((double) this.ai.game.HandyFunctionsObj.GetMaxAirRange(unitByAiid) * 0.6));
+            let mut maxdistance: i32 =  (int) Math.Round(Math.Floor( this.ai.game.HandyFunctionsObj.GetMaxAirRange(unitByAiid) * 0.6));
             let mut num1: i32 =  this.ai.game.HandyFunctionsObj.SE1_GetUnitMinimumAirfieldLevel(unitByAiid);
             if (num1 < 1)
               num1 = 0;
@@ -4669,7 +4669,7 @@ label_57:
                     num4 -= 1000;
                   if (this.FriendlySupply.Value[index2, y1] > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
                     num4 -= 1500;
-                  let mut num5: i32 =  num4 - (int) Math.Round((double) num4 * 0.2 * (double) this.MoveCostMove[index1].Value[index2, y1] / 100.0);
+                  let mut num5: i32 =  num4 - (int) Math.Round( num4 * 0.2 *  this.MoveCostMove[index1].Value[index2, y1] / 100.0);
                   if (num5 < 0)
                     num5 = 0;
                   if (this.ai.game.Data.UnitObj[unitByAiid].X == index2 & this.ai.game.Data.UnitObj[unitByAiid].Y == y1)
@@ -4691,8 +4691,8 @@ label_57:
                   if (this.ai.game.Data.Turn == 4)
                     index1 = index1;
                   if (num6 > 0)
-                    num5 = (int) Math.Round((double) num5 * 0.62) + (int) Math.Round((double) num5 * 0.38 / (double) (num6 + 1));
-                  if (!Information.IsNothing((object) front))
+                    num5 = (int) Math.Round( num5 * 0.62) + (int) Math.Round( num5 * 0.38 /  (num6 + 1));
+                  if (!Information.IsNothing( front))
                   {
                     let mut num7: i32 =  0;
                     if (front.units.counter > -1 | front.artUnits.counter > -1)
@@ -4712,7 +4712,7 @@ label_57:
                         if (this.ai.game.HandyFunctionsObj.Distance(index2, y1, 0, this.ai.game.Data.UnitObj[unr].X, this.ai.game.Data.UnitObj[unr].Y, 0, maxdistance) <= maxdistance)
                           num7 += 1;
                       }
-                      num5 = (int) Math.Round((double) num5 * 0.15) + (int) Math.Round((double) num5 * 0.85 * ((double) num7 / (double) num8));
+                      num5 = (int) Math.Round( num5 * 0.15) + (int) Math.Round( num5 * 0.85 * ( num7 /  num8));
                     }
                   }
                   if (num5 > num2)
@@ -4773,7 +4773,7 @@ label_57:
                   num4 -= 1000;
                 if (this.FriendlySupply.Value[index2, y] > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
                   num4 -= 1500;
-                let mut num5: i32 =  num4 + (int) Math.Round((double) (1000f * this.ai.game.HandyFunctionsObj.GetAirFieldStackModifier(index2, y, unitByAiid))) - this.MoveCostMove[index1].Value[index2, y];
+                let mut num5: i32 =  num4 + (int) Math.Round( (1000f * this.ai.game.HandyFunctionsObj.GetAirFieldStackModifier(index2, y, unitByAiid))) - this.MoveCostMove[index1].Value[index2, y];
                 if (this.ai.game.Data.UnitObj[unitByAiid].X == index2 & this.ai.game.Data.UnitObj[unitByAiid].Y == y)
                   num5 += 100;
                 if (num5 > num1)
@@ -4917,7 +4917,7 @@ label_57:
                   {
                     AIFront front = this.frontList.FindFront(this.FrontArea.Value[tx4, index4]);
                     let mut num5: i32 =  -this.MoveCostMove[index1].Value[tx4, index4] + aiMatrix.Value[tx4, index4] * 25;
-                    if (!Information.IsNothing((object) front))
+                    if (!Information.IsNothing( front))
                     {
                       if (front.Stance == 4 | front.Stance == 1)
                       {
@@ -5149,13 +5149,13 @@ label_63:
             num1 = num1 + 100 + (this.ai.VAR_SUPPLY_MAXIMUM_RANGE - this.ai.friendlySupplyMatrix.Value[this.GetRealX(matrixX1), index2 + this.Top]);
           let mut num2: i32 =  this.ai.map.HexObj[this.GetRealX(matrixX1), index2 + this.Top].UnitCounter + numArray1[matrixX1, index2] + 1;
           if (num2 > 12)
-            num1 = (int) Math.Round((double) num1 * 0.3);
+            num1 = (int) Math.Round( num1 * 0.3);
           else if (num2 > 9)
-            num1 = (int) Math.Round((double) num1 * 0.5);
+            num1 = (int) Math.Round( num1 * 0.5);
           else if (num2 > 6)
-            num1 = (int) Math.Round((double) num1 * 0.7);
+            num1 = (int) Math.Round( num1 * 0.7);
           else if (num2 > 3)
-            num1 = (int) Math.Round((double) num1 * 0.85);
+            num1 = (int) Math.Round( num1 * 0.85);
           let mut num3: i32 =  num1;
           let mut tx1: i32 =  -1;
           let mut width: i32 =  this.Width;
@@ -5187,13 +5187,13 @@ label_63:
                     num5 = num5 + 100 + (this.ai.VAR_SUPPLY_MAXIMUM_RANGE - this.ai.friendlySupplyMatrix.Value[this.GetRealX(tx2), index3 + this.Top]);
                   let mut num6: i32 =  this.ai.map.HexObj[this.GetRealX(tx2), index3 + this.Top].UnitCounter + numArray1[tx2, index3] + 1;
                   if (num6 > 12)
-                    num5 = (int) Math.Round((double) num5 * 0.3);
+                    num5 = (int) Math.Round( num5 * 0.3);
                   else if (num6 > 9)
-                    num5 = (int) Math.Round((double) num5 * 0.5);
+                    num5 = (int) Math.Round( num5 * 0.5);
                   else if (num6 > 6)
-                    num5 = (int) Math.Round((double) num5 * 0.7);
+                    num5 = (int) Math.Round( num5 * 0.7);
                   else if (num6 > 3)
-                    num5 = (int) Math.Round((double) num5 * 0.85);
+                    num5 = (int) Math.Round( num5 * 0.85);
                   if (num5 > num3)
                   {
                     num3 = num5;
@@ -5438,9 +5438,9 @@ label_24:
             index1 = index1;
           if (this.Owner.Value[index1, y2] == 1 | this.Owner.Value[index1, y2] == 3 | (this.Owner.Value[index1, y2] == 2 | this.Owner.Value[index1, y2] == 0) & this.allTroops.Value[index1, y2] == 0 & this.troopsstrength.Value[index1, y2] == 0 && this.FrontArea.Value[index1, y2] == this.front.FrontID | this.FrontAreaForAttack.Value[index1, y2] == this.front.FrontID && this.Owner.Value[index1, y2] == 1 | this.TroopsReach.Value[index1, y2] > 0)
           {
-            let mut num6: i32 =  (int) Math.Round((double) (this.HexDefendedScore(index1, y2, -1, -1, 0, 0, true) - this.HexDefendImportance(index1, y2)) / 10.0);
+            let mut num6: i32 =  (int) Math.Round( (this.HexDefendedScore(index1, y2, -1, -1, 0, 0, true) - this.HexDefendImportance(index1, y2)) / 10.0);
             if (MoveToFrontline)
-              num6 += (int) Math.Round(Math.Pow((double) ((this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), y2 + this.Top].UnitCounter + 1) * 5), 2.0));
+              num6 += (int) Math.Round(Math.Pow( ((this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index1), y2 + this.Top].UnitCounter + 1) * 5), 2.0));
             if (num6 < num2 && !passList.Exists(index1, y2, 2) && !tempPassList.Exists(index1, y2, 2) && !tryPassList.Exists(index1, y2, 2))
             {
               bool flag = false;
@@ -5449,7 +5449,7 @@ label_24:
               {
                 if (this.front.units.unr[index3] > -1 && this.MoveCostMove[index3].Value[index1, y2] < 999)
                 {
-                  if (Information.IsNothing((object) excludeUnitAiId))
+                  if (Information.IsNothing( excludeUnitAiId))
                     flag = true;
                   else if (excludeUnitAiId.FindNr(this.front.units.AIid[index3]) == -1)
                     flag = true;
@@ -5492,9 +5492,9 @@ label_24:
           for (let mut index5: i32 =  0; index5 <= counter; index5 += 1)
           {
             let mut index6: i32 =  this.front.units.unr[index5];
-            if (!Information.IsNothing((object) excludeUnitAiId) && excludeUnitAiId.FindNr(this.front.units.AIid[index5]) > -1)
+            if (!Information.IsNothing( excludeUnitAiId) && excludeUnitAiId.FindNr(this.front.units.AIid[index5]) > -1)
               index6 = -1;
-            if (index6 > -1 && !Information.IsNothing((object) this.ai.game.Data.UnitObj[index6].tempCoords) && this.ai.game.Data.UnitObj[index6].tempCoords.FindSlot(index2 + this.Left, y1 + this.Top, 0) > -1)
+            if (index6 > -1 && !Information.IsNothing( this.ai.game.Data.UnitObj[index6].tempCoords) && this.ai.game.Data.UnitObj[index6].tempCoords.FindSlot(index2 + this.Left, y1 + this.Top, 0) > -1)
               index6 = -1;
             if (index6 > -1)
             {
@@ -5510,9 +5510,9 @@ label_24:
                   flag2 = false;
                 if (flag2 && !(index2 == this.GetMatrixX(this.ai.game.Data.UnitObj[index6].X) & y1 == this.ai.game.Data.UnitObj[index6].Y - this.Top))
                 {
-                  num9 += (int) Math.Round((double) ((float) this.ai.game.HandyFunctionsObj.GetAverageEntrench(index6) / num4));
+                  num9 += (int) Math.Round( ( this.ai.game.HandyFunctionsObj.GetAverageEntrench(index6) / num4));
                   if (this.front.Stance == 2 && this.enemyDistance.Value[this.GetMatrixX(this.ai.game.Data.UnitObj[index6].X), this.ai.game.Data.UnitObj[index6].Y - this.Top] == 1)
-                    num9 = num9 + (int) Math.Round((double) ((float) this.ai.game.HandyFunctionsObj.GetAverageEntrench(index6) / num4)) + (int) Math.Round((double) ((float) this.ai.game.HandyFunctionsObj.GetAverageEntrench(index6) / num4));
+                    num9 = num9 + (int) Math.Round( ( this.ai.game.HandyFunctionsObj.GetAverageEntrench(index6) / num4)) + (int) Math.Round( ( this.ai.game.HandyFunctionsObj.GetAverageEntrench(index6) / num4));
                 }
                 if ((extraMoveIncentive > 0 | num9 < num8) & !(this.ai.game.Data.UnitObj[index6].TempProtector & extraMoveIncentive < 1))
                 {
@@ -5545,9 +5545,9 @@ label_24:
                       if (this.friendlySupplyIdeal.Value[index7, y3] > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
                         num13 *= 2;
                       if (this.friendlySupplyIdeal.Value[index7, y3] > this.ai.VAR_SUPPLY_50PERCENT_RANGE)
-                        num13 = (int) Math.Round((double) num13 * 1.5);
+                        num13 = (int) Math.Round( num13 * 1.5);
                       if (this.friendlySupplyIdeal.Value[index7, y3] > this.ai.VAR_SUPPLY_75PERCENT_RANGE)
-                        num13 = (int) Math.Round((double) num13 * 1.25);
+                        num13 = (int) Math.Round( num13 * 1.25);
                       let mut num15: i32 =  this.HexDefendedScore(index2, y1, index6, -1, 0, otherForcesMovedIn, false);
                       let mut num16: i32 =  this.HexDefendedScore(index2, y1, -1, -1, 0, 0, false);
                       let mut num17: i32 =  this.HexDefendImportance(index2, y1);
@@ -5566,14 +5566,14 @@ label_24:
                       if (this.friendlySupplyIdeal.Value[index2, y1] > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
                         num18 *= 2;
                       if (this.friendlySupplyIdeal.Value[index2, y1] > this.ai.VAR_SUPPLY_50PERCENT_RANGE)
-                        num18 = (int) Math.Round((double) num18 * 1.5);
+                        num18 = (int) Math.Round( num18 * 1.5);
                       if (this.friendlySupplyIdeal.Value[index2, y1] > this.ai.VAR_SUPPLY_75PERCENT_RANGE)
-                        num18 = (int) Math.Round((double) num18 * 1.25);
+                        num18 = (int) Math.Round( num18 * 1.25);
                       if (num13 > 0)
-                        num13 -= (int) Math.Round((double) num13 / 20.0 * (double) this.CountUnitsWithSameHistoricalNearHex(index6, this.GetRealX(index7), y3 + this.Top));
-                      let mut val1: i32 =  num18 - (int) Math.Round((double) num18 / 20.0 * (double) this.CountUnitsWithSameHistoricalNearHex(index6, this.GetRealX(index2), y1 + this.Top));
+                        num13 -= (int) Math.Round( num13 / 20.0 *  this.CountUnitsWithSameHistoricalNearHex(index6, this.GetRealX(index7), y3 + this.Top));
+                      let mut val1: i32 =  num18 - (int) Math.Round( num18 / 20.0 *  this.CountUnitsWithSameHistoricalNearHex(index6, this.GetRealX(index2), y1 + this.Top));
                       if (this.ai.game.HandyFunctionsObj.GetHexStackPts(this.GetRealX(index2), y1 + this.Top, 0) + this.ai.game.HandyFunctionsObj.GetUnitStackPts(index6) > this.ai.VAR_HEX_STACK_REGULAR)
-                        val1 = (int) Math.Round((double) (val1 * (this.ai.game.HandyFunctionsObj.GetHexStackPts(this.GetRealX(index2), y1 + this.Top, 0) + this.ai.game.HandyFunctionsObj.GetUnitStackPts(index6))) / ((double) this.ai.VAR_HEX_STACK_REGULAR * 1.25));
+                        val1 = (int) Math.Round( (val1 * (this.ai.game.HandyFunctionsObj.GetHexStackPts(this.GetRealX(index2), y1 + this.Top, 0) + this.ai.game.HandyFunctionsObj.GetUnitStackPts(index6))) / ( this.ai.VAR_HEX_STACK_REGULAR * 1.25));
                       let mut num19: i32 =  stimulateDefend;
                       if (extraMoveIncentive < 1 && this.front.Stance == 2 & this.FrontArea.Value[index7, y3] == this.front.FrontID && this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(index7), y3 + this.Top].UnitCounter <= 0)
                       {
@@ -5601,17 +5601,17 @@ label_24:
                           float num21;
                           if (this.front.Stance == 3)
                           {
-                            num21 = (float) (num13 + val1 - 200) / 500f;
-                            if ((double) num21 > 1.0)
+                            num21 =  (num13 + val1 - 200) / 500f;
+                            if ( num21 > 1.0)
                               num21 = 1f;
                           }
                           else
                           {
-                            num21 = (float) (num13 + val1 - 200) / 200f;
-                            if ((double) num21 > 2.0)
+                            num21 =  (num13 + val1 - 200) / 200f;
+                            if ( num21 > 2.0)
                               num21 = 2f;
                           }
-                          val1 += (int) Math.Round((double) (num21 * (float) num20));
+                          val1 += (int) Math.Round( (num21 *  num20));
                         }
                       }
                       float num22 = 1f;
@@ -5627,7 +5627,7 @@ label_24:
                           num25 = 1;
                         if (num25 > num24)
                         {
-                          let mut num27: i32 =  (num26 - (int) Math.Round((double) (num26 * num24) / (double) num25)) * 2;
+                          let mut num27: i32 =  (num26 - (int) Math.Round( (num26 * num24) /  num25)) * 2;
                           if (num27 < 500)
                             index5 = index5;
                           if (num27 > 0)
@@ -5651,7 +5651,7 @@ label_24:
                             num29 = 1;
                           if (num29 > num28)
                           {
-                            let mut num31: i32 =  (num30 - (int) Math.Round((double) (num30 * num28) / (double) num29)) * 2;
+                            let mut num31: i32 =  (num30 - (int) Math.Round( (num30 * num28) /  num29)) * 2;
                             if (num31 < 500)
                               index5 = index5;
                             if (num31 > 0)
@@ -5662,7 +5662,7 @@ label_24:
                           }
                         }
                       }
-                      if (num19 >= 0 && (double) (num13 + num23 + extraMoveIncentive) * (double) num22 >= (double) val1)
+                      if (num19 >= 0 &&  (num13 + num23 + extraMoveIncentive) *  num22 >=  val1)
                       {
                         num8 = num9;
                         index4 = index6;
@@ -5692,7 +5692,7 @@ label_24:
               let mut num32: i32 =  numArray2[matrixX, index9] + this.ai.game.Data.UnitObj[index4].TempUnitPower;
               numArray3[index8, index10] = num32;
             }
-            otherForcesMovedIn += (int) Math.Round((double) this.ai.game.Data.UnitObj[index4].TempUnitPower / ((double) Math.Max(100, 60 + this.ai.game.HandyFunctionsObj.GetAverageEntrench(index4)) / 100.0));
+            otherForcesMovedIn += (int) Math.Round( this.ai.game.Data.UnitObj[index4].TempUnitPower / ( Math.Max(100, 60 + this.ai.game.HandyFunctionsObj.GetAverageEntrench(index4)) / 100.0));
             flag1 = true;
           }
           if (unitList.counter + 1 >= num1)
@@ -5756,11 +5756,11 @@ label_24:
       if (this.front.Stance == 3)
         num2 += 1 * num7;
       if (num2 > 200)
-        num2 = 200 + (int) Math.Round(Math.Sqrt((double) (num2 - 200)) * 10.0);
+        num2 = 200 + (int) Math.Round(Math.Sqrt( (num2 - 200)) * 10.0);
       if (num2 > 400)
-        num2 = 400 + (int) Math.Round(Math.Sqrt((double) (num2 - 400)) * 2.0);
+        num2 = 400 + (int) Math.Round(Math.Sqrt( (num2 - 400)) * 2.0);
       this.Score = 500 - num2 - stimulateDefend * 2;
-      this.Score = !MoveToFrontline ? (int) Math.Round((double) this.Score / 5.0) : (int) Math.Round((double) this.Score / 4.0);
+      this.Score = !MoveToFrontline ? (int) Math.Round( this.Score / 5.0) : (int) Math.Round( this.Score / 4.0);
       if (0 > this.Score)
         this.Score = 0;
       this.Score += 0;
@@ -5817,7 +5817,7 @@ label_24:
               num3 -= 140;
             else if (this.ai.game.Data.MapObj[0].HexObj[x, y2].UnitCounter > 2)
               num3 -= 160;
-            unr1 = num3 - (int) Math.Round((double) this.HexDefendImportance(x, y2) / 10.0);
+            unr1 = num3 - (int) Math.Round( this.HexDefendImportance(x, y2) / 10.0);
             if (unr1 < num1 && !passList.Exists(x, y2, 2) && !tempPassList.Exists(x, y2, 2) && !tryPassList.Exists(x, y2, 2))
             {
               bool flag = false;
@@ -5890,7 +5890,7 @@ label_24:
                     unr1 -= 130;
                   else if (this.ai.game.Data.MapObj[0].HexObj[matrixX, y3].UnitCounter > 2)
                     unr1 -= 145;
-                  unr1 = unr1 - (int) Math.Round((double) this.HexDefendImportance(matrixX, y3) / 10.0) - (int) Math.Round((double) this.MoveCostArtMove[index3].Value[index1, y1] / 5.0);
+                  unr1 = unr1 - (int) Math.Round( this.HexDefendImportance(matrixX, y3) / 10.0) - (int) Math.Round( this.MoveCostArtMove[index3].Value[index1, y1] / 5.0);
                   let mut num6: i32 =  unr1;
                   if (num1 < num6 & num4 > this.MoveCostArtMove[index3].Value[index1, y1])
                   {
@@ -6019,9 +6019,9 @@ label_24:
                 if (index4 > -1 && this.ai.game.HandyFunctionsObj.Distance(this.GetRealX(index2), y2 + this.Top, 0, this.ai.game.Data.UnitObj[index4].X, this.ai.game.Data.UnitObj[index4].Y, 0) <= num2)
                   num4 += 1;
               }
-              num3 -= (int) Math.Round((double) num3 * 0.75 * (double) num4 / (double) (this.front.units.counter + 1));
+              num3 -= (int) Math.Round( num3 * 0.75 *  num4 /  (this.front.units.counter + 1));
             }
-            unr1 = num3 - (int) Math.Round((double) this.HexDefendImportance(index2, y2) / 10.0);
+            unr1 = num3 - (int) Math.Round( this.HexDefendImportance(index2, y2) / 10.0);
             if (unr1 < num1 && !passList.Exists(index2, y2, 2) && !tempPassList.Exists(index2, y2, 2) && !tryPassList.Exists(index2, y2, 2))
             {
               bool flag = false;
@@ -6086,7 +6086,7 @@ label_24:
                 {
                   if (num6 >= 1 && this.enemyDistance.Value[matrixX, y3] < num6 + 1)
                     unr1 = 200;
-                  unr1 = unr1 - (int) Math.Round((double) this.HexDefendImportance(matrixX, y3) / 10.0) - (int) Math.Round((double) this.MoveCostArtMove[index6].Value[index1, y1] / 5.0);
+                  unr1 = unr1 - (int) Math.Round( this.HexDefendImportance(matrixX, y3) / 10.0) - (int) Math.Round( this.MoveCostArtMove[index6].Value[index1, y1] / 5.0);
                   if (num5 > this.MoveCostArtMove[index6].Value[index1, y1])
                   {
                     num5 = this.MoveCostArtMove[index6].Value[index1, y1];
@@ -6233,13 +6233,13 @@ label_24:
         }
       }
       if (num5 > 0)
-        num4 = (int) Math.Round((double) num4 / (double) num5);
-      if ((double) num2 < (double) num1 / 4.0)
-        num2 = (int) Math.Round((double) num1 / 4.0);
-      if ((double) num2 < (double) num4 / 4.0)
-        num2 = (int) Math.Round((double) num4 / 4.0);
-      if ((double) num2 < (double) num3 / 24.0 & num1 * 3 < num3)
-        num2 = (int) Math.Round((double) num3 / 24.0);
+        num4 = (int) Math.Round( num4 /  num5);
+      if ( num2 <  num1 / 4.0)
+        num2 = (int) Math.Round( num1 / 4.0);
+      if ( num2 <  num4 / 4.0)
+        num2 = (int) Math.Round( num4 / 4.0);
+      if ( num2 <  num3 / 24.0 & num1 * 3 < num3)
+        num2 = (int) Math.Round( num3 / 24.0);
       let mut num6: i32 =  num2 + 100;
       if (this.front.FrontID == 232)
         ;
@@ -6254,10 +6254,10 @@ label_24:
         let mut y2: i32 =  this.ai.game.Data.UnitObj[unitByAiid].Y - this.Top;
         if (!blockAlreadyMoved | !this.ai.game.Data.UnitObj[unitByAiid].DidMove && this.Owner.Value[matrixX, y2] == 1 | this.Owner.Value[matrixX, y2] == 3 & !this.ai.game.Data.UnitObj[unitByAiid].TempProtector && this.enemyDistance.Value[matrixX, y2] < MaxDist)
         {
-          let mut num8: i32 =  this.enemyPressureFull.Value[matrixX, y2] + (int) Math.Round((double) this.EnemyPressure.Value[matrixX, y2] / 2.0);
-          let mut num9: i32 =  num8 + (int) Math.Round((double) (num8 * this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(matrixX), y2 + this.Top]) / 400.0);
+          let mut num8: i32 =  this.enemyPressureFull.Value[matrixX, y2] + (int) Math.Round( this.EnemyPressure.Value[matrixX, y2] / 2.0);
+          let mut num9: i32 =  num8 + (int) Math.Round( (num8 * this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(matrixX), y2 + this.Top]) / 400.0);
           if (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(matrixX), y2 + this.Top].UnitCounter >= 0)
-            num9 += (int) Math.Round((double) num9 * 0.25 * Math.Sqrt((double) (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(matrixX), y2 + this.Top].UnitCounter + 1)));
+            num9 += (int) Math.Round( num9 * 0.25 * Math.Sqrt( (this.ai.game.Data.MapObj[0].HexObj[this.GetRealX(matrixX), y2 + this.Top].UnitCounter + 1)));
           if (num9 > num7 && !passList.Exists(matrixX, y2, 2) && !tempPassList.Exists(matrixX, y2, 2) && !tryPassList.Exists(matrixX, y2, 2))
           {
             num7 = num9;
@@ -6327,7 +6327,7 @@ label_24:
                         num15 = 100;
                       if (num15 > 400)
                         num15 = 400;
-                      let mut d: i32 =  (int) Math.Round(Math.Sqrt((double) this.troopsstrength.Value[coordinate.x, coordinate.y]));
+                      let mut d: i32 =  (int) Math.Round(Math.Sqrt( this.troopsstrength.Value[coordinate.x, coordinate.y]));
                       if (coordinate.x == matrixX & coordinate.y == index8)
                       {
                         d -= this.ai.game.Data.UnitObj[unitByAiid].TempUnitPowerAbs;
@@ -6335,12 +6335,12 @@ label_24:
                           d = 0;
                       }
                       if (d > 0)
-                        num15 += (int) Math.Round(Math.Sqrt((double) d));
+                        num15 += (int) Math.Round(Math.Sqrt( d));
                       if (this.EvacuateHex(x, y3))
                         num15 *= 3;
                       if (this.EvacuateHex(coordinate.x, coordinate.y))
-                        num15 = (int) Math.Round((double) num15 * 1.3);
-                      let mut num16: i32 =  num6 <= 0 ? num15 * 5 : ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 0.5 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 0.65 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 0.8 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 0.95 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 1.1 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 1.25 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 1.5 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 1.75 ? (aiMatrix2.Value[x, y3] >= num6 * 2 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 2.5 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 3.5 ? ((double) aiMatrix2.Value[x, y3] >= (double) num6 * 4.5 ? (aiMatrix2.Value[x, y3] >= num6 * 6 ? (aiMatrix2.Value[x, y3] >= num6 * 8 ? num15 * 4 : (int) Math.Round((double) num15 * 2.5)) : (int) Math.Round((double) num15 * 1.5)) : (int) Math.Round((double) num15 * 1.0)) : (int) Math.Round((double) num15 * 0.5)) : (int) Math.Round((double) num15 * 1.25)) : num15 * 2) : (int) Math.Round((double) num15 * 2.75)) : (int) Math.Round((double) num15 * 3.5)) : (int) Math.Round((double) num15 * 4.25)) : num15 * 5) : num15 * 9) : num15 * 13) : num15 * 16) : num15 * 21);
+                        num15 = (int) Math.Round( num15 * 1.3);
+                      let mut num16: i32 =  num6 <= 0 ? num15 * 5 : ( aiMatrix2.Value[x, y3] >=  num6 * 0.5 ? ( aiMatrix2.Value[x, y3] >=  num6 * 0.65 ? ( aiMatrix2.Value[x, y3] >=  num6 * 0.8 ? ( aiMatrix2.Value[x, y3] >=  num6 * 0.95 ? ( aiMatrix2.Value[x, y3] >=  num6 * 1.1 ? ( aiMatrix2.Value[x, y3] >=  num6 * 1.25 ? ( aiMatrix2.Value[x, y3] >=  num6 * 1.5 ? ( aiMatrix2.Value[x, y3] >=  num6 * 1.75 ? (aiMatrix2.Value[x, y3] >= num6 * 2 ? ( aiMatrix2.Value[x, y3] >=  num6 * 2.5 ? ( aiMatrix2.Value[x, y3] >=  num6 * 3.5 ? ( aiMatrix2.Value[x, y3] >=  num6 * 4.5 ? (aiMatrix2.Value[x, y3] >= num6 * 6 ? (aiMatrix2.Value[x, y3] >= num6 * 8 ? num15 * 4 : (int) Math.Round( num15 * 2.5)) : (int) Math.Round( num15 * 1.5)) : (int) Math.Round( num15 * 1.0)) : (int) Math.Round( num15 * 0.5)) : (int) Math.Round( num15 * 1.25)) : num15 * 2) : (int) Math.Round( num15 * 2.75)) : (int) Math.Round( num15 * 3.5)) : (int) Math.Round( num15 * 4.25)) : num15 * 5) : num15 * 9) : num15 * 13) : num15 * 16) : num15 * 21);
                       if (!this.front.RealRetreat)
                       {
                         if (this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(coordinate.x), coordinate.y + this.Top] <= 25)
@@ -6348,8 +6348,8 @@ label_24:
                         else if (this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(coordinate.x), coordinate.y + this.Top] <= 50)
                           num16 += Math.Abs(num16) * 1;
                         else if (this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(coordinate.x), coordinate.y + this.Top] <= 75)
-                          num16 += Math.Abs((int) Math.Round((double) num16 * 0.5));
-                        if (this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(index5), y1 + this.Top] < this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(coordinate.x), coordinate.y + this.Top] && this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(index5), y1 + this.Top] <= 50 & this.LowestRetreatModifierAllowed <= 50 && (double) this.front.UnitCountRatio >= 0.4 | this.front.Strength != 1 | this.front.units.counter >= this.ai.VAR_FRONTLINE_MAX_LENGTH)
+                          num16 += Math.Abs((int) Math.Round( num16 * 0.5));
+                        if (this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(index5), y1 + this.Top] < this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(coordinate.x), coordinate.y + this.Top] && this.ai.VAR_MATRIX_RETREAT.Value[this.GetRealX(index5), y1 + this.Top] <= 50 & this.LowestRetreatModifierAllowed <= 50 &&  this.front.UnitCountRatio >= 0.4 | this.front.Strength != 1 | this.front.units.counter >= this.ai.VAR_FRONTLINE_MAX_LENGTH)
                           num16 = -99999;
                       }
                       if (aiMatrix2.Value[x, y3] > aiMatrix2.Value[matrixX, index8] && this.enemyDistance.Value[x, y3] > this.enemyDistance.Value[matrixX, index8] & this.enemyDistance.Value[index5, y1] >= 1)
@@ -6358,7 +6358,7 @@ label_24:
                         if (coordinate.x == matrixX & coordinate.y == index8)
                           --unitCounter;
                         if (unitCounter >= 0)
-                          num16 += Math.Abs((int) Math.Round((double) num16 * Math.Sqrt((double) (1 * (unitCounter + 2)))));
+                          num16 += Math.Abs((int) Math.Round( num16 * Math.Sqrt( (1 * (unitCounter + 2)))));
                       }
                       if (this.MoveCostMove[index7].Value[coordinate.x, coordinate.y] == 0)
                         num16 = num16;
@@ -6403,7 +6403,7 @@ label_24:
                   tempMove.MoveTo.x = this.GetRealX(coordinate.x);
                   tempMove.MoveTo.y = coordinate.y + this.Top;
                   tempMove.MoveTo.onmap = true;
-                  this.Score = 1000 - (int) Math.Round(Math.Sqrt((double) (num12 * 100)));
+                  this.Score = 1000 - (int) Math.Round(Math.Sqrt( (num12 * 100)));
                   this.MoveList.AddMove(ref tempMove);
                   return;
                 }
@@ -6434,7 +6434,7 @@ label_24:
         {
           if (this.Owner.Value[x, y2] == 1 && this.FrontArea.Value[x, y2] == this.front.FrontID && this.EnemyPressure.Value[x, y2] > 0)
           {
-            let mut num3: i32 =  0 + (int) Math.Round(100.0 * (10.0 / (double) this.ForceRatio.Value[x, y2]));
+            let mut num3: i32 =  0 + (int) Math.Round(100.0 * (10.0 /  this.ForceRatio.Value[x, y2]));
             if (num3 > num2 && !passList.Exists(x, y2, 2) && !this.EvacuateHex(x, y2))
             {
               num2 = num3;
@@ -6471,19 +6471,19 @@ label_24:
                 bool flag2 = true;
                 let mut num7: i32 =  this.EnemyPressure.Value[matrixX, y3];
                 let mut num8: i32 =  this.troopsstrength.Value[matrixX, y3] - this.ai.game.Data.UnitObj[unitByAiid].TempUnitPower - numArray1[matrixX, y3];
-                let mut num9: i32 =  num7 <= 0 ? 999 : (int) Math.Round((double) num8 / (double) num7 * 100.0);
+                let mut num9: i32 =  num7 <= 0 ? 999 : (int) Math.Round( num8 /  num7 * 100.0);
                 let mut num10: i32 =  this.EnemyPressure.Value[index1, y1];
                 let mut num11: i32 =  this.troopsstrength.Value[index1, y1] + num6 + this.ai.game.Data.UnitObj[unitByAiid].TempUnitPower;
-                let mut num12: i32 =  num10 <= 0 ? 999 : (int) Math.Round((double) num11 / (double) num10 * 100.0);
+                let mut num12: i32 =  num10 <= 0 ? 999 : (int) Math.Round( num11 /  num10 * 100.0);
                 if (num9 < num12)
                   flag2 = false;
                 if (this.troopsstrength.Value[index1, y1] == 0 & num8 > 0)
                   flag2 = true;
                 if (this.troopsstrength.Value[index1, y1] == 0 & num8 == 0 && this.FriendlyBottleneck.Value[index1, y1] > this.FriendlyBottleneck.Value[matrixX, y3])
                   flag2 = true;
-                if (this.troopsstrength.Value[index1, y1] > 0 & this.FriendlyBottleneck.Value[index1, y1] > 35 & num8 == 0 && (double) this.FriendlyBottleneck.Value[index1, y1] / 3.0 > (double) this.FriendlyBottleneck.Value[matrixX, y3] && this.ForceRatio.Value[index1, y1] < 50)
+                if (this.troopsstrength.Value[index1, y1] > 0 & this.FriendlyBottleneck.Value[index1, y1] > 35 & num8 == 0 &&  this.FriendlyBottleneck.Value[index1, y1] / 3.0 >  this.FriendlyBottleneck.Value[matrixX, y3] && this.ForceRatio.Value[index1, y1] < 50)
                   flag2 = true;
-                if (this.troopsstrength.Value[index1, y1] == 0 & this.FriendlyBottleneck.Value[matrixX, y3] > 35 && (double) this.FriendlyBottleneck.Value[matrixX, y3] / 3.0 > (double) this.FriendlyBottleneck.Value[index1, y1] && this.ForceRatio.Value[matrixX, y3] < 50)
+                if (this.troopsstrength.Value[index1, y1] == 0 & this.FriendlyBottleneck.Value[matrixX, y3] > 35 &&  this.FriendlyBottleneck.Value[matrixX, y3] / 3.0 >  this.FriendlyBottleneck.Value[index1, y1] && this.ForceRatio.Value[matrixX, y3] < 50)
                   flag2 = false;
                 if (this.EvacuateHex(matrixX, y3) & num6 == 0)
                   flag2 = true;
@@ -6575,7 +6575,7 @@ label_24:
           if (this.front.units.AIid[index4] == this.MoveList.Move[index1].UnitAIid)
             index2 = index4;
         }
-        if (!Information.IsNothing((object) aiMove.MoveTo) & index2 > -1 && aiMove.MoveTo.onmap)
+        if (!Information.IsNothing( aiMove.MoveTo) & index2 > -1 && aiMove.MoveTo.onmap)
         {
           let mut unitByAiid1: i32 =  this.ai.game.HandyFunctionsObj.GetUnitByAIid(aiMove.UnitAIid);
           let mut matrixX1: i32 =  this.GetMatrixX(this.ai.game.Data.UnitObj[unitByAiid1].X);
@@ -6646,7 +6646,7 @@ label_24:
                   let mut index14: i32 =  matrixX2;
                   let mut index15: i32 =  aiMove.MoveTo.y - this.Top;
                   let mut index16: i32 =  index15;
-                  let mut num6: i32 =  numArray3[matrixX2, index15] + (int) Math.Round((double) tempUnitPowerAbs / 2.0);
+                  let mut num6: i32 =  numArray3[matrixX2, index15] + (int) Math.Round( tempUnitPowerAbs / 2.0);
                   numArray4[index14, index16] = num6;
                   int[,] numArray5 = this.allTroops.Value;
                   int[,] numArray6 = numArray5;
@@ -6654,7 +6654,7 @@ label_24:
                   let mut index17: i32 =  matrixX3;
                   let mut index18: i32 =  aiMove.finalTo.y - this.Top;
                   let mut index19: i32 =  index18;
-                  let mut num7: i32 =  numArray5[matrixX3, index18] + (int) Math.Round((double) tempUnitPowerAbs / 2.0);
+                  let mut num7: i32 =  numArray5[matrixX3, index18] + (int) Math.Round( tempUnitPowerAbs / 2.0);
                   numArray6[index17, index19] = num7;
                 }
                 else
@@ -6700,7 +6700,7 @@ label_24:
                 if (x <= this.Width & y <= this.Height)
                 {
                   this.Owner.Value[x, y] = 1;
-                  if (!Information.IsNothing((object) this.FriendlySupply) && this.FriendlySupply.Value[matrixX1, index5] < this.FriendlySupply.Value[x, y])
+                  if (!Information.IsNothing( this.FriendlySupply) && this.FriendlySupply.Value[matrixX1, index5] < this.FriendlySupply.Value[x, y])
                     this.FriendlySupply.Value[x, y] = this.FriendlySupply.Value[matrixX1, index5];
                   coordinate = this.MoveFromMove[index2].Value[coordinate.x, coordinate.y];
                 }
@@ -6719,7 +6719,7 @@ label_24:
       for (let mut index27: i32 =  0; index27 <= counter7; index27 += 1)
       {
         AIMove aiMove = this.MoveList.Move[index27];
-        if (!Information.IsNothing((object) aiMove.AttackOn) && aiMove.AttackOn.onmap)
+        if (!Information.IsNothing( aiMove.AttackOn) && aiMove.AttackOn.onmap)
         {
           if (aiMove.AttackOn.x == 19 & aiMove.AttackOn.y == 7)
             index27 = index27;
@@ -6769,8 +6769,8 @@ label_24:
       }
       if (num2 == 0)
         num2 = 1;
-      if ((double) this.ai.game.Data.RuleVar[434] < 1.0 | this.ai.game.Data.Product < 6)
-        return (int) Math.Round((double) num1 / (double) num2);
+      if ( this.ai.game.Data.RuleVar[434] < 1.0 | this.ai.game.Data.Product < 6)
+        return (int) Math.Round( num1 /  num2);
       let mut sfCount2: i32 =  this.ai.game.Data.UnitObj[unr].SFCount;
       int num3;
       int num4;
@@ -6782,34 +6782,34 @@ label_24:
       {
         let mut sf: i32 =  this.ai.game.Data.UnitObj[unr].SFList[index];
         let mut num9: i32 =  (int) Math.Round(10.0 * 1.25);
-        let mut num10: i32 =  (int) Math.Round((double) ((float) (this.ai.game.Data.SFObj[sf].Qty * 100) * this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].TempAvgCombatMatrixAtt));
-        num3 += (int) Math.Round((double) (this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].SupplyForAttack * 10) / (double) num9 * (double) this.ai.game.Data.SFObj[sf].Qty);
+        let mut num10: i32 =  (int) Math.Round( ( (this.ai.game.Data.SFObj[sf].Qty * 100) * this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].TempAvgCombatMatrixAtt));
+        num3 += (int) Math.Round( (this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].SupplyForAttack * 10) /  num9 *  this.ai.game.Data.SFObj[sf].Qty);
         if (this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].FuelForAttack > 0)
         {
           num4 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].FuelForAttack * num9 * this.ai.game.Data.SFObj[sf].Qty;
-          num5 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfFuelDefense * (float) num10;
+          num5 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfFuelDefense *  num10;
           num6 += num10;
         }
-        num7 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfSupplyDefense * (float) num10;
+        num7 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfSupplyDefense *  num10;
         num8 += num10;
       }
-      let mut num11: i32 =  (int) Math.Round((double) num1 / (double) num2);
+      let mut num11: i32 =  (int) Math.Round( num1 /  num2);
       if (num8 > 0)
-        num7 /= (float) num8;
+        num7 /=  num8;
       if (num6 > 0)
-        num5 /= (float) num6;
-      let mut num12: i32 =  num3 <= 0 ? 100 : (int) Math.Round(100.0 * Math.Min(1.0, (double) this.ai.game.Data.UnitObj[unr].Supply / (double) num3));
+        num5 /=  num6;
+      let mut num12: i32 =  num3 <= 0 ? 100 : (int) Math.Round(100.0 * Math.Min(1.0,  this.ai.game.Data.UnitObj[unr].Supply /  num3));
       if (num12 < 100)
-        num12 += (int) Math.Round((double) ((float) (100 - num12) * num7));
-      if ((double) this.ai.game.Data.RuleVar[435] > 0.0 & num4 > 0)
+        num12 += (int) Math.Round( ( (100 - num12) * num7));
+      if ( this.ai.game.Data.RuleVar[435] > 0.0 & num4 > 0)
       {
         if (num12 < 80 & num12 > 30)
           num12 = num12;
-        float num13 = (float) num6 / (float) num8;
-        if ((double) num13 < 1.0)
+        float num13 =  num6 /  num8;
+        if ( num13 < 1.0)
           num13 *= num5;
         let mut num14: i32 =  num12;
-        num12 = (int) Math.Round((double) num13 * (double) num14 * Math.Min(1.0, (double) this.ai.game.Data.UnitObj[unr].Fuel / (double) num4)) + (int) Math.Round((double) ((1f - num13) * (float) num14));
+        num12 = (int) Math.Round( num13 *  num14 * Math.Min(1.0,  this.ai.game.Data.UnitObj[unr].Fuel /  num4)) + (int) Math.Round( ((1f - num13) *  num14));
       }
       return num11 + num12 - 100;
     }
@@ -6829,8 +6829,8 @@ label_24:
       }
       if (num2 == 0)
         num2 = 1;
-      if ((double) this.ai.game.Data.RuleVar[434] < 1.0 | this.ai.game.Data.Product < 6)
-        return (int) Math.Round((double) num1 / (double) num2);
+      if ( this.ai.game.Data.RuleVar[434] < 1.0 | this.ai.game.Data.Product < 6)
+        return (int) Math.Round( num1 /  num2);
       let mut sfCount2: i32 =  this.ai.game.Data.UnitObj[unr].SFCount;
       int num3;
       int num4;
@@ -6842,32 +6842,32 @@ label_24:
       {
         let mut sf: i32 =  this.ai.game.Data.UnitObj[unr].SFList[index];
         let mut num9: i32 =  10;
-        let mut num10: i32 =  (int) Math.Round((double) ((float) (this.ai.game.Data.SFObj[sf].Qty * 100) * this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].TempAvgCombatMatrixDef));
-        num3 += (int) Math.Round((double) (this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].SupplyForAttackDef * 20) / (double) num9 * (double) this.ai.game.Data.SFObj[sf].Qty);
+        let mut num10: i32 =  (int) Math.Round( ( (this.ai.game.Data.SFObj[sf].Qty * 100) * this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].TempAvgCombatMatrixDef));
+        num3 += (int) Math.Round( (this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].SupplyForAttackDef * 20) /  num9 *  this.ai.game.Data.SFObj[sf].Qty);
         if (this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].FuelForAttackDef > 0)
         {
           num4 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].FuelForAttackDef * num9 * this.ai.game.Data.SFObj[sf].Qty;
-          num5 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfFuelDefense * (float) num10;
+          num5 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfFuelDefense *  num10;
           num6 += num10;
         }
-        num7 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfSupplyDefense * (float) num10;
+        num7 += this.ai.game.Data.SFTypeObj[this.ai.game.Data.SFObj[sf].Type].OutOfSupplyDefense *  num10;
         num8 += num10;
       }
-      let mut num11: i32 =  (int) Math.Round((double) num1 / (double) num2);
+      let mut num11: i32 =  (int) Math.Round( num1 /  num2);
       if (num8 > 0)
-        num7 /= (float) num8;
+        num7 /=  num8;
       if (num6 > 0)
-        num5 /= (float) num6;
-      let mut num12: i32 =  num3 <= 0 ? 100 : (int) Math.Round(100.0 * Math.Min(1.0, (double) this.ai.game.Data.UnitObj[unr].Supply / (double) num3));
+        num5 /=  num6;
+      let mut num12: i32 =  num3 <= 0 ? 100 : (int) Math.Round(100.0 * Math.Min(1.0,  this.ai.game.Data.UnitObj[unr].Supply /  num3));
       if (num12 < 100)
-        num12 += (int) Math.Round((double) ((float) (100 - num12) * num7));
-      if ((double) this.ai.game.Data.RuleVar[435] > 0.0 & num4 > 0)
+        num12 += (int) Math.Round( ( (100 - num12) * num7));
+      if ( this.ai.game.Data.RuleVar[435] > 0.0 & num4 > 0)
       {
-        float num13 = (float) num6 / (float) num8;
-        if ((double) num13 < 1.0)
+        float num13 =  num6 /  num8;
+        if ( num13 < 1.0)
           num13 *= num5;
         let mut num14: i32 =  num12;
-        num12 = (int) Math.Round((double) num13 * (double) num14 * Math.Min(1.0, (double) this.ai.game.Data.UnitObj[unr].Fuel / (double) num4)) + (int) Math.Round((double) ((1f - num13) * (float) num14));
+        num12 = (int) Math.Round( num13 *  num14 * Math.Min(1.0,  this.ai.game.Data.UnitObj[unr].Fuel /  num4)) + (int) Math.Round( ((1f - num13) *  num14));
       }
       return num11 + num12 - 100;
     }
@@ -7028,7 +7028,7 @@ label_24:
         this.Score = -9999999;
         return "NO MOVES = NO SCORE";
       }
-      this.Score = (int) Math.Round(Math.Sqrt((double) this.Score) + Math.Sqrt((double) this.Score)) + 1000;
+      this.Score = (int) Math.Round(Math.Sqrt( this.Score) + Math.Sqrt( this.Score)) + 1000;
       if (AttackX == -2)
         AttackX = -1;
       this.enemyDistance = this.Owner.Clone();
@@ -7075,8 +7075,8 @@ label_24:
           index2 = matrixX;
           tdata1 = index3;
         }
-        num2 += (float) (int) Math.Round((double) (this.enemyDistance.Value[matrixX, index3] * 100 * Math.Max(0, 100 - this.Advance.Value[matrixX, index3])) / 100.0);
-        num3 += (float) (int) Math.Round((double) (this.enemyDistance.Value[index2, tdata1] * 100 * Math.Max(0, 100 - this.Advance.Value[index2, tdata1])) / 100.0);
+        num2 +=  (int) Math.Round( (this.enemyDistance.Value[matrixX, index3] * 100 * Math.Max(0, 100 - this.Advance.Value[matrixX, index3])) / 100.0);
+        num3 +=  (int) Math.Round( (this.enemyDistance.Value[index2, tdata1] * 100 * Math.Max(0, 100 - this.Advance.Value[index2, tdata1])) / 100.0);
       }
       this.finalOrigEnemyUnits = 0;
       let mut num4: i32 =  0;
@@ -7123,7 +7123,7 @@ label_24:
           numArray6[index15, index17] = num7;
         }
       }
-      if (num1 > 0 | Information.IsNothing((object) this.FriendlySupply))
+      if (num1 > 0 | Information.IsNothing( this.FriendlySupply))
         this.Setsupplymatrix(ref tSupply1, ref this.Owner, 1);
       else
         tSupply1 = this.FriendlySupply.Clone();
@@ -7210,40 +7210,40 @@ label_24:
       this.finalEncRatio2 = this.GetTroopsFrontRatioOutOfSupply(ref tSupply1, ref tTroops, ref tOwner, 1);
       if (num1 > 0)
       {
-        this.finalEncRatio1 = (float) (((double) ratioOutOfSupply1 * 3.0 + (double) ratioOutOfSupply3 * 2.0 + (double) this.finalEncRatio1) / 6.0);
-        this.finalEncRatio2 = (float) (((double) ratioOutOfSupply2 * 3.0 + (double) ratioOutOfSupply4 * 2.0 + (double) this.finalEncRatio2) / 6.0);
+        this.finalEncRatio1 =  (( ratioOutOfSupply1 * 3.0 +  ratioOutOfSupply3 * 2.0 +  this.finalEncRatio1) / 6.0);
+        this.finalEncRatio2 =  (( ratioOutOfSupply2 * 3.0 +  ratioOutOfSupply4 * 2.0 +  this.finalEncRatio2) / 6.0);
       }
       this.finalEncRatio3 = this.GetTroopsRatioOutOfSupply(ref tSupply2, ref this.troopsstrength, ref this.Owner, 2);
       this.finalEncRatio4 = this.GetTroopsFrontRatioOutOfSupply(ref tSupply2, ref this.troopsstrength, ref this.Owner, 2);
       this.finalHexes = this.GetInitialFrontAreaHexes(ref tTroops, ref tOwner, 1);
       this.finalHexesTot = this.GetInitialHexes(ref tTroops, ref tOwner, 1);
-      this.finalHexes = (int) Math.Round((double) (initialFrontAreaHexes1 * 8 + initialFrontAreaHexes2 * 4 + initialFrontAreaHexes3 * 2 + this.finalHexes) / 15.0);
-      this.finalHexesTot = (int) Math.Round((double) (initialHexes1 * 4 + initialHexes2 * 2 + this.finalHexesTot) / 7.0);
+      this.finalHexes = (int) Math.Round( (initialFrontAreaHexes1 * 8 + initialFrontAreaHexes2 * 4 + initialFrontAreaHexes3 * 2 + this.finalHexes) / 15.0);
+      this.finalHexesTot = (int) Math.Round( (initialHexes1 * 4 + initialHexes2 * 2 + this.finalHexesTot) / 7.0);
       if (this.front.FrontID == 1689)
         index1 = index1;
       float num8;
       float num9;
       if (this.front.Stance == 3)
       {
-        if ((double) this.front.UnitCountRatio > 1.0)
+        if ( this.front.UnitCountRatio > 1.0)
         {
-          num8 = (float) (((double) this.initEncRatio1 - (double) this.finalEncRatio1) * 1.0);
-          num9 = (float) (((double) this.initEncRatio2 - (double) this.finalEncRatio2) * (1.0 / (double) this.front.UnitCountRatio));
+          num8 =  (( this.initEncRatio1 -  this.finalEncRatio1) * 1.0);
+          num9 =  (( this.initEncRatio2 -  this.finalEncRatio2) * (1.0 /  this.front.UnitCountRatio));
         }
         else
         {
-          num8 = (float) (((double) this.initEncRatio1 - (double) this.finalEncRatio1) * 2.0);
-          num9 = (float) (((double) this.initEncRatio2 - (double) this.finalEncRatio2) * 2.0);
+          num8 =  (( this.initEncRatio1 -  this.finalEncRatio1) * 2.0);
+          num9 =  (( this.initEncRatio2 -  this.finalEncRatio2) * 2.0);
         }
       }
       else
       {
-        num8 = (float) (((double) this.initEncRatio1 - (double) this.finalEncRatio1) * 3.0);
-        num9 = (float) (((double) this.initEncRatio2 - (double) this.finalEncRatio2) * 9.0);
+        num8 =  (( this.initEncRatio1 -  this.finalEncRatio1) * 3.0);
+        num9 =  (( this.initEncRatio2 -  this.finalEncRatio2) * 9.0);
       }
       float num10 = this.initEncRatio5 - this.finalEncRatio5;
       float num11 = this.initEncRatio6 - this.finalEncRatio6;
-      if ((double) num10 < -1.0)
+      if ( num10 < -1.0)
         index1 = index1;
       float num12 = 0.0f;
       if (this.InitHexes < 1)
@@ -7253,28 +7253,28 @@ label_24:
       let mut num13: i32 =  Math.Min(this.InitHexes, this.finalHexes) - 100;
       if (num13 < 0)
         num13 = 0;
-      let mut num14: i32 =  (int) Math.Round((double) num13 * 0.95);
+      let mut num14: i32 =  (int) Math.Round( num13 * 0.95);
       let mut num15: i32 =  this.InitHexes - num14;
       this.finalHexes -= num14;
-      float num16 = num12 + ((float) this.finalHexes / (float) num15 - 1f);
-      if ((double) num16 > 0.0)
+      float num16 = num12 + ( this.finalHexes /  num15 - 1f);
+      if ( num16 > 0.0)
         ;
       let mut num17: i32 =  Math.Min(this.initHexesTot, this.finalHexesTot) - 100;
       if (num17 < 0)
         num17 = 0;
-      let mut num18: i32 =  (int) Math.Round((double) num17 * 0.95);
+      let mut num18: i32 =  (int) Math.Round( num17 * 0.95);
       let mut num19: i32 =  this.initHexesTot - num18;
       this.finalHexesTot -= num18;
-      float num20 = (float) (5.0 * ((double) ((float) this.finalHexesTot / (float) num19) - 1.0));
+      float num20 =  (5.0 * ( ( this.finalHexesTot /  num19) - 1.0));
       if (this.front.Stance == 3)
         num16 *= 3f;
       float num21 = num20 * 0.25f;
-      if ((double) num8 < 0.0)
-        num21 = num21 * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num8))) * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num8)));
-      if ((double) num9 < 0.0)
+      if ( num8 < 0.0)
+        num21 = num21 *  (1.0 - Math.Min(0.9,  Math.Abs(num8))) *  (1.0 - Math.Min(0.9,  Math.Abs(num8)));
+      if ( num9 < 0.0)
       {
-        num16 = num16 * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num9 / 4f))) * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num9 / 4f)));
-        if ((double) num16 > 0.0)
+        num16 = num16 *  (1.0 - Math.Min(0.9,  Math.Abs(num9 / 4f))) *  (1.0 - Math.Min(0.9,  Math.Abs(num9 / 4f)));
+        if ( num16 > 0.0)
           num16 = 0.0f;
       }
       if (this.front.Stance == 3)
@@ -7297,9 +7297,9 @@ label_24:
       if (num22 == 1)
       {
         float num25;
-        num23 = num25 - (float) (3.0 * ((double) this.initEncRatio3 - (double) this.finalEncRatio3));
+        num23 = num25 -  (3.0 * ( this.initEncRatio3 -  this.finalEncRatio3));
         float num26;
-        num24 = num26 - (float) (3.0 * ((double) this.initEncRatio4 - (double) this.finalEncRatio4));
+        num24 = num26 -  (3.0 * ( this.initEncRatio4 -  this.finalEncRatio4));
       }
       string str1;
       str2: String = str1 + "BefMoveOwnAllOut: " + num10.ToString() + ", BefMoveOwnFrTrOut: " + num11.ToString() + "AftMoveOwnAllOut: " + num8.ToString() + ", AftMoveOwnFrTrOut: " + num9.ToString() + ", EnmAllOut: " + num23.ToString() + ", EnmFrOut: " + num24.ToString() + ", HexTot: " + num21.ToString() + ", HexFr: " + num16.ToString() + ". ";
@@ -7310,19 +7310,19 @@ label_24:
       {
         if (this.finalOrigEnemyUnits >= 1)
         {
-          num28 = (float) Math.Sqrt((double) this.initOrigEnemyUnits / (double) this.finalOrigEnemyUnits);
+          num28 =  Math.Sqrt( this.initOrigEnemyUnits /  this.finalOrigEnemyUnits);
           str3 = str3 + " * EnmUnitHexTaken: *" + num28.ToString();
-          if ((double) num28 > 3.0)
+          if ( num28 > 3.0)
             num28 = 3f;
-          num27 += (float) (3.0 * ((double) Math.Abs(num27 * num28) - (double) Math.Abs(num27)));
+          num27 +=  (3.0 * ( Math.Abs(num27 * num28) -  Math.Abs(num27)));
         }
         else
         {
-          float num29 = 3f * (float) Math.Sqrt((double) (1 + this.initOrigEnemyUnits));
-          if ((double) num29 > 3.0)
+          float num29 = 3f *  Math.Sqrt( (1 + this.initOrigEnemyUnits));
+          if ( num29 > 3.0)
             num29 = 3f;
           str3 = str3 + " * EnmUnitHexTaken: *" + num29.ToString();
-          num27 += (float) (1.0 * ((double) Math.Abs(num27 * num29) - (double) Math.Abs(num27)));
+          num27 +=  (1.0 * ( Math.Abs(num27 * num29) -  Math.Abs(num27)));
         }
       }
       let mut num30: i32 =  0;
@@ -7338,13 +7338,13 @@ label_24:
       }
       if (num4 > num30 & num4 > 0)
       {
-        num28 = 1f - (float) num30 / (float) num4;
+        num28 = 1f -  num30 /  num4;
         str3 = str3 + " * FriendlyUnitsLost: *" + num28.ToString();
         num28 *= 0.75f;
         num27 -= Math.Abs(num27 * num28);
-        if ((double) num16 > 0.0)
+        if ( num16 > 0.0)
           num27 -= Math.Abs(num16 * 2f * num28);
-        if ((double) num21 > 0.0)
+        if ( num21 > 0.0)
           num27 -= Math.Abs(num21 * 2f * num28);
       }
       if (this.front.FrontID > 10000)
@@ -7392,7 +7392,7 @@ label_24:
           }
         }
         if (num32 + num33 > 0)
-          num31 = (float) (6.0 * ((double) num32 / (double) (num32 + num33)));
+          num31 =  (6.0 * ( num32 /  (num32 + num33)));
         if (simpleList.Counter > -1)
         {
           let mut index26: i32 =  9999;
@@ -7442,29 +7442,29 @@ label_24:
           {
             if (num36 == 0)
               num36 = num36;
-            num31 = (float) ((double) num31 * 0.5 + (double) num31 * 0.5 * ((double) num35 / (double) (num35 + num36)));
+            num31 =  ( num31 * 0.5 +  num31 * 0.5 * ( num35 /  (num35 + num36)));
             let mut num39: i32 =  numArray7[index26];
             for (let mut index31: i32 =  1; index31 <= num39; index31 += 1)
-              num31 = (float) ((double) num31 * 0.8 + (double) num31 * 0.2 * (double) index26);
+              num31 =  ( num31 * 0.8 +  num31 * 0.2 *  index26);
           }
         }
         str3 = str3 + " ,DefZ-Extra:+" + num31.ToString();
         num27 += num31;
       }
       float a = num27 * 1000f;
-      if ((double) num2 > (double) num3)
+      if ( num2 >  num3)
       {
-        float num40 = (float) ((double) num2 / (double) num3 - 1.0) * 5f;
-        if ((double) num40 > 0.2)
+        float num40 =  ( num2 /  num3 - 1.0) * 5f;
+        if ( num40 > 0.2)
           num40 = num40;
-        if ((double) num40 > 1.0)
+        if ( num40 > 1.0)
           num40 = 1f;
-        if ((double) num40 < 0.0)
+        if ( num40 < 0.0)
           num40 = 0.0f;
         if (this.front.Stance == 3)
-          a += (float) (150.0 * (double) num40 + (double) num40 * (double) Math.Abs(a) * 0.349999994039536);
+          a +=  (150.0 *  num40 +  num40 *  Math.Abs(a) * 0.349999994039536);
         else
-          a += (float) (30.0 * (double) num40 + (double) num40 * (double) a * 0.100000001490116);
+          a +=  (30.0 *  num40 +  num40 *  a * 0.100000001490116);
       }
       if (this.front.Stance == 3 && this.ai.VAR_DC4_ATTACKUNIT_IS_IMPORTANT)
       {
@@ -7473,8 +7473,8 @@ label_24:
         {
           if (this.MoveList.Move[index32].AttackOn.onmap && this.front.units.FindAiIDSlot(this.MoveList.Move[index32].UnitAIid) > -1)
           {
-            let mut num41: i32 =  (int) Math.Round((double) (33 + (int) Math.Round((double) (100 * this.origAllTroops.Value[this.GetMatrixX(this.MoveList.Move[index32].AttackOn.x), this.MoveList.Move[index32].AttackOn.y - this.Top]) / (double) this.front.enemyPower)) / 2.0);
-            float num42 = (float) ((this.front.Stance != 3 ? (double) Math.Max(150f, Math.Abs(a / 30f)) : (double) Math.Max(50f, Math.Abs(a / 15f))) * (double) num41 / 100.0);
+            let mut num41: i32 =  (int) Math.Round( (33 + (int) Math.Round( (100 * this.origAllTroops.Value[this.GetMatrixX(this.MoveList.Move[index32].AttackOn.x), this.MoveList.Move[index32].AttackOn.y - this.Top]) /  this.front.enemyPower)) / 2.0);
+            float num42 =  ((this.front.Stance != 3 ?  Math.Max(150f, Math.Abs(a / 30f)) :  Math.Max(50f, Math.Abs(a / 15f))) *  num41 / 100.0);
             str3 = str3 + " ,AttackTakingPlaceBonus: +" + num42.ToString();
             a += num42;
             break;
@@ -7486,7 +7486,7 @@ label_24:
           if (this.MoveList.Move[index33].AttackOn.onmap && this.front.artUnits.FindAiIDSlot(this.MoveList.Move[index33].UnitAIid) > -1)
           {
             let mut num43: i32 =  25;
-            float num44 = (float) ((double) Math.Max(50f, Math.Abs(a / 20f)) * (double) num43 / 100.0);
+            float num44 =  ( Math.Max(50f, Math.Abs(a / 20f)) *  num43 / 100.0);
             str3 = str3 + " ,ArtilleryAttackTakingPlaceBonus: +" + num44.ToString();
             a += num44;
             break;
@@ -7557,21 +7557,21 @@ label_24:
             if (x1 == 20 & y1 == 11)
               ;
             float num49 = num48;
-            float num50 = num48 / (float) Math.Sqrt((double) (aiUnitList.counter + 1));
+            float num50 = num48 /  Math.Sqrt( (aiUnitList.counter + 1));
             let mut tempUnitPowerAbs: i32 =  this.ai.game.Data.UnitObj[unitByAiid1].TempUnitPowerAbs;
-            if ((double) num50 > 0.0 & tempUnitPowerAbs > 0)
+            if ( num50 > 0.0 & tempUnitPowerAbs > 0)
             {
               if (num47 > 0)
               {
                 if (num47 > tempUnitPowerAbs * 2)
-                  a = a + Math.Abs((float) (0.1 * (double) tempUnitPowerAbs * ((double) num50 * 1.0))) + 100f * num49;
+                  a = a + Math.Abs( (0.1 *  tempUnitPowerAbs * ( num50 * 1.0))) + 100f * num49;
                 else if (num47 > tempUnitPowerAbs * 1)
-                  a = a + Math.Abs((float) (0.1 * (double) tempUnitPowerAbs * ((double) num50 * 0.5))) + 50f * num49;
-                else if ((double) num47 <= (double) tempUnitPowerAbs * 0.25)
-                  a = a - Math.Abs((float) (0.1 * (double) tempUnitPowerAbs * ((double) num50 * 0.25))) - 50f * num49;
+                  a = a + Math.Abs( (0.1 *  tempUnitPowerAbs * ( num50 * 0.5))) + 50f * num49;
+                else if ( num47 <=  tempUnitPowerAbs * 0.25)
+                  a = a - Math.Abs( (0.1 *  tempUnitPowerAbs * ( num50 * 0.25))) - 50f * num49;
               }
               else
-                a = a - Math.Abs((float) (0.1 * (double) tempUnitPowerAbs * ((double) num50 * 1.0))) - 200f * num49;
+                a = a - Math.Abs( (0.1 *  tempUnitPowerAbs * ( num50 * 1.0))) - 200f * num49;
             }
           }
         }
@@ -7579,9 +7579,9 @@ label_24:
       }
       while (num46 <= 2);
       int num51;
-      if ((double) a != (double) num45)
+      if ( a !=  num45)
       {
-        num51 = (int) Math.Round((double) (a - num45));
+        num51 = (int) Math.Round( (a - num45));
         str3 = str3 + " ,Art(+Pz)UnitsProtection: " + num51.ToString();
       }
       let mut counter12: i32 =  this.MoveList.Counter;
@@ -7608,10 +7608,10 @@ label_24:
           if (num51 > this.ai.VAR_HEX_STACK_REGULAR)
           {
             str4: String = str3;
-            num53 = 25 + (int) Math.Round(Math.Abs((double) a * ((double) num51 / (double) this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt((double) this.front.units.counter));
+            num53 = 25 + (int) Math.Round(Math.Abs( a * ( num51 /  this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt( this.front.units.counter));
             str5: String = num53.ToString();
             str3 = str4 + "*OverStack: -" + str5;
-            a -= (float) (25 + (int) Math.Round(Math.Abs((double) a * ((double) num51 / (double) this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt((double) this.front.units.counter)));
+            a -=  (25 + (int) Math.Round(Math.Abs( a * ( num51 /  this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt( this.front.units.counter)));
           }
         }
         if (unr > -1)
@@ -7620,18 +7620,18 @@ label_24:
           {
             if (this.ai.VAR_MATRIX_ZONES.Value[this.GetRealX(index2), tdata1 + this.Top] + 1000000 == this.front.FrontID)
             {
-              a += (float) (1000 + (int) Math.Round((double) Math.Abs(this.Score) * 0.3));
+              a +=  (1000 + (int) Math.Round( Math.Abs(this.Score) * 0.3));
             }
             else
             {
               Coordinate averageFrontCoordinate = this.front.GetAverageFrontCoordinate(this.front.FrontID - 1000000);
               num51 = this.ai.game.HandyFunctionsObj.Distance(this.GetMatrixX(index2), tdata1 + this.Top, 0, averageFrontCoordinate.x, averageFrontCoordinate.y, 0);
               let mut num54: i32 =  this.ai.game.HandyFunctionsObj.Distance(this.ai.game.Data.UnitObj[unr].X, this.ai.game.Data.UnitObj[unr].Y, 0, averageFrontCoordinate.x, averageFrontCoordinate.y, 0);
-              a += (float) ((num54 - num51) * (400 + (int) Math.Round((double) Math.Abs(this.Score) * 0.2)));
+              a +=  ((num54 - num51) * (400 + (int) Math.Round( Math.Abs(this.Score) * 0.2)));
             }
           }
           if (this.front.DefensiveZone > 0 & this.ai.VAR_MATRIX_ZONES.Value[this.ai.game.Data.UnitObj[unr].X, this.ai.game.Data.UnitObj[unr].Y] + 1000000 == this.front.FrontID && this.ai.VAR_MATRIX_ZONES.Value[this.GetRealX(index2), tdata1 + this.Top] + 1000000 != this.front.FrontID)
-            a -= (float) (600 + (int) Math.Round((double) Math.Abs(this.Score) * 0.3));
+            a -=  (600 + (int) Math.Round( Math.Abs(this.Score) * 0.3));
         }
         if (unr > -1 & index2 <= this.Width & tdata1 <= this.Height)
         {
@@ -7646,35 +7646,35 @@ label_24:
             if (num51 <= 50 & num55 >= 200)
             {
               str6: String = str3;
-              num53 = 225 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter)));
+              num53 = 225 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter)));
               str7: String = num53.ToString();
               str3 = str6 + "*MoveFromIdealHoldIntoBIGRetreatProne: -" + str7;
-              a -= (float) (225 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter))));
+              a -=  (225 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter))));
             }
             else if (num51 <= 50 & num55 > num51)
             {
               str8: String = str3;
-              num53 = 25 + (int) Math.Round(Math.Abs((double) a * 0.15) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter)));
+              num53 = 25 + (int) Math.Round(Math.Abs( a * 0.15) / Math.Sqrt(Math.Sqrt( this.front.units.counter)));
               str9: String = num53.ToString();
               str3 = str8 + "*MoveToMoreRetreatProne: -" + str9;
-              a -= (float) (25 + (int) Math.Round(Math.Abs((double) a * 0.15) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter))));
+              a -=  (25 + (int) Math.Round(Math.Abs( a * 0.15) / Math.Sqrt(Math.Sqrt( this.front.units.counter))));
             }
             else if (num51 > num55)
             {
               str10: String = str3;
-              num53 = num51 - num55 + (int) Math.Round(Math.Abs((double) a * 0.15) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter)));
+              num53 = num51 - num55 + (int) Math.Round(Math.Abs( a * 0.15) / Math.Sqrt(Math.Sqrt( this.front.units.counter)));
               str11: String = num53.ToString();
               str3 = str10 + "*MoveIntoLessRetreatProne: " + str11;
-              a += (float) (num51 - num55 + (int) Math.Round(Math.Abs((double) a * 0.15) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter))));
+              a +=  (num51 - num55 + (int) Math.Round(Math.Abs( a * 0.15) / Math.Sqrt(Math.Sqrt( this.front.units.counter))));
             }
           }
           if (tSupply1.Value[matrixX, index41] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE & this.FriendlySupply.Value[matrixX, index41] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE && tSupply1.Value[index2, tdata1] < this.ai.VAR_SUPPLY_25PERCENT_RANGE)
           {
             str12: String = str3;
-            num53 = 350 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter);
+            num53 = 350 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter);
             str13: String = num53.ToString();
             str3 = str12 + "*MoveIntoSup: +" + str13;
-            a += (float) (50 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter));
+            a +=  (50 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter));
           }
           if (tSupply1.Value[index2, tdata1] < this.ai.VAR_SUPPLY_25PERCENT_RANGE)
           {
@@ -7685,23 +7685,23 @@ label_24:
               if (coordinate.onmap && this.ai.frontMatrix.Value[coordinate.x, coordinate.y] != this.front.FrontID)
               {
                 AIFront front = this.frontList.FindFront(this.ai.frontMatrix.Value[coordinate.x, coordinate.y]);
-                if (!Information.IsNothing((object) front) && front.FrontType == 11 | front.FrontType == 12)
+                if (!Information.IsNothing( front) && front.FrontType == 11 | front.FrontType == 12)
                 {
                   if (this.ai.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].UnitCounter > -1)
                   {
                     str14: String = str3;
-                    num53 = 550 + (int) Math.Round(Math.Abs((double) a * 0.8) / (double) this.front.units.counter);
+                    num53 = 550 + (int) Math.Round(Math.Abs( a * 0.8) /  this.front.units.counter);
                     str15: String = num53.ToString();
                     str3 = str14 + "*ContactWithEncircledUnit: +" + str15;
-                    a += (float) (550 + (int) Math.Round(Math.Abs((double) a * 0.8) / (double) this.front.units.counter));
+                    a +=  (550 + (int) Math.Round(Math.Abs( a * 0.8) /  this.front.units.counter));
                   }
                   else
                   {
                     str16: String = str3;
-                    num53 = 350 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter);
+                    num53 = 350 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter);
                     str17: String = num53.ToString();
                     str3 = str16 + "*ContactWithEncircledHex: +" + str17;
-                    a += (float) (350 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter));
+                    a +=  (350 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter));
                   }
                 }
               }
@@ -7712,49 +7712,49 @@ label_24:
           if (tSupply1.Value[matrixX, index41] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE & this.FriendlySupply.Value[matrixX, index41] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE && tSupply1.Value[index2, tdata1] < this.ai.VAR_SUPPLY_25PERCENT_RANGE)
           {
             str18: String = str3;
-            num53 = 350 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter);
+            num53 = 350 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter);
             str19: String = num53.ToString();
             str3 = str18 + "*MoveIntoSup: +" + str19;
-            a += (float) (50 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter));
+            a +=  (50 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter));
           }
           if (tSupply1.Value[index2, tdata1] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE & tOwner.Value[index2, tdata1] == 1 && tSupply1.Value[matrixX, index41] < this.ai.VAR_SUPPLY_25PERCENT_RANGE)
           {
             if (this.ai.GetRegime(this.ai.map.HexObj[this.GetRealX(index2), tdata1 + this.Top].Regime) != this.ai.GetGameDataTurn() & this.front.Stance == 3)
             {
               str20: String = str3;
-              num53 = 225 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter)));
+              num53 = 225 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter)));
               str21: String = num53.ToString();
               str3 = str20 + "*MoveOutOfSup: -" + str21;
-              a -= (float) (25 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter))));
+              a -=  (25 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter))));
             }
             else if (this.front.Stance == 3)
             {
               str22: String = str3;
-              num53 = 225 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter)));
+              num53 = 225 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter)));
               str23: String = num53.ToString();
               str3 = str22 + "*MoveOutOfSup: -" + str23;
-              a -= (float) (25 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter))));
+              a -=  (25 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter))));
             }
             else
             {
               str24: String = str3;
-              num53 = 250 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter)));
+              num53 = 250 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter)));
               str25: String = num53.ToString();
               str3 = str24 + "*MoveOutOfSup: -" + str25;
-              a -= (float) (50 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) this.front.units.counter))));
+              a -=  (50 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( this.front.units.counter))));
             }
           }
           if (this.friendlySupplyIdeal.Value[index2, tdata1] >= 999 & tOwner.Value[index2, tdata1] == 1)
           {
             str26: String = str3;
-            num53 = 50 + (int) Math.Round((double) (Math.Abs(a) / (float) this.front.units.counter));
+            num53 = 50 + (int) Math.Round( (Math.Abs(a) /  this.front.units.counter));
             str27: String = num53.ToString();
             str3 = str26 + "*MoveOutOfIDEALSup: -" + str27;
-            a -= (float) (50 + (int) Math.Round((double) (Math.Abs(a) / (float) this.front.units.counter)));
+            a -=  (50 + (int) Math.Round( (Math.Abs(a) /  this.front.units.counter)));
           }
         }
       }
-      this.Score += (int) Math.Round((double) a);
+      this.Score += (int) Math.Round( a);
       if (this.front.FrontType == 13)
       {
         AIMatrix aiMatrix2 = new AIMatrix(ref this.ai, this.Width, this.Height, this.Top, this.Left);
@@ -7843,15 +7843,15 @@ label_24:
           }
         }
         if (num51 > 0)
-          this.Score += (int) Math.Round(0.2 * (double) (num51 * 125)) + (int) Math.Round(0.8 * ((double) num56 / (double) Math.Min(1, val2)) * (double) (num51 * 125));
+          this.Score += (int) Math.Round(0.2 *  (num51 * 125)) + (int) Math.Round(0.8 * ( num56 /  Math.Min(1, val2)) *  (num51 * 125));
       }
-      if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < 0.0)
+      if ( this.initEncRatio1 -  this.finalEncRatio1 < 0.0)
       {
-        if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < -0.3)
+        if ( this.initEncRatio1 -  this.finalEncRatio1 < -0.3)
           this.Score -= 6000;
-        else if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < -0.2)
+        else if ( this.initEncRatio1 -  this.finalEncRatio1 < -0.2)
           this.Score -= 4000;
-        else if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < -0.1)
+        else if ( this.initEncRatio1 -  this.finalEncRatio1 < -0.1)
           this.Score -= 2000;
         else
           this.Score -= 1000;
@@ -7944,8 +7944,8 @@ label_24:
           index2 = matrixX;
           tdata1 = index3;
         }
-        num2 += (float) (int) Math.Round((double) (this.enemyDistance.Value[matrixX, index3] * 100 * Math.Max(0, 100 - this.Advance.Value[matrixX, index3])) / 100.0);
-        num3 += (float) (int) Math.Round((double) (this.enemyDistance.Value[index2, tdata1] * 100 * Math.Max(0, 100 - this.Advance.Value[index2, tdata1])) / 100.0);
+        num2 +=  (int) Math.Round( (this.enemyDistance.Value[matrixX, index3] * 100 * Math.Max(0, 100 - this.Advance.Value[matrixX, index3])) / 100.0);
+        num3 +=  (int) Math.Round( (this.enemyDistance.Value[index2, tdata1] * 100 * Math.Max(0, 100 - this.Advance.Value[index2, tdata1])) / 100.0);
       }
       this.finalOrigEnemyUnits = 0;
       let mut num6: i32 =  0;
@@ -7979,7 +7979,7 @@ label_24:
           numArray4[index11, index13] = num8;
         }
       }
-      if ((double) this.ai.game.Data.RuleVar[455] > 0.0)
+      if ( this.ai.game.Data.RuleVar[455] > 0.0)
         this.ResetOwner();
       this.Setsupplymatrix(ref tSupply1, ref this.Owner, 1);
       tSupply1.Clone();
@@ -7992,12 +7992,12 @@ label_24:
       let mut initialFrontAreaHexes: i32 =  this.GetInitialFrontAreaHexes(ref tTroops, ref tOwner, 1);
       if (this.ai.VAR_ENEMYMOVE_PROGNOSIS_MODE <= 2)
       {
-        if ((double) this.front.UnitCountRatio < 1.25 & this.front.Stance == 2)
+        if ( this.front.UnitCountRatio < 1.25 & this.front.Stance == 2)
         {
           this.GetEnemyMove(5f, true, ref tOwner, ref tTroops, 1, false);
           this.GetEnemyMove(10f, true, ref tOwner, ref tTroops, 1, false);
         }
-        else if ((double) this.front.UnitCountRatio < 0.75)
+        else if ( this.front.UnitCountRatio < 0.75)
           this.GetEnemyMove(5f, true, ref tOwner, ref tTroops, 1, false);
         else
           this.GetEnemyMove(5f, true, ref tOwner, ref tTroops, 1, false);
@@ -8018,14 +8018,14 @@ label_24:
       }
       float ratioOutOfSupply3 = this.GetTroopsRatioOutOfSupply(ref tSupply1, ref tTroops, ref tOwner, 1);
       float ratioOutOfSupply4 = this.GetTroopsFrontRatioOutOfSupply(ref tSupply1, ref tTroops, ref tOwner, 1);
-      if ((double) this.front.UnitCountRatio <= 1.0)
+      if ( this.front.UnitCountRatio <= 1.0)
         this.GetEnemyMove(20f, true, ref tOwner, ref tTroops, 1, false);
       this.Setsupplymatrix(ref tSupply2, ref tOwner, 2);
       this.Setsupplymatrix(ref tSupply1, ref tOwner, 1);
       this.finalEncRatio1 = this.GetTroopsRatioOutOfSupply(ref tSupply1, ref tTroops, ref tOwner, 1);
       this.finalEncRatio2 = this.GetTroopsFrontRatioOutOfSupply(ref tSupply1, ref tTroops, ref tOwner, 1);
-      this.finalEncRatio1 = (float) (((double) ratioOutOfSupply1 + (double) ratioOutOfSupply3 + (double) this.finalEncRatio1) / 3.0);
-      this.finalEncRatio2 = (float) (((double) ratioOutOfSupply2 + (double) ratioOutOfSupply4 + (double) this.finalEncRatio2) / 3.0);
+      this.finalEncRatio1 =  (( ratioOutOfSupply1 +  ratioOutOfSupply3 +  this.finalEncRatio1) / 3.0);
+      this.finalEncRatio2 =  (( ratioOutOfSupply2 +  ratioOutOfSupply4 +  this.finalEncRatio2) / 3.0);
       this.finalEncRatio3 = this.GetTroopsRatioOutOfSupply(ref tSupply2, ref this.troopsstrength, ref this.Owner, 2);
       this.finalEncRatio4 = this.GetTroopsFrontRatioOutOfSupply(ref tSupply2, ref this.troopsstrength, ref this.Owner, 2);
       this.finalHexes = this.GetInitialFrontAreaHexes(ref tTroops, ref tOwner, 1);
@@ -8034,21 +8034,21 @@ label_24:
       float num10;
       if (this.front.Stance == 3)
       {
-        if ((double) this.front.UnitCountRatio > 1.0)
+        if ( this.front.UnitCountRatio > 1.0)
         {
-          num9 = (float) (((double) this.initEncRatio1 - (double) this.finalEncRatio1) * (3.0 / (double) this.front.UnitCountRatio));
-          num10 = (float) (((double) this.initEncRatio2 - (double) this.finalEncRatio2) * (3.0 / (double) this.front.UnitCountRatio));
+          num9 =  (( this.initEncRatio1 -  this.finalEncRatio1) * (3.0 /  this.front.UnitCountRatio));
+          num10 =  (( this.initEncRatio2 -  this.finalEncRatio2) * (3.0 /  this.front.UnitCountRatio));
         }
         else
         {
-          num9 = (float) (((double) this.initEncRatio1 - (double) this.finalEncRatio1) * 3.0);
-          num10 = (float) (((double) this.initEncRatio2 - (double) this.finalEncRatio2) * 3.0);
+          num9 =  (( this.initEncRatio1 -  this.finalEncRatio1) * 3.0);
+          num10 =  (( this.initEncRatio2 -  this.finalEncRatio2) * 3.0);
         }
       }
       else
       {
-        num9 = (float) (((double) this.initEncRatio1 - (double) this.finalEncRatio1) * 3.0);
-        num10 = (float) (((double) this.initEncRatio2 - (double) this.finalEncRatio2) * 3.0);
+        num9 =  (( this.initEncRatio1 -  this.finalEncRatio1) * 3.0);
+        num10 =  (( this.initEncRatio2 -  this.finalEncRatio2) * 3.0);
       }
       float num11 = this.initEncRatio5 - this.finalEncRatio5;
       float num12 = this.initEncRatio6 - this.finalEncRatio6;
@@ -8058,19 +8058,19 @@ label_24:
       if (this.initHexesTot < 1)
         this.initHexesTot = 1;
       if (this.front.Stance == 3)
-        num13 = (float) (3.0 * (double) ((float) (initialFrontAreaHexes + this.finalHexes) / 2f / (float) this.InitHexes) - 1.0);
-      float num14 = num13 + (float) (3.0 * (double) ((float) this.finalHexes / (float) this.InitHexes) - 1.0);
-      float num15 = (float) (3.0 * ((double) ((float) this.finalHexesTot / (float) this.initHexesTot) - 1.0));
-      if ((double) num14 > 0.0)
-        num14 = (float) (int) Math.Round((double) num14 * 3.5);
-      if ((double) num15 > 0.0)
-        num15 = (float) (int) Math.Round((double) num15 * 1.5);
-      if ((double) num9 < 0.0)
-        num15 = num15 * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num9))) * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num9)));
-      if ((double) num10 < 0.0)
+        num13 =  (3.0 *  ( (initialFrontAreaHexes + this.finalHexes) / 2f /  this.InitHexes) - 1.0);
+      float num14 = num13 +  (3.0 *  ( this.finalHexes /  this.InitHexes) - 1.0);
+      float num15 =  (3.0 * ( ( this.finalHexesTot /  this.initHexesTot) - 1.0));
+      if ( num14 > 0.0)
+        num14 =  (int) Math.Round( num14 * 3.5);
+      if ( num15 > 0.0)
+        num15 =  (int) Math.Round( num15 * 1.5);
+      if ( num9 < 0.0)
+        num15 = num15 *  (1.0 - Math.Min(0.9,  Math.Abs(num9))) *  (1.0 - Math.Min(0.9,  Math.Abs(num9)));
+      if ( num10 < 0.0)
       {
-        num14 = num14 * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num10 / 4f))) * (float) (1.0 - Math.Min(0.9, (double) Math.Abs(num10 / 4f)));
-        if ((double) num14 > 0.0)
+        num14 = num14 *  (1.0 - Math.Min(0.9,  Math.Abs(num10 / 4f))) *  (1.0 - Math.Min(0.9,  Math.Abs(num10 / 4f)));
+        if ( num14 > 0.0)
           num14 = 0.0f;
       }
       let mut num16: i32 =  1;
@@ -8094,19 +8094,19 @@ label_24:
       {
         if (this.finalOrigEnemyUnits >= 1)
         {
-          float num23 = (float) Math.Sqrt((double) this.initOrigEnemyUnits / (double) this.finalOrigEnemyUnits);
+          float num23 =  Math.Sqrt( this.initOrigEnemyUnits /  this.finalOrigEnemyUnits);
           str3 = str3 + " * EnmUnitHexTaken: *" + num23.ToString();
-          if ((double) num23 > 3.0)
+          if ( num23 > 3.0)
             num23 = 3f;
-          num21 += (float) (3.0 * ((double) Math.Abs(num21 * num23) - (double) Math.Abs(num21)));
+          num21 +=  (3.0 * ( Math.Abs(num21 * num23) -  Math.Abs(num21)));
         }
         else
         {
-          num22 = 3f * (float) Math.Sqrt((double) (1 + this.initOrigEnemyUnits));
-          if ((double) num22 > 3.0)
+          num22 = 3f *  Math.Sqrt( (1 + this.initOrigEnemyUnits));
+          if ( num22 > 3.0)
             num22 = 3f;
           str3 = str3 + " * EnmUnitHexTaken: *" + num22.ToString();
-          num21 += (float) (1.0 * ((double) Math.Abs(num21 * num22) - (double) Math.Abs(num21)));
+          num21 +=  (1.0 * ( Math.Abs(num21 * num22) -  Math.Abs(num21)));
         }
       }
       let mut num24: i32 =  0;
@@ -8124,13 +8124,13 @@ label_24:
       }
       if (num6 > num24 & num6 > 0)
       {
-        num22 = 1f - (float) num24 / (float) num6;
+        num22 = 1f -  num24 /  num6;
         str3 = str3 + " * FriendlyUnitsLost: *" + num22.ToString();
         num22 *= 0.75f;
         num21 -= Math.Abs(num21 * num22);
-        if ((double) num14 > 0.0)
+        if ( num14 > 0.0)
           num21 -= Math.Abs(num14 * 2f * num22);
-        if ((double) num15 > 0.0)
+        if ( num15 > 0.0)
           num21 -= Math.Abs(num15 * 2f * num22);
       }
       if (this.front.FrontID > 10000)
@@ -8178,7 +8178,7 @@ label_24:
           }
         }
         if (num26 + num27 > 0)
-          num25 = (float) (6.0 * ((double) num26 / (double) (num26 + num27)));
+          num25 =  (6.0 * ( num26 /  (num26 + num27)));
         if (simpleList.Counter > -1)
         {
           let mut index18: i32 =  9999;
@@ -8228,29 +8228,29 @@ label_24:
           {
             if (num30 == 0)
               num30 = num30;
-            num25 = (float) ((double) num25 * 0.5 + (double) num25 * 0.5 * ((double) num29 / (double) (num29 + num30)));
+            num25 =  ( num25 * 0.5 +  num25 * 0.5 * ( num29 /  (num29 + num30)));
             let mut num33: i32 =  numArray5[index18];
             for (let mut index23: i32 =  1; index23 <= num33; index23 += 1)
-              num25 = (float) ((double) num25 * 0.8 + (double) num25 * 0.2 * (double) index18);
+              num25 =  ( num25 * 0.8 +  num25 * 0.2 *  index18);
           }
         }
         str3 = str3 + " ,DefZ-Extra:+" + num25.ToString();
         num21 += num25;
       }
       float a = num21 * 1000f;
-      if ((double) num2 > (double) num3)
+      if ( num2 >  num3)
       {
-        float num34 = (float) ((double) num2 / (double) num3 - 1.0) * (float) (5 + this.front.units.counter + 1);
-        if ((double) num34 > 0.2)
+        float num34 =  ( num2 /  num3 - 1.0) *  (5 + this.front.units.counter + 1);
+        if ( num34 > 0.2)
           num34 = num34;
-        if ((double) num34 > 1.0)
+        if ( num34 > 1.0)
           num34 = 1f;
-        if ((double) num34 < 0.0)
+        if ( num34 < 0.0)
           num34 = 0.0f;
         if (this.front.Stance == 3)
-          a += (float) (150.0 * (double) num34 + (double) num34 * (double) Math.Abs(a) * 0.349999994039536);
+          a +=  (150.0 *  num34 +  num34 *  Math.Abs(a) * 0.349999994039536);
         else
-          a += (float) (30.0 * (double) num34 + (double) num34 * (double) a * 0.100000001490116);
+          a +=  (30.0 *  num34 +  num34 *  a * 0.100000001490116);
       }
       if (this.front.Stance == 3 && this.ai.VAR_DC4_ATTACKUNIT_IS_IMPORTANT)
       {
@@ -8259,8 +8259,8 @@ label_24:
         {
           if (this.MoveList.Move[index24].AttackOn.onmap && this.front.units.FindAiIDSlot(this.MoveList.Move[index24].UnitAIid) > -1)
           {
-            let mut num35: i32 =  (int) Math.Round((double) (33 + (int) Math.Round((double) (100 * this.origAllTroops.Value[this.GetMatrixX(this.MoveList.Move[index24].AttackOn.x), this.MoveList.Move[index24].AttackOn.y - this.Top]) / (double) this.front.enemyPower)) / 2.0);
-            float num36 = (float) ((this.front.Stance != 3 ? (double) Math.Max(150f, Math.Abs(a / 30f)) : (double) Math.Max(50f, Math.Abs(a / 15f))) * (double) num35 / 100.0);
+            let mut num35: i32 =  (int) Math.Round( (33 + (int) Math.Round( (100 * this.origAllTroops.Value[this.GetMatrixX(this.MoveList.Move[index24].AttackOn.x), this.MoveList.Move[index24].AttackOn.y - this.Top]) /  this.front.enemyPower)) / 2.0);
+            float num36 =  ((this.front.Stance != 3 ?  Math.Max(150f, Math.Abs(a / 30f)) :  Math.Max(50f, Math.Abs(a / 15f))) *  num35 / 100.0);
             str3 = str3 + " ,AttackTakingPlaceBonus: +" + num36.ToString();
             a += num36;
             break;
@@ -8272,7 +8272,7 @@ label_24:
           if (this.MoveList.Move[index25].AttackOn.onmap && this.front.artUnits.FindAiIDSlot(this.MoveList.Move[index25].UnitAIid) > -1)
           {
             let mut num37: i32 =  25;
-            float num38 = (float) ((double) Math.Max(50f, Math.Abs(a / 20f)) * (double) num37 / 100.0);
+            float num38 =  ( Math.Max(50f, Math.Abs(a / 20f)) *  num37 / 100.0);
             str3 = str3 + " ,ArtilleryAttackTakingPlaceBonus: +" + num38.ToString();
             a += num38;
             break;
@@ -8333,23 +8333,23 @@ label_24:
           float num41 = 0.33f;
           if (this.GetMatrixX(x1) <= this.Width & this.GetMatrixX(x1) >= 0 && y1 - this.Top <= this.Height & y1 - this.Top >= 0)
             num41 = this.enemyDistance.Value[this.GetMatrixX(x1), y1 - this.Top] > 1 ? (this.enemyDistance.Value[this.GetMatrixX(x1), y1 - this.Top] > 2 ? (this.enemyDistance.Value[this.GetMatrixX(x1), y1 - this.Top] > 3 ? (this.enemyDistance.Value[this.GetMatrixX(x1), y1 - this.Top] > 4 ? (this.enemyDistance.Value[this.GetMatrixX(x1), y1 - this.Top] > 5 ? (this.enemyDistance.Value[this.GetMatrixX(x1), y1 - this.Top] > 6 ? 0.0f : 0.25f) : 0.4f) : 0.55f) : 0.7f) : 0.8f) : 0.95f;
-          float num42 = num41 / (float) Math.Sqrt((double) (this.front.artUnits.counter + 1));
-          if ((double) num42 > 0.0)
+          float num42 = num41 /  Math.Sqrt( (this.front.artUnits.counter + 1));
+          if ( num42 > 0.0)
           {
             if (num40 > 0)
             {
               let mut num43: i32 =  this.ai.game.Data.UnitObj[unitByAiid1].TempUnitPowerAbs + 250;
               if (num40 > num43 * 2)
-                a = a + Math.Abs((float) (1 * num43) * (num42 * 1.5f)) + 250f * num42;
+                a = a + Math.Abs( (1 * num43) * (num42 * 1.5f)) + 250f * num42;
               else if (num40 > num43 * 1)
-                a = a + Math.Abs((float) (1 * num43) * num42) + 150f * num42;
+                a = a + Math.Abs( (1 * num43) * num42) + 150f * num42;
               else if (num40 <= num43)
-                a = a - Math.Abs((float) (1 * num43) * (num42 * 1.5f)) - 150f * num42;
+                a = a - Math.Abs( (1 * num43) * (num42 * 1.5f)) - 150f * num42;
             }
             else
             {
               let mut num44: i32 =  this.ai.game.Data.UnitObj[unitByAiid1].TempUnitPowerAbs + 250;
-              a = a - Math.Abs((float) (1 * num44) * (num42 * 3f)) - 250f * num42;
+              a = a - Math.Abs( (1 * num44) * (num42 * 3f)) - 250f * num42;
             }
           }
         }
@@ -8407,22 +8407,22 @@ label_24:
           float num46 = 0.33f;
           if (this.GetMatrixX(x3) <= this.Width & this.GetMatrixX(x3) >= 0 && y3 - this.Top <= this.Height & y3 - this.Top >= 0)
             num46 = this.enemyDistance.Value[this.GetMatrixX(x3), y3 - this.Top] > 1 ? (this.enemyDistance.Value[this.GetMatrixX(x3), y3 - this.Top] > 2 ? (this.enemyDistance.Value[this.GetMatrixX(x3), y3 - this.Top] > 3 ? (this.enemyDistance.Value[this.GetMatrixX(x3), y3 - this.Top] > 4 ? (this.enemyDistance.Value[this.GetMatrixX(x3), y3 - this.Top] > 5 ? (this.enemyDistance.Value[this.GetMatrixX(x3), y3 - this.Top] > 6 ? 0.0f : 0.25f) : 0.4f) : 0.55f) : 0.7f) : 0.8f) : 0.95f;
-          if ((double) num46 > 0.0)
+          if ( num46 > 0.0)
           {
             if (num45 > 0)
             {
               let mut num47: i32 =  this.ai.game.Data.UnitObj[unitByAiid3].TempUnitPowerAbs + 250;
               if (num45 > num47 * 2)
-                a = a + Math.Abs((float) (1 * num47) * (num46 * 1.5f)) + 250f * num46;
+                a = a + Math.Abs( (1 * num47) * (num46 * 1.5f)) + 250f * num46;
               else if (num45 > num47 * 1)
-                a = a + Math.Abs((float) (1 * num47) * num46) + 150f * num46;
+                a = a + Math.Abs( (1 * num47) * num46) + 150f * num46;
               else if (num45 <= num47)
-                a = a - Math.Abs((float) (1 * num47) * (num46 * 1.5f)) - 150f * num46;
+                a = a - Math.Abs( (1 * num47) * (num46 * 1.5f)) - 150f * num46;
             }
             else
             {
               let mut num48: i32 =  this.ai.game.Data.UnitObj[unitByAiid3].TempUnitPowerAbs + 250;
-              a = a - Math.Abs((float) (1 * num48) * (num46 * 3f)) - 250f * num46;
+              a = a - Math.Abs( (1 * num48) * (num46 * 3f)) - 250f * num46;
             }
           }
         }
@@ -8451,10 +8451,10 @@ label_24:
           if (num51 > this.ai.VAR_HEX_STACK_REGULAR)
           {
             str4: String = str3;
-            num49 = 25 + (int) Math.Round(Math.Abs((double) a * ((double) num51 / (double) this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt((double) (this.front.units.counter + 1)));
+            num49 = 25 + (int) Math.Round(Math.Abs( a * ( num51 /  this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt( (this.front.units.counter + 1)));
             str5: String = num49.ToString();
             str3 = str4 + "*OverStack: -" + str5;
-            a -= (float) (25 + (int) Math.Round(Math.Abs((double) a * ((double) num51 / (double) this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt((double) (this.front.units.counter + 1))));
+            a -=  (25 + (int) Math.Round(Math.Abs( a * ( num51 /  this.ai.VAR_HEX_STACK_REGULAR - 1.0)) / Math.Sqrt( (this.front.units.counter + 1))));
           }
         }
         if (unr > -1)
@@ -8463,18 +8463,18 @@ label_24:
           {
             if (this.ai.VAR_MATRIX_ZONES.Value[this.GetRealX(index2), tdata1 + this.Top] + 1000000 == this.front.FrontID)
             {
-              a += (float) (1000 + (int) Math.Round((double) Math.Abs(this.Score) * 0.3));
+              a +=  (1000 + (int) Math.Round( Math.Abs(this.Score) * 0.3));
             }
             else
             {
               Coordinate averageFrontCoordinate = this.front.GetAverageFrontCoordinate(this.front.FrontID - 1000000);
               let mut num52: i32 =  this.ai.game.HandyFunctionsObj.Distance(index2 + this.Left, tdata1 + this.Top, 0, averageFrontCoordinate.x, averageFrontCoordinate.y, 0);
               let mut num53: i32 =  this.ai.game.HandyFunctionsObj.Distance(this.ai.game.Data.UnitObj[unr].X, this.ai.game.Data.UnitObj[unr].Y, 0, averageFrontCoordinate.x, averageFrontCoordinate.y, 0);
-              a += (float) ((num53 - num52) * (400 + (int) Math.Round((double) Math.Abs(this.Score) * 0.2)));
+              a +=  ((num53 - num52) * (400 + (int) Math.Round( Math.Abs(this.Score) * 0.2)));
             }
           }
           if (this.front.DefensiveZone > 0 & this.ai.VAR_MATRIX_ZONES.Value[this.ai.game.Data.UnitObj[unr].X, this.ai.game.Data.UnitObj[unr].Y] + 1000000 == this.front.FrontID && this.ai.VAR_MATRIX_ZONES.Value[this.GetRealX(index2), tdata1 + this.Top] + 1000000 != this.front.FrontID)
-            a -= (float) (600 + (int) Math.Round((double) Math.Abs(this.Score) * 0.3));
+            a -=  (600 + (int) Math.Round( Math.Abs(this.Score) * 0.3));
         }
         if (unr > -1 & index2 <= this.Width & tdata1 <= this.Height & this.front.units.counter > -1)
         {
@@ -8487,45 +8487,45 @@ label_24:
           if (tSupply1.Value[matrixX, index40] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE & this.FriendlySupply.Value[matrixX, index40] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE && tSupply1.Value[index2, tdata1] < this.ai.VAR_SUPPLY_25PERCENT_RANGE)
           {
             str6: String = str3;
-            num49 = 350 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter);
+            num49 = 350 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter);
             str7: String = num49.ToString();
             str3 = str6 + "*MoveIntoSup: +" + str7;
-            a += (float) (50 + (int) Math.Round(Math.Abs((double) a * 0.5) / (double) this.front.units.counter));
+            a +=  (50 + (int) Math.Round(Math.Abs( a * 0.5) /  this.front.units.counter));
           }
           if (tSupply1.Value[index2, tdata1] > this.ai.VAR_SUPPLY_MAXIMUM_RANGE & tOwner.Value[index2, tdata1] == 1 && tSupply1.Value[matrixX, index40] < this.ai.VAR_SUPPLY_25PERCENT_RANGE)
           {
             if (this.ai.GetRegime(this.ai.map.HexObj[this.GetRealX(index2), tdata1 + this.Top].Regime) != this.ai.GetGameDataTurn() & this.front.Stance == 3)
             {
               str8: String = str3;
-              num49 = 225 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) (this.front.units.counter + 1))));
+              num49 = 225 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( (this.front.units.counter + 1))));
               str9: String = num49.ToString();
               str3 = str8 + "*MoveOutOfSup: -" + str9;
-              a -= (float) (25 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) (this.front.units.counter + 1)))));
+              a -=  (25 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( (this.front.units.counter + 1)))));
             }
             else if (this.front.Stance == 3)
             {
               str10: String = str3;
-              num49 = 225 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) (this.front.units.counter + 1))));
+              num49 = 225 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( (this.front.units.counter + 1))));
               str11: String = num49.ToString();
               str3 = str10 + "*MoveOutOfSup: -" + str11;
-              a -= (float) (25 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) (this.front.units.counter + 1)))));
+              a -=  (25 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( (this.front.units.counter + 1)))));
             }
             else
             {
               str12: String = str3;
-              num49 = 250 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) (this.front.units.counter + 1))));
+              num49 = 250 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( (this.front.units.counter + 1))));
               str13: String = num49.ToString();
               str3 = str12 + "*MoveOutOfSup: -" + str13;
-              a -= (float) (50 + (int) Math.Round(Math.Abs((double) a * 0.5) / Math.Sqrt(Math.Sqrt((double) (this.front.units.counter + 1)))));
+              a -=  (50 + (int) Math.Round(Math.Abs( a * 0.5) / Math.Sqrt(Math.Sqrt( (this.front.units.counter + 1)))));
             }
           }
           if (this.friendlySupplyIdeal.Value[index2, tdata1] >= 999 & tOwner.Value[index2, tdata1] == 1)
           {
             str14: String = str3;
-            num49 = 50 + (int) Math.Round((double) (Math.Abs(a) / (float) this.front.units.counter));
+            num49 = 50 + (int) Math.Round( (Math.Abs(a) /  this.front.units.counter));
             str15: String = num49.ToString();
             str3 = str14 + "*MoveOutOfIDEALSup: -" + str15;
-            a -= (float) (50 + (int) Math.Round((double) (Math.Abs(a) / (float) this.front.units.counter)));
+            a -=  (50 + (int) Math.Round( (Math.Abs(a) /  this.front.units.counter)));
           }
         }
       }
@@ -8535,7 +8535,7 @@ label_24:
         num49 = num5 - num4;
         str17: String = num49.ToString();
         str3 = str16 + "*More VP: +" + str17;
-        a += (float) (50 * (num5 - num4));
+        a +=  (50 * (num5 - num4));
       }
       if (num5 < num4)
       {
@@ -8543,16 +8543,16 @@ label_24:
         num49 = num4 - num5;
         str19: String = num49.ToString();
         str3 = str18 + "*Less VP: +" + str19;
-        a -= (float) (50 * (num4 - num5));
+        a -=  (50 * (num4 - num5));
       }
-      this.Score += (int) Math.Round((double) a);
-      if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < 0.0)
+      this.Score += (int) Math.Round( a);
+      if ( this.initEncRatio1 -  this.finalEncRatio1 < 0.0)
       {
-        if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < -0.3)
+        if ( this.initEncRatio1 -  this.finalEncRatio1 < -0.3)
           this.Score -= 6000;
-        else if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < -0.2)
+        else if ( this.initEncRatio1 -  this.finalEncRatio1 < -0.2)
           this.Score -= 4000;
-        else if ((double) this.initEncRatio1 - (double) this.finalEncRatio1 < -0.1)
+        else if ( this.initEncRatio1 -  this.finalEncRatio1 < -0.1)
           this.Score -= 2000;
         else
           this.Score -= 1000;

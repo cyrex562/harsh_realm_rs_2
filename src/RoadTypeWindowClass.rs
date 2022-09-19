@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
 
 namespace WindowsApplication1
 {
@@ -95,7 +95,7 @@ namespace WindowsApplication1
         this.RoadListObj = ListClass::new();
         let mut roadTypeCounter: i32 = this.game.Data.RoadTypeCounter;
         for (let mut index: i32 = 0; index <= roadTypeCounter; index += 1)
-          this.RoadListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.RoadTypeObj[index].Name, index);
+          this.RoadListObj.add(Conversion.Str( index) + ") " + this.game.Data.RoadTypeObj[index].Name, index);
         ListClass roadListObj = this.RoadListObj;
         let mut tlistselect: i32 = tRoadnr;
         let mut game: GameClass = this.game;
@@ -220,7 +220,7 @@ namespace WindowsApplication1
           let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.B2Id = this.AddSubPart( tsubpart2, 370, 70, 32, 16, 1);
         }
-        let mut tsubpart3: SubPartClass =  TextPartClass::new("Transparent: " + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].Transparent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        let mut tsubpart3: SubPartClass =  TextPartClass::new("Transparent: " + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].Transparent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.B2TextId = this.AddSubPart( tsubpart3, 410, 69, 400, 20, 0);
         this.ss = "Click to remove this roadtype";
         if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -424,7 +424,7 @@ namespace WindowsApplication1
       this.ss = "";
       let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.B4Id = this.AddSubPart( tsubpart3, 410, 610, 32, 16, 1);
-      let mut tsubpart4: SubPartClass =  TextPartClass::new("Center6use=" + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].useCenter6), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      let mut tsubpart4: SubPartClass =  TextPartClass::new("Center6use=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].useCenter6), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B4TextId = this.AddSubPart( tsubpart4, 450, 609, 400, 20, 0);
       tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.B5Id = this.AddSubPart( tsubpart4, 410, 630, 32, 16, 1);
@@ -446,7 +446,7 @@ namespace WindowsApplication1
       let mut index: i32 = 0;
       do
       {
-        this.BasicList2Obj.add(this.game.Data.TempString[index] + "(" + Conversion.Str((object) index) + ") = " + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].MoveCostOverrule[index]) + "ap", index);
+        this.BasicList2Obj.add(this.game.Data.TempString[index] + "(" + Conversion.Str( index) + ") = " + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].MoveCostOverrule[index]) + "ap", index);
         index += 1;
       }
       while (index <= 99);
@@ -483,7 +483,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.bthick = this.AddSubPart( tsubpart, 10, 370, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Thickness=" + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].Thickness), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("Thickness=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].Thickness), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.bthicktext = this.AddSubPart( tsubpart, 50, 369, 400, 20, 0);
       this.ss = "Click to set that first this roadtype is drawn as another roadtype. -1= do not use.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -491,7 +491,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.bother = this.AddSubPart( tsubpart, 10, 390, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("FirstOtherRoad=" + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].FirstDrawOther), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("FirstOtherRoad=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].FirstDrawOther), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.bothertext = this.AddSubPart( tsubpart, 50, 389, 400, 20, 0);
       this.ss = "-1= do not use. Roadtypes that have the same category will flow into eachother with hex rendering.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -499,7 +499,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B3Id = this.AddSubPart( tsubpart, 10, 410, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Category=" + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].Category), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("Category=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].Category), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B3TextId = this.AddSubPart( tsubpart, 50, 409, 400, 20, 0);
       this.ss = "0= do not use. ";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -507,7 +507,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.B6Id = this.AddSubPart( tsubpart, 10, 430, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Traffic Points=" + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].trafficPoints), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("Traffic Points=" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].trafficPoints), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.B6TextId = this.AddSubPart( tsubpart, 50, 429, 400, 20, 0);
       this.ss = "if set to TRUE the sprites defined below will be used to render the bridge, instead of those specified in the bridge tab.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -515,7 +515,7 @@ namespace WindowsApplication1
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BridgeId = this.AddSubPart( tsubpart, 10, 470, 32, 16, 1);
       }
-      tsubpart =  TextPartClass::new("Overrule Bridge Gfx =" + Conversion.Str((object) this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+      tsubpart =  TextPartClass::new("Overrule Bridge Gfx =" + Conversion.Str( this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
       this.BridgeTextId = this.AddSubPart( tsubpart, 50, 469, 400, 20, 0);
       this.BridgeListObj = ListClass::new();
       let mut tdata: i32 = 0;
@@ -567,7 +567,7 @@ namespace WindowsApplication1
     {
       string[] strArray = new string[65];
       Bitmap bitmap1 = new Bitmap(384, 528);
-      bitmap1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics1 = Graphics.FromImage((Image) bitmap1);
       graphics1.Clear(Color.Transparent);
       graphics1.CompositingMode = CompositingMode.SourceOver;
@@ -649,7 +649,7 @@ namespace WindowsApplication1
       fileStream1.Close();
       graphics1.Dispose();
       Bitmap bitmap2 = new Bitmap(768, 1056);
-      bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics2 = Graphics.FromImage((Image) bitmap2);
       graphics2.Clear(Color.Transparent);
       graphics2.CompositingMode = CompositingMode.SourceOver;
@@ -833,7 +833,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num8: i32 =  Interaction.MsgBox((object) "Value between 1 and 10000 please...", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num8: i32 =  Interaction.MsgBox( "Value between 1 and 10000 please...", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -843,7 +843,7 @@ namespace WindowsApplication1
             {
               str: String = Interaction.InputBox("Give roadtype slot # to copy ", "Shadow Empire : Planetary Conquest");
               let mut index2: i32 =  Math.Round(Conversion.Val(str));
-              if (!Information.IsNothing((object) str) && str.Length > 0 & index2 >= 0 & index2 <= this.game.Data.RoadTypeCounter)
+              if (!Information.IsNothing( str) && str.Length > 0 & index2 >= 0 & index2 <= this.game.Data.RoadTypeCounter)
               {
                 this.game.Data.RoadTypeObj[this.RoadNr].BridgeOverrule = this.game.Data.RoadTypeObj[index2].BridgeOverrule;
                 let mut nr: i32 = 0;
@@ -868,7 +868,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num9: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num9: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -883,7 +883,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num10: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num10: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -905,7 +905,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num11: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num11: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -996,7 +996,7 @@ namespace WindowsApplication1
               }
               if (this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer)
               {
-                if (Interaction.MsgBox((object) "Use Fred SpriteSheet?", MsgBoxStyle.YesNo) == MsgBoxResult.No)
+                if (Interaction.MsgBox( "Use Fred SpriteSheet?", MsgBoxStyle.YesNo) == MsgBoxResult.No)
                   this.game.Data.RoadTypeObj[this.RoadNr].UseSheet = false;
                 else
                   this.game.Data.RoadTypeObj[this.RoadNr].UseSheet = true;
@@ -1012,7 +1012,7 @@ namespace WindowsApplication1
                     return windowReturnClass;
                   }
                   this.game.Data.RoadTypeObj[this.RoadNr].SpecialLayer = false;
-                  let mut num17: i32 =  Interaction.MsgBox((object) "Could not find this dir... give it like 'sea' or 'africa/desert', make sure a1 is present.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num17: i32 =  Interaction.MsgBox( "Could not find this dir... give it like 'sea' or 'africa/desert', make sure a1 is present.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -1024,7 +1024,7 @@ namespace WindowsApplication1
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
-                  let mut num18: i32 =  Interaction.MsgBox((object) "Could not find this file... ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num18: i32 =  Interaction.MsgBox( "Could not find this file... ", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               this.maketabsheet();

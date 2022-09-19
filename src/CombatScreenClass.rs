@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -18,7 +18,7 @@ namespace WindowsApplication1
     pub CombatScreenClass(ref GameClass tGame)
       : base(ref tGame, tGame.BACKGROUND1MARC)
     {
-      this.wright = this.AddWindow((WindowClass) new CombatResultWindowClass(ref tGame),  Math.Round((double) this.Game.ScreenWidth / 2.0 - 512.0),  Math.Round((double) this.Game.ScreenHeight / 2.0 - 384.0), 1024, 768);
+      this.wright = this.AddWindow((WindowClass) new CombatResultWindowClass(ref tGame),  Math.Round( this.Game.ScreenWidth / 2.0 - 512.0),  Math.Round( this.Game.ScreenHeight / 2.0 - 384.0), 1024, 768);
     }
 
     pub ScreenReturnClass HandleTimer()
@@ -69,7 +69,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         this.Game.Data = DataClass::new();
         this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");
@@ -118,9 +118,9 @@ namespace WindowsApplication1
               else if (windowReturnClass.CommandType[index2] == 2)
               {
                 if (windowReturnClass.CommandData[index2] == 82)
-                  this.wright = this.AddWindow((WindowClass) new ATCombatDetailWindowClass(ref DrawMod.TGame, 768, true),  Math.Round((double) this.Game.ScreenWidth / 2.0 - 512.0),  Math.Round((double) this.Game.ScreenHeight / 2.0 - 384.0), 1024, 768);
+                  this.wright = this.AddWindow((WindowClass) new ATCombatDetailWindowClass(ref DrawMod.TGame, 768, true),  Math.Round( this.Game.ScreenWidth / 2.0 - 512.0),  Math.Round( this.Game.ScreenHeight / 2.0 - 384.0), 1024, 768);
                 else if (windowReturnClass.CommandData[index2] == 84)
-                  this.wright = this.AddWindow((WindowClass) new CombatResultWindowClass(ref DrawMod.TGame),  Math.Round((double) this.Game.ScreenWidth / 2.0 - 512.0),  Math.Round((double) this.Game.ScreenHeight / 2.0 - 384.0), 1024, 768);
+                  this.wright = this.AddWindow((WindowClass) new CombatResultWindowClass(ref DrawMod.TGame),  Math.Round( this.Game.ScreenWidth / 2.0 - 512.0),  Math.Round( this.Game.ScreenHeight / 2.0 - 384.0), 1024, 768);
               }
             }
           }

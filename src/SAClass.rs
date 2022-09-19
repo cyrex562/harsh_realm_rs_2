@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -20,11 +20,11 @@ namespace WindowsApplication1
     pub Size: i32;
     pub aivp: i32;
     pub fuzzyvp: i32;
-    pub int[] Neighbour;
+    pub Neighbour: Vec<i32>;
     pub NeighbourCount: i32;
-    pub int[] SeaNeighbour;
+    pub SeaNeighbour: Vec<i32>;
     pub SeaNeighbourCount: i32;
-    pub int[] Constitutant;
+    pub Constitutant: Vec<i32>;
     pub ConstitutantCount: i32;
     pub LandReservePlan: i32;
 
@@ -39,7 +39,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (SAClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
@@ -129,11 +129,11 @@ namespace WindowsApplication1
       info.AddValue("Size", this.Size);
       info.AddValue("aivp", this.aivp);
       info.AddValue("fuzzyvp", this.fuzzyvp);
-      info.AddValue("Neighbour", (object) this.Neighbour);
+      info.AddValue("Neighbour",  this.Neighbour);
       info.AddValue("NeighbourCount", this.NeighbourCount);
-      info.AddValue("SeaNeighbour", (object) this.SeaNeighbour);
+      info.AddValue("SeaNeighbour",  this.SeaNeighbour);
       info.AddValue("SeaNeighbourCount", this.SeaNeighbourCount);
-      info.AddValue("Constitutant", (object) this.Constitutant);
+      info.AddValue("Constitutant",  this.Constitutant);
       info.AddValue("ConstitutantCount", this.ConstitutantCount);
       info.AddValue("LandReservePlan", this.LandReservePlan);
     }

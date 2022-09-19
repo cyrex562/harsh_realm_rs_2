@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -64,24 +64,24 @@ namespace WindowsApplication1
     pub SimpleList zoneList;
     pub shqConstructionBlock: bool;
     pub string[] poolName;
-    pub int[] poolPreferedAssetType;
-    pub int[] poolPreferedOob;
-    pub int[] poolPreferedToe;
-    pub int[] poolPreferedOobUpgradeHisId;
-    pub int[] poolPreferedQuality;
-    pub int[] poolImportance;
-    pub int[] poolOrigImportance;
-    pub int[] poolMinimumStage;
+    pub poolPreferedAssetType: Vec<i32>;
+    pub poolPreferedOob: Vec<i32>;
+    pub poolPreferedToe: Vec<i32>;
+    pub poolPreferedOobUpgradeHisId: Vec<i32>;
+    pub poolPreferedQuality: Vec<i32>;
+    pub poolImportance: Vec<i32>;
+    pub poolOrigImportance: Vec<i32>;
+    pub poolMinimumStage: Vec<i32>;
     pub poolCounter: i32;
-    pub bool[] poolConstrBlocked;
+    pub poolConstrBlocked: Vec<bool>;
     pub SimpleList[] poolRequest;
     pub SimpleList[] poolItems;
-    pub int[] itemProduction;
-    pub int[] itemProductionPublic;
-    pub int[] itemNeed;
-    pub int[] itemMiningReserve;
+    pub itemProduction: Vec<i32>;
+    pub itemProductionPublic: Vec<i32>;
+    pub itemNeed: Vec<i32>;
+    pub itemMiningReserve: Vec<i32>;
     pub string[] itemName;
-    pub int[] itemQty;
+    pub itemQty: Vec<i32>;
     pub itemcounter: i32;
     pub SimpleStringList itemRegimeKeyProdList;
     pub SimpleList newItems;
@@ -392,7 +392,7 @@ namespace WindowsApplication1
       let mut weight1: i32 = this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(9);
       if (weight1 > this.VAR_IdealSoldier - this.VAR_CurrentSoldier & weight1 > 0 & this.shqZoneId > 0)
       {
-        let mut tweight: i32 =  Math.Round((double) (weight1 - Math.Max(0, this.VAR_IdealSoldier - this.VAR_CurrentSoldier)) / 2.0);
+        let mut tweight: i32 =  Math.Round( (weight1 - Math.Max(0, this.VAR_IdealSoldier - this.VAR_CurrentSoldier)) / 2.0);
         if (tweight > 0)
         {
           this.ai.AddLog("Zone #" + this.shqZoneId.ToString() + " has gotten " + tweight.ToString() + " recruits from SHQ to act as workers.");
@@ -442,7 +442,7 @@ namespace WindowsApplication1
               simpleList1.AddWeight(num5, tweight1);
               let mut tdata3: i32 = num7 +  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num5, 1, "worker", 2)));
               let mut tdata1: i32 = tdata3 - num4;
-              tweight1 =  Math.Round((double) tweight1 / 8.0);
+              tweight1 =  Math.Round( tweight1 / 8.0);
               let mut num8: i32 = num1;
               this.LISTVAR_ZoneWorkerJobs.FindWeight(num5);
               if (num8 > tweight1)
@@ -460,7 +460,7 @@ namespace WindowsApplication1
               }
               else if (this.VAR_CurrentWorker > 0)
               {
-                tweight1 =  Math.Round((double) num2 * ((double) tdata3 / (double) this.VAR_CurrentWorker));
+                tweight1 =  Math.Round( num2 * ( tdata3 /  this.VAR_CurrentWorker));
                 if (tweight1 > num2)
                   tweight1 = num2;
                 if (tweight1 > tdata3)
@@ -477,7 +477,7 @@ namespace WindowsApplication1
               int tweight2;
               if (num4 > 0)
               {
-                tweight2 =  Math.Round((double) (100 * tdata3) / (double) num4);
+                tweight2 =  Math.Round( (100 * tdata3) /  num4);
               }
               else
               {
@@ -499,16 +499,16 @@ namespace WindowsApplication1
             {
               if (simpleList2.Weight[index4] > simpleList2.Weight[index3])
               {
-                num4 =  Math.Round((double) simpleList2.Data2[index3] * ((double) (simpleList2.Weight[index4] - simpleList2.Weight[index3]) / 100.0));
-                let mut num9: i32 =  Math.Round((double) simpleList2.Data3[index4] * ((double) (simpleList2.Weight[index4] - simpleList2.Weight[index3]) / 100.0));
+                num4 =  Math.Round( simpleList2.Data2[index3] * ( (simpleList2.Weight[index4] - simpleList2.Weight[index3]) / 100.0));
+                let mut num9: i32 =  Math.Round( simpleList2.Data3[index4] * ( (simpleList2.Weight[index4] - simpleList2.Weight[index3]) / 100.0));
                 if (num4 > num9)
                   num4 = num9;
                 if (num4 > simpleList2.Data4[index3])
                   num4 = simpleList2.Data4[index3];
                 if (num4 > simpleList2.Data3[index3])
                   num4 = simpleList2.Data3[index3];
-                if ((double) num4 > (double) num9 * 0.9)
-                  num4 = Math.Min( Math.Round((double) num9 * 0.1),  Math.Round((double) num4 / 2.0));
+                if ( num4 >  num9 * 0.9)
+                  num4 = Math.Min( Math.Round( num9 * 0.1),  Math.Round( num4 / 2.0));
                 if (num4 > 0)
                 {
                   let mut setValue5: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, simpleList2.Id[index3], 1, "worker", 2))) + num4;
@@ -546,32 +546,32 @@ namespace WindowsApplication1
           let mut weight2: i32 = this.LISTVAR_ZonePopJob.FindWeight(num10);
           let mut num11: i32 = this.VAR_IdealSoldier;
           if (weight2 < 50)
-            num11 =  Math.Round((double) this.VAR_IdealSoldier * 0.2 + (double) this.VAR_CurrentSoldier * 0.8);
+            num11 =  Math.Round( this.VAR_IdealSoldier * 0.2 +  this.VAR_CurrentSoldier * 0.8);
           else if (weight2 < 65)
-            num11 =  Math.Round((double) this.VAR_IdealSoldier * 0.4 + (double) this.VAR_CurrentSoldier * 0.6);
+            num11 =  Math.Round( this.VAR_IdealSoldier * 0.4 +  this.VAR_CurrentSoldier * 0.6);
           else if (weight2 < 80)
-            num11 =  Math.Round((double) this.VAR_IdealSoldier * 0.6 + (double) this.VAR_CurrentSoldier * 0.4);
+            num11 =  Math.Round( this.VAR_IdealSoldier * 0.6 +  this.VAR_CurrentSoldier * 0.4);
           else if (weight2 < 105)
-            num11 =  Math.Round((double) this.VAR_IdealSoldier * 0.75 + (double) this.VAR_CurrentSoldier * 0.25);
+            num11 =  Math.Round( this.VAR_IdealSoldier * 0.75 +  this.VAR_CurrentSoldier * 0.25);
           let mut num12: i32 = this.VAR_CurrentRecruits + this.VAR_CurrentSoldier;
           if (num11 > num12)
           {
-            if ((double) this.VAR_WorkerShortage <= (double) (this.VAR_CurrentPop + this.VAR_CurrentWorker) * 0.1)
+            if ( this.VAR_WorkerShortage <=  (this.VAR_CurrentPop + this.VAR_CurrentWorker) * 0.1)
             {
               if (num12 < num11)
               {
                 num4 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "pop", 2))) +  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "worker", 2)));
-                num4 =  Math.Round((double) num4 / 20.0);
+                num4 =  Math.Round( num4 / 20.0);
                 if (num4 < 1)
                   num4 = 1;
                 if (num4 > num11 - num12)
                   num4 = num11 - num12;
                 this.data.StringListObj[this.slotZoneOrders].SetData(0, num10, 7, num4);
               }
-              else if ((double) num12 < (double) num11 * 1.25)
+              else if ( num12 <  num11 * 1.25)
               {
                 num4 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "pop", 2))) +  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "worker", 2)));
-                num4 =  Math.Round((double) num4 / 40.0);
+                num4 =  Math.Round( num4 / 40.0);
                 if (num4 < 1)
                   num4 = 1;
                 if (num4 > num11 - num12)
@@ -584,7 +584,7 @@ namespace WindowsApplication1
             else if (num12 < num11)
             {
               num4 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "pop", 2))) +  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "worker", 2)));
-              num4 =  Math.Round((double) num4 / 30.0);
+              num4 =  Math.Round( num4 / 30.0);
               if (num4 < 1)
                 num4 = 1;
               if (num4 > num11 - num12)
@@ -608,10 +608,10 @@ namespace WindowsApplication1
       let mut setValue1: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeKeys].GetData2(0, this.RegimeId, 1, "credits", 2)));
       if (setValue1 < 0)
         setValue1 = 0;
-      let mut num1: i32 =  Math.Round((double)  Math.Round((double) setValue1 / (double) Math.Max(1, this.ShqList.Counter + 1)) / (double) Math.Max(this.zoneList.Counter + 1, 1));
+      let mut num1: i32 =  Math.Round(  Math.Round( setValue1 /  Math.Max(1, this.ShqList.Counter + 1)) /  Math.Max(this.zoneList.Counter + 1, 1));
       if (num1 < 0)
         num1 = 0;
-      let mut num2: i32 =  Math.Round((double) num1 / 8.0);
+      let mut num2: i32 =  Math.Round( num1 / 8.0);
       let mut counter: i32 = this.zoneList.Counter;
       for (let mut index1: i32 = 0; index1 <= counter; index1 += 1)
       {
@@ -660,18 +660,18 @@ namespace WindowsApplication1
         int percent2;
         if (setValue2 > 0)
         {
-          percent1 =  Math.Round((double) num8 / 2.0) + 2;
-          percent2 =  Math.Round((double) num8 / 2.0) + 2;
+          percent1 =  Math.Round( num8 / 2.0) + 2;
+          percent2 =  Math.Round( num8 / 2.0) + 2;
         }
         else
         {
-          percent1 =  Math.Round((double) num8 / 5.0) + 1;
-          percent2 =  Math.Round((double) num8 / 5.0) + 1;
+          percent1 =  Math.Round( num8 / 5.0) + 1;
+          percent2 =  Math.Round( num8 / 5.0) + 1;
         }
         let mut setValue4: i32 = currentScore1 + DrawMod.TGame.EventRelatedObj.GetInversePercentage(currentScore1, percent1);
         let mut setValue5: i32 = currentScore2 + DrawMod.TGame.EventRelatedObj.GetInversePercentage(currentScore2, percent2);
-        let mut setValue6: i32 = num5 -  Math.Round(2.0 + (double) num8 / 3.0);
-        let mut setValue7: i32 = num6 -  Math.Round(2.0 + (double) num8 / 3.0);
+        let mut setValue6: i32 = num5 -  Math.Round(2.0 +  num8 / 3.0);
+        let mut setValue7: i32 = num6 -  Math.Round(2.0 +  num8 / 3.0);
         if (setValue6 < 0)
           setValue6 = 0;
         if (setValue7 < 0)
@@ -714,13 +714,13 @@ namespace WindowsApplication1
       {
         let mut num3: i32 = DrawMod.RandyNumber.Next(0, 100);
         if (num3 > 95)
-          num1 +=  Math.Round((double) this.VAR_CurrentPop / 3.0);
+          num1 +=  Math.Round( this.VAR_CurrentPop / 3.0);
         else if (num3 > 80)
-          num1 +=  Math.Round((double) this.VAR_CurrentPop / 5.0);
+          num1 +=  Math.Round( this.VAR_CurrentPop / 5.0);
         else if (num3 > 50)
-          num1 +=  Math.Round((double) this.VAR_CurrentPop / 10.0);
+          num1 +=  Math.Round( this.VAR_CurrentPop / 10.0);
         else
-          num1 +=  Math.Round((double) this.VAR_CurrentPop / 20.0);
+          num1 +=  Math.Round( this.VAR_CurrentPop / 20.0);
       }
       bool flag = false;
       if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) < 250)
@@ -728,7 +728,7 @@ namespace WindowsApplication1
         flag = true;
         this.ai.AddLog("Block new city due low food");
       }
-      if ((double) this.itemNeed[7] * 1.2 + 50.0 < (double) this.itemProduction[7])
+      if ( this.itemNeed[7] * 1.2 + 50.0 <  this.itemProduction[7])
       {
         flag = true;
         this.ai.AddLog("Block new city due low food");
@@ -775,7 +775,7 @@ namespace WindowsApplication1
             let mut movetype: i32 = 8;
             DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(this.data.Turn, movetype, 0, 200, bestTownCoord.x, bestTownCoord.y, 0, false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true);
             let mut num9: i32 = DrawMod.TGame.EditObj.TempValue[0].Value[this.data.UnitObj[this.shqUnitNr].X, this.data.UnitObj[this.shqUnitNr].Y];
-            if (Information.IsNothing((object) this.data.UnitObj[this.shqUnitNr].items))
+            if (Information.IsNothing( this.data.UnitObj[this.shqUnitNr].items))
               this.data.UnitObj[this.shqUnitNr].items = ItemList::new();
             let mut nr: i32 = this.data.UnitObj[this.shqUnitNr].items.list.FindNr(2);
             if (nr > -1)
@@ -792,12 +792,12 @@ namespace WindowsApplication1
               DrawMod.TGame.EventRelatedObj.Hardcoded_Gui_FoundCity_Commence(0);
               DrawMod.TGame.EventRelatedObj.IO_AddClear();
               this.ai.AddLog("Placed new town at " + bestTownCoord.x.ToString() + ", " + bestTownCoord.y.ToString() + ".");
-              float num10 = (float) tweight / (float) this.VAR_CurrentPop;
+              float num10 =  tweight /  this.VAR_CurrentPop;
               let mut counter3: i32 = this.zoneList.Counter;
               for (let mut index4: i32 = 0; index4 <= counter3; index4 += 1)
               {
                 let mut num11: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, this.zoneList.Id[index4], 1, "pop", 2)));
-                let mut setValue: i32 = num11 -  Math.Round((double) ((float) num11 * num10));
+                let mut setValue: i32 = num11 -  Math.Round( ( num11 * num10));
                 this.data.StringListObj[this.slotZoneKeys].SetData2(0, this.zoneList.Id[index4], 1, "pop", 2, setValue);
                 this.data.StringListObj[this.slotZoneKeys].SetData2(0, this.zoneList.Id[index4], 1, "city", 2, 1);
               }
@@ -1624,9 +1624,9 @@ namespace WindowsApplication1
               }
               num4 += tdata1;
               if (num3 == 1)
-                this.LISTVAR_ZonePopJob.Add(num10,  Math.Round((double) (tdata2_2 * 100) / (double) Math.Max(1, num12)), num12, tdata2_2);
+                this.LISTVAR_ZonePopJob.Add(num10,  Math.Round( (tdata2_2 * 100) /  Math.Max(1, num12)), num12, tdata2_2);
               if (num3 == 2)
-                this.LISTVAR_ZoneWorkerJobs.Add(num10,  Math.Round((double) (tdata2_2 * 100) / (double) Math.Max(1, num12)), tdata1, tdata2_1);
+                this.LISTVAR_ZoneWorkerJobs.Add(num10,  Math.Round( (tdata2_2 * 100) /  Math.Max(1, num12)), tdata1, tdata2_1);
               num8 +=  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "worker", 2))) *  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "workerHunger", 2)));
               num9 +=  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "pop", 2))) *  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num10, 1, "popHunger", 2)));
               let mut length4: i32 = this.data.StringListObj[this.slotAssets].Length;
@@ -1646,15 +1646,15 @@ namespace WindowsApplication1
             }
           }
         }
-        num1 =  Math.Round((double) num1 / 2.0);
+        num1 =  Math.Round( num1 / 2.0);
         if (this.zoneList.Counter > -1)
-          num1 =  Math.Round((double) num1 / (double) (this.zoneList.Counter + 1));
+          num1 =  Math.Round( num1 /  (this.zoneList.Counter + 1));
         if (num3 == 1)
         {
           this.VAR_CurrentPop = num7;
           this.VAR_CurrentWorker = num6;
-          this.VAR_WorkerHunger =  Math.Round((double) num8 / (double) (num7 + 1));
-          this.VAR_PopHunger =  Math.Round((double) num9 / (double) (num7 + 1));
+          this.VAR_WorkerHunger =  Math.Round( num8 /  (num7 + 1));
+          this.VAR_PopHunger =  Math.Round( num9 /  (num7 + 1));
           this.VAR_WorkerShortage = Math.Max(0, num4 - num6);
           this.VAR_WorkerExcess = 0;
           this.VAR_PopShortage = Math.Max(0, num5 - num7);
@@ -1667,12 +1667,12 @@ namespace WindowsApplication1
       }
       while (num3 <= 2);
       let mut num15: i32 = 0;
-      let mut index5: i32 =  Math.Round((double) this.ai.game.Data.RuleVar[407]) + 5;
-      let mut index6: i32 =  Math.Round((double) this.ai.game.Data.RuleVar[407]) + 2;
-      let mut index7: i32 =  Math.Round((double) this.ai.game.Data.RuleVar[407]) + 0;
-      let mut index8: i32 =  Math.Round((double) this.ai.game.Data.RuleVar[407]) + 9;
-      let mut index9: i32 =  Math.Round((double) this.ai.game.Data.RuleVar[407]) + 8;
-      let mut index10: i32 =  Math.Round((double) this.ai.game.Data.RuleVar[407]) + 7;
+      let mut index5: i32 =  Math.Round( this.ai.game.Data.RuleVar[407]) + 5;
+      let mut index6: i32 =  Math.Round( this.ai.game.Data.RuleVar[407]) + 2;
+      let mut index7: i32 =  Math.Round( this.ai.game.Data.RuleVar[407]) + 0;
+      let mut index8: i32 =  Math.Round( this.ai.game.Data.RuleVar[407]) + 9;
+      let mut index9: i32 =  Math.Round( this.ai.game.Data.RuleVar[407]) + 8;
+      let mut index10: i32 =  Math.Round( this.ai.game.Data.RuleVar[407]) + 7;
       this.VAR_UnitsCurrentAmmo = 0;
       this.VAR_UnitsIdealAmmo = 0;
       this.VAR_UnitsCurrentFuel = 0;
@@ -1743,9 +1743,9 @@ namespace WindowsApplication1
               num15 = num15;
           }
         }
-        if ((double) (num22 + 1) < (double) (num17 * this.strategicAi.Air_Aircraft_AsPercentage_Of_Land) / 100.0)
+        if ( (num22 + 1) <  (num17 * this.strategicAi.Air_Aircraft_AsPercentage_Of_Land) / 100.0)
         {
-          let mut num27: i32 =  Math.Round((double) (num17 * this.strategicAi.Air_Aircraft_AsPercentage_Of_Land) / 100.0 - (double) (num22 + 1));
+          let mut num27: i32 =  Math.Round( (num17 * this.strategicAi.Air_Aircraft_AsPercentage_Of_Land) / 100.0 -  (num22 + 1));
           if (num27 < 0)
             num27 = 0;
           if (num27 > 2)
@@ -1796,20 +1796,20 @@ namespace WindowsApplication1
             if (num31 > 0 & num32 > 0)
             {
               if (num31 == 7)
-                this.VAR_UnitsIdealFood +=  Math.Round((double) num32 / 2.0);
+                this.VAR_UnitsIdealFood +=  Math.Round( num32 / 2.0);
               if (num31 == 15)
-                this.VAR_UnitsIdealEnergy +=  Math.Round((double) num32 / 2.0);
+                this.VAR_UnitsIdealEnergy +=  Math.Round( num32 / 2.0);
             }
             let mut num33: i32 = this.ai.game.Data.SFTypeObj[type].SFTypeVar[index6];
             let mut num34: i32 = this.ai.game.Data.SFTypeObj[type].SFTypeVar[index9] * qty;
             if (num33 > 0 & num34 > 0)
             {
               if (num33 == 10)
-                this.VAR_UnitsIdealAmmo +=  Math.Round((double) num34 * 0.66);
+                this.VAR_UnitsIdealAmmo +=  Math.Round( num34 * 0.66);
               if (num33 == 15)
-                this.VAR_UnitsIdealEnergy +=  Math.Round((double) num34 * 0.66);
+                this.VAR_UnitsIdealEnergy +=  Math.Round( num34 * 0.66);
               if (num33 == 4)
-                this.VAR_UnitsIdealAtomics +=  Math.Round((double) num34 * 0.66);
+                this.VAR_UnitsIdealAtomics +=  Math.Round( num34 * 0.66);
             }
             let mut num35: i32 = this.ai.game.Data.SFTypeObj[type].SFTypeVar[index7];
             let mut num36: i32 = this.ai.game.Data.SFTypeObj[type].SFTypeVar[index10] * qty;
@@ -1833,7 +1833,7 @@ namespace WindowsApplication1
       }
       this.VAR_CurrentSoldier = num28;
       this.VAR_SoldierMissing = num15;
-      this.VAR_SoldierHunger =  Math.Round((double) num16 / (double) (num28 + 1));
+      this.VAR_SoldierHunger =  Math.Round( num16 /  (num28 + 1));
       let mut stringListById: i32 = DrawMod.TGame.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 292, 0, 0));
       let mut num37: i32 = 0;
       let mut num38: i32 = 0;
@@ -1852,8 +1852,8 @@ namespace WindowsApplication1
         else if (num45 > num37)
           num37 = num45;
       }
-      let mut num46: i32 =  Math.Round((double) num38 / 10.0);
-      let mut num47: i32 =  Math.Round((double) num37 / 10.0);
+      let mut num46: i32 =  Math.Round( num38 / 10.0);
+      let mut num47: i32 =  Math.Round( num37 / 10.0);
       bool flag1 = false;
       bool flag2 = false;
       if (num47 != num46)
@@ -1868,76 +1868,76 @@ namespace WindowsApplication1
       let mut num50: i32 = 0;
       let mut num51: i32 = 0;
       if (num40 > 0)
-        num48 =  Math.Round((double) ((num39 - num40) * 100) / (double) num39);
+        num48 =  Math.Round( ((num39 - num40) * 100) /  num39);
       if (num41 > 0)
-        num49 =  Math.Round((double) ((num39 - num41) * 100) / (double) num39);
+        num49 =  Math.Round( ((num39 - num41) * 100) /  num39);
       if (num42 > 0)
-        num50 =  Math.Round((double) ((num39 - num42) * 100) / (double) num39);
+        num50 =  Math.Round( ((num39 - num42) * 100) /  num39);
       if (num43 > 0)
-        num51 =  Math.Round((double) ((num39 - num43) * 100) / (double) num39);
+        num51 =  Math.Round( ((num39 - num43) * 100) /  num39);
       let mut num52: i32 = this.VAR_CurrentPop + this.VAR_CurrentRecruits + this.VAR_CurrentSoldier + this.VAR_CurrentWorker;
-      let mut num53: i32 =  Math.Round((double) num52 * 0.35);
-      let mut num54: i32 =  Math.Round((double) num52 * 0.2);
+      let mut num53: i32 =  Math.Round( num52 * 0.35);
+      let mut num54: i32 =  Math.Round( num52 * 0.2);
       if (num51 < -50 & num50 < -50)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.6);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.6);
       }
       else if (num51 < -40 | num50 < -40)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.5);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.5);
       }
       else if (num51 < -30 | num50 < -30)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.45);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.45);
       }
       else if (num50 < -20 | num51 < -20)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.4);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.4);
       }
       else if (num50 < -10 | num49 < -10)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.4);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.4);
       }
       else if (num49 < -10)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.4);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.4);
       }
       else if (num49 < -5)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.35);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.35);
       }
       else if (num48 < -12)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.3);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.3);
       }
       else if (num48 < -5)
       {
-        num53 =  Math.Round((double) num52 * 0.35);
-        num54 =  Math.Round((double) num52 * 0.25);
+        num53 =  Math.Round( num52 * 0.35);
+        num54 =  Math.Round( num52 * 0.25);
       }
       if (this.shqStage <= 1)
-        num54 =  Math.Round((double) num54 * 0.5);
+        num54 =  Math.Round( num54 * 0.5);
       else if (this.shqStage <= 2)
-        num54 =  Math.Round((double) num54 * 0.6);
+        num54 =  Math.Round( num54 * 0.6);
       else if (this.shqStage <= 3)
-        num54 =  Math.Round((double) num54 * 0.7);
+        num54 =  Math.Round( num54 * 0.7);
       else if (this.shqStage <= 4)
-        num54 =  Math.Round((double) num54 * 0.8);
+        num54 =  Math.Round( num54 * 0.8);
       else if (this.shqStage <= 5)
-        num54 =  Math.Round((double) num54 * 0.9);
+        num54 =  Math.Round( num54 * 0.9);
       let mut regimeCounter2: i32 = this.ai.game.Data.RegimeCounter;
       for (let mut index16: i32 = 2; index16 <= regimeCounter2; index16 += 1)
       {
         if (!this.ai.game.Data.RegimeObj[index16].AI && this.ai.game.Data.RegimeObj[index16].RegimeRel[this.ai.game.Data.Turn] == 0)
-          num54 +=  Math.Round((double) this.VAR_FreePopReserve * 0.1);
+          num54 +=  Math.Round( this.VAR_FreePopReserve * 0.1);
       }
       if (flag1)
       {
@@ -1949,80 +1949,80 @@ namespace WindowsApplication1
       {
         let mut num56: i32 = num52 - (num53 + num54);
         if (num56 > 0)
-          num54 +=  Math.Round((double) num56 / 2.0);
+          num54 +=  Math.Round( num56 / 2.0);
       }
       if (this.data.Round > 10)
-        num54 +=  Math.Round((double) num52 * 0.05);
+        num54 +=  Math.Round( num52 * 0.05);
       if (this.data.Round > 30)
-        num54 +=  Math.Round((double) num52 * 0.04);
+        num54 +=  Math.Round( num52 * 0.04);
       if (this.data.Round > 60)
-        num54 +=  Math.Round((double) num52 * 0.03);
+        num54 +=  Math.Round( num52 * 0.03);
       if (this.data.Round > 100)
-        num54 +=  Math.Round((double) num52 * 0.02);
+        num54 +=  Math.Round( num52 * 0.02);
       if (num46 > 33)
-        num54 +=  Math.Round((double) num52 * 0.05);
+        num54 +=  Math.Round( num52 * 0.05);
       if (num46 > 42)
-        num54 +=  Math.Round((double) num52 * 0.05);
+        num54 +=  Math.Round( num52 * 0.05);
       if (num46 > 55)
-        num54 +=  Math.Round((double) num52 * 0.05);
+        num54 +=  Math.Round( num52 * 0.05);
       let mut num57: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotGameKeys].GetData(0, 42, 2)));
       if (num57 >= 30)
-        num54 +=  Math.Round((double) this.VAR_FreePopReserve * 0.4);
+        num54 +=  Math.Round( this.VAR_FreePopReserve * 0.4);
       else if (num57 >= 20)
-        num54 +=  Math.Round((double) this.VAR_FreePopReserve * 0.3);
+        num54 +=  Math.Round( this.VAR_FreePopReserve * 0.3);
       else if (num57 >= 10)
       {
-        num54 +=  Math.Round((double) this.VAR_FreePopReserve * 0.2);
+        num54 +=  Math.Round( this.VAR_FreePopReserve * 0.2);
       }
       else
       {
         if (num54 >= 200)
-          num54 = 200 +  Math.Round((double) (num54 - 200) / 2.0);
+          num54 = 200 +  Math.Round( (num54 - 200) / 2.0);
         if (num53 >= 500)
-          num53 = 500 +  Math.Round((double) (num53 - 500) / 2.0);
+          num53 = 500 +  Math.Round( (num53 - 500) / 2.0);
       }
       if (num52 < num53 + num54 & num52 > 0)
       {
-        num53 =  Math.Round((double) num53 * ((double) num52 / (double) (num53 + num54)));
-        num54 =  Math.Round((double) num54 * ((double) num52 / (double) (num53 + num54)));
+        num53 =  Math.Round( num53 * ( num52 /  (num53 + num54)));
+        num54 =  Math.Round( num54 * ( num52 /  (num53 + num54)));
       }
       this.VAR_IdealWorker = num53;
       this.VAR_IdealSoldier = num54;
-      if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double) this.itemProduction[7])
+      if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +  this.itemProduction[7])
       {
         if (this.VAR_IdealSoldier > this.VAR_CurrentSoldier)
           this.VAR_IdealSoldier = this.VAR_CurrentSoldier;
       }
-      else if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double)  Math.Round(0.9 * (double) this.itemProduction[7]))
+      else if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +   Math.Round(0.9 *  this.itemProduction[7]))
       {
         if (this.VAR_IdealSoldier > this.VAR_CurrentSoldier)
-          this.VAR_IdealSoldier =  Math.Round(0.66 * (double) this.VAR_CurrentSoldier) +  Math.Round(0.33 * (double) this.VAR_IdealSoldier);
+          this.VAR_IdealSoldier =  Math.Round(0.66 *  this.VAR_CurrentSoldier) +  Math.Round(0.33 *  this.VAR_IdealSoldier);
       }
-      else if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double)  Math.Round(0.8 * (double) this.itemProduction[7]))
+      else if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +   Math.Round(0.8 *  this.itemProduction[7]))
       {
         if (this.VAR_IdealSoldier > this.VAR_CurrentSoldier)
-          this.VAR_IdealSoldier =  Math.Round(0.5 * (double) this.VAR_CurrentSoldier) +  Math.Round(0.5 * (double) this.VAR_IdealSoldier);
+          this.VAR_IdealSoldier =  Math.Round(0.5 *  this.VAR_CurrentSoldier) +  Math.Round(0.5 *  this.VAR_IdealSoldier);
       }
-      else if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double)  Math.Round(0.7 * (double) this.itemProduction[7]) && this.VAR_IdealSoldier > this.VAR_CurrentSoldier)
-        this.VAR_IdealSoldier =  Math.Round(0.33 * (double) this.VAR_CurrentSoldier) +  Math.Round(0.66 * (double) this.VAR_IdealSoldier);
+      else if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +   Math.Round(0.7 *  this.itemProduction[7]) && this.VAR_IdealSoldier > this.VAR_CurrentSoldier)
+        this.VAR_IdealSoldier =  Math.Round(0.33 *  this.VAR_CurrentSoldier) +  Math.Round(0.66 *  this.VAR_IdealSoldier);
       if (this.VAR_IdealSoldier > Math.Max(65 + this.VAR_CurrentSoldier, this.VAR_CurrentSoldier * 3))
         this.VAR_IdealSoldier = Math.Max(65 + this.VAR_CurrentSoldier, 10 + this.VAR_CurrentSoldier * 3);
-      let mut num58: i32 = Math.Min(100,  Math.Round((double) this.VAR_CurrentPop / 2.0));
-      let mut num59: i32 = this.VAR_CurrentPop * 1 >= num58 ? ((double) this.VAR_CurrentPop * 0.75 >= (double) num58 ? ((double) this.VAR_CurrentPop * 0.66 >= (double) num58 ? ((double) this.VAR_CurrentPop * 0.5 >= (double) num58 ? num58 :  Math.Round((double) num58 / 2.0)) :  Math.Round((double) num58 / 4.0)) :  Math.Round((double) num58 / 10.0)) : 0;
+      let mut num58: i32 = Math.Min(100,  Math.Round( this.VAR_CurrentPop / 2.0));
+      let mut num59: i32 = this.VAR_CurrentPop * 1 >= num58 ? ( this.VAR_CurrentPop * 0.75 >=  num58 ? ( this.VAR_CurrentPop * 0.66 >=  num58 ? ( this.VAR_CurrentPop * 0.5 >=  num58 ? num58 :  Math.Round( num58 / 2.0)) :  Math.Round( num58 / 4.0)) :  Math.Round( num58 / 10.0)) : 0;
       if (this.VAR_PopShortage > 0)
       {
         let mut varPopShortage: i32 = this.VAR_PopShortage;
-        num59 = (double) varPopShortage <= (double) this.VAR_CurrentPop / 2.0 ? ((double) varPopShortage <= (double) this.VAR_CurrentPop / 3.0 ? ((double) varPopShortage <= (double) this.VAR_CurrentPop / 5.0 ? ((double) varPopShortage <= (double) this.VAR_CurrentPop / 10.0 ? num59 : num59) :  Math.Round((double) num59 / 1.5)) :  Math.Round((double) num59 / 3.0)) : 0;
+        num59 =  varPopShortage <=  this.VAR_CurrentPop / 2.0 ? ( varPopShortage <=  this.VAR_CurrentPop / 3.0 ? ( varPopShortage <=  this.VAR_CurrentPop / 5.0 ? ( varPopShortage <=  this.VAR_CurrentPop / 10.0 ? num59 : num59) :  Math.Round( num59 / 1.5)) :  Math.Round( num59 / 3.0)) : 0;
       }
-      if ((double) this.VAR_CurrentWorker > (double) this.VAR_IdealWorker * 1.3)
+      if ( this.VAR_CurrentWorker >  this.VAR_IdealWorker * 1.3)
         num59 = 0;
-      else if ((double) this.VAR_CurrentWorker > (double) this.VAR_IdealWorker * 1.2)
-        num59 =  Math.Round((double) num59 / 9.0);
-      else if ((double) this.VAR_CurrentWorker > (double) this.VAR_IdealWorker * 1.1)
-        num59 =  Math.Round((double) num59 / 6.0);
+      else if ( this.VAR_CurrentWorker >  this.VAR_IdealWorker * 1.2)
+        num59 =  Math.Round( num59 / 9.0);
+      else if ( this.VAR_CurrentWorker >  this.VAR_IdealWorker * 1.1)
+        num59 =  Math.Round( num59 / 6.0);
       else if (this.VAR_CurrentWorker > this.VAR_IdealWorker * 1)
-        num59 =  Math.Round((double) num59 / 3.0);
-      let mut num60: i32 = (double) this.VAR_FreePopReserve <= (double) this.VAR_CurrentPop * 0.5 ? ((double) this.VAR_FreePopReserve <= (double) this.VAR_CurrentPop * 0.4 ? ((double) this.VAR_FreePopReserve <= (double) this.VAR_CurrentPop * 0.3 ? ((double) this.VAR_FreePopReserve <= (double) this.VAR_CurrentPop * 0.2 ? ((double) this.VAR_FreePopReserve <= (double) this.VAR_CurrentPop * 0.1 ? num59 +  Math.Round((double) this.VAR_FreePopReserve * 0.2) : num59 +  Math.Round((double) this.VAR_FreePopReserve * 0.35)) : num59 +  Math.Round((double) this.VAR_FreePopReserve * 0.5)) : num59 +  Math.Round((double) this.VAR_FreePopReserve * 0.65)) : num59 +  Math.Round((double) this.VAR_FreePopReserve * 0.8)) : num59 +  Math.Round((double) this.VAR_FreePopReserve * 0.9);
+        num59 =  Math.Round( num59 / 3.0);
+      let mut num60: i32 =  this.VAR_FreePopReserve <=  this.VAR_CurrentPop * 0.5 ? ( this.VAR_FreePopReserve <=  this.VAR_CurrentPop * 0.4 ? ( this.VAR_FreePopReserve <=  this.VAR_CurrentPop * 0.3 ? ( this.VAR_FreePopReserve <=  this.VAR_CurrentPop * 0.2 ? ( this.VAR_FreePopReserve <=  this.VAR_CurrentPop * 0.1 ? num59 +  Math.Round( this.VAR_FreePopReserve * 0.2) : num59 +  Math.Round( this.VAR_FreePopReserve * 0.35)) : num59 +  Math.Round( this.VAR_FreePopReserve * 0.5)) : num59 +  Math.Round( this.VAR_FreePopReserve * 0.65)) : num59 +  Math.Round( this.VAR_FreePopReserve * 0.8)) : num59 +  Math.Round( this.VAR_FreePopReserve * 0.9);
       let mut weight: i32 = this.newItems.FindWeight(7);
       if (weight <= 0)
       {
@@ -2031,7 +2031,7 @@ namespace WindowsApplication1
       }
       else if (weight > 0)
       {
-        this.VAR_IdealWorker = Math.Min(this.VAR_IdealWorker, this.VAR_CurrentWorker - this.VAR_FreeWorkerReserve +  Math.Round((double) weight / 2.0));
+        this.VAR_IdealWorker = Math.Min(this.VAR_IdealWorker, this.VAR_CurrentWorker - this.VAR_FreeWorkerReserve +  Math.Round( weight / 2.0));
         if (this.VAR_IdealWorker - this.VAR_CurrentWorker > this.VAR_FreeWorkerReserve)
           this.VAR_FreeWorkerReserve = this.VAR_IdealWorker - this.VAR_CurrentWorker;
       }
@@ -2044,19 +2044,19 @@ namespace WindowsApplication1
       if (this.VAR_FreeWorkerReserve < this.VAR_CurrentWorker - this.VAR_CurrentWorker)
         this.VAR_FreeWorkerReserve = this.VAR_CurrentWorker - this.VAR_CurrentWorker;
       this.VAR_FreeWorkerReservePlus = this.VAR_FreeWorkerReserve;
-      let mut num61: i32 =  Math.Round((double) num1 / (double) Math.Max(1,  Math.Round((double) num2 / 15.0)));
+      let mut num61: i32 =  Math.Round( num1 /  Math.Max(1,  Math.Round( num2 / 15.0)));
       if (num1 > 0)
-        num60 =  Math.Round((double) num60 / (double) (num61 + 1));
+        num60 =  Math.Round( num60 /  (num61 + 1));
       this.VAR_FreeWorkerReservePlus += num60;
-      if ((double) this.VAR_UnitsIdealFood > (double) this.VAR_UnitsCurrentFood * 3.3)
+      if ( this.VAR_UnitsIdealFood >  this.VAR_UnitsCurrentFood * 3.3)
       {
-        this.VAR_IdealSoldier = Math.Min(this.VAR_IdealSoldier,  Math.Round((double) this.VAR_CurrentSoldier * 0.75));
+        this.VAR_IdealSoldier = Math.Min(this.VAR_IdealSoldier,  Math.Round( this.VAR_CurrentSoldier * 0.75));
         this.VAR_SoldierMissing = 0;
       }
-      else if ((double) this.VAR_UnitsIdealFood > (double) this.VAR_UnitsCurrentFood * 2.4)
+      else if ( this.VAR_UnitsIdealFood >  this.VAR_UnitsCurrentFood * 2.4)
       {
-        this.VAR_IdealSoldier = Math.Min(this.VAR_IdealSoldier,  Math.Round((double) ((float) this.VAR_CurrentSoldier * 1f)));
-        this.VAR_SoldierMissing =  Math.Round((double) this.VAR_SoldierMissing / 3.0);
+        this.VAR_IdealSoldier = Math.Min(this.VAR_IdealSoldier,  Math.Round( ( this.VAR_CurrentSoldier * 1f)));
+        this.VAR_SoldierMissing =  Math.Round( this.VAR_SoldierMissing / 3.0);
       }
       let mut num62: i32 = this.VAR_CurrentSoldier >= 30 ? (this.VAR_CurrentSoldier >= 100 ? (this.VAR_CurrentSoldier >= 200 ? (this.VAR_CurrentSoldier >= 300 ? (this.VAR_CurrentSoldier >= 500 ? (this.VAR_CurrentSoldier >= 700 ? (this.VAR_CurrentSoldier >= 900 ? (this.VAR_CurrentSoldier >= 1200 ? (this.VAR_CurrentSoldier >= 1600 ? (this.VAR_CurrentSoldier >= 2000 ? (this.VAR_CurrentSoldier >= 3000 ? (this.VAR_CurrentSoldier >= 4000 ? 700 : 600) : 500) : 450) : 400) : 350) : 300) : 250) : 210) : 170) : 130) : 90) : 60;
       this.VAR_IdealSoldier_BeforeMaxRecruit = this.VAR_IdealSoldier;
@@ -2069,7 +2069,7 @@ namespace WindowsApplication1
         else
           this.ai.AddLog("NO MORE CONSTRUCTION STARTS IN ZONE!");
       }
-      let mut num63: i32 =  Math.Round((double) (100 * this.VAR_CurrentSoldier) / (double) Math.Max(1, this.VAR_IdealSoldier));
+      let mut num63: i32 =  Math.Round( (100 * this.VAR_CurrentSoldier) /  Math.Max(1, this.VAR_IdealSoldier));
       let mut num64: i32 = 0;
       if (num63 < 5)
         num64 = 3;
@@ -2217,7 +2217,7 @@ namespace WindowsApplication1
             int[] numArray = itemNeed;
             let mut index8: i32 = 7;
             let mut index9: i32 = index8;
-            let mut num5: i32 = itemNeed[index8] +  Math.Round((double) num4 * 1.5);
+            let mut num5: i32 = itemNeed[index8] +  Math.Round( num4 * 1.5);
             numArray[index9] = num5;
           }
           EventRelatedClass eventRelatedObj2 = this.ai.game.EventRelatedObj;
@@ -2549,7 +2549,7 @@ namespace WindowsApplication1
               int[] numArray3 = itemMiningReserve;
               let mut index32: i32 = 2;
               let mut index33: i32 = index32;
-              let mut num31: i32 = itemMiningReserve[index32] +  Math.Round((double) hexLibVarValue5 / 20.0);
+              let mut num31: i32 = itemMiningReserve[index32] +  Math.Round( hexLibVarValue5 / 20.0);
               numArray3[index33] = num31;
             }
             let mut num32: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[stringListById2].GetData2(0, this.data.MapObj[0].HexObj[index28, index29].LandscapeType, 1, 5, 2)));
@@ -2559,7 +2559,7 @@ namespace WindowsApplication1
               int[] numArray4 = itemMiningReserve;
               let mut index34: i32 = 5;
               let mut index35: i32 = index34;
-              let mut num33: i32 = itemMiningReserve[index34] +  Math.Round((double) (30000 * num32) / 10.0);
+              let mut num33: i32 = itemMiningReserve[index34] +  Math.Round( (30000 * num32) / 10.0);
               numArray4[index35] = num33;
             }
           }
@@ -2703,12 +2703,12 @@ namespace WindowsApplication1
                   {
                     if (num11 > 6)
                     {
-                      num4 +=  Math.Round((double) Math.Max(num11 - 6, 0) / 6.0 * 100.0 * (double) Math.Max(val1, 1) * (double) num9 / 100.0);
+                      num4 +=  Math.Round( Math.Max(num11 - 6, 0) / 6.0 * 100.0 *  Math.Max(val1, 1) *  num9 / 100.0);
                       num5 += Math.Max(val1, 1);
                     }
                     else
                     {
-                      num6 +=  Math.Round((double) (100 * Math.Max(val1, 1) * num9) / 100.0);
+                      num6 +=  Math.Round( (100 * Math.Max(val1, 1) * num9) / 100.0);
                       num7 += Math.Max(val1, 1);
                     }
                   }
@@ -2718,7 +2718,7 @@ namespace WindowsApplication1
             int num12;
             if (num7 > 0)
             {
-              num12 =  Math.Round((double) (num4 * 200) / (double) num6);
+              num12 =  Math.Round( (num4 * 200) /  num6);
               if (num12 > 100)
                 num12 = 100;
             }
@@ -2738,28 +2738,28 @@ namespace WindowsApplication1
             let mut num13: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num3, 1, "worker", 2))) +  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, num3, 1, "pop", 2)));
             let mut num14: i32 = 0;
             if (num13 > 500)
-              num13 = 500 +  Math.Round(Math.Pow((double) (num13 - 500), 0.85));
+              num13 = 500 +  Math.Round(Math.Pow( (num13 - 500), 0.85));
             if (tdata4 > 1000)
             {
-              num13 =  Math.Round((double) num13 * 2.5);
+              num13 =  Math.Round( num13 * 2.5);
               num12 += 3;
             }
             else if (tdata4 > 800)
             {
-              num13 =  Math.Round((double) num13 * 1.7);
+              num13 =  Math.Round( num13 * 1.7);
               num12 += 2;
             }
             else if (tdata4 > 600)
             {
-              num13 =  Math.Round((double) num13 * 1.3);
+              num13 =  Math.Round( num13 * 1.3);
               num12 += 1;
             }
             else if (tdata4 > 400)
-              num13 =  Math.Round((double) num13 * 1.1);
+              num13 =  Math.Round( num13 * 1.1);
             else if (tdata4 <= 200)
               ;
             data2: String = this.data.StringListObj[this.slotZones].GetData(0, num3, 7);
-            let mut tweight: i32 =  Math.Round((double) (num13 * num12) / 100.0);
+            let mut tweight: i32 =  Math.Round( (num13 * num12) / 100.0);
             this.ai.AddLog(data2 + " has admin strain " + num12.ToString() + " ... workers+pop=" + (num13 + num14).ToString() + " .... index = " + tweight.ToString());
             this.zoneList.Add(num3, tweight, tdata1, tdata2, tdata3, tdata4);
           }
@@ -2810,23 +2810,23 @@ namespace WindowsApplication1
               let mut index7: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotAssets].Data[i, 4]));
               let mut tweight: i32 = DrawMod.TGame.HandyFunctionsObj.Distance(index6, index7, 0, this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y, 0, 99);
               if (aiMatrix2.Value[index6, index7] == 2)
-                tweight =  Math.Round((double) tweight * 0.3);
+                tweight =  Math.Round( tweight * 0.3);
               else if (aiMatrix2.Value[index6, index7] == 3)
-                tweight =  Math.Round((double) tweight * 0.5);
+                tweight =  Math.Round( tweight * 0.5);
               else if (aiMatrix2.Value[index6, index7] == 4)
-                tweight =  Math.Round((double) tweight * 0.7);
+                tweight =  Math.Round( tweight * 0.7);
               else if (aiMatrix2.Value[index6, index7] == 5)
-                tweight =  Math.Round((double) tweight * 0.8);
+                tweight =  Math.Round( tweight * 0.8);
               else if (aiMatrix2.Value[index6, index7] == 6)
-                tweight =  Math.Round((double) tweight * 0.92);
+                tweight =  Math.Round( tweight * 0.92);
               if (this.zoneList.Data4[index3] > 800)
                 tweight *= 2;
               else if (this.zoneList.Data4[index3] > 600)
-                tweight =  Math.Round((double) tweight * 1.7);
+                tweight =  Math.Round( tweight * 1.7);
               else if (this.zoneList.Data4[index3] > 400)
-                tweight =  Math.Round((double) tweight * 1.4);
+                tweight =  Math.Round( tweight * 1.4);
               else if (this.zoneList.Data4[index3] > 200)
-                tweight =  Math.Round((double) tweight * 1.25);
+                tweight =  Math.Round( tweight * 1.25);
               if (aiMatrix1.Value[index6, index7] > 0)
                 tweight = 0;
               if (num < 1 & tweight > 0)
@@ -2849,7 +2849,7 @@ namespace WindowsApplication1
                 flag1 = true;
                 let mut hexLibVarValue: i32 = this.data.MapObj[0].HexObj[index8, index9].GetHexLibVarValue(libVar);
                 let mut num16: i32 = idValue;
-                let mut num17: i32 =  Math.Round(Math.Floor((double) (num15 + 4) / 2.0));
+                let mut num17: i32 =  Math.Round(Math.Floor( (num15 + 4) / 2.0));
                 bool[,] flagArray = new bool[this.data.MapObj[0].MapWidth + 1, this.data.MapObj[0].MapHeight + 1];
                 bool flag3 = true;
                 while (flag3)
@@ -2932,7 +2932,7 @@ namespace WindowsApplication1
                           let mut x2: i32 = this.zoneList.Data1[nr];
                           let mut y2: i32 = this.zoneList.Data2[nr];
                           let mut num: i32 = DrawMod.TGame.HandyFunctionsObj.Distance(coordinate.x, coordinate.y, 0, this.data.LocObj[locationById].X, this.data.LocObj[locationById].Y, 0, 99);
-                          if ((double) DrawMod.TGame.HandyFunctionsObj.Distance(coordinate.x, coordinate.y, 0, x2, y2, 0, 99) > Math.Ceiling((double) num * 1.33) + 1.0)
+                          if ( DrawMod.TGame.HandyFunctionsObj.Distance(coordinate.x, coordinate.y, 0, x2, y2, 0, 99) > Math.Ceiling( num * 1.33) + 1.0)
                           {
                             DrawMod.TGame.HandyFunctionsObj.UnitCausesHexOwnershipChange(this.data.Turn, coordinate.x, coordinate.y, index13, index14, true);
                             flagArray[coordinate.x, coordinate.y] = true;
@@ -3008,7 +3008,7 @@ namespace WindowsApplication1
         else if (num5 > 100)
           num4 = 0.75f;
       }
-      let mut num6: i32 =  Math.Round((double) ((float) num1 * num4)) - this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7);
+      let mut num6: i32 =  Math.Round( ( num1 * num4)) - this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7);
       let mut idValue2: i32 = this.zoneList.Id[0];
       Item index1 = Item.Food;
       let mut num7: i32 = 0;
@@ -3025,13 +3025,13 @@ namespace WindowsApplication1
           let mut num9: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue3, 1,  index1, 4)));
           data = this.data.StringListObj[this.slotItemType].GetData(0,  index1, 1);
           let mut num10: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraders].GetData(0, idValue3, 1)));
-          let mut num11: i32 =  Math.Round(Math.Ceiling((double) (num9 * tweight) / 100.0));
+          let mut num11: i32 =  Math.Round(Math.Ceiling( (num9 * tweight) / 100.0));
           this.ai.AddLog("Is missing" + tweight.ToString() + "x " + this.itemName[ index1] + ". Price is at " + num9.ToString() + " => total cost: " + num11.ToString() + " credits.");
           flagArray[ index1] = true;
           if (num11 > setValue1)
           {
-            tweight =  Math.Round(Math.Floor((double) tweight * ((double) setValue1 / (double) num11))) - 1;
-            num11 =  Math.Round(Math.Ceiling((double) (num9 * tweight) / 100.0));
+            tweight =  Math.Round(Math.Floor( tweight * ( setValue1 /  num11))) - 1;
+            num11 =  Math.Round(Math.Ceiling( (num9 * tweight) / 100.0));
           }
           if (num11 <= setValue1 & tweight > 0)
           {
@@ -3058,7 +3058,7 @@ namespace WindowsApplication1
         let mut num14: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue1, 1, 5, 4)));
         num13 = num14 >= 15 ? (num14 >= 30 ? (num14 >= 60 ? (num14 <= 90 ? (num14 <= 150 ? (num14 <= 300 ? (num14 <= 500 ? 0.1f : 0.25f) : 0.4f) : 0.6f) : 0.8f) : 1f) : 1.5f) : 2f;
       }
-      let mut num15: i32 =  Math.Round((double) ((float) num12 * num13)) -  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(5) / 2.0);
+      let mut num15: i32 =  Math.Round( ( num12 * num13)) -  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(5) / 2.0);
       if (num15 > 0)
       {
         let mut tweight: i32 = num15;
@@ -3071,13 +3071,13 @@ namespace WindowsApplication1
           let mut num17: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue4, 1,  index2, 4)));
           data = this.data.StringListObj[this.slotItemType].GetData(0,  index2, 1);
           let mut num18: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraders].GetData(0, idValue4, 1)));
-          let mut num19: i32 =  Math.Round(Math.Ceiling((double) (num17 * tweight) / 100.0));
+          let mut num19: i32 =  Math.Round(Math.Ceiling( (num17 * tweight) / 100.0));
           this.ai.AddLog("Is missing" + tweight.ToString() + "x " + this.itemName[ index2] + ". Price is at " + num17.ToString() + " => total cost: " + num19.ToString() + " credits.");
           flagArray[ index2] = true;
           if (num19 > setValue1)
           {
-            tweight =  Math.Round(Math.Floor((double) tweight * ((double) setValue1 / (double) num19))) - 1;
-            num19 =  Math.Round(Math.Ceiling((double) (num17 * tweight) / 100.0));
+            tweight =  Math.Round(Math.Floor( tweight * ( setValue1 /  num19))) - 1;
+            num19 =  Math.Round(Math.Ceiling( (num17 * tweight) / 100.0));
           }
           if (num19 <= setValue1 & tweight > 0)
           {
@@ -3104,7 +3104,7 @@ namespace WindowsApplication1
         let mut num22: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue1, 1, 1, 4)));
         num21 = num22 >= 15 ? (num22 >= 30 ? (num22 >= 60 ? (num22 <= 90 ? (num22 <= 150 ? (num22 <= 300 ? (num22 <= 500 ? 0.02f : 0.1f) : 0.2f) : 0.4f) : 0.6f) : 1f) : 1.5f) : 2f;
       }
-      let mut num23: i32 =  Math.Round((double) ((float) num20 * num21)) -  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(1) / 2.0);
+      let mut num23: i32 =  Math.Round( ( num20 * num21)) -  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(1) / 2.0);
       if (num23 > 0)
       {
         let mut tweight: i32 = num23;
@@ -3117,13 +3117,13 @@ namespace WindowsApplication1
           let mut num25: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue5, 1,  index3, 4)));
           data = this.data.StringListObj[this.slotItemType].GetData(0,  index3, 1);
           let mut num26: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraders].GetData(0, idValue5, 1)));
-          let mut num27: i32 =  Math.Round(Math.Ceiling((double) (num25 * tweight) / 100.0));
+          let mut num27: i32 =  Math.Round(Math.Ceiling( (num25 * tweight) / 100.0));
           this.ai.AddLog("Is missing" + tweight.ToString() + "x " + this.itemName[ index3] + ". Price is at " + num25.ToString() + " => total cost: " + num27.ToString() + " credits.");
           flagArray[ index3] = true;
           if (num27 > setValue1)
           {
-            tweight =  Math.Round(Math.Floor((double) tweight * ((double) setValue1 / (double) num27))) - 1;
-            num27 =  Math.Round(Math.Ceiling((double) (num25 * tweight) / 100.0));
+            tweight =  Math.Round(Math.Floor( tweight * ( setValue1 /  num27))) - 1;
+            num27 =  Math.Round(Math.Ceiling( (num25 * tweight) / 100.0));
           }
           if (num27 <= setValue1 & tweight > 0)
           {
@@ -3179,14 +3179,14 @@ namespace WindowsApplication1
                 let mut num36: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotAssetTypes].GetData(0, this.poolPreferedAssetType[index6], 13)));
                 if (num36 > 0)
                 {
-                  num29 =  Math.Round((double)  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(this.poolRequest[index6].Id[index7]) * ((double) this.poolImportance[index6] / (double) num30)) / (double) num36);
+                  num29 =  Math.Round(  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(this.poolRequest[index6].Id[index7]) * ( this.poolImportance[index6] /  num30)) /  num36);
                   if (this.poolRequest[index6].Weight[index7] > num29)
                     flag = true;
                 }
               }
               else if (this.poolPreferedOob[index6] > 0)
               {
-                num29 =  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(this.poolRequest[index6].Id[index7]) * ((double) this.poolImportance[index6] / (double) num30));
+                num29 =  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(this.poolRequest[index6].Id[index7]) * ( this.poolImportance[index6] /  num30));
                 if (this.poolRequest[index6].Weight[index7] > num29)
                   flag = true;
               }
@@ -3201,7 +3201,7 @@ namespace WindowsApplication1
                 Item index8 = (Item) this.poolRequest[index6].Id[index7];
                 let mut tweight1: i32 = num37;
                 let mut idValue7: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderZones].GetData(0, idValue6, 1)));
-                let mut num38: i32 =  Math.Round((double)  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue7, 1,  index8, 3))) * 0.25);
+                let mut num38: i32 =  Math.Round(  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue7, 1,  index8, 3))) * 0.25);
                 let mut val1: i32 = tweight1;
                 if (num38 < tweight1)
                   tweight1 = num38;
@@ -3210,7 +3210,7 @@ namespace WindowsApplication1
                   let mut num39: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue7, 1,  index8, 4)));
                   data = this.data.StringListObj[this.slotItemType].GetData(0,  index8, 1);
                   let mut num40: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraders].GetData(0, idValue7, 1)));
-                  let mut num41: i32 =  Math.Round(Math.Ceiling((double) (num39 * tweight1) / 100.0));
+                  let mut num41: i32 =  Math.Round(Math.Ceiling( (num39 * tweight1) / 100.0));
                   this.ai.AddLog("Is missing" + tweight1.ToString() + "x " + this.itemName[ index8] + ". Price is at " + num39.ToString() + " => total cost: " + num41.ToString() + " credits.");
                   if (num41 <= setValue1)
                   {
@@ -3241,9 +3241,9 @@ namespace WindowsApplication1
                     num42 = 0;
                   if (num43 < 0)
                     num43 = 0;
-                  let mut num44: i32 =  Math.Round((double) num42 / 2.0);
-                  let mut num45: i32 =  Math.Round((double) num43 / 2.0);
-                  let mut val2: i32 =  Math.Round(Math.Floor((double) Math.Min( Math.Round((double) num44 * ((double) this.poolImportance[index6] / (double) num30)),  Math.Round((double) num45 * ((double) this.poolImportance[index6] / (double) num30))) / 20.0));
+                  let mut num44: i32 =  Math.Round( num42 / 2.0);
+                  let mut num45: i32 =  Math.Round( num43 / 2.0);
+                  let mut val2: i32 =  Math.Round(Math.Floor( Math.Min( Math.Round( num44 * ( this.poolImportance[index6] /  num30)),  Math.Round( num45 * ( this.poolImportance[index6] /  num30))) / 20.0));
                   let mut tweight2: i32 = Math.Min(val1, val2);
                   if (tweight2 > 0)
                   {
@@ -3283,14 +3283,14 @@ namespace WindowsApplication1
             SimpleList assetConstruction = this.GetItemsForAssetConstruction(num46);
             let mut counter: i32 = assetConstruction.Counter;
             for (let mut index10: i32 = 0; index10 <= counter; index10 += 1)
-              assetConstruction.Weight[index10] =  Math.Round(Math.Ceiling((double) (assetConstruction.Weight[index10] * num50) / 100.0));
+              assetConstruction.Weight[index10] =  Math.Round(Math.Ceiling( (assetConstruction.Weight[index10] * num50) / 100.0));
             simpleList.AddWeight( assetConstruction);
           }
         }
       }
       let mut num51: i32 = this.itemNeed[5];
       let mut num52: i32 = this.itemNeed[1];
-      let mut num53: i32 =  Math.Round((double) this.itemNeed[7] * 1.5);
+      let mut num53: i32 =  Math.Round( this.itemNeed[7] * 1.5);
       let mut itemcounter: i32 = this.itemcounter;
       for (let mut tid: i32 = 1; tid <= itemcounter; tid += 1)
       {
@@ -3298,7 +3298,7 @@ namespace WindowsApplication1
         let mut num54: i32 = 0;
         let mut poolCounter3: i32 = this.poolCounter;
         for (let mut index11: i32 = 1; index11 <= poolCounter3; index11 += 1)
-          num54 = num54 +  Math.Round((double) this.poolItems[index11].FindWeight(tid) * 1.25) +  Math.Round((double) this.poolRequest[index11].FindWeight(tid) * 1.25);
+          num54 = num54 +  Math.Round( this.poolItems[index11].FindWeight(tid) * 1.25) +  Math.Round( this.poolRequest[index11].FindWeight(tid) * 1.25);
         Item index12 = (Item) tid;
         let mut num55: i32 = weight - num54 - simpleList.FindWeight(tid);
         if (index12 == Item.Food & num53 > 0)
@@ -3311,7 +3311,7 @@ namespace WindowsApplication1
           num55 = 0;
         if (num55 > 0)
         {
-          let mut tweight: i32 =  Math.Round((double) num55 / 2.0);
+          let mut tweight: i32 =  Math.Round( num55 / 2.0);
           num32 = 0;
           num33 = 0;
           num34 = 0;
@@ -3323,7 +3323,7 @@ namespace WindowsApplication1
           data = this.data.StringListObj[this.slotItemType].GetData(0,  index13, 1);
           let mut num57: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraders].GetData(0, idValue9, 1)));
           let mut num58: i32 = ( Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue9, 1,  index13, 5))) -  Math.Round(Conversion.Val(this.data.StringListObj[this.slotTraderItems].GetData2(0, idValue9, 1,  index13, 3)))) * 1;
-          let mut num59: i32 =  Math.Round(Math.Floor((double) num57 / 4.0 / ((double) num56 / 100.0)));
+          let mut num59: i32 =  Math.Round(Math.Floor( num57 / 4.0 / ( num56 / 100.0)));
           if (num59 < num58)
             num58 = num59;
           if (tweight > num58)
@@ -3333,7 +3333,7 @@ namespace WindowsApplication1
             let mut setValue10: i32 = num58 + tweight;
             this.data.StringListObj[this.slotTraderItems].SetData2(0, idValue9, 1,  index13, 3, setValue10);
             this.data.UnitObj[this.shqUnitNr].items.list.RemoveWeight( index13, tweight);
-            let mut num60: i32 =  Math.Round(Math.Ceiling((double) (num56 * tweight) / 100.0));
+            let mut num60: i32 =  Math.Round(Math.Ceiling( (num56 * tweight) / 100.0));
             setValue1 += num60;
             let mut setValue11: i32 = num57 - num60;
             this.data.StringListObj[this.slotTraders].SetData(0, idValue9, 1, setValue11);
@@ -3378,7 +3378,7 @@ namespace WindowsApplication1
           num2 = this.poolImportance[index];
         num3 += this.poolImportance[index];
       }
-      let mut num5: i32 =  Math.Round((double) num3 / (double) num1);
+      let mut num5: i32 =  Math.Round( num3 /  num1);
       bool[] flagArray1 = new bool[100];
       bool[] flagArray2 = new bool[100];
       if (this.poolConstrBlocked[1])
@@ -3463,7 +3463,7 @@ namespace WindowsApplication1
       let mut itemcounter: i32 = this.itemcounter;
       for (let mut tid: i32 = 0; tid <= itemcounter; tid += 1)
       {
-        if (flagArray1[tid] | (double) (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(tid) * 3) < Math.Min((double) (this.itemNeed[tid] + 200), (double) this.itemNeed[tid] * 1.1) | Math.Min((double) (this.itemNeed[tid] + 200), (double) this.itemNeed[tid] * 1.1) > (double) this.itemProduction[tid] && tid == 7)
+        if (flagArray1[tid] |  (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(tid) * 3) < Math.Min( (this.itemNeed[tid] + 200),  this.itemNeed[tid] * 1.1) | Math.Min( (this.itemNeed[tid] + 200),  this.itemNeed[tid] * 1.1) >  this.itemProduction[tid] && tid == 7)
         {
           flag2 = true;
           flagArray3[tid] = true;
@@ -3522,7 +3522,7 @@ namespace WindowsApplication1
       }
       if (num7 > 0)
       {
-        num6 =  Math.Round((double) num6 / (double) num7);
+        num6 =  Math.Round( num6 /  num7);
         if (num6 >= 80)
           ;
       }
@@ -3659,7 +3659,7 @@ namespace WindowsApplication1
                       let mut num40: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotProdCost].Data[index13, 2]));
                       let mut index14: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotProdCost].Data[index13, 3]));
                       let mut num41: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotProdCost].Data[index13, 4]));
-                      if (num40 == 2 && index14 > 0 && this.itemNeed[index14] +  Math.Round(Math.Min((double) (num41 + 200), (double) num41 * 1.1)) > this.itemProduction[index14])
+                      if (num40 == 2 && index14 > 0 && this.itemNeed[index14] +  Math.Round(Math.Min( (num41 + 200),  num41 * 1.1)) > this.itemProduction[index14])
                         flag6 = false;
                     }
                   }
@@ -3684,11 +3684,11 @@ namespace WindowsApplication1
         this.ai.AddLog("Problems constructing a VITAL asset.");
         let mut num42: i32 = 1;
         if (this.VAR_WorkerShortage > 400)
-          num42 =  Math.Round((double) (100 - num6) / 10.0) + 1;
+          num42 =  Math.Round( (100 - num6) / 10.0) + 1;
         else if (this.VAR_WorkerShortage > 200)
-          num42 =  Math.Round((double) (100 - num6) / 20.0) + 1;
+          num42 =  Math.Round( (100 - num6) / 20.0) + 1;
         else if (this.VAR_WorkerShortage > 100)
-          num42 =  Math.Round((double) (100 - num6) / 30.0) + 1;
+          num42 =  Math.Round( (100 - num6) / 30.0) + 1;
         else if (this.VAR_WorkerShortage > 50)
           num42 = 1;
         bool flag7 = false;
@@ -3783,7 +3783,7 @@ namespace WindowsApplication1
                       let mut num58: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotAssetTypes].GetData(0, idValue, 2)));
                       if (!flag10)
                         num58 *= 10;
-                      let mut tweight: i32 =  Math.Round((double) (num58 * 100) / (double) num55);
+                      let mut tweight: i32 =  Math.Round( (num58 * 100) /  num55);
                       simpleList1.Add(length10, tweight);
                     }
                   }
@@ -3845,8 +3845,8 @@ namespace WindowsApplication1
                     {
                       let mut num66: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotAssetTypes].GetData(0, idValue, 2))) * 100;
                       if (flag12)
-                        num66 =  Math.Round((double) num66 / 3.0);
-                      let mut tweight: i32 =  Math.Round((double) num66 / (double) num63);
+                        num66 =  Math.Round( num66 / 3.0);
+                      let mut tweight: i32 =  Math.Round( num66 /  num63);
                       if (flag11)
                         tweight *= 2;
                       simpleList2.Add(length12, tweight);
@@ -3913,8 +3913,8 @@ namespace WindowsApplication1
                       {
                         let mut num74: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotAssetTypes].GetData(0, idValue, 2))) * 100;
                         if (flag14)
-                          num74 =  Math.Round((double) num74 / 3.0);
-                        let mut tweight: i32 =  Math.Round((double) num74 / (double) num71);
+                          num74 =  Math.Round( num74 / 3.0);
+                        let mut tweight: i32 =  Math.Round( num74 /  num71);
                         if (flag13)
                           tweight *= 2;
                         simpleList3.Add(length14, tweight);
@@ -4048,7 +4048,7 @@ namespace WindowsApplication1
       let mut itemcounter: i32 = this.itemcounter;
       for (let mut tid: i32 = 0; tid <= itemcounter; tid += 1)
       {
-        if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(tid) < this.itemNeed[tid] &&  Math.Round((double) this.itemNeed[tid] * 1.5) > this.itemProduction[tid] && tid == 7)
+        if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(tid) < this.itemNeed[tid] &&  Math.Round( this.itemNeed[tid] * 1.5) > this.itemProduction[tid] && tid == 7)
         {
           flag1 = true;
           flagArray[tid] = true;
@@ -4235,7 +4235,7 @@ namespace WindowsApplication1
         let mut counter: i32 = simpleList.Counter;
         for (let mut index: i32 = 0; index <= counter; index += 1)
         {
-          let mut tweight: i32 =  Math.Round((double) this.newItems.FindWeight(simpleList.Id[index]) / 2.0) + 1;
+          let mut tweight: i32 =  Math.Round( this.newItems.FindWeight(simpleList.Id[index]) / 2.0) + 1;
           simpleList.RemoveWeight(simpleList.Id[index], tweight);
         }
         if (assetConstruction > 20)
@@ -4395,7 +4395,7 @@ namespace WindowsApplication1
       if (simpleList1.Counter > 1)
       {
         simpleList1.Sort();
-        num7 = simpleList1.Weight[ Math.Round(Math.Floor((double) simpleList1.Counter / 2.0))];
+        num7 = simpleList1.Weight[ Math.Round(Math.Floor( simpleList1.Counter / 2.0))];
       }
       let mut num8: i32 = 0;
       SimpleList simpleList2 = SimpleList::new();
@@ -4406,7 +4406,7 @@ namespace WindowsApplication1
         let mut counter: i32 = this.poolRequest[tid].Counter;
         for (let mut index: i32 = 0; index <= counter; index += 1)
         {
-          let mut num10: i32 =  Math.Round((double) (this.poolItems[tid].FindWeight(this.poolRequest[tid].Id[index]) * 100) / (double) this.poolRequest[tid].Weight[index]);
+          let mut num10: i32 =  Math.Round( (this.poolItems[tid].FindWeight(this.poolRequest[tid].Id[index]) * 100) /  this.poolRequest[tid].Weight[index]);
           if (num9 > num10)
             num9 = num10;
         }
@@ -4415,7 +4415,7 @@ namespace WindowsApplication1
         simpleList2.Add(tid, this.poolImportance[tid]);
       }
       simpleList2.ReverseSort();
-      let mut num11: i32 =  Math.Round((double) num2 / (double) num8);
+      let mut num11: i32 =  Math.Round( num2 /  num8);
       bool[] flagArray = new bool[this.poolCounter + 1];
       SimpleList simpleList3 = SimpleList::new();
       let mut unitCounter1: i32 = this.data.UnitCounter;
@@ -4457,7 +4457,7 @@ namespace WindowsApplication1
             simpleList5.RemoveNr(counter);
         }
       }
-      if (Information.IsNothing((object) simpleList5))
+      if (Information.IsNothing( simpleList5))
         simpleList5 = SimpleList::new();
       if (simpleList5.Counter > -1)
       {
@@ -4494,7 +4494,7 @@ namespace WindowsApplication1
             if (weight2 > num16)
               num13 += weight2 - num16;
           }
-          if ( Math.Round((double) (num12 * 100) / (double) (num14 + 1)) >  Math.Round((double) (num13 * 133) / (double) (num15 + 1)))
+          if ( Math.Round( (num12 * 100) /  (num14 + 1)) >  Math.Round( (num13 * 133) /  (num15 + 1)))
             simpleList5 = sftypesForReinfList.Clone();
         }
       }
@@ -4552,7 +4552,7 @@ namespace WindowsApplication1
                   num19 -= this.poolItems[7].FindWeight(simpleList11.Id[index5]);
                   num19 -= this.poolItems[9].FindWeight(simpleList11.Id[index5]);
                   num19 -= this.poolItems[8].FindWeight(simpleList11.Id[index5]);
-                  num19 =  Math.Round((double) num19 / (double) Math.Max(1, num21 * 1));
+                  num19 =  Math.Round( num19 /  Math.Max(1, num21 * 1));
                   let mut num23: i32 = num18 + num19;
                   this.ai.AddLog(this.poolName[index2] + " current new + stock " + this.itemName[simpleList11.Id[index5]] + ": new." + num18.ToString() + "+ shq/t." + num19.ToString() + " = " + num23.ToString() + " >= constr cost per turn: " + simpleList11.Weight[index5].ToString());
                   if (num23 < simpleList11.Weight[index5])
@@ -4565,7 +4565,7 @@ namespace WindowsApplication1
                   }
                   num18 = this.poolItems[index2].FindWeight(simpleList11.Id[index5]);
                   let mut num24: i32 = num19;
-                  num19 =  Math.Round((double) num18 / (double) num21);
+                  num19 =  Math.Round( num18 /  num21);
                   if (simpleList11.Id[index5] == 2)
                     num19 = num24 * 2;
                   if (simpleList11.Id[index5] == 8)
@@ -4577,9 +4577,9 @@ namespace WindowsApplication1
                   if (flag4 & this.poolImportance[index2] >= num6)
                   {
                     if (index2 == 1 | index2 == 6)
-                      num19 +=  Math.Round((double) (num19 * num8) / 3.0);
+                      num19 +=  Math.Round( (num19 * num8) / 3.0);
                     else
-                      num19 +=  Math.Round((double) (num19 * num8) / 6.0);
+                      num19 +=  Math.Round( (num19 * num8) / 6.0);
                   }
                   this.ai.AddLog(this.poolName[index2] + " pool reserve " + this.itemName[simpleList11.Id[index5]] + ":  res/t." + num19.ToString() + " >= constr cost per turn: " + simpleList11.Weight[index5].ToString());
                   if (num19 < simpleList11.Weight[index5])
@@ -4587,32 +4587,32 @@ namespace WindowsApplication1
                     flag4 = false;
                     if (this.poolImportance[index2] > num7)
                     {
-                      if (index2 == 1 & (double) this.poolImportance[index2] * 0.66 > (double) this.poolImportance[2] & !flag5)
+                      if (index2 == 1 &  this.poolImportance[index2] * 0.66 >  this.poolImportance[2] & !flag5)
                       {
                         this.poolImportance[2] = 0;
                         this.ai.AddLog("Food is VITAL. Set METAL pool to 0 importance.");
                       }
-                      if (index2 == 1 & (double) this.poolImportance[index2] * 0.5 > (double) this.poolImportance[6])
+                      if (index2 == 1 &  this.poolImportance[index2] * 0.5 >  this.poolImportance[6])
                       {
                         this.poolImportance[6] = 0;
                         this.ai.AddLog("Food is VITAL. Set WATER pool to 0 importance.");
                       }
-                      if (index2 == 1 & (double) this.poolImportance[index2] * 0.75 > (double) this.poolImportance[3] & !flag6)
+                      if (index2 == 1 &  this.poolImportance[index2] * 0.75 >  this.poolImportance[3] & !flag6)
                       {
                         this.poolImportance[3] = 0;
                         this.ai.AddLog("Food is VITAL. Set IP pool to 0 importance.");
                       }
-                      if (index2 == 1 & (double) this.poolImportance[index2] * 0.85 > (double) this.poolImportance[4])
+                      if (index2 == 1 &  this.poolImportance[index2] * 0.85 >  this.poolImportance[4])
                       {
                         this.poolImportance[4] = 0;
                         this.ai.AddLog("Food is VITAL. Set OIL pool to 0 importance.");
                       }
-                      if (index2 == 1 & (double) this.poolImportance[index2] * 0.55 > (double) this.poolImportance[7])
+                      if (index2 == 1 &  this.poolImportance[index2] * 0.55 >  this.poolImportance[7])
                       {
                         this.poolImportance[7] = 0;
                         this.ai.AddLog("Food is VITAL. Set OOB pool to 0 importance.");
                       }
-                      if (index2 == 1 & (double) this.poolImportance[index2] * 0.45 > (double) this.poolImportance[9])
+                      if (index2 == 1 &  this.poolImportance[index2] * 0.45 >  this.poolImportance[9])
                       {
                         this.poolImportance[9] = 0;
                         this.ai.AddLog("Food is VITAL. Set REPL pool to 0 importance.");
@@ -4632,15 +4632,15 @@ namespace WindowsApplication1
                     {
                       flag4 = false;
                       this.poolConstrBlocked[index2] = true;
-                      if ((double) this.poolImportance[index2] > (double) num3 * 0.66)
+                      if ( this.poolImportance[index2] >  num3 * 0.66)
                         flag2 = true;
                     }
                   }
-                  else if (this.VAR_FreeWorkerReserve + Math.Max(0,  Math.Round((double) (this.VAR_IdealWorker - this.VAR_CurrentWorker) / 2.0)) < tdata1)
+                  else if (this.VAR_FreeWorkerReserve + Math.Max(0,  Math.Round( (this.VAR_IdealWorker - this.VAR_CurrentWorker) / 2.0)) < tdata1)
                   {
                     flag4 = false;
                     this.poolConstrBlocked[index2] = true;
-                    if ((double) this.poolImportance[index2] > (double) num3 * 0.9)
+                    if ( this.poolImportance[index2] >  num3 * 0.9)
                       flag2 = true;
                   }
                 }
@@ -4682,7 +4682,7 @@ namespace WindowsApplication1
               this.ai.AddLog(this.poolName[index2] + " has " + this.itemName[simpleList13.Id[index6]] + ": pool." + num18.ToString() + " and shq." + num19.ToString() + " >=? restore Unit cost " + simpleList13.Weight[index6].ToString());
               if (this.poolImportance[index2] >= num4)
               {
-                if (num18 <  Math.Round((double) simpleList13.Weight[index6] * 0.66) | num19 < simpleList13.Weight[index6])
+                if (num18 <  Math.Round( simpleList13.Weight[index6] * 0.66) | num19 < simpleList13.Weight[index6])
                   flag7 = false;
               }
               else if (num18 < simpleList13.Weight[index6] | num19 < simpleList13.Weight[index6])
@@ -4715,7 +4715,7 @@ namespace WindowsApplication1
               this.ai.AddLog(this.poolName[index2] + " has " + this.itemName[simpleList15.Id[index7]] + ": pool." + num18.ToString() + " and shq." + num19.ToString() + " >=? raise OOB cost " + simpleList15.Weight[index7].ToString());
               if (this.poolImportance[index2] >= num4)
               {
-                if (num18 <  Math.Round((double) simpleList15.Weight[index7] * 0.66) | num19 < simpleList15.Weight[index7])
+                if (num18 <  Math.Round( simpleList15.Weight[index7] * 0.66) | num19 < simpleList15.Weight[index7])
                   flag8 = false;
               }
               else if (num18 < simpleList15.Weight[index7] | num19 < simpleList15.Weight[index7])
@@ -4757,7 +4757,7 @@ namespace WindowsApplication1
                   this.ai.AddLog(this.poolName[index2] + " has " + this.itemName[simpleList17.Id[index8]] + ": pool." + num18.ToString() + " and shq." + num19.ToString() + " >=? raise OOB cost " + simpleList17.Weight[index8].ToString());
                   if (this.poolImportance[index2] >= num4)
                   {
-                    if (num18 <  Math.Round((double) simpleList17.Weight[index8] / 2.0) | num19 < simpleList17.Weight[index8])
+                    if (num18 <  Math.Round( simpleList17.Weight[index8] / 2.0) | num19 < simpleList17.Weight[index8])
                       flag9 = false;
                   }
                   else if (num18 < simpleList17.Weight[index8] | num19 < simpleList17.Weight[index8])
@@ -4791,7 +4791,7 @@ namespace WindowsApplication1
               {
                 num18 = this.newItems.FindWeight(simpleList18.Id[index9]);
                 num19 = this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(simpleList18.Id[index9]);
-                num19 =  Math.Round((double) (num19 * this.poolImportance[index2]) / (double) num2);
+                num19 =  Math.Round( (num19 * this.poolImportance[index2]) /  num2);
                 let mut num25: i32 = num18 + num19;
                 this.ai.AddLog(this.poolName[index2] + " current new + stock " + this.itemName[simpleList18.Id[index9]] + ": " + num18.ToString() + "+" + num19.ToString() + " = " + num25.ToString() + " >=? Get " + tweight.ToString() + " Ammo Cost: " + simpleList18.Weight[index9].ToString());
               }
@@ -5673,9 +5673,9 @@ namespace WindowsApplication1
           num18 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, idValue, 1, "pop", 2)));
           num19 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, idValue, 1, "worker", 2)));
           let mut num46: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotZoneKeys].GetData2(0, idValue, 1, "freefolk", 2)));
-          let mut num47: i32 =  Math.Round((double) num46 / 15.0);
+          let mut num47: i32 =  Math.Round( num46 / 15.0);
           let mut setValue: i32 = num46 - num47;
-          num19 += Math.Min( Math.Round((double) num18 / 10.0), 10);
+          num19 += Math.Min( Math.Round( num18 / 10.0), 10);
           num19 += num47;
           this.data.StringListObj[this.slotZoneKeys].SetData2(0, idValue, 1, "worker", 2, num19);
           this.data.StringListObj[this.slotZoneKeys].SetData2(0, idValue, 1, "freefolk", 2, setValue);
@@ -5817,7 +5817,7 @@ namespace WindowsApplication1
               tweight1 = this.VAR_UnitsIdealAmmo * 2 - this.VAR_UnitsCurrentAmmo;
               if (tweight1 > 0)
               {
-                tweight1 =  Math.Round((double) tweight1 / 10.0);
+                tweight1 =  Math.Round( tweight1 / 10.0);
                 simpleList1.AddWeight(2, tweight1);
                 simpleList1.AddWeight(8, tweight1);
                 break;
@@ -5889,14 +5889,14 @@ namespace WindowsApplication1
           }
           if (weight > 0)
           {
-            if ((double) this.itemNeed[tid] < (double) weight / 8.0 & weight >= num)
+            if ( this.itemNeed[tid] <  weight / 8.0 & weight >= num)
             {
               this.poolImportance[tweight1] = 0;
               this.ai.AddLog(this.poolName[tweight1] + " set to 0 importance due to excess storage ");
             }
-            else if ((double) this.itemNeed[2] < (double) weight / 4.0 & weight >= num)
+            else if ( this.itemNeed[2] <  weight / 4.0 & weight >= num)
             {
-              this.poolImportance[tweight1] =  Math.Round((double) this.poolImportance[tweight1] / 4.0);
+              this.poolImportance[tweight1] =  Math.Round( this.poolImportance[tweight1] / 4.0);
               this.ai.AddLog(this.poolName[tweight1] + " divided by 4 importance due to excess storage ");
             }
           }
@@ -5963,7 +5963,7 @@ namespace WindowsApplication1
               let mut weight4: i32 = simpleList7.FindWeight(index10);
               if (weight4 > 0)
               {
-                let mut setValue1: i32 =  Math.Round(Math.Floor((double) weight3 * ((double) weight4 / (double) num)));
+                let mut setValue1: i32 =  Math.Round(Math.Floor( weight3 * ( weight4 /  num)));
                 this.ai.AddLog(this.poolName[index10] + " received new items " + setValue1.ToString() + " " + this.itemName[index7] + ".");
                 let mut setValue2: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotPoolItems].GetData4(0, this.shqHisId, 1, index10, 2, 1, 3, index7, 4))) + setValue1;
                 let mut weight5: i32 = this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(index7);
@@ -5996,7 +5996,7 @@ namespace WindowsApplication1
             SimpleList assetConstruction = this.GetItemsForAssetConstruction(num16);
             let mut counter4: i32 = assetConstruction.Counter;
             for (let mut index12: i32 = 0; index12 <= counter4; index12 += 1)
-              assetConstruction.Weight[index12] =  Math.Round(Math.Ceiling((double) (assetConstruction.Weight[index12] * num20) / 100.0));
+              assetConstruction.Weight[index12] =  Math.Round(Math.Ceiling( (assetConstruction.Weight[index12] * num20) / 100.0));
             SL1.AddWeight( assetConstruction);
           }
         }
@@ -6013,7 +6013,7 @@ namespace WindowsApplication1
             let mut num22: i32 = num21;
             if (num22 > 0)
             {
-              let mut num23: i32 = Math.Max(1,  Math.Round((double)  Math.Round((double) num22 * ((double) (20 - this.poolImportance[idValue2]) / 20.0)) / 3.0));
+              let mut num23: i32 = Math.Max(1,  Math.Round(  Math.Round( num22 * ( (20 - this.poolImportance[idValue2]) / 20.0)) / 3.0));
               if (num23 > 0)
               {
                 this.ai.AddLog(this.poolName[idValue2] + " gave back " + num23.ToString() + " " + this.itemName[idValue4] + " due to LOW IMPORTANCE.");
@@ -6103,7 +6103,7 @@ namespace WindowsApplication1
             if (this.poolRequest[idValue2].FindWeight(index16) > 0)
             {
               let mut num31: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotPoolItems].GetData4(0, this.shqHisId, 1, idValue2, 2, 1, 3, index16, 4)));
-              let mut num32: i32 =  Math.Round((double) (this.poolImportance[idValue2] * (num31 + 1)) / (double) this.poolRequest[idValue2].FindWeight(index16));
+              let mut num32: i32 =  Math.Round( (this.poolImportance[idValue2] * (num31 + 1)) /  this.poolRequest[idValue2].FindWeight(index16));
               num28 += num32;
               if (this.poolImportance[idValue2] > 0)
               {
@@ -6114,7 +6114,7 @@ namespace WindowsApplication1
           }
           let mut num33: i32 = 0;
           if (num30 > 0)
-            num33 =  Math.Round((double) num29 / (double) num30);
+            num33 =  Math.Round( num29 /  num30);
           if (num28 > 0)
           {
             let mut num34: i32 = weight;
@@ -6137,19 +6137,19 @@ namespace WindowsApplication1
               if (this.poolRequest[idValue2].FindWeight(index16) > 0 & this.poolImportance[idValue2] >= 10)
               {
                 let mut num36: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotPoolItems].GetData4(0, this.shqHisId, 1, idValue2, 2, 1, 3, index16, 4)));
-                let mut num37: i32 =  Math.Round((double) (this.poolImportance[idValue2] * (num36 + 1)) / (double) this.poolRequest[idValue2].FindWeight(index16));
-                let mut tweight4: i32 =  Math.Round((double) (num34 * num37) / (double) num35);
+                let mut num37: i32 =  Math.Round( (this.poolImportance[idValue2] * (num36 + 1)) /  this.poolRequest[idValue2].FindWeight(index16));
+                let mut tweight4: i32 =  Math.Round( (num34 * num37) /  num35);
                 if (tweight4 == 0 & num34 > 0)
                   tweight4 = 1;
                 if (num36 + tweight4 > this.poolRequest[idValue2].FindWeight(index16) & !(idValue2 == 7 | idValue2 == 9))
                   tweight4 = this.poolRequest[idValue2].FindWeight(index16) - num36;
                 else if (idValue2 == 7 & index16 != 9)
                 {
-                  if ((double) (num36 + tweight4) > (double) (this.poolRequest[idValue2].FindWeight(index16) * 2) + (double) weight / 5.0)
-                    tweight4 =  Math.Round((double) (this.poolRequest[idValue2].FindWeight(index16) * 2) + (double) weight / 5.0) - num36;
+                  if ( (num36 + tweight4) >  (this.poolRequest[idValue2].FindWeight(index16) * 2) +  weight / 5.0)
+                    tweight4 =  Math.Round( (this.poolRequest[idValue2].FindWeight(index16) * 2) +  weight / 5.0) - num36;
                 }
-                else if (idValue2 == 9 & index16 != 9 && (double) (num36 + tweight4) > (double) (this.poolRequest[idValue2].FindWeight(index16) * 2) + (double) weight / 10.0)
-                  tweight4 =  Math.Round((double) (this.poolRequest[idValue2].FindWeight(index16) * 2) + (double) weight / 10.0) - num36;
+                else if (idValue2 == 9 & index16 != 9 &&  (num36 + tweight4) >  (this.poolRequest[idValue2].FindWeight(index16) * 2) +  weight / 10.0)
+                  tweight4 =  Math.Round( (this.poolRequest[idValue2].FindWeight(index16) * 2) +  weight / 10.0) - num36;
                 if (tweight4 > num34)
                   tweight4 = num34;
                 if (tweight4 > 0)
@@ -6191,7 +6191,7 @@ namespace WindowsApplication1
             let mut num41: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotPoolItems].GetData4(0, this.shqHisId, 1, idValue2, 2, 1, 3, index18, 4)));
             if (num41 > 0)
             {
-              numArray[idValue2] =  Math.Round(((double) (num25 - this.poolImportance[idValue2]) + (double) num25 / 10.0) * (double) num41 / (double) num40);
+              numArray[idValue2] =  Math.Round(( (num25 - this.poolImportance[idValue2]) +  num25 / 10.0) *  num41 /  num40);
               if (numArray[idValue2] > 0)
                 num38 += numArray[idValue2];
             }
@@ -6201,7 +6201,7 @@ namespace WindowsApplication1
           {
             if (this.poolRequest[idValue2].FindWeight(index18) > 0 && num25 != this.poolImportance[idValue2])
             {
-              let mut num42: i32 =  Math.Round((double) (num40 * numArray[idValue2]) / (double) num38);
+              let mut num42: i32 =  Math.Round( (num40 * numArray[idValue2]) /  num38);
               let mut num43: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotPoolItems].GetData4(0, this.shqHisId, 1, idValue2, 2, 1, 3, index18, 4)));
               if (num42 > 0)
               {
@@ -6270,10 +6270,10 @@ namespace WindowsApplication1
           }
         }
       }
-      let mut num6: i32 = num3 <= 0 ? 100 :  Math.Round((double) num2 / (double) num3);
+      let mut num6: i32 = num3 <= 0 ? 100 :  Math.Round( num2 /  num3);
       if (num1 < 1)
         return 100;
-      let mut num7: i32 =  Math.Round((double) (100 * num6) / (double) num1);
+      let mut num7: i32 =  Math.Round( (100 * num6) /  num1);
       return 100;
     }
 
@@ -6301,44 +6301,44 @@ namespace WindowsApplication1
           let mut num1: i32 = 0;
           let mut num2: i32 = (this.itemProduction[7] - this.itemNeed[7]) * 1;
           let mut num3: i32 = num2 >= 0 ? 50 : Math.Abs(num2) + 50;
-          let mut num4: i32 = Math.Min( Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) / (double) num3),  Math.Round((double) this.data.Round / 3.0));
+          let mut num4: i32 = Math.Min( Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) /  num3),  Math.Round( this.data.Round / 3.0));
           if (this.data.Round < 10)
-            num4 =  Math.Round((double) num4 / 2.0);
+            num4 =  Math.Round( num4 / 2.0);
           if (this.data.Round < 20)
-            num4 =  Math.Round((double) num4 / 2.0);
-          if (num2 <  Math.Round((double) this.VAR_CurrentPop / 10.0))
+            num4 =  Math.Round( num4 / 2.0);
+          if (num2 <  Math.Round( this.VAR_CurrentPop / 10.0))
             num1 += 200;
-          if (num2 <  Math.Round((double) this.VAR_CurrentPop / 8.0))
+          if (num2 <  Math.Round( this.VAR_CurrentPop / 8.0))
             num1 += 100;
-          if (num2 <  Math.Round((double) this.VAR_CurrentPop / 6.0))
+          if (num2 <  Math.Round( this.VAR_CurrentPop / 6.0))
             num1 += 50;
-          if (num2 <  Math.Round((double) this.VAR_CurrentPop / 4.0))
+          if (num2 <  Math.Round( this.VAR_CurrentPop / 4.0))
             num1 += 25;
-          if (num2 <  Math.Round((double) this.VAR_CurrentPop / 2.0))
+          if (num2 <  Math.Round( this.VAR_CurrentPop / 2.0))
             num1 += 10;
-          if ((double) (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(0.2 * (double) (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 25.0))
+          if ( (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(0.2 *  (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 25.0))
             num1 += 1600;
-          if ((double) (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(0.5 * (double) (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 75.0))
+          if ( (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(0.5 *  (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 75.0))
             num1 += 1200;
           if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2 <= Math.Min(1 * (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 100))
             num1 += 600;
-          if ((double) (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(1.33 * (double) (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 150.0))
+          if ( (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(1.33 *  (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 150.0))
             num1 += 200;
-          if ((double) (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(1.66 * (double) (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 200.0))
+          if ( (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2) <= Math.Min(1.66 *  (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 200.0))
             num1 += 100;
           if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(7) + num2 <= Math.Min(2 * (this.VAR_CurrentWorker + this.VAR_CurrentSoldier + this.VAR_CurrentRecruits), 250))
             num1 += 50;
-          if (this.itemProduction[7] <  Math.Round((double) this.itemNeed[7] * 1.5) & num4 < 5)
+          if (this.itemProduction[7] <  Math.Round( this.itemNeed[7] * 1.5) & num4 < 5)
             num1 += 30;
-          if (this.itemProduction[7] <=  Math.Round((double) this.itemNeed[7] * 1.3) & num4 < 8)
+          if (this.itemProduction[7] <=  Math.Round( this.itemNeed[7] * 1.3) & num4 < 8)
             num1 += 70;
-          if (this.itemProduction[7] <=  Math.Round((double) this.itemNeed[7] * 1.1) & num4 < 11)
+          if (this.itemProduction[7] <=  Math.Round( this.itemNeed[7] * 1.1) & num4 < 11)
             num1 += 200;
           if (this.itemProduction[7] <= this.itemNeed[7] * 1 & num4 < 14)
             num1 += 400;
-          if (this.itemProduction[7] <  Math.Round((double) this.itemNeed[7] * 0.75) & num4 < 20)
+          if (this.itemProduction[7] <  Math.Round( this.itemNeed[7] * 0.75) & num4 < 20)
             num1 += 500;
-          if (this.itemProduction[7] <  Math.Round((double) this.itemNeed[7] * 0.5) & num4 < 40)
+          if (this.itemProduction[7] <  Math.Round( this.itemNeed[7] * 0.5) & num4 < 40)
             num1 += 700;
           if (this.itemProduction[7] <= this.itemNeed[7] + 100 & num4 < 14)
             num1 += 100;
@@ -6350,15 +6350,15 @@ namespace WindowsApplication1
             num1 += 600;
           if (this.data.Turn == 6)
             index1 = index1;
-          if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double) this.itemProduction[7])
+          if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +  this.itemProduction[7])
             num1 += 1000;
-          else if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double)  Math.Round(0.9 * (double) this.itemProduction[7]))
+          else if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +   Math.Round(0.9 *  this.itemProduction[7]))
             num1 += 750;
-          else if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double)  Math.Round(0.8 * (double) this.itemProduction[7]))
+          else if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +   Math.Round(0.8 *  this.itemProduction[7]))
             num1 += 500;
-          else if ((double) this.itemNeed[7] > (double) this.itemQty[7] / 10.0 + (double)  Math.Round(0.7 * (double) this.itemProduction[7]))
+          else if ( this.itemNeed[7] >  this.itemQty[7] / 10.0 +   Math.Round(0.7 *  this.itemProduction[7]))
             num1 += 250;
-          let mut tweight: i32 =  Math.Round((double) (num1 * this.strategicAi.pathEco_American) / 33.0);
+          let mut tweight: i32 =  Math.Round( (num1 * this.strategicAi.pathEco_American) / 33.0);
           if (flagArray[7])
             tweight = 0;
           simpleList1.Add(1, tweight);
@@ -6374,13 +6374,13 @@ namespace WindowsApplication1
             num5 += 150;
           if (this.itemProduction[2] < 40)
             num5 += 200;
-          if (this.itemProduction[2] <  Math.Round((double) this.itemProduction[7] / 4.0))
+          if (this.itemProduction[2] <  Math.Round( this.itemProduction[7] / 4.0))
             num5 += 100;
           if (this.itemProduction[2] < 4 * this.itemProduction[8])
             num5 += 100;
-          if ((double) this.itemProduction[2] < 2.5 * (double) this.itemProduction[8])
+          if ( this.itemProduction[2] < 2.5 *  this.itemProduction[8])
             num5 += 200;
-          if ((double) this.itemProduction[2] < 0.75 * (double) this.itemProduction[8])
+          if ( this.itemProduction[2] < 0.75 *  this.itemProduction[8])
             num5 += 300;
           if (this.itemProduction[2] < 50 && !this.IsFamilyAssetTypePresentInZoneList(205, true))
             num5 += 200;
@@ -6389,27 +6389,27 @@ namespace WindowsApplication1
             if (this.itemProduction[2] < 200)
               num5 = (num5 + 50) * 2;
             if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier & this.VAR_IdealSoldier > 0)
-              num5 =  Math.Round((double) num5 * 0.8 * (double) this.VAR_CurrentSoldier / (double) this.VAR_IdealSoldier) +  Math.Round((double) num5 * 0.2);
+              num5 =  Math.Round( num5 * 0.8 *  this.VAR_CurrentSoldier /  this.VAR_IdealSoldier) +  Math.Round( num5 * 0.2);
             if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier & this.VAR_IdealSoldier > 0)
-              num5 =  Math.Round((double) num5 * 0.5 * (double) this.VAR_CurrentSoldier / (double) this.VAR_IdealSoldier) +  Math.Round((double) num5 * 0.5);
+              num5 =  Math.Round( num5 * 0.5 *  this.VAR_CurrentSoldier /  this.VAR_IdealSoldier) +  Math.Round( num5 * 0.5);
           }
           else if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier & this.VAR_IdealSoldier > 0)
-            num5 =  Math.Round((double) num5 * 0.5 * (double) this.VAR_CurrentSoldier / (double) this.VAR_IdealSoldier) +  Math.Round((double) num5 * 0.5);
-          let mut num6: i32 =  Math.Round((double) (num5 * this.strategicAi.pathEco_American) / 33.0);
-          let mut tweight: i32 =  Math.Round((double) num6 * 0.5) +  Math.Round((double) num6 * 0.5 * Math.Min(3.0, (double) this.itemNeed[2] / (double) Math.Max(1, this.itemProduction[2])));
+            num5 =  Math.Round( num5 * 0.5 *  this.VAR_CurrentSoldier /  this.VAR_IdealSoldier) +  Math.Round( num5 * 0.5);
+          let mut num6: i32 =  Math.Round( (num5 * this.strategicAi.pathEco_American) / 33.0);
+          let mut tweight: i32 =  Math.Round( num6 * 0.5) +  Math.Round( num6 * 0.5 * Math.Min(3.0,  this.itemNeed[2] /  Math.Max(1, this.itemProduction[2])));
           simpleList1.Add(2, tweight);
         }
         if (tid == 5 & this.shqStage >= 2)
         {
           let mut num7: i32 = 0;
-          let mut num8: i32 =  Math.Round((double) (this.itemProduction[2] + this.itemProduction[8]) / 2.0);
-          if ((double) this.itemRegimeKeyProdList.FindWeightById("bp") < (double) num8 / 10.0)
+          let mut num8: i32 =  Math.Round( (this.itemProduction[2] + this.itemProduction[8]) / 2.0);
+          if ( this.itemRegimeKeyProdList.FindWeightById("bp") <  num8 / 10.0)
             num7 += 400;
-          if ((double) this.itemRegimeKeyProdList.FindWeightById("bp") < (double) num8 / 5.0)
+          if ( this.itemRegimeKeyProdList.FindWeightById("bp") <  num8 / 5.0)
             num7 += 200;
-          if ((double) this.itemRegimeKeyProdList.FindWeightById("bp") < (double) num8 / 2.0)
+          if ( this.itemRegimeKeyProdList.FindWeightById("bp") <  num8 / 2.0)
             num7 += 50;
-          let mut tweight: i32 =  Math.Round((double) (num7 * this.strategicAi.pathEco_German) / 33.0);
+          let mut tweight: i32 =  Math.Round( (num7 * this.strategicAi.pathEco_German) / 33.0);
           simpleList1.Add(5, tweight);
         }
         if (tid == 3 & this.shqStage >= 2)
@@ -6423,22 +6423,22 @@ namespace WindowsApplication1
             num += 100;
           if (!this.IsFamilyAssetTypePresentInZoneList(401, true))
             num += 500;
-          let mut tweight: i32 =  Math.Round((double) (( Math.Round((double) num * 0.5) +  Math.Round((double) num * 0.5 * Math.Min(3.0, (double) this.itemNeed[8] / (double) Math.Max(1, this.itemProduction[8])))) * this.strategicAi.pathEco_American) / 33.0);
+          let mut tweight: i32 =  Math.Round( (( Math.Round( num * 0.5) +  Math.Round( num * 0.5 * Math.Min(3.0,  this.itemNeed[8] /  Math.Max(1, this.itemProduction[8])))) * this.strategicAi.pathEco_American) / 33.0);
           if (this.poolOrigImportance[1] > 2000)
-            tweight =  Math.Round((double) tweight / 20.0);
+            tweight =  Math.Round( tweight / 20.0);
           else if (this.poolOrigImportance[1] > 1000)
-            tweight =  Math.Round((double) tweight / 6.0);
+            tweight =  Math.Round( tweight / 6.0);
           else if (this.poolOrigImportance[1] > 500)
-            tweight =  Math.Round((double) tweight / 2.0);
+            tweight =  Math.Round( tweight / 2.0);
           if (this.shqStage <= 2)
           {
             if (this.itemProduction[2] < 150)
-              tweight =  Math.Round((double) tweight / 10.0);
+              tweight =  Math.Round( tweight / 10.0);
             if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier & this.VAR_IdealSoldier > 0)
-              tweight =  Math.Round((double) tweight * 0.8 * (double) this.VAR_CurrentSoldier / (double) this.VAR_IdealSoldier) +  Math.Round((double) tweight * 0.2);
+              tweight =  Math.Round( tweight * 0.8 *  this.VAR_CurrentSoldier /  this.VAR_IdealSoldier) +  Math.Round( tweight * 0.2);
           }
           else if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier & this.VAR_IdealSoldier > 0)
-            tweight =  Math.Round((double) tweight * 0.5 * (double) this.VAR_CurrentSoldier / (double) this.VAR_IdealSoldier) +  Math.Round((double) tweight * 0.5);
+            tweight =  Math.Round( tweight * 0.5 *  this.VAR_CurrentSoldier /  this.VAR_IdealSoldier) +  Math.Round( tweight * 0.5);
           if (flagArray[8])
             tweight = 0;
           simpleList1.Add(3, tweight);
@@ -6446,55 +6446,55 @@ namespace WindowsApplication1
         if (tid == 4 & this.shqStage >= 2)
         {
           let mut num9: i32 = 0;
-          if (this.itemProduction[1] <  Math.Round((double) this.itemNeed[1] * 1.5))
+          if (this.itemProduction[1] <  Math.Round( this.itemNeed[1] * 1.5))
             num9 += 25;
           if (this.itemProduction[1] < this.itemNeed[1] * 1)
             num9 += 50;
-          if (this.itemProduction[1] <  Math.Round((double) this.itemNeed[1] * 0.5))
+          if (this.itemProduction[1] <  Math.Round( this.itemNeed[1] * 0.5))
             num9 += 100;
-          let mut num10: i32 = this.itemProduction[1] - this.itemNeed[1] +  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(1) / 8.0);
-          if ((double) num10 < (double) this.VAR_UnitsIdealFuel / 10.0)
+          let mut num10: i32 = this.itemProduction[1] - this.itemNeed[1] +  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(1) / 8.0);
+          if ( num10 <  this.VAR_UnitsIdealFuel / 10.0)
             num9 += 800;
-          else if ((double) num10 < (double) this.VAR_UnitsIdealFuel / 7.0)
+          else if ( num10 <  this.VAR_UnitsIdealFuel / 7.0)
             num9 += 600;
-          else if ((double) num10 < (double) this.VAR_UnitsIdealFuel / 4.0)
+          else if ( num10 <  this.VAR_UnitsIdealFuel / 4.0)
             num9 += 400;
-          else if ((double) num10 < (double) this.VAR_UnitsIdealFuel / 3.0)
+          else if ( num10 <  this.VAR_UnitsIdealFuel / 3.0)
             num9 += 200;
-          else if ((double) num10 < (double) this.VAR_UnitsIdealFuel / 2.0)
+          else if ( num10 <  this.VAR_UnitsIdealFuel / 2.0)
             num9 += 100;
           else if (num10 < this.VAR_UnitsIdealFuel)
             num9 += 50;
-          if ((double) num10 < (double) (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 10.0)
+          if ( num10 <  (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 10.0)
             num9 += 800;
-          else if ((double) num10 < (double) (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 7.0)
+          else if ( num10 <  (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 7.0)
             num9 += 600;
-          else if ((double) num10 < (double) (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 4.0)
+          else if ( num10 <  (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 4.0)
             num9 += 400;
-          else if ((double) num10 < (double) (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 3.0)
+          else if ( num10 <  (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 3.0)
             num9 += 200;
-          else if ((double) num10 < (double) (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 2.0)
+          else if ( num10 <  (this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel) / 2.0)
             num9 += 100;
           else if (num10 < this.VAR_UnitsIdealFuel + this.VAR_UnitsFutureFuel)
             num9 += 50;
-          if ((double) this.itemNeed[1] + (double) this.VAR_UnitsFutureFuel / 2.0 < 30.0)
-            num9 =  Math.Round((double) num9 / 10.0);
-          else if ((double) this.itemNeed[1] + (double) this.VAR_UnitsFutureFuel / 2.0 < 60.0)
-            num9 =  Math.Round((double) num9 / 7.0);
-          else if ((double) this.itemNeed[1] + (double) this.VAR_UnitsFutureFuel / 2.0 < 120.0)
-            num9 =  Math.Round((double) num9 / 4.0);
-          else if ((double) this.itemNeed[1] + (double) this.VAR_UnitsFutureFuel / 2.0 < 240.0)
-            num9 =  Math.Round((double) num9 / 2.0);
+          if ( this.itemNeed[1] +  this.VAR_UnitsFutureFuel / 2.0 < 30.0)
+            num9 =  Math.Round( num9 / 10.0);
+          else if ( this.itemNeed[1] +  this.VAR_UnitsFutureFuel / 2.0 < 60.0)
+            num9 =  Math.Round( num9 / 7.0);
+          else if ( this.itemNeed[1] +  this.VAR_UnitsFutureFuel / 2.0 < 120.0)
+            num9 =  Math.Round( num9 / 4.0);
+          else if ( this.itemNeed[1] +  this.VAR_UnitsFutureFuel / 2.0 < 240.0)
+            num9 =  Math.Round( num9 / 2.0);
           if (this.shqStage <= 2)
           {
             if (this.itemProduction[8] < 40)
-              num9 =  Math.Round((double) num9 / 10.0);
+              num9 =  Math.Round( num9 / 10.0);
             if (this.itemProduction[2] < 150)
-              num9 =  Math.Round((double) num9 / 10.0);
+              num9 =  Math.Round( num9 / 10.0);
             if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier & this.VAR_IdealSoldier > 0)
-              num9 =  Math.Round((double) num9 * 0.8 * (double) this.VAR_CurrentSoldier / (double) this.VAR_IdealSoldier) +  Math.Round((double) num9 * 0.2);
+              num9 =  Math.Round( num9 * 0.8 *  this.VAR_CurrentSoldier /  this.VAR_IdealSoldier) +  Math.Round( num9 * 0.2);
           }
-          let mut tweight: i32 =  Math.Round((double) ( Math.Round((double) (num9 * this.strategicAi.pathEco_American) / 33.0) * this.strategicAi.pathWar_Offensive) / 33.0);
+          let mut tweight: i32 =  Math.Round( ( Math.Round( (num9 * this.strategicAi.pathEco_American) / 33.0) * this.strategicAi.pathWar_Offensive) / 33.0);
           if (flagArray[1])
             tweight = 0;
           simpleList1.Add(4, tweight);
@@ -6508,37 +6508,37 @@ namespace WindowsApplication1
             tweight += 200;
           if (this.itemProduction[5] < 200)
             tweight += 600;
-          if (this.itemProduction[5] <  Math.Round((double) this.itemNeed[5] * 1.15))
+          if (this.itemProduction[5] <  Math.Round( this.itemNeed[5] * 1.15))
             tweight += 50;
           if (this.itemProduction[5] < this.itemNeed[5] * 1)
             tweight += 200;
-          if (this.itemProduction[5] <  Math.Round((double) this.itemNeed[5] * 0.5))
+          if (this.itemProduction[5] <  Math.Round( this.itemNeed[5] * 0.5))
             tweight += 600;
           if (this.poolOrigImportance[1] > 3000)
           {
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 2.0 < (double) (this.itemNeed[5] + 200))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 2.0 <  (this.itemNeed[5] + 200))
               tweight += 600;
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 2.0 < (double) (this.itemNeed[5] + 400))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 2.0 <  (this.itemNeed[5] + 400))
               tweight += 400;
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 2.0 < (double) (this.itemNeed[5] + 600))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 2.0 <  (this.itemNeed[5] + 600))
               tweight += 200;
           }
           if (this.poolOrigImportance[1] > 2000)
           {
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 1.0 < (double) (this.itemNeed[5] + 200))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 1.0 <  (this.itemNeed[5] + 200))
               tweight += 500;
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 1.0 < (double) (this.itemNeed[5] + 400))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 1.0 <  (this.itemNeed[5] + 400))
               tweight += 400;
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 1.0 < (double) (this.itemNeed[5] + 600))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 1.0 <  (this.itemNeed[5] + 600))
               tweight += 300;
           }
           if (this.poolOrigImportance[1] > 1000)
           {
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 0.5 < (double) (this.itemNeed[5] + 200))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 0.5 <  (this.itemNeed[5] + 200))
               tweight += 250;
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 0.5 < (double) (this.itemNeed[5] + 400))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 0.5 <  (this.itemNeed[5] + 400))
               tweight += 200;
-            if ((double) this.itemProduction[5] + (double) this.newItems.FindWeight(5) / 0.5 < (double) (this.itemNeed[5] + 600))
+            if ( this.itemProduction[5] +  this.newItems.FindWeight(5) / 0.5 <  (this.itemNeed[5] + 600))
               tweight += 150;
           }
           if (this.itemNeed[5] - this.itemProduction[5] > 3200)
@@ -6554,7 +6554,7 @@ namespace WindowsApplication1
           simpleList1.Add(6, tweight);
           if (flagArray[5])
             tweight = 0;
-          let mut num: i32 =  Math.Round((double) (tweight * this.strategicAi.pathEco_American) / 33.0);
+          let mut num: i32 =  Math.Round( (tweight * this.strategicAi.pathEco_American) / 33.0);
         }
         int num11;
         if (tid == 6 & this.shqStage >= 1 & !flagArray[5] && simpleList1.FindWeight(6) > 999)
@@ -6646,25 +6646,25 @@ namespace WindowsApplication1
             let mut num18: i32 = this.ai.game.EventRelatedObj.Helper_ItemList_ForSFTypeList(eventRelatedObj.Helper_GetSFtypes_ForReinfList(RL, true, true, true, true, regimeId, allowedSfTypeList: ( local))).FindWeight(9);
             if (num18 < 33)
               num18 = 33;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 0.1)
+            if ( this.VAR_CurrentRecruits >  num18 * 0.1)
               tweight += 10;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 0.5)
+            if ( this.VAR_CurrentRecruits >  num18 * 0.5)
               tweight += 20;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 0.7)
+            if ( this.VAR_CurrentRecruits >  num18 * 0.7)
               tweight += 30;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 0.9)
+            if ( this.VAR_CurrentRecruits >  num18 * 0.9)
               tweight += 40;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 1.1)
+            if ( this.VAR_CurrentRecruits >  num18 * 1.1)
               tweight += 50;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 1.3)
+            if ( this.VAR_CurrentRecruits >  num18 * 1.3)
               tweight += 60;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 1.5)
+            if ( this.VAR_CurrentRecruits >  num18 * 1.5)
               tweight += 70;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 1.8)
+            if ( this.VAR_CurrentRecruits >  num18 * 1.8)
               tweight += 80;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 2.2)
+            if ( this.VAR_CurrentRecruits >  num18 * 2.2)
               tweight += 90;
-            if ((double) this.VAR_CurrentRecruits > (double) num18 * 2.7)
+            if ( this.VAR_CurrentRecruits >  num18 * 2.7)
               tweight += 100;
             if (this.VAR_CurrentRecruits > num18 * 4)
               tweight += 120;
@@ -6675,26 +6675,26 @@ namespace WindowsApplication1
             if (this.VAR_CurrentRecruits > num18 * 20)
               tweight += 240;
             if (this.VAR_CurrentSoldier > 1 * this.VAR_IdealSoldier)
-              tweight =  Math.Round((double) tweight / 12.0);
-            else if ((double) this.VAR_CurrentSoldier > 0.8 * (double) this.VAR_IdealSoldier)
-              tweight =  Math.Round((double) tweight / 8.0);
-            else if ((double) this.VAR_CurrentSoldier > 0.6 * (double) this.VAR_IdealSoldier)
-              tweight =  Math.Round((double) tweight / 4.0);
-            else if ((double) this.VAR_CurrentSoldier > 0.4 * (double) this.VAR_IdealSoldier)
-              tweight =  Math.Round((double) tweight / 2.0);
+              tweight =  Math.Round( tweight / 12.0);
+            else if ( this.VAR_CurrentSoldier > 0.8 *  this.VAR_IdealSoldier)
+              tweight =  Math.Round( tweight / 8.0);
+            else if ( this.VAR_CurrentSoldier > 0.6 *  this.VAR_IdealSoldier)
+              tweight =  Math.Round( tweight / 4.0);
+            else if ( this.VAR_CurrentSoldier > 0.4 *  this.VAR_IdealSoldier)
+              tweight =  Math.Round( tweight / 2.0);
             if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier)
               tweight += 25;
-            if ((double) this.VAR_CurrentSoldier < 0.8 * (double) this.VAR_IdealSoldier)
+            if ( this.VAR_CurrentSoldier < 0.8 *  this.VAR_IdealSoldier)
               tweight += 50;
-            if ((double) this.VAR_CurrentSoldier < 0.6 * (double) this.VAR_IdealSoldier)
+            if ( this.VAR_CurrentSoldier < 0.6 *  this.VAR_IdealSoldier)
               tweight += 100;
-            if ((double) this.VAR_CurrentSoldier < 0.4 * (double) this.VAR_IdealSoldier)
+            if ( this.VAR_CurrentSoldier < 0.4 *  this.VAR_IdealSoldier)
               tweight += 150;
-            if ((double) this.VAR_CurrentSoldier < 0.3 * (double) this.VAR_IdealSoldier)
+            if ( this.VAR_CurrentSoldier < 0.3 *  this.VAR_IdealSoldier)
               tweight += 200;
-            if ((double) this.VAR_CurrentSoldier < 0.2 * (double) this.VAR_IdealSoldier)
+            if ( this.VAR_CurrentSoldier < 0.2 *  this.VAR_IdealSoldier)
               tweight += 300;
-            if ((double) this.VAR_CurrentSoldier < 0.1 * (double) this.VAR_IdealSoldier)
+            if ( this.VAR_CurrentSoldier < 0.1 *  this.VAR_IdealSoldier)
               tweight += 500;
             if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier)
               tweight += 25;
@@ -6710,51 +6710,51 @@ namespace WindowsApplication1
               tweight += 300;
             if (this.VAR_CurrentSoldier < this.VAR_IdealSoldier - 450)
               tweight += 500;
-            if ((double) this.VAR_UnitsPerFrontHex < 0.05)
+            if ( this.VAR_UnitsPerFrontHex < 0.05)
               tweight = tweight * 2 + 1000;
-            else if ((double) this.VAR_UnitsPerFrontHex < 0.1)
-              tweight =  Math.Round((double) tweight * 1.66) + 500;
-            else if ((double) this.VAR_UnitsPerFrontHex < 0.2)
-              tweight =  Math.Round((double) tweight * 1.4) + 200;
-            else if ((double) this.VAR_UnitsPerFrontHex < 0.3)
-              tweight =  Math.Round((double) tweight * 1.2) + 100;
+            else if ( this.VAR_UnitsPerFrontHex < 0.1)
+              tweight =  Math.Round( tweight * 1.66) + 500;
+            else if ( this.VAR_UnitsPerFrontHex < 0.2)
+              tweight =  Math.Round( tweight * 1.4) + 200;
+            else if ( this.VAR_UnitsPerFrontHex < 0.3)
+              tweight =  Math.Round( tweight * 1.2) + 100;
             if (this.poolOrigImportance[1] > 2500 | this.poolOrigImportance[6] > 2500)
-              tweight =  Math.Round((double) tweight / 6.0);
+              tweight =  Math.Round( tweight / 6.0);
             else if (this.poolOrigImportance[1] > 900 | this.poolOrigImportance[6] > 900)
-              tweight =  Math.Round((double) tweight / 3.0);
+              tweight =  Math.Round( tweight / 3.0);
             else if (this.poolOrigImportance[1] > 500 | this.poolImportance[6] > 500)
-              tweight =  Math.Round((double) tweight * 0.66);
+              tweight =  Math.Round( tweight * 0.66);
             else if (this.poolOrigImportance[1] > 200 | this.poolOrigImportance[6] > 200)
-              tweight =  Math.Round((double) tweight * 0.8);
-            let mut num19: i32 =  Math.Round((double) ( Math.Round((double) tweight * Math.Min(1.0, (double) this.VAR_IdealSoldier / (double) Math.Max(1, this.VAR_CurrentSoldier))) * this.strategicAi.pathEco_Soviet) / 33.0);
+              tweight =  Math.Round( tweight * 0.8);
+            let mut num19: i32 =  Math.Round( ( Math.Round( tweight * Math.Min(1.0,  this.VAR_IdealSoldier /  Math.Max(1, this.VAR_CurrentSoldier))) * this.strategicAi.pathEco_Soviet) / 33.0);
             if (this.VAR_CurrentSoldier + 2 >= this.VAR_IdealSoldier)
-              num19 =  Math.Round((double) num19 * 0.1);
+              num19 =  Math.Round( num19 * 0.1);
             else if (this.VAR_CurrentSoldier + 8 >= this.VAR_IdealSoldier)
-              num19 =  Math.Round((double) num19 * 0.2);
+              num19 =  Math.Round( num19 * 0.2);
             else if (this.VAR_CurrentSoldier + 15 >= this.VAR_IdealSoldier)
-              num19 =  Math.Round((double) num19 * 0.3);
+              num19 =  Math.Round( num19 * 0.3);
             let mut num20: i32 = this.GetWarSuccesPercentage();
             if (num20 < 100)
-              num20 =  Math.Round((double) (100 - num20) / 3.0) + num20;
+              num20 =  Math.Round( (100 - num20) / 3.0) + num20;
             if (num20 > 100)
-              num20 = 100 +  Math.Round((double) (num20 - 100) / 2.0);
+              num20 = 100 +  Math.Round( (num20 - 100) / 2.0);
             if (num20 > 200)
-              num20 = 200 +  Math.Round((double) (num20 - 200) / 3.0);
+              num20 = 200 +  Math.Round( (num20 - 200) / 3.0);
             if (num20 > 300)
               num20 = 300;
-            tweight =  Math.Round((double) (num19 * 100) / (double) num20);
+            tweight =  Math.Round( (num19 * 100) /  num20);
           }
           let mut num21: i32 = 0;
-          let mut num22: i32 = this.itemProduction[1] - this.itemNeed[1] +  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(1) / 8.0);
-          if ((double) num22 < (double) this.VAR_UnitsIdealFuel / 10.0)
+          let mut num22: i32 = this.itemProduction[1] - this.itemNeed[1] +  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(1) / 8.0);
+          if ( num22 <  this.VAR_UnitsIdealFuel / 10.0)
             num21 += Math.Min(1600, this.itemNeed[1]);
-          else if ((double) num22 < (double) this.VAR_UnitsIdealFuel / 7.0)
+          else if ( num22 <  this.VAR_UnitsIdealFuel / 7.0)
             num21 += Math.Min(800, this.itemNeed[1]);
-          else if ((double) num22 < (double) this.VAR_UnitsIdealFuel / 4.0)
+          else if ( num22 <  this.VAR_UnitsIdealFuel / 4.0)
             num21 += Math.Min(400, this.itemNeed[1]);
-          else if ((double) num22 < (double) this.VAR_UnitsIdealFuel / 3.0)
+          else if ( num22 <  this.VAR_UnitsIdealFuel / 3.0)
             num21 += Math.Min(200, this.itemNeed[1]);
-          else if ((double) num22 < (double) this.VAR_UnitsIdealFuel / 2.0)
+          else if ( num22 <  this.VAR_UnitsIdealFuel / 2.0)
             num21 += Math.Min(100, this.itemNeed[1]);
           else if (num22 < this.VAR_UnitsIdealFuel)
             num21 += Math.Min(50, this.itemNeed[1]);
@@ -6765,64 +6765,64 @@ namespace WindowsApplication1
         {
           let mut num24: i32 = 50;
           if (this.VAR_CurrentSoldier > 0)
-            num24 +=  Math.Round(200.0 * Math.Min(1.0, (double) this.VAR_SoldierMissing / (double) this.VAR_CurrentSoldier));
+            num24 +=  Math.Round(200.0 * Math.Min(1.0,  this.VAR_SoldierMissing /  this.VAR_CurrentSoldier));
           let mut num25: i32 = 0;
           if (this.VAR_SoldierMissing > 0)
             num24 += 25;
-          if ((double) this.VAR_SoldierMissing > (double) this.VAR_CurrentSoldier * 0.05)
+          if ( this.VAR_SoldierMissing >  this.VAR_CurrentSoldier * 0.05)
           {
             num24 += 50;
             num25 += 5;
           }
-          if ((double) this.VAR_SoldierMissing > (double) this.VAR_CurrentSoldier * 0.1)
+          if ( this.VAR_SoldierMissing >  this.VAR_CurrentSoldier * 0.1)
           {
             num24 += 100;
             num25 += 8;
           }
-          if ((double) this.VAR_SoldierMissing > (double) this.VAR_CurrentSoldier * 0.15)
+          if ( this.VAR_SoldierMissing >  this.VAR_CurrentSoldier * 0.15)
           {
             num24 += 200;
             num25 += 12;
           }
-          if ((double) this.VAR_SoldierMissing > (double) this.VAR_CurrentSoldier * 0.25)
+          if ( this.VAR_SoldierMissing >  this.VAR_CurrentSoldier * 0.25)
           {
             num24 += 500;
             num25 += 15;
           }
-          if ((double) this.VAR_SoldierMissing > (double) this.VAR_CurrentSoldier * 0.4)
+          if ( this.VAR_SoldierMissing >  this.VAR_CurrentSoldier * 0.4)
           {
             num24 += 1000;
             num25 += 18;
           }
-          if ((double) this.VAR_SoldierMissing > (double) this.VAR_CurrentSoldier * 0.6)
+          if ( this.VAR_SoldierMissing >  this.VAR_CurrentSoldier * 0.6)
           {
             num24 += 2500;
             num25 += 21;
           }
-          if ((double) this.VAR_CurrentSoldier > (double) this.VAR_IdealSoldier * 1.4)
-            num24 =  Math.Round((double) num24 / 10.0);
-          if ((double) this.VAR_CurrentSoldier > (double) this.VAR_IdealSoldier * 1.2)
-            num24 =  Math.Round((double) num24 / 10.0);
-          if ((double) this.VAR_CurrentSoldier > (double) this.VAR_IdealSoldier * 1.1)
-            num24 =  Math.Round((double) num24 / 10.0);
+          if ( this.VAR_CurrentSoldier >  this.VAR_IdealSoldier * 1.4)
+            num24 =  Math.Round( num24 / 10.0);
+          if ( this.VAR_CurrentSoldier >  this.VAR_IdealSoldier * 1.2)
+            num24 =  Math.Round( num24 / 10.0);
+          if ( this.VAR_CurrentSoldier >  this.VAR_IdealSoldier * 1.1)
+            num24 =  Math.Round( num24 / 10.0);
           if (this.VAR_CurrentSoldier > this.VAR_IdealSoldier * 1)
-            num24 =  Math.Round((double) num24 / 10.0);
-          let mut num26: i32 =  Math.Round((double) (num24 * this.strategicAi.pathEco_Soviet) / 33.0);
+            num24 =  Math.Round( num24 / 10.0);
+          let mut num26: i32 =  Math.Round( (num24 * this.strategicAi.pathEco_Soviet) / 33.0);
           let mut num27: i32 = this.GetWarSuccesPercentage();
           if (num27 < 100)
-            num27 =  Math.Round((double) (100 - num27) / 3.0) + num27;
+            num27 =  Math.Round( (100 - num27) / 3.0) + num27;
           if (num27 > 100)
-            num27 = 100 +  Math.Round((double) (num27 - 100) / 2.0);
+            num27 = 100 +  Math.Round( (num27 - 100) / 2.0);
           if (num27 > 200)
-            num27 = 200 +  Math.Round((double) (num27 - 200) / 3.0);
+            num27 = 200 +  Math.Round( (num27 - 200) / 3.0);
           if (num27 > 300)
             num27 = 300;
-          let mut tweight: i32 =  Math.Round((double) (num26 * 100) / (double) num27);
+          let mut tweight: i32 =  Math.Round( (num26 * 100) /  num27);
           if (num25 > 66)
             num25 = 66;
           if (num25 > 0)
           {
-            let mut num28: i32 =  Math.Round((double) (this.poolImportance[7] * num25) / 100.0);
+            let mut num28: i32 =  Math.Round( (this.poolImportance[7] * num25) / 100.0);
             tweight += num28;
             int[] poolImportance = this.poolImportance;
             int[] numArray = poolImportance;
@@ -6845,17 +6845,17 @@ namespace WindowsApplication1
             tweight += 20;
           if (weight < this.VAR_UnitsIdealAmmo * 1)
             tweight += 50;
-          if ((double) weight < (double) this.VAR_UnitsIdealAmmo * 0.75)
+          if ( weight <  this.VAR_UnitsIdealAmmo * 0.75)
             tweight += 100;
-          if ((double) weight < (double) this.VAR_UnitsIdealAmmo * 0.5)
+          if ( weight <  this.VAR_UnitsIdealAmmo * 0.5)
             tweight += 300;
-          if ((double) weight < (double) this.VAR_UnitsIdealAmmo * 0.25)
+          if ( weight <  this.VAR_UnitsIdealAmmo * 0.25)
             tweight += 500;
-          if ((double) weight < (double) this.VAR_UnitsIdealAmmo * 0.1)
+          if ( weight <  this.VAR_UnitsIdealAmmo * 0.1)
             tweight += 1200;
           simpleList1.Add(8, tweight);
         }
-        if (tid == 10 & (this.shqStage >= 3 | (double) this.itemProduction[15] * 0.66 < (double) this.itemNeed[15]))
+        if (tid == 10 & (this.shqStage >= 3 |  this.itemProduction[15] * 0.66 <  this.itemNeed[15]))
         {
           let mut num30: i32 = 5;
           if (this.itemProduction[15] < 10)
@@ -6865,27 +6865,27 @@ namespace WindowsApplication1
           let mut weight: i32 = this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(15);
           if (weight < this.VAR_UnitsIdealEnergy * 2)
             num30 += 25;
-          if ((double) weight < (double) this.VAR_UnitsIdealEnergy * 1.5)
+          if ( weight <  this.VAR_UnitsIdealEnergy * 1.5)
             num30 += 100;
           if (weight < this.VAR_UnitsIdealEnergy * 1)
             num30 += 200;
-          if ((double) weight < (double) this.VAR_UnitsIdealEnergy * 0.75)
+          if ( weight <  this.VAR_UnitsIdealEnergy * 0.75)
             num30 += 600;
-          if ((double) weight < (double) this.VAR_UnitsIdealEnergy * 0.32)
+          if ( weight <  this.VAR_UnitsIdealEnergy * 0.32)
             num30 += 1800;
           if (!this.IsFamilyAssetTypePresentInZoneList(271, true) && !this.IsFamilyAssetTypePresentInZoneList(361, true) && !this.IsFamilyAssetTypePresentInZoneList(3011, true))
             num30 += this.shqStage * 125;
-          let mut tweight: i32 =  Math.Round((double) num30 * 0.8) +  Math.Round((double) num30 * 0.8 * Math.Min(3.0, (double) this.itemNeed[15] / (double) Math.Max(1, this.itemProduction[15])));
+          let mut tweight: i32 =  Math.Round( num30 * 0.8) +  Math.Round( num30 * 0.8 * Math.Min(3.0,  this.itemNeed[15] /  Math.Max(1, this.itemProduction[15])));
           if (flagArray[15])
             tweight = 0;
           simpleList1.Add(10, tweight);
         }
-        if (tid == 11 & (this.shqStage >= 3 | (double) this.itemProduction[15] * 0.66 < (double) this.itemNeed[15]))
+        if (tid == 11 & (this.shqStage >= 3 |  this.itemProduction[15] * 0.66 <  this.itemNeed[15]))
         {
           let mut num31: i32 = 10;
-          if (this.itemProduction[3] <  Math.Round((double) this.itemProduction[2] / 6.0))
+          if (this.itemProduction[3] <  Math.Round( this.itemProduction[2] / 6.0))
             num31 += 100;
-          if (this.itemProduction[3] <  Math.Round((double) this.itemProduction[2] / 3.0))
+          if (this.itemProduction[3] <  Math.Round( this.itemProduction[2] / 3.0))
             num31 += 50;
           if (!this.IsFamilyAssetTypePresentInZoneList(211, true))
             num31 += 300;
@@ -6895,43 +6895,43 @@ namespace WindowsApplication1
             num31 += 400;
           else if (this.itemProduction[15] * 2 < this.itemNeed[15])
             num31 += 200;
-          else if ((double) this.itemProduction[15] * 1.5 < (double) this.itemNeed[15])
+          else if ( this.itemProduction[15] * 1.5 <  this.itemNeed[15])
             num31 += 100;
           else if (this.itemProduction[15] < this.itemNeed[15])
             num31 += 50;
-          let mut tweight: i32 =  Math.Round((double) (( Math.Round((double) num31 * 0.5) +  Math.Round((double) num31 * 0.5 * Math.Min(3.0, (double) this.itemNeed[3] / (double) Math.Max(1, this.itemProduction[3])))) * this.strategicAi.pathEco_American) / 33.0);
+          let mut tweight: i32 =  Math.Round( (( Math.Round( num31 * 0.5) +  Math.Round( num31 * 0.5 * Math.Min(3.0,  this.itemNeed[3] /  Math.Max(1, this.itemProduction[3])))) * this.strategicAi.pathEco_American) / 33.0);
           simpleList1.Add(11, tweight);
         }
         if ( Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeRes].GetData2(0, 4, 1, this.RegimeId, 2))) >= 100 && tid == 12 & this.shqStage >= 4)
         {
           let mut num32: i32 = 4;
-          if (this.itemProduction[13] <  Math.Round((double) this.itemProduction[8] / 6.0))
+          if (this.itemProduction[13] <  Math.Round( this.itemProduction[8] / 6.0))
             num32 += 80;
-          if (this.itemProduction[13] <  Math.Round((double) this.itemProduction[8] / 3.0))
+          if (this.itemProduction[13] <  Math.Round( this.itemProduction[8] / 3.0))
             num32 += 40;
           if (!this.IsFamilyAssetTypePresentInZoneList(251, true))
             num32 += 300;
-          let mut tweight: i32 =  Math.Round((double) (( Math.Round((double) num32 * 0.5) +  Math.Round((double) num32 * 0.5 * Math.Min(3.0, (double) this.itemNeed[13] / (double) Math.Max(1, this.itemProduction[13])))) * this.strategicAi.pathEco_American) / 33.0);
+          let mut tweight: i32 =  Math.Round( (( Math.Round( num32 * 0.5) +  Math.Round( num32 * 0.5 * Math.Min(3.0,  this.itemNeed[13] /  Math.Max(1, this.itemProduction[13])))) * this.strategicAi.pathEco_American) / 33.0);
           simpleList1.Add(12, tweight);
         }
         if ( Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeRes].GetData2(0, 324, 1, this.RegimeId, 2))) >= 100 && tid == 13 & this.shqStage >= 5)
         {
           let mut num33: i32 = 2;
-          if (this.itemProduction[14] <  Math.Round((double) this.itemProduction[13] / 6.0))
+          if (this.itemProduction[14] <  Math.Round( this.itemProduction[13] / 6.0))
             num33 += 60;
-          if (this.itemProduction[14] <  Math.Round((double) this.itemProduction[13] / 3.0))
+          if (this.itemProduction[14] <  Math.Round( this.itemProduction[13] / 3.0))
             num33 += 30;
-          let mut tweight: i32 =  Math.Round((double) (( Math.Round((double) num33 * 0.5) +  Math.Round((double) num33 * 0.5 * Math.Min(3.0, (double) this.itemNeed[14] / (double) Math.Max(1, this.itemProduction[14])))) * this.strategicAi.pathEco_American) / 33.0);
+          let mut tweight: i32 =  Math.Round( (( Math.Round( num33 * 0.5) +  Math.Round( num33 * 0.5 * Math.Min(3.0,  this.itemNeed[14] /  Math.Max(1, this.itemProduction[14])))) * this.strategicAi.pathEco_American) / 33.0);
           simpleList1.Add(13, tweight);
         }
         if ( Math.Round(Conversion.Val(this.data.StringListObj[this.slotRegimeRes].GetData2(0, 318, 1, this.RegimeId, 2))) >= 100 && tid == 14 & this.shqStage >= 6)
         {
           let mut num34: i32 = 0;
-          if (this.itemProduction[4] <  Math.Round((double) (this.itemProduction[13] + this.itemProduction[14]) / 10.0))
+          if (this.itemProduction[4] <  Math.Round( (this.itemProduction[13] + this.itemProduction[14]) / 10.0))
             num34 += 40;
-          if (this.itemProduction[4] <  Math.Round((double) (this.itemProduction[13] + this.itemProduction[14]) / 4.0))
+          if (this.itemProduction[4] <  Math.Round( (this.itemProduction[13] + this.itemProduction[14]) / 4.0))
             num34 += 20;
-          let mut tweight: i32 =  Math.Round((double) ( Math.Round((double) (( Math.Round((double) num34 * 0.5) +  Math.Round((double) num34 * 0.5 * Math.Min(3.0, (double) this.itemNeed[4] / (double) Math.Max(1, this.itemProduction[4])))) * this.strategicAi.pathEco_American) / 33.0) * this.strategicAi.pathTech_Artillery) / 33.0);
+          let mut tweight: i32 =  Math.Round( ( Math.Round( (( Math.Round( num34 * 0.5) +  Math.Round( num34 * 0.5 * Math.Min(3.0,  this.itemNeed[4] /  Math.Max(1, this.itemProduction[4])))) * this.strategicAi.pathEco_American) / 33.0) * this.strategicAi.pathTech_Artillery) / 33.0);
           simpleList1.Add(14, tweight);
         }
         if (tid == 4 && this.poolPreferedAssetType[4] < 1 & simpleList1.FindWeight(4) > 0)
@@ -7003,10 +7003,10 @@ namespace WindowsApplication1
           let mut num37: i32 = 0;
           if (index9 > 0 & this.itemNeed[index9] > 0)
           {
-            let mut num38: i32 =  Math.Round((double) this.itemMiningReserve[index9] / (double) (this.itemNeed[index9] + 1));
+            let mut num38: i32 =  Math.Round( this.itemMiningReserve[index9] /  (this.itemNeed[index9] + 1));
             num37 = num38 > 5 ? (num38 > 10 ? (num38 > 17 ? (num38 > 25 ? (num38 > 35 ? 0 : 200) : 600) : 1500) : 3000) : 5000;
             if (tid == 4)
-              num37 =  Math.Round((double) num37 / 4.0);
+              num37 =  Math.Round( num37 / 4.0);
           }
           if (flag)
           {
@@ -7039,8 +7039,8 @@ namespace WindowsApplication1
             num40 += 1;
         }
       }
-      if ((double) num40 / 3.0 > (double) num39)
-        num39 =  Math.Round((double) num40 / 3.0);
+      if ( num40 / 3.0 >  num39)
+        num39 =  Math.Round( num40 / 3.0);
       if (3 > num39)
         num39 = 3;
       let mut unitCounter: i32 = this.data.UnitCounter;
@@ -7050,40 +7050,40 @@ namespace WindowsApplication1
         if (this.data.UnitObj[unr].Regime == this.data.Turn & this.data.UnitObj[unr].PreDef == -1 && this.ai.game.HandyFunctionsObj.IsUnitInHQChain(unr, this.shqUnitNr) && this.data.UnitObj[unr].AIAttack != 1)
           num41 += 1;
       }
-      float num42 = (float) num41 / (float) num39;
+      float num42 =  num41 /  num39;
       let mut num43: i32 = 0;
       let mut num44: i32 = 0;
-      if ((double) num42 < 0.07)
+      if ( num42 < 0.07)
       {
-        num43 =  Math.Round((double) this.poolImportance[9] * 0.5);
+        num43 =  Math.Round( this.poolImportance[9] * 0.5);
         num44 = 0;
       }
-      else if ((double) num42 >= 0.18)
+      else if ( num42 >= 0.18)
       {
-        if ((double) num42 < 0.32)
+        if ( num42 < 0.32)
         {
           num43 = 0;
-          num44 =  Math.Round((double) this.poolImportance[7] * 0.32);
+          num44 =  Math.Round( this.poolImportance[7] * 0.32);
         }
-        else if ((double) num42 < 0.45)
+        else if ( num42 < 0.45)
         {
           num43 = 0;
-          num44 =  Math.Round((double) this.poolImportance[7] * 0.42);
+          num44 =  Math.Round( this.poolImportance[7] * 0.42);
         }
-        else if ((double) num42 < 0.800000011920929)
+        else if ( num42 < 0.800000011920929)
         {
           num43 = 0;
-          num44 =  Math.Round((double) this.poolImportance[7] * 0.54);
+          num44 =  Math.Round( this.poolImportance[7] * 0.54);
         }
-        else if ((double) num42 < 1.5)
+        else if ( num42 < 1.5)
         {
           num43 = 0;
-          num44 =  Math.Round((double) this.poolImportance[7] * 0.66);
+          num44 =  Math.Round( this.poolImportance[7] * 0.66);
         }
         else
         {
           num43 = 0;
-          num44 =  Math.Round((double) this.poolImportance[7] * 0.8);
+          num44 =  Math.Round( this.poolImportance[7] * 0.8);
         }
       }
       if (num43 > 0)
@@ -7210,7 +7210,7 @@ namespace WindowsApplication1
       CoordList coordList = CoordList::new();
       SimpleList preferenceOobPool = SimpleList::new();
       SimpleStringList simpleStringList = SimpleStringList::new();
-      let mut num1: i32 =  Math.Round((double) (100 * this.VAR_CurrentSoldier) / (double) this.VAR_IdealSoldier);
+      let mut num1: i32 =  Math.Round( (100 * this.VAR_CurrentSoldier) /  this.VAR_IdealSoldier);
       let mut unitCounter1: i32 = this.data.UnitCounter;
       int num2;
       int num3;
@@ -7267,9 +7267,9 @@ namespace WindowsApplication1
             num8 += 1;
         }
       }
-      if ((double) num9 / 3.0 > (double) num8)
-        num8 =  Math.Round((double) num9 / 3.0);
-      let mut num10: i32 =  Math.Round((double) num8 * 0.8);
+      if ( num9 / 3.0 >  num8)
+        num8 =  Math.Round( num9 / 3.0);
+      let mut num10: i32 =  Math.Round( num8 * 0.8);
       if (3 > num10)
         num10 = 3;
       let mut num11: i32 = 0;
@@ -7338,7 +7338,7 @@ namespace WindowsApplication1
             num2 = num2;
         }
       }
-      float num23 = (float) num20 / (float) num10;
+      float num23 =  num20 /  num10;
       this.VAR_UnitsPerFrontHex = num23;
       SimpleList weightedReinfLists = this.strategicAi.GetWeightedReinfLists(false);
       let mut num24: i32 = weightedReinfLists.FindWeight(26) + weightedReinfLists.FindWeight(37) + weightedReinfLists.FindWeight(38) + weightedReinfLists.FindWeight(55);
@@ -7352,34 +7352,34 @@ namespace WindowsApplication1
       let mut num30: i32 = num26 + num24 + num25;
       if (num30 < 1)
         num30 = 1;
-      let mut num31: i32 =  Math.Round((double) (100 * num28) / (double) num30);
-      let mut num32: i32 =  Math.Round((double) (100 * num29) / (double) num30);
+      let mut num31: i32 =  Math.Round( (100 * num28) /  num30);
+      let mut num32: i32 =  Math.Round( (100 * num29) /  num30);
       let mut num33: i32 = 0;
       if (this.strategicAi.Air_Economical_AirBased > 0 | this.strategicAi.Air_Economical_RocketBased > 0 && this.strategicAi.Air_Yes)
-        num33 =  Math.Round((double) (this.strategicAi.Air_Aircraft_AsPercentage_Of_Land * Math.Max(this.strategicAi.Air_Economical_AirBased, this.strategicAi.Air_Economical_RocketBased)) / 100.0);
+        num33 =  Math.Round( (this.strategicAi.Air_Aircraft_AsPercentage_Of_Land * Math.Max(this.strategicAi.Air_Economical_AirBased, this.strategicAi.Air_Economical_RocketBased)) / 100.0);
       let mut num34: i32 = 0;
       if (this.strategicAi.Air_Yes | this.strategicAi.Air_JustFlak)
         num34 = this.strategicAi.Air_Flak_AsPercentage_Of_Land;
       let mut num35: i32 = num26 + num24 + num25;
       if (num35 > 0)
       {
-        num26 =  Math.Round((double) (100 * num26) / (double) num35);
-        num25 =  Math.Round((double) (100 * num25) / (double) num35);
-        num24 =  Math.Round((double) (100 * num24) / (double) num35);
+        num26 =  Math.Round( (100 * num26) /  num35);
+        num25 =  Math.Round( (100 * num25) /  num35);
+        num24 =  Math.Round( (100 * num24) /  num35);
       }
       let mut num36: i32 = num12 + num13 + num14;
       if (num36 > 0)
       {
-        let mut num37: i32 =  Math.Round((double) (100 * num12) / (double) num36);
-        let mut num38: i32 =  Math.Round((double) (100 * num14) / (double) num36);
-        let mut num39: i32 =  Math.Round((double) (100 * num13) / (double) num36);
+        let mut num37: i32 =  Math.Round( (100 * num12) /  num36);
+        let mut num38: i32 =  Math.Round( (100 * num14) /  num36);
+        let mut num39: i32 =  Math.Round( (100 * num13) /  num36);
         if (num37 > num26)
           num26 = num37;
       }
       let mut num40: i32 = this.strategicAi.pathWar_Offensive + 10;
-      let mut num41: i32 =  Math.Round((double) this.strategicAi.pathTech_Artillery / 4.0);
-      let mut num42: i32 =  Math.Round((double) (50 + this.strategicAi.pathWar_Defensive) / 2.0);
-      let mut num43: i32 =  Math.Round((double) num40 / 2.0);
+      let mut num41: i32 =  Math.Round( this.strategicAi.pathTech_Artillery / 4.0);
+      let mut num42: i32 =  Math.Round( (50 + this.strategicAi.pathWar_Defensive) / 2.0);
+      let mut num43: i32 =  Math.Round( num40 / 2.0);
       let mut num44: i32 = num40 - num43;
       let mut num45: i32 = num42 + num43;
       let mut num46: i32 = num44;
@@ -7389,245 +7389,245 @@ namespace WindowsApplication1
       this.ai.AddLog("----------------------------------------------------");
       if (num1 < 20)
       {
-        num44 =  Math.Round((double) num44 / 10.0);
-        num41 =  Math.Round((double) num41 / 10.0);
-        num33 =  Math.Round((double) num33 / 10.0);
-        num34 =  Math.Round((double) num34 / 10.0);
+        num44 =  Math.Round( num44 / 10.0);
+        num41 =  Math.Round( num41 / 10.0);
+        num33 =  Math.Round( num33 / 10.0);
+        num34 =  Math.Round( num34 / 10.0);
         this.ai.AddLog("Soldier Percentage < 20 => Tank-Art DIVIDED /10 ");
       }
       else if (num1 < 30)
       {
-        num44 =  Math.Round((double) num44 / 5.0);
-        num41 =  Math.Round((double) num41 / 5.0);
-        num33 =  Math.Round((double) num33 / 5.0);
-        num34 =  Math.Round((double) num34 / 5.0);
+        num44 =  Math.Round( num44 / 5.0);
+        num41 =  Math.Round( num41 / 5.0);
+        num33 =  Math.Round( num33 / 5.0);
+        num34 =  Math.Round( num34 / 5.0);
         this.ai.AddLog("Soldier Percentage < 30 => Tank-Art DIVIDED /5");
       }
       else if (num1 < 40)
       {
-        num44 =  Math.Round((double) num44 / 3.0);
-        num41 =  Math.Round((double) num41 / 3.0);
-        num33 =  Math.Round((double) num33 / 3.0);
-        num34 =  Math.Round((double) num34 / 3.0);
+        num44 =  Math.Round( num44 / 3.0);
+        num41 =  Math.Round( num41 / 3.0);
+        num33 =  Math.Round( num33 / 3.0);
+        num34 =  Math.Round( num34 / 3.0);
         this.ai.AddLog("Soldier Percentage < 40 => Tank-Art DIVIDED /3");
       }
       else if (num1 < 50)
       {
-        num44 =  Math.Round((double) num44 / 2.0);
-        num41 =  Math.Round((double) num41 / 2.0);
-        num33 =  Math.Round((double) num33 / 2.0);
-        num34 =  Math.Round((double) num34 / 2.0);
+        num44 =  Math.Round( num44 / 2.0);
+        num41 =  Math.Round( num41 / 2.0);
+        num33 =  Math.Round( num33 / 2.0);
+        num34 =  Math.Round( num34 / 2.0);
         this.ai.AddLog("Soldier Percentage < 50 => Tank-Art DIVIDED /2");
       }
-      if ((double) (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) > (double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 0.5)
+      if ( (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) >  this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 0.5)
       {
-        num44 =  Math.Round((double) num44 / 10.0);
-        num41 =  Math.Round((double) num41 / 10.0);
-        num33 =  Math.Round((double) num33 / 10.0);
-        num34 =  Math.Round((double) num34 / 10.0);
+        num44 =  Math.Round( num44 / 10.0);
+        num41 =  Math.Round( num41 / 10.0);
+        num33 =  Math.Round( num33 / 10.0);
+        num34 =  Math.Round( num34 / 10.0);
         this.ai.AddLog("Soldiers needed > IP / 0.5 => Tank-Art DIVIDED /10 ");
       }
-      else if ((double) (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) > (double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 0.75)
+      else if ( (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) >  this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 0.75)
       {
-        num44 =  Math.Round((double) num44 / 7.0);
-        num41 =  Math.Round((double) num41 / 7.0);
-        num33 =  Math.Round((double) num33 / 7.0);
-        num34 =  Math.Round((double) num34 / 7.0);
+        num44 =  Math.Round( num44 / 7.0);
+        num41 =  Math.Round( num41 / 7.0);
+        num33 =  Math.Round( num33 / 7.0);
+        num34 =  Math.Round( num34 / 7.0);
         this.ai.AddLog("Soldiers needed > IP / 0.75=> Tank-Art DIVIDED /7");
       }
-      else if ((double) (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) > (double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 1.0)
+      else if ( (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) >  this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 1.0)
       {
-        num44 =  Math.Round((double) num44 / 4.0);
-        num41 =  Math.Round((double) num41 / 4.0);
-        num33 =  Math.Round((double) num33 / 4.0);
-        num34 =  Math.Round((double) num34 / 4.0);
+        num44 =  Math.Round( num44 / 4.0);
+        num41 =  Math.Round( num41 / 4.0);
+        num33 =  Math.Round( num33 / 4.0);
+        num34 =  Math.Round( num34 / 4.0);
         this.ai.AddLog("Soldiers needed > IP /1 => Tank-Art DIVIDED /4");
       }
-      else if ((double) (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) > (double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 1.5)
+      else if ( (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) >  this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 1.5)
       {
-        num44 =  Math.Round((double) num44 / 3.0);
-        num41 =  Math.Round((double) num41 / 3.0);
-        num33 =  Math.Round((double) num33 / 3.0);
-        num34 =  Math.Round((double) num34 / 3.0);
+        num44 =  Math.Round( num44 / 3.0);
+        num41 =  Math.Round( num41 / 3.0);
+        num33 =  Math.Round( num33 / 3.0);
+        num34 =  Math.Round( num34 / 3.0);
         this.ai.AddLog("Soldiers needed > IP / 1.5 => Tank-Art DIVIDED /3");
       }
-      else if ((double) (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) > (double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 2.0)
+      else if ( (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) >  this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 2.0)
       {
-        num44 =  Math.Round((double) num44 / 2.5);
-        num41 =  Math.Round((double) num41 / 2.5);
-        num33 =  Math.Round((double) num33 / 2.0);
-        num34 =  Math.Round((double) num34 / 2.0);
+        num44 =  Math.Round( num44 / 2.5);
+        num41 =  Math.Round( num41 / 2.5);
+        num33 =  Math.Round( num33 / 2.0);
+        num34 =  Math.Round( num34 / 2.0);
         this.ai.AddLog("Soldiers needed > IP / 2 => Tank-Art DIVIDED /2.5");
       }
-      else if ((double) (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) > (double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 3.0)
+      else if ( (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) >  this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 3.0)
       {
-        num44 =  Math.Round((double) num44 / 2.0);
-        num41 =  Math.Round((double) num41 / 2.0);
-        num33 =  Math.Round((double) num33 / 1.5);
-        num34 =  Math.Round((double) num34 / 1.5);
+        num44 =  Math.Round( num44 / 2.0);
+        num41 =  Math.Round( num41 / 2.0);
+        num33 =  Math.Round( num33 / 1.5);
+        num34 =  Math.Round( num34 / 1.5);
         this.ai.AddLog("Soldiers needed > IP / 3 => Tank-Art DIVIDED /2");
       }
-      else if ((double) (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) > (double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 5.0)
+      else if ( (this.VAR_IdealSoldier - this.VAR_CurrentSoldier) >  this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(8) / 5.0)
       {
-        num44 =  Math.Round((double) num44 / 1.5);
-        num41 =  Math.Round((double) num41 / 1.5);
+        num44 =  Math.Round( num44 / 1.5);
+        num41 =  Math.Round( num41 / 1.5);
         this.ai.AddLog("Soldiers needed > IP / 5 => Tank-Art DIVIDED /1.5");
       }
-      if ((double) this.VAR_CurrentSoldier < (double) this.VAR_IdealSoldier_BeforeMaxRecruit * 0.1)
+      if ( this.VAR_CurrentSoldier <  this.VAR_IdealSoldier_BeforeMaxRecruit * 0.1)
       {
-        num44 =  Math.Round((double) num44 / 6.0);
-        num41 =  Math.Round((double) num41 / 6.0);
-        num33 =  Math.Round((double) num33 / 4.0);
-        num34 =  Math.Round((double) num34 / 4.0);
+        num44 =  Math.Round( num44 / 6.0);
+        num41 =  Math.Round( num41 / 6.0);
+        num33 =  Math.Round( num33 / 4.0);
+        num34 =  Math.Round( num34 / 4.0);
         this.ai.AddLog("Current Soldier < Ideal Soldier => Tank-Art DIVIDED /6");
       }
-      else if ((double) this.VAR_CurrentSoldier < (double) this.VAR_IdealSoldier_BeforeMaxRecruit * 0.2)
+      else if ( this.VAR_CurrentSoldier <  this.VAR_IdealSoldier_BeforeMaxRecruit * 0.2)
       {
-        num44 =  Math.Round((double) num44 / 4.0);
-        num41 =  Math.Round((double) num41 / 4.0);
-        num33 =  Math.Round((double) num33 / 2.0);
-        num34 =  Math.Round((double) num34 / 2.0);
+        num44 =  Math.Round( num44 / 4.0);
+        num41 =  Math.Round( num41 / 4.0);
+        num33 =  Math.Round( num33 / 2.0);
+        num34 =  Math.Round( num34 / 2.0);
         this.ai.AddLog("Current Soldier < Ideal Soldier => Tank-Art DIVIDED /4");
       }
-      else if ((double) this.VAR_CurrentSoldier < (double) this.VAR_IdealSoldier_BeforeMaxRecruit * 0.3)
+      else if ( this.VAR_CurrentSoldier <  this.VAR_IdealSoldier_BeforeMaxRecruit * 0.3)
       {
-        num44 =  Math.Round((double) num44 / 2.0);
-        num41 =  Math.Round((double) num41 / 2.0);
+        num44 =  Math.Round( num44 / 2.0);
+        num41 =  Math.Round( num41 / 2.0);
         this.ai.AddLog("Current Soldier < Ideal Soldier => Tank-Art DIVIDED /2");
       }
-      if (this.VAR_CurrentRecruits > 800 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 10.0)
+      if (this.VAR_CurrentRecruits > 800 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 10.0)
       {
-        num44 =  Math.Round((double) num44 / 32.0);
-        num41 =  Math.Round((double) num41 / 45.0);
-        num33 =  Math.Round((double) num33 / 30.0);
-        num34 =  Math.Round((double) num34 / 30.0);
+        num44 =  Math.Round( num44 / 32.0);
+        num41 =  Math.Round( num41 / 45.0);
+        num33 =  Math.Round( num33 / 30.0);
+        num34 =  Math.Round( num34 / 30.0);
         this.ai.AddLog("Current Recruits is HIGH => Tank-Art DIVIDED /32");
       }
-      else if (this.VAR_CurrentRecruits > 600 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 8.0)
+      else if (this.VAR_CurrentRecruits > 600 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 8.0)
       {
-        num44 =  Math.Round((double) num44 / 9.0);
-        num41 =  Math.Round((double) num41 / 16.0);
-        num33 =  Math.Round((double) num33 / 10.0);
-        num34 =  Math.Round((double) num34 / 10.0);
+        num44 =  Math.Round( num44 / 9.0);
+        num41 =  Math.Round( num41 / 16.0);
+        num33 =  Math.Round( num33 / 10.0);
+        num34 =  Math.Round( num34 / 10.0);
         this.ai.AddLog("Current Recruits is HIGH => Tank-Art DIVIDED /9");
       }
-      else if (this.VAR_CurrentRecruits > 400 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 6.0)
+      else if (this.VAR_CurrentRecruits > 400 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 6.0)
       {
-        num44 =  Math.Round((double) num44 / 6.0);
-        num41 =  Math.Round((double) num41 / 8.0);
-        num33 =  Math.Round((double) num33 / 5.0);
-        num34 =  Math.Round((double) num34 / 5.0);
+        num44 =  Math.Round( num44 / 6.0);
+        num41 =  Math.Round( num41 / 8.0);
+        num33 =  Math.Round( num33 / 5.0);
+        num34 =  Math.Round( num34 / 5.0);
         this.ai.AddLog("Current Recruits is HIGH => Tank-Art DIVIDED /6");
       }
-      else if (this.VAR_CurrentRecruits > 300 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 5.0)
+      else if (this.VAR_CurrentRecruits > 300 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 5.0)
       {
-        num44 =  Math.Round((double) num44 / 4.5);
-        num41 =  Math.Round((double) num41 / 6.0);
-        num33 =  Math.Round((double) num33 / 3.0);
-        num34 =  Math.Round((double) num34 / 3.0);
+        num44 =  Math.Round( num44 / 4.5);
+        num41 =  Math.Round( num41 / 6.0);
+        num33 =  Math.Round( num33 / 3.0);
+        num34 =  Math.Round( num34 / 3.0);
         this.ai.AddLog("Current Recruits is HIGH => Tank-Art DIVIDED /4.5");
       }
-      else if (this.VAR_CurrentRecruits > 200 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 4.0)
+      else if (this.VAR_CurrentRecruits > 200 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 4.0)
       {
-        num44 =  Math.Round((double) num44 / 3.0);
-        num41 =  Math.Round((double) num41 / 4.0);
-        num33 =  Math.Round((double) num33 / 2.0);
-        num34 =  Math.Round((double) num34 / 2.0);
+        num44 =  Math.Round( num44 / 3.0);
+        num41 =  Math.Round( num41 / 4.0);
+        num33 =  Math.Round( num33 / 2.0);
+        num34 =  Math.Round( num34 / 2.0);
         this.ai.AddLog("Current Recruits is HIGH => Tank-Art DIVIDED /3");
       }
-      else if (this.VAR_CurrentRecruits > 100 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 3.0)
+      else if (this.VAR_CurrentRecruits > 100 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 3.0)
       {
-        num44 =  Math.Round((double) num44 / 1.5);
-        num41 =  Math.Round((double) num41 / 2.0);
+        num44 =  Math.Round( num44 / 1.5);
+        num41 =  Math.Round( num41 / 2.0);
         this.ai.AddLog("Current Recruits is HIGH => Tank-Art DIVIDED /1.5");
       }
-      if ((double) num23 < 0.05)
+      if ( num23 < 0.05)
       {
-        num44 =  Math.Round((double) num44 / 16.0);
-        num41 =  Math.Round((double) num41 / 32.0);
-        num33 =  Math.Round((double) num33 / 10.0);
-        num34 =  Math.Round((double) num34 / 20.0);
+        num44 =  Math.Round( num44 / 16.0);
+        num41 =  Math.Round( num41 / 32.0);
+        num33 =  Math.Round( num33 / 10.0);
+        num34 =  Math.Round( num34 / 20.0);
       }
-      else if ((double) num23 < 0.1)
+      else if ( num23 < 0.1)
       {
-        num44 =  Math.Round((double) num44 / 4.0);
-        num41 =  Math.Round((double) num41 / 16.0);
-        num33 =  Math.Round((double) num33 / 5.0);
-        num34 =  Math.Round((double) num34 / 10.0);
+        num44 =  Math.Round( num44 / 4.0);
+        num41 =  Math.Round( num41 / 16.0);
+        num33 =  Math.Round( num33 / 5.0);
+        num34 =  Math.Round( num34 / 10.0);
       }
-      else if ((double) num23 < 0.15)
+      else if ( num23 < 0.15)
       {
-        num44 =  Math.Round((double) num44 / 3.0);
-        num41 =  Math.Round((double) num41 / 8.0);
-        num33 =  Math.Round((double) num33 / 4.0);
-        num34 =  Math.Round((double) num34 / 8.0);
+        num44 =  Math.Round( num44 / 3.0);
+        num41 =  Math.Round( num41 / 8.0);
+        num33 =  Math.Round( num33 / 4.0);
+        num34 =  Math.Round( num34 / 8.0);
       }
-      else if ((double) num23 < 0.2)
+      else if ( num23 < 0.2)
       {
-        num44 =  Math.Round((double) num44 / 2.0);
-        num41 =  Math.Round((double) num41 / 4.0);
-        num33 =  Math.Round((double) num33 / 2.0);
-        num34 =  Math.Round((double) num34 / 4.0);
+        num44 =  Math.Round( num44 / 2.0);
+        num41 =  Math.Round( num41 / 4.0);
+        num33 =  Math.Round( num33 / 2.0);
+        num34 =  Math.Round( num34 / 4.0);
       }
-      else if ((double) num23 < 0.3)
+      else if ( num23 < 0.3)
       {
-        num44 =  Math.Round((double) num44 / 1.0);
-        num41 =  Math.Round((double) num41 / 2.0);
+        num44 =  Math.Round( num44 / 1.0);
+        num41 =  Math.Round( num41 / 2.0);
       }
-      else if ((double) num23 >= 0.4)
+      else if ( num23 >= 0.4)
       {
-        if ((double) num23 < 0.5)
-          num44 =  Math.Round((double) num44 * 1.3);
-        else if ((double) num23 < 0.7)
+        if ( num23 < 0.5)
+          num44 =  Math.Round( num44 * 1.3);
+        else if ( num23 < 0.7)
         {
-          num44 =  Math.Round((double) num44 * 1.5);
-          num41 =  Math.Round((double) num41 * 1.2);
+          num44 =  Math.Round( num44 * 1.5);
+          num41 =  Math.Round( num41 * 1.2);
         }
-        else if ((double) num23 < 0.9)
+        else if ( num23 < 0.9)
         {
-          num44 =  Math.Round((double) num44 * 1.7);
-          num41 =  Math.Round((double) num41 * 1.35);
+          num44 =  Math.Round( num44 * 1.7);
+          num41 =  Math.Round( num41 * 1.35);
         }
         else
         {
           num44 *= 2;
-          num41 =  Math.Round((double) num41 * 1.5);
+          num41 =  Math.Round( num41 * 1.5);
         }
       }
       if (this.strategicAi.OurLossDueToAir > this.strategicAi.OurLossDueToTank & this.strategicAi.OurLossDueToAir > 20)
       {
-        num33 =  Math.Round((double) (num47 + num33 + num33) / 3.0);
-        num34 =  Math.Round((double) (num48 + num34 + num34) / 3.0);
+        num33 =  Math.Round( (num47 + num33 + num33) / 3.0);
+        num34 =  Math.Round( (num48 + num34 + num34) / 3.0);
       }
       else if (this.strategicAi.OurLossDueToTank > this.strategicAi.OurLossDueToAir & this.strategicAi.OurLossDueToTank > 20)
-        num44 =  Math.Round((double) (num46 + num44 + num44) / 3.0);
+        num44 =  Math.Round( (num46 + num44 + num44) / 3.0);
       if (this.strategicAi.OurLossDueToAir > 35)
       {
-        num33 =  Math.Round((double) (num47 + num33) / 2.0);
-        num34 =  Math.Round((double) (num48 + num34) / 2.0);
+        num33 =  Math.Round( (num47 + num33) / 2.0);
+        num34 =  Math.Round( (num48 + num34) / 2.0);
       }
       if (this.strategicAi.OurLossDueToTank > 35)
-        num44 =  Math.Round((double) (num46 + num44) / 2.0);
+        num44 =  Math.Round( (num46 + num44) / 2.0);
       if (this.strategicAi.OurKillDueToAir > 50)
-        num33 =  Math.Round((double) num47 * 1.5);
+        num33 =  Math.Round( num47 * 1.5);
       else if (this.strategicAi.OurKillDueToAir > 30)
-        num33 =  Math.Round(((double) num47 * 1.5 + (double) num33) / 2.0);
+        num33 =  Math.Round(( num47 * 1.5 +  num33) / 2.0);
       else if (this.strategicAi.OurKillDueToAir > 15)
-        num33 =  Math.Round((double) (num47 + num33 + num33) / 3.0);
+        num33 =  Math.Round( (num47 + num33 + num33) / 3.0);
       if (this.strategicAi.OurKillDueToTank > 50)
-        num44 =  Math.Round((double) num46 * 1.5);
+        num44 =  Math.Round( num46 * 1.5);
       else if (this.strategicAi.OurKillDueToTank > 30)
-        num44 =  Math.Round(((double) num46 * 1.5 + (double) num44) / 2.0);
+        num44 =  Math.Round(( num46 * 1.5 +  num44) / 2.0);
       else if (this.strategicAi.OurKillDueToTank > 15)
-        num44 =  Math.Round((double) (num46 + num44 + num44) / 3.0);
-      float num49 = 100f / (float) (num44 + num41 + num45);
-      let mut num50: i32 =  Math.Round((double) ((float) num44 * num49));
-      let mut num51: i32 =  Math.Round((double) ((float) num45 * num49));
-      let mut num52: i32 =  Math.Round((double) ((float) num41 * num49));
-      float num53 = 100f / (float) (num50 + num52 + num51);
-      let mut num54: i32 =  Math.Round((double) ((float) num50 * num53));
-      let mut num55: i32 =  Math.Round((double) ((float) num51 * num53));
-      let mut num56: i32 =  Math.Round((double) ((float) num52 * num53));
+        num44 =  Math.Round( (num46 + num44 + num44) / 3.0);
+      float num49 = 100f /  (num44 + num41 + num45);
+      let mut num50: i32 =  Math.Round( ( num44 * num49));
+      let mut num51: i32 =  Math.Round( ( num45 * num49));
+      let mut num52: i32 =  Math.Round( ( num41 * num49));
+      float num53 = 100f /  (num50 + num52 + num51);
+      let mut num54: i32 =  Math.Round( ( num50 * num53));
+      let mut num55: i32 =  Math.Round( ( num51 * num53));
+      let mut num56: i32 =  Math.Round( ( num52 * num53));
       if (this.data.Round < 10)
       {
         num54 -= 3;
@@ -7650,28 +7650,28 @@ namespace WindowsApplication1
       }
       if (num22 > 0)
       {
-        let mut num57: i32 =  Math.Round((double) (num22 * 100) / (double) Math.Max(1, num13 + num14 + num12));
+        let mut num57: i32 =  Math.Round( (num22 * 100) /  Math.Max(1, num13 + num14 + num12));
         if (num57 > num32)
           num32 = num57;
       }
       if (num16 > 0)
       {
-        let mut num58: i32 =  Math.Round((double) (num16 * 100) / (double) Math.Max(1, num13 + num14 + num12));
+        let mut num58: i32 =  Math.Round( (num16 * 100) /  Math.Max(1, num13 + num14 + num12));
         if (num58 > num31)
           num31 = num58;
       }
       if (num12 > 0)
       {
-        let mut num59: i32 =  Math.Round((double) ((num12 + num21) * 100) / (double) Math.Max(1, num13 + num14 + num12));
+        let mut num59: i32 =  Math.Round( ((num12 + num21) * 100) /  Math.Max(1, num13 + num14 + num12));
         if (num59 > num26)
           num26 = num59;
       }
       let mut num60: i32 = num26 + num24 + num25;
       if (num60 > 0)
       {
-        num26 =  Math.Round((double) (100 * num26) / (double) num60);
-        num25 =  Math.Round((double) (100 * num25) / (double) num60);
-        num24 =  Math.Round((double) (100 * num24) / (double) num60);
+        num26 =  Math.Round( (100 * num26) /  num60);
+        num25 =  Math.Round( (100 * num25) /  num60);
+        num24 =  Math.Round( (100 * num24) /  num60);
       }
       if (num34 < 1)
         num34 = 1;
@@ -7690,9 +7690,9 @@ namespace WindowsApplication1
       if (num26 < 1)
         num26 = 1;
       if (num25 > num54)
-        num54 =  Math.Round((double) num54 / 2.0);
+        num54 =  Math.Round( num54 / 2.0);
       if (num26 > num56)
-        num56 =  Math.Round((double) num56 / 2.0);
+        num56 =  Math.Round( num56 / 2.0);
       float[] numArray1 = new float[1000];
       let mut index5: i32 = 0;
       do
@@ -7703,18 +7703,18 @@ namespace WindowsApplication1
       while (index5 <= 999);
       if (num31 < 1)
         num31 = 1;
-      float num61 = (float) num33 / (float) num31;
+      float num61 =  num33 /  num31;
       if (!this.strategicAi.Air_Yes)
         num61 = 0.0f;
-      numArray1[59] = (float) ((double) num61 * 0.33 * (double) this.strategicAi.Air_Cover / 50.0);
-      numArray1[60] = (float) ((double) num61 * (double) this.strategicAi.Air_Cover / 50.0);
-      numArray1[61] = (float) ((double) num61 * 0.5 * (double) this.strategicAi.Air_Support / 50.0);
-      numArray1[62] = (float) ((double) num61 * 1.0 * (double) this.strategicAi.Air_Support / 50.0);
-      numArray1[63] = (float) ((double) num61 * 1.0 * (double) this.strategicAi.Air_Support / 50.0);
+      numArray1[59] =  ( num61 * 0.33 *  this.strategicAi.Air_Cover / 50.0);
+      numArray1[60] =  ( num61 *  this.strategicAi.Air_Cover / 50.0);
+      numArray1[61] =  ( num61 * 0.5 *  this.strategicAi.Air_Support / 50.0);
+      numArray1[62] =  ( num61 * 1.0 *  this.strategicAi.Air_Support / 50.0);
+      numArray1[63] =  ( num61 * 1.0 *  this.strategicAi.Air_Support / 50.0);
       numArray1[64] = 0.0f;
       if (num32 < 1)
         num32 = 1;
-      float num62 = (float) num34 / (float) num32;
+      float num62 =  num34 /  num32;
       if (!this.strategicAi.Air_Yes & !this.strategicAi.Air_JustFlak)
         num62 = 0.0f;
       numArray1[65] = num62 * 1.66f;
@@ -7726,24 +7726,24 @@ namespace WindowsApplication1
         num64 = 1;
       if (num63 < 1)
         num63 = 1;
-      float num65 = (float) num63 / (float) num64;
-      if ((double) num65 > 1.0)
+      float num65 =  num63 /  num64;
+      if ( num65 > 1.0)
         num65 = 1f;
-      if ((double) num65 < 0.05)
+      if ( num65 < 0.05)
         num65 = 0.05f;
-      float num66 = (float) num55 / (float) num24;
-      if ((double) num66 > 0.0)
+      float num66 =  num55 /  num24;
+      if ( num66 > 0.0)
         num66 = num66 * num66 * num66;
-      if ((double) num66 > 4.0)
-        num66 = (float) (4.0 + ((double) num66 - 4.0) * 0.699999988079071);
-      if ((double) num66 > 7.0)
-        num66 = (float) (7.0 + ((double) num66 - 7.0) * 0.5);
-      if ((double) num66 > 10.0)
-        num66 = (float) (10.0 + ((double) num66 - 10.0) * 0.300000011920929);
-      if ((double) num66 > 13.0)
-        num66 = (float) (13.0 + ((double) num66 - 13.0) * 0.200000002980232);
-      if ((double) num66 > 15.0)
-        num66 = (float) (15.0 + ((double) num66 - 15.0) * 0.100000001490116);
+      if ( num66 > 4.0)
+        num66 =  (4.0 + ( num66 - 4.0) * 0.699999988079071);
+      if ( num66 > 7.0)
+        num66 =  (7.0 + ( num66 - 7.0) * 0.5);
+      if ( num66 > 10.0)
+        num66 =  (10.0 + ( num66 - 10.0) * 0.300000011920929);
+      if ( num66 > 13.0)
+        num66 =  (13.0 + ( num66 - 13.0) * 0.200000002980232);
+      if ( num66 > 15.0)
+        num66 =  (15.0 + ( num66 - 15.0) * 0.100000001490116);
       numArray1[26] = num66;
       numArray1[37] = num66 * num65;
       numArray1[38] = num66 * num65;
@@ -7760,19 +7760,19 @@ namespace WindowsApplication1
           num66 = 0.0f;
       }
       numArray1[40] = num66 * num65;
-      float num67 = (float) num54 / (float) num25;
-      if ((double) num67 > 0.0)
+      float num67 =  num54 /  num25;
+      if ( num67 > 0.0)
         num67 = num67 * num67 * num67;
-      if ((double) num67 > 4.0)
-        num67 = (float) (4.0 + ((double) num67 - 4.0) * 0.699999988079071);
-      if ((double) num67 > 7.0)
-        num67 = (float) (7.0 + ((double) num67 - 7.0) * 0.5);
-      if ((double) num67 > 10.0)
-        num67 = (float) (10.0 + ((double) num67 - 10.0) * 0.300000011920929);
-      if ((double) num67 > 13.0)
-        num67 = (float) (13.0 + ((double) num67 - 13.0) * 0.200000002980232);
-      if ((double) num67 > 15.0)
-        num67 = (float) (15.0 + ((double) num67 - 15.0) * 0.100000001490116);
+      if ( num67 > 4.0)
+        num67 =  (4.0 + ( num67 - 4.0) * 0.699999988079071);
+      if ( num67 > 7.0)
+        num67 =  (7.0 + ( num67 - 7.0) * 0.5);
+      if ( num67 > 10.0)
+        num67 =  (10.0 + ( num67 - 10.0) * 0.300000011920929);
+      if ( num67 > 13.0)
+        num67 =  (13.0 + ( num67 - 13.0) * 0.200000002980232);
+      if ( num67 > 15.0)
+        num67 =  (15.0 + ( num67 - 15.0) * 0.100000001490116);
       numArray1[29] = num67;
       numArray1[30] = num67;
       numArray1[44] = num67;
@@ -7780,66 +7780,66 @@ namespace WindowsApplication1
       numArray1[45] = num67;
       numArray1[39] = num67;
       numArray1[48] = num67;
-      float num68 = (float) num56 / (float) num26;
-      if ((double) num68 < 1.0)
+      float num68 =  num56 /  num26;
+      if ( num68 < 1.0)
         num68 = num68 * num68 * num68;
-      if ((double) num68 > 4.0)
-        num68 = (float) (4.0 + ((double) num68 - 4.0) * 0.699999988079071);
-      if ((double) num68 > 7.0)
-        num68 = (float) (7.0 + ((double) num68 - 7.0) * 0.5);
-      if ((double) num68 > 10.0)
-        num68 = (float) (10.0 + ((double) num68 - 10.0) * 0.300000011920929);
-      if ((double) num68 > 13.0)
-        num68 = (float) (13.0 + ((double) num68 - 13.0) * 0.200000002980232);
-      if ((double) num68 > 15.0)
-        num68 = (float) (15.0 + ((double) num68 - 15.0) * 0.100000001490116);
+      if ( num68 > 4.0)
+        num68 =  (4.0 + ( num68 - 4.0) * 0.699999988079071);
+      if ( num68 > 7.0)
+        num68 =  (7.0 + ( num68 - 7.0) * 0.5);
+      if ( num68 > 10.0)
+        num68 =  (10.0 + ( num68 - 10.0) * 0.300000011920929);
+      if ( num68 > 13.0)
+        num68 =  (13.0 + ( num68 - 13.0) * 0.200000002980232);
+      if ( num68 > 15.0)
+        num68 =  (15.0 + ( num68 - 15.0) * 0.100000001490116);
       numArray1[28] = num68;
       numArray1[47] = num68;
       numArray1[49] = num68;
       numArray1[50] = num68;
       numArray1[56] = num68;
       numArray1[57] = num68;
-      float num69 = (float) num54 / (float) num25;
-      if ((double) num69 > 0.0)
+      float num69 =  num54 /  num25;
+      if ( num69 > 0.0)
         num69 *= num69;
-      if ((double) num69 > 4.0)
-        num69 = (float) (4.0 + ((double) num69 - 4.0) * 0.699999988079071);
-      if ((double) num69 > 7.0)
-        num69 = (float) (7.0 + ((double) num69 - 7.0) * 0.5);
-      if ((double) num69 > 10.0)
-        num69 = (float) (10.0 + ((double) num69 - 10.0) * 0.300000011920929);
-      if ((double) num69 > 13.0)
-        num69 = (float) (13.0 + ((double) num69 - 13.0) * 0.200000002980232);
-      if ((double) num69 > 15.0)
-        num69 = (float) (15.0 + ((double) num69 - 15.0) * 0.100000001490116);
-      if ((double) num69 > 1.0)
+      if ( num69 > 4.0)
+        num69 =  (4.0 + ( num69 - 4.0) * 0.699999988079071);
+      if ( num69 > 7.0)
+        num69 =  (7.0 + ( num69 - 7.0) * 0.5);
+      if ( num69 > 10.0)
+        num69 =  (10.0 + ( num69 - 10.0) * 0.300000011920929);
+      if ( num69 > 13.0)
+        num69 =  (13.0 + ( num69 - 13.0) * 0.200000002980232);
+      if ( num69 > 15.0)
+        num69 =  (15.0 + ( num69 - 15.0) * 0.100000001490116);
+      if ( num69 > 1.0)
         num69 = 1f;
-      float num70 = (float) (weight1 + weight2) / (float) (num27 + 2);
-      float num71 = (double) num70 >= 0.05 ? ((double) num70 >= 0.12 ? ((double) num70 >= 0.2 ? ((double) num70 >= 0.3 ? num69 * 0.05f : num69 * 0.15f) : num69 * 0.4f) : num69 * 0.7f) : num69;
+      float num70 =  (weight1 + weight2) /  (num27 + 2);
+      float num71 =  num70 >= 0.05 ? ( num70 >= 0.12 ? ( num70 >= 0.2 ? ( num70 >= 0.3 ? num69 * 0.05f : num69 * 0.15f) : num69 * 0.4f) : num69 * 0.7f) : num69;
       numArray1[27] = num71;
-      float num72 = (float) num54 / (float) num25;
-      if ((double) num72 > 0.0)
+      float num72 =  num54 /  num25;
+      if ( num72 > 0.0)
         num72 = num72 * num72 * num72;
-      if ((double) num72 > 4.0)
-        num72 = (float) (4.0 + ((double) num72 - 4.0) * 0.699999988079071);
-      if ((double) num72 > 7.0)
-        num72 = (float) (7.0 + ((double) num72 - 7.0) * 0.5);
-      if ((double) num72 > 10.0)
-        num72 = (float) (10.0 + ((double) num72 - 10.0) * 0.300000011920929);
-      if ((double) num72 > 13.0)
-        num72 = (float) (13.0 + ((double) num72 - 13.0) * 0.200000002980232);
-      if ((double) num72 > 15.0)
-        num72 = (float) (15.0 + ((double) num72 - 15.0) * 0.100000001490116);
-      if ((double) num72 > 1.0)
+      if ( num72 > 4.0)
+        num72 =  (4.0 + ( num72 - 4.0) * 0.699999988079071);
+      if ( num72 > 7.0)
+        num72 =  (7.0 + ( num72 - 7.0) * 0.5);
+      if ( num72 > 10.0)
+        num72 =  (10.0 + ( num72 - 10.0) * 0.300000011920929);
+      if ( num72 > 13.0)
+        num72 =  (13.0 + ( num72 - 13.0) * 0.200000002980232);
+      if ( num72 > 15.0)
+        num72 =  (15.0 + ( num72 - 15.0) * 0.100000001490116);
+      if ( num72 > 1.0)
         num72 = 1f;
-      float num73 = (double) num70 >= 0.05 ? ((double) num70 >= 0.12 ? ((double) num70 >= 0.2 ? ((double) num70 >= 0.3 ? num72 * 0.05f : num72 * 0.15f) : num72 * 0.4f) : num72 * 0.7f) : num72;
+      float num73 =  num70 >= 0.05 ? ( num70 >= 0.12 ? ( num70 >= 0.2 ? ( num70 >= 0.3 ? num72 * 0.05f : num72 * 0.15f) : num72 * 0.4f) : num72 * 0.7f) : num72;
       numArray1[34] = num73;
-      Random random = new Random( Math.Round((double) this.data.GameID / 1000.0 * (double) this.data.RegimeObj[this.data.Turn].id));
+      Random random = new Random( Math.Round( this.data.GameID / 1000.0 *  this.data.RegimeObj[this.data.Turn].id));
       let mut upperBound: i32 = numArray1.GetUpperBound(0);
       for (let mut index6: i32 = 0; index6 <= upperBound; index6 += 1)
       {
         let mut num74: i32 = random.Next(50, 150);
-        numArray1[index6] = (float) ((double) numArray1[index6] * (double) num74 / 100.0);
+        numArray1[index6] =  ( numArray1[index6] *  num74 / 100.0);
       }
       this.ai.AddLog("");
       this.ai.AddLog("Str.Offensive: " + this.strategicAi.pathWar_Offensive.ToString());
@@ -7896,14 +7896,14 @@ namespace WindowsApplication1
           flag3 = true;
           flag4 = true;
         }
-        else if (this.VAR_CurrentRecruits > 500 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 16.0)
+        else if (this.VAR_CurrentRecruits > 500 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 16.0)
         {
           flag1 = true;
           flag2 = false;
           flag3 = false;
           flag4 = false;
         }
-        else if (this.VAR_CurrentRecruits > 300 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 10.0)
+        else if (this.VAR_CurrentRecruits > 300 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 10.0)
         {
           flag1 = true;
           flag2 = true;
@@ -7912,7 +7912,7 @@ namespace WindowsApplication1
           if (this.data.Round % 2 == 1)
             flag2 = false;
         }
-        else if (this.VAR_CurrentRecruits > 120 & (double) this.VAR_CurrentRecruits > (double) this.VAR_CurrentSoldier / 6.0)
+        else if (this.VAR_CurrentRecruits > 120 &  this.VAR_CurrentRecruits >  this.VAR_CurrentSoldier / 6.0)
         {
           flag1 = true;
           flag2 = true;
@@ -7975,17 +7975,17 @@ namespace WindowsApplication1
                 for (let mut index9: i32 = 0; index9 <= counter1; index9 += 1)
                 {
                   let mut index10: i32 = reinfListForOob.Id[index9];
-                  if (index10 > 0 && (double) numArray1[index10] != 1.0)
+                  if (index10 > 0 &&  numArray1[index10] != 1.0)
                   {
                     num79 += reinfListForOob.Weight[index9];
                     str3: String = this.data.ReinfName[DrawMod.TGame.HandyFunctionsObj.GetReinfTypeByID(reinfListForOob.Id[index9])];
                     str2 = str2 + "REINF_" + str3 + "=" + numArray1[index10].ToString() + ". ";
-                    num80 +=  Math.Round((double) ((float) (reinfListForOob.Weight[index9] * 1000) * numArray1[index10]));
+                    num80 +=  Math.Round( ( (reinfListForOob.Weight[index9] * 1000) * numArray1[index10]));
                   }
                 }
                 let mut num81: i32 = 1000;
                 if (num79 > 0)
-                  num81 =  Math.Round((double) num80 / (double) num79);
+                  num81 =  Math.Round( num80 /  num79);
                 EventRelatedClass eventRelatedObj = this.ai.game.EventRelatedObj;
                 SimpleList RL = reinfListForOob;
                 let mut num82: i32 = flag1 ? 1 : 0;
@@ -8003,28 +8003,28 @@ namespace WindowsApplication1
                 let mut weight4: i32 = simpleList5.FindWeight(1);
                 if (weight4 > 0)
                 {
-                  let mut num86: i32 =  Math.Round((double) weight4 / 2.0);
+                  let mut num86: i32 =  Math.Round( weight4 / 2.0);
                   if (num86 < 1)
                     num86 = 1;
                   let mut num87: i32 = Math.Min(this.itemProduction[1] - this.itemNeed[1], this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(1));
                   if (num87 < 0)
                     num87 = 0;
-                  if ((double) this.itemProduction[1] * 0.33 > (double) this.itemNeed[1])
-                    num87 +=  Math.Round((double) this.itemProduction[1] * 1.5) + 150;
-                  else if ((double) this.itemProduction[1] * 0.5 > (double) this.itemNeed[1])
+                  if ( this.itemProduction[1] * 0.33 >  this.itemNeed[1])
+                    num87 +=  Math.Round( this.itemProduction[1] * 1.5) + 150;
+                  else if ( this.itemProduction[1] * 0.5 >  this.itemNeed[1])
                     num87 += this.itemProduction[1] * 1 + 100;
-                  else if ((double) this.itemProduction[1] * 0.7 > (double) this.itemNeed[1])
-                    num87 +=  Math.Round((double) this.itemProduction[1] * 0.85) + 80;
-                  else if ((double) this.itemProduction[1] * 0.85 > (double) this.itemNeed[1])
-                    num87 +=  Math.Round((double) this.itemProduction[1] * 0.7) + 60;
+                  else if ( this.itemProduction[1] * 0.7 >  this.itemNeed[1])
+                    num87 +=  Math.Round( this.itemProduction[1] * 0.85) + 80;
+                  else if ( this.itemProduction[1] * 0.85 >  this.itemNeed[1])
+                    num87 +=  Math.Round( this.itemProduction[1] * 0.7) + 60;
                   else if (this.itemProduction[1] * 1 > this.itemNeed[1])
-                    num87 +=  Math.Round((double) this.itemProduction[1] * 0.5) + 45;
-                  else if ((double) this.itemProduction[1] * 1.1 > (double) this.itemNeed[1])
-                    num87 +=  Math.Round((double) this.itemProduction[1] * 0.3) + 30;
-                  else if ((double) this.itemProduction[1] * 1.2 > (double) this.itemNeed[1])
-                    num87 +=  Math.Round((double) this.itemProduction[1] * 0.2) + 20;
-                  else if ((double) this.itemProduction[1] * 1.3 > (double) this.itemNeed[1])
-                    num87 +=  Math.Round((double) this.itemProduction[1] * 0.1) + 10;
+                    num87 +=  Math.Round( this.itemProduction[1] * 0.5) + 45;
+                  else if ( this.itemProduction[1] * 1.1 >  this.itemNeed[1])
+                    num87 +=  Math.Round( this.itemProduction[1] * 0.3) + 30;
+                  else if ( this.itemProduction[1] * 1.2 >  this.itemNeed[1])
+                    num87 +=  Math.Round( this.itemProduction[1] * 0.2) + 20;
+                  else if ( this.itemProduction[1] * 1.3 >  this.itemNeed[1])
+                    num87 +=  Math.Round( this.itemProduction[1] * 0.1) + 10;
                   let mut num88: i32 = 1;
                   if (reinfListForOob.FindWeight(27) > 0 | reinfListForOob.FindWeight(34) > 0)
                   {
@@ -8034,34 +8034,34 @@ namespace WindowsApplication1
                   let mut num89: i32 = num88;
                   for (let mut index11: i32 = 1; index11 <= num89; index11 += 1)
                   {
-                    if ((double) num86 * 0.4 > (double) num87)
+                    if ( num86 * 0.4 >  num87)
                     {
                       num81 = 0;
                       str2 += "OilConsume = 0. ";
                     }
-                    else if ( Math.Round((double) num86 * 0.6) > num87)
+                    else if ( Math.Round( num86 * 0.6) > num87)
                     {
-                      num81 =  Math.Round((double) num81 * 0.25);
+                      num81 =  Math.Round( num81 * 0.25);
                       str2 += "OilConsume = 0.25. ";
                     }
-                    else if ( Math.Round((double) num86 * 0.8) > num87)
+                    else if ( Math.Round( num86 * 0.8) > num87)
                     {
-                      num81 =  Math.Round((double) num81 * 0.5);
+                      num81 =  Math.Round( num81 * 0.5);
                       str2 += "OilConsume = 0.5. ";
                     }
-                    else if ( Math.Round((double) num86 * 0.9) > num87)
+                    else if ( Math.Round( num86 * 0.9) > num87)
                     {
-                      num81 =  Math.Round((double) num81 * 0.65);
+                      num81 =  Math.Round( num81 * 0.65);
                       str2 += "OilConsume = 0.65. ";
                     }
                     else if (num86 * 1 > num87)
                     {
-                      num81 =  Math.Round((double) num81 * 0.8);
+                      num81 =  Math.Round( num81 * 0.8);
                       str2 += "OilConsume = 0.8. ";
                     }
-                    else if ( Math.Round((double) num86 * 1.25) > num87)
+                    else if ( Math.Round( num86 * 1.25) > num87)
                     {
-                      num81 =  Math.Round((double) num81 * 0.9);
+                      num81 =  Math.Round( num81 * 0.9);
                       str2 += "OilConsume = 0.9. ";
                     }
                   }
@@ -8078,19 +8078,19 @@ namespace WindowsApplication1
                   }
                   else if (num90 * 2 > num91)
                   {
-                    num81 =  Math.Round((double) num81 / 4.0);
+                    num81 =  Math.Round( num81 / 4.0);
                     str2 += "EnergyConsume = 0.25. ";
                   }
                   else if (num90 * 4 > num91)
                   {
-                    num81 =  Math.Round((double) num81 / 2.0);
+                    num81 =  Math.Round( num81 / 2.0);
                     str2 += "EnergyConsume = 0.5. ";
                   }
                 }
                 tid: String = str2 + "FINAL_REINFMOD =" + num81.ToString() + ". ";
-                let mut tweight1: i32 =  Math.Round(Math.Ceiling((double) weight3 / 10.0));
+                let mut tweight1: i32 =  Math.Round(Math.Ceiling( weight3 / 10.0));
                 simpleList5.RemoveNr(10);
-                SimpleList simpleList6 = this.ai.game.EventRelatedObj.Helper_ItemList_ForSFTypeList(sftypesForReinfList, supplyReserveMod: ((float) this.strategicAi.pathWar_Offensive / 400f));
+                SimpleList simpleList6 = this.ai.game.EventRelatedObj.Helper_ItemList_ForSFTypeList(sftypesForReinfList, supplyReserveMod: ( this.strategicAi.pathWar_Offensive / 400f));
                 if (tweight1 > 0)
                 {
                   simpleList6.AddWeight(8, tweight1);
@@ -8099,34 +8099,34 @@ namespace WindowsApplication1
                 simpleList6.removeWeight0orLower();
                 if (simpleList6.Counter > -1)
                 {
-                  let mut tweight2: i32 =  Math.Round((double) (1000 * num81) / 1000.0);
-                  if (!Information.IsNothing((object) this.strategicAi.OobRatingList))
+                  let mut tweight2: i32 =  Math.Round( (1000 * num81) / 1000.0);
+                  if (!Information.IsNothing( this.strategicAi.OobRatingList))
                   {
                     let mut num92: i32 = !flag4 ? (!flag3 ? (!flag2 ? this.strategicAi.OobRatingList.FindWeight(num77, 2) : this.strategicAi.OobRatingList.FindWeight(num77, 3)) : this.strategicAi.OobRatingList.FindWeight(num77, 4)) : this.strategicAi.OobRatingList.FindWeight(num77, 5);
                     if (num92 > 0)
                     {
                       if (num92 > 1000)
-                        num92 = 1000 +  Math.Round((double) (num92 - 1000) * 0.9);
+                        num92 = 1000 +  Math.Round( (num92 - 1000) * 0.9);
                       if (num92 > 2000)
-                        num92 = 2000 +  Math.Round((double) (num92 - 2000) * 0.8);
+                        num92 = 2000 +  Math.Round( (num92 - 2000) * 0.8);
                       if (num92 > 3000)
-                        num92 = 3000 +  Math.Round((double) (num92 - 3000) * 0.65);
+                        num92 = 3000 +  Math.Round( (num92 - 3000) * 0.65);
                       if (num92 > 4000)
-                        num92 = 4000 +  Math.Round((double) (num92 - 4000) * 0.5);
+                        num92 = 4000 +  Math.Round( (num92 - 4000) * 0.5);
                       if (num92 > 5000)
-                        num92 = 5000 +  Math.Round((double) (num92 - 5000) * 0.3);
+                        num92 = 5000 +  Math.Round( (num92 - 5000) * 0.3);
                       if (num92 > 6000)
-                        num92 = 6000 +  Math.Round((double) (num92 - 6000) * 0.1);
+                        num92 = 6000 +  Math.Round( (num92 - 6000) * 0.1);
                       if (num92 > 7000)
                         num92 = 7000;
                       tid = tid + "OOB_RATING_MOD = " + num92.ToString() + ". ";
                     }
                     else
                       num92 = 0;
-                    tweight2 =  Math.Round((double) (tweight2 * num92) / 1000.0);
+                    tweight2 =  Math.Round( (tweight2 * num92) / 1000.0);
                     tid = tid + "**** SCORE = " + tweight2.ToString() + " ****. ";
                   }
-                  tweight2 =  Math.Round((double) tweight2 / 10.0);
+                  tweight2 =  Math.Round( tweight2 / 10.0);
                   let mut num93: i32 =  Math.Round(Conversion.Val(this.data.StringListObj[this.slotOobTypes].Data[index8, 4]));
                   let mut num94: i32 = 1;
                   do
@@ -8142,48 +8142,48 @@ namespace WindowsApplication1
                         if (num97 < 5)
                           num97 = 5;
                         let mut weight6: i32 = this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(simpleList6.Id[index12]);
-                        let mut num98: i32 = num97 +  Math.Round((double) weight6 / 2.0);
-                        let mut num99: i32 = (double) num23 >= 0.1 ? ((double) num23 >= 0.2 ? ((double) num23 >= 0.4 ? ((double) num23 >= 0.6 ? ((double) num23 >= 1.0 ?  Math.Round((double) num98 * 2.0) :  Math.Round((double) num98 * 1.7)) :  Math.Round((double) num98 * 1.4)) :  Math.Round((double) num98 * 1.25)) :  Math.Round((double) num98 * 1.1)) : num98 * 1;
+                        let mut num98: i32 = num97 +  Math.Round( weight6 / 2.0);
+                        let mut num99: i32 =  num23 >= 0.1 ? ( num23 >= 0.2 ? ( num23 >= 0.4 ? ( num23 >= 0.6 ? ( num23 >= 1.0 ?  Math.Round( num98 * 2.0) :  Math.Round( num98 * 1.7)) :  Math.Round( num98 * 1.4)) :  Math.Round( num98 * 1.25)) :  Math.Round( num98 * 1.1)) : num98 * 1;
                         float num100 = 1f;
                         if (simpleList6.Weight[index12] > 0)
-                          num100 = (float) num99 / (float) simpleList6.Weight[index12];
-                        if ((double) num100 > 1.0)
+                          num100 =  num99 /  simpleList6.Weight[index12];
+                        if ( num100 > 1.0)
                           num100 = 1f;
-                        float num101 = simpleList6.Weight[index12] <= num99 ? ((double) simpleList6.Weight[index12] * 1.2 <= (double) num99 ? ((double) simpleList6.Weight[index12] * 1.5 <= (double) num99 ? (simpleList6.Weight[index12] * 2 <= num99 ? ((double) simpleList6.Weight[index12] * 2.75 <= (double) num99 ? (simpleList6.Weight[index12] * 4 <= num99 ? (simpleList6.Weight[index12] * 6 <= num99 ? (simpleList6.Weight[index12] * 12 <= num99 ? (simpleList6.Weight[index12] * 24 <= num99 ? (simpleList6.Weight[index12] * 48 <= num99 ? (simpleList6.Weight[index12] * 96 <= num99 ? (simpleList6.Weight[index12] * 128 <= num99 ? (simpleList6.Weight[index12] * 256 <= num99 ? num100 * 0.4f : num100 * 0.48f) : num100 * 0.55f) : num100 * 0.61f) : num100 * 0.67f) : num100 * 0.73f) : num100 * 0.78f) : num100 * 0.82f) : num100 * 0.86f) : num100 * 0.9f) : num100 * 0.94f) : num100 * 0.98f) : num100 * 1f) : num100;
-                        if ((double) num96 < 0.5)
+                        float num101 = simpleList6.Weight[index12] <= num99 ? ( simpleList6.Weight[index12] * 1.2 <=  num99 ? ( simpleList6.Weight[index12] * 1.5 <=  num99 ? (simpleList6.Weight[index12] * 2 <= num99 ? ( simpleList6.Weight[index12] * 2.75 <=  num99 ? (simpleList6.Weight[index12] * 4 <= num99 ? (simpleList6.Weight[index12] * 6 <= num99 ? (simpleList6.Weight[index12] * 12 <= num99 ? (simpleList6.Weight[index12] * 24 <= num99 ? (simpleList6.Weight[index12] * 48 <= num99 ? (simpleList6.Weight[index12] * 96 <= num99 ? (simpleList6.Weight[index12] * 128 <= num99 ? (simpleList6.Weight[index12] * 256 <= num99 ? num100 * 0.4f : num100 * 0.48f) : num100 * 0.55f) : num100 * 0.61f) : num100 * 0.67f) : num100 * 0.73f) : num100 * 0.78f) : num100 * 0.82f) : num100 * 0.86f) : num100 * 0.9f) : num100 * 0.94f) : num100 * 0.98f) : num100 * 1f) : num100;
+                        if ( num96 < 0.5)
                           num101 = num100;
-                        else if ((double) num96 < 0.75)
-                          num101 = (float) (((double) num101 + 3.0 * (double) num100) / 4.0);
-                        else if ((double) num96 < 1.0)
-                          num101 = (float) (((double) num101 + (double) num100) / 2.0);
-                        tweight2 =  Math.Round((double) tweight2 * 0.1 + (double)  Math.Round((double) ((float) tweight2 * num101)));
+                        else if ( num96 < 0.75)
+                          num101 =  (( num101 + 3.0 *  num100) / 4.0);
+                        else if ( num96 < 1.0)
+                          num101 =  (( num101 +  num100) / 2.0);
+                        tweight2 =  Math.Round( tweight2 * 0.1 +   Math.Round( ( tweight2 * num101)));
                         tid = tid + this.itemName[simpleList6.Id[index12]] + "=" + num100.ToString() + " (after mod for to cheap: " + num101.ToString() + "). ";
                       }
                       else if (simpleList6.Id[index12] == 9 & num94 == 1)
                       {
-                        let mut num102: i32 = Math.Max(this.VAR_RecruitGrowth +  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(9) / 3.0), this.newItems.FindWeight(9));
+                        let mut num102: i32 = Math.Max(this.VAR_RecruitGrowth +  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(9) / 3.0), this.newItems.FindWeight(9));
                         if (num102 < 10)
                           num102 = 10;
-                        float num103 = (float) Math.Max(0.0500000007450581, (double) num102 / (double) Math.Max(1, simpleList6.Weight[index12]));
-                        if ((double) num103 > 0.1)
-                          num103 = (float) ((1.0 + (double) num103) / 2.0);
+                        float num103 =  Math.Max(0.0500000007450581,  num102 /  Math.Max(1, simpleList6.Weight[index12]));
+                        if ( num103 > 0.1)
+                          num103 =  ((1.0 +  num103) / 2.0);
                         if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(9) >= simpleList6.Weight[index12])
                           num103 = 1f;
-                        if ((double) num103 > 1.0)
+                        if ( num103 > 1.0)
                           num103 = 1f;
-                        num96 = 0.5f + (float) Math.Max(0.0500000007450581, (double) simpleList6.Weight[index12] / (double) (1 + this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(9))) / 2f;
-                        if ((double) num96 > 1.0)
+                        num96 = 0.5f +  Math.Max(0.0500000007450581,  simpleList6.Weight[index12] /  (1 + this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(9))) / 2f;
+                        if ( num96 > 1.0)
                           num96 = 1f;
                         tid = tid + "ModForToLittleRecrAv =" + num103.ToString() + ". " + "ModForToMuchRecrAv =" + num96.ToString() + ". ";
-                        tweight2 =  Math.Round((double) ((float) tweight2 * num103 * num96));
+                        tweight2 =  Math.Round( ( tweight2 * num103 * num96));
                         let mut num104: i32 = this.VAR_IdealSoldier - this.VAR_CurrentSoldier;
                         if (num93 == 0)
                         {
-                          if (num3 <  Math.Round((double) num5 / 2.0) & num80 >= 4)
+                          if (num3 <  Math.Round( num5 / 2.0) & num80 >= 4)
                             num104 += 70;
                           else if (num3 < num5 * 1 & num80 >= 3)
                             num104 += 50;
-                          else if (num3 <  Math.Round((double) num5 * 1.5) & num80 >= 2)
+                          else if (num3 <  Math.Round( num5 * 1.5) & num80 >= 2)
                             num104 += 25;
                           else if (!(num3 < num5 * 2 & num80 >= 1))
                             ;
@@ -8200,12 +8200,12 @@ namespace WindowsApplication1
                   if (num93 == 0)
                   {
                     tweight2 *= 2;
-                    let mut num106: i32 =  Math.Round(Math.Sqrt((double) (num6 + 1)));
+                    let mut num106: i32 =  Math.Round(Math.Sqrt( (num6 + 1)));
                     if (tweight2 > 0)
                       tweight2 = tweight2;
                     if (num106 >= 1)
                     {
-                      if (num3 <  Math.Round((double) num5 / 2.0) & num106 >= 4)
+                      if (num3 <  Math.Round( num5 / 2.0) & num106 >= 4)
                       {
                         tweight2 *= 9;
                         tid += "OhqPower<ShqPower = 9. ";
@@ -8215,7 +8215,7 @@ namespace WindowsApplication1
                         tweight2 *= 5;
                         tid += "OhqPower<ShqPower = 5. ";
                       }
-                      else if (num3 <  Math.Round((double) num5 * 1.5) & num106 >= 2)
+                      else if (num3 <  Math.Round( num5 * 1.5) & num106 >= 2)
                       {
                         tweight2 *= 2;
                         tid += "OhqPower<ShqPower = 2. ";
@@ -8237,246 +8237,246 @@ namespace WindowsApplication1
                         num108 = 66;
                       if (num108 < 0)
                         num108 = 0;
-                      num107 =  Math.Round((double) (num7 * (100 - num108) + num22 * num108) / 100.0);
+                      num107 =  Math.Round( (num7 * (100 - num108) + num22 * num108) / 100.0);
                     }
-                    if ((double) num107 < (double) num4 / 20.0)
+                    if ( num107 <  num4 / 20.0)
                     {
                       tweight2 *= 10;
                       tid += "IndUnit < OhqUnit = 10. ";
                     }
-                    else if ((double) num107 < (double) num4 / 15.0)
+                    else if ( num107 <  num4 / 15.0)
                     {
                       tweight2 *= 7;
                       tid += "IndUnit < OhqUnit = 7. ";
                     }
-                    else if ((double) num107 < (double) num4 / 10.0)
+                    else if ( num107 <  num4 / 10.0)
                     {
                       tweight2 *= 4;
                       tid += "IndUnit < OhqUnit = 4. ";
                     }
-                    else if ((double) num107 < (double) num4 / 8.0)
+                    else if ( num107 <  num4 / 8.0)
                     {
-                      tweight2 =  Math.Round((double) tweight2 * 3.5);
+                      tweight2 =  Math.Round( tweight2 * 3.5);
                       tid += "IndUnit < OhqUnit = 3.5. ";
                     }
-                    else if ((double) num107 < (double) num4 / 6.0)
+                    else if ( num107 <  num4 / 6.0)
                     {
-                      tweight2 =  Math.Round((double) tweight2 * 2.75);
+                      tweight2 =  Math.Round( tweight2 * 2.75);
                       tid += "IndUnit < OhqUnit = 2.75. ";
                     }
-                    else if ((double) num107 < (double) num4 / 5.0)
+                    else if ( num107 <  num4 / 5.0)
                     {
                       tweight2 *= 2;
                       tid += "IndUnit < OhqUnit = 2. ";
                     }
-                    else if ((double) num107 < (double) num4 / 4.0)
+                    else if ( num107 <  num4 / 4.0)
                     {
-                      tweight2 =  Math.Round((double) tweight2 * 1.4);
+                      tweight2 =  Math.Round( tweight2 * 1.4);
                       tid += "IndUnit < OhqUnit = 1.4. ";
                     }
-                    else if ((double) num107 < (double) num4 / 3.0)
+                    else if ( num107 <  num4 / 3.0)
                     {
-                      tweight2 =  Math.Round((double) tweight2 * 1.1);
+                      tweight2 =  Math.Round( tweight2 * 1.1);
                       tid += "IndUnit < OhqUnit = 1.1. ";
                     }
                   }
                   let mut num109: i32 = tweight2;
                   if (num76 >= 1600 & num76 <= 1639)
                   {
-                    if ((double) num23 < 1.6599999666214)
+                    if ( num23 < 1.6599999666214)
                     {
                       if (num105 == 1)
                         tweight2 *= 1;
                       if (num105 == 2)
                         tweight2 *= 1;
                       if (num105 == 3)
-                        tweight2 =  Math.Round((double) tweight2 * 0.5);
+                        tweight2 =  Math.Round( tweight2 * 0.5);
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 0.05);
+                        tweight2 =  Math.Round( tweight2 * 0.05);
                     }
-                    else if ((double) num23 < 3.20000004768372)
+                    else if ( num23 < 3.20000004768372)
                     {
                       if (num105 == 1)
-                        tweight2 =  Math.Round((double) tweight2 * 0.5);
+                        tweight2 =  Math.Round( tweight2 * 0.5);
                       if (num105 == 2)
-                        tweight2 =  Math.Round((double) tweight2 * 0.75);
+                        tweight2 =  Math.Round( tweight2 * 0.75);
                       if (num105 == 3)
                         tweight2 *= 1;
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 0.05);
+                        tweight2 =  Math.Round( tweight2 * 0.05);
                     }
                     else
                     {
                       if (num105 == 1)
-                        tweight2 =  Math.Round((double) tweight2 * 0.1);
+                        tweight2 =  Math.Round( tweight2 * 0.1);
                       if (num105 == 2)
-                        tweight2 =  Math.Round((double) tweight2 * 0.1);
+                        tweight2 =  Math.Round( tweight2 * 0.1);
                       if (num105 == 3)
-                        tweight2 =  Math.Round((double) tweight2 * 0.75);
+                        tweight2 =  Math.Round( tweight2 * 0.75);
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 1.33);
+                        tweight2 =  Math.Round( tweight2 * 1.33);
                     }
                   }
                   else if (num93 > 0)
                   {
-                    if ((double) num23 < 1.6599999666214)
+                    if ( num23 < 1.6599999666214)
                     {
                       if (num105 == 1)
                         tweight2 *= 1;
                       if (num105 == 2)
                         tweight2 *= 1;
                       if (num105 == 3)
-                        tweight2 =  Math.Round((double) tweight2 * 0.5);
+                        tweight2 =  Math.Round( tweight2 * 0.5);
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 0.05);
+                        tweight2 =  Math.Round( tweight2 * 0.05);
                     }
-                    else if ((double) num23 < 2.20000004768372)
+                    else if ( num23 < 2.20000004768372)
                     {
                       if (num105 == 1)
-                        tweight2 =  Math.Round((double) tweight2 * 0.5);
+                        tweight2 =  Math.Round( tweight2 * 0.5);
                       if (num105 == 2)
                         tweight2 *= 1;
                       if (num105 == 3)
-                        tweight2 =  Math.Round((double) tweight2 * 0.75);
+                        tweight2 =  Math.Round( tweight2 * 0.75);
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 0.05);
+                        tweight2 =  Math.Round( tweight2 * 0.05);
                     }
-                    else if ((double) num23 < 2.40000009536743)
+                    else if ( num23 < 2.40000009536743)
                     {
                       if (num105 == 1)
-                        tweight2 =  Math.Round((double) tweight2 * 0.5);
+                        tweight2 =  Math.Round( tweight2 * 0.5);
                       if (num105 == 2)
-                        tweight2 =  Math.Round((double) tweight2 * 0.9);
+                        tweight2 =  Math.Round( tweight2 * 0.9);
                       if (num105 == 3)
-                        tweight2 =  Math.Round((double) tweight2 * 0.85);
+                        tweight2 =  Math.Round( tweight2 * 0.85);
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 0.05);
+                        tweight2 =  Math.Round( tweight2 * 0.05);
                     }
-                    else if ((double) num23 < 2.79999995231628)
+                    else if ( num23 < 2.79999995231628)
                     {
                       if (num105 == 1)
-                        tweight2 =  Math.Round((double) tweight2 * 0.5);
+                        tweight2 =  Math.Round( tweight2 * 0.5);
                       if (num105 == 2)
-                        tweight2 =  Math.Round((double) tweight2 * 0.75);
-                      if (num105 == 3)
-                        tweight2 *= 1;
-                      if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 0.05);
-                    }
-                    else if ((double) num23 < 4.40000009536743)
-                    {
-                      if (num105 == 1)
-                        tweight2 =  Math.Round((double) tweight2 * 0.1);
-                      if (num105 == 2)
-                        tweight2 =  Math.Round((double) tweight2 * 0.1);
+                        tweight2 =  Math.Round( tweight2 * 0.75);
                       if (num105 == 3)
                         tweight2 *= 1;
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 0.75);
+                        tweight2 =  Math.Round( tweight2 * 0.05);
+                    }
+                    else if ( num23 < 4.40000009536743)
+                    {
+                      if (num105 == 1)
+                        tweight2 =  Math.Round( tweight2 * 0.1);
+                      if (num105 == 2)
+                        tweight2 =  Math.Round( tweight2 * 0.1);
+                      if (num105 == 3)
+                        tweight2 *= 1;
+                      if (num105 == 4)
+                        tweight2 =  Math.Round( tweight2 * 0.75);
                     }
                     else
                     {
                       if (num105 == 1)
-                        tweight2 =  Math.Round((double) tweight2 * 0.01);
+                        tweight2 =  Math.Round( tweight2 * 0.01);
                       if (num105 == 2)
-                        tweight2 =  Math.Round((double) tweight2 * 0.01);
+                        tweight2 =  Math.Round( tweight2 * 0.01);
                       if (num105 == 3)
-                        tweight2 =  Math.Round((double) tweight2 * 0.3);
+                        tweight2 =  Math.Round( tweight2 * 0.3);
                       if (num105 == 4)
-                        tweight2 =  Math.Round((double) tweight2 * 1.5);
+                        tweight2 =  Math.Round( tweight2 * 1.5);
                     }
                   }
-                  else if ((double) num23 < 0.25)
+                  else if ( num23 < 0.25)
                   {
                     if (num105 == 1)
                       tweight2 *= 1;
                     if (num105 == 2)
                       tweight2 *= 5;
                     if (num105 == 3)
-                      tweight2 =  Math.Round((double) tweight2 * 0.25);
+                      tweight2 =  Math.Round( tweight2 * 0.25);
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 0.05);
+                      tweight2 =  Math.Round( tweight2 * 0.05);
                   }
-                  else if ((double) num23 < 0.5)
+                  else if ( num23 < 0.5)
                   {
                     if (num105 == 1)
                       tweight2 *= 1;
                     if (num105 == 2)
                       tweight2 *= 3;
                     if (num105 == 3)
-                      tweight2 =  Math.Round((double) tweight2 * 0.5);
+                      tweight2 =  Math.Round( tweight2 * 0.5);
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 0.1);
+                      tweight2 =  Math.Round( tweight2 * 0.1);
                   }
-                  else if ((double) num23 < 0.75)
+                  else if ( num23 < 0.75)
                   {
                     if (num105 == 1)
                       tweight2 *= 1;
                     if (num105 == 2)
                       tweight2 *= 2;
                     if (num105 == 3)
-                      tweight2 =  Math.Round((double) tweight2 * 0.75);
+                      tweight2 =  Math.Round( tweight2 * 0.75);
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 0.2);
+                      tweight2 =  Math.Round( tweight2 * 0.2);
                   }
-                  else if ((double) num23 < 1.0)
+                  else if ( num23 < 1.0)
                   {
                     if (num105 == 1)
-                      tweight2 =  Math.Round((double) tweight2 * 0.3);
+                      tweight2 =  Math.Round( tweight2 * 0.3);
                     if (num105 == 2)
                       tweight2 *= 1;
                     if (num105 == 3)
                       tweight2 *= 1;
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 0.5);
+                      tweight2 =  Math.Round( tweight2 * 0.5);
                   }
-                  else if ((double) num23 < 1.5)
+                  else if ( num23 < 1.5)
                   {
                     if (num105 == 1)
-                      tweight2 =  Math.Round((double) tweight2 * 0.01);
+                      tweight2 =  Math.Round( tweight2 * 0.01);
                     if (num105 == 2)
-                      tweight2 =  Math.Round((double) tweight2 * 0.5);
+                      tweight2 =  Math.Round( tweight2 * 0.5);
                     if (num105 == 3)
                       tweight2 *= 1;
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 0.9);
+                      tweight2 =  Math.Round( tweight2 * 0.9);
                   }
-                  else if ((double) num23 < 2.0)
+                  else if ( num23 < 2.0)
                   {
                     if (num105 == 1)
-                      tweight2 =  Math.Round((double) tweight2 * 0.01);
+                      tweight2 =  Math.Round( tweight2 * 0.01);
                     if (num105 == 2)
-                      tweight2 =  Math.Round((double) tweight2 * 0.3);
+                      tweight2 =  Math.Round( tweight2 * 0.3);
                     if (num105 == 3)
-                      tweight2 =  Math.Round((double) tweight2 * 1.1);
+                      tweight2 =  Math.Round( tweight2 * 1.1);
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 1.5);
+                      tweight2 =  Math.Round( tweight2 * 1.5);
                   }
-                  else if ((double) num23 < 3.0)
+                  else if ( num23 < 3.0)
                   {
                     if (num105 == 1)
-                      tweight2 =  Math.Round((double) tweight2 * 0.01);
+                      tweight2 =  Math.Round( tweight2 * 0.01);
                     if (num105 == 2)
-                      tweight2 =  Math.Round((double) tweight2 * 0.01);
+                      tweight2 =  Math.Round( tweight2 * 0.01);
                     if (num105 == 3)
-                      tweight2 =  Math.Round((double) tweight2 * 0.3);
+                      tweight2 =  Math.Round( tweight2 * 0.3);
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 1.5);
+                      tweight2 =  Math.Round( tweight2 * 1.5);
                   }
                   else
                   {
                     if (num105 == 1)
-                      tweight2 =  Math.Round((double) tweight2 * 0.01);
+                      tweight2 =  Math.Round( tweight2 * 0.01);
                     if (num105 == 2)
-                      tweight2 =  Math.Round((double) tweight2 * 0.01);
+                      tweight2 =  Math.Round( tweight2 * 0.01);
                     if (num105 == 3)
-                      tweight2 =  Math.Round((double) tweight2 * 0.01);
+                      tweight2 =  Math.Round( tweight2 * 0.01);
                     if (num105 == 4)
-                      tweight2 =  Math.Round((double) tweight2 * 1.5);
+                      tweight2 =  Math.Round( tweight2 * 1.5);
                   }
                   if (num109 > 0)
                   {
-                    float num110 = (float) tweight2 / (float) num109;
+                    float num110 =  tweight2 /  num109;
                     tid = tid + "UnitsPerFrontHex(" + num23.ToString() + ") = " + num110.ToString() + ". ";
                   }
                   if (tweight2 >= 0)
@@ -8650,7 +8650,7 @@ namespace WindowsApplication1
               }
             }
             SimpleList upgradeOrDowngradeList;
-            if (Information.IsNothing((object) simpleListArray[index15]))
+            if (Information.IsNothing( simpleListArray[index15]))
             {
               upgradeOrDowngradeList = DrawMod.TGame.EventRelatedObj.GetUpgradeOrDowngradeList(index15, true, false, isIndependent, hqHisNr, isArmy, isshq);
               simpleListArray[index15] = upgradeOrDowngradeList;
@@ -8679,44 +8679,44 @@ namespace WindowsApplication1
                       float num119 = 0.0f;
                       if (isIndependent)
                         num119 = 0.2f;
-                      if ((double) num23 < 0.150000005960464 + (double) num119)
+                      if ( num23 < 0.150000005960464 +  num119)
                       {
-                        simpleList3.Weight[counter5] =  Math.Round((double) ((float) simpleList3.Weight[counter5] * 0.2f));
+                        simpleList3.Weight[counter5] =  Math.Round( ( simpleList3.Weight[counter5] * 0.2f));
                         simpleStringList.Add("UpgradeMod=0.2", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
-                      else if ((double) num23 < 0.300000011920929 + (double) num119)
+                      else if ( num23 < 0.300000011920929 +  num119)
                       {
-                        simpleList3.Weight[counter5] =  Math.Round((double) ((float) simpleList3.Weight[counter5] * 0.4f));
+                        simpleList3.Weight[counter5] =  Math.Round( ( simpleList3.Weight[counter5] * 0.4f));
                         simpleStringList.Add("UpgradeMod=0.4", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
-                      else if ((double) num23 < 0.449999988079071 + (double) num119)
+                      else if ( num23 < 0.449999988079071 +  num119)
                       {
-                        simpleList3.Weight[counter5] =  Math.Round((double) simpleList3.Weight[counter5] * 0.6);
+                        simpleList3.Weight[counter5] =  Math.Round( simpleList3.Weight[counter5] * 0.6);
                         simpleStringList.Add("UpgradeMod=0.6", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
-                      else if ((double) num23 < 0.600000023841858 + (double) num119)
+                      else if ( num23 < 0.600000023841858 +  num119)
                       {
-                        simpleList3.Weight[counter5] =  Math.Round((double) simpleList3.Weight[counter5] * 0.8);
+                        simpleList3.Weight[counter5] =  Math.Round( simpleList3.Weight[counter5] * 0.8);
                         simpleStringList.Add("UpgradeMod=0.8", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
-                      else if ((double) num23 < 0.800000011920929 + (double) num119)
+                      else if ( num23 < 0.800000011920929 +  num119)
                       {
-                        simpleList3.Weight[counter5] =  Math.Round((double) simpleList3.Weight[counter5] * 0.9);
+                        simpleList3.Weight[counter5] =  Math.Round( simpleList3.Weight[counter5] * 0.9);
                         simpleStringList.Add("UpgradeMod=0.9", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
-                      else if ((double) num23 < 1.0 + (double) num119)
+                      else if ( num23 < 1.0 +  num119)
                       {
                         simpleList3.Weight[counter5] = simpleList3.Weight[counter5] * 1;
                         simpleStringList.Add("UpgradeMod=1", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
-                      else if ((double) num23 < 1.25 + (double) num119)
+                      else if ( num23 < 1.25 +  num119)
                       {
-                        simpleList3.Weight[counter5] =  Math.Round((double) simpleList3.Weight[counter5] * 1.3);
+                        simpleList3.Weight[counter5] =  Math.Round( simpleList3.Weight[counter5] * 1.3);
                         simpleStringList.Add("UpgradeMod=1.3", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
-                      else if ((double) num23 < 1.5 + (double) num119)
+                      else if ( num23 < 1.5 +  num119)
                       {
-                        simpleList3.Weight[counter5] =  Math.Round((double) simpleList3.Weight[counter5] * 1.6);
+                        simpleList3.Weight[counter5] =  Math.Round( simpleList3.Weight[counter5] * 1.6);
                         simpleStringList.Add("UpgradeMod=1.6", 1, simpleList3.Id[counter5], simpleList3.Data1[counter5], 1, CheckExistence: false);
                       }
                       else
@@ -8741,23 +8741,23 @@ namespace WindowsApplication1
             simpleList3.Weight[index25] = simpleList3.Weight[index25] * 1;
           else if (simpleList3.Data4[index25] > 1)
           {
-            simpleList3.Weight[index25] =  Math.Round((double) simpleList3.Weight[index25] * 1.2);
+            simpleList3.Weight[index25] =  Math.Round( simpleList3.Weight[index25] * 1.2);
             simpleStringList.Add("Indep. already more than 1 = x1.2", 1, simpleList3.Id[index25], simpleList3.Data1[index25], CheckExistence: false);
           }
           else if (simpleList3.Data4[index25] > 0)
           {
-            simpleList3.Weight[index25] =  Math.Round((double) simpleList3.Weight[index25] * 1.4);
+            simpleList3.Weight[index25] =  Math.Round( simpleList3.Weight[index25] * 1.4);
             simpleStringList.Add("Indep. already more than 0 = x1.4", 1, simpleList3.Id[index25], simpleList3.Data1[index25], CheckExistence: false);
           }
           else
           {
-            simpleList3.Weight[index25] =  Math.Round((double) simpleList3.Weight[index25] * 1.6);
+            simpleList3.Weight[index25] =  Math.Round( simpleList3.Weight[index25] * 1.6);
             simpleStringList.Add("Indep. not yet any 0 = x1.6", 1, simpleList3.Id[index25], simpleList3.Data1[index25], CheckExistence: false);
           }
         }
         else if (simpleList3.Data4[index25] < 1)
         {
-          simpleList3.Weight[index25] =  Math.Round((double) simpleList3.Weight[index25] * 1.3);
+          simpleList3.Weight[index25] =  Math.Round( simpleList3.Weight[index25] * 1.3);
           simpleStringList.Add("Multi-unit not present yet = x1.3", 1, simpleList3.Id[index25], simpleList3.Data1[index25], CheckExistence: false);
         }
       }
@@ -8862,7 +8862,7 @@ namespace WindowsApplication1
       if (simpleList4.Counter > -1)
       {
         let mut num: i32 = 100;
-        let mut tweight: i32 = !(this.itemProduction[7] > this.itemNeed[7] * 4 | this.itemProduction[7] - this.itemNeed[7] > 700) ? (!(this.itemProduction[7] > this.itemNeed[7] * 3 | this.itemProduction[7] - this.itemNeed[7] > 500) ? (!(this.itemProduction[7] > this.itemNeed[7] * 2 | this.itemProduction[7] - this.itemNeed[7] > 300) ? (!(this.itemProduction[7] >  Math.Round((double) this.itemNeed[7] * 1.5) | this.itemProduction[7] - this.itemNeed[7] > 200) ? 0 :  Math.Round((double) num / 20.0)) :  Math.Round((double) num / 2.0)) : num * 1) : num * 2;
+        let mut tweight: i32 = !(this.itemProduction[7] > this.itemNeed[7] * 4 | this.itemProduction[7] - this.itemNeed[7] > 700) ? (!(this.itemProduction[7] > this.itemNeed[7] * 3 | this.itemProduction[7] - this.itemNeed[7] > 500) ? (!(this.itemProduction[7] > this.itemNeed[7] * 2 | this.itemProduction[7] - this.itemNeed[7] > 300) ? (!(this.itemProduction[7] >  Math.Round( this.itemNeed[7] * 1.5) | this.itemProduction[7] - this.itemNeed[7] > 200) ? 0 :  Math.Round( num / 20.0)) :  Math.Round( num / 2.0)) : num * 1) : num * 2;
         if (this.itemProduction[7] < this.itemNeed[7] + 300)
           tweight = 0;
         if (tweight > 0)
@@ -8872,7 +8872,7 @@ namespace WindowsApplication1
       if (thatCanUpgradeToo2.Counter > -1)
       {
         let mut num: i32 = 150;
-        let mut tweight: i32 = !(this.itemProduction[7] > this.itemNeed[7] * 4 | this.itemProduction[7] - this.itemNeed[7] > 1000) ? (!(this.itemProduction[7] > this.itemNeed[7] * 3 | this.itemProduction[7] - this.itemNeed[7] > 600) ? (!(this.itemProduction[7] > this.itemNeed[7] * 2 | this.itemProduction[7] - this.itemNeed[7] > 350) ? (!(this.itemProduction[7] >  Math.Round((double) this.itemNeed[7] * 1.5) | this.itemProduction[7] - this.itemNeed[7] > 200) ? 0 :  Math.Round((double) num / 20.0)) :  Math.Round((double) num / 2.0)) : num * 1) : num * 2;
+        let mut tweight: i32 = !(this.itemProduction[7] > this.itemNeed[7] * 4 | this.itemProduction[7] - this.itemNeed[7] > 1000) ? (!(this.itemProduction[7] > this.itemNeed[7] * 3 | this.itemProduction[7] - this.itemNeed[7] > 600) ? (!(this.itemProduction[7] > this.itemNeed[7] * 2 | this.itemProduction[7] - this.itemNeed[7] > 350) ? (!(this.itemProduction[7] >  Math.Round( this.itemNeed[7] * 1.5) | this.itemProduction[7] - this.itemNeed[7] > 200) ? 0 :  Math.Round( num / 20.0)) :  Math.Round( num / 2.0)) : num * 1) : num * 2;
         if (this.itemProduction[7] < this.itemNeed[7] + 500 * thatCanUpgradeToo2.Weight[0])
           tweight = 0;
         if (tweight > 0)
@@ -8919,7 +8919,7 @@ namespace WindowsApplication1
       SimpleList thatCanUpgradeToo1 = this.GetPublicAssetsThatCanUpgradeToo(601);
       if (thatCanUpgradeToo1.Counter > -1)
       {
-        let mut tweight: i32 =  Math.Round((double) (5 * this.data.Round) / (double) Math.Max(1, thatCanUpgradeToo1.Weight[0]));
+        let mut tweight: i32 =  Math.Round( (5 * this.data.Round) /  Math.Max(1, thatCanUpgradeToo1.Weight[0]));
         RL.Add(thatCanUpgradeToo1.Id[0], tweight, thatCanUpgradeToo1.Data2[0], thatCanUpgradeToo1.Data3[0]);
       }
       SimpleList simpleList3 = SimpleList::new();
@@ -9039,14 +9039,14 @@ namespace WindowsApplication1
         if (simpleList6.Counter > -1)
         {
           let mut num5: i32 = 100;
-          let mut tweight: i32 = this.itemProduction[15] <= this.itemNeed[15] + 1750 ? (this.itemProduction[15] <= this.itemNeed[15] + 900 ? (this.itemProduction[15] <= this.itemNeed[15] + 450 ? (this.itemProduction[15] <= this.itemNeed[15] + 250 ? 0 :  Math.Round((double) num5 / 20.0)) :  Math.Round((double) num5 / 2.0)) : num5) : num5 * 2;
+          let mut tweight: i32 = this.itemProduction[15] <= this.itemNeed[15] + 1750 ? (this.itemProduction[15] <= this.itemNeed[15] + 900 ? (this.itemProduction[15] <= this.itemNeed[15] + 450 ? (this.itemProduction[15] <= this.itemNeed[15] + 250 ? 0 :  Math.Round( num5 / 20.0)) :  Math.Round( num5 / 2.0)) : num5) : num5 * 2;
           RL.Add(3051, tweight, simpleList6.Data1[0], simpleList6.Data2[0]);
         }
         SimpleList thatCanUpgradeToo4 = this.GetPublicAssetsThatCanUpgradeToo(3051);
         if (thatCanUpgradeToo4.Counter > -1)
         {
           let mut num6: i32 = 150;
-          let mut tweight: i32 = this.itemProduction[15] <= this.itemNeed[15] + 1750 ? (this.itemProduction[15] <= this.itemNeed[15] + 900 ? (this.itemProduction[15] <= this.itemNeed[15] + 450 ? (this.itemProduction[15] <= this.itemNeed[15] + 250 ? 0 :  Math.Round((double) num6 / 20.0)) :  Math.Round((double) num6 / 2.0)) : num6) : num6 * 2;
+          let mut tweight: i32 = this.itemProduction[15] <= this.itemNeed[15] + 1750 ? (this.itemProduction[15] <= this.itemNeed[15] + 900 ? (this.itemProduction[15] <= this.itemNeed[15] + 450 ? (this.itemProduction[15] <= this.itemNeed[15] + 250 ? 0 :  Math.Round( num6 / 20.0)) :  Math.Round( num6 / 2.0)) : num6) : num6 * 2;
           RL.Add(thatCanUpgradeToo4.Id[0], tweight, thatCanUpgradeToo4.Data2[0], thatCanUpgradeToo4.Data3[0]);
         }
       }
@@ -9358,14 +9358,14 @@ namespace WindowsApplication1
         if (simpleList4.Counter > -1)
         {
           let mut num: i32 = 400;
-          let mut tweight: i32 = this.itemProduction[1] <= this.itemNeed[1] + 750 ? (this.itemProduction[1] <= this.itemNeed[1] + 500 ? (this.itemProduction[1] <= this.itemNeed[1] + 250 ? (this.itemProduction[1] <= this.itemNeed[1] + 150 ? 0 :  Math.Round((double) num / 20.0)) :  Math.Round((double) num / 2.0)) : num) : num * 2;
+          let mut tweight: i32 = this.itemProduction[1] <= this.itemNeed[1] + 750 ? (this.itemProduction[1] <= this.itemNeed[1] + 500 ? (this.itemProduction[1] <= this.itemNeed[1] + 250 ? (this.itemProduction[1] <= this.itemNeed[1] + 150 ? 0 :  Math.Round( num / 20.0)) :  Math.Round( num / 2.0)) : num) : num * 2;
           RL.Add(271, tweight, simpleList4.Data1[0], simpleList4.Data2[0]);
         }
         SimpleList thatCanUpgradeToo = this.GetPublicAssetsThatCanUpgradeToo(271);
         if (thatCanUpgradeToo.Counter > -1)
         {
           let mut num: i32 = 500;
-          let mut tweight: i32 = this.itemProduction[1] <= this.itemNeed[1] + 750 ? (this.itemProduction[1] <= this.itemNeed[1] + 500 ? (this.itemProduction[1] <= this.itemNeed[1] + 250 ? (this.itemProduction[1] <= this.itemNeed[1] + 150 ? 0 :  Math.Round((double) num / 20.0)) :  Math.Round((double) num / 2.0)) : num) : num * 2;
+          let mut tweight: i32 = this.itemProduction[1] <= this.itemNeed[1] + 750 ? (this.itemProduction[1] <= this.itemNeed[1] + 500 ? (this.itemProduction[1] <= this.itemNeed[1] + 250 ? (this.itemProduction[1] <= this.itemNeed[1] + 150 ? 0 :  Math.Round( num / 20.0)) :  Math.Round( num / 2.0)) : num) : num * 2;
           RL.Add(thatCanUpgradeToo.Id[0], tweight, thatCanUpgradeToo.Data2[0], thatCanUpgradeToo.Data3[0]);
         }
       }
@@ -9385,9 +9385,9 @@ namespace WindowsApplication1
           if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 2)
             tweight = 0;
           else if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 10)
-            tweight =  Math.Round((double) tweight / 10.0);
+            tweight =  Math.Round( tweight / 10.0);
           else if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 20)
-            tweight =  Math.Round((double) tweight / 2.0);
+            tweight =  Math.Round( tweight / 2.0);
           RL.Add(3021, tweight, simpleList5.Data1[0], simpleList5.Data2[0]);
         }
         SimpleList thatCanUpgradeToo = this.GetPublicAssetsThatCanUpgradeToo(3021);
@@ -9397,11 +9397,11 @@ namespace WindowsApplication1
           if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 10)
             tweight = 0;
           else if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 20)
-            tweight =  Math.Round((double) tweight / 10.0);
+            tweight =  Math.Round( tweight / 10.0);
           else if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 40)
-            tweight =  Math.Round((double) tweight / 2.0);
+            tweight =  Math.Round( tweight / 2.0);
           else if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 80)
-            tweight =  Math.Round((double) tweight * 0.9);
+            tweight =  Math.Round( tweight * 0.9);
           RL.Add(thatCanUpgradeToo.Id[0], tweight, thatCanUpgradeToo.Data2[0], thatCanUpgradeToo.Data3[0]);
         }
       }
@@ -9595,7 +9595,7 @@ namespace WindowsApplication1
           num1 = 2;
         if (num23 > num6 & num19 > num6 - 5)
           num1 = 2;
-        if ((double) num23 > (double) num6 + (double) (num7 - num6) / 2.0)
+        if ( num23 >  num6 +  (num7 - num6) / 2.0)
           num1 = 2;
         if (num19 < num4 - 3 & num2 <= 2)
           num1 = 2;
@@ -9614,7 +9614,7 @@ namespace WindowsApplication1
           num1 = 2;
         if (num23 > num13 & num19 > num13 - 5)
           num1 = 2;
-        if ((double) num23 > (double) num13 + (double) (num14 - num13) / 2.0)
+        if ( num23 >  num13 +  (num14 - num13) / 2.0)
           num1 = 2;
         if (num19 < num11 - 3 & num2 <= 2)
           num1 = 2;
@@ -9646,10 +9646,10 @@ namespace WindowsApplication1
       }
       if (num1 == 3)
       {
-        if ((double) (num19 + num23 + num31) / 2.0 < (double) (num10 - 2))
+        if ( (num19 + num23 + num31) / 2.0 <  (num10 - 2))
           num1 = 2;
       }
-      else if ((double) (num19 + num23 + num31) / 2.0 < (double) (num3 - 2))
+      else if ( (num19 + num23 + num31) / 2.0 <  (num3 - 2))
         num1 = 2;
       let mut num32: i32 = this.itemProduction[5] - (this.itemNeed[5] + 200);
       let mut weight: i32 = this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(5);
@@ -9707,13 +9707,13 @@ namespace WindowsApplication1
         num34 += 0.5f;
         num35 += 0.0f;
       }
-      if ((double) num36 > 1.0)
+      if ( num36 > 1.0)
         num36 = 1f;
-      if ((double) num34 > 1.0)
+      if ( num34 > 1.0)
         num34 = 1f;
-      if ((double) num35 > 1.0)
+      if ( num35 > 1.0)
         num35 = 1f;
-      let mut num37: i32 = this.itemProduction[15] - this.itemNeed[15] + this.newItems.FindWeight(15) +  Math.Round((double) this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(15) / 20.0);
+      let mut num37: i32 = this.itemProduction[15] - this.itemNeed[15] + this.newItems.FindWeight(15) +  Math.Round( this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(15) / 20.0);
       float num38 = num37 >= 60 ? (num37 >= 120 ? (num37 >= 240 ? (num37 >= 360 ? (num37 >= 500 ? 1.2f : 1f) : 0.7f) : 0.5f) : 0.3f) : 0.1f;
       if (num1 == 3)
       {
@@ -9729,7 +9729,7 @@ namespace WindowsApplication1
           simpleList3.ReverseSort();
           if (simpleList3.Counter > -1)
           {
-            let mut tweight: i32 =  Math.Round((double) (300f * num36));
+            let mut tweight: i32 =  Math.Round( (300f * num36));
             preferenceFoodPool.Add(203, tweight, simpleList3.Data1[0], simpleList3.Data2[0]);
           }
         }
@@ -9739,7 +9739,7 @@ namespace WindowsApplication1
         SimpleList thatCanUpgradeToo = this.GetPublicAssetsThatCanUpgradeToo(203);
         if (thatCanUpgradeToo.Counter > -1)
         {
-          let mut tweight: i32 =  Math.Round((double) (400f * num36));
+          let mut tweight: i32 =  Math.Round( (400f * num36));
           preferenceFoodPool.Add(thatCanUpgradeToo.Id[0], tweight, thatCanUpgradeToo.Data2[0], thatCanUpgradeToo.Data3[0]);
         }
       }
@@ -9760,7 +9760,7 @@ namespace WindowsApplication1
           simpleList4.ReverseSort();
           if (simpleList4.Counter > -1)
           {
-            let mut tweight: i32 =  Math.Round((double) (150f * num34));
+            let mut tweight: i32 =  Math.Round( (150f * num34));
             preferenceFoodPool.Add(204, tweight, simpleList4.Data1[0], simpleList4.Data2[0]);
           }
         }
@@ -9770,7 +9770,7 @@ namespace WindowsApplication1
         SimpleList thatCanUpgradeToo = this.GetPublicAssetsThatCanUpgradeToo(204);
         if (thatCanUpgradeToo.Counter > -1)
         {
-          let mut tweight: i32 =  Math.Round((double) (250f * num34));
+          let mut tweight: i32 =  Math.Round( (250f * num34));
           preferenceFoodPool.Add(thatCanUpgradeToo.Id[0], tweight, thatCanUpgradeToo.Data2[0], thatCanUpgradeToo.Data3[0]);
         }
       }
@@ -9791,7 +9791,7 @@ namespace WindowsApplication1
           simpleList5.ReverseSort();
           if (simpleList5.Counter > -1)
           {
-            let mut tweight: i32 =  Math.Round((double) (300f * num36));
+            let mut tweight: i32 =  Math.Round( (300f * num36));
             preferenceFoodPool.Add(202, tweight, simpleList5.Data1[0], simpleList5.Data2[0]);
           }
         }
@@ -9801,7 +9801,7 @@ namespace WindowsApplication1
         SimpleList thatCanUpgradeToo = this.GetPublicAssetsThatCanUpgradeToo(202);
         if (thatCanUpgradeToo.Counter > -1)
         {
-          let mut tweight: i32 =  Math.Round((double) (500f * num36));
+          let mut tweight: i32 =  Math.Round( (500f * num36));
           preferenceFoodPool.Add(thatCanUpgradeToo.Id[0], tweight, thatCanUpgradeToo.Data2[0], thatCanUpgradeToo.Data3[0]);
         }
       }
@@ -9817,9 +9817,9 @@ namespace WindowsApplication1
         simpleList6.ReverseSort();
         if (simpleList6.Counter > -1)
         {
-          let mut tweight: i32 =  Math.Round((double) ((float)  Math.Round((double) (80f * num35)) * num38));
+          let mut tweight: i32 =  Math.Round( (  Math.Round( (80f * num35)) * num38));
           if (this.itemProduction[14] < 1)
-            tweight =  Math.Round((double) tweight * 0.2);
+            tweight =  Math.Round( tweight * 0.2);
           if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 5)
             tweight = 0;
           preferenceFoodPool.Add(291, tweight, simpleList6.Data1[0], simpleList6.Data2[0]);
@@ -9827,9 +9827,9 @@ namespace WindowsApplication1
         SimpleList thatCanUpgradeToo = this.GetPublicAssetsThatCanUpgradeToo(291);
         if (thatCanUpgradeToo.Counter > -1)
         {
-          let mut tweight: i32 =  Math.Round((double) ((float)  Math.Round((double) (130f * num35)) * num38));
+          let mut tweight: i32 =  Math.Round( (  Math.Round( (130f * num35)) * num38));
           if (this.itemProduction[14] < 1)
-            tweight =  Math.Round((double) tweight * 0.1);
+            tweight =  Math.Round( tweight * 0.1);
           if (this.data.UnitObj[this.shqUnitNr].items.list.FindWeight(14) < 10)
             tweight = 0;
           preferenceFoodPool.Add(thatCanUpgradeToo.Id[0], tweight, thatCanUpgradeToo.Data2[0], thatCanUpgradeToo.Data3[0]);
@@ -9841,7 +9841,7 @@ namespace WindowsApplication1
         {
           let mut assetConstruction: i32 = this.GetEstimatedTurnsForAssetConstruction(preferenceFoodPool.Id[counter6], Pool.Food);
           if (assetConstruction > 1)
-            preferenceFoodPool.Weight[counter6] =  Math.Round((double) preferenceFoodPool.Weight[counter6] * 0.5 / (double) assetConstruction) +  Math.Round((double) preferenceFoodPool.Weight[counter6] * 0.5);
+            preferenceFoodPool.Weight[counter6] =  Math.Round( preferenceFoodPool.Weight[counter6] * 0.5 /  assetConstruction) +  Math.Round( preferenceFoodPool.Weight[counter6] * 0.5);
         }
         if (preferenceFoodPool.Weight[counter6] == 0)
           preferenceFoodPool.RemoveNr(counter6);

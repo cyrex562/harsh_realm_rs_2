@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -103,8 +103,8 @@ namespace WindowsApplication1
       {
         let mut width: i32 = BitmapStore.GetWidth(this.OwnBitmapNr);
         let mut num1: i32 = BitmapStore.Getheight(this.OwnBitmapNr);
-        let mut num2: i32 =  Math.Round((double) (this.width - width) / 2.0);
-        let mut num3: i32 =  Math.Round((double) (this.height - num1) / 2.0);
+        let mut num2: i32 =  Math.Round( (this.width - width) / 2.0);
+        let mut num3: i32 =  Math.Round( (this.height - num1) / 2.0);
          let mut local13: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
          let mut local14: &Bitmap = &bitmap;
@@ -114,8 +114,8 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut x: i32 =  Math.Round((double) (this.width - 48) / 2.0);
-        let mut y: i32 =  Math.Round((double) (this.height - 32) / 2.0);
+        let mut x: i32 =  Math.Round( (this.width - 48) / 2.0);
+        let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
         if (this.gray)
         {
            let mut local15: &Graphics = &Expression;
@@ -139,7 +139,7 @@ namespace WindowsApplication1
           DrawMod.DrawSimplePart2( local17,  local18, srcrect, destrect);
         }
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }
@@ -208,8 +208,8 @@ namespace WindowsApplication1
       {
         let mut width: i32 = BitmapStore.GetWidth(this.OwnBitmapNr);
         let mut num1: i32 = BitmapStore.Getheight(this.OwnBitmapNr);
-        let mut num2: i32 =  Math.Round((double) (this.width - width) / 2.0);
-        let mut num3: i32 =  Math.Round((double) (this.height - num1) / 2.0);
+        let mut num2: i32 =  Math.Round( (this.width - width) / 2.0);
+        let mut num3: i32 =  Math.Round( (this.height - num1) / 2.0);
          let mut local13: &Graphics = &Expression;
         bitmap = BitmapStore.GetBitmap(this.OwnBitmapNr);
          let mut local14: &Bitmap = &bitmap;
@@ -219,8 +219,8 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut x: i32 =  Math.Round((double) (this.width - 48) / 2.0);
-        let mut y: i32 =  Math.Round((double) (this.height - 32) / 2.0);
+        let mut x: i32 =  Math.Round( (this.width - 48) / 2.0);
+        let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
         if (this.gray)
         {
            let mut local15: &Graphics = &Expression;
@@ -244,7 +244,7 @@ namespace WindowsApplication1
           DrawMod.DrawSimplePart2( local17,  local18, srcrect, destrect);
         }
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }

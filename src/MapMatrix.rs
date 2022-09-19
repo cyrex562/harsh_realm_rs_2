@@ -4,7 +4,7 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
+// usingMicrosoft.VisualBasic.CompilerServices;
 
 namespace WindowsApplication1
 {
@@ -19,13 +19,13 @@ namespace WindowsApplication1
       object Counter;
       object LoopForResult1;
       object CounterResult1;
-      if (!ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter, (object) 0, (object) x, (object) 1,  LoopForResult1,  CounterResult1))
+      if (!ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter,  0,  x,  1,  LoopForResult1,  CounterResult1))
         return;
       do
       {
         object CounterResult2;
         object LoopForResult2;
-        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(CounterResult2, (object) 0, (object) y, (object) 1,  LoopForResult2,  CounterResult2))
+        if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(CounterResult2,  0,  y,  1,  LoopForResult2,  CounterResult2))
         {
           do
           {

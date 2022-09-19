@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -139,7 +139,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = this.game.ScreenHeight - 768;
       if (this.addId > 0)
         this.RemoveSubPart(this.addId);
@@ -182,7 +182,7 @@ namespace WindowsApplication1
       let mut num3: i32 = -1;
       int num4;
       if (num2 > 10)
-        num4 =  Math.Round((double) (num2 - 10) * 0.33 / 16.0);
+        num4 =  Math.Round( (num2 - 10) * 0.33 / 16.0);
       this.libListObj = ListClass::new();
       this.libListObj.add("All", -2);
       if (this.libSelect == -1)
@@ -190,7 +190,7 @@ namespace WindowsApplication1
       let mut num5: i32 = 0;
       if (num1 >= 256)
       {
-        DrawMod.DrawTextColouredMarc( objgraphics, "Libraries:", this.game.MarcFont4, 10 + num1 - 256,  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 55.0 + 30.0), Color.White);
+        DrawMod.DrawTextColouredMarc( objgraphics, "Libraries:", this.game.MarcFont4, 10 + num1 - 256,  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 30.0), Color.White);
         let mut libraryCounter: i32 = this.game.Data.LibraryCounter;
         for (let mut index1: i32 = 0; index1 <= libraryCounter; index1 += 1)
         {
@@ -207,7 +207,7 @@ namespace WindowsApplication1
           if (flag)
           {
             num5 += 1;
-            this.libListObj.add(Conversion.Str((object) index1) + ") " + this.game.Data.LibraryObj[index1].name, index1);
+            this.libListObj.add(Conversion.Str( index1) + ") " + this.game.Data.LibraryObj[index1].name, index1);
             if (this.libSelect == index1)
               num3 = num5;
           }
@@ -220,15 +220,15 @@ namespace WindowsApplication1
           let mut game: GameClass = this.game;
            Bitmap local1 =  this.OwnBitmap;
           let mut bbx: i32 = 10 + num1 - 256;
-          let mut bby: i32 =  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0);
+          let mut bby: i32 =  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0);
           Font font =  null;
            Font local2 =  font;
           let mut tsubpart: SubPartClass =  new ListSubPartClass(libListObj, tlistsize, 250, tlistselect, game, true, "Tables", tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local1), bbx: bbx, bby: bby, tMarcStyle: true, overruleFont: ( local2));
-          this.libTableId = this.AddSubPart( tsubpart, 10 + num1 - 256,  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0), 250, (12 + num4) * 16, 0);
+          this.libTableId = this.AddSubPart( tsubpart, 10 + num1 - 256,  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0), 250, (12 + num4) * 16, 0);
         }
       }
       tstring: String = "Tables:";
-      DrawMod.DrawTextColouredMarc( objgraphics, tstring, this.game.MarcFont4, 10 + num1,  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 55.0 + 30.0), Color.White);
+      DrawMod.DrawTextColouredMarc( objgraphics, tstring, this.game.MarcFont4, 10 + num1,  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 30.0), Color.White);
       let mut num6: i32 = -1;
       let mut num7: i32 = -1;
       this.listObj = ListClass::new();
@@ -238,7 +238,7 @@ namespace WindowsApplication1
         if (this.game.Data.StringListObj[index].Editable && this.game.Data.StringListObj[index].LibId.libSlot == this.libSelect | this.libSelect == -1)
         {
           num6 += 1;
-          this.listObj.add(Conversion.Str((object) index) + ") " + this.game.Data.StringListObj[index].Name, index);
+          this.listObj.add(Conversion.Str( index) + ") " + this.game.Data.StringListObj[index].Name, index);
           if (num7 == -1)
             num7 = 0;
           if (this.strId == -1)
@@ -260,18 +260,18 @@ namespace WindowsApplication1
         let mut game: GameClass = this.game;
          Bitmap local3 =  this.OwnBitmap;
         let mut bbx: i32 = 10 + num1;
-        let mut bby: i32 =  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0);
+        let mut bby: i32 =  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0);
         Font font =  null;
          Font local4 =  font;
         tsubpart1 =  new ListSubPartClass(listObj, tlistsize, 250, tlistselect, game, true, "Tables", tValueWidth: 0, tdotopandbottom: false, tbackbitmap: ( local3), bbx: bbx, bby: bby, tMarcStyle: true, overruleFont: ( local4));
-        this.listId = this.AddSubPart( tsubpart1, 10 + num1,  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0), 250, (12 + num4) * 16, 0);
+        this.listId = this.AddSubPart( tsubpart1, 10 + num1,  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 55.0 + 50.0), 250, (12 + num4) * 16, 0);
       }
       if (this.strId <= -1)
         return;
       if (this.mode == 1)
       {
-        tsubpart1 =  new MatrixSubPartClass(this.game.Data.StringListObj[this.strId], 13 +  Math.Round((double) num2 * 0.66 / 24.0), Math.Max(1000, this.game.ScreenWidth - 24), this.detailx, this.detaily, this.game, tbackbitmap: ( this.BackBitmap), bbx: 10, bby: 72, trowheight: 24, tfontsize: 16, tfontoffsety: 4, tMarcy: true, tLibSlot: this.game.Data.StringListObj[this.strId].LibId.libSlot);
-        this.tableId = this.AddSubPart( tsubpart1, 10, 72, Math.Max(1000, this.game.ScreenWidth - 24),  Math.Round((15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0), 0);
+        tsubpart1 =  new MatrixSubPartClass(this.game.Data.StringListObj[this.strId], 13 +  Math.Round( num2 * 0.66 / 24.0), Math.Max(1000, this.game.ScreenWidth - 24), this.detailx, this.detaily, this.game, tbackbitmap: ( this.BackBitmap), bbx: 10, bby: 72, trowheight: 24, tfontsize: 16, tfontoffsety: 4, tMarcy: true, tLibSlot: this.game.Data.StringListObj[this.strId].LibId.libSlot);
+        this.tableId = this.AddSubPart( tsubpart1, 10, 72, Math.Max(1000, this.game.ScreenWidth - 24),  Math.Round((15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0), 0);
       }
       else
       {
@@ -288,21 +288,21 @@ namespace WindowsApplication1
             LibVarClass libVarClass = this.game.Data.StringListObj[this.strId].GetValue( this.game.Data, this.detailx, col);
             tListobj.AddRowWithData(this.game.Data.StringListObj[this.strId].ColumnName[col], libVarClass.valueText);
           }
-          tsubpart1 =  new MatrixSubPartClass(tListobj, 13 +  Math.Round((double) num2 * 0.66 / 24.0), Math.Max(1000, this.game.ScreenWidth - 24), this.detaily, 1, this.game, tbackbitmap: ( this.BackBitmap), bbx: 10, bby: 72, trowheight: 24, tfontsize: 16, tfontoffsety: 4, tMarcy: true, tTwoColumnVariant: 200);
-          this.tableId = this.AddSubPart( tsubpart1, 10, 72, Math.Max(1000, this.game.ScreenWidth - 24),  Math.Round((15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0), 0);
+          tsubpart1 =  new MatrixSubPartClass(tListobj, 13 +  Math.Round( num2 * 0.66 / 24.0), Math.Max(1000, this.game.ScreenWidth - 24), this.detaily, 1, this.game, tbackbitmap: ( this.BackBitmap), bbx: 10, bby: 72, trowheight: 24, tfontsize: 16, tfontoffsety: 4, tMarcy: true, tTwoColumnVariant: 200);
+          this.tableId = this.AddSubPart( tsubpart1, 10, 72, Math.Max(1000, this.game.ScreenWidth - 24),  Math.Round((15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0), 0);
         }
         else
-          DrawMod.DrawTextColouredMarcCenter( objgraphics, "No rows in table", this.game.MarcFont4, num1 + 512, 256 +  Math.Round((double) num2 * 0.33), Color.White);
+          DrawMod.DrawTextColouredMarcCenter( objgraphics, "No rows in table", this.game.MarcFont4, num1 + 512, 256 +  Math.Round( num2 * 0.33), Color.White);
       }
       str1: String = " (Id " + this.game.Data.StringListObj[this.strId].ID.ToString();
       if (this.game.Data.StringListObj[this.strId].LibId.libSlot > -1)
         str1 = str1 + ", LibId " + this.game.Data.StringListObj[this.strId].ID.ToString();
       str2: String = str1 + ")";
-      DrawMod.DrawTextColouredMarc( objgraphics, this.game.Data.StringListObj[this.strId].Name + str2 + " information:", this.game.MarcFont3, 310 + num1, 72 + (15 +  Math.Round((double) num2 * 0.66 / 24.0)) * 24 + 55 + 30, Color.White);
-      tsubpart1 =  new TextAreaClass2(this.game,  Math.Round(Math.Max(700.0, (double) this.game.ScreenWidth / 2.0 - 324.0)), 4 +  Math.Round((double) num2 * 0.33 / 27.0), this.game.MarcFont4, this.game.Data.StringListObj[this.strId].Description, 27,  this.OwnBitmap, 310 + num1,  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 62.0 + 30.0));
-      this.text1id = this.AddSubPart( tsubpart1, 310 + num1,  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 62.0 + 30.0),  Math.Round(Math.Max(700.0, (double) this.game.ScreenWidth / 2.0 - 324.0)), Math.Max(120, this.game.ScreenHeight - 648), 0);
+      DrawMod.DrawTextColouredMarc( objgraphics, this.game.Data.StringListObj[this.strId].Name + str2 + " information:", this.game.MarcFont3, 310 + num1, 72 + (15 +  Math.Round( num2 * 0.66 / 24.0)) * 24 + 55 + 30, Color.White);
+      tsubpart1 =  new TextAreaClass2(this.game,  Math.Round(Math.Max(700.0,  this.game.ScreenWidth / 2.0 - 324.0)), 4 +  Math.Round( num2 * 0.33 / 27.0), this.game.MarcFont4, this.game.Data.StringListObj[this.strId].Description, 27,  this.OwnBitmap, 310 + num1,  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 62.0 + 30.0));
+      this.text1id = this.AddSubPart( tsubpart1, 310 + num1,  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 62.0 + 30.0),  Math.Round(Math.Max(700.0,  this.game.ScreenWidth / 2.0 - 324.0)), Math.Max(120, this.game.ScreenHeight - 648), 0);
       this.Tabby();
-      if (!(this.detailx > -1 & this.detaily > -1 & !Information.IsNothing((object) this.tableId)))
+      if (!(this.detailx > -1 & this.detaily > -1 & !Information.IsNothing( this.tableId)))
         return;
       this.RefreshCellInfo();
     }
@@ -335,11 +335,11 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.fullBackwardId);
       if (this.pageNumberId > 0)
         this.RemoveSubPart(this.pageNumberId);
-      let mut num1: i32 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 = this.game.ScreenHeight - 768;
       if (this.strId < 0)
         return;
-      let mut num3: i32 =  Math.Round(72.0 + (15.0 + (double)  Math.Round((double) num2 * 0.66) / 24.0) * 24.0 + 28.0);
+      let mut num3: i32 =  Math.Round(72.0 + (15.0 +   Math.Round( num2 * 0.66) / 24.0) * 24.0 + 28.0);
       SubPartClass tsubpart;
       if (this.mode == 1)
       {
@@ -537,7 +537,7 @@ namespace WindowsApplication1
               }
               if (this.game.Data.StringListObj[this.strId].ColValueType[this.detaily] == NewEnums.LibVarValueType.YesNo)
               {
-                if (Interaction.MsgBox((object) "Set value of cell to Yes or No?", MsgBoxStyle.YesNo, (object) "Cell value") == MsgBoxResult.Yes)
+                if (Interaction.MsgBox( "Set value of cell to Yes or No?", MsgBoxStyle.YesNo,  "Cell value") == MsgBoxResult.Yes)
                   this.game.Data.StringListObj[this.strId].Data[this.detailx, this.detaily] = "1";
                 else
                   this.game.Data.StringListObj[this.strId].Data[this.detailx, this.detaily] = "0";
@@ -742,7 +742,7 @@ namespace WindowsApplication1
                 this.game.Data.StringListObj[this.strId].RemoveRow(this.game.Data.StringListObj[this.strId].Length);
               if (Strings.Len(str9) < 2)
               {
-                let mut num6: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -756,7 +756,7 @@ namespace WindowsApplication1
                   try
                   {
                     bool flag1 = false;
-                    if (this.game.Data.Product >= 7 && Interaction.MsgBox((object) "Inverse import?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                    if (this.game.Data.Product >= 7 && Interaction.MsgBox( "Inverse import?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     {
                       flag1 = true;
                       num7 = 2;
@@ -806,7 +806,7 @@ namespace WindowsApplication1
                               }
                             }
                             string[] strArray = str11.Split(Conversions.ToChar(str10));
-                            if (!flag1 && strArray.GetUpperBound(0) > this.game.Data.StringListObj[this.strId].Width & index10 == 0 && Interaction.MsgBox((object) "Allow adding columns to table?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                            if (!flag1 && strArray.GetUpperBound(0) > this.game.Data.StringListObj[this.strId].Width & index10 == 0 && Interaction.MsgBox( "Allow adding columns to table?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                             {
                               let mut num10: i32 = strArray.GetUpperBound(0) - this.game.Data.StringListObj[this.strId].Width;
                               for (let mut index11: i32 = 1; index11 <= num10; index11 += 1)
@@ -855,7 +855,7 @@ namespace WindowsApplication1
                     Exception exception = ex;
                     streamReader.Close();
                     this.game.Data.LoadGraphics(this.formref);
-                    let mut num11: i32 =  Interaction.MsgBox((object) ("Import problem encountered: '" + exception.Message + "'. Your current data might be corrupted. "), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num11: i32 =  Interaction.MsgBox( ("Import problem encountered: '" + exception.Message + "'. Your current data might be corrupted. "), Title: ( "Shadow Empire : Planetary Conquest"));
                     this.RemoveSubPart(this.tableId);
                     this.tableId = 0;
                     this.DoStuff();
@@ -866,7 +866,7 @@ namespace WindowsApplication1
                   }
                   streamReader.Close();
                   this.game.Data.LoadGraphics(this.formref);
-                  let mut num12: i32 =  Interaction.MsgBox((object) "Import finished", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num12: i32 =  Interaction.MsgBox( "Import finished", Title: ( "Shadow Empire : Planetary Conquest"));
                   this.RemoveSubPart(this.tableId);
                   this.tableId = 0;
                   this.DoStuff();
@@ -876,7 +876,7 @@ namespace WindowsApplication1
                 catch (Exception ex)
                 {
                   ProjectData.SetProjectError(ex);
-                  let mut num13: i32 =  Interaction.MsgBox((object) "Error opening file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num13: i32 =  Interaction.MsgBox( "Error opening file", Title: ( "Shadow Empire : Planetary Conquest"));
                   ProjectData.ClearProjectError();
                   continue;
                 }
@@ -889,7 +889,7 @@ label_216:
               str18: String = this.game.HandyFunctionsObj.SaveSomething("CSV (*.csv)|*.csv|TXT (*.txt)|*.txt|All (*.*)|*.*", "Give save name...", this.game.AppPath + "csv/", false);
               if (Strings.Len(str18) < 2)
               {
-                let mut num14: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num14: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -897,7 +897,7 @@ label_216:
                 bool flag4 = false;
                 if (this.game.Data.Product >= 7)
                 {
-                  if (Interaction.MsgBox((object) "Inverse export?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                  if (Interaction.MsgBox( "Inverse export?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                     flag3 = true;
                 }
                 try
@@ -946,21 +946,21 @@ label_216:
                       }
                     }
                     text.Close();
-                    let mut num15: i32 =  Interaction.MsgBox((object) "Export has been written to the csv/ directory", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num15: i32 =  Interaction.MsgBox( "Export has been written to the csv/ directory", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   catch (Exception ex)
                   {
                     ProjectData.SetProjectError(ex);
                     Exception exception = ex;
                     text.Close();
-                    let mut num16: i32 =  Interaction.MsgBox((object) ("Problem writing: " + exception.Message), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num16: i32 =  Interaction.MsgBox( ("Problem writing: " + exception.Message), Title: ( "Shadow Empire : Planetary Conquest"));
                     ProjectData.ClearProjectError();
                   }
                 }
                 catch (Exception ex)
                 {
                   ProjectData.SetProjectError(ex);
-                  let mut num17: i32 =  Interaction.MsgBox((object) "Problem writing. Check if the file is not opened in other application please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num17: i32 =  Interaction.MsgBox( "Problem writing. Check if the file is not opened in other application please.", Title: ( "Shadow Empire : Planetary Conquest"));
                   ProjectData.ClearProjectError();
                 }
               }

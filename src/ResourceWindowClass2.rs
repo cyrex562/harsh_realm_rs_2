@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Threading;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -108,7 +108,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
-      if (this.game.EditObj.HumanPlayer > -1 && this.game.EditObj.AIMoving && (double) DateAndTime.Now.Subtract(this.ShowTime).Ticks > 2000000.0)
+      if (this.game.EditObj.HumanPlayer > -1 && this.game.EditObj.AIMoving &&  DateAndTime.Now.Subtract(this.ShowTime).Ticks > 2000000.0)
       {
         this.ShowTime = DateAndTime.Now;
         this.dostuff();
@@ -299,13 +299,13 @@ namespace WindowsApplication1
       this.NewBackGroundAndClearAll(this.w, this.h, -1);
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       if (!this.game.EditObj.se1_ManagementMode)
-        this.DrawOpenTab((object) graphics);
+        this.DrawOpenTab( graphics);
       let mut tx1: i32 = 312;
       bool flag1 = false;
       int width;
-      if ((double) this.game.Data.RuleVar[971] > 0.0)
+      if ( this.game.Data.RuleVar[971] > 0.0)
       {
-        let mut stringListById: i32 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]));
+        let mut stringListById: i32 = this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[971]));
         if (stringListById > -1 && this.game.Data.StringListObj[stringListById].Length > -1)
           flag1 = true;
         width = 100;
@@ -355,7 +355,7 @@ namespace WindowsApplication1
         trect2.Height -= 36;
         this.AddMouse( trect2, "", "Inaccesible during the AIs turn.");
       }
-      else if ((double) this.game.Data.RuleVar[408] > 1.0)
+      else if ( this.game.Data.RuleVar[408] > 1.0)
       {
         if (this.game.EditObj.OrderType == 26 | this.startedInHistoryMode)
         {
@@ -493,7 +493,7 @@ namespace WindowsApplication1
       DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
       if (this.game.ScreenWidth > 2600)
       {
-        width =  Math.Round((double) this.game.ScreenWidth / 2.0);
+        width =  Math.Round( this.game.ScreenWidth / 2.0);
          let mut local3: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(this.game.MARCBOTBAR);
          let mut local4: &Bitmap = &bitmap;
@@ -612,9 +612,9 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local23,  local24, srcrect12, destrect12);
       }
       if (this.game.EditObj.se1_ManagementMode)
-        this.DrawTabs_ManagementScreen((object) graphics);
+        this.DrawTabs_ManagementScreen( graphics);
       else
-        this.DrawTabs((object) graphics);
+        this.DrawTabs( graphics);
        let mut local25: &Graphics = &graphics;
       bitmap = BitmapStore.GetBitmap(this.game.SE1_RESOURCEBAR_LEFT);
        let mut local26: &Bitmap = &bitmap;
@@ -701,20 +701,20 @@ namespace WindowsApplication1
         if (this.game.EditObj.AIProgressNow != this.prevAiProgress)
           this.smallAiProgress = 0;
         this.prevAiProgress = this.game.EditObj.AIProgressNow;
-        let mut num3: i32 =  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0);
+        let mut num3: i32 =  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0);
         if (num3 > 100)
           num3 = 100;
-        let mut num4: i32 =  Math.Round((double) (84 * num3) / 100.0);
+        let mut num4: i32 =  Math.Round( (84 * num3) / 100.0);
         let mut num5: i32 = this.smallAiProgress;
         if (num5 > 50)
-          num5 =  Math.Round(Math.Sqrt((double) (num5 - 50))) + 50;
+          num5 =  Math.Round(Math.Sqrt( (num5 - 50))) + 50;
         if (num5 > 70)
-          num5 =  Math.Round(Math.Sqrt((double) (num5 - 70))) + 70;
+          num5 =  Math.Round(Math.Sqrt( (num5 - 70))) + 70;
         if (num5 > 90)
-          num5 =  Math.Round(Math.Sqrt((double) (num5 - 70))) + 90;
+          num5 =  Math.Round(Math.Sqrt( (num5 - 70))) + 90;
         if (num5 > 100)
           num5 = 100;
-        let mut w: i32 = num4 +  Math.Round((double) (83 * num5) / 100.0);
+        let mut w: i32 = num4 +  Math.Round( (83 * num5) / 100.0);
         DrawMod.DrawBlock( graphics, 111, 18, w, 16, 200, 0, 0, 150);
       }
       DrawMod.DrawTextColouredConsoleCenter( graphics, str, this.game.MarcFont16, 193, 15, this.game.seColWhite);
@@ -747,12 +747,12 @@ namespace WindowsApplication1
       let mut num11: i32 = this.game.Data.RegimeObj[index].Blue2;
       if (this.MouseOverWhichTab == 501)
       {
-        num6 =  Math.Round((double) num6 * 1.1);
-        num7 =  Math.Round((double) num7 * 1.1);
-        num8 =  Math.Round((double) num8 * 1.1);
-        num9 =  Math.Round((double) num9 * 1.1);
-        num10 =  Math.Round((double) num10 * 1.1);
-        num11 =  Math.Round((double) num11 * 1.1);
+        num6 =  Math.Round( num6 * 1.1);
+        num7 =  Math.Round( num7 * 1.1);
+        num8 =  Math.Round( num8 * 1.1);
+        num9 =  Math.Round( num9 * 1.1);
+        num10 =  Math.Round( num10 * 1.1);
+        num11 =  Math.Round( num11 * 1.1);
         if (num6 >  byte.MaxValue)
           num6 =  byte.MaxValue;
         if (num7 >  byte.MaxValue)
@@ -768,31 +768,31 @@ namespace WindowsApplication1
       }
       if (flag4)
       {
-        num6 =  Math.Round((double) num6 / 2.0);
-        num7 =  Math.Round((double) num7 / 2.0);
-        num8 =  Math.Round((double) num8 / 2.0);
-        num9 =  Math.Round((double) num9 / 2.0);
-        num10 =  Math.Round((double) num10 / 2.0);
-        num11 =  Math.Round((double) num11 / 2.0);
+        num6 =  Math.Round( num6 / 2.0);
+        num7 =  Math.Round( num7 / 2.0);
+        num8 =  Math.Round( num8 / 2.0);
+        num9 =  Math.Round( num9 / 2.0);
+        num10 =  Math.Round( num10 / 2.0);
+        num11 =  Math.Round( num11 / 2.0);
       }
       let mut bannerSpriteNr: i32 = this.game.Data.RegimeObj[index].BannerSpriteNr;
        let mut local29: &Graphics = &graphics;
       bitmap = BitmapStore.GetBitmap(bannerSpriteNr);
        let mut local30: &Bitmap = &bitmap;
-      double r1 = (double) ((float) num6 / (float) byte.MaxValue);
-      double g1 = (double) ((float) num7 / (float) byte.MaxValue);
-      double b1 = (double) ((float) num8 / (float) byte.MaxValue);
-      DrawMod.DrawScaledColorized2( local29,  local30, 13, 15, 80, 60, 124, 210, (float) r1, (float) g1, (float) b1, 1f);
+      double r1 =  ( num6 /  byte.MaxValue);
+      double g1 =  ( num7 /  byte.MaxValue);
+      double b1 =  ( num8 /  byte.MaxValue);
+      DrawMod.DrawScaledColorized2( local29,  local30, 13, 15, 80, 60, 124, 210,  r1,  g1,  b1, 1f);
       let mut bannerSpriteNr2: i32 = this.game.Data.RegimeObj[index].BannerSpriteNr2;
       if (bannerSpriteNr2 > 0)
       {
          let mut local31: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(bannerSpriteNr2);
          let mut local32: &Bitmap = &bitmap;
-        double r2 = (double) ((float) num9 / (float) byte.MaxValue);
-        double g2 = (double) ((float) num10 / (float) byte.MaxValue);
-        double b2 = (double) ((float) num11 / (float) byte.MaxValue);
-        DrawMod.DrawScaledColorized2( local31,  local32, 13, 15, 80, 60, 124, 210, (float) r2, (float) g2, (float) b2, 1f);
+        double r2 =  ( num9 /  byte.MaxValue);
+        double g2 =  ( num10 /  byte.MaxValue);
+        double b2 =  ( num11 /  byte.MaxValue);
+        DrawMod.DrawScaledColorized2( local31,  local32, 13, 15, 80, 60, 124, 210,  r2,  g2,  b2, 1f);
       }
       let mut hqSpriteNr2: i32 = this.game.Data.RegimeObj[index].HQSpriteNr2;
       if (hqSpriteNr2 > 0)
@@ -800,10 +800,10 @@ namespace WindowsApplication1
          let mut local33: &Graphics = &graphics;
         bitmap = BitmapStore.GetBitmap(hqSpriteNr2);
          let mut local34: &Bitmap = &bitmap;
-        double r3 = (double) ((float) this.game.Data.RegimeObj[index].Red3 / (float) byte.MaxValue) - 1.0;
-        double g3 = (double) ((float) this.game.Data.RegimeObj[index].Green3 / (float) byte.MaxValue) - 1.0;
-        double b3 = (double) ((float) this.game.Data.RegimeObj[index].Blue3 / (float) byte.MaxValue) - 1.0;
-        DrawMod.Draw( local33,  local34, 30, 27, (float) r3, (float) g3, (float) b3, 0.95f);
+        double r3 =  ( this.game.Data.RegimeObj[index].Red3 /  byte.MaxValue) - 1.0;
+        double g3 =  ( this.game.Data.RegimeObj[index].Green3 /  byte.MaxValue) - 1.0;
+        double b3 =  ( this.game.Data.RegimeObj[index].Blue3 /  byte.MaxValue) - 1.0;
+        DrawMod.Draw( local33,  local34, 30, 27,  r3,  g3,  b3, 0.95f);
       }
       if (this.currentPlayerId < 1)
       {
@@ -841,7 +841,7 @@ namespace WindowsApplication1
           this.AddMouse( trect3, "Current player is " + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name, "Click to go to capitol of this regime.", 501);
         }
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;
@@ -962,7 +962,7 @@ namespace WindowsApplication1
         if (smallNumber > 9)
           str = "X";
         SizeF sizeF = g.MeasureString(str, DrawMod.TGame.MarcFont5);
-        DrawMod.DrawTextColouredConsole( g, str, this.game.MarcFont5, tx +  Math.Round((68.0 - (double) sizeF.Width) / 2.0) + 11, y1 + 22, c);
+        DrawMod.DrawTextColouredConsole( g, str, this.game.MarcFont5, tx +  Math.Round((68.0 -  sizeF.Width) / 2.0) + 11, y1 + 22, c);
       }
       SizeF sizeF1 = g.MeasureString(s, DrawMod.TGame.MarcFont16);
       if (active)
@@ -971,7 +971,7 @@ namespace WindowsApplication1
         c = this.game.seColGray;
       if (grayedOut)
         c = Color.FromArgb( byte.MaxValue, 128, 128, 128);
-      DrawMod.DrawTextColouredConsole( g, s, this.game.MarcFont16, tx +  Math.Round((68.0 - (double) sizeF1.Width) / 2.0), y1 + 48, c);
+      DrawMod.DrawTextColouredConsole( g, s, this.game.MarcFont16, tx +  Math.Round((68.0 -  sizeF1.Width) / 2.0), y1 + 48, c);
       Rectangle rectangle3 = Rectangle::new(tx, y1, 68, 75);
       tx += 68;
       return rectangle3;
@@ -991,7 +991,7 @@ namespace WindowsApplication1
       Rectangle rectangle2 = Rectangle::new(rectForTab.X, 32, 8, 43);
       let mut destrect1: &Rectangle = &rectangle2
       DrawMod.DrawSimplePart2( local1,  local2, srcrect1, destrect1);
-      g = (object) graphics;
+      g =  graphics;
       graphics = (Graphics) g;
        let mut local3: &Graphics = &graphics;
       Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.MARCTAB);
@@ -1001,7 +1001,7 @@ namespace WindowsApplication1
       rectangle1 = Rectangle::new(rectForTab.X + rectForTab.Width - 16, 32, 16, 43);
       let mut destrect2: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local3,  local4, srcrect2, destrect2);
-      g = (object) graphics;
+      g =  graphics;
       let mut x: i32 = rectForTab.X + 8;
       let mut width: i32 = 160;
       for (; x < rectForTab.X + rectForTab.Width; x += 160)
@@ -1017,7 +1017,7 @@ namespace WindowsApplication1
         rectangle1 = Rectangle::new(x, 32, width, 43);
         let mut destrect3: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
-        g = (object) graphics;
+        g =  graphics;
       }
     }
 
@@ -1147,45 +1147,45 @@ namespace WindowsApplication1
 
     pub void DrawHexStats( Graphics g)
     {
-      let mut x1: i32 =  Math.Round((double) this.game.ScreenWidth / 2.0 + 158.0);
+      let mut x1: i32 =  Math.Round( this.game.ScreenWidth / 2.0 + 158.0);
       if (!(this.game.EditObj.RealRound > 0 & this.game.SelectX > -1))
         return;
       SizeF sizeF1 = SizeF::new();
       str1: String = "REC";
       SizeF sizeF2 = g.MeasureString(str1, this.game.MarcFont5);
-      let mut x2: i32 =  Math.Round((double) ((float) x1 + (float) (15.0 - (double) sizeF2.Width / 2.0)));
+      let mut x2: i32 =  Math.Round( ( x1 +  (15.0 -  sizeF2.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont5, x2, 2, Color.White);
-      str2: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon));
-      Color color = (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >= (double) this.game.Data.RuleVar[55] ? ((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >= (double) this.game.Data.RuleVar[56] ? Color.FromArgb( byte.MaxValue, 0,  byte.MaxValue, 0) : Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 0)) : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 0, 0);
+      str2: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon));
+      Color color =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >=  this.game.Data.RuleVar[55] ? ( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon >=  this.game.Data.RuleVar[56] ? Color.FromArgb( byte.MaxValue, 0,  byte.MaxValue, 0) : Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue, 0)) : Color.FromArgb( byte.MaxValue,  byte.MaxValue, 0, 0);
       SizeF sizeF3 = g.MeasureString(str2, this.game.MarcFont5);
-      let mut x3: i32 =  Math.Round((double) ((float) x1 + (float) (15.0 - (double) sizeF3.Width / 2.0)));
+      let mut x3: i32 =  Math.Round( ( x1 +  (15.0 -  sizeF3.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont5, x3, 15, Color.White);
       Rectangle trect1 = Rectangle::new(x1, 2, 30, 28);
-      this.AddMouse( trect1, "RECON POINTS", "How much recon points you have on hex.\r\n" + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[55])) + " points needed to spot a unit.\r\n" + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[56])) + " points needed for full info on unit.");
+      this.AddMouse( trect1, "RECON POINTS", "How much recon points you have on hex.\r\n" + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[55])) + " points needed to spot a unit.\r\n" + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[56])) + " points needed for full info on unit.");
       let mut x4: i32 = x1 + 30;
       DrawMod.DrawBlockGradient2( g, x4 - 2, 0, 3, 32, Color.FromArgb(200, 80, 90, 110), Color.FromArgb(50, 80, 90, 110));
       str3: String = "ZOC";
       SizeF sizeF4 = g.MeasureString(str3, this.game.MarcFont5);
-      let mut x5: i32 =  Math.Round((double) ((float) x4 + (float) (15.0 - (double) sizeF4.Width / 2.0)));
+      let mut x5: i32 =  Math.Round( ( x4 +  (15.0 -  sizeF4.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str3, this.game.MarcFont5, x5, 2, Color.White);
-      str4: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_ZocPts(this.game.EditObj.RealTurn)));
+      str4: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_ZocPts(this.game.EditObj.RealTurn)));
       SizeF sizeF5 = g.MeasureString(str4, this.game.MarcFont5);
-      let mut x6: i32 =  Math.Round((double) ((float) x4 + (float) (15.0 - (double) sizeF5.Width / 2.0)));
+      let mut x6: i32 =  Math.Round( ( x4 +  (15.0 -  sizeF5.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str4, this.game.MarcFont5, x6, 15, Color.White);
       trect1 = Rectangle::new(x4, 2, 30, 28);
       let mut trect2: &Rectangle = &trect1
-      this.AddMouse( trect2, "ZONE OF CONTROL POINTS", "Shows how many ZOC points you are exerting on the hex.\r\n" + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[40])) + "x more ZOC needed then enemy to capture unoccupied hex.");
+      this.AddMouse( trect2, "ZONE OF CONTROL POINTS", "Shows how many ZOC points you are exerting on the hex.\r\n" + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[40])) + "x more ZOC needed then enemy to capture unoccupied hex.");
       let mut x7: i32 = x4 + 30;
       DrawMod.DrawBlockGradient2( g, x7 - 2, 0, 3, 32, Color.FromArgb(200, 80, 90, 110), Color.FromArgb(50, 80, 90, 110));
       str5: String = "AP";
       SizeF sizeF6 = g.MeasureString(str5, this.game.MarcFont5);
-      let mut x8: i32 =  Math.Round((double) ((float) x7 + (float) (15.0 - (double) sizeF6.Width / 2.0)));
+      let mut x8: i32 =  Math.Round( ( x7 +  (15.0 -  sizeF6.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str5, this.game.MarcFont5, x8, 2, Color.White);
-      str6: String = Strings.Trim(Conversion.Str((object) (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.EditObj.RealTurn) + this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.EditObj.RealTurn))));
+      str6: String = Strings.Trim(Conversion.Str( (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.EditObj.RealTurn) + this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.EditObj.RealTurn))));
       sizeF6 = g.MeasureString(str6, this.game.MarcFont5);
-      let mut x9: i32 =  Math.Round((double) ((float) x7 + (float) (15.0 - (double) sizeF6.Width / 2.0)));
+      let mut x9: i32 =  Math.Round( ( x7 +  (15.0 -  sizeF6.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str6, this.game.MarcFont5, x9, 15, Color.White);
-      ttext: String = "How much extra AP it costs to move into hex.\r\n" + Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.EditObj.RealTurn))) + " points for enemy owned hex rule." + "\r\n" + Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.EditObj.RealTurn))) + " points for previous battles fought in hex.";
+      ttext: String = "How much extra AP it costs to move into hex.\r\n" + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.EditObj.RealTurn))) + " points for enemy owned hex rule." + "\r\n" + Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.EditObj.RealTurn))) + " points for previous battles fought in hex.";
       trect1 = Rectangle::new(x7, 2, 30, 28);
       let mut trect3: &Rectangle = &trect1
       this.AddMouse( trect3, "ACTION POINT PENALTIES", ttext);
@@ -1193,9 +1193,9 @@ namespace WindowsApplication1
       DrawMod.DrawBlockGradient2( g, x10 - 2, 0, 3, 32, Color.FromArgb(200, 80, 90, 110), Color.FromArgb(50, 80, 90, 110));
       str7: String = "STK";
       sizeF6 = g.MeasureString(str7, this.game.MarcFont5);
-      let mut x11: i32 =  Math.Round((double) ((float) x10 + (float) (15.0 - (double) sizeF6.Width / 2.0)));
+      let mut x11: i32 =  Math.Round( ( x10 +  (15.0 -  sizeF6.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str7, this.game.MarcFont5, x11, 2, Color.White);
-      str8: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetHexStackPts(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected)));
+      str8: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetHexStackPts(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected)));
       if (this.game.Data.FOWOn)
       {
         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime, this.game.EditObj.RealTurn))
@@ -1216,20 +1216,20 @@ namespace WindowsApplication1
           str8 = num.ToString();
       }
       sizeF6 = g.MeasureString(str8, this.game.MarcFont5);
-      let mut x12: i32 =  Math.Round((double) ((float) x10 + (float) (15.0 - (double) sizeF6.Width / 2.0)));
+      let mut x12: i32 =  Math.Round( ( x10 +  (15.0 -  sizeF6.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str8, this.game.MarcFont5, x12, 15, Color.White);
       trect1 = Rectangle::new(x10, 2, 30, 28);
       let mut trect4: &Rectangle = &trect1
-      this.AddMouse( trect4, "STACK POINTS", "How much stack points are in this hex.\r\nAbove " + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[30])) + " points the hex becomes overstacked.");
+      this.AddMouse( trect4, "STACK POINTS", "How much stack points are in this hex.\r\nAbove " + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[30])) + " points the hex becomes overstacked.");
       let mut x13: i32 = x10 + 30;
       DrawMod.DrawBlockGradient2( g, x13 - 2, 0, 3, 32, Color.FromArgb(200, 80, 90, 110), Color.FromArgb(50, 80, 90, 110));
       str9: String = "VP";
       sizeF6 = g.MeasureString(str9, this.game.MarcFont5);
-      let mut x14: i32 =  Math.Round((double) ((float) x13 + (float) (15.0 - (double) sizeF6.Width / 2.0)));
+      let mut x14: i32 =  Math.Round( ( x13 +  (15.0 -  sizeF6.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str9, this.game.MarcFont5, x14, 2, Color.White);
-      str10: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP));
+      str10: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP));
       sizeF6 = g.MeasureString(str10, this.game.MarcFont5);
-      let mut x15: i32 =  Math.Round((double) ((float) x13 + (float) (15.0 - (double) sizeF6.Width / 2.0)));
+      let mut x15: i32 =  Math.Round( ( x13 +  (15.0 -  sizeF6.Width / 2.0)));
       DrawMod.DrawTextColouredMarc( g, str10, this.game.MarcFont5, x15, 15, Color.White);
       trect1 = Rectangle::new(x13, 2, 30, 28);
       let mut trect5: &Rectangle = &trect1
@@ -1238,7 +1238,7 @@ namespace WindowsApplication1
 
     pub void DrawScope( Graphics g)
     {
-      let mut num1: i32 =  Math.Round((double) this.game.ScreenWidth / 2.0 - 158.0);
+      let mut num1: i32 =  Math.Round( this.game.ScreenWidth / 2.0 - 158.0);
       if (!(this.game.SelectX > -1 & this.game.SelectY > -1))
         return;
       let mut stringListById1: i32 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 370, 0, 0));
@@ -1254,7 +1254,7 @@ namespace WindowsApplication1
       let mut hexLibVarValue: i32 = DrawMod.TGame.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].GetHexLibVarValue(libVar);
       if (hexLibVarValue > 0)
         num3 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, hexLibVarValue, 13)));
-      let mut num4: i32 =  Math.Round((double) num3 / (double) num2);
+      let mut num4: i32 =  Math.Round( num3 /  num2);
       int eventPicOrigSlot1;
       int eventPicOrigSlot2;
       if (stringListById1 > -1)
@@ -1315,9 +1315,9 @@ namespace WindowsApplication1
           str2 = this.game.Data.LandscapeTypeObj[pictureLt].Name.Replace("(System)", "");
       }
       str3: String = str2;
-      if ((double) sizeF2.Width < 135.0 & this.w >= 1600)
-        str2 = str2 + " (" + Strings.Trim(Conversion.Str((object) this.game.SelectX)) + "," + Strings.Trim(Conversion.Str((object) this.game.SelectY)) + ") ";
-      str3 + " (" + Strings.Trim(Conversion.Str((object) this.game.SelectX)) + "," + Strings.Trim(Conversion.Str((object) this.game.SelectY)) + ") ";
+      if ( sizeF2.Width < 135.0 & this.w >= 1600)
+        str2 = str2 + " (" + Strings.Trim(Conversion.Str( this.game.SelectX)) + "," + Strings.Trim(Conversion.Str( this.game.SelectY)) + ") ";
+      str3 + " (" + Strings.Trim(Conversion.Str( this.game.SelectX)) + "," + Strings.Trim(Conversion.Str( this.game.SelectY)) + ") ";
       sizeF1 = g.MeasureString(str2, this.game.MarcFont5);
       string str4;
       int regime;
@@ -1338,25 +1338,25 @@ namespace WindowsApplication1
       if (1600 > this.w)
       {
         str5: String = Strings.UCase(Strings.Left(str2, 1)) + Strings.Mid(str2, 2);
-        let mut x2: i32 =  Math.Round((double) this.w / 2.0 - 115.0 - 75.0 - (double) g.MeasureString(str5, this.game.MarcFont5).Width / 2.0);
+        let mut x2: i32 =  Math.Round( this.w / 2.0 - 115.0 - 75.0 -  g.MeasureString(str5, this.game.MarcFont5).Width / 2.0);
         DrawMod.DrawTextColouredMarc( g, str5, this.game.MarcFont5, x2, 9, Color.White);
-        rectangle = Rectangle::new( Math.Round((double) this.game.ScreenWidth / 2.0 - 130.0), 0, 100, 62);
+        rectangle = Rectangle::new( Math.Round( this.game.ScreenWidth / 2.0 - 130.0), 0, 100, 62);
         trect = rectangle;
         this.AddMouse( trect, str5, landscapeMouseOverText);
         str6: String = str4;
-        let mut x3: i32 =  Math.Round((double) this.w / 2.0 + 125.0 + 75.0 - (double) g.MeasureString(str6, this.game.MarcFont5).Width / 2.0);
+        let mut x3: i32 =  Math.Round( this.w / 2.0 + 125.0 + 75.0 -  g.MeasureString(str6, this.game.MarcFont5).Width / 2.0);
         DrawMod.DrawTextColouredMarc( g, str6, this.game.MarcFont5, x3, 9, Color.White);
       }
       else
       {
         str7: String = Strings.UCase(Strings.Left(str2, 1)) + Strings.Mid(str2, 2);
-        let mut x4: i32 =  Math.Round((double) this.w / 2.0 - 175.0 - 75.0 - (double) g.MeasureString(str7, this.game.MarcFont4).Width / 2.0);
+        let mut x4: i32 =  Math.Round( this.w / 2.0 - 175.0 - 75.0 -  g.MeasureString(str7, this.game.MarcFont4).Width / 2.0);
         DrawMod.DrawTextColouredMarc( g, str7, this.game.MarcFont4, x4, 4, Color.White);
-        rectangle = Rectangle::new( Math.Round((double) this.game.ScreenWidth / 2.0 - 130.0), 0, 260, 62);
+        rectangle = Rectangle::new( Math.Round( this.game.ScreenWidth / 2.0 - 130.0), 0, 260, 62);
         trect = rectangle;
         this.AddMouse( trect, str7, landscapeMouseOverText);
         str8: String = str4;
-        let mut x5: i32 =  Math.Round((double) this.w / 2.0 + 175.0 + 75.0 - (double) g.MeasureString(str8, this.game.MarcFont4).Width / 2.0);
+        let mut x5: i32 =  Math.Round( this.w / 2.0 + 175.0 + 75.0 -  g.MeasureString(str8, this.game.MarcFont4).Width / 2.0);
         if (Operators.CompareString(str8, "Unknown", false) != 0 & Operators.CompareString(str8, "Unclear", false) != 0)
         {
            let mut local8: &Graphics = &g;
@@ -1365,10 +1365,10 @@ namespace WindowsApplication1
           let mut x6: i32 = x5 - 24;
           let mut width: i32 = BitmapStore.GetWidth(this.game.Data.RegimeObj[regime].SymbolSpriteNr);
           let mut origh: i32 = BitmapStore.Getheight(this.game.Data.RegimeObj[regime].SymbolSpriteNr);
-          double r = (double) ((float) this.game.Data.RegimeObj[regime].Red3 / (float) byte.MaxValue);
-          double g1 = (double) ((float) this.game.Data.RegimeObj[regime].Green3 / (float) byte.MaxValue);
-          double b = (double) ((float) this.game.Data.RegimeObj[regime].Blue3 / (float) byte.MaxValue);
-          DrawMod.DrawScaledColorized2( local8,  local9, x6, 0, 24, 24, width, origh, (float) r, (float) g1, (float) b, (float) byte.MaxValue);
+          double r =  ( this.game.Data.RegimeObj[regime].Red3 /  byte.MaxValue);
+          double g1 =  ( this.game.Data.RegimeObj[regime].Green3 /  byte.MaxValue);
+          double b =  ( this.game.Data.RegimeObj[regime].Blue3 /  byte.MaxValue);
+          DrawMod.DrawScaledColorized2( local8,  local9, x6, 0, 24, 24, width, origh,  r,  g1,  b,  byte.MaxValue);
         }
         DrawMod.DrawTextColouredMarc( g, str8, this.game.MarcFont4, x5, 4, Color.White);
       }
@@ -1388,7 +1388,7 @@ namespace WindowsApplication1
       let mut Month: i32 = (this.game.EditObj.RealRound + 6) % 6 * 2 - 1;
       if (Month < 1)
         Month = 11;
-      if (Information.IsNothing((object) this.game.Data.TurnString))
+      if (Information.IsNothing( this.game.Data.TurnString))
         this.game.Data.TurnString = "";
       SizeF sizeF = SizeF::new();
       string[] strArray = this.game.Data.TurnString.Split(new char[1]
@@ -1397,9 +1397,9 @@ namespace WindowsApplication1
       }, StringSplitOptions.RemoveEmptyEntries);
       if (strArray.GetUpperBound(0) <= 0)
         return;
-      let mut x1: i32 = this.game.ScreenWidth - 190 + 65 -  Math.Round((double) (g.MeasureString(strArray[0], this.game.MarcFont16).Width / 2f));
+      let mut x1: i32 = this.game.ScreenWidth - 190 + 65 -  Math.Round( (g.MeasureString(strArray[0], this.game.MarcFont16).Width / 2f));
       DrawMod.DrawTextColouredConsole( g, strArray[0], this.game.MarcFont16, x1, 11, Color.LightGray);
-      let mut x2: i32 = this.game.ScreenWidth - 190 + 65 -  Math.Round((double) (g.MeasureString(strArray[1], this.game.MarcFont16).Width / 2f));
+      let mut x2: i32 = this.game.ScreenWidth - 190 + 65 -  Math.Round( (g.MeasureString(strArray[1], this.game.MarcFont16).Width / 2f));
       DrawMod.DrawTextColouredConsole( g, strArray[1], this.game.MarcFont16, x2, 27, Color.LightGray);
       Rectangle trect = Rectangle::new(x2, 16, 106, 32);
       this.AddMouse( trect, "", "This is Round " + this.game.EditObj.RealRound.ToString() + ".\r\nThis is Local Year " + num3.ToString() + " AA, Season " + idValue.ToString() + " of " + num2.ToString() + ".\r\nThis is Earth Year " + num1.ToString() + "-" + DateAndTime.MonthName(Month, true) + ".");
@@ -1411,7 +1411,7 @@ namespace WindowsApplication1
         return;
       let mut stringListById1: i32 = this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 210, 0, 0));
       let mut id: i32 = this.game.Data.RegimeObj[this.game.EditObj.RealTurn].id;
-      if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].AI & (double) this.game.Data.RuleVar[976] == 1.0)
+      if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].AI &  this.game.Data.RuleVar[976] == 1.0)
         return;
       SizeF sizeF1 = SizeF::new();
       SizeF sizeF2 = SizeF::new();
@@ -1421,18 +1421,18 @@ namespace WindowsApplication1
       data2: String = this.game.Data.StringListObj[stringListById1].GetData2(0, id, 1, "fp", 2);
       str1: String = this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ResPts.ToString();
       if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ResPts > 9999)
-        str1 = ( Math.Round((double) this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ResPts / 1000.0)).ToString() + "k";
+        str1 = ( Math.Round( this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ResPts / 1000.0)).ToString() + "k";
       else if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ResPts > 999)
-        str1 = Math.Round((double) this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ResPts / 1000.0, 1).ToString() + "k";
+        str1 = Math.Round( this.game.Data.RegimeObj[this.game.EditObj.RealTurn].ResPts / 1000.0, 1).ToString() + "k";
       let mut num1: i32 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].GetData2(0, id, 1, "credits", 2)));
       string str2;
       if (num1 > 9999)
       {
-        double num2 = Math.Round((double) num1 / 1000.0, 1);
+        double num2 = Math.Round( num1 / 1000.0, 1);
         str2 = num2.ToString() + "k";
         if (num1 >= 100000)
         {
-          num2 = Math.Round((double) num1 / 1000.0, 0);
+          num2 = Math.Round( num1 / 1000.0, 0);
           str2 = num2.ToString() + "k";
         }
         if (num1 == 0)
@@ -1558,20 +1558,20 @@ namespace WindowsApplication1
       SizeF sizeF = SizeF::new();
       int[] numArray = new int[10];
       let mut num1: i32 = 3;
-      numArray[1] =  Math.Round((double) this.game.ScreenWidth / 2.0 + 158.0 + 162.0);
-      numArray[2] =  Math.Round((double) this.game.ScreenWidth / 2.0 + 158.0 + 162.0 + 75.0 + 5.0);
+      numArray[1] =  Math.Round( this.game.ScreenWidth / 2.0 + 158.0 + 162.0);
+      numArray[2] =  Math.Round( this.game.ScreenWidth / 2.0 + 158.0 + 162.0 + 75.0 + 5.0);
       numArray[3] = 165;
       let mut index1: i32 = 0;
       Right: String = "oil" + this.game.Data.RuleVar[949].ToString();
-      if ((double) this.game.Data.RuleVar[949] < 1.0)
+      if ( this.game.Data.RuleVar[949] < 1.0)
         Right = "1!impossible!!x423121";
       Rectangle trect1;
-      if ((double) this.game.Data.RuleVar[411] > 0.0 && this.game.Data.TempString[731].Length > 1)
+      if ( this.game.Data.RuleVar[411] > 0.0 && this.game.Data.TempString[731].Length > 1)
       {
         index1 += 1;
-        let mut num2: i32 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[411]))].GetData2(0, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].id, 1, this.game.Data.TempString[731], 2)));
+        let mut num2: i32 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[411]))].GetData2(0, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].id, 1, this.game.Data.TempString[731], 2)));
         int index2;
-        tstring: String = num2 <= 9999 ? this.game.Data.TempString[732] + " " + num2.ToString() : this.game.Data.TempString[732] + " " + (Conversion.Int((double) this.game.Data.GameSlot[index2] / 1000.0).ToString() + "k");
+        tstring: String = num2 <= 9999 ? this.game.Data.TempString[732] + " " + num2.ToString() : this.game.Data.TempString[732] + " " + (Conversion.Int( this.game.Data.GameSlot[index2] / 1000.0).ToString() + "k");
         let mut x1: i32 = 165;
          let mut local1: &Graphics = &g;
         Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCOPTSLOTS);
@@ -1593,10 +1593,10 @@ namespace WindowsApplication1
           index1 += 1;
           if (index1 <= num1)
           {
-            tstring: String = Strings.Trim(Conversion.Str((object) this.game.Data.GameSlot[index3]));
+            tstring: String = Strings.Trim(Conversion.Str( this.game.Data.GameSlot[index3]));
             if (this.game.Data.GameSlot[index3] > 9999)
             {
-              num3 = Conversion.Int((double) this.game.Data.GameSlot[index3] / 1000.0);
+              num3 = Conversion.Int( this.game.Data.GameSlot[index3] / 1000.0);
               tstring = num3.ToString() + "k";
             }
             if (this.game.Data.GameSlotSmallGfx[index3] > -1)
@@ -1659,7 +1659,7 @@ namespace WindowsApplication1
       let mut index4: i32 = 0;
       do
       {
-        if (this.game.Data.RegimeSlotShow[index4] & (double) this.game.Data.RuleVar[814] < 1.0)
+        if (this.game.Data.RegimeSlotShow[index4] &  this.game.Data.RuleVar[814] < 1.0)
         {
           let mut index5: i32 = index4;
           int x11;
@@ -1676,7 +1676,7 @@ namespace WindowsApplication1
                 tstring = x11.ToString();
                 if (x11 > 9999)
                 {
-                  num3 = Conversion.Int((double) x11 / 1000.0);
+                  num3 = Conversion.Int( x11 / 1000.0);
                   tstring = num3.ToString() + "k";
                 }
               }
@@ -1688,10 +1688,10 @@ namespace WindowsApplication1
           }
           else
           {
-            tstring = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RegimeSlot[index4]));
+            tstring = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RegimeSlot[index4]));
             if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RegimeSlot[index4] > 9999)
             {
-              num3 = Conversion.Int((double) this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RegimeSlot[index4] / 1000.0);
+              num3 = Conversion.Int( this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RegimeSlot[index4] / 1000.0);
               tstring = num3.ToString() + "k";
             }
           }
@@ -1855,7 +1855,7 @@ namespace WindowsApplication1
       {
         this.game.Data = DataClass::new();
         this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
-        if (this.game.Data.UseAI == 1 & !Information.IsNothing((object) this.game.NewAIObj))
+        if (this.game.Data.UseAI == 1 & !Information.IsNothing( this.game.NewAIObj))
           this.game.NewAIObj.LastRegime = -1;
         this.game.EditObj.ShowInitialMenu = true;
         windowReturnClass.AddCommand(3, 12);
@@ -1882,7 +1882,7 @@ namespace WindowsApplication1
         index1 = 0;
       if (!this.game.Data.RegimeObj[index1].AI & !this.game.Data.RegimeObj[index1].Sleep)
         num1 = 1;
-      this.game.HandyFunctionsObj.ClearHistory((object) this.game.Data.Turn);
+      this.game.HandyFunctionsObj.ClearHistory( this.game.Data.Turn);
       if (num1 > 0 | this.game.EventRelatedObj.Helper_IsDebug() & this.game.EditObj.debugAiOnlyTillRound >= this.game.Data.Round | this.game.Data.DontShowAIMove)
       {
         this.game.EditObj.Test = -1;
@@ -2459,7 +2459,7 @@ namespace WindowsApplication1
         windowReturnClass.NoMouseClickBelow = true;
         return windowReturnClass;
       }
-      if (y < 64 && (double) x > (double) this.w / 2.0 - 158.0 & (double) x < (double) this.w / 2.0 + 158.0)
+      if (y < 64 &&  x >  this.w / 2.0 - 158.0 &  x <  this.w / 2.0 + 158.0)
         windowReturnClass.NoMouseClickBelow = true;
       if (x < 583 & y <= 70)
         windowReturnClass.NoMouseClickBelow = true;
@@ -2700,13 +2700,13 @@ namespace WindowsApplication1
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[978] < 1.0)
+      if ( this.game.Data.RuleVar[978] < 1.0)
       {
         this.game.Data.LastWinner = this.game.Data.Winner;
         if (this.game.Data.PbemGameID < 1)
           this.game.Data.RegimeObj[this.game.Data.Turn].Sleep = true;
       }
-      if (humanPlayers > 1 | (double) this.game.Data.RuleVar[978] > 0.0 | this.game.Data.PbemGameID > 0 | this.game.Data.Product == 7 & humanPlayers > 1)
+      if (humanPlayers > 1 |  this.game.Data.RuleVar[978] > 0.0 | this.game.Data.PbemGameID > 0 | this.game.Data.Product == 7 & humanPlayers > 1)
       {
         windowReturnClass.SetFlag(false);
       }
@@ -2716,7 +2716,7 @@ namespace WindowsApplication1
         this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
         if (this.game.Data.UseAI == 1)
         {
-          if (Information.IsNothing((object) this.game.NewAIObj))
+          if (Information.IsNothing( this.game.NewAIObj))
             this.game.NewAIObj = new NewAIClass(this.game);
           this.game.NewAIObj.LastRegime = -1;
         }

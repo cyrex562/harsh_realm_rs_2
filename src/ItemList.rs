@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -21,7 +21,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (ItemList) binaryFormatter.Deserialize((Stream) serializationStream);
     }
@@ -39,10 +39,10 @@ namespace WindowsApplication1
       int[] numArray2 = (int[]) Utils.CopyArray((Array) arySrc2, (Array) new int[this.list.Counter + 1]);
       int[] numArray3 = (int[]) Utils.CopyArray((Array) arySrc3, (Array) new int[this.list.Counter + 1]);
       int[] numArray4 = (int[]) Utils.CopyArray((Array) arySrc4, (Array) new int[this.list.Counter + 1]);
-      info.AddValue("id", (object) numArray1);
-      info.AddValue("weight", (object) numArray2);
-      info.AddValue("data1", (object) numArray3);
-      info.AddValue("data2", (object) numArray4);
+      info.AddValue("id",  numArray1);
+      info.AddValue("weight",  numArray2);
+      info.AddValue("data1",  numArray3);
+      info.AddValue("data2",  numArray4);
     }
 
     protected ItemList(SerializationInfo info, StreamingContext context)

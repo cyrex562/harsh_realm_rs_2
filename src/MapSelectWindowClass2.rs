@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -56,17 +56,17 @@ namespace WindowsApplication1
     pub MapSelectWindowClass2( GameClass tGame)
       : base( tGame, 860, 700, 8)
     {
-      if (Information.IsNothing((object) this.game.EditObj.TempValue[0]))
+      if (Information.IsNothing( this.game.EditObj.TempValue[0]))
         this.game.HandyFunctionsObj.RedimTempValue(9999);
-      if (Information.IsNothing((object) this.game.EditObj.TempValueSpecial[0]))
+      if (Information.IsNothing( this.game.EditObj.TempValueSpecial[0]))
         this.game.HandyFunctionsObj.RedimTempValueSpecial(0);
-      if (Information.IsNothing((object) this.game.EditObj.TempValueSpecial2[0]))
+      if (Information.IsNothing( this.game.EditObj.TempValueSpecial2[0]))
         this.game.HandyFunctionsObj.RedimTempValueSpecial2(0);
-      if (Information.IsNothing((object) this.game.EditObj.TempValue2[0]))
+      if (Information.IsNothing( this.game.EditObj.TempValue2[0]))
         this.game.HandyFunctionsObj.RedimTempValue2(9999);
-      if (Information.IsNothing((object) this.game.EditObj.TempCameFrom[0]))
+      if (Information.IsNothing( this.game.EditObj.TempCameFrom[0]))
         this.game.HandyFunctionsObj.RedimTempCameFrom();
-      if (Information.IsNothing((object) this.game.EditObj.TempAttack[0]))
+      if (Information.IsNothing( this.game.EditObj.TempAttack[0]))
         this.game.HandyFunctionsObj.RedimTempAttack(true);
       this.cacheTemp = this.game.EditObj.TempValue[0].Clone();
       this.cacheTempCameFrom = this.game.EditObj.TempCameFrom[0].Clone();
@@ -470,7 +470,7 @@ namespace WindowsApplication1
                 this.game.EditObj.UnitSelected = this.UnitSelected;
                 return windowReturnClass;
               }
-              if ((double) this.game.Data.RuleVar[408] > 0.0 & this.game.EditObj.DoCardSlot > -1)
+              if ( this.game.Data.RuleVar[408] > 0.0 & this.game.EditObj.DoCardSlot > -1)
               {
                 this.game.ProcessingObj.PlayCard(this.game.Data.Turn, this.game.EditObj.DoCardSlot);
                 windowReturnClass.SetFlag(true);
@@ -563,11 +563,11 @@ namespace WindowsApplication1
                   while (index2 <= 3);
                 }
               }
-              if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.Data.Product >= 6)
+              if ( this.game.Data.RuleVar[701] > 0.0 & this.game.Data.Product >= 6)
                 this.game.EditObj.udsReturnFromPopup = true;
               if (Number > 0)
               {
-                let mut num2: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num2: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
               }
               if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
               {
@@ -664,8 +664,8 @@ namespace WindowsApplication1
       let mut num1: i32 =  230;
       if (this.game.Data.Round == 0)
         num1 += 100;
-      let mut num2: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Width - 250) / (double) (53 * (this.game.EditObj.Zoom + 1))));
-      let mut num3: i32 =   Math.Round(Conversion.Int((double) (this.OwnBitmap.Height - num1) / (double) (48 * (this.game.EditObj.Zoom + 1))));
+      let mut num2: i32 =   Math.Round(Conversion.Int( (this.OwnBitmap.Width - 250) /  (53 * (this.game.EditObj.Zoom + 1))));
+      let mut num3: i32 =   Math.Round(Conversion.Int( (this.OwnBitmap.Height - num1) /  (48 * (this.game.EditObj.Zoom + 1))));
       let mut num4: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX + 1;
       let mut num5: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY + 1;
       if (num2 > num4 & !this.game.Data.MapObj[this.game.EditObj.MapSelected].MapLoop)

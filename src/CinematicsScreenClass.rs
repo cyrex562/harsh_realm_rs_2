@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
 
 namespace WindowsApplication1
 {
@@ -43,36 +43,36 @@ namespace WindowsApplication1
     pub Bitmap Paint(bool onlyToolTip = false)
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBackground);
-      if (!Information.IsNothing((object) this.bmp))
+      if (!Information.IsNothing( this.bmp))
       {
         let mut screenWidth: i32 =  this.Game.ScreenWidth;
-        let mut num1: i32 =  (int) Math.Round(16.0 / 9.0 * (double) this.Game.ScreenHeight);
-        let mut num2: i32 =  (int) Math.Round(9.0 / 16.0 * (double) screenWidth);
+        let mut num1: i32 =  (int) Math.Round(16.0 / 9.0 *  this.Game.ScreenHeight);
+        let mut num2: i32 =  (int) Math.Round(9.0 / 16.0 *  screenWidth);
         let mut width: i32 =  num1 + 1;
         let mut height: i32 =  num2 + 1;
         if (width < this.Game.ScreenWidth)
         {
-          height = (int) Math.Round((double) height * ((double) this.Game.ScreenWidth / (double) width));
+          height = (int) Math.Round( height * ( this.Game.ScreenWidth /  width));
           width = this.Game.ScreenWidth;
         }
         if (height < this.Game.ScreenHeight)
         {
-          width = (int) Math.Round((double) width * ((double) this.Game.ScreenHeight / (double) height));
+          width = (int) Math.Round( width * ( this.Game.ScreenHeight /  height));
           height = this.Game.ScreenHeight;
         }
         int x;
         if (width > this.Game.ScreenWidth + 1)
         {
           int num3;
-          x = (int) Math.Round((double) num3 - (double) (width - this.Game.ScreenWidth) / 2.0);
+          x = (int) Math.Round( num3 -  (width - this.Game.ScreenWidth) / 2.0);
         }
         int y;
         if (height > this.Game.ScreenHeight + 1)
         {
           int num4;
-          y = (int) Math.Round((double) num4 - (double) (height - this.Game.ScreenHeight) / 2.0);
+          y = (int) Math.Round( num4 -  (height - this.Game.ScreenHeight) / 2.0);
         }
-        if (!Information.IsNothing((object) this.lastbmp) & this.fadenr >= 1 & this.fadenr < this.fadeFrameCap)
+        if (!Information.IsNothing( this.lastbmp) & this.fadenr >= 1 & this.fadenr < this.fadeFrameCap)
         {
           ref Graphics local1 = ref Expression;
           ref Bitmap local2 = ref this.lastbmp;
@@ -87,15 +87,15 @@ namespace WindowsApplication1
           let mut srcrect2: &Rectangle = &rectangle2
           rectangle1 = Rectangle::new(x, y, width, height);
           let mut destrect2: &Rectangle = &rectangle1
-          double alpha = (double) ((float) this.fadenr / (float) this.fadeFrameCap);
-          DrawMod.DrawSimplePartAlpha(ref local3, ref local4, srcrect2, destrect2, (float) alpha);
+          double alpha =  ( this.fadenr /  this.fadeFrameCap);
+          DrawMod.DrawSimplePartAlpha(ref local3, ref local4, srcrect2, destrect2,  alpha);
         }
         else
           DrawMod.DrawSimplePart2(ref Expression, ref this.bmp, Rectangle::new(0, 0, 1920, 1080), Rectangle::new(x, y, width, height));
       }
       else
         Expression.Clear(Color.Black);
-      let mut num: i32 =  (int) Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0 + 100.0);
+      let mut num: i32 =  (int) Math.Round( (this.Game.ScreenHeight - 768) / 2.0 + 100.0);
       if (this.pagenr == 1)
         this.pagespeed = 1200;
       if (this.pagenr == 2)
@@ -189,15 +189,15 @@ namespace WindowsApplication1
         this.introText(ref Expression, "Eager to re-unite humanity", 2, num + 200);
         this.pagespeed = 4500;
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBackground;
     }
 
     pub void introText(ref Graphics g, string s, int mode, int plusy)
     {
-      let mut x: i32 =  (int) Math.Round((double) this.Game.ScreenWidth / 2.0);
-      let mut num: i32 =  (int) Math.Round((double) this.Game.ScreenHeight / 2.0);
+      let mut x: i32 =  (int) Math.Round( this.Game.ScreenWidth / 2.0);
+      let mut num: i32 =  (int) Math.Round( this.Game.ScreenHeight / 2.0);
       if (mode == 1)
       {
         DrawMod.DrawTextColouredMarcCenter(ref g, s, this.Game.introFont1, x + 1, 30 + plusy, Color.FromArgb(0, 0, 0, 58));
@@ -284,12 +284,12 @@ namespace WindowsApplication1
 
     pub void unloadAnyStuff()
     {
-      if (!Information.IsNothing((object) this.bmp))
+      if (!Information.IsNothing( this.bmp))
       {
         this.bmp.Dispose();
         this.bmp = (Bitmap) null;
       }
-      if (Information.IsNothing((object) this.lastbmp))
+      if (Information.IsNothing( this.lastbmp))
         return;
       this.lastbmp.Dispose();
       this.lastbmp = (Bitmap) null;
@@ -314,12 +314,12 @@ namespace WindowsApplication1
 
     pub void loadSpecificBmp(string s)
     {
-      if (!Information.IsNothing((object) this.lastbmp))
+      if (!Information.IsNothing( this.lastbmp))
       {
         this.lastbmp.Dispose();
         this.lastbmp = (Bitmap) null;
       }
-      if (!Information.IsNothing((object) this.bmp))
+      if (!Information.IsNothing( this.bmp))
       {
         this.lastbmp = (Bitmap) this.bmp.Clone();
         this.bmp.Dispose();
@@ -331,7 +331,7 @@ namespace WindowsApplication1
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
-      bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       fileStream.Close();
       fileStream.Dispose();
       bitmap1.Dispose();

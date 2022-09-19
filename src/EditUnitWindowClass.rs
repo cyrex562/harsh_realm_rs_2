@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -136,7 +136,7 @@ namespace WindowsApplication1
         num3 += 1;
         if (this.LibNr == index)
           num2 = num3;
-        this.LibListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index);
+        this.LibListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibraryObj[index].name, index);
       }
       if (this.LibNr == -1)
         num2 = 0;
@@ -165,7 +165,7 @@ namespace WindowsApplication1
             num5 += 1;
             if (index2 == tUnitnr)
               num4 = num5;
-            this.UnitList2Obj.add("#" + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[index2].PreDef)) + ") " + this.game.Data.UnitObj[index2].Name + " (" + Conversion.Str((object) index2) + ")", index2);
+            this.UnitList2Obj.add("#" + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[index2].PreDef)) + ") " + this.game.Data.UnitObj[index2].Name + " (" + Conversion.Str( index2) + ")", index2);
           }
         }
       }
@@ -277,12 +277,12 @@ namespace WindowsApplication1
         this.ss = "Click to change the name of the unit";
         let mut tsubpart5: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BNameId = this.AddSubPart(ref tsubpart5, 370, 50, 32, 16, 1);
-        let mut tsubpart6: SubPartClass =  TextPartClass::new("Name: " + this.game.Data.UnitObj[this.UnitNr].Name + " (#" + Strings.Trim(Conversion.Str((object) this.UnitNr)) + ")", Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
+        let mut tsubpart6: SubPartClass =  TextPartClass::new("Name: " + this.game.Data.UnitObj[this.UnitNr].Name + " (#" + Strings.Trim(Conversion.Str( this.UnitNr)) + ")", Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
         this.BNameTextId = this.AddSubPart(ref tsubpart6, 410, 49, 200, 20, 0);
         this.ss = "Click to toggle if it is a unit or a HQ";
         tsubpart6 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BHQId = this.AddSubPart(ref tsubpart6, 370, 70, 32, 16, 1);
-        tsubpart6 =  TextPartClass::new("HQ: " + Conversion.Str((object) this.game.Data.UnitObj[this.UnitNr].IsHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart6 =  TextPartClass::new("HQ: " + Conversion.Str( this.game.Data.UnitObj[this.UnitNr].IsHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.BHQTextId = this.AddSubPart(ref tsubpart6, 410, 69, 200, 20, 0);
         this.ss = "Click to change the coloration it is a HQ";
         tsubpart6 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -305,7 +305,7 @@ namespace WindowsApplication1
         this.ss = "Click to set owner of unit";
         tsubpart6 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a9id = this.AddSubPart(ref tsubpart6, 650, 130, 32, 16, 1);
-        tsubpart6 =  TextPartClass::new("Owner = " + Conversion.Str((object) this.game.Data.UnitObj[this.UnitNr].Regime), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart6 =  TextPartClass::new("Owner = " + Conversion.Str( this.game.Data.UnitObj[this.UnitNr].Regime), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a9bid = this.AddSubPart(ref tsubpart6, 700, 129, 300, 20, 0);
         if (this.game.Data.UnitObj[this.UnitNr].PreDef == -1)
         {
@@ -334,7 +334,7 @@ namespace WindowsApplication1
             this.ss = "Click to set historical subpart";
             tsubpart6 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
             this.a7id = this.AddSubPart(ref tsubpart6, 650, 110, 32, 16, 1);
-            tsubpart6 =  TextPartClass::new("Subpart = " + Conversion.Str((object) this.game.Data.UnitObj[this.UnitNr].HistoricalSubPart), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+            tsubpart6 =  TextPartClass::new("Subpart = " + Conversion.Str( this.game.Data.UnitObj[this.UnitNr].HistoricalSubPart), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
             this.a7bid = this.AddSubPart(ref tsubpart6, 700, 109, 300, 20, 0);
           }
           if (this.game.Data.UnitObj[this.UnitNr].Historical > -1)
@@ -357,7 +357,7 @@ namespace WindowsApplication1
         this.ss = "Click to set the initial ammount of supply points. In settings you can do a mass action though...";
         tsubpart6 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BSupplyId = this.AddSubPart(ref tsubpart6, 370, 90, 32, 16, 1);
-        tsubpart6 =  TextPartClass::new("Supply Pts: " + Conversion.Str((object) this.game.Data.UnitObj[this.UnitNr].Supply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart6 =  TextPartClass::new("Supply Pts: " + Conversion.Str( this.game.Data.UnitObj[this.UnitNr].Supply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.BSupplyTextId = this.AddSubPart(ref tsubpart6, 410, 89, 200, 20, 0);
         this.ss = "Click to remove this unit.";
         tsubpart6 =  ButtonPartClass::new(this.game.BUTTONKILL, tDescript: this.ss);
@@ -375,7 +375,7 @@ namespace WindowsApplication1
             if (this.SFNr == sf)
               num = index;
             let mut type: i32 =  this.game.Data.SFObj[sf].Type;
-            this.SFListObj.add(type <= -1 ? "Empty SubFormation" : Conversion.Str((object) this.game.Data.SFObj[sf].Qty) + "x " + this.game.Data.SFTypeObj[type].Name, sf);
+            this.SFListObj.add(type <= -1 ? "Empty SubFormation" : Conversion.Str( this.game.Data.SFObj[sf].Qty) + "x " + this.game.Data.SFTypeObj[type].Name, sf);
           }
           if (num == -1)
             this.SFNr = -1;
@@ -453,7 +453,7 @@ namespace WindowsApplication1
       let mut tsubpart2: SubPartClass =  TextPartClass::new("SFType: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.BTypeTextId = this.AddSubPart(ref tsubpart2, 750, 359, 300, 20, 0);
       this.ss = "Click to set the qty of this subformationtype in this subformation";
-      str2: String = Conversion.Str((object) this.game.Data.SFObj[this.SFNr].Qty);
+      str2: String = Conversion.Str( this.game.Data.SFObj[this.SFNr].Qty);
       let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.BQtyID = this.AddSubPart(ref tsubpart3, 710, 385, 32, 16, 1);
       let mut tsubpart4: SubPartClass =  TextPartClass::new("Qty: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
@@ -461,12 +461,12 @@ namespace WindowsApplication1
       this.ss = "Click to set the Readiness level of these troops";
       tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.BRdnId = this.AddSubPart(ref tsubpart4, 710, 405, 32, 16, 1);
-      tsubpart4 =  TextPartClass::new("Rdn: " + Conversion.Str((object) this.game.Data.SFObj[this.SFNr].Rdn), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+      tsubpart4 =  TextPartClass::new("Rdn: " + Conversion.Str( this.game.Data.SFObj[this.SFNr].Rdn), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.BRdnTextId = this.AddSubPart(ref tsubpart4, 750, 404, 300, 20, 0);
       this.ss = "Click to set the experience level of these troops";
       tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.BXpId = this.AddSubPart(ref tsubpart4, 710, 430, 32, 16, 1);
-      tsubpart4 =  TextPartClass::new("Xp: " + Conversion.Str((object) this.game.Data.SFObj[this.SFNr].Xp), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+      tsubpart4 =  TextPartClass::new("Xp: " + Conversion.Str( this.game.Data.SFObj[this.SFNr].Xp), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.BXpTextId = this.AddSubPart(ref tsubpart4, 750, 429, 300, 20, 0);
       this.ss = "Click to set the people these troops belong too";
       tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -476,12 +476,12 @@ namespace WindowsApplication1
       this.ss = "Click to set the morale of this subformation";
       tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.BMorId = this.AddSubPart(ref tsubpart4, 410, 385, 32, 16, 1);
-      tsubpart4 =  TextPartClass::new("Morale: " + Conversion.Str((object) this.game.Data.SFObj[this.SFNr].Mor), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+      tsubpart4 =  TextPartClass::new("Morale: " + Conversion.Str( this.game.Data.SFObj[this.SFNr].Mor), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.BMorTextId = this.AddSubPart(ref tsubpart4, 450, 384, 300, 20, 0);
       this.ss = "Click to set the entrenchment of this subformation.. In settings there is a mass option that sets to auto-entrench";
       tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.BEntrId = this.AddSubPart(ref tsubpart4, 410, 405, 32, 16, 1);
-      tsubpart4 =  TextPartClass::new("Entrench: " + Conversion.Str((object) this.game.Data.SFObj[this.SFNr].CurrentEntrench), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+      tsubpart4 =  TextPartClass::new("Entrench: " + Conversion.Str( this.game.Data.SFObj[this.SFNr].CurrentEntrench), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.BEntrTextId = this.AddSubPart(ref tsubpart4, 450, 404, 300, 20, 0);
       this.ss = "Click to set the movementtype overrule. -1= keep standard movement. >-1 is overrule with specific type";
       tsubpart4 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -629,17 +629,17 @@ namespace WindowsApplication1
               filename: String = this.game.HandyFunctionsObj.LoadSomething("All files (*.*)|*.*", "Pick a PT file please...", this.game.AppPath, true);
               if (File.Exists(this.game.AppPath + filename))
               {
-                if (Interaction.MsgBox((object) "Also overwrite historical units?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
+                if (Interaction.MsgBox( "Also overwrite historical units?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
                   this.game.HandyFunctionsObj.ImportPreDefUnitsOnly(filename, true);
                 else
                   this.game.HandyFunctionsObj.ImportPreDefUnitsOnly(filename);
                 BitmapStore.ReloadSystemGraphics(this.game.Data.SystemGfx);
                 this.game.Data.LoadGraphics((Form1) null);
-                let mut num5: i32 =   Interaction.MsgBox((object) "Predef units (if any available) have been imported!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =   Interaction.MsgBox( "Predef units (if any available) have been imported!", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
-                let mut num6: i32 =   Interaction.MsgBox((object) "Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =   Interaction.MsgBox( "Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeUnitListGUI(this.UnitNr);
               windowReturnClass.SetFlag(true);
@@ -657,7 +657,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num7: i32 =   Interaction.MsgBox((object) "Unit # does not exist. Sorry.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num7: i32 =   Interaction.MsgBox( "Unit # does not exist. Sorry.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               this.MakeUnitListGUI(this.UnitNr);
@@ -684,7 +684,7 @@ namespace WindowsApplication1
               else
                 this.game.Data.UnitObj[this.UnitNr].Regime = integer;
               this.game.HandyFunctionsObj.CopyUnit(this.UnitNr, unitNr);
-              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.UnitObj[this.UnitNr].X, this.game.Data.UnitObj[this.UnitNr].Y].Regime,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.UnitNr].X, this.game.Data.UnitObj[this.UnitNr].Y, 0, false, muststartonairfield: false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true);
+              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.Data.UnitObj[this.UnitNr].X, this.game.Data.UnitObj[this.UnitNr].Y].Regime,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.UnitNr].X, this.game.Data.UnitObj[this.UnitNr].Y, 0, false, muststartonairfield: false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true);
               SimpleList simpleList = SimpleList::new();
               let mut unitCounter: i32 =  this.game.Data.UnitCounter;
               for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
@@ -708,7 +708,7 @@ namespace WindowsApplication1
             {
               str: String = Interaction.InputBox("Give new name, please.", "Give Name");
               this.game.Data.UnitObj[this.UnitNr].Name = str;
-              if (this.game.Data.UnitObj[this.UnitNr].Historical > -1 && Interaction.MsgBox((object) "Set all of same historical unit to same name?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (this.game.Data.UnitObj[this.UnitNr].Historical > -1 && Interaction.MsgBox( "Set all of same historical unit to same name?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 let mut unitCounter: i32 =  this.game.Data.UnitCounter;
                 for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
@@ -724,9 +724,9 @@ namespace WindowsApplication1
             if (num1 == this.a10id)
             {
               bool flag = false;
-              if (Interaction.MsgBox((object) "Also delete predef units?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Also delete predef units?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 flag = true;
-              let mut num9: i32 =   Interaction.MsgBox((object) "Ok hold on!! this can take some while", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num9: i32 =   Interaction.MsgBox( "Ok hold on!! this can take some while", Title: ( "Shadow Empire : Planetary Conquest"));
               this.game.FormRef.Cursor = Cursors.WaitCursor;
               for (let mut unitCounter: i32 =  this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
               {
@@ -741,7 +741,7 @@ namespace WindowsApplication1
               }
               this.UnitNr = -1;
               this.game.FormRef.Cursor = Cursors.Default;
-              let mut num10: i32 =   Interaction.MsgBox((object) "Done!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num10: i32 =   Interaction.MsgBox( "Done!", Title: ( "Shadow Empire : Planetary Conquest"));
               this.MakeUnitListGUI(this.UnitNr);
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
@@ -755,7 +755,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num12: i32 =   Interaction.MsgBox((object) "Must be positive number.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num12: i32 =   Interaction.MsgBox( "Must be positive number.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeUnitListGUI(this.UnitNr);
               windowReturnClass.SetFlag(true);
@@ -771,7 +771,7 @@ namespace WindowsApplication1
             {
               if (this.game.Data.UnitObj[this.UnitNr].PassengerCounter > -1)
               {
-                let mut num13: i32 =   Interaction.MsgBox((object) "No can do. Unit has passengers. remove them first.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num13: i32 =   Interaction.MsgBox( "No can do. Unit has passengers. remove them first.", Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               this.game.EditObj.UnitSelected = -1;
@@ -845,7 +845,7 @@ namespace WindowsApplication1
               let mut num16: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Qty for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num16 < 1 | num16 > 9999)
               {
-                let mut num17: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 9999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num17: i32 =   Interaction.MsgBox( "Cancelled. You should have entered a value between 1 and 9999.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -860,7 +860,7 @@ namespace WindowsApplication1
               let mut num18: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Rdn for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num18 < 10 | num18 > 100)
               {
-                let mut num19: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 10 and 100.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num19: i32 =   Interaction.MsgBox( "Cancelled. You should have entered a value between 10 and 100.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -875,7 +875,7 @@ namespace WindowsApplication1
               let mut num20: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Xp for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num20 < 0 | num20 > 300)
               {
-                let mut num21: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 10 and 300.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num21: i32 =   Interaction.MsgBox( "Cancelled. You should have entered a value between 10 and 300.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -890,7 +890,7 @@ namespace WindowsApplication1
               let mut num22: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Morale for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num22 < 1 | num22 > 100)
               {
-                let mut num23: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 100.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num23: i32 =   Interaction.MsgBox( "Cancelled. You should have entered a value between 1 and 100.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -905,7 +905,7 @@ namespace WindowsApplication1
               let mut num24: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Regime #", "Shadow Empire : Planetary Conquest")));
               if (num24 < -1 | num24 > this.game.Data.RegimeCounter)
               {
-                let mut num25: i32 =   Interaction.MsgBox((object) "Cancelled. Not a valid regime.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num25: i32 =   Interaction.MsgBox( "Cancelled. Not a valid regime.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -920,7 +920,7 @@ namespace WindowsApplication1
               let mut num26: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Entrench for this Subformation:", "Shadow Empire : Planetary Conquest")));
               if (num26 < 0 | num26 > 999)
               {
-                let mut num27: i32 =   Interaction.MsgBox((object) "Cancelled. You should have entered a value between 1 and 999.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num27: i32 =   Interaction.MsgBox( "Cancelled. You should have entered a value between 1 and 999.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {

@@ -4,15 +4,15 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -49,7 +49,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       if (this.fuelId > 0)
         this.RemoveSubPart(this.fuelId);
       if (this.opt1id > 0)
@@ -132,13 +132,13 @@ namespace WindowsApplication1
         str = "No output... run a debug function to receive output.";
       if (this.outputFixedSys)
       {
-        tsubpart =  new TextAreaClass2(this.game,  Math.Round(Math.Min(800.0, (double) this.game.ScreenWidth / 2.0 - 50.0)),  Math.Round((double) Math.Max(120, this.game.ScreenHeight - 260) / 27.0), this.game.MarcFont4b, str, 27,  this.OwnBitmap, 510 + num1, 80, tDarkerFrame: true);
-        this.outputid = this.AddSubPart( tsubpart, 510 + num1, 80,  Math.Round(Math.Min(800.0, (double) this.game.ScreenWidth / 2.0 - 50.0)), Math.Max(120, this.game.ScreenHeight - 260), 0);
+        tsubpart =  new TextAreaClass2(this.game,  Math.Round(Math.Min(800.0,  this.game.ScreenWidth / 2.0 - 50.0)),  Math.Round( Math.Max(120, this.game.ScreenHeight - 260) / 27.0), this.game.MarcFont4b, str, 27,  this.OwnBitmap, 510 + num1, 80, tDarkerFrame: true);
+        this.outputid = this.AddSubPart( tsubpart, 510 + num1, 80,  Math.Round(Math.Min(800.0,  this.game.ScreenWidth / 2.0 - 50.0)), Math.Max(120, this.game.ScreenHeight - 260), 0);
       }
       else
       {
-        tsubpart =  new TextAreaClass2(this.game,  Math.Round(Math.Min(800.0, (double) this.game.ScreenWidth / 2.0 - 50.0)),  Math.Round((double) Math.Max(120, this.game.ScreenHeight - 260) / 27.0), this.game.MarcFont4, str, 27,  this.OwnBitmap, 510 + num1, 80);
-        this.outputid = this.AddSubPart( tsubpart, 510 + num1, 80,  Math.Round(Math.Min(800.0, (double) this.game.ScreenWidth / 2.0 - 50.0)), Math.Max(120, this.game.ScreenHeight - 260), 0);
+        tsubpart =  new TextAreaClass2(this.game,  Math.Round(Math.Min(800.0,  this.game.ScreenWidth / 2.0 - 50.0)),  Math.Round( Math.Max(120, this.game.ScreenHeight - 260) / 27.0), this.game.MarcFont4, str, 27,  this.OwnBitmap, 510 + num1, 80);
+        this.outputid = this.AddSubPart( tsubpart, 510 + num1, 80,  Math.Round(Math.Min(800.0,  this.game.ScreenWidth / 2.0 - 50.0)), Math.Max(120, this.game.ScreenHeight - 260), 0);
       }
       this.outputFixedSys = false;
     }
@@ -191,7 +191,7 @@ namespace WindowsApplication1
               let mut deltaY: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Delta for Y move", "Shadow Empire : Planetary Conquest")));
               if (!(deltaX == 0 & deltaY == 0))
               {
-                if (Interaction.MsgBox((object) ("Mass Move Delta is " + deltaX.ToString() + "," + deltaY.ToString() + ". Are you sure?"), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                if (Interaction.MsgBox( ("Mass Move Delta is " + deltaX.ToString() + "," + deltaY.ToString() + ". Are you sure?"), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 {
                   this.output = "Commencing mass move units...\r\n";
                   this.output += this.Batch_MassMoveUnits(deltaX, deltaY);
@@ -253,7 +253,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num == this.opt1bid && Interaction.MsgBox((object) "Are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (num == this.opt1bid && Interaction.MsgBox( "Are you sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 this.game.FormRef.Cursor = Cursors.WaitCursor;
                 this.output = "Commencing removing duplicating officers...\r\n";
@@ -754,10 +754,10 @@ namespace WindowsApplication1
       str4: String = str2 + "BITMAPSTORE REG: " + num1.ToString() + "K, BIG: " + num2.ToString() + "K, SMALL: " + num3.ToString() + "K, CACHE: " + num4.ToString() + "K" + "\r\n";
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this.game.Data);
+      binaryFormatter.Serialize((Stream) serializationStream,  this.game.Data);
       index1 =  serializationStream.Length;
       serializationStream.Close();
-      index1 =  Math.Round((double) index1 / 1024.0);
+      index1 =  Math.Round( index1 / 1024.0);
       str5: String = str4 + "DATA: " + index1.ToString() + "K" + "\r\n" + "\r\n" + "BITMAPSTORE DETAILS\r\n";
       simpleList.ReverseSort();
       let mut counter2: i32 = simpleList.Counter;
@@ -1365,7 +1365,7 @@ namespace WindowsApplication1
         let mut index: i32 = 99;
         do
         {
-          if (!Information.IsNothing((object) this.game.Data.SFTypeObj[sfTypeCounter].LogoString[index]) && this.game.Data.SFTypeObj[sfTypeCounter].LogoString[index].Length > 0)
+          if (!Information.IsNothing( this.game.Data.SFTypeObj[sfTypeCounter].LogoString[index]) && this.game.Data.SFTypeObj[sfTypeCounter].LogoString[index].Length > 0)
           {
             if (Strings.InStr(this.game.Data.SFTypeObj[sfTypeCounter].LogoString[index], "'") > 0)
               flag = true;

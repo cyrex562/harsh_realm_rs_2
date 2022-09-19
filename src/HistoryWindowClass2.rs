@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Threading;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Threading;
 
 namespace WindowsApplication1
 {
@@ -268,8 +268,8 @@ namespace WindowsApplication1
           }
         }
       }
-      let mut num4: i32 =   Math.Round((double) this.game.ScreenWidth / 53.0);
-      let mut num5: i32 =   Math.Round((double) (this.game.ScreenHeight - 200) / 48.0);
+      let mut num4: i32 =   Math.Round( this.game.ScreenWidth / 53.0);
+      let mut num5: i32 =   Math.Round( (this.game.ScreenHeight - 200) / 48.0);
       let mut num6: i32 =  0;
       if (this.game.EditObj.HisHotX > -1 & this.game.EditObj.HisHotY > -1)
       {
@@ -312,8 +312,8 @@ namespace WindowsApplication1
       else
       {
         this.game.EditObj.TempCoordList = CoordList::new();
-        let mut num9: i32 =   Math.Round((double) this.game.EditObj.HisHotX - (double) num4 / 2.0);
-        let mut num10: i32 =   Math.Round((double) this.game.EditObj.HisHotY - (double) num5 / 2.0);
+        let mut num9: i32 =   Math.Round( this.game.EditObj.HisHotX -  num4 / 2.0);
+        let mut num10: i32 =   Math.Round( this.game.EditObj.HisHotY -  num5 / 2.0);
         if (0 > num9)
           num9 = 0;
         if (0 > num10)
@@ -329,8 +329,8 @@ namespace WindowsApplication1
         let mut num11: i32 =  265;
         if (this.game.EditObj.RealRound == 0)
           num11 += 100;
-        let mut num12: i32 =   Math.Round((double) (this.game.ScreenWidth - 0) / 53.0);
-        let mut num13: i32 =   Math.Round((double) (this.game.ScreenHeight - num11) / 48.0);
+        let mut num12: i32 =   Math.Round( (this.game.ScreenWidth - 0) / 53.0);
+        let mut num13: i32 =   Math.Round( (this.game.ScreenHeight - num11) / 48.0);
         let mut num14: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
         let mut num15: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
         if (num12 > num14)
@@ -391,7 +391,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.ViewSupplyTextId);
       this.NewBackGroundAndClearAll(this.w, this.h, this.game.MARCBOTBAR);
       this.ClearMouse();
-      let mut num1: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       if (this.mapid > 0)
         this.RemoveSubPart(this.mapid);
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
@@ -401,9 +401,9 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       if ((this.game.AIRunning | this.game.AIThreadRunning) & this.Curstep >= this.EndStep)
       {
-        if (!Information.IsNothing((object) this.game.EditObj.TempAIString) & this.game.EditObj.AIProgressMax > 0)
+        if (!Information.IsNothing( this.game.EditObj.TempAIString) & this.game.EditObj.AIProgressMax > 0)
         {
-          let mut tsubpart: SubPartClass =  TextPartClass::new(this.game.EditObj.TempAIString, Font::new(this.game.FontCol.Families[1], 19f, FontStyle.Bold, GraphicsUnit.Pixel), 600, 20, true, tBlackBack: true, tProgress: ( Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0)), tMarc: true);
+          let mut tsubpart: SubPartClass =  TextPartClass::new(this.game.EditObj.TempAIString, Font::new(this.game.FontCol.Families[1], 19f, FontStyle.Bold, GraphicsUnit.Pixel), 600, 20, true, tBlackBack: true, tProgress: ( Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0)), tMarc: true);
           this.info5id = this.AddSubPart( tsubpart, num1 + 200, 92, 600, 20, 0);
         }
       }
@@ -436,7 +436,7 @@ namespace WindowsApplication1
                   str = Strings.Left(str, 20);
                 if (Strings.Len(str) > 20)
                   str = Strings.Left(str, 20);
-                this.OptionsListObj.add(str, -1, Strings.Trim(Conversion.Str((object) Number)), Strings.Trim(Conversion.Str((object) num2)), tWeight: num2);
+                this.OptionsListObj.add(str, -1, Strings.Trim(Conversion.Str( Number)), Strings.Trim(Conversion.Str( num2)), tWeight: num2);
               }
             }
           }
@@ -449,7 +449,7 @@ namespace WindowsApplication1
         str1: String = !(this.game.EditObj.HisLossAttReg < 0 | this.game.EditObj.HisLossAttReg > this.game.Data.RegimeCounter) ? "ATTACKER: " + Strings.UCase(this.game.Data.RegimeObj[this.game.EditObj.HisLossAttReg].Name) : "ATTACKER: ?";
         this.OptionsListObj.SortOnWeight(-1);
         SizeF sizeF2 = Expression.MeasureString(str1, this.game.MarcFont4);
-        DrawMod.DrawTextColouredMarc( Expression, str1, this.game.MarcFont4,  Math.Round((double) ((float) (num1 + 200) + (float) (145.0 - (double) sizeF2.Width / 2.0))), 45, Color.White);
+        DrawMod.DrawTextColouredMarc( Expression, str1, this.game.MarcFont4,  Math.Round( ( (num1 + 200) +  (145.0 -  sizeF2.Width / 2.0))), 45, Color.White);
         let mut tsubpart1: SubPartClass =  new ListSubPartClass(this.OptionsListObj, 8, 290, -1, this.game, true, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 140, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: (num1 + 200), bby: 65, tMarcStyle: true, overruleFont: ( this.game.MarcFont5));
         this.OptionsListId = this.AddSubPart( tsubpart1, num1 + 200, 65, 290, 176, 0);
         this.OptionsList2Obj = ListClass::new();
@@ -475,14 +475,14 @@ namespace WindowsApplication1
               str2: String = this.game.Data.SFTypeObj[index4].Name;
               if (Strings.Len(str2) > 20)
                 str2 = Strings.Left(str2, 20);
-              this.OptionsList2Obj.add(str2, -1, Strings.Trim(Conversion.Str((object) Number)), Strings.Trim(Conversion.Str((object) num3)), tWeight: num3);
+              this.OptionsList2Obj.add(str2, -1, Strings.Trim(Conversion.Str( Number)), Strings.Trim(Conversion.Str( num3)), tWeight: num3);
             }
           }
         }
         this.OptionsList2Obj.SortOnWeight(-1);
         str3: String = !(this.game.EditObj.HisLossDefReg < 0 | this.game.EditObj.HisLossDefReg > this.game.Data.RegimeCounter) ? "DEFENDER: " + Strings.UCase(this.game.Data.RegimeObj[this.game.EditObj.HisLossDefReg].Name) : "DEFENDER: ?";
         SizeF sizeF3 = Expression.MeasureString(str3, this.game.MarcFont4);
-        DrawMod.DrawTextColouredMarc( Expression, str3, this.game.MarcFont4,  Math.Round((double) ((float) (num1 + 500) + (float) (145.0 - (double) sizeF3.Width / 2.0))), 45, Color.White);
+        DrawMod.DrawTextColouredMarc( Expression, str3, this.game.MarcFont4,  Math.Round( ( (num1 + 500) +  (145.0 -  sizeF3.Width / 2.0))), 45, Color.White);
         let mut tsubpart2: SubPartClass =  new ListSubPartClass(this.OptionsList2Obj, 8, 290, -1, this.game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 140, tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: (num1 + 500), bby: 65, tMarcStyle: true, overruleFont: ( this.game.MarcFont5));
         this.OptionsList2Id = this.AddSubPart( tsubpart2, num1 + 500, 65, 290, 176, 0);
         str4: String = "AN ATTACK";
@@ -517,37 +517,37 @@ namespace WindowsApplication1
         if (this.game.EditObj.HisRegimeWon == -1)
         {
           SizeF sizeF4 = Expression.MeasureString(str4, this.game.MarcFont3);
-          DrawMod.DrawTextColouredMarc( Expression, str4, this.game.MarcFont3,  Math.Round((double) ((float) (num1 + 210) + (float) (300.0 - (double) sizeF4.Width / 2.0))), 7, Color.White);
+          DrawMod.DrawTextColouredMarc( Expression, str4, this.game.MarcFont3,  Math.Round( ( (num1 + 210) +  (300.0 -  sizeF4.Width / 2.0))), 7, Color.White);
           if (Strings.Len(this.game.EditObj.HisInfoString) > 0)
           {
             SizeF sizeF5 = Expression.MeasureString(this.game.EditObj.HisInfoString, this.game.MarcFont7);
-            DrawMod.DrawTextColouredMarc( Expression, this.game.EditObj.HisInfoString, this.game.MarcFont7,  Math.Round((double) ((float) (num1 + 210) + (float) (300.0 - (double) sizeF5.Width / 2.0))), 28, Color.White);
+            DrawMod.DrawTextColouredMarc( Expression, this.game.EditObj.HisInfoString, this.game.MarcFont7,  Math.Round( ( (num1 + 210) +  (300.0 -  sizeF5.Width / 2.0))), 28, Color.White);
           }
         }
         else
         {
           str5: String = this.game.EditObj.HisRegimeWon != this.game.EditObj.HisLossDefReg ? str4 + ": ATTACKER WAS VICTORIOUS" : str4 + ": DEFENDER STOOD FIRM";
           SizeF sizeF6 = Expression.MeasureString(str5, this.game.MarcFont3);
-          DrawMod.DrawTextColouredMarc( Expression, str5, this.game.MarcFont3,  Math.Round((double) ((float) (num1 + 195) + (float) (300.0 - (double) sizeF6.Width / 2.0))), 7, Color.White);
+          DrawMod.DrawTextColouredMarc( Expression, str5, this.game.MarcFont3,  Math.Round( ( (num1 + 195) +  (300.0 -  sizeF6.Width / 2.0))), 7, Color.White);
           if (Strings.Len(this.game.EditObj.HisInfoString) > 0)
           {
             SizeF sizeF7 = Expression.MeasureString(this.game.EditObj.HisInfoString, this.game.MarcFont7);
-            DrawMod.DrawTextColouredMarc( Expression, this.game.EditObj.HisInfoString, this.game.MarcFont7,  Math.Round((double) ((float) (num1 + 195) + (float) (300.0 - (double) sizeF7.Width / 2.0))), 28, Color.White);
+            DrawMod.DrawTextColouredMarc( Expression, this.game.EditObj.HisInfoString, this.game.MarcFont7,  Math.Round( ( (num1 + 195) +  (300.0 -  sizeF7.Width / 2.0))), 28, Color.White);
           }
         }
       }
       else if (Strings.Len(this.game.EditObj.HisInfoString) > 0)
       {
         SizeF sizeF8 = Expression.MeasureString(this.game.EditObj.HisInfoString, this.game.MarcFont3);
-        DrawMod.DrawTextColouredMarc( Expression, this.game.EditObj.HisInfoString, this.game.MarcFont3,  Math.Round((double) ((float) (num1 + 210) + (float) (300.0 - (double) sizeF8.Width / 2.0))), 92, Color.White);
+        DrawMod.DrawTextColouredMarc( Expression, this.game.EditObj.HisInfoString, this.game.MarcFont3,  Math.Round( ( (num1 + 210) +  (300.0 -  sizeF8.Width / 2.0))), 92, Color.White);
       }
       else
       {
         str: String = "No further information on History Step";
         SizeF sizeF9 = Expression.MeasureString(str, this.game.MarcFont3);
-        DrawMod.DrawTextColouredMarc( Expression, str, this.game.MarcFont3,  Math.Round((double) ((float) (num1 + 210) + (float) (300.0 - (double) sizeF9.Width / 2.0))), 92, Color.White);
+        DrawMod.DrawTextColouredMarc( Expression, str, this.game.MarcFont3,  Math.Round( ( (num1 + 210) +  (300.0 -  sizeF9.Width / 2.0))), 92, Color.White);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -564,7 +564,7 @@ namespace WindowsApplication1
         {
           case 27:
             this.game.EditObj.TempCoordList = CoordList::new();
-            if ((double) this.game.Data.RuleVar[839] == 0.0)
+            if ( this.game.Data.RuleVar[839] == 0.0)
               windowReturnClass.AddCommand(3, 3);
             else
               windowReturnClass.AddCommand(3, 11);
@@ -590,7 +590,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (!Information.IsNothing((object) this.game.se1Thread))
+      if (!Information.IsNothing( this.game.se1Thread))
       {
         if (this.game.se1Thread.ThreadState == ThreadState.Stopped)
         {
@@ -635,7 +635,7 @@ namespace WindowsApplication1
       if (this.EndStep >= -1)
       {
         TimeSpan timeSpan = DateAndTime.Now.Subtract(this.showtime);
-        if ((double) timeSpan.Ticks > 2000000.0 & this.game.EditObj.HisLossCounter == -1 | timeSpan.Ticks > 20000000L)
+        if ( timeSpan.Ticks > 2000000.0 & this.game.EditObj.HisLossCounter == -1 | timeSpan.Ticks > 20000000L)
         {
           if (this.HumanPlayer > -1)
             this.EndStep = this.game.HandyFunctionsObj.GetRegimeHistoryTotSteps(this.HumanPlayer);
@@ -674,7 +674,7 @@ namespace WindowsApplication1
             flag2 = false;
           }
         }
-        else if ((double) timeSpan.Ticks > 2500000.0 & this.game.se1Running)
+        else if ( timeSpan.Ticks > 2500000.0 & this.game.se1Running)
         {
           windowReturnClass.SetFlag(true);
           this.dostuff();
@@ -684,7 +684,7 @@ namespace WindowsApplication1
       else
       {
         TimeSpan timeSpan = DateAndTime.Now.Subtract(this.showtime);
-        if ((double) timeSpan.Ticks > 2500000.0 & this.game.se1Running)
+        if ( timeSpan.Ticks > 2500000.0 & this.game.se1Running)
         {
           this.EndStep = this.game.HandyFunctionsObj.GetRegimeHistoryTotSteps(this.HumanPlayer);
           windowReturnClass.SetFlag(true);

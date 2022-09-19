@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -24,7 +24,7 @@ namespace WindowsApplication1
     pub HistoryScreenClass2( GameClass tgame, Form1 tformref)
       : base( tgame, -3, tformref)
     {
-      this.OffSetX =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+      this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
       this.Game.HandyFunctionsObj.SetGameColors();
       this.WPlay = this.AddWindow((WindowClass) new HistoryWindowClass2( tgame), 0, this.Game.ScreenHeight - 222, this.Game.ScreenWidth, 222);
       Rectangle rectangle1;
@@ -384,13 +384,13 @@ namespace WindowsApplication1
       {
         if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
           this.Game.FormRef.WindowState = FormWindowState.Minimized;
-        if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+        if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         {
           if (this.Game.AIRunning | this.Game.AIThreadRunning)
             this.Game.AIThread.Abort();
           this.Game.Data = DataClass::new();
           this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");
-          if (this.Game.Data.UseAI == 1 & Information.IsNothing((object) this.Game.NewAIObj))
+          if (this.Game.Data.UseAI == 1 & Information.IsNothing( this.Game.NewAIObj))
             this.Game.NewAIObj = new NewAIClass(this.Game);
           if (this.Game.Data.UseAI == 1)
             this.Game.NewAIObj.LastRegime = -1;
@@ -504,7 +504,7 @@ namespace WindowsApplication1
         }
       }
       int num;
-      if (Information.IsNothing((object) windowReturnClass))
+      if (Information.IsNothing( windowReturnClass))
         num = 1;
       else if (!windowReturnClass.NoMouseClickBelow)
         num = 1;

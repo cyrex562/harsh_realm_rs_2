@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -508,7 +508,7 @@ namespace WindowsApplication1
         num2 += 1;
         if (this.LibNr == index)
           num1 = num2;
-        this.LibListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index);
+        this.LibListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibraryObj[index].name, index);
       }
       if (this.LibNr == -1)
         num1 = 0;
@@ -534,7 +534,7 @@ namespace WindowsApplication1
             num4 += 1;
             if (index == tSFtypenr)
               num3 = num4;
-            this.SFtypeListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.SFTypeObj[index].Name + "(id=" + this.game.Data.SFTypeObj[index].Id.ToString() + ")", index);
+            this.SFtypeListObj.add(Conversion.Str( index) + ") " + this.game.Data.SFTypeObj[index].Name + "(id=" + this.game.Data.SFTypeObj[index].Id.ToString() + ")", index);
           }
         }
         ListClass sftypeListObj = this.SFtypeListObj;
@@ -701,7 +701,7 @@ namespace WindowsApplication1
           this.x2textid = this.AddSubPart( tsubpart, 290, 249, 200, 20, 0);
         }
         this.ss = "Click to change the name of this SFType";
-        if (!Information.IsNothing((object) this.game.Data.SFTypeObj[this.SFtypeNr].LibId))
+        if (!Information.IsNothing( this.game.Data.SFTypeObj[this.SFtypeNr].LibId))
           this.ss = this.ss + " lib: LibSlot: " + this.game.Data.SFTypeObj[this.SFtypeNr].LibId.libSlot.ToString() + ", id: " + this.game.Data.SFTypeObj[this.SFtypeNr].LibId.id.ToString();
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
@@ -1575,7 +1575,7 @@ namespace WindowsApplication1
         this.BChangeSymbol2Id = this.AddSubPart( tsubpart4, 150, 360, 32, 16, 1);
       }
       this.ss = "Let People overdraw a gfx over this sftype. 0=dont. 1=yes in front of eqp. 2=behind eqp";
-      let mut tsubpart5: SubPartClass =  TextPartClass::new("UsePplGfx=" + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: this.ss);
+      let mut tsubpart5: SubPartClass =  TextPartClass::new("UsePplGfx=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].UsePeopleGraphics), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: this.ss);
       this.y3textid = this.AddSubPart( tsubpart5, 250, 360, 100, 20, 0);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
@@ -1604,7 +1604,7 @@ namespace WindowsApplication1
         let mut tsubpart11: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BSymbolGroupId = this.AddSubPart( tsubpart11, 10, 540, 32, 16, 1);
       }
-      let mut tsubpart12: SubPartClass =  TextPartClass::new("Symbol Group: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SymbolGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart12: SubPartClass =  TextPartClass::new("Symbol Group: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SymbolGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.BSymbolGroupTextId = this.AddSubPart( tsubpart12, 50, 539, 400, 20, 0);
       this.ss = "Click to assign the sftype as symbolweight, the more weight the earlier it prevails as symbol shown in mixed unit";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1612,7 +1612,7 @@ namespace WindowsApplication1
         let mut tsubpart13: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BSymbolWeightId = this.AddSubPart( tsubpart13, 10, 570, 32, 16, 1);
       }
-      let mut tsubpart14: SubPartClass =  TextPartClass::new("Symbol Weight: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SymbolWeight), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart14: SubPartClass =  TextPartClass::new("Symbol Weight: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SymbolWeight), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.BSymbolWeightTextId = this.AddSubPart( tsubpart14, 50, 569, 400, 20, 0);
       this.ss = "Click to toggle symbol overrule on or off. A symboloverrule means that this symbol will not be cloured as regime pen colour.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1620,7 +1620,7 @@ namespace WindowsApplication1
         let mut tsubpart15: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BSymbolOverRuleId = this.AddSubPart( tsubpart15, 10, 600, 32, 16, 1);
       }
-      let mut tsubpart16: SubPartClass =  TextPartClass::new("OverRule Symbol: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SymbolOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart16: SubPartClass =  TextPartClass::new("OverRule Symbol: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SymbolOverrule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.BSymbolOverRuleTextId = this.AddSubPart( tsubpart16, 50, 599, 400, 20, 0);
     }
 
@@ -1636,7 +1636,7 @@ namespace WindowsApplication1
       let mut tsubpart1: SubPartClass =  TextPartClass::new("Move Type: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.BMoveTypeTextId = this.AddSubPart( tsubpart1, 50, 339, 400, 20, 0);
       this.ss = "Click to set how much supply sftype can maximally hold with it without using carrycap";
-      str2: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SupplyCarry);
+      str2: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyCarry);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart2: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1645,7 +1645,7 @@ namespace WindowsApplication1
       let mut tsubpart3: SubPartClass =  TextPartClass::new("Supply Carry: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B1TextId = this.AddSubPart( tsubpart3, 50, 379, 400, 20, 0);
       this.ss = "Click to set howmuch supply the sftype can maximally consume per round";
-      str3: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].BasicSupplyNeed);
+      str3: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].BasicSupplyNeed);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart4: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1654,7 +1654,7 @@ namespace WindowsApplication1
       let mut tsubpart5: SubPartClass =  TextPartClass::new("Basic Supply Need: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B6TextId = this.AddSubPart( tsubpart5, 50, 459, 200, 20, 0);
       this.ss = "Click to set the UnitGroup of this sftype. Is used for combatdetail stats and landscape entrench stats.";
-      str4: String = this.game.Data.TempString[400 + this.game.Data.SFTypeObj[this.SFtypeNr].UnitGroup] + "(" + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].UnitGroup) + ")";
+      str4: String = this.game.Data.TempString[400 + this.game.Data.SFTypeObj[this.SFtypeNr].UnitGroup] + "(" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].UnitGroup) + ")";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart6: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1663,7 +1663,7 @@ namespace WindowsApplication1
       let mut tsubpart7: SubPartClass =  TextPartClass::new("SFType Group: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B7TextId = this.AddSubPart( tsubpart7, 50, 479, 200, 20, 0);
       this.ss = "Click to set ammount of reconpoints";
-      str5: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ReconPts);
+      str5: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ReconPts);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart8: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1672,7 +1672,7 @@ namespace WindowsApplication1
       let mut tsubpart9: SubPartClass =  TextPartClass::new("ReconPts: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.f1textid = this.AddSubPart( tsubpart9, 50, 500, 200, 20, 0);
       this.ss = "Click to set ammount of hidepoints. Specifying the minimal number of reconpoints needed to see this sftype.";
-      str6: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].HidePts);
+      str6: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HidePts);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart10: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1681,7 +1681,7 @@ namespace WindowsApplication1
       let mut tsubpart11: SubPartClass =  TextPartClass::new("HidePts: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.f2textid = this.AddSubPart( tsubpart11, 50, 520, 200, 20, 0);
       this.ss = "Click to set the number of Zone of Controll points";
-      str7: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ZOCPts);
+      str7: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ZOCPts);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart12: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1690,7 +1690,7 @@ namespace WindowsApplication1
       let mut tsubpart13: SubPartClass =  TextPartClass::new("ZOCPts: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.f3textid = this.AddSubPart( tsubpart13, 50, 540, 200, 20, 0);
       this.ss = "Click to toggle on/off if the sftype can be used for paradropping. Without paradrop airlift is always still possible";
-      str8: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].CanDoParadrop);
+      str8: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CanDoParadrop);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart14: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1704,10 +1704,10 @@ namespace WindowsApplication1
         let mut tsubpart16: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g2id = this.AddSubPart( tsubpart16, 10, 580, 32, 16, 1);
       }
-      let mut tsubpart17: SubPartClass =  TextPartClass::new("AntiStrucPts: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AntiStrucPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart17: SubPartClass =  TextPartClass::new("AntiStrucPts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiStrucPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g2textid = this.AddSubPart( tsubpart17, 50, 580, 200, 20, 0);
       this.ss = "Click to set the Theater type of this sftype. 0=land, 1=navy and 2=air";
-      str9: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].Theater);
+      str9: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Theater);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart18: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1716,7 +1716,7 @@ namespace WindowsApplication1
       let mut tsubpart19: SubPartClass =  TextPartClass::new("Theater: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.B8TextId = this.AddSubPart( tsubpart19, 350, 359, 200, 20, 0);
       this.ss = "Click to set the weight of this sftype. Is used in mobility determination calcs and transfers/str.transfers";
-      str10: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].Weight);
+      str10: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Weight);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart20: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1725,7 +1725,7 @@ namespace WindowsApplication1
       let mut tsubpart21: SubPartClass =  TextPartClass::new("Weight: " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b9textid = this.AddSubPart( tsubpart21, 350, 379, 200, 20, 0);
       this.ss = "Click to set how much weight points this sftype can carry/mobilize";
-      str11: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].CarryCap);
+      str11: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CarryCap);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart22: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1734,7 +1734,7 @@ namespace WindowsApplication1
       let mut tsubpart23: SubPartClass =  TextPartClass::new("CarryCap: " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.d1textid = this.AddSubPart( tsubpart23, 350, 399, 200, 20, 0);
       this.ss = "Click to set howmany entrench points this sftype generates at start of every turn";
-      str12: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].EntrenchPower);
+      str12: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].EntrenchPower);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart24: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1743,7 +1743,7 @@ namespace WindowsApplication1
       let mut tsubpart25: SubPartClass =  TextPartClass::new("EntrenchPower: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.e1textid = this.AddSubPart( tsubpart25, 350, 419, 200, 20, 0);
       this.ss = "Click to set the powerpoints of this sftype. Very important for experience calculations! Used to display counter strenght.";
-      str13: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].PowerPts);
+      str13: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PowerPts);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart26: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1752,7 +1752,7 @@ namespace WindowsApplication1
       let mut tsubpart27: SubPartClass =  TextPartClass::new("PowerPts: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.e3textid = this.AddSubPart( tsubpart27, 350, 459, 200, 20, 0);
       this.ss = "Click to set the percentage of movement cost reduction this sftype will get on its movetype costs. Example: 40 is 40% less AP cost";
-      str14: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].MoveRedux);
+      str14: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MoveRedux);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart28: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -1766,7 +1766,7 @@ namespace WindowsApplication1
         let mut tsubpart30: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g4id = this.AddSubPart( tsubpart30, 610, 240, 32, 16, 1);
       }
-      let mut tsubpart31: SubPartClass =  TextPartClass::new("ActionPoint Mod: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ApMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart31: SubPartClass =  TextPartClass::new("ActionPoint Mod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ApMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g4textid = this.AddSubPart( tsubpart31, 650, 239, 200, 20, 0);
       this.ss = "Click to set howmuch absolute readiness points this sfype loses with each attack";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1774,7 +1774,7 @@ namespace WindowsApplication1
         let mut tsubpart32: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g6id = this.AddSubPart( tsubpart32, 610, 260, 32, 16, 1);
       }
-      let mut tsubpart33: SubPartClass =  TextPartClass::new("RdnLossPerAttack: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].RdnLossPerAttack), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart33: SubPartClass =  TextPartClass::new("RdnLossPerAttack: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].RdnLossPerAttack), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g6textid = this.AddSubPart( tsubpart33, 650, 259, 200, 20, 0);
       this.ss = "Click to toggle on/off if this sftype should autodestroy after having finished one full combatround.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1782,7 +1782,7 @@ namespace WindowsApplication1
         let mut tsubpart34: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g7id = this.AddSubPart( tsubpart34, 610, 280, 32, 16, 1);
       }
-      let mut tsubpart35: SubPartClass =  TextPartClass::new("AutoDestroy: Att=" + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy) + ", Def=" + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart35: SubPartClass =  TextPartClass::new("AutoDestroy: Att=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy) + ", Def=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g7textid = this.AddSubPart( tsubpart35, 650, 279, 200, 20, 0);
       this.ss = "Click to set the ammount of engineer points this sftype will get every round";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1790,7 +1790,7 @@ namespace WindowsApplication1
         let mut tsubpart36: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g8id = this.AddSubPart( tsubpart36, 610, 300, 32, 16, 1);
       }
-      let mut tsubpart37: SubPartClass =  TextPartClass::new("EP: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].EP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart37: SubPartClass =  TextPartClass::new("EP: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].EP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g8textid = this.AddSubPart( tsubpart37, 650, 299, 200, 20, 0);
       this.ss = "Click to choose the sound that has to be played when the sftype moves";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1814,7 +1814,7 @@ namespace WindowsApplication1
         let mut tsubpart42: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g15id = this.AddSubPart( tsubpart42, 610, 400, 32, 16, 1);
       }
-      let mut tsubpart43: SubPartClass =  TextPartClass::new("StaffPts: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StaffPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart43: SubPartClass =  TextPartClass::new("StaffPts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StaffPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g15textid = this.AddSubPart( tsubpart43, 650, 399, 200, 20, 0);
       this.ss = "Click to set the anti-struc points generated by this sftype when attempting to blow a bridge";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1822,7 +1822,7 @@ namespace WindowsApplication1
         let mut tsubpart44: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g17id = this.AddSubPart( tsubpart44, 610, 420, 32, 16, 1);
       }
-      let mut tsubpart45: SubPartClass =  TextPartClass::new("BlowBridgePts: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].BlowBridgePts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart45: SubPartClass =  TextPartClass::new("BlowBridgePts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].BlowBridgePts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g17textid = this.AddSubPart( tsubpart45, 650, 419, 200, 20, 0);
       this.ss = "Click to set the percentage chance a kill against this sftype is mutated into a retreat.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1830,7 +1830,7 @@ namespace WindowsApplication1
         let mut tsubpart46: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g18id = this.AddSubPart( tsubpart46, 610, 440, 32, 16, 1);
       }
-      let mut tsubpart47: SubPartClass =  TextPartClass::new("KillToRetr%(in def): " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].KilltoRetreatChance), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart47: SubPartClass =  TextPartClass::new("KillToRetr%(in def): " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].KilltoRetreatChance), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g18textid = this.AddSubPart( tsubpart47, 650, 439, 200, 20, 0);
       this.ss = "Click if the sftype has staff points to set the max combat modifier for units under a hq with this sftype.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1838,7 +1838,7 @@ namespace WindowsApplication1
         let mut tsubpart48: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.b29id = this.AddSubPart( tsubpart48, 610, 460, 32, 16, 1);
       }
-      let mut tsubpart49: SubPartClass =  TextPartClass::new("StaffCombatMod: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StaffCombatMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart49: SubPartClass =  TextPartClass::new("StaffCombatMod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StaffCombatMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b29textid = this.AddSubPart( tsubpart49, 650, 459, 200, 20, 0);
       this.ss = "Click if the sftype has staff points to set the max morale modifier for units under a hq with this sftype.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1846,7 +1846,7 @@ namespace WindowsApplication1
         let mut tsubpart50: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.b30id = this.AddSubPart( tsubpart50, 610, 480, 32, 16, 1);
       }
-      let mut tsubpart51: SubPartClass =  TextPartClass::new("StaffMoraleMod: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StaffMoraleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart51: SubPartClass =  TextPartClass::new("StaffMoraleMod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StaffMoraleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b30textid = this.AddSubPart( tsubpart51, 650, 479, 200, 20, 0);
       this.ss = "Click to set the antisupply points this sftype has versus land hexes.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1854,7 +1854,7 @@ namespace WindowsApplication1
         let mut tsubpart52: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g19id = this.AddSubPart( tsubpart52, 610, 500, 32, 16, 1);
       }
-      let mut tsubpart53: SubPartClass =  TextPartClass::new("AntiSupplyPts: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart53: SubPartClass =  TextPartClass::new("AntiSupplyPts: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupply), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g19textid = this.AddSubPart( tsubpart53, 650, 499, 200, 20, 0);
       this.ss = "Click to set how far in Action Points these anti supply points are in effect";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1862,7 +1862,7 @@ namespace WindowsApplication1
         let mut tsubpart54: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g20id = this.AddSubPart( tsubpart54, 610, 520, 32, 16, 1);
       }
-      let mut tsubpart55: SubPartClass =  TextPartClass::new("AntiSupplyRange: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplyRange), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart55: SubPartClass =  TextPartClass::new("AntiSupplyRange: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplyRange), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g20textid = this.AddSubPart( tsubpart55, 650, 519, 200, 20, 0);
       this.ss = "Click the antisupply points this sftype has versus sea hexes";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1870,7 +1870,7 @@ namespace WindowsApplication1
         let mut tsubpart56: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g21id = this.AddSubPart( tsubpart56, 610, 540, 32, 16, 1);
       }
-      let mut tsubpart57: SubPartClass =  TextPartClass::new("AntiSupplySea: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplySea), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart57: SubPartClass =  TextPartClass::new("AntiSupplySea: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AntiSupplySea), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g21textid = this.AddSubPart( tsubpart57, 650, 539, 200, 20, 0);
       this.ss = "Click to set an absolute readiness loss points for every 100ap spent. (50 ap spent is half specified loss)";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1878,7 +1878,7 @@ namespace WindowsApplication1
         let mut tsubpart58: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.b32id = this.AddSubPart( tsubpart58, 610, 560, 32, 16, 1);
       }
-      let mut tsubpart59: SubPartClass =  TextPartClass::new("Abs.Rdnloss100ap: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ReadinessLoss), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
+      let mut tsubpart59: SubPartClass =  TextPartClass::new("Abs.Rdnloss100ap: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ReadinessLoss), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
       this.b32textid = this.AddSubPart( tsubpart59, 650, 559, 250, 20, 0);
       this.ss = "Click to set railcap pts..";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1886,7 +1886,7 @@ namespace WindowsApplication1
         let mut tsubpart60: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.b33id = this.AddSubPart( tsubpart60, 610, 580, 32, 16, 1);
       }
-      let mut tsubpart61: SubPartClass =  TextPartClass::new("Railcap: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].RailCap), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart61: SubPartClass =  TextPartClass::new("Railcap: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].RailCap), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b33textid = this.AddSubPart( tsubpart61, 650, 579, 200, 20, 0);
       this.ss = "Click to set regimevar of regime that kills 1 of this sftype to be raised by 1. -1=no regvar raise.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1894,7 +1894,7 @@ namespace WindowsApplication1
         let mut tsubpart62: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.h5id = this.AddSubPart( tsubpart62, 610, 600, 32, 16, 1);
       }
-      let mut tsubpart63: SubPartClass =  TextPartClass::new("KillIsRegVar: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].KillIsRegVar), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart63: SubPartClass =  TextPartClass::new("KillIsRegVar: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].KillIsRegVar), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.h5textid = this.AddSubPart( tsubpart63, 650, 599, 200, 20, 0);
       this.ss = "Click to set which Slot Number of the hex attacked by this SFType should be increased by 1 for each attack in each combatround";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1902,7 +1902,7 @@ namespace WindowsApplication1
         let mut tsubpart64: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.b34id = this.AddSubPart( tsubpart64, 610, 620, 32, 16, 1);
       }
-      let mut tsubpart65: SubPartClass =  TextPartClass::new("OnAttackSetSlot: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SlotNumber), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart65: SubPartClass =  TextPartClass::new("OnAttackSetSlot: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SlotNumber), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b34textid = this.AddSubPart( tsubpart65, 650, 619, 200, 20, 0);
       this.ss = "Click to set the ratio. 0=no ratio. But for example 2 shows player 2 times as many as their are individuals. Use for historicity purposes.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1910,7 +1910,7 @@ namespace WindowsApplication1
         let mut tsubpart66: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.w6id = this.AddSubPart( tsubpart66, 310, 560, 32, 16, 1);
       }
-      let mut tsubpart67: SubPartClass =  TextPartClass::new("Ratio: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].Ratio), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart67: SubPartClass =  TextPartClass::new("Ratio: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Ratio), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.w6textid = this.AddSubPart( tsubpart67, 350, 559, 200, 20, 0);
       this.ss = "Click to set Air AP Overrule cost. Leave -1 to keep standard functionality. >-1 means thats the ap cost to move into any hex.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1918,7 +1918,7 @@ namespace WindowsApplication1
         let mut tsubpart68: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.x3id = this.AddSubPart( tsubpart68, 310, 580, 32, 16, 1);
       }
-      let mut tsubpart69: SubPartClass =  TextPartClass::new("AirOverrule: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AirAPRule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart69: SubPartClass =  TextPartClass::new("AirOverrule: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AirAPRule), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.x3textid = this.AddSubPart( tsubpart69, 350, 579, 200, 20, 0);
       this.ss = "Click to set CopyFromSFType stat. This is only used by some scripts like those who interprent in the Trooptype Editor.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1958,7 +1958,7 @@ namespace WindowsApplication1
         let mut tsubpart76: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.w10id = this.AddSubPart( tsubpart76, 310, 600, 32, 16, 1);
       }
-      let mut tsubpart77: SubPartClass =  TextPartClass::new("DontReturnFromHQ: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].DontReturnFromHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart77: SubPartClass =  TextPartClass::new("DontReturnFromHQ: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].DontReturnFromHQ), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.w10textid = this.AddSubPart( tsubpart77, 350, 599, 200, 20, 0);
       this.ss = "Click to set ConsiderCarry true/false. If false then this sftype weight is added to the prognose weight statistic of a unit it is part of.";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -1966,7 +1966,7 @@ namespace WindowsApplication1
         let mut tsubpart78: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.w12id = this.AddSubPart( tsubpart78, 310, 540, 32, 16, 1);
       }
-      let mut tsubpart79: SubPartClass =  TextPartClass::new("ConsiderCarry: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ConsiderCarry), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart79: SubPartClass =  TextPartClass::new("ConsiderCarry: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ConsiderCarry), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.w12textid = this.AddSubPart( tsubpart79, 350, 539, 200, 20, 0);
       this.ss = "Click to reduce the penalty this SFType gets in the first 2 rounds of combat. 1 =full rulevar penalty. 0.5=half, 0=none.";
       if (Strings.Len(this.game.Data.MasterFile) == 0 | !this.game.Data.MasterfileReadPeople)
@@ -1974,7 +1974,7 @@ namespace WindowsApplication1
         let mut tsubpart80: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.b36id = this.AddSubPart( tsubpart80, 310, 500, 32, 16, 1);
       }
-      let mut tsubpart81: SubPartClass =  TextPartClass::new("FirstRoundPenaltyMod: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FirstRoundPenaltyMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart81: SubPartClass =  TextPartClass::new("FirstRoundPenaltyMod: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FirstRoundPenaltyMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b36textid = this.AddSubPart( tsubpart81, 350, 499, 200, 20, 0);
       this.ss = "Click to set show/hide in info window lists";
       if (Strings.Len(this.game.Data.MasterFile) == 0 | !this.game.Data.MasterfileReadPeople)
@@ -1982,7 +1982,7 @@ namespace WindowsApplication1
         let mut tsubpart82: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.g24id = this.AddSubPart( tsubpart82, 910, 180, 32, 16, 1);
       }
-      let mut tsubpart83: SubPartClass =  TextPartClass::new("DontShowInList: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].DontShowInList), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart83: SubPartClass =  TextPartClass::new("DontShowInList: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].DontShowInList), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g24textid = this.AddSubPart( tsubpart83, 950, 179, 200, 20, 0);
       if (this.game.Data.Product >= 6)
       {
@@ -1992,7 +1992,7 @@ namespace WindowsApplication1
           let mut tsubpart84: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
           this.w14id = this.AddSubPart( tsubpart84, 910, 200, 32, 16, 1);
         }
-        let mut tsubpart85: SubPartClass =  TextPartClass::new("Start+End Combat Round: " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StartCombatRound) + "," + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].EndCombatRound), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        let mut tsubpart85: SubPartClass =  TextPartClass::new("Start+End Combat Round: " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StartCombatRound) + "," + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].EndCombatRound), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.w14textid = this.AddSubPart( tsubpart85, 950, 199, 200, 20, 0);
       }
       this.ss = "Click to select secondary reinforcement type. Be careful with this and read docs since its functionality is very limited.";
@@ -2037,7 +2037,7 @@ namespace WindowsApplication1
     pub void tabsheet2()
     {
       this.ss = "Click to set the initiative of this sftype if attacking and if defending";
-      str1: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].Initiative) + " / " + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].InitiativeDef);
+      str1: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Initiative) + " / " + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].InitiativeDef);
       SubPartClass tsubpart;
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
@@ -2047,7 +2047,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Initiative: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b11textid = this.AddSubPart( tsubpart, 50, 379, 200, 20, 0);
       this.ss = "Click to set the number of attacks this sftype can do every combatround (10 ap per combatround)";
-      str2: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].Attacks);
+      str2: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Attacks);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2056,7 +2056,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Attacks: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b12textid = this.AddSubPart( tsubpart, 50, 399, 200, 20, 0);
       this.ss = "Click to set the max number of times this sftype can be attacked before these attacks get penalties";
-      str3: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].MaxAttacked);
+      str3: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MaxAttacked);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2065,7 +2065,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("MaxAttacked: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b13textid = this.AddSubPart( tsubpart, 50, 419, 200, 20, 0);
       this.ss = "Click to set the stackpoints this sftype consumes";
-      str4: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].Frontage);
+      str4: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].Frontage);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2074,7 +2074,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Stack Pts: " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b14textid = this.AddSubPart( tsubpart, 50, 439, 200, 20, 0);
       this.ss = "Click to toggle on/off if this sftype is a rear area sftype (instead of frontline)";
-      str5: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].BackBench);
+      str5: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].BackBench);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2083,7 +2083,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Rear Area: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b15textid = this.AddSubPart( tsubpart, 50, 459, 200, 20, 0);
       this.ss = "Click to set artillery range. Range of 0 means it has no artillery capability.";
-      str6: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ArtRange);
+      str6: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ArtRange);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2092,7 +2092,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Art.Range: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b16textid = this.AddSubPart( tsubpart, 50, 479, 200, 20, 0);
       this.ss = "Click to set the number of random enemy individuals the sftype can browse through to select a best opponent.";
-      str7: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FavTargetTries);
+      str7: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavTargetTries);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2101,7 +2101,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("FavTarget Tries: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b17textid = this.AddSubPart( tsubpart, 50, 499, 200, 20, 0);
       this.ss = "Click to set the range of the Anti-Air power of this sftype.";
-      str8: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AARange);
+      str8: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AARange);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2110,7 +2110,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("AARange: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.g16textid = this.AddSubPart( tsubpart, 50, 519, 400, 20, 0);
       this.ss = "Click to set the percentchance that a hit by this sftype is a kill";
-      str9: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].KillPercent)) + "% on target";
+      str9: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].KillPercent)) + "% on target";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2119,7 +2119,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Kill%: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.b20textid = this.AddSubPart( tsubpart, 50, 539, 200, 20, 0);
       this.ss = "Click to set the percentchance that a hit by this sftype is a retreat for the attacked individual";
-      str10: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].RetreatPercent)) + "% on target";
+      str10: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].RetreatPercent)) + "% on target";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2139,7 +2139,7 @@ namespace WindowsApplication1
         this.b27textid = this.AddSubPart( tsubpart, 350, 359, 200, 20, 0);
       }
       this.ss = "Click to let this SFType use the LandscapeMod table of another SFType for artillery attacks.";
-      str11: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ArtSFType);
+      str11: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ArtSFType);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2148,7 +2148,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Artillery Mod Sftyp: " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.w13textid = this.AddSubPart( tsubpart, 50, 579, 200, 20, 0);
       this.ss = "If ind. scores a RETREAT or KILL hit on enemy (that consumed supply last turn) it has a 0.x chance to get killed. 0.05=5% chance. Only done for att side! ";
-      str12: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ChanceOnDeathIfMakeHit) + "%";
+      str12: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ChanceOnDeathIfMakeHit) + "%";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2157,7 +2157,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("ChanceOnDeathIfMakeHit: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
       this.w133textid = this.AddSubPart( tsubpart, 50, 599, 250, 20, 0);
       this.ss = "";
-      str13: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].directRange);
+      str13: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].directRange);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2166,7 +2166,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("DirectRange: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
       this.w15textid = this.AddSubPart( tsubpart, 50, 619, 250, 20, 0);
       this.ss = "";
-      str14: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].directModFirstHex);
+      str14: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].directModFirstHex);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2175,7 +2175,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("DirectModFirstHex: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 250, 20, false, tDescript: this.ss);
       this.w16textid = this.AddSubPart( tsubpart, 50, 639, 250, 20, 0);
       this.ss = "";
-      str15: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].directModPerHex);
+      str15: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].directModPerHex);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2202,7 +2202,7 @@ namespace WindowsApplication1
     pub void tabsheet9()
     {
       this.ss = "Which regimevar # is used as fuel resource";
-      str1: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FuelRegimeVar);
+      str1: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelRegimeVar);
       SubPartClass tsubpart;
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
@@ -2212,7 +2212,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("FuelRegimeVar: " + str1, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c2textid = this.AddSubPart( tsubpart, 50, 379, 200, 20, 0);
       this.ss = "For every 10AP the SFType moves it needs this QTY of fuel.";
-      str2: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FuelForMove);
+      str2: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelForMove);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2221,7 +2221,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("FuelForMove(10ap): " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c3textid = this.AddSubPart( tsubpart, 50, 399, 200, 20, 0);
       this.ss = "If the fuel is not available movement cost will be multiplied.. 2=double movement cost. 3=3x movement cost ";
-      str3: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelMove);
+      str3: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelMove);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2230,7 +2230,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("OutOfFuelMove: " + str3, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c4textid = this.AddSubPart( tsubpart, 50, 419, 200, 20, 0);
       this.ss = "For every combatround (10AP) the SFType needs this QTY of fuel/";
-      str4: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttack) + "/" + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttackDef);
+      str4: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttack) + "/" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelForAttackDef);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2239,7 +2239,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("FuelForAttack(10ap): " + str4, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c5textid = this.AddSubPart( tsubpart, 50, 439, 200, 20, 0);
       this.ss = "If fuel is not available in a given combatround and the SFType is attacking. Its strength will be modified by X. 0.5=halved.";
-      str5: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelAttack);
+      str5: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelAttack);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2248,7 +2248,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("OutOfFuelAttack: " + str5, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c6textid = this.AddSubPart( tsubpart, 50, 459, 200, 20, 0);
       this.ss = "If fuel is not available in a given combatround and the SFType is defending. Its strength will be modified by X. 0.5=halved.";
-      str6: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense);
+      str6: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2257,7 +2257,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("OutOfFuelDefense: " + str6, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c7textid = this.AddSubPart( tsubpart, 50, 479, 200, 20, 0);
       this.ss = "Copy fuel stats from specified SFType number";
-      Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense);
+      Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
@@ -2266,7 +2266,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("Copy fuel stats from..", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.y1textid = this.AddSubPart( tsubpart, 50, 519, 200, 20, 0);
       this.ss = "Howmuch supply is taken out of the stockpile per round of attack. 0=no stockpile rule.";
-      str7: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StockpileUsedPerRound);
+      str7: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileUsedPerRound);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2275,7 +2275,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("StockUsePerRound: " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c12textid = this.AddSubPart( tsubpart, 450, 379, 200, 20, 0);
       this.ss = "Maximum size of the stockpile";
-      str8: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMax);
+      str8: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMax);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2284,7 +2284,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("StockPileMax: " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c13textid = this.AddSubPart( tsubpart, 450, 399, 200, 20, 0);
       this.ss = "0=no maximum/rule not used. Otherwise maximum stockpile supply request in per round.";
-      str9: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMaxIn);
+      str9: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileMaxIn);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2293,7 +2293,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("StockPileMaxIn: " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c14textid = this.AddSubPart( tsubpart, 450, 419, 200, 20, 0);
       this.ss = "Any attack made by this sftype, artillery or otherwise is modified with out of stockmod when no stockpile left.";
-      str10: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].StockpileDepletedMod);
+      str10: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].StockpileDepletedMod);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2302,7 +2302,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("OutofStockMod): " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c15textid = this.AddSubPart( tsubpart, 450, 439, 200, 20, 0);
       this.ss = "0=no maximum/rule not used. Otherwise its the maximum supply request in per round.";
-      str11: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SupplyMaxIn);
+      str11: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyMaxIn);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2311,7 +2311,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("SupplyMaxIn " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c16textid = this.AddSubPart( tsubpart, 450, 479, 200, 20, 0);
       this.ss = ".";
-      str12: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttack);
+      str12: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttack);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2320,7 +2320,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("SupplyForAttack: " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c17textid = this.AddSubPart( tsubpart, 750, 379, 200, 20, 0);
       this.ss = ".";
-      str13: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttackDef);
+      str13: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].SupplyForAttackDef);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2329,7 +2329,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("SupplyForAttackDef: " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c18textid = this.AddSubPart( tsubpart, 750, 399, 200, 20, 0);
       this.ss = ".";
-      str14: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyAttack);
+      str14: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyAttack);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2338,7 +2338,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("OutOfSupplyAttack: " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c19textid = this.AddSubPart( tsubpart, 750, 419, 200, 20, 0);
       this.ss = ".";
-      str15: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyDefense);
+      str15: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyDefense);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2347,7 +2347,7 @@ namespace WindowsApplication1
       tsubpart =  TextPartClass::new("OutOfSupplyDefense: " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.c20textid = this.AddSubPart( tsubpart, 750, 439, 200, 20, 0);
       this.ss = ".";
-      str16: String = Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FuelCarry);
+      str16: String = Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FuelCarry);
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2366,22 +2366,22 @@ namespace WindowsApplication1
       do
       {
         str1: String = "";
-        str2: String = Conversion.Str((object) index) + ") " + this.game.Data.TempString[index + 400];
+        str2: String = Conversion.Str( index) + ") " + this.game.Data.TempString[index + 400];
         if (Strings.Len(str2) > 15)
           str2 = Strings.Left(str2, 15);
         str3: String = str1 + str2 + Strings.Space(25 - Strings.Len(str2));
-        Expression1: String = "Fav=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[index]));
+        Expression1: String = "Fav=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[index]));
         str4: String = str3 + Expression1 + Strings.Space(12 - Strings.Len(Expression1));
-        Expression2: String = "Pow=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AttackPower[index]));
+        Expression2: String = "Pow=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPower[index]));
         str5: String = str4 + Expression2 + Strings.Space(12 - Strings.Len(Expression2));
-        Expression3: String = "PowDef=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AttackPowerDef[index]));
+        Expression3: String = "PowDef=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPowerDef[index]));
         str6: String = str5 + Expression3 + Strings.Space(12 - Strings.Len(Expression3));
         Expression4: String = "ArtPow=" + Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(this.game.Data.SFTypeObj[this.SFtypeNr].AttackArt[index])));
         str7: String = str6 + Expression4 + Strings.Space(12 - Strings.Len(Expression4));
-        Expression5: String = "ArtFav=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FavArtTarget[index]));
+        Expression5: String = "ArtFav=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavArtTarget[index]));
         str8: String = str7 + Expression5 + Strings.Space(12 - Strings.Len(Expression5));
-        Expression6: String = "HitPts=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[index]));
-        this.CombatListObj.add(str8 + Expression6 + Strings.Space(12 - Strings.Len(Expression6)) + ("HitPtsDef=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[index]))), index);
+        Expression6: String = "HitPts=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[index]));
+        this.CombatListObj.add(str8 + Expression6 + Strings.Space(12 - Strings.Len(Expression6)) + ("HitPtsDef=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[index]))), index);
         index += 1;
       }
       while (index <= 99);
@@ -2415,7 +2415,7 @@ namespace WindowsApplication1
     pub void tabsheet3b()
     {
       this.ss = "Click to set how favourite this unitgroup is as a target for this sftype. the higher the more favourite.";
-      str1: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[this.detailnr]));
+      str1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavTarget[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2427,7 +2427,7 @@ namespace WindowsApplication1
         this.b18textid = this.AddSubPart( tsubpart, 950, 339, 400, 20, 0);
       }
       this.ss = "Click to set the attackpower of this sftype in offense versus this unitgroup.";
-      str2: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AttackPower[this.detailnr]));
+      str2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPower[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2439,7 +2439,7 @@ namespace WindowsApplication1
         this.b19textid = this.AddSubPart( tsubpart, 950, 359, 400, 20, 0);
       }
       this.ss = "Click to set the attackpower of this sftype in defense versus this unitgroup.";
-      str3: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AttackPowerDef[this.detailnr]));
+      str3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AttackPowerDef[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2463,7 +2463,7 @@ namespace WindowsApplication1
         this.b25textid = this.AddSubPart( tsubpart, 950, 399, 400, 20, 0);
       }
       this.ss = "Click to set how favourite this unitgroup is as a target for an artillery attack of this sftype. the higher the more favourite.";
-      str5: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].FavArtTarget[this.detailnr]));
+      str5: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].FavArtTarget[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2475,7 +2475,7 @@ namespace WindowsApplication1
         this.b26textid = this.AddSubPart( tsubpart, 950, 419, 400, 20, 0);
       }
       this.ss = "Click to set hitpoints when attacking a hex.";
-      str6: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[this.detailnr]));
+      str6: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPoints[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2487,7 +2487,7 @@ namespace WindowsApplication1
         this.b37textid = this.AddSubPart( tsubpart, 950, 439, 400, 20, 0);
       }
       this.ss = "Click to set hitpoints when defending a hex.";
-      str7: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[this.detailnr]));
+      str7: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].HitPointsDef[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2530,17 +2530,17 @@ namespace WindowsApplication1
       for (let mut index: i32 = 0; index <= landscapeTypeCounter; index += 1)
       {
         str1: String = "";
-        Expression1: String = Conversion.Str((object) index) + ") " + this.game.Data.LandscapeTypeObj[index].Name;
+        Expression1: String = Conversion.Str( index) + ") " + this.game.Data.LandscapeTypeObj[index].Name;
         if (Strings.Len(Expression1) > 30)
           Expression1 = Strings.Left(str1, 15);
         str2: String = str1 + Expression1 + Strings.Space(29 - Math.Min(28, Strings.Len(Expression1)));
-        Expression2: String = "Att=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[index]));
+        Expression2: String = "Att=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[index]));
         str3: String = str2 + Expression2 + Strings.Space(13 - Strings.Len(Expression2));
-        Expression3: String = "Def=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[index]));
+        Expression3: String = "Def=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[index]));
         tname: String = str3 + Expression3 + Strings.Space(13 - Strings.Len(Expression3));
-        if ((double) this.game.Data.RuleVar[900] > 0.0)
+        if ( this.game.Data.RuleVar[900] > 0.0)
         {
-          str4: String = "ExtraRecon=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[index]));
+          str4: String = "ExtraRecon=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[index]));
           tname += str4;
         }
         this.CombatList2Obj.add(tname, index);
@@ -2561,7 +2561,7 @@ namespace WindowsApplication1
     pub void tabsheet4b()
     {
       this.ss = "Click to set the modifier for this sftype if it attacks this landscape. 1=no mod, 0.5=half power, 1.5=+50% power";
-      str1: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[this.detailnr]));
+      str1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2573,7 +2573,7 @@ namespace WindowsApplication1
         this.g13textid = this.AddSubPart( tsubpart, 650, 339, 400, 20, 0);
       }
       this.ss = "Click to set the modifier for this sftype if it defends in this landscape. 1=no mod, 0.5=half power, 1.5=+50% power";
-      str2: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[this.detailnr]));
+      str2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2584,10 +2584,10 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  TextPartClass::new("Def: " + str2, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.g14textid = this.AddSubPart( tsubpart, 650, 359, 400, 20, 0);
       }
-      if ((double) this.game.Data.RuleVar[900] > 0.0)
+      if ( this.game.Data.RuleVar[900] > 0.0)
       {
         this.ss = "Click to set the recon value this SFType has if it looks through a special connection. Only for its main hex to direct connections.";
-        str3: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[this.detailnr]));
+        str3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ExtraRecon[this.detailnr]));
         if (Strings.Len(this.game.Data.MasterFile) == 0)
         {
           let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2641,7 +2641,7 @@ namespace WindowsApplication1
       let mut index: i32 = 0;
       do
       {
-        this.LogoListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.TempString[1100 + index] + " = '" + this.game.Data.SFTypeObj[this.SFtypeNr].LogoString[index] + "'" + " , nato=" + this.game.Data.TempString[1000 + index], index);
+        this.LogoListObj.add(Conversion.Str( index) + ") " + this.game.Data.TempString[1100 + index] + " = '" + this.game.Data.SFTypeObj[this.SFtypeNr].LogoString[index] + "'" + " , nato=" + this.game.Data.TempString[1000 + index], index);
         index += 1;
       }
       while (index <= 99);
@@ -2674,7 +2674,7 @@ namespace WindowsApplication1
       let mut preventCounter: i32 = this.game.Data.SFTypeObj[this.SFtypeNr].PreventCounter;
       for (let mut index: i32 = 0; index <= preventCounter; index += 1)
       {
-        str1: String = Conversion.Str((object) index) + ") ";
+        str1: String = Conversion.Str( index) + ") ";
         str2: String = this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn[index] <= -1 ? "ALL" : this.game.Data.TempString[400 + this.game.Data.SFTypeObj[this.SFtypeNr].PreventHitOn[index]];
         if (Strings.Len(str2) > 12)
           str2 = Strings.Left(str2, 12);
@@ -2683,10 +2683,10 @@ namespace WindowsApplication1
         if (Strings.Len(str4) > 12)
           str4 = Strings.Left(str4, 12);
         str5: String = str3 + str4 + Strings.Space(15 - Strings.Len(str4));
-        Expression1: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority[index]));
+        Expression1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PreventPriority[index]));
         str6: String = str5 + Expression1 + Strings.Space(10 - Strings.Len(Expression1));
-        Expression2: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance[index])) + "%";
-        this.PreventListObj.add(str6 + Expression2 + Strings.Space(10 - Strings.Len(Expression2)) + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints[index])), index);
+        Expression2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PreventChance[index])) + "%";
+        this.PreventListObj.add(str6 + Expression2 + Strings.Space(10 - Strings.Len(Expression2)) + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].PreventPoints[index])), index);
       }
       ListClass preventListObj = this.PreventListObj;
       let mut detailnr2: i32 = this.detailnr2;
@@ -2760,7 +2760,7 @@ namespace WindowsApplication1
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.p8id = this.AddSubPart( tsubpart2, 810, 340, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("MaxPrvPointsUsed=" + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsUsed), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart2 =  TextPartClass::new("MaxPrvPointsUsed=" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsUsed), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.p8textid = this.AddSubPart( tsubpart2, 850, 339, 400, 20, 0);
       this.ss = "How many preventers pts can this sftype use to be prevented it self by another sftype";
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -2768,7 +2768,7 @@ namespace WindowsApplication1
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.p9id = this.AddSubPart( tsubpart2, 810, 360, 32, 16, 1);
       }
-      tsubpart2 =  TextPartClass::new("MaxPrvPointsGiven" + Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsGiven), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart2 =  TextPartClass::new("MaxPrvPointsGiven" + Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].MaxPreventPointsGiven), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.p9textid = this.AddSubPart( tsubpart2, 850, 359, 400, 20, 0);
     }
 
@@ -2780,13 +2780,13 @@ namespace WindowsApplication1
       let mut modelVariantCounter: i32 = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCounter;
       for (let mut index: i32 = 0; index <= modelVariantCounter; index += 1)
       {
-        str1: String = Conversion.Str((object) index) + ") ";
+        str1: String = Conversion.Str( index) + ") ";
         str2: String = this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantName[index];
         if (Strings.Len(str2) > 28)
           str2 = Strings.Left(str2, 28);
         str3: String = str1 + str2 + Strings.Space(30 - Strings.Len(str2));
-        Expression: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck[index]));
-        this.VariantListObj.add(str3 + Expression + Strings.Space(10 - Strings.Len(Expression)) + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec[index])), index);
+        Expression: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantCheck[index]));
+        this.VariantListObj.add(str3 + Expression + Strings.Space(10 - Strings.Len(Expression)) + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelVariantExec[index])), index);
       }
       ListClass variantListObj = this.VariantListObj;
       let mut detailnr2: i32 = this.detailnr2;
@@ -2848,15 +2848,15 @@ namespace WindowsApplication1
       for (let mut index1: i32 = 0; index1 <= researchCounter; index1 += 1)
       {
         str1: String = "";
-        str2: String = Conversion.Str((object) index1) + ") " + this.game.Data.ResearchObj[index1].Name;
+        str2: String = Conversion.Str( index1) + ") " + this.game.Data.ResearchObj[index1].Name;
         if (Strings.Len(str2) > 17)
           str2 = Strings.Left(str2, 17);
         str3: String = str1 + str2 + Strings.Space(19 - Strings.Len(str2));
-        Expression1: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelLastState[index1]));
+        Expression1: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelLastState[index1]));
         str4: String = str3 + Expression1 + Strings.Space(5 - Strings.Len(Expression1));
-        Expression2: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelPossibleImp[index1]));
+        Expression2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelPossibleImp[index1]));
         str5: String = str4 + Expression2 + Strings.Space(5 - Strings.Len(Expression2));
-        Expression3: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveEvent[index1]));
+        Expression3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveEvent[index1]));
         str6: String = str5 + Expression3 + Strings.Space(5 - Strings.Len(Expression3));
         let mut Number: i32 = 0;
         let mut index2: i32 = 1;
@@ -2868,8 +2868,8 @@ namespace WindowsApplication1
         }
         Number = index2;
 label_9:
-        Expression4: String = Strings.Trim(Conversion.Str((object) Number));
-        this.ResListObj.add(str6 + Expression4 + Strings.Space(3 - Strings.Len(Expression4)) + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelAutoImprovement[index1])), index1);
+        Expression4: String = Strings.Trim(Conversion.Str( Number));
+        this.ResListObj.add(str6 + Expression4 + Strings.Space(3 - Strings.Len(Expression4)) + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelAutoImprovement[index1])), index1);
       }
       ListClass resListObj = this.ResListObj;
       let mut detailnr2: i32 = this.detailnr2;
@@ -2924,7 +2924,7 @@ label_9:
         this.v16textid = this.AddSubPart( tsubpart2, 50, 649, 400, 20, 0);
       }
       this.ss = "";
-      str7: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelIsBase));
+      str7: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelIsBase));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2933,7 +2933,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelisBase = " + str7, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v5textid = this.AddSubPart( tsubpart2, 450, 339, 400, 20, 0);
       this.ss = "";
-      str8: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostType));
+      str8: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostType));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2942,7 +2942,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelCostType = " + str8, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v6textid = this.AddSubPart( tsubpart2, 450, 359, 400, 20, 0);
       this.ss = "";
-      str9: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelCost));
+      str9: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCost));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2951,7 +2951,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelCost = " + str9, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v7textid = this.AddSubPart( tsubpart2, 450, 379, 400, 20, 0);
       this.ss = "";
-      str10: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerLevel));
+      str10: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerLevel));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2960,7 +2960,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelCostPerLevel = " + str10, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v8textid = this.AddSubPart( tsubpart2, 450, 399, 400, 20, 0);
       this.ss = "";
-      str11: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerSameModel));
+      str11: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerSameModel));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2969,7 +2969,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelCostPerSameModel= " + str11, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v9textid = this.AddSubPart( tsubpart2, 450, 419, 400, 20, 0);
       this.ss = "";
-      str12: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelNewEvent));
+      str12: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelNewEvent));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2978,7 +2978,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelNewEvent = " + str12, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v10textid = this.AddSubPart( tsubpart2, 450, 439, 400, 20, 0);
       this.ss = "";
-      str13: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelNameList));
+      str13: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelNameList));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2987,7 +2987,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelNameList strlID= " + str13, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v11textid = this.AddSubPart( tsubpart2, 450, 459, 400, 20, 0);
       this.ss = "";
-      str14: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowUpgrade));
+      str14: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowUpgrade));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -2996,7 +2996,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelAllowUpgrade = " + str14, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.v12textid = this.AddSubPart( tsubpart2, 450, 479, 400, 20, 0);
       this.ss = "";
-      str15: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowImprovements));
+      str15: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelAllowImprovements));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3005,7 +3005,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelAllowImprovements= " + str15, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v13textid = this.AddSubPart( tsubpart2, 750, 339, 400, 20, 0);
       this.ss = "";
-      str16: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveCostMod));
+      str16: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveCostMod));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3014,7 +3014,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelImproveCost= " + str16, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v14textid = this.AddSubPart( tsubpart2, 750, 359, 400, 20, 0);
       this.ss = "";
-      str17: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelItemType));
+      str17: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelItemType));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3023,7 +3023,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("Modelitemtype= " + str17, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v15textid = this.AddSubPart( tsubpart2, 750, 379, 400, 20, 0);
       this.ss = "";
-      str18: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelRegime));
+      str18: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelRegime));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3032,7 +3032,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("Modelregime= " + str18, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v17textid = this.AddSubPart( tsubpart2, 750, 419, 400, 20, 0);
       this.ss = "You need to have this research before you can make a NEW of this basemodel.";
-      str19: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0]));
+      str19: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0]));
       if (this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0] > -1)
         str19 = this.game.Data.ResearchObj[this.game.Data.SFTypeObj[this.SFtypeNr].ModelResearch[0]].Name;
       if (Strings.Len(this.game.Data.MasterFile) == 0)
@@ -3043,7 +3043,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("Modelresearch(0)= " + str19, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v18textid = this.AddSubPart( tsubpart2, 750, 439, 400, 20, 0);
       this.ss = "";
-      str20: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialForAll));
+      str20: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialForAll));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3051,7 +3051,7 @@ label_9:
       }
       tsubpart2 =  TextPartClass::new("ModelInitialForAll= " + str20, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v19textid = this.AddSubPart( tsubpart2, 750, 459, 400, 20, 0);
-      str21: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialEvent));
+      str21: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelInitialEvent));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3066,7 +3066,7 @@ label_9:
       }
       tsubpart2 =  TextPartClass::new("Copy all Model settings from #", Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v21textid = this.AddSubPart( tsubpart2, 750, 499, 400, 20, 0);
-      str22: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelExtraResearch));
+      str22: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelExtraResearch));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3075,7 +3075,7 @@ label_9:
       tsubpart2 =  TextPartClass::new("ModelExtraResearch=" + str22, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.v22textid = this.AddSubPart( tsubpart2, 750, 519, 400, 20, 0);
       this.ss = "Modifies the setting of upgrade cost for upgrading an SFType in the field for an old model. 1=normal";
-      str23: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].ModelSFTypeUpgrade));
+      str23: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].ModelSFTypeUpgrade));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         tsubpart2 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3100,7 +3100,7 @@ label_9:
       do
       {
         str: String = "";
-        Expression: String = Conversion.Str((object) index) + ") ";
+        Expression: String = Conversion.Str( index) + ") ";
         if (index == 1)
           Expression += "Staff";
         if (index == 2)
@@ -3147,7 +3147,7 @@ label_9:
           Expression += "";
         if (Strings.Len(Expression) > 30)
           Expression = Strings.Left(str, 15);
-        tname: String = str + Expression + Strings.Space(30 - Strings.Len(Expression)) + ("Score=" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[index])));
+        tname: String = str + Expression + Strings.Space(30 - Strings.Len(Expression)) + ("Score=" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[index])));
         num2 += 1;
         if (this.detailnr == index)
           num1 = num2;
@@ -3171,7 +3171,7 @@ label_9:
     pub void tabsheet6b()
     {
       this.ss = "Set the AIRolescore for this sftype. Basicly you set 100 at the role it is supposed to be used at.";
-      str: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr]));
+      str: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -3183,7 +3183,7 @@ label_9:
         this.h3textid = this.AddSubPart( tsubpart, 650, 339, 400, 20, 0);
       }
       this.ss = "Set the AIRolescore for this sftype. And all with the same Unitgroup";
-      Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr]));
+      Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.SFtypeNr].AIRoleScore[this.detailnr]));
       if (Strings.Len(this.game.Data.MasterFile) == 0)
       {
         let mut tsubpart: SubPartClass =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
@@ -3453,7 +3453,7 @@ label_9:
               }
               else
               {
-                let mut num13: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num13: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3469,7 +3469,7 @@ label_9:
               }
               else
               {
-                let mut num15: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num15: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3485,7 +3485,7 @@ label_9:
               }
               else
               {
-                let mut num17: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num17: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3501,7 +3501,7 @@ label_9:
               }
               else
               {
-                let mut num19: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num19: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3517,7 +3517,7 @@ label_9:
               }
               else
               {
-                let mut num21: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num21: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3545,7 +3545,7 @@ label_9:
               }
               else
               {
-                let mut num23: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num23: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3606,11 +3606,11 @@ label_9:
                     Number += 1;
                   }
                 }
-                let mut num25: i32 =  Interaction.MsgBox((object) ("Made " + Conversion.Str((object) Number) + " conversions throughout all the subformations in the units."));
+                let mut num25: i32 =  Interaction.MsgBox( ("Made " + Conversion.Str( Number) + " conversions throughout all the subformations in the units."));
               }
               else
               {
-                let mut num26: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and SFTypeCounter", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num26: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and SFTypeCounter", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3625,7 +3625,7 @@ label_9:
               }
               else
               {
-                let mut num27: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num27: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3640,7 +3640,7 @@ label_9:
               }
               else
               {
-                let mut num28: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num28: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3655,7 +3655,7 @@ label_9:
               }
               else
               {
-                let mut num29: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num29: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3743,7 +3743,7 @@ label_9:
               }
               else
               {
-                let mut num31: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num31: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3758,7 +3758,7 @@ label_9:
               }
               else
               {
-                let mut num32: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num32: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               filename2: String = this.game.HandyFunctionsObj.LoadSomething("Png|*.png|Bitmaps (*.bmp)|*.bmp", "Give SECOND File Name For Replacement of extra Symbol Sprite:", this.game.AppPath + "graphics\\", true);
               if (File.Exists(this.game.AppPath + "graphics/" + filename2))
@@ -3767,7 +3767,7 @@ label_9:
               }
               else
               {
-                let mut num33: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num33: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3782,7 +3782,7 @@ label_9:
               }
               else
               {
-                let mut num34: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num34: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.Tabsheet();
               windowReturnClass.SetFlag(true);
@@ -3805,7 +3805,7 @@ label_9:
               }
               else
               {
-                let mut num35: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num35: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -3820,7 +3820,7 @@ label_9:
               }
               else
               {
-                let mut num37: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num37: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -3916,7 +3916,7 @@ label_9:
               }
               else
               {
-                let mut num38: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num38: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeSFtypeListGUI(this.SFtypeNr);
               windowReturnClass.SetFlag(true);
@@ -3931,7 +3931,7 @@ label_9:
               }
               else
               {
-                let mut num39: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num39: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeSFtypeListGUI(this.SFtypeNr);
               windowReturnClass.SetFlag(true);
@@ -3946,7 +3946,7 @@ label_9:
               }
               else
               {
-                let mut num40: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num40: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeSFtypeListGUI(this.SFtypeNr);
               windowReturnClass.SetFlag(true);
@@ -3961,7 +3961,7 @@ label_9:
               }
               else
               {
-                let mut num41: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num41: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeSFtypeListGUI(this.SFtypeNr);
               windowReturnClass.SetFlag(true);
@@ -3978,7 +3978,7 @@ label_9:
               }
               else
               {
-                let mut num43: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and 99", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num43: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 99", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4013,7 +4013,7 @@ label_9:
               }
               else
               {
-                let mut num45: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num45: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4028,7 +4028,7 @@ label_9:
               }
               else
               {
-                let mut num47: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num47: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4043,14 +4043,14 @@ label_9:
               }
               else
               {
-                let mut num49: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 10000", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num49: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 10000", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
             if (num1 == this.b31id)
             {
-              let mut num50: i32 =  Interaction.MsgBox((object) "For all, or only selected peoplegroup", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
-              let mut num51: i32 =  Interaction.MsgBox((object) "Set true? yes=true.. no=false", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest");
+              let mut num50: i32 =  Interaction.MsgBox( "For all, or only selected peoplegroup", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
+              let mut num51: i32 =  Interaction.MsgBox( "Set true? yes=true.. no=false", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest");
               let mut sfTypeCounter: i32 = this.game.Data.SFTypeCounter;
               for (let mut index14: i32 = 0; index14 <= sfTypeCounter; index14 += 1)
               {
@@ -4089,7 +4089,7 @@ label_9:
               }
               else
               {
-                let mut num53: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num53: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4109,7 +4109,7 @@ label_9:
               }
               else
               {
-                let mut num55: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num55: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4124,7 +4124,7 @@ label_9:
               }
               else
               {
-                let mut num57: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num57: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4139,7 +4139,7 @@ label_9:
               }
               else
               {
-                let mut num59: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 4", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num59: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 4", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4154,7 +4154,7 @@ label_9:
               }
               else
               {
-                let mut num61: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num61: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4169,7 +4169,7 @@ label_9:
               }
               else
               {
-                let mut num63: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num63: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4190,7 +4190,7 @@ label_9:
               }
               else
               {
-                let mut num65: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 2", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num65: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 2", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4205,7 +4205,7 @@ label_9:
               }
               else
               {
-                let mut num67: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num67: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4218,7 +4218,7 @@ label_9:
               }
               else
               {
-                let mut num69: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num69: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeSFtypeListGUI(this.SFtypeNr);
               windowReturnClass.SetFlag(true);
@@ -4233,7 +4233,7 @@ label_9:
               }
               else
               {
-                let mut num71: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num71: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               let mut num72: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Initiative for DEFEND HEX, please.", "Shadow Empire : Planetary Conquest")));
               if (num72 > 0 & num72 < 999999)
@@ -4242,7 +4242,7 @@ label_9:
               }
               else
               {
-                let mut num73: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num73: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.MakeSFtypeListGUI(this.SFtypeNr);
               windowReturnClass.SetFlag(true);
@@ -4259,7 +4259,7 @@ label_9:
               }
               else
               {
-                let mut num75: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 99", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num75: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 99", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4274,7 +4274,7 @@ label_9:
               }
               else
               {
-                let mut num77: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num77: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4289,7 +4289,7 @@ label_9:
               }
               else
               {
-                let mut num79: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num79: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4311,7 +4311,7 @@ label_9:
               }
               else
               {
-                let mut num81: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num81: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4326,7 +4326,7 @@ label_9:
               }
               else
               {
-                let mut num83: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and maxLT", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num83: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and maxLT", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4341,7 +4341,7 @@ label_9:
               }
               else
               {
-                let mut num85: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 1 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num85: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 1 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4356,7 +4356,7 @@ label_9:
               }
               else
               {
-                let mut num87: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num87: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4371,7 +4371,7 @@ label_9:
               }
               else
               {
-                let mut num89: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9990", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num89: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9990", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4386,7 +4386,7 @@ label_9:
               }
               else
               {
-                let mut num91: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9990", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num91: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9990", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4395,13 +4395,13 @@ label_9:
               let mut num92: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New Art Attack score, please.", "Shadow Empire : Planetary Conquest")));
               if (num92 > -1 & num92 < 9990)
               {
-                this.game.Data.SFTypeObj[this.SFtypeNr].AttackArt[this.detailnr] = (object) num92;
+                this.game.Data.SFTypeObj[this.SFtypeNr].AttackArt[this.detailnr] =  num92;
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
               }
               else
               {
-                let mut num93: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9990", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num93: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9990", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4416,7 +4416,7 @@ label_9:
               }
               else
               {
-                let mut num95: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9990", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num95: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9990", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4431,7 +4431,7 @@ label_9:
               }
               else
               {
-                let mut num97: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num97: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4446,7 +4446,7 @@ label_9:
               }
               else
               {
-                let mut num99: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num99: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4461,7 +4461,7 @@ label_9:
               }
               else
               {
-                let mut num101: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num101: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4476,7 +4476,7 @@ label_9:
               }
               else
               {
-                let mut num103: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num103: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4491,7 +4491,7 @@ label_9:
               }
               else
               {
-                let mut num105: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num105: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4513,7 +4513,7 @@ label_9:
               }
               else
               {
-                let mut num107: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num107: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4528,7 +4528,7 @@ label_9:
               }
               else
               {
-                let mut num109: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100%", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num109: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100%", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4543,7 +4543,7 @@ label_9:
               }
               else
               {
-                let mut num111: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100%", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num111: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100%", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4558,7 +4558,7 @@ label_9:
               }
               else
               {
-                let mut num113: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100%", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num113: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100%", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4573,7 +4573,7 @@ label_9:
               }
               else
               {
-                let mut num115: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num115: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 9", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4588,7 +4588,7 @@ label_9:
               }
               else
               {
-                let mut num117: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100%", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num117: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100%", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               return windowReturnClass;
             }
@@ -4675,7 +4675,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num124: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num124: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4690,7 +4690,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num126: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 900", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num126: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 900", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4723,7 +4723,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num128: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 - 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num128: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 - 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4738,7 +4738,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num130: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 - 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num130: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 - 999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4753,7 +4753,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num132: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num132: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4768,7 +4768,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num134: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num134: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4783,7 +4783,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num136: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be valid sftype slot", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num136: i32 =  Interaction.MsgBox( "Cancelled. Value must be valid sftype slot", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4805,7 +4805,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num138: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num138: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4820,7 +4820,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num140: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num140: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4835,7 +4835,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num142: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 1", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num142: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 1", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4850,7 +4850,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num144: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 1", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num144: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 1", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4865,7 +4865,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num146: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 1", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num146: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 1", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4880,7 +4880,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num148: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num148: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4895,7 +4895,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num150: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num150: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4910,7 +4910,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num152: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num152: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4925,14 +4925,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num154: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num154: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.c15id)
               {
-                float num155 = (float) Conversion.Val(Interaction.InputBox("Give attack value modifier if out of stockpile", "Shadow Empire : Planetary Conquest"));
-                if ((double) num155 >= 0.0 & (double) num155 <= 99999.0)
+                float num155 =  Conversion.Val(Interaction.InputBox("Give attack value modifier if out of stockpile", "Shadow Empire : Planetary Conquest"));
+                if ( num155 >= 0.0 &  num155 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].StockpileDepletedMod = num155;
                   this.Tabsheet();
@@ -4940,7 +4940,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num156: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0.0 and 99999.0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num156: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0.0 and 99999.0", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4955,7 +4955,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num158: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num158: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4970,7 +4970,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num160: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num160: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -4985,14 +4985,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num162: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num162: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.c19id)
               {
-                float num163 = (float) Conversion.Val(Interaction.InputBox("Give attack value modifier if out of supply", "Shadow Empire : Planetary Conquest"));
-                if ((double) num163 >= 0.0 & (double) num163 <= 99999.0)
+                float num163 =  Conversion.Val(Interaction.InputBox("Give attack value modifier if out of supply", "Shadow Empire : Planetary Conquest"));
+                if ( num163 >= 0.0 &  num163 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyAttack = num163;
                   this.Tabsheet();
@@ -5000,14 +5000,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num164: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0.0 and 99999.0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num164: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0.0 and 99999.0", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.c20id)
               {
-                float num165 = (float) Conversion.Val(Interaction.InputBox("Give attack value modifier if out of supply", "Shadow Empire : Planetary Conquest"));
-                if ((double) num165 >= 0.0 & (double) num165 <= 99999.0)
+                float num165 =  Conversion.Val(Interaction.InputBox("Give attack value modifier if out of supply", "Shadow Empire : Planetary Conquest"));
+                if ( num165 >= 0.0 &  num165 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].OutOfSupplyDefense = num165;
                   this.Tabsheet();
@@ -5015,7 +5015,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num166: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0.0 and 99999.0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num166: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0.0 and 99999.0", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5030,7 +5030,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num168: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num168: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5077,7 +5077,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num171: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num171: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5099,7 +5099,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num173: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and 499", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num173: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and 499", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5114,7 +5114,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num175: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and regimecounter", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num175: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and regimecounter", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5129,7 +5129,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num177: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between -1 and researchcounter", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num177: i32 =  Interaction.MsgBox( "Cancelled. Value must be between -1 and researchcounter", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5144,14 +5144,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num179: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num179: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.c4id)
               {
-                float num180 = (float) Conversion.Val(Interaction.InputBox("Give Out of Fuel Move Modifier. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
-                if ((double) num180 >= 0.0 & (double) num180 <= 99999.0)
+                float num180 =  Conversion.Val(Interaction.InputBox("Give Out of Fuel Move Modifier. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
+                if ( num180 >= 0.0 &  num180 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelMove = num180;
                   this.Tabsheet();
@@ -5159,14 +5159,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num181: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num181: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.c6id)
               {
-                float num182 = (float) Conversion.Val(Interaction.InputBox("Give Out of Fuel Attack Modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
-                if ((double) num182 >= 0.0 & (double) num182 <= 99999.0)
+                float num182 =  Conversion.Val(Interaction.InputBox("Give Out of Fuel Attack Modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
+                if ( num182 >= 0.0 &  num182 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelAttack = num182;
                   this.Tabsheet();
@@ -5174,14 +5174,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num183: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num183: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.w133id)
               {
-                float num184 = (float) Conversion.Val(Interaction.InputBox("Give new 0.0-1.0 score", "Shadow Empire : Planetary Conquest"));
-                if ((double) num184 >= 0.0 & (double) num184 <= 1.0)
+                float num184 =  Conversion.Val(Interaction.InputBox("Give new 0.0-1.0 score", "Shadow Empire : Planetary Conquest"));
+                if ( num184 >= 0.0 &  num184 <= 1.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].ChanceOnDeathIfMakeHit = num184;
                   this.Tabsheet();
@@ -5189,14 +5189,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num185: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0.0 and 1.0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num185: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0.0 and 1.0", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.c7id)
               {
-                float num186 = (float) Conversion.Val(Interaction.InputBox("Give Out of Fuel Defend Modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
-                if ((double) num186 >= 0.0 & (double) num186 <= 99999.0)
+                float num186 =  Conversion.Val(Interaction.InputBox("Give Out of Fuel Defend Modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
+                if ( num186 >= 0.0 &  num186 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].OutOfFuelDefense = num186;
                   this.Tabsheet();
@@ -5204,14 +5204,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num187: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num187: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.v8id)
               {
-                float num188 = (float) Conversion.Val(Interaction.InputBox("Give New Cost modifier per level. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
-                if ((double) num188 >= 0.0 & (double) num188 <= 99999.0)
+                float num188 =  Conversion.Val(Interaction.InputBox("Give New Cost modifier per level. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
+                if ( num188 >= 0.0 &  num188 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerLevel = num188;
                   this.Tabsheet();
@@ -5219,14 +5219,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num189: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num189: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.v9id)
               {
-                float num190 = (float) Conversion.Val(Interaction.InputBox("Give New Cost modifier per same model. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
-                if ((double) num190 >= 0.0 & (double) num190 <= 99999.0)
+                float num190 =  Conversion.Val(Interaction.InputBox("Give New Cost modifier per same model. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
+                if ( num190 >= 0.0 &  num190 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].ModelCostPerSameModel = num190;
                   this.Tabsheet();
@@ -5234,7 +5234,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num191: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num191: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5320,14 +5320,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num192: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num192: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.v14id)
               {
-                float num193 = (float) Conversion.Val(Interaction.InputBox("Give New Cost modifier for improvement. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
-                if ((double) num193 >= 0.0 & (double) num193 <= 99999.0)
+                float num193 =  Conversion.Val(Interaction.InputBox("Give New Cost modifier for improvement. 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
+                if ( num193 >= 0.0 &  num193 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].ModelImproveCostMod = num193;
                   this.Tabsheet();
@@ -5335,14 +5335,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num194: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num194: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.v23id)
               {
-                float num195 = (float) Conversion.Val(Interaction.InputBox("Give New modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
-                if ((double) num195 >= 0.0 & (double) num195 <= 99999.0)
+                float num195 =  Conversion.Val(Interaction.InputBox("Give New modifier 0.x-x.x ", "Shadow Empire : Planetary Conquest"));
+                if ( num195 >= 0.0 &  num195 <= 99999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].ModelSFTypeUpgrade = num195;
                   this.Tabsheet();
@@ -5350,7 +5350,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num196: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num196: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5372,7 +5372,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num198: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num198: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5394,7 +5394,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num200: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num200: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5407,7 +5407,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num202: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num202: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 let mut num203: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new End Round (0=normal), please.", "Shadow Empire : Planetary Conquest")));
                 if (num203 > -1 & num203 < 9)
@@ -5416,7 +5416,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num204: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num204: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5433,7 +5433,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num206: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 99999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num206: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 99999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5447,8 +5447,8 @@ label_9:
               int num207;
               if (num1 == this.b36id)
               {
-                float num208 = (float) Conversion.Val(Interaction.InputBox("Give First Rounds Penalty Mod, please (0.0(gone)-1.0(normal)).", "Shadow Empire : Planetary Conquest"));
-                if ((double) num208 >= 0.0 & num207 <= 1)
+                float num208 =  Conversion.Val(Interaction.InputBox("Give First Rounds Penalty Mod, please (0.0(gone)-1.0(normal)).", "Shadow Empire : Planetary Conquest"));
+                if ( num208 >= 0.0 & num207 <= 1)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].FirstRoundPenaltyMod = num208;
                   this.MakeSFtypeListGUI(this.SFtypeNr);
@@ -5456,14 +5456,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num209: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be equal/between 0.0 and 1.0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num209: i32 =  Interaction.MsgBox( "Cancelled. Value must be equal/between 0.0 and 1.0", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.g4id)
               {
-                float num210 = (float) Conversion.Val(Interaction.InputBox("Give New Ap Mod, please.", "Shadow Empire : Planetary Conquest"));
-                if ((double) num210 > 0.0 & num207 < 10)
+                float num210 =  Conversion.Val(Interaction.InputBox("Give New Ap Mod, please.", "Shadow Empire : Planetary Conquest"));
+                if ( num210 > 0.0 & num207 < 10)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].ApMod = num210;
                   this.MakeSFtypeListGUI(this.SFtypeNr);
@@ -5471,7 +5471,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num211: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0.0 and 10.0", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num211: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0.0 and 10.0", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5486,17 +5486,17 @@ label_9:
                 }
                 else
                 {
-                  let mut num213: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num213: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.g7id)
               {
-                if (MsgBoxResult.Yes == Interaction.MsgBox((object) "AutoDestroy in Attack?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest"))
+                if (MsgBoxResult.Yes == Interaction.MsgBox( "AutoDestroy in Attack?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest"))
                   this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy = true;
                 else
                   this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy = false;
-                if (MsgBoxResult.Yes == Interaction.MsgBox((object) "AutoDestroy in Defense?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest"))
+                if (MsgBoxResult.Yes == Interaction.MsgBox( "AutoDestroy in Defense?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest"))
                   this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy2 = true;
                 else
                   this.game.Data.SFTypeObj[this.SFtypeNr].AutoDestroy2 = false;
@@ -5515,7 +5515,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num215: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 9999", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num215: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 9999", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
@@ -5530,14 +5530,14 @@ label_9:
                 }
                 else
                 {
-                  let mut num217: i32 =  Interaction.MsgBox((object) "Cancelled. Value must be between 0 and 100", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num217: i32 =  Interaction.MsgBox( "Cancelled. Value must be between 0 and 100", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 return windowReturnClass;
               }
               if (num1 == this.g10id)
               {
                 Left: String = "";
-                if (!Information.IsNothing((object) DrawMod.TGame) && !Information.IsNothing((object) DrawMod.TGame.Data.SoundDir))
+                if (!Information.IsNothing( DrawMod.TGame) && !Information.IsNothing( DrawMod.TGame.Data.SoundDir))
                   Left = DrawMod.TGame.Data.SoundDir;
                 if (Operators.CompareString(Left, "", false) == 0)
                   Left = DrawMod.TGame.ModSoundDir;
@@ -5549,7 +5549,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num218: i32 =  Interaction.MsgBox((object) "File does not exist. wav set to no sound.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num218: i32 =  Interaction.MsgBox( "File does not exist. wav set to no sound.", Title: ( "Shadow Empire : Planetary Conquest"));
                   this.game.Data.SFTypeObj[this.SFtypeNr].MoveWAV = "";
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
@@ -5559,7 +5559,7 @@ label_9:
               if (num1 == this.g11id)
               {
                 Left: String = "";
-                if (!Information.IsNothing((object) DrawMod.TGame) && !Information.IsNothing((object) DrawMod.TGame.Data.SoundDir))
+                if (!Information.IsNothing( DrawMod.TGame) && !Information.IsNothing( DrawMod.TGame.Data.SoundDir))
                   Left = DrawMod.TGame.Data.SoundDir;
                 if (Operators.CompareString(Left, "", false) == 0)
                   Left = DrawMod.TGame.ModSoundDir;
@@ -5571,7 +5571,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num219: i32 =  Interaction.MsgBox((object) "File does not exist. wav set to no sound.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num219: i32 =  Interaction.MsgBox( "File does not exist. wav set to no sound.", Title: ( "Shadow Empire : Planetary Conquest"));
                   this.game.Data.SFTypeObj[this.SFtypeNr].BattleWAV = "";
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
@@ -5580,14 +5580,14 @@ label_9:
               }
               if (num1 == this.g13id)
               {
-                float num220 = (float) Conversion.Val(Interaction.InputBox("Give att mod.", "Shadow Empire : Planetary Conquest"));
-                if ((double) num220 >= 0.0 & (double) num220 <= 999.0)
+                float num220 =  Conversion.Val(Interaction.InputBox("Give att mod.", "Shadow Empire : Planetary Conquest"));
+                if ( num220 >= 0.0 &  num220 <= 999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].CombatModAtt[this.detailnr] = num220;
                 }
                 else
                 {
-                  let mut num221: i32 =  Interaction.MsgBox((object) "Value between 0 - 999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num221: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5595,14 +5595,14 @@ label_9:
               }
               if (num1 == this.g14id)
               {
-                float num222 = (float) Conversion.Val(Interaction.InputBox("Give def mod.", "Shadow Empire : Planetary Conquest"));
-                if ((double) num222 >= 0.0 & (double) num222 <= 999.0)
+                float num222 =  Conversion.Val(Interaction.InputBox("Give def mod.", "Shadow Empire : Planetary Conquest"));
+                if ( num222 >= 0.0 &  num222 <= 999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].CombatModDef[this.detailnr] = num222;
                 }
                 else
                 {
-                  let mut num223: i32 =  Interaction.MsgBox((object) "Value between 0 - 999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num223: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5617,7 +5617,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num225: i32 =  Interaction.MsgBox((object) "Value between 0 - 9999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num225: i32 =  Interaction.MsgBox( "Value between 0 - 9999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5625,14 +5625,14 @@ label_9:
               }
               if (num1 == this.b29id)
               {
-                float num226 = (float) Conversion.Val(Interaction.InputBox("Give staffcombatmod... 0.0=none, 1.0=100%", "Shadow Empire : Planetary Conquest"));
-                if ((double) num226 >= 0.0 & (double) num226 <= 999.0)
+                float num226 =  Conversion.Val(Interaction.InputBox("Give staffcombatmod... 0.0=none, 1.0=100%", "Shadow Empire : Planetary Conquest"));
+                if ( num226 >= 0.0 &  num226 <= 999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].StaffCombatMod = num226;
                 }
                 else
                 {
-                  let mut num227: i32 =  Interaction.MsgBox((object) "Value between 0 - 999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num227: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5640,14 +5640,14 @@ label_9:
               }
               if (num1 == this.b30id)
               {
-                float num228 = (float) Conversion.Val(Interaction.InputBox("Give staffmoralemod... 0.0=none, 1.0=100%", "Shadow Empire : Planetary Conquest"));
-                if ((double) num228 >= 0.0 & (double) num228 <= 999.0)
+                float num228 =  Conversion.Val(Interaction.InputBox("Give staffmoralemod... 0.0=none, 1.0=100%", "Shadow Empire : Planetary Conquest"));
+                if ( num228 >= 0.0 &  num228 <= 999.0)
                 {
                   this.game.Data.SFTypeObj[this.SFtypeNr].StaffMoraleMod = num228;
                 }
                 else
                 {
-                  let mut num229: i32 =  Interaction.MsgBox((object) "Value between 0 - 999 plz.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num229: i32 =  Interaction.MsgBox( "Value between 0 - 999 plz.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5662,7 +5662,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num231: i32 =  Interaction.MsgBox((object) "btween 0-9999 pls", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num231: i32 =  Interaction.MsgBox( "btween 0-9999 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5677,7 +5677,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num233: i32 =  Interaction.MsgBox((object) "btween 0-99 pls", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num233: i32 =  Interaction.MsgBox( "btween 0-99 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5692,7 +5692,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num235: i32 =  Interaction.MsgBox((object) "btween 0-9999 pls", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num235: i32 =  Interaction.MsgBox( "btween 0-9999 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5707,7 +5707,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num237: i32 =  Interaction.MsgBox((object) "btween 0-100 pls", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num237: i32 =  Interaction.MsgBox( "btween 0-100 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5722,7 +5722,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num239: i32 =  Interaction.MsgBox((object) "btween 0-10009 pls", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num239: i32 =  Interaction.MsgBox( "btween 0-10009 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5737,7 +5737,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num241: i32 =  Interaction.MsgBox((object) "btween 0-19000 pls", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num241: i32 =  Interaction.MsgBox( "btween 0-19000 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5752,7 +5752,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num243: i32 =  Interaction.MsgBox((object) "btween 0-1000 pls", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num243: i32 =  Interaction.MsgBox( "btween 0-1000 pls", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);
@@ -5767,7 +5767,7 @@ label_9:
                 }
                 else
                 {
-                  let mut num245: i32 =  Interaction.MsgBox((object) "btween 0-499 pls.. or -1 for none", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num245: i32 =  Interaction.MsgBox( "btween 0-499 pls.. or -1 for none", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeSFtypeListGUI(this.SFtypeNr);
                 windowReturnClass.SetFlag(true);

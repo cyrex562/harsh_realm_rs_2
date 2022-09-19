@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System.CodeDom.Compiler;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.Resources;
-using System.Runtime.CompilerServices;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem.CodeDom.Compiler;
+// usingSystem.ComponentModel;
+// usingSystem.Diagnostics;
+// usingSystem.Globalization;
+// usingSystem.Resources;
+// usingSystem.Runtime.CompilerServices;
 
 namespace WindowsApplication1.My.Resources
 {
@@ -30,7 +30,7 @@ namespace WindowsApplication1.My.Resources
     {
       get
       {
-        if (object.ReferenceEquals((object) WindowsApplication1.My.Resources.Resources.resourceMan, (object) null))
+        if (object.ReferenceEquals( WindowsApplication1.My.Resources.Resources.resourceMan,  null))
           WindowsApplication1.My.Resources.Resources.resourceMan = new ResourceManager("WindowsApplication1.Resources", typeof (WindowsApplication1.My.Resources.Resources).Assembly);
         return WindowsApplication1.My.Resources.Resources.resourceMan;
       }

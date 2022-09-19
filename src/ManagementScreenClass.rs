@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -20,7 +20,7 @@ namespace WindowsApplication1
     pub ManagementScreenClass( GameClass tgame, Form1 tformref)
       : base( tgame, -3, tformref)
     {
-      this.OffSetX =  Math.Round((double) (this.Game.ScreenWidth - 1280) / 2.0);
+      this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1280) / 2.0);
       this.Game.HandyFunctionsObj.SetGameColors();
       Rectangle rectangle1;
       if (this.Game.EditObj.se1_ManagementTab <= 51)

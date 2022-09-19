@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -47,7 +47,7 @@ namespace WindowsApplication1
       {
         if (Strings.InStr(String1_1, "[tab]") <= 0)
           String1_1 = "[tab]Scenario description," + String1_1 + "[/tab]";
-        str1: String = String1_1 + "[tab]Version info," + "Game version: " + "v " + Strings.Trim(Conversion.Str((object) Math.Floor(1.1))) + "." + Strings.Trim(Conversion.Str((object) 10)) + " " + Strings.Trim(".04b") + " Shadow Empire : Planetary Conquest. " + "\r\n" + "Scenario name: " + self.game.Data.Name + "\r\n";
+        str1: String = String1_1 + "[tab]Version info," + "Game version: " + "v " + Strings.Trim(Conversion.Str( Math.Floor(1.1))) + "." + Strings.Trim(Conversion.Str( 10)) + " " + Strings.Trim(".04b") + " Shadow Empire : Planetary Conquest. " + "\r\n" + "Scenario name: " + self.game.Data.Name + "\r\n";
         if (self.game.Data.scenarioVersion.Length >= 2)
           str1 = str1 + "Scenario version: " + self.game.Data.scenarioVersion + "\r\n";
         else if (self.game.Data.RegimeObj[self.game.Data.Turn].Version > 0)
@@ -55,10 +55,10 @@ namespace WindowsApplication1
           str2: String = str1 + "Last turn game version: ";
           string str3;
           if ((self.game.Data.RegimeObj[self.game.Data.Turn].Version - 314) % 100 >= 10)
-            str3 = str2 + "v " + Strings.Trim(Conversion.Str((object) Math.Floor((double) (self.game.Data.RegimeObj[self.game.Data.Turn].Version - 314) / 100.0))) + "." + Strings.Trim(Conversion.Str((object) 10));
+            str3 = str2 + "v " + Strings.Trim(Conversion.Str( Math.Floor( (self.game.Data.RegimeObj[self.game.Data.Turn].Version - 314) / 100.0))) + "." + Strings.Trim(Conversion.Str( 10));
           else
-            str3 = str2 + "v " + Strings.Trim(Conversion.Str((object) Math.Floor((double) (self.game.Data.RegimeObj[self.game.Data.Turn].Version - 314) / 100.0))) + ".0" + Strings.Trim(Conversion.Str((object) 10));
-          if (!Information.IsNothing((object) self.game.Data.RegimeObj[self.game.Data.Turn].subVersion))
+            str3 = str2 + "v " + Strings.Trim(Conversion.Str( Math.Floor( (self.game.Data.RegimeObj[self.game.Data.Turn].Version - 314) / 100.0))) + ".0" + Strings.Trim(Conversion.Str( 10));
+          if (!Information.IsNothing( self.game.Data.RegimeObj[self.game.Data.Turn].subVersion))
             str3 += self.game.Data.RegimeObj[self.game.Data.Turn].subVersion;
           str1 = str3 + "\r\n";
         }

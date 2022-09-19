@@ -1,4 +1,5 @@
 ﻿// Decompiled with JetBrains decompiler
+#![allow(non_snake_case)]
 // Type: WindowsApplication1.ActionCardWindowClass
 // Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
@@ -214,7 +215,7 @@ impl ActionCardWindowClass {
         if self.BNameTextId > 0 {
             self.RemoveSubPart(self.BNameTextId);
         }
-        if (self.BRemoveUnitId > 0) {
+        if self.BRemoveUnitId > 0 {
             self.RemoveSubPart(self.BRemoveUnitId);
         }
         if (self.BRemoveUnitTextId > 0) {

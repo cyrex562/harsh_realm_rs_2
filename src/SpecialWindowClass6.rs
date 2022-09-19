@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -245,7 +245,7 @@ namespace WindowsApplication1
         }
       }
       self.assetButtonCounter = -1;
-      if (Information.IsNothing((object) self.game.EditObj.se1_leaderColumns))
+      if (Information.IsNothing( self.game.EditObj.se1_leaderColumns))
       {
         self.game.EditObj.se1_leaderColumns = SimpleList::new();
         self.game.EditObj.se1_leaderColumns.Add(self.FIX_KEY_RELATION, 0);
@@ -302,7 +302,7 @@ namespace WindowsApplication1
         self.game.EditObj.se1_leaderColumns.Data5[index] = self.game.EditObj.se1_leaderColumns.Id[index];
       self.game.EditObj.se1_leaderColumns.SortOnData5();
       self.leaderStr = new StringListClass(0);
-      self.maxSelection =  Math.Round(Conversion.Val((object) ((double) (self.useWidth - 550) / 50.0)));
+      self.maxSelection =  Math.Round(Conversion.Val( ( (self.useWidth - 550) / 50.0)));
       self.curSelection = 0;
       self.leaderStr.AddCol(-1, "Char ID");
       let mut counter2: i32 = self.game.EditObj.se1_leaderColumns.Counter;
@@ -316,7 +316,7 @@ namespace WindowsApplication1
           self.tempColId[self.curSelection] = self.game.EditObj.se1_leaderColumns.Id[index];
         }
       }
-      let mut num1: i32 =  Math.Round(Conversion.Val((object) self.game.Data.StringListObj[self.slotSkillTypes].GetHighestValue(0)));
+      let mut num1: i32 =  Math.Round(Conversion.Val( self.game.Data.StringListObj[self.slotSkillTypes].GetHighestValue(0)));
       let mut length1: i32 = self.game.Data.StringListObj[self.slotCharacter].Length;
       for (let mut index1: i32 = 0; index1 <= length1; index1 += 1)
       {
@@ -410,7 +410,7 @@ namespace WindowsApplication1
                 if (num6 == self.FIX_KEY_AGE)
                 {
                   nr = self.game.Data.Round -  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.slotCharacter].Data[index1, 16]));
-                  nr =  Math.Round(Math.Floor((double) nr / 6.0));
+                  nr =  Math.Round(Math.Floor( nr / 6.0));
                   str1 = nr.ToString();
                 }
                 if (num6 == self.FIX_STAT_STR)
@@ -648,7 +648,7 @@ namespace WindowsApplication1
       self.listId = self.AddSubPart( tsubpart1, left1, top1, num2, (tlistsize1 + 1) * 24, 1);
       let mut num4: i32 = top1 + 210;
       self.List2Obj = ListClass::new();
-      let mut tlistsize2: i32 =  Math.Round(Math.Floor((double) (rectangle1.Height - (num4 + 50)) / 26.0)) - 1;
+      let mut tlistsize2: i32 =  Math.Round(Math.Floor( (rectangle1.Height - (num4 + 50)) / 26.0)) - 1;
       let mut num5: i32 = 1 - 1;
       self.List2Obj.add("None", -2);
       self.List2Obj.add("All", 0);
@@ -672,7 +672,7 @@ namespace WindowsApplication1
       str1: String = "Leaders";
       DrawMod.DrawTextColouredMarc( g, str1, self.game.MarcFont2, x1, y3, Color.White);
       SizeF sizeF2 = g.MeasureString(str1, self.game.MarcFont2);
-      let mut x2: i32 =  Math.Round((double) rectangle2.Left + (double) sizeF2.Width + 40.0);
+      let mut x2: i32 =  Math.Round( rectangle2.Left +  sizeF2.Width + 40.0);
       let mut num6: i32 = 75;
       let mut y4: i32 = rectangle2.Top + 3;
       let mut tsubpart3: SubPartClass =  new SEBigTextPartClass("Reset", "Change back to default selection of data columns", self.game.EditObj.se1_modelView == 0, num6, 44);
@@ -682,14 +682,14 @@ namespace WindowsApplication1
       let mut top2: i32 = rectangle3.Top;
       let mut height2: i32 = 57;
       let mut width3: i32 = rectangle3.Width;
-      let mut num8: i32 =  Math.Round(Math.Floor((double) (rectangle3.Height - 20) / (double) height2));
-      let mut num9: i32 = 1 +  Math.Round(Math.Floor((double) (self.leaderStr.Length + 1 - 1) / (double) num8));
+      let mut num8: i32 =  Math.Round(Math.Floor( (rectangle3.Height - 20) /  height2));
+      let mut num9: i32 = 1 +  Math.Round(Math.Floor( (self.leaderStr.Length + 1 - 1) /  num8));
       if (num9 < self.game.EditObj.se1_leaderPage)
         self.game.EditObj.se1_leaderPage = num9;
       if (self.game.EditObj.se1_leaderPage < 1)
         self.game.EditObj.se1_leaderPage = 1;
       let mut num10: i32 = (self.game.EditObj.se1_leaderPage - 1) * num8 + 1;
-      let mut num11: i32 =  Math.Round(Math.Floor((double) (rectangle2.Width - 400) / (double) num9));
+      let mut num11: i32 =  Math.Round(Math.Floor( (rectangle2.Width - 400) /  num9));
       if (num11 > 100)
         num11 = 100;
       let mut num12: i32 = left2;
@@ -720,7 +720,7 @@ namespace WindowsApplication1
       let mut num19: i32 = 20;
       let mut num20: i32 = 100;
       if (self.curSelection > 0)
-        num20 =  Math.Round(Math.Floor((double) (rectangle3.Width - 420) / (double) self.curSelection));
+        num20 =  Math.Round(Math.Floor( (rectangle3.Width - 420) /  self.curSelection));
       if (num20 > 150)
         num20 = 150;
       let mut length: i32 = self.leaderStr.Length;
@@ -783,7 +783,7 @@ namespace WindowsApplication1
               let mut num22: i32 = Strings.InStr(str2, " ");
               if (num22 > 0)
                 str2 = Strings.Left(str2, num22 - 1) + "\r\n" + Strings.Mid(str2, num22 + 1);
-              for (SizeF sizeF3 = g.MeasureString(str2, self.game.MarcFont5); (double) sizeF3.Width > (double) num20; sizeF3 = g.MeasureString(str2, self.game.MarcFont5))
+              for (SizeF sizeF3 = g.MeasureString(str2, self.game.MarcFont5);  sizeF3.Width >  num20; sizeF3 = g.MeasureString(str2, self.game.MarcFont5))
                 str2 = Strings.Left(str2, str2.Length - 1);
               DrawMod.DrawTextColouredMarc( g, str2, self.game.MarcFont5, x6, num16 - 28, Color.White);
               rectangle5 = Rectangle::new(x6, num16 - 32, num20, 32);
@@ -792,7 +792,7 @@ namespace WindowsApplication1
             }
             str3: String = self.leaderStr.Data[index1, index2];
             ttext: String = self.leaderStr.TempDesc[index1, index2];
-            for (SizeF sizeF4 = g.MeasureString(str3, self.game.MarcFont4); (double) sizeF4.Width > (double) num20; sizeF4 = g.MeasureString(str3, self.game.MarcFont4))
+            for (SizeF sizeF4 = g.MeasureString(str3, self.game.MarcFont4);  sizeF4.Width >  num20; sizeF4 = g.MeasureString(str3, self.game.MarcFont4))
               str3 = Strings.Left(str3, str3.Length - 1);
             DrawMod.DrawTextColouredMarc( g, str3, self.game.MarcFont4, x6, num16 + num19, Color.White);
             if (ttext.Length > 1)

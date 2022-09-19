@@ -4,16 +4,16 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Text;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Windows.Forms;
-using WindowsApplication1.My;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
+// usingWindowsApplication1.My;
 
 namespace WindowsApplication1
 {
@@ -39,16 +39,16 @@ namespace WindowsApplication1
     pub EditorName: String;
     pub AlternativeGraphics: String;
     pub dlc_Counter: i32;
-    pub int[] dlc_ID;
+    pub dlc_ID: Vec<i32>;
     pub const let mut dlc_SE_Astro: i32 =  1;
     pub const let mut dlc_SE_Navy: i32 =  2;
     pub modlib_Counter: i32;
     pub string[] modlib_Name;
     pub string[] modlib_Designer;
     pub string[] modlib_Description;
-    pub int[] modlib_Version;
+    pub modlib_Version: Vec<i32>;
     pub string[] modlib_Filename;
-    pub bool[] modlib_Flagged;
+    pub modlib_Flagged: Vec<bool>;
     pub IsWin10: bool;
     pub const let mut MAXROUND: i32 =  10;
     pub theaterThreadBlock: bool;
@@ -357,18 +357,18 @@ namespace WindowsApplication1
     pub BUYBUTTON: i32;
     pub BLOWLOCATIONBUTTON: i32;
     pub DEFAULTCOUNTERSMALL: i32;
-    pub int[] PERCENT;
+    pub PERCENT: Vec<i32>;
     pub PRODSUPPLY: i32;
     pub PRODPP: i32;
     pub PERCENTX: i32;
     pub SHADEDHEX: i32;
     pub BUTTONAIRSUPPLY: i32;
-    pub int[] BORDER;
-    pub int[] MAPBORDER;
-    pub int[] ZONEBORDER;
-    pub int[] LIGHTZONEBORDER;
+    pub BORDER: Vec<i32>;
+    pub MAPBORDER: Vec<i32>;
+    pub ZONEBORDER: Vec<i32>;
+    pub LIGHTZONEBORDER: Vec<i32>;
     pub LOGIN: i32;
-    pub int[] NOBRIDGE;
+    pub NOBRIDGE: Vec<i32>;
     pub BUTTONLEFT2: i32;
     pub BUTTONRIGHT2: i32;
     pub BLACKHEX: i32;
@@ -571,8 +571,8 @@ namespace WindowsApplication1
     pub COMBATICONS: i32;
     pub DC4COUNTER: i32;
     pub FRONTLINETILESET: i32;
-    pub int[] FOG;
-    pub int[] SHROWD;
+    pub FOG: Vec<i32>;
+    pub SHROWD: Vec<i32>;
     pub ARROWSHEET: i32;
     pub WHITEHEXTRANS: i32;
     pub WHITEHEXTRANS2: i32;
@@ -585,9 +585,9 @@ namespace WindowsApplication1
     pub RESEARCHOVERPRINT: i32;
     pub int[,,,,,] SPRITE64;
     pub int[,,,,,] ARROW64;
-    pub int[] SHEETX;
-    pub int[] SHEETY;
-    pub int[] NATO;
+    pub SHEETX: Vec<i32>;
+    pub SHEETY: Vec<i32>;
+    pub NATO: Vec<i32>;
     pub HEIGHTMAP_BEACH: i32;
     pub HEIGHTMAP_SHADOW1: i32;
     pub HEIGHTMAP_SHADOW2: i32;
@@ -744,12 +744,12 @@ namespace WindowsApplication1
     pub ModExtraSound: String;
     pub ModScenario: String;
     pub ModCounter: i32;
-    pub int[] ModButSize;
-    pub int[] ModButX;
-    pub int[] ModButY;
+    pub ModButSize: Vec<i32>;
+    pub ModButX: Vec<i32>;
+    pub ModButY: Vec<i32>;
     pub string[] ModButText;
-    pub int[] ModButActive;
-    pub int[] ModButType;
+    pub ModButActive: Vec<i32>;
+    pub ModButType: Vec<i32>;
     pub string[] ModButDatastring;
     pub string[] ModButDatastring2;
     pub ModGfxReplaceCounter: i32;
@@ -853,10 +853,10 @@ namespace WindowsApplication1
     pub PrivateFontCollection FontCol2;
     pub PrivateFontCollection[] DynFontCol;
     pub Font[] DynFont;
-    pub int[] DynFontSize;
-    pub int[] DynFontStyle;
+    pub DynFontSize: Vec<i32>;
+    pub DynFontStyle: Vec<i32>;
     pub string[] DynFontFileName;
-    pub bool[] DynFontWorld;
+    pub DynFontWorld: Vec<bool>;
     pub DynFontCount: i32;
     pub Form1 FormRef;
     pub Thread AIThread;
@@ -897,7 +897,7 @@ namespace WindowsApplication1
       let mut num1: i32 =  -1;
       if (size < 1)
         size = 16;
-      if (Information.IsNothing((object) name))
+      if (Information.IsNothing( name))
         name = "georgia.ttf";
       if (Operators.CompareString(name, "", false) == 0)
         name = "georgia.ttf";
@@ -913,13 +913,13 @@ namespace WindowsApplication1
       }
       if (this.DynFontCount >= 99)
       {
-        let mut num2: i32 =   Interaction.MsgBox((object) "Max Dynamic Font use (99 slots) exceeded! Creation of font aborted.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =   Interaction.MsgBox( "Max Dynamic Font use (99 slots) exceeded! Creation of font aborted.", Title: ( "Shadow Empire : Planetary Conquest"));
         return 0;
       }
       if (!flag)
       {
         this += 1.DynFontCount;
-        if (Information.IsNothing((object) this.DynFontCol[this.DynFontCount]))
+        if (Information.IsNothing( this.DynFontCol[this.DynFontCount]))
           this.DynFontCol[this.DynFontCount] = PrivateFontCollection::new();
         try
         {
@@ -943,13 +943,13 @@ namespace WindowsApplication1
             switch (style)
             {
               case 1:
-                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0], (float) size, FontStyle.Bold, GraphicsUnit.World);
+                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0],  size, FontStyle.Bold, GraphicsUnit.World);
                 break;
               case 2:
-                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0], (float) size, FontStyle.Italic, GraphicsUnit.World);
+                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0],  size, FontStyle.Italic, GraphicsUnit.World);
                 break;
               default:
-                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0], (float) size, FontStyle.Regular, GraphicsUnit.World);
+                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0],  size, FontStyle.Regular, GraphicsUnit.World);
                 break;
             }
           }
@@ -958,13 +958,13 @@ namespace WindowsApplication1
             switch (style)
             {
               case 1:
-                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0], (float) size, FontStyle.Bold, GraphicsUnit.Pixel);
+                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0],  size, FontStyle.Bold, GraphicsUnit.Pixel);
                 break;
               case 2:
-                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0], (float) size, FontStyle.Italic, GraphicsUnit.Pixel);
+                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0],  size, FontStyle.Italic, GraphicsUnit.Pixel);
                 break;
               default:
-                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0], (float) size, FontStyle.Regular, GraphicsUnit.Pixel);
+                this.DynFont[this.DynFontCount] = Font::new(this.DynFontCol[this.DynFontCount].Families[0],  size, FontStyle.Regular, GraphicsUnit.Pixel);
                 break;
             }
           }
@@ -972,7 +972,7 @@ namespace WindowsApplication1
         catch (Exception ex)
         {
           ProjectData.SetProjectError(ex);
-          let mut num4: i32 =   Interaction.MsgBox((object) ("Error creating font: " + ex.Message), Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num4: i32 =   Interaction.MsgBox( ("Error creating font: " + ex.Message), Title: ( "Shadow Empire : Planetary Conquest"));
           num3 = -1;
           ProjectData.ClearProjectError();
           goto label_31;
@@ -1070,7 +1070,7 @@ label_30:
         catch (Exception ex1)
         {
           ProjectData.SetProjectError(ex1);
-          if (!Information.IsNothing((object) Expression))
+          if (!Information.IsNothing( Expression))
           {
             try
             {
@@ -1089,7 +1089,7 @@ label_30:
       }
       else
         this.AppPath_SAVEGAMES = this.AppPath + "savedgames\\";
-      if (Information.IsNothing((object) tformref))
+      if (Information.IsNothing( tformref))
         return;
       string str1;
       try
@@ -1102,7 +1102,7 @@ label_30:
         if (!(this.ModIntroType == 1 | this.ModIntroType == 2))
         {
           streamReader.Close();
-          let mut num: i32 =   Interaction.MsgBox((object) "Faulty Mod File");
+          let mut num: i32 =   Interaction.MsgBox( "Faulty Mod File");
           ProjectData.EndApp();
         }
         this.ModSystemGraphicsDirectory = streamReader.ReadLine();
@@ -1173,7 +1173,7 @@ label_30:
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        let mut num: i32 =   Interaction.MsgBox((object) "MOD FILE CAUSED AN ERROR", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( "MOD FILE CAUSED AN ERROR", Title: ( "Shadow Empire : Planetary Conquest"));
         ProjectData.EndApp();
         ProjectData.ClearProjectError();
       }
@@ -1357,7 +1357,7 @@ label_30:
       DrawMod.TGame = this;
       this.UseSlimDX = true;
       Application.DoEvents();
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading Fonts";
       this.GameCol1 = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       this.GameCol2 = Color.FromArgb( byte.MaxValue, 165, 165, 165);
@@ -1477,7 +1477,7 @@ label_30:
       this.gamefont2b = this.MarcFont4;
       this.GameFont3 = this.MarcFont4;
       BitmapStore.GiveGraphicsPath(this.AppPath + "graphics/");
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading System gfx";
       Application.DoEvents();
       this.REDBUTTON = BitmapStore.AddFile("systemgraphics/wide red normal.png", true);
@@ -1781,7 +1781,7 @@ label_30:
       this.ICONEX1_VARIED = BitmapStore.AddFile("systemgraphics/cat1/EX-Icon_varied.png", true);
       this.ICONEP = BitmapStore.AddFile("systemgraphics/cat1/EP-Icon.png", true);
       this.ICONVIGOR = BitmapStore.AddFile("systemgraphics/cat1/VIGOR-Icon.png", true);
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading System cat1";
       Application.DoEvents();
       this.SMALLCHAR1 = BitmapStore.AddFile("systemgraphics/cat1/small1.png", true);
@@ -1865,7 +1865,7 @@ label_30:
       this.BUTTONGUIDOWN = BitmapStore.AddFile("systemgraphics/cat1/buttondown.png", true);
       this.BUTTONSTEVE2 = this.BUTTONMARC1;
       this.BUTTONSTEVE2B = this.BUTTONMARC1b;
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading System gfx cat3";
       Application.DoEvents();
       this.BUTTONSEAATTACK = BitmapStore.AddFile("systemgraphics/cat3/buttonseaattack.png", true);
@@ -1915,14 +1915,14 @@ label_30:
       this.BUTTONLOAD = BitmapStore.AddFile("systemgraphics/cat3/buttonload.png", true);
       this.BUTTONUNLOAD = BitmapStore.AddFile("systemgraphics/cat3/buttonunload.png", true);
       this.BUTTONDIP = BitmapStore.AddFile("systemgraphics/cat3/buttondip.png", true);
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading Cards";
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading Fow Gfx";
       Application.DoEvents();
       this.FOGSHEET = BitmapStore.AddFile("systemgraphics/fog/fogofwar.png", true, true);
       this.SHROWDSHEET = BitmapStore.AddFile("systemgraphics/shrowd/shrowd.png", true, true);
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading 'Nato' Gfx";
       Application.DoEvents();
       str1 = "";
@@ -1932,19 +1932,19 @@ label_30:
         num1 = 0;
         int Number;
         Number += 1;
-        if (File.Exists(this.AppPath + "graphics/systemgraphics/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png"))
+        if (File.Exists(this.AppPath + "graphics/systemgraphics/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png"))
         {
           this.NATO = (int[]) Utils.CopyArray((Array) this.NATO, (Array) new int[Number + 1]);
           num1 = 1;
-          this.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png", true, true);
+          this.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png", true, true);
         }
         if (num1 == 0)
         {
-          if (File.Exists(this.AppPath + "graphics/" + this.ModSystemGraphicsDirectory + "/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png"))
+          if (File.Exists(this.AppPath + "graphics/" + this.ModSystemGraphicsDirectory + "/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png"))
           {
             this.NATO = (int[]) Utils.CopyArray((Array) this.NATO, (Array) new int[Number + 1]);
             num1 = 1;
-            this.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str((object) Number)) + ".png", true, true);
+            this.NATO[Number] = BitmapStore.AddFile("systemgraphics/" + this.ModNatoCounters + "/" + Strings.Trim(Conversion.Str( Number)) + ".png", true, true);
           }
         }
       }
@@ -2198,21 +2198,21 @@ label_30:
       if (this.ModScenario.Length > 1)
       {
         str2: String = this.AppPath + this.ModScenario;
-        if (!Information.IsNothing((object) tformref))
+        if (!Information.IsNothing( tformref))
           tformref.Label1.Text = "Loading Scn Gfx 1/6";
         Application.DoEvents();
         this.HandyFunctionsObj.Unzip(str2);
-        if (!Information.IsNothing((object) tformref))
+        if (!Information.IsNothing( tformref))
           tformref.Label1.Text = "Loading Scn Gfx 2/6";
         Application.DoEvents();
         this.Data = DataClass.deserialize(str2);
-        if (!Information.IsNothing((object) tformref))
+        if (!Information.IsNothing( tformref))
           tformref.Label1.Text = "Loading Scn Gfx 3/6";
         Application.DoEvents();
         this.HandyFunctionsObj.ZipFile(str2);
         this.Data.LoadGraphics(tformref);
       }
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Finishing Up";
       Application.DoEvents();
       this.CustomBitmapObj = new CustomBitmapClass(this);
@@ -2312,7 +2312,7 @@ label_30:
           {
             Expression1: String = streamReader.ReadLine();
             Expression2: String = streamReader.ReadLine();
-            if (!Information.IsNothing((object) Expression1) & !Information.IsNothing((object) Expression2))
+            if (!Information.IsNothing( Expression1) & !Information.IsNothing( Expression2))
             {
               bool boolean = Conversions.ToBoolean(Expression2);
               let mut modlibCounter: i32 =  this.modlib_Counter;

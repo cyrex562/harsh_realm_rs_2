@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Threading;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Threading;
 
 namespace WindowsApplication1
 {
@@ -254,8 +254,8 @@ namespace WindowsApplication1
         this.game.SelectY = this.game.EditObj.HisHotY;
         this.game.EditObj.MapSelected = this.game.EditObj.HisHotMap;
       }
-      let mut num4: i32 =   Math.Round((double) this.game.ScreenWidth / 53.0);
-      let mut num5: i32 =   Math.Round((double) (this.game.ScreenHeight - 200) / 48.0);
+      let mut num4: i32 =   Math.Round( this.game.ScreenWidth / 53.0);
+      let mut num5: i32 =   Math.Round( (this.game.ScreenHeight - 200) / 48.0);
       let mut num6: i32 =  0;
       if (this.game.SelectX <= this.game.CornerX + 1)
         num6 = 1;
@@ -270,8 +270,8 @@ namespace WindowsApplication1
       if (num6 != 1)
         return;
       this.game.EditObj.TempCoordList = CoordList::new();
-      let mut num7: i32 =   Math.Round((double) this.game.SelectX - (double) num4 / 2.0);
-      let mut num8: i32 =   Math.Round((double) this.game.SelectY - (double) num5 / 2.0);
+      let mut num7: i32 =   Math.Round( this.game.SelectX -  num4 / 2.0);
+      let mut num8: i32 =   Math.Round( this.game.SelectY -  num5 / 2.0);
       if (0 > num7)
         num7 = 0;
       if (0 > num8)
@@ -287,8 +287,8 @@ namespace WindowsApplication1
       let mut num9: i32 =  265;
       if (this.game.Data.Round == 0)
         num9 += 100;
-      let mut num10: i32 =   Math.Round((double) (this.game.ScreenWidth - 0) / 53.0);
-      let mut num11: i32 =   Math.Round((double) (this.game.ScreenHeight - num9) / 48.0);
+      let mut num10: i32 =   Math.Round( (this.game.ScreenWidth - 0) / 53.0);
+      let mut num11: i32 =   Math.Round( (this.game.ScreenHeight - num9) / 48.0);
       let mut num12: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
       let mut num13: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
       if (num10 > num12)
@@ -307,7 +307,7 @@ namespace WindowsApplication1
     pub void dostuffonlyslider()
     {
       this.writing = true;
-      let mut num1: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 =  5;
       if (this.Slider1Id > 0)
         this.RemoveSubPart(this.Slider1Id);
@@ -315,7 +315,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.ExitId);
       if (this.StartStep > -1)
       {
-        let mut tsubpart: SubPartClass =  new NumberSliderSubPartClass2(this.game, "Step", " of " + Conversion.Str((object) Math.Max(this.Curstep, this.EndStep)), 340, 0, this.EndStep, this.Curstep, tbackbitmap: ( this.OwnBitmap), bbx: (num1 + 5), bby: (num2 + 50));
+        let mut tsubpart: SubPartClass =  new NumberSliderSubPartClass2(this.game, "Step", " of " + Conversion.Str( Math.Max(this.Curstep, this.EndStep)), 340, 0, this.EndStep, this.Curstep, tbackbitmap: ( this.OwnBitmap), bbx: (num1 + 5), bby: (num2 + 50));
         this.Slider1Id = this.AddSubPart( tsubpart, num1 + 5, num2 + 50, 340, 40, 0);
       }
       if (this.HumanPlayer == -1 | !this.game.AIThreadRunning)
@@ -383,7 +383,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.mapid);
       this.NewBackGroundAndClearAll(this.game.ScreenWidth, 250, -1);
       Graphics objGraphics = Graphics.FromImage((Image) this.OwnBitmap);
-      let mut num1: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 =  5;
       DrawMod.DrawBlock( objGraphics, 0, 0, this.game.ScreenWidth, 40,  this.game.VicColor5.R,  this.game.VicColor5.G,  this.game.VicColor5.B,  this.game.VicColor5.A);
       DrawMod.DrawBlock( objGraphics, 0, 40, this.game.ScreenWidth, 10,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
@@ -446,7 +446,7 @@ namespace WindowsApplication1
       }
       if (this.StartStep > -1)
       {
-        tsubpart1 =  new NumberSliderSubPartClass2(this.game, "Step", " of " + Conversion.Str((object) Math.Max(this.Curstep, this.EndStep)), 365, 0, this.EndStep, this.Curstep, tbackbitmap: ( this.OwnBitmap), bbx: (num1 + 5), bby: (num2 + 50));
+        tsubpart1 =  new NumberSliderSubPartClass2(this.game, "Step", " of " + Conversion.Str( Math.Max(this.Curstep, this.EndStep)), 365, 0, this.EndStep, this.Curstep, tbackbitmap: ( this.OwnBitmap), bbx: (num1 + 5), bby: (num2 + 50));
         this.Slider1Id = this.AddSubPart( tsubpart1, num1 + 5, num2 + 50, 365, 40, 0);
       }
       if (this.Curstep == 0)
@@ -488,7 +488,7 @@ namespace WindowsApplication1
               let mut Number2: i32 =  this.game.EditObj.HisLossDEAD[index1];
               if (this.game.Data.SFTypeObj[index2].Ratio > 0)
                 Number2 *= this.game.Data.SFTypeObj[index2].Ratio;
-              this.OptionsListObj.add(this.game.Data.SFTypeObj[index2].Name, -1, Strings.Trim(Conversion.Str((object) Number1)), Strings.Trim(Conversion.Str((object) Number2)));
+              this.OptionsListObj.add(this.game.Data.SFTypeObj[index2].Name, -1, Strings.Trim(Conversion.Str( Number1)), Strings.Trim(Conversion.Str( Number2)));
             }
           }
           tsubpart1 =  new ATListSubPartClass(this.OptionsListObj, 7, 290, -1, this.game, true, "ATTACKER: " + Strings.UCase(this.game.Data.RegimeObj[this.game.EditObj.HisLossAttReg].Name), tShowPair: true, tValueWidth: 140, tbackbitmap: ( this.OwnBitmap), bbx: (num1 + 400), bby: (num2 + 90));
@@ -515,7 +515,7 @@ namespace WindowsApplication1
                 Number3 *= this.game.Data.SFTypeObj[index4].Ratio;
               if (this.game.Data.SFTypeObj[index4].Ratio > 0)
                 Number4 *= this.game.Data.SFTypeObj[index4].Ratio;
-              this.OptionsList2Obj.add(this.game.Data.SFTypeObj[index4].Name, -1, Strings.Trim(Conversion.Str((object) Number3)), Strings.Trim(Conversion.Str((object) Number4)));
+              this.OptionsList2Obj.add(this.game.Data.SFTypeObj[index4].Name, -1, Strings.Trim(Conversion.Str( Number3)), Strings.Trim(Conversion.Str( Number4)));
             }
           }
           if (this.game.EditObj.HisLossDefReg < 0)
@@ -583,7 +583,7 @@ namespace WindowsApplication1
         tsubpart1 =  new ATTextPartClass(this.game.EditObj.HisInfoString, this.game.VicFont1, 600, 192, true, tBlackBack: true);
         this.info5id = this.AddSubPart( tsubpart1, num1 + 400, num2 + 49, 600, 192, 0);
       }
-      if (!Information.IsNothing((object) objGraphics))
+      if (!Information.IsNothing( objGraphics))
       {
         objGraphics.Dispose();
         objGraphics = (Graphics) null;
@@ -608,7 +608,7 @@ namespace WindowsApplication1
         if (nr == 27)
         {
           this.game.EditObj.TempCoordList = CoordList::new();
-          if ((double) this.game.Data.RuleVar[839] == 0.0)
+          if ( this.game.Data.RuleVar[839] == 0.0)
             windowReturnClass.AddCommand(3, 3);
           else
             windowReturnClass.AddCommand(3, 11);
@@ -628,7 +628,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (!Information.IsNothing((object) this.game.AIThread))
+      if (!Information.IsNothing( this.game.AIThread))
       {
         if (this.game.AIThread.ThreadState == ThreadState.Stopped)
         {
@@ -683,7 +683,7 @@ namespace WindowsApplication1
       if (this.AutoPlay & this.EndStep > 0)
       {
         TimeSpan timeSpan = DateAndTime.Now.Subtract(this.showtime);
-        if ((double) timeSpan.Ticks > 1000000.0 & this.game.EditObj.HisLossCounter == -1 | timeSpan.Ticks > 20000000L)
+        if ( timeSpan.Ticks > 1000000.0 & this.game.EditObj.HisLossCounter == -1 | timeSpan.Ticks > 20000000L)
         {
           if (this.HumanPlayer > -1)
             this.EndStep = this.game.HandyFunctionsObj.GetRegimeHistoryTotSteps(this.HumanPlayer);
@@ -722,7 +722,7 @@ namespace WindowsApplication1
             flag2 = false;
           }
         }
-        else if ((double) timeSpan.Ticks > 2500000.0 & this.game.AIRunning)
+        else if ( timeSpan.Ticks > 2500000.0 & this.game.AIRunning)
         {
           windowReturnClass.SetFlag(true);
           this.dostuff();
@@ -732,7 +732,7 @@ namespace WindowsApplication1
       else
       {
         TimeSpan timeSpan = DateAndTime.Now.Subtract(this.showtime);
-        if ((double) timeSpan.Ticks > 2500000.0 & this.game.AIRunning)
+        if ( timeSpan.Ticks > 2500000.0 & this.game.AIRunning)
         {
           this.EndStep = this.game.HandyFunctionsObj.GetRegimeHistoryTotSteps(this.HumanPlayer);
           windowReturnClass.SetFlag(true);
@@ -815,7 +815,7 @@ namespace WindowsApplication1
                     let mut lastregime2: i32 =  this.lastregime;
                     if (lastregime2 != lastregime1 & lastregime2 != -1)
                     {
-                      let mut num5: i32 =   Interaction.MsgBox((object) ("History from " + this.game.Data.RegimeObj[lastregime2].Name), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num5: i32 =   Interaction.MsgBox( ("History from " + this.game.Data.RegimeObj[lastregime2].Name), Title: ( "Shadow Empire : Planetary Conquest"));
                       num4 = 0;
                     }
                   }
@@ -889,7 +889,7 @@ namespace WindowsApplication1
                 return windowReturnClass;
               }
               this.game.EditObj.TempCoordList = CoordList::new();
-              if ((double) this.game.Data.RuleVar[839] == 0.0)
+              if ( this.game.Data.RuleVar[839] == 0.0)
                 windowReturnClass.AddCommand(3, 3);
               else
                 windowReturnClass.AddCommand(3, 11);

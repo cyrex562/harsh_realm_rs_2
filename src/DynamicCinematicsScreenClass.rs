@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -59,14 +59,14 @@ namespace WindowsApplication1
       this.lastTime = DateAndTime.Now;
       this.tempCursor = this.Game.FormRef.Cursor;
       this.Game.FormRef.Cursor = Cursors.Default;
-      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round( this.Game.Data.RuleVar[971]));
       this.bmpLink = new int[this.Game.Data.StringListObj[stringListById].Length + 1];
       let mut length: i32 =  this.Game.Data.StringListObj[stringListById].Length;
       for (let mut index: i32 =  0; index <= length; index += 1)
       {
-        if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > (double) this.lastpagenr)
+        if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) >  this.lastpagenr)
           this.lastpagenr = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById].Data[index, 0]);
-        if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > 0.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) < (double) this.pagenr)
+        if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > 0.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) <  this.pagenr)
           this.pagenr = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById].Data[index, 0]);
       }
       this.timerActive = false;
@@ -85,9 +85,9 @@ namespace WindowsApplication1
       int num5;
       Rectangle rectangle1;
       Rectangle rectangle2;
-      if (!Information.IsNothing((object) this.fullBmp))
+      if (!Information.IsNothing( this.fullBmp))
       {
-        this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+        this.Game.HandyFunctionsObj.GetStringListByID( Math.Round( this.Game.Data.RuleVar[971]));
         bool flag = false;
         if (Strings.InStr(this.fullBmpName, "104.jpg") > 0)
           flag = true;
@@ -97,31 +97,31 @@ namespace WindowsApplication1
           flag = true;
         if (Strings.InStr(this.fullBmpName, "108.jpg") > 0)
           flag = true;
-        num1 = Math.Max((float) this.Game.ScreenWidth / 1920f, (float) this.Game.ScreenHeight / 1080f);
+        num1 = Math.Max( this.Game.ScreenWidth / 1920f,  this.Game.ScreenHeight / 1080f);
         float num6 = 1f;
         float num7 = 1f;
         let mut num8: i32 =  1920;
         let mut num9: i32 =  1080;
-        let mut num10: i32 =   Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-        let mut num11: i32 =   Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+        let mut num10: i32 =   Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+        let mut num11: i32 =   Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
         num2 = num10;
         num3 = num11;
-        if ((double) num1 != 1.0)
+        if ( num1 != 1.0)
         {
-          num8 =  Math.Round((double) (1920f * num1));
-          num9 =  Math.Round((double) (1080f * num1));
-          let mut num12: i32 =  num10 +  Math.Round((double) (num8 - this.Game.ScreenWidth) / 2.0);
-          let mut num13: i32 =  num11 +  Math.Round((double) (num9 - this.Game.ScreenHeight) / 2.0);
+          num8 =  Math.Round( (1920f * num1));
+          num9 =  Math.Round( (1080f * num1));
+          let mut num12: i32 =  num10 +  Math.Round( (num8 - this.Game.ScreenWidth) / 2.0);
+          let mut num13: i32 =  num11 +  Math.Round( (num9 - this.Game.ScreenHeight) / 2.0);
         }
-        let mut x1: i32 =   Math.Round((double) (this.Game.ScreenWidth - num8) / 2.0);
-        let mut y1: i32 =   Math.Round((double) (this.Game.ScreenHeight - num9) / 2.0);
+        let mut x1: i32 =   Math.Round( (this.Game.ScreenWidth - num8) / 2.0);
+        let mut y1: i32 =   Math.Round( (this.Game.ScreenHeight - num9) / 2.0);
         let mut width1: i32 =  num8;
         let mut height1: i32 =  num9;
         int x2;
         int y2;
         int width2;
         int height2;
-        if ((double) num1 >= 1.0)
+        if ( num1 >= 1.0)
         {
           x2 = 0;
           y2 = 0;
@@ -130,8 +130,8 @@ namespace WindowsApplication1
         }
         else
         {
-          x2 =  Math.Round((double) (1920 - num8) / 2.0);
-          y2 =  Math.Round((double) (1080 - num9) / 2.0);
+          x2 =  Math.Round( (1920 - num8) / 2.0);
+          y2 =  Math.Round( (1080 - num9) / 2.0);
           width2 = num8;
           height2 = num9;
           if (!flag)
@@ -144,8 +144,8 @@ namespace WindowsApplication1
         }
         num4 = x1;
         num5 = y1;
-        num6 = (float) width1 / (float) this.Game.ScreenWidth;
-        num7 = (float) height1 / (float) this.Game.ScreenHeight;
+        num6 =  width1 /  this.Game.ScreenWidth;
+        num7 =  height1 /  this.Game.ScreenHeight;
         ref Graphics local1 = ref graphics;
         ref Bitmap local2 = ref this.fullBmp;
         rectangle1 = Rectangle::new(x2, y2, width2, height2);
@@ -159,7 +159,7 @@ namespace WindowsApplication1
       let mut num14: i32 =  1;
       do
       {
-        let mut stringListById1: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+        let mut stringListById1: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round( this.Game.Data.RuleVar[971]));
         let mut length: i32 =  this.Game.Data.StringListObj[stringListById1].Length;
         int num15;
         for (let mut index1: i32 =  0; index1 <= length; index1 += 1)
@@ -185,23 +185,23 @@ namespace WindowsApplication1
                     let mut integer2: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]);
                     let mut num17: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
                     let mut num18: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
-                    x = num4 +  Math.Round((double) num1 * ((double) integer1 + 448.0));
-                    y = num5 +  Math.Round((double) num1 * ((double) integer2 + 156.0));
-                    width =  Math.Round((double) ((float) num17 * num1));
-                    height =  Math.Round((double) ((float) num18 * num1));
+                    x = num4 +  Math.Round( num1 * ( integer1 + 448.0));
+                    y = num5 +  Math.Round( num1 * ( integer2 + 156.0));
+                    width =  Math.Round( ( num17 * num1));
+                    height =  Math.Round( ( num18 * num1));
                   }
                   else
                   {
-                    x =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                    y =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                    x =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) +  num2);
+                    y =  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) +  num3);
                     if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 100000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 199999.0)
                       x = 0 +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 100000.0);
                     if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 200000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 299999.0)
                       x = this.Game.ScreenWidth -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 200000.0);
                     if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 300000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 399999.0)
-                      x =  Math.Round((double) this.Game.ScreenWidth / 2.0) +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 300000.0);
+                      x =  Math.Round( this.Game.ScreenWidth / 2.0) +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 300000.0);
                     if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 400000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 499999.0)
-                      x =  Math.Round((double) this.Game.ScreenWidth / 2.0) -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 400000.0);
+                      x =  Math.Round( this.Game.ScreenWidth / 2.0) -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 400000.0);
                     if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) >= 99000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) <= 199999.0)
                       y = 0 +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) - 100000.0);
                     if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) >= 200000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) <= 299999.0)
@@ -215,10 +215,10 @@ namespace WindowsApplication1
                     height = this.bmp[index2].Height;
                   }
                   else if (width < 1)
-                    width =  Math.Round((double) this.bmp[index2].Width * ((double) height / (double) this.bmp[index2].Height));
+                    width =  Math.Round( this.bmp[index2].Width * ( height /  this.bmp[index2].Height));
                   else if (height < 1)
-                    height =  Math.Round((double) this.bmp[index2].Height * ((double) width / (double) this.bmp[index2].Width));
-                  if (!Information.IsNothing((object) this.bmp[index2]) && x + width >= 0 & x < this.Game.ScreenWidth && y + height >= 0 & y < this.Game.ScreenHeight)
+                    height =  Math.Round( this.bmp[index2].Height * ( width /  this.bmp[index2].Width));
+                  if (!Information.IsNothing( this.bmp[index2]) && x + width >= 0 & x < this.Game.ScreenWidth && y + height >= 0 & y < this.Game.ScreenHeight)
                   {
                     ref Graphics local3 = ref graphics;
                     ref Bitmap local4 = ref this.bmp[index2];
@@ -232,16 +232,16 @@ namespace WindowsApplication1
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 100001.0)
               {
-                let mut num19: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                let mut num20: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut num19: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) +  num2);
+                let mut num20: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) +  num3);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 100000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 199999.0)
                   num19 = 0 +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 100000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 200000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 299999.0)
                   num19 = this.Game.ScreenWidth -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 200000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 300000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 399999.0)
-                  num19 =  Math.Round((double) this.Game.ScreenWidth / 2.0) +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 300000.0);
+                  num19 =  Math.Round( this.Game.ScreenWidth / 2.0) +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 300000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 400000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 499999.0)
-                  num19 =  Math.Round((double) this.Game.ScreenWidth / 2.0) -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 400000.0);
+                  num19 =  Math.Round( this.Game.ScreenWidth / 2.0) -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 400000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) >= 99000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) <= 199999.0)
                   num20 = 0 +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) - 100000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) >= 200000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) <= 299999.0)
@@ -265,14 +265,14 @@ namespace WindowsApplication1
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 1000001.0)
               {
-                let mut x: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                let mut y: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut x: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) +  num2);
+                let mut y: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) +  num3);
                 let mut w: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
                 let mut h: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
                 if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 1]) == 3.0)
                 {
-                  w =  Math.Round((double) ((float) w * num1));
-                  h =  Math.Round((double) ((float) h * num1));
+                  w =  Math.Round( ( w * num1));
+                  h =  Math.Round( ( h * num1));
                 }
                 let mut sfTypeById: i32 =  this.Game.HandyFunctionsObj.GetSFTypeByID( Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2])));
                 if (sfTypeById > -1)
@@ -306,8 +306,8 @@ namespace WindowsApplication1
                 {
                   this.udsActive = true;
                   this.udsContainsButton = false;
-                  let mut sx: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                  let mut sy: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                  let mut sx: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) +  num2);
+                  let mut sy: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) +  num3);
                   this.udsX = sx;
                   this.udsY = sy;
                   let mut num24: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
@@ -338,9 +338,9 @@ namespace WindowsApplication1
                     else
                       udSpopupText = this.Game.Data.StringListObj[stringListById1].Data[index1, 8];
                   }
-                  if (Information.IsNothing((object) this.UdsWindow))
+                  if (Information.IsNothing( this.UdsWindow))
                     this.UdsWindow = new WindowClass(ref this.Game, num24, num25, 99, screenbitmap: this.OwnBackground, sx: sx, sy: sy);
-                  if (!Information.IsNothing((object) this.UdsWindow.SubPartList) && this.UdsWindow.SubPartList.Length > -1)
+                  if (!Information.IsNothing( this.UdsWindow.SubPartList) && this.UdsWindow.SubPartList.Length > -1)
                     this.UdsWindow.RemoveSubPart(0);
                   this.udsContainsButton = false;
                   if (Strings.InStr(udSpopupText, "[type]button[/type]") > 0)
@@ -361,8 +361,8 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num26: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                  let mut num27: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                  let mut num26: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) +  num2);
+                  let mut num27: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) +  num3);
                   num15 =  Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]));
                   let mut num28: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]));
                   this.UdsWindow.FlagAll();
@@ -382,8 +382,8 @@ namespace WindowsApplication1
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 6.0)
               {
-                let mut x1: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                let mut y1: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut x1: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) +  num2);
+                let mut y1: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) +  num3);
                 let mut nr: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 2]));
                 if (nr > -1)
                 {
@@ -407,8 +407,8 @@ namespace WindowsApplication1
               }
               else if (Conversion.Val(this.Game.Data.StringListObj[stringListById1].Data[index1, 3]) == 3.0)
               {
-                let mut num29: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) + (double) num2);
-                let mut num30: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) + (double) num3);
+                let mut num29: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) +  num2);
+                let mut num30: i32 =   Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 5]) +  num3);
                 let mut num31: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]);
                 let mut integer: i32 =  Conversions.ToInteger(this.Game.Data.StringListObj[stringListById1].Data[index1, 7]);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 100000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 199999.0)
@@ -422,9 +422,9 @@ namespace WindowsApplication1
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]) >= 100000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]) <= 199999.0)
                   num31 = this.Game.ScreenWidth -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 6]) - 100000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 300000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 399999.0)
-                  num29 =  Math.Round((double) this.Game.ScreenWidth / 2.0) +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 300000.0);
+                  num29 =  Math.Round( this.Game.ScreenWidth / 2.0) +  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 300000.0);
                 if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) >= 400000.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) <= 499999.0)
-                  num29 =  Math.Round((double) this.Game.ScreenWidth / 2.0) -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 400000.0);
+                  num29 =  Math.Round( this.Game.ScreenWidth / 2.0) -  Math.Round(Conversions.ToDouble(this.Game.Data.StringListObj[stringListById1].Data[index1, 4]) - 400000.0);
                 str1: String = this.Game.Data.StringListObj[stringListById1].Data[index1, 8];
                 string str2;
                 if (this.Game.Data.Product >= 7)
@@ -498,7 +498,7 @@ namespace WindowsApplication1
         }
         if (num14 == 2 && this.Game.Data.Product >= 7)
         {
-          if (Information.IsNothing((object) this.Game.EditObj.TipText))
+          if (Information.IsNothing( this.Game.EditObj.TipText))
             this.Game.EditObj.TipText = "";
           if (this.Game.EditObj.TipText.Length > 0 & this.Game.ModIntroType >= 1)
           {
@@ -545,17 +545,17 @@ namespace WindowsApplication1
             SizeF sizeF3 = !flag1 ? graphics.MeasureString(str7, this.Game.MarcFont4) : graphics.MeasureString(str7, this.Game.MarcFont4b);
             let mut x1: i32 =  this.FormRef.LastTipX + 20;
             let mut num38: i32 =  this.FormRef.LastTipY + 20;
-            num15 =  Math.Round((double) (sizeF3.Width + 4f));
-            let mut h: i32 =   Math.Round((double) (sizeF3.Height + 4f));
+            num15 =  Math.Round( (sizeF3.Width + 4f));
+            let mut h: i32 =   Math.Round( (sizeF3.Height + 4f));
             if (str5.Length > 0)
             {
               sizeF2 = !flag1 ? graphics.MeasureString(str5, this.Game.MarcFont4) : graphics.MeasureString(str5, this.Game.MarcFont4b);
-              h =  Math.Round((double) ((float) (h + 4) + sizeF2.Height));
+              h =  Math.Round( ( (h + 4) + sizeF2.Height));
             }
             float width = sizeF3.Width;
-            if ((double) sizeF2.Width > (double) width)
+            if ( sizeF2.Width >  width)
               width = sizeF2.Width;
-            let mut num39: i32 =   Math.Round((double) (width + 4f));
+            let mut num39: i32 =   Math.Round( (width + 4f));
             if (x1 + num39 > this.Game.ScreenWidth - 64)
               x1 -= x1 + num39 - (this.Game.ScreenWidth - 64);
             if (num38 + h > this.Game.ScreenHeight - 32)
@@ -597,18 +597,18 @@ namespace WindowsApplication1
             }
             if (str5.Length > 0)
             {
-              DrawMod.DrawBlock(ref graphics, x1 - 16, num38, num39 + 32,  Math.Round((double) (sizeF2.Height + 4f)), r1, g1, b1,  byte.MaxValue);
-              DrawMod.DrawBlock(ref graphics, x1 - 16,  Math.Round((double) num38 + (double) sizeF2.Height + 4.0), num39 + 32,  Math.Round((double) h - ((double) sizeF2.Height + 4.0) + 16.0), r2, g2, b2,  byte.MaxValue);
+              DrawMod.DrawBlock(ref graphics, x1 - 16, num38, num39 + 32,  Math.Round( (sizeF2.Height + 4f)), r1, g1, b1,  byte.MaxValue);
+              DrawMod.DrawBlock(ref graphics, x1 - 16,  Math.Round( num38 +  sizeF2.Height + 4.0), num39 + 32,  Math.Round( h - ( sizeF2.Height + 4.0) + 16.0), r2, g2, b2,  byte.MaxValue);
               if (flag1)
               {
                 DrawMod.DrawTextColouredNicely(ref graphics, str5, this.Game.MarcFont16, x1 + 2, num38 + 2, Color.FromArgb( byte.MaxValue, num40, num41, num42));
-                DrawMod.DrawTextColouredNicely(ref graphics, str7, this.Game.MarcFont4b, x1 + 3,  Math.Round((double) ((float) (num38 + 6 + 8) + sizeF2.Height)), Color.FromArgb(178, 0, 0, 0));
-                DrawMod.DrawTextColouredNicely(ref graphics, str7, this.Game.MarcFont4b, x1 + 2,  Math.Round((double) ((float) (num38 + 6 + 8) + sizeF2.Height)), Color.Black);
+                DrawMod.DrawTextColouredNicely(ref graphics, str7, this.Game.MarcFont4b, x1 + 3,  Math.Round( ( (num38 + 6 + 8) + sizeF2.Height)), Color.FromArgb(178, 0, 0, 0));
+                DrawMod.DrawTextColouredNicely(ref graphics, str7, this.Game.MarcFont4b, x1 + 2,  Math.Round( ( (num38 + 6 + 8) + sizeF2.Height)), Color.Black);
               }
               else
               {
                 DrawMod.DrawTextColouredNicely(ref graphics, str5, this.Game.MarcFont16, x1 + 2, num38 + 2, Color.FromArgb( byte.MaxValue, num40, num41, num42), 12);
-                DrawMod.DrawTextColouredNicely(ref graphics, str7, this.Game.MarcFont4, x1 + 2,  Math.Round((double) ((float) (num38 + 8 + 6) + sizeF2.Height)), Color.White);
+                DrawMod.DrawTextColouredNicely(ref graphics, str7, this.Game.MarcFont4, x1 + 2,  Math.Round( ( (num38 + 8 + 6) + sizeF2.Height)), Color.White);
               }
               DrawMod.DrawRectangle(ref graphics, x1 - 16, num38, num39 + 32, h + 16, r1, g1, b1,  byte.MaxValue);
             }
@@ -635,7 +635,7 @@ namespace WindowsApplication1
       }
       while (num14 <= 2);
       this.firstRenderDone = true;
-      if (!Information.IsNothing((object) graphics))
+      if (!Information.IsNothing( graphics))
       {
         graphics.Dispose();
         graphics = (Graphics) null;
@@ -647,10 +647,10 @@ namespace WindowsApplication1
     {
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       let mut num: i32 =  9999999;
-      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round( this.Game.Data.RuleVar[971]));
       if (b == 2)
         return screenReturnClass;
-      if (!Information.IsNothing((object) this.TabList))
+      if (!Information.IsNothing( this.TabList))
       {
         let mut counter: i32 =  this.TabList.Counter;
         for (let mut index: i32 =  0; index <= counter; index += 1)
@@ -688,7 +688,7 @@ namespace WindowsApplication1
       {
         if (this.udsContainsButton)
         {
-          if (!Information.IsNothing((object) this.UdsWindow))
+          if (!Information.IsNothing( this.UdsWindow))
           {
             let mut enr: i32 =  0;
             if (x >= this.udsX & y >= this.udsY & x < this.udsX + this.udsW & y < this.udsY + this.udsH)
@@ -700,7 +700,7 @@ namespace WindowsApplication1
             }
             if (enr > 0)
             {
-              if (!Information.IsNothing((object) this.UdsWindow))
+              if (!Information.IsNothing( this.UdsWindow))
               {
                 this.UdsWindow.Dispose();
                 this.UdsWindow = (WindowClass) null;
@@ -721,7 +721,7 @@ namespace WindowsApplication1
             }
             if (enr != -999)
               return screenReturnClass;
-            if (!Information.IsNothing((object) this.UdsWindow))
+            if (!Information.IsNothing( this.UdsWindow))
             {
               this.UdsWindow.Dispose();
               this.UdsWindow = (WindowClass) null;
@@ -731,7 +731,7 @@ namespace WindowsApplication1
             }
           }
         }
-        else if (!Information.IsNothing((object) this.UdsWindow))
+        else if (!Information.IsNothing( this.UdsWindow))
         {
           this.UdsWindow.Dispose();
           this.UdsWindow = (WindowClass) null;
@@ -743,7 +743,7 @@ namespace WindowsApplication1
       let mut length: i32 =  this.Game.Data.StringListObj[stringListById].Length;
       for (let mut index: i32 =  0; index <= length; index += 1)
       {
-        if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) < (double) num && Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > (double) this.pagenr)
+        if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) <  num && Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) >  this.pagenr)
           num = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById].Data[index, 0]);
       }
       this.pagenr = num;
@@ -776,7 +776,7 @@ namespace WindowsApplication1
         if (timeSpan2.Milliseconds + timeSpan2.Seconds * 1000 > this.timerMs)
         {
           this.timerActive = false;
-          if (!Information.IsNothing((object) this.UdsWindow))
+          if (!Information.IsNothing( this.UdsWindow))
           {
             this.UdsWindow.Dispose();
             this.UdsWindow = (WindowClass) null;
@@ -812,7 +812,7 @@ namespace WindowsApplication1
           this.unloadAnyStuff();
           return screenReturnClass;
         }
-        if (!Information.IsNothing((object) this.TabList))
+        if (!Information.IsNothing( this.TabList))
         {
           let mut counter: i32 =  this.TabList.Counter;
           for (let mut index: i32 =  0; index <= counter; index += 1)
@@ -837,11 +837,11 @@ namespace WindowsApplication1
         if (nr == 32)
         {
           let mut num: i32 =  9999999;
-          let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+          let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round( this.Game.Data.RuleVar[971]));
           let mut length: i32 =  this.Game.Data.StringListObj[stringListById].Length;
           for (let mut index: i32 =  0; index <= length; index += 1)
           {
-            if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > 0.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) < (double) num && Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > (double) this.pagenr)
+            if (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) > 0.0 & Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) <  num && Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 0]) >  this.pagenr)
               num = Conversions.ToInteger(this.Game.Data.StringListObj[stringListById].Data[index, 0]);
           }
           this.pagenr = num;
@@ -854,7 +854,7 @@ namespace WindowsApplication1
             return screenReturnClass;
           }
           this.firstRenderDone = false;
-          if (!Information.IsNothing((object) this.UdsWindow))
+          if (!Information.IsNothing( this.UdsWindow))
           {
             this.UdsWindow.Dispose();
             this.UdsWindow = (WindowClass) null;
@@ -877,7 +877,7 @@ namespace WindowsApplication1
     pub void unloadAnyStuff()
     {
       this.fullBmpCenterScale = false;
-      if (!Information.IsNothing((object) this.fullBmp))
+      if (!Information.IsNothing( this.fullBmp))
       {
         this.fullBmp.Dispose();
         this.fullBmp = (Bitmap) null;
@@ -885,7 +885,7 @@ namespace WindowsApplication1
       let mut index: i32 =  0;
       do
       {
-        if (!Information.IsNothing((object) this.bmp[index]))
+        if (!Information.IsNothing( this.bmp[index]))
         {
           this.bmp[index].Dispose();
           this.bmp[index] = (Bitmap) null;
@@ -902,12 +902,12 @@ namespace WindowsApplication1
       this.fullBmpName = "";
       this.unloadAnyStuff();
       let mut slot: i32 =  0;
-      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.Game.Data.RuleVar[971]));
+      let mut stringListById: i32 =  this.Game.HandyFunctionsObj.GetStringListByID( Math.Round( this.Game.Data.RuleVar[971]));
       this.bmpLink = new int[this.Game.Data.StringListObj[stringListById].Length + 1];
       let mut length1: i32 =  this.Game.Data.StringListObj[stringListById].Length;
       for (let mut index: i32 =  0; index <= length1; index += 1)
       {
-        if (Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 3]) == 1.0 && Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 0]) == (double) this.pagenr)
+        if (Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 3]) == 1.0 && Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 0]) ==  this.pagenr)
         {
           s: String = str + this.Game.Data.StringListObj[stringListById].Data[index, 2];
           this.fullBmpCenterScale = false;
@@ -920,7 +920,7 @@ namespace WindowsApplication1
       for (let mut index: i32 =  0; index <= length2; index += 1)
       {
         this.bmpLink[index] = -1;
-        if (((ulong) (long) Math.Round(Conversion.Val((object) (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 3]) == 2.0))) & (ulong) -(slot < 19 ? 1 : 0)) > 0UL && Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 0]) == (double) this.pagenr)
+        if (((ulong) (long) Math.Round(Conversion.Val( (Conversions.ToDouble(this.Game.Data.StringListObj[stringListById].Data[index, 3]) == 2.0))) & (ulong) -(slot < 19 ? 1 : 0)) > 0UL && Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 0]) ==  this.pagenr)
         {
           let mut specialRenderMode: i32 =   Math.Round(Conversion.Val(this.Game.Data.StringListObj[stringListById].Data[index, 1]));
           this.loadSpecificBmp(str + this.Game.Data.StringListObj[stringListById].Data[index, 2], slot, specialRenderMode);
@@ -932,7 +932,7 @@ namespace WindowsApplication1
 
     pub void loadSpecificBmp(string s, int slot, let mut specialRenderMode: i32 =  -1)
     {
-      if (!Information.IsNothing((object) this.bmp[slot]))
+      if (!Information.IsNothing( this.bmp[slot]))
       {
         this.bmp[slot].Dispose();
         this.bmp[slot] = (Bitmap) null;
@@ -946,7 +946,7 @@ namespace WindowsApplication1
       if (specialRenderMode == 1)
         DrawMod.ModifyColorOfBitmapToGrayHighSpeed(ref bmp,  byte.MaxValue);
       graphics.Dispose();
-      bmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       fileStream.Close();
       fileStream.Dispose();
       bitmap.Dispose();
@@ -1000,7 +1000,7 @@ namespace WindowsApplication1
 
     pub void loadSpecificFullBmp(string s)
     {
-      if (!Information.IsNothing((object) this.fullBmp))
+      if (!Information.IsNothing( this.fullBmp))
       {
         this.fullBmp.Dispose();
         this.fullBmp = (Bitmap) null;
@@ -1013,7 +1013,7 @@ namespace WindowsApplication1
       Graphics graphics = Graphics.FromImage((Image) bitmap2);
       graphics.DrawImage((Image) bitmap1, Rectangle::new(0, 0, bitmap1.Width, bitmap1.Height));
       graphics.Dispose();
-      bitmap2.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap2.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       fileStream.Close();
       fileStream.Dispose();
       bitmap1.Dispose();
@@ -1024,14 +1024,14 @@ namespace WindowsApplication1
     {
       ScreenReturnClass screenReturnClass1 = ScreenReturnClass::new();
       ScreenReturnClass screenReturnClass2 = base.HandleMouseMove(x, y);
-      if (this.Game.Data.Product >= 7 && this.udsActive && !Information.IsNothing((object) this.UdsWindow) && x >= this.udsX & y >= this.udsY & x < this.udsX + this.udsW & y < this.udsY + this.udsH && this.UdsWindow.SubPartList[0].HandleMouseMove(x - this.udsX, y - this.udsY))
+      if (this.Game.Data.Product >= 7 && this.udsActive && !Information.IsNothing( this.UdsWindow) && x >= this.udsX & y >= this.udsY & x < this.udsX + this.udsW & y < this.udsY + this.udsH && this.UdsWindow.SubPartList[0].HandleMouseMove(x - this.udsX, y - this.udsY))
         screenReturnClass2.flag = true;
       return screenReturnClass2;
     }
 
     pub void HandleTooltip(int x, int y, bool skipReset = false)
     {
-      if (!Information.IsNothing((object) this.TabList))
+      if (!Information.IsNothing( this.TabList))
       {
         let mut counter: i32 =  this.TabList.Counter;
         for (let mut index: i32 =  0; index <= counter; index += 1)
@@ -1062,7 +1062,7 @@ namespace WindowsApplication1
         this.Game.EditObj.TipText = "";
         this.Game.EditObj.TipTitle = "";
         this.Game.EditObj.TipButton = false;
-        if (this.udsActive && !Information.IsNothing((object) this.UdsWindow) && x >= this.udsX & y >= this.udsY & x < this.udsX + this.udsW & y < this.udsY + this.udsH)
+        if (this.udsActive && !Information.IsNothing( this.UdsWindow) && x >= this.udsX & y >= this.udsY & x < this.udsX + this.udsW & y < this.udsY + this.udsH)
           this.UdsWindow.SubPartList[0].HandleToolTip(x - this.udsX, y - this.udsY);
         base.HandleTooltip(x, y, true);
       }

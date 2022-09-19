@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -50,32 +50,32 @@ namespace WindowsApplication1
       {
         if ((nr == 187 | nr == 191 | nr == 107) & this.game.EditObj.Zoom < 1)
         {
-          let mut num2: i32 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-          let mut num3: i32 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-          let mut num4: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num1)) / 53.0));
-          let mut num5: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num1)) / 106.0));
+          let mut num2: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 53.0));
+          let mut num3: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
+          let mut num4: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 53.0));
+          let mut num5: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 106.0));
           int num6;
           int num7;
           if (this.game.EditObj.Zoom == 0)
           {
             this.game.EditObj.Zoom = 1;
-            this.game.CornerX +=  Math.Round(Conversion.Int((double) num3 / 2.0));
-            this.game.CornerY +=  Math.Round(Conversion.Int((double) num5 / 2.0));
+            this.game.CornerX +=  Math.Round(Conversion.Int( num3 / 2.0));
+            this.game.CornerY +=  Math.Round(Conversion.Int( num5 / 2.0));
             num6 = 106;
             num7 = 96;
           }
           else
           {
             this.game.EditObj.Zoom = 0;
-            this.game.CornerX +=  Math.Round(Conversion.Int((double) num2 / 2.0));
-            this.game.CornerY +=  Math.Round(Conversion.Int((double) num4 / 2.0));
+            this.game.CornerX +=  Math.Round(Conversion.Int( num2 / 2.0));
+            this.game.CornerY +=  Math.Round(Conversion.Int( num4 / 2.0));
             num6 = 53;
             num7 = 48;
           }
-          if ((double) this.game.CornerX + (double) this.game.ScreenWidth / (double) num6 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-            this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num6);
-          if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - (256 - num1)) / (double) num7 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-            this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - (256 - num1)) / (double) num7);
+          if ( this.game.CornerX +  this.game.ScreenWidth /  num6 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+            this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num6);
+          if ( this.game.CornerY +  (this.game.ScreenHeight - (256 - num1)) /  num7 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+            this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - (256 - num1)) /  num7);
           if (this.game.CornerX < 0)
             this.game.CornerX = 0;
           if (this.game.CornerY < 0)
@@ -89,32 +89,32 @@ namespace WindowsApplication1
         }
         if ((nr == 189 | nr == 219 | nr == 109) & this.game.EditObj.Zoom > -1)
         {
-          let mut num8: i32 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-          let mut num9: i32 =  Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-          let mut num10: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num1)) / 53.0));
-          let mut num11: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num1)) / 106.0));
+          let mut num8: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 53.0));
+          let mut num9: i32 =  Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
+          let mut num10: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 53.0));
+          let mut num11: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num1)) / 106.0));
           int num12;
           int num13;
           if (this.game.EditObj.Zoom == 0)
           {
             this.game.EditObj.Zoom = -1;
-            this.game.CornerX -=  Math.Round(Conversion.Int((double) num8 / 2.0));
-            this.game.CornerY -=  Math.Round(Conversion.Int((double) num10 / 2.0));
+            this.game.CornerX -=  Math.Round(Conversion.Int( num8 / 2.0));
+            this.game.CornerY -=  Math.Round(Conversion.Int( num10 / 2.0));
             num12 = 27;
             num13 = 24;
           }
           else
           {
             this.game.EditObj.Zoom = 0;
-            this.game.CornerX -=  Math.Round(Conversion.Int((double) num9 / 2.0));
-            this.game.CornerY -=  Math.Round(Conversion.Int((double) num11 / 2.0));
+            this.game.CornerX -=  Math.Round(Conversion.Int( num9 / 2.0));
+            this.game.CornerY -=  Math.Round(Conversion.Int( num11 / 2.0));
             num12 = 53;
             num13 = 48;
           }
-          if ((double) this.game.CornerX + (double) this.game.ScreenWidth / (double) num12 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-            this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num12);
-          if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - (256 - num1)) / (double) num13 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-            this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - (256 - num1)) / (double) num13);
+          if ( this.game.CornerX +  this.game.ScreenWidth /  num12 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+            this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num12);
+          if ( this.game.CornerY +  (this.game.ScreenHeight - (256 - num1)) /  num13 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+            this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - (256 - num1)) /  num13);
           if (this.game.CornerX < 0)
             this.game.CornerX = 0;
           if (this.game.CornerY < 0)
@@ -164,7 +164,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.DebugId);
       if (this.DebugIdb > 0)
         this.RemoveSubPart(this.DebugIdb);
-      let mut num1: i32 = 10 +  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 = 10 +  Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       let mut tsubpart1: SubPartClass =  new TextButtonPartClass("Exit", 100, tBackbitmap: ( this.OwnBitmap), bbx: num1, bby: 5, theight: 40, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
       this.BackId = this.AddSubPart( tsubpart1, num1, 5, 100, 40, 1);
       let mut num2: i32 = num1 + 110;

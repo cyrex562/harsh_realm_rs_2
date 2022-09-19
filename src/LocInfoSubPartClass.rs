@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -26,13 +26,13 @@ namespace WindowsApplication1
       self.mzx = new int[41];
       self.mzy = new int[41];
       self.mznr = new int[41];
-      self.locnr = (object) tlocnr;
+      self.locnr =  tlocnr;
       self.game = tgame;
     }
 
     pub Bitmap Paint()
     {
-      if (Operators.ConditionalCompareObjectLess(self.locnr, (object) 0, false))
+      if (Operators.ConditionalCompareObjectLess(self.locnr,  0, false))
         return self.OwnBitmap;
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
       let mut type: i32 =  self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].Type;
@@ -95,7 +95,7 @@ namespace WindowsApplication1
         tstring: String = "HQ: " + self.game.Data.UnitObj[self.game.Data.LocObj[Conversions.ToInteger(self.locnr)].HQ].Name;
         DrawMod.DrawText( Expression, tstring, Font::new("Times New Roman", 13f, FontStyle.Regular, GraphicsUnit.Pixel), 0, 68);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return self.OwnBitmap;
     }

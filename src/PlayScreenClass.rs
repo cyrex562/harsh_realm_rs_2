@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -27,8 +27,8 @@ namespace WindowsApplication1
     {
       this.AllowRightMouse = true;
       this.Game.AIThreadRunning = false;
-      this.OffSetX =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
-      this.OffSetY =  Math.Round((double) (this.Game.ScreenHeight - 768) / 2.0);
+      this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
+      this.OffSetY =  Math.Round( (this.Game.ScreenHeight - 768) / 2.0);
       if (this.Game.EditObj.CameFrom == 25)
       {
         if (this.Game.Data.MapObj[this.Game.EditObj.MapSelected].HexObj[this.Game.SelectX, this.Game.SelectY].Location == -1)
@@ -67,7 +67,7 @@ namespace WindowsApplication1
       }
       else
       {
-        this.WDown = this.Game.EditObj.CameFrom != 45 ? this.AddWindow((WindowClass) new PlayExtraWindowClass( tgame, this.OwnBackground, 0, this.Game.ScreenHeight - 210), 0, this.Game.ScreenHeight - 210, this.Game.ScreenWidth, 210) : this.AddWindow((WindowClass) new PrefsWindowClass( this.Game, this.OwnBackground, 0, this.Game.ScreenHeight - 200),  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0), this.Game.ScreenHeight - 200, 1024, 200);
+        this.WDown = this.Game.EditObj.CameFrom != 45 ? this.AddWindow((WindowClass) new PlayExtraWindowClass( tgame, this.OwnBackground, 0, this.Game.ScreenHeight - 210), 0, this.Game.ScreenHeight - 210, this.Game.ScreenWidth, 210) : this.AddWindow((WindowClass) new PrefsWindowClass( this.Game, this.OwnBackground, 0, this.Game.ScreenHeight - 200),  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0), this.Game.ScreenHeight - 200, 1024, 200);
         this.WLeft = this.AddWindow((WindowClass) new PlayMainWindowClass( tgame), this.Game.ScreenWidth - 220, 0, 220, this.Game.ScreenHeight - 270);
         if (this.Game.EditObj.Layout == 1)
           this.Wleft2 = this.AddWindow((WindowClass) new PlaySecondMainWindowClass( tgame), 0, 35, 220, this.Game.ScreenHeight - 305);
@@ -84,7 +84,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         this.Game.Data = DataClass::new();
         this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");

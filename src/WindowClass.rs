@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -59,8 +59,8 @@ namespace WindowsApplication1
     pub MouseCounter: i32;
     pub string[] MouseText;
     pub string[] MouseTitle;
-    pub int[] MouseData;
-    pub int[] MouseData2;
+    pub MouseData: Vec<i32>;
+    pub MouseData2: Vec<i32>;
     pub BlockBlit: bool;
     pub MouseInThisWindow: bool;
     pub NewGfx: bool;
@@ -112,7 +112,7 @@ namespace WindowsApplication1
 
     pub int GetMemorySize()
     {
-      let mut memorySize: i32 =  Math.Round((double) (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
+      let mut memorySize: i32 =  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
       let mut subPartCounter: i32 = self.SubPartCounter;
       for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
         memorySize += self.SubPartList[index].GetMemorySize();
@@ -229,13 +229,13 @@ namespace WindowsApplication1
         self.BackColor2 = Color.FromArgb( byte.MaxValue, 100, 140, 180);
       }
       self.BackBitmap = new Bitmap(w, h, PixelFormat.Format32bppPArgb);
-      self.BackBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      self.BackBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) self.BackBitmap);
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (BackSprite == -1 | self.transbacksprite)
       {
-        if (backcolornr == 99 & !Information.IsNothing((object) self.screenbackref))
+        if (backcolornr == 99 & !Information.IsNothing( self.screenbackref))
         {
            let mut local1: &Graphics = &graphics;
            Bitmap local2 =  self.screenbackref;
@@ -255,7 +255,7 @@ namespace WindowsApplication1
           graphics.SmoothingMode = SmoothingMode.AntiAlias;
           DrawMod.DrawBlock( graphics, 2, 2, w - 4, 38, 0, 0, 0, 128);
           SizeF sizeF = graphics.MeasureString(self.HeaderString, self.game.MarcFont1);
-          DrawMod.DrawTextColouredMarc( graphics, self.HeaderString, self.game.MarcFont1,  Math.Round((double) w / 2.0 - (double) sizeF.Width / 2.0),  Math.Round(22.0 - (double) sizeF.Height / 2.0), Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
+          DrawMod.DrawTextColouredMarc( graphics, self.HeaderString, self.game.MarcFont1,  Math.Round( w / 2.0 -  sizeF.Width / 2.0),  Math.Round(22.0 -  sizeF.Height / 2.0), Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
         }
         if (self.DoBorders > 0)
           DrawMod.DrawRectangle( graphics, 0, 0, w - 1, h - 1, 0, 0, 0,  byte.MaxValue);
@@ -271,7 +271,7 @@ namespace WindowsApplication1
              let mut local3: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(BackSprite);
              let mut local4: &Bitmap = &bitmap;
-            rectangle2 = Rectangle::new( Math.Round((double) BitmapStore.GetWidth(BackSprite) / 2.0 - (double) w / 2.0), 0, w, h);
+            rectangle2 = Rectangle::new( Math.Round( BitmapStore.GetWidth(BackSprite) / 2.0 -  w / 2.0), 0, w, h);
             let mut srcrect: &Rectangle = &rectangle2
             rectangle1 = Rectangle::new(0, 0, w, h);
             let mut destrect: &Rectangle = &rectangle1
@@ -300,7 +300,7 @@ namespace WindowsApplication1
       self.OwnBitmap = (Bitmap) self.BackBitmap.Clone();
       self.SubPartCounter = -1;
       self.SubPartIDCounter = 0;
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
     }
@@ -316,12 +316,12 @@ namespace WindowsApplication1
 
     pub Bitmap Paint()
     {
-      if (Information.IsNothing((object) self.OwnBitmap))
+      if (Information.IsNothing( self.OwnBitmap))
       {
-        if (Information.IsNothing((object) self.BackBitmap))
+        if (Information.IsNothing( self.BackBitmap))
         {
           self.OwnBitmap = new Bitmap(self.screenw, self.screenh, PixelFormat.Format32bppPArgb);
-          self.OwnBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          self.OwnBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
           Graphics.FromImage((Image) self.OwnBitmap).Clear(Color.Pink);
         }
         else
@@ -332,7 +332,7 @@ namespace WindowsApplication1
       Bitmap bitmap;
       for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
       {
-        if ((!Information.IsNothing((object) self.LowerWindow) | self.BlockBlit) & !self.SubPartList[index].oldStyle)
+        if ((!Information.IsNothing( self.LowerWindow) | self.BlockBlit) & !self.SubPartList[index].oldStyle)
         {
           if (self.SubPartFlag[index])
           {
@@ -384,7 +384,7 @@ namespace WindowsApplication1
       }
       if (self.mapframe)
         DrawMod.DrawRectangle( objGraphics, 0, 0, self.OwnBitmap.Width - 1, self.OwnBitmap.Height - 1, 0, 0, 0,  byte.MaxValue);
-      if (!Information.IsNothing((object) objGraphics))
+      if (!Information.IsNothing( objGraphics))
         objGraphics.Dispose();
       return self.OwnBitmap;
     }
@@ -420,7 +420,7 @@ namespace WindowsApplication1
           self.AddQuickRect(Rectangle::new(self.SubPartX[index], self.SubPartY[index], self.SubPartW[index], self.SubPartH[index]));
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -460,7 +460,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -474,7 +474,7 @@ namespace WindowsApplication1
         if (id == self.SubPartID[index])
           DrawMod.DrawScaled( objGraphics,  self.SubPartList[index].OwnBitmap, self.SubPartX[index], self.SubPartY[index], self.SubPartW[index], self.SubPartH[index]);
       }
-      if (Information.IsNothing((object) objGraphics))
+      if (Information.IsNothing( objGraphics))
         return;
       objGraphics.Dispose();
     }
@@ -497,7 +497,7 @@ namespace WindowsApplication1
           self.AddQuickRect(Rectangle::new(self.SubPartX[index], self.SubPartY[index], self.SubPartW[index], self.SubPartH[index]));
         }
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -515,7 +515,7 @@ namespace WindowsApplication1
           Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
           if (self.formref.doubleSize)
           {
-            if (self.SubPartList[index].MouseMove( Math.Round((double) ((float) Cursor.Position.X * self.formref.doubleModX - (float) (self.SubPartX[index] + self.screenx))),  Math.Round((double) ((float) Cursor.Position.Y * self.formref.doubleModY - (float) (self.SubPartY[index] + self.screeny)))))
+            if (self.SubPartList[index].MouseMove( Math.Round( ( Cursor.Position.X * self.formref.doubleModX -  (self.SubPartX[index] + self.screenx))),  Math.Round( ( Cursor.Position.Y * self.formref.doubleModY -  (self.SubPartY[index] + self.screeny)))))
             {
                let mut local1: &Graphics = &graphics;
               Bitmap bitmap = self.SubPartList[index].Paint();
@@ -567,10 +567,10 @@ namespace WindowsApplication1
 
     pub void NewBackGroundAndClearAll(int w, int h, int backsprite)
     {
-      if (Information.IsNothing((object) self.BackBitmap))
+      if (Information.IsNothing( self.BackBitmap))
       {
         self.BackBitmap = new Bitmap(w, h, PixelFormat.Format32bppPArgb);
-        self.BackBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        self.BackBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       }
       Graphics graphics = Graphics.FromImage((Image) self.BackBitmap);
       Rectangle rectangle1;
@@ -587,9 +587,9 @@ namespace WindowsApplication1
           let mut destrect: &Rectangle = &rectangle2
           DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
         }
-        else if (!Information.IsNothing((object) self.LowerWindow))
+        else if (!Information.IsNothing( self.LowerWindow))
         {
-          if (!Information.IsNothing((object) self.LowerWindow.SubPartList))
+          if (!Information.IsNothing( self.LowerWindow.SubPartList))
           {
             if (self.LowerWindow.GetType().Equals(typeof (MapWindowClass)) | self.LowerWindow.GetType().Equals(typeof (MapWindowClass2)))
             {
@@ -610,7 +610,7 @@ namespace WindowsApplication1
               DrawMod.DrawSimplePart2( local5,  local6, lowerRect, destrect);
             }
           }
-          else if (!Information.IsNothing((object) self.LowerWindow))
+          else if (!Information.IsNothing( self.LowerWindow))
           {
              let mut local7: &Graphics = &graphics;
              Bitmap local8 =  self.LowerWindow.OwnBitmap;
@@ -629,7 +629,7 @@ namespace WindowsApplication1
           graphics.SmoothingMode = SmoothingMode.AntiAlias;
           DrawMod.DrawBlock( graphics, 2, 2, w - 4, 38, 0, 0, 0, 128);
           SizeF sizeF = graphics.MeasureString(self.HeaderString, self.game.MarcFont1);
-          DrawMod.DrawTextColouredMarc( graphics, self.HeaderString, self.game.MarcFont1,  Math.Round((double) w / 2.0 - (double) sizeF.Width / 2.0),  Math.Round(22.0 - (double) sizeF.Height / 2.0), Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
+          DrawMod.DrawTextColouredMarc( graphics, self.HeaderString, self.game.MarcFont1,  Math.Round( w / 2.0 -  sizeF.Width / 2.0),  Math.Round(22.0 -  sizeF.Height / 2.0), Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
         }
         if (self.DoBorders > 0)
           DrawMod.DrawRectangle( graphics, 0, 0, w - 1, h - 1, 0, 0, 0,  byte.MaxValue);
@@ -645,7 +645,7 @@ namespace WindowsApplication1
              let mut local9: &Graphics = &graphics;
             Bitmap bitmap = BitmapStore.GetBitmap(backsprite);
              let mut local10: &Bitmap = &bitmap;
-            rectangle2 = Rectangle::new( Math.Round((double) BitmapStore.GetWidth(backsprite) / 2.0 - (double) w / 2.0), 0, w, h);
+            rectangle2 = Rectangle::new( Math.Round( BitmapStore.GetWidth(backsprite) / 2.0 -  w / 2.0), 0, w, h);
             let mut srcrect: &Rectangle = &rectangle2
             rectangle1 = Rectangle::new(0, 0, w, h);
             let mut destrect: &Rectangle = &rectangle1
@@ -682,9 +682,9 @@ namespace WindowsApplication1
         if (!self.transbacksprite)
           graphics.CompositingMode = CompositingMode.SourceOver;
       }
-      if (!Information.IsNothing((object) self.OwnBitmap))
+      if (!Information.IsNothing( self.OwnBitmap))
       {
-        if (!Information.IsNothing((object) graphics))
+        if (!Information.IsNothing( graphics))
         {
           graphics.Dispose();
           graphics = (Graphics) null;
@@ -694,7 +694,7 @@ namespace WindowsApplication1
         graphics.DrawImage((Image) self.BackBitmap, 0, 0);
         graphics.CompositingMode = CompositingMode.SourceOver;
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;
@@ -709,7 +709,7 @@ namespace WindowsApplication1
       {
         if (self.SubPartID[index1] == id)
         {
-          if (!Information.IsNothing((object) self.OwnBitmap))
+          if (!Information.IsNothing( self.OwnBitmap))
           {
             Graphics objGraphics = Graphics.FromImage((Image) self.OwnBitmap);
             Rectangle rect = Rectangle::new(self.SubPartX[index1], self.SubPartY[index1], self.SubPartW[index1], self.SubPartH[index1]);
@@ -789,7 +789,7 @@ namespace WindowsApplication1
         let mut subPartCounter: i32 = self.SubPartCounter;
         for (let mut index: i32 = 0; index <= subPartCounter; index += 1)
         {
-          if (!Information.IsNothing((object) self.SubPartList[index]))
+          if (!Information.IsNothing( self.SubPartList[index]))
             self.SubPartList[index].HandleBLOCKEDMouseUp(x - self.SubPartX[index], y - self.SubPartY[index]);
         }
         windowReturnClass.SetFlag(false);
@@ -799,7 +799,7 @@ namespace WindowsApplication1
       return windowReturnClass;
     }
 
-    pub virtual object allowClickOutsideWindow() => (object) false;
+    pub virtual object allowClickOutsideWindow() =>  false;
 
     pub virtual void clearoverlay()
     {
@@ -900,7 +900,7 @@ namespace WindowsApplication1
               windowReturnClass.SetFlag(true);
               return windowReturnClass;
             }
-            if ((double) self.game.Data.RuleVar[839] == 0.0 & !self.NewGfx | self.game.Data.Round == 0)
+            if ( self.game.Data.RuleVar[839] == 0.0 & !self.NewGfx | self.game.Data.Round == 0)
             {
               self.SubPartList[index].DescriptInfo(x - self.SubPartX[index], y - self.SubPartY[index]);
               windowReturnClass.SetFlag(false);
@@ -941,7 +941,7 @@ namespace WindowsApplication1
             }
           }
         }
-        if ((double) self.game.Data.RuleVar[839] == 0.0 & !self.NewGfx)
+        if ( self.game.Data.RuleVar[839] == 0.0 & !self.NewGfx)
         {
           if (!flag)
           {

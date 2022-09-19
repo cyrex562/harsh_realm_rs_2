@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.IO;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
 
 namespace WindowsApplication1
 {
@@ -45,7 +45,7 @@ namespace WindowsApplication1
       }
       streamReader.Close();
       this.Bmp = new Bitmap(DrawMod.TGame.AppPath + "graphics/" + this.DirName + "/sheet.png");
-      this.Bmp.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.Bmp.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
     }
   }
 }

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -301,7 +301,7 @@ namespace WindowsApplication1
         let mut tsubpart38: SubPartClass =  new ATTextPartClass("Town Info", this.game.VicFont2, 200, 24, false);
         this.B15TextId = this.AddSubPart( tsubpart38, 490, 52, 200, 24, 0);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -323,7 +323,7 @@ namespace WindowsApplication1
               if (this.game.Data.Round == 0)
               {
                 tinitdir: String = this.game.AppPath + "scenarios\\";
-                if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+                if (!Information.IsNothing( this.game.Data.ScenarioDir))
                 {
                   if (this.game.Data.ScenarioDir.Length > 1)
                     tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -341,19 +341,19 @@ namespace WindowsApplication1
                 str = this.game.HandyFunctionsObj.SaveSomething("SE1 Scenario file (*.se1)|*.se1|SE1 Map file(*.se1map)|*.se1map|SE1 Master file(*.se1master)|*.se1master|SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off", "Give save name...", this.game.AppPath_SAVEGAMES, false);
               if (Strings.Len(str) < 2)
               {
-                let mut num2: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num2: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
                 this.game.Data.serialize(str);
                 this.game.HandyFunctionsObj.ZipFile(str);
                 windowReturnClass.SetFlag(true);
-                let mut num3: i32 =  Interaction.MsgBox((object) "Game has been saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =  Interaction.MsgBox( "Game has been saved", Title: ( "Shadow Empire : Planetary Conquest"));
               }
             }
             else if (num1 == this.quitid)
             {
-              if (Interaction.MsgBox((object) "Are you Sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you Sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 this.game.Data = DataClass::new();
                 this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
@@ -435,32 +435,32 @@ namespace WindowsApplication1
               }
               if (num1 == 4444)
               {
-                let mut num4: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 53.0));
-                let mut num5: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenWidth - 200) / 106.0));
-                let mut num6: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 53.0));
-                let mut num7: i32 =  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 265) / 106.0));
+                let mut num4: i32 =  Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 53.0));
+                let mut num5: i32 =  Math.Round(Conversion.Int( (this.game.ScreenWidth - 200) / 106.0));
+                let mut num6: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 53.0));
+                let mut num7: i32 =  Math.Round(Conversion.Int( (this.game.ScreenHeight - 265) / 106.0));
                 int num8;
                 int num9;
                 if (this.game.EditObj.Zoom == 0)
                 {
                   this.game.EditObj.Zoom = 1;
-                  this.game.CornerX +=  Math.Round(Conversion.Int((double) num5 / 2.0));
-                  this.game.CornerY +=  Math.Round(Conversion.Int((double) num7 / 2.0));
+                  this.game.CornerX +=  Math.Round(Conversion.Int( num5 / 2.0));
+                  this.game.CornerY +=  Math.Round(Conversion.Int( num7 / 2.0));
                   num8 = 106;
                   num9 = 96;
                 }
                 else
                 {
                   this.game.EditObj.Zoom = 0;
-                  this.game.CornerX -=  Math.Round(Conversion.Int((double) num5 / 2.0));
-                  this.game.CornerY -=  Math.Round(Conversion.Int((double) num7 / 2.0));
+                  this.game.CornerX -=  Math.Round(Conversion.Int( num5 / 2.0));
+                  this.game.CornerY -=  Math.Round(Conversion.Int( num7 / 2.0));
                   num8 = 53;
                   num9 = 48;
                 }
-                if ((double) this.game.CornerX + (double) (this.game.ScreenWidth - 200) / (double) num8 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-                  this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num8);
-                if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - 256) / (double) num9 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-                  this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - 256) / (double) num9);
+                if ( this.game.CornerX +  (this.game.ScreenWidth - 200) /  num8 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+                  this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num8);
+                if ( this.game.CornerY +  (this.game.ScreenHeight - 256) /  num9 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+                  this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - 256) /  num9);
                 if (this.game.CornerX < 0)
                   this.game.CornerX = 0;
                 if (this.game.CornerY < 0)

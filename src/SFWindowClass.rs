@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -219,30 +219,30 @@ namespace WindowsApplication1
           let mut hq1: i32 = this.game.Data.UnitObj[this.ChainHq[0]].HQ;
           if (hq1 > -1 && this.game.Data.UnitObj[hq1].X > -1)
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true);
-            if ((double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq1].Map].Value[this.game.Data.UnitObj[hq1].X, this.game.Data.UnitObj[hq1].Y] <= (double) this.game.Data.RuleVar[53])
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true);
+            if ( this.game.EditObj.TempValue[this.game.Data.UnitObj[hq1].Map].Value[this.game.Data.UnitObj[hq1].X, this.game.Data.UnitObj[hq1].Y] <=  this.game.Data.RuleVar[53])
             {
               this.ChainHq[1] = hq1;
               let mut hq2: i32 = this.game.Data.UnitObj[this.ChainHq[1]].HQ;
-              if (hq2 > -1 && this.game.Data.UnitObj[hq2].X > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq2].Map].Value[this.game.Data.UnitObj[hq2].X, this.game.Data.UnitObj[hq2].Y] <= (double) this.game.Data.RuleVar[53])
+              if (hq2 > -1 && this.game.Data.UnitObj[hq2].X > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq2].Map].Value[this.game.Data.UnitObj[hq2].X, this.game.Data.UnitObj[hq2].Y] <=  this.game.Data.RuleVar[53])
                 this.ChainHq[2] = hq2;
             }
           }
         }
         else if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ > -1 && this.game.Data.UnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ].X > -1)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[this.unr].X, this.game.Data.UnitObj[this.unr].Y, this.game.Data.UnitObj[this.unr].Map, allowshoredrop: true);
           let mut hq3: i32 = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ;
-          if ((double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq3].Map].Value[this.game.Data.UnitObj[hq3].X, this.game.Data.UnitObj[hq3].Y] <= (double) this.game.Data.RuleVar[53])
+          if ( this.game.EditObj.TempValue[this.game.Data.UnitObj[hq3].Map].Value[this.game.Data.UnitObj[hq3].X, this.game.Data.UnitObj[hq3].Y] <=  this.game.Data.RuleVar[53])
           {
             this.ChainHq[0] = hq3;
             this.HQselect = hq3;
             let mut hq4: i32 = this.game.Data.UnitObj[this.ChainHq[0]].HQ;
-            if (hq4 > -1 && this.game.Data.UnitObj[hq4].X > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq4].Map].Value[this.game.Data.UnitObj[hq4].X, this.game.Data.UnitObj[hq4].Y] <= (double) this.game.Data.RuleVar[53])
+            if (hq4 > -1 && this.game.Data.UnitObj[hq4].X > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq4].Map].Value[this.game.Data.UnitObj[hq4].X, this.game.Data.UnitObj[hq4].Y] <=  this.game.Data.RuleVar[53])
             {
               this.ChainHq[1] = hq4;
               let mut hq5: i32 = this.game.Data.UnitObj[this.ChainHq[1]].HQ;
-              if (hq5 > -1 && this.game.Data.UnitObj[hq5].X > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq5].Map].Value[this.game.Data.UnitObj[hq5].X, this.game.Data.UnitObj[hq5].Y] <= (double) this.game.Data.RuleVar[53])
+              if (hq5 > -1 && this.game.Data.UnitObj[hq5].X > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq5].Map].Value[this.game.Data.UnitObj[hq5].X, this.game.Data.UnitObj[hq5].Y] <=  this.game.Data.RuleVar[53])
                 this.ChainHq[2] = hq5;
             }
           }
@@ -444,9 +444,9 @@ namespace WindowsApplication1
           index2 = this.game.Data.SFObj[this.sfnr].People;
           if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn)
           {
-            str1 = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Qty)) + "x ";
+            str1 = Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Qty)) + "x ";
             if (this.game.Data.SFTypeObj[index1].Ratio > 1)
-              str1 = str1 + " " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[index1].Ratio)) + "x ";
+              str1 = str1 + " " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[index1].Ratio)) + "x ";
           }
         }
         string str2;
@@ -514,21 +514,21 @@ namespace WindowsApplication1
           DrawMod.MakeFullBoxVic2( local1, rect1, "SELECTED SUBFORMATION(TYPE)", rect2, txt2);
           let mut x1: i32 = num1;
           let mut y2: i32 = y1 + 47;
-          if ((double) this.game.Data.RuleVar[869] >= 1.0)
+          if ( this.game.Data.RuleVar[869] >= 1.0)
           {
-            index4 =  Math.Round((double) this.game.Data.RuleVar[873]);
+            index4 =  Math.Round( this.game.Data.RuleVar[873]);
             index5 = 0;
-            if ((double) this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[index1].Theater == 2)
+            if ( this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[index1].Theater == 2)
             {
-              index4 =  Math.Round((double) this.game.Data.RuleVar[848]);
+              index4 =  Math.Round( this.game.Data.RuleVar[848]);
               index5 = 0;
             }
-            if ((double) this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[index1].Theater == 1)
+            if ( this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[index1].Theater == 1)
             {
-              index4 =  Math.Round((double) this.game.Data.RuleVar[872]);
+              index4 =  Math.Round( this.game.Data.RuleVar[872]);
               index5 = 0;
             }
-            if ((double) this.game.Data.RuleVar[869] == 3.0)
+            if ( this.game.Data.RuleVar[869] == 3.0)
             {
               let mut nr: i32 = this.game.Data.LandscapeTypeObj[index4].BasicPicID[index5];
                let mut local2: &Graphics = &Expression;
@@ -542,7 +542,7 @@ namespace WindowsApplication1
             }
             else
             {
-              if ((double) this.game.Data.RuleVar[869] == 1.0)
+              if ( this.game.Data.RuleVar[869] == 1.0)
               {
                 let mut nr: i32 = this.game.Data.LandscapeTypeObj[index4].SidewaysSPriteID1[index5];
                  let mut local4: &Graphics = &Expression;
@@ -587,10 +587,10 @@ namespace WindowsApplication1
               let mut y4: i32 = y2;
               let mut width1: i32 = BitmapStore.GetWidth(picSpriteId);
               let mut origh1: i32 = BitmapStore.Getheight(picSpriteId);
-              double r1 = (double) ((float) red / 256f);
-              double g1 = (double) ((float) green / 256f);
-              double b1 = (double) ((float) blue / 256f);
-              DrawMod.DrawScaledColorized2( local10,  local11, x3, y4, 192, 144, width1, origh1, (float) r1, (float) g1, (float) b1, 1f);
+              double r1 =  ( red / 256f);
+              double g1 =  ( green / 256f);
+              double b1 =  ( blue / 256f);
+              DrawMod.DrawScaledColorized2( local10,  local11, x3, y4, 192, 144, width1, origh1,  r1,  g1,  b1, 1f);
               break;
             case 2:
               let mut red2: i32 = this.game.Data.RegimeObj[index11].Red2;
@@ -603,10 +603,10 @@ namespace WindowsApplication1
               let mut y5: i32 = y2;
               let mut width2: i32 = BitmapStore.GetWidth(picSpriteId);
               let mut origh2: i32 = BitmapStore.Getheight(picSpriteId);
-              double r2 = (double) ((float) red2 / 256f);
-              double g2 = (double) ((float) green2 / 256f);
-              double b2 = (double) ((float) blue2 / 256f);
-              DrawMod.DrawScaledColorized2( local12,  local13, x4, y5, 192, 144, width2, origh2, (float) r2, (float) g2, (float) b2, 1f);
+              double r2 =  ( red2 / 256f);
+              double g2 =  ( green2 / 256f);
+              double b2 =  ( blue2 / 256f);
+              DrawMod.DrawScaledColorized2( local12,  local13, x4, y5, 192, 144, width2, origh2,  r2,  g2,  b2, 1f);
               break;
             case 3:
               let mut red3: i32 = this.game.Data.RegimeObj[index11].Red3;
@@ -619,10 +619,10 @@ namespace WindowsApplication1
               let mut y6: i32 = y2;
               let mut width3: i32 = BitmapStore.GetWidth(picSpriteId);
               let mut origh3: i32 = BitmapStore.Getheight(picSpriteId);
-              double r3 = (double) ((float) red3 / 256f);
-              double g3 = (double) ((float) green3 / 256f);
-              double b3 = (double) ((float) blue3 / 256f);
-              DrawMod.DrawScaledColorized2( local14,  local15, x5, y6, 192, 144, width3, origh3, (float) r3, (float) g3, (float) b3, 1f);
+              double r3 =  ( red3 / 256f);
+              double g3 =  ( green3 / 256f);
+              double b3 =  ( blue3 / 256f);
+              DrawMod.DrawScaledColorized2( local14,  local15, x5, y6, 192, 144, width3, origh3,  r3,  g3,  b3, 1f);
               break;
             case 4:
               let mut red4: i32 = this.game.Data.RegimeObj[index11].Red4;
@@ -635,10 +635,10 @@ namespace WindowsApplication1
               let mut y7: i32 = y2;
               let mut width4: i32 = BitmapStore.GetWidth(picSpriteId);
               let mut origh4: i32 = BitmapStore.Getheight(picSpriteId);
-              double r4 = (double) ((float) red4 / 256f);
-              double g4 = (double) ((float) green4 / 256f);
-              double b4 = (double) ((float) blue4 / 256f);
-              DrawMod.DrawScaledColorized2( local16,  local17, x6, y7, 192, 144, width4, origh4, (float) r4, (float) g4, (float) b4, 1f);
+              double r4 =  ( red4 / 256f);
+              double g4 =  ( green4 / 256f);
+              double b4 =  ( blue4 / 256f);
+              DrawMod.DrawScaledColorized2( local16,  local17, x6, y7, 192, 144, width4, origh4,  r4,  g4,  b4, 1f);
               break;
             case 5:
                let mut local18: &Graphics = &Expression;
@@ -648,10 +648,10 @@ namespace WindowsApplication1
               let mut y8: i32 = y2;
               let mut width5: i32 = BitmapStore.GetWidth(picSpriteId);
               let mut origh5: i32 = BitmapStore.Getheight(picSpriteId);
-              double r5 = (double) ((float) (red + 392) / 1024f);
-              double g5 = (double) ((float) (green + 392) / 1024f);
-              double b5 = (double) ((float) (blue + 392) / 1024f);
-              DrawMod.DrawScaledColorized2( local18,  local19, x7, y8, 192, 144, width5, origh5, (float) r5, (float) g5, (float) b5, 1f);
+              double r5 =  ( (red + 392) / 1024f);
+              double g5 =  ( (green + 392) / 1024f);
+              double b5 =  ( (blue + 392) / 1024f);
+              DrawMod.DrawScaledColorized2( local18,  local19, x7, y8, 192, 144, width5, origh5,  r5,  g5,  b5, 1f);
               break;
             case 6:
                let mut local20: &Graphics = &Expression;
@@ -661,13 +661,13 @@ namespace WindowsApplication1
               let mut y9: i32 = y2;
               let mut width6: i32 = BitmapStore.GetWidth(picSpriteId);
               let mut origh6: i32 = BitmapStore.Getheight(picSpriteId);
-              double r6 = (double) ((float) (red + 80) / 512f);
-              double g6 = (double) ((float) (green + 200) / 512f);
-              double b6 = (double) ((float) (blue + 80) / 512f);
-              DrawMod.DrawScaledColorized2( local20,  local21, x8, y9, 192, 144, width6, origh6, (float) r6, (float) g6, (float) b6, 1f);
+              double r6 =  ( (red + 80) / 512f);
+              double g6 =  ( (green + 200) / 512f);
+              double b6 =  ( (blue + 80) / 512f);
+              DrawMod.DrawScaledColorized2( local20,  local21, x8, y9, 192, 144, width6, origh6,  r6,  g6,  b6, 1f);
               break;
           }
-          if ((double) this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing((object) BitmapStore.GetBitmap(sidewaysSpriteId)))
+          if ( this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing( BitmapStore.GetBitmap(sidewaysSpriteId)))
           {
              let mut local22: &Graphics = &Expression;
             Bitmap bitmap9 = BitmapStore.GetBitmap(sidewaysSpriteId);
@@ -676,7 +676,7 @@ namespace WindowsApplication1
             let mut y10: i32 = y2;
             DrawMod.DrawScaled( local22,  local23, x9, y10, 192, 144);
           }
-          if ((double) this.game.Data.RuleVar[869] >= 1.0 & (double) this.game.Data.RuleVar[869] < 3.0)
+          if ( this.game.Data.RuleVar[869] >= 1.0 &  this.game.Data.RuleVar[869] < 3.0)
           {
             let mut nr: i32 = this.game.Data.LandscapeTypeObj[index4].SidewaysSPriteID3[index5];
              let mut local24: &Graphics = &Expression;
@@ -694,28 +694,28 @@ namespace WindowsApplication1
         {
           this.OptionsList2Obj = ATListClass::new();
           int tdata;
-          this.OptionsList2Obj.add("AP", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Ap)));
-          this.OptionsList2Obj.add("RDN", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Rdn)));
-          this.OptionsList2Obj.add("EXP", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Xp)));
-          this.OptionsList2Obj.add("MOR", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Mor)));
-          this.OptionsList2Obj.add("ENT", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].CurrentEntrench)));
-          this.OptionsList2Obj.add("OFF", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].OffMod)) + "%");
-          this.OptionsList2Obj.add("DEF", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].DefMod)) + "%");
+          this.OptionsList2Obj.add("AP", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Ap)));
+          this.OptionsList2Obj.add("RDN", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Rdn)));
+          this.OptionsList2Obj.add("EXP", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Xp)));
+          this.OptionsList2Obj.add("MOR", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Mor)));
+          this.OptionsList2Obj.add("ENT", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].CurrentEntrench)));
+          this.OptionsList2Obj.add("OFF", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].OffMod)) + "%");
+          this.OptionsList2Obj.add("DEF", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].DefMod)) + "%");
           float num2 = -1f;
           if (this.game.EditObj.UnitSelected > -1 & this.sfnr > -1 && this.game.Data.SFTypeObj[this.game.Data.SFObj[this.sfnr].Type].Theater == 2)
           {
-            num2 = (double) this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y) >= 1.0 ? 1f : (float) (0.33 + 0.66 * (double) this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y));
-            if ((double) num2 < 1.0)
+            num2 =  this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y) >= 1.0 ? 1f :  (0.33 + 0.66 *  this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y));
+            if ( num2 < 1.0)
             {
-              tvalue: String = Strings.Trim(Conversion.Str((object) - Math.Round(100.0 - 100.0 * (double) num2))) + "%";
+              tvalue: String = Strings.Trim(Conversion.Str( - Math.Round(100.0 - 100.0 *  num2))) + "%";
               this.OptionsList2Obj.add("AIRSTK", tdata, tvalue);
             }
             else
               this.OptionsList2Obj.add("AIRSTK", tdata, "0%");
           }
-          if ((double) num2 == -1.0)
+          if ( num2 == -1.0)
             this.OptionsList2Obj.add("AIRSTK", tdata, "0%");
-          this.OptionsList2Obj.add("EP", tdata, Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].EP)));
+          this.OptionsList2Obj.add("EP", tdata, Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].EP)));
           this.OptionsList2Obj.add("PPL", tdata, Strings.Left(this.game.Data.PeopleObj[this.game.Data.SFObj[this.sfnr].People].Name, 7));
           if (this.game.Data.SFObj[this.sfnr].MoveType > -1)
             this.OptionsList2Obj.add("MOVE", tdata, this.game.Data.TempString[this.game.Data.SFObj[this.sfnr].MoveType]);
@@ -818,21 +818,21 @@ namespace WindowsApplication1
             let mut baseColor: i32 = this.game.Data.SFTypeObj[index12].BaseColor;
             let mut x10: i32 = num1;
             let mut y11: i32 = y1 + 47;
-            if ((double) this.game.Data.RuleVar[869] >= 1.0)
+            if ( this.game.Data.RuleVar[869] >= 1.0)
             {
-              index4 =  Math.Round((double) this.game.Data.RuleVar[873]);
+              index4 =  Math.Round( this.game.Data.RuleVar[873]);
               index5 = 0;
-              if ((double) this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[index12].Theater == 2)
+              if ( this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[index12].Theater == 2)
               {
-                index4 =  Math.Round((double) this.game.Data.RuleVar[848]);
+                index4 =  Math.Round( this.game.Data.RuleVar[848]);
                 index5 = 0;
               }
-              if ((double) this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[index12].Theater == 1)
+              if ( this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[index12].Theater == 1)
               {
-                index4 =  Math.Round((double) this.game.Data.RuleVar[872]);
+                index4 =  Math.Round( this.game.Data.RuleVar[872]);
                 index5 = 0;
               }
-              if ((double) this.game.Data.RuleVar[869] == 3.0)
+              if ( this.game.Data.RuleVar[869] == 3.0)
               {
                 let mut nr: i32 = this.game.Data.LandscapeTypeObj[index4].BasicPicID[index5];
                  let mut local27: &Graphics = &Expression;
@@ -846,7 +846,7 @@ namespace WindowsApplication1
               }
               else
               {
-                if ((double) this.game.Data.RuleVar[869] == 1.0)
+                if ( this.game.Data.RuleVar[869] == 1.0)
                 {
                   let mut nr: i32 = this.game.Data.LandscapeTypeObj[index4].SidewaysSPriteID1[index5];
                    let mut local29: &Graphics = &Expression;
@@ -887,10 +887,10 @@ namespace WindowsApplication1
                 let mut y13: i32 = y11;
                 let mut width7: i32 = BitmapStore.GetWidth(picSpriteId);
                 let mut origh7: i32 = BitmapStore.Getheight(picSpriteId);
-                double r7 = (double) ((float) red / 256f);
-                double g7 = (double) ((float) green / 256f);
-                double b7 = (double) ((float) blue / 256f);
-                DrawMod.DrawScaledColorized2( local35,  local36, x12, y13, 192, 144, width7, origh7, (float) r7, (float) g7, (float) b7, 1f);
+                double r7 =  ( red / 256f);
+                double g7 =  ( green / 256f);
+                double b7 =  ( blue / 256f);
+                DrawMod.DrawScaledColorized2( local35,  local36, x12, y13, 192, 144, width7, origh7,  r7,  g7,  b7, 1f);
                 break;
               case 2:
                 let mut red2: i32 = this.game.Data.RegimeObj[index17].Red2;
@@ -903,10 +903,10 @@ namespace WindowsApplication1
                 let mut y14: i32 = y11;
                 let mut width8: i32 = BitmapStore.GetWidth(picSpriteId);
                 let mut origh8: i32 = BitmapStore.Getheight(picSpriteId);
-                double r8 = (double) ((float) red2 / 256f);
-                double g8 = (double) ((float) green2 / 256f);
-                double b8 = (double) ((float) blue2 / 256f);
-                DrawMod.DrawScaledColorized2( local37,  local38, x13, y14, 192, 144, width8, origh8, (float) r8, (float) g8, (float) b8, 1f);
+                double r8 =  ( red2 / 256f);
+                double g8 =  ( green2 / 256f);
+                double b8 =  ( blue2 / 256f);
+                DrawMod.DrawScaledColorized2( local37,  local38, x13, y14, 192, 144, width8, origh8,  r8,  g8,  b8, 1f);
                 break;
               case 3:
                 let mut red3: i32 = this.game.Data.RegimeObj[index17].Red3;
@@ -919,10 +919,10 @@ namespace WindowsApplication1
                 let mut y15: i32 = y11;
                 let mut width9: i32 = BitmapStore.GetWidth(picSpriteId);
                 let mut origh9: i32 = BitmapStore.Getheight(picSpriteId);
-                double r9 = (double) ((float) red3 / 256f);
-                double g9 = (double) ((float) green3 / 256f);
-                double b9 = (double) ((float) blue3 / 256f);
-                DrawMod.DrawScaledColorized2( local39,  local40, x14, y15, 192, 144, width9, origh9, (float) r9, (float) g9, (float) b9, 1f);
+                double r9 =  ( red3 / 256f);
+                double g9 =  ( green3 / 256f);
+                double b9 =  ( blue3 / 256f);
+                DrawMod.DrawScaledColorized2( local39,  local40, x14, y15, 192, 144, width9, origh9,  r9,  g9,  b9, 1f);
                 break;
               case 4:
                 let mut red4: i32 = this.game.Data.RegimeObj[index17].Red4;
@@ -935,10 +935,10 @@ namespace WindowsApplication1
                 let mut y16: i32 = y11;
                 let mut width10: i32 = BitmapStore.GetWidth(picSpriteId);
                 let mut origh10: i32 = BitmapStore.Getheight(picSpriteId);
-                double r10 = (double) ((float) red4 / 256f);
-                double g10 = (double) ((float) green4 / 256f);
-                double b10 = (double) ((float) blue4 / 256f);
-                DrawMod.DrawScaledColorized2( local41,  local42, x15, y16, 192, 144, width10, origh10, (float) r10, (float) g10, (float) b10, 1f);
+                double r10 =  ( red4 / 256f);
+                double g10 =  ( green4 / 256f);
+                double b10 =  ( blue4 / 256f);
+                DrawMod.DrawScaledColorized2( local41,  local42, x15, y16, 192, 144, width10, origh10,  r10,  g10,  b10, 1f);
                 break;
               case 5:
                  let mut local43: &Graphics = &Expression;
@@ -948,10 +948,10 @@ namespace WindowsApplication1
                 let mut y17: i32 = y11;
                 let mut width11: i32 = BitmapStore.GetWidth(picSpriteId);
                 let mut origh11: i32 = BitmapStore.Getheight(picSpriteId);
-                double r11 = (double) ((float) (red + 392) / 1024f);
-                double g11 = (double) ((float) (green + 392) / 1024f);
-                double b11 = (double) ((float) (blue + 392) / 1024f);
-                DrawMod.DrawScaledColorized2( local43,  local44, x16, y17, 192, 144, width11, origh11, (float) r11, (float) g11, (float) b11, 1f);
+                double r11 =  ( (red + 392) / 1024f);
+                double g11 =  ( (green + 392) / 1024f);
+                double b11 =  ( (blue + 392) / 1024f);
+                DrawMod.DrawScaledColorized2( local43,  local44, x16, y17, 192, 144, width11, origh11,  r11,  g11,  b11, 1f);
                 break;
               case 6:
                  let mut local45: &Graphics = &Expression;
@@ -961,13 +961,13 @@ namespace WindowsApplication1
                 let mut y18: i32 = y11;
                 let mut width12: i32 = BitmapStore.GetWidth(picSpriteId);
                 let mut origh12: i32 = BitmapStore.Getheight(picSpriteId);
-                double r12 = (double) ((float) (red + 80) / 512f);
-                double g12 = (double) ((float) (green + 200) / 512f);
-                double b12 = (double) ((float) (blue + 80) / 512f);
-                DrawMod.DrawScaledColorized2( local45,  local46, x17, y18, 192, 144, width12, origh12, (float) r12, (float) g12, (float) b12, 1f);
+                double r12 =  ( (red + 80) / 512f);
+                double g12 =  ( (green + 200) / 512f);
+                double b12 =  ( (blue + 80) / 512f);
+                DrawMod.DrawScaledColorized2( local45,  local46, x17, y18, 192, 144, width12, origh12,  r12,  g12,  b12, 1f);
                 break;
             }
-            if ((double) this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing((object) BitmapStore.GetBitmap(sidewaysSpriteId)))
+            if ( this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing( BitmapStore.GetBitmap(sidewaysSpriteId)))
             {
                let mut local47: &Graphics = &Expression;
               Bitmap bitmap19 = BitmapStore.GetBitmap(sidewaysSpriteId);
@@ -976,7 +976,7 @@ namespace WindowsApplication1
               let mut y19: i32 = y11;
               DrawMod.DrawScaled( local47,  local48, x18, y19, 192, 144);
             }
-            if ((double) this.game.Data.RuleVar[869] >= 1.0 & (double) this.game.Data.RuleVar[869] < 3.0)
+            if ( this.game.Data.RuleVar[869] >= 1.0 &  this.game.Data.RuleVar[869] < 3.0)
             {
               let mut nr: i32 = this.game.Data.LandscapeTypeObj[index4].SidewaysSPriteID3[index5];
                let mut local49: &Graphics = &Expression;
@@ -1046,7 +1046,7 @@ namespace WindowsApplication1
                     let mut rect2_2: &Rectangle = &rectangle1
                     txt2_2: String = str6;
                     DrawMod.MakeFullBoxVic2( local52, rect1_2, "SELECTED HQ", rect2_2, txt2_2);
-                    str7: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.HQSupply(this.HQselect)));
+                    str7: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.HQSupply(this.HQselect)));
                      let mut local53: &Graphics = &Expression;
                     rectangle2 = Rectangle::new(num6 + 250, num7 + 400, 192, 14);
                     let mut rect1_3: &Rectangle = &rectangle2
@@ -1158,7 +1158,7 @@ namespace WindowsApplication1
                   let mut tsubpart13: SubPartClass =  new TextButtonPartClass("Do Upgrade", 120, tBackbitmap: ( this.OwnBitmap), bbx: (num6 + 340), bby: (num7 + 504));
                   this.but3id = this.AddSubPart( tsubpart13, num6 + 340, num7 + 504, 120, 35, 1);
                 }
-                str9: String = Conversion.Str((object) Conversion.Int((float) this.game.Data.SFTypeObj[sftyp2].UpgradeCost / this.game.Data.RuleVar[77])) + " X " + Conversion.Str((object) this.detailnr2) + " = " + Conversion.Str((object) this.game.HandyFunctionsObj.CanUpgradeCost(this.sfnr, this.unr, this.detailnr2));
+                str9: String = Conversion.Str( Conversion.Int( this.game.Data.SFTypeObj[sftyp2].UpgradeCost / this.game.Data.RuleVar[77])) + " X " + Conversion.Str( this.detailnr2) + " = " + Conversion.Str( this.game.HandyFunctionsObj.CanUpgradeCost(this.sfnr, this.unr, this.detailnr2));
                  let mut local59: &Graphics = &Expression;
                 rectangle2 = Rectangle::new(num6 + 250, num7 + 440, 192, 14);
                 let mut rect1: &Rectangle = &rectangle2
@@ -1170,7 +1170,7 @@ namespace WindowsApplication1
                 if (this.detailnr2 > num8)
                   this.detailnr2 = num8;
                 let mut game: GameClass = this.game;
-                tsuffix: String = " of " + Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[this.sfnr].Qty));
+                tsuffix: String = " of " + Strings.Trim(Conversion.Str( this.game.Data.SFObj[this.sfnr].Qty));
                 let mut tmaxval: i32 = num8;
                 let mut detailnr2: i32 = this.detailnr2;
                 Bitmap bitmap = (Bitmap) null;
@@ -1218,7 +1218,7 @@ namespace WindowsApplication1
                 let mut y22: i32 = num7 - 30 +  byte.MaxValue + 30;
                 if (this.game.Data.SFTypeObj[sftyp2].UpgradeXP > 0)
                 {
-                  str10: String = Conversion.Str((object) this.game.Data.SFTypeObj[sftyp2].UpgradeXP);
+                  str10: String = Conversion.Str( this.game.Data.SFTypeObj[sftyp2].UpgradeXP);
                    let mut local62: &Graphics = &Expression;
                   rectangle2 = Rectangle::new(num6 + 260, y22, 192, 14);
                   let mut rect1_6: &Rectangle = &rectangle2
@@ -1259,7 +1259,7 @@ namespace WindowsApplication1
                   }
                   while (index26 <= 4);
                 }
-                str11: String = Conversion.Str((object) Conversion.Int((float) this.game.Data.SFTypeObj[sftyp2].UpgradeCost / this.game.Data.RuleVar[77]));
+                str11: String = Conversion.Str( Conversion.Int( this.game.Data.SFTypeObj[sftyp2].UpgradeCost / this.game.Data.RuleVar[77]));
                  let mut local64: &Graphics = &Expression;
                 rectangle2 = Rectangle::new(num6 + 260, y22, 192, 14);
                 let mut rect1_8: &Rectangle = &rectangle2
@@ -1312,101 +1312,101 @@ namespace WindowsApplication1
         this.OptionsList3Obj.add("MoveType", -1, tvalue2, tvalue2_2);
         str12 = "";
         tvalue2_3: String = "";
-        tvalue3: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].SupplyCarry));
+        tvalue3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].SupplyCarry));
         if (this.comparenr > -1)
-          tvalue2_3 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].SupplyCarry));
+          tvalue2_3 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].SupplyCarry));
         this.OptionsList3Obj.add("Supply Carry", -1, tvalue3, tvalue2_3);
         str12 = "";
         tvalue2_4: String = "";
-        tvalue4: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].BasicSupplyNeed));
+        tvalue4: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].BasicSupplyNeed));
         if (this.comparenr > -1)
-          tvalue2_4 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].BasicSupplyNeed));
+          tvalue2_4 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].BasicSupplyNeed));
         this.OptionsList3Obj.add("Supply Consum", -1, tvalue4, tvalue2_4);
         str12 = "";
         tvalue2_5: String = "";
-        tvalue5: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].Cap));
+        tvalue5: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].Cap));
         if (this.game.Data.SFTypeObj[sftyp3].Theater > 0)
           tvalue5 = "0";
         if (this.comparenr > -1)
-          tvalue2_5 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].Cap));
+          tvalue2_5 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].Cap));
         if (this.comparenr > -1 && this.game.Data.SFTypeObj[this.comparenr].Theater > 0)
           tvalue2_5 = "0";
         this.OptionsList3Obj.add("Land.Tr.Cap", -1, tvalue5, tvalue2_5);
         str12 = "";
         tvalue2_6: String = "";
-        tvalue6: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].Cap));
+        tvalue6: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].Cap));
         if (this.game.Data.SFTypeObj[sftyp3].Theater != 1)
           tvalue6 = "0";
         if (this.comparenr > -1)
-          tvalue2_6 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].Cap));
+          tvalue2_6 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].Cap));
         if (this.comparenr > -1 && this.game.Data.SFTypeObj[this.comparenr].Theater != 1)
           tvalue2_6 = "0";
         this.OptionsList3Obj.add("Sea.Tr.Cap", -1, tvalue6, tvalue2_6);
         str12 = "";
         tvalue2_7: String = "";
-        tvalue7: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].RailCap));
+        tvalue7: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].RailCap));
         if (this.comparenr > -1)
-          tvalue2_7 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].RailCap));
+          tvalue2_7 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].RailCap));
         this.OptionsList3Obj.add("Rail.Tr.Cap", -1, tvalue7, tvalue2_7);
         str12 = "";
         tvalue2_8: String = "";
-        tvalue8: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].Theater));
+        tvalue8: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].Theater));
         if (this.comparenr > -1)
-          tvalue2_8 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].Theater));
+          tvalue2_8 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].Theater));
         this.OptionsList3Obj.add("Theater", -1, tvalue8, tvalue2_8);
         str12 = "";
         tvalue2_9: String = "";
-        tvalue9: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].Weight));
+        tvalue9: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].Weight));
         if (this.comparenr > -1)
-          tvalue2_9 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].Weight));
+          tvalue2_9 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].Weight));
         this.OptionsList3Obj.add("Weight", -1, tvalue9, tvalue2_9);
         str12 = "";
         tvalue2_10: String = "";
-        tvalue10: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].CarryCap));
+        tvalue10: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].CarryCap));
         if (this.comparenr > -1)
-          tvalue2_10 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].CarryCap));
+          tvalue2_10 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].CarryCap));
         this.OptionsList3Obj.add("Carry Cap.", -1, tvalue10, tvalue2_10);
         str12 = "";
         tvalue2_11: String = "";
-        tvalue11: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].MoveRedux));
+        tvalue11: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].MoveRedux));
         if (this.comparenr > -1)
-          tvalue2_11 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].MoveRedux));
+          tvalue2_11 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].MoveRedux));
         this.OptionsList3Obj.add("Move Redux", -1, tvalue11, tvalue2_11);
         str12 = "";
         tvalue2_12: String = "";
-        tvalue12: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].ReconPts));
+        tvalue12: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].ReconPts));
         if (this.comparenr > -1)
-          tvalue2_12 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].ReconPts));
+          tvalue2_12 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].ReconPts));
         this.OptionsList3Obj.add("Recon Points", -1, tvalue12, tvalue2_12);
         str12 = "";
         tvalue2_13: String = "";
-        tvalue13: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].ZOCPts));
+        tvalue13: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].ZOCPts));
         if (this.comparenr > -1)
-          tvalue2_13 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].ZOCPts));
+          tvalue2_13 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].ZOCPts));
         this.OptionsList3Obj.add("ZOC Points", -1, tvalue13, tvalue2_13);
         str12 = "";
         tvalue2_14: String = "";
-        tvalue14: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].HidePts));
+        tvalue14: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].HidePts));
         if (this.comparenr > -1)
-          tvalue2_14 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].HidePts));
+          tvalue2_14 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].HidePts));
         this.OptionsList3Obj.add("Hide Points", -1, tvalue14, tvalue2_14);
         str12 = "";
         tvalue2_15: String = "";
-        tvalue15: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].CanDoParadrop));
+        tvalue15: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].CanDoParadrop));
         if (this.comparenr > -1)
-          tvalue2_15 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].CanDoParadrop));
+          tvalue2_15 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].CanDoParadrop));
         this.OptionsList3Obj.add("Paradrop", -1, tvalue15, tvalue2_15);
         str12 = "";
         tvalue2_16: String = "";
-        tvalue16: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].EP));
+        tvalue16: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].EP));
         if (this.comparenr > -1)
-          tvalue2_16 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].EP));
+          tvalue2_16 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].EP));
         this.OptionsList3Obj.add("Engineer Pts", -1, tvalue16, tvalue2_16);
         str12 = "";
         tvalue2_17: String = "";
-        tvalue17: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].StaffPts));
+        tvalue17: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].StaffPts));
         if (this.comparenr > -1)
-          tvalue2_17 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].StaffPts));
+          tvalue2_17 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].StaffPts));
         this.OptionsList3Obj.add("Staff Pts", -1, tvalue17, tvalue2_17);
         if (this.OptionsList3Id > 0)
         {
@@ -1423,57 +1423,57 @@ namespace WindowsApplication1
         this.OptionsList4Obj = ATListClass::new();
         str12 = "";
         tvalue2_18: String = "";
-        tvalue18: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].StaffCombatMod));
+        tvalue18: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].StaffCombatMod));
         if (this.comparenr > -1)
-          tvalue2_18 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].StaffCombatMod));
+          tvalue2_18 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].StaffCombatMod));
         this.OptionsList4Obj.add("Staff Com Mod", -1, tvalue18, tvalue2_18);
         str12 = "";
         tvalue2_19: String = "";
-        tvalue19: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].StaffMoraleMod));
+        tvalue19: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].StaffMoraleMod));
         if (this.comparenr > -1)
-          tvalue2_19 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].StaffMoraleMod));
+          tvalue2_19 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].StaffMoraleMod));
         this.OptionsList4Obj.add("Staff Mor Mod", -1, tvalue19, tvalue2_19);
         str12 = "";
         tvalue2_20: String = "";
-        tvalue20: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].BlowBridgePts));
+        tvalue20: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].BlowBridgePts));
         if (this.comparenr > -1)
-          tvalue2_20 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].BlowBridgePts));
+          tvalue2_20 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].BlowBridgePts));
         this.OptionsList4Obj.add("Blow Pts", -1, tvalue20, tvalue2_20);
         str12 = "";
         tvalue2_21: String = "";
-        tvalue21: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].AntiSupply));
+        tvalue21: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].AntiSupply));
         if (this.comparenr > -1)
-          tvalue2_21 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AntiSupply));
+          tvalue2_21 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AntiSupply));
         this.OptionsList4Obj.add("AntiSup Pts Land", -1, tvalue21, tvalue2_21);
         str12 = "";
         tvalue2_22: String = "";
-        tvalue22: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].AntiSupplySea));
+        tvalue22: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].AntiSupplySea));
         if (this.comparenr > -1)
-          tvalue2_22 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AntiSupplySea));
+          tvalue2_22 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AntiSupplySea));
         this.OptionsList4Obj.add("AntiSup Pts Sea", -1, tvalue22, tvalue2_22);
         str12 = "";
         tvalue2_23: String = "";
-        tvalue23: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].AntiSupplyRange));
+        tvalue23: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].AntiSupplyRange));
         if (this.comparenr > -1)
-          tvalue2_23 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AntiSupplyRange));
+          tvalue2_23 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AntiSupplyRange));
         this.OptionsList4Obj.add("AntiSup Range", -1, tvalue23, tvalue2_23);
         str12 = "";
         tvalue2_24: String = "";
-        tvalue24: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].ConsiderCarry));
+        tvalue24: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].ConsiderCarry));
         if (this.comparenr > -1)
-          tvalue2_24 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].ConsiderCarry));
+          tvalue2_24 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].ConsiderCarry));
         this.OptionsList4Obj.add("Consider Carry", -1, tvalue24, tvalue2_24);
         str12 = "";
         tvalue2_25: String = "";
-        tvalue25: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].AirCarrierCap));
+        tvalue25: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].AirCarrierCap));
         if (this.comparenr > -1)
-          tvalue2_25 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AirCarrierCap));
+          tvalue2_25 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AirCarrierCap));
         this.OptionsList4Obj.add("Aircar.CarryCap", -1, tvalue25, tvalue2_25);
         str12 = "";
         tvalue2_26: String = "";
-        tvalue26: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].ApMod));
+        tvalue26: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].ApMod));
         if (this.comparenr > -1)
-          tvalue2_26 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].ApMod));
+          tvalue2_26 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].ApMod));
         this.OptionsList4Obj.add("AP Mod", -1, tvalue26, tvalue2_26);
         str12 = "";
         tvalue2_27: String = "";
@@ -1483,45 +1483,45 @@ namespace WindowsApplication1
         this.OptionsList4Obj.add("Fuel Type", -1, tvalue27, tvalue2_27);
         str12 = "";
         tvalue2_28: String = "";
-        tvalue28: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].FuelForMove));
+        tvalue28: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].FuelForMove));
         if (this.comparenr > -1)
-          tvalue2_28 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].FuelForMove));
+          tvalue2_28 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].FuelForMove));
         this.OptionsList4Obj.add("Fuel for Move", -1, tvalue28, tvalue2_28);
         str12 = "";
         tvalue2_29: String = "";
-        tvalue29: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].FuelForAttack));
+        tvalue29: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].FuelForAttack));
         if (this.comparenr > -1)
-          tvalue2_29 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].FuelForAttack));
+          tvalue2_29 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].FuelForAttack));
         this.OptionsList4Obj.add("Fuel for Attack", -1, tvalue29, tvalue2_29);
         str12 = "";
         tvalue2_30: String = "";
-        tvalue30: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].FuelForAttackDef));
+        tvalue30: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].FuelForAttackDef));
         if (this.comparenr > -1)
-          tvalue2_30 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].FuelForAttackDef));
+          tvalue2_30 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].FuelForAttackDef));
         this.OptionsList4Obj.add("Fuel for Defense", -1, tvalue30, tvalue2_30);
         str12 = "";
         tvalue2_31: String = "";
-        tvalue31: String = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].OutOfFuelAttack));
+        tvalue31: String = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].OutOfFuelAttack));
         if (this.comparenr > -1)
-          tvalue2_31 = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].OutOfFuelAttack));
+          tvalue2_31 = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].OutOfFuelAttack));
         this.OptionsList4Obj.add("Out of fuel Att", -1, tvalue31, tvalue2_31);
         str12 = "";
         tvalue2_32: String = "";
-        tvalue32: String = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].OutOfFuelDefense));
+        tvalue32: String = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].OutOfFuelDefense));
         if (this.comparenr > -1)
-          tvalue2_32 = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].OutOfFuelDefense));
+          tvalue2_32 = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].OutOfFuelDefense));
         this.OptionsList4Obj.add("Out of fuel Def", -1, tvalue32, tvalue2_32);
         str12 = "";
         tvalue2_33: String = "";
-        tvalue33: String = "/ " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].OutOfFuelMove));
+        tvalue33: String = "/ " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].OutOfFuelMove));
         if (this.comparenr > -1)
-          tvalue2_33 = "/ " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].OutOfFuelMove));
+          tvalue2_33 = "/ " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].OutOfFuelMove));
         this.OptionsList4Obj.add("Out of fuel Mov", -1, tvalue33, tvalue2_33);
         str12 = "";
         tvalue2_34: String = "";
-        tvalue34: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp3].AntiStrucPts));
+        tvalue34: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp3].AntiStrucPts));
         if (this.comparenr > -1)
-          tvalue2_34 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AntiStrucPts));
+          tvalue2_34 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AntiStrucPts));
         this.OptionsList4Obj.add("Anti-Struc Pts", -1, tvalue34, tvalue2_34);
         if (this.OptionsList4Id > 0)
         {
@@ -1554,65 +1554,65 @@ namespace WindowsApplication1
         this.OptionsList3Obj.add("Initiative Def", -1, tvalue36, tvalue2_36);
         str12 = "";
         tvalue2_37: String = "";
-        tvalue37: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].Attacks));
+        tvalue37: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].Attacks));
         if (this.comparenr > -1)
-          tvalue2_37 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].Attacks));
+          tvalue2_37 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].Attacks));
         this.OptionsList3Obj.add("Attacks", -1, tvalue37, tvalue2_37);
         str12 = "";
         tvalue2_38: String = "";
-        tvalue38: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].MaxAttacked));
+        tvalue38: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].MaxAttacked));
         if (this.comparenr > -1)
-          tvalue2_38 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].MaxAttacked));
+          tvalue2_38 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].MaxAttacked));
         this.OptionsList3Obj.add("Max Attacked", -1, tvalue38, tvalue2_38);
         str12 = "";
         tvalue2_39: String = "";
-        tvalue39: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].Frontage));
+        tvalue39: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].Frontage));
         if (this.comparenr > -1)
-          tvalue2_39 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].Frontage));
+          tvalue2_39 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].Frontage));
         this.OptionsList3Obj.add("Stack Pts", -1, tvalue39, tvalue2_39);
         str12 = "";
         tvalue2_40: String = "";
-        tvalue40: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].BackBench));
+        tvalue40: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].BackBench));
         if (this.comparenr > -1)
-          tvalue2_40 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].BackBench));
+          tvalue2_40 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].BackBench));
         this.OptionsList3Obj.add("Rear Area", -1, tvalue40, tvalue2_40);
         str12 = "";
         tvalue2_41: String = "";
-        tvalue41: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].ArtRange));
+        tvalue41: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].ArtRange));
         if (this.comparenr > -1)
-          tvalue2_41 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].ArtRange));
+          tvalue2_41 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].ArtRange));
         this.OptionsList3Obj.add("Art Range", -1, tvalue41, tvalue2_41);
         str12 = "";
         tvalue2_42: String = "";
-        tvalue42: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].FavTargetTries));
+        tvalue42: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].FavTargetTries));
         if (this.comparenr > -1)
-          tvalue2_42 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].FavTargetTries));
+          tvalue2_42 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].FavTargetTries));
         this.OptionsList3Obj.add("Fav.Target.Tries", -1, tvalue42, tvalue2_42);
         str12 = "";
         tvalue2_43: String = "";
-        tvalue43: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].AARange));
+        tvalue43: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].AARange));
         if (this.comparenr > -1)
-          tvalue2_43 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AARange));
+          tvalue2_43 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AARange));
         this.OptionsList3Obj.add("AA Range", -1, tvalue43, tvalue2_43);
         str12 = "";
         tvalue2_44: String = "";
-        tvalue44: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].KillPercent));
+        tvalue44: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].KillPercent));
         let mut index27: i32 = sftyp4;
         if (this.game.Data.SFTypeObj[index27].ArtSFType > -1)
         {
           let mut artSfType: i32 = this.game.Data.SFTypeObj[index27].ArtSFType;
-          tvalue44 = tvalue44 + " (" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[artSfType].KillPercent)) + ")";
+          tvalue44 = tvalue44 + " (" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[artSfType].KillPercent)) + ")";
         }
         else if (this.game.Data.SFTypeObj[index27].ArtRange > 0)
           tvalue44 = tvalue44 + " (" + tvalue44 + ")";
         if (this.comparenr > -1)
         {
-          tvalue2_44 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].KillPercent));
+          tvalue2_44 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].KillPercent));
           let mut comparenr: i32 = this.comparenr;
           if (this.game.Data.SFTypeObj[comparenr].ArtSFType > -1)
           {
             let mut artSfType: i32 = this.game.Data.SFTypeObj[comparenr].ArtSFType;
-            tvalue2_44 = tvalue2_44 + " (" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[artSfType].KillPercent)) + ")";
+            tvalue2_44 = tvalue2_44 + " (" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[artSfType].KillPercent)) + ")";
           }
           else if (this.game.Data.SFTypeObj[comparenr].ArtRange > 0)
             tvalue2_44 = tvalue2_44 + " (" + tvalue2_44 + ")";
@@ -1620,23 +1620,23 @@ namespace WindowsApplication1
         this.OptionsList3Obj.add("Hit->Kill%", -1, tvalue44, tvalue2_44);
         str12 = "";
         tvalue2_45: String = "";
-        tvalue45: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].RetreatPercent));
+        tvalue45: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].RetreatPercent));
         let mut index28: i32 = sftyp4;
         if (this.game.Data.SFTypeObj[index28].ArtSFType > -1)
         {
           let mut artSfType: i32 = this.game.Data.SFTypeObj[index28].ArtSFType;
-          tvalue45 = tvalue45 + " (" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[artSfType].RetreatPercent)) + ")";
+          tvalue45 = tvalue45 + " (" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[artSfType].RetreatPercent)) + ")";
         }
         else if (this.game.Data.SFTypeObj[index28].ArtRange > 0)
           tvalue45 = tvalue45 + " (" + tvalue45 + ")";
         if (this.comparenr > -1)
         {
-          tvalue2_45 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].RetreatPercent));
+          tvalue2_45 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].RetreatPercent));
           let mut comparenr: i32 = this.comparenr;
           if (this.game.Data.SFTypeObj[comparenr].ArtSFType > -1)
           {
             let mut artSfType: i32 = this.game.Data.SFTypeObj[comparenr].ArtSFType;
-            tvalue2_45 = tvalue2_45 + " (" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[artSfType].RetreatPercent)) + ")";
+            tvalue2_45 = tvalue2_45 + " (" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[artSfType].RetreatPercent)) + ")";
           }
           else if (this.game.Data.SFTypeObj[comparenr].ArtRange > 0)
             tvalue2_45 = tvalue2_45 + " (" + tvalue2_45 + ")";
@@ -1644,39 +1644,39 @@ namespace WindowsApplication1
         this.OptionsList3Obj.add("Hit->Retreat%", -1, tvalue45, tvalue2_45);
         str12 = "";
         tvalue2_46: String = "";
-        tvalue46: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].FirstRoundPenaltyMod));
+        tvalue46: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].FirstRoundPenaltyMod));
         if (this.comparenr > -1)
-          tvalue2_46 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].FirstRoundPenaltyMod));
+          tvalue2_46 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].FirstRoundPenaltyMod));
         this.OptionsList3Obj.add("1stRnd pen.mod", -1, tvalue46, tvalue2_46);
         str12 = "";
         tvalue2_47: String = "";
-        tvalue47: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].EntrenchPower));
+        tvalue47: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].EntrenchPower));
         if (this.comparenr > -1)
-          tvalue2_47 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].EntrenchPower));
+          tvalue2_47 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].EntrenchPower));
         this.OptionsList3Obj.add("Entrench Pow", -1, tvalue47, tvalue2_47);
         str12 = "";
         tvalue2_48: String = "";
-        tvalue48: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].PowerPts));
+        tvalue48: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].PowerPts));
         if (this.comparenr > -1)
-          tvalue2_48 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].PowerPts));
+          tvalue2_48 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].PowerPts));
         this.OptionsList3Obj.add("Power Points", -1, tvalue48, tvalue2_48);
         str12 = "";
         tvalue2_49: String = "";
-        tvalue49: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].RdnLossPerAttack));
+        tvalue49: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].RdnLossPerAttack));
         if (this.comparenr > -1)
-          tvalue2_49 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].RdnLossPerAttack));
+          tvalue2_49 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].RdnLossPerAttack));
         this.OptionsList3Obj.add("RdnLos.p.attack", -1, tvalue49, tvalue2_49);
         str12 = "";
         tvalue2_50: String = "";
-        tvalue50: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].AutoDestroy)) + "/" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].AutoDestroy2));
+        tvalue50: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].AutoDestroy)) + "/" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].AutoDestroy2));
         if (this.comparenr > -1)
-          tvalue2_50 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AutoDestroy)) + "/" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].AutoDestroy));
+          tvalue2_50 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AutoDestroy)) + "/" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].AutoDestroy));
         this.OptionsList3Obj.add("AutoDestroy", -1, tvalue50, tvalue2_50);
         str12 = "";
         tvalue2_51: String = "";
-        tvalue51: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp4].KilltoRetreatChance));
+        tvalue51: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp4].KilltoRetreatChance));
         if (this.comparenr > -1)
-          tvalue2_51 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].KilltoRetreatChance));
+          tvalue2_51 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].KilltoRetreatChance));
         this.OptionsList3Obj.add("Kill becomes rtr", -1, tvalue51, tvalue2_51);
         if (this.OptionsList3Id > 0)
         {
@@ -1723,15 +1723,15 @@ namespace WindowsApplication1
             Number1 += 1;
             num19 = simpleList1.Weight[counter];
           }
-          tname: String = Strings.Trim(Conversion.Str((object) Number1)) + ". " + this.game.Data.TempString[400 + simpleList1.Id[counter]];
-          tvalue52: String = Strings.Trim(Conversion.Str((object) (this.game.Data.SFTypeObj[index29].AttackPower[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[index29].Attacks))) + "/" + Strings.Trim(Conversion.Str((object) (this.game.Data.SFTypeObj[index29].AttackPowerDef[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[index29].Attacks)));
-          tvalue2_52: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[index29].HitPoints[simpleList1.Id[counter]])) + "/" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[index29].HitPointsDef[simpleList1.Id[counter]]));
+          tname: String = Strings.Trim(Conversion.Str( Number1)) + ". " + this.game.Data.TempString[400 + simpleList1.Id[counter]];
+          tvalue52: String = Strings.Trim(Conversion.Str( (this.game.Data.SFTypeObj[index29].AttackPower[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[index29].Attacks))) + "/" + Strings.Trim(Conversion.Str( (this.game.Data.SFTypeObj[index29].AttackPowerDef[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[index29].Attacks)));
+          tvalue2_52: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[index29].HitPoints[simpleList1.Id[counter]])) + "/" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[index29].HitPointsDef[simpleList1.Id[counter]]));
           string tvalue3;
           string tvalue4;
           if (this.comparenr > -1)
           {
-            tvalue3 = Strings.Trim(Conversion.Str((object) (this.game.Data.SFTypeObj[this.comparenr].AttackPower[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[this.comparenr].Attacks))) + "/" + Strings.Trim(Conversion.Str((object) (this.game.Data.SFTypeObj[this.comparenr].AttackPowerDef[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[this.comparenr].Attacks)));
-            tvalue4 = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].HitPoints[simpleList1.Id[counter]])) + "/" + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.comparenr].HitPointsDef[simpleList1.Id[counter]]));
+            tvalue3 = Strings.Trim(Conversion.Str( (this.game.Data.SFTypeObj[this.comparenr].AttackPower[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[this.comparenr].Attacks))) + "/" + Strings.Trim(Conversion.Str( (this.game.Data.SFTypeObj[this.comparenr].AttackPowerDef[simpleList1.Id[counter]] * this.game.Data.SFTypeObj[this.comparenr].Attacks)));
+            tvalue4 = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].HitPoints[simpleList1.Id[counter]])) + "/" + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.comparenr].HitPointsDef[simpleList1.Id[counter]]));
           }
           if (this.comparenr > -1)
             this.combatListObj.add(tname, counter, tvalue52, tvalue2_52, tvalue3, tvalue4);
@@ -1785,11 +1785,11 @@ namespace WindowsApplication1
               Number2 += 1;
               num22 = simpleList2.Weight[counter];
             }
-            tname: String = Strings.Trim(Conversion.Str((object) Number2)) + ". " + this.game.Data.TempString[400 + simpleList2.Id[counter]];
-            tvalue53: String = Strings.Trim(Conversion.Str((object) (Conversions.ToInteger(this.game.Data.SFTypeObj[index30].AttackArt[simpleList2.Id[counter]]) * this.game.Data.SFTypeObj[index30].Attacks)));
+            tname: String = Strings.Trim(Conversion.Str( Number2)) + ". " + this.game.Data.TempString[400 + simpleList2.Id[counter]];
+            tvalue53: String = Strings.Trim(Conversion.Str( (Conversions.ToInteger(this.game.Data.SFTypeObj[index30].AttackArt[simpleList2.Id[counter]]) * this.game.Data.SFTypeObj[index30].Attacks)));
             if (this.comparenr > -1)
             {
-              tvalue2_53: String = Strings.Trim(Conversion.Str((object) (Conversions.ToInteger(this.game.Data.SFTypeObj[this.comparenr].AttackArt[simpleList2.Id[counter]]) * this.game.Data.SFTypeObj[this.comparenr].Attacks)));
+              tvalue2_53: String = Strings.Trim(Conversion.Str( (Conversions.ToInteger(this.game.Data.SFTypeObj[this.comparenr].AttackArt[simpleList2.Id[counter]]) * this.game.Data.SFTypeObj[this.comparenr].Attacks)));
               this.combatList2Obj.add(tname, counter, tvalue53, tvalue2_53);
             }
             else
@@ -1833,13 +1833,13 @@ namespace WindowsApplication1
           str12 = "";
           name: String = this.game.Data.LandscapeTypeObj[tdata].Name;
           let mut num25: i32 = this.game.Data.LandscapeTypeObj[tdata].MoveCost[this.game.Data.SFTypeObj[index31].MoveType];
-          tvalue: String = Strings.Trim(Conversion.Str((object)  Math.Round((double)  Math.Round((double) num25 - Conversion.Int((double) num25 * ((double) this.game.Data.SFTypeObj[index31].MoveRedux / 100.0))) * ((double) this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[index31].MoveType] / 100.0)))) + "ap";
-          tvalue2: String = Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[tdata].DefBonus[this.game.Data.SFTypeObj[index31].UnitGroup])) + "-" + Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[tdata].DefBonusMax[this.game.Data.SFTypeObj[index31].UnitGroup]));
+          tvalue: String = Strings.Trim(Conversion.Str(  Math.Round(  Math.Round( num25 - Conversion.Int( num25 * ( this.game.Data.SFTypeObj[index31].MoveRedux / 100.0))) * ( this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[index31].MoveType] / 100.0)))) + "ap";
+          tvalue2: String = Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[tdata].DefBonus[this.game.Data.SFTypeObj[index31].UnitGroup])) + "-" + Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[tdata].DefBonusMax[this.game.Data.SFTypeObj[index31].UnitGroup]));
           if (this.comparenr > -1)
           {
             let mut num26: i32 = this.game.Data.LandscapeTypeObj[tdata].MoveCost[this.game.Data.SFTypeObj[this.comparenr].MoveType];
-            tvalue3: String = Strings.Trim(Conversion.Str((object)  Math.Round((double)  Math.Round((double) num26 - Conversion.Int((double) num26 * ((double) this.game.Data.SFTypeObj[this.comparenr].MoveRedux / 100.0))) * ((double) this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[this.comparenr].MoveType] / 100.0)))) + "ap";
-            tvalue4: String = Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[tdata].DefBonus[this.game.Data.SFTypeObj[this.comparenr].UnitGroup])) + "-" + Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[tdata].DefBonusMax[this.game.Data.SFTypeObj[this.comparenr].UnitGroup]));
+            tvalue3: String = Strings.Trim(Conversion.Str(  Math.Round(  Math.Round( num26 - Conversion.Int( num26 * ( this.game.Data.SFTypeObj[this.comparenr].MoveRedux / 100.0))) * ( this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[this.comparenr].MoveType] / 100.0)))) + "ap";
+            tvalue4: String = Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[tdata].DefBonus[this.game.Data.SFTypeObj[this.comparenr].UnitGroup])) + "-" + Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[tdata].DefBonusMax[this.game.Data.SFTypeObj[this.comparenr].UnitGroup]));
             this.OptionsListObj.add(name, tdata, tvalue, tvalue2, tvalue3, tvalue4);
           }
           else
@@ -1852,12 +1852,12 @@ namespace WindowsApplication1
         {
           name: String = this.game.Data.RoadTypeObj[index32].Name;
           let mut num27: i32 = this.game.Data.RoadTypeObj[index32].MoveCostOverrule[this.game.Data.SFTypeObj[index31].MoveType];
-          tvalue: String = Strings.Trim(Conversion.Str((object)  Math.Round((double)  Math.Round((double) num27 - Conversion.Int((double) num27 * ((double) this.game.Data.SFTypeObj[index31].MoveRedux / 100.0))) * ((double) this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[index31].MoveType] / 100.0)))) + "ap";
+          tvalue: String = Strings.Trim(Conversion.Str(  Math.Round(  Math.Round( num27 - Conversion.Int( num27 * ( this.game.Data.SFTypeObj[index31].MoveRedux / 100.0))) * ( this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[index31].MoveType] / 100.0)))) + "ap";
           str13 = "-";
           if (this.comparenr > -1)
           {
             let mut num28: i32 = this.game.Data.RoadTypeObj[index32].MoveCostOverrule[this.game.Data.SFTypeObj[this.comparenr].MoveType];
-            tvalue2: String = Strings.Trim(Conversion.Str((object)  Math.Round((double)  Math.Round((double) num28 - Conversion.Int((double) num28 * ((double) this.game.Data.SFTypeObj[this.comparenr].MoveRedux / 100.0))) * ((double) this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[this.comparenr].MoveType] / 100.0)))) + "ap";
+            tvalue2: String = Strings.Trim(Conversion.Str(  Math.Round(  Math.Round( num28 - Conversion.Int( num28 * ( this.game.Data.SFTypeObj[this.comparenr].MoveRedux / 100.0))) * ( this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[this.comparenr].MoveType] / 100.0)))) + "ap";
             str14 = "-";
             this.OptionsList4Obj.add(name, 1000 + index32, tvalue, tvalue2);
           }
@@ -1872,7 +1872,7 @@ namespace WindowsApplication1
           str15: String = "";
           if (Number3 > 0)
             str15 = "+";
-          tvalue: String = str15 + Strings.Trim(Conversion.Str((object) Number3)) + "ap";
+          tvalue: String = str15 + Strings.Trim(Conversion.Str( Number3)) + "ap";
           str13 = "-";
           if (this.comparenr > -1)
           {
@@ -1880,7 +1880,7 @@ namespace WindowsApplication1
             str16: String = "";
             if (Number4 > 0)
               str16 = "+";
-            tvalue2: String = str16 + Strings.Trim(Conversion.Str((object) Number4)) + "ap";
+            tvalue2: String = str16 + Strings.Trim(Conversion.Str( Number4)) + "ap";
             str14 = "-";
             this.OptionsList3Obj.add(name, 2000 + index33, tvalue, tvalue2);
           }
@@ -1938,39 +1938,39 @@ namespace WindowsApplication1
         {
           str12 = "";
           name: String = this.game.Data.LandscapeTypeObj[tdata].Name;
-          let mut Number5: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[sftyp4].CombatModAtt[tdata] * 100f) - 100f));
-          tvalue: String = Number5 != 0 ? Strings.Trim(Conversion.Str((object) Number5)) + "%" : "-";
+          let mut Number5: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[sftyp4].CombatModAtt[tdata] * 100f) - 100f));
+          tvalue: String = Number5 != 0 ? Strings.Trim(Conversion.Str( Number5)) + "%" : "-";
           let mut artSfType1: i32 = this.game.Data.SFTypeObj[sftyp4].ArtSFType;
           if (artSfType1 > -1)
           {
-            let mut Number6: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[artSfType1].CombatModAtt[tdata] * 100f) - 100f));
-            tvalue = Number6 != 0 ? tvalue + " (" + Strings.Trim(Conversion.Str((object) Number6)) + "%)" : tvalue + " (-)";
+            let mut Number6: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[artSfType1].CombatModAtt[tdata] * 100f) - 100f));
+            tvalue = Number6 != 0 ? tvalue + " (" + Strings.Trim(Conversion.Str( Number6)) + "%)" : tvalue + " (-)";
           }
-          let mut Number7: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[sftyp4].CombatModDef[tdata] * 100f) - 100f));
-          tvalue2: String = Number7 != 0 ? Strings.Trim(Conversion.Str((object) Number7)) + "%" : "-";
+          let mut Number7: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[sftyp4].CombatModDef[tdata] * 100f) - 100f));
+          tvalue2: String = Number7 != 0 ? Strings.Trim(Conversion.Str( Number7)) + "%" : "-";
           let mut artSfType2: i32 = this.game.Data.SFTypeObj[sftyp4].ArtSFType;
           if (artSfType2 > -1)
           {
-            let mut Number8: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[artSfType2].CombatModDef[tdata] * 100f) - 100f));
-            tvalue2 = Number8 != 0 ? tvalue2 + " (" + Strings.Trim(Conversion.Str((object) Number8)) + "%)" : tvalue2 + " (-)";
+            let mut Number8: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[artSfType2].CombatModDef[tdata] * 100f) - 100f));
+            tvalue2 = Number8 != 0 ? tvalue2 + " (" + Strings.Trim(Conversion.Str( Number8)) + "%)" : tvalue2 + " (-)";
           }
           if (this.comparenr > -1)
           {
-            let mut Number9: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[this.comparenr].CombatModAtt[tdata] * 100f) - 100f));
-            tvalue3: String = Number9 != 0 ? Strings.Trim(Conversion.Str((object) Number9)) + "%" : "-";
+            let mut Number9: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[this.comparenr].CombatModAtt[tdata] * 100f) - 100f));
+            tvalue3: String = Number9 != 0 ? Strings.Trim(Conversion.Str( Number9)) + "%" : "-";
             let mut artSfType3: i32 = this.game.Data.SFTypeObj[this.comparenr].ArtSFType;
             if (artSfType3 > -1)
             {
-              let mut Number10: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[artSfType3].CombatModAtt[tdata] * 100f) - 100f));
-              tvalue3 = Number10 != 0 ? tvalue3 + " (" + Strings.Trim(Conversion.Str((object) Number10)) + "%)" : tvalue3 + " (-)";
+              let mut Number10: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[artSfType3].CombatModAtt[tdata] * 100f) - 100f));
+              tvalue3 = Number10 != 0 ? tvalue3 + " (" + Strings.Trim(Conversion.Str( Number10)) + "%)" : tvalue3 + " (-)";
             }
-            let mut Number11: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[this.comparenr].CombatModDef[tdata] * 100f) - 100f));
-            tvalue4: String = Number11 != 0 ? Strings.Trim(Conversion.Str((object) Number11)) + "%" : "-";
+            let mut Number11: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[this.comparenr].CombatModDef[tdata] * 100f) - 100f));
+            tvalue4: String = Number11 != 0 ? Strings.Trim(Conversion.Str( Number11)) + "%" : "-";
             let mut artSfType4: i32 = this.game.Data.SFTypeObj[this.comparenr].ArtSFType;
             if (artSfType4 > -1)
             {
-              let mut Number12: i32 =  Math.Round((double) (Conversion.Int(this.game.Data.SFTypeObj[artSfType4].CombatModDef[tdata] * 100f) - 100f));
-              tvalue4 = Number12 != 0 ? tvalue4 + " (" + Strings.Trim(Conversion.Str((object) Number12)) + "%)" : tvalue4 + " (-)";
+              let mut Number12: i32 =  Math.Round( (Conversion.Int(this.game.Data.SFTypeObj[artSfType4].CombatModDef[tdata] * 100f) - 100f));
+              tvalue4 = Number12 != 0 ? tvalue4 + " (" + Strings.Trim(Conversion.Str( Number12)) + "%)" : tvalue4 + " (-)";
             }
             this.OptionsList6Obj.add(name, tdata, tvalue, tvalue2, tvalue3, tvalue4);
           }
@@ -1981,13 +1981,13 @@ namespace WindowsApplication1
         for (let mut index34: i32 = 0; index34 <= riverTypeCounter2; index34 += 1)
         {
           name: String = this.game.Data.RiverTypeObj[index34].Name;
-          let mut Number13: i32 =  Math.Round((double) Conversion.Int(this.game.Data.RiverTypeObj[index34].AttackPenalty[this.game.Data.SFTypeObj[sftyp4].UnitGroup] * 100f));
-          tvalue: String = Number13 <= 0 ? "-" : "-" + Strings.Trim(Conversion.Str((object) Number13)) + "%";
+          let mut Number13: i32 =  Math.Round( Conversion.Int(this.game.Data.RiverTypeObj[index34].AttackPenalty[this.game.Data.SFTypeObj[sftyp4].UnitGroup] * 100f));
+          tvalue: String = Number13 <= 0 ? "-" : "-" + Strings.Trim(Conversion.Str( Number13)) + "%";
           tvalue2: String = "-";
           if (this.comparenr > -1)
           {
-            let mut Number14: i32 =  Math.Round((double) Conversion.Int(this.game.Data.RiverTypeObj[index34].AttackPenalty[this.game.Data.SFTypeObj[this.comparenr].UnitGroup] * 100f));
-            tvalue3: String = Number14 <= 0 ? "-" : "-" + Strings.Trim(Conversion.Str((object) Number14)) + "%";
+            let mut Number14: i32 =  Math.Round( Conversion.Int(this.game.Data.RiverTypeObj[index34].AttackPenalty[this.game.Data.SFTypeObj[this.comparenr].UnitGroup] * 100f));
+            tvalue3: String = Number14 <= 0 ? "-" : "-" + Strings.Trim(Conversion.Str( Number14)) + "%";
             tvalue4: String = "-";
             this.combatList2Obj.add(name, 2000 + index34, tvalue, tvalue2, tvalue3, tvalue4);
           }
@@ -2037,9 +2037,9 @@ namespace WindowsApplication1
             str12 = "";
             tname: String = this.game.Data.SFTypeObj[sftyp5].PreventHitOn[tdata] <= -1 ? "ALL" : this.game.Data.TempString[400 + this.game.Data.SFTypeObj[sftyp5].PreventHitOn[tdata]];
             tvalue: String = this.game.Data.SFTypeObj[sftyp5].PreventHitFrom[tdata] <= -1 ? "ALL" : this.game.Data.TempString[400 + this.game.Data.SFTypeObj[sftyp5].PreventHitFrom[tdata]];
-            tvalue2: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp5].PreventPriority[tdata]));
-            tvalue3: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp5].PreventChance[tdata])) + "%";
-            tvalue4: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[sftyp5].PreventPoints[tdata]));
+            tvalue2: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp5].PreventPriority[tdata]));
+            tvalue3: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp5].PreventChance[tdata])) + "%";
+            tvalue4: String = Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[sftyp5].PreventPoints[tdata]));
             this.OptionsListObj.add(tname, tdata, tvalue, tvalue2, tvalue3, tvalue4);
           }
         }
@@ -2092,7 +2092,7 @@ namespace WindowsApplication1
           this.temptext4 = this.AddSubPart( tsubpart31, 190, 400, 620, 200, 0);
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -2131,7 +2131,7 @@ namespace WindowsApplication1
             symbolSpriteId = this.game.Data.SFTypeObj[typ].ExtraSymbolSpriteID[index];
         }
       }
-      return (object) symbolSpriteId;
+      return  symbolSpriteId;
     }
 
     pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
@@ -2328,7 +2328,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.but2id)
             {
-              if (Interaction.MsgBox((object) "Are you sure you want to disband this subformation?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you sure you want to disband this subformation?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 if (this.game.EditObj.SoundOn)
                   SoundMod.PlayAWave(this.game.AppPath + "sound/disband.wav",  this.game.EditObj);
@@ -2337,7 +2337,7 @@ namespace WindowsApplication1
                 {
                   if (orderResult.ErrorString.Length > 1)
                   {
-                    let mut num3: i32 =  Interaction.MsgBox((object) orderResult.ErrorString, Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num3: i32 =  Interaction.MsgBox( orderResult.ErrorString, Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   windowReturnClass.AddCommand(6, 0);
                   windowReturnClass.SetFlag(true);
@@ -2358,7 +2358,7 @@ namespace WindowsApplication1
               {
                 if (!this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount > 6 && this.game.Data.SFObj[this.sfnr].Qty != this.detailnr2)
                 {
-                  let mut num4: i32 =  Interaction.MsgBox((object) "You can only upgrade ALL because there is already 8 subformations in unit.");
+                  let mut num4: i32 =  Interaction.MsgBox( "You can only upgrade ALL because there is already 8 subformations in unit.");
                   return windowReturnClass;
                 }
                 OrderResult orderResult = this.game.ProcessingObj.DoUpgrade(this.game.EditObj.UnitSelected, this.sfnr, this.detailnr2, this.HQselect);

@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -513,23 +513,23 @@ namespace WindowsApplication1
         Rectangle groupRect2 = self.GetGroupRect(numArray1[index4], numArray2[index4]);
         if (num4 == 1 & !(num5 == 2 | num5 == 3))
         {
-          DrawMod.drawLine( g, groupRect1.X +  Math.Round((double) groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X, groupRect2.Y +  Math.Round((double) groupRect2.Height / 2.0), 108, 108, 108, 180, 3);
-          DrawMod.drawLine( g, groupRect1.X +  Math.Round((double) groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X, groupRect2.Y +  Math.Round((double) groupRect2.Height / 2.0), 208, 228, 228, 180);
+          DrawMod.drawLine( g, groupRect1.X +  Math.Round( groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X, groupRect2.Y +  Math.Round( groupRect2.Height / 2.0), 108, 108, 108, 180, 3);
+          DrawMod.drawLine( g, groupRect1.X +  Math.Round( groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X, groupRect2.Y +  Math.Round( groupRect2.Height / 2.0), 208, 228, 228, 180);
         }
         else if (numArray2[index4] == 11)
         {
-          DrawMod.drawLine( g, groupRect1.X +  Math.Round((double) groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round((double) groupRect2.Width / 2.0), groupRect2.Y, 108, 108, 108, 180, 3);
-          DrawMod.drawLine( g, groupRect1.X +  Math.Round((double) groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round((double) groupRect2.Width / 2.0), groupRect2.Y, 208, 228, 228, 180);
+          DrawMod.drawLine( g, groupRect1.X +  Math.Round( groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round( groupRect2.Width / 2.0), groupRect2.Y, 108, 108, 108, 180, 3);
+          DrawMod.drawLine( g, groupRect1.X +  Math.Round( groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round( groupRect2.Width / 2.0), groupRect2.Y, 208, 228, 228, 180);
         }
         else if (numArray1[index4] == numArray1[index3])
         {
-          DrawMod.drawLine( g, groupRect1.X +  Math.Round((double) groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round((double) groupRect2.Width / 2.0), groupRect2.Y, 108, 108, 108, 180, 3);
-          DrawMod.drawLine( g, groupRect1.X +  Math.Round((double) groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round((double) groupRect2.Width / 2.0), groupRect2.Y, 208, 228, 228, 180);
+          DrawMod.drawLine( g, groupRect1.X +  Math.Round( groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round( groupRect2.Width / 2.0), groupRect2.Y, 108, 108, 108, 180, 3);
+          DrawMod.drawLine( g, groupRect1.X +  Math.Round( groupRect1.Width / 2.0), groupRect1.Y + groupRect1.Height, groupRect2.X +  Math.Round( groupRect2.Width / 2.0), groupRect2.Y, 208, 228, 228, 180);
         }
         else
         {
-          DrawMod.drawLine( g, groupRect1.X + groupRect1.Width, groupRect1.Y +  Math.Round((double) groupRect1.Height / 2.0), groupRect2.X, groupRect2.Y +  Math.Round((double) groupRect2.Height / 2.0), 108, 108, 108, 180, 3);
-          DrawMod.drawLine( g, groupRect1.X + groupRect1.Width, groupRect1.Y +  Math.Round((double) groupRect1.Height / 2.0), groupRect2.X, groupRect2.Y +  Math.Round((double) groupRect2.Height / 2.0), 208, 228, 228, 180);
+          DrawMod.drawLine( g, groupRect1.X + groupRect1.Width, groupRect1.Y +  Math.Round( groupRect1.Height / 2.0), groupRect2.X, groupRect2.Y +  Math.Round( groupRect2.Height / 2.0), 108, 108, 108, 180, 3);
+          DrawMod.drawLine( g, groupRect1.X + groupRect1.Width, groupRect1.Y +  Math.Round( groupRect1.Height / 2.0), groupRect2.X, groupRect2.Y +  Math.Round( groupRect2.Height / 2.0), 208, 228, 228, 180);
         }
       }
       let mut index6: i32 = 1;
@@ -542,7 +542,7 @@ namespace WindowsApplication1
         {
           Rectangle groupRect = self.GetGroupRect(tgroupX, tgroupY);
           if (idValue2 == 206)
-            groupRect.Width =  Math.Round((double) groupRect.Width * 1.5);
+            groupRect.Width =  Math.Round( groupRect.Width * 1.5);
           data1: String = self.game.Data.StringListObj[stringListById1].GetData(0, idValue2, 1);
           data2: String = self.game.Data.StringListObj[stringListById1].GetData(0, idValue2, 6);
           bool flag1 = false;
@@ -641,7 +641,7 @@ namespace WindowsApplication1
             ttext = ttext + "\r\n\r\nYou need to have mastered the following Techs:\r\n" + str2;
           if (str1.Length > 0)
             ttext = ttext + "\r\n\r\nYou have the following Models:\r\n" + str1;
-          let mut num14: i32 =  Math.Round((double) (groupRect.Height - 19) / 3.0);
+          let mut num14: i32 =  Math.Round( (groupRect.Height - 19) / 3.0);
           let mut num15: i32 = 28;
           Rectangle trect1;
           Rectangle trect2;
@@ -649,14 +649,14 @@ namespace WindowsApplication1
           {
             if (groupRect.Width < 180)
             {
-              DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont5, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y - 6 +  Math.Round((double) groupRect.Height / 2.0), c);
+              DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont5, groupRect.X +  Math.Round( groupRect.Width / 2.0), groupRect.Y - 6 +  Math.Round( groupRect.Height / 2.0), c);
               trect1 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
               trect2 = trect1;
               self.AddMouse( trect2, data1, ttext);
             }
             else
             {
-              DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont4, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y - 9 +  Math.Round((double) groupRect.Height / 2.0), c);
+              DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont4, groupRect.X +  Math.Round( groupRect.Width / 2.0), groupRect.Y - 9 +  Math.Round( groupRect.Height / 2.0), c);
               trect2 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
               trect1 = trect2;
               self.AddMouse( trect1, data1, ttext);
@@ -664,7 +664,7 @@ namespace WindowsApplication1
           }
           else if (groupRect.Width < 200)
           {
-            DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont5, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y + 3, c);
+            DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont5, groupRect.X +  Math.Round( groupRect.Width / 2.0), groupRect.Y + 3, c);
             num15 = 18;
             trect2 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
             trect1 = trect2;
@@ -672,7 +672,7 @@ namespace WindowsApplication1
           }
           else
           {
-            DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont4, groupRect.X +  Math.Round((double) groupRect.Width / 2.0), groupRect.Y + 5, c);
+            DrawMod.DrawTextColouredMarcCenter( g, data1, self.game.MarcFont4, groupRect.X +  Math.Round( groupRect.Width / 2.0), groupRect.Y + 5, c);
             trect2 = Rectangle::new(groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height);
             trect1 = trect2;
             self.AddMouse( trect1, data1, ttext);
@@ -686,17 +686,17 @@ namespace WindowsApplication1
             let mut index8: i32 = 0;
             num11 = self.game.HandyFunctionsObj.GetSFTypeByID(simpleList2.Id[index8]);
             Bitmap objBitmap = self.game.CustomBitmapObj.DrawSFTypeGraphic(num11, false, cultureGroupId, self.game.Data.Turn, -1);
-            float num18 = (float) objBitmap.Width / (float) objBitmap.Height;
+            float num18 =  objBitmap.Width /  objBitmap.Height;
             let mut h: i32 = num17;
-            let mut w: i32 =  Math.Round((double) (num18 * (float) num17));
-            let mut x: i32 = groupRect.X +  Math.Round((double) groupRect.Width / 2.0 - (double) w / 2.0) +  Math.Round((double) (sizeF2.Width / 2f));
+            let mut w: i32 =  Math.Round( (num18 *  num17));
+            let mut x: i32 = groupRect.X +  Math.Round( groupRect.Width / 2.0 -  w / 2.0) +  Math.Round( (sizeF2.Width / 2f));
             let mut y: i32 = groupRect.Y - 5 + num15;
             DrawMod.DrawScaled( g,  objBitmap, x, y, w, h, true);
             objBitmap.Dispose();
             if (groupRect.Width < 180)
-              DrawMod.DrawTextColouredMarcCenter( g, num7.ToString() + "x", self.game.MarcFont4, x -  Math.Round((double) (sizeF2.Width / 2f)), y + 1 +  Math.Round((double) h / 2.0) -  Math.Round((double) (sizeF2.Height / 2f)), c);
+              DrawMod.DrawTextColouredMarcCenter( g, num7.ToString() + "x", self.game.MarcFont4, x -  Math.Round( (sizeF2.Width / 2f)), y + 1 +  Math.Round( h / 2.0) -  Math.Round( (sizeF2.Height / 2f)), c);
             else
-              DrawMod.DrawTextColouredMarcCenter( g, num7.ToString() + "x", self.game.MarcFont3, x -  Math.Round((double) (sizeF2.Width / 2f)), y + 1 +  Math.Round((double) h / 2.0) -  Math.Round((double) (sizeF2.Height / 2f)), c);
+              DrawMod.DrawTextColouredMarcCenter( g, num7.ToString() + "x", self.game.MarcFont3, x -  Math.Round( (sizeF2.Width / 2f)), y + 1 +  Math.Round( h / 2.0) -  Math.Round( (sizeF2.Height / 2f)), c);
           }
           DrawMod.DrawFrame( self.OwnBitmap,  self.BackBitmap,  g, groupRect.X, groupRect.Y, groupRect.Width, groupRect.Height, -1, -1);
         }
@@ -711,13 +711,13 @@ namespace WindowsApplication1
       let mut num1: i32 = 50;
       let mut num2: i32 = 104;
       let mut num3: i32 = self.useHeight - 768;
-      let mut num4: i32 =  Math.Round(170.0 + Math.Floor((double) (self.useWidth - 1280) / 7.0));
-      let mut num5: i32 =  Math.Round(62.0 + Math.Floor((double) num3 / 12.0));
+      let mut num4: i32 =  Math.Round(170.0 + Math.Floor( (self.useWidth - 1280) / 7.0));
+      let mut num5: i32 =  Math.Round(62.0 + Math.Floor( num3 / 12.0));
       let mut x: i32 = (tgroupX - 1) * num4 + num1;
       let mut y: i32 = (tgroupY - 1) * num5 + num2;
       let mut num6: i32 = num4 - 8;
       let mut height: i32 = num5 - 18;
-      let mut width: i32 =  Math.Round((double) num6 - Math.Floor((double) num3 / 24.0));
+      let mut width: i32 =  Math.Round( num6 - Math.Floor( num3 / 24.0));
       return Rectangle::new(x, y, width, height);
     }
 

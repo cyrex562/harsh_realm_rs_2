@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -40,13 +40,13 @@ namespace WindowsApplication1
     pub OverdrawFileName: String;
     pub OverdrawSpriteID: i32;
     pub DeckCardCounter: i32;
-    pub int[] DeckCard;
-    pub int[] DeckChance;
+    pub DeckCard: Vec<i32>;
+    pub DeckChance: Vec<i32>;
     pub AutoEventCounter: i32;
-    pub int[] AutoEvent;
-    pub int[] AutoChance;
+    pub AutoEvent: Vec<i32>;
+    pub AutoChance: Vec<i32>;
     pub HandCardCounter: i32;
-    pub int[] HandCard;
+    pub HandCard: Vec<i32>;
     pub PP: i32;
     pub Fixed: bool;
     pub NameCounter: i32;
@@ -60,9 +60,9 @@ namespace WindowsApplication1
     pub Red: i32;
     pub Green: i32;
     pub Blue: i32;
-    pub int[] SubParts;
-    pub int[] Designation;
-    pub int[] DesignationSmall;
+    pub SubParts: Vec<i32>;
+    pub Designation: Vec<i32>;
+    pub DesignationSmall: Vec<i32>;
     pub BattleGroup: i32;
     pub AIlist: i32;
     pub ModelMaster: i32;
@@ -79,40 +79,40 @@ namespace WindowsApplication1
     pub Level2: i32;
     pub Level3: i32;
     pub HisVarCount: i32;
-    pub int[] HisVarType;
-    pub int[] HisVarValue;
-    pub int[] HisVarNato;
-    pub int[] HisVarSmall;
+    pub HisVarType: Vec<i32>;
+    pub HisVarValue: Vec<i32>;
+    pub HisVarNato: Vec<i32>;
+    pub HisVarSmall: Vec<i32>;
     pub UseModelCounter: i32;
     pub LibIdClass LibId;
     pub LibIdClass OffLibId;
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
+      info.AddValue("Name",  this.Name);
       info.AddValue("Type", this.Type);
       info.AddValue("ID", this.ID);
       info.AddValue("Counter", this.Counter);
-      info.AddValue("CounterString", (object) this.CounterString);
+      info.AddValue("CounterString",  this.CounterString);
       info.AddValue("TempRegime", this.TempRegime);
-      info.AddValue("CommanderName", (object) this.CommanderName);
-      info.AddValue("CommanderFileName", (object) this.CommanderFileName);
-      info.AddValue("OverdrawFileName", (object) this.OverdrawFileName);
+      info.AddValue("CommanderName",  this.CommanderName);
+      info.AddValue("CommanderFileName",  this.CommanderFileName);
+      info.AddValue("OverdrawFileName",  this.OverdrawFileName);
       info.AddValue("DeckCardCounter", this.DeckCardCounter);
-      info.AddValue("DeckCard", (object) this.DeckCard);
-      info.AddValue("DeckChance", (object) this.DeckChance);
+      info.AddValue("DeckCard",  this.DeckCard);
+      info.AddValue("DeckChance",  this.DeckChance);
       info.AddValue("AutoEventCounter", this.AutoEventCounter);
-      info.AddValue("AutoEvent", (object) this.AutoEvent);
-      info.AddValue("AutoChance", (object) this.AutoChance);
+      info.AddValue("AutoEvent",  this.AutoEvent);
+      info.AddValue("AutoChance",  this.AutoChance);
       info.AddValue("HandCardCounter", this.HandCardCounter);
-      info.AddValue("HandCard", (object) this.HandCard);
+      info.AddValue("HandCard",  this.HandCard);
       info.AddValue("PP", this.PP);
       info.AddValue("Model", this.Model);
       info.AddValue("Red", this.Red);
       info.AddValue("Green", this.Green);
       info.AddValue("Blue", this.Blue);
-      info.AddValue("SubParts", (object) this.SubParts);
-      info.AddValue("Designation", (object) this.Designation);
+      info.AddValue("SubParts",  this.SubParts);
+      info.AddValue("Designation",  this.Designation);
       info.AddValue("NoSplit", this.NoSplit);
       info.AddValue("CombatMod", this.CombatMod);
       info.AddValue("MoraleMod", this.MoraleMod);
@@ -122,7 +122,7 @@ namespace WindowsApplication1
       info.AddValue("NameCounterBackup", this.NameCounterBackup);
       info.AddValue("Fixed", this.Fixed);
       info.AddValue("Pool", this.Pool);
-      info.AddValue("Descript", (object) this.Descript);
+      info.AddValue("Descript",  this.Descript);
       info.AddValue("Xp", this.Xp);
       info.AddValue("TempVar1", this.TempVar1);
       info.AddValue("TempVar2", this.TempVar2);
@@ -135,20 +135,20 @@ namespace WindowsApplication1
       info.AddValue("Level2", this.Level2);
       info.AddValue("Level3", this.Level3);
       info.AddValue("HisVarCount", this.HisVarCount);
-      info.AddValue("HisVarType", (object) this.HisVarType);
-      info.AddValue("HisVarValue", (object) this.HisVarValue);
-      info.AddValue("HisVarNato", (object) this.HisVarNato);
-      info.AddValue("HisVarSmall", (object) this.HisVarSmall);
+      info.AddValue("HisVarType",  this.HisVarType);
+      info.AddValue("HisVarValue",  this.HisVarValue);
+      info.AddValue("HisVarNato",  this.HisVarNato);
+      info.AddValue("HisVarSmall",  this.HisVarSmall);
       info.AddValue("People", this.People);
       info.AddValue("MaxPresent", this.MaxPresent);
       info.AddValue("PercentOldName", this.PercentOldName);
       info.AddValue("UseRomans", this.UseRomans);
       info.AddValue("UseModelCounter", this.UseModelCounter);
       info.AddValue("UsePeopleGfx", this.UsePeopleGfx);
-      info.AddValue("LibId", (object) this.LibId);
-      info.AddValue("OffLibId", (object) this.OffLibId);
+      info.AddValue("LibId",  this.LibId);
+      info.AddValue("OffLibId",  this.OffLibId);
       info.AddValue("SmallGfx", this.SmallGfx);
-      info.AddValue("DesignationSmall", (object) this.DesignationSmall);
+      info.AddValue("DesignationSmall",  this.DesignationSmall);
       info.AddValue("Battlegroup", this.BattleGroup);
     }
 
@@ -350,7 +350,7 @@ namespace WindowsApplication1
         this.StartSize = info.GetInt32(nameof (StartSize));
         this.OverdrawFileName = info.GetString(nameof (OverdrawFileName));
         this.CommanderName = info.GetString(nameof (CommanderName));
-        if (Information.IsNothing((object) this.CommanderName))
+        if (Information.IsNothing( this.CommanderName))
           this.CommanderName = "";
         this.CommanderFileName = info.GetString(nameof (CommanderFileName));
         this.DeckCardCounter = info.GetInt32(nameof (DeckCardCounter));
@@ -790,7 +790,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (HistoricalUnitClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }

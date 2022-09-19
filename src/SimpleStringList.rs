@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -19,12 +19,12 @@ namespace WindowsApplication1
     pub Counter: i32;
     pub MaxCounter: i32;
     pub string[] Id;
-    pub int[] Weight;
-    pub int[] Data1;
-    pub int[] Data2;
-    pub int[] Data3;
-    pub int[] Data4;
-    pub int[] Data5;
+    pub Weight: Vec<i32>;
+    pub Data1: Vec<i32>;
+    pub Data2: Vec<i32>;
+    pub Data3: Vec<i32>;
+    pub Data4: Vec<i32>;
+    pub Data5: Vec<i32>;
 
     pub SimpleStringList()
     {
@@ -43,7 +43,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (SimpleStringList) binaryFormatter.Deserialize((Stream) serializationStream);
     }
@@ -52,13 +52,13 @@ namespace WindowsApplication1
     {
       info.AddValue("Counter", self.Counter);
       info.AddValue("MaxCounter", self.MaxCounter);
-      info.AddValue("Id", (object) self.Id);
-      info.AddValue("Weight", (object) self.Weight);
-      info.AddValue("Data1", (object) self.Data1);
-      info.AddValue("Data2", (object) self.Data2);
-      info.AddValue("Data3", (object) self.Data3);
-      info.AddValue("Data4", (object) self.Data4);
-      info.AddValue("Data5", (object) self.Data5);
+      info.AddValue("Id",  self.Id);
+      info.AddValue("Weight",  self.Weight);
+      info.AddValue("Data1",  self.Data1);
+      info.AddValue("Data2",  self.Data2);
+      info.AddValue("Data3",  self.Data3);
+      info.AddValue("Data4",  self.Data4);
+      info.AddValue("Data5",  self.Data5);
     }
 
     protected SimpleStringList(SerializationInfo info, StreamingContext context)
@@ -629,7 +629,7 @@ namespace WindowsApplication1
         let mut counter2: i32 = self.Counter;
         for (let mut index1: i32 = 0; index1 <= counter2; index1 += 1)
         {
-          if (Information.IsNothing((object) numArray1[self.Weight[index1] - num1]))
+          if (Information.IsNothing( numArray1[self.Weight[index1] - num1]))
           {
             numArray1[self.Weight[index1] - num1] = new int[1];
           }
@@ -657,7 +657,7 @@ namespace WindowsApplication1
           let mut num4: i32 = num3;
           for (let mut index5: i32 = 0; index5 <= num4; index5 += 1)
           {
-            if (!Information.IsNothing((object) numArray1[index5]))
+            if (!Information.IsNothing( numArray1[index5]))
             {
               let mut upperBound: i32 = numArray1[index5].GetUpperBound(0);
               for (let mut index6: i32 = 0; index6 <= upperBound; index6 += 1)
@@ -678,7 +678,7 @@ namespace WindowsApplication1
         {
           for (let mut index7: i32 = num3; index7 >= 0; index7 += -1)
           {
-            if (!Information.IsNothing((object) numArray1[index7]))
+            if (!Information.IsNothing( numArray1[index7]))
             {
               let mut upperBound: i32 = numArray1[index7].GetUpperBound(0);
               for (let mut index8: i32 = 0; index8 <= upperBound; index8 += 1)

@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -130,7 +130,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
@@ -641,7 +641,7 @@ namespace WindowsApplication1
                 if (Operators.CompareString(Conversion.Val(str2).ToString(), str2, false) == 0)
                 {
                   double a = Conversion.Val(str2);
-                  if (this.game.Data.HistoricalUnitObj[historical].ModelMaster > -1 && a > (double) this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[historical].ModelMaster].NameCounter)
+                  if (this.game.Data.HistoricalUnitObj[historical].ModelMaster > -1 && a >  this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[historical].ModelMaster].NameCounter)
                     this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[historical].ModelMaster].NameCounter =  Math.Round(a);
                 }
                 let mut unitCounter: i32 = this.game.Data.UnitCounter;
@@ -657,7 +657,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num2: i32 =  Interaction.MsgBox((object) "Unit is not set to a historical unit.");
+              let mut num2: i32 =  Interaction.MsgBox( "Unit is not set to a historical unit.");
             }
             else if (num1 == this.RemoveUnit)
             {
@@ -724,7 +724,7 @@ namespace WindowsApplication1
       path: String = this.game.HandyFunctionsObj.LoadSomething("SE1 Scenario file (*.se1)|*.se1", "Pick a scenario to import units/assigned officers from...", this.game.AppPath + this.game.ModScenarioDir, false);
       if (!File.Exists(path))
         return;
-      let mut num1: i32 =  Interaction.MsgBox((object) "Ok hold on... this can take some time", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num1: i32 =  Interaction.MsgBox( "Ok hold on... this can take some time", Title: ( "Shadow Empire : Planetary Conquest"));
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       this.game.EditObj.TempFileName = path;
       tempFileName: String = this.game.EditObj.TempFileName;
@@ -966,11 +966,11 @@ namespace WindowsApplication1
       this.game.FormRef.Cursor = Cursors.Default;
       if (str.Length > 0)
       {
-        let mut num3: i32 =  Interaction.MsgBox((object) ("ERROR IN IMPORT: " + str), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num3: i32 =  Interaction.MsgBox( ("ERROR IN IMPORT: " + str), Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
-        let mut num4: i32 =  Interaction.MsgBox((object) "Import completed succesfully", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num4: i32 =  Interaction.MsgBox( "Import completed succesfully", Title: ( "Shadow Empire : Planetary Conquest"));
       }
     }
   }

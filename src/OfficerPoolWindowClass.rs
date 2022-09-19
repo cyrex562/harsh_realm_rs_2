@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -116,12 +116,12 @@ namespace WindowsApplication1
           this.OptionsListId = this.AddSubPart( tsubpart, 310, 10, 270, 176, 0);
         }
       }
-      if (this.game.Data.Round == 0 | ((long) -((double) this.game.Data.RuleVar[345] <= (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts ? 1 : 0) & (long) Math.Round((double) this.game.Data.RuleVar[345])) > 0L)
+      if (this.game.Data.Round == 0 | ((long) -( this.game.Data.RuleVar[345] <=  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts ? 1 : 0) & (long) Math.Round( this.game.Data.RuleVar[345])) > 0L)
       {
         let mut tsubpart: SubPartClass =  new TextButtonPartClass("Recruit (" + this.game.Data.RuleVar[345].ToString() + "pp)", 150, "Click to recruit an extra officer to the officerpool",  this.OwnBitmap, 600, 10);
         this.B1Id = this.AddSubPart( tsubpart, 600, 10, 150, 35, 1);
       }
-      else if ((double) this.game.Data.RuleVar[345] > 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].OfficerPool > -1)
+      else if ( this.game.Data.RuleVar[345] > 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].OfficerPool > -1)
       {
         let mut tsubpart: SubPartClass =  new TextButtonPartClass("Recruit", 150, "You do not have the PP to buy an officer ",  this.OwnBitmap, 600, 10, true);
         this.b1bid = this.AddSubPart( tsubpart, 600, 10, 150, 35, 0);
@@ -209,7 +209,7 @@ namespace WindowsApplication1
           this.b4bid = this.AddSubPart( tsubpart, 600, 130, 150, 35, 1);
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -284,9 +284,9 @@ namespace WindowsApplication1
               }
               if (num1 == this.B3Id)
               {
-                if (Interaction.MsgBox((object) "Are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                if (Interaction.MsgBox( "Are you sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                 {
-                  let mut num4: i32 =   Interaction.MsgBox((object) "Officer is removed from the officerpool.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num4: i32 =   Interaction.MsgBox( "Officer is removed from the officerpool.", Title: ( "Shadow Empire : Planetary Conquest"));
                   this.game.Data.RemoveHistoricalUnit(this.detailnr);
                   this.detailnr = -1;
                   this.RemoveSubPart(this.OptionsListId);

@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -209,7 +209,7 @@ namespace WindowsApplication1
       }
       else if (this.game.EditObj.Layout != 1)
         ;
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;
@@ -228,7 +228,7 @@ namespace WindowsApplication1
       int num1;
       if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SeeNow(this.game.Data.Turn) < 1)
       {
-        str2 = "Shrouded (" + Conversion.Str((object) this.game.SelectX) + "," + Conversion.Str((object) this.game.SelectY) + ")";
+        str2 = "Shrouded (" + Conversion.Str( this.game.SelectX) + "," + Conversion.Str( this.game.SelectY) + ")";
         str1 = "Unkown type";
         num1 = 1;
       }
@@ -245,17 +245,17 @@ namespace WindowsApplication1
       if (num1 == 0)
       {
         str3 = "";
-        if (Information.IsNothing((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name))
+        if (Information.IsNothing( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name))
           this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name = "";
         if (location1 > -1)
-          str2 = this.game.Data.LocObj[location1].Name + " " + "(" + Strings.Trim(Conversion.Str((object) this.game.SelectX)) + ", " + Strings.Trim(Conversion.Str((object) this.game.SelectY)) + ")";
+          str2 = this.game.Data.LocObj[location1].Name + " " + "(" + Strings.Trim(Conversion.Str( this.game.SelectX)) + ", " + Strings.Trim(Conversion.Str( this.game.SelectY)) + ")";
         else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name.Length > 0)
-          str2 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name + " " + "(" + Strings.Trim(Conversion.Str((object) this.game.SelectX)) + ", " + Strings.Trim(Conversion.Str((object) this.game.SelectY)) + ")";
+          str2 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Name + " " + "(" + Strings.Trim(Conversion.Str( this.game.SelectX)) + ", " + Strings.Trim(Conversion.Str( this.game.SelectY)) + ")";
         else
-          str2 = "(" + Strings.Trim(Conversion.Str((object) this.game.SelectX)) + ", " + Strings.Trim(Conversion.Str((object) this.game.SelectY)) + ")";
+          str2 = "(" + Strings.Trim(Conversion.Str( this.game.SelectX)) + ", " + Strings.Trim(Conversion.Str( this.game.SelectY)) + ")";
       }
-      if ((double) this.game.Data.RuleVar[900] == 1.0)
-        str2 = str2 + ", rec=" + Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon);
+      if ( this.game.Data.RuleVar[900] == 1.0)
+        str2 = str2 + ", rec=" + Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon);
       ty -= 5;
       Rectangle rectangle;
       Rectangle trect;
@@ -331,7 +331,7 @@ namespace WindowsApplication1
           str5 = name + ", " + this.game.Data.LocTypeObj[this.game.Data.LocObj[location1].Type].Name;
         if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_SeeNow(this.game.Data.Turn) < 1)
         {
-          str4 = "Shrouded (" + Conversion.Str((object) this.game.EditObj.TargetX) + "," + Conversion.Str((object) this.game.EditObj.TargetY) + ")";
+          str4 = "Shrouded (" + Conversion.Str( this.game.EditObj.TargetX) + "," + Conversion.Str( this.game.EditObj.TargetY) + ")";
           str5 = "Unkown type";
           num3 = 1;
         }
@@ -339,14 +339,14 @@ namespace WindowsApplication1
         {
           str3 = "";
           let mut location2: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Location;
-          if (Information.IsNothing((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name))
+          if (Information.IsNothing( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name))
             this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name = "";
           if (location2 > -1)
-            str4 = this.game.Data.LocObj[location2].Name + " " + "(" + Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetX)) + ", " + Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetY)) + ")";
+            str4 = this.game.Data.LocObj[location2].Name + " " + "(" + Strings.Trim(Conversion.Str( this.game.EditObj.TargetX)) + ", " + Strings.Trim(Conversion.Str( this.game.EditObj.TargetY)) + ")";
           else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name.Length > 0)
-            str4 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name + " " + "(" + Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetX)) + ", " + Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetY)) + ")";
+            str4 = this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].Name + " " + "(" + Strings.Trim(Conversion.Str( this.game.EditObj.TargetX)) + ", " + Strings.Trim(Conversion.Str( this.game.EditObj.TargetY)) + ")";
           else
-            str4 = Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetX)) + ", " + Strings.Trim(Conversion.Str((object) this.game.EditObj.TargetY));
+            str4 = Strings.Trim(Conversion.Str( this.game.EditObj.TargetX)) + ", " + Strings.Trim(Conversion.Str( this.game.EditObj.TargetY));
         }
          let mut local: &Graphics = &g;
         rectangle = Rectangle::new(10, ty + 290, 200, 14);
@@ -375,7 +375,7 @@ namespace WindowsApplication1
           txt2_1: String = str1;
           DrawMod.MakeFullBoxVic2( local4, rect1_1, "LANDSCAPE TYPE", rect2_1, txt2_1);
           ty -= 4;
-          str6: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP));
+          str6: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP));
            let mut local5: &Graphics = &g;
           rectangle = Rectangle::new(10, ty + 335, 35, 14);
           let mut rect1_2: &Rectangle = &rectangle
@@ -388,8 +388,8 @@ namespace WindowsApplication1
           this.AddMouse( trect, "", "Victory Points");
           if (this.game.Data.Turn > -1)
           {
-            str7: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon));
-            if ((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon < (double) this.game.Data.RuleVar[55])
+            str7: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon));
+            if ( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon <  this.game.Data.RuleVar[55])
             {
                let mut local6: &Graphics = &g;
               rectangle = Rectangle::new(65, ty + 335, 35, 14);
@@ -399,7 +399,7 @@ namespace WindowsApplication1
               txt2_3: String = str7;
               DrawMod.MakeFullBoxVic2( local6, rect1_3, "REC", rect2_3, txt2_3);
             }
-            else if ((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon < (double) this.game.Data.RuleVar[56])
+            else if ( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon <  this.game.Data.RuleVar[56])
             {
                let mut local7: &Graphics = &g;
               rectangle = Rectangle::new(65, ty + 335, 35, 14);
@@ -425,7 +425,7 @@ namespace WindowsApplication1
           this.AddMouse( trect, "", "Recon Points");
           if (this.game.Data.Turn > -1)
           {
-            str8: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_ZocPts(this.game.Data.Turn)));
+            str8: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_ZocPts(this.game.Data.Turn)));
              let mut local9: &Graphics = &g;
             rectangle = Rectangle::new(120, ty + 335, 35, 14);
             let mut rect1_6: &Rectangle = &rectangle
@@ -440,7 +440,7 @@ namespace WindowsApplication1
           string str9;
           if (num2 == 1)
           {
-            str9 = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetHexStackPts(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected)));
+            str9 = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetHexStackPts(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected)));
             if (this.game.Data.FOWOn)
             {
               if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime, this.game.Data.Turn))
@@ -464,7 +464,7 @@ namespace WindowsApplication1
           if (this.game.Data.Turn > -1)
           {
             let mut Number: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.Data.Turn) + this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.Data.Turn);
-            str10: String = Strings.Trim(Conversion.Str((object) Number));
+            str10: String = Strings.Trim(Conversion.Str( Number));
             if (0 > Number)
               str10 = "-" + str10;
              let mut local11: &Graphics = &g;
@@ -477,7 +477,7 @@ namespace WindowsApplication1
             rectangle = Rectangle::new(65, ty + 377, 45, 40);
             trect = rectangle;
             this.AddMouse( trect, "", "Action Point Penalty (for entering hex)");
-            str11: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStack(this.game.Data.Turn)));
+            str11: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStack(this.game.Data.Turn)));
              let mut local12: &Graphics = &g;
             rectangle = Rectangle::new(120, ty + 377, 45, 14);
             let mut rect1_9: &Rectangle = &rectangle
@@ -488,7 +488,7 @@ namespace WindowsApplication1
             rectangle = Rectangle::new(120, ty + 377, 45, 40);
             trect = rectangle;
             this.AddMouse( trect, "", "Battlestack points for regular land combat");
-            str12: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackArt(this.game.Data.Turn)));
+            str12: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackArt(this.game.Data.Turn)));
              let mut local13: &Graphics = &g;
             rectangle = Rectangle::new(175, ty + 335, 45, 14);
             let mut rect1_10: &Rectangle = &rectangle
@@ -499,7 +499,7 @@ namespace WindowsApplication1
             rectangle = Rectangle::new(175, ty + 335, 45, 40);
             trect = rectangle;
             this.AddMouse( trect, "", "Battlestack points for artillery barrages");
-            str13: String = Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackAir(this.game.Data.Turn)));
+            str13: String = Strings.Trim(Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackAir(this.game.Data.Turn)));
              let mut local14: &Graphics = &g;
             rectangle = Rectangle::new(175, ty + 377, 45, 14);
             let mut rect1_11: &Rectangle = &rectangle
@@ -614,7 +614,7 @@ namespace WindowsApplication1
           this.AddMouse( trect, "", "People that live/work in the location");
           if (this.game.Data.Turn > -1)
           {
-            str2: String = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ReconPts(this.game.Data.Turn) <= 0 ? "? / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts)) : Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts)) + " / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts));
+            str2: String = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ReconPts(this.game.Data.Turn) <= 0 ? "? / " + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts)) : Strings.Trim(Conversion.Str( this.game.Data.LocObj[location].StructuralPts)) + " / " + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts));
              let mut local3: &Graphics = &g;
             rectangle2 = Rectangle::new(55, ty + 203, 95, 14);
             let mut rect1_3: &Rectangle = &rectangle2
@@ -626,7 +626,7 @@ namespace WindowsApplication1
             trect = rectangle2;
             this.AddMouse( trect, "", "Structural points the location currently has / can maximum have");
           }
-          str3: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts <= 0 ? "0" : "+" + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts));
+          str3: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts <= 0 ? "0" : "+" + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts));
            let mut local4: &Graphics = &g;
           rectangle2 = Rectangle::new(160, ty + 203, 55, 14);
           let mut rect1_4: &Rectangle = &rectangle2
@@ -671,12 +671,12 @@ namespace WindowsApplication1
                   Left = "Political";
                 if (this.game.Data.ItemTypeObj[index].IsSFType > -1)
                   Left = Strings.Left(this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[index].IsSFType].Name, 12);
-                Number = (float) this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, location, true, false, true);
+                Number =  this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, location, true, false, true);
                 if (Operators.CompareString(Left, "Supplies", false) == 0)
                   Number = Conversion.Int(Number);
-                str4 = Strings.Trim(Conversion.Str((object) Number)) + "x " + Left;
+                str4 = Strings.Trim(Conversion.Str( Number)) + "x " + Left;
               }
-              if ((double) Number <= 0.0)
+              if ( Number <= 0.0)
                 str4 = "";
               if (prodslot == 0)
               {
@@ -776,10 +776,10 @@ namespace WindowsApplication1
             if (location > -1)
             {
               str: String = Interaction.InputBox("Give New Name for Location", "Rename", this.game.Data.LocObj[location].Name);
-              if ((double) this.game.Data.RuleVar[419] > 0.0 & Operators.CompareString(Strings.Trim(str), "", false) != 0)
+              if ( this.game.Data.RuleVar[419] > 0.0 & Operators.CompareString(Strings.Trim(str), "", false) != 0)
               {
-                this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round((double) this.game.Data.RuleVar[419]), Strings.Space(Strings.Len(this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Name)), true);
-                this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round((double) this.game.Data.RuleVar[419]), str, true);
+                this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round( this.game.Data.RuleVar[419]), Strings.Space(Strings.Len(this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Name)), true);
+                this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round( this.game.Data.RuleVar[419]), str, true);
               }
               if (Operators.CompareString(Strings.Trim(str), "", false) != 0)
                 this.game.Data.LocObj[location].Name = str;
@@ -932,10 +932,10 @@ namespace WindowsApplication1
                 if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1 && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn && x > 0 & x < 150 & y > 2 & y < 18)
                 {
                   tempstr: String = Interaction.InputBox("Give New Name for Location", "Rename", this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Name);
-                  if ((double) this.game.Data.RuleVar[419] > 0.0)
+                  if ( this.game.Data.RuleVar[419] > 0.0)
                   {
-                    this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round((double) this.game.Data.RuleVar[419]), Strings.Space(Strings.Len(this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Name)));
-                    this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round((double) this.game.Data.RuleVar[419]), tempstr);
+                    this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round( this.game.Data.RuleVar[419]), Strings.Space(Strings.Len(this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Name)));
+                    this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected,  Math.Round( this.game.Data.RuleVar[419]), tempstr);
                   }
                   this.game.Data.LocObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location].Name = tempstr;
                   this.MakeShit();

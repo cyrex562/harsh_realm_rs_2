@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -35,14 +35,14 @@ namespace WindowsApplication1
     pub int[,] ptemp;
     pub int[,] ptemp2;
     pub int[,] ptemp3;
-    pub int[] atemp;
-    pub int[] atemp2;
-    pub bool[] ptempb;
-    pub int[] stemp;
+    pub atemp: Vec<i32>;
+    pub atemp2: Vec<i32>;
+    pub ptempb: Vec<bool>;
+    pub stemp: Vec<i32>;
     pub MapMatrix2Boolean pmatrix;
     pub int[,] TscoreMatrix;
     pub int[,] TscoreCounterMatrix;
-    pub int[] AreaClosestEnemy;
+    pub AreaClosestEnemy: Vec<i32>;
     pub int[,] SupplyMatrix;
     pub int[,] SupplyCounterMatrix;
     pub int[,] SupplyTempOwnerMatrix;
@@ -69,25 +69,25 @@ namespace WindowsApplication1
     pub int[,] FighterMatrix;
     pub int[,,] MoveMatrix;
     pub sCoordinate[,,] MoveMatrixCameFrom;
-    pub int[] MoveMatrixUnit;
+    pub MoveMatrixUnit: Vec<i32>;
     pub Coordinate[] MoveMatrixCloseRoad;
     pub Attacker: bool;
     pub Meeting: bool;
-    pub int[] AreaSupplyBorderCount;
+    pub AreaSupplyBorderCount: Vec<i32>;
     pub int[,] AreaSupplyBorder;
     pub int[,] AreaSupplyBorderEither;
     pub int[,] AreasupplyborderSea;
-    pub int[] RandomAreaNeighbourCount;
+    pub RandomAreaNeighbourCount: Vec<i32>;
     pub int[,] RandomAreaNeighbour;
     pub int[,,] EnemyMatrix;
     pub sCoordinate[,,] EnemyMatrixCameFrom;
-    pub int[] EnemyMatrixUnit;
+    pub EnemyMatrixUnit: Vec<i32>;
     pub sCoordinate[,,] EnemyMatrix2CameFrom;
     pub int[,,] EnemyMatrix2;
     pub int[,] FriendlyPowerDispersed;
     pub int[,] EnemyPowerDispersed;
-    pub int[] MoveMatrixUnitMarker;
-    pub int[] TempMoveMatrixUnitMarker;
+    pub MoveMatrixUnitMarker: Vec<i32>;
+    pub TempMoveMatrixUnitMarker: Vec<i32>;
     pub MoveMatrixCounter: i32;
     pub EnemyMatrixCounter: i32;
     pub MadeMove: bool;
@@ -107,16 +107,16 @@ namespace WindowsApplication1
     pub int[,] TempCounterOwner;
     pub AreaCount: i32;
     pub RealAreaCount: i32;
-    pub int[] AreaGroup;
-    pub int[] AreaExtraVP;
-    pub int[] OldExtraVP;
+    pub AreaGroup: Vec<i32>;
+    pub AreaExtraVP: Vec<i32>;
+    pub OldExtraVP: Vec<i32>;
     pub AreaGroupRound: i32;
     pub AreaGroupCount: i32;
     pub CurrentAreaGroup: i32;
     pub int[,] AreaMatrixNarrow;
     pub int[,] AreaMatrixWide;
     pub int[,] AreaBorderNoBridge;
-    pub bool[] AreaIsExtra;
+    pub AreaIsExtra: Vec<bool>;
     pub int[,] AreaBroadBorder;
     pub int[,] AreaNarrowBorder;
     pub int[,] AreaBorder;
@@ -125,69 +125,69 @@ namespace WindowsApplication1
     pub int[,] HisAreaDistanceFriendly;
     pub Coordinate[] AreaCenter;
     pub SimpleList[] AreaBridges;
-    pub int[] AreaFuzzyVP;
-    pub int[] AreaDefensive;
-    pub int[] CorpsStrength;
-    pub int[] AreaStrength;
+    pub AreaFuzzyVP: Vec<i32>;
+    pub AreaDefensive: Vec<i32>;
+    pub CorpsStrength: Vec<i32>;
+    pub AreaStrength: Vec<i32>;
     pub SimpleList BestStrategy;
     pub tempextraaivp: bool;
     pub LastRegime: i32;
     pub int[,] CounterAttackPossible;
-    pub bool[] CorpsStrategic;
-    pub int[] CorpsLoc;
-    pub int[] CorpsTarget;
-    pub int[] CorpsSource;
-    pub int[] CorpsMove;
-    pub int[] CorpsTopGroup;
-    pub bool[] CorpsEngineer;
-    pub int[] AreaOwner;
-    pub int[] AreaEnemy;
-    pub int[] AreaStartEnemy;
-    pub int[] AreaIsHistoricalArea;
-    pub int[] AreaCounterPower;
+    pub CorpsStrategic: Vec<bool>;
+    pub CorpsLoc: Vec<i32>;
+    pub CorpsTarget: Vec<i32>;
+    pub CorpsSource: Vec<i32>;
+    pub CorpsMove: Vec<i32>;
+    pub CorpsTopGroup: Vec<i32>;
+    pub CorpsEngineer: Vec<bool>;
+    pub AreaOwner: Vec<i32>;
+    pub AreaEnemy: Vec<i32>;
+    pub AreaStartEnemy: Vec<i32>;
+    pub AreaIsHistoricalArea: Vec<i32>;
+    pub AreaCounterPower: Vec<i32>;
     pub int[,] AreaCounterDirections;
     pub int[,] AreaCounterRegime;
-    pub int[] AreaCounterStep;
-    pub int[] AverageAreaEntrench;
-    pub int[] CorpsMoveProgress;
-    pub int[] CorpsStance;
-    pub int[] CorpsStartLoc;
-    pub int[] CorpsFirstAreaBattle;
+    pub AreaCounterStep: Vec<i32>;
+    pub AverageAreaEntrench: Vec<i32>;
+    pub CorpsMoveProgress: Vec<i32>;
+    pub CorpsStance: Vec<i32>;
+    pub CorpsStartLoc: Vec<i32>;
+    pub CorpsFirstAreaBattle: Vec<i32>;
     pub float[] CorpsTopRatio;
-    pub int[] CorpsBottleneck;
-    pub int[] CorpsOldDefend;
-    pub int[] TempGroupHQ;
-    pub int[] CorpsTempStrength;
-    pub int[] FriendlySupply;
-    pub int[] StartFriendlySupply;
-    pub int[] EnemySupply;
+    pub CorpsBottleneck: Vec<i32>;
+    pub CorpsOldDefend: Vec<i32>;
+    pub TempGroupHQ: Vec<i32>;
+    pub CorpsTempStrength: Vec<i32>;
+    pub FriendlySupply: Vec<i32>;
+    pub StartFriendlySupply: Vec<i32>;
+    pub EnemySupply: Vec<i32>;
     pub int[,] AreaSteps;
-    pub int[] CorpsEntrench;
-    pub int[] EnemySupplyGone;
-    pub int[] StartEnemySupplyGone;
-    pub int[] CorpsAirStrength;
-    pub int[] CorpsTempAirStrength;
-    pub int[] CorpsAirEffect;
-    pub int[] corpsstartStrength;
-    pub int[] CorpsLandStrength;
-    pub int[] CorpsPowerLeft;
-    pub int[] CorpsAttack;
-    pub int[] CorpsDefend;
+    pub CorpsEntrench: Vec<i32>;
+    pub EnemySupplyGone: Vec<i32>;
+    pub StartEnemySupplyGone: Vec<i32>;
+    pub CorpsAirStrength: Vec<i32>;
+    pub CorpsTempAirStrength: Vec<i32>;
+    pub CorpsAirEffect: Vec<i32>;
+    pub corpsstartStrength: Vec<i32>;
+    pub CorpsLandStrength: Vec<i32>;
+    pub CorpsPowerLeft: Vec<i32>;
+    pub CorpsAttack: Vec<i32>;
+    pub CorpsDefend: Vec<i32>;
     pub SimpleList TempTroops;
     pub TempTotVP: i32;
     pub TempCurVP: i32;
      SimpleList TempPowerAbove;
     pub GlobalVar: i32;
     pub GroupCounter: i32;
-    pub int[] GroupType;
-    pub int[] GroupHis;
+    pub GroupType: Vec<i32>;
+    pub GroupHis: Vec<i32>;
     pub string[] GroupName;
-    pub int[] GroupAttack;
-    pub int[] GroupDefend;
-    pub int[] GroupFallBack;
-    pub int[] GroupFollowUp;
-    pub int[] TempGroupTarget;
-    pub int[] GroupHQNeed;
+    pub GroupAttack: Vec<i32>;
+    pub GroupDefend: Vec<i32>;
+    pub GroupFallBack: Vec<i32>;
+    pub GroupFollowUp: Vec<i32>;
+    pub TempGroupTarget: Vec<i32>;
+    pub GroupHQNeed: Vec<i32>;
     pub ErsatzGroupCounter: i32;
     pub TempAverageHQPower: i32;
     pub SeaCount: i32;
@@ -236,18 +236,18 @@ namespace WindowsApplication1
     pub const let mut ROLECARGOSHIP: i32 = 17;
     pub const let mut ROLESEASUPRIORITY: i32 = 18;
     pub const let mut ROLERAIDER: i32 = 19;
-    pub int[] StrTempCorps;
+    pub StrTempCorps: Vec<i32>;
     pub float[] StrTempCorpsMod;
     pub StrTempCorpsCounter: i32;
-    pub int[] StrCurSides;
+    pub StrCurSides: Vec<i32>;
     pub StrConsistSame: i32;
     pub StrConsistDifferent: i32;
     pub int[,] StrCounterAttack;
-    pub int[] StrLandEnemySupply;
-    pub int[] StartStrLandEnemySupply;
-    pub int[] StrOrigAreaOwner;
-    pub int[] StrAreaEntrench;
-    pub int[] StrAreaNegPow;
+    pub StrLandEnemySupply: Vec<i32>;
+    pub StartStrLandEnemySupply: Vec<i32>;
+    pub StrOrigAreaOwner: Vec<i32>;
+    pub StrAreaEntrench: Vec<i32>;
+    pub StrAreaNegPow: Vec<i32>;
     pub GameClass game;
     pub string[] LogTxt;
     pub LogCounter: i32;
@@ -269,7 +269,7 @@ namespace WindowsApplication1
           let mut aiRolePercent: i32 = this.GetAIRolePercent(unr, 13);
           if (aiRolePercent > 0)
           {
-            let mut increaseap: i32 =  Math.Round((double) ((float) this.game.HandyFunctionsObj.GetLowestAirRdn(unr, true) * this.game.Data.RuleVar[147]));
+            let mut increaseap: i32 =  Math.Round( ( this.game.HandyFunctionsObj.GetLowestAirRdn(unr, true) * this.game.Data.RuleVar[147]));
             if (increaseap > 0)
             {
               if (alllog)
@@ -283,7 +283,7 @@ namespace WindowsApplication1
                 {
                   if (this.game.EditObj.TempValue[0].Value[index1, index2] <= increaseap)
                   {
-                    let mut num1: i32 =  Math.Round((double) this.GetUnitPower(unr, true, Theater: 2) * ((double) aiRolePercent / 100.0));
+                    let mut num1: i32 =  Math.Round( this.GetUnitPower(unr, true, Theater: 2) * ( aiRolePercent / 100.0));
                     int[,] fighterMatrix = this.FighterMatrix;
                     int[,] numArray = fighterMatrix;
                     let mut index3: i32 = index1;
@@ -370,7 +370,7 @@ namespace WindowsApplication1
       if (tlog)
         this.AddLog("(note that sea zone count of 0 = no sea zones)");
       if (tlog)
-        this.AddLog("Sea Zone Count: " + Strings.Trim(Conversion.Str((object) this.SeaCount)));
+        this.AddLog("Sea Zone Count: " + Strings.Trim(Conversion.Str( this.SeaCount)));
       if (this.ScreenyLog)
       {
         if (tlog)
@@ -425,7 +425,7 @@ namespace WindowsApplication1
           if (num1 == 0)
           {
             let mut num2: i32 = 0;
-            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 & (double) this.game.Data.RuleVar[357] == 1.0)
+            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 &  this.game.Data.RuleVar[357] == 1.0)
               num2 = 1;
             if (this.game.Data.MapObj[0].HexObj[x, y].Location > -1 & (flag | this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] > 0) && !this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x, y].Location].Type].Buildable)
               num2 = 1;
@@ -450,7 +450,7 @@ namespace WindowsApplication1
       if (tlog)
         this.AddLog("(note that area count of 0 = no areas)");
       if (tlog)
-        this.AddLog("Area Count: " + Strings.Trim(Conversion.Str((object) this.AreaCount)));
+        this.AddLog("Area Count: " + Strings.Trim(Conversion.Str( this.AreaCount)));
       if (this.ScreenyLog)
       {
         if (tlog)
@@ -547,12 +547,12 @@ namespace WindowsApplication1
               coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
               if (coordinate1.onmap && tObj[coordinate1.x, coordinate1.y] > 0 & tObj[cx, cy] != tObj[coordinate1.x, coordinate1.y])
               {
-                if (this.game.Data.MapObj[0].HexObj[cx, cy].RoadType[tfacing - 1] > -1 | (double) this.game.Data.RuleVar[385] == 1.0 && this.AreaBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] && numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] < 40 | (double) this.game.Data.RuleVar[385] == 0.0)
+                if (this.game.Data.MapObj[0].HexObj[cx, cy].RoadType[tfacing - 1] > -1 |  this.game.Data.RuleVar[385] == 1.0 && this.AreaBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] && numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] < 40 |  this.game.Data.RuleVar[385] == 0.0)
                 {
                   this.AreaBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] = numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y];
                   this.AreaBorder[tObj[coordinate1.x, coordinate1.y], tObj[cx, cy]] = numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y];
                 }
-                if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[cx, cy].LandscapeType].IsSea && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LandscapeType].IsSea && this.AreaWideBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaWideBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] && numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] < 40 | (double) this.game.Data.RuleVar[385] == 0.0)
+                if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[cx, cy].LandscapeType].IsSea && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LandscapeType].IsSea && this.AreaWideBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaWideBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] && numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y] < 40 |  this.game.Data.RuleVar[385] == 0.0)
                 {
                   this.AreaWideBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] = numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y];
                   this.AreaWideBorder[tObj[coordinate1.x, coordinate1.y], tObj[cx, cy]] = numArray8[cx, cy] + numArray8[coordinate1.x, coordinate1.y];
@@ -583,7 +583,7 @@ namespace WindowsApplication1
             for (let mut index11: i32 = 1; index11 <= areaCount7; index11 += 1)
             {
               if (this.AreaBroadBorder[index9, index11] > 0 & this.AreaBroadBorder[index10, index11] > 0 & (this.AreaBroadBorder[index9, index10] == 0 | this.AreaBroadBorder[index9, index10] > this.AreaBroadBorder[index9, index11] + this.AreaBroadBorder[index10, index11]) && this.AreaBroadBorder[index9, index11] + this.AreaBroadBorder[index10, index11] < 15)
-                this.AreaBroadBorder[index9, index10] =  Math.Round((double) this.AreaBroadBorder[index9, index11] + (double) this.AreaBroadBorder[index10, index11] * 0.7);
+                this.AreaBroadBorder[index9, index10] =  Math.Round( this.AreaBroadBorder[index9, index11] +  this.AreaBroadBorder[index10, index11] * 0.7);
             }
           }
         }
@@ -636,7 +636,7 @@ namespace WindowsApplication1
           if (num5 == 0)
           {
             let mut num6: i32 = 0;
-            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 & (double) this.game.Data.RuleVar[357] == 1.0)
+            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 &  this.game.Data.RuleVar[357] == 1.0)
               num6 = 1;
             if (this.game.Data.MapObj[0].HexObj[x, y].Location > -1 & (flag | this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] > 0) && !this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x, y].Location].Type].Buildable)
               num6 = 1;
@@ -736,7 +736,7 @@ namespace WindowsApplication1
             do
             {
               coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
-              if (coordinate1.onmap && tObj[coordinate1.x, coordinate1.y] > 0 & tObj[cx, cy] != tObj[coordinate1.x, coordinate1.y] && this.game.Data.MapObj[0].HexObj[cx, cy].RoadType[tfacing - 1] > -1 | (double) this.game.Data.RuleVar[385] == 1.0 && this.AreaNarrowBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaNarrowBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray11[cx, cy] + numArray11[coordinate1.x, coordinate1.y] && numArray11[cx, cy] + numArray11[coordinate1.x, coordinate1.y] < 40 | (double) this.game.Data.RuleVar[385] == 0.0)
+              if (coordinate1.onmap && tObj[coordinate1.x, coordinate1.y] > 0 & tObj[cx, cy] != tObj[coordinate1.x, coordinate1.y] && this.game.Data.MapObj[0].HexObj[cx, cy].RoadType[tfacing - 1] > -1 |  this.game.Data.RuleVar[385] == 1.0 && this.AreaNarrowBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaNarrowBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray11[cx, cy] + numArray11[coordinate1.x, coordinate1.y] && numArray11[cx, cy] + numArray11[coordinate1.x, coordinate1.y] < 40 |  this.game.Data.RuleVar[385] == 0.0)
               {
                 this.AreaNarrowBorder[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] = numArray11[cx, cy] + numArray11[coordinate1.x, coordinate1.y];
                 this.AreaNarrowBorder[tObj[coordinate1.x, coordinate1.y], tObj[cx, cy]] = numArray11[cx, cy] + numArray11[coordinate1.x, coordinate1.y];
@@ -795,7 +795,7 @@ namespace WindowsApplication1
           if (num9 == 0)
           {
             let mut num10: i32 = 0;
-            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 & (double) this.game.Data.RuleVar[357] == 1.0)
+            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 &  this.game.Data.RuleVar[357] == 1.0)
               num10 = 1;
             if (this.game.Data.MapObj[0].HexObj[x, y].Location > -1 & (flag | this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] > 0) && !this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x, y].Location].Type].Buildable)
               num10 = 1;
@@ -857,7 +857,7 @@ namespace WindowsApplication1
             do
             {
               coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
-              if (coordinate1.onmap && tObj[coordinate1.x, coordinate1.y] > 0 & tObj[cx, cy] != tObj[coordinate1.x, coordinate1.y] && (this.game.Data.MapObj[0].HexObj[cx, cy].RoadType[tfacing - 1] > -1 | (double) this.game.Data.RuleVar[385] == 1.0) & this.game.Data.MapObj[0].HexObj[cx, cy].RiverType[tfacing - 1] == -1 && this.AreaBorderNoBridge[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaBorderNoBridge[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray14[cx, cy] + numArray14[coordinate1.x, coordinate1.y] && numArray14[cx, cy] + numArray14[coordinate1.x, coordinate1.y] < 40 | (double) this.game.Data.RuleVar[385] == 0.0)
+              if (coordinate1.onmap && tObj[coordinate1.x, coordinate1.y] > 0 & tObj[cx, cy] != tObj[coordinate1.x, coordinate1.y] && (this.game.Data.MapObj[0].HexObj[cx, cy].RoadType[tfacing - 1] > -1 |  this.game.Data.RuleVar[385] == 1.0) & this.game.Data.MapObj[0].HexObj[cx, cy].RiverType[tfacing - 1] == -1 && this.AreaBorderNoBridge[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] == 0 | this.AreaBorderNoBridge[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] > numArray14[cx, cy] + numArray14[coordinate1.x, coordinate1.y] && numArray14[cx, cy] + numArray14[coordinate1.x, coordinate1.y] < 40 |  this.game.Data.RuleVar[385] == 0.0)
               {
                 this.AreaBorderNoBridge[tObj[cx, cy], tObj[coordinate1.x, coordinate1.y]] = numArray14[cx, cy] + numArray14[coordinate1.x, coordinate1.y];
                 this.AreaBorderNoBridge[tObj[coordinate1.x, coordinate1.y], tObj[cx, cy]] = numArray14[cx, cy] + numArray14[coordinate1.x, coordinate1.y];
@@ -926,7 +926,7 @@ namespace WindowsApplication1
           if (num13 == 0)
           {
             let mut num14: i32 = 0;
-            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 & (double) this.game.Data.RuleVar[357] == 1.0)
+            if (this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] >= 1 &  this.game.Data.RuleVar[357] == 1.0)
               num14 = 1;
             if (this.game.Data.MapObj[0].HexObj[x, y].Location > -1 & (flag | this.game.Data.MapObj[0].HexObj[x, y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] > 0) && !this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x, y].Location].Type].Buildable)
               num14 = 1;
@@ -1345,9 +1345,9 @@ namespace WindowsApplication1
       if (tlog)
         this.AddLog("AREAMATRIX NARROW + WIDE AFTER EXTRA AREAS");
       if (tlog)
-        this.AddLog("Real Area Count = " + Strings.Trim(Conversion.Str((object) this.RealAreaCount)));
+        this.AddLog("Real Area Count = " + Strings.Trim(Conversion.Str( this.RealAreaCount)));
       if (tlog)
-        this.AddLog("(total) Area Count = " + Strings.Trim(Conversion.Str((object) this.AreaCount)));
+        this.AddLog("(total) Area Count = " + Strings.Trim(Conversion.Str( this.AreaCount)));
       if (this.ScreenyLog)
       {
         if (tlog)
@@ -1463,7 +1463,7 @@ namespace WindowsApplication1
               }
             }
             if (num36 > 0)
-              this.AreaFuzzyVP[index49] = Math.Max(0,  Math.Round((double) num35 / (double) num36));
+              this.AreaFuzzyVP[index49] = Math.Max(0,  Math.Round( num35 /  num36));
           }
         }
         num34 += 1;
@@ -1476,7 +1476,7 @@ namespace WindowsApplication1
           this.AreaFuzzyVP[index] = 1;
       }
       this.AreaDefensive = new int[this.AreaCount + 1];
-      if (!Information.IsNothing((object) this.game.Data.RegimeObj[this.GetGameDataTurn()].AIDefense[0]))
+      if (!Information.IsNothing( this.game.Data.RegimeObj[this.GetGameDataTurn()].AIDefense[0]))
       {
         let mut mapWidth28: i32 = this.game.Data.MapObj[0].MapWidth;
         for (let mut index51: i32 = 0; index51 <= mapWidth28; index51 += 1)
@@ -1499,8 +1499,8 @@ namespace WindowsApplication1
       for (let mut index53: i32 = 1; index53 <= areaCount18; index53 += 1)
       {
         this.AddLog("");
-        this.AddLog(Strings.Trim(Conversion.Str((object) index53)) + ", " + this.GetAreaName(index53, false) + " , " + Conversion.Str((object) this.AreaFuzzyVP[index53]) + " fuzzy VP, " + Strings.Trim(Conversion.Str((object) this.game.Data.MapObj[0].HexObj[this.AreaCenter[index53].x, this.AreaCenter[index53].y].VP)));
-        this.AddLog("AreaDefensive is set to: " + Strings.Trim(Conversion.Str((object) this.AreaDefensive[index53])));
+        this.AddLog(Strings.Trim(Conversion.Str( index53)) + ", " + this.GetAreaName(index53, false) + " , " + Conversion.Str( this.AreaFuzzyVP[index53]) + " fuzzy VP, " + Strings.Trim(Conversion.Str( this.game.Data.MapObj[0].HexObj[this.AreaCenter[index53].x, this.AreaCenter[index53].y].VP)));
+        this.AddLog("AreaDefensive is set to: " + Strings.Trim(Conversion.Str( this.AreaDefensive[index53])));
         this.AddLog("");
         this.AddLog("BRIDGES TOO:");
         let mut counter: i32 = this.AreaBridges[index53].Counter;
@@ -1512,7 +1512,7 @@ namespace WindowsApplication1
         for (let mut Number: i32 = 1; Number <= seaCount; Number += 1)
         {
           if (this.SeaBorder[Number, index53] > 0)
-            this.AddLog("* Connection to Sea # " + Conversion.Str((object) Number));
+            this.AddLog("* Connection to Sea # " + Conversion.Str( Number));
         }
         this.AddLog("");
         this.AddLog("REGULAR BORDERS MATRIX:");
@@ -1520,7 +1520,7 @@ namespace WindowsApplication1
         for (let mut nr: i32 = 1; nr <= areaCount19; nr += 1)
         {
           if (this.AreaBorder[index53, nr] > 0)
-            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str((object) this.AreaBorder[index53, nr])));
+            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str( this.AreaBorder[index53, nr])));
         }
         this.AddLog("");
         this.AddLog("NARROW BORDERS MATRIX:");
@@ -1528,7 +1528,7 @@ namespace WindowsApplication1
         for (let mut nr: i32 = 1; nr <= areaCount20; nr += 1)
         {
           if (this.AreaNarrowBorder[index53, nr] > 0)
-            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str((object) this.AreaNarrowBorder[index53, nr])));
+            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str( this.AreaNarrowBorder[index53, nr])));
         }
         this.AddLog("");
         this.AddLog("BROAD BORDERS MATRIX:");
@@ -1536,7 +1536,7 @@ namespace WindowsApplication1
         for (let mut nr: i32 = 1; nr <= areaCount21; nr += 1)
         {
           if (this.AreaBroadBorder[index53, nr] > 0)
-            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str((object) this.AreaBroadBorder[index53, nr])));
+            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str( this.AreaBroadBorder[index53, nr])));
         }
         this.AddLog("");
         this.AddLog("NO BRIDGE BORDERS MATRIX:");
@@ -1544,7 +1544,7 @@ namespace WindowsApplication1
         for (let mut nr: i32 = 1; nr <= areaCount22; nr += 1)
         {
           if (this.AreaBorder[index53, nr] > 0 | this.AreaNarrowBorder[index53, nr] > 0 | this.AreaBroadBorder[index53, nr] > 0)
-            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str((object) this.AreaBorderNoBridge[index53, nr])));
+            this.AddLog(this.GetAreaName(index53) + " => " + this.GetAreaName(nr) + " = " + Strings.Trim(Conversion.Str( this.AreaBorderNoBridge[index53, nr])));
         }
       }
     }
@@ -1588,7 +1588,7 @@ namespace WindowsApplication1
                   if (tlog)
                   {
                     this.AddLog("");
-                    this.AddLog(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIAttack is set to attack an extra area");
+                    this.AddLog(Strings.Trim(Conversion.Str( Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIAttack is set to attack an extra area");
                     break;
                   }
                   break;
@@ -1596,7 +1596,7 @@ namespace WindowsApplication1
                   if (tlog)
                   {
                     this.AddLog("");
-                    this.AddLog(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIFollowUp is set to attack an extra area");
+                    this.AddLog(Strings.Trim(Conversion.Str( Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIFollowUp is set to attack an extra area");
                     break;
                   }
                   break;
@@ -1604,7 +1604,7 @@ namespace WindowsApplication1
                   if (tlog)
                   {
                     this.AddLog("");
-                    this.AddLog(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIDefend is set to attack an extra area");
+                    this.AddLog(Strings.Trim(Conversion.Str( Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIDefend is set to attack an extra area");
                     break;
                   }
                   break;
@@ -1612,7 +1612,7 @@ namespace WindowsApplication1
                   if (tlog)
                   {
                     this.AddLog("");
-                    this.AddLog(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIFallBack is set to attack an extra area");
+                    this.AddLog(Strings.Trim(Conversion.Str( Number)) + ", " + this.game.Data.UnitObj[Number].Name + " memory AIFallBack is set to attack an extra area");
                     break;
                   }
                   break;
@@ -1661,7 +1661,7 @@ namespace WindowsApplication1
                   this.game.Data.UnitObj[Number].AIDefend = nr;
                 if (num1 == 3)
                   this.game.Data.UnitObj[Number].AIFallback = nr;
-                this.AddLog(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.game.Data.UnitObj[Number].Name + " has been given area " + this.GetAreaName(nr));
+                this.AddLog(Strings.Trim(Conversion.Str( Number)) + ", " + this.game.Data.UnitObj[Number].Name + " has been given area " + this.GetAreaName(nr));
               }
               else
               {
@@ -1673,7 +1673,7 @@ namespace WindowsApplication1
                   this.game.Data.UnitObj[Number].AIDefend = -1;
                 if (num1 == 3)
                   this.game.Data.UnitObj[Number].AIFallback = -1;
-                this.AddLog(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.game.Data.UnitObj[Number].Name + " is set to attack -1");
+                this.AddLog(Strings.Trim(Conversion.Str( Number)) + ", " + this.game.Data.UnitObj[Number].Name + " is set to attack -1");
               }
             }
           }
@@ -1718,7 +1718,7 @@ namespace WindowsApplication1
                 let mut unitCounter: i32 = this.game.Data.MapObj[0].HexObj[x2, y2].UnitCounter;
                 for (let mut index: i32 = 0; index <= unitCounter; index += 1)
                 {
-                  if ((double) this.GetUnitPower(this.game.Data.MapObj[0].HexObj[x2, y2].UnitList[index], false) > (double) powerPointsAbsolute / 10.0)
+                  if ( this.GetUnitPower(this.game.Data.MapObj[0].HexObj[x2, y2].UnitList[index], false) >  powerPointsAbsolute / 10.0)
                   {
                     num6 = 1;
                     break;
@@ -1735,7 +1735,7 @@ namespace WindowsApplication1
           }
           this.AreaClosestEnemy[nr] = Number;
           if (tlog)
-            this.AddLog(this.GetAreaName(nr) + " => " + Strings.Trim(Conversion.Str((object) Number)));
+            this.AddLog(this.GetAreaName(nr) + " => " + Strings.Trim(Conversion.Str( Number)));
         }
       }
     }
@@ -1783,7 +1783,7 @@ namespace WindowsApplication1
           this.GroupFallBack[Number] = this.game.Data.RegimeObj[this.game.Data.Turn].AIGroupLastFallBack[Number];
           this.CorpsTopGroup[Number] = this.game.Data.RegimeObj[this.game.Data.Turn].AICorpsTopGroup[Number];
           if (tlog)
-            this.AddLog(Strings.Trim(Conversion.Str((object) Number)) + ", " + this.GroupName[Number] + ", Type=" + Strings.Trim(Conversion.Str((object) this.GroupType[Number])));
+            this.AddLog(Strings.Trim(Conversion.Str( Number)) + ", " + this.GroupName[Number] + ", Type=" + Strings.Trim(Conversion.Str( this.GroupType[Number])));
         }
         if (tlog)
           this.AddLog("");
@@ -1814,7 +1814,7 @@ namespace WindowsApplication1
           if (this.GetGroupHQ(groupCounter2) == -1)
           {
             if (tlog)
-              this.AddLog(Strings.Trim(Conversion.Str((object) groupCounter2)) + ", " + this.GroupName[groupCounter2] + " is being removed.");
+              this.AddLog(Strings.Trim(Conversion.Str( groupCounter2)) + ", " + this.GroupName[groupCounter2] + " is being removed.");
             let mut num1: i32 = groupCounter2;
             let mut num2: i32 = this.GroupCounter - 1;
             for (let mut index: i32 = num1; index <= num2; index += 1)
@@ -1882,7 +1882,7 @@ namespace WindowsApplication1
           if (index > 0 & this.GroupType[this.GroupCounter] <= 5)
             numArray3[index] = this.GroupCounter;
           if (tlog)
-            this.AddLog("(A) Created Historical Group on " + this.game.Data.UnitObj[unr].Name + ", type=" + Strings.Trim(Conversion.Str((object) this.GroupType[this.GroupCounter])));
+            this.AddLog("(A) Created Historical Group on " + this.game.Data.UnitObj[unr].Name + ", type=" + Strings.Trim(Conversion.Str( this.GroupType[this.GroupCounter])));
         }
       }
       let mut unitCounter4: i32 = this.game.Data.UnitCounter;
@@ -1921,7 +1921,7 @@ namespace WindowsApplication1
                   if (num == 1)
                   {
                     if (tlog)
-                      this.AddLog("(A2) " + this.game.Data.UnitObj[unr].Name + " has been added to group " + Strings.Trim(Conversion.Str((object) group)) + " of HQ: " + this.game.Data.UnitObj[index1].Name);
+                      this.AddLog("(A2) " + this.game.Data.UnitObj[unr].Name + " has been added to group " + Strings.Trim(Conversion.Str( group)) + " of HQ: " + this.game.Data.UnitObj[index1].Name);
                     this.game.Data.UnitObj[unr].AIGroup = group;
                   }
                 }
@@ -1964,7 +1964,7 @@ namespace WindowsApplication1
                   num = 1;
                 if (this.GroupType[index] == 1 & this.game.HandyFunctionsObj.Distance(x3, y3, 0, x4, y4, 0) <= 5)
                   num = 1;
-                else if ((double) this.game.Data.RuleVar[888] == 1.0 & this.GroupType[index] == 5 & this.game.Data.UnitObj[unr].HQ == groupHq)
+                else if ( this.game.Data.RuleVar[888] == 1.0 & this.GroupType[index] == 5 & this.game.Data.UnitObj[unr].HQ == groupHq)
                   num = 1;
                 if (this.game.HandyFunctionsObj.HasUnitAirSF(unr))
                   num = 1;
@@ -1972,7 +1972,7 @@ namespace WindowsApplication1
                 {
                   this.game.Data.UnitObj[unr].AIGroup = index;
                   if (tlog)
-                    this.AddLog("(B) " + this.game.Data.UnitObj[unr].Name + " has been added to group: " + Strings.Trim(Conversion.Str((object) index)) + ", " + this.GroupName[index]);
+                    this.AddLog("(B) " + this.game.Data.UnitObj[unr].Name + " has been added to group: " + Strings.Trim(Conversion.Str( index)) + ", " + this.GroupName[index]);
                 }
               }
             }
@@ -2028,19 +2028,19 @@ namespace WindowsApplication1
               numArray1[nr] = 1;
               numArray2[nr] = this.GroupCounter;
               if (tlog)
-                this.AddLog("(C) " + this.game.Data.UnitObj[unr].Name + " has been used to base a kampfgruppe on: " + Strings.Trim(Conversion.Str((object) index3)) + " , " + this.GroupName[index3]);
+                this.AddLog("(C) " + this.game.Data.UnitObj[unr].Name + " has been used to base a kampfgruppe on: " + Strings.Trim(Conversion.Str( index3)) + " , " + this.GroupName[index3]);
             }
             else if (numArray2[nr] > -1)
             {
               this.game.Data.UnitObj[unr].AIGroup = numArray2[nr];
               if (tlog)
-                this.AddLog("(C) " + this.game.Data.UnitObj[unr].Name + " is added to existing kampfgruppe: " + Strings.Trim(Conversion.Str((object) numArray2[nr])) + " , " + this.GroupName[numArray2[nr]]);
+                this.AddLog("(C) " + this.game.Data.UnitObj[unr].Name + " is added to existing kampfgruppe: " + Strings.Trim(Conversion.Str( numArray2[nr])) + " , " + this.GroupName[numArray2[nr]]);
             }
           }
         }
       }
       int[] numArray4 = new int[2];
-      if ((double) this.game.Data.RuleVar[889] > 0.0)
+      if ( this.game.Data.RuleVar[889] > 0.0)
       {
         let mut groupCounter5: i32 = this.GroupCounter;
         for (let mut index5: i32 = 0; index5 <= groupCounter5; index5 += 1)
@@ -2100,7 +2100,7 @@ namespace WindowsApplication1
                       this.game.Data.UnitObj[index10].AIGroup = this.GroupCounter;
                   }
                   if (tlog)
-                    this.AddLog("(D) Created Subcorps Group on " + this.GroupName[this.GroupCounter] + ", type=" + Strings.Trim(Conversion.Str((object) this.GroupType[this.GroupCounter])));
+                    this.AddLog("(D) Created Subcorps Group on " + this.GroupName[this.GroupCounter] + ", type=" + Strings.Trim(Conversion.Str( this.GroupType[this.GroupCounter])));
                 }
               }
             }
@@ -2162,8 +2162,8 @@ namespace WindowsApplication1
             let mut unitPower: i32 = this.GetUnitPower(unr, true, Theater: 0);
             if (this.game.Data.UnitObj[unr].TempCategory == 1)
               num3 += unitPower;
-            let mut num4: i32 = unitPower +  Math.Round((double) unitPower * ((double) this.GetAIRolePercent(unr, 10) / 200.0));
-            let mut num5: i32 = num4 +  Math.Round((double) num4 * ((double) this.GetAIRolePercent(unr, 8) / 100.0));
+            let mut num4: i32 = unitPower +  Math.Round( unitPower * ( this.GetAIRolePercent(unr, 10) / 200.0));
+            let mut num5: i32 = num4 +  Math.Round( num4 * ( this.GetAIRolePercent(unr, 8) / 100.0));
             Number1 += num5;
             Number2 += this.GetUnitPower(unr, true, Theater: 2);
             num1 += this.game.HandyFunctionsObj.GetUnitEPGrowth(unr);
@@ -2198,10 +2198,10 @@ namespace WindowsApplication1
             }
           }
         }
-        if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 1.0)
-          Number1 =  Math.Round((double) ((float) Number1 * (1f / this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative)));
+        if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 1.0)
+          Number1 =  Math.Round( ( Number1 * (1f / this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative)));
         this.CorpsStrength[grp] = Number1;
-        this.CorpsBottleneck[grp] =  Math.Round((double) num2 / (double) num3) >= 10 ? ( Math.Round((double) num2 / (double) num3) >= 20 ? ( Math.Round((double) num2 / (double) num3) >= 30 ? ( Math.Round((double) num2 / (double) num3) >= 50 ? ( Math.Round((double) num2 / (double) num3) >= 80 ? 15 : 25) : 40) : 60) : 75) : 0;
+        this.CorpsBottleneck[grp] =  Math.Round( num2 /  num3) >= 10 ? ( Math.Round( num2 /  num3) >= 20 ? ( Math.Round( num2 /  num3) >= 30 ? ( Math.Round( num2 /  num3) >= 50 ? ( Math.Round( num2 /  num3) >= 80 ? 15 : 25) : 40) : 60) : 75) : 0;
         simpleList.Sort();
         this.CorpsOldDefend[grp] = -1;
         if (simpleList.Counter > -1)
@@ -2214,12 +2214,12 @@ namespace WindowsApplication1
         if (tlog)
         {
           this.AddLog("");
-          this.AddLog(this.GroupName[grp] + " ==> STARTLOC = " + this.GetAreaName(this.GetStartArea(grp)) + " ... CORPSSTRENGTH=" + Conversion.Str((object) Number1) + ", CORPSAIRSTRENGTH=" + Conversion.Str((object) Number2) + "  Engineer=" + Conversion.Str((object) this.CorpsEngineer[grp]) + "   (avgloc=" + Conversion.Str((object) averageCorpsUnitCoord1.x) + "," + Conversion.Str((object) averageCorpsUnitCoord1.y) + ")");
+          this.AddLog(this.GroupName[grp] + " ==> STARTLOC = " + this.GetAreaName(this.GetStartArea(grp)) + " ... CORPSSTRENGTH=" + Conversion.Str( Number1) + ", CORPSAIRSTRENGTH=" + Conversion.Str( Number2) + "  Engineer=" + Conversion.Str( this.CorpsEngineer[grp]) + "   (avgloc=" + Conversion.Str( averageCorpsUnitCoord1.x) + "," + Conversion.Str( averageCorpsUnitCoord1.y) + ")");
         }
         if (tlog)
         {
           this.AddLog("");
-          this.AddLog(this.GroupName[grp] + " ==> OLDDEFENDAREA = " + this.GetAreaName(this.CorpsOldDefend[grp]) + " ... BOTTLENECK=" + Conversion.Str((object) this.CorpsBottleneck[grp]));
+          this.AddLog(this.GroupName[grp] + " ==> OLDDEFENDAREA = " + this.GetAreaName(this.CorpsOldDefend[grp]) + " ... BOTTLENECK=" + Conversion.Str( this.CorpsBottleneck[grp]));
         }
         Coordinate averageCorpsUnitCoord2 = this.GetAverageCorpsUnitCoord(grp, ReturnRoadHex: true);
         let mut moveTypeCorpsUnit: i32 = this.GetAverageMoveTypeCorpsUnit(grp);
@@ -2234,7 +2234,7 @@ namespace WindowsApplication1
         {
           this.HisAreaDistance[grp, nr] = this.game.EditObj.TempValue[0].Value[this.AreaCenter[nr].x, this.AreaCenter[nr].y];
           if (this.HisAreaDistance[grp, nr] < 9999 && tlog)
-            this.AddLog(this.GetAreaName(nr) + " => AP cost = " + Conversion.Str((object) this.HisAreaDistance[grp, nr]));
+            this.AddLog(this.GetAreaName(nr) + " => AP cost = " + Conversion.Str( this.HisAreaDistance[grp, nr]));
         }
         this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, moveTypeCorpsUnit, 0, 600, averageCorpsUnitCoord2.x, averageCorpsUnitCoord2.y, 0, NoBridgePenalty: true);
         if (tlog)
@@ -2247,7 +2247,7 @@ namespace WindowsApplication1
         {
           this.HisAreaDistanceFriendly[grp, nr] = this.game.EditObj.TempValue[0].Value[this.AreaCenter[nr].x, this.AreaCenter[nr].y];
           if (this.HisAreaDistanceFriendly[grp, nr] < 9999 && tlog)
-            this.AddLog(this.GetAreaName(nr) + " => AP cost (friendly) = " + Conversion.Str((object) this.HisAreaDistance[grp, nr]));
+            this.AddLog(this.GetAreaName(nr) + " => AP cost (friendly) = " + Conversion.Str( this.HisAreaDistance[grp, nr]));
         }
       }
       this.AreaStrength = new int[this.AreaCount + 1];
@@ -2296,7 +2296,7 @@ namespace WindowsApplication1
         this.StartEnemySupplyGone[index12] = 0;
         if (this.AreaStrength[index12] > 0 & this.game.Data.Round > 1)
         {
-          let mut num: i32 =  Math.Round((double) numArray6[index12] / (double) this.AreaStrength[index12]);
+          let mut num: i32 =  Math.Round( numArray6[index12] /  this.AreaStrength[index12]);
           if (num < 10)
             this.StartEnemySupplyGone[index12] = 2;
           else if (num < 50)
@@ -2322,13 +2322,13 @@ namespace WindowsApplication1
                 int[] numArray12 = numArray11;
                 let mut index15: i32 = index14;
                 let mut index16: i32 = index15;
-                let mut num12: i32 = numArray11[index15] +  Math.Round((double) this.AreaStrength[index12] / 3.0 / (double) num11);
+                let mut num12: i32 = numArray11[index15] +  Math.Round( this.AreaStrength[index12] / 3.0 /  num11);
                 numArray12[index16] = num12;
                 int[] numArray13 = numArray1;
                 int[] numArray14 = numArray13;
                 let mut index17: i32 = index12;
                 let mut index18: i32 = index17;
-                let mut num13: i32 = numArray13[index17] -  Math.Round((double) this.AreaStrength[index12] / 3.0 / (double) num11);
+                let mut num13: i32 = numArray13[index17] -  Math.Round( this.AreaStrength[index12] / 3.0 /  num11);
                 numArray14[index18] = num13;
               }
             }
@@ -2399,7 +2399,7 @@ namespace WindowsApplication1
       {
         hexName: String = this.game.HandyFunctionsObj.GetHexName(this.AreaCenter[Number].x, this.AreaCenter[Number].y, 0);
         if (this.AreaStrength[Number] > 0 & tlog)
-          this.AddLog(Conversion.Str((object) Number) + ") " + hexName + " ==> " + Conversion.Str((object) this.AreaStrength[Number]) + ", EnemySupplyGone = " + Conversion.Str((object) this.StartEnemySupplyGone[Number]));
+          this.AddLog(Conversion.Str( Number) + ") " + hexName + " ==> " + Conversion.Str( this.AreaStrength[Number]) + ", EnemySupplyGone = " + Conversion.Str( this.StartEnemySupplyGone[Number]));
       }
       this.AreaSteps = new int[this.AreaCount + 1, this.AreaCount + 1];
       let mut areaCount9: i32 = this.AreaCount;
@@ -2430,7 +2430,7 @@ namespace WindowsApplication1
       let mut areaCount11: i32 = this.AreaCount;
       for (let mut Area: i32 = 1; Area <= areaCount11; Area += 1)
         this.AverageAreaEntrench[Area] = this.GetAverageAreaEntrench(Area);
-      this.AverageVP = num18 != 0 ?  Math.Round((double) num17 / (double) num18) : 0;
+      this.AverageVP = num18 != 0 ?  Math.Round( num17 /  num18) : 0;
       this.TempGroupHQ = new int[this.GroupCounter + 1];
       let mut groupCounter2: i32 = this.GroupCounter;
       for (let mut grp: i32 = 0; grp <= groupCounter2; grp += 1)
@@ -2458,14 +2458,14 @@ namespace WindowsApplication1
         this.AddLog("Supply Providing Areas:");
       int num1;
       int num2;
-      if ((double) this.game.Data.RuleVar[335] > 0.0)
+      if ( this.game.Data.RuleVar[335] > 0.0)
       {
         let mut num3: i32 = 0;
         do
         {
-          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num3 * 4)))] > 0)
+          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num3 * 4)))] > 0)
           {
-            let mut nr: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num3 * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num3 * 4)))]];
+            let mut nr: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num3 * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num3 * 4)))]];
             num1 = 0;
             if (nr > 0 && nr > 0 & this.GetRegime(this.game.Data.MapObj[0].HexObj[this.AreaCenter[nr].x, this.AreaCenter[nr].y].Regime) == this.GetGameDataTurn())
             {
@@ -2596,7 +2596,7 @@ namespace WindowsApplication1
         this.AreaOwner[index] = this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].Regime;
       for (let mut groupCounter1: i32 = this.GroupCounter; groupCounter1 >= 0; groupCounter1 += -1)
       {
-        if (this.GroupType[groupCounter1] < 1 | (this.GroupType[groupCounter1] == 1 | this.GroupType[groupCounter1] == 5) & (double) this.game.Data.RuleVar[800] == 1.0)
+        if (this.GroupType[groupCounter1] < 1 | (this.GroupType[groupCounter1] == 1 | this.GroupType[groupCounter1] == 5) &  this.game.Data.RuleVar[800] == 1.0)
         {
           let mut groupCounter2: i32 = this.GroupCounter;
           for (let mut index7: i32 = 0; index7 <= groupCounter2; index7 += 1)
@@ -2721,7 +2721,7 @@ namespace WindowsApplication1
       }
       int num15;
       float ratioOnArea;
-      if ((double) this.game.Data.RuleVar[827] == 0.0 | (double) this.game.Data.RuleVar[827] == 2.0 & this.Attacker)
+      if ( this.game.Data.RuleVar[827] == 0.0 |  this.game.Data.RuleVar[827] == 2.0 & this.Attacker)
       {
         let mut areaCount2: i32 = this.AreaCount;
         for (let mut index20: i32 = 1; index20 <= areaCount2; index20 += 1)
@@ -2799,7 +2799,7 @@ namespace WindowsApplication1
                       {
                         let mut tweight: i32 = 100 * this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[tid].X, this.game.Data.UnitObj[tid].Y, 0, this.AreaCenter[index20].x, this.AreaCenter[index20].y, 0);
                         if (this.game.Data.UnitObj[tid].TempCategory == 1)
-                          tweight =  Math.Round((double) tweight / 10.0);
+                          tweight =  Math.Round( tweight / 10.0);
                         simpleList2.Add(tid, tweight);
                       }
                     }
@@ -2818,14 +2818,14 @@ namespace WindowsApplication1
                         if (simpleList2.Data1[index25] != 1)
                         {
                           num19 += 1;
-                          if ((double) num18 <= (double) this.CorpsStrength[index24] / 3.0 & num18 * 2 <= this.GetEnemyOnArea(index20))
+                          if ( num18 <=  this.CorpsStrength[index24] / 3.0 & num18 * 2 <= this.GetEnemyOnArea(index20))
                           {
                             if (this.game.Data.UnitObj[simpleList2.Id[index25]].Historical > -1)
                             {
                               let mut counter2: i32 = simpleList2.Counter;
                               for (let mut index26: i32 = 0; index26 <= counter2; index26 += 1)
                               {
-                                if (simpleList2.Data1[index26] != 1 && this.game.Data.UnitObj[simpleList2.Id[index25]].Historical == this.game.Data.UnitObj[simpleList2.Id[index26]].Historical && (double) num18 <= (double) this.CorpsStrength[index24] / 3.0 & num18 * 2 < this.GetEnemyOnArea(index20))
+                                if (simpleList2.Data1[index26] != 1 && this.game.Data.UnitObj[simpleList2.Id[index25]].Historical == this.game.Data.UnitObj[simpleList2.Id[index26]].Historical &&  num18 <=  this.CorpsStrength[index24] / 3.0 & num18 * 2 < this.GetEnemyOnArea(index20))
                                 {
                                   num21 += 1;
                                   num18 += this.GetUnitPower(simpleList2.Id[index25], false);
@@ -2892,7 +2892,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[827] == 0.0 && this.Attacker)
+      if ( this.game.Data.RuleVar[827] == 0.0 && this.Attacker)
       {
         let mut areaCount4: i32 = this.AreaCount;
         for (let mut index31: i32 = 1; index31 <= areaCount4; index31 += 1)
@@ -2913,7 +2913,7 @@ namespace WindowsApplication1
                   if (this.GroupType[index32] <= 5 & this.CorpsSource[index32] == nr & (this.CorpsTarget[index32] == -1 | this.CorpsTarget[index32] == nr))
                     num24 = 1;
                 }
-                if (num24 == 0 & (double) this.GetRatioOnArea(index31) < 2.5)
+                if (num24 == 0 &  this.GetRatioOnArea(index31) < 2.5)
                 {
                   SimpleList simpleList3 = SimpleList::new();
                   let mut groupCounter8: i32 = this.GroupCounter;
@@ -2925,7 +2925,7 @@ namespace WindowsApplication1
                       if (areaStep > 0 & areaStep <= 1)
                       {
                         let mut num25: i32 = this.CorpsStrength[index33];
-                        simpleList3.Add(index33,  Math.Round((double) num25 / (double) areaStep));
+                        simpleList3.Add(index33,  Math.Round( num25 /  areaStep));
                       }
                     }
                   }
@@ -2970,7 +2970,7 @@ namespace WindowsApplication1
                       {
                         let mut tweight: i32 = 100 * this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[tid].X, this.game.Data.UnitObj[tid].Y, 0, this.AreaCenter[index31].x, this.AreaCenter[index31].y, 0);
                         if (this.game.Data.UnitObj[tid].TempCategory == 1)
-                          tweight =  Math.Round((double) tweight / 10.0);
+                          tweight =  Math.Round( tweight / 10.0);
                         simpleList4.Add(tid, tweight);
                       }
                     }
@@ -2989,7 +2989,7 @@ namespace WindowsApplication1
                         if (simpleList4.Data1[index35] != 1)
                         {
                           num27 += 1;
-                          if ((double) num26 <= (double) this.CorpsStrength[index34] / 3.0 & num26 * 2 < this.GetEnemyOnArea(index31))
+                          if ( num26 <=  this.CorpsStrength[index34] / 3.0 & num26 * 2 < this.GetEnemyOnArea(index31))
                           {
                             if (this.game.Data.UnitObj[simpleList4.Id[index35]].Historical > -1)
                             {
@@ -3152,7 +3152,7 @@ namespace WindowsApplication1
         if (alllog)
           this.AddLog("");
         if (alllog)
-          this.AddLog(this.GroupName[index47] + " (" + Conversion.Str((object) this.GroupType[index47]) + ")");
+          this.AddLog(this.GroupName[index47] + " (" + Conversion.Str( this.GroupType[index47]) + ")");
         let mut unitCounter10: i32 = this.game.Data.UnitCounter;
         for (let mut index48: i32 = 0; index48 <= unitCounter10; index48 += 1)
         {
@@ -3191,21 +3191,21 @@ namespace WindowsApplication1
       {
         let mut mapHeight: i32 = this.game.Data.MapObj[0].MapHeight;
         for (let mut index2: i32 = 0; index2 <= mapHeight; index2 += 1)
-          objArray[index1, index2] = (object) 9999;
+          objArray[index1, index2] =  9999;
       }
-      if ((double) this.game.Data.RuleVar[335] > 0.0)
+      if ( this.game.Data.RuleVar[335] > 0.0)
       {
         let mut num1: i32 = 0;
         do
         {
-          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num1 * 4)))] > 0)
+          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num1 * 4)))] > 0)
           {
-            if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num1 * 4)))] > -1)
+            if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num1 * 4)))] > -1)
             {
-              let mut num2: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num1 * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num1 * 4)))]];
-              let mut x: i32 = this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num1 * 4)))];
-              let mut y: i32 = this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num1 * 4)))];
-              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), x, y, 0, allowshoredrop: true, SeaBlock: true);
+              let mut num2: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num1 * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num1 * 4)))]];
+              let mut x: i32 = this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num1 * 4)))];
+              let mut y: i32 = this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num1 * 4)))];
+              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), x, y, 0, allowshoredrop: true, SeaBlock: true);
             }
             let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
             for (let mut index3: i32 = 0; index3 <= mapWidth2; index3 += 1)
@@ -3213,8 +3213,8 @@ namespace WindowsApplication1
               let mut mapHeight: i32 = this.game.Data.MapObj[0].MapHeight;
               for (let mut index4: i32 = 0; index4 <= mapHeight; index4 += 1)
               {
-                if (Operators.ConditionalCompareObjectLess((object) this.game.EditObj.TempValue[0].Value[index3, index4], objArray[index3, index4], false))
-                  objArray[index3, index4] = (object) this.game.EditObj.TempValue[0].Value[index3, index4];
+                if (Operators.ConditionalCompareObjectLess( this.game.EditObj.TempValue[0].Value[index3, index4], objArray[index3, index4], false))
+                  objArray[index3, index4] =  this.game.EditObj.TempValue[0].Value[index3, index4];
               }
             }
           }
@@ -3237,16 +3237,16 @@ namespace WindowsApplication1
             let mut index6: i32 = this.game.Data.UnitObj[index5].HQ;
             if (index6 > -1)
             {
-              if ((double) this.game.Data.RuleVar[887] > 0.0)
+              if ( this.game.Data.RuleVar[887] > 0.0)
               {
                 index6 = 0;
               }
               else
               {
-                this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index5].X, this.game.Data.UnitObj[index5].Y, this.game.Data.UnitObj[index5].Map, allowshoredrop: true, SeaBlock: true);
-                if ((double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index6].X, this.game.Data.UnitObj[index6].Y] > (double) this.game.Data.RuleVar[3])
+                this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index5].X, this.game.Data.UnitObj[index5].Y, this.game.Data.UnitObj[index5].Map, allowshoredrop: true, SeaBlock: true);
+                if ( this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index6].X, this.game.Data.UnitObj[index6].Y] >  this.game.Data.RuleVar[3])
                   index6 = -2;
-                else if ((double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index6].X, this.game.Data.UnitObj[index6].Y] > (double) this.game.Data.RuleVar[52])
+                else if ( this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index6].X, this.game.Data.UnitObj[index6].Y] >  this.game.Data.RuleVar[52])
                   index6 = -1;
               }
             }
@@ -3260,13 +3260,13 @@ namespace WindowsApplication1
               let mut unitCounter2: i32 = this.game.Data.UnitCounter;
               for (let mut index8: i32 = 0; index8 <= unitCounter2; index8 += 1)
               {
-                if (this.game.Data.UnitObj[index8].PreDef == -1 & this.game.Data.UnitObj[index8].IsHQ && this.game.Data.UnitObj[index8].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index8].X > -1 & this.game.Data.UnitObj[index8].PreDef == -1 && (double) this.game.Data.UnitObj[index8].SupplyIn > (double) this.game.Data.UnitObj[index8].SupplyInReq / 2.0 & this.GroupType[this.game.Data.UnitObj[index8].AIGroup] == num3 + 1 && (double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index8].X, this.game.Data.UnitObj[index8].Y] <= (double) this.game.Data.RuleVar[51] | index6 == -2 & (double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index8].X, this.game.Data.UnitObj[index8].Y] <= (double) this.game.Data.RuleVar[3] && this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index8].X, this.game.Data.UnitObj[index8].Y] < num5)
+                if (this.game.Data.UnitObj[index8].PreDef == -1 & this.game.Data.UnitObj[index8].IsHQ && this.game.Data.UnitObj[index8].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index8].X > -1 & this.game.Data.UnitObj[index8].PreDef == -1 &&  this.game.Data.UnitObj[index8].SupplyIn >  this.game.Data.UnitObj[index8].SupplyInReq / 2.0 & this.GroupType[this.game.Data.UnitObj[index8].AIGroup] == num3 + 1 &&  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index8].X, this.game.Data.UnitObj[index8].Y] <=  this.game.Data.RuleVar[51] | index6 == -2 &  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index8].X, this.game.Data.UnitObj[index8].Y] <=  this.game.Data.RuleVar[3] && this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index8].X, this.game.Data.UnitObj[index8].Y] < num5)
                 {
                   index7 = index8;
                   num5 = this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index8].X, this.game.Data.UnitObj[index8].Y];
                 }
               }
-              if ((double) num5 < (double) this.game.Data.RuleVar[3])
+              if ( num5 <  this.game.Data.RuleVar[3])
               {
                 if (alllog & this.game.Data.UnitObj[index5].HQ > -1)
                   this.AddLog("old HQ was = " + this.game.Data.UnitObj[this.game.Data.UnitObj[index5].HQ].Name);
@@ -3293,16 +3293,16 @@ namespace WindowsApplication1
             this.game.EditObj.AIProgressNow = 0;
           if (index10 > -1)
           {
-            if ((double) this.game.Data.RuleVar[887] > 0.0)
+            if ( this.game.Data.RuleVar[887] > 0.0)
             {
               index10 = 0;
             }
             else
             {
-              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index9].X, this.game.Data.UnitObj[index9].Y, this.game.Data.UnitObj[index9].Map, allowshoredrop: true, SeaBlock: true);
-              if ((double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index10].X, this.game.Data.UnitObj[index10].Y] > (double) this.game.Data.RuleVar[3])
+              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index9].X, this.game.Data.UnitObj[index9].Y, this.game.Data.UnitObj[index9].Map, allowshoredrop: true, SeaBlock: true);
+              if ( this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index10].X, this.game.Data.UnitObj[index10].Y] >  this.game.Data.RuleVar[3])
                 index10 = -2;
-              else if ((double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index10].X, this.game.Data.UnitObj[index10].Y] > (double) this.game.Data.RuleVar[52])
+              else if ( this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index10].X, this.game.Data.UnitObj[index10].Y] >  this.game.Data.RuleVar[52])
                 index10 = -1;
             }
           }
@@ -3316,13 +3316,13 @@ namespace WindowsApplication1
             let mut unitCounter4: i32 = this.game.Data.UnitCounter;
             for (let mut index12: i32 = 0; index12 <= unitCounter4; index12 += 1)
             {
-              if (this.game.Data.UnitObj[index12].PreDef == -1 & this.game.Data.UnitObj[index12].IsHQ && this.game.Data.UnitObj[index12].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index12].X > -1 & this.game.Data.UnitObj[index12].PreDef == -1 && (double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index12].X, this.game.Data.UnitObj[index12].Y] <= (double) this.game.Data.RuleVar[51] | index10 == -2 & (double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index12].X, this.game.Data.UnitObj[index12].Y] <= (double) this.game.Data.RuleVar[3] && this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index12].X, this.game.Data.UnitObj[index12].Y] < num6)
+              if (this.game.Data.UnitObj[index12].PreDef == -1 & this.game.Data.UnitObj[index12].IsHQ && this.game.Data.UnitObj[index12].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index12].X > -1 & this.game.Data.UnitObj[index12].PreDef == -1 &&  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index12].X, this.game.Data.UnitObj[index12].Y] <=  this.game.Data.RuleVar[51] | index10 == -2 &  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index12].X, this.game.Data.UnitObj[index12].Y] <=  this.game.Data.RuleVar[3] && this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index12].X, this.game.Data.UnitObj[index12].Y] < num6)
               {
                 index11 = index12;
                 num6 = this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index12].X, this.game.Data.UnitObj[index12].Y];
               }
             }
-            if ((double) num6 < (double) this.game.Data.RuleVar[3])
+            if ( num6 <  this.game.Data.RuleVar[3])
             {
               if (alllog & this.game.Data.UnitObj[index9].HQ > -1)
                 this.AddLog("old HQ was = " + this.game.Data.UnitObj[this.game.Data.UnitObj[index9].HQ].Name);
@@ -3391,12 +3391,12 @@ namespace WindowsApplication1
               }
               if (index14 == -1)
               {
-                if ((double) this.game.Data.RuleVar[887] < 1.0)
-                  this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index13].X, this.game.Data.UnitObj[index13].Y, this.game.Data.UnitObj[index13].Map, allowshoredrop: true, SeaBlock: true);
+                if ( this.game.Data.RuleVar[887] < 1.0)
+                  this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index13].X, this.game.Data.UnitObj[index13].Y, this.game.Data.UnitObj[index13].Map, allowshoredrop: true, SeaBlock: true);
                 let mut unitCounter8: i32 = this.game.Data.UnitCounter;
                 for (let mut index18: i32 = 0; index18 <= unitCounter8; index18 += 1)
                 {
-                  if (this.game.Data.UnitObj[index18].PreDef == -1 & this.game.Data.UnitObj[index18].X > -1 && ((double) this.game.Data.RuleVar[887] > 0.0 | (double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index18].X, this.game.Data.UnitObj[index18].Y] < (double) this.game.Data.RuleVar[51]) & this.game.Data.UnitObj[index18].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index18].HQ > -1)
+                  if (this.game.Data.UnitObj[index18].PreDef == -1 & this.game.Data.UnitObj[index18].X > -1 && ( this.game.Data.RuleVar[887] > 0.0 |  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index18].X, this.game.Data.UnitObj[index18].Y] <  this.game.Data.RuleVar[51]) & this.game.Data.UnitObj[index18].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index18].HQ > -1)
                   {
                     int[] numArray5 = numArray2;
                     int[] numArray6 = numArray5;
@@ -3426,17 +3426,17 @@ namespace WindowsApplication1
           }
           else if (!this.game.Data.UnitObj[index13].IsHQ && this.game.Data.UnitObj[this.game.Data.UnitObj[index13].HQ].AIGroup != this.game.Data.UnitObj[index13].AIGroup && this.game.Data.UnitObj[index13].TempGroup == -1)
           {
-            if ((double) this.game.Data.RuleVar[887] < 1.0)
-              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index13].X, this.game.Data.UnitObj[index13].Y, this.game.Data.UnitObj[index13].Map, allowshoredrop: true, SeaBlock: true);
+            if ( this.game.Data.RuleVar[887] < 1.0)
+              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index13].X, this.game.Data.UnitObj[index13].Y, this.game.Data.UnitObj[index13].Map, allowshoredrop: true, SeaBlock: true);
             let mut index20: i32 = -1;
             let mut unitCounter9: i32 = this.game.Data.UnitCounter;
             for (let mut index21: i32 = 0; index21 <= unitCounter9; index21 += 1)
             {
               if (this.game.Data.UnitObj[index21].PreDef == -1 && this.game.Data.UnitObj[index21].AIGroup > 0 & this.game.Data.UnitObj[index21].AIGroup == this.game.Data.UnitObj[index13].AIGroup & this.game.Data.UnitObj[index21].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index21].IsHQ)
               {
-                if ((double) this.game.Data.RuleVar[887] < 1.0)
+                if ( this.game.Data.RuleVar[887] < 1.0)
                 {
-                  if ((double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index21].X, this.game.Data.UnitObj[index21].Y] < (double) this.game.Data.RuleVar[51])
+                  if ( this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index21].X, this.game.Data.UnitObj[index21].Y] <  this.game.Data.RuleVar[51])
                   {
                     index20 = index21;
                     break;
@@ -3487,32 +3487,32 @@ namespace WindowsApplication1
           let mut num4: i32 = this.game.Data.SFObj[sf].Qty * powerPts;
           num1 += num4;
           if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].ArtRange > 0 & IsArtilleryAttack & Attack)
-            num4 =  Math.Round((double) ((float) num4 * this.CONST_ARTMULTI));
+            num4 =  Math.Round( ( num4 * this.CONST_ARTMULTI));
           if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater == 2 & IsArtilleryAttack & Attack)
-            num4 =  Math.Round((double) ((float) num4 * this.CONST_AIRMULTI));
+            num4 =  Math.Round( ( num4 * this.CONST_AIRMULTI));
           let mut regime: i32 = this.game.Data.UnitObj[unr].Regime;
-          let mut num5: i32 =  Math.Round((double) ((float) num4 * this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].BattleForMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regime].People].PeopleGroup]));
+          let mut num5: i32 =  Math.Round( ( num4 * this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].BattleForMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regime].People].PeopleGroup]));
           if (this.game.Data.Round > 1)
-            num5 =  Math.Round((double) num5 * 0.2 + (double) num5 * 0.8 * ((double) this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
-          let mut num6: i32 =  Math.Round((double) num5 * ((double) this.game.Data.SFObj[sf].Mor / 50.0));
+            num5 =  Math.Round( num5 * 0.2 +  num5 * 0.8 * ( this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
+          let mut num6: i32 =  Math.Round( num5 * ( this.game.Data.SFObj[sf].Mor / 50.0));
           if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpCombat > 0)
-            num6 +=  Math.Round((double) num6 * ((double) this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpCombat / 100.0));
-          let mut num7: i32 = !Attack ?  Math.Round((double) num6 * 0.3 + (double) num6 * 0.7 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0)) :  Math.Round((double)  Math.Round((double) num6 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0)) * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+            num6 +=  Math.Round( num6 * ( this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpCombat / 100.0));
+          let mut num7: i32 = !Attack ?  Math.Round( num6 * 0.3 +  num6 * 0.7 * ( this.game.Data.SFObj[sf].Rdn / 100.0)) :  Math.Round(  Math.Round( num6 * ( this.game.Data.SFObj[sf].Rdn / 100.0)) * ( this.game.Data.SFObj[sf].Rdn / 100.0));
           if (Attack & AttackX > -1)
-            num7 =  Math.Round((double) ((float)  Math.Round((double) ((float) num7 * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[AttackX, AttackY].LandscapeType])) * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[AttackX, AttackY].LandscapeType]));
+            num7 =  Math.Round( (  Math.Round( ( num7 * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[AttackX, AttackY].LandscapeType])) * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[AttackX, AttackY].LandscapeType]));
           else if (!WithoutEntrench & !Attack)
-            num7 = !(UseTempCoords & this.game.Data.UnitObj[unr].TempX > -1 & !(this.game.Data.UnitObj[unr].TempX == this.game.Data.UnitObj[unr].X & this.game.Data.UnitObj[unr].TempY == this.game.Data.UnitObj[unr].Y)) ?  Math.Round((double) ((float)  Math.Round((double) ((float) num7 * (float) (1.0 + ((double) this.game.Data.SFObj[sf].CurrentEntrench + (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]) / 100.0))) * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType])) :  Math.Round((double) ((float)  Math.Round((double) ((float) num7 * (float) (1.0 + 1.0 * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup] / 100.0))) * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY].LandscapeType]));
-          let mut Number: i32 =  Math.Round((double) (1 * num7) + (double) this.game.Data.SFObj[sf].Xp / 50.0 * (double) num7);
+            num7 = !(UseTempCoords & this.game.Data.UnitObj[unr].TempX > -1 & !(this.game.Data.UnitObj[unr].TempX == this.game.Data.UnitObj[unr].X & this.game.Data.UnitObj[unr].TempY == this.game.Data.UnitObj[unr].Y)) ?  Math.Round( (  Math.Round( ( num7 *  (1.0 + ( this.game.Data.SFObj[sf].CurrentEntrench +  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]) / 100.0))) * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType])) :  Math.Round( (  Math.Round( ( num7 *  (1.0 + 1.0 *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup] / 100.0))) * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY].LandscapeType]));
+          let mut Number: i32 =  Math.Round( (1 * num7) +  this.game.Data.SFObj[sf].Xp / 50.0 *  num7);
           if (this.game.Data.UnitObj[unr].HQ > -1 & this.game.Data.SFTypeObj[type].Theater == 0)
-            Number =  Math.Round((double) ((float) Number * (float) ((double) this.game.HandyFunctionsObj.Gethqpow(unr, true) * (double) this.game.Data.UnitObj[unr].TempCombatImprovePercent / 100.0)));
+            Number =  Math.Round( ( Number *  ( this.game.HandyFunctionsObj.Gethqpow(unr, true) *  this.game.Data.UnitObj[unr].TempCombatImprovePercent / 100.0)));
           if (Attack & AttackX > -1 & !IsArtilleryAttack)
           {
             float num8 = this.GetAverageCombatScore(type, AttackX, AttackY, IsArtilleryAttack, EnemyAttack);
-            if ((double) num8 > (double) LimitCombatmod)
+            if ( num8 >  LimitCombatmod)
               num8 = LimitCombatmod;
-            if ((double) num8 < 1.0 / (double) LimitCombatmod)
+            if ( num8 < 1.0 /  LimitCombatmod)
               num8 = 1f / LimitCombatmod;
-            num2 += (float)  Math.Round((double) (num8 * (float) (this.game.Data.SFObj[sf].Qty * powerPts)));
+            num2 +=   Math.Round( (num8 *  (this.game.Data.SFObj[sf].Qty * powerPts)));
             num3 += this.game.Data.SFObj[sf].Qty * powerPts;
           }
           unitPower += Conversion.Int(Number);
@@ -3521,17 +3521,17 @@ namespace WindowsApplication1
       if (Attack & AttackX > -1 & !IsArtilleryAttack & FromDirection > -1)
       {
         if (this.game.Data.MapObj[0].HexObj[AttackX, AttackY].RiverType[FromDirection] > -1)
-          unitPower =  Math.Round((double) ((float) unitPower * this.GetRiverMod(unr, this.game.Data.MapObj[0].HexObj[AttackX, AttackY].RiverType[FromDirection])));
+          unitPower =  Math.Round( ( unitPower * this.GetRiverMod(unr, this.game.Data.MapObj[0].HexObj[AttackX, AttackY].RiverType[FromDirection])));
       }
       else
         unitPower = unitPower;
       if (num3 > 0)
       {
-        float num9 = num2 / (float) num3;
-        unitPower =  Math.Round((double) ((float) unitPower * num9));
+        float num9 = num2 /  num3;
+        unitPower =  Math.Round( ( unitPower * num9));
       }
       if (unitPower < 1 & num1 > 0)
-        unitPower =  Math.Round(Math.Max(1.0, (double) num1 / 10.0));
+        unitPower =  Math.Round(Math.Max(1.0,  num1 / 10.0));
       return unitPower;
     }
 
@@ -3550,25 +3550,25 @@ namespace WindowsApplication1
           {
             this.game.Data.UnitObj[index].TempCategory = 2;
             if (tlog)
-              this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = ARTILLERY");
+              this.AddLog(Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = ARTILLERY");
           }
           else if (this.GetAIRolePercent(index, 12) > 20)
           {
             this.game.Data.UnitObj[index].TempCategory = 5;
             if (tlog)
-              this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = FLAK");
+              this.AddLog(Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = FLAK");
           }
           else if (this.GetAIRolePercent(index, 13) + this.GetAIRolePercent(index, 14) + this.GetAIRolePercent(index, 15) > 20)
           {
             this.game.Data.UnitObj[index].TempCategory = 3;
             if (tlog)
-              this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = AIR");
+              this.AddLog(Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = AIR");
           }
           else if (this.GetAIRolePercent(index, 5) > 20)
           {
             this.game.Data.UnitObj[index].TempCategory = 4;
             if (tlog)
-              this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = ENGINEER");
+              this.AddLog(Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = ENGINEER");
           }
           else if (this.game.HandyFunctionsObj.HasUnitNavySF(index))
           {
@@ -3576,20 +3576,20 @@ namespace WindowsApplication1
             {
               this.game.Data.UnitObj[index].TempCategory = 6;
               if (tlog)
-                this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = NAVAL CARGO");
+                this.AddLog(Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = NAVAL CARGO");
             }
             else
             {
               this.game.Data.UnitObj[index].TempCategory = 7;
               if (tlog)
-                this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = NAVAL ATTACK");
+                this.AddLog(Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = NAVAL ATTACK");
             }
           }
           else
           {
             this.game.Data.UnitObj[index].TempCategory = 1;
             if (tlog)
-              this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = NORMAL");
+              this.AddLog(Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name + ", category = NORMAL");
           }
         }
       }
@@ -3718,7 +3718,7 @@ namespace WindowsApplication1
           for (let mut index: i32 = 0; index <= unitCounter; index += 1)
           {
             if (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index].AIGroup > -1)
-              this.game.Data.UnitObj[index].TempAIString = this.GroupName[this.game.Data.UnitObj[index].AIGroup] + "\r\n... Fallback = " + this.GetAreaName(this.game.Data.UnitObj[index].AIFallback) + "\r\n, Defend = " + this.GetAreaName(this.game.Data.UnitObj[index].AIDefend) + "\r\n, Attack= " + this.GetAreaName(this.game.Data.UnitObj[index].AIAttack) + "\r\n, Followup = " + this.GetAreaName(this.game.Data.UnitObj[index].AIFollowup) + "\r\n, Stance = " + Conversion.Str((object) this.game.Data.UnitObj[index].AIAttackStyle);
+              this.game.Data.UnitObj[index].TempAIString = this.GroupName[this.game.Data.UnitObj[index].AIGroup] + "\r\n... Fallback = " + this.GetAreaName(this.game.Data.UnitObj[index].AIFallback) + "\r\n, Defend = " + this.GetAreaName(this.game.Data.UnitObj[index].AIDefend) + "\r\n, Attack= " + this.GetAreaName(this.game.Data.UnitObj[index].AIAttack) + "\r\n, Followup = " + this.GetAreaName(this.game.Data.UnitObj[index].AIFollowup) + "\r\n, Stance = " + Conversion.Str( this.game.Data.UnitObj[index].AIAttackStyle);
           }
           let mut groupCounter1: i32 = this.GroupCounter;
           this.game.Data.RegimeObj[this.game.Data.Turn].AIGroupCounter = groupCounter1;
@@ -3754,7 +3754,7 @@ namespace WindowsApplication1
     pub void StrategyLog()
     {
       this.AddLog("BEST STRATEGY");
-      if (Information.IsNothing((object) this.BestStrategy))
+      if (Information.IsNothing( this.BestStrategy))
         return;
       let mut counter: i32 = this.BestStrategy.Counter;
       for (let mut index1: i32 = 0; index1 <= counter; index1 += 1)
@@ -3763,7 +3763,7 @@ namespace WindowsApplication1
           this.AddLog(this.GroupName[this.BestStrategy.Id[index1]] + ", STEP1=" + this.GetAreaName(this.BestStrategy.Data1[index1]) + ", STEP2=" + this.GetAreaName(this.BestStrategy.Data2[index1]) + ", STEP3=" + this.GetAreaName(this.BestStrategy.Data3[index1]) + ", STEP4=" + this.GetAreaName(this.BestStrategy.Data4[index1]) + ", STEP5=" + this.GetAreaName(this.BestStrategy.Data5[index1]));
         else if (this.BestStrategy.Id[index1] < 199000)
         {
-          this.AddLog(this.GroupName[this.BestStrategy.Id[index1] - 99000] + ", STANCE=" + Conversion.Str((object) this.BestStrategy.Data1[index1]));
+          this.AddLog(this.GroupName[this.BestStrategy.Id[index1] - 99000] + ", STANCE=" + Conversion.Str( this.BestStrategy.Data1[index1]));
         }
         else
         {
@@ -3806,7 +3806,7 @@ namespace WindowsApplication1
           this.game.Data.UnitObj[index].TempUnitPower = this.GetUnitPower(index, false);
           this.game.Data.UnitObj[index].TempCombatImprovePercent = this.game.HandyFunctionsObj.GetCombatImprovePercent(index);
           if (tlog)
-            this.AddLog(Strings.Trim(Conversion.Str((object) index)) + ": " + this.game.Data.UnitObj[index].Name + ", TempUnitPower = " + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[index].TempUnitPower)) + ", CombatImprovePercent = " + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[index].TempCombatImprovePercent)));
+            this.AddLog(Strings.Trim(Conversion.Str( index)) + ": " + this.game.Data.UnitObj[index].Name + ", TempUnitPower = " + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[index].TempUnitPower)) + ", CombatImprovePercent = " + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[index].TempCombatImprovePercent)));
         }
       }
       this.AreaMatrixNarrow = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
@@ -3832,24 +3832,24 @@ namespace WindowsApplication1
       if (tlog)
         this.AddLog("SET DIFFICULTY SETTING");
       if (tlog)
-        this.AddLog("Prod Bonus for regime was set to " + Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].ProdBonus)));
+        this.AddLog("Prod Bonus for regime was set to " + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].ProdBonus)));
       if (tlog)
-        this.AddLog("Strategy Moves = " + Strings.Trim(Conversion.Str((object) this.DIFFICULTY_LEVEL_STRATEGY_MOVES)));
+        this.AddLog("Strategy Moves = " + Strings.Trim(Conversion.Str( this.DIFFICULTY_LEVEL_STRATEGY_MOVES)));
       if (tlog)
-        this.AddLog("Tactical Moves = " + Strings.Trim(Conversion.Str((object) this.DIFFICULTY_LEVEL_MOVES_FOR_BEST_MOVE)));
+        this.AddLog("Tactical Moves = " + Strings.Trim(Conversion.Str( this.DIFFICULTY_LEVEL_MOVES_FOR_BEST_MOVE)));
       if (tlog)
         this.AddLog("");
       if (tlog)
         this.AddLog("SET ATTACK_MINIMUM_ACTUAL_ATTACK");
-      this.ATTACK_MINIMUM_ACTUAL_ATTACK = (double) this.game.Data.RuleVar[358] > 0.0 ?  Math.Round((double) this.game.Data.RuleVar[358]) : 62;
+      this.ATTACK_MINIMUM_ACTUAL_ATTACK =  this.game.Data.RuleVar[358] > 0.0 ?  Math.Round( this.game.Data.RuleVar[358]) : 62;
       if (tlog)
-        this.AddLog("set to: " + Strings.Trim(Conversion.Str((object) this.ATTACK_MINIMUM_ACTUAL_ATTACK)));
-      if (!((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0))
+        this.AddLog("set to: " + Strings.Trim(Conversion.Str( this.ATTACK_MINIMUM_ACTUAL_ATTACK)));
+      if (!( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0))
         return;
-      this.ATTACK_MINIMUM_ACTUAL_ATTACK =  Math.Round((double) ((float) this.ATTACK_MINIMUM_ACTUAL_ATTACK * this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative));
+      this.ATTACK_MINIMUM_ACTUAL_ATTACK =  Math.Round( ( this.ATTACK_MINIMUM_ACTUAL_ATTACK * this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative));
       if (!tlog)
         return;
-      this.AddLog("after modification with AIConservative setting: " + Strings.Trim(Conversion.Str((object) this.ATTACK_MINIMUM_ACTUAL_ATTACK)));
+      this.AddLog("after modification with AIConservative setting: " + Strings.Trim(Conversion.Str( this.ATTACK_MINIMUM_ACTUAL_ATTACK)));
     }
 
     pub void MakeOpHQSupplyMatrix(bool tlog)
@@ -3878,7 +3878,7 @@ namespace WindowsApplication1
           this.SupplyMatrixOpHQPrognosis[index1, index2] = 9999;
         }
       }
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[groupHq].X, this.game.Data.UnitObj[groupHq].Y, 0);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[groupHq].X, this.game.Data.UnitObj[groupHq].Y, 0);
       let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut index3: i32 = 0; index3 <= mapWidth2; index3 += 1)
       {
@@ -3895,7 +3895,7 @@ namespace WindowsApplication1
           this.AddLog("Screenshot has been made of SupplyMatrixOPHQReal");
         this.Screenshot(1, "SUPPLYMATRIXOPHQREAL_" + this.GroupName[this.OpGroup],  this.SupplyMatrixOpHQReal);
       }
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[groupHq].X, this.game.Data.UnitObj[groupHq].Y, 0, dontenterenemy: false, DontCountEnemyRoads: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[groupHq].X, this.game.Data.UnitObj[groupHq].Y, 0, dontenterenemy: false, DontCountEnemyRoads: true);
       let mut mapWidth3: i32 = this.game.Data.MapObj[0].MapWidth;
       for (let mut index5: i32 = 0; index5 <= mapWidth3; index5 += 1)
       {
@@ -3915,9 +3915,9 @@ namespace WindowsApplication1
 
     pub void MakeEnemySupplyMatrix(bool tlog)
     {
-      let mut movetype: i32 =  Math.Round((double) this.game.Data.RuleVar[99]);
-      if ((double) this.game.Data.RuleVar[890] > 0.0)
-        movetype =  Math.Round((double) this.game.Data.RuleVar[890]);
+      let mut movetype: i32 =  Math.Round( this.game.Data.RuleVar[99]);
+      if ( this.game.Data.RuleVar[890] > 0.0)
+        movetype =  Math.Round( this.game.Data.RuleVar[890]);
       this.SupplyMatrixEnemyPrognosis = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       this.SupplyMatrixEnemyReal = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       this.SupplyMatrixEnemyPrognosisCameFrom = new Coordinate[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
@@ -3942,14 +3942,14 @@ namespace WindowsApplication1
         let mut regime: i32 = this.GetRegime(index3);
         if (regime != this.GetGameDataTurn())
         {
-          if ((double) this.game.Data.RuleVar[335] > 0.0)
+          if ( this.game.Data.RuleVar[335] > 0.0)
           {
             let mut num: i32 = 0;
             do
             {
-              if (this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num * 4)))] > 0)
+              if (this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num * 4)))] > 0)
               {
-                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))], 0);
+                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))], 0);
                 let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
                 for (let mut index4: i32 = 0; index4 <= mapWidth2; index4 += 1)
                 {
@@ -3963,7 +3963,7 @@ namespace WindowsApplication1
                     }
                   }
                 }
-                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))], 0, dontenterenemy: false, DontCountEnemyRoads: true);
+                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[index3].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))], 0, dontenterenemy: false, DontCountEnemyRoads: true);
                 let mut mapWidth3: i32 = this.game.Data.MapObj[0].MapWidth;
                 for (let mut index6: i32 = 0; index6 <= mapWidth3; index6 += 1)
                 {
@@ -3989,7 +3989,7 @@ namespace WindowsApplication1
             {
               if (this.IsAreaSupplySource(i, index3))
               {
-                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0);
+                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round( this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0);
                 let mut mapWidth4: i32 = this.game.Data.MapObj[0].MapWidth;
                 for (let mut index8: i32 = 0; index8 <= mapWidth4; index8 += 1)
                 {
@@ -4003,7 +4003,7 @@ namespace WindowsApplication1
                     }
                   }
                 }
-                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0, dontenterenemy: false, DontCountEnemyRoads: true);
+                this.game.HandyFunctionsObj.MakeMovePrediction2(regime, movetype, 99,  Math.Round( this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0, dontenterenemy: false, DontCountEnemyRoads: true);
                 let mut mapWidth5: i32 = this.game.Data.MapObj[0].MapWidth;
                 for (let mut index10: i32 = 0; index10 <= mapWidth5; index10 += 1)
                 {
@@ -4063,34 +4063,34 @@ namespace WindowsApplication1
           float num8 = 1f;
           if (num5 > num6)
           {
-            num2 =  Math.Round((double) num2 * ((double) num5 / (double) num6));
-            num4 =  Math.Round((double) num4 * ((double) num5 / (double) num6));
-            num8 *= (float) num5 / (float) num6;
+            num2 =  Math.Round( num2 * ( num5 /  num6));
+            num4 =  Math.Round( num4 * ( num5 /  num6));
+            num8 *=  num5 /  num6;
           }
           else if (num6 > num5)
           {
-            num1 =  Math.Round((double) num1 * ((double) num6 / (double) num5));
-            num3 =  Math.Round((double) num3 * ((double) num6 / (double) num5));
-            num7 *= (float) num6 / (float) num5;
+            num1 =  Math.Round( num1 * ( num6 /  num5));
+            num3 =  Math.Round( num3 * ( num6 /  num5));
+            num7 *=  num6 /  num5;
           }
-          if ((double) num7 * (double) this.game.Data.SFTypeObj[index1].Attacks > (double) num8 * (double) this.game.Data.SFTypeObj[index2].MaxAttacked)
-            num1 =  Math.Round((double) ((float) num1 * (float) ((double) num8 * (double) this.game.Data.SFTypeObj[index2].MaxAttacked / ((double) num7 * (double) this.game.Data.SFTypeObj[index1].Attacks))));
-          if ((double) num8 * (double) this.game.Data.SFTypeObj[index2].Attacks > (double) num7 * (double) this.game.Data.SFTypeObj[index1].MaxAttacked)
-            num2 =  Math.Round((double) ((float) num2 * (float) ((double) num7 * (double) this.game.Data.SFTypeObj[index1].MaxAttacked / ((double) num8 * (double) this.game.Data.SFTypeObj[index2].Attacks))));
-          float num9 = (float) num1 / (float) num4;
-          float num10 = (float) num2 / (float) num3;
-          float Number = (double) num10 <= 0.0 ? 25f : num9 / num10;
-          if ((double) Number > 5.0)
-            Number = 5f + (float) Math.Sqrt((double) Number - 4.0);
-          if ((double) Number < 0.2)
+          if ( num7 *  this.game.Data.SFTypeObj[index1].Attacks >  num8 *  this.game.Data.SFTypeObj[index2].MaxAttacked)
+            num1 =  Math.Round( ( num1 *  ( num8 *  this.game.Data.SFTypeObj[index2].MaxAttacked / ( num7 *  this.game.Data.SFTypeObj[index1].Attacks))));
+          if ( num8 *  this.game.Data.SFTypeObj[index2].Attacks >  num7 *  this.game.Data.SFTypeObj[index1].MaxAttacked)
+            num2 =  Math.Round( ( num2 *  ( num7 *  this.game.Data.SFTypeObj[index1].MaxAttacked / ( num8 *  this.game.Data.SFTypeObj[index2].Attacks))));
+          float num9 =  num1 /  num4;
+          float num10 =  num2 /  num3;
+          float Number =  num10 <= 0.0 ? 25f : num9 / num10;
+          if ( Number > 5.0)
+            Number = 5f +  Math.Sqrt( Number - 4.0);
+          if ( Number < 0.2)
             Number = 0.2f;
           let mut theater1: i32 = this.game.Data.SFTypeObj[index1].Theater;
           let mut theater2: i32 = this.game.Data.SFTypeObj[index2].Theater;
           if (theater1 == 0 & theater2 == 2)
             Number = 10f;
           this.CombatMatrix[index1, index2] = Number;
-          if (theater1 == theater2 | (double) num9 > 0.0 && tlog)
-            this.AddLog(this.game.Data.SFTypeObj[index2].Name + " = " + Conversion.Str((object) Number));
+          if (theater1 == theater2 |  num9 > 0.0 && tlog)
+            this.AddLog(this.game.Data.SFTypeObj[index2].Name + " = " + Conversion.Str( Number));
         }
       }
     }
@@ -4112,10 +4112,10 @@ namespace WindowsApplication1
         if (this.game.Data.UnitObj[index].AIGroup == this.OpGroup & this.game.Data.UnitObj[index].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index].X > -1)
         {
           let mut num3: i32 = 600;
-          if ((double) this.game.Data.UnitObj[index].SupplyIn < (double) this.game.Data.UnitObj[index].SupplyInReq * 0.25)
-            num3 =  Math.Round((double) num3 * 2.5);
-          if ((double) this.game.Data.UnitObj[index].Supply < (double) this.game.Data.UnitObj[index].SupplyInReq * 0.1)
-            num3 =  Math.Round((double) num3 * 1.5);
+          if ( this.game.Data.UnitObj[index].SupplyIn <  this.game.Data.UnitObj[index].SupplyInReq * 0.25)
+            num3 =  Math.Round( num3 * 2.5);
+          if ( this.game.Data.UnitObj[index].Supply <  this.game.Data.UnitObj[index].SupplyInReq * 0.1)
+            num3 =  Math.Round( num3 * 1.5);
           if (this.game.Data.UnitObj[index].IsHQ)
             num3 *= 3;
           num2 += num3;
@@ -4167,7 +4167,7 @@ namespace WindowsApplication1
             let mut num5: i32 = this.GetOurSelvesEncircledScore( tempMove, false, true);
             if (num5 > 0)
               num5 = num5;
-            this.BottleNeckMatrix[index3, index4] =  Math.Round((double) (num5 * 100) / (double) num2);
+            this.BottleNeckMatrix[index3, index4] =  Math.Round( (num5 * 100) /  num2);
             let mut tfacing1: i32 = 1;
             do
             {
@@ -4190,7 +4190,7 @@ namespace WindowsApplication1
             let mut index6: i32 = index5;
             let mut index7: i32 = index4;
             let mut index8: i32 = index7;
-            let mut num7: i32 = bottleNeckMatrix1[index5, index7] +  Math.Round((double) (num6 * 33) / (double) num2);
+            let mut num7: i32 = bottleNeckMatrix1[index5, index7] +  Math.Round( (num6 * 33) /  num2);
             numArray1[index6, index8] = num7;
             let mut tfacing2: i32 = 1;
             do
@@ -4216,7 +4216,7 @@ namespace WindowsApplication1
             while (tfacing2 <= 6);
             tempMove = SimpleList::new();
             let mut num9: i32 = this.GetOurSelvesEncircledScore( tempMove, false, true);
-            if ( Math.Round((double) (num9 * 12) / (double) num2) > 0)
+            if ( Math.Round( (num9 * 12) /  num2) > 0)
               num9 = num9;
             int[,] bottleNeckMatrix2 = this.BottleNeckMatrix;
             int[,] numArray2 = bottleNeckMatrix2;
@@ -4224,7 +4224,7 @@ namespace WindowsApplication1
             let mut index10: i32 = index9;
             let mut index11: i32 = index4;
             let mut index12: i32 = index11;
-            let mut num10: i32 = bottleNeckMatrix2[index9, index11] +  Math.Round((double) (num9 * 12) / (double) num2);
+            let mut num10: i32 = bottleNeckMatrix2[index9, index11] +  Math.Round( (num9 * 12) /  num2);
             numArray2[index10, index12] = num10;
             if (this.BottleNeckMatrix[index3, index4] > num1)
               num1 = this.BottleNeckMatrix[index3, index4];
@@ -4271,14 +4271,14 @@ namespace WindowsApplication1
           numArray1[index1, index2] = 0;
         }
       }
-      if ((double) this.game.Data.RuleVar[335] > 0.0)
+      if ( this.game.Data.RuleVar[335] > 0.0)
       {
         let mut num: i32 = 0;
         do
         {
-          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num * 4)))] > 0 && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))]].Regime, this.GetGameDataTurn()))
+          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num * 4)))] > 0 && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))]].Regime, this.GetGameDataTurn()))
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))], 0);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))], 0);
             let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
             for (let mut index3: i32 = 0; index3 <= mapWidth2; index3 += 1)
             {
@@ -4294,7 +4294,7 @@ namespace WindowsApplication1
             }
             if (OnlyReal)
               return;
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))], 0, dontenterenemy: false);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))], 0, dontenterenemy: false);
             let mut mapWidth3: i32 = this.game.Data.MapObj[0].MapWidth;
             for (let mut index5: i32 = 0; index5 <= mapWidth3; index5 += 1)
             {
@@ -4305,7 +4305,7 @@ namespace WindowsApplication1
                   this.SupplyMatrixPrognosisEasyRoads[index5, index6] = this.game.EditObj.TempValue[0].Value[index5, index6];
               }
             }
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))], 0, dontenterenemy: false, DontCountEnemyRoads: true);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))], 0, dontenterenemy: false, DontCountEnemyRoads: true);
             let mut mapWidth4: i32 = this.game.Data.MapObj[0].MapWidth;
             for (let mut index7: i32 = 0; index7 <= mapWidth4; index7 += 1)
             {
@@ -4331,7 +4331,7 @@ namespace WindowsApplication1
         {
           if (this.IsAreaSupplySource(i, this.game.Data.Turn))
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0);
             let mut mapWidth5: i32 = this.game.Data.MapObj[0].MapWidth;
             for (let mut index9: i32 = 0; index9 <= mapWidth5; index9 += 1)
             {
@@ -4347,7 +4347,7 @@ namespace WindowsApplication1
             }
             if (OnlyReal)
               return;
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0, dontenterenemy: false);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0, dontenterenemy: false);
             let mut mapWidth6: i32 = this.game.Data.MapObj[0].MapWidth;
             for (let mut index11: i32 = 0; index11 <= mapWidth6; index11 += 1)
             {
@@ -4358,7 +4358,7 @@ namespace WindowsApplication1
                   this.SupplyMatrixPrognosisEasyRoads[index11, index12] = this.game.EditObj.TempValue[0].Value[index11, index12];
               }
             }
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0, dontenterenemy: false, DontCountEnemyRoads: true);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.AreaCenter[i].x, this.AreaCenter[i].y, 0, dontenterenemy: false, DontCountEnemyRoads: true);
             let mut mapWidth7: i32 = this.game.Data.MapObj[0].MapWidth;
             for (let mut index13: i32 = 0; index13 <= mapWidth7; index13 += 1)
             {
@@ -4507,7 +4507,7 @@ namespace WindowsApplication1
           numArray1[index19, index20] = 0;
           if (index19 == 45 & index20 == 35)
             index19 = index19;
-          if ((double) this.SupplyMatrixReal[index19, index20] <= (double) this.game.Data.RuleVar[53] & this.game.Data.MapObj[0].HexObj[index19, index20].Regime == this.GetGameDataTurn())
+          if ( this.SupplyMatrixReal[index19, index20] <=  this.game.Data.RuleVar[53] & this.game.Data.MapObj[0].HexObj[index19, index20].Regime == this.GetGameDataTurn())
           {
             numArray1[index19, index20] = 1;
             this.DistanceFromSuppliedHex[index19, index20] = 1;
@@ -4585,13 +4585,13 @@ namespace WindowsApplication1
           this += 1.MoveAndAttackRound;
           this.game.EditObj.AIProgressMax = 4;
           this.game.EditObj.AIProgressNow = 0;
-          this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str((object) this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str((object)  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
+          this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str( this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str(  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
           bool flag = false;
           this.MadeMove = false;
           if (this.FullLog)
             this.AddLog("");
           if (this.FullLog)
-            this.AddLog("Move And Attack Round #" + Conversion.Str((object) this.MoveAndAttackRound));
+            this.AddLog("Move And Attack Round #" + Conversion.Str( this.MoveAndAttackRound));
           if (this.SupplyMatrix.GetUpperBound(0) < this.game.Data.MapObj[0].MapWidth)
             this.MakeSupplyMatrix(false, false);
           this.MakeAdvanceAxisMatrix();
@@ -4599,7 +4599,7 @@ namespace WindowsApplication1
           this.MakeTScoreMatrix();
           this.game.EditObj.AIProgressMax = 4;
           this.game.EditObj.AIProgressNow = 1;
-          this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Pre-processing round " + Conversion.Str((object) this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str((object)  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
+          this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Pre-processing round " + Conversion.Str( this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str(  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
           this.MovingIn = false;
           if (this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].AIDefend > -1 & this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].AIDefend <= this.AreaCount & this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].AIAttack <= this.AreaCount)
           {
@@ -4625,7 +4625,7 @@ namespace WindowsApplication1
             }
             this.game.EditObj.AIProgressMax = 4;
             this.game.EditObj.AIProgressNow = 2;
-            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str((object) this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str((object)  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
+            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str( this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str(  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
             Application.DoEvents();
             this.MarkerList = SimpleList::new();
             this.AirMarkerList = SimpleList::new();
@@ -4639,14 +4639,14 @@ namespace WindowsApplication1
               {
                 let mut num2: i32 = 1;
                 if (this.FullLog)
-                  this.AddLog("AreaCounterPower: " + Conversion.Str((object) this.AreaCounterPower[aiDefend]) + ", AreaCounterStep: " + Conversion.Str((object) this.AreaCounterStep[aiDefend]));
+                  this.AddLog("AreaCounterPower: " + Conversion.Str( this.AreaCounterPower[aiDefend]) + ", AreaCounterStep: " + Conversion.Str( this.AreaCounterStep[aiDefend]));
                 let mut Number: i32 = 1;
                 do
                 {
                   if (this.AreaCounterDirections[aiDefend, Number] > 0 && this.AreaCounterRegime[aiDefend, Number] > -1)
                   {
                     if (this.FullLog)
-                      this.AddLog("Direction " + Conversion.Str((object) Number) + " = " + this.GetAreaName(this.AreaCounterDirections[aiDefend, Number]) + ", " + this.game.Data.RegimeObj[this.AreaCounterRegime[aiDefend, Number]].Name);
+                      this.AddLog("Direction " + Conversion.Str( Number) + " = " + this.GetAreaName(this.AreaCounterDirections[aiDefend, Number]) + ", " + this.game.Data.RegimeObj[this.AreaCounterRegime[aiDefend, Number]].Name);
                     if (this.GetRegime(this.game.Data.MapObj[0].HexObj[this.AreaCenter[this.AreaCounterDirections[aiDefend, Number]].x, this.AreaCenter[this.AreaCounterDirections[aiDefend, Number]].y].Regime) != this.GetGameDataTurn())
                       num2 = 0;
                   }
@@ -4661,7 +4661,7 @@ namespace WindowsApplication1
             this.MakeEnemyMoveMatrix();
             this.game.EditObj.AIProgressMax = 4;
             this.game.EditObj.AIProgressNow = 4;
-            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str((object) this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str((object)  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
+            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str( this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str(  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
             if (this.FullLog)
               this.AddLog("Enemy Move Matrix");
             s: String = "Units: ";
@@ -4686,7 +4686,7 @@ namespace WindowsApplication1
             this.AddMarkers();
             this.game.EditObj.AIProgressMax = 4;
             this.game.EditObj.AIProgressNow = 3;
-            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str((object) this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str((object)  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
+            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str( this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str(  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0))) + "% completed.";
             Application.DoEvents();
             if (this.FullLog)
             {
@@ -4694,7 +4694,7 @@ namespace WindowsApplication1
               let mut counter1: i32 = this.MarkerList.Counter;
               for (let mut Number: i32 = 0; Number <= counter1; Number += 1)
               {
-                this.AddLog("Marker [[" + Conversion.Str((object) Number) + ") Type=" + Conversion.Str((object) this.MarkerList.Weight[Number]) + "," + Conversion.Str((object) this.MarkerList.Data1[Number]) + "," + Conversion.Str((object) this.MarkerList.Data2[Number]) + "," + Conversion.Str((object) this.MarkerList.Data3[Number]) + "," + Conversion.Str((object) this.MarkerList.Data4[Number]) + ", score= " + Conversion.Str((object) this.MarkerList.Data5[Number]) + " ]] ...  ");
+                this.AddLog("Marker [[" + Conversion.Str( Number) + ") Type=" + Conversion.Str( this.MarkerList.Weight[Number]) + "," + Conversion.Str( this.MarkerList.Data1[Number]) + "," + Conversion.Str( this.MarkerList.Data2[Number]) + "," + Conversion.Str( this.MarkerList.Data3[Number]) + "," + Conversion.Str( this.MarkerList.Data4[Number]) + ", score= " + Conversion.Str( this.MarkerList.Data5[Number]) + " ]] ...  ");
                 this.GetTscore(this.MarkerList.Data1[Number], this.MarkerList.Data2[Number], MakeLog: true);
                 if (this.MarkerList.Data3[Number] > -1)
                   this.GetTscore(this.MarkerList.Data3[Number], this.MarkerList.Data4[Number], MakeLog: true);
@@ -4702,15 +4702,15 @@ namespace WindowsApplication1
               this.AddLog("Artillery Markers");
               let mut counter2: i32 = this.ArtMarkerList.Counter;
               for (let mut Number: i32 = 0; Number <= counter2; Number += 1)
-                this.AddLog("Marker [[" + Conversion.Str((object) Number) + ") Type=" + Conversion.Str((object) this.ArtMarkerList.Weight[Number]) + "," + Conversion.Str((object) this.ArtMarkerList.Data1[Number]) + "," + Conversion.Str((object) this.ArtMarkerList.Data2[Number]) + "," + Conversion.Str((object) this.ArtMarkerList.Data3[Number]) + "," + Conversion.Str((object) this.ArtMarkerList.Data4[Number]) + ", score= " + Conversion.Str((object) this.ArtMarkerList.Data5[Number]) + " ]]");
+                this.AddLog("Marker [[" + Conversion.Str( Number) + ") Type=" + Conversion.Str( this.ArtMarkerList.Weight[Number]) + "," + Conversion.Str( this.ArtMarkerList.Data1[Number]) + "," + Conversion.Str( this.ArtMarkerList.Data2[Number]) + "," + Conversion.Str( this.ArtMarkerList.Data3[Number]) + "," + Conversion.Str( this.ArtMarkerList.Data4[Number]) + ", score= " + Conversion.Str( this.ArtMarkerList.Data5[Number]) + " ]]");
               this.AddLog("Air Markers");
               let mut counter3: i32 = this.AirMarkerList.Counter;
               for (let mut Number: i32 = 0; Number <= counter3; Number += 1)
-                this.AddLog("Marker [[" + Conversion.Str((object) Number) + ") Type=" + Conversion.Str((object) this.AirMarkerList.Weight[Number]) + "," + Conversion.Str((object) this.AirMarkerList.Data1[Number]) + "," + Conversion.Str((object) this.AirMarkerList.Data2[Number]) + "," + Conversion.Str((object) this.AirMarkerList.Data3[Number]) + "," + Conversion.Str((object) this.AirMarkerList.Data4[Number]) + ", score= " + Conversion.Str((object) this.AirMarkerList.Data5[Number]) + " ]]");
+                this.AddLog("Marker [[" + Conversion.Str( Number) + ") Type=" + Conversion.Str( this.AirMarkerList.Weight[Number]) + "," + Conversion.Str( this.AirMarkerList.Data1[Number]) + "," + Conversion.Str( this.AirMarkerList.Data2[Number]) + "," + Conversion.Str( this.AirMarkerList.Data3[Number]) + "," + Conversion.Str( this.AirMarkerList.Data4[Number]) + ", score= " + Conversion.Str( this.AirMarkerList.Data5[Number]) + " ]]");
               this.AddLog("Engineer Markers");
               let mut counter4: i32 = this.EngineerMarkerList.Counter;
               for (let mut Number: i32 = 0; Number <= counter4; Number += 1)
-                this.AddLog("Eng Marker [[" + Conversion.Str((object) Number) + ") Type=" + Conversion.Str((object) this.EngineerMarkerList.Weight[Number]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data1[Number]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data2[Number]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data3[Number]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data4[Number]) + ", score= " + Conversion.Str((object) this.EngineerMarkerList.Data5[Number]) + " ]]");
+                this.AddLog("Eng Marker [[" + Conversion.Str( Number) + ") Type=" + Conversion.Str( this.EngineerMarkerList.Weight[Number]) + "," + Conversion.Str( this.EngineerMarkerList.Data1[Number]) + "," + Conversion.Str( this.EngineerMarkerList.Data2[Number]) + "," + Conversion.Str( this.EngineerMarkerList.Data3[Number]) + "," + Conversion.Str( this.EngineerMarkerList.Data4[Number]) + ", score= " + Conversion.Str( this.EngineerMarkerList.Data5[Number]) + " ]]");
             }
             if (this.FullLog)
               this.WriteLog("30_" + this.GroupName[this.OpGroup] + "_10_Round_" + this.MoveAndAttackRound.ToString());
@@ -4718,7 +4718,7 @@ namespace WindowsApplication1
             this.MakeEnemyPowerDispersed();
             this.FindBestMove();
             this.AddLog("BestMove");
-            if (!Information.IsNothing((object) this.BestMove))
+            if (!Information.IsNothing( this.BestMove))
             {
               if (this.FullLog)
               {
@@ -4727,17 +4727,17 @@ namespace WindowsApplication1
                 {
                   let mut Number2: i32 = this.BestMove.Data2[Number1];
                   if (this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].TempCategory == 1)
-                    this.AddLog(Conversion.Str((object) Number1) + ") Type=" + Conversion.Str((object) this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[" + Conversion.Str((object) Number2) + ") Type=" + Conversion.Str((object) this.MarkerList.Weight[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data1[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data2[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data3[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data4[Number2]) + ", score= " + Conversion.Str((object) this.MarkerList.Data5[Number2]) + " ]] , " + Conversion.Str((object) this.BestMove.Data3[Number1]) + "," + Conversion.Str((object) this.BestMove.Data4[Number1]));
+                    this.AddLog(Conversion.Str( Number1) + ") Type=" + Conversion.Str( this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[" + Conversion.Str( Number2) + ") Type=" + Conversion.Str( this.MarkerList.Weight[Number2]) + "," + Conversion.Str( this.MarkerList.Data1[Number2]) + "," + Conversion.Str( this.MarkerList.Data2[Number2]) + "," + Conversion.Str( this.MarkerList.Data3[Number2]) + "," + Conversion.Str( this.MarkerList.Data4[Number2]) + ", score= " + Conversion.Str( this.MarkerList.Data5[Number2]) + " ]] , " + Conversion.Str( this.BestMove.Data3[Number1]) + "," + Conversion.Str( this.BestMove.Data4[Number1]));
                   else if (this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].TempCategory == 2 | this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].TempCategory == 5)
-                    this.AddLog(Conversion.Str((object) Number1) + ") Type=" + Conversion.Str((object) this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[ART" + Conversion.Str((object) Number2) + ") Type=" + Conversion.Str((object) this.ArtMarkerList.Weight[Number2]) + "," + Conversion.Str((object) this.ArtMarkerList.Data1[Number2]) + "," + Conversion.Str((object) this.ArtMarkerList.Data2[Number2]) + "," + Conversion.Str((object) this.ArtMarkerList.Data3[Number2]) + "," + Conversion.Str((object) this.ArtMarkerList.Data4[Number2]) + ", score= " + Conversion.Str((object) this.ArtMarkerList.Data5[Number2]) + " ]] , " + Conversion.Str((object) this.BestMove.Data3[Number1]) + "," + Conversion.Str((object) this.BestMove.Data4[Number1]));
+                    this.AddLog(Conversion.Str( Number1) + ") Type=" + Conversion.Str( this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[ART" + Conversion.Str( Number2) + ") Type=" + Conversion.Str( this.ArtMarkerList.Weight[Number2]) + "," + Conversion.Str( this.ArtMarkerList.Data1[Number2]) + "," + Conversion.Str( this.ArtMarkerList.Data2[Number2]) + "," + Conversion.Str( this.ArtMarkerList.Data3[Number2]) + "," + Conversion.Str( this.ArtMarkerList.Data4[Number2]) + ", score= " + Conversion.Str( this.ArtMarkerList.Data5[Number2]) + " ]] , " + Conversion.Str( this.BestMove.Data3[Number1]) + "," + Conversion.Str( this.BestMove.Data4[Number1]));
                   else if (this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].TempCategory == 3)
-                    this.AddLog(Conversion.Str((object) Number1) + ") Type=" + Conversion.Str((object) this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[AIR" + Conversion.Str((object) Number2) + ") Type=" + Conversion.Str((object) this.AirMarkerList.Weight[Number2]) + "," + Conversion.Str((object) this.AirMarkerList.Data1[Number2]) + "," + Conversion.Str((object) this.AirMarkerList.Data2[Number2]) + "," + Conversion.Str((object) this.AirMarkerList.Data3[Number2]) + "," + Conversion.Str((object) this.AirMarkerList.Data4[Number2]) + ", score= " + Conversion.Str((object) this.AirMarkerList.Data5[Number2]) + " ]] , " + Conversion.Str((object) this.BestMove.Data3[Number1]) + "," + Conversion.Str((object) this.BestMove.Data4[Number1]));
+                    this.AddLog(Conversion.Str( Number1) + ") Type=" + Conversion.Str( this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[AIR" + Conversion.Str( Number2) + ") Type=" + Conversion.Str( this.AirMarkerList.Weight[Number2]) + "," + Conversion.Str( this.AirMarkerList.Data1[Number2]) + "," + Conversion.Str( this.AirMarkerList.Data2[Number2]) + "," + Conversion.Str( this.AirMarkerList.Data3[Number2]) + "," + Conversion.Str( this.AirMarkerList.Data4[Number2]) + ", score= " + Conversion.Str( this.AirMarkerList.Data5[Number2]) + " ]] , " + Conversion.Str( this.BestMove.Data3[Number1]) + "," + Conversion.Str( this.BestMove.Data4[Number1]));
                   else if (this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].TempCategory == 4)
                   {
                     if (this.EngineerMarkerList.Counter > -1)
-                      this.AddLog(Conversion.Str((object) Number1) + ") Type=" + Conversion.Str((object) this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[ENG" + Conversion.Str((object) Number2) + ") Type=" + Conversion.Str((object) this.EngineerMarkerList.Weight[Number2]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data1[Number2]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data2[Number2]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data3[Number2]) + "," + Conversion.Str((object) this.EngineerMarkerList.Data4[Number2]) + ", score= " + Conversion.Str((object) this.EngineerMarkerList.Data5[Number2]) + " ]] , " + Conversion.Str((object) this.BestMove.Data3[Number1]) + "," + Conversion.Str((object) this.BestMove.Data4[Number1]));
+                      this.AddLog(Conversion.Str( Number1) + ") Type=" + Conversion.Str( this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[ENG" + Conversion.Str( Number2) + ") Type=" + Conversion.Str( this.EngineerMarkerList.Weight[Number2]) + "," + Conversion.Str( this.EngineerMarkerList.Data1[Number2]) + "," + Conversion.Str( this.EngineerMarkerList.Data2[Number2]) + "," + Conversion.Str( this.EngineerMarkerList.Data3[Number2]) + "," + Conversion.Str( this.EngineerMarkerList.Data4[Number2]) + ", score= " + Conversion.Str( this.EngineerMarkerList.Data5[Number2]) + " ]] , " + Conversion.Str( this.BestMove.Data3[Number1]) + "," + Conversion.Str( this.BestMove.Data4[Number1]));
                     else
-                      this.AddLog(Conversion.Str((object) Number1) + ") Type=" + Conversion.Str((object) this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[" + Conversion.Str((object) Number2) + ") Type=" + Conversion.Str((object) this.MarkerList.Weight[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data1[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data2[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data3[Number2]) + "," + Conversion.Str((object) this.MarkerList.Data4[Number2]) + ", score= " + Conversion.Str((object) this.MarkerList.Data5[Number2]) + " ]] , " + Conversion.Str((object) this.BestMove.Data3[Number1]) + "," + Conversion.Str((object) this.BestMove.Data4[Number1]));
+                      this.AddLog(Conversion.Str( Number1) + ") Type=" + Conversion.Str( this.BestMove.Weight[Number1]) + "," + this.game.Data.UnitObj[this.MoveMatrixUnit[this.BestMove.Data1[Number1]]].Name + ", Marker [[" + Conversion.Str( Number2) + ") Type=" + Conversion.Str( this.MarkerList.Weight[Number2]) + "," + Conversion.Str( this.MarkerList.Data1[Number2]) + "," + Conversion.Str( this.MarkerList.Data2[Number2]) + "," + Conversion.Str( this.MarkerList.Data3[Number2]) + "," + Conversion.Str( this.MarkerList.Data4[Number2]) + ", score= " + Conversion.Str( this.MarkerList.Data5[Number2]) + " ]] , " + Conversion.Str( this.BestMove.Data3[Number1]) + "," + Conversion.Str( this.BestMove.Data4[Number1]));
                   }
                 }
               }
@@ -5013,7 +5013,7 @@ label_100:;
                   for (let mut index3: i32 = 0; index3 <= unitCounter2; index3 += 1)
                   {
                     if (this.game.Data.UnitObj[index3].TempUnitSelectable)
-                      simpleList.Add(index3,  Math.Round((double) (VBMath.Rnd() * (float) this.GetDivisionalPower(index3, -1))));
+                      simpleList.Add(index3,  Math.Round( (VBMath.Rnd() *  this.GetDivisionalPower(index3, -1))));
                   }
                   if (simpleList.Counter > -1)
                   {
@@ -5034,7 +5034,7 @@ label_100:;
                     for (let mut tdata2: i32 = 0; tdata2 <= mapHeight; tdata2 += 1)
                     {
                       if (this.game.Data.MapObj[0].HexObj[tdata1, tdata2].AreaCode[this.game.Data.ActionCardObj[cardnr].AreaSlot] == this.game.Data.ActionCardObj[cardnr].AreaValue)
-                        simpleList.Add(tdata1 * 1000 + tdata2,  Math.Round((double) (VBMath.Rnd() * 5000f)), tdata1, tdata2);
+                        simpleList.Add(tdata1 * 1000 + tdata2,  Math.Round( (VBMath.Rnd() * 5000f)), tdata1, tdata2);
                     }
                   }
                   if (simpleList.Counter > -1)
@@ -5135,32 +5135,32 @@ label_100:;
             this.AddLog("");
             this.AddLog("Move And Attack for Corps = " + this.GroupName[this.OpGroup]);
             let mut index2: i32 = this.GetGroupHQ(this.OpGroup);
-            if ((double) this.game.Data.RuleVar[891] > 0.0 | (double) this.game.Data.RuleVar[892] > 0.0 | (double) this.game.Data.RuleVar[893] > 0.0 && index2 > -1)
+            if ( this.game.Data.RuleVar[891] > 0.0 |  this.game.Data.RuleVar[892] > 0.0 |  this.game.Data.RuleVar[893] > 0.0 && index2 > -1)
             {
               let mut num3: i32 = 0;
               let mut hq: i32 = this.game.Data.UnitObj[index2].HQ;
               if (this.game.Data.UnitObj[index2].Historical > -1)
               {
-                if ((double) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].ID == (double) this.game.Data.RuleVar[891])
+                if ( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].ID ==  this.game.Data.RuleVar[891])
                   num3 = 1;
-                if ((double) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].ID == (double) this.game.Data.RuleVar[892])
+                if ( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].ID ==  this.game.Data.RuleVar[892])
                   num3 = 1;
-                if ((double) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].ID == (double) this.game.Data.RuleVar[893])
+                if ( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].ID ==  this.game.Data.RuleVar[893])
                   num3 = 1;
               }
               if (hq > -1 && this.game.Data.UnitObj[hq].Historical > -1)
               {
-                if ((double) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].ID == (double) this.game.Data.RuleVar[891])
+                if ( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].ID ==  this.game.Data.RuleVar[891])
                   num3 = 1;
-                if ((double) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].ID == (double) this.game.Data.RuleVar[892])
+                if ( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].ID ==  this.game.Data.RuleVar[892])
                   num3 = 1;
-                if ((double) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].ID == (double) this.game.Data.RuleVar[893])
+                if ( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].ID ==  this.game.Data.RuleVar[893])
                   num3 = 1;
               }
               if (num3 == 0)
                 index2 = -1;
             }
-            if (index2 > -1 & (double) this.game.Data.RuleVar[894] > 0.0 && this.game.Data.UnitObj[index2].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].Type > 7)
+            if (index2 > -1 &  this.game.Data.RuleVar[894] > 0.0 && this.game.Data.UnitObj[index2].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index2].Historical].Type > 7)
               index2 = -1;
             if (index2 > -1)
             {
@@ -5168,7 +5168,7 @@ label_100:;
               this.AddLog("Defend = " + this.GetAreaName(this.game.Data.UnitObj[index2].AIDefend));
               this.AddLog("Attack = " + this.GetAreaName(this.game.Data.UnitObj[index2].AIAttack));
               this.AddLog("Followup = " + this.GetAreaName(this.game.Data.UnitObj[index2].AIFollowup));
-              this.AddLog("AttackStyle = " + Conversion.Str((object) this.game.Data.UnitObj[index2].AIAttackStyle));
+              this.AddLog("AttackStyle = " + Conversion.Str( this.game.Data.UnitObj[index2].AIAttackStyle));
               this.AddLog("--*||*--");
               this.MoveAndAttackCorps();
             }
@@ -5193,7 +5193,7 @@ label_100:;
 
     pub void InitSetAirIntercept(bool alllog)
     {
-      if ((double) this.game.Data.RuleVar[842] == 0.0)
+      if ( this.game.Data.RuleVar[842] == 0.0)
         return;
       let mut unitCounter1: i32 = this.game.Data.UnitCounter;
       int num1;
@@ -5212,8 +5212,8 @@ label_100:;
           }
         }
       }
-      let mut num3: i32 =  Math.Round((double) ((float) num1 * this.game.Data.RuleVar[842]));
-      bool flag = (num3 < num2 ? (double)  Math.Round((double) (100 * num3) / (double) num2) : 100.0) > (double) VBMath.Rnd() * 100.0;
+      let mut num3: i32 =  Math.Round( ( num1 * this.game.Data.RuleVar[842]));
+      bool flag = (num3 < num2 ?   Math.Round( (100 * num3) /  num2) : 100.0) >  VBMath.Rnd() * 100.0;
       if (alllog)
         this.AddLog("friendly airpower = " + num3.ToString() + ", enemy airpower = " + num2.ToString() + " intercept = " + flag.ToString());
       let mut unitCounter2: i32 = this.game.Data.UnitCounter;
@@ -5221,7 +5221,7 @@ label_100:;
       {
         if (this.game.Data.UnitObj[unr].PreDef == -1 && this.game.HandyFunctionsObj.GetPowerPtsAbsoluteForAirOnly(unr) > 0 && this.game.Data.Turn == this.game.Data.UnitObj[unr].Regime)
         {
-          this.game.Data.UnitObj[unr].SOInterceptRdnStop = !flag ? 100 : ((double) VBMath.Rnd() <= 0.5 ? 50 : 75);
+          this.game.Data.UnitObj[unr].SOInterceptRdnStop = !flag ? 100 : ( VBMath.Rnd() <= 0.5 ? 50 : 75);
           if (alllog)
             this.AddLog(this.game.Data.UnitObj[unr].Name + " => intercept stop at rdn <= " + this.game.Data.UnitObj[unr].SOInterceptRdnStop.ToString());
         }
@@ -5272,15 +5272,15 @@ label_100:;
         return 0.0f;
       if (num3 == 0)
         return 999f;
-      this.AddLog("Area = " + this.GetAreaName(area) + ", Ratio = " + Conversion.Str((object) ((float) num1 / (float) num3)));
-      return (float) num1 / (float) num3;
+      this.AddLog("Area = " + this.GetAreaName(area) + ", Ratio = " + Conversion.Str( ( num1 /  num3)));
+      return  num1 /  num3;
     }
 
-    pub HasThisHQNoSplit: bool(int unr) => unr != -1 && this.game.Data.UnitObj[unr].Historical != -1 && (this.game.Data.UnitObj[unr].AIGroup > -1 && this.GroupType[this.game.Data.UnitObj[unr].AIGroup] == 5 & (double) this.game.Data.RuleVar[888] == 1.0 || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].NoSplit);
+    pub HasThisHQNoSplit: bool(int unr) => unr != -1 && this.game.Data.UnitObj[unr].Historical != -1 && (this.game.Data.UnitObj[unr].AIGroup > -1 && this.GroupType[this.game.Data.UnitObj[unr].AIGroup] == 5 &  this.game.Data.RuleVar[888] == 1.0 || this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].NoSplit);
 
     pub void InitFreeRoads()
     {
-      if ((double) this.game.Data.RuleVar[32] == -1.0)
+      if ( this.game.Data.RuleVar[32] == -1.0)
         return;
       let mut locCounter: i32 = this.game.Data.LocCounter;
       for (let mut index1: i32 = 0; index1 <= locCounter; index1 += 1)
@@ -5292,10 +5292,10 @@ label_100:;
           let mut index2: i32 = this.AreaMatrixNarrow[x, y];
           if (index2 > -1)
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.AreaCenter[index2].x, this.AreaCenter[index2].y, 0);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.AreaCenter[index2].x, this.AreaCenter[index2].y, 0);
             int index3;
             int index4;
-            if ((double) this.game.EditObj.TempValue[0].Value[x, y] > (double) this.game.Data.RuleVar[51] && this.game.EditObj.TempValue[0].Value[index3, index4] < 999)
+            if ( this.game.EditObj.TempValue[0].Value[x, y] >  this.game.Data.RuleVar[51] && this.game.EditObj.TempValue[0].Value[index3, index4] < 999)
             {
               let mut num: i32 = 1;
               while (num == 1)
@@ -5305,11 +5305,11 @@ label_100:;
                 if (coordinate.onmap)
                 {
                   let mut index5: i32 = this.game.HandyFunctionsObj.HexFacing(x, y, 0, coordinate.x, coordinate.y, 0) - 1;
-                  this.game.Data.MapObj[0].HexObj[x, y].RoadType[index5] =  Math.Round((double) this.game.Data.RuleVar[32]);
+                  this.game.Data.MapObj[0].HexObj[x, y].RoadType[index5] =  Math.Round( this.game.Data.RuleVar[32]);
                   let mut index6: i32 = index5 + 3;
                   if (index6 > 5)
                     index6 -= 6;
-                  this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].RoadType[index6] =  Math.Round((double) this.game.Data.RuleVar[32]);
+                  this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].RoadType[index6] =  Math.Round( this.game.Data.RuleVar[32]);
                   num = 1;
                   x = coordinate.x;
                   y = coordinate.y;
@@ -5328,7 +5328,7 @@ label_100:;
       {
         int Number;
         Number += 1;
-        this.AddLog("INIT DECISION ROUND " + Conversion.Str((object) Number));
+        this.AddLog("INIT DECISION ROUND " + Conversion.Str( Number));
         num1 = 0;
         SimpleList simpleList = SimpleList::new();
         let mut locTypeCounter: i32 = this.game.Data.LocTypeCounter;
@@ -5384,7 +5384,7 @@ label_100:;
         simpleList.Sort();
         let mut counter: i32 = simpleList.Counter;
         for (let mut index: i32 = 0; index <= counter; index += 1)
-          this.AddLog(Conversion.Str((object) simpleList.Id[index]) + ", weight=" + Conversion.Str((object) simpleList.Weight[index]) + " data= " + Conversion.Str((object) simpleList.Data1[index]) + "," + Conversion.Str((object) simpleList.Data2[index]) + "," + Conversion.Str((object) simpleList.Data3[index]) + ",");
+          this.AddLog(Conversion.Str( simpleList.Id[index]) + ", weight=" + Conversion.Str( simpleList.Weight[index]) + " data= " + Conversion.Str( simpleList.Data1[index]) + "," + Conversion.Str( simpleList.Data2[index]) + "," + Conversion.Str( simpleList.Data3[index]) + ",");
         if (simpleList.Counter > -1)
         {
           let mut num3: i32 = simpleList.Data1[simpleList.Counter];
@@ -5433,9 +5433,9 @@ label_100:;
             do
             {
               locationForLocType = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
-              if (locationForLocType.onmap && (double) numArray[locationForLocType.x, locationForLocType.y] < Conversion.Int((double) numArray[cx, cy] / 2.0))
+              if (locationForLocType.onmap &&  numArray[locationForLocType.x, locationForLocType.y] < Conversion.Int( numArray[cx, cy] / 2.0))
               {
-                numArray[locationForLocType.x, locationForLocType.y] =  Math.Round(Conversion.Int((double) numArray[cx, cy] / 2.0));
+                numArray[locationForLocType.x, locationForLocType.y] =  Math.Round(Conversion.Int( numArray[cx, cy] / 2.0));
                 num3 = 1;
               }
               tfacing += 1;
@@ -5655,7 +5655,7 @@ label_100:;
     pub int GetLargestArmy()
     {
       int[] numArray1 = new int[this.game.Data.RegimeCounter + 1];
-      float num1 = 0.8f + (float) new Random(this.game.Data.MapWidth * this.game.Data.MapHeight * this.GetGameDataTurn() * Strings.Len(this.game.Data.Name)).Next(0, 1000) / 2500f;
+      float num1 = 0.8f +  new Random(this.game.Data.MapWidth * this.game.Data.MapHeight * this.GetGameDataTurn() * Strings.Len(this.game.Data.Name)).Next(0, 1000) / 2500f;
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       for (let mut unr: i32 = 0; unr <= unitCounter; unr += 1)
       {
@@ -5665,13 +5665,13 @@ label_100:;
           int[] numArray3 = numArray2;
           let mut regime1: i32 = this.GetRegime(this.game.Data.UnitObj[unr].Regime);
           let mut index1: i32 = regime1;
-          let mut num2: i32 = numArray2[regime1] +  Math.Round((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ((double) this.game.HandyFunctionsObj.GetAverageMor(unr) / 50.0) * 0.25);
+          let mut num2: i32 = numArray2[regime1] +  Math.Round( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ( this.game.HandyFunctionsObj.GetAverageMor(unr) / 50.0) * 0.25);
           numArray3[index1] = num2;
           int[] numArray4 = numArray1;
           int[] numArray5 = numArray4;
           let mut regime2: i32 = this.GetRegime(this.game.Data.UnitObj[unr].Regime);
           let mut index2: i32 = regime2;
-          let mut num3: i32 = numArray4[regime2] +  Math.Round((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ((double) this.game.HandyFunctionsObj.GetAverageXp(unr) / 50.0) * 0.75);
+          let mut num3: i32 = numArray4[regime2] +  Math.Round( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ( this.game.HandyFunctionsObj.GetAverageXp(unr) / 50.0) * 0.75);
           numArray5[index2] = num3;
         }
       }
@@ -5682,7 +5682,7 @@ label_100:;
       for (let mut index: i32 = 0; index <= regimeCounter; index += 1)
       {
         if (this.GetRegime(index) == this.GetGameDataTurn())
-          numArray1[index] =  Math.Round((double) ((float) numArray1[index] * num1));
+          numArray1[index] =  Math.Round( ( numArray1[index] * num1));
         if (numArray1[index] > num4)
         {
           num4 = numArray1[index];
@@ -5693,8 +5693,8 @@ label_100:;
       }
       if (this.GetRegime(nr) == this.GetGameDataTurn())
       {
-        this.ATTACKERRATIO = (float) numArray1[this.GetGameDataTurn()] / (float) num5;
-        if ((double) this.ATTACKERRATIO < 1.0)
+        this.ATTACKERRATIO =  numArray1[this.GetGameDataTurn()] /  num5;
+        if ( this.ATTACKERRATIO < 1.0)
           this.ATTACKERRATIO = 1f;
       }
       return nr;
@@ -5703,7 +5703,7 @@ label_100:;
     pub int GetLargestEnemy()
     {
       int[] numArray1 = new int[this.game.Data.RegimeCounter + 1];
-      float num1 = 0.8f + (float) new Random(this.game.Data.MapWidth * this.game.Data.MapHeight * this.GetGameDataTurn() * Strings.Len(this.game.Data.Name)).Next(0, 1000) / 2500f;
+      float num1 = 0.8f +  new Random(this.game.Data.MapWidth * this.game.Data.MapHeight * this.GetGameDataTurn() * Strings.Len(this.game.Data.Name)).Next(0, 1000) / 2500f;
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
       for (let mut unr: i32 = 0; unr <= unitCounter; unr += 1)
       {
@@ -5713,13 +5713,13 @@ label_100:;
           int[] numArray3 = numArray2;
           let mut regime1: i32 = this.GetRegime(this.game.Data.UnitObj[unr].Regime);
           let mut index1: i32 = regime1;
-          let mut num2: i32 = numArray2[regime1] +  Math.Round((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ((double) this.game.HandyFunctionsObj.GetAverageMor(unr) / 50.0) * 0.25);
+          let mut num2: i32 = numArray2[regime1] +  Math.Round( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ( this.game.HandyFunctionsObj.GetAverageMor(unr) / 50.0) * 0.25);
           numArray3[index1] = num2;
           int[] numArray4 = numArray1;
           int[] numArray5 = numArray4;
           let mut regime2: i32 = this.GetRegime(this.game.Data.UnitObj[unr].Regime);
           let mut index2: i32 = regime2;
-          let mut num3: i32 = numArray4[regime2] +  Math.Round((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ((double) this.game.HandyFunctionsObj.GetAverageXp(unr) / 50.0) * 0.75);
+          let mut num3: i32 = numArray4[regime2] +  Math.Round( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) * ( this.game.HandyFunctionsObj.GetAverageXp(unr) / 50.0) * 0.75);
           numArray5[index2] = num3;
         }
       }
@@ -5730,7 +5730,7 @@ label_100:;
       for (let mut index: i32 = 0; index <= regimeCounter; index += 1)
       {
         if (this.GetRegime(index) == this.GetGameDataTurn())
-          numArray1[index] =  Math.Round((double) ((float) numArray1[index] * num1));
+          numArray1[index] =  Math.Round( ( numArray1[index] * num1));
         if (numArray1[index] > num4)
         {
           num4 = numArray1[index];
@@ -5741,8 +5741,8 @@ label_100:;
       }
       if (this.GetRegime(nr) == this.GetGameDataTurn())
       {
-        this.ATTACKERRATIO = (float) numArray1[this.GetGameDataTurn()] / (float) num5;
-        if ((double) this.ATTACKERRATIO < 1.0)
+        this.ATTACKERRATIO =  numArray1[this.GetGameDataTurn()] /  num5;
+        if ( this.ATTACKERRATIO < 1.0)
           this.ATTACKERRATIO = 1f;
       }
       return nr;
@@ -5846,7 +5846,7 @@ label_100:;
         return "OLD";
       if (!withnumber)
         return this.game.HandyFunctionsObj.GetHexName(this.AreaCenter[nr].x, this.AreaCenter[nr].y, 0);
-      return Conversion.Str((object) nr) + ") " + this.game.HandyFunctionsObj.GetHexName(this.AreaCenter[nr].x, this.AreaCenter[nr].y, 0) + "(" + Conversion.Str((object) this.AreaCenter[nr].x) + "," + Conversion.Str((object) this.AreaCenter[nr].y) + ")";
+      return Conversion.Str( nr) + ") " + this.game.HandyFunctionsObj.GetHexName(this.AreaCenter[nr].x, this.AreaCenter[nr].y, 0) + "(" + Conversion.Str( this.AreaCenter[nr].x) + "," + Conversion.Str( this.AreaCenter[nr].y) + ")";
     }
 
     pub Coordinate GetCloseFriendlyRoadHex(
@@ -6000,7 +6000,7 @@ label_100:;
           {
             if (this.ptemp[cx, cy] == num2)
             {
-              let mut num3: i32 =  Math.Round((double) this.TscoreCounterMatrix[cx, cy] * 0.5);
+              let mut num3: i32 =  Math.Round( this.TscoreCounterMatrix[cx, cy] * 0.5);
               if (num3 > 10)
               {
                 let mut tfacing: i32 = 1;
@@ -6042,7 +6042,7 @@ label_100:;
           {
             if (this.ptemp[cx, cy] == num5)
             {
-              let mut num6: i32 =  Math.Round((double) this.TscoreMatrix[cx, cy] * 0.5);
+              let mut num6: i32 =  Math.Round( this.TscoreMatrix[cx, cy] * 0.5);
               if (num6 > 10)
               {
                 let mut tfacing: i32 = 1;
@@ -6074,7 +6074,7 @@ label_100:;
         if (this.GroupType[index] <= 5)
           num1 += 1;
       }
-      let mut num2: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) num1)) + 1;
+      let mut num2: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  num1)) + 1;
       if (num2 > num1)
         num2 = num1;
       let mut num3: i32 = 0;
@@ -6128,7 +6128,7 @@ label_100:;
             {
               if (this.GetRegime(this.game.Data.MapObj[0].HexObj[this.AreaCenter[index3].x, this.AreaCenter[index3].y].Regime) != this.GetGameDataTurn())
               {
-                let mut num2: i32 =  Math.Round((double) ((1 +  Math.Round(Math.Sqrt((double) this.AreaFuzzyVP[index3]))) *  Math.Round((double) this.AreaStrength[index3] / 10.0)) * Math.Sqrt((double) this.CorpsStrength[index2]));
+                let mut num2: i32 =  Math.Round( ((1 +  Math.Round(Math.Sqrt( this.AreaFuzzyVP[index3]))) *  Math.Round( this.AreaStrength[index3] / 10.0)) * Math.Sqrt( this.CorpsStrength[index2]));
                 if (num2 > num1)
                 {
                   highestFuzzyVpGroup = index2;
@@ -6137,7 +6137,7 @@ label_100:;
               }
               else if (!this.Attacker)
               {
-                let mut num3: i32 = (1 +  Math.Round(Math.Sqrt((double) this.AreaFuzzyVP[index3]))) * this.CorpsStrength[index2];
+                let mut num3: i32 = (1 +  Math.Round(Math.Sqrt( this.AreaFuzzyVP[index3]))) * this.CorpsStrength[index2];
                 if (num3 > num1)
                 {
                   highestFuzzyVpGroup = index2;
@@ -6169,7 +6169,7 @@ label_100:;
           num2 += 1;
         }
       }
-      return num2 == 0 ? 0 :  Math.Round(Conversion.Int(100.0 / (double)  Math.Round((double) num1 / (double) num2)));
+      return num2 == 0 ? 0 :  Math.Round(Conversion.Int(100.0 /   Math.Round( num1 /  num2)));
     }
 
     pub int GetAverageMoveTypeCorpsUnit(int grp)
@@ -6223,7 +6223,7 @@ label_100:;
           num2 += 1;
         }
       }
-      return num2 == 0 ? 0 :  Math.Round(Conversion.Int(100.0 / (double)  Math.Round((double) num1 / (double) num2)));
+      return num2 == 0 ? 0 :  Math.Round(Conversion.Int(100.0 /   Math.Round( num1 /  num2)));
     }
 
     pub AreaSeaConnect: bool(int nr, int nr2)
@@ -6269,14 +6269,14 @@ label_100:;
           this.OpGroup = -1;
           let mut regime: i32 = this.GetRegime(index1);
           int num2;
-          if ((double) this.game.Data.RuleVar[335] > 0.0)
+          if ( this.game.Data.RuleVar[335] > 0.0)
           {
             let mut num3: i32 = 0;
             do
             {
-              if (this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num3 * 4)))] > 0 & this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num3 * 4)))] > -1)
+              if (this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num3 * 4)))] > 0 & this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num3 * 4)))] > -1)
               {
-                let mut index2: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num3 * 4)))], this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num3 * 4)))]];
+                let mut index2: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num3 * 4)))], this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num3 * 4)))]];
                 num1 = 0;
                 if (index2 > 0 && this.GetRegime(this.AreaOwner[index2]) == regime)
                 {
@@ -6356,14 +6356,14 @@ label_100:;
         {
           this.OpGroup = -1;
           let mut regime: i32 = this.GetRegime(index4);
-          if ((double) this.game.Data.RuleVar[335] > 0.0)
+          if ( this.game.Data.RuleVar[335] > 0.0)
           {
             let mut num5: i32 = 0;
             do
             {
-              if (this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num5 * 4)))] > 0 & this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num5 * 4)))] > -1)
+              if (this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num5 * 4)))] > 0 & this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num5 * 4)))] > -1)
               {
-                let mut index5: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num5 * 4)))], this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num5 * 4)))]];
+                let mut index5: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num5 * 4)))], this.game.Data.RegimeObj[regime].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num5 * 4)))]];
                 num1 = 0;
                 if (index5 > 0 && this.GetRegime(this.AreaOwner[index5]) == regime)
                 {
@@ -6431,7 +6431,7 @@ label_100:;
             let mut num8: i32 = enemySupplyGone[index8] + 1;
             numArray[index9] = num8;
             if (this.EnemySupplyGone[index7] > 1)
-              this.AreaEnemy[index7] =  Math.Round(0.5 * (double) this.AreaEnemy[index7]);
+              this.AreaEnemy[index7] =  Math.Round(0.5 *  this.AreaEnemy[index7]);
           }
           else
             this.EnemySupplyGone[index7] = 0;
@@ -6456,14 +6456,14 @@ label_100:;
       this.atemp2 = new int[this.AreaCount + 1];
       int num1;
       int num2;
-      if ((double) this.game.Data.RuleVar[335] > 0.0)
+      if ( this.game.Data.RuleVar[335] > 0.0)
       {
         let mut num3: i32 = 0;
         do
         {
-          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num3 * 4)))] > 0 && this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num3 * 4)))] > -1)
+          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num3 * 4)))] > 0 && this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num3 * 4)))] > -1)
           {
-            let mut index: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num3 * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num3 * 4)))]];
+            let mut index: i32 = this.AreaMatrixWide[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num3 * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num3 * 4)))]];
             num1 = 0;
             if (index > 0 && index > 0 & this.GetRegime(this.AreaOwner[index]) == this.GetGameDataTurn())
             {
@@ -6530,19 +6530,19 @@ label_100:;
               if (tround == 2)
               {
                 if (this.FriendlySupply[this.CorpsLoc[index]] == 0)
-                  this.CorpsTempStrength[index] =  Math.Round((double) this.CorpsTempStrength[index] * 0.66);
+                  this.CorpsTempStrength[index] =  Math.Round( this.CorpsTempStrength[index] * 0.66);
               }
               else if (tround == 3)
               {
                 if (this.FriendlySupply[this.CorpsLoc[index]] == 0)
-                  this.CorpsTempStrength[index] =  Math.Round((double) this.CorpsTempStrength[index] * 0.5);
+                  this.CorpsTempStrength[index] =  Math.Round( this.CorpsTempStrength[index] * 0.5);
               }
               else if (this.FriendlySupply[this.CorpsLoc[index]] == 0)
-                this.CorpsTempStrength[index] =  Math.Round((double) this.CorpsTempStrength[index] * 0.33);
+                this.CorpsTempStrength[index] =  Math.Round( this.CorpsTempStrength[index] * 0.33);
             }
           }
           else if (tround >= 3 && tround == 2 && this.FriendlySupply[this.CorpsLoc[index]] == 0)
-            this.CorpsTempStrength[index] =  Math.Round((double) this.CorpsTempStrength[index] * 0.8);
+            this.CorpsTempStrength[index] =  Math.Round( this.CorpsTempStrength[index] * 0.8);
         }
       }
       if (!tlog)
@@ -6586,8 +6586,8 @@ label_100:;
               if (Number > 0)
               {
                 if (makelog)
-                  this.AddLog(this.GetAreaName(nr) + " RECEIVES " + Conversion.Str((object) Number) + " REINFORCEMENTS (1PROJECTED)");
-                this.StrAreaEntrench[nr] =  Math.Round((double) (this.AreaEnemy[nr] * this.StrAreaEntrench[nr] + Number) / (double) (this.AreaEnemy[nr] + Number));
+                  this.AddLog(this.GetAreaName(nr) + " RECEIVES " + Conversion.Str( Number) + " REINFORCEMENTS (1PROJECTED)");
+                this.StrAreaEntrench[nr] =  Math.Round( (this.AreaEnemy[nr] * this.StrAreaEntrench[nr] + Number) /  (this.AreaEnemy[nr] + Number));
                 int[] areaEnemy = this.AreaEnemy;
                 int[] numArray1 = areaEnemy;
                 let mut index7: i32 = nr;
@@ -6652,25 +6652,25 @@ label_100:;
                       {
                         let mut index14: i32 = index13;
                         if (makelog)
-                          this.AddLog(this.GroupName[index14] + " RECEIVES " + Conversion.Str((object)  Math.Round((double) num9 / (double) num6)) + " REINFORCEMENTS (2PROJECTED)");
-                        this.CorpsEntrench[index14] =  Math.Round((double) (this.CorpsTempStrength[index14] * this.CorpsEntrench[index14]) / (double) (this.CorpsTempStrength[index14] +  Math.Round((double) num9 / (double) num6)));
+                          this.AddLog(this.GroupName[index14] + " RECEIVES " + Conversion.Str(  Math.Round( num9 /  num6)) + " REINFORCEMENTS (2PROJECTED)");
+                        this.CorpsEntrench[index14] =  Math.Round( (this.CorpsTempStrength[index14] * this.CorpsEntrench[index14]) /  (this.CorpsTempStrength[index14] +  Math.Round( num9 /  num6)));
                         int[] corpsTempStrength = this.CorpsTempStrength;
                         int[] numArray3 = corpsTempStrength;
                         let mut index15: i32 = index14;
                         let mut index16: i32 = index15;
-                        let mut num11: i32 = corpsTempStrength[index15] +  Math.Round((double) num9 / (double) num6);
+                        let mut num11: i32 = corpsTempStrength[index15] +  Math.Round( num9 /  num6);
                         numArray3[index16] = num11;
                         int[] corpsstartStrength = this.corpsstartStrength;
                         int[] numArray4 = corpsstartStrength;
                         let mut index17: i32 = index14;
                         let mut index18: i32 = index17;
-                        let mut num12: i32 = corpsstartStrength[index17] +  Math.Round((double) num9 / (double) num6);
+                        let mut num12: i32 = corpsstartStrength[index17] +  Math.Round( num9 /  num6);
                         numArray4[index18] = num12;
                         int[] corpsPowerLeft = this.CorpsPowerLeft;
                         int[] numArray5 = corpsPowerLeft;
                         let mut index19: i32 = index14;
                         let mut index20: i32 = index19;
-                        let mut num13: i32 = corpsPowerLeft[index19] -  Math.Round((double) num9 / (double) num6);
+                        let mut num13: i32 = corpsPowerLeft[index19] -  Math.Round( num9 /  num6);
                         numArray5[index20] = num13;
                       }
                     }
@@ -6684,7 +6684,7 @@ label_100:;
               if (round > 1)
                 num = num;
               if (makelog)
-                this.AddLog(this.GetAreaName(nr) + " GETS" + Conversion.Str((object) Math.Abs(num)) + " NEGATIVE POWER.");
+                this.AddLog(this.GetAreaName(nr) + " GETS" + Conversion.Str( Math.Abs(num)) + " NEGATIVE POWER.");
               this.StrAreaNegPow[nr] = Math.Abs(num);
             }
           }
@@ -6829,7 +6829,7 @@ label_100:;
                   int[] numArray = corpsMoveProgress;
                   let mut index5: i32 = index1;
                   let mut index6: i32 = index5;
-                  let mut num6: i32 = corpsMoveProgress[index5] + Math.Max(2,  Math.Round((double) this.GetAverageHexSpeedofCorpsUnit(index1, true) * 0.33));
+                  let mut num6: i32 = corpsMoveProgress[index5] + Math.Max(2,  Math.Round( this.GetAverageHexSpeedofCorpsUnit(index1, true) * 0.33));
                   numArray[index6] = num6;
                 }
                 else
@@ -6853,16 +6853,16 @@ label_100:;
                     int[] numArray2 = corpsMoveProgress2;
                     let mut index9: i32 = index1;
                     let mut index10: i32 = index9;
-                    let mut num9: i32 = corpsMoveProgress2[index9] + Math.Min(2,  Math.Round((double) this.GetAverageHexSpeedofCorpsUnit(index1, true) / 3.0));
+                    let mut num9: i32 = corpsMoveProgress2[index9] + Math.Min(2,  Math.Round( this.GetAverageHexSpeedofCorpsUnit(index1, true) / 3.0));
                     numArray2[index10] = num9;
                   }
-                  if ((double) this.game.Data.RuleVar[811] > 0.0)
+                  if ( this.game.Data.RuleVar[811] > 0.0)
                   {
                     int[] corpsMoveProgress3 = this.CorpsMoveProgress;
                     int[] numArray3 = corpsMoveProgress3;
                     let mut index11: i32 = index1;
                     let mut index12: i32 = index11;
-                    let mut num10: i32 = corpsMoveProgress3[index11] +  Math.Round((double) (this.game.Data.RuleVar[811] * (float) Math.Max(5, this.GetAverageHexSpeedofCorpsUnit(index1, true))));
+                    let mut num10: i32 = corpsMoveProgress3[index11] +  Math.Round( (this.game.Data.RuleVar[811] *  Math.Max(5, this.GetAverageHexSpeedofCorpsUnit(index1, true))));
                     numArray3[index12] = num10;
                   }
                   this.CorpsEntrench[index1] = 0;
@@ -6882,7 +6882,7 @@ label_100:;
                   int[] numArray5 = corpsMoveProgress5;
                   let mut index15: i32 = index1;
                   let mut index16: i32 = index15;
-                  let mut num12: i32 = corpsMoveProgress5[index15] +  Math.Round((double) Math.Max(5, this.GetAverageHexSpeedofCorpsUnit(index1, true)) / 2.0);
+                  let mut num12: i32 = corpsMoveProgress5[index15] +  Math.Round( Math.Max(5, this.GetAverageHexSpeedofCorpsUnit(index1, true)) / 2.0);
                   numArray5[index16] = num12;
                 }
                 else
@@ -6898,7 +6898,7 @@ label_100:;
               }
             }
             if (makelog)
-              this.AddLog(this.GroupName[index1] + " ENTRENCH = " + Conversion.Str((object) this.CorpsEntrench[index1]));
+              this.AddLog(this.GroupName[index1] + " ENTRENCH = " + Conversion.Str( this.CorpsEntrench[index1]));
           }
         }
       }
@@ -6914,7 +6914,7 @@ label_100:;
       {
         if (this.AreaGroup[nr] == this.CurrentAreaGroup && this.EnemySupply[nr] == 1)
         {
-          numArray1[nr] =  Math.Round((double) this.AreaEnemy[nr] * 0.33);
+          numArray1[nr] =  Math.Round( this.AreaEnemy[nr] * 0.33);
           numArray2[nr] = this.GetAreaEnemyNeighbourCountFuzzyVP(nr);
           numArray3[nr] = this.GetAreaFriendlyNeighbourCount2(nr);
         }
@@ -6934,13 +6934,13 @@ label_100:;
               {
                 if (this.AreaGroup[nr2] == this.CurrentAreaGroup && !this.Attacker | this.Meeting | this.AreaBroadBorder[nr1, nr2] > 0 & this.AreaBroadBorder[nr1, nr2] < 99 && this.GetRegime(this.AreaOwner[nr2]) != this.GetGameDataTurn() & this.AreaOwner[nr2] == this.AreaOwner[nr1] & this.EnemySupply[nr2] == 1 & this.StrLandEnemySupply[nr2] == this.StrLandEnemySupply[nr1] && numArray2[nr2] > numArray2[nr1])
                 {
-                  float num2 = (float) numArray2[nr2] / (float) num1;
-                  if ((double) this.AreaEnemy[nr2] + 300.0 * (1.0 + (double) this.game.Data.RuleVar[828]) < (double)  Math.Round((double) ((float) this.AreaEnemy[nr1] * num2)))
+                  float num2 =  numArray2[nr2] /  num1;
+                  if ( this.AreaEnemy[nr2] + 300.0 * (1.0 +  this.game.Data.RuleVar[828]) <   Math.Round( ( this.AreaEnemy[nr1] * num2)))
                   {
-                    let mut Number: i32 =  Math.Round((double) numArray1[nr1] * 0.2);
-                    if ((double) this.game.Data.RuleVar[828] > 0.0)
-                      Number =  Math.Round((double) ((float) Number / this.game.Data.RuleVar[828]));
-                    this.StrAreaEntrench[nr2] =  Math.Round((double) (this.AreaEnemy[nr2] * this.StrAreaEntrench[nr2] + Number) / (double) Math.Max(1, this.AreaEnemy[nr2] + Number));
+                    let mut Number: i32 =  Math.Round( numArray1[nr1] * 0.2);
+                    if ( this.game.Data.RuleVar[828] > 0.0)
+                      Number =  Math.Round( ( Number / this.game.Data.RuleVar[828]));
+                    this.StrAreaEntrench[nr2] =  Math.Round( (this.AreaEnemy[nr2] * this.StrAreaEntrench[nr2] + Number) /  Math.Max(1, this.AreaEnemy[nr2] + Number));
                     int[] areaEnemy1 = this.AreaEnemy;
                     int[] numArray4 = areaEnemy1;
                     let mut index1: i32 = nr2;
@@ -6960,7 +6960,7 @@ label_100:;
                     let mut num5: i32 = areaEnemy2[index5] - Number;
                     numArray7[index6] = num5;
                     if (makelog)
-                      this.AddLog("ENEMY AREA " + this.GetAreaName(nr1) + " TRANSFER TO " + this.GetAreaName(nr2) + " " + Conversion.Str((object) Number) + " pts");
+                      this.AddLog("ENEMY AREA " + this.GetAreaName(nr1) + " TRANSFER TO " + this.GetAreaName(nr2) + " " + Conversion.Str( Number) + " pts");
                   }
                 }
               }
@@ -6979,7 +6979,7 @@ label_100:;
           let mut areaCount5: i32 = this.AreaCount;
           for (let mut index8: i32 = 1; index8 <= areaCount5; index8 += 1)
           {
-            if (this.AreaGroup[index8] == this.CurrentAreaGroup & index7 != index8 && this.AreaSteps[index7, index8] > 0 & this.AreaSteps[index7, index8] < 99 & (!this.Attacker | this.Meeting | (double) this.game.Data.RuleVar[830] == 1.0 | this.AreaFuzzyVP[index8] > this.AreaFuzzyVP[index7]) && this.EnemySupply[index8] == 1 & this.StrLandEnemySupply[index8] == this.StrLandEnemySupply[index7] && numArray3[index8] > 0)
+            if (this.AreaGroup[index8] == this.CurrentAreaGroup & index7 != index8 && this.AreaSteps[index7, index8] > 0 & this.AreaSteps[index7, index8] < 99 & (!this.Attacker | this.Meeting |  this.game.Data.RuleVar[830] == 1.0 | this.AreaFuzzyVP[index8] > this.AreaFuzzyVP[index7]) && this.EnemySupply[index8] == 1 & this.StrLandEnemySupply[index8] == this.StrLandEnemySupply[index7] && numArray3[index8] > 0)
               num6 += this.AreaFuzzyVP[index8];
           }
           if (num6 > 0)
@@ -6987,7 +6987,7 @@ label_100:;
             let mut areaCount6: i32 = this.AreaCount;
             for (let mut index9: i32 = 1; index9 <= areaCount6; index9 += 1)
             {
-              if (this.AreaGroup[index9] == this.CurrentAreaGroup & index7 != index9 & this.EnemySupply[index9] == 1 && this.AreaSteps[index7, index9] > 0 & this.AreaSteps[index7, index9] < 99 & (!this.Attacker | this.Meeting | (double) this.game.Data.RuleVar[830] == 1.0 | this.AreaFuzzyVP[index9] > this.AreaFuzzyVP[index7]))
+              if (this.AreaGroup[index9] == this.CurrentAreaGroup & index7 != index9 & this.EnemySupply[index9] == 1 && this.AreaSteps[index7, index9] > 0 & this.AreaSteps[index7, index9] < 99 & (!this.Attacker | this.Meeting |  this.game.Data.RuleVar[830] == 1.0 | this.AreaFuzzyVP[index9] > this.AreaFuzzyVP[index7]))
               {
                 if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.AreaOwner[index9], this.AreaOwner[index7]) & this.StrLandEnemySupply[index9] == this.StrLandEnemySupply[index7] && numArray3[index9] > 0)
                 {
@@ -6995,12 +6995,12 @@ label_100:;
                   {
                     if (round > 2)
                     {
-                      let mut num7: i32 =  Math.Round(Conversion.Int((double) this.AreaEnemy[index7] * 0.2) * ((double) this.AreaFuzzyVP[index9] / (double) num6));
-                      if ((double) this.game.Data.RuleVar[828] > 0.0)
-                        num7 =  Math.Round((double) ((float) num7 / this.game.Data.RuleVar[828]));
+                      let mut num7: i32 =  Math.Round(Conversion.Int( this.AreaEnemy[index7] * 0.2) * ( this.AreaFuzzyVP[index9] /  num6));
+                      if ( this.game.Data.RuleVar[828] > 0.0)
+                        num7 =  Math.Round( ( num7 / this.game.Data.RuleVar[828]));
                       if (num7 > 0 & num7 <= this.AreaEnemy[index7])
                       {
-                        this.StrAreaEntrench[index9] =  Math.Round((double) (this.AreaEnemy[index9] * this.StrAreaEntrench[index9] + num7) / (double) (this.AreaEnemy[index9] + num7));
+                        this.StrAreaEntrench[index9] =  Math.Round( (this.AreaEnemy[index9] * this.StrAreaEntrench[index9] + num7) /  (this.AreaEnemy[index9] + num7));
                         int[] areaEnemy3 = this.AreaEnemy;
                         int[] numArray8 = areaEnemy3;
                         let mut index10: i32 = index9;
@@ -7018,12 +7018,12 @@ label_100:;
                   }
                   else if (round <= 2)
                   {
-                    let mut num10: i32 =  Math.Round(Conversion.Int((double) this.AreaEnemy[index7] * 0.66) * ((double) this.AreaFuzzyVP[index9] / (double) num6));
-                    if ((double) this.game.Data.RuleVar[828] > 0.0)
-                      num10 =  Math.Round((double) ((float) num10 / this.game.Data.RuleVar[828]));
+                    let mut num10: i32 =  Math.Round(Conversion.Int( this.AreaEnemy[index7] * 0.66) * ( this.AreaFuzzyVP[index9] /  num6));
+                    if ( this.game.Data.RuleVar[828] > 0.0)
+                      num10 =  Math.Round( ( num10 / this.game.Data.RuleVar[828]));
                     if (num10 > 0)
                     {
-                      this.StrAreaEntrench[index9] =  Math.Round((double) (this.AreaEnemy[index9] * this.StrAreaEntrench[index9] + num10) / (double) (this.AreaEnemy[index9] + num10));
+                      this.StrAreaEntrench[index9] =  Math.Round( (this.AreaEnemy[index9] * this.StrAreaEntrench[index9] + num10) /  (this.AreaEnemy[index9] + num10));
                       int[] areaEnemy5 = this.AreaEnemy;
                       int[] numArray10 = areaEnemy5;
                       let mut index14: i32 = index9;
@@ -7040,12 +7040,12 @@ label_100:;
                   }
                   else
                   {
-                    let mut num13: i32 =  Math.Round((double) Conversion.Int(this.AreaEnemy[index7] * 1) * ((double) this.AreaFuzzyVP[index9] / (double) num6));
-                    if ((double) this.game.Data.RuleVar[828] > 0.0)
-                      num13 =  Math.Round((double) ((float) num13 / this.game.Data.RuleVar[828]));
+                    let mut num13: i32 =  Math.Round( Conversion.Int(this.AreaEnemy[index7] * 1) * ( this.AreaFuzzyVP[index9] /  num6));
+                    if ( this.game.Data.RuleVar[828] > 0.0)
+                      num13 =  Math.Round( ( num13 / this.game.Data.RuleVar[828]));
                     if (num13 > 0)
                     {
-                      this.StrAreaEntrench[index9] =  Math.Round((double) (this.AreaEnemy[index9] * this.StrAreaEntrench[index9] + num13) / (double) (this.AreaEnemy[index9] + num13));
+                      this.StrAreaEntrench[index9] =  Math.Round( (this.AreaEnemy[index9] * this.StrAreaEntrench[index9] + num13) /  (this.AreaEnemy[index9] + num13));
                       int[] areaEnemy7 = this.AreaEnemy;
                       int[] numArray12 = areaEnemy7;
                       let mut index18: i32 = index9;
@@ -7109,7 +7109,7 @@ label_100:;
                   if (this.HisAreaDistanceFriendly.GetUpperBound(0) >= index2)
                   {
                     if (this.HisAreaDistanceFriendly[index2, this.CorpsTarget[index2]] < 9999)
-                      Number =  Math.Round((double) this.HisAreaDistanceFriendly[index2, this.CorpsTarget[index2]] / 20.0);
+                      Number =  Math.Round( this.HisAreaDistanceFriendly[index2, this.CorpsTarget[index2]] / 20.0);
                     else if (!this.AreaIsExtra[this.CorpsLoc[index2]])
                     {
                       Number = 99;
@@ -7139,7 +7139,7 @@ label_100:;
                 else if (this.HisAreaDistance.GetUpperBound(0) >= index2)
                 {
                   if (this.HisAreaDistance[index2, this.CorpsTarget[index2]] < 9999)
-                    Number =  Math.Round((double) this.HisAreaDistance[index2, this.CorpsTarget[index2]] / 20.0);
+                    Number =  Math.Round( this.HisAreaDistance[index2, this.CorpsTarget[index2]] / 20.0);
                   else if (!this.AreaIsExtra[this.CorpsLoc[index2]])
                   {
                     Number = 99;
@@ -7179,44 +7179,44 @@ label_100:;
                 let mut num4: i32 = this.CorpsStrategic[index2] & this.FriendlySupply[nr1] == 0 ? 1 : 0;
               }
               if (makelog)
-                this.AddLog(this.GroupName[index2] + ". FROM: " + this.GetAreaName(this.CorpsLoc[index2]) + ". TOO: " + this.GetAreaName(nr1) + ". Move progress is " + Conversion.Str((object) this.CorpsMoveProgress[index2]) + " of " + Conversion.Str((object) Number));
-              if ((double) this.CorpsMoveProgress[index2] >= (double) Number * 0.66 | Number - this.CorpsMoveProgress[index2] < 5 && this.FriendlySupply[this.CorpsLoc[index2]] > 0)
+                this.AddLog(this.GroupName[index2] + ". FROM: " + this.GetAreaName(this.CorpsLoc[index2]) + ". TOO: " + this.GetAreaName(nr1) + ". Move progress is " + Conversion.Str( this.CorpsMoveProgress[index2]) + " of " + Conversion.Str( Number));
+              if ( this.CorpsMoveProgress[index2] >=  Number * 0.66 | Number - this.CorpsMoveProgress[index2] < 5 && this.FriendlySupply[this.CorpsLoc[index2]] > 0)
               {
                 if (num3 == 1)
                   ;
                 let mut num5: i32 = this.CorpsTempStrength[index2];
-                val1 +=  Math.Round((double) this.CorpsAirEffect[index2] / 100.0 * (double) this.CorpsTempAirStrength[index2]);
+                val1 +=  Math.Round( this.CorpsAirEffect[index2] / 100.0 *  this.CorpsTempAirStrength[index2]);
                 if (this.CorpsStance[index2] == 1)
-                  num5 =  Math.Round((double) num5 * 0.5);
+                  num5 =  Math.Round( num5 * 0.5);
                 if (this.CorpsStance[index2] == 2)
-                  num5 =  Math.Round((double) num5 * 0.5);
+                  num5 =  Math.Round( num5 * 0.5);
                 if (this.CorpsBottleneck[index2] > 0 & this.CorpsOldDefend[index2] == this.CorpsLoc[index2] & round < 4)
                 {
-                  num5 =  Math.Round((double) num5 * ((double) this.CorpsBottleneck[index2] / 100.0));
+                  num5 =  Math.Round( num5 * ( this.CorpsBottleneck[index2] / 100.0));
                   if (makelog)
                     this.AddLog("CORPS BOTTLENECK .. PERCENTAGE LEFT = " + this.CorpsBottleneck[index2].ToString());
                 }
                 this += 1.StrTempCorpsCounter;
                 this.StrTempCorps = (int[]) Utils.CopyArray((Array) this.StrTempCorps, (Array) new int[this.StrTempCorpsCounter + 1]);
                 this.StrTempCorpsMod = (float[]) Utils.CopyArray((Array) this.StrTempCorpsMod, (Array) new float[this.StrTempCorpsCounter + 1]);
-                if ((double) this.CorpsMoveProgress[index2] >= (double) Number * 1.33)
+                if ( this.CorpsMoveProgress[index2] >=  Number * 1.33)
                 {
                   num5 *= 1;
                   this.StrTempCorpsMod[this.StrTempCorpsCounter] = 1f;
                 }
                 else if (this.CorpsMoveProgress[index2] >= Number * 1)
                 {
-                  num5 =  Math.Round((double) num5 * 0.75);
+                  num5 =  Math.Round( num5 * 0.75);
                   this.StrTempCorpsMod[this.StrTempCorpsCounter] = 0.75f;
                 }
-                else if ((double) this.CorpsMoveProgress[index2] >= (double) Number * 0.82)
+                else if ( this.CorpsMoveProgress[index2] >=  Number * 0.82)
                 {
-                  num5 =  Math.Round((double) num5 * 0.5);
+                  num5 =  Math.Round( num5 * 0.5);
                   this.StrTempCorpsMod[this.StrTempCorpsCounter] = 0.5f;
                 }
-                else if ((double) this.CorpsMoveProgress[index2] >= (double) Number * 0.66 | Number - this.CorpsMoveProgress[index2] < 5)
+                else if ( this.CorpsMoveProgress[index2] >=  Number * 0.66 | Number - this.CorpsMoveProgress[index2] < 5)
                 {
-                  num5 =  Math.Round((double) num5 * 0.25);
+                  num5 =  Math.Round( num5 * 0.25);
                   this.StrTempCorpsMod[this.StrTempCorpsCounter] = 0.25f;
                 }
                 num2 += num5;
@@ -7246,108 +7246,108 @@ label_100:;
             else
             {
               if (makelog)
-                this.AddLog("GOT " + Conversion.Str((object) num2) + " : " + Conversion.Str((object) this.AreaEnemy[nr1]) + " ON " + this.GetAreaName(nr1));
+                this.AddLog("GOT " + Conversion.Str( num2) + " : " + Conversion.Str( this.AreaEnemy[nr1]) + " ON " + this.GetAreaName(nr1));
               if (makelog)
-                this.AddLog("Enemy strength before battle: " + Conversion.Str((object) this.AreaEnemy[nr1]));
+                this.AddLog("Enemy strength before battle: " + Conversion.Str( this.AreaEnemy[nr1]));
               let mut num10: i32 = num2;
               if (areaNeighbourCount > 4 & index1 > 4)
-                num2 =  Math.Round((double) num2 * (1.0 + 1.0 * ((double) index1 / (double) areaNeighbourCount)));
+                num2 =  Math.Round( num2 * (1.0 + 1.0 * ( index1 /  areaNeighbourCount)));
               else if (areaNeighbourCount > 3 & index1 > 3)
-                num2 =  Math.Round((double) num2 * (1.0 + 0.75 * ((double) index1 / (double) areaNeighbourCount)));
+                num2 =  Math.Round( num2 * (1.0 + 0.75 * ( index1 /  areaNeighbourCount)));
               else if (areaNeighbourCount > 2 & index1 > 2)
-                num2 =  Math.Round((double) num2 * (1.0 + 0.5 * ((double) index1 / (double) areaNeighbourCount)));
+                num2 =  Math.Round( num2 * (1.0 + 0.5 * ( index1 /  areaNeighbourCount)));
               else if (areaNeighbourCount > 1 & index1 > 1)
-                num2 =  Math.Round((double) num2 * (1.0 + 0.25 * ((double) index1 / (double) areaNeighbourCount)));
+                num2 =  Math.Round( num2 * (1.0 + 0.25 * ( index1 /  areaNeighbourCount)));
               let mut Number1: i32 = this.AreaEnemy[nr1];
-              float num11 = this.AreaEnemy[nr1] != 0 ? (float) num2 / (float) Number1 : 10f;
+              float num11 = this.AreaEnemy[nr1] != 0 ?  num2 /  Number1 : 10f;
               let mut tempCorpsCounter1: i32 = this.StrTempCorpsCounter;
               for (let mut index4: i32 = 0; index4 <= tempCorpsCounter1; index4 += 1)
               {
-                if ((double) num11 > (double) this.CorpsTopRatio[this.StrTempCorps[index4]] & (round <= 1 & this.Attacker | round <= 2 & !this.Attacker))
+                if ( num11 >  this.CorpsTopRatio[this.StrTempCorps[index4]] & (round <= 1 & this.Attacker | round <= 2 & !this.Attacker))
                   this.CorpsTopRatio[this.StrTempCorps[index4]] = num11;
               }
               if (this.AreaDefensive[nr1] > 0)
               {
-                Number1 =  Math.Round((double) Number1 * ((double) (100 + this.AreaDefensive[nr1]) / 100.0));
+                Number1 =  Math.Round( Number1 * ( (100 + this.AreaDefensive[nr1]) / 100.0));
                 if (makelog)
-                  this.AddLog("Enemy after AreaDefensive = " + Conversion.Str((object) Number1));
+                  this.AddLog("Enemy after AreaDefensive = " + Conversion.Str( Number1));
               }
               if (this.StrAreaEntrench[nr1] > 0)
               {
-                Number1 =  Math.Round((double) Number1 / 2.0) +  Math.Round((double) (Number1 + Number1 *  Math.Round((double) this.StrAreaEntrench[nr1] / 100.0)) / 2.0);
+                Number1 =  Math.Round( Number1 / 2.0) +  Math.Round( (Number1 + Number1 *  Math.Round( this.StrAreaEntrench[nr1] / 100.0)) / 2.0);
                 if (makelog)
-                  this.AddLog("Enemy after Entrench = " + Conversion.Str((object) Number1));
+                  this.AddLog("Enemy after Entrench = " + Conversion.Str( Number1));
               }
               if (this.EnemySupply[nr1] < 1)
               {
-                Number1 =  Math.Round((double) Number1 * 0.2);
+                Number1 =  Math.Round( Number1 * 0.2);
                 if (makelog)
-                  this.AddLog("Enemy after No-supply = " + Conversion.Str((object) Number1));
+                  this.AddLog("Enemy after No-supply = " + Conversion.Str( Number1));
               }
               num8 = 0;
-              float num12 = this.AreaEnemy[nr1] != 0 ? (float) num2 / (float) Number1 : 10f;
-              if ((double) num12 > 10.0)
+              float num12 = this.AreaEnemy[nr1] != 0 ?  num2 /  Number1 : 10f;
+              if ( num12 > 10.0)
                 num12 = 10f;
               if (val1 > 0 & round <= 2)
               {
-                num12 += (float) (val1 * 2) / (float) Math.Max(val1, num2);
+                num12 +=  (val1 * 2) /  Math.Max(val1, num2);
                 if (makelog)
-                  this.AddLog("Ratio after Air = " + Conversion.Str((object) num12));
+                  this.AddLog("Ratio after Air = " + Conversion.Str( num12));
               }
               int Number2;
               int Number3;
-              if ((double) num12 > 1.0)
+              if ( num12 > 1.0)
               {
-                float Number4 = (float) (6.0 / Math.Sqrt((double) Math.Min(9f, num12)));
+                float Number4 =  (6.0 / Math.Sqrt( Math.Min(9f, num12)));
                 if (makelog)
-                  this.AddLog("TSng For defender casualties = " + Conversion.Str((object) Number4));
+                  this.AddLog("TSng For defender casualties = " + Conversion.Str( Number4));
                 if (this.StrAreaEntrench[nr1] > 150)
                 {
                   Number4 *= 1.66f;
                   if (makelog)
-                    this.AddLog("TSng For defender casualties after entrench= " + Conversion.Str((object) Number4));
+                    this.AddLog("TSng For defender casualties after entrench= " + Conversion.Str( Number4));
                 }
                 else if (this.StrAreaEntrench[nr1] > 100)
                 {
                   Number4 *= 1.44f;
                   if (makelog)
-                    this.AddLog("TSng For defender casualties after entrench= " + Conversion.Str((object) Number4));
+                    this.AddLog("TSng For defender casualties after entrench= " + Conversion.Str( Number4));
                 }
                 else if (this.StrAreaEntrench[nr1] > 50)
                 {
                   Number4 *= 1.22f;
                   if (makelog)
-                    this.AddLog("TSng For defender casualties after entrench= " + Conversion.Str((object) Number4));
+                    this.AddLog("TSng For defender casualties after entrench= " + Conversion.Str( Number4));
                 }
                 if (this.AreaDefensive[nr1] > 150)
                 {
                   Number4 *= 1.66f;
                   if (makelog)
-                    this.AddLog("TSng For defender casualties after areadef= " + Conversion.Str((object) Number4));
+                    this.AddLog("TSng For defender casualties after areadef= " + Conversion.Str( Number4));
                 }
                 else if (this.AreaDefensive[nr1] > 100)
                 {
                   Number4 *= 1.44f;
                   if (makelog)
-                    this.AddLog("TSng For defender casualties after areadef= " + Conversion.Str((object) Number4));
+                    this.AddLog("TSng For defender casualties after areadef= " + Conversion.Str( Number4));
                 }
                 else if (this.AreaDefensive[nr1] > 50)
                 {
                   Number4 *= 1.22f;
                   if (makelog)
-                    this.AddLog("TSng For defender casualties after areadef= " + Conversion.Str((object) Number4));
+                    this.AddLog("TSng For defender casualties after areadef= " + Conversion.Str( Number4));
                 }
-                if ((double) this.game.Data.RuleVar[394] > 0.0)
+                if ( this.game.Data.RuleVar[394] > 0.0)
                 {
                   Number4 *= this.game.Data.RuleVar[394];
                   if (makelog)
-                    this.AddLog("TSng For defender casualties after rulevar394= " + Conversion.Str((object) Number4));
+                    this.AddLog("TSng For defender casualties after rulevar394= " + Conversion.Str( Number4));
                 }
                 float Number5 = Number4 * 0.66f;
                 if (makelog)
-                  this.AddLog("TSng For defender casualties after *0.66 = " + Conversion.Str((object) Number5));
-                Number2 =  Math.Round((double) ((float) num10 / Number5));
-                float num13 = (float) (6.0 / Math.Sqrt((double) Math.Min(9f, num12)));
+                  this.AddLog("TSng For defender casualties after *0.66 = " + Conversion.Str( Number5));
+                Number2 =  Math.Round( ( num10 / Number5));
+                float num13 =  (6.0 / Math.Sqrt( Math.Min(9f, num12)));
                 if (this.StrAreaEntrench[nr1] > 150)
                   num13 *= 1.66f;
                 else if (this.StrAreaEntrench[nr1] > 100)
@@ -7360,12 +7360,12 @@ label_100:;
                   num13 *= 1.44f;
                 else if (this.AreaDefensive[nr1] > 50)
                   num13 *= 1.22f;
-                if ((double) this.game.Data.RuleVar[394] > 0.0)
+                if ( this.game.Data.RuleVar[394] > 0.0)
                   num13 *= this.game.Data.RuleVar[394];
                 float Number6 = num13 * 0.66f;
                 if (makelog)
-                  this.AddLog("TSng For defender casualties after *0.66 = " + Conversion.Str((object) Number6));
-                Number3 =  Math.Round((double) ((float) num10 / Number6));
+                  this.AddLog("TSng For defender casualties after *0.66 = " + Conversion.Str( Number6));
+                Number3 =  Math.Round( ( num10 / Number6));
               }
               else
               {
@@ -7374,7 +7374,7 @@ label_100:;
               }
               if (Number2 > this.AreaEnemy[nr1])
               {
-                Number3 =  Math.Round((double) ((float) Number3 * ((float) this.AreaEnemy[nr1] / (float) Number2)));
+                Number3 =  Math.Round( ( Number3 * ( this.AreaEnemy[nr1] /  Number2)));
                 Number2 = this.AreaEnemy[nr1];
               }
               int[] areaEnemy = this.AreaEnemy;
@@ -7386,20 +7386,20 @@ label_100:;
               if (Number3 > num10)
                 Number3 = num10;
               if (makelog)
-                this.AddLog("ratio: " + Conversion.Str((object) num12) + " totdam = " + Conversion.Str((object) Number3) + ", totdam2 = " + Conversion.Str((object) Number2));
+                this.AddLog("ratio: " + Conversion.Str( num12) + " totdam = " + Conversion.Str( Number3) + ", totdam2 = " + Conversion.Str( Number2));
               if (makelog)
-                this.AddLog("Enemy strength after: " + Conversion.Str((object) this.AreaEnemy[nr1]));
+                this.AddLog("Enemy strength after: " + Conversion.Str( this.AreaEnemy[nr1]));
               if (makelog)
-                this.AddLog("Friendly strength after: " + Conversion.Str((object) (num10 - Number3)));
+                this.AddLog("Friendly strength after: " + Conversion.Str( (num10 - Number3)));
               let mut tempCorpsCounter2: i32 = this.StrTempCorpsCounter;
               for (let mut index7: i32 = 0; index7 <= tempCorpsCounter2; index7 += 1)
               {
                 let mut index8: i32 = this.StrTempCorps[index7];
                 if (makelog)
-                  this.AddLog(this.GroupName[index8] + " LOSES " + Conversion.Str((object)  Math.Round((double) ((float) Number3 * ((float) this.CorpsTempStrength[index8] * this.StrTempCorpsMod[index7] / (float) num2)))));
+                  this.AddLog(this.GroupName[index8] + " LOSES " + Conversion.Str(  Math.Round( ( Number3 * ( this.CorpsTempStrength[index8] * this.StrTempCorpsMod[index7] /  num2)))));
                 let mut num15: i32 = 0;
                 if (num2 > 0)
-                  num15 =  Math.Round((double) ((float) Number3 * ((float) this.CorpsTempStrength[index8] * this.StrTempCorpsMod[index7] / (float) num2)));
+                  num15 =  Math.Round( ( Number3 * ( this.CorpsTempStrength[index8] * this.StrTempCorpsMod[index7] /  num2)));
                 if (num15 > this.CorpsTempStrength[index8])
                   num15 = this.CorpsTempStrength[index8];
                 if (num2 > 0)
@@ -7408,7 +7408,7 @@ label_100:;
                   int[] numArray2 = corpsTempStrength;
                   let mut index9: i32 = index8;
                   let mut index10: i32 = index9;
-                  let mut num16: i32 = corpsTempStrength[index9] -  Math.Round((double) ((float) Number3 * ((float) this.CorpsTempStrength[index8] * this.StrTempCorpsMod[index7] / (float) num2)));
+                  let mut num16: i32 = corpsTempStrength[index9] -  Math.Round( ( Number3 * ( this.CorpsTempStrength[index8] * this.StrTempCorpsMod[index7] /  num2)));
                   numArray2[index10] = num16;
                 }
                 if (num2 > 0)
@@ -7449,7 +7449,7 @@ label_100:;
                     if (this.HisAreaDistanceFriendly.GetUpperBound(0) >= tid)
                     {
                       if (this.HisAreaDistanceFriendly[tid, nr1] < 9999)
-                        num18 =  Math.Round((double) this.HisAreaDistanceFriendly[tid, nr1] / 20.0);
+                        num18 =  Math.Round( this.HisAreaDistanceFriendly[tid, nr1] / 20.0);
                       else if (!this.AreaIsExtra[this.CorpsLoc[tid]])
                       {
                         num18 = 99;
@@ -7477,7 +7477,7 @@ label_100:;
                   else if (this.HisAreaDistance.GetUpperBound(0) >= tid)
                   {
                     if (this.HisAreaDistance[tid, nr1] < 9999)
-                      num18 =  Math.Round((double) this.HisAreaDistance[tid, nr1] / 20.0);
+                      num18 =  Math.Round( this.HisAreaDistance[tid, nr1] / 20.0);
                     else if (!this.AreaIsExtra[this.CorpsLoc[tid]])
                     {
                       num18 = 99;
@@ -7604,7 +7604,7 @@ label_100:;
               }
             }
           }
-          if ((round < 5 | this.Meeting | !this.Attacker | (double) this.game.Data.RuleVar[386] == 1.0 | round == 1 | round % 2 == 0) & this.GetGameDataTurn() == this.GetRegime(this.AreaOwner[nr1]))
+          if ((round < 5 | this.Meeting | !this.Attacker |  this.game.Data.RuleVar[386] == 1.0 | round == 1 | round % 2 == 0) & this.GetGameDataTurn() == this.GetRegime(this.AreaOwner[nr1]))
           {
             let mut Number7: i32 = 0;
             let mut Number8: i32 = 0;
@@ -7638,24 +7638,24 @@ label_100:;
                   }
                   if (this.AreaNarrowBorder[nr1, nr4] > 0 & this.AreaBorderNoBridge[nr1, nr4] < 1)
                   {
-                    if ((double) this.StrCounterAttack[nr4, nr1] - (double) this.game.Data.RuleVar[831] >= (double) (10 + this.AreaBorder[nr1, nr4]))
-                      Number7 +=  Math.Round((double) (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) / (double) this.GetAreaEnemyNeighbourCountFuzzyVP(nr4));
-                    else if ((double) this.StrCounterAttack[nr4, nr1] - (double) this.game.Data.RuleVar[831] >= (double) (0 + this.AreaBorder[nr1, nr4]))
-                      Number7 +=  Math.Round(0.2 * (double)  Math.Round((double) (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) / (double) this.GetAreaEnemyNeighbourCountFuzzyVP(nr4)));
-                    else if ((double) this.game.Data.RuleVar[826] == 0.0 & (double) this.StrCounterAttack[nr4, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr4] / 2.0)
-                      Number7 +=  Math.Round(0.1 * (double)  Math.Round((double) (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) / (double) this.GetAreaEnemyNeighbourCountFuzzyVP(nr4)));
+                    if ( this.StrCounterAttack[nr4, nr1] -  this.game.Data.RuleVar[831] >=  (10 + this.AreaBorder[nr1, nr4]))
+                      Number7 +=  Math.Round( (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) /  this.GetAreaEnemyNeighbourCountFuzzyVP(nr4));
+                    else if ( this.StrCounterAttack[nr4, nr1] -  this.game.Data.RuleVar[831] >=  (0 + this.AreaBorder[nr1, nr4]))
+                      Number7 +=  Math.Round(0.2 *   Math.Round( (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) /  this.GetAreaEnemyNeighbourCountFuzzyVP(nr4)));
+                    else if ( this.game.Data.RuleVar[826] == 0.0 &  this.StrCounterAttack[nr4, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr4] / 2.0)
+                      Number7 +=  Math.Round(0.1 *   Math.Round( (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) /  this.GetAreaEnemyNeighbourCountFuzzyVP(nr4)));
                     else
                       Number7 = 0;
                   }
-                  else if ((double) this.StrCounterAttack[nr4, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr4])
-                    Number7 +=  Math.Round((double) (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) / (double) this.GetAreaEnemyNeighbourCountFuzzyVP(nr4));
-                  else if ((double) this.game.Data.RuleVar[826] == 0.0 & !this.Attacker & (double) this.StrCounterAttack[nr4, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr4] / 2.0)
-                    Number7 +=  Math.Round(0.1 * (double)  Math.Round((double) (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) / (double) this.GetAreaEnemyNeighbourCountFuzzyVP(nr4)));
+                  else if ( this.StrCounterAttack[nr4, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr4])
+                    Number7 +=  Math.Round( (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) /  this.GetAreaEnemyNeighbourCountFuzzyVP(nr4));
+                  else if ( this.game.Data.RuleVar[826] == 0.0 & !this.Attacker &  this.StrCounterAttack[nr4, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr4] / 2.0)
+                    Number7 +=  Math.Round(0.1 *   Math.Round( (this.AreaEnemy[nr4] * this.AreaFuzzyVP[nr1]) /  this.GetAreaEnemyNeighbourCountFuzzyVP(nr4)));
                 }
               }
             }
             if (!this.Attacker)
-              Number7 =  Math.Round((double) Number7 * 1.4);
+              Number7 =  Math.Round( Number7 * 1.4);
             if (this.StrAreaNegPow[nr1] != 0)
             {
               Number7 += Math.Abs(this.StrAreaNegPow[nr1]);
@@ -7740,80 +7740,80 @@ label_100:;
                   num28 = 1;
                 }
                 else
-                  num29 =  Math.Round((double) ((float) num29 * ((float) (100 + this.CorpsEntrench[index25]) / 100f)));
+                  num29 =  Math.Round( ( num29 * ( (100 + this.CorpsEntrench[index25]) / 100f)));
                 if (this.CorpsStance[index25] == 3)
-                  num29 =  Math.Round((double) num29 * 0.66);
+                  num29 =  Math.Round( num29 * 0.66);
                 if (this.FriendlySupply[nr1] < 1)
-                  num29 =  Math.Round((double) num29 * 0.2);
+                  num29 =  Math.Round( num29 * 0.2);
                 Number8 += num29;
               }
               else if (this.AreaBorder[nr1, this.CorpsLoc[index25]] <= 0)
                 ;
             }
             if (this.AreaDefensive[nr1] > 0)
-              Number8 =  Math.Round((double) Number8 * ((double) (100 + this.AreaDefensive[nr1]) / 100.0));
+              Number8 =  Math.Round( Number8 * ( (100 + this.AreaDefensive[nr1]) / 100.0));
             if (Number7 > 0 & makelog)
-              this.AddLog("ENEMY POWER on " + this.GetAreaName(nr1) + ". powon= " + Conversion.Str((object) Number7) + ", powdef=" + Conversion.Str((object) Number8) + " (core=" + Conversion.Str((object) Number9) + ", neighbours=" + Conversion.Str((object) Number10));
-            float num31 = !(Number8 == 0 & Number7 > 0) ? (!(Number7 > 0 & Number8 > 0) ? 0.0f : (float) Number7 / (float) Number8) : 10f;
+              this.AddLog("ENEMY POWER on " + this.GetAreaName(nr1) + ". powon= " + Conversion.Str( Number7) + ", powdef=" + Conversion.Str( Number8) + " (core=" + Conversion.Str( Number9) + ", neighbours=" + Conversion.Str( Number10));
+            float num31 = !(Number8 == 0 & Number7 > 0) ? (!(Number7 > 0 & Number8 > 0) ? 0.0f :  Number7 /  Number8) : 10f;
             num8 = 0;
-            if ((double) num31 > 9.0)
+            if ( num31 > 9.0)
               num31 = 9f;
-            if ((double) num31 > 5.0 & (double) num31 < 8.0)
+            if ( num31 > 5.0 &  num31 < 8.0)
               num31 = num31;
             int Number11;
             int Number12;
-            if ((double) num31 > 1.0)
+            if ( num31 > 1.0)
             {
               if (this.Attacker)
               {
-                float num32 = (float) (6.0 / Math.Sqrt((double) Math.Min(9f, num31)));
-                if ((double) this.game.Data.RuleVar[395] > 0.0)
+                float num32 =  (6.0 / Math.Sqrt( Math.Min(9f, num31)));
+                if ( this.game.Data.RuleVar[395] > 0.0)
                   num32 *= this.game.Data.RuleVar[395];
-                Number11 =  Math.Round((double) ((float) Number7 / num32));
-                float num33 = (float) (6.0 / Math.Sqrt((double) Math.Min(2f, num31)));
-                if ((double) this.game.Data.RuleVar[395] > 0.0)
+                Number11 =  Math.Round( ( Number7 / num32));
+                float num33 =  (6.0 / Math.Sqrt( Math.Min(2f, num31)));
+                if ( this.game.Data.RuleVar[395] > 0.0)
                   num33 *= this.game.Data.RuleVar[395];
-                Number12 =  Math.Round((double) ((float) Number7 / num33));
+                Number12 =  Math.Round( ( Number7 / num33));
               }
               else
               {
-                float num34 = (float) (13.0 / Math.Sqrt(Math.Pow((double) Math.Min(9f, num31), 1.8)));
-                if ((double) this.game.Data.RuleVar[395] > 0.0)
+                float num34 =  (13.0 / Math.Sqrt(Math.Pow( Math.Min(9f, num31), 1.8)));
+                if ( this.game.Data.RuleVar[395] > 0.0)
                   num34 *= this.game.Data.RuleVar[395];
-                Number11 =  Math.Round((double) ((float) Number7 / num34));
-                float num35 = (float) (13.0 / Math.Sqrt(Math.Pow((double) Math.Min(2f, num31), 1.8)));
-                if ((double) this.game.Data.RuleVar[395] > 0.0)
+                Number11 =  Math.Round( ( Number7 / num34));
+                float num35 =  (13.0 / Math.Sqrt(Math.Pow( Math.Min(2f, num31), 1.8)));
+                if ( this.game.Data.RuleVar[395] > 0.0)
                   num35 *= this.game.Data.RuleVar[395];
-                Number12 =  Math.Round((double) ((float) Number7 / num35));
+                Number12 =  Math.Round( ( Number7 / num35));
               }
             }
-            else if ((double) num31 > 0.5 | this.StrAreaNegPow[nr1] > 0)
+            else if ( num31 > 0.5 | this.StrAreaNegPow[nr1] > 0)
             {
               float num36 = 6f;
-              if ((double) this.game.Data.RuleVar[395] > 0.0)
+              if ( this.game.Data.RuleVar[395] > 0.0)
                 num36 *= this.game.Data.RuleVar[395];
-              Number11 =  Math.Round((double) ((float) Number7 / num36));
+              Number11 =  Math.Round( ( Number7 / num36));
               float num37 = 6f * num31;
-              if ((double) this.game.Data.RuleVar[395] > 0.0)
+              if ( this.game.Data.RuleVar[395] > 0.0)
                 num37 *= this.game.Data.RuleVar[395];
-              Number12 =  Math.Round((double) ((float) Number7 / num37));
+              Number12 =  Math.Round( ( Number7 / num37));
             }
             else
             {
               Number11 = 0;
               Number12 = 0;
             }
-            if ((double) this.game.Data.RuleVar[829] > 0.0)
+            if ( this.game.Data.RuleVar[829] > 0.0)
             {
-              Number11 =  Math.Round((double) ((float) Number11 / this.game.Data.RuleVar[829]));
-              Number12 =  Math.Round((double) ((float) Number12 / this.game.Data.RuleVar[829]));
+              Number11 =  Math.Round( ( Number11 / this.game.Data.RuleVar[829]));
+              Number12 =  Math.Round( ( Number12 / this.game.Data.RuleVar[829]));
             }
             if (num26 > 0 & num26 < 100)
-              Number12 =  Math.Round((double) Number12 * ((double) num26 / 100.0));
+              Number12 =  Math.Round( Number12 * ( num26 / 100.0));
             if (Number8 == 0)
               Number12 = 0;
             if (Number11 > 0 & makelog)
-              this.AddLog("COUNTERATTACK on " + this.GetAreaName(nr1) + ". powon= " + Conversion.Str((object) Number7) + ", powdef=" + Conversion.Str((object) Number8) + " (core=" + Conversion.Str((object) Number9) + ", neighbours=" + Conversion.Str((object) Number10) + ". CAUSES " + Conversion.Str((object) Number11) + " dammage on defender.  And " + Conversion.Str((object) Number12) + " dammage on attacker. (ratio is " + Conversion.Str((object) num31) + ")");
+              this.AddLog("COUNTERATTACK on " + this.GetAreaName(nr1) + ". powon= " + Conversion.Str( Number7) + ", powdef=" + Conversion.Str( Number8) + " (core=" + Conversion.Str( Number9) + ", neighbours=" + Conversion.Str( Number10) + ". CAUSES " + Conversion.Str( Number11) + " dammage on defender.  And " + Conversion.Str( Number12) + " dammage on attacker. (ratio is " + Conversion.Str( num31) + ")");
             if (nr1 == 31 & this.AreaGroupCount == 1 & Number7 > 0 & Number8 == 0)
               nr1 = nr1;
             if (Number11 > 0)
@@ -7835,7 +7835,7 @@ label_100:;
                     num44 = 0;
                   if (num44 == 1)
                   {
-                    let mut num45: i32 =  Math.Round((double) Number11 * ((double) this.CorpsTempStrength[index27] / (double) (Number9 + Number10)));
+                    let mut num45: i32 =  Math.Round( Number11 * ( this.CorpsTempStrength[index27] /  (Number9 + Number10)));
                     num41 += num45;
                     let mut num46: i32 = num45;
                     if (num46 > this.CorpsTempStrength[index27])
@@ -7879,18 +7879,18 @@ label_100:;
                   let mut Number13: i32 = 0;
                   if (this.AreaNarrowBorder[nr1, nr5] > 0 & this.AreaBorderNoBridge[nr1, nr5] < 1)
                   {
-                    if ((double) this.StrCounterAttack[nr5, nr1] - (double) this.game.Data.RuleVar[831] >= (double) (this.AreaBorder[nr1, nr5] + 10))
-                      Number13 =  Math.Round((double) Number12 * ((double) (this.AreaEnemy[nr5] * this.AreaFuzzyVP[nr1]) / (double) Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) / (double) num42));
-                    else if ((double) this.StrCounterAttack[nr5, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr5])
-                      Number13 =  Math.Round((double) Number12 * ((double) this.AreaEnemy[nr5] * 0.2 * (double) this.AreaFuzzyVP[nr1] / (double) Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) / (double) num42));
-                    else if ((double) this.game.Data.RuleVar[826] == 0.0 & (double) this.StrCounterAttack[nr5, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr5] / 2.0)
-                      Number13 =  Math.Round((double) Number12 * ((double) this.AreaEnemy[nr5] * 0.1 * (double) this.AreaFuzzyVP[nr1] / (double) Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) / (double) num42));
+                    if ( this.StrCounterAttack[nr5, nr1] -  this.game.Data.RuleVar[831] >=  (this.AreaBorder[nr1, nr5] + 10))
+                      Number13 =  Math.Round( Number12 * ( (this.AreaEnemy[nr5] * this.AreaFuzzyVP[nr1]) /  Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) /  num42));
+                    else if ( this.StrCounterAttack[nr5, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr5])
+                      Number13 =  Math.Round( Number12 * ( this.AreaEnemy[nr5] * 0.2 *  this.AreaFuzzyVP[nr1] /  Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) /  num42));
+                    else if ( this.game.Data.RuleVar[826] == 0.0 &  this.StrCounterAttack[nr5, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr5] / 2.0)
+                      Number13 =  Math.Round( Number12 * ( this.AreaEnemy[nr5] * 0.1 *  this.AreaFuzzyVP[nr1] /  Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) /  num42));
                   }
-                  else if ((double) this.StrCounterAttack[nr5, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr5])
-                    Number13 =  Math.Round((double) Number12 * ((double) (this.AreaEnemy[nr5] * this.AreaFuzzyVP[nr1]) / (double) Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) / (double) num42));
-                  else if ((double) this.game.Data.RuleVar[826] == 0.0 & (double) this.StrCounterAttack[nr5, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr5] / 2.0)
-                    Number13 =  Math.Round((double) Number12 * ((double) this.AreaEnemy[nr5] * 0.1 * (double) this.AreaFuzzyVP[nr1] / (double) Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) / (double) num42));
-                  if ((double) this.StrCounterAttack[nr5, nr1] - (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr5] / 2.0 | (double) this.StrCounterAttack[nr5, nr1] + (double) this.game.Data.RuleVar[831] >= (double) this.AreaBorder[nr1, nr5])
+                  else if ( this.StrCounterAttack[nr5, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr5])
+                    Number13 =  Math.Round( Number12 * ( (this.AreaEnemy[nr5] * this.AreaFuzzyVP[nr1]) /  Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) /  num42));
+                  else if ( this.game.Data.RuleVar[826] == 0.0 &  this.StrCounterAttack[nr5, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr5] / 2.0)
+                    Number13 =  Math.Round( Number12 * ( this.AreaEnemy[nr5] * 0.1 *  this.AreaFuzzyVP[nr1] /  Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)) /  num42));
+                  if ( this.StrCounterAttack[nr5, nr1] -  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr5] / 2.0 |  this.StrCounterAttack[nr5, nr1] +  this.game.Data.RuleVar[831] >=  this.AreaBorder[nr1, nr5])
                   {
                     int[] areaEnemy = this.AreaEnemy;
                     int[] numArray = areaEnemy;
@@ -7899,10 +7899,10 @@ label_100:;
                     let mut num51: i32 = areaEnemy[index32] - Number13;
                     numArray[index33] = num51;
                     if (makelog)
-                      this.AddLog(this.GetAreaName(nr5) + " LOSES " + Conversion.Str((object) Number13));
+                      this.AddLog(this.GetAreaName(nr5) + " LOSES " + Conversion.Str( Number13));
                     if (this.AreaEnemy[nr5] < 0)
                       this.AreaEnemy[nr5] = 0;
-                    num43 +=  Math.Round((double) (this.AreaEnemy[nr5] * this.AreaFuzzyVP[nr1]) / (double) Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)));
+                    num43 +=  Math.Round( (this.AreaEnemy[nr5] * this.AreaFuzzyVP[nr1]) /  Math.Max(1, this.GetAreaEnemyNeighbourCountFuzzyVP(nr5)));
                     num50 += 1;
                   }
                 }
@@ -7925,7 +7925,7 @@ label_100:;
               if (num38 == 0 & num39 > -1 & num43 > 0 & num50 > 0)
               {
                 if (makelog)
-                  this.AddLog("COUNTERATTACK ON " + this.GetAreaName(nr1) + " SUCCEEDS!!! ENEMY TROOPS MOVE IN. " + Conversion.Str((object) ((double) num43 / (double) num50)) + " points move in.");
+                  this.AddLog("COUNTERATTACK ON " + this.GetAreaName(nr1) + " SUCCEEDS!!! ENEMY TROOPS MOVE IN. " + Conversion.Str( ( num43 /  num50)) + " points move in.");
                 let mut groupCounter5: i32 = this.GroupCounter;
                 for (let mut tid: i32 = 0; tid <= groupCounter5; tid += 1)
                 {
@@ -7968,7 +7968,7 @@ label_100:;
                 {
                   if (nr7 != nr1 & this.AreaBorder[nr1, nr7] > 0 && this.GetRegime(this.AreaOwner[nr7]) != this.GetGameDataTurn() && this.game.HandyFunctionsObj.IsHostileNotSelf2(this.GetGameDataTurn(), this.GetRegime(this.AreaOwner[nr7])))
                   {
-                    let mut Number14: i32 =  Math.Round((double) num43 / 2.0 / (double) num50 * ((double)  Math.Round((double) (this.AreaEnemy[nr7] * this.AreaFuzzyVP[nr1]) / (double) Math.Max(this.GetAreaEnemyNeighbourCountFuzzyVP(nr7), 1)) / (double) num43));
+                    let mut Number14: i32 =  Math.Round( num43 / 2.0 /  num50 * (  Math.Round( (this.AreaEnemy[nr7] * this.AreaFuzzyVP[nr1]) /  Math.Max(this.GetAreaEnemyNeighbourCountFuzzyVP(nr7), 1)) /  num43));
                     if (Number14 > this.AreaEnemy[nr7])
                       Number14 = this.AreaEnemy[nr7];
                     int[] areaEnemy = this.AreaEnemy;
@@ -7978,7 +7978,7 @@ label_100:;
                     let mut num54: i32 = areaEnemy[index36] - Number14;
                     numArray[index37] = num54;
                     if (makelog & Number14 > 0)
-                      this.AddLog("FROM " + this.GetAreaName(nr7) + " : " + Conversion.Str((object) Number14));
+                      this.AddLog("FROM " + this.GetAreaName(nr7) + " : " + Conversion.Str( Number14));
                     num40 += Number14;
                     if (this.AreaEnemy[nr7] < 0)
                       this.AreaEnemy[nr7] = 0;
@@ -7991,11 +7991,11 @@ label_100:;
                       }
                       if (this.Attacker)
                       {
-                        num40 +=  Math.Round((double) this.AreaEnemy[nr7] / 2.0);
-                        this.AreaEnemy[nr7] =  Math.Round((double) this.AreaEnemy[nr7] / 2.0);
+                        num40 +=  Math.Round( this.AreaEnemy[nr7] / 2.0);
+                        this.AreaEnemy[nr7] =  Math.Round( this.AreaEnemy[nr7] / 2.0);
                       }
                       if (makelog & Number14 > 0)
-                        this.AddLog("ALL FROM " + this.GetAreaName(nr7) + " : " + Conversion.Str((object) this.AreaEnemy[nr7]));
+                        this.AddLog("ALL FROM " + this.GetAreaName(nr7) + " : " + Conversion.Str( this.AreaEnemy[nr7]));
                       this.AreaEnemy[nr7] = 0;
                     }
                   }
@@ -8134,10 +8134,10 @@ label_100:;
         this.CorpsStance = new int[this.GroupCounter + 1];
       if (this.CorpsAirStrength.GetUpperBound(0) < this.GroupCounter)
         this.CorpsAirStrength = (int[]) Utils.CopyArray((Array) this.CorpsAirStrength, (Array) new int[this.GroupCounter + 1]);
-      if (Information.IsNothing((object) Straty))
+      if (Information.IsNothing( Straty))
         return -99999;
       let mut num2: i32 = !(this.AreaGroupRound == 1 & this.AreaGroupCount > 1) ? (this.AreaGroupCount > 1 ? (this.AreaGroupCount > 3 ? 7 : 7) : 10) : 4;
-      if (this.game.Data.RegimeObj[this.GetGameDataTurn()].ProdBonus >= 100 & (double) Progress > 0.4)
+      if (this.game.Data.RegimeObj[this.GetGameDataTurn()].ProdBonus >= 100 &  Progress > 0.4)
         Progress = 1f;
       if (this.game.Data.RegimeObj[this.GetGameDataTurn()].ProdBonus >= 250)
         Progress = 1f;
@@ -8174,7 +8174,7 @@ label_100:;
             num3 = 0;
           if (this.CorpsAirStrength[index5] > 0)
           {
-            this.CorpsAirEffect[Straty.Data1[nr]] =  Math.Round((double) (this.CorpsAirEffect[Straty.Data1[nr]] * this.CorpsTempAirStrength[Straty.Data1[nr]] + num3 * this.CorpsAirStrength[index5]) / (double) (this.CorpsTempAirStrength[Straty.Data1[nr]] + this.CorpsAirStrength[index5]));
+            this.CorpsAirEffect[Straty.Data1[nr]] =  Math.Round( (this.CorpsAirEffect[Straty.Data1[nr]] * this.CorpsTempAirStrength[Straty.Data1[nr]] + num3 * this.CorpsAirStrength[index5]) /  (this.CorpsTempAirStrength[Straty.Data1[nr]] + this.CorpsAirStrength[index5]));
             int[] corpsTempAirStrength = this.CorpsTempAirStrength;
             int[] numArray3 = corpsTempAirStrength;
             int[] data1 = Straty.Data1;
@@ -8191,7 +8191,7 @@ label_100:;
       if (makelog)
         this.AddLog("STRATEGY SCORE");
       if (makelog)
-        this.AddLog("Is attacker = " + Conversion.Str((object) this.Attacker));
+        this.AddLog("Is attacker = " + Conversion.Str( this.Attacker));
       this.StrConsistSame = 0;
       this.StrConsistDifferent = 0;
       if (makelog)
@@ -8199,7 +8199,7 @@ label_100:;
         if (makelog)
         {
           int Number2;
-          this.AddLog("INITIAL SETUP****" + Conversion.Str((object) Number2) + "****");
+          this.AddLog("INITIAL SETUP****" + Conversion.Str( Number2) + "****");
         }
         let mut Number3: i32 = 0;
         let mut areaCount6: i32 = this.AreaCount;
@@ -8207,12 +8207,12 @@ label_100:;
         {
           if (makelog & this.AreaEnemy[nr] > 0)
           {
-            this.AddLog(this.GetAreaName(nr) + ", Owner = " + Conversion.Str((object) this.AreaOwner[nr]) + ", AreaEnemy = " + Conversion.Str((object) this.AreaEnemy[nr]) + ", AreaSupply = " + Conversion.Str((object) this.EnemySupply[nr]));
+            this.AddLog(this.GetAreaName(nr) + ", Owner = " + Conversion.Str( this.AreaOwner[nr]) + ", AreaEnemy = " + Conversion.Str( this.AreaEnemy[nr]) + ", AreaSupply = " + Conversion.Str( this.EnemySupply[nr]));
             Number3 += this.AreaEnemy[nr];
           }
         }
         if (makelog)
-          this.AddLog("TOTAL AreaEnemy = " + Conversion.Str((object) Number3));
+          this.AddLog("TOTAL AreaEnemy = " + Conversion.Str( Number3));
         if (makelog)
           this.AddLog("***");
       }
@@ -8221,7 +8221,7 @@ label_100:;
       {
         num5 += 1;
         if (makelog)
-          this.AddLog("ROUND " + Conversion.Str((object) num5));
+          this.AddLog("ROUND " + Conversion.Str( num5));
         this.GetStrategyScore_CorpsTarget( Straty, num5, makelog);
         this.GetStrategyScore_FriendlySupply(false, num5);
         if (this.game.Data.RegimeObj[this.GetGameDataTurn()].ProdBonus < 100)
@@ -8241,19 +8241,19 @@ label_100:;
         if (makelog)
         {
           if (makelog)
-            this.AddLog("****" + Conversion.Str((object) num5) + "****");
+            this.AddLog("****" + Conversion.Str( num5) + "****");
           let mut Number4: i32 = 0;
           let mut areaCount7: i32 = this.AreaCount;
           for (let mut nr: i32 = 1; nr <= areaCount7; nr += 1)
           {
             if (makelog & this.AreaEnemy[nr] > 0)
             {
-              this.AddLog(this.GetAreaName(nr) + ", Owner = " + Conversion.Str((object) this.AreaOwner[nr]) + ", AreaEnemy = " + Conversion.Str((object) this.AreaEnemy[nr]) + ", AreaSupply = " + Conversion.Str((object) this.EnemySupply[nr]));
+              this.AddLog(this.GetAreaName(nr) + ", Owner = " + Conversion.Str( this.AreaOwner[nr]) + ", AreaEnemy = " + Conversion.Str( this.AreaEnemy[nr]) + ", AreaSupply = " + Conversion.Str( this.EnemySupply[nr]));
               Number4 += this.AreaEnemy[nr];
             }
           }
           if (makelog)
-            this.AddLog("TOTAL AreaEnemy = " + Conversion.Str((object) Number4));
+            this.AddLog("TOTAL AreaEnemy = " + Conversion.Str( Number4));
           if (makelog)
             this.AddLog("***");
           let mut Number5: i32 = 0;
@@ -8261,16 +8261,16 @@ label_100:;
           for (let mut index: i32 = 0; index <= groupCounter3; index += 1)
           {
             if (makelog & this.CorpsTempStrength[index] > 0)
-              this.AddLog(this.GroupName[index] + ", TempStr = " + Conversion.Str((object) this.CorpsTempStrength[index]) + ", Str = " + Conversion.Str((object) this.CorpsStrength[index]) + ", Area = " + this.GetAreaName(this.CorpsLoc[index]) + ", Target = " + this.GetAreaName(this.CorpsTarget[index]) + " Stance = " + Conversion.Str((object) this.CorpsStance[index]) + ", Supply=" + Conversion.Str((object) this.FriendlySupply[this.CorpsLoc[index]]));
+              this.AddLog(this.GroupName[index] + ", TempStr = " + Conversion.Str( this.CorpsTempStrength[index]) + ", Str = " + Conversion.Str( this.CorpsStrength[index]) + ", Area = " + this.GetAreaName(this.CorpsLoc[index]) + ", Target = " + this.GetAreaName(this.CorpsTarget[index]) + " Stance = " + Conversion.Str( this.CorpsStance[index]) + ", Supply=" + Conversion.Str( this.FriendlySupply[this.CorpsLoc[index]]));
             Number5 += this.CorpsTempStrength[index];
           }
           if (makelog)
-            this.AddLog("TOTAL TempStr = " + Conversion.Str((object) Number5));
+            this.AddLog("TOTAL TempStr = " + Conversion.Str( Number5));
         }
         this.GetStrategyScore_Attacks( Straty, num5, makelog);
         let mut Number6: i32 = this.GetStrategyScoreForVP(makelog, num5);
         if (makelog)
-          this.AddLog(Conversion.Str((object) num5) + ") SCORE FOR VP= " + Conversion.Str((object) Number6));
+          this.AddLog(Conversion.Str( num5) + ") SCORE FOR VP= " + Conversion.Str( Number6));
         if (this.Attacker)
         {
           if (num5 == 1)
@@ -8287,23 +8287,23 @@ label_100:;
             Number6 *= 1;
         }
         if (makelog)
-          this.AddLog(Conversion.Str((object) num5) + ") SCORE AFTER ADJUSTMENT ROUND NR = " + Conversion.Str((object) Number6));
+          this.AddLog(Conversion.Str( num5) + ") SCORE AFTER ADJUSTMENT ROUND NR = " + Conversion.Str( Number6));
         if (this.Attacker)
-          Number6 =  Math.Round((double) Number6 * 0.5 + (double) Number6 * 0.5 * (double) this.GetStrategyScoreForEnemyLeft());
+          Number6 =  Math.Round( Number6 * 0.5 +  Number6 * 0.5 *  this.GetStrategyScoreForEnemyLeft());
         if (makelog & this.Attacker)
-          this.AddLog(Conversion.Str((object) num5) + ") SCORE AFTER ADJUSTMENT ENEMY RATIO (" + Conversion.Str((object) this.GetStrategyScoreForEnemyLeft()) + ") = " + Conversion.Str((object) Number6));
+          this.AddLog(Conversion.Str( num5) + ") SCORE AFTER ADJUSTMENT ENEMY RATIO (" + Conversion.Str( this.GetStrategyScoreForEnemyLeft()) + ") = " + Conversion.Str( Number6));
         if (Number6 > 0)
-          Number6 =  Math.Round((double) Number6 * 0.9 + (double) Number6 * 0.1 * (double) this.GetStrategyScoreForKillRatio());
+          Number6 =  Math.Round( Number6 * 0.9 +  Number6 * 0.1 *  this.GetStrategyScoreForKillRatio());
         else if (Number6 > -1000)
-          Number6 =  Math.Round((double) Number6 * 0.9 + (double) Number6 * 0.1 * (1.0 / (double) this.GetStrategyScoreForKillRatio()));
+          Number6 =  Math.Round( Number6 * 0.9 +  Number6 * 0.1 * (1.0 /  this.GetStrategyScoreForKillRatio()));
         if (makelog)
-          this.AddLog(Conversion.Str((object) num5) + ") SCORE AFTER ADJUSTMENT 0.1 (" + Conversion.Str((object) this.GetStrategyScoreForKillRatio()) + ") KILL RATIO = " + Conversion.Str((object) Number6));
+          this.AddLog(Conversion.Str( num5) + ") SCORE AFTER ADJUSTMENT 0.1 (" + Conversion.Str( this.GetStrategyScoreForKillRatio()) + ") KILL RATIO = " + Conversion.Str( Number6));
         Number1 += Number6;
         if (this.Attacker)
         {
-          let mut Number7: i32 = Number6 <= 0 ?  Math.Round((double) Number6 * 0.2 + (double) Number6 * 0.8 * (1.0 / (double) this.GetStrategyScoreForUnusedCorps(makelog))) :  Math.Round((double) Number6 * 0.2 + (double) Number6 * 0.8 * (double) this.GetStrategyScoreForUnusedCorps(makelog));
+          let mut Number7: i32 = Number6 <= 0 ?  Math.Round( Number6 * 0.2 +  Number6 * 0.8 * (1.0 /  this.GetStrategyScoreForUnusedCorps(makelog))) :  Math.Round( Number6 * 0.2 +  Number6 * 0.8 *  this.GetStrategyScoreForUnusedCorps(makelog));
           if (makelog)
-            this.AddLog(Conversion.Str((object) num5) + ") SCORE AFTER ADJUSTMENT (" + Conversion.Str((object) this.GetStrategyScoreForUnusedCorps(false)) + ") UNUSED RATIO = " + Conversion.Str((object) Number7));
+            this.AddLog(Conversion.Str( num5) + ") SCORE AFTER ADJUSTMENT (" + Conversion.Str( this.GetStrategyScoreForUnusedCorps(false)) + ") UNUSED RATIO = " + Conversion.Str( Number7));
           Number1 += Number7;
         }
         let mut counter: i32 = this.TempPowerAbove.Counter;
@@ -8318,28 +8318,28 @@ label_100:;
           }
           if (num6 > this.TempPowerAbove.Data1[index9])
           {
-            let mut Number8: i32 =  Math.Round((double) ((num6 - this.TempPowerAbove.Data1[index9]) * this.TempPowerAbove.Data2[index9]) / (double) (1 + (num2 - num5)));
+            let mut Number8: i32 =  Math.Round( ((num6 - this.TempPowerAbove.Data1[index9]) * this.TempPowerAbove.Data2[index9]) /  (1 + (num2 - num5)));
             Number1 += Number8;
             if (makelog)
-              this.AddLog(Conversion.Str((object) Number8) + " points for PowerAbove Points in area " + this.GetAreaName(this.TempPowerAbove.Id[index9]));
+              this.AddLog(Conversion.Str( Number8) + " points for PowerAbove Points in area " + this.GetAreaName(this.TempPowerAbove.Id[index9]));
           }
         }
         if (makelog)
-          this.AddLog("***=> END OF ROUND SCORE = " + Conversion.Str((object) Number1));
+          this.AddLog("***=> END OF ROUND SCORE = " + Conversion.Str( Number1));
       }
       if (this.StrConsistSame + this.StrConsistDifferent > 0 & this.game.Data.Round > 1)
       {
-        float Number9 = (float) this.StrConsistSame / (float) (this.StrConsistSame + this.StrConsistDifferent);
+        float Number9 =  this.StrConsistSame /  (this.StrConsistSame + this.StrConsistDifferent);
         if (makelog)
-          this.AddLog("CONSISTENCY MODIFIER (FOR 1/2 OF SCORE) = " + Conversion.Str((object) Number9));
-        Number1 = Number1 <= 0 ? ((double) Number9 != 0.0 ?  Math.Round((double) Number1 * 0.5 + (double) Number1 * 0.5 * (1.0 / (double) Number9)) :  Math.Round((double) Number1 * 0.5)) :  Math.Round((double) Number1 * 0.5 + (double) Number1 * 0.5 * (double) Number9);
+          this.AddLog("CONSISTENCY MODIFIER (FOR 1/2 OF SCORE) = " + Conversion.Str( Number9));
+        Number1 = Number1 <= 0 ? ( Number9 != 0.0 ?  Math.Round( Number1 * 0.5 +  Number1 * 0.5 * (1.0 /  Number9)) :  Math.Round( Number1 * 0.5)) :  Math.Round( Number1 * 0.5 +  Number1 * 0.5 *  Number9);
       }
       let mut Number10: i32 = Number1 - this.ClosenessToFrontScore(makelog);
       if (makelog)
-        this.AddLog("***=> SCORE AFTER ADDING CLOSENESS TO PROGNOSED ENEMY POSITION = " + Conversion.Str((object) Number10));
+        this.AddLog("***=> SCORE AFTER ADDING CLOSENESS TO PROGNOSED ENEMY POSITION = " + Conversion.Str( Number10));
       let mut Number11: i32 = Number10 - this.ClosenessToCurrentFrontScore(makelog);
       if (makelog)
-        this.AddLog("***=> SCORE AFTER ADDING CLOSENESS TO CURRENT ENEMY POSITION= " + Conversion.Str((object) Number11));
+        this.AddLog("***=> SCORE AFTER ADDING CLOSENESS TO CURRENT ENEMY POSITION= " + Conversion.Str( Number11));
       let mut groupCounter5: i32 = this.GroupCounter;
       for (let mut index: i32 = 0; index <= groupCounter5; index += 1)
       {
@@ -8348,7 +8348,7 @@ label_100:;
           let mut Number12: i32 = this.CorpsTempStrength[index];
           Number11 += Number12;
           if (makelog)
-            this.AddLog(Conversion.Str((object) Number12) + " points for surving power points from encirclement ");
+            this.AddLog(Conversion.Str( Number12) + " points for surving power points from encirclement ");
         }
       }
       let mut groupCounter6: i32 = this.GroupCounter;
@@ -8365,24 +8365,24 @@ label_100:;
               let mut nr2: i32 = Straty.FindNr(tid2);
               if (nr2 > -1 & this.GroupType[tid2] <= 5 && Straty.Data1[nr2] != Straty.Data1[nr1] && this.HisAreaDistance[tid1, Straty.Data1[nr1]] > this.HisAreaDistance[tid2, Straty.Data1[nr1]])
               {
-                let mut Number13: i32 =  Math.Round(Math.Sqrt((double)  Math.Round((double) Math.Min(this.corpsstartStrength[tid2], this.corpsstartStrength[tid1]) * ((double) (this.HisAreaDistance[tid1, Straty.Data1[nr1]] - this.HisAreaDistance[tid2, Straty.Data1[nr1]]) / 500.0))));
+                let mut Number13: i32 =  Math.Round(Math.Sqrt(  Math.Round( Math.Min(this.corpsstartStrength[tid2], this.corpsstartStrength[tid1]) * ( (this.HisAreaDistance[tid1, Straty.Data1[nr1]] - this.HisAreaDistance[tid2, Straty.Data1[nr1]]) / 500.0))));
                 Number11 -= Number13;
                 if (makelog)
-                  this.AddLog(Conversion.Str((object) Number13) + " points for having group " + this.GroupName[tid1] + " moving while " + this.GroupName[tid2] + " would have been quicker. = " + Conversion.Str((object) Number13) + " penalty.");
+                  this.AddLog(Conversion.Str( Number13) + " points for having group " + this.GroupName[tid1] + " moving while " + this.GroupName[tid2] + " would have been quicker. = " + Conversion.Str( Number13) + " penalty.");
               }
             }
           }
         }
       }
       if (makelog)
-        this.AddLog("***=> FINAL SCORE AFTER ALL ROUNDS = " + Conversion.Str((object) Number11));
+        this.AddLog("***=> FINAL SCORE AFTER ALL ROUNDS = " + Conversion.Str( Number11));
       let mut d: i32 = 0;
       let mut groupCounter8: i32 = this.GroupCounter;
       for (let mut index: i32 = 0; index <= groupCounter8; index += 1)
         d += this.CorpsTempStrength[index];
-      let mut Number14: i32 = Number11 +  Math.Round(Math.Sqrt((double) d));
+      let mut Number14: i32 = Number11 +  Math.Round(Math.Sqrt( d));
       if (makelog)
-        this.AddLog("***=> FINAL SCORE AFTER SQRT(TOTALTROOPS) added = " + Conversion.Str((object) Number14));
+        this.AddLog("***=> FINAL SCORE AFTER SQRT(TOTALTROOPS) added = " + Conversion.Str( Number14));
       return Number14;
     }
 
@@ -8416,11 +8416,11 @@ label_100:;
           if (Number1 <= 99999)
           {
             if (makelog)
-              this.AddLog(Conversion.Str((object) Number2) + " point multiplier for " + this.GroupName[index1] + ". Closest enemy dist =" + Conversion.Str((object) Number1));
-            let mut Number3: i32 =  Math.Round(Math.Sqrt(Math.Sqrt((double) this.corpsstartStrength[index1]))) * Number2;
+              this.AddLog(Conversion.Str( Number2) + " point multiplier for " + this.GroupName[index1] + ". Closest enemy dist =" + Conversion.Str( Number1));
+            let mut Number3: i32 =  Math.Round(Math.Sqrt(Math.Sqrt( this.corpsstartStrength[index1]))) * Number2;
             frontScore += Number3;
             if (makelog)
-              this.AddLog("Removes -" + Conversion.Str((object) Number3));
+              this.AddLog("Removes -" + Conversion.Str( Number3));
           }
         }
       }
@@ -8457,11 +8457,11 @@ label_100:;
           if (Number1 <= 99999)
           {
             if (makelog)
-              this.AddLog(Conversion.Str((object) Number2) + " point multiplier for " + this.GroupName[index1] + ". Closest CURRENT FRONT enemy dist =" + Conversion.Str((object) Number1));
-            let mut Number3: i32 =  Math.Round((double) ( Math.Round(Math.Sqrt(Math.Sqrt((double) this.corpsstartStrength[index1]))) * Number2) / 2.0);
+              this.AddLog(Conversion.Str( Number2) + " point multiplier for " + this.GroupName[index1] + ". Closest CURRENT FRONT enemy dist =" + Conversion.Str( Number1));
+            let mut Number3: i32 =  Math.Round( ( Math.Round(Math.Sqrt(Math.Sqrt( this.corpsstartStrength[index1]))) * Number2) / 2.0);
             currentFrontScore += Number3;
             if (makelog)
-              this.AddLog("Removes -" + Conversion.Str((object) Number3));
+              this.AddLog("Removes -" + Conversion.Str( Number3));
           }
         }
       }
@@ -8558,7 +8558,7 @@ label_100:;
           }
         }
       }
-      return num2 == 0 ? 0 :  Math.Round((double) num1 / (double) num2);
+      return num2 == 0 ? 0 :  Math.Round( num1 /  num2);
     }
 
     pub int GetAverageAreaEntrench(int Area, let mut CatOnly: i32 = -1)
@@ -8580,7 +8580,7 @@ label_100:;
           }
         }
       }
-      return num2 == 0 ? 0 :  Math.Round((double) num1 / (double) num2);
+      return num2 == 0 ? 0 :  Math.Round( num1 /  num2);
     }
 
     pub Coordinate GetAverageCorpsUnitCoord(int grp, let mut CatOnly: i32 = -1, bool ReturnRoadHex = false)
@@ -8596,7 +8596,7 @@ label_100:;
         {
           let mut num4: i32 = this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr);
           if (this.game.Data.UnitObj[unr].IsHQ)
-            num4 =  Math.Round((double) num4 / 5.0);
+            num4 =  Math.Round( num4 / 5.0);
           num2 += this.game.Data.UnitObj[unr].X * num4;
           num3 += this.game.Data.UnitObj[unr].Y * num4;
           int tid;
@@ -8609,8 +8609,8 @@ label_100:;
       averageCorpsUnitCoord.onmap = false;
       if (num1 == 0 || simpleList1.Counter == -1)
         return averageCorpsUnitCoord;
-      averageCorpsUnitCoord.x =  Math.Round((double) num2 / (double) num1);
-      averageCorpsUnitCoord.y =  Math.Round((double) num3 / (double) num1);
+      averageCorpsUnitCoord.x =  Math.Round( num2 /  num1);
+      averageCorpsUnitCoord.y =  Math.Round( num3 /  num1);
       let mut counter: i32 = simpleList1.Counter;
       for (let mut index: i32 = 0; index <= counter; index += 1)
         simpleList1.Weight[index] = this.game.HandyFunctionsObj.Distance(simpleList1.Data1[index], simpleList1.Data2[index], 0, averageCorpsUnitCoord.x, averageCorpsUnitCoord.y, 0);
@@ -8676,12 +8676,12 @@ label_100:;
         num4 = num3;
       if (num2 > num1)
         num2 = num1;
-      float scoreForKillRatio = (float) (num1 - num2) / (float) Math.Max(1, num3 - num4);
-      if ((double) scoreForKillRatio == 0.0)
+      float scoreForKillRatio =  (num1 - num2) /  Math.Max(1, num3 - num4);
+      if ( scoreForKillRatio == 0.0)
         scoreForKillRatio = 1f;
-      if ((double) scoreForKillRatio < 0.25)
+      if ( scoreForKillRatio < 0.25)
         scoreForKillRatio = scoreForKillRatio;
-      if ((double) scoreForKillRatio > 4.0)
+      if ( scoreForKillRatio > 4.0)
         scoreForKillRatio = 4f;
       return scoreForKillRatio;
     }
@@ -8698,7 +8698,7 @@ label_100:;
       }
       if (num1 == 0)
         return 1f;
-      return num2 > num1 ? 0.0f : 1f - (float) num2 / (float) num1;
+      return num2 > num1 ? 0.0f : 1f -  num2 /  num1;
     }
 
     pub float GetStrategyScoreForUnusedCorps(bool makelog)
@@ -8734,8 +8734,8 @@ label_100:;
           }
         }
       }
-      float scoreForUnusedCorps = (float) num1 / (float) Math.Max(1, num1 + num2);
-      if ((double) scoreForUnusedCorps == 0.0)
+      float scoreForUnusedCorps =  num1 /  Math.Max(1, num1 + num2);
+      if ( scoreForUnusedCorps == 0.0)
         scoreForUnusedCorps = 1f;
       return scoreForUnusedCorps;
     }
@@ -8762,18 +8762,18 @@ label_100:;
           {
             if (this.GetRegime(this.game.Data.MapObj[0].HexObj[x, y].Regime) != this.GetGameDataTurn())
             {
-              let mut Number: i32 =  Math.Round(1000.0 * ((double) (this.AreaExtraVP[nr] + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] + this.game.Data.MapObj[0].HexObj[this.AreaCenter[nr].x, this.AreaCenter[nr].y].VP) / (double) tempTotVp));
+              let mut Number: i32 =  Math.Round(1000.0 * ( (this.AreaExtraVP[nr] + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] + this.game.Data.MapObj[0].HexObj[this.AreaCenter[nr].x, this.AreaCenter[nr].y].VP) /  tempTotVp));
               strategyScoreForVp += Number;
               if (makelog)
-                this.AddLog(this.GetAreaName(nr) + " = + " + Conversion.Str((object) Number) + " pts. (VP) ( Extra VP= " + Conversion.Str((object) this.AreaExtraVP[nr]) + ")");
+                this.AddLog(this.GetAreaName(nr) + " = + " + Conversion.Str( Number) + " pts. (VP) ( Extra VP= " + Conversion.Str( this.AreaExtraVP[nr]) + ")");
             }
           }
           else if (this.GetRegime(this.game.Data.MapObj[0].HexObj[x, y].Regime) == this.GetGameDataTurn() && this.GetRegime(this.AreaOwner[nr]) != this.GetGameDataTurn())
           {
-            let mut Number: i32 =  Math.Round(1000.0 * ((double) (this.AreaExtraVP[nr] + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] + this.game.Data.MapObj[0].HexObj[this.AreaCenter[nr].x, this.AreaCenter[nr].y].VP) / (double) tempTotVp));
+            let mut Number: i32 =  Math.Round(1000.0 * ( (this.AreaExtraVP[nr] + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[x, y] + this.game.Data.MapObj[0].HexObj[this.AreaCenter[nr].x, this.AreaCenter[nr].y].VP) /  tempTotVp));
             strategyScoreForVp -= Number;
             if (makelog)
-              this.AddLog(this.GetAreaName(nr) + " = - " + Conversion.Str((object) Number) + " pts. (VP) ( Extra VP= " + Conversion.Str((object) this.AreaExtraVP[nr]) + ")");
+              this.AddLog(this.GetAreaName(nr) + " = - " + Conversion.Str( Number) + " pts. (VP) ( Extra VP= " + Conversion.Str( this.AreaExtraVP[nr]) + ")");
           }
         }
       }
@@ -8788,12 +8788,12 @@ label_100:;
           num4 += this.AreaEnemy[index];
         }
       }
-      float num5 = num3 <= 0 ? 0.0f : 1f - (float) num4 / (float) num3;
-      if ((double) num5 > 1.0)
+      float num5 = num3 <= 0 ? 0.0f : 1f -  num4 /  num3;
+      if ( num5 > 1.0)
         num5 = 1f;
-      if ((double) num5 < 0.0)
+      if ( num5 < 0.0)
         num5 = 0.0f;
-      num1 =  Math.Round((double) (350f * ((float) num2 / (float) Math.Max(1, tempTotVp - tempCurVp)) * num5));
+      num1 =  Math.Round( (350f * ( num2 /  Math.Max(1, tempTotVp - tempCurVp)) * num5));
       let mut Number1: i32 = 0;
       let mut areaCount3: i32 = this.AreaCount;
       for (let mut index: i32 = 1; index <= areaCount3; index += 1)
@@ -8807,23 +8807,23 @@ label_100:;
         }
       }
       if (makelog)
-        this.AddLog("Our AI has " + Conversion.Str((object) Number1) + " VP prognosed.");
+        this.AddLog("Our AI has " + Conversion.Str( Number1) + " VP prognosed.");
       bool flag;
-      if (this.Attacker && (double) this.game.Data.RuleVar[266] > 0.0 & (double) Number1 >= (double) this.game.Data.RuleVar[266])
+      if (this.Attacker &&  this.game.Data.RuleVar[266] > 0.0 &  Number1 >=  this.game.Data.RuleVar[266])
       {
         strategyScoreForVp *= 20;
         flag = true;
         if (makelog)
           this.AddLog("CONSIDERED VICTORY *20");
       }
-      if (!this.Attacker && (double) this.game.Data.RuleVar[265] > 0.0 & (double) Number1 <= (double) this.game.Data.RuleVar[265] & this.AreaGroupCount == 1)
+      if (!this.Attacker &&  this.game.Data.RuleVar[265] > 0.0 &  Number1 <=  this.game.Data.RuleVar[265] & this.AreaGroupCount == 1)
       {
         strategyScoreForVp -= 2000;
         flag = true;
         if (makelog)
           this.AddLog("CONSIDER LOST. subtracted -2000. ");
       }
-      if ((double) (this.game.Data.Round + round) > (double) this.game.Data.RuleVar[844] & (double) this.game.Data.RuleVar[844] > 0.0)
+      if ( (this.game.Data.Round + round) >  this.game.Data.RuleVar[844] &  this.game.Data.RuleVar[844] > 0.0)
       {
         if (this.Attacker & !flag)
         {
@@ -8849,11 +8849,11 @@ label_100:;
       }
       if (num6 > 0 | num7 > 0)
       {
-        let mut Number2: i32 = num6 +  Math.Round((double) num6 * ((double) this.AverageVP / 2.0));
-        let mut Number3: i32 = num7 +  Math.Round((double) num7 * ((double) this.AverageVP / 2.0));
+        let mut Number2: i32 = num6 +  Math.Round( num6 * ( this.AverageVP / 2.0));
+        let mut Number3: i32 = num7 +  Math.Round( num7 * ( this.AverageVP / 2.0));
         strategyScoreForVp = strategyScoreForVp + Number2 - Number3;
         if (makelog)
-          this.AddLog("Score for Areas Added " + Conversion.Str((object) Number2) + " Score for Areas Lost -" + Conversion.Str((object) Number3));
+          this.AddLog("Score for Areas Added " + Conversion.Str( Number2) + " Score for Areas Lost -" + Conversion.Str( Number3));
       }
       return strategyScoreForVp;
     }
@@ -9104,7 +9104,7 @@ label_100:;
       }
       if (num1 <= 0)
         return 0;
-      let mut num3: i32 =  Math.Round((double) (Conversion.Int((float) num1 * VBMath.Rnd()) + 1f));
+      let mut num3: i32 =  Math.Round( (Conversion.Int( num1 * VBMath.Rnd()) + 1f));
       let mut num4: i32 = 0;
       let mut upperBound2: i32 = this.AreaCenter.GetUpperBound(0);
       for (let mut randomFriendlyArea: i32 = 1; randomFriendlyArea <= upperBound2; randomFriendlyArea += 1)
@@ -9171,7 +9171,7 @@ label_100:;
     {
       if (this.RandomAreaNeighbourCount[nr] <= -1)
         return 0;
-      let mut num1: i32 =  Math.Round((double) Conversion.Int((float) (this.RandomAreaNeighbourCount[nr] + 1) * VBMath.Rnd()));
+      let mut num1: i32 =  Math.Round( Conversion.Int( (this.RandomAreaNeighbourCount[nr] + 1) * VBMath.Rnd()));
       let mut num2: i32 = 0;
       let mut num3: i32 = this.RandomAreaNeighbourCount[nr];
       for (let mut index: i32 = 0; index <= num3; index += 1)
@@ -9228,7 +9228,7 @@ label_100:;
       }
       if (num1 <= 0)
         return 0;
-      let mut num3: i32 =  Math.Round((double) (Conversion.Int((float) num1 * VBMath.Rnd()) + 1f));
+      let mut num3: i32 =  Math.Round( (Conversion.Int( num1 * VBMath.Rnd()) + 1f));
       let mut num4: i32 = 0;
       let mut upperBound2: i32 = this.AreaCenter.GetUpperBound(0);
       for (let mut areaNeighbourBroad: i32 = 1; areaNeighbourBroad <= upperBound2; areaNeighbourBroad += 1)
@@ -9286,7 +9286,7 @@ label_100:;
       }
       if (num1 <= 0)
         return 0;
-      let mut num3: i32 =  Math.Round((double) (Conversion.Int((float) num1 * VBMath.Rnd()) + 1f));
+      let mut num3: i32 =  Math.Round( (Conversion.Int( num1 * VBMath.Rnd()) + 1f));
       let mut num4: i32 = 0;
       let mut upperBound2: i32 = this.AreaCenter.GetUpperBound(0);
       for (let mut randomAreaNeighbour: i32 = 1; randomAreaNeighbour <= upperBound2; randomAreaNeighbour += 1)
@@ -9410,15 +9410,15 @@ label_100:;
     pub int GetScoreForReconquestOfImportance()
     {
       let mut reconquestOfImportance: i32 = 0;
-      if ((double) this.game.Data.RuleVar[335] > 0.0)
+      if ( this.game.Data.RuleVar[335] > 0.0)
       {
         let mut num: i32 = 0;
         do
         {
-          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num * 4)))] > 0)
+          if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num * 4)))] > 0)
           {
-            let mut regime: i32 = this.game.Data.MapObj[0].HexObj[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))]].Regime;
-            let mut nr: i32 = this.TempCounterOwner[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))]];
+            let mut regime: i32 = this.game.Data.MapObj[0].HexObj[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))]].Regime;
+            let mut nr: i32 = this.TempCounterOwner[this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))]];
             if (!this.game.HandyFunctionsObj.IsAlliedOrSelf(this.GetRegime(regime), this.GetGameDataTurn()) && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.GetRegime(nr), this.GetGameDataTurn()))
               reconquestOfImportance += 2000;
             if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.GetRegime(regime), this.GetGameDataTurn()) && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.GetRegime(nr), this.GetGameDataTurn()))
@@ -9446,14 +9446,14 @@ label_100:;
           numArray1[index1, index2] = 0;
         }
       }
-      if ((double) this.game.Data.RuleVar[335] <= 0.0)
+      if ( this.game.Data.RuleVar[335] <= 0.0)
         return;
       let mut num: i32 = 0;
       do
       {
-        if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num * 4)))] > 0)
+        if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num * 4)))] > 0)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))], 0, DontCountEnemyRoads: true, UseCounterOwner: true);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))], 0, DontCountEnemyRoads: true, UseCounterOwner: true);
           let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
           for (let mut index3: i32 = 0; index3 <= mapWidth2; index3 += 1)
           {
@@ -9485,14 +9485,14 @@ label_100:;
           numArray1[index1, index2] = 0;
         }
       }
-      if ((double) this.game.Data.RuleVar[335] <= 0.0)
+      if ( this.game.Data.RuleVar[335] <= 0.0)
         return;
       let mut num: i32 = 0;
       do
       {
-        if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 3f + (float) (num * 4)))] > 0)
+        if (this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 3f +  (num * 4)))] > 0)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 0.0f + (float) (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round((double) (this.game.Data.RuleVar[335] + 1f + (float) (num * 4)))], 0, DontCountEnemyRoads: true, UseCounterOwner: true, UseTempOwner: true);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.GetGameDataTurn(),  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 0.0f +  (num * 4)))], this.game.Data.RegimeObj[this.GetGameDataTurn()].RegimeSlot[ Math.Round( (this.game.Data.RuleVar[335] + 1f +  (num * 4)))], 0, DontCountEnemyRoads: true, UseCounterOwner: true, UseTempOwner: true);
           let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
           for (let mut index3: i32 = 0; index3 <= mapWidth2; index3 += 1)
           {
@@ -9577,7 +9577,7 @@ label_100:;
         coordinate2 = this.AreaCenter[this.game.Data.UnitObj[groupHq].AIDefend];
         if (coordinate1.onmap & coordinate2.onmap)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
           coordinate4 = coordinate2;
           coordinate3 = coordinate2;
           this.AdvanceAxisMatrix[coordinate4.x, coordinate4.y] = 0;
@@ -9591,7 +9591,7 @@ label_100:;
         coordinate2 = this.AreaCenter[this.game.Data.UnitObj[groupHq].AIAttack];
         if (coordinate1.onmap & coordinate2.onmap)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
           coordinate4 = coordinate2;
           coordinate3 = coordinate2;
           this.AdvanceAxisMatrix[coordinate4.x, coordinate4.y] = 0;
@@ -9605,7 +9605,7 @@ label_100:;
         coordinate2 = this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFollowup];
         if (coordinate1.onmap & coordinate2.onmap)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
           coordinate4 = coordinate2;
           coordinate3 = coordinate2;
           this.AdvanceAxisMatrix[coordinate4.x, coordinate4.y] = 0;
@@ -9616,7 +9616,7 @@ label_100:;
       int num1;
       if (coordinate1.x > -1 & coordinate2.x > -1)
       {
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), coordinate2.x, coordinate2.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate1.x, TarY: coordinate1.y, TarMap: 0);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), coordinate2.x, coordinate2.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate1.x, TarY: coordinate1.y, TarMap: 0);
         coordinate4 = coordinate1;
         this.FullAdvanceMatrix[coordinate4.x, coordinate4.y] = 0;
         int num2;
@@ -9635,7 +9635,7 @@ label_100:;
             coordinate4 = this.AreaCenter[this.CorpsLoc[this.OpGroup]];
           if (coordinate4.x > -1)
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate4.x, TarY: coordinate4.y, TarMap: 0);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate4.x, TarY: coordinate4.y, TarMap: 0);
             this.FullAdvanceMatrix[coordinate4.x, coordinate4.y] = 0;
             num1 += 1;
             for (coordinate4 = this.game.EditObj.TempCameFrom[0].Value[coordinate4.x, coordinate4.y]; coordinate4.onmap & !(coordinate4.x == coordinate1.x & coordinate4.y == coordinate1.y); coordinate4 = this.game.EditObj.TempCameFrom[0].Value[coordinate4.x, coordinate4.y])
@@ -9649,7 +9649,7 @@ label_100:;
       if (coordinate1.x > -1 & coordinate2.x > -1)
       {
         let mut num3: i32 = num1 + 3;
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), coordinate1.x, coordinate1.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate2.x, TarY: coordinate2.y, TarMap: 0);
         coordinate4 = coordinate2;
         this.FullAdvanceMatrix[coordinate4.x, coordinate4.y] = num3;
         let mut num4: i32 = num3 - 1;
@@ -9667,7 +9667,7 @@ label_100:;
             coordinate4 = this.AreaCenter[this.CorpsLoc[this.OpGroup]];
           if (coordinate4.x > -1)
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), coordinate4.x, coordinate4.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate1.x, TarY: coordinate1.y, TarMap: 0);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), coordinate4.x, coordinate4.y, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, NoBridgePenalty: true, TarX: coordinate1.x, TarY: coordinate1.y, TarMap: 0);
             Coordinate coordinate5 = coordinate4;
             coordinate4 = coordinate1;
             this.FullAdvanceMatrix[coordinate4.x, coordinate4.y] = num4;
@@ -9697,9 +9697,9 @@ label_100:;
               do
               {
                 coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
-                if (coordinate1.onmap && numArray[coordinate1.x, coordinate1.y] == 0 & this.FullAdvanceMatrix[coordinate1.x, coordinate1.y] <= 0 &&  Math.Round((double) this.FullAdvanceMatrix[cx, cy] * 0.75) > this.FullAdvanceMatrix[coordinate1.x, coordinate1.y])
+                if (coordinate1.onmap && numArray[coordinate1.x, coordinate1.y] == 0 & this.FullAdvanceMatrix[coordinate1.x, coordinate1.y] <= 0 &&  Math.Round( this.FullAdvanceMatrix[cx, cy] * 0.75) > this.FullAdvanceMatrix[coordinate1.x, coordinate1.y])
                 {
-                  this.FullAdvanceMatrix[coordinate1.x, coordinate1.y] =  Math.Round((double) this.FullAdvanceMatrix[cx, cy] * 0.75);
+                  this.FullAdvanceMatrix[coordinate1.x, coordinate1.y] =  Math.Round( this.FullAdvanceMatrix[cx, cy] * 0.75);
                   num6 = 1;
                 }
                 tfacing += 1;
@@ -9719,7 +9719,7 @@ label_100:;
           this.ptemp[index3, index4] = 0;
           if (this.AdvanceAxisMatrix[index3, index4] > -1)
           {
-            if ((double) this.SupplyMatrixReal[index3, index4] < (double) this.game.Data.RuleVar[53])
+            if ( this.SupplyMatrixReal[index3, index4] <  this.game.Data.RuleVar[53])
             {
               this.ptemp[index3, index4] = 1;
               this.ptemp2[index3, index4] = 1;
@@ -9876,7 +9876,7 @@ label_38:
       while (num < 50 & power > 0 & num <= this.MoveMatrixCounter * 3)
       {
         num += 1;
-        let mut index3: i32 =  Math.Round((double) ((float) coordList.counter * VBMath.Rnd()));
+        let mut index3: i32 =  Math.Round( ( coordList.counter * VBMath.Rnd()));
         coordinate = coordList.coord[index3];
         if (coordinate.onmap)
         {
@@ -9930,7 +9930,7 @@ label_38:
       int num;
       for (; num < 100; num += 1)
       {
-        let mut unr: i32 =  Math.Round((double) (VBMath.Rnd() * (float) this.game.Data.UnitCounter));
+        let mut unr: i32 =  Math.Round( (VBMath.Rnd() *  this.game.Data.UnitCounter));
         if (this.game.Data.UnitObj[unr].Regime == regnr & !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].PreDef == -1 & !this.game.Data.UnitObj[unr].IsVirtual && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) & !this.game.HandyFunctionsObj.HasUnitNavySF(unr))
           return unr;
       }
@@ -9960,7 +9960,7 @@ label_38:
             Target.y = this.AirMarkerList.Data4[index1];
             this.game.EditObj.TempUnitList = UnitList::new();
             this.JoinUnitsAirAttack(Target.x, Target.y,  this.game.EditObj.TempUnitList);
-            this.AddLog("AIR ATTACK ON " + Conversion.Str((object) Target.x) + "," + Conversion.Str((object) Target.y) + " with points score = " + Conversion.Str((object) scoreForAirAttack));
+            this.AddLog("AIR ATTACK ON " + Conversion.Str( Target.x) + "," + Conversion.Str( Target.y) + " with points score = " + Conversion.Str( scoreForAirAttack));
             s: String = "PARTICIPANTS: ";
             let mut counter2: i32 = this.game.EditObj.TempUnitList.counter;
             for (let mut index2: i32 = 0; index2 <= counter2; index2 += 1)
@@ -9999,7 +9999,7 @@ label_38:
             Target.y = this.ArtMarkerList.Data4[index4];
             this.game.EditObj.TempUnitList = UnitList::new();
             this.JoinUnitsArtilleryAttack(Target.x, Target.y,  this.game.EditObj.TempUnitList);
-            this.AddLog("ARTILLERY ATTACK ON " + Conversion.Str((object) Target.x) + "," + Conversion.Str((object) Target.y) + " with points score = " + Conversion.Str((object) scoreForArtAttack));
+            this.AddLog("ARTILLERY ATTACK ON " + Conversion.Str( Target.x) + "," + Conversion.Str( Target.y) + " with points score = " + Conversion.Str( scoreForArtAttack));
             s: String = "PARTICIPANTS: ";
             let mut counter5: i32 = this.game.EditObj.TempUnitList.counter;
             for (let mut index5: i32 = 0; index5 <= counter5; index5 += 1)
@@ -10045,9 +10045,9 @@ label_38:
               ;
             if (this.Attacker)
             {
-              if ((double) this.CorpsTopRatio[this.OpGroup] > 1.0)
-                num1 =  Math.Round((double) num1 / Math.Sqrt((double) Math.Min(9f, this.CorpsTopRatio[this.OpGroup])));
-              num1 =  Math.Round((double) num1 * 0.9);
+              if ( this.CorpsTopRatio[this.OpGroup] > 1.0)
+                num1 =  Math.Round( num1 / Math.Sqrt( Math.Min(9f, this.CorpsTopRatio[this.OpGroup])));
+              num1 =  Math.Round( num1 * 0.9);
             }
             if (scoreForAttack >= num1)
             {
@@ -10059,7 +10059,7 @@ label_38:
               this.JoinUnitsInLandAttack(Target.x, Target.y,  this.game.EditObj.TempUnitList);
               if (this.game.EditObj.TempUnitList.counter > -1)
               {
-                this.AddLog("ATTACK ON " + Conversion.Str((object) Target.x) + "," + Conversion.Str((object) Target.y) + " with points score = " + Conversion.Str((object) scoreForAttack));
+                this.AddLog("ATTACK ON " + Conversion.Str( Target.x) + "," + Conversion.Str( Target.y) + " with points score = " + Conversion.Str( scoreForAttack));
                 s: String = "PARTICIPANTS: ";
                 let mut counter8: i32 = this.game.EditObj.TempUnitList.counter;
                 for (let mut index8: i32 = 0; index8 <= counter8; index8 += 1)
@@ -10153,7 +10153,7 @@ label_38:
                     this.game.HandyFunctionsObj.MakeMovePrediction(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, ismove: true);
                     if (this.game.EditObj.TempValue[0].Value[index2, index3] < 9999)
                     {
-                      this.AddLog("AIR MOVING " + this.game.Data.UnitObj[unr].Name + " TO <" + Conversion.Str((object) index2) + "," + Conversion.Str((object) index3) + ">");
+                      this.AddLog("AIR MOVING " + this.game.Data.UnitObj[unr].Name + " TO <" + Conversion.Str( index2) + "," + Conversion.Str( index3) + ">");
                       this.game.ProcessingObj.ExecuteMovement(unr, x1, y1, 0, index2, index3, 0);
                     }
                   }
@@ -10188,7 +10188,7 @@ label_38:
                       {
                         if (this.game.EditObj.TempValue[0].Value[x2, y2] < 9999)
                         {
-                          this.AddLog("MOVING " + this.game.Data.UnitObj[unr].Name + " TO <" + Conversion.Str((object) x2) + "," + Conversion.Str((object) y2) + ">");
+                          this.AddLog("MOVING " + this.game.Data.UnitObj[unr].Name + " TO <" + Conversion.Str( x2) + "," + Conversion.Str( y2) + ">");
                           this.game.ProcessingObj.ExecuteMovement(unr, x1, y1, 0, x2, y2, 0);
                           if (this.game.Data.MapObj[0].HexObj[x2, y2].UnitCounter <= 15)
                             ;
@@ -10204,7 +10204,7 @@ label_38:
                             if (this.game.EditObj.TempValue[0].Value[index4, index5] == 0 & facing >= 0)
                             {
                               this.game.ProcessingObj.BuildInfra(unr, x2, y2, 0, facing);
-                              this.AddLog("ENGINEER " + this.game.Data.UnitObj[unr].Name + " BUILD BRIDGE FROM <" + Conversion.Str((object) x2) + "," + Conversion.Str((object) y2) + "> to <" + Conversion.Str((object) index4) + "," + Conversion.Str((object) index5));
+                              this.AddLog("ENGINEER " + this.game.Data.UnitObj[unr].Name + " BUILD BRIDGE FROM <" + Conversion.Str( x2) + "," + Conversion.Str( y2) + "> to <" + Conversion.Str( index4) + "," + Conversion.Str( index5));
                             }
                           }
                         }
@@ -10252,9 +10252,9 @@ label_38:
                   num5 = this.AreaBridges[index6].Data2[index7];
                 }
                 let mut facing: i32 = this.game.HandyFunctionsObj.HexFacing(this.game.EditObj.OrderX, this.game.EditObj.OrderY, 0, num4, num5, 0) - 1;
-                if (facing >= 0 && this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Bridge[facing] && (double) this.game.Data.RuleVar[505] == 0.0 & (double) this.game.Data.RuleVar[809] == 0.0)
+                if (facing >= 0 && this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Bridge[facing] &&  this.game.Data.RuleVar[505] == 0.0 &  this.game.Data.RuleVar[809] == 0.0)
                 {
-                  this.AddLog("BLOW BRIDGE ATTEMPT TOWARDS " + Conversion.Str((object) num4) + "," + Conversion.Str((object) num5));
+                  this.AddLog("BLOW BRIDGE ATTEMPT TOWARDS " + Conversion.Str( num4) + "," + Conversion.Str( num5));
                   this.game.ProcessingObj.BlowBridge(unr, this.game.EditObj.OrderX, this.game.EditObj.OrderY, 0, facing);
                 }
                 this.game.EditObj.OrderX = -1;
@@ -10395,7 +10395,7 @@ label_38:
       if (randomAttackMarkers1.Counter > -1)
       {
         randomAttackMarkers1.Sort();
-        let mut index1: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (Math.Min(10, randomAttackMarkers1.Counter) + 1)));
+        let mut index1: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (Math.Min(10, randomAttackMarkers1.Counter) + 1)));
         let mut num2: i32 = Math.Min(10, randomAttackMarkers1.Counter);
         for (let mut index2: i32 = 0; index2 <= num2; index2 += 1)
         {
@@ -10416,8 +10416,8 @@ label_38:
       let mut counter: i32 = tlist.Counter;
       for (let mut tid: i32 = 0; tid <= counter; tid += 1)
       {
-        if ((double) this.BottleNeckMatrix[tlist.Data1[tid], tlist.Data2[tid]] > 5.0 + (double) VBMath.Rnd() * 20.0)
-          bottleneckMarkers.Add(tid,  Math.Round((double) this.MoveMatrix[movematrixnr, tlist.Data1[tid], tlist.Data2[tid]] / (double) this.BottleNeckMatrix[tlist.Data1[tid], tlist.Data2[tid]]), tlist.Data1[tid], tlist.Data2[tid], tlist.Data1[tid], tlist.Data2[tid]);
+        if ( this.BottleNeckMatrix[tlist.Data1[tid], tlist.Data2[tid]] > 5.0 +  VBMath.Rnd() * 20.0)
+          bottleneckMarkers.Add(tid,  Math.Round( this.MoveMatrix[movematrixnr, tlist.Data1[tid], tlist.Data2[tid]] /  this.BottleNeckMatrix[tlist.Data1[tid], tlist.Data2[tid]]), tlist.Data1[tid], tlist.Data2[tid], tlist.Data1[tid], tlist.Data2[tid]);
       }
       bottleneckMarkers.Sort();
       return bottleneckMarkers;
@@ -10482,7 +10482,7 @@ label_38:
           {
             int num6;
             num6 += 1;
-            if (num6 ==  Math.Round((double) Conversion.Int(trnd * (float) num1)) + 1)
+            if (num6 ==  Math.Round( Conversion.Int(trnd *  num1)) + 1)
             {
               let mut counter7: i32 = tMarkerlist.Counter;
               int num7;
@@ -10491,7 +10491,7 @@ label_38:
                 if (this.MoveMatrix[UnitSlot, tMarkerlist.Data1[index7], tMarkerlist.Data2[index7]] < 9999 | this.game.Data.UnitObj[unr].X == tMarkerlist.Data1[index7] & this.game.Data.UnitObj[unr].Y == tMarkerlist.Data2[index7] && tMarkerlist.Data3[index7] == this.MarkerList.Data3[index4] & tMarkerlist.Data4[index7] == this.MarkerList.Data4[index4])
                   num7 += 1;
               }
-              let mut num8: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) num7)) + 1;
+              let mut num8: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  num7)) + 1;
               if (num7 > 0)
               {
                 let mut counter8: i32 = tMarkerlist.Counter;
@@ -10523,7 +10523,7 @@ label_38:
           this.game.Data.UnitObj[unr].TempUnitPower = this.GetUnitPower(unr, false);
           this.game.Data.UnitObj[unr].TempCombatImprovePercent = this.game.HandyFunctionsObj.GetCombatImprovePercent(unr);
           if (this.OpGroup == 1)
-            this.AddLog2(this.game.Data.UnitObj[unr].Name + " TEMPUNITPOWER = " + Conversion.Str((object) this.game.Data.UnitObj[unr].TempUnitPower) + " , COMBATIMPRPERCENT=" + Conversion.Str((object) this.game.Data.UnitObj[unr].TempCombatImprovePercent));
+            this.AddLog2(this.game.Data.UnitObj[unr].Name + " TEMPUNITPOWER = " + Conversion.Str( this.game.Data.UnitObj[unr].TempUnitPower) + " , COMBATIMPRPERCENT=" + Conversion.Str( this.game.Data.UnitObj[unr].TempCombatImprovePercent));
         }
       }
       this.AAM1.x = this.game.Data.MapObj[0].MapWidth;
@@ -10589,7 +10589,7 @@ label_38:
           this.CMS2.y = Math.Min(this.game.Data.MapObj[0].MapHeight, y + 10);
       }
       let mut num3: i32 = num2 + 1;
-      this.AverageSupplyPercentage =  Math.Round(100.0 * ((double) num1 / (double) num3));
+      this.AverageSupplyPercentage =  Math.Round(100.0 * ( num1 /  num3));
       let mut num4: i32 = 0;
       SimpleList simpleList1 = SimpleList::new();
       let mut moveMatrixCounter2: i32 = this.MoveMatrixCounter;
@@ -10645,7 +10645,7 @@ label_38:
       {
         bool flag1 = true;
         GC.Collect();
-        VBMath.Randomize((double) (this.game.Data.Turn + this.game.Data.Round + this.game.Data.MapObj[0].MapWidth));
+        VBMath.Randomize( (this.game.Data.Turn + this.game.Data.Round + this.game.Data.MapObj[0].MapWidth));
         let mut Number1: i32 = -9999;
         let mut Number2: i32 = 0;
         this.Meeting = false;
@@ -10664,23 +10664,23 @@ label_38:
         let mut tid: i32 = 0;
         let mut Number3: i32 = this.DIFFICULTY_LEVEL_MOVES_FOR_BEST_MOVE;
         if (this.MoveMatrixCounter > 15)
-          Number3 =  Math.Round((double) Number3 * Math.Sqrt((double) this.MoveMatrixCounter / 15.0));
+          Number3 =  Math.Round( Number3 * Math.Sqrt( this.MoveMatrixCounter / 15.0));
         if (this.MoveAndAttackRound > 1)
-          Number3 =  Math.Round((double) Number3 / (double) this.MoveAndAttackRound);
+          Number3 =  Math.Round( Number3 /  this.MoveAndAttackRound);
         if (this.MoveMatrixCounter <= 1)
         {
-          Number3 =  Math.Round((double) Number3 / 4.0);
+          Number3 =  Math.Round( Number3 / 4.0);
           if (this.GroupType[this.OpGroup] >= 5)
-            Number3 =  Math.Round((double) Number3 / 4.0);
+            Number3 =  Math.Round( Number3 / 4.0);
         }
         else if (this.MoveMatrixCounter <= 2)
-          Number3 =  Math.Round((double) Number3 / 3.0);
+          Number3 =  Math.Round( Number3 / 3.0);
         else if (this.MoveMatrixCounter <= 3)
-          Number3 =  Math.Round((double) Number3 / 2.5);
+          Number3 =  Math.Round( Number3 / 2.5);
         else if (this.MoveMatrixCounter <= 4)
-          Number3 =  Math.Round((double) Number3 / 2.0);
+          Number3 =  Math.Round( Number3 / 2.0);
         else if (this.MoveMatrixCounter <= 5)
-          Number3 =  Math.Round((double) Number3 / 1.5);
+          Number3 =  Math.Round( Number3 / 1.5);
         if (Number3 < 10)
           Number3 = 10;
         let mut num5: i32 = 99999;
@@ -10696,7 +10696,7 @@ label_38:
         }
         while (index8 <= 90);
         if (flag1)
-          this.AddLog2("MAXMOVE = " + Conversion.Str((object) Number3));
+          this.AddLog2("MAXMOVE = " + Conversion.Str( Number3));
         bool quicktest = false;
         let mut num9: i32 = this.game.Data.RegimeObj[this.game.Data.Turn].ProdBonus <= 100 & this.CorpsStance[this.OpGroup] == 3 ? 1 : 0;
         int num10;
@@ -10716,17 +10716,17 @@ label_38:
           {
             this.game.EditObj.AIProgressMax = Number3;
             this.game.EditObj.AIProgressNow = Number2;
-            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str((object) this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str((object)  Math.Round((double) Number2 / (double) Number3 * 100.0))) + "% completed.";
+            this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + ". Round " + Conversion.Str( this.MoveAndAttackRound) + ". " + Strings.Trim(Conversion.Str(  Math.Round( Number2 /  Number3 * 100.0))) + "% completed.";
           }
           bool flag3 = false;
           if (Number2 + 10 < Number3)
           {
-            if ((double) VBMath.Rnd() < 0.02)
+            if ( VBMath.Rnd() < 0.02)
             {
               num6 = 9999;
               flag3 = true;
             }
-            else if ((double) VBMath.Rnd() < 0.02)
+            else if ( VBMath.Rnd() < 0.02)
             {
               num7 = 9999;
               flag3 = true;
@@ -10806,16 +10806,16 @@ label_38:
                   this.MoveMatrixUnitMarker[index10] = tdata2_1;
                 }
               }
-              else if (!Information.IsNothing((object) simpleList2))
+              else if (!Information.IsNothing( simpleList2))
               {
-                if (flag3 | (double) Number2 <= (double) Number3 / 8.0)
+                if (flag3 |  Number2 <=  Number3 / 8.0)
                 {
                   if (flag1)
                     this.AddLog2(this.game.Data.UnitObj[index11].Name + " => Random OR Doctrines");
                   tid += 1;
                   let mut num19: i32 = 1;
                   let mut num20: i32 = 0;
-                  if ((this.Attacker & (double) num12 < 0.1 | !this.Attacker & (double) num12 < 0.05) & !this.game.Data.UnitObj[index11].IsHQ)
+                  if ((this.Attacker &  num12 < 0.1 | !this.Attacker &  num12 < 0.05) & !this.game.Data.UnitObj[index11].IsHQ)
                   {
                     if (flag1)
                       this.AddLog2(this.game.Data.UnitObj[index11].Name + " => ShockAwe Doctrine");
@@ -10831,7 +10831,7 @@ label_38:
                       this.MoveMatrixUnitMarker[index10] = tdata2_1;
                     }
                   }
-                  else if ((this.Attacker & (double) num12 < 0.1 | !this.Attacker & (double) num12 < 0.05) & this.game.Data.UnitObj[index11].IsHQ)
+                  else if ((this.Attacker &  num12 < 0.1 | !this.Attacker &  num12 < 0.05) & this.game.Data.UnitObj[index11].IsHQ)
                   {
                     if (flag1)
                       this.AddLog2(this.game.Data.UnitObj[index11].Name + " => HQ in focus Doctrine");
@@ -10915,7 +10915,7 @@ label_38:
                   {
                     if (flag1)
                       this.AddLog2(this.game.Data.UnitObj[index11].Name + " => Closest Target (HQ)");
-                    let mut tdata2_2: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                    let mut tdata2_2: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                     let mut tdata3: i32 = simpleList2.Data1[tdata2_2];
                     let mut tdata4: i32 = simpleList2.Data2[tdata2_2];
                     TempMove.Add(tid, 1, index10, tdata2_2, tdata3, tdata4, CheckExistence: false, CheckData1Existence: true);
@@ -10941,17 +10941,17 @@ label_38:
                   while (num19 == 1 & num20 < 100)
                   {
                     num20 += 1;
-                    let mut tdata2_3: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                    let mut tdata2_3: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                     if (this.MoveMatrix[index10, simpleList2.Data1[tdata2_3], simpleList2.Data2[tdata2_3]] < 9999 | this.game.Data.UnitObj[index11].X == simpleList2.Data1[tdata2_3] & this.game.Data.UnitObj[index11].Y == simpleList2.Data2[tdata2_3])
                     {
                       int tdata3;
                       int tdata4;
-                      if ((double) VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index11].TempCategory == 1)
+                      if ( VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index11].TempCategory == 1)
                       {
                         if (flag1)
                           this.AddLog2(this.game.Data.UnitObj[index11].Name + " => RANDOM : MUTATED MARKER");
-                        tdata3 =  Math.Round((double) ((float) simpleList2.Data1[tdata2_3] + Conversion.Int((float) ((double) VBMath.Rnd() * 4.0 - 2.0))));
-                        tdata4 =  Math.Round((double) ((float) simpleList2.Data2[tdata2_3] + Conversion.Int((float) ((double) VBMath.Rnd() * 4.0 - 2.0))));
+                        tdata3 =  Math.Round( ( simpleList2.Data1[tdata2_3] + Conversion.Int( ( VBMath.Rnd() * 4.0 - 2.0))));
+                        tdata4 =  Math.Round( ( simpleList2.Data2[tdata2_3] + Conversion.Int( ( VBMath.Rnd() * 4.0 - 2.0))));
                         if (tdata3 < 0 | tdata4 < 0 | tdata3 > this.game.Data.MapObj[0].MapWidth | tdata4 > this.game.Data.MapObj[0].MapHeight)
                         {
                           tdata3 = simpleList2.Data1[tdata2_3];
@@ -10963,7 +10963,7 @@ label_38:
                           tdata4 = simpleList2.Data2[tdata2_3];
                         }
                       }
-                      else if ((double) VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index11].TempCategory != 3 & this.CorpsStance[this.OpGroup] == 1)
+                      else if ( VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index11].TempCategory != 3 & this.CorpsStance[this.OpGroup] == 1)
                       {
                         if (flag1)
                           this.AddLog2(this.game.Data.UnitObj[index11].Name + " => RANDOM AIR : Own Coordinate");
@@ -10973,7 +10973,7 @@ label_38:
                         tdata3 = simpleList2.Data1[tdata2_3];
                         tdata4 = simpleList2.Data2[tdata2_3];
                       }
-                      else if ((double) VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index11].IsHQ)
+                      else if ( VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index11].IsHQ)
                       {
                         tdata2_1 = this.GetSameCoordinateMarker(index11, simpleList2);
                         if (flag1)
@@ -11000,7 +11000,7 @@ label_38:
                 else
                 {
                   Random random = new Random(Number2 + this.game.Data.Round * 4002);
-                  float num21 = (float) Math.Sqrt(Math.Sqrt((double) ((float) random.Next(0, 100000) / 100000f)));
+                  float num21 =  Math.Sqrt(Math.Sqrt( ( random.Next(0, 100000) / 100000f)));
                   let mut num22: i32 = 0;
                   if (Number2 >= Number3 - 2)
                   {
@@ -11018,23 +11018,23 @@ label_38:
                   }
                   else if (random.Next(0, 100) < 50)
                   {
-                    if ((double) VBMath.Rnd() > 0.5)
+                    if ( VBMath.Rnd() > 0.5)
                       num21 = 1f;
                     if (flag1)
                       this.AddLog2("MODE: Mix old record with top record OR Doctrine");
                   }
                   else
                   {
-                    if ((double) VBMath.Rnd() > 0.5)
-                      num21 = (float) Math.Sqrt(Math.Sqrt((double) VBMath.Rnd()));
+                    if ( VBMath.Rnd() > 0.5)
+                      num21 =  Math.Sqrt(Math.Sqrt( VBMath.Rnd()));
                     if (flag1)
                       this.AddLog2("MODE: Mix old record with other old record OR Doctrine");
                   }
-                  float num23 = (double) VBMath.Rnd() >= 0.33 ? ((double) VBMath.Rnd() >= 0.5 ? (float) Math.Min(0.6, (double) (8f / (float) (1 + this.MoveMatrixCounter))) : (float) Math.Min(0.45, (double) (4f / (float) (1 + this.MoveMatrixCounter)))) : (float) Math.Min(0.3, (double) (2f / (float) (1 + this.MoveMatrixCounter)));
+                  float num23 =  VBMath.Rnd() >= 0.33 ? ( VBMath.Rnd() >= 0.5 ?  Math.Min(0.6,  (8f /  (1 + this.MoveMatrixCounter))) :  Math.Min(0.45,  (4f /  (1 + this.MoveMatrixCounter)))) :  Math.Min(0.3,  (2f /  (1 + this.MoveMatrixCounter)));
                   for (let mut tdata2_4: i32 = this.HistoryScoreList.Counter; tdata2_4 >= 0; tdata2_4 += -1)
                   {
                     let mut num24: i32 = this.HistoryScoreList.Weight[this.HistoryScoreList.Counter] - this.HistoryScoreList.Weight[0];
-                    if ((double) ((float) (this.HistoryScoreList.Weight[tdata2_4] - this.HistoryScoreList.Weight[0]) / (float) num24) <= (double) num21)
+                    if ( ( (this.HistoryScoreList.Weight[tdata2_4] - this.HistoryScoreList.Weight[0]) /  num24) <=  num21)
                     {
                       let mut index15: i32 = this.HistoryScoreList.Id[tdata2_4];
                       tid += 1;
@@ -11094,7 +11094,7 @@ label_38:
                         }
                         break;
                       }
-                      if ((double) VBMath.Rnd() > (double) num23)
+                      if ( VBMath.Rnd() >  num23)
                       {
                         if (flag1)
                           this.AddLog2(this.game.Data.UnitObj[index11].Name + " => COPY MARKER FROM SELF");
@@ -11108,7 +11108,7 @@ label_38:
                         break;
                       }
                       int num25;
-                      if ((double) VBMath.Rnd() < 0.25 & num22 == 0)
+                      if ( VBMath.Rnd() < 0.25 & num22 == 0)
                       {
                         if (flag1)
                           this.AddLog2(this.game.Data.UnitObj[index11].Name + " => COPY MARKER FROM OTHER STRAT.");
@@ -11122,7 +11122,7 @@ label_38:
                           TempMove.Add(tid, 1, index10, tdata2_4, tdata3, tdata4, CheckExistence: false, CheckData1Existence: true);
                           break;
                         }
-                        tdata2_4 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                        tdata2_4 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                         let mut tdata3_1: i32 = simpleList2.Data1[tdata2_4];
                         let mut tdata4_1: i32 = simpleList2.Data2[tdata2_4];
                         tid += 1;
@@ -11134,11 +11134,11 @@ label_38:
                       }
                       if (num22 == 0)
                       {
-                        let mut num26: i32 =  Math.Round((double) (VBMath.Rnd() * 100f));
+                        let mut num26: i32 =  Math.Round( (VBMath.Rnd() * 100f));
                         int num27;
                         int num28;
                         int num29;
-                        if ( Math.Round((double) (VBMath.Rnd() * 100f)) < 50)
+                        if ( Math.Round( (VBMath.Rnd() * 100f)) < 50)
                         {
                           num27 = index10;
                           num28 = index10;
@@ -11159,12 +11159,12 @@ label_38:
                         for (let mut tdata1: i32 = num30; tdata1 <= num31; tdata1 += 1)
                         {
                           let mut num32: i32 = 0;
-                          if ((double) this.game.Data.RuleVar[356] == 0.0)
+                          if ( this.game.Data.RuleVar[356] == 0.0)
                           {
                             if (this.game.Data.UnitObj[this.MoveMatrixUnit[index10]].Historical == this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].Historical & this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].Historical > -1 | num29 == 0 && this.game.Data.UnitObj[this.MoveMatrixUnit[index10]].TempCategory == this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].TempCategory)
                               num32 = 1;
                           }
-                          else if (index10 == tdata1 | (double) VBMath.Rnd() > 2.0 / (double) this.MoveMatrixCounter && this.game.Data.UnitObj[this.MoveMatrixUnit[index10]].TempCategory == this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].TempCategory)
+                          else if (index10 == tdata1 |  VBMath.Rnd() > 2.0 /  this.MoveMatrixCounter && this.game.Data.UnitObj[this.MoveMatrixUnit[index10]].TempCategory == this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].TempCategory)
                             num32 = 1;
                           if (num32 == 1)
                           {
@@ -11193,14 +11193,14 @@ label_38:
                               {
                                 if (flag1)
                                   this.AddLog2(this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].Name + " => Random MArker");
-                                tdata2_1 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                                tdata2_1 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                               }
                             }
                             else
                             {
                               if (flag1)
                                 this.AddLog2(this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].Name + " => CLOSEST ENEMY");
-                              tdata2_1 = (double) VBMath.Rnd() <= 0.5 ? this.GetMarkerForClosestEnemy(index11, this.AverageSupplyPercentage) : this.GetMarkerForClosestEnemy(this.MoveMatrixUnit[tdata1], this.AverageSupplyPercentage);
+                              tdata2_1 =  VBMath.Rnd() <= 0.5 ? this.GetMarkerForClosestEnemy(index11, this.AverageSupplyPercentage) : this.GetMarkerForClosestEnemy(this.MoveMatrixUnit[tdata1], this.AverageSupplyPercentage);
                             }
                             if (tdata2_1 > -1 && this.MoveMatrix[tdata1, simpleList2.Data1[tdata2_1], simpleList2.Data2[tdata2_1]] < 9999 | this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].X == simpleList2.Data1[tdata2_1] & this.game.Data.UnitObj[this.MoveMatrixUnit[tdata1]].Y == simpleList2.Data2[tdata2_1])
                             {
@@ -11214,7 +11214,7 @@ label_38:
                         }
                         break;
                       }
-                      let mut num33: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * 7f));
+                      let mut num33: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() * 7f));
                       if (num33 == 0 | num33 == 3 & this.CorpsStance[this.OpGroup] == 1)
                       {
                         if (flag1)
@@ -11241,7 +11241,7 @@ label_38:
                       SimpleList simpleList4 = SimpleList::new();
                       int num34;
                       int num35;
-                      if ((double) VBMath.Rnd() > 0.5 & (num33 == 0 | num33 == 2))
+                      if ( VBMath.Rnd() > 0.5 & (num33 == 0 | num33 == 2))
                       {
                         num34 = index10;
                         num35 = index10;
@@ -11259,8 +11259,8 @@ label_38:
                           simpleList4 = this.GetRandomAttackMarkers(index10, simpleList2, this.AverageSupplyPercentage);
                           num34 = 0;
                           num35 = this.MoveMatrixCounter;
-                          num36 =  Math.Round((double) (VBMath.Rnd() * 100f));
-                          num37 =  Math.Round((double) (VBMath.Rnd() * 100f));
+                          num36 =  Math.Round( (VBMath.Rnd() * 100f));
+                          num37 =  Math.Round( (VBMath.Rnd() * 100f));
                           if (simpleList4.Counter < 0)
                           {
                             if (flag1)
@@ -11292,15 +11292,15 @@ label_38:
                           switch (num33)
                           {
                             case 0:
-                              tdata2_4 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                              tdata2_4 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                               let mut num41: i32 = simpleList2.Data1[tdata2_4];
                               let mut num42: i32 = simpleList2.Data2[tdata2_4];
-                              if ((double) VBMath.Rnd() < 0.2 / (double) num40 & this.game.Data.UnitObj[index11].TempCategory == 1)
+                              if ( VBMath.Rnd() < 0.2 /  num40 & this.game.Data.UnitObj[index11].TempCategory == 1)
                               {
                                 if (flag1)
                                   this.AddLog2(this.game.Data.UnitObj[index11].Name + "!!! MUTATED MARKER(type0)");
-                                let mut index17: i32 =  Math.Round((double) ((float) simpleList2.Data1[tdata2_4] + Conversion.Int((float) ((double) VBMath.Rnd() * 4.0 - 2.0))));
-                                let mut index18: i32 =  Math.Round((double) ((float) simpleList2.Data2[tdata2_4] + Conversion.Int((float) ((double) VBMath.Rnd() * 4.0 - 2.0))));
+                                let mut index17: i32 =  Math.Round( ( simpleList2.Data1[tdata2_4] + Conversion.Int( ( VBMath.Rnd() * 4.0 - 2.0))));
+                                let mut index18: i32 =  Math.Round( ( simpleList2.Data2[tdata2_4] + Conversion.Int( ( VBMath.Rnd() * 4.0 - 2.0))));
                                 if (index17 < 0 | index18 < 0 | index17 > this.game.Data.MapObj[0].MapWidth | index18 > this.game.Data.MapObj[0].MapHeight)
                                 {
                                   index17 = simpleList2.Data1[tdata2_4];
@@ -11321,7 +11321,7 @@ label_38:
                               }
                               continue;
                             case 1:
-                              let mut index19: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList4.Counter + 1)));
+                              let mut index19: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList4.Counter + 1)));
                               tdata2_4 = simpleList4.Id[index19];
                               let mut tdata3_2: i32 = simpleList2.Data1[tdata2_4];
                               let mut tdata4_2: i32 = simpleList2.Data2[tdata2_4];
@@ -11334,7 +11334,7 @@ label_38:
                               num25 = -1;
                               continue;
                             case 2:
-                              let mut num43: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * 3f));
+                              let mut num43: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() * 3f));
                               if (num43 == 0 & this.game.Data.UnitObj[index11].AIDefend > -1)
                               {
                                 let mut markerForCoordinate: i32 = this.GetMarkerForCoordinate(index11, this.AreaCenter[this.game.Data.UnitObj[index11].AIDefend].x, this.AreaCenter[this.game.Data.UnitObj[index11].AIDefend].y);
@@ -11390,7 +11390,7 @@ label_38:
                               }
                               continue;
                             case 3:
-                              let mut index20: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList4.Counter + 1)));
+                              let mut index20: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList4.Counter + 1)));
                               tdata2_4 = simpleList4.Id[index20];
                               let mut tdata3_6: i32 = simpleList2.Data1[tdata2_4];
                               let mut tdata4_6: i32 = simpleList2.Data2[tdata2_4];
@@ -11414,7 +11414,7 @@ label_38:
                           let mut moveMatrixCounter4: i32 = this.MoveMatrixCounter;
                           for (let mut index21: i32 = 0; index21 <= moveMatrixCounter4; index21 += 1)
                           {
-                            if (this.game.Data.UnitObj[this.MoveMatrixUnit[index21]].TempCategory == 2 &&  Math.Round((double) (VBMath.Rnd() * 100f)) < num36)
+                            if (this.game.Data.UnitObj[this.MoveMatrixUnit[index21]].TempCategory == 2 &&  Math.Round( (VBMath.Rnd() * 100f)) < num36)
                             {
                               let mut coordinateTarget: i32 = this.GetClosestMarkerForCoordinateTarget(index21, simpleList2.Data3[tdata2_4], simpleList2.Data4[tdata2_4]);
                               if (coordinateTarget > -1)
@@ -11437,7 +11437,7 @@ label_38:
                           let mut moveMatrixCounter5: i32 = this.MoveMatrixCounter;
                           for (let mut index22: i32 = 0; index22 <= moveMatrixCounter5; index22 += 1)
                           {
-                            if (this.game.Data.UnitObj[this.MoveMatrixUnit[index22]].TempCategory == 3 &&  Math.Round((double) (VBMath.Rnd() * 100f)) < num37)
+                            if (this.game.Data.UnitObj[this.MoveMatrixUnit[index22]].TempCategory == 3 &&  Math.Round( (VBMath.Rnd() * 100f)) < num37)
                             {
                               let mut coordinateTarget: i32 = this.GetClosestMarkerForCoordinateTarget(index22, simpleList2.Data3[tdata2_4], simpleList2.Data4[tdata2_4]);
                               if (coordinateTarget > -1)
@@ -11506,7 +11506,7 @@ label_38:
           else
             moveScore = this.GetMoveScore(TempMove, false, quicktest);
           if (flag1)
-            this.AddLog2(Conversion.Str((object) Number2) + ") CurrentScore = " + Conversion.Str((object) moveScore) + ", BestScore=" + Conversion.Str((object) Number1));
+            this.AddLog2(Conversion.Str( Number2) + ") CurrentScore = " + Conversion.Str( moveScore) + ", BestScore=" + Conversion.Str( Number1));
           if (moveScore != Number1)
           {
             this.HistoryMove[this.HistoryMoveCounter] = TempMove;
@@ -11515,8 +11515,8 @@ label_38:
             this += 1.HistoryMoveCounter;
             Number2 = Number2;
             if (this.HistoryScoreList.Counter > 450)
-              this.HistoryScoreList.Remove(this.HistoryScoreList.Id[ Math.Round((double) VBMath.Rnd() * (double) this.HistoryScoreList.Counter * 0.5)]);
-            if (moveScore > Number1 | Information.IsNothing((object) this.BestMove))
+              this.HistoryScoreList.Remove(this.HistoryScoreList.Id[ Math.Round( VBMath.Rnd() *  this.HistoryScoreList.Counter * 0.5)]);
+            if (moveScore > Number1 | Information.IsNothing( this.BestMove))
             {
               let mut moveMatrixCounter6: i32 = this.MoveMatrixCounter;
               for (let mut index23: i32 = 1; index23 <= moveMatrixCounter6; index23 += 1)
@@ -11524,10 +11524,10 @@ label_38:
               this.BestMove = TempMove;
               Number1 = moveScore;
               if (flag1)
-                this.AddLog2("NEW BEST SCORE = " + Conversion.Str((object) moveScore));
+                this.AddLog2("NEW BEST SCORE = " + Conversion.Str( moveScore));
             }
             else if (flag1)
-              this.AddLog2("OLD BEST SCORE = " + Conversion.Str((object) Number1));
+              this.AddLog2("OLD BEST SCORE = " + Conversion.Str( Number1));
           }
         }
         if (this.game.Data.RegimeObj[this.game.Data.Turn].ProdBonus >= 100 & this.MoveMatrixCounter > 3)
@@ -11546,7 +11546,7 @@ label_38:
           {
             num10 = this.BestMove.FindNr(-1, index25);
             let mut unr: i32 = this.MoveMatrixUnit[index25];
-            if (unr > -1 & (double) num44 < 1.0 && !this.game.Data.UnitObj[unr].TempStrategic)
+            if (unr > -1 &  num44 < 1.0 && !this.game.Data.UnitObj[unr].TempStrategic)
             {
               if (this.game.Data.UnitObj[unr].TempCategory == 1)
                 simpleList2 = this.MarkerList;
@@ -11562,7 +11562,7 @@ label_38:
               for (let mut counter: i32 = simpleList2.Counter; counter >= 0; counter += -1)
               {
                 flagArray2[counter] = true;
-                if ((double) VBMath.Rnd() > (double) num44 | simpleList2.Id[counter] < 9999)
+                if ( VBMath.Rnd() >  num44 | simpleList2.Id[counter] < 9999)
                 {
                   if (simpleList2.Data3[counter] > -1)
                   {
@@ -11608,7 +11608,7 @@ label_38:
                     let mut moveMatrixCounter9: i32 = this.MoveMatrixCounter;
                     for (let mut index28: i32 = 1; index28 <= moveMatrixCounter9; index28 += 1)
                       this.TempMoveMatrixUnitMarker[index28] = this.MoveMatrixUnitMarker[index28];
-                    this.AddLog2(Conversion.Str((object) index24) + ") New sys Bestscore=" + Conversion.Str((object) Number1) + ", CurrentScore = " + Conversion.Str((object) moveScore));
+                    this.AddLog2(Conversion.Str( index24) + ") New sys Bestscore=" + Conversion.Str( Number1) + ", CurrentScore = " + Conversion.Str( moveScore));
                     this.BestMove = TempMove;
                     Number1 = moveScore;
                   }
@@ -11616,7 +11616,7 @@ label_38:
                   {
                     this.game.EditObj.AIProgressMax = this.MoveMatrixCounter;
                     this.game.EditObj.AIProgressNow = index25;
-                    this.game.EditObj.TempAIString = "Systematical finetuning. Round " + Conversion.Str((object) index25) + "/" + Conversion.Str((object) this.MoveMatrixCounter);
+                    this.game.EditObj.TempAIString = "Systematical finetuning. Round " + Conversion.Str( index25) + "/" + Conversion.Str( this.MoveMatrixCounter);
                   }
                 }
               }
@@ -11702,7 +11702,7 @@ label_38:
                   let mut moveMatrixCounter12: i32 = this.MoveMatrixCounter;
                   for (let mut index33: i32 = 1; index33 <= moveMatrixCounter12; index33 += 1)
                     this.TempMoveMatrixUnitMarker[index33] = this.MoveMatrixUnitMarker[index33];
-                  this.AddLog2(Conversion.Str((object) index24) + ") Attack permutations Bestscore=" + Conversion.Str((object) Number1) + ", CurrentScore = " + Conversion.Str((object) moveScore));
+                  this.AddLog2(Conversion.Str( index24) + ") Attack permutations Bestscore=" + Conversion.Str( Number1) + ", CurrentScore = " + Conversion.Str( moveScore));
                   this.BestMove = TempMove;
                   Number1 = moveScore;
                 }
@@ -11712,7 +11712,7 @@ label_38:
               }
             }
           }
-          if (!Information.IsNothing((object) this.BestMove))
+          if (!Information.IsNothing( this.BestMove))
           {
             let mut moveMatrixCounter13: i32 = this.MoveMatrixCounter;
             for (let mut index34: i32 = 1; index34 <= moveMatrixCounter13; index34 += 1)
@@ -11743,7 +11743,7 @@ label_38:
       }
       if (num1 == 0)
         return -1;
-      let mut num2: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) num1)) + 1;
+      let mut num2: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  num1)) + 1;
       let mut num3: i32 = 0;
       let mut moveMatrixCounter2: i32 = this.MoveMatrixCounter;
       for (let mut index: i32 = 1; index <= moveMatrixCounter2; index += 1)
@@ -11803,7 +11803,7 @@ label_38:
         Expression = this.AirMarkerList;
       if (this.game.Data.UnitObj[Unr].TempCategory == 4)
         Expression = this.EngineerMarkerList.Counter != -1 ? this.EngineerMarkerList : this.MarkerList;
-      if (Information.IsNothing((object) Expression) || Expression.Weight[TempMarker] != 1)
+      if (Information.IsNothing( Expression) || Expression.Weight[TempMarker] != 1)
         return TempMarker;
       let mut num1: i32 = -1;
       let mut counter1: i32 = Expression.Counter;
@@ -11814,7 +11814,7 @@ label_38:
       }
       if (num1 > -1)
       {
-        let mut num2: i32 =  Math.Round((double) (VBMath.Rnd() * (float) (num1 + 1)));
+        let mut num2: i32 =  Math.Round( (VBMath.Rnd() *  (num1 + 1)));
         let mut num3: i32 = -1;
         let mut counter2: i32 = Expression.Counter;
         for (let mut randomSameTarget: i32 = 0; randomSameTarget <= counter2; randomSameTarget += 1)
@@ -11843,9 +11843,9 @@ label_38:
       let mut tid: i32 = 0;
       let mut num2: i32 = this.DIFFICULTY_LEVEL_MOVES_FOR_BEST_MOVE;
       if (this.MoveMatrixCounter > 12)
-        num2 =  Math.Round((double) num2 * Math.Sqrt((double) this.MoveMatrixCounter / 12.0));
+        num2 =  Math.Round( num2 * Math.Sqrt( this.MoveMatrixCounter / 12.0));
       if (this.MoveMatrixCounter < 8)
-        num2 =  Math.Round((double) num2 * ((double) this.MoveMatrixCounter / 8.0));
+        num2 =  Math.Round( num2 * ( this.MoveMatrixCounter / 8.0));
       let mut num3: i32 = 99999;
       let mut num4: i32 = 9999;
       let mut num5: i32 = 9999;
@@ -11862,14 +11862,14 @@ label_38:
         SimpleList TempMove = SimpleList::new();
         num1 += 1;
         if (num1 == 1)
-          this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + " is moving. Round = " + Conversion.Str((object) this.MoveAndAttackRound);
+          this.game.EditObj.TempAIString = this.game.Data.UnitObj[this.TempGroupHQ[this.OpGroup]].Name + " is moving. Round = " + Conversion.Str( this.MoveAndAttackRound);
         bool flag2 = false;
-        if ((double) VBMath.Rnd() < 0.05)
+        if ( VBMath.Rnd() < 0.05)
         {
           num4 = 9999;
           flag2 = true;
         }
-        else if ((double) VBMath.Rnd() < 0.05)
+        else if ( VBMath.Rnd() < 0.05)
         {
           num5 = 9999;
           flag2 = true;
@@ -11943,14 +11943,14 @@ label_38:
                 this.MoveMatrixUnitMarker[index3] = tdata2_1;
               }
             }
-            else if (!Information.IsNothing((object) simpleList2))
+            else if (!Information.IsNothing( simpleList2))
             {
-              if (flag2 | num1 <= 10 | (double) VBMath.Rnd() <= 1.0 / (double) Math.Min(10, this.MoveMatrixCounter))
+              if (flag2 | num1 <= 10 |  VBMath.Rnd() <= 1.0 /  Math.Min(10, this.MoveMatrixCounter))
               {
                 tid += 1;
                 let mut num9: i32 = 1;
                 let mut num10: i32 = 0;
-                if ((this.Attacker & (double) num6 < 0.1 | !this.Attacker & (double) num6 < 0.05) & !this.game.Data.UnitObj[index4].IsHQ)
+                if ((this.Attacker &  num6 < 0.1 | !this.Attacker &  num6 < 0.05) & !this.game.Data.UnitObj[index4].IsHQ)
                 {
                   this.AddLog("SHOCKAWE DOCTRINE");
                   tdata2_1 = this.ReturnShockAndAweMarker(simpleList2, trnd, index3, index4);
@@ -11965,7 +11965,7 @@ label_38:
                     this.MoveMatrixUnitMarker[index3] = tdata2_1;
                   }
                 }
-                else if ((this.Attacker & (double) num6 < 0.1 | !this.Attacker & (double) num6 < 0.05) & this.game.Data.UnitObj[index4].IsHQ)
+                else if ((this.Attacker &  num6 < 0.1 | !this.Attacker &  num6 < 0.05) & this.game.Data.UnitObj[index4].IsHQ)
                 {
                   tdata2_1 = this.GetSameCoordinateMarker(index4, simpleList2);
                   if (tdata2_1 > -1)
@@ -12007,7 +12007,7 @@ label_38:
                 }
                 else if (num4 >= num1 & (this.game.Data.UnitObj[index4].AIAttack > -1 | this.game.Data.UnitObj[index4].AIDefend > -1) & this.game.Data.UnitObj[index4].IsHQ)
                 {
-                  let mut tdata2_2: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                  let mut tdata2_2: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                   let mut tdata3: i32 = simpleList2.Data1[tdata2_2];
                   let mut tdata4: i32 = simpleList2.Data2[tdata2_2];
                   TempMove.Add(tid, 1, index3, tdata2_2, tdata3, tdata4, CheckExistence: false);
@@ -12029,7 +12029,7 @@ label_38:
                 }
                 else if (num5 >= num1 & (this.game.Data.UnitObj[index4].AIAttack > -1 | this.game.Data.UnitObj[index4].AIDefend > -1) & this.game.Data.UnitObj[index4].IsHQ)
                 {
-                  let mut tdata2_3: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                  let mut tdata2_3: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                   let mut tdata3: i32 = simpleList2.Data1[tdata2_3];
                   let mut tdata4: i32 = simpleList2.Data2[tdata2_3];
                   TempMove.Add(tid, 1, index3, tdata2_3, tdata3, tdata4, CheckExistence: false);
@@ -12039,15 +12039,15 @@ label_38:
                 while (num9 == 1 & num10 < 100)
                 {
                   num10 += 1;
-                  let mut tdata2_4: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                  let mut tdata2_4: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                   if (this.MoveMatrix[index3, simpleList2.Data1[tdata2_4], simpleList2.Data2[tdata2_4]] < 9999 | this.game.Data.UnitObj[index4].X == simpleList2.Data1[tdata2_4] & this.game.Data.UnitObj[index4].Y == simpleList2.Data2[tdata2_4])
                   {
                     int tdata3;
                     int tdata4;
-                    if ((double) VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index4].TempCategory == 1)
+                    if ( VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index4].TempCategory == 1)
                     {
-                      tdata3 =  Math.Round((double) ((float) simpleList2.Data1[tdata2_4] + Conversion.Int((float) ((double) VBMath.Rnd() * 4.0 - 2.0))));
-                      tdata4 =  Math.Round((double) ((float) simpleList2.Data2[tdata2_4] + Conversion.Int((float) ((double) VBMath.Rnd() * 4.0 - 2.0))));
+                      tdata3 =  Math.Round( ( simpleList2.Data1[tdata2_4] + Conversion.Int( ( VBMath.Rnd() * 4.0 - 2.0))));
+                      tdata4 =  Math.Round( ( simpleList2.Data2[tdata2_4] + Conversion.Int( ( VBMath.Rnd() * 4.0 - 2.0))));
                       if (tdata3 < 0 | tdata4 < 0 | tdata3 > this.game.Data.MapObj[0].MapWidth | tdata4 > this.game.Data.MapObj[0].MapHeight)
                       {
                         tdata3 = simpleList2.Data1[tdata2_4];
@@ -12059,7 +12059,7 @@ label_38:
                         tdata4 = simpleList2.Data2[tdata2_4];
                       }
                     }
-                    else if ((double) VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index4].TempCategory != 3 & this.CorpsStance[this.OpGroup] == 1)
+                    else if ( VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index4].TempCategory != 3 & this.CorpsStance[this.OpGroup] == 1)
                     {
                       tdata2_1 = this.GetSameCoordinateMarker(index4, simpleList2);
                       if (tdata2_1 > -1)
@@ -12067,7 +12067,7 @@ label_38:
                       tdata3 = simpleList2.Data1[tdata2_4];
                       tdata4 = simpleList2.Data2[tdata2_4];
                     }
-                    else if ((double) VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index4].IsHQ)
+                    else if ( VBMath.Rnd() < 0.25 & this.game.Data.UnitObj[index4].IsHQ)
                     {
                       tdata2_1 = this.GetSameCoordinateMarker(index4, simpleList2);
                       if (tdata2_1 > -1)
@@ -12091,33 +12091,33 @@ label_38:
               {
                 if (this.game.Data.UnitObj[index4].IsHQ)
                   index4 = index4;
-                float num11 = (float) Math.Sqrt(Math.Sqrt((double) ((float) new Random(num1 + this.game.Data.Round * 4002).Next(0, 100000) / 100000f)));
-                if ((double) VBMath.Rnd() > 0.5)
+                float num11 =  Math.Sqrt(Math.Sqrt( ( new Random(num1 + this.game.Data.Round * 4002).Next(0, 100000) / 100000f)));
+                if ( VBMath.Rnd() > 0.5)
                   num11 = 1f;
-                float num12 = 1f / (float) (1 + this.MoveMatrixCounter);
-                if ((double) VBMath.Rnd() < 0.5)
-                  num12 = (float) (((double) num12 + 1.0) / 2.0);
-                else if ((double) VBMath.Rnd() < 0.5)
+                float num12 = 1f /  (1 + this.MoveMatrixCounter);
+                if ( VBMath.Rnd() < 0.5)
+                  num12 =  (( num12 + 1.0) / 2.0);
+                else if ( VBMath.Rnd() < 0.5)
                   num12 = VBMath.Rnd();
                 for (let mut tdata2_5: i32 = this.HistoryScoreList.Counter; tdata2_5 >= 0; tdata2_5 += -1)
                 {
                   let mut num13: i32 = this.HistoryScoreList.Weight[this.HistoryScoreList.Counter] - this.HistoryScoreList.Weight[0];
-                  if ((double) ((float) (this.HistoryScoreList.Weight[tdata2_5] - this.HistoryScoreList.Weight[0]) / (float) num13) <= (double) num11)
+                  if ( ( (this.HistoryScoreList.Weight[tdata2_5] - this.HistoryScoreList.Weight[0]) /  num13) <=  num11)
                   {
                     let mut index8: i32 = this.HistoryScoreList.Id[tdata2_5];
                     tid += 1;
                     int index9;
-                    if ((double) VBMath.Rnd() < (double) num12)
+                    if ( VBMath.Rnd() <  num12)
                     {
                       index9 = this.HistoryMove[index8].FindNr(-1, index3);
                       this.AddLog("COPY SELF EXISTING");
                     }
-                    else if ((double) VBMath.Rnd() < 0.7)
+                    else if ( VBMath.Rnd() < 0.7)
                     {
-                      index9 =  Math.Round((double) Conversion.Int((float) (this.HistoryMove[index8].Counter + 1) * VBMath.Rnd()));
+                      index9 =  Math.Round( Conversion.Int( (this.HistoryMove[index8].Counter + 1) * VBMath.Rnd()));
                       if (this.game.Data.UnitObj[this.MoveMatrixUnit[this.HistoryMove[index8].Data1[index9]]].TempCategory == this.game.Data.UnitObj[index4].TempCategory)
                       {
-                        if ((double) VBMath.Rnd() < 0.5 & this.game.Data.UnitObj[index4].TempCategory == 1)
+                        if ( VBMath.Rnd() < 0.5 & this.game.Data.UnitObj[index4].TempCategory == 1)
                         {
                           let mut moveMatrixCounter2: i32 = this.MoveMatrixCounter;
                           for (let mut index10: i32 = 1; index10 <= moveMatrixCounter2; index10 += 1)
@@ -12160,7 +12160,7 @@ label_38:
                     }
                     else
                     {
-                      tdata2_5 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (simpleList2.Counter + 1)));
+                      tdata2_5 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (simpleList2.Counter + 1)));
                       let mut tdata3: i32 = simpleList2.Data1[tdata2_5];
                       let mut tdata4: i32 = simpleList2.Data2[tdata2_5];
                       tid += 1;
@@ -12186,7 +12186,7 @@ label_38:
         for (let mut unitslot: i32 = 1; unitslot <= moveMatrixCounter3; unitslot += 1)
         {
           let mut unr: i32 = this.MoveMatrixUnit[unitslot];
-          if (unr > -1 & (double) VBMath.Rnd() > 0.9)
+          if (unr > -1 &  VBMath.Rnd() > 0.9)
           {
             if (this.game.Data.UnitObj[unr].TempCategory == 3)
               ;
@@ -12207,7 +12207,7 @@ label_38:
               simpleList2 = this.AirMarkerList;
             if (this.game.Data.UnitObj[unr].TempCategory == 4)
               simpleList2 = this.EngineerMarkerList.Counter <= -1 ? this.MarkerList : this.EngineerMarkerList;
-            if (!Information.IsNothing((object) simpleList2) && (double) VBMath.Rnd() < 0.15 & this.game.Data.UnitObj[unr].TempCategory != 3 & this.CorpsStance[this.OpGroup] == 1)
+            if (!Information.IsNothing( simpleList2) &&  VBMath.Rnd() < 0.15 & this.game.Data.UnitObj[unr].TempCategory != 3 & this.CorpsStance[this.OpGroup] == 1)
             {
               tdata2_1 = this.GetSameCoordinateMarker(unr, simpleList2);
               if (tdata2_1 > -1)
@@ -12216,7 +12216,7 @@ label_38:
           }
         }
         let mut moveScore: i32 = this.GetMoveScore(TempMove, false);
-        this.AddLog("CurrentScore = " + Conversion.Str((object) moveScore) + ", BestScore = " + Conversion.Str((object) Number));
+        this.AddLog("CurrentScore = " + Conversion.Str( moveScore) + ", BestScore = " + Conversion.Str( Number));
         if (moveScore != Number)
         {
           this.HistoryMove[this.HistoryMoveCounter] = TempMove;
@@ -12225,7 +12225,7 @@ label_38:
           this += 1.HistoryMoveCounter;
           num1 = num1;
           if (this.HistoryScoreList.Counter > 50)
-            this.HistoryScoreList.Remove(this.HistoryScoreList.Id[ Math.Round((double) VBMath.Rnd() * (double) this.HistoryScoreList.Counter * 0.5)]);
+            this.HistoryScoreList.Remove(this.HistoryScoreList.Id[ Math.Round( VBMath.Rnd() *  this.HistoryScoreList.Counter * 0.5)]);
           if (moveScore > Number)
           {
             let mut moveMatrixCounter4: i32 = this.MoveMatrixCounter;
@@ -12236,7 +12236,7 @@ label_38:
           }
         }
       }
-      if (Information.IsNothing((object) this.BestMove))
+      if (Information.IsNothing( this.BestMove))
         return;
       let mut moveMatrixCounter: i32 = this.MoveMatrixCounter;
       for (let mut index13: i32 = 1; index13 <= moveMatrixCounter; index13 += 1)
@@ -12256,7 +12256,7 @@ label_38:
         Expression = this.AirMarkerList;
       if (this.game.Data.UnitObj[Unr].TempCategory == 4)
         Expression = this.EngineerMarkerList;
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return TempMarker;
       let mut counter: i32 = Expression.Counter;
       for (let mut markerForSelfTarget: i32 = 0; markerForSelfTarget <= counter; markerForSelfTarget += 1)
@@ -12280,14 +12280,14 @@ label_38:
         Expression = this.AirMarkerList;
       if (this.game.Data.UnitObj[Unr].TempCategory == 4)
         Expression = this.EngineerMarkerList;
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return -1;
       SimpleList simpleList = SimpleList::new();
       let mut counter: i32 = Expression.Counter;
       for (let mut tid: i32 = 0; tid <= counter; tid += 1)
       {
         if (Expression.Data1[tid] == X & Expression.Data2[tid] == y)
-          simpleList.Add(tid,  Math.Round((double) (VBMath.Rnd() * 1000f)));
+          simpleList.Add(tid,  Math.Round( (VBMath.Rnd() * 1000f)));
       }
       simpleList.Sort();
       return simpleList.Counter > -1 ? simpleList.Id[0] : -1;
@@ -12307,16 +12307,16 @@ label_38:
         Expression = this.AirMarkerList;
       if (this.game.Data.UnitObj[unr].TempCategory == 4)
         Expression = this.EngineerMarkerList;
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return -1;
       SimpleList simpleList = SimpleList::new();
       let mut counter: i32 = Expression.Counter;
       for (let mut tid: i32 = 0; tid <= counter; tid += 1)
       {
-        if (Expression.Data3[tid] == X & Expression.Data4[tid] == y & (double) this.MoveMatrix[movematrixnr, Expression.Data1[tid], Expression.Data2[tid]] < (double) this.game.HandyFunctionsObj.GetLowestAp(unr) * 0.66)
+        if (Expression.Data3[tid] == X & Expression.Data4[tid] == y &  this.MoveMatrix[movematrixnr, Expression.Data1[tid], Expression.Data2[tid]] <  this.game.HandyFunctionsObj.GetLowestAp(unr) * 0.66)
         {
           let mut num: i32 = this.MoveMatrix[movematrixnr, Expression.Data1[tid], Expression.Data2[tid]];
-          let mut tweight: i32 =  Math.Round((double) num * 0.8 + (double) num * (double) VBMath.Rnd() * 0.2);
+          let mut tweight: i32 =  Math.Round( num * 0.8 +  num *  VBMath.Rnd() * 0.2);
           simpleList.Add(tid, tweight);
         }
       }
@@ -12337,7 +12337,7 @@ label_38:
         Expression = this.AirMarkerList;
       if (this.game.Data.UnitObj[Unr].TempCategory == 4)
         Expression = this.EngineerMarkerList;
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return -1;
       SimpleList simpleList = SimpleList::new();
       let mut counter: i32 = Expression.Counter;
@@ -12349,22 +12349,22 @@ label_38:
           if (AverageSupplyPercentage < 40 & Expression.Data3[tid] > -1)
           {
             if (this.DistanceFromSuppliedHex[Expression.Data3[tid], Expression.Data4[tid]] <= 1)
-              simpleList.Add(tid, num * 10 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+              simpleList.Add(tid, num * 10 +  Math.Round( (VBMath.Rnd() * 10f)));
             else if (this.DistanceFromSuppliedHex[Expression.Data3[tid], Expression.Data4[tid]] <= 2)
-              simpleList.Add(tid, num * 20 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+              simpleList.Add(tid, num * 20 +  Math.Round( (VBMath.Rnd() * 10f)));
             else
-              simpleList.Add(tid, num * 50 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+              simpleList.Add(tid, num * 50 +  Math.Round( (VBMath.Rnd() * 10f)));
           }
           else if (this.BottleNeckMatrix[Expression.Data1[tid], Expression.Data2[tid]] > 35)
-            simpleList.Add(tid, num * 10 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+            simpleList.Add(tid, num * 10 +  Math.Round( (VBMath.Rnd() * 10f)));
           else if (this.BottleNeckMatrix[Expression.Data1[tid], Expression.Data2[tid]] > 20)
-            simpleList.Add(tid, num * 15 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+            simpleList.Add(tid, num * 15 +  Math.Round( (VBMath.Rnd() * 10f)));
           else if (this.BottleNeckMatrix[Expression.Data1[tid], Expression.Data2[tid]] > 10)
-            simpleList.Add(tid, num * 20 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+            simpleList.Add(tid, num * 20 +  Math.Round( (VBMath.Rnd() * 10f)));
           else if (this.BottleNeckMatrix[Expression.Data1[tid], Expression.Data2[tid]] > 5)
-            simpleList.Add(tid, num * 25 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+            simpleList.Add(tid, num * 25 +  Math.Round( (VBMath.Rnd() * 10f)));
           else
-            simpleList.Add(tid, num * 50 +  Math.Round((double) (VBMath.Rnd() * 10f)));
+            simpleList.Add(tid, num * 50 +  Math.Round( (VBMath.Rnd() * 10f)));
         }
       }
       simpleList.Sort();
@@ -12380,13 +12380,13 @@ label_38:
           if (MakeLog)
           {
             this.AddLog("***QUICK TEST SCORING MOVE***");
-            this.AddLog("CORPSRATIO = " + Conversion.Str((object) this.CorpsTopRatio[this.OpGroup]));
+            this.AddLog("CORPSRATIO = " + Conversion.Str( this.CorpsTopRatio[this.OpGroup]));
           }
         }
         else if (MakeLog)
         {
           this.AddLog("***SCORING MOVE***");
-          this.AddLog("CORPSRATIO = " + Conversion.Str((object) this.CorpsTopRatio[this.OpGroup]));
+          this.AddLog("CORPSRATIO = " + Conversion.Str( this.CorpsTopRatio[this.OpGroup]));
         }
       }
       let mut unitCounter: i32 = this.game.Data.UnitCounter;
@@ -12475,7 +12475,7 @@ label_38:
             index2 = coordinate2.x;
             index3 = coordinate2.y;
             if (MakeLog)
-              this.AddLog("OVERRULE TO " + Conversion.Str((object) coordinate2.x) + "," + Conversion.Str((object) coordinate2.y));
+              this.AddLog("OVERRULE TO " + Conversion.Str( coordinate2.x) + "," + Conversion.Str( coordinate2.y));
           }
           else if (MakeLog)
             this.AddLog("CANT FIND OVERRULE");
@@ -12483,7 +12483,7 @@ label_38:
         this.game.Data.UnitObj[unr].TempX = index2;
         this.game.Data.UnitObj[unr].TempY = index3;
         if (MakeLog)
-          this.AddLog(this.game.Data.UnitObj[unr].Name + " PROJECTED TO REACH " + Conversion.Str((object) index2) + "," + Conversion.Str((object) index3));
+          this.AddLog(this.game.Data.UnitObj[unr].Name + " PROJECTED TO REACH " + Conversion.Str( index2) + "," + Conversion.Str( index3));
         if (!(this.game.Data.UnitObj[unr].TempX == this.game.Data.UnitObj[unr].X & this.game.Data.UnitObj[unr].TempY == this.game.Data.UnitObj[unr].Y))
         {
           if (TempMove.FindNr(-1, tdata1) == -1)
@@ -12492,101 +12492,101 @@ label_38:
       }
       let mut Number1: i32 = 5000 + this.GetScoreForHexOccupationAndHQ2( TempMove, MakeLog);
       if (MakeLog)
-        this.AddLog("***Score after Hex Occupation scores added = " + Conversion.Str((object) Number1));
+        this.AddLog("***Score after Hex Occupation scores added = " + Conversion.Str( Number1));
       let mut scoreForAttacks: i32 = this.GetScoreForAttacks(true, MakeLog);
       let mut groupHq: i32 = this.GetGroupHQ(this.OpGroup);
       int Number2;
       if (this.game.Data.UnitObj[groupHq].AIAttackStyle == 3)
       {
         float num = 1.25f;
-        if ((double) this.game.Data.RuleVar[367] > 0.0)
+        if ( this.game.Data.RuleVar[367] > 0.0)
           num *= this.game.Data.RuleVar[367] / 100f;
-        Number2 =  Math.Round((double) ((float) scoreForAttacks * num));
+        Number2 =  Math.Round( ( scoreForAttacks * num));
       }
       else
       {
         float num = 1.25f;
-        if ((double) this.game.Data.RuleVar[368] > 0.0)
+        if ( this.game.Data.RuleVar[368] > 0.0)
           num *= this.game.Data.RuleVar[368] / 100f;
-        Number2 =  Math.Round((double) ((float) scoreForAttacks * num));
+        Number2 =  Math.Round( ( scoreForAttacks * num));
       }
       if (Number2 > 0)
       {
         if (MakeLog)
-          this.AddLog("Attack score = " + Conversion.Str((object) Number2));
-        Number2 = this.MoveAndAttackRound != 1 ? (this.MoveAndAttackRound != 2 ? Number2 :  Math.Round((double) Number2 * 0.75 + 0.25 * (double) Number2 * ((double) Math.Min(100, this.GetFreeAP(true)) / 100.0))) :  Math.Round((double) Number2 * 0.5 + 0.5 * (double) Number2 * ((double) Math.Min(100, this.GetFreeAP(true)) / 100.0));
+          this.AddLog("Attack score = " + Conversion.Str( Number2));
+        Number2 = this.MoveAndAttackRound != 1 ? (this.MoveAndAttackRound != 2 ? Number2 :  Math.Round( Number2 * 0.75 + 0.25 *  Number2 * ( Math.Min(100, this.GetFreeAP(true)) / 100.0))) :  Math.Round( Number2 * 0.5 + 0.5 *  Number2 * ( Math.Min(100, this.GetFreeAP(true)) / 100.0));
         if (MakeLog)
-          this.AddLog("***AttackScore Modified for free Ap = " + Conversion.Str((object) Number2));
+          this.AddLog("***AttackScore Modified for free Ap = " + Conversion.Str( Number2));
       }
       let mut Number3: i32 = Number1 + Number2;
       if (MakeLog)
-        this.AddLog("***Score after Attack scores added = " + Conversion.Str((object) Number3));
+        this.AddLog("***Score after Attack scores added = " + Conversion.Str( Number3));
       let mut scoreForMovingIn: i32 = this.GetScoreForMovingIn( TempMove, MakeLog);
       int num1;
       if (this.game.Data.UnitObj[groupHq].AIAttackStyle != 3)
       {
         float num2 = 0.1f;
-        if ((double) this.game.Data.RuleVar[369] > 0.0)
-          num2 = (float) ((double) num2 * (double) this.game.Data.RuleVar[369] / 100.0);
-        num1 =  Math.Round((double) ((float) scoreForMovingIn * num2));
+        if ( this.game.Data.RuleVar[369] > 0.0)
+          num2 =  ( num2 *  this.game.Data.RuleVar[369] / 100.0);
+        num1 =  Math.Round( ( scoreForMovingIn * num2));
       }
       else
       {
         float num3 = 0.2f;
-        if ((double) this.game.Data.RuleVar[370] > 0.0)
-          num3 = (float) ((double) num3 * (double) this.game.Data.RuleVar[370] / 100.0);
-        num1 =  Math.Round((double) ((float) scoreForMovingIn * num3));
+        if ( this.game.Data.RuleVar[370] > 0.0)
+          num3 =  ( num3 *  this.game.Data.RuleVar[370] / 100.0);
+        num1 =  Math.Round( ( scoreForMovingIn * num3));
       }
       let mut Number4: i32 = Number3 + num1;
       if (MakeLog)
-        this.AddLog("***Score after for [moving in] scores added = " + Conversion.Str((object) Number4));
+        this.AddLog("***Score after for [moving in] scores added = " + Conversion.Str( Number4));
       this.CounterAttackPossible = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       if (!quicktest)
       {
         let mut counterAttackScore: i32 = this.GetCounterAttackScore( TempMove, MakeLog);
-        let mut num4: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ((double) this.game.Data.RuleVar[372] != 0.0 ?  Math.Round((double) counterAttackScore * (double) this.game.Data.RuleVar[372] / 100.0) : counterAttackScore) : ((double) this.game.Data.RuleVar[371] != 0.0 ?  Math.Round((double) counterAttackScore * (double) this.game.Data.RuleVar[371] / 100.0) :  Math.Round((double) counterAttackScore * 1.25));
+        let mut num4: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ( this.game.Data.RuleVar[372] != 0.0 ?  Math.Round( counterAttackScore *  this.game.Data.RuleVar[372] / 100.0) : counterAttackScore) : ( this.game.Data.RuleVar[371] != 0.0 ?  Math.Round( counterAttackScore *  this.game.Data.RuleVar[371] / 100.0) :  Math.Round( counterAttackScore * 1.25));
         if (this.GroupCounter > this.CorpsTopRatio.GetUpperBound(0))
           this.CorpsTopRatio = (float[]) Utils.CopyArray((Array) this.CorpsTopRatio, (Array) new float[this.GroupCounter + 1]);
-        if ((double) this.CorpsTopRatio[this.OpGroup] > 1.0)
-          num4 =  Math.Round((double) num4 / Math.Sqrt((double) this.CorpsTopRatio[this.OpGroup]));
+        if ( this.CorpsTopRatio[this.OpGroup] > 1.0)
+          num4 =  Math.Round( num4 / Math.Sqrt( this.CorpsTopRatio[this.OpGroup]));
         Number4 -= num4;
         if (MakeLog)
-          this.AddLog("***Score after [counter attack score] subtracted = " + Conversion.Str((object) Number4));
+          this.AddLog("***Score after [counter attack score] subtracted = " + Conversion.Str( Number4));
       }
       if (!quicktest)
       {
-        let mut num5: i32 =  Math.Round((double) this.GetCounterMoveScore( TempMove, MakeLog) / Math.Max(1.0, Math.Sqrt(2.0 * (double) this.CorpsTopRatio[this.OpGroup])));
-        let mut num6: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ((double) this.game.Data.RuleVar[374] != 0.0 ?  Math.Round((double) num5 * (double) this.game.Data.RuleVar[374] / 100.0) : num5) : ((double) this.game.Data.RuleVar[373] != 0.0 ?  Math.Round((double) num5 * (double) this.game.Data.RuleVar[373] / 100.0) :  Math.Round((double) num5 / 2.0));
+        let mut num5: i32 =  Math.Round( this.GetCounterMoveScore( TempMove, MakeLog) / Math.Max(1.0, Math.Sqrt(2.0 *  this.CorpsTopRatio[this.OpGroup])));
+        let mut num6: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ( this.game.Data.RuleVar[374] != 0.0 ?  Math.Round( num5 *  this.game.Data.RuleVar[374] / 100.0) : num5) : ( this.game.Data.RuleVar[373] != 0.0 ?  Math.Round( num5 *  this.game.Data.RuleVar[373] / 100.0) :  Math.Round( num5 / 2.0));
         Number4 -= num6;
         if (MakeLog)
-          this.AddLog("***Score after [counter move score] subtracted = " + Conversion.Str((object) Number4));
+          this.AddLog("***Score after [counter move score] subtracted = " + Conversion.Str( Number4));
       }
       if (!quicktest)
       {
         let mut num7: i32 = this.GetOurSelvesEncircledScore( TempMove, MakeLog);
         if (num7 > 0)
           num7 = num7;
-        let mut num8: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ((double) this.game.Data.RuleVar[376] != 0.0 ?  Math.Round((double) num7 * (double) this.game.Data.RuleVar[376] / 100.0) : num7) : ((double) this.game.Data.RuleVar[375] != 0.0 ?  Math.Round((double) num7 * (double) this.game.Data.RuleVar[375] / 100.0) : num7);
+        let mut num8: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ( this.game.Data.RuleVar[376] != 0.0 ?  Math.Round( num7 *  this.game.Data.RuleVar[376] / 100.0) : num7) : ( this.game.Data.RuleVar[375] != 0.0 ?  Math.Round( num7 *  this.game.Data.RuleVar[375] / 100.0) : num7);
         Number4 -= num8;
         if (MakeLog)
-          this.AddLog("***Score after [GetOurselvesEncircled] subtracted = " + Conversion.Str((object) Number4));
+          this.AddLog("***Score after [GetOurselvesEncircled] subtracted = " + Conversion.Str( Number4));
       }
       if (!this.MovingIn)
       {
         let mut scoreForEntrench: i32 = this.GetScoreForEntrench( TempMove, MakeLog);
         Number4 += scoreForEntrench;
         if (MakeLog)
-          this.AddLog("***Score after Entrench added = " + Conversion.Str((object) Number4));
+          this.AddLog("***Score after Entrench added = " + Conversion.Str( Number4));
       }
       if (!quicktest)
       {
         let mut enemyEncircledScore: i32 = this.GetEnemyEncircledScore( TempMove, MakeLog);
-        let mut Number5: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ((double) this.game.Data.RuleVar[381] != 0.0 ?  Math.Round((double) enemyEncircledScore * (double) this.game.Data.RuleVar[381] / 100.0) :  Math.Round((double) enemyEncircledScore / 4.0)) : ((double) this.game.Data.RuleVar[380] != 0.0 ?  Math.Round((double) enemyEncircledScore * (double) this.game.Data.RuleVar[380] / 100.0) :  Math.Round((double) enemyEncircledScore / 4.0));
+        let mut Number5: i32 = this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 ? ( this.game.Data.RuleVar[381] != 0.0 ?  Math.Round( enemyEncircledScore *  this.game.Data.RuleVar[381] / 100.0) :  Math.Round( enemyEncircledScore / 4.0)) : ( this.game.Data.RuleVar[380] != 0.0 ?  Math.Round( enemyEncircledScore *  this.game.Data.RuleVar[380] / 100.0) :  Math.Round( enemyEncircledScore / 4.0));
         if (MakeLog)
-          this.AddLog(" encircle enemy /4 = " + Conversion.Str((object) Number5));
+          this.AddLog(" encircle enemy /4 = " + Conversion.Str( Number5));
         Number4 += Number5;
         if (MakeLog)
-          this.AddLog("***Score after [GetEnemyEncircled] added = " + Conversion.Str((object) Number4));
+          this.AddLog("***Score after [GetEnemyEncircled] added = " + Conversion.Str( Number4));
       }
       let mut Number6: i32 = 0;
       let mut Number7: i32 = 0;
@@ -12621,24 +12621,24 @@ label_38:
         if (num11 > Number4)
           num11 = Number4;
         if (MakeLog)
-          this.AddLog("Full Matrix score. Hexes. Started with " + Conversion.Str((object) Number6) + ", Ended with " + Conversion.Str((object) Number7) + " of total " + Conversion.Str((object) Number8));
-        if ((double) this.game.Data.RuleVar[383] == 0.0 & Number8 > 0)
+          this.AddLog("Full Matrix score. Hexes. Started with " + Conversion.Str( Number6) + ", Ended with " + Conversion.Str( Number7) + " of total " + Conversion.Str( Number8));
+        if ( this.game.Data.RuleVar[383] == 0.0 & Number8 > 0)
         {
           if (Number6 > Number7)
-            Number4 +=  Math.Round(0.0 - (double) num11 * 0.15 * ((double) (Number6 - Number7) / (double) Number8));
+            Number4 +=  Math.Round(0.0 -  num11 * 0.15 * ( (Number6 - Number7) /  Number8));
           else if (Number7 > Number6)
-            Number4 +=  Math.Round(0.0 + (double) num11 * 0.15 * ((double) (Number7 - Number6) / (double) Number8));
+            Number4 +=  Math.Round(0.0 +  num11 * 0.15 * ( (Number7 - Number6) /  Number8));
         }
         else if (Number8 > 0)
         {
           if (Number6 > Number7)
-            Number4 +=  Math.Round(0.0 - (double) num11 * ((double) this.game.Data.RuleVar[383] / 100.0) * ((double) (Number6 - Number7) / (double) Number8));
+            Number4 +=  Math.Round(0.0 -  num11 * ( this.game.Data.RuleVar[383] / 100.0) * ( (Number6 - Number7) /  Number8));
           else if (Number7 > Number6)
-            Number4 +=  Math.Round(0.0 + (double) num11 * ((double) this.game.Data.RuleVar[383] / 100.0) * ((double) (Number7 - Number6) / (double) Number8));
+            Number4 +=  Math.Round(0.0 +  num11 * ( this.game.Data.RuleVar[383] / 100.0) * ( (Number7 - Number6) /  Number8));
         }
         if (MakeLog)
-          this.AddLog("***Score after [FullAdvanceMatrix Pts for Hexes] added = " + Conversion.Str((object) Number4));
-        if ((double) this.CorpsTopRatio[this.OpGroup] > 2.0)
+          this.AddLog("***Score after [FullAdvanceMatrix Pts for Hexes] added = " + Conversion.Str( Number4));
+        if ( this.CorpsTopRatio[this.OpGroup] > 2.0)
         {
           let mut Number9: i32 = 0;
           let mut Number10: i32 = 0;
@@ -12665,23 +12665,23 @@ label_38:
           }
           let mut Number11: i32 = num9 * num10;
           if (MakeLog)
-            this.AddLog("Full Matrix score. Units Hex Values. Started with " + Conversion.Str((object) Number9) + ", Ended with " + Conversion.Str((object) Number10) + " of a total " + Conversion.Str((object) Number11));
-          if ((double) this.game.Data.RuleVar[382] == 0.0 & Number11 > 0)
+            this.AddLog("Full Matrix score. Units Hex Values. Started with " + Conversion.Str( Number9) + ", Ended with " + Conversion.Str( Number10) + " of a total " + Conversion.Str( Number11));
+          if ( this.game.Data.RuleVar[382] == 0.0 & Number11 > 0)
           {
             if (Number9 > Number10)
-              Number4 +=  Math.Round(0.0 - (double) num11 * 0.4 * ((double) (Number9 - Number10) / (double) Number11));
+              Number4 +=  Math.Round(0.0 -  num11 * 0.4 * ( (Number9 - Number10) /  Number11));
             else if (Number10 > Number9 & Number11 > 0)
-              Number4 +=  Math.Round(0.0 + (double) num11 * 0.4 * ((double) (Number10 - Number9) / (double) Number11));
+              Number4 +=  Math.Round(0.0 +  num11 * 0.4 * ( (Number10 - Number9) /  Number11));
           }
           else if (Number11 > 0)
           {
             if (Number9 > Number10)
-              Number4 +=  Math.Round(0.0 - (double) num11 * ((double) this.game.Data.RuleVar[382] / 100.0) * ((double) (Number9 - Number10) / (double) Number11));
+              Number4 +=  Math.Round(0.0 -  num11 * ( this.game.Data.RuleVar[382] / 100.0) * ( (Number9 - Number10) /  Number11));
             else if (Number10 > Number9 & Number11 > 0)
-              Number4 +=  Math.Round(0.0 + (double) num11 * ((double) this.game.Data.RuleVar[382] / 100.0) * ((double) (Number10 - Number9) / (double) Number11));
+              Number4 +=  Math.Round(0.0 +  num11 * ( this.game.Data.RuleVar[382] / 100.0) * ( (Number10 - Number9) /  Number11));
           }
           if (MakeLog)
-            this.AddLog("***Score after [FullAdvanceMatrix Pts for Units] added = " + Conversion.Str((object) Number4));
+            this.AddLog("***Score after [FullAdvanceMatrix Pts for Units] added = " + Conversion.Str( Number4));
         }
         else if (MakeLog)
           this.AddLog("No Full Matrix score calculated because group not strong enough to warrant it.");
@@ -12691,7 +12691,7 @@ label_38:
       {
         Number4 += reconquestOfImportance;
         if (MakeLog)
-          this.AddLog("GOT " + Conversion.Str((object) reconquestOfImportance) + " FOR RECONQUESTS OR LOSSES OF IMPORTANCE! (such as supply bases)");
+          this.AddLog("GOT " + Conversion.Str( reconquestOfImportance) + " FOR RECONQUESTS OR LOSSES OF IMPORTANCE! (such as supply bases)");
       }
       return Number4;
     }
@@ -12710,7 +12710,7 @@ label_38:
             num2 += 1;
         }
       }
-      return num1 == 0 ? 0 :  Math.Round(100.0 * ((double) num2 / (double) num1));
+      return num1 == 0 ? 0 :  Math.Round(100.0 * ( num2 /  num1));
     }
 
     pub int GetAbsoluteTempUnits(int grp)
@@ -12753,7 +12753,7 @@ label_38:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageEnemyUnitPowerPointsAbsolute()
@@ -12787,7 +12787,7 @@ label_38:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetEnemyEncircledScore( SimpleList tempMove, bool makelog)
@@ -12829,12 +12829,12 @@ label_38:
               if (regime == this.TempOwner[coordinate1.x, coordinate1.y] | this.game.Data.UnitObj[unr].X == coordinate1.x & this.game.Data.UnitObj[unr].Y == coordinate1.y)
               {
                 int num2;
-                if ((double) this.SupplyMatrixEnemyReal[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+                if ( this.SupplyMatrixEnemyReal[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
                 {
                   num2 = 1;
                   break;
                 }
-                if ((double) this.SupplyMatrixEnemyReal[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+                if ( this.SupplyMatrixEnemyReal[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
                 {
                   coordinate2 = this.SupplyMatrixEnemyRealCameFrom[coordinate1.x, coordinate1.y];
                   if (regime == this.TempOwner[coordinate2.x, coordinate2.y])
@@ -12844,7 +12844,7 @@ label_38:
                     break;
                   }
                 }
-                if (num1 == 0 & (double) this.SupplyMatrixEnemyPrognosis[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+                if (num1 == 0 &  this.SupplyMatrixEnemyPrognosis[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
                 {
                   coordinate2 = this.SupplyMatrixEnemyPrognosisCameFrom[coordinate1.x, coordinate1.y];
                   if (regime == this.TempOwner[coordinate2.x, coordinate2.y])
@@ -12856,9 +12856,9 @@ label_38:
               }
               if (num1 == 0)
               {
-                let mut Number: i32 =  Math.Round(100.0 * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) Math.Max(1, powerPointsAbsolute)) * 0.15 * ((double) this.GetTscore(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) / 100.0));
+                let mut Number: i32 =  Math.Round(100.0 * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  Math.Max(1, powerPointsAbsolute)) * 0.15 * ( this.GetTscore(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) / 100.0));
                 if (makelog)
-                  this.AddLog("ENEMY SOFT encircled: " + this.game.Data.UnitObj[unr].Name + ". Bonus pts =" + Conversion.Str((object) Number));
+                  this.AddLog("ENEMY SOFT encircled: " + this.game.Data.UnitObj[unr].Name + ". Bonus pts =" + Conversion.Str( Number));
                 enemyEncircledScore += Number;
               }
             }
@@ -12891,7 +12891,7 @@ label_38:
             while (coordinate1.onmap & num3 == 1 & this.SupplyMatrixEnemyPrognosis[coordinate1.x, coordinate1.y] != 0)
             {
               num3 = 0;
-              if ((double) this.SupplyMatrixEnemyReal[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+              if ( this.SupplyMatrixEnemyReal[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
               {
                 coordinate2 = this.SupplyMatrixEnemyRealCameFrom[coordinate1.x, coordinate1.y];
                 if (regime == this.TempCounterOwner[coordinate2.x, coordinate2.y] | this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LandscapeType].IsSea && this.ptemp3[coordinate2.x, coordinate2.y] == 0)
@@ -12903,7 +12903,7 @@ label_38:
                     break;
                 }
               }
-              if (num3 == 0 & (double) this.SupplyMatrixEnemyPrognosis[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+              if (num3 == 0 &  this.SupplyMatrixEnemyPrognosis[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
               {
                 coordinate2 = this.SupplyMatrixEnemyPrognosisCameFrom[coordinate1.x, coordinate1.y];
                 if (regime == this.TempCounterOwner[coordinate2.x, coordinate2.y] | this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LandscapeType].IsSea && this.ptemp3[coordinate2.x, coordinate2.y] == 0)
@@ -12919,7 +12919,7 @@ label_38:
                 do
                 {
                   Coordinate coordinate3 = this.game.HandyFunctionsObj.HexNeighbour(coordinate1.x, coordinate1.y, 0, tfacing);
-                  if (coordinate3.onmap && regime == this.TempCounterOwner[coordinate3.x, coordinate3.y] | this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LandscapeType].IsSea && (double) this.SupplyMatrixEnemyPrognosis[coordinate3.x, coordinate3.y] < (double) this.game.Data.RuleVar[53] && this.ptemp3[coordinate3.x, coordinate3.y] == 0)
+                  if (coordinate3.onmap && regime == this.TempCounterOwner[coordinate3.x, coordinate3.y] | this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LandscapeType].IsSea &&  this.SupplyMatrixEnemyPrognosis[coordinate3.x, coordinate3.y] <  this.game.Data.RuleVar[53] && this.ptemp3[coordinate3.x, coordinate3.y] == 0)
                   {
                     if (!coordinate2.onmap)
                       coordinate2 = coordinate3;
@@ -12938,9 +12938,9 @@ label_38:
               }
               if (num3 == 0)
               {
-                let mut Number: i32 =  Math.Round(45.0 * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) Math.Max(1, powerPointsAbsolute)) * ((double) this.GetTscore(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) / 100.0));
+                let mut Number: i32 =  Math.Round(45.0 * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  Math.Max(1, powerPointsAbsolute)) * ( this.GetTscore(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) / 100.0));
                 if (makelog)
-                  this.AddLog("ENEMY HARD encircled: " + this.game.Data.UnitObj[unr].Name + ". Bonus pts =" + Conversion.Str((object) Number));
+                  this.AddLog("ENEMY HARD encircled: " + this.game.Data.UnitObj[unr].Name + ". Bonus pts =" + Conversion.Str( Number));
                 enemyEncircledScore += Number;
               }
             }
@@ -12993,8 +12993,8 @@ label_38:
             if (unr == groupHq | num1 == 2)
             {
               let mut num3: i32 = 1;
-              let mut num4: i32 =  Math.Round((double) this.game.Data.RuleVar[52]);
-              let mut num5: i32 = Math.Max(0,  Math.Round((double) ((float) this.SupplyMatrixReal[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] - this.game.Data.RuleVar[51])));
+              let mut num4: i32 =  Math.Round( this.game.Data.RuleVar[52]);
+              let mut num5: i32 = Math.Max(0,  Math.Round( ( this.SupplyMatrixReal[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] - this.game.Data.RuleVar[51])));
               if (num4 > num5)
                 num4 = num5;
               coordinate1.x = this.game.Data.UnitObj[unr].TempX;
@@ -13012,7 +13012,7 @@ label_38:
                 }
                 if (this.GetRegime(this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].Regime) == this.GetGameDataTurn() | this.GetGameDataTurn() == this.GetRegime(this.TempOwner[coordinate1.x, coordinate1.y]))
                 {
-                  if ((double) this.SupplyMatrixReal[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[52])
+                  if ( this.SupplyMatrixReal[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[52])
                   {
                     coordinate2 = this.SupplyMatrixRealCameFrom[coordinate1.x, coordinate1.y];
                     if (this.GetGameDataTurn() == this.GetRegime(this.TempOwner[coordinate1.x, coordinate1.y]) | this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].Regime == -1)
@@ -13021,7 +13021,7 @@ label_38:
                       num3 = 1;
                     }
                   }
-                  if (num3 == 0 & (double) this.SupplyMatrixPrognosis[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[52])
+                  if (num3 == 0 &  this.SupplyMatrixPrognosis[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[52])
                   {
                     coordinate2 = this.SupplyMatrixPrognosisCameFrom[coordinate1.x, coordinate1.y];
                     if (this.GetGameDataTurn() == this.GetRegime(this.TempOwner[coordinate2.x, coordinate2.y]) | this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].Regime == -1)
@@ -13035,17 +13035,17 @@ label_38:
                 {
                   if (num3 == 0)
                   {
-                    let mut Number: i32 = !(this.game.Data.UnitObj[unr].IsHQ & powerPointsAbsolute > 0) ? 150 :  Math.Round(100.0 * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) powerPointsAbsolute) * 0.75);
-                    if ((double) this.game.Data.UnitObj[unr].SupplyIn < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
-                      Number =  Math.Round((double) Number * 2.5);
-                    if ((double) this.game.Data.UnitObj[unr].Supply < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
-                      Number =  Math.Round((double) Number * 1.5);
+                    let mut Number: i32 = !(this.game.Data.UnitObj[unr].IsHQ & powerPointsAbsolute > 0) ? 150 :  Math.Round(100.0 * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  powerPointsAbsolute) * 0.75);
+                    if ( this.game.Data.UnitObj[unr].SupplyIn <  this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
+                      Number =  Math.Round( Number * 2.5);
+                    if ( this.game.Data.UnitObj[unr].Supply <  this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
+                      Number =  Math.Round( Number * 1.5);
                     if (this.game.Data.UnitObj[unr].IsHQ)
                       Number *= 3;
                     if (!IsTest)
                       this.game.Data.UnitObj[unr].TempEncircled = 1;
                     if (makelog)
-                      this.AddLog("NO EASY SUPPLY ROUTE TO HIGH HQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str((object) Number));
+                      this.AddLog("NO EASY SUPPLY ROUTE TO HIGH HQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str( Number));
                     if (this.game.Data.UnitObj[groupHq].AIFallback <= -1 || this.game.Data.UnitObj[unr].FinalX != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].x || this.game.Data.UnitObj[unr].FinalY != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].y)
                       ;
                     num2 += Number;
@@ -13076,8 +13076,8 @@ label_38:
               coordinate1.y = this.game.Data.UnitObj[unr].TempY;
               coordinate1.onmap = false;
               let mut num7: i32 = 0;
-              let mut num8: i32 =  Math.Round((double) this.game.Data.RuleVar[52]);
-              let mut num9: i32 = Math.Max(0,  Math.Round((double) ((float) this.SupplyMatrixReal[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] - this.game.Data.RuleVar[51])));
+              let mut num8: i32 =  Math.Round( this.game.Data.RuleVar[52]);
+              let mut num9: i32 = Math.Max(0,  Math.Round( ( this.SupplyMatrixReal[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] - this.game.Data.RuleVar[51])));
               if (num8 > num9)
                 num8 = num9;
               if (coordinate1.x > -1 & coordinate1.y > -1)
@@ -13085,7 +13085,7 @@ label_38:
               while (coordinate1.onmap & num6 == 1 & this.SupplyMatrixReal[coordinate1.x, coordinate1.y] != 0)
               {
                 num6 = 0;
-                if ((double) this.SupplyMatrixReal[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[52])
+                if ( this.SupplyMatrixReal[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[52])
                 {
                   coordinate2 = this.SupplyMatrixRealCameFrom[coordinate1.x, coordinate1.y];
                   if (this.ptemp3[coordinate2.x, coordinate2.y] == 0 && this.GetGameDataTurn() == this.GetRegime(this.TempCounterOwner[coordinate2.x, coordinate2.y]) | this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].Regime == -1)
@@ -13097,7 +13097,7 @@ label_38:
                       break;
                   }
                 }
-                if (num6 == 0 & (double) this.SupplyMatrixPrognosis[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[52])
+                if (num6 == 0 &  this.SupplyMatrixPrognosis[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[52])
                 {
                   coordinate2 = this.SupplyMatrixPrognosisCameFrom[coordinate1.x, coordinate1.y];
                   if (this.ptemp3[coordinate2.x, coordinate2.y] == 0 && this.GetGameDataTurn() == this.GetRegime(this.TempCounterOwner[coordinate2.x, coordinate2.y]) | this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].Regime == -1)
@@ -13134,17 +13134,17 @@ label_38:
                 {
                   if (num6 == 0)
                   {
-                    let mut Number: i32 = !(this.game.Data.UnitObj[unr].IsHQ & powerPointsAbsolute > 0) ? 50 :  Math.Round(100.0 * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) powerPointsAbsolute) * 0.25);
-                    if ((double) this.game.Data.UnitObj[unr].SupplyIn < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
-                      Number =  Math.Round((double) Number * 2.5);
-                    if ((double) this.game.Data.UnitObj[unr].Supply < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
+                    let mut Number: i32 = !(this.game.Data.UnitObj[unr].IsHQ & powerPointsAbsolute > 0) ? 50 :  Math.Round(100.0 * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  powerPointsAbsolute) * 0.25);
+                    if ( this.game.Data.UnitObj[unr].SupplyIn <  this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
+                      Number =  Math.Round( Number * 2.5);
+                    if ( this.game.Data.UnitObj[unr].Supply <  this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
                       Number *= 3;
                     if (this.game.Data.UnitObj[unr].IsHQ)
                       Number *= 3;
                     if (!IsTest)
                       this.game.Data.UnitObj[unr].TempEncircled = 2;
                     if (makelog)
-                      this.AddLog("NO HARD SUPPLY ROUTE TO HIGH HQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str((object) Number));
+                      this.AddLog("NO HARD SUPPLY ROUTE TO HIGH HQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str( Number));
                     if (this.game.Data.UnitObj[groupHq].AIFallback <= -1 || this.game.Data.UnitObj[unr].FinalX != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].x || this.game.Data.UnitObj[unr].FinalY != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].y)
                       ;
                     num2 += Number;
@@ -13181,14 +13181,14 @@ label_38:
               {
                 num10 = 0;
                 int num11;
-                if ((double) this.SupplyMatrixOpHQReal[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] <= (double) this.game.Data.RuleVar[52])
+                if ( this.SupplyMatrixOpHQReal[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] <=  this.game.Data.RuleVar[52])
                 {
                   num11 = 1;
                   break;
                 }
                 if (this.GetRegime(this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].Regime) == this.GetGameDataTurn() | this.game.Data.Turn == this.TempOwner[coordinate1.x, coordinate1.y] | this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].Regime == -1)
                 {
-                  if ((double) this.SupplyMatrixOpHQReal[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+                  if ( this.SupplyMatrixOpHQReal[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
                   {
                     coordinate2 = this.SupplyMatrixOpHQRealCameFrom[coordinate1.x, coordinate1.y];
                     if (this.GetGameDataTurn() == this.GetRegime(this.TempOwner[coordinate1.x, coordinate1.y]))
@@ -13198,7 +13198,7 @@ label_38:
                       break;
                     }
                   }
-                  if (num10 == 0 & (double) this.SupplyMatrixOpHQPrognosis[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+                  if (num10 == 0 &  this.SupplyMatrixOpHQPrognosis[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
                   {
                     coordinate2 = this.SupplyMatrixOpHQPrognosisCameFrom[coordinate1.x, coordinate1.y];
                     if (this.GetGameDataTurn() == this.GetRegime(this.TempOwner[coordinate2.x, coordinate2.y]))
@@ -13212,19 +13212,19 @@ label_38:
                   num10 = 0;
                 if (num10 == 0)
                 {
-                  let mut Number: i32 = !this.game.Data.UnitObj[unr].IsHQ ? 150 :  Math.Round(100.0 * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) powerPointsAbsolute) * 0.75);
+                  let mut Number: i32 = !this.game.Data.UnitObj[unr].IsHQ ? 150 :  Math.Round(100.0 * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  powerPointsAbsolute) * 0.75);
                   if (!flag)
-                    Number =  Math.Round((double) Number / 2.0);
-                  if ((double) this.game.Data.UnitObj[unr].SupplyIn < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
-                    Number =  Math.Round((double) Number * 2.5);
-                  if ((double) this.game.Data.UnitObj[unr].Supply < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
-                    Number =  Math.Round((double) Number * 1.5);
+                    Number =  Math.Round( Number / 2.0);
+                  if ( this.game.Data.UnitObj[unr].SupplyIn <  this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
+                    Number =  Math.Round( Number * 2.5);
+                  if ( this.game.Data.UnitObj[unr].Supply <  this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
+                    Number =  Math.Round( Number * 1.5);
                   if (this.game.Data.UnitObj[unr].IsHQ)
                     Number *= 3;
                   if (!IsTest)
                     this.game.Data.UnitObj[unr].TempEncircled = 1;
                   if (makelog)
-                    this.AddLog("NO EASY SUPPLY ROUTE TO OPHQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str((object) Number));
+                    this.AddLog("NO EASY SUPPLY ROUTE TO OPHQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str( Number));
                   if (this.game.Data.UnitObj[groupHq].AIFallback <= -1 || this.game.Data.UnitObj[unr].FinalX != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].x || this.game.Data.UnitObj[unr].FinalY != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].y)
                     ;
                   num2 += Number;
@@ -13260,7 +13260,7 @@ label_38:
               while (coordinate1.onmap & num12 == 1 & this.SupplyMatrixOpHQReal[coordinate1.x, coordinate1.y] != 0)
               {
                 num12 = 0;
-                if ((double) this.SupplyMatrixOpHQReal[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+                if ( this.SupplyMatrixOpHQReal[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
                 {
                   coordinate2 = this.SupplyMatrixOpHQRealCameFrom[coordinate1.x, coordinate1.y];
                   if (this.ptemp3[coordinate2.x, coordinate2.y] == 0 && this.GetGameDataTurn() == this.GetRegime(this.TempCounterOwner[coordinate2.x, coordinate2.y]) | this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].Regime == -1)
@@ -13272,7 +13272,7 @@ label_38:
                       break;
                   }
                 }
-                if (num12 == 0 & (double) this.SupplyMatrixOpHQPrognosis[coordinate1.x, coordinate1.y] <= (double) this.game.Data.RuleVar[53])
+                if (num12 == 0 &  this.SupplyMatrixOpHQPrognosis[coordinate1.x, coordinate1.y] <=  this.game.Data.RuleVar[53])
                 {
                   coordinate2 = this.SupplyMatrixOpHQPrognosisCameFrom[coordinate1.x, coordinate1.y];
                   if (this.ptemp3[coordinate2.x, coordinate2.y] == 0 && this.GetGameDataTurn() == this.GetRegime(this.TempCounterOwner[coordinate2.x, coordinate2.y]) | this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].Regime == -1)
@@ -13288,7 +13288,7 @@ label_38:
                   do
                   {
                     coordinate3 = this.game.HandyFunctionsObj.HexNeighbour(coordinate1.x, coordinate1.y, 0, tfacing);
-                    if (coordinate3.onmap && this.GetRegime(this.game.Data.Turn) == this.GetRegime(this.TempCounterOwner[coordinate3.x, coordinate3.y]) && this.ptemp3[coordinate3.x, coordinate3.y] == 0 && (double) this.SupplyMatrixOpHQPrognosis[coordinate3.x, coordinate3.y] < (double) this.game.Data.RuleVar[53])
+                    if (coordinate3.onmap && this.GetRegime(this.game.Data.Turn) == this.GetRegime(this.TempCounterOwner[coordinate3.x, coordinate3.y]) && this.ptemp3[coordinate3.x, coordinate3.y] == 0 &&  this.SupplyMatrixOpHQPrognosis[coordinate3.x, coordinate3.y] <  this.game.Data.RuleVar[53])
                     {
                       if (!coordinate2.onmap)
                         coordinate2 = coordinate3;
@@ -13309,19 +13309,19 @@ label_38:
                   num12 = 0;
                 if (num12 == 0)
                 {
-                  let mut Number: i32 = !this.game.Data.UnitObj[unr].IsHQ ? 50 :  Math.Round(100.0 * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) powerPointsAbsolute) * 0.25);
+                  let mut Number: i32 = !this.game.Data.UnitObj[unr].IsHQ ? 50 :  Math.Round(100.0 * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  powerPointsAbsolute) * 0.25);
                   if (!flag)
-                    Number =  Math.Round((double) Number / 2.0);
-                  if ((double) this.game.Data.UnitObj[unr].SupplyIn < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
-                    Number =  Math.Round((double) Number * 2.5);
-                  if ((double) this.game.Data.UnitObj[unr].Supply < (double) this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
+                    Number =  Math.Round( Number / 2.0);
+                  if ( this.game.Data.UnitObj[unr].SupplyIn <  this.game.Data.UnitObj[unr].SupplyInReq * 0.25)
+                    Number =  Math.Round( Number * 2.5);
+                  if ( this.game.Data.UnitObj[unr].Supply <  this.game.Data.UnitObj[unr].SupplyInReq * 0.1)
                     Number *= 3;
                   if (this.game.Data.UnitObj[unr].IsHQ)
                     Number *= 3;
                   if (!IsTest)
                     this.game.Data.UnitObj[unr].TempEncircled = 2;
                   if (makelog)
-                    this.AddLog("NO HARD SUPPLY ROUTE TO OPHQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str((object) Number));
+                    this.AddLog("NO HARD SUPPLY ROUTE TO OPHQ for " + this.game.Data.UnitObj[unr].Name + ". Penalty pts =" + Conversion.Str( Number));
                   if (this.game.Data.UnitObj[groupHq].AIFallback <= -1 || this.game.Data.UnitObj[unr].FinalX != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].x || this.game.Data.UnitObj[unr].FinalY != this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].y)
                     ;
                   num2 += Number;
@@ -13368,7 +13368,7 @@ label_38:
                   let mut num7: i32 = num6 * num6;
                   let mut num8: i32 = 0;
                   if (num7 <= 36)
-                    num8 =  Math.Round((double) num1 / (double) num7);
+                    num8 =  Math.Round( num1 /  num7);
                   int[,] enemyPowerDispersed = this.EnemyPowerDispersed;
                   int[,] numArray = enemyPowerDispersed;
                   let mut index1: i32 = x2;
@@ -13418,7 +13418,7 @@ label_38:
                   let mut num7: i32 = num6 * num6;
                   let mut num8: i32 = 0;
                   if (num7 <= 36)
-                    num8 =  Math.Round((double) num1 / (double) num7);
+                    num8 =  Math.Round( num1 /  num7);
                   int[,] friendlyPowerDispersed = this.FriendlyPowerDispersed;
                   int[,] numArray = friendlyPowerDispersed;
                   let mut index1: i32 = x2;
@@ -13454,7 +13454,7 @@ label_38:
               let mut num15: i32 = num14 * num14;
               let mut num16: i32 = 0;
               if (num15 <= 36)
-                num16 =  Math.Round((double) tempUnitPower / (double) num15);
+                num16 =  Math.Round( tempUnitPower /  num15);
               int[,] friendlyPowerDispersed = this.FriendlyPowerDispersed;
               int[,] numArray = friendlyPowerDispersed;
               let mut index7: i32 = x2;
@@ -13559,7 +13559,7 @@ label_38:
               coordinate1.x = index8;
               coordinate1.y = index9;
               coordinate1.onmap = true;
-              let mut val1: i32 = this.EnemyPowerDispersed[index8, index9] <= this.FriendlyPowerDispersed[index8, index9] * 1 ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round((double) this.FriendlyPowerDispersed[index8, index9] * 0.75) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round((double) this.FriendlyPowerDispersed[index8, index9] * 0.5) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round((double) this.FriendlyPowerDispersed[index8, index9] * 0.4) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round((double) this.FriendlyPowerDispersed[index8, index9] * 0.3) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round((double) this.FriendlyPowerDispersed[index8, index9] * 0.2) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round((double) this.FriendlyPowerDispersed[index8, index9] * 0.1) ? 75 : 100) : 125) : 150) : 175) : 200) : 250) : 300;
+              let mut val1: i32 = this.EnemyPowerDispersed[index8, index9] <= this.FriendlyPowerDispersed[index8, index9] * 1 ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round( this.FriendlyPowerDispersed[index8, index9] * 0.75) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round( this.FriendlyPowerDispersed[index8, index9] * 0.5) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round( this.FriendlyPowerDispersed[index8, index9] * 0.4) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round( this.FriendlyPowerDispersed[index8, index9] * 0.3) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round( this.FriendlyPowerDispersed[index8, index9] * 0.2) ? (this.EnemyPowerDispersed[index8, index9] <=  Math.Round( this.FriendlyPowerDispersed[index8, index9] * 0.1) ? 75 : 100) : 125) : 150) : 175) : 200) : 250) : 300;
               let mut num15: i32 = (this.game.Data.UnitObj[unr1].SupplyConsume <= 80 ? (this.game.Data.UnitObj[unr1].SupplyConsume <= 50 ? Math.Max(10, this.game.HandyFunctionsObj.GetAverageRdn(unr1) - 50) : Math.Max(10, this.game.HandyFunctionsObj.GetAverageRdn(unr1) - 25)) : (!this.game.Data.UnitObj[unr1].DidAttack ? Math.Min(val1, this.game.HandyFunctionsObj.GetAverageRdn(unr1) + 25) : Math.Min(75, this.game.HandyFunctionsObj.GetAverageRdn(unr1) - 25))) + 15;
               if (this.EnemyMatrix[index7, index8, index9] > num15)
                 num14 = 0;
@@ -13592,16 +13592,16 @@ label_38:
               {
                 if (this.tArea[index8, index9] > 0)
                 {
-                  let mut d: i32 =  Math.Round(Math.Sqrt(num13 != 1 ? 10.0 : (double) this.GetTscore(index8, index9, IsCounterAttack: true)) * 4.0);
+                  let mut d: i32 =  Math.Round(Math.Sqrt(num13 != 1 ? 10.0 :  this.GetTscore(index8, index9, IsCounterAttack: true)) * 4.0);
                   if (this.GetRegime(this.TempOwner[index8, index9]) != this.GetGameDataTurn())
-                    d =  Math.Round((double) d / 2.0);
+                    d =  Math.Round( d / 2.0);
                   if (this.BottleNeckMatrix[index8, index9] > 0)
-                    d *=  Math.Round(3.0 * Math.Sqrt(Math.Min(100.0, (double) this.BottleNeckMatrix[index8, index9] / 3.0)));
-                  if ((double) this.game.Data.RuleVar[265] > 0.0 && (double) (this.game.HandyFunctionsObj.GetRegimeVP(this.GetGameDataTurn()) - this.game.Data.MapObj[0].HexObj[index8, index9].VP) < (double) this.game.Data.RuleVar[265])
+                    d *=  Math.Round(3.0 * Math.Sqrt(Math.Min(100.0,  this.BottleNeckMatrix[index8, index9] / 3.0)));
+                  if ( this.game.Data.RuleVar[265] > 0.0 &&  (this.game.HandyFunctionsObj.GetRegimeVP(this.GetGameDataTurn()) - this.game.Data.MapObj[0].HexObj[index8, index9].VP) <  this.game.Data.RuleVar[265])
                     d = (d + 200) * 10;
-                  let mut Number: i32 =  Math.Round(Math.Sqrt((double) d) * 10.0);
+                  let mut Number: i32 =  Math.Round(Math.Sqrt( d) * 10.0);
                   if (makelog)
-                    this.AddLog("Enemy counter move on <" + Conversion.Str((object) index8) + "," + Conversion.Str((object) index9) + "> give " + Conversion.Str((object) Number) + "pts. with unit: " + this.game.Data.UnitObj[unr1].Name);
+                    this.AddLog("Enemy counter move on <" + Conversion.Str( index8) + "," + Conversion.Str( index9) + "> give " + Conversion.Str( Number) + "pts. with unit: " + this.game.Data.UnitObj[unr1].Name);
                   counterMoveScore += Number;
                 }
                 this.ptemp[index8, index9] = 1;
@@ -13642,11 +13642,11 @@ label_38:
               {
                 this.ptemp[index11, index12] = 1;
                 this.TempCounterOwner[index11, index12] = this.game.Data.UnitObj[unr1].Regime;
-                let mut Number: i32 =  Math.Round((double) this.GetTscore(index11, index12, IsCounterAttack: true) / 2.0);
+                let mut Number: i32 =  Math.Round( this.GetTscore(index11, index12, IsCounterAttack: true) / 2.0);
                 if (this.game.Data.UnitObj[groupHq].AIAttackStyle == 1)
-                  Number =  Math.Round((double) Number * 1.5);
+                  Number =  Math.Round( Number * 1.5);
                 if (makelog)
-                  this.AddLog("Enemy counter move on (AI slow calc mode) <" + Conversion.Str((object) index11) + "," + Conversion.Str((object) index12) + "> give " + Conversion.Str((object) Number) + "pts. with unit: " + this.game.Data.UnitObj[unr1].Name);
+                  this.AddLog("Enemy counter move on (AI slow calc mode) <" + Conversion.Str( index11) + "," + Conversion.Str( index12) + "> give " + Conversion.Str( Number) + "pts. with unit: " + this.game.Data.UnitObj[unr1].Name);
                 counterMoveScore += Number;
               }
             }
@@ -13862,41 +13862,41 @@ label_38:
               let mut Number3: i32 = this.GetPrognosedEnemyLandAttackPowerPointsOn(index3, index4, OptimisticStack: true, LeaveFrontLineEmptyPenalty: true);
               let mut num8: i32 = this.GetPrognosedEnemyStackPointsOn(index3, index4, OptimisticStack: true);
               if (makelog)
-                this.AddLog("Tot enemy power on " + this.game.Data.UnitObj[index8].Name + "  = " + Conversion.Str((object) Number3) + ", block: " + Conversion.Str((object) Number2));
+                this.AddLog("Tot enemy power on " + this.game.Data.UnitObj[index8].Name + "  = " + Conversion.Str( Number3) + ", block: " + Conversion.Str( Number2));
               if (Number3 > 100)
-                Number3 = 100 +  Math.Round((double) (Number3 - 100) * 0.75);
+                Number3 = 100 +  Math.Round( (Number3 - 100) * 0.75);
               if (Number3 > 250)
-                Number3 = 250 +  Math.Round((double) (Number3 - 250) * 0.66);
+                Number3 = 250 +  Math.Round( (Number3 - 250) * 0.66);
               if (Number3 > 500)
-                Number3 = 500 +  Math.Round((double) (Number3 - 500) * 0.5);
+                Number3 = 500 +  Math.Round( (Number3 - 500) * 0.5);
               if (Number3 > 700)
-                Number3 = 700 +  Math.Round((double) (Number3 - 700) * 0.5);
+                Number3 = 700 +  Math.Round( (Number3 - 700) * 0.5);
               if (Number3 > 900)
-                Number3 = 900 +  Math.Round((double) (Number3 - 900) * 0.5);
+                Number3 = 900 +  Math.Round( (Number3 - 900) * 0.5);
               if (Number3 > 1300)
-                Number3 = 1300 +  Math.Round((double) (Number3 - 1300) * 0.45);
+                Number3 = 1300 +  Math.Round( (Number3 - 1300) * 0.45);
               if (Number3 > 1700)
-                Number3 = 1700 +  Math.Round((double) (Number3 - 1700) * 0.4);
+                Number3 = 1700 +  Math.Round( (Number3 - 1700) * 0.4);
               if (index3 == 47 & index4 == 34)
                 index3 = index3;
               if (this.FrontlineArea[index3, index4] == 2)
               {
-                num8 =  Math.Round((double) num8 / 1.5);
+                num8 =  Math.Round( num8 / 1.5);
                 Number3 *= 1;
               }
-              if ((double) num8 > (double) this.game.Data.RuleVar[30] * 1.33)
-                Number3 =  Math.Round((double) Number3 / ((double) num8 / ((double) this.game.Data.RuleVar[30] * 1.33)));
-              if (!Information.IsNothing((object) this.game.EditObj.TempUnitList) && this.game.EditObj.TempUnitList.counter > 12)
-                Number3 =  Math.Round((double) Number3 * ((double) this.game.EditObj.TempUnitList.counter / 12.0));
+              if ( num8 >  this.game.Data.RuleVar[30] * 1.33)
+                Number3 =  Math.Round( Number3 / ( num8 / ( this.game.Data.RuleVar[30] * 1.33)));
+              if (!Information.IsNothing( this.game.EditObj.TempUnitList) && this.game.EditObj.TempUnitList.counter > 12)
+                Number3 =  Math.Round( Number3 * ( this.game.EditObj.TempUnitList.counter / 12.0));
               if (index3 == 63 & index4 == 54)
                 index3 = index3;
               int Number4;
               if (num3 > num4)
               {
-                let mut num9: i32 =  Math.Round((double) Number3 * ((double) num4 / (double) num3)) - Number2 * 5;
+                let mut num9: i32 =  Math.Round( Number3 * ( num4 /  num3)) - Number2 * 5;
                 if (0 > num9)
                   num9 = 0;
-                Number4 = num9 + Number3 *  Math.Round((double) (num3 - num4) / (double) num3);
+                Number4 = num9 + Number3 *  Math.Round( (num3 - num4) /  num3);
               }
               else
                 Number4 = Number3 - Number2 * 5;
@@ -13934,15 +13934,15 @@ label_38:
                     if (defendingPowerPointsOn <= num13 & num13 > 0)
                     {
                       if (this.game.Data.UnitObj[OnlyUnit].IsHQ)
-                        num12 =  Math.Round((double) num12 * (1.0 - (double) defendingPowerPointsOn / (double) num13) + 0.2 * (double) num12 * ((double) defendingPowerPointsOn / (double) num13));
+                        num12 =  Math.Round( num12 * (1.0 -  defendingPowerPointsOn /  num13) + 0.2 *  num12 * ( defendingPowerPointsOn /  num13));
                       if (this.game.Data.UnitObj[OnlyUnit].TempCategory == 2)
-                        num12 =  Math.Round((double) num12 * (1.0 - (double) defendingPowerPointsOn / (double) num13) + 0.1 * (double) num12 * ((double) defendingPowerPointsOn / (double) num13));
+                        num12 =  Math.Round( num12 * (1.0 -  defendingPowerPointsOn /  num13) + 0.1 *  num12 * ( defendingPowerPointsOn /  num13));
                       if (this.game.Data.UnitObj[OnlyUnit].TempCategory == 5)
-                        num12 =  Math.Round((double) num12 * (1.0 - (double) defendingPowerPointsOn / (double) num13) + 0.1 * (double) num12 * ((double) defendingPowerPointsOn / (double) num13));
+                        num12 =  Math.Round( num12 * (1.0 -  defendingPowerPointsOn /  num13) + 0.1 *  num12 * ( defendingPowerPointsOn /  num13));
                       if (this.game.Data.UnitObj[OnlyUnit].TempCategory == 4)
-                        num12 =  Math.Round((double) num12 * (1.0 - (double) defendingPowerPointsOn / (double) num13) + 0.2 * (double) num12 * ((double) defendingPowerPointsOn / (double) num13));
+                        num12 =  Math.Round( num12 * (1.0 -  defendingPowerPointsOn /  num13) + 0.2 *  num12 * ( defendingPowerPointsOn /  num13));
                       if (this.game.Data.UnitObj[OnlyUnit].TempCategory == 3)
-                        num12 =  Math.Round((double) num12 * (1.0 - (double) defendingPowerPointsOn / (double) num13) + 0.05 * (double) num12 * ((double) defendingPowerPointsOn / (double) num13));
+                        num12 =  Math.Round( num12 * (1.0 -  defendingPowerPointsOn /  num13) + 0.05 *  num12 * ( defendingPowerPointsOn /  num13));
                     }
                   }
                   if (num12 > 0)
@@ -13967,14 +13967,14 @@ label_38:
               if (Number5 == 0)
                 Number5 = 1;
               if (num10 > Number5)
-                num14 = (float) num10 / (float) Number5;
-              if ((double) num14 > 3.0)
-                num14 = (float) (2.0 + Math.Sqrt((double) num14 - 2.0));
-              let mut Number6: i32 =  Math.Round(Math.Min(5.0, (double) Number4 / (double) Number5) * 20.0);
-              let mut num15: i32 = this.BottleNeckMatrix[index3, index4] <= 20 ? (this.BottleNeckMatrix[index3, index4] <= 5 ? (this.FrontlineArea[index3, index4] != 2 ?  Math.Round((double) this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.66) :  Math.Round((double) this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.6)) :  Math.Round((double) this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.55)) :  Math.Round((double) this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.5);
+                num14 =  num10 /  Number5;
+              if ( num14 > 3.0)
+                num14 =  (2.0 + Math.Sqrt( num14 - 2.0));
+              let mut Number6: i32 =  Math.Round(Math.Min(5.0,  Number4 /  Number5) * 20.0);
+              let mut num15: i32 = this.BottleNeckMatrix[index3, index4] <= 20 ? (this.BottleNeckMatrix[index3, index4] <= 5 ? (this.FrontlineArea[index3, index4] != 2 ?  Math.Round( this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.66) :  Math.Round( this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.6)) :  Math.Round( this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.55)) :  Math.Round( this.ATTACK_MINIMUM_ACTUAL_ATTACK * 0.5);
               if (Number6 >= num15)
               {
-                let mut num16: i32 =  Math.Round((double) this.game.Data.RuleVar[30]);
+                let mut num16: i32 =  Math.Round( this.game.Data.RuleVar[30]);
                 let mut counter1: i32 = this.game.EditObj.TempUnitList.counter;
                 for (let mut index14: i32 = 0; index14 <= counter1; index14 += 1)
                 {
@@ -14002,20 +14002,20 @@ label_38:
                   index3 = index3;
                 if (this.BottleNeckMatrix[index3, index4] > 20)
                 {
-                  if (Number6 >=  Math.Round((double) num15 * 1.25))
+                  if (Number6 >=  Math.Round( num15 * 1.25))
                     this.TempCounterOwner[index3, index4] = this.game.Data.UnitObj[unr].Regime;
                 }
                 else if (this.BottleNeckMatrix[index3, index4] > 5)
                 {
-                  if (Number6 >=  Math.Round((double) num15 * 1.4))
+                  if (Number6 >=  Math.Round( num15 * 1.4))
                     this.TempCounterOwner[index3, index4] = this.game.Data.UnitObj[unr].Regime;
                 }
                 else if (this.FrontlineArea[index3, index4] == 2)
                 {
-                  if (Number6 >=  Math.Round((double) num15 * 1.55))
+                  if (Number6 >=  Math.Round( num15 * 1.55))
                     this.TempCounterOwner[index3, index4] = this.game.Data.UnitObj[unr].Regime;
                 }
-                else if (Number6 >=  Math.Round((double) num15 * 1.7))
+                else if (Number6 >=  Math.Round( num15 * 1.7))
                   this.TempCounterOwner[index3, index4] = this.game.Data.UnitObj[unr].Regime;
                 if (num11 > 0)
                 {
@@ -14026,39 +14026,39 @@ label_38:
                     if (this.game.Data.UnitObj[index20].TempX == index3 & this.game.Data.UnitObj[index20].TempY == index4)
                     {
                       if (this.game.Data.UnitObj[index20].IsHQ)
-                        Number6 +=  Math.Round((double) (Number6 * 8) * ((double) this.game.Data.UnitObj[index20].TempUnitPower / (double) num11));
+                        Number6 +=  Math.Round( (Number6 * 8) * ( this.game.Data.UnitObj[index20].TempUnitPower /  num11));
                       if (this.game.Data.UnitObj[index20].TempCategory == 2)
-                        Number6 +=  Math.Round((double) (Number6 * 4) * ((double) this.game.Data.UnitObj[index20].TempUnitPower / (double) num11));
+                        Number6 +=  Math.Round( (Number6 * 4) * ( this.game.Data.UnitObj[index20].TempUnitPower /  num11));
                       if (this.game.Data.UnitObj[index20].TempCategory == 5)
-                        Number6 +=  Math.Round((double) (Number6 * 4) * ((double) this.game.Data.UnitObj[index20].TempUnitPower / (double) num11));
+                        Number6 +=  Math.Round( (Number6 * 4) * ( this.game.Data.UnitObj[index20].TempUnitPower /  num11));
                       if (this.game.Data.UnitObj[index20].TempCategory == 4)
-                        Number6 +=  Math.Round((double) (Number6 * 4) * ((double) this.game.Data.UnitObj[index20].TempUnitPower / (double) num11));
+                        Number6 +=  Math.Round( (Number6 * 4) * ( this.game.Data.UnitObj[index20].TempUnitPower /  num11));
                       if (this.game.Data.UnitObj[index20].TempCategory == 3)
-                        Number6 +=  Math.Round((double) (Number6 * 12) * ((double) this.game.Data.UnitObj[index20].TempUnitPower / (double) num11));
+                        Number6 +=  Math.Round( (Number6 * 12) * ( this.game.Data.UnitObj[index20].TempUnitPower /  num11));
                     }
                   }
                 }
                 if (num1 == 2)
-                  Number6 =  Math.Round((double) Number6 / 2.0);
-                let mut Number7: i32 =  Math.Round((double) ((float) Number6 * num14));
+                  Number6 =  Math.Round( Number6 / 2.0);
+                let mut Number7: i32 =  Math.Round( ( Number6 * num14));
                 let mut pointsOnOnlyPower: i32 = this.GetPrognosedDefendingPowerPointsOnOnlyPower(index3, index4);
                 let mut num20: i32 = 80;
-                if ((double) this.game.Data.RuleVar[384] > 0.0)
-                  num20 =  Math.Round((double) this.game.Data.RuleVar[384]);
+                if ( this.game.Data.RuleVar[384] > 0.0)
+                  num20 =  Math.Round( this.game.Data.RuleVar[384]);
                 if (pointsOnOnlyPower > num20)
                 {
-                  Number7 =  Math.Round((double) Number7 * ((double) pointsOnOnlyPower / (double) num20));
+                  Number7 =  Math.Round( Number7 * ( pointsOnOnlyPower /  num20));
                   if (makelog)
-                    this.AddLog("Large Target Bonus. " + Conversion.Str((object) (100.0 * ((double) pointsOnOnlyPower / (double) num20) - 100.0)) + "% extra pts!");
+                    this.AddLog("Large Target Bonus. " + Conversion.Str( (100.0 * ( pointsOnOnlyPower /  num20) - 100.0)) + "% extra pts!");
                 }
                 if (this.BottleNeckMatrix[index3, index4] > 0)
                 {
-                  Number7 =  Math.Round((double) Number7 * Math.Sqrt(Math.Min(25.0, (double) this.BottleNeckMatrix[index3, index4] / 5.0)));
+                  Number7 =  Math.Round( Number7 * Math.Sqrt(Math.Min(25.0,  this.BottleNeckMatrix[index3, index4] / 5.0)));
                   if (makelog)
-                    this.AddLog("Multiply pts by: " + Math.Sqrt(Math.Min(100.0, (double) this.BottleNeckMatrix[index3, index4] / 3.0)).ToString() + " to make these more profitable to avoid .... Bottleneck Matrix Score was = " + this.BottleNeckMatrix[index3, index4].ToString());
+                    this.AddLog("Multiply pts by: " + Math.Sqrt(Math.Min(100.0,  this.BottleNeckMatrix[index3, index4] / 3.0)).ToString() + " to make these more profitable to avoid .... Bottleneck Matrix Score was = " + this.BottleNeckMatrix[index3, index4].ToString());
                 }
                 if (makelog)
-                  this.AddLog("EASY ROUTE Counterattack on <" + Conversion.Str((object) index3) + "," + Conversion.Str((object) index4) + ">.  With att = " + Conversion.Str((object) Number4) + " vs def = " + Conversion.Str((object) Number5) + ". Basicstack= " + num8.ToString() + "... Is " + Conversion.Str((object) Number7) + " points. ");
+                  this.AddLog("EASY ROUTE Counterattack on <" + Conversion.Str( index3) + "," + Conversion.Str( index4) + ">.  With att = " + Conversion.Str( Number4) + " vs def = " + Conversion.Str( Number5) + ". Basicstack= " + num8.ToString() + "... Is " + Conversion.Str( Number7) + " points. ");
                 if (makelog & this.game.EditObj.TempUnitList.counter > -1)
                 {
                   let mut counter2: i32 = this.game.EditObj.TempUnitList.counter;
@@ -14069,16 +14069,16 @@ label_38:
                   }
                 }
                 Number1 += Number7;
-                this.CounterAttackPossible[index3, index4] =  Math.Round(100.0 * ((double) Number7 / (double) num15));
+                this.CounterAttackPossible[index3, index4] =  Math.Round(100.0 * ( Number7 /  num15));
                 numArray3[index3, index4] = num1;
               }
               else
               {
                 if (makelog)
-                  this.AddLog("NO easy counterattack on <" + Conversion.Str((object) index3) + "," + Conversion.Str((object) index4) + ">.  With att = " + Conversion.Str((object) Number4) + " vs def = " + Conversion.Str((object) Number5) + ". Basicstack= " + num8.ToString() + ". Is " + Conversion.Str((object) Number6) + " points. (tscore=" + Conversion.Str((object) this.GetTscore(index3, index4)) + ")");
-                this.CounterAttackPossible[index3, index4] =  Math.Round(100.0 * ((double) Number6 / (double) num15));
+                  this.AddLog("NO easy counterattack on <" + Conversion.Str( index3) + "," + Conversion.Str( index4) + ">.  With att = " + Conversion.Str( Number4) + " vs def = " + Conversion.Str( Number5) + ". Basicstack= " + num8.ToString() + ". Is " + Conversion.Str( Number6) + " points. (tscore=" + Conversion.Str( this.GetTscore(index3, index4)) + ")");
+                this.CounterAttackPossible[index3, index4] =  Math.Round(100.0 * ( Number6 /  num15));
                 numArray3[index3, index4] = num1;
-                if (!Information.IsNothing((object) this.game.EditObj.TempUnitList) && makelog & this.game.EditObj.TempUnitList.counter > -1)
+                if (!Information.IsNothing( this.game.EditObj.TempUnitList) && makelog & this.game.EditObj.TempUnitList.counter > -1)
                 {
                   let mut counter: i32 = this.game.EditObj.TempUnitList.counter;
                   for (let mut index22: i32 = 0; index22 <= counter; index22 += 1)
@@ -14105,27 +14105,27 @@ label_38:
           num21 += this.game.Data.UnitObj[index].TempUnitPower;
       }
       if (makelog)
-        this.AddLog("Counterattack score before reduction = " + Conversion.Str((object) Number1));
+        this.AddLog("Counterattack score before reduction = " + Conversion.Str( Number1));
       let mut unitCounter7: i32 = this.game.Data.UnitCounter;
       for (let mut index: i32 = 0; index <= unitCounter7; index += 1)
       {
         if (numArray1[index] > 1)
         {
-          float num22 = (float) this.game.Data.UnitObj[index].TempUnitPower / (float) num21;
-          float num23 = 1f / (float) numArray1[index];
-          float num24 = (float) (((double) numArray2[index] / (double) numArray1[index] + 100.0) / 100.0);
-          let mut Number8: i32 =  Math.Round((double) ((float) Number1 * num22 * num23 / num24));
+          float num22 =  this.game.Data.UnitObj[index].TempUnitPower /  num21;
+          float num23 = 1f /  numArray1[index];
+          float num24 =  (( numArray2[index] /  numArray1[index] + 100.0) / 100.0);
+          let mut Number8: i32 =  Math.Round( ( Number1 * num22 * num23 / num24));
           if (Number8 == 0)
             Number8 = 1;
           if (makelog)
-            this.AddLog("Reduction for " + this.game.Data.UnitObj[index].Name + " " + Conversion.Str((object) Number8));
+            this.AddLog("Reduction for " + this.game.Data.UnitObj[index].Name + " " + Conversion.Str( Number8));
           Number1 -= Number8;
           if (0 > Number1)
             Number1 = 0;
         }
       }
       if (makelog)
-        this.AddLog("Counterattack score FINAL = " + Conversion.Str((object) Number1));
+        this.AddLog("Counterattack score FINAL = " + Conversion.Str( Number1));
       return Number1;
     }
 
@@ -14195,31 +14195,31 @@ label_38:
               }
             }
           }
-          let mut num7: i32 = simpleList.Data5[Number1] <= -1 ? 0 :  Math.Round(Math.Sqrt((double) (simpleList.Data5[Number1] * 10) * Math.Sqrt((double) d)));
+          let mut num7: i32 = simpleList.Data5[Number1] <= -1 ? 0 :  Math.Round(Math.Sqrt( (simpleList.Data5[Number1] * 10) * Math.Sqrt( d)));
           if (num7 > 100)
-            num7 = 100 +  Math.Round(Math.Sqrt((double) (num7 - 100)) * 3.0);
+            num7 = 100 +  Math.Round(Math.Sqrt( (num7 - 100)) * 3.0);
           if (num3 > 0)
-            num7 *=  Math.Round(10.0 * ((double) num3 / (double) Number4));
+            num7 *=  Math.Round(10.0 * ( num3 /  Number4));
           if (Number2 == 0)
             num7 = 0;
           else if (Number2 > Number3)
           {
             if (num7 > 0)
             {
-              num7 =  Math.Round((double) num7 * (1.0 - (double) Number3 / (double) Number2));
+              num7 =  Math.Round( num7 * (1.0 -  Number3 /  Number2));
               if (num7 == 0)
                 num7 = 1;
             }
             if (this.game.Data.UnitObj[groupHq].AIAttackStyle == 3)
             {
-              num7 =  Math.Round(Math.Sqrt((double) num7));
+              num7 =  Math.Round(Math.Sqrt( num7));
               if (this.game.Data.UnitObj[unr1].TempCategory != 3)
               {
                 if (this.FrontlineArea[this.game.Data.UnitObj[unr1].TempX, this.game.Data.UnitObj[unr1].TempY] == 1 & this.FrontlineArea[this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y] == 1)
                 {
                   if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[simpleList.Data1[Number1], simpleList.Data2[Number1]].Regime))
-                    num7 =  Math.Round(Math.Sqrt((double) (num7 * Math.Min(3, num7))));
-                  num7 =  Math.Round((double) num7 / 8.0);
+                    num7 =  Math.Round(Math.Sqrt( (num7 * Math.Min(3, num7))));
+                  num7 =  Math.Round( num7 / 8.0);
                 }
                 else if (this.FrontlineArea[this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y] == 0)
                   num7 *= Math.Min(8, this.DistFromFrontline[this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y]);
@@ -14231,10 +14231,10 @@ label_38:
                 }
               }
               if (this.GetRegime(this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr1].TempX, this.game.Data.UnitObj[unr1].TempY].Regime) == this.GetRegime(this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y].Regime))
-                num7 =  Math.Round((double) num7 / 2.0);
+                num7 =  Math.Round( num7 / 2.0);
             }
             if (this.game.Data.UnitObj[groupHq].AIAttackStyle != 3 & num7 > 0)
-              num7 =  Math.Round(Math.Sqrt((double) num7));
+              num7 =  Math.Round(Math.Sqrt( num7));
             if (Number4 > 1)
               num7 *= Number4;
             if (this.tArea[this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y] < 1 && this.AreaMatrixNarrow[simpleList.Data1[Number1], simpleList.Data2[Number1]] == this.game.Data.UnitObj[groupHq].AIDefend | this.AreaMatrixNarrow[simpleList.Data1[Number1], simpleList.Data2[Number1]] == this.game.Data.UnitObj[groupHq].AIFallback)
@@ -14242,7 +14242,7 @@ label_38:
             if (this.AreaMatrixNarrow[this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y] == this.game.Data.UnitObj[groupHq].AIFallback && this.AreaMatrixNarrow[simpleList.Data1[Number1], simpleList.Data2[Number1]] == this.game.Data.UnitObj[groupHq].AIDefend)
               num7 *= 5;
             if (makelog)
-              this.AddLog("Normal Marker #" + Conversion.Str((object) Number1) + ", startsit=" + Conversion.Str((object) Number2) + "hex , enddist=" + Conversion.Str((object) Number3) + "hex, closecount=" + Conversion.Str((object) Number4) + " MOVING IN SCORE =" + Conversion.Str((object) num7));
+              this.AddLog("Normal Marker #" + Conversion.Str( Number1) + ", startsit=" + Conversion.Str( Number2) + "hex , enddist=" + Conversion.Str( Number3) + "hex, closecount=" + Conversion.Str( Number4) + " MOVING IN SCORE =" + Conversion.Str( num7));
           }
           if (num7 > 0)
             num7 = num7;
@@ -14284,11 +14284,11 @@ label_38:
             }
             if (this.game.Data.UnitObj[index2].FinalX == this.AreaCenter[this.game.Data.UnitObj[groupHq].AIDefend].x & this.game.Data.UnitObj[index2].FinalY == this.AreaCenter[this.game.Data.UnitObj[groupHq].AIDefend].y)
             {
-              let mut num10: i32 =  Math.Round((double) this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY, 0, this.game.Data.UnitObj[index2].FinalX, this.game.Data.UnitObj[index2].FinalY, 0) / 3.0);
+              let mut num10: i32 =  Math.Round( this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY, 0, this.game.Data.UnitObj[index2].FinalX, this.game.Data.UnitObj[index2].FinalY, 0) / 3.0);
               if (num10 <= 0)
                 num10 = 1;
               Number7 += this.game.HandyFunctionsObj.GetPowerPtsAbsolute(index2);
-              num8 +=  Math.Round((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(index2) / (double) num10);
+              num8 +=  Math.Round( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(index2) /  num10);
               if (makelog)
                 this.AddLog("DEFEND GARRISON: Unit Approaches / Is present = " + this.game.Data.UnitObj[index2].Name.ToString());
             }
@@ -14312,11 +14312,11 @@ label_38:
             }
             if (this.game.Data.UnitObj[index2].FinalX == this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].x & this.game.Data.UnitObj[index2].FinalY == this.AreaCenter[this.game.Data.UnitObj[groupHq].AIFallback].y)
             {
-              let mut num11: i32 =  Math.Round((double) this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY, 0, this.game.Data.UnitObj[index2].FinalX, this.game.Data.UnitObj[index2].FinalY, 0) / 3.0);
+              let mut num11: i32 =  Math.Round( this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY, 0, this.game.Data.UnitObj[index2].FinalX, this.game.Data.UnitObj[index2].FinalY, 0) / 3.0);
               if (num11 <= 0)
                 num11 = 1;
               Number10 += this.game.HandyFunctionsObj.GetPowerPtsAbsolute(index2);
-              num9 +=  Math.Round((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(index2) / (double) num11);
+              num9 +=  Math.Round( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(index2) /  num11);
               if (makelog)
                 this.AddLog("FALLBACK GARRISON: Unit Approaches / Is present = " + this.game.Data.UnitObj[index2].Name.ToString());
             }
@@ -14326,9 +14326,9 @@ label_38:
       int Number11;
       if (this.game.Data.UnitObj[groupHq].AIDefend > -1)
       {
-        let mut num12: i32 =  Math.Round((double) num1 * 0.15);
-        if ((double) num12 > (double) powerPointsAbsolute * 1.5)
-          num12 =  Math.Round((double) powerPointsAbsolute * 1.5);
+        let mut num12: i32 =  Math.Round( num1 * 0.15);
+        if ( num12 >  powerPointsAbsolute * 1.5)
+          num12 =  Math.Round( powerPointsAbsolute * 1.5);
         if (num12 >= powerPointsAbsolute)
         {
           if (num12 < Number5)
@@ -14344,16 +14344,16 @@ label_38:
           {
             if (num13 > num12)
               num13 = num12;
-            Number11 =  Math.Round(0.4 * (double) num1 * ((double) num13 / (double) num12) * ((double) num8 / (double) Number7));
+            Number11 =  Math.Round(0.4 *  num1 * ( num13 /  num12) * ( num8 /  Number7));
             scoreForMovingIn += Number11;
           }
           if (makelog)
-            this.AddLog("DEFEND GARRISON. pts leaving=" + Strings.Trim(Conversion.Str((object) Number5)) + ", pts targetting " + Strings.Trim(Conversion.Str((object) Number7)) + ", pts being there " + Strings.Trim(Conversion.Str((object) Number6)) + "... SCORE BONUS =" + Conversion.Str((object) Number11));
+            this.AddLog("DEFEND GARRISON. pts leaving=" + Strings.Trim(Conversion.Str( Number5)) + ", pts targetting " + Strings.Trim(Conversion.Str( Number7)) + ", pts being there " + Strings.Trim(Conversion.Str( Number6)) + "... SCORE BONUS =" + Conversion.Str( Number11));
         }
       }
       if (this.game.Data.UnitObj[groupHq].AIFallback > -1)
       {
-        let mut num14: i32 =  Math.Round((double) num1 * 0.075);
+        let mut num14: i32 =  Math.Round( num1 * 0.075);
         if (num14 > powerPointsAbsolute * 1)
           num14 = powerPointsAbsolute * 1;
         if (num14 >= powerPointsAbsolute)
@@ -14371,11 +14371,11 @@ label_38:
           {
             if (num15 > num14)
               num15 = num14;
-            Number11 =  Math.Round(0.2 * (double) num1 * ((double) num15 / (double) num14) * ((double) num9 / (double) Number10));
+            Number11 =  Math.Round(0.2 *  num1 * ( num15 /  num14) * ( num9 /  Number10));
             scoreForMovingIn += Number11;
           }
           if (makelog)
-            this.AddLog("FALLBACK GARRISON. pts leaving=" + Strings.Trim(Conversion.Str((object) Number8)) + ", pts targetting " + Strings.Trim(Conversion.Str((object) Number10)) + ", pts being there " + Strings.Trim(Conversion.Str((object) Number9)) + "... SCORE BONUS =" + Conversion.Str((object) Number11));
+            this.AddLog("FALLBACK GARRISON. pts leaving=" + Strings.Trim(Conversion.Str( Number8)) + ", pts targetting " + Strings.Trim(Conversion.Str( Number10)) + ", pts being there " + Strings.Trim(Conversion.Str( Number9)) + "... SCORE BONUS =" + Conversion.Str( Number11));
         }
       }
       if (makelog)
@@ -14387,7 +14387,7 @@ label_38:
         let mut num16: i32 = this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr2);
         if (num16 > 0)
         {
-          num16 =  Math.Round((double) num16 / 10.0 * (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr2));
+          num16 =  Math.Round( num16 / 10.0 *  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr2));
           if (makelog)
             this.AddLog(this.game.Data.UnitObj[unr2].Name + " gets +" + num16.ToString() + " DIV BONUS");
           scoreForMovingIn += num16;
@@ -14413,13 +14413,13 @@ label_38:
           if (this.game.Data.UnitObj[index4].IsHQ & this.game.Data.UnitObj[index4].AIGroup > -1)
           {
             let mut num: i32 = 0;
-            if ((double) this.SupplyMatrixReal[tempX, tempY] <= (double) this.game.Data.RuleVar[51])
-              num +=  Math.Round((double) this.SupplyMatrixReal[tempX, tempY] / 2.0);
-            if ((double) this.SupplyMatrixReal[tempX, tempY] > (double) this.game.Data.RuleVar[51])
+            if ( this.SupplyMatrixReal[tempX, tempY] <=  this.game.Data.RuleVar[51])
+              num +=  Math.Round( this.SupplyMatrixReal[tempX, tempY] / 2.0);
+            if ( this.SupplyMatrixReal[tempX, tempY] >  this.game.Data.RuleVar[51])
               num += 200;
-            if ((double) this.SupplyMatrixReal[tempX, tempY] > (double) this.game.Data.RuleVar[52])
+            if ( this.SupplyMatrixReal[tempX, tempY] >  this.game.Data.RuleVar[52])
               num += 500;
-            if ((double) this.SupplyMatrixReal[tempX, tempY] > (double) this.game.Data.RuleVar[53])
+            if ( this.SupplyMatrixReal[tempX, tempY] >  this.game.Data.RuleVar[53])
               num += 1250;
             if (!this.game.HandyFunctionsObj.HasHexRoad(tempX, tempY, 0))
               num += 1000;
@@ -14427,11 +14427,11 @@ label_38:
               num += 50;
             if (this.AdvanceAxisMatrix[tempX, tempY] > 0)
               num += 50 * this.AdvanceAxisMatrix[tempX, tempY];
-            if ((double) this.game.Data.RuleVar[365] > 0.0)
-              num =  Math.Round((double) num * (double) this.game.Data.RuleVar[365] / 100.0);
+            if ( this.game.Data.RuleVar[365] > 0.0)
+              num =  Math.Round( num *  this.game.Data.RuleVar[365] / 100.0);
             pts -= num;
             if (makelog)
-              this.AddLog(" After supply+advance penalties = " + Conversion.Str((object) pts));
+              this.AddLog(" After supply+advance penalties = " + Conversion.Str( pts));
           }
         }
       }
@@ -14462,25 +14462,25 @@ label_38:
       this.TempAverageHQPower = 0;
       if (num1 > 0)
       {
-        this.TempAverageHQPower =  Math.Round((double) Number1 / (double) num1);
-        Number1 =  Math.Round((double) Number1 / (double) num1);
-        num5 = Number1 >= 100 ? 0 : groupPowerPoints -  Math.Round((double) groupPowerPoints * ((double) Number1 / 100.0));
+        this.TempAverageHQPower =  Math.Round( Number1 /  num1);
+        Number1 =  Math.Round( Number1 /  num1);
+        num5 = Number1 >= 100 ? 0 : groupPowerPoints -  Math.Round( groupPowerPoints * ( Number1 / 100.0));
       }
-      if ((double) this.game.Data.RuleVar[366] > 0.0)
-        num5 =  Math.Round((double) num5 * (double) this.game.Data.RuleVar[366] / 100.0);
+      if ( this.game.Data.RuleVar[366] > 0.0)
+        num5 =  Math.Round( num5 *  this.game.Data.RuleVar[366] / 100.0);
       pts -= num5;
       if (makelog)
-        this.AddLog(Conversion.Str((object) pts) + " penalty points due to REAL HQ (" + Conversion.Str((object) Number1) + " average hqpow)");
+        this.AddLog(Conversion.Str( pts) + " penalty points due to REAL HQ (" + Conversion.Str( Number1) + " average hqpow)");
       if (index1 > -1 & num1 > 0)
       {
-        let mut num6: i32 =  Math.Round((double) groupPowerPoints / 2.0);
-        let mut Number2: i32 =  Math.Round((double) num2 / (double) num1);
-        let mut num7: i32 = Number2 >= 0 ? (Number2 >= 100 ? 0 : num6 -  Math.Round((double) num6 * ((double) Number2 / 100.0))) :  Math.Round((double) num6 + (double) num6 * ((double) Math.Abs(Number2) / 100.0));
-        if ((double) this.game.Data.RuleVar[366] > 0.0)
-          num7 =  Math.Round((double) num7 * (double) this.game.Data.RuleVar[366] / 100.0);
+        let mut num6: i32 =  Math.Round( groupPowerPoints / 2.0);
+        let mut Number2: i32 =  Math.Round( num2 /  num1);
+        let mut num7: i32 = Number2 >= 0 ? (Number2 >= 100 ? 0 : num6 -  Math.Round( num6 * ( Number2 / 100.0))) :  Math.Round( num6 +  num6 * ( Math.Abs(Number2) / 100.0));
+        if ( this.game.Data.RuleVar[366] > 0.0)
+          num7 =  Math.Round( num7 *  this.game.Data.RuleVar[366] / 100.0);
         pts -= num7;
         if (makelog)
-          this.AddLog(Conversion.Str((object) pts) + " penalty points due to OPTIMAL OWN GROUP HQ (" + Conversion.Str((object) Number2) + " average hqpow)");
+          this.AddLog(Conversion.Str( pts) + " penalty points due to OPTIMAL OWN GROUP HQ (" + Conversion.Str( Number2) + " average hqpow)");
       }
       return pts;
     }
@@ -14505,7 +14505,7 @@ label_38:
             index5 = this.game.Data.UnitObj[index3].Y;
             if (index4 == -1)
             {
-              let mut num: i32 =  Interaction.MsgBox((object) "-1 in getscorehexoccup_setmove");
+              let mut num: i32 =  Interaction.MsgBox( "-1 in getscorehexoccup_setmove");
               ProjectData.EndApp();
             }
           }
@@ -14539,7 +14539,7 @@ label_38:
               cy = this.game.Data.UnitObj[index3].Y;
               if (cx == -1)
               {
-                let mut num: i32 =  Interaction.MsgBox((object) "-1 in getscorehexoccup_setmove 2");
+                let mut num: i32 =  Interaction.MsgBox( "-1 in getscorehexoccup_setmove 2");
                 ProjectData.EndApp();
               }
             }
@@ -14624,21 +14624,21 @@ label_38:
             else if (this.game.Data.UnitObj[index2].TempCategory == 3)
             {
               num1 = 6;
-              if ((double) this.game.Data.RuleVar[361] > 0.0)
-                num1 =  Math.Round((double) this.game.Data.RuleVar[361]);
+              if ( this.game.Data.RuleVar[361] > 0.0)
+                num1 =  Math.Round( this.game.Data.RuleVar[361]);
             }
             else
             {
               num1 = 4;
-              if ((double) this.game.Data.RuleVar[362] > 0.0)
-                num1 =  Math.Round((double) this.game.Data.RuleVar[362]);
+              if ( this.game.Data.RuleVar[362] > 0.0)
+                num1 =  Math.Round( this.game.Data.RuleVar[362]);
             }
           }
           else
           {
             num1 = 4;
-            if ((double) this.game.Data.RuleVar[362] > 0.0)
-              num1 =  Math.Round((double) this.game.Data.RuleVar[362]);
+            if ( this.game.Data.RuleVar[362] > 0.0)
+              num1 =  Math.Round( this.game.Data.RuleVar[362]);
           }
           let mut Number: i32 = 99;
           let mut num2: i32 = this.game.Data.UnitObj[index2].TempX - num1;
@@ -14655,7 +14655,7 @@ label_38:
                 let mut unitCounter: i32 = this.game.Data.MapObj[0].HexObj[x2, y2].UnitCounter;
                 for (let mut index3: i32 = 0; index3 <= unitCounter; index3 += 1)
                 {
-                  if ((double) this.GetUnitPower(this.game.Data.MapObj[0].HexObj[x2, y2].UnitList[index3], false) > (double) powerPointsAbsolute / 10.0)
+                  if ( this.GetUnitPower(this.game.Data.MapObj[0].HexObj[x2, y2].UnitList[index3], false) >  powerPointsAbsolute / 10.0)
                   {
                     if (this.game.Data.UnitObj[this.game.Data.MapObj[0].HexObj[x2, y2].UnitList[index3]].SupplyConsume > 50)
                     {
@@ -14686,13 +14686,13 @@ label_38:
               let mut num8: i32 = 600;
               if (this.AreaMatrixNarrow[this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY] != this.game.Data.UnitObj[index2].AIDefend & this.AreaMatrixNarrow[this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY] != this.game.Data.UnitObj[index2].AIFallback)
                 num8 *= 2;
-              if ((double) this.game.Data.RuleVar[363] > 0.0)
-                num8 =  Math.Round((double) this.game.Data.RuleVar[363]);
+              if ( this.game.Data.RuleVar[363] > 0.0)
+                num8 =  Math.Round( this.game.Data.RuleVar[363]);
               if (Number <= num1)
               {
                 pts -= (num1 + 1 - Number) * num8;
                 if (makelog)
-                  this.AddLog("HQ Distance to Enemy penalty. dist= " + Conversion.Str((object) Number) + " , penalty = " + Conversion.Str((object) ((num1 + 1 - Number) * num8)));
+                  this.AddLog("HQ Distance to Enemy penalty. dist= " + Conversion.Str( Number) + " , penalty = " + Conversion.Str( ((num1 + 1 - Number) * num8)));
               }
             }
             else
@@ -14700,13 +14700,13 @@ label_38:
               let mut num9: i32 = 400;
               if (this.AreaMatrixNarrow[this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY] != this.game.Data.UnitObj[index2].AIDefend & this.AreaMatrixNarrow[this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY] != this.game.Data.UnitObj[index2].AIFallback)
                 num9 *= 3;
-              if ((double) this.game.Data.RuleVar[363] > 0.0)
-                num9 =  Math.Round((double) this.game.Data.RuleVar[363]);
+              if ( this.game.Data.RuleVar[363] > 0.0)
+                num9 =  Math.Round( this.game.Data.RuleVar[363]);
               if (Number <= num1)
               {
                 pts -= (num1 + 1 - Number) * num9;
                 if (makelog)
-                  this.AddLog("HQ/Air Distance to Enemy penalty. dist= " + Conversion.Str((object) Number) + " , penalty = " + Conversion.Str((object) ((num1 + 1 - Number) * num9)));
+                  this.AddLog("HQ/Air Distance to Enemy penalty. dist= " + Conversion.Str( Number) + " , penalty = " + Conversion.Str( ((num1 + 1 - Number) * num9)));
               }
             }
           }
@@ -14715,8 +14715,8 @@ label_38:
             if (makelog)
               this.AddLog("HQ or Air unit in port hex. ");
             let mut num10: i32 = 100;
-            if ((double) this.game.Data.RuleVar[364] > 0.0)
-              num10 =  Math.Round((double) this.game.Data.RuleVar[364]);
+            if ( this.game.Data.RuleVar[364] > 0.0)
+              num10 =  Math.Round( this.game.Data.RuleVar[364]);
             pts -= num10;
           }
         }
@@ -14739,14 +14739,14 @@ label_38:
             coordinate.y = this.MarkerList.Data2[index];
             if (this.GetRegime(this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime) != this.GetGameDataTurn() && this.HexOccupyMatrix[coordinate.x, coordinate.y] > 0)
             {
-              let mut num: i32 =  Math.Round(Math.Sqrt((double) this.MarkerList.Data5[index]));
-              if ((double) this.game.Data.RuleVar[266] > 0.0 && (double) (this.game.HandyFunctionsObj.GetRegimeVP(this.GetGameDataTurn()) + this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].VP) > (double) this.game.Data.RuleVar[266])
+              let mut num: i32 =  Math.Round(Math.Sqrt( this.MarkerList.Data5[index]));
+              if ( this.game.Data.RuleVar[266] > 0.0 &&  (this.game.HandyFunctionsObj.GetRegimeVP(this.GetGameDataTurn()) + this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].VP) >  this.game.Data.RuleVar[266])
                 num = (num + 200) * 10;
-              if ((double) this.game.Data.RuleVar[359] > 0.0)
-                num =  Math.Round((double) num * (double) this.game.Data.RuleVar[359] / 100.0);
+              if ( this.game.Data.RuleVar[359] > 0.0)
+                num =  Math.Round( num *  this.game.Data.RuleVar[359] / 100.0);
               pts += num;
               if (makelog)
-                this.AddLog("(" + Conversion.Str((object) coordinate.x) + "," + Conversion.Str((object) coordinate.y) + ") = " + Conversion.Str((object) this.MarkerList.Data5[index]) + " pts");
+                this.AddLog("(" + Conversion.Str( coordinate.x) + "," + Conversion.Str( coordinate.y) + ") = " + Conversion.Str( this.MarkerList.Data5[index]) + " pts");
             }
           }
         }
@@ -14775,13 +14775,13 @@ label_38:
                 let mut index5: i32 = this.MoveMatrixUnit[index4];
                 if (this.ptemp[coordinate.x, coordinate.y] == 0 && this.game.Data.UnitObj[index5].TempX == coordinate.x & this.game.Data.UnitObj[index5].TempY == coordinate.y)
                 {
-                  let mut num: i32 =  Math.Round(Math.Sqrt((double) this.MarkerList.Data5[index3]));
-                  if ((double) this.game.Data.RuleVar[360] > 0.0)
-                    num =  Math.Round((double) num * (double) this.game.Data.RuleVar[360] / 100.0);
+                  let mut num: i32 =  Math.Round(Math.Sqrt( this.MarkerList.Data5[index3]));
+                  if ( this.game.Data.RuleVar[360] > 0.0)
+                    num =  Math.Round( num *  this.game.Data.RuleVar[360] / 100.0);
                   pts += num;
                   this.ptemp[coordinate.x, coordinate.y] = 1;
                   if (makelog)
-                    this.AddLog("(" + Conversion.Str((object) coordinate.x) + "," + Conversion.Str((object) coordinate.y) + ") = " + Conversion.Str((object) this.MarkerList.Data5[index3]) + " SQRT");
+                    this.AddLog("(" + Conversion.Str( coordinate.x) + "," + Conversion.Str( coordinate.y) + ") = " + Conversion.Str( this.MarkerList.Data5[index3]) + " SQRT");
                 }
               }
             }
@@ -14872,10 +14872,10 @@ label_38:
             else
               num1 = this.game.HandyFunctionsObj.GetAverageEntrenchPredict(unr, false);
             if (this.GetAverageUnitPowerPointsAbsolute() > 0)
-              num1 =  Math.Round((double) num1 * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) powerPointsAbsolute));
+              num1 =  Math.Round( num1 * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  powerPointsAbsolute));
             let mut d: i32 = num1 - this.game.HandyFunctionsObj.GetAverageEntrench(unr);
             if (!(this.tArea[x1, y1] == 2 | this.tArea[x1, y1] == 6))
-              d = this.DistToTArea[x1, y1] <= 0 ? 0 :  Math.Round((double) d / (double) (2 * this.DistToTArea[x1, y1]));
+              d = this.DistToTArea[x1, y1] <= 0 ? 0 :  Math.Round( d /  (2 * this.DistToTArea[x1, y1]));
             if (d > 0)
             {
               if (this.ptemp2[x1, y1] + d > 200)
@@ -14883,10 +14883,10 @@ label_38:
                 if (this.ptemp2[x1, y1] < 200)
                 {
                   let mut num2: i32 = 200 - this.ptemp2[x1, y1];
-                  d = num2 +  Math.Round(Math.Sqrt(Math.Pow((double) Math.Max(0, d - num2), 1.5)));
+                  d = num2 +  Math.Round(Math.Sqrt(Math.Pow( Math.Max(0, d - num2), 1.5)));
                 }
                 else
-                  d =  Math.Round(Math.Pow(Math.Sqrt((double) d), 1.5));
+                  d =  Math.Round(Math.Pow(Math.Sqrt( d), 1.5));
               }
               int[,] ptemp2 = this.ptemp2;
               int[,] numArray = ptemp2;
@@ -14900,30 +14900,30 @@ label_38:
             int Number;
             if (this.game.Data.UnitObj[groupHq].AIAttackStyle == 3)
             {
-              Number = (double) this.game.Data.RuleVar[377] <= 0.0 ?  Math.Round((double) d * 0.1) :  Math.Round((double) d * (double) this.game.Data.RuleVar[377] / 100.0);
+              Number =  this.game.Data.RuleVar[377] <= 0.0 ?  Math.Round( d * 0.1) :  Math.Round( d *  this.game.Data.RuleVar[377] / 100.0);
               if (this.CounterAttackPossible[x1, y1] < 100)
-                Number =  Math.Round((double) Number * 0.25) +  Math.Round((double) Number * 0.75 * ((double) this.CounterAttackPossible[x1, y1] / 100.0));
+                Number =  Math.Round( Number * 0.25) +  Math.Round( Number * 0.75 * ( this.CounterAttackPossible[x1, y1] / 100.0));
             }
             else
-              Number = (double) this.game.Data.RuleVar[378] <= 0.0 ?  Math.Round((double) d * 0.5) :  Math.Round((double) d * (double) this.game.Data.RuleVar[378] / 100.0);
+              Number =  this.game.Data.RuleVar[378] <= 0.0 ?  Math.Round( d * 0.5) :  Math.Round( d *  this.game.Data.RuleVar[378] / 100.0);
             if (this.game.Data.UnitObj[unr].TempEncircled == 1)
-              Number =  Math.Round((double) Number / 8.0);
+              Number =  Math.Round( Number / 8.0);
             if (this.game.Data.UnitObj[unr].TempEncircled == 2)
               Number = 0;
             if (makelog)
-              this.AddLog("<" + this.game.Data.UnitObj[unr].Name + "> get " + Conversion.Str((object) Number) + " for entrenchment");
+              this.AddLog("<" + this.game.Data.UnitObj[unr].Name + "> get " + Conversion.Str( Number) + " for entrenchment");
             scoreForEntrench += Number;
           }
           let mut stackPtsPrognosed: i32 = this.game.HandyFunctionsObj.GetHexStackPtsPrognosed(x1, y1, this.game.Data.Turn);
-          if ((double) stackPtsPrognosed > (double) this.game.Data.RuleVar[30] * 1.33)
+          if ( stackPtsPrognosed >  this.game.Data.RuleVar[30] * 1.33)
           {
-            let mut Number: i32 =  Math.Round((double)  Math.Round((double)  Math.Round((double) stackPtsPrognosed - (double) this.game.Data.RuleVar[30] * 1.33) * ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) / (double) powerPointsAbsolute)) / 5.0);
+            let mut Number: i32 =  Math.Round(  Math.Round(  Math.Round( stackPtsPrognosed -  this.game.Data.RuleVar[30] * 1.33) * ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) /  powerPointsAbsolute)) / 5.0);
             if (Number > 0 && this.game.Data.UnitObj[unr].TempX == this.game.Data.UnitObj[unr].FinalX & this.game.Data.UnitObj[unr].TempY == this.game.Data.UnitObj[unr].FinalY)
             {
-              if ((double) this.game.Data.RuleVar[379] > 0.0)
-                Number =  Math.Round((double) Number * (double) this.game.Data.RuleVar[379] / 100.0);
+              if ( this.game.Data.RuleVar[379] > 0.0)
+                Number =  Math.Round( Number *  this.game.Data.RuleVar[379] / 100.0);
               if (makelog)
-                this.AddLog("PENALTY <" + this.game.Data.UnitObj[unr].Name + "> get " + Conversion.Str((object) Number) + " for stacking");
+                this.AddLog("PENALTY <" + this.game.Data.UnitObj[unr].Name + "> get " + Conversion.Str( Number) + " for stacking");
               scoreForEntrench -= Number;
             }
           }
@@ -14959,9 +14959,9 @@ label_38:
           if (coordinate.x > -1 & coordinate.y > -1 && this.ptemp3[coordinate.x, coordinate.y] == 0)
           {
             this.ptemp3[coordinate.x, coordinate.y] = 1;
-            let mut Number: i32 =  Math.Round((double) this.GetScoreForAirAttack(coordinate.x, coordinate.y, Prognosis, MakeLog) * ((double) this.AirMarkerList.Data5[index] / 100.0));
+            let mut Number: i32 =  Math.Round( this.GetScoreForAirAttack(coordinate.x, coordinate.y, Prognosis, MakeLog) * ( this.AirMarkerList.Data5[index] / 100.0));
             if (Number > 0 && MakeLog)
-              this.AddLog("After score modifcation air= " + Conversion.Str((object) Number));
+              this.AddLog("After score modifcation air= " + Conversion.Str( Number));
             scoreForAttacks += Number;
           }
         }
@@ -14983,9 +14983,9 @@ label_38:
           if (this.ptemp3[coordinate.x, coordinate.y] == 0)
           {
             this.ptemp3[coordinate.x, coordinate.y] = 1;
-            let mut Number: i32 =  Math.Round((double) this.GetScoreForArtAttack(coordinate.x, coordinate.y, Prognosis, MakeLog) * ((double) this.ArtMarkerList.Data5[index] / 100.0));
+            let mut Number: i32 =  Math.Round( this.GetScoreForArtAttack(coordinate.x, coordinate.y, Prognosis, MakeLog) * ( this.ArtMarkerList.Data5[index] / 100.0));
             if (Number > 0 & MakeLog)
-              this.AddLog("After score modifcation art= " + Conversion.Str((object) Number));
+              this.AddLog("After score modifcation art= " + Conversion.Str( Number));
             scoreForAttacks += Number;
           }
         }
@@ -15008,7 +15008,7 @@ label_38:
           {
             this.ptemp3[coordinate.x, coordinate.y] = 1;
             let mut num1: i32 = this.GetScoreForAttack(coordinate.x, coordinate.y, Prognosis, MakeLog);
-            if (num1 == 0 & (double) this.SupplyMatrixEnemyReal[coordinate.x, coordinate.y] > (double) this.game.Data.RuleVar[3] & this.GetAverageSupplyConsume(coordinate.x, coordinate.y) > 90)
+            if (num1 == 0 &  this.SupplyMatrixEnemyReal[coordinate.x, coordinate.y] >  this.game.Data.RuleVar[3] & this.GetAverageSupplyConsume(coordinate.x, coordinate.y) > 90)
             {
               num1 = this.GetScoreForContainment(coordinate.x, coordinate.y, MakeLog);
               let mut counter4: i32 = this.game.EditObj.TempUnitList.counter;
@@ -15019,16 +15019,16 @@ label_38:
             {
               let mut num2: i32 = this.MarkerList.Data5[index7];
               if (num2 > 300)
-                num2 = 300 +  Math.Round(Math.Sqrt((double) (num2 - 300)));
+                num2 = 300 +  Math.Round(Math.Sqrt( (num2 - 300)));
               if (num2 < 30)
                 num2 = 30;
-              let mut Number: i32 =  Math.Round((double) num1 * ((double) num2 / 100.0)) +  Math.Round((double) num2 / 2.0);
+              let mut Number: i32 =  Math.Round( num1 * ( num2 / 100.0)) +  Math.Round( num2 / 2.0);
               if (this.AreaMatrixNarrow[coordinate.x, coordinate.y] > 0 && this.AreaIsExtra[this.AreaMatrixNarrow[coordinate.x, coordinate.y]])
               {
                 let mut num3: i32 = num2 + 75;
               }
               if (Number > 0 & MakeLog)
-                this.AddLog("After score modifcation norm= " + Conversion.Str((object) Number));
+                this.AddLog("After score modifcation norm= " + Conversion.Str( Number));
               scoreForAttacks += Number;
             }
           }
@@ -15045,9 +15045,9 @@ label_38:
       this.GetGroupHQ(this.OpGroup);
       if (attackPowerPointsOn > 0 & defendingPowerPointsOn > 0)
       {
-        Number =  Math.Round(Math.Min(1.0, (double) attackPowerPointsOn / (double) defendingPowerPointsOn) * 50.0);
+        Number =  Math.Round(Math.Min(1.0,  attackPowerPointsOn /  defendingPowerPointsOn) * 50.0);
         if (makelog)
-          this.AddLog("Containment on Hex <" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ">, Att= " + Conversion.Str((object) attackPowerPointsOn) + ", Def= " + Conversion.Str((object) defendingPowerPointsOn) + ". Gave points for hypothetical attack = " + Conversion.Str((object) Number));
+          this.AddLog("Containment on Hex <" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ">, Att= " + Conversion.Str( attackPowerPointsOn) + ", Def= " + Conversion.Str( defendingPowerPointsOn) + ". Gave points for hypothetical attack = " + Conversion.Str( Number));
       }
       return Number;
     }
@@ -15079,36 +15079,36 @@ label_38:
       if (Number1 > 0)
         Number1 = Number1;
       if (this.AreaMatrixNarrow[ix, iy] > 0 && this.AreaIsExtra[this.AreaMatrixNarrow[ix, iy]])
-        Number1 =  Math.Round((double) Number1 * 1.5);
+        Number1 =  Math.Round( Number1 * 1.5);
       if (this.Attacker)
       {
         let mut pointstempdampercent: i32 = this.GetCurrentDefendingPowerPointstempdampercent(ix, iy, true);
         if (pointstempdampercent > 100)
-          Number1 =  Math.Round((double) Number1 * ((double) pointstempdampercent / 100.0));
+          Number1 =  Math.Round( Number1 * ( pointstempdampercent / 100.0));
       }
       if (Number2 == 0 & this.game.Data.MapObj[0].HexObj[ix, iy].UnitCounter == -1)
       {
         if (MakeLog)
-          this.AddLog("Attack on (" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ") Attacker = " + Conversion.Str((object) Number1) + ", Defender =" + Conversion.Str((object) Number2));
+          this.AddLog("Attack on (" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ") Attacker = " + Conversion.Str( Number1) + ", Defender =" + Conversion.Str( Number2));
         if (MakeLog)
           this.AddLog("No Defenders. Attack gives 100 pts.");
         return 100;
       }
       this.CorpsTopRatio = (float[]) Utils.CopyArray((Array) this.CorpsTopRatio, (Array) new float[this.GroupCounter + 1]);
-      if (this.Attacker && (double) this.CorpsTopRatio[this.OpGroup] > 1.0)
-        Number2 = Math.Max( Math.Round((double) (defendingPowerPointsOn + Number2) / 2.0),  Math.Round((double) Number2 / Math.Sqrt((double) this.CorpsTopRatio[this.OpGroup])));
-      float num2 = (float) Number1 / (float) Number2;
-      if ((double) num2 > 1.5)
-        num2 = 1.5f + (float) Math.Sqrt((double) num2 - 1.5);
-      if ((double) num2 > 8.0)
+      if (this.Attacker &&  this.CorpsTopRatio[this.OpGroup] > 1.0)
+        Number2 = Math.Max( Math.Round( (defendingPowerPointsOn + Number2) / 2.0),  Math.Round( Number2 / Math.Sqrt( this.CorpsTopRatio[this.OpGroup])));
+      float num2 =  Number1 /  Number2;
+      if ( num2 > 1.5)
+        num2 = 1.5f +  Math.Sqrt( num2 - 1.5);
+      if ( num2 > 8.0)
         num2 = 8f;
-      let mut Number3: i32 =  Math.Round((double) Conversion.Int(num2 * 20f));
-      float num3 = (float) num1 / (float) Number2;
-      if ((double) num3 > 2.5)
-        num3 = (float) (1.0 + Math.Sqrt((double) num3 - 2.5));
-      if ((double) num3 > 8.0)
+      let mut Number3: i32 =  Math.Round( Conversion.Int(num2 * 20f));
+      float num3 =  num1 /  Number2;
+      if ( num3 > 2.5)
+        num3 =  (1.0 + Math.Sqrt( num3 - 2.5));
+      if ( num3 > 8.0)
         num3 = 8f;
-      let mut num4: i32 =  Math.Round((double) Conversion.Int(num3 * 20f));
+      let mut num4: i32 =  Math.Round( Conversion.Int(num3 * 20f));
       let mut val1: i32 = this.ATTACK_MINIMUM_ACTUAL_ATTACK;
       let mut groupHq: i32 = this.GetGroupHQ(this.OpGroup);
       if (this.game.Data.UnitObj[groupHq].AIAttackStyle == 1)
@@ -15118,14 +15118,14 @@ label_38:
       if (this.Attacker)
       {
         if (this.GetPercentTempUnits() > 20)
-          Number3 =  Math.Round((double) Number3 * 1.2);
+          Number3 =  Math.Round( Number3 * 1.2);
         else if (this.GetPercentTempUnits() > 40)
-          Number3 =  Math.Round((double) Number3 * 1.4);
+          Number3 =  Math.Round( Number3 * 1.4);
         else if (this.GetPercentTempUnits() > 60)
-          Number3 =  Math.Round((double) Number3 * 1.6);
+          Number3 =  Math.Round( Number3 * 1.6);
       }
-      if (this.Attacker && (double) this.CorpsTopRatio[this.OpGroup] > 1.0)
-        val1 =  Math.Round((double) val1 / Math.Sqrt((double) Math.Min(9f, this.CorpsTopRatio[this.OpGroup])));
+      if (this.Attacker &&  this.CorpsTopRatio[this.OpGroup] > 1.0)
+        val1 =  Math.Round( val1 / Math.Sqrt( Math.Min(9f, this.CorpsTopRatio[this.OpGroup])));
       if (ix == 42 & iy == 29 & Number3 > 17)
         ix = ix;
       if (ix == 32 & iy == 70 & Number3 > 23)
@@ -15136,35 +15136,35 @@ label_38:
         val1 = val1;
       if (Number1 > 150 & landAttackStackOn.x < 50)
         Number1 = Number1;
-      if (Number3 >= Math.Min(val1,  Math.Round((double) val1 * ((double) this.AverageSupplyPercentage / 75.0))))
+      if (Number3 >= Math.Min(val1,  Math.Round( val1 * ( this.AverageSupplyPercentage / 75.0))))
       {
         if (this.Attacker)
         {
-          if ((double) this.CorpsTopRatio[this.OpGroup] > 10.0)
+          if ( this.CorpsTopRatio[this.OpGroup] > 10.0)
           {
             if (Number3 < this.ATTACK_MINIMUM_ACTUAL_ATTACK)
               Number3 *= 3;
             if (Number3 >= this.ATTACK_MINIMUM_ACTUAL_ATTACK)
               Number3 *= 5;
           }
-          else if ((double) this.CorpsTopRatio[this.OpGroup] > 7.0)
+          else if ( this.CorpsTopRatio[this.OpGroup] > 7.0)
           {
             if (Number3 < this.ATTACK_MINIMUM_ACTUAL_ATTACK)
               Number3 *= 2;
             if (Number3 >= this.ATTACK_MINIMUM_ACTUAL_ATTACK)
               Number3 *= 4;
           }
-          else if ((double) this.CorpsTopRatio[this.OpGroup] > 5.0)
+          else if ( this.CorpsTopRatio[this.OpGroup] > 5.0)
           {
             if (Number3 < this.ATTACK_MINIMUM_ACTUAL_ATTACK)
               Number3 *= 2;
             if (Number3 >= this.ATTACK_MINIMUM_ACTUAL_ATTACK)
               Number3 *= 2;
           }
-          else if ((double) this.CorpsTopRatio[this.OpGroup] > 3.0)
+          else if ( this.CorpsTopRatio[this.OpGroup] > 3.0)
           {
             if (Number3 < this.ATTACK_MINIMUM_ACTUAL_ATTACK)
-              Number3 =  Math.Round((double) Number3 * 1.25);
+              Number3 =  Math.Round( Number3 * 1.25);
             if (Number3 >= this.ATTACK_MINIMUM_ACTUAL_ATTACK)
               Number3 *= 2;
           }
@@ -15172,15 +15172,15 @@ label_38:
         if (landAttackStackOn.x > landAttackStackOn.y && this.AverageSupplyPercentage > 50)
         {
           if (MakeLog)
-            this.AddLog("Stacking mod " + Conversion.Str((object) ((double) landAttackStackOn.y / (double) landAttackStackOn.x)));
-          Number3 =  Math.Round(0.2 * (double) Number3) +  Math.Round(0.8 * ((double) Number3 * ((double) landAttackStackOn.y / (double) landAttackStackOn.x)));
+            this.AddLog("Stacking mod " + Conversion.Str( ( landAttackStackOn.y /  landAttackStackOn.x)));
+          Number3 =  Math.Round(0.2 *  Number3) +  Math.Round(0.8 * ( Number3 * ( landAttackStackOn.y /  landAttackStackOn.x)));
         }
         if (MakeLog)
           this.GetPrognosedLandUnitOn(ix, iy);
         if (MakeLog)
-          this.AddLog("Attack on (" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ") Attacker = " + Conversion.Str((object) Number1) + ", Defender =" + Conversion.Str((object) Number2));
+          this.AddLog("Attack on (" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ") Attacker = " + Conversion.Str( Number1) + ", Defender =" + Conversion.Str( Number2));
         if (MakeLog)
-          this.AddLog("Attack gives " + Conversion.Str((object) Number3) + " pts.");
+          this.AddLog("Attack gives " + Conversion.Str( Number3) + " pts.");
         let mut num5: i32 = MakeLog ? 1 : 0;
         let mut unitCounter: i32 = this.game.Data.MapObj[0].HexObj[ix, iy].UnitCounter;
         for (let mut index: i32 = 0; index <= unitCounter; index += 1)
@@ -15188,7 +15188,7 @@ label_38:
           let mut unit: i32 = this.game.Data.MapObj[0].HexObj[ix, iy].UnitList[index];
           if (this.game.Data.UnitObj[unit].TempCategory == 2 | this.game.Data.UnitObj[unit].TempCategory == 4)
           {
-            Number3 =  Math.Round((double) Number3 * 1.25);
+            Number3 =  Math.Round( Number3 * 1.25);
             if (MakeLog)
               this.AddLog("Attack pts *1.25 cause artillery here");
           }
@@ -15208,29 +15208,29 @@ label_38:
         let mut pointstempdampercent: i32 = this.GetCurrentDefendingPowerPointstempdampercent(ix, iy, Prognosis);
         if (pointstempdampercent > 100)
         {
-          Number3 =  Math.Round((double) Number3 * ((double) pointstempdampercent / 100.0));
+          Number3 =  Math.Round( Number3 * ( pointstempdampercent / 100.0));
           if (MakeLog)
-            this.AddLog("Attack gets bonus for supporting an artillery/air attack " + Conversion.Str((object) pointstempdampercent) + "%");
+            this.AddLog("Attack gets bonus for supporting an artillery/air attack " + Conversion.Str( pointstempdampercent) + "%");
         }
         let mut pointsOnOnlyPower: i32 = this.GetRealDefendingPowerPointsOnOnlyPower(ix, iy);
         let mut num6: i32 = 80;
-        if ((double) this.game.Data.RuleVar[384] > 0.0)
-          num6 =  Math.Round((double) this.game.Data.RuleVar[384]);
+        if ( this.game.Data.RuleVar[384] > 0.0)
+          num6 =  Math.Round( this.game.Data.RuleVar[384]);
         if (pointsOnOnlyPower > num6)
         {
-          Number3 =  Math.Round((double) Number3 * ((double) pointsOnOnlyPower / (double) num6));
+          Number3 =  Math.Round( Number3 * ( pointsOnOnlyPower /  num6));
           if (MakeLog)
-            this.AddLog("Large Target Bonus. " + Conversion.Str((object) (100.0 * ((double) pointsOnOnlyPower / (double) num6) - 100.0)) + "% extra pts!");
+            this.AddLog("Large Target Bonus. " + Conversion.Str( (100.0 * ( pointsOnOnlyPower /  num6) - 100.0)) + "% extra pts!");
         }
-        else if ((double) pointsOnOnlyPower < (double) num6 / 8.0)
+        else if ( pointsOnOnlyPower <  num6 / 8.0)
         {
-          Number3 = Math.Max(val1 + 3,  Math.Round((double) Number3 * 0.2));
+          Number3 = Math.Max(val1 + 3,  Math.Round( Number3 * 0.2));
           if (MakeLog)
             this.AddLog("Super small bigunit/8 unit. -80% of pts. ");
         }
-        else if ((double) pointsOnOnlyPower < (double) num6 / 4.0)
+        else if ( pointsOnOnlyPower <  num6 / 4.0)
         {
-          Number3 = Math.Max(val1 + 1,  Math.Round((double) Number3 * 0.2));
+          Number3 = Math.Max(val1 + 1,  Math.Round( Number3 * 0.2));
           if (MakeLog)
             this.AddLog("small bigunit/4 unit. -50% of pts. ");
         }
@@ -15277,13 +15277,13 @@ label_38:
             this.AddLog("points multiplied due to out of supply situation *2");
         }
         if (MakeLog)
-          this.AddLog("Attack after mods gives " + Conversion.Str((object) Number3) + " pts.");
+          this.AddLog("Attack after mods gives " + Conversion.Str( Number3) + " pts.");
         if (Number3 == 0 && MakeLog)
           this.AddLog("ATTACK CANCELLED. 0 PTS.");
         let mut counter: i32 = this.game.EditObj.TempUnitList.counter;
         for (let mut index: i32 = 0; index <= counter; index += 1)
           this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index]].TempAttacked = true;
-        if (Prognosis & (double) num4 >= (double) val1 * 1.5)
+        if (Prognosis &  num4 >=  val1 * 1.5)
         {
           this.TempOwner[ix, iy] = this.GetGameDataTurn();
           if (MakeLog)
@@ -15295,7 +15295,7 @@ label_38:
         if (Number3 > 0)
         {
           if (MakeLog)
-            this.AddLog("To little forces for attack on (" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ") Attacker = " + Conversion.Str((object) Number1) + ", Defender =" + Conversion.Str((object) Number2));
+            this.AddLog("To little forces for attack on (" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ") Attacker = " + Conversion.Str( Number1) + ", Defender =" + Conversion.Str( Number2));
           let mut counter: i32 = this.game.EditObj.TempUnitList.counter;
           for (let mut index: i32 = 0; index <= counter; index += 1)
           {
@@ -15350,7 +15350,7 @@ label_38:
           }
         }
       }
-      return num4 <= 0 ? 0.0f : (float) num5 / (float) num4;
+      return num4 <= 0 ? 0.0f :  num5 /  num4;
     }
 
     pub float IsMovingAtRightPlace(int ophq, int ix, int iy)
@@ -15394,7 +15394,7 @@ label_38:
       if (defendingPowerPointsOn == 0)
       {
         if (MakeLog)
-          this.AddLog("ARTILLERY Attack on (" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ") Attacker = " + Conversion.Str((object) num1) + ", Defender =" + Conversion.Str((object) defendingPowerPointsOn));
+          this.AddLog("ARTILLERY Attack on (" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ") Attacker = " + Conversion.Str( num1) + ", Defender =" + Conversion.Str( defendingPowerPointsOn));
         if (MakeLog)
           this.AddLog("No Defenders. Attack gives 100 pts.");
         return 100;
@@ -15403,9 +15403,9 @@ label_38:
       if (Number > 0)
       {
         if (MakeLog)
-          this.AddLog("ARTILLERY Attack on (" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ") Attacker = " + Conversion.Str((object) num1) + ", Defender =" + Conversion.Str((object) defendingPowerPointsOn));
+          this.AddLog("ARTILLERY Attack on (" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ") Attacker = " + Conversion.Str( num1) + ", Defender =" + Conversion.Str( defendingPowerPointsOn));
         if (MakeLog)
-          this.AddLog("ARTILLERY Attack gives " + Conversion.Str((object) Number) + " pts.");
+          this.AddLog("ARTILLERY Attack gives " + Conversion.Str( Number) + " pts.");
         let mut num2: i32 = 0;
         let mut unitCounter1: i32 = this.game.Data.MapObj[0].HexObj[ix, iy].UnitCounter;
         for (let mut index: i32 = 0; index <= unitCounter1; index += 1)
@@ -15421,24 +15421,24 @@ label_38:
           let mut index2: i32 = index1;
           let mut index3: i32 = index2;
           let mut index4: i32 = numArray[index3];
-          unitClassArray[index4].TempArtDam = unitObj[unitList[index2]].TempArtDam +  Math.Round((double) Number * ((double) unitPower / (double) num2));
+          unitClassArray[index4].TempArtDam = unitObj[unitList[index2]].TempArtDam +  Math.Round( Number * ( unitPower /  num2));
           if (MakeLog)
-            this.AddLog(Conversion.Str((object)  Math.Round((double) Number * ((double) unitPower / (double) num2))) + " dam on " + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy));
+            this.AddLog(Conversion.Str(  Math.Round( Number * ( unitPower /  num2))) + " dam on " + Conversion.Str( ix) + "," + Conversion.Str( iy));
         }
         let mut tscore: i32 = this.GetTscore(ix, iy);
-        Number = tscore <= 0 ? 0 :  Math.Round((double) Number * ((double) tscore / 100.0));
+        Number = tscore <= 0 ? 0 :  Math.Round( Number * ( tscore / 100.0));
         let mut counter: i32 = this.game.EditObj.TempUnitList.counter;
         for (let mut index: i32 = 0; index <= counter; index += 1)
           this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index]].TempAttacked = true;
         let mut pointstempdampercent: i32 = this.GetCurrentDefendingPowerPointstempdampercent(ix, iy, Prognosis);
         if (pointstempdampercent > 100)
         {
-          Number =  Math.Round((double) Number * ((double) pointstempdampercent / 100.0));
+          Number =  Math.Round( Number * ( pointstempdampercent / 100.0));
           if (MakeLog)
-            this.AddLog("Attack gets bonus for supporting an artillery/air attack " + Conversion.Str((object) pointstempdampercent) + "%");
+            this.AddLog("Attack gets bonus for supporting an artillery/air attack " + Conversion.Str( pointstempdampercent) + "%");
         }
       }
-      return  Math.Round((double) ((float) Number / (8f * this.CONST_ARTMULTI)));
+      return  Math.Round( ( Number / (8f * this.CONST_ARTMULTI)));
     }
 
     pub int GetScoreForAirAttack(int ix, int iy, bool Prognosis, bool MakeLog)
@@ -15458,7 +15458,7 @@ label_38:
       let mut fighterPowerPointsOn: i32 = this.GetPrognosedorRealFighterPowerPointsOn(ix, iy, true, Prognosis: Prognosis);
       if (this.Attacker)
       {
-        if ((double) this.FighterMatrix[ix, iy] * 0.5 > (double) fighterPowerPointsOn)
+        if ( this.FighterMatrix[ix, iy] * 0.5 >  fighterPowerPointsOn)
           return 0;
       }
       else if (this.FighterMatrix[ix, iy] * 1 > fighterPowerPointsOn)
@@ -15466,7 +15466,7 @@ label_38:
       if (defendingPowerPointsOn == 0)
       {
         if (MakeLog)
-          this.AddLog("AIR Attack on (" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ") Attacker = " + Conversion.Str((object) num1) + ", Defender =" + Conversion.Str((object) defendingPowerPointsOn));
+          this.AddLog("AIR Attack on (" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ") Attacker = " + Conversion.Str( num1) + ", Defender =" + Conversion.Str( defendingPowerPointsOn));
         if (MakeLog)
           this.AddLog("No Defenders. Attack gives 100 pts.");
         return 0;
@@ -15475,9 +15475,9 @@ label_38:
       if (Number > 0)
       {
         if (MakeLog)
-          this.AddLog("AIR Attack on (" + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy) + ") Attacker = " + Conversion.Str((object) num1) + ", Defender =" + Conversion.Str((object) defendingPowerPointsOn));
+          this.AddLog("AIR Attack on (" + Conversion.Str( ix) + "," + Conversion.Str( iy) + ") Attacker = " + Conversion.Str( num1) + ", Defender =" + Conversion.Str( defendingPowerPointsOn));
         if (MakeLog)
-          this.AddLog("AIR Attack gives " + Conversion.Str((object) Number) + " pts.");
+          this.AddLog("AIR Attack gives " + Conversion.Str( Number) + " pts.");
         let mut num2: i32 = 0;
         let mut unitCounter1: i32 = this.game.Data.MapObj[0].HexObj[ix, iy].UnitCounter;
         for (let mut index: i32 = 0; index <= unitCounter1; index += 1)
@@ -15493,24 +15493,24 @@ label_38:
           let mut index2: i32 = index1;
           let mut index3: i32 = index2;
           let mut index4: i32 = numArray[index3];
-          unitClassArray[index4].TempArtDam = unitObj[unitList[index2]].TempArtDam +  Math.Round((double) Number * ((double) unitPower / (double) num2));
+          unitClassArray[index4].TempArtDam = unitObj[unitList[index2]].TempArtDam +  Math.Round( Number * ( unitPower /  num2));
           if (MakeLog)
-            this.AddLog(Conversion.Str((object)  Math.Round((double) Number * ((double) unitPower / (double) num2))) + " air dam on " + Conversion.Str((object) ix) + "," + Conversion.Str((object) iy));
+            this.AddLog(Conversion.Str(  Math.Round( Number * ( unitPower /  num2))) + " air dam on " + Conversion.Str( ix) + "," + Conversion.Str( iy));
         }
         let mut tscore: i32 = this.GetTscore(ix, iy);
-        Number = tscore <= 0 ? 0 :  Math.Round((double) Number * (100.0 / (double) tscore));
+        Number = tscore <= 0 ? 0 :  Math.Round( Number * (100.0 /  tscore));
         let mut counter: i32 = this.game.EditObj.TempUnitList.counter;
         for (let mut index: i32 = 0; index <= counter; index += 1)
           this.game.Data.UnitObj[this.game.EditObj.TempUnitList.unr[index]].TempAttacked = true;
         let mut pointstempdampercent: i32 = this.GetCurrentDefendingPowerPointstempdampercent(ix, iy, Prognosis);
         if (pointstempdampercent > 100)
         {
-          Number =  Math.Round((double) Number * ((double) pointstempdampercent / 100.0));
+          Number =  Math.Round( Number * ( pointstempdampercent / 100.0));
           if (MakeLog)
-            this.AddLog("Attack gets bonus for supporting an artillery/air attack " + Conversion.Str((object) pointstempdampercent) + "%");
+            this.AddLog("Attack gets bonus for supporting an artillery/air attack " + Conversion.Str( pointstempdampercent) + "%");
         }
       }
-      return  Math.Round((double) ((float) Number / (8f * this.CONST_AIRMULTI)));
+      return  Math.Round( ( Number / (8f * this.CONST_AIRMULTI)));
     }
 
     pub int GetFreeAP(bool ModifiedForStrength)
@@ -15528,7 +15528,7 @@ label_38:
       }
       if (num2 < 1)
         return 0;
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      let mut num3: i32 =  Math.Round(Conversion.Int( num1 /  num2));
       let mut num4: i32 = 0;
       let mut unitCounter2: i32 = this.game.Data.UnitCounter;
       for (let mut unr: i32 = 0; unr <= unitCounter2; unr += 1)
@@ -15538,11 +15538,11 @@ label_38:
           let mut lowestAp: i32 = this.game.HandyFunctionsObj.GetLowestAp(unr);
           let mut num5: i32 = this.game.Data.UnitObj[unr].TempX <= -1 ? lowestAp : lowestAp - this.MoveMatrix[this.game.Data.UnitObj[unr].TempSlot, this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY];
           if (ModifiedForStrength)
-            num5 =  Math.Round((double) ((float) num5 * ((float) this.game.HandyFunctionsObj.GetPower(unr, this.game.Data.Turn) / (float) num3)));
+            num5 =  Math.Round( ( num5 * ( this.game.HandyFunctionsObj.GetPower(unr, this.game.Data.Turn) /  num3)));
           num4 += num5;
         }
       }
-      return  Math.Round(Conversion.Int((double) num4 / (double) num2));
+      return  Math.Round(Conversion.Int( num4 /  num2));
     }
 
     pub float GetAverageCombatScore(
@@ -15567,17 +15567,17 @@ label_38:
             let mut type: i32 = this.game.Data.SFObj[index3].Type;
             if (attsftype == 68)
               index3 = index3;
-            let mut num3: i32 =  Math.Round((double) ((float) (this.game.Data.SFObj[index3].Qty * this.game.Data.SFTypeObj[type].PowerPts) * this.CombatMatrix[attsftype, type]));
+            let mut num3: i32 =  Math.Round( ( (this.game.Data.SFObj[index3].Qty * this.game.Data.SFTypeObj[type].PowerPts) * this.CombatMatrix[attsftype, type]));
             if (isArtilleryattack)
-              num3 =  Math.Round((double) num3 / ((double) (this.game.Data.SFObj[index3].CurrentEntrench + 70) / 70.0));
+              num3 =  Math.Round( num3 / ( (this.game.Data.SFObj[index3].CurrentEntrench + 70) / 70.0));
             if (this.game.Data.SFTypeObj[type].BackBench)
             {
-              num1 += (float)  Math.Round((double) num3 / 4.0);
-              num2 +=  Math.Round((double) (this.game.Data.SFObj[index3].Qty * this.game.Data.SFTypeObj[type].PowerPts) / 4.0);
+              num1 +=   Math.Round( num3 / 4.0);
+              num2 +=  Math.Round( (this.game.Data.SFObj[index3].Qty * this.game.Data.SFTypeObj[type].PowerPts) / 4.0);
             }
             else
             {
-              num1 += (float) num3;
+              num1 +=  num3;
               num2 += this.game.Data.SFObj[index3].Qty * this.game.Data.SFTypeObj[type].PowerPts;
             }
           }
@@ -15596,22 +15596,22 @@ label_38:
             {
               let mut sf: i32 = this.game.Data.UnitObj[index5].SFList[index6];
               let mut type: i32 = this.game.Data.SFObj[sf].Type;
-              let mut num4: i32 =  Math.Round((double) ((float) (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) * this.CombatMatrix[attsftype, type]));
+              let mut num4: i32 =  Math.Round( ( (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) * this.CombatMatrix[attsftype, type]));
               if (this.game.Data.SFTypeObj[type].BackBench)
               {
-                num1 += (float)  Math.Round((double) num4 / 4.0);
-                num2 +=  Math.Round((double) (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) / 4.0);
+                num1 +=   Math.Round( num4 / 4.0);
+                num2 +=  Math.Round( (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) / 4.0);
               }
               else
               {
-                num1 += (float) num4;
+                num1 +=  num4;
                 num2 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts;
               }
             }
           }
         }
       }
-      return num2 == 0 | (double) num1 == 0.0 ? 1f : num1 / (float) num2;
+      return num2 == 0 |  num1 == 0.0 ? 1f : num1 /  num2;
     }
 
     pub int GetDivisionalPower(int unr, int grp)
@@ -15649,23 +15649,23 @@ label_38:
           else
           {
             num2 = this.game.Data.UnitObj[unit].TempUnitPower;
-            let mut num3: i32 =  Math.Round((double) num2 / (1.0 + (double) this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 100.0));
+            let mut num3: i32 =  Math.Round( num2 / (1.0 +  this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 100.0));
             if (num3 <= 0)
               num3 = 1;
             if (Prognosis && this.game.Data.UnitObj[unit].TempArtDam > 0)
             {
-              let mut num4: i32 =  Math.Round((double) this.game.Data.UnitObj[unit].TempArtDam / (1.0 + (double) this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 100.0));
-              num2 =  Math.Round(((double) Math.Max(0, num3 - num4) * ((double) num4 / (double) num3) * 2.0 + (double) (Math.Max(0, num2 - num4) * 1)) / (1.0 + 2.0 * ((double) num4 / (double) num3)));
-              if ((double) num3 * 0.33 > (double) num2)
-                num2 =  Math.Round((double) num3 / 3.0);
+              let mut num4: i32 =  Math.Round( this.game.Data.UnitObj[unit].TempArtDam / (1.0 +  this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 100.0));
+              num2 =  Math.Round(( Math.Max(0, num3 - num4) * ( num4 /  num3) * 2.0 +  (Math.Max(0, num2 - num4) * 1)) / (1.0 + 2.0 * ( num4 /  num3)));
+              if ( num3 * 0.33 >  num2)
+                num2 =  Math.Round( num3 / 3.0);
             }
           }
         }
         defendingPowerPointsOn += num2;
         num1 += this.game.HandyFunctionsObj.GetUnitStackPts(unit);
       }
-      if ((double) num1 > (double) this.game.Data.RuleVar[30])
-        defendingPowerPointsOn =  Math.Round((double) Conversion.Int((float) defendingPowerPointsOn * (this.game.Data.RuleVar[30] / (float) num1)));
+      if ( num1 >  this.game.Data.RuleVar[30])
+        defendingPowerPointsOn =  Math.Round( Conversion.Int( defendingPowerPointsOn * (this.game.Data.RuleVar[30] /  num1)));
       return defendingPowerPointsOn;
     }
 
@@ -15685,7 +15685,7 @@ label_38:
         num1 = 1;
       if (num2 == 0)
         num2 = 100;
-      return  Math.Round((double) num2 / (double) num1);
+      return  Math.Round( num2 /  num1);
     }
 
     pub int GetCurrentDefendingStackOn(int x, int y, bool Prognosis = false, bool WithoutEntrench = false)
@@ -15696,7 +15696,7 @@ label_38:
       {
         let mut unit: i32 = this.game.Data.MapObj[0].HexObj[x, y].UnitList[index];
         let mut num1: i32 = this.GetUnitPower(unit, false, WithoutEntrench: WithoutEntrench);
-        let mut num2: i32 =  Math.Round((double) num1 / (1.0 + (double) this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 100.0));
+        let mut num2: i32 =  Math.Round( num1 / (1.0 +  this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 100.0));
         if (num2 <= 1)
           num2 = 1;
         if (Prognosis && this.game.Data.UnitObj[unit].TempArtDam > 0)
@@ -15704,10 +15704,10 @@ label_38:
           let mut num3: i32 = this.game.Data.UnitObj[unit].TempArtDam;
           if (num3 > 80)
             num3 = num3;
-          let mut num4: i32 =  Math.Round((double) num3 / (1.0 + (double) this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 2.0 / 100.0));
-          num1 =  Math.Round(((double) Math.Max(0, num2 - num4) * ((double) num4 / (double) num2) * 2.0 + (double) (Math.Max(0, num1 - num4) * 1)) / (1.0 + 2.0 * ((double) num4 / (double) num2)));
-          if ((double) num2 * 0.5 > (double) num1)
-            num1 =  Math.Round((double) num2 / 2.0);
+          let mut num4: i32 =  Math.Round( num3 / (1.0 +  this.game.HandyFunctionsObj.GetAverageEntrench(unit) / 2.0 / 100.0));
+          num1 =  Math.Round(( Math.Max(0, num2 - num4) * ( num4 /  num2) * 2.0 +  (Math.Max(0, num1 - num4) * 1)) / (1.0 + 2.0 * ( num4 /  num2)));
+          if ( num2 * 0.5 >  num1)
+            num1 =  Math.Round( num2 / 2.0);
         }
         int num5;
         num5 += num1;
@@ -15733,7 +15733,7 @@ label_38:
       }
       if (num1 == 0)
         return 0;
-      let mut pointstempdampercent: i32 =  Math.Round(100.0 * ((double) num2 / (double) num1));
+      let mut pointstempdampercent: i32 =  Math.Round(100.0 * ( num2 /  num1));
       if (pointstempdampercent > 160)
         pointstempdampercent = 160;
       return pointstempdampercent;
@@ -15798,15 +15798,15 @@ label_38:
             let mut unr: i32 = index;
             let mut num3: i32 = !(CounterAttack & this.game.Data.UnitObj[unr].TempX > -1) ? this.game.Data.UnitObj[unr].TempUnitPower : this.GetUnitPower(unr, false, UseTempCoords: true);
             if (num2 == 2)
-              num3 = -((double) num3 == (double) num3 / 3.0 ? 1 : 0);
-            let mut num4: i32 =  Math.Round((double) num3 * ((double) (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
+              num3 = -( num3 ==  num3 / 3.0 ? 1 : 0);
+            let mut num4: i32 =  Math.Round( num3 * ( (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
             defendingPowerPointsOn += num4;
             num1 += this.game.HandyFunctionsObj.GetUnitStackPts(unr);
           }
         }
       }
-      if ((double) num1 > (double) this.game.Data.RuleVar[30] & WithStack)
-        defendingPowerPointsOn =  Math.Round(Conversion.Int((double) defendingPowerPointsOn * 0.33) + Conversion.Int((double) defendingPowerPointsOn * 0.66 * ((double) this.game.Data.RuleVar[30] / (double) num1)));
+      if ( num1 >  this.game.Data.RuleVar[30] & WithStack)
+        defendingPowerPointsOn =  Math.Round(Conversion.Int( defendingPowerPointsOn * 0.33) + Conversion.Int( defendingPowerPointsOn * 0.66 * ( this.game.Data.RuleVar[30] /  num1)));
       return defendingPowerPointsOn;
     }
 
@@ -15827,14 +15827,14 @@ label_38:
           if (this.game.Data.UnitObj[index2].TempX == x & this.game.Data.UnitObj[index2].TempY == y)
           {
             let mut unr: i32 = index2;
-            let mut num2: i32 =  Math.Round((!(CounterAttack & this.game.Data.UnitObj[unr].TempX > -1) ? (double) this.game.Data.UnitObj[unr].TempUnitPower : (double) this.GetUnitPower(unr, false, UseTempCoords: true)) * ((double) (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
+            let mut num2: i32 =  Math.Round((!(CounterAttack & this.game.Data.UnitObj[unr].TempX > -1) ?  this.game.Data.UnitObj[unr].TempUnitPower :  this.GetUnitPower(unr, false, UseTempCoords: true)) * ( (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
             defendingPowerPointsOn += num2;
             num1 += this.game.HandyFunctionsObj.GetUnitStackPts(unr);
           }
           else if (this.game.Data.UnitObj[index2].TempX == -1 && this.game.Data.UnitObj[index2].X == x & this.game.Data.UnitObj[index2].Y == y)
           {
             let mut unr: i32 = index2;
-            let mut num3: i32 =  Math.Round((!(CounterAttack & this.game.Data.UnitObj[unr].TempX > -1) ? (double) this.game.Data.UnitObj[unr].TempUnitPower : (double) this.GetUnitPower(unr, false, UseTempCoords: true)) * ((double) (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
+            let mut num3: i32 =  Math.Round((!(CounterAttack & this.game.Data.UnitObj[unr].TempX > -1) ?  this.game.Data.UnitObj[unr].TempUnitPower :  this.GetUnitPower(unr, false, UseTempCoords: true)) * ( (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
             defendingPowerPointsOn += num3;
             num1 += this.game.HandyFunctionsObj.GetUnitStackPts(unr);
           }
@@ -15849,21 +15849,21 @@ label_38:
           if (this.game.Data.UnitObj[unit].TempX == x & this.game.Data.UnitObj[unit].TempY == y)
           {
             let mut unr: i32 = unit;
-            let mut num4: i32 =  Math.Round((double) this.game.Data.UnitObj[unr].TempUnitPower * ((double) (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
+            let mut num4: i32 =  Math.Round( this.game.Data.UnitObj[unr].TempUnitPower * ( (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
             defendingPowerPointsOn += num4;
             num1 += this.game.HandyFunctionsObj.GetUnitStackPts(unr);
           }
           else if (this.game.Data.UnitObj[unit].TempX == -1 && this.game.Data.UnitObj[unit].X == x & this.game.Data.UnitObj[unit].Y == y)
           {
             let mut unr: i32 = unit;
-            let mut num5: i32 =  Math.Round((double) this.game.Data.UnitObj[unr].TempUnitPower * ((double) (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
+            let mut num5: i32 =  Math.Round( this.game.Data.UnitObj[unr].TempUnitPower * ( (100 + this.game.HandyFunctionsObj.GetDivBonusPrognosis(unr)) / 100.0));
             defendingPowerPointsOn += num5;
             num1 += this.game.HandyFunctionsObj.GetUnitStackPts(unr);
           }
         }
       }
-      if ((double) num1 > (double) this.game.Data.RuleVar[30] & WithStack)
-        defendingPowerPointsOn =  Math.Round(Conversion.Int((double) defendingPowerPointsOn * 0.33) + Conversion.Int((double) defendingPowerPointsOn * 0.66 * ((double) this.game.Data.RuleVar[30] / (double) num1)));
+      if ( num1 >  this.game.Data.RuleVar[30] & WithStack)
+        defendingPowerPointsOn =  Math.Round(Conversion.Int( defendingPowerPointsOn * 0.33) + Conversion.Int( defendingPowerPointsOn * 0.66 * ( this.game.Data.RuleVar[30] /  num1)));
       return defendingPowerPointsOn;
     }
 
@@ -15877,10 +15877,10 @@ label_38:
         let mut sf: i32 = this.game.Data.UnitObj[unr].SFList[index];
         let mut unitGroup: i32 = this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup;
         float num3 = 1f - this.game.Data.RiverTypeObj[riv].AttackPenalty[unitGroup];
-        num1 += num3 * (float) this.game.Data.SFObj[sf].Qty * (float) this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].PowerPts;
+        num1 += num3 *  this.game.Data.SFObj[sf].Qty *  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].PowerPts;
         num2 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].PowerPts;
       }
-      return num1 / (float) num2;
+      return num1 /  num2;
     }
 
     pub int GetPrognosedEnemyLandAttackPowerPointsOn(
@@ -15942,11 +15942,11 @@ label_38:
             {
               let mut num4: i32 = this.EnemyMatrix[index1, x, y] - this.EnemyMatrix[index1, this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY] + 30;
               if (num4 > 0 & num4 < 70)
-                num3 -=  Math.Round((double) num3 * ((double) num4 / 70.0));
+                num3 -=  Math.Round( num3 * ( num4 / 70.0));
               else
                 num3 = 0;
               if (LeaveFrontLineEmptyPenalty && this.EnemyFrontlineArea[this.game.Data.UnitObj[index2].TempX, this.game.Data.UnitObj[index2].TempY] > 0)
-                num3 =  Math.Round((double) num3 / 3.0);
+                num3 =  Math.Round( num3 / 3.0);
             }
             if (num3 > 0)
             {
@@ -15963,16 +15963,16 @@ label_38:
         this.game.EditObj.TargetX = x;
         this.game.EditObj.TargetY = y;
         this.game.EditObj.TempUnitList = unitList;
-        attackPowerPointsOn =  Math.Round((double) ((float) attackPowerPointsOn * this.game.HandyFunctionsObj.GetConcentricBonus2Prognosis(false)));
+        attackPowerPointsOn =  Math.Round( ( attackPowerPointsOn * this.game.HandyFunctionsObj.GetConcentricBonus2Prognosis(false)));
         let mut num5: i32 = this.game.HandyFunctionsObj.maxAttackStackPrognosis();
         this.game.EditObj.TargetX = -1;
         this.game.EditObj.TargetY = -1;
         if (num1 > num5)
         {
           if (!OptimisticStack)
-            attackPowerPointsOn =  Math.Round(0.15 * (double) attackPowerPointsOn + 0.85 * (double)  Math.Round((double) attackPowerPointsOn * ((double) num5 / (double) num1)));
+            attackPowerPointsOn =  Math.Round(0.15 *  attackPowerPointsOn + 0.85 *   Math.Round( attackPowerPointsOn * ( num5 /  num1)));
           else if (num1 > num5)
-            attackPowerPointsOn =  Math.Round(0.25 * (double) attackPowerPointsOn + 0.75 * (double)  Math.Round((double) attackPowerPointsOn * ((double) num5 / (double) num1)));
+            attackPowerPointsOn =  Math.Round(0.25 *  attackPowerPointsOn + 0.75 *   Math.Round( attackPowerPointsOn * ( num5 /  num1)));
         }
       }
       return attackPowerPointsOn;
@@ -16037,9 +16037,9 @@ label_38:
         let mut type: i32 = this.game.Data.SFObj[sf].Type;
         num1 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts;
         if (this.game.Data.SFTypeObj[type].AIRoleScore[rolenr] > 0)
-          num2 +=  Math.Round((double) (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) * ((double) this.game.Data.SFTypeObj[type].AIRoleScore[rolenr] / 100.0));
+          num2 +=  Math.Round( (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) * ( this.game.Data.SFTypeObj[type].AIRoleScore[rolenr] / 100.0));
       }
-      return num1 == 0 ? 0 :  Math.Round(Conversion.Int((double) (100 * num2) / (double) num1));
+      return num1 == 0 ? 0 :  Math.Round(Conversion.Int( (100 * num2) /  num1));
     }
 
     pub int GetReinforcementTypePercent(int unr, int rolenr)
@@ -16055,7 +16055,7 @@ label_38:
         if (this.game.Data.SFTypeObj[type].ReinforcementType == rolenr)
           num2 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts;
       }
-      return num1 == 0 ? 0 :  Math.Round(Conversion.Int((double) (100 * num2) / (double) num1));
+      return num1 == 0 ? 0 :  Math.Round(Conversion.Int( (100 * num2) /  num1));
     }
 
     pub int GetPrognosedLandAttackPowerPointsOn(
@@ -16081,9 +16081,9 @@ label_38:
             if (this.game.Data.UnitObj[index2].TempX == coordinate.x & this.game.Data.UnitObj[index2].TempY == coordinate.y && this.IsUnitPartOfMarker(index2, x, y) & this.game.Data.UnitObj[index2].TempSlot > -1 & this.game.Data.UnitObj[index2].TempCategory == 1 && this.game.Data.UnitObj[index2].AIGroup == this.OpGroup & !this.game.Data.UnitObj[index2].IsHQ)
             {
               float val2 = this.game.Data.RegimeObj[this.GetGameDataTurn()].AIConservative;
-              if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0)
+              if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0)
                 val2 = 1f;
-              if ((double) this.game.HandyFunctionsObj.GetAverageRdn(index2) >= 70.0 * ((1.0 + (double) Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index2].SupplyIn == 0)
+              if ( this.game.HandyFunctionsObj.GetAverageRdn(index2) >= 70.0 * ((1.0 +  Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index2].SupplyIn == 0)
               {
                 let mut num2: i32 = FullAp ? this.game.Data.UnitObj[index2].SupplyConsume : this.game.HandyFunctionsObj.GetLowestAp(index2) - this.MoveMatrix[this.game.Data.UnitObj[index2].TempSlot, coordinate.x, coordinate.y];
                 let mut x1: i32 = this.game.HandyFunctionsObj.MoveApCostPreview(index2, coordinate.x, coordinate.y, coordinate.x, coordinate.y, 0, x, y, 0, true).x;
@@ -16094,9 +16094,9 @@ label_38:
                   if (AdjustedForAp)
                   {
                     let mut num4: i32 = num2;
-                    num3 = num4 > 25 ?  Math.Round((double) num3 * ((double) (num4 - 25) / (double) num4)) : 0;
+                    num3 = num4 > 25 ?  Math.Round( num3 * ( (num4 - 25) /  num4)) : 0;
                   }
-                  if (ForContainment && this.game.Data.UnitObj[index2].SupplyConsume > 0 && (double) this.game.Data.UnitObj[index2].SupplyIn < (double) this.game.Data.UnitObj[index2].SupplyInReq * 0.25)
+                  if (ForContainment && this.game.Data.UnitObj[index2].SupplyConsume > 0 &&  this.game.Data.UnitObj[index2].SupplyIn <  this.game.Data.UnitObj[index2].SupplyInReq * 0.25)
                     num3 *= 10;
                   attackPowerPointsOn += num3;
                   unitList.add(index2);
@@ -16115,13 +16115,13 @@ label_38:
         this.game.EditObj.TargetX = x;
         this.game.EditObj.TargetY = y;
         this.game.EditObj.TempUnitList = unitList;
-        attackPowerPointsOn =  Math.Round((double)  Math.Round((double) ((float) attackPowerPointsOn * this.game.HandyFunctionsObj.GetConcentricBonus2Prognosis(false))) * ((double) (100 + this.game.HandyFunctionsObj.GetDivBonusForAttackPrognosis(x, y)) / 100.0));
+        attackPowerPointsOn =  Math.Round(  Math.Round( ( attackPowerPointsOn * this.game.HandyFunctionsObj.GetConcentricBonus2Prognosis(false))) * ( (100 + this.game.HandyFunctionsObj.GetDivBonusForAttackPrognosis(x, y)) / 100.0));
         let mut num5: i32 = this.game.HandyFunctionsObj.maxAttackStackPrognosis();
         this.game.EditObj.TargetX = -1;
         this.game.EditObj.TargetY = -1;
         let mut num6: i32 = num1 + this.game.Data.MapObj[0].HexObj[x, y].get_BattleStack(this.game.Data.Turn);
         if (num6 > num5)
-          attackPowerPointsOn = (double) this.CorpsTopRatio[this.OpGroup] <= 9.0 ? ((double) this.CorpsTopRatio[this.OpGroup] <= 6.0 ? ((double) this.CorpsTopRatio[this.OpGroup] <= 4.0 ? ((double) this.CorpsTopRatio[this.OpGroup] <= 3.0 ? ((double) this.CorpsTopRatio[this.OpGroup] <= 2.0 ? ((double) this.CorpsTopRatio[this.OpGroup] <= 1.5 ?  Math.Round(0.4 * (double) attackPowerPointsOn + 0.6 * (double) attackPowerPointsOn * ((double) num5 / (double) num6)) :  Math.Round(0.45 * (double) attackPowerPointsOn + 0.55 * (double) attackPowerPointsOn * ((double) num5 / (double) num6))) :  Math.Round(0.5 * (double) attackPowerPointsOn + 0.5 * (double) attackPowerPointsOn * ((double) num5 / (double) num6))) :  Math.Round(0.55 * (double) attackPowerPointsOn + 0.45 * (double) attackPowerPointsOn * ((double) num5 / (double) num6))) :  Math.Round(0.6 * (double) attackPowerPointsOn + 0.4 * (double) attackPowerPointsOn * ((double) num5 / (double) num6))) :  Math.Round(0.7 * (double) attackPowerPointsOn + 0.3 * (double) attackPowerPointsOn * ((double) num5 / (double) num6))) :  Math.Round(0.8 * (double) attackPowerPointsOn + 0.2 * (double) attackPowerPointsOn * ((double) num5 / (double) num6));
+          attackPowerPointsOn =  this.CorpsTopRatio[this.OpGroup] <= 9.0 ? ( this.CorpsTopRatio[this.OpGroup] <= 6.0 ? ( this.CorpsTopRatio[this.OpGroup] <= 4.0 ? ( this.CorpsTopRatio[this.OpGroup] <= 3.0 ? ( this.CorpsTopRatio[this.OpGroup] <= 2.0 ? ( this.CorpsTopRatio[this.OpGroup] <= 1.5 ?  Math.Round(0.4 *  attackPowerPointsOn + 0.6 *  attackPowerPointsOn * ( num5 /  num6)) :  Math.Round(0.45 *  attackPowerPointsOn + 0.55 *  attackPowerPointsOn * ( num5 /  num6))) :  Math.Round(0.5 *  attackPowerPointsOn + 0.5 *  attackPowerPointsOn * ( num5 /  num6))) :  Math.Round(0.55 *  attackPowerPointsOn + 0.45 *  attackPowerPointsOn * ( num5 /  num6))) :  Math.Round(0.6 *  attackPowerPointsOn + 0.4 *  attackPowerPointsOn * ( num5 /  num6))) :  Math.Round(0.7 *  attackPowerPointsOn + 0.3 *  attackPowerPointsOn * ( num5 /  num6))) :  Math.Round(0.8 *  attackPowerPointsOn + 0.2 *  attackPowerPointsOn * ( num5 /  num6));
       }
       return attackPowerPointsOn;
     }
@@ -16142,9 +16142,9 @@ label_38:
             if (this.game.Data.UnitObj[index].PreDef == -1 && this.game.Data.UnitObj[index].TempX == coordinate.x & this.game.Data.UnitObj[index].TempY == coordinate.y && this.IsUnitPartOfMarker(index, x, y) & this.game.Data.UnitObj[index].TempSlot > -1 & this.game.Data.UnitObj[index].TempCategory == 1 && this.game.Data.UnitObj[index].AIGroup == this.OpGroup & !this.game.Data.UnitObj[index].IsHQ)
             {
               float val2 = this.game.Data.RegimeObj[this.GetGameDataTurn()].AIConservative;
-              if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0)
+              if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0)
                 val2 = 1f;
-              if ((double) this.game.HandyFunctionsObj.GetAverageRdn(index) >= 70.0 * ((1.0 + (double) Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index].SupplyIn == 0)
+              if ( this.game.HandyFunctionsObj.GetAverageRdn(index) >= 70.0 * ((1.0 +  Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index].SupplyIn == 0)
               {
                 let mut Number: i32 = this.game.HandyFunctionsObj.GetLowestAp(index) - this.MoveMatrix[this.game.Data.UnitObj[index].TempSlot, coordinate.x, coordinate.y];
                 HandyFunctionsclass handyFunctionsObj = this.game.HandyFunctionsObj;
@@ -16161,7 +16161,7 @@ label_38:
                   let mut unitPower: i32 = this.GetUnitPower(index, true, x, y, tfacing - 1);
                   int num2;
                   num2 += this.game.HandyFunctionsObj.GetUnitStackPts(index);
-                  s = s + this.game.Data.UnitObj[index].Name + " (" + Conversion.Str((object) Number) + "ap), ";
+                  s = s + this.game.Data.UnitObj[index].Name + " (" + Conversion.Str( Number) + "ap), ";
                   int num3;
                   num3 += unitPower;
                   unitList.add(index);
@@ -16198,18 +16198,18 @@ label_38:
             if (this.game.Data.UnitObj[index].PreDef == -1 && this.game.Data.UnitObj[index].TempX == landAttackStackOn.x & this.game.Data.UnitObj[index].TempY == landAttackStackOn.y && this.IsUnitPartOfMarker(index, x, y) & this.game.Data.UnitObj[index].TempSlot > -1 & this.game.Data.UnitObj[index].TempCategory == 1 && this.game.Data.UnitObj[index].AIGroup == this.OpGroup & !this.game.Data.UnitObj[index].IsHQ)
             {
               float val2 = this.game.Data.RegimeObj[this.GetGameDataTurn()].AIConservative;
-              if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0)
+              if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0)
                 val2 = 1f;
-              if ((double) this.game.HandyFunctionsObj.GetAverageRdn(index) >= 70.0 * ((1.0 + (double) Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index].SupplyIn == 0 && (FullAp ? this.game.Data.UnitObj[index].SupplyConsume : this.game.HandyFunctionsObj.GetLowestAp(index) - this.MoveMatrix[this.game.Data.UnitObj[index].TempSlot, landAttackStackOn.x, landAttackStackOn.y]) >= this.game.HandyFunctionsObj.MoveApCostPreview(index, landAttackStackOn.x, landAttackStackOn.y, landAttackStackOn.x, landAttackStackOn.y, 0, x, y, 0, true).x)
+              if ( this.game.HandyFunctionsObj.GetAverageRdn(index) >= 70.0 * ((1.0 +  Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index].SupplyIn == 0 && (FullAp ? this.game.Data.UnitObj[index].SupplyConsume : this.game.HandyFunctionsObj.GetLowestAp(index) - this.MoveMatrix[this.game.Data.UnitObj[index].TempSlot, landAttackStackOn.x, landAttackStackOn.y]) >= this.game.HandyFunctionsObj.MoveApCostPreview(index, landAttackStackOn.x, landAttackStackOn.y, landAttackStackOn.x, landAttackStackOn.y, 0, x, y, 0, true).x)
               {
                 let mut num2: i32 = this.GetUnitPower(index, true, x, y, tfacing - 1);
                 num1 += this.game.HandyFunctionsObj.GetUnitStackPts(index);
                 if (AdjustedForAp)
                 {
                   let mut lowestAp: i32 = this.game.HandyFunctionsObj.GetLowestAp(index);
-                  num2 = lowestAp > 25 ?  Math.Round((double) num2 * ((double) (lowestAp - 25) / (double) lowestAp)) : 0;
+                  num2 = lowestAp > 25 ?  Math.Round( num2 * ( (lowestAp - 25) /  lowestAp)) : 0;
                 }
-                if (ForContainment && this.game.Data.UnitObj[index].SupplyConsume > 0 && (double) this.game.Data.UnitObj[index].SupplyIn < (double) this.game.Data.UnitObj[index].SupplyInReq * 0.25)
+                if (ForContainment && this.game.Data.UnitObj[index].SupplyConsume > 0 &&  this.game.Data.UnitObj[index].SupplyIn <  this.game.Data.UnitObj[index].SupplyInReq * 0.25)
                   num2 *= 10;
                 int num3;
                 num3 += num2;
@@ -16250,9 +16250,9 @@ label_38:
         if (this.game.Data.UnitObj[index2].TempCategory == 3 && this.IsUnitPartOfMarker(index2, x, y) & this.game.Data.UnitObj[index2].TempSlot > -1 & this.game.Data.UnitObj[index2].TempCategory == 3 && this.game.Data.UnitObj[index2].AIGroup == this.OpGroup)
         {
           float val2 = this.game.Data.RegimeObj[this.GetGameDataTurn()].AIConservative;
-          if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0)
+          if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0)
             val2 = 1f;
-          if ((double) this.game.HandyFunctionsObj.GetAverageAirRdn(index2) >= 80.0 * ((2.0 + (double) Math.Min(1f, val2)) / 3.0))
+          if ( this.game.HandyFunctionsObj.GetAverageAirRdn(index2) >= 80.0 * ((2.0 +  Math.Min(1f, val2)) / 3.0))
           {
             int num4;
             if (!FullAp)
@@ -16266,12 +16266,12 @@ label_38:
             if (num4 >= num6)
             {
               let mut num7: i32 = this.GetUnitPower(index2, true, x, y, IsArtilleryAttack: true, LimitCombatmod: 2f);
-              num1 +=  Math.Round((double) num7 * ((double) this.GetAIRolePercent(index2, 13) / 100.0));
-              num2 = num2 +  Math.Round((double) num7 * ((double) this.GetAIRolePercent(index2, 14) / 100.0)) +  Math.Round((double) num7 * ((double) this.GetAIRolePercent(index2, 15) / 100.0));
+              num1 +=  Math.Round( num7 * ( this.GetAIRolePercent(index2, 13) / 100.0));
+              num2 = num2 +  Math.Round( num7 * ( this.GetAIRolePercent(index2, 14) / 100.0)) +  Math.Round( num7 * ( this.GetAIRolePercent(index2, 15) / 100.0));
               if (AdjustedForAp)
               {
                 let mut lowestAirAp: i32 = this.game.HandyFunctionsObj.GetLowestAirAp(index2);
-                num7 = lowestAirAp > 10 ?  Math.Round((double) num7 * ((double) (lowestAirAp - 10) / (double) lowestAirAp)) : 0;
+                num7 = lowestAirAp > 10 ?  Math.Round( num7 * ( (lowestAirAp - 10) /  lowestAirAp)) : 0;
               }
               num3 += this.game.HandyFunctionsObj.GetUnitairStackPts(index2);
               attackPowerPointsOn += num7;
@@ -16282,15 +16282,15 @@ label_38:
       }
       this.game.EditObj.TempUnitList = unitList;
       this.GetCurrentDefendingPowerPointsOn(x, y);
-      if (attackPowerPointsOn > 0 & num3 > 0 & (double) this.game.Data.RuleVar[833] > 0.0)
+      if (attackPowerPointsOn > 0 & num3 > 0 &  this.game.Data.RuleVar[833] > 0.0)
       {
-        let mut num8: i32 =  Math.Round((double) this.game.Data.RuleVar[834]);
+        let mut num8: i32 =  Math.Round( this.game.Data.RuleVar[834]);
         let mut num9: i32 = num3 + this.game.Data.MapObj[0].HexObj[x, y].get_BattleStackAir(this.game.Data.Turn);
         if (num9 > num8)
-          attackPowerPointsOn =  Math.Round(0.3 * (double) attackPowerPointsOn + 0.7 * (double) attackPowerPointsOn * ((double) num8 / (double) num9));
+          attackPowerPointsOn =  Math.Round(0.3 *  attackPowerPointsOn + 0.7 *  attackPowerPointsOn * ( num8 /  num9));
       }
       if (num2 > 0 & this.FighterMatrix[x, y] > 0)
-        attackPowerPointsOn =  Math.Round((double) attackPowerPointsOn * Math.Min(1.0, (double) num1 / (double) num2));
+        attackPowerPointsOn =  Math.Round( attackPowerPointsOn * Math.Min(1.0,  num1 /  num2));
       return attackPowerPointsOn;
     }
 
@@ -16332,10 +16332,10 @@ label_38:
             if (AdjustedForAp)
             {
               let mut lowestAirAp: i32 = this.game.HandyFunctionsObj.GetLowestAirAp(index2);
-              num6 = lowestAirAp > 10 ?  Math.Round((double) num6 * ((double) (lowestAirAp - 10) / (double) lowestAirAp)) : 0;
+              num6 = lowestAirAp > 10 ?  Math.Round( num6 * ( (lowestAirAp - 10) /  lowestAirAp)) : 0;
             }
-            fighterPowerPointsOn +=  Math.Round((double) num6 * ((double) this.GetAIRolePercent(index2, 13) / 100.0));
-            num1 = num1 +  Math.Round((double) num6 * ((double) this.GetAIRolePercent(index2, 14) / 100.0)) +  Math.Round((double) num6 * ((double) this.GetAIRolePercent(index2, 15) / 100.0));
+            fighterPowerPointsOn +=  Math.Round( num6 * ( this.GetAIRolePercent(index2, 13) / 100.0));
+            num1 = num1 +  Math.Round( num6 * ( this.GetAIRolePercent(index2, 14) / 100.0)) +  Math.Round( num6 * ( this.GetAIRolePercent(index2, 15) / 100.0));
             num2 += num6;
             unitList.add(index2);
           }
@@ -16343,10 +16343,10 @@ label_38:
       }
       let mut defendingPowerPointsOn: i32 = this.GetCurrentDefendingPowerPointsOn(x, y);
       if (defendingPowerPointsOn > num2 & num2 > 0)
-        num2 =  Math.Round((double) num2 * 0.25 + (double) num2 * 0.75 * ((double) num2 / (double) defendingPowerPointsOn));
+        num2 =  Math.Round( num2 * 0.25 +  num2 * 0.75 * ( num2 /  defendingPowerPointsOn));
       if (num1 > 0)
       {
-        let mut num7: i32 =  Math.Round((double) num2 * Math.Min(1.0, (double) fighterPowerPointsOn / (double) num1));
+        let mut num7: i32 =  Math.Round( num2 * Math.Min(1.0,  fighterPowerPointsOn /  num1));
       }
       return fighterPowerPointsOn;
     }
@@ -16366,15 +16366,15 @@ label_38:
         if (this.game.Data.UnitObj[index].PreDef == -1 && this.IsUnitPartOfMarker(index, x, y) & this.game.Data.UnitObj[index].TempSlot > -1 & this.game.Data.UnitObj[index].TempCategory == 3 && this.game.Data.UnitObj[index].AIGroup == this.OpGroup)
         {
           float val2 = this.game.Data.RegimeObj[this.GetGameDataTurn()].AIConservative;
-          if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0)
+          if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0)
             val2 = 1f;
-          if ((double) this.game.HandyFunctionsObj.GetAverageAirRdn(index) >= 80.0 * ((2.0 + (double) Math.Min(1f, val2)) / 3.0) && (FullAp ? this.game.Data.UnitObj[index].SupplyConsume : this.game.HandyFunctionsObj.GetLowestAirAp(index)) >= this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[index].X, this.game.Data.UnitObj[index].Y, 0, x, y, 0) * this.GetSlowestAirSpeed(index))
+          if ( this.game.HandyFunctionsObj.GetAverageAirRdn(index) >= 80.0 * ((2.0 +  Math.Min(1f, val2)) / 3.0) && (FullAp ? this.game.Data.UnitObj[index].SupplyConsume : this.game.HandyFunctionsObj.GetLowestAirAp(index)) >= this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[index].X, this.game.Data.UnitObj[index].Y, 0, x, y, 0) * this.GetSlowestAirSpeed(index))
           {
             let mut num: i32 = this.GetUnitPower(index, true, x, y, LimitCombatmod: 2f);
             if (AdjustedForAp)
             {
               let mut lowestAirAp: i32 = this.game.HandyFunctionsObj.GetLowestAirAp(index);
-              num = lowestAirAp > 10 ?  Math.Round((double) num * ((double) (lowestAirAp - 10) / (double) lowestAirAp)) : 0;
+              num = lowestAirAp > 10 ?  Math.Round( num * ( (lowestAirAp - 10) /  lowestAirAp)) : 0;
             }
             attackPowerPointsOn += num;
             unitList.add(index);
@@ -16396,7 +16396,7 @@ label_38:
         let mut type: i32 = this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type;
         if (this.game.Data.SFTypeObj[type].Theater == 2)
         {
-          let mut num2: i32 =  Math.Round((double) this.game.Data.LandscapeTypeObj[0].MoveCost[this.game.Data.SFTypeObj[type].MoveType] * ((double) this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[type].MoveType] / 100.0));
+          let mut num2: i32 =  Math.Round( this.game.Data.LandscapeTypeObj[0].MoveCost[this.game.Data.SFTypeObj[type].MoveType] * ( this.game.Data.MoveTypePenalty[this.game.Data.SFTypeObj[type].MoveType] / 100.0));
           if (num2 > num1)
             num1 = num2;
         }
@@ -16422,16 +16422,16 @@ label_38:
             if (index2 > -1 && this.game.Data.UnitObj[index2].X == coordinate.x & this.game.Data.UnitObj[index2].Y == coordinate.y && this.IsUnitPartOfMarker(index2, x, y) & !this.game.Data.UnitObj[index2].IsHQ && this.game.Data.UnitObj[index2].AIGroup == this.OpGroup & this.game.Data.UnitObj[index2].TempCategory == 1)
             {
               float val2 = this.game.Data.RegimeObj[this.GetGameDataTurn()].AIConservative;
-              if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0)
+              if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0)
                 val2 = 1f;
-              if ((double) this.game.HandyFunctionsObj.GetAverageRdn(index2) >= 70.0 * ((1.0 + (double) Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index2].SupplyIn == 0 && this.game.HandyFunctionsObj.GetLowestAp(index2) >= this.game.HandyFunctionsObj.MoveApCostPreview(index2, coordinate.x, coordinate.y, coordinate.x, coordinate.y, 0, x, y, 0, true).x)
+              if ( this.game.HandyFunctionsObj.GetAverageRdn(index2) >= 70.0 * ((1.0 +  Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index2].SupplyIn == 0 && this.game.HandyFunctionsObj.GetLowestAp(index2) >= this.game.HandyFunctionsObj.MoveApCostPreview(index2, coordinate.x, coordinate.y, coordinate.x, coordinate.y, 0, x, y, 0, true).x)
               {
                 unitList2.add(index2);
                 let mut num: i32 = this.GetUnitPower(index2, true, x, y, tfacing - 1);
                 if (adjustedforap)
                 {
                   let mut lowestAp: i32 = this.game.HandyFunctionsObj.GetLowestAp(index2);
-                  num = lowestAp > 25 ?  Math.Round((double) num * ((double) (lowestAp - 25) / (double) lowestAp)) : 0;
+                  num = lowestAp > 25 ?  Math.Round( num * ( (lowestAp - 25) /  lowestAp)) : 0;
                 }
                 attackPowerPointsOn += num;
               }
@@ -16448,14 +16448,14 @@ label_38:
         this.game.EditObj.TargetX = x;
         this.game.EditObj.TargetY = y;
         this.game.EditObj.TempUnitList = unitList2;
-        attackPowerPointsOn =  Math.Round((double)  Math.Round((double) ((float) attackPowerPointsOn * this.game.HandyFunctionsObj.GetConcentricBonus2())) * ((double) (100 + this.game.HandyFunctionsObj.GetDivBonusForAttack(x, y, 0)) / 100.0));
+        attackPowerPointsOn =  Math.Round(  Math.Round( ( attackPowerPointsOn * this.game.HandyFunctionsObj.GetConcentricBonus2())) * ( (100 + this.game.HandyFunctionsObj.GetDivBonusForAttack(x, y, 0)) / 100.0));
         let mut num1: i32 = this.game.HandyFunctionsObj.maxAttackStack();
         this.game.EditObj.TargetX = -1;
         this.game.EditObj.TargetY = -1;
         int num2;
         let mut num3: i32 = num2 + this.game.Data.MapObj[0].HexObj[x, y].get_BattleStack(this.game.Data.Turn);
         if (num3 > num1)
-          attackPowerPointsOn =  Math.Round(0.3 * (double) attackPowerPointsOn + 0.7 * (double) attackPowerPointsOn * ((double) num1 / (double) num3));
+          attackPowerPointsOn =  Math.Round(0.3 *  attackPowerPointsOn + 0.7 *  attackPowerPointsOn * ( num1 /  num3));
       }
       return attackPowerPointsOn;
     }
@@ -16479,9 +16479,9 @@ label_38:
             if (this.game.Data.UnitObj[index].PreDef == -1 && this.game.Data.UnitObj[index].X == landAttackStackOn.x & this.game.Data.UnitObj[index].Y == landAttackStackOn.y && this.game.Data.UnitObj[index].TempSlot > -1 && this.IsUnitPartOfMarker(index, x, y) & !this.game.Data.UnitObj[index].IsHQ && this.game.Data.UnitObj[index].AIGroup == this.OpGroup & this.game.Data.UnitObj[index].TempCategory == 1)
             {
               float val2 = this.game.Data.RegimeObj[this.GetGameDataTurn()].AIConservative;
-              if ((double) this.game.Data.RuleVar[813] == 0.0 | (double) this.game.Data.RuleVar[813] == 2.0)
+              if ( this.game.Data.RuleVar[813] == 0.0 |  this.game.Data.RuleVar[813] == 2.0)
                 val2 = 1f;
-              if ((double) this.game.HandyFunctionsObj.GetAverageRdn(index) >= 70.0 * ((1.0 + (double) Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index].SupplyIn == 0 && this.game.HandyFunctionsObj.GetLowestAp(index) >= this.game.HandyFunctionsObj.MoveApCostPreview(index, landAttackStackOn.x, landAttackStackOn.y, landAttackStackOn.x, landAttackStackOn.y, 0, x, y, 0, true).x)
+              if ( this.game.HandyFunctionsObj.GetAverageRdn(index) >= 70.0 * ((1.0 +  Math.Min(1f, val2)) / 2.0) | this.game.Data.UnitObj[index].SupplyIn == 0 && this.game.HandyFunctionsObj.GetLowestAp(index) >= this.game.HandyFunctionsObj.MoveApCostPreview(index, landAttackStackOn.x, landAttackStackOn.y, landAttackStackOn.x, landAttackStackOn.y, 0, x, y, 0, true).x)
               {
                 unitList2.add(index);
                 let mut num3: i32 = this.GetUnitPower(index, true, x, y, tfacing - 1);
@@ -16489,7 +16489,7 @@ label_38:
                 if (adjustedforap)
                 {
                   let mut lowestAp: i32 = this.game.HandyFunctionsObj.GetLowestAp(index);
-                  num3 = lowestAp > 10 ?  Math.Round((double) num3 * ((double) (lowestAp - 10) / (double) lowestAp)) : 0;
+                  num3 = lowestAp > 10 ?  Math.Round( num3 * ( (lowestAp - 10) /  lowestAp)) : 0;
                 }
                 num1 += num3;
               }
@@ -16551,7 +16551,7 @@ label_38:
                     let mut num4: i32 = this.GetUnitPower(index2, true, x, y, IsArtilleryAttack: true);
                     this.ptempb[index2] = true;
                     if (AdjustedForAp)
-                      num4 =  Math.Round((double) num4 * ((double) num2 / 100.0));
+                      num4 =  Math.Round( num4 * ( num2 / 100.0));
                     attackPowerPointsOn += num4;
                     unitList.add(index2);
                     num1 += this.game.HandyFunctionsObj.GetUnitartStackPts(index2);
@@ -16566,13 +16566,13 @@ label_38:
         tfacing1 += 1;
       }
       while (tfacing1 <= 6);
-      let mut num5: i32 =  Math.Round((double) this.GetCurrentDefendingPowerPointsOn(x, y) / 2.0);
-      if (attackPowerPointsOn > 0 & num1 > 0 & (double) this.game.Data.RuleVar[834] > 0.0)
+      let mut num5: i32 =  Math.Round( this.GetCurrentDefendingPowerPointsOn(x, y) / 2.0);
+      if (attackPowerPointsOn > 0 & num1 > 0 &  this.game.Data.RuleVar[834] > 0.0)
       {
-        let mut num6: i32 =  Math.Round((double) this.game.Data.RuleVar[834]);
+        let mut num6: i32 =  Math.Round( this.game.Data.RuleVar[834]);
         let mut num7: i32 = num1 + this.game.Data.MapObj[0].HexObj[x, y].get_BattleStackArt(this.game.Data.Turn);
         if (num7 > num6)
-          attackPowerPointsOn =  Math.Round(0.3 * (double) attackPowerPointsOn + 0.7 * (double) attackPowerPointsOn * ((double) num6 / (double) num7));
+          attackPowerPointsOn =  Math.Round(0.3 *  attackPowerPointsOn + 0.7 *  attackPowerPointsOn * ( num6 /  num7));
       }
       this.game.EditObj.TempUnitList = unitList;
       return attackPowerPointsOn;
@@ -16609,7 +16609,7 @@ label_38:
                     let mut num3: i32 = this.GetUnitPower(index, true, x, y, IsArtilleryAttack: true);
                     num1 += this.game.HandyFunctionsObj.GetUnitartStackPts(index);
                     if (adjustedforap)
-                      num3 =  Math.Round((double) num3 * ((double) lowestAp / 100.0));
+                      num3 =  Math.Round( num3 * ( lowestAp / 100.0));
                     attackPowerPointsOn += num3;
                     unitList.add(index);
                   }
@@ -16623,13 +16623,13 @@ label_38:
         tfacing1 += 1;
       }
       while (tfacing1 <= 6);
-      let mut num4: i32 =  Math.Round((double) this.GetCurrentDefendingPowerPointsOn(x, y) / 2.0);
-      if (attackPowerPointsOn > 0 & num1 > 0 & (double) this.game.Data.RuleVar[834] > 0.0)
+      let mut num4: i32 =  Math.Round( this.GetCurrentDefendingPowerPointsOn(x, y) / 2.0);
+      if (attackPowerPointsOn > 0 & num1 > 0 &  this.game.Data.RuleVar[834] > 0.0)
       {
-        let mut num5: i32 =  Math.Round((double) this.game.Data.RuleVar[834]);
+        let mut num5: i32 =  Math.Round( this.game.Data.RuleVar[834]);
         let mut num6: i32 = num1 + this.game.Data.MapObj[0].HexObj[x, y].get_BattleStackArt(this.game.Data.Turn);
         if (num6 > num5)
-          attackPowerPointsOn =  Math.Round(0.3 * (double) attackPowerPointsOn + 0.7 * (double) attackPowerPointsOn * ((double) num5 / (double) num6));
+          attackPowerPointsOn =  Math.Round(0.3 *  attackPowerPointsOn + 0.7 *  attackPowerPointsOn * ( num5 /  num6));
       }
       this.game.EditObj.TempUnitList = unitList;
       return attackPowerPointsOn;
@@ -17012,8 +17012,8 @@ label_38:
               {
                 if (this.game.Data.UnitObj[unit].IsVirtual)
                   this.MakeTempMovementType(unit);
-                let mut num3: i32 = this.game.Data.LandscapeTypeObj[ Math.Round((double) this.game.Data.RuleVar[38])].MoveCost[this.game.Data.SFTypeObj[this.game.Data.UnitObj[unit].TempType].MoveType];
-                let mut num4: i32 =  Math.Round(60.0 + (double) (dist * 5) / (double) num3);
+                let mut num3: i32 = this.game.Data.LandscapeTypeObj[ Math.Round( this.game.Data.RuleVar[38])].MoveCost[this.game.Data.SFTypeObj[this.game.Data.UnitObj[unit].TempType].MoveType];
+                let mut num4: i32 =  Math.Round(60.0 +  (dist * 5) /  num3);
                 if (numArray1[index3, index4] <= num4)
                 {
                   this += 1.EnemyMatrixCounter;
@@ -17372,7 +17372,7 @@ label_38:
     {
       let mut tscore: i32 = !IsCounterAttack ? this.TscoreMatrix[ix, iy] : this.TscoreCounterMatrix[ix, iy];
       if (j > -1 && this.game.Data.MapObj[0].HexObj[ix, iy].RiverType[j] > -1)
-        tscore =  Math.Round((double) tscore * 0.25);
+        tscore =  Math.Round( tscore * 0.25);
       return tscore;
     }
 
@@ -17393,22 +17393,22 @@ label_38:
           if (this.game.Data.UnitObj[index1].AIDefend > -1)
             Number = !IsCounterAttack ? 50 : 150;
           if (this.MoveMatrixCounter > 0 & this.FrontlineCount > 0 && this.FrontlineArea[ix, iy] == 1)
-            Number +=  Math.Round((double) Number * ((double) this.MoveMatrixCounter / (double) this.FrontlineCount));
+            Number +=  Math.Round( Number * ( this.MoveMatrixCounter /  this.FrontlineCount));
         }
         if (this.tArea[ix, iy] == 6)
           Number = !IsCounterAttack ? 35 : 225;
         if (this.tArea[ix, iy] == 3)
-          Number =  Math.Round(50.0 / (double) (this.SupplyMatrixDistance[ix, iy] + 1));
+          Number =  Math.Round(50.0 /  (this.SupplyMatrixDistance[ix, iy] + 1));
         if (this.AdvanceAxisMatrix[ix, iy] > 0 & Number < 100)
           Number = 100;
         if (this.tArea[ix, iy] == 0 & this.DistToTArea[ix, iy] < 10 & this.DistToTArea[ix, iy] > 0 && !IsCounterAttack)
         {
           if (this.DistFromTArea[ix, iy] == 1)
-            Number =  Math.Round(100.0 / (double) this.DistToTArea[ix, iy]);
+            Number =  Math.Round(100.0 /  this.DistToTArea[ix, iy]);
           if (this.DistFromTArea[ix, iy] == 5)
-            Number =  Math.Round(50.0 / (double) this.DistToTArea[ix, iy]);
+            Number =  Math.Round(50.0 /  this.DistToTArea[ix, iy]);
           if (this.DistFromTArea[ix, iy] == 2)
-            Number =  Math.Round(50.0 / (double) this.DistToTArea[ix, iy]);
+            Number =  Math.Round(50.0 /  this.DistToTArea[ix, iy]);
         }
       }
       else if (this.game.Data.UnitObj[index1].AIAttackStyle == 1)
@@ -17420,13 +17420,13 @@ label_38:
         if (this.game.Data.UnitObj[index1].AIDefend > -1 & this.game.Data.UnitObj[index1].AIDefend <= this.AreaCount && this.AreaCenter[this.game.Data.UnitObj[index1].AIDefend].x == ix && this.AreaCenter[this.game.Data.UnitObj[index1].AIDefend].y == iy)
           Number = 100;
         if (this.tArea[ix, iy] == 3)
-          Number =  Math.Round(24.0 / (double) (this.SupplyMatrixDistance[ix, iy] + 1));
+          Number =  Math.Round(24.0 /  (this.SupplyMatrixDistance[ix, iy] + 1));
         if (this.tArea[ix, iy] == 0 & this.DistToTArea[ix, iy] < 10 & this.DistToTArea[ix, iy] > 0 && !IsCounterAttack)
         {
           if (this.DistFromTArea[ix, iy] == 6)
-            Number =  Math.Round(20.0 / (double) this.DistToTArea[ix, iy]);
+            Number =  Math.Round(20.0 /  this.DistToTArea[ix, iy]);
           if (this.DistFromTArea[ix, iy] == 2)
-            Number =  Math.Round(50.0 / (double) this.DistToTArea[ix, iy]);
+            Number =  Math.Round(50.0 /  this.DistToTArea[ix, iy]);
         }
       }
       if (Number > 0)
@@ -17460,20 +17460,20 @@ label_38:
           {
             if (Number < 50)
               Number = 50;
-            Number =  Math.Round((double) Number * 1.5);
+            Number =  Math.Round( Number * 1.5);
           }
           else if (num2 == 1)
           {
             if (Number < 25)
               Number = 25;
-            Number =  Math.Round((double) Number * 1.25);
+            Number =  Math.Round( Number * 1.25);
           }
         }
         if (this.game.Data.MapObj[0].HexObj[ix, iy].Location > -1 | this.game.HandyFunctionsObj.HasHexBridge(ix, iy, 0))
         {
-          Number =  Math.Round((double) Number * 1.5);
+          Number =  Math.Round( Number * 1.5);
           if (IsCounterAttack)
-            Number =  Math.Round((double) Number * 2.5);
+            Number =  Math.Round( Number * 2.5);
         }
         else
         {
@@ -17483,9 +17483,9 @@ label_38:
             coordinate = this.game.HandyFunctionsObj.HexNeighbour(ix, iy, 0, num4 + 1);
             if (coordinate.onmap && this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Location > -1)
             {
-              let mut num5: i32 =  Math.Round((double) Number * 1.25);
+              let mut num5: i32 =  Math.Round( Number * 1.25);
               let mut num6: i32 = this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[coordinate.x, coordinate.y];
-              Number = !(num6 > this.AverageVP & num5 > 0) ? num5 * 1 :  Math.Round((double) num5 * (1.0 + (double) num6 / (double) this.AverageVP));
+              Number = !(num6 > this.AverageVP & num5 > 0) ? num5 * 1 :  Math.Round( num5 * (1.0 +  num6 /  this.AverageVP));
               if (IsCounterAttack)
                 Number *= 1;
             }
@@ -17499,7 +17499,7 @@ label_38:
         {
           let mut num: i32 = this.game.Data.MapObj[0].HexObj[ix, iy].VP + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[ix, iy];
           if (num > this.AverageVP & Number > 0)
-            Number =  Math.Round((double) Number * (2.0 + (double) num / (double) this.AverageVP * 2.0));
+            Number =  Math.Round( Number * (2.0 +  num /  this.AverageVP * 2.0));
           else
             Number *= 2;
         }
@@ -17522,34 +17522,34 @@ label_38:
           if (this.AdvanceAxisMatrix[ix, iy] == 1)
             Number *= 2;
           if (this.AdvanceAxisMatrix[ix, iy] == 2)
-            Number =  Math.Round((double) Number * 1.8);
+            Number =  Math.Round( Number * 1.8);
           if (this.AdvanceAxisMatrix[ix, iy] >= 3)
-            Number =  Math.Round((double) Number * 1.6);
+            Number =  Math.Round( Number * 1.6);
         }
         else if (this.game.Data.UnitObj[index1].AIAttackStyle == 2)
         {
           if (this.AdvanceAxisMatrix[ix, iy] == 0)
-            Number =  Math.Round((double) Number * 1.25);
+            Number =  Math.Round( Number * 1.25);
           if (this.AdvanceAxisMatrix[ix, iy] == 1)
             Number *= 4;
           if (this.AdvanceAxisMatrix[ix, iy] == 2)
             Number *= 3;
           if (this.AdvanceAxisMatrix[ix, iy] >= 3)
-            Number =  Math.Round((double) Number * 1.5);
+            Number =  Math.Round( Number * 1.5);
         }
         else if (this.game.Data.UnitObj[index1].AIAttackStyle != 1)
           ;
         if (IsCounterAttack && this.AdvanceAxisMatrix[ix, iy] == 0)
           Number *= 2;
-        if ((double) this.game.Data.RuleVar[53] < (double) this.SupplyMatrixPrognosisEasyRoads[ix, iy])
+        if ( this.game.Data.RuleVar[53] <  this.SupplyMatrixPrognosisEasyRoads[ix, iy])
           Number = 0;
-        else if ((double) this.game.Data.RuleVar[52] < (double) this.SupplyMatrixPrognosisEasyRoads[ix, iy])
-          Number =  Math.Round((double) Number * 0.75);
-        else if ((double) this.game.Data.RuleVar[51] < (double) this.SupplyMatrixPrognosisEasyRoads[ix, iy])
-          Number =  Math.Round((double) Number * 0.5);
+        else if ( this.game.Data.RuleVar[52] <  this.SupplyMatrixPrognosisEasyRoads[ix, iy])
+          Number =  Math.Round( Number * 0.75);
+        else if ( this.game.Data.RuleVar[51] <  this.SupplyMatrixPrognosisEasyRoads[ix, iy])
+          Number =  Math.Round( Number * 0.5);
       }
       if (MakeLog)
-        this.AddLog("Final score = " + Conversion.Str((object) Number));
+        this.AddLog("Final score = " + Conversion.Str( Number));
       return Number;
     }
 
@@ -17646,7 +17646,7 @@ label_38:
                 {
                   coordinate1 = averageCorpsUnitCoord;
                   let mut tweight: i32 = this.game.HandyFunctionsObj.Distance(index3, index4, 0, coordinate1.x, coordinate1.y, 0);
-                  if ((double) tweight <= 20.0)
+                  if ( tweight <= 20.0)
                     tweight = 20;
                   if (this.AreaMatrixNarrow[index3, index4] > -1 && this.AreaClosestEnemy[this.AreaMatrixNarrow[index3, index4]] < 9)
                     tweight += (10 - this.AreaClosestEnemy[this.AreaMatrixNarrow[index3, index4]]) * 1000;
@@ -17777,7 +17777,7 @@ label_38:
                     coordinate1 = this.game.HandyFunctionsObj.HexNeighbour(index8, index9, 0, tfacing1);
                     if (coordinate1.onmap && this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].UnitCounter == -1 | this.GetRegime(this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].Regime) == this.GetGameDataTurn() && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LandscapeType].IsSea)
                     {
-                      tdata5 =  Math.Round((double) (this.GetTscore(index8, index9, tfacing1 - 1) + this.GetTscore(coordinate1.x, coordinate1.y)) / 2.0);
+                      tdata5 =  Math.Round( (this.GetTscore(index8, index9, tfacing1 - 1) + this.GetTscore(coordinate1.x, coordinate1.y)) / 2.0);
                       if (tdata5 > 0)
                       {
                         tid1 += 1;
@@ -17790,7 +17790,7 @@ label_38:
                         let mut index21: i32 = index20;
                         let mut num11: i32 = numArray13[index18, index20] + 1;
                         numArray14[index19, index21] = num11;
-                        this.ArtMarkerList.Add(tid1, 1, coordinate1.x, coordinate1.y, index8, index9,  Math.Round((double) tdata5 * 0.66));
+                        this.ArtMarkerList.Add(tid1, 1, coordinate1.x, coordinate1.y, index8, index9,  Math.Round( tdata5 * 0.66));
                         int[,] numArray15 = numArray2;
                         int[,] numArray16 = numArray15;
                         let mut index22: i32 = index8;
@@ -17851,7 +17851,7 @@ label_38:
                     }
                     if (numArray5[index8, index9] > 0 & numArray2[index8, index9] == 0)
                     {
-                      tdata5 =  Math.Round((double) tdata5 / 2.0);
+                      tdata5 =  Math.Round( tdata5 / 2.0);
                       tid1 += 1;
                       this.ArtMarkerList.Add(tid1, 5, index8, index9, -1, -1, tdata5);
                       int[,] numArray21 = numArray2;
@@ -17928,7 +17928,7 @@ label_38:
                 }
                 if (num17 == 0)
                 {
-                  tdata5 =  Math.Round((double) this.GetTscore(index8, index9) / 2.0);
+                  tdata5 =  Math.Round( this.GetTscore(index8, index9) / 2.0);
                   if (this.BottleNeckMatrix[index8, index9] > 0)
                   {
                     num16 = 1;
@@ -18072,17 +18072,17 @@ label_38:
       FileStream fileStream;
       try
       {
-        fileStream = new FileStream(this.game.AppPath + "logs/screenshot_typ" + Strings.Trim(Conversion.Str((object) typ)) + "_pl" + Strings.Trim(Conversion.Str((object) this.game.Data.Turn)) + fileextension + ".jpg", FileMode.Create);
+        fileStream = new FileStream(this.game.AppPath + "logs/screenshot_typ" + Strings.Trim(Conversion.Str( typ)) + "_pl" + Strings.Trim(Conversion.Str( this.game.Data.Turn)) + fileextension + ".jpg", FileMode.Create);
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
         fileextension = "name error";
-        fileStream = new FileStream(this.game.AppPath + "logs/screenshot_typ" + Strings.Trim(Conversion.Str((object) typ)) + "_pl" + Strings.Trim(Conversion.Str((object) this.game.Data.Turn)) + fileextension + ".jpg", FileMode.Create);
+        fileStream = new FileStream(this.game.AppPath + "logs/screenshot_typ" + Strings.Trim(Conversion.Str( typ)) + "_pl" + Strings.Trim(Conversion.Str( this.game.Data.Turn)) + fileextension + ".jpg", FileMode.Create);
         ProjectData.ClearProjectError();
       }
       Bitmap bitmap = new Bitmap(this.game.Data.MapObj[0].MapWidth * 40 + 80, this.game.Data.MapObj[0].MapHeight * 32 + 68, PixelFormat.Format24bppRgb);
-      bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics Expression = Graphics.FromImage((Image) bitmap);
       if (typ == 1)
       {
@@ -18090,7 +18090,7 @@ label_38:
         this.Screenshotgrid( Expression);
         this.Screenshot1( Expression,  tObj);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       bitmap.Save((Stream) fileStream, ImageFormat.Jpeg);
       fileStream.Close();
@@ -18138,9 +18138,9 @@ label_38:
           if (tObj[index1, index2] > -1)
           {
             if (index1 == 0 | index1 % 2 == 0)
-              DrawMod.DrawTextOutline( g, Conversion.Str((object) tObj[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline( g, Conversion.Str( tObj[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
             else
-              DrawMod.DrawTextOutline( g, Conversion.Str((object) tObj[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline( g, Conversion.Str( tObj[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
           }
         }
       }
@@ -18192,7 +18192,7 @@ label_38:
       let mut num1: i32 = this.game.HandyFunctionsObj.CheckDiskSpace(Strings.Left(this.game.AppPath, Strings.InStr(this.game.AppPath, ":")));
       if (num1 > 0 & num1 < 50)
       {
-        let mut num2: i32 =  Interaction.MsgBox((object) "Not of space left to write to disk.");
+        let mut num2: i32 =  Interaction.MsgBox( "Not of space left to write to disk.");
       }
       else
       {
@@ -18217,11 +18217,11 @@ label_38:
       let mut num1: i32 = this.game.HandyFunctionsObj.CheckDiskSpace(Strings.Left(this.game.AppPath, Strings.InStr(this.game.AppPath, ":")));
       if (num1 > 0 & num1 < 50)
       {
-        let mut num2: i32 =  Interaction.MsgBox((object) "Not of space left to write to disk.");
+        let mut num2: i32 =  Interaction.MsgBox( "Not of space left to write to disk.");
       }
       else
       {
-        StreamWriter text = File.CreateText(this.game.AppPath + "logs/AIlog_" + Conversion.Str((object) this.game.Data.Turn) + ".txt");
+        StreamWriter text = File.CreateText(this.game.AppPath + "logs/AIlog_" + Conversion.Str( this.game.Data.Turn) + ".txt");
         let mut logCounter: i32 = this.LogCounter;
         for (let mut index: i32 = 0; index <= logCounter; index += 1)
           text.WriteLine(this.LogTxt[index]);
@@ -18234,11 +18234,11 @@ label_38:
       let mut num1: i32 = this.game.HandyFunctionsObj.CheckDiskSpace(Strings.Left(this.game.AppPath, Strings.InStr(this.game.AppPath, ":")));
       if (num1 > 0 & num1 < 50)
       {
-        let mut num2: i32 =  Interaction.MsgBox((object) "Not of space left to write to disk.");
+        let mut num2: i32 =  Interaction.MsgBox( "Not of space left to write to disk.");
       }
       else
       {
-        StreamWriter text = File.CreateText(this.game.AppPath + "logs/FullAILog_" + Conversion.Str((object) this.game.Data.Turn) + "_" + name + ".txt");
+        StreamWriter text = File.CreateText(this.game.AppPath + "logs/FullAILog_" + Conversion.Str( this.game.Data.Turn) + "_" + name + ".txt");
         let mut logCounter: i32 = this.LogCounter;
         for (let mut index: i32 = 0; index <= logCounter; index += 1)
           text.WriteLine(this.LogTxt[index]);
@@ -18263,7 +18263,7 @@ label_38:
       do
       {
         if (makelog)
-          this.AddLog("==>CAPTYPE: " + Conversion.Str((object) Number1));
+          this.AddLog("==>CAPTYPE: " + Conversion.Str( Number1));
         let mut unitCounter2: i32 = this.game.Data.UnitCounter;
         for (let mut index1: i32 = 0; index1 <= unitCounter2; index1 += 1)
         {
@@ -18297,7 +18297,7 @@ label_38:
                 for (let mut index3: i32 = 0; index3 <= mapHeight; index3 += 1)
                   this.SupplyMatrixReal[index2, index3] = 9999;
               }
-              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[Number1]), theater,  Math.Round((double) this.game.Data.RuleVar[78]), this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, 0);
+              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[Number1]), theater,  Math.Round( this.game.Data.RuleVar[78]), this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, 0);
               let mut mapWidth2: i32 = this.game.Data.MapObj[0].MapWidth;
               for (let mut index4: i32 = 0; index4 <= mapWidth2; index4 += 1)
               {
@@ -18333,9 +18333,9 @@ label_38:
                           this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, 0, this.game.Data.UnitObj[index6].X, this.game.Data.UnitObj[index6].Y, 0);
                           let mut num4: i32 = this.SupplyMatrixReal[this.game.Data.UnitObj[index6].X, this.game.Data.UnitObj[index6].Y];
                           let mut index8: i32 = this.game.Data.UnitObj[index6].AIAttackStyle != 3 ? this.game.Data.UnitObj[index6].AIDefend : this.game.Data.UnitObj[index6].AIAttack;
-                          if (index8 > -1 & num3 < 9999 & num4 < 9999 & (double) this.GetHexSpeedofUnit(index6, true) * 3.5 < (double) num2)
+                          if (index8 > -1 & num3 < 9999 & num4 < 9999 &  this.GetHexSpeedofUnit(index6, true) * 3.5 <  num2)
                           {
-                            let mut tweight: i32 =  Math.Round((double) ((this.AreaFuzzyVP[index8] + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[this.AreaCenter[index8].x, this.AreaCenter[index8].y] + this.game.Data.MapObj[0].HexObj[this.AreaCenter[index8].x, this.AreaCenter[index8].y].VP) * 1000) / ((double) num2 / 2.0));
+                            let mut tweight: i32 =  Math.Round( ((this.AreaFuzzyVP[index8] + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[this.AreaCenter[index8].x, this.AreaCenter[index8].y] + this.game.Data.MapObj[0].HexObj[this.AreaCenter[index8].x, this.AreaCenter[index8].y].VP) * 1000) / ( num2 / 2.0));
                             simpleList.Add(index6, tweight);
                           }
                         }
@@ -18350,7 +18350,7 @@ label_38:
                 for (let mut counter: i32 = simpleList.Counter; counter >= 0; counter += -1)
                 {
                   if (makelog)
-                    this.AddLog(this.game.Data.UnitObj[simpleList.Id[counter]].Name + " , PRIORITY = " + Conversion.Str((object) simpleList.Weight[counter]));
+                    this.AddLog(this.game.Data.UnitObj[simpleList.Id[counter]].Name + " , PRIORITY = " + Conversion.Str( simpleList.Weight[counter]));
                 }
                 int Number2;
                 if (Number1 == 0)
@@ -18359,7 +18359,7 @@ label_38:
                   Number2 = this.game.Data.UnitObj[index1].NavyCap;
                 if (Number1 == 2)
                   Number2 = this.game.Data.UnitObj[index1].AirCap;
-                if ((double) this.game.Data.RuleVar[802] == 1.0)
+                if ( this.game.Data.RuleVar[802] == 1.0)
                   Number2 = 9999999;
                 for (let mut counter: i32 = simpleList.Counter; counter >= 0; counter += -1)
                 {
@@ -18367,22 +18367,22 @@ label_38:
                   closeFriendlyRoadHex = this.GetCloseFriendlyRoadHex(this.game.Data.UnitObj[unr].FinalX, this.game.Data.UnitObj[unr].FinalY, 4);
                   if (closeFriendlyRoadHex.onmap)
                   {
-                    DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime,  Math.Round((double) this.game.Data.RuleVar[Number1]), theater,  Math.Round((double) this.game.Data.RuleVar[78]), this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, overruleRoadType: 0);
+                    DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime,  Math.Round( this.game.Data.RuleVar[Number1]), theater,  Math.Round( this.game.Data.RuleVar[78]), this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, overruleRoadType: 0);
                     this.game.EditObj.TargetX = closeFriendlyRoadHex.x;
                     this.game.EditObj.TargetY = closeFriendlyRoadHex.y;
                     this.game.EditObj.OrderUnit = unr;
                     this.game.EditObj.OrderTarget = index1;
-                    let mut num5: i32 = (this.game.EditObj.TempValue[0].Value[this.game.EditObj.TargetX, this.game.EditObj.TargetY] +  Math.Round((double) this.game.Data.RuleVar[351])) * this.game.HandyFunctionsObj.GetUnitWeight(unr, true);
+                    let mut num5: i32 = (this.game.EditObj.TempValue[0].Value[this.game.EditObj.TargetX, this.game.EditObj.TargetY] +  Math.Round( this.game.Data.RuleVar[351])) * this.game.HandyFunctionsObj.GetUnitWeight(unr, true);
                     if (num5 <= Number2)
                     {
                       if (makelog)
-                        this.AddLog(this.game.Data.UnitObj[unr].Name + " PROGNOSED MOVED FROM " + Conversion.Str((object) this.game.Data.UnitObj[unr].X) + "," + Conversion.Str((object) this.game.Data.UnitObj[unr].Y) + " TO " + Conversion.Str((object) this.game.EditObj.TargetX) + "," + Conversion.Str((object) this.game.EditObj.TargetY));
+                        this.AddLog(this.game.Data.UnitObj[unr].Name + " PROGNOSED MOVED FROM " + Conversion.Str( this.game.Data.UnitObj[unr].X) + "," + Conversion.Str( this.game.Data.UnitObj[unr].Y) + " TO " + Conversion.Str( this.game.EditObj.TargetX) + "," + Conversion.Str( this.game.EditObj.TargetY));
                       this.game.Data.UnitObj[unr].TempStrategic = true;
                       this.game.Data.UnitObj[unr].TempCapHQ = index1;
                       this.game.Data.UnitObj[unr].TempCapType = Number1;
                       Number2 -= num5;
                       if (makelog)
-                        this.AddLog("PROGNOSED RAIL CAP LEFT AT HIGHHQ = " + Conversion.Str((object) Number2));
+                        this.AddLog("PROGNOSED RAIL CAP LEFT AT HIGHHQ = " + Conversion.Str( Number2));
                     }
                     else
                     {
@@ -18415,7 +18415,7 @@ label_38:
       do
       {
         if (makelog)
-          this.AddLog("==>CAPTYPE: " + Conversion.Str((object) Number));
+          this.AddLog("==>CAPTYPE: " + Conversion.Str( Number));
         let mut unitCounter1: i32 = this.game.Data.UnitCounter;
         for (let mut index1: i32 = 0; index1 <= unitCounter1; index1 += 1)
         {
@@ -18443,7 +18443,7 @@ label_38:
               if (makelog)
                 this.AddLog("==>SHQ: " + this.game.Data.UnitObj[index1].Name);
               SimpleList simpleList = SimpleList::new();
-              DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime,  Math.Round((double) this.game.Data.RuleVar[Number]), theater,  Math.Round((double) this.game.Data.RuleVar[78]), this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, 0);
+              DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime,  Math.Round( this.game.Data.RuleVar[Number]), theater,  Math.Round( this.game.Data.RuleVar[78]), this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, 0);
               let mut mapWidth: i32 = this.game.Data.MapObj[0].MapWidth;
               for (let mut index2: i32 = 0; index2 <= mapWidth; index2 += 1)
               {
@@ -18471,12 +18471,12 @@ label_38:
                   this.game.HandyFunctionsObj.Distance(coordinate.x, coordinate.y, 0, this.game.Data.UnitObj[index4].X, this.game.Data.UnitObj[index4].Y, 0);
                   let mut num4: i32 = this.SupplyMatrixReal[this.game.Data.UnitObj[index4].X, this.game.Data.UnitObj[index4].Y];
                   let mut index5: i32 = this.game.Data.UnitObj[index4].AIAttackStyle != 3 ? this.game.Data.UnitObj[index4].AIDefend : this.game.Data.UnitObj[index4].AIAttack;
-                  if (index5 > -1 & num3 < 9999 & num4 < 9999 & (double) this.GetHexSpeedofUnit(index4, true) * 2.0 < (double) num2 && this.CanBeStrategiclyTransferred(index4))
+                  if (index5 > -1 & num3 < 9999 & num4 < 9999 &  this.GetHexSpeedofUnit(index4, true) * 2.0 <  num2 && this.CanBeStrategiclyTransferred(index4))
                   {
                     let mut num5: i32 = this.AreaFuzzyVP[index5] + this.game.Data.RegimeObj[this.GetGameDataTurn()].AIVP[0].Value[this.AreaCenter[index5].x, this.AreaCenter[index5].y] + this.game.Data.MapObj[0].HexObj[this.AreaCenter[index5].x, this.AreaCenter[index5].y].VP;
                     if (this.game.Data.UnitObj[index4].TempStrategic)
                       num5 *= 10;
-                    let mut tweight: i32 =  Math.Round((double) (num5 * 1000) / ((double) num2 / 2.0));
+                    let mut tweight: i32 =  Math.Round( (num5 * 1000) / ( num2 / 2.0));
                     simpleList.Add(index4, tweight, coordinate.x, coordinate.y);
                   }
                 }
@@ -18487,7 +18487,7 @@ label_38:
                 for (let mut counter: i32 = simpleList.Counter; counter >= 0; counter += -1)
                 {
                   if (makelog)
-                    this.AddLog(this.GroupName[this.game.Data.UnitObj[simpleList.Id[counter]].AIGroup] + " : " + this.game.Data.UnitObj[simpleList.Id[counter]].Name + " , PRIORITY = " + Conversion.Str((object) simpleList.Weight[counter]));
+                    this.AddLog(this.GroupName[this.game.Data.UnitObj[simpleList.Id[counter]].AIGroup] + " : " + this.game.Data.UnitObj[simpleList.Id[counter]].Name + " , PRIORITY = " + Conversion.Str( simpleList.Weight[counter]));
                 }
                 for (let mut counter: i32 = simpleList.Counter; counter >= 0; counter += -1)
                 {
@@ -18498,12 +18498,12 @@ label_38:
                   coordinate.onmap = true;
                   if (coordinate.onmap && this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].UnitCounter <= 14)
                   {
-                    DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime,  Math.Round((double) this.game.Data.RuleVar[Number]), theater,  Math.Round((double) this.game.Data.RuleVar[78]), this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0);
+                    DrawMod.TGame.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime,  Math.Round( this.game.Data.RuleVar[Number]), theater,  Math.Round( this.game.Data.RuleVar[78]), this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0);
                     this.game.EditObj.TargetX = coordinate.x;
                     this.game.EditObj.TargetY = coordinate.y;
                     this.game.EditObj.OrderUnit = unr;
                     this.game.EditObj.OrderTarget = index1;
-                    let mut num6: i32 = (this.game.EditObj.TempValue[0].Value[this.game.EditObj.TargetX, this.game.EditObj.TargetY] +  Math.Round((double) this.game.Data.RuleVar[351])) * this.game.HandyFunctionsObj.GetUnitWeight(unr, true);
+                    let mut num6: i32 = (this.game.EditObj.TempValue[0].Value[this.game.EditObj.TargetX, this.game.EditObj.TargetY] +  Math.Round( this.game.Data.RuleVar[351])) * this.game.HandyFunctionsObj.GetUnitWeight(unr, true);
                     int num7;
                     if (Number == 0)
                       num7 = this.game.Data.UnitObj[index1].LandCap;
@@ -18511,7 +18511,7 @@ label_38:
                       num7 = this.game.Data.UnitObj[index1].NavyCap;
                     if (Number == 2)
                       num7 = this.game.Data.UnitObj[index1].AirCap;
-                    if ((double) this.game.Data.RuleVar[802] == 1.0)
+                    if ( this.game.Data.RuleVar[802] == 1.0)
                     {
                       num7 = 9999999;
                       this.game.Data.UnitObj[index1].LandCap = num7;
@@ -18521,16 +18521,16 @@ label_38:
                     if (num6 <= num7)
                     {
                       if (makelog)
-                        this.AddLog(this.game.Data.UnitObj[unr].Name + " MOVED FROM " + Conversion.Str((object) this.game.Data.UnitObj[unr].X) + "," + Conversion.Str((object) this.game.Data.UnitObj[unr].Y) + " TO " + Conversion.Str((object) this.game.EditObj.TargetX) + "," + Conversion.Str((object) this.game.EditObj.TargetY));
+                        this.AddLog(this.game.Data.UnitObj[unr].Name + " MOVED FROM " + Conversion.Str( this.game.Data.UnitObj[unr].X) + "," + Conversion.Str( this.game.Data.UnitObj[unr].Y) + " TO " + Conversion.Str( this.game.EditObj.TargetX) + "," + Conversion.Str( this.game.EditObj.TargetY));
                       this.game.ProcessingObj.DoStrategicTransfer(this.game.EditObj.OrderTarget, this.game.EditObj.OrderUnit, 2, this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
                       if (makelog)
                       {
                         if (Number == 0)
-                          this.AddLog("LAND-CAP LEFT AT HIGHHQ = " + Conversion.Str((object) this.game.Data.UnitObj[index1].AirCap));
+                          this.AddLog("LAND-CAP LEFT AT HIGHHQ = " + Conversion.Str( this.game.Data.UnitObj[index1].AirCap));
                         if (Number == 1)
-                          this.AddLog("NAVY-CAP LEFT AT HIGHHQ = " + Conversion.Str((object) this.game.Data.UnitObj[index1].AirCap));
+                          this.AddLog("NAVY-CAP LEFT AT HIGHHQ = " + Conversion.Str( this.game.Data.UnitObj[index1].AirCap));
                         if (Number == 2)
-                          this.AddLog("RAIL-CAP LEFT AT HIGHHQ = " + Conversion.Str((object) this.game.Data.UnitObj[index1].AirCap));
+                          this.AddLog("RAIL-CAP LEFT AT HIGHHQ = " + Conversion.Str( this.game.Data.UnitObj[index1].AirCap));
                       }
                     }
                     else
@@ -18559,7 +18559,7 @@ label_38:
     {
       SimpleList[] simpleListArray = new SimpleList[100];
       this.AreaIsHistoricalArea = (int[]) Utils.CopyArray((Array) this.AreaIsHistoricalArea, (Array) new int[this.AreaCount + 1]);
-      VBMath.Randomize((double) (this.game.Data.Turn + this.game.Data.Round + this.game.Data.MapObj[0].MapWidth));
+      VBMath.Randomize( (this.game.Data.Turn + this.game.Data.Round + this.game.Data.MapObj[0].MapWidth));
       this.AreaGroupRound = 0;
       if (alllog)
       {
@@ -18571,7 +18571,7 @@ label_38:
       this.SetInitialAreaGroups(alllog);
       if (this.AreaGroupCount == 0)
       {
-        let mut num1: i32 =  Interaction.MsgBox((object) "No areas definied. See rulevar 267. This will probably result in crash of DC1 AI", Title: ((object) "Vics message"));
+        let mut num1: i32 =  Interaction.MsgBox( "No areas definied. See rulevar 267. This will probably result in crash of DC1 AI", Title: ( "Vics message"));
       }
       int[] numArray = new int[this.AreaCount + 1];
       if (this.FullLog)
@@ -18612,9 +18612,9 @@ label_38:
           this.OpGroup = -1;
           let mut num4: i32 = 99999;
           let mut num5: i32 = 99999;
-          num3 =  Math.Round((double) this.DIFFICULTY_LEVEL_STRATEGY_MOVES / (double) this.AreaGroupCount);
+          num3 =  Math.Round( this.DIFFICULTY_LEVEL_STRATEGY_MOVES /  this.AreaGroupCount);
           if (!this.Attacker)
-            num3 =  Math.Round((double) num3 / 2.0);
+            num3 =  Math.Round( num3 / 2.0);
           let mut num6: i32 = 0;
           let mut groupCounter1: i32 = this.GroupCounter;
           for (let mut index4: i32 = 0; index4 <= groupCounter1; index4 += 1)
@@ -18623,7 +18623,7 @@ label_38:
               num6 += 1;
           }
           if (alllog)
-            this.AddLog("AREAGROUP ROUND " + this.AreaGroupRound.ToString() + ", AREAGROUP " + Conversion.Str((object) this.CurrentAreaGroup));
+            this.AddLog("AREAGROUP ROUND " + this.AreaGroupRound.ToString() + ", AREAGROUP " + Conversion.Str( this.CurrentAreaGroup));
           int Number3;
           Number3 += 1;
           while (Number1 < num3)
@@ -18638,7 +18638,7 @@ label_38:
             {
               this.game.EditObj.AIProgressMax = num3;
               this.game.EditObj.AIProgressNow = Number1;
-              this.game.EditObj.TempAIString = this.AreaGroupCount <= 1 ? "Final initialization" : "Prelimenary initializations. Round " + Strings.Trim(Conversion.Str((object) Number3));
+              this.game.EditObj.TempAIString = this.AreaGroupCount <= 1 ? "Final initialization" : "Prelimenary initializations. Round " + Strings.Trim(Conversion.Str( Number3));
             }
             Number1 += 1;
             SimpleList Straty = SimpleList::new();
@@ -18903,7 +18903,7 @@ label_38:
                   num8 = num7;
                   tdata1 = 1;
                 }
-                else if ((double) Number1 < Math.Min(100.0, (double) num3 / 4.0) & this.AreaGroupRound == 1 | num4 == 1)
+                else if ( Number1 < Math.Min(100.0,  num3 / 4.0) & this.AreaGroupRound == 1 | num4 == 1)
                 {
                   if (alllog)
                     this.AddLog("random movement: " + this.GroupName[index7]);
@@ -18945,11 +18945,11 @@ label_38:
                     this.AddLog("take move from previous strategy: " + this.GroupName[index7]);
                   num7 = this.CorpsStartLoc[index7];
                   random = new Random(Number1 + this.game.Data.Round * 6540 * (this.game.Data.Turn * 500));
-                  float num11 = (float) Math.Sqrt(Math.Sqrt((double) random.Next(0, 100000) / 100000.0));
+                  float num11 =  Math.Sqrt(Math.Sqrt( random.Next(0, 100000) / 100000.0));
                   let mut num12: i32 = 0;
                   if (random.Next(0, 100) < 20)
                   {
-                    if ((double) VBMath.Rnd() > 0.5)
+                    if ( VBMath.Rnd() > 0.5)
                       num11 = 1f;
                     if (alllog)
                       this.AddLog("MODE: Mix old record with top record");
@@ -18962,23 +18962,23 @@ label_38:
                   }
                   else
                   {
-                    num11 = (float) Math.Sqrt(Math.Sqrt((double) random.Next(0, 100) / 100.0));
+                    num11 =  Math.Sqrt(Math.Sqrt( random.Next(0, 100) / 100.0));
                     if (alllog)
                       this.AddLog("MODE: Mix old record with other old record");
                   }
                   for (let mut counter: i32 = this.HistoryScoreList.Counter; counter >= 0; counter += -1)
                   {
                     let mut num13: i32 = this.HistoryScoreList.Weight[this.HistoryScoreList.Counter] - this.HistoryScoreList.Weight[0];
-                    if ((num13 <= 0 ? 0.0 : (double) ((float) (this.HistoryScoreList.Weight[counter] - this.HistoryScoreList.Weight[0]) / (float) num13)) <= (double) num11)
+                    if ((num13 <= 0 ? 0.0 :  ( (this.HistoryScoreList.Weight[counter] - this.HistoryScoreList.Weight[0]) /  num13)) <=  num11)
                     {
                       if (alllog)
-                        this.AddLog("historic record number " + Conversion.Str((object) counter) + " with score = " + Conversion.Str((object) this.HistoryScoreList.Weight[counter]));
+                        this.AddLog("historic record number " + Conversion.Str( counter) + " with score = " + Conversion.Str( this.HistoryScoreList.Weight[counter]));
                       let mut index9: i32 = this.HistoryScoreList.Id[counter];
                       if (index9 > -1)
                       {
                         let mut nr: i32 = this.HistoryMove[index9].FindNr(index7 + 99000);
                         this.HistoryMove[index9].FindNr(index7 + 199000);
-                        tdata1 = !(nr > -1 & random.Next(0, 100) < 80) ? ((double) VBMath.Rnd() <= 0.5 ? 3 : ((double) VBMath.Rnd() <= 0.5 ? 2 : 1)) : this.HistoryMove[index9].Data1[nr];
+                        tdata1 = !(nr > -1 & random.Next(0, 100) < 80) ? ( VBMath.Rnd() <= 0.5 ? 3 : ( VBMath.Rnd() <= 0.5 ? 2 : 1)) : this.HistoryMove[index9].Data1[nr];
                         if (this.Attacker & random.Next(0, 100) > 80)
                           tdata1 = 3;
                         if (!this.Attacker & random.Next(0, 100) > 90)
@@ -18988,7 +18988,7 @@ label_38:
                         {
                           if (this.AreaGroupCount == 1)
                             index10 = index10;
-                          if ((double) VBMath.Rnd() * 100.0 > Math.Min(50.0, 200.0 * (1.0 / (double) num6)))
+                          if ( VBMath.Rnd() * 100.0 > Math.Min(50.0, 200.0 * (1.0 /  num6)))
                           {
                             if (alllog)
                               this.AddLog("copies full move");
@@ -18998,7 +18998,7 @@ label_38:
                             num8 = this.HistoryMove[index9].Data4[index10];
                             tdata5 = this.HistoryMove[index9].Data5[index10];
                           }
-                          else if ((double) VBMath.Rnd() * 100.0 < 50.0 / (double) this.AreaGroupRound | num12 == 1)
+                          else if ( VBMath.Rnd() * 100.0 < 50.0 /  this.AreaGroupRound | num12 == 1)
                           {
                             if (alllog)
                               this.AddLog("random/scripted");
@@ -19020,7 +19020,7 @@ label_38:
                               }
                             }
                           }
-                          else if ((double) VBMath.Rnd() * 100.0 < 50.0 / Math.Max(1.0, (double) this.AreaGroupRound / 2.0))
+                          else if ( VBMath.Rnd() * 100.0 < 50.0 / Math.Max(1.0,  this.AreaGroupRound / 2.0))
                           {
                             if (alllog)
                               this.AddLog("copies 1 moves from previous");
@@ -19040,7 +19040,7 @@ label_38:
                               }
                             }
                           }
-                          else if ((double) VBMath.Rnd() * 100.0 < 50.0 / Math.Max(1.0, (double) this.AreaGroupRound / 3.0))
+                          else if ( VBMath.Rnd() * 100.0 < 50.0 / Math.Max(1.0,  this.AreaGroupRound / 3.0))
                           {
                             if (alllog)
                               this.AddLog("copies 2 moves from previous");
@@ -19248,9 +19248,9 @@ label_38:
                 Straty.Add(forgroup + 199000, 1, highestFuzzyVpGroup, CheckExistence: false);
               }
             }
-            let mut strategyScore: i32 = this.GetStrategyScore( Straty, false, (float) Number1 / (float) num3);
+            let mut strategyScore: i32 = this.GetStrategyScore( Straty, false,  Number1 /  num3);
             if (alllog)
-              this.AddLog("SCORE ====> " + Conversion.Str((object) strategyScore));
+              this.AddLog("SCORE ====> " + Conversion.Str( strategyScore));
             if (strategyScore != Number2)
             {
               this.HistoryMove[this.HistoryMoveCounter] = Straty;
@@ -19258,27 +19258,27 @@ label_38:
             }
             this += 1.HistoryMoveCounter;
             this.HistoryScoreList.Sort();
-            index3 =  Math.Round((double) random.Next(0, 100) / 100.0 * 0.5 * (double) this.HistoryScoreList.Counter);
+            index3 =  Math.Round( random.Next(0, 100) / 100.0 * 0.5 *  this.HistoryScoreList.Counter);
             let mut num14: i32 = this.HistoryScoreList.Id[index3];
             if (this.HistoryScoreList.Counter > 450)
             {
               if (alllog)
-                this.AddLog("REMOVING NR " + Conversion.Str((object) num14) + " with score " + Conversion.Str((object) this.HistoryScoreList.Weight[index3]));
+                this.AddLog("REMOVING NR " + Conversion.Str( num14) + " with score " + Conversion.Str( this.HistoryScoreList.Weight[index3]));
               this.HistoryScoreList.Remove(num14);
             }
             if (strategyScore > Number2)
             {
               if (alllog)
-                this.AddLog("NEW BEST SCORE = " + Conversion.Str((object) strategyScore));
+                this.AddLog("NEW BEST SCORE = " + Conversion.Str( strategyScore));
               this.BestStrategy = Straty;
               Number2 = strategyScore;
             }
             else if (alllog)
-              this.AddLog("OLD BEST SCORE = " + Conversion.Str((object) Number2));
+              this.AddLog("OLD BEST SCORE = " + Conversion.Str( Number2));
             if (Number1 % 20 == 0)
-              this.AddLog(Conversion.Str((object) Number1) + ") Bestscore=" + Conversion.Str((object) Number2) + ", CurrentScore = " + Conversion.Str((object) strategyScore));
+              this.AddLog(Conversion.Str( Number1) + ") Bestscore=" + Conversion.Str( Number2) + ", CurrentScore = " + Conversion.Str( strategyScore));
           }
-          if (!Information.IsNothing((object) this.BestStrategy))
+          if (!Information.IsNothing( this.BestStrategy))
           {
             let mut counter: i32 = this.BestStrategy.Counter;
             for (let mut index12: i32 = 0; index12 <= counter; index12 += 1)
@@ -19431,8 +19431,8 @@ label_38:
                     }
                     this.CurrentAreaGroup = 1;
                     this.CorpsStrategic = new bool[this.GroupCounter + 1];
-                    let mut num19: i32 =  Math.Round((double) airCap / 50.0);
-                    if ((double) VBMath.Rnd() < 0.5)
+                    let mut num19: i32 =  Math.Round( airCap / 50.0);
+                    if ( VBMath.Rnd() < 0.5)
                     {
                       let mut groupCounter: i32 = this.GroupCounter;
                       for (let mut index14: i32 = 0; index14 <= groupCounter; index14 += 1)
@@ -19440,13 +19440,13 @@ label_38:
                       num19 = -1;
                     }
                     let mut num20: i32 = 0;
-                    let mut num21: i32 =  Math.Round((double) (VBMath.Rnd() * 99f));
-                    if ((double) VBMath.Rnd() < 0.5)
+                    let mut num21: i32 =  Math.Round( (VBMath.Rnd() * 99f));
+                    if ( VBMath.Rnd() < 0.5)
                     {
                       while (num20 < num21)
                       {
                         num20 += 1;
-                        let mut index15: i32 =  Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (this.GroupCounter + 1)));
+                        let mut index15: i32 =  Math.Round( Conversion.Int(VBMath.Rnd() *  (this.GroupCounter + 1)));
                         if (this.corpsstartStrength[index15] < num19 & this.GroupType[index15] <= 5)
                         {
                           this.CorpsStrategic[index15] = true;
@@ -19454,11 +19454,11 @@ label_38:
                         }
                       }
                     }
-                    let mut strategyScore: i32 = this.GetStrategyScore( Straty, false, (float) Number1 / (float) num3);
+                    let mut strategyScore: i32 = this.GetStrategyScore( Straty, false,  Number1 /  num3);
                     if (strategyScore > Number2)
                     {
-                      this.AddLog("GROUP " + this.GroupName[tid] + " MOVE = " + Conversion.Str((object) Number5) + "/" + Conversion.Str((object) Number6));
-                      this.AddLog(Conversion.Str((object) Number1) + ") New Bestscore=" + Conversion.Str((object) Number2) + ", CurrentScore = " + Conversion.Str((object) strategyScore));
+                      this.AddLog("GROUP " + this.GroupName[tid] + " MOVE = " + Conversion.Str( Number5) + "/" + Conversion.Str( Number6));
+                      this.AddLog(Conversion.Str( Number1) + ") New Bestscore=" + Conversion.Str( Number2) + ", CurrentScore = " + Conversion.Str( strategyScore));
                       this.BestStrategy = Straty;
                       Number2 = strategyScore;
                       let mut groupCounter: i32 = this.GroupCounter;
@@ -19473,7 +19473,7 @@ label_38:
                     {
                       this.game.EditObj.AIProgressMax = this.GroupCounter;
                       this.game.EditObj.AIProgressNow = tid;
-                      this.game.EditObj.TempAIString = this.AreaGroupCount <= 1 ? "Systematical finetuning. Round " + Conversion.Str((object) Number4) : "Systematical finetuning. Round " + Conversion.Str((object) Number4);
+                      this.game.EditObj.TempAIString = this.AreaGroupCount <= 1 ? "Systematical finetuning. Round " + Conversion.Str( Number4) : "Systematical finetuning. Round " + Conversion.Str( Number4);
                     }
                     num16 = 1;
                   }
@@ -19494,7 +19494,7 @@ label_38:
         this.LogCounter = -1;
       }
       this.BestStrategy = SimpleList::new();
-      if (!Information.IsNothing((object) simpleListArray[this.AreaGroupRound]))
+      if (!Information.IsNothing( simpleListArray[this.AreaGroupRound]))
       {
         let mut counter: i32 = simpleListArray[this.AreaGroupRound].Counter;
         for (let mut index19: i32 = 0; index19 <= counter; index19 += 1)
@@ -19571,24 +19571,24 @@ label_38:
         this.AddLog("");
         this.AddLog("INITIAL AREAGROUPS SETTING : ");
       }
-      if ((double) this.game.Data.RuleVar[267] > 0.0)
+      if ( this.game.Data.RuleVar[267] > 0.0)
       {
         if (tlog)
           this.AddLog("Predefined areagroups are used (rulevar 267)");
         let mut areaCount: i32 = this.AreaCount;
         for (let mut index: i32 = 1; index <= areaCount; index += 1)
         {
-          if (this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round((double) this.game.Data.RuleVar[267])] > 0)
+          if (this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round( this.game.Data.RuleVar[267])] > 0)
           {
-            if (this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round((double) this.game.Data.RuleVar[267])] > this.AreaGroupCount)
-              this.AreaGroupCount = this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round((double) this.game.Data.RuleVar[267])];
-            this.AreaGroup[index] = this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round((double) this.game.Data.RuleVar[267])];
+            if (this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round( this.game.Data.RuleVar[267])] > this.AreaGroupCount)
+              this.AreaGroupCount = this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round( this.game.Data.RuleVar[267])];
+            this.AreaGroup[index] = this.game.Data.MapObj[0].HexObj[this.AreaCenter[index].x, this.AreaCenter[index].y].AreaCode[ Math.Round( this.game.Data.RuleVar[267])];
           }
           else
             this.AreaGroup[index] = 0;
         }
       }
-      if ((double) this.game.Data.RuleVar[267] < 1.0)
+      if ( this.game.Data.RuleVar[267] < 1.0)
       {
         if (tlog)
           this.AddLog("Dynamic areagroups are used. Created on the fly.");
@@ -19714,7 +19714,7 @@ label_38:
       for (let mut Number: i32 = 0; Number <= areaGroupCount; Number += 1)
       {
         this.AddLog("");
-        this.AddLog("AREAGROUP " + Conversion.Str((object) Number));
+        this.AddLog("AREAGROUP " + Conversion.Str( Number));
         let mut areaCount: i32 = this.AreaCount;
         for (let mut nr: i32 = 1; nr <= areaCount; nr += 1)
         {
@@ -19834,7 +19834,7 @@ label_38:
       let mut areaGroupCount1: i32 = this.AreaGroupCount;
       for (let mut Number: i32 = 0; Number <= areaGroupCount1; Number += 1)
       {
-        this.AddLog("AREAGROUP " + Conversion.Str((object) Number));
+        this.AddLog("AREAGROUP " + Conversion.Str( Number));
         let mut areaCount: i32 = this.AreaCount;
         for (let mut nr: i32 = 1; nr <= areaCount; nr += 1)
         {
@@ -19877,7 +19877,7 @@ label_38:
           for (let mut index: i32 = 1; index <= areaCount; index += 1)
           {
             simpleListArray[index] = SimpleList::new();
-            this.AreaExtraVP[index] = this.AreaGroup[index] != this.CurrentAreaGroup ? 0 :  Math.Round((double) this.OldExtraVP[index] / 3.0);
+            this.AreaExtraVP[index] = this.AreaGroup[index] != this.CurrentAreaGroup ? 0 :  Math.Round( this.OldExtraVP[index] / 3.0);
           }
         }
         else
@@ -19920,7 +19920,7 @@ label_38:
                   }
                   if (num4 > 0)
                   {
-                    let mut num5: i32 = Math.Max( Math.Round(Conversion.Int((double) num1 / (double) num4)), 1);
+                    let mut num5: i32 = Math.Max( Math.Round(Conversion.Int( num1 /  num4)), 1);
                     let mut areaCount4: i32 = this.AreaCount;
                     for (let mut index4: i32 = 1; index4 <= areaCount4; index4 += 1)
                     {
@@ -20406,7 +20406,7 @@ label_38:
         if (groupHq > -1)
         {
           if (tlog)
-            this.AddLog(this.GroupName[grp] + " ... FALLBACK = " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIFallback) + ", DEF = " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIDefend) + ", ATTACK = " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIAttack) + ", FOLLOWUP= " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIFollowup) + ", STANCE = " + Conversion.Str((object) this.game.Data.UnitObj[groupHq].AIAttackStyle));
+            this.AddLog(this.GroupName[grp] + " ... FALLBACK = " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIFallback) + ", DEF = " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIDefend) + ", ATTACK = " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIAttack) + ", FOLLOWUP= " + this.GetAreaName(this.game.Data.UnitObj[groupHq].AIFollowup) + ", STANCE = " + Conversion.Str( this.game.Data.UnitObj[groupHq].AIAttackStyle));
           this.CorpsSource[grp] = this.game.Data.UnitObj[groupHq].AIDefend;
           this.CorpsTarget[grp] = this.game.Data.UnitObj[groupHq].AIAttack;
           if (this.CorpsSource[grp] == -1)
@@ -20469,7 +20469,7 @@ label_38:
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[832] > 0.0 & this.game.Data.Round > 1)
+      if ( this.game.Data.RuleVar[832] > 0.0 & this.game.Data.Round > 1)
       {
         if (tlog)
         {
@@ -20516,7 +20516,7 @@ label_38:
           }
         }
       }
-      else if ((double) this.game.Data.RuleVar[832] == 1.0)
+      else if ( this.game.Data.RuleVar[832] == 1.0)
       {
         if (tlog)
         {
@@ -20607,9 +20607,9 @@ label_38:
           this.MakeTempMovementType(index);
           if (tlog)
           {
-            str1: String = Strings.Trim(Conversion.Str((object) index)) + ", " + this.game.Data.UnitObj[index].Name;
+            str1: String = Strings.Trim(Conversion.Str( index)) + ", " + this.game.Data.UnitObj[index].Name;
             str2: String = this.game.Data.UnitObj[index].TempType <= -1 ? str1 + "TempType = -1 " : str1 + "TempType = " + this.game.Data.TempString[this.game.Data.UnitObj[index].TempType];
-            this.AddLog((this.game.Data.UnitObj[index].TempTypeRoad <= -1 ? str2 + ", TempTypeRoad = -1 " : str2 + ", TempTypeRoad = " + this.game.Data.TempString[this.game.Data.UnitObj[index].TempTypeRoad]) + " TempTheater = " + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[index].TempTheater)));
+            this.AddLog((this.game.Data.UnitObj[index].TempTypeRoad <= -1 ? str2 + ", TempTypeRoad = -1 " : str2 + ", TempTypeRoad = " + this.game.Data.TempString[this.game.Data.UnitObj[index].TempTypeRoad]) + " TempTheater = " + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[index].TempTheater)));
           }
         }
       }

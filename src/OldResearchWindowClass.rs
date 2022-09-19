@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -98,8 +98,8 @@ namespace WindowsApplication1
       this.peoplenr = -1;
       this.dodetailnr = -1;
       this.mainnr = 2;
-      this.mainnr = (double) this.game.Data.RuleVar[501] >= 1.0 ? ((double) this.game.Data.RuleVar[502] >= 1.0 ? 4 : ((double) this.game.Data.RuleVar[510] >= 1.0 ? 2 : 2)) : 5;
-      if (this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > -1 & (double) this.game.Data.RuleVar[502] < 1.0)
+      this.mainnr =  this.game.Data.RuleVar[501] >= 1.0 ? ( this.game.Data.RuleVar[502] >= 1.0 ? 4 : ( this.game.Data.RuleVar[510] >= 1.0 ? 2 : 2)) : 5;
+      if (this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > -1 &  this.game.Data.RuleVar[502] < 1.0)
         this.mainnr = 2;
       if (this.game.Data.CampaignRoom > -1)
       {
@@ -181,7 +181,7 @@ namespace WindowsApplication1
           }
           if (Number > 0)
           {
-            let mut num: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
           }
           if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
           {
@@ -237,7 +237,7 @@ namespace WindowsApplication1
         return;
       if (this.game.Data.CampaignRoom > -1)
       {
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
           if (this.game.EditObj.CampaignRoomBitmap > -1)
             this.NewBackGroundAndClearAll(1024, 768, this.game.Data.EventPicNr[this.game.EditObj.CampaignRoomBitmap]);
@@ -257,7 +257,7 @@ namespace WindowsApplication1
       Rectangle rectangle2;
       if (this.game.Data.CampaignRoom > -1 & Strings.Len(this.game.EditObj.CampaignRoomTitle) > 0)
       {
-        if ((double) this.game.Data.RuleVar[839] != 1.0)
+        if ( this.game.Data.RuleVar[839] != 1.0)
         {
            let mut local: &Graphics = &Expression;
           let mut rect1: &Rectangle = &rectangle1
@@ -285,7 +285,7 @@ namespace WindowsApplication1
         num1 = 25;
       Font font;
       bool flag;
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
       {
         font = this.game.MarcFont4;
         flag = true;
@@ -296,7 +296,7 @@ namespace WindowsApplication1
         flag = false;
       }
       int num2;
-      if ((double) this.game.Data.RuleVar[502] == 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > -1)
+      if ( this.game.Data.RuleVar[502] == 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > -1)
       {
         buttontext: String = "Cards";
         if (this.mainnr != 2)
@@ -310,7 +310,7 @@ namespace WindowsApplication1
           this.mainx = this.AddSubPart( tsubpart, num1, 60, 150, 35, 1);
         }
         let mut num3: i32 =  num1 + 160;
-        if ((double) this.game.Data.RuleVar[510] == 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter > -1)
+        if ( this.game.Data.RuleVar[510] == 0.0 & this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter > -1)
         {
           if (this.mainnr != 3)
           {
@@ -341,7 +341,7 @@ namespace WindowsApplication1
         num2 = num4 + 160;
       }
       buttontext1: String = "Reports";
-      if ((double) this.game.Data.RuleVar[839] == 1.0)
+      if ( this.game.Data.RuleVar[839] == 1.0)
         buttontext1 = Strings.UCase(buttontext1);
       if (this.mainnr != 4)
       {
@@ -354,7 +354,7 @@ namespace WindowsApplication1
         this.mainx = this.AddSubPart( tsubpart, num2, 60, 150, 35, 1);
       }
       let mut num5: i32 =  num2 + 160;
-      if ((double) this.game.Data.RuleVar[501] < 1.0)
+      if ( this.game.Data.RuleVar[501] < 1.0)
       {
         if (this.mainnr != 5)
         {
@@ -368,11 +368,11 @@ namespace WindowsApplication1
         }
         let mut num6: i32 =  num5 + 160;
       }
-      str1: String = Strings.Trim(Conversion.Str((object) this.game.Data.Round));
+      str1: String = Strings.Trim(Conversion.Str( this.game.Data.Round));
       if (this.game.Data.AlternateRound > -1)
       {
         str2: String = "";
-        DateTime dateTime = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays((double) (this.game.Data.StartData.Day - 1));
+        DateTime dateTime = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays( (this.game.Data.StartData.Day - 1));
         if (this.game.Data.AlternateRound == 31)
         {
           dateTime = dateTime.AddMonths((this.game.Data.Round - 1) * 1);
@@ -382,7 +382,7 @@ namespace WindowsApplication1
           TimeSpan timeSpan = new TimeSpan((this.game.Data.Round - 1) * this.game.Data.AlternateRound, 0, 0, 0);
           dateTime = dateTime.Add(timeSpan);
         }
-        str1 = str2 + this.game.HandyFunctionsObj.GetMonth(dateTime.Month) + " " + Strings.Trim(Conversion.Str((object) dateTime.Day)) + " " + Strings.Trim(Conversion.Str((object) dateTime.Year));
+        str1 = str2 + this.game.HandyFunctionsObj.GetMonth(dateTime.Month) + " " + Strings.Trim(Conversion.Str( dateTime.Day)) + " " + Strings.Trim(Conversion.Str( dateTime.Year));
       }
        let mut local1: &Graphics = &Expression;
       rectangle2 = Rectangle::new(675, 15, 150, 14);
@@ -391,7 +391,7 @@ namespace WindowsApplication1
       let mut rect2_1: &Rectangle = &rectangle3
       txt2_1: String = str1;
       DrawMod.MakeFullBoxVic2( local1, rect1_1, "DATE/ROUND", rect2_1, txt2_1);
-      str3: String = Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts));
+      str3: String = Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts));
        let mut local2: &Graphics = &Expression;
       rectangle3 = Rectangle::new(850, 15, 75, 14);
       let mut rect1_2: &Rectangle = &rectangle3
@@ -407,7 +407,7 @@ namespace WindowsApplication1
         this.doreport();
       if (this.mainnr == 5)
         this.dostuff();
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -558,9 +558,9 @@ namespace WindowsApplication1
       else
       {
         let mut cardHistoryCounter: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryCounter;
-        let mut num1: i32 =   Math.Round(Conversion.Int((double)  Math.Round(Conversion.Int(Math.Sqrt((double) (cardHistoryCounter + 1))) + 1.0) * 1.5));
-        let mut num2: i32 =   Math.Round(Conversion.Int(520.0 / (double) num1));
-        let mut num3: i32 =   Math.Round(Conversion.Int((double) num2 * 1.5));
+        let mut num1: i32 =   Math.Round(Conversion.Int(  Math.Round(Conversion.Int(Math.Sqrt( (cardHistoryCounter + 1))) + 1.0) * 1.5));
+        let mut num2: i32 =   Math.Round(Conversion.Int(520.0 /  num1));
+        let mut num3: i32 =   Math.Round(Conversion.Int( num2 * 1.5));
         let mut num4: i32 =  -1;
         let mut num5: i32 =  0;
         let mut num6: i32 =  cardHistoryCounter;
@@ -572,12 +572,12 @@ namespace WindowsApplication1
             num4 = 0;
             num5 += 1;
           }
-          let mut x: i32 =   Math.Round(13.0 + (double) num4 * ((double) num2 * 1.1));
-          let mut y: i32 =   Math.Round(156.0 + (double) num5 * ((double) num3 * 1.1));
-          if (Information.IsNothing((object) this.tempbmp[index2]))
+          let mut x: i32 =   Math.Round(13.0 +  num4 * ( num2 * 1.1));
+          let mut y: i32 =   Math.Round(156.0 +  num5 * ( num3 * 1.1));
+          if (Information.IsNothing( this.tempbmp[index2]))
           {
             this.tempbmp[index2] = new Bitmap(num2, num3);
-            this.tempbmp[index2].SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            this.tempbmp[index2].SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             Graphics graphics = Graphics.FromImage((Image) this.tempbmp[index2]);
              let mut local1: &Graphics = &graphics;
             Bitmap bitmap = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistory[index2], this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryRound[index2]);
@@ -608,7 +608,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimple( local3,  local4, 660, 160);
         if (this.game.Data.AlternateRound > -1)
         {
-          DateTime dateTime1 = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays((double) (this.game.Data.StartData.Day - 1));
+          DateTime dateTime1 = DateTime::new().AddYears(this.game.Data.StartData.Year - 1).AddMonths(this.game.Data.StartData.Month - 1).AddDays( (this.game.Data.StartData.Day - 1));
           DateTime dateTime2;
           if (this.game.Data.AlternateRound == 31)
           {
@@ -620,18 +620,18 @@ namespace WindowsApplication1
             dateTime2 = dateTime1.Add(timeSpan);
           }
           string str1;
-          str2: String = str1 + this.game.HandyFunctionsObj.GetMonth(dateTime2.Month) + " " + Strings.Trim(Conversion.Str((object) dateTime2.Day)) + " " + Strings.Trim(Conversion.Str((object) dateTime2.Year));
+          str2: String = str1 + this.game.HandyFunctionsObj.GetMonth(dateTime2.Month) + " " + Strings.Trim(Conversion.Str( dateTime2.Day)) + " " + Strings.Trim(Conversion.Str( dateTime2.Year));
           DrawMod.DrawTextColoured( Expression1, "Played " + str2, Font::new("Times New Roman", 19f, FontStyle.Bold, GraphicsUnit.Pixel), 715, 625, Color.White);
         }
         else
-          DrawMod.DrawTextColoured( Expression1, "Played in round " + Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryRound[this.detailnr])), Font::new("Times New Roman", 19f, FontStyle.Bold, GraphicsUnit.Pixel), 715, 625, Color.White);
+          DrawMod.DrawTextColoured( Expression1, "Played in round " + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardHistoryRound[this.detailnr])), Font::new("Times New Roman", 19f, FontStyle.Bold, GraphicsUnit.Pixel), 715, 625, Color.White);
       }
-      if (!Information.IsNothing((object) Expression1))
+      if (!Information.IsNothing( Expression1))
       {
         Expression1.Dispose();
         Expression1 = (Graphics) null;
       }
-      if (Information.IsNothing((object) Expression2))
+      if (Information.IsNothing( Expression2))
         return;
       Expression2.Dispose();
     }
@@ -691,7 +691,7 @@ namespace WindowsApplication1
       Graphics Expression2;
       Bitmap bitmap1;
       Rectangle trect1;
-      if ((double) this.game.Data.RuleVar[839] == 0.0)
+      if ( this.game.Data.RuleVar[839] == 0.0)
       {
         if (this.game.Data.RegimeObj[this.game.Data.Turn].ActionCardCounter > 64)
         {
@@ -719,9 +719,9 @@ namespace WindowsApplication1
         }
         else
         {
-          let mut num3: i32 =   Math.Round(Conversion.Int((double)  Math.Round(Conversion.Int(Math.Sqrt((double) (actionCardCounter1 + 1))) + 1.0) * 1.5));
-          let mut num4: i32 =   Math.Round(Conversion.Int(520.0 / (double) num3));
-          let mut num5: i32 =   Math.Round(Conversion.Int((double) num4 * 1.5));
+          let mut num3: i32 =   Math.Round(Conversion.Int(  Math.Round(Conversion.Int(Math.Sqrt( (actionCardCounter1 + 1))) + 1.0) * 1.5));
+          let mut num4: i32 =   Math.Round(Conversion.Int(520.0 /  num3));
+          let mut num5: i32 =   Math.Round(Conversion.Int( num4 * 1.5));
           let mut num6: i32 =  -1;
           let mut num7: i32 =  0;
           let mut counter: i32 =  simpleList.Counter;
@@ -734,12 +734,12 @@ namespace WindowsApplication1
               num6 = 0;
               num7 += 1;
             }
-            let mut x: i32 =   Math.Round(13.0 + (double) num6 * ((double) num4 * 1.1));
-            let mut y: i32 =   Math.Round(156.0 + (double) num7 * ((double) num5 * 1.1));
-            if (Information.IsNothing((object) this.tempbmp[index2]))
+            let mut x: i32 =   Math.Round(13.0 +  num6 * ( num4 * 1.1));
+            let mut y: i32 =   Math.Round(156.0 +  num7 * ( num5 * 1.1));
+            if (Information.IsNothing( this.tempbmp[index2]))
             {
               this.tempbmp[index2] = new Bitmap(num4, num5);
-              this.tempbmp[index2].SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+              this.tempbmp[index2].SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
               Graphics graphics = Graphics.FromImage((Image) this.tempbmp[index2]);
                let mut local1: &Graphics = &graphics;
               Bitmap bitmap2 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[index2]);
@@ -765,7 +765,7 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut num9: i32 =   Math.Round(Conversion.Int(1650.0 / (double) (simpleList.Counter + 1)));
+        let mut num9: i32 =   Math.Round(Conversion.Int(1650.0 /  (simpleList.Counter + 1)));
         if (num9 > 110)
           num9 = 110;
         let mut x1: i32 =  25 - num9;
@@ -812,7 +812,7 @@ namespace WindowsApplication1
       {
         Font usefont;
         bool flag;
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
           usefont =  null;
           flag = false;
@@ -822,7 +822,7 @@ namespace WindowsApplication1
           usefont = this.game.MarcFont2;
           flag = true;
         }
-        if ((double) this.game.Data.RuleVar[839] == 0.0)
+        if ( this.game.Data.RuleVar[839] == 0.0)
         {
            let mut local5: &Graphics = &Expression1;
           bitmap1 = this.game.CustomBitmapObj.DrawActionCard(this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.detailnr]);
@@ -850,7 +850,7 @@ namespace WindowsApplication1
         }
         if (this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= this.game.Data.ActionCardObj[this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.detailnr]].PPCost | this.game.Data.ActionCardObj[this.game.Data.RegimeObj[this.game.Data.Turn].ActionCard[this.detailnr]].PPCost == 0)
         {
-          if ((double) this.game.Data.RuleVar[839] == 0.0)
+          if ( this.game.Data.RuleVar[839] == 0.0)
           {
             tsubpart =  new TextButtonPartClass("PLAY CARD", 200, tBackbitmap: ( this.OwnBitmap), bbx: 715, bby: 625, usefont: usefont, useshadow: flag, tMarcStyle: flag);
             this.B3Id = this.AddSubPart( tsubpart, 715, 625, 200, 35, 1);
@@ -861,7 +861,7 @@ namespace WindowsApplication1
             this.B3Id = this.AddSubPart( tsubpart, 700, 560, 200, 35, 1);
           }
         }
-        else if ((double) this.game.Data.RuleVar[839] == 0.0)
+        else if ( this.game.Data.RuleVar[839] == 0.0)
         {
           tsubpart =  new TextButtonPartClass("PLAY CARD", 200, tBackbitmap: ( this.OwnBitmap), bbx: 715, bby: 625, tinactive: true, usefont: usefont, useshadow: flag, tMarcStyle: flag);
           this.B3TextId = this.AddSubPart( tsubpart, 715, 625, 200, 35, 1);
@@ -872,12 +872,12 @@ namespace WindowsApplication1
           this.B3TextId = this.AddSubPart( tsubpart, 700, 560, 200, 35, 1);
         }
       }
-      if (!Information.IsNothing((object) Expression1))
+      if (!Information.IsNothing( Expression1))
       {
         Expression1.Dispose();
         Expression1 = (Graphics) null;
       }
-      if (Information.IsNothing((object) Expression2))
+      if (Information.IsNothing( Expression2))
         return;
       Expression2.Dispose();
     }
@@ -926,7 +926,7 @@ namespace WindowsApplication1
             tlistselect = num1;
           let mut num2: i32 =  Strings.InStr(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata], "\r\n");
           string str;
-          if (Information.IsNothing((object) num2) | num2 <= 0)
+          if (Information.IsNothing( num2) | num2 <= 0)
           {
             str = Strings.Left(this.game.Data.RegimeObj[this.game.Data.Turn].MessString[tdata], 50) + "...";
           }
@@ -964,33 +964,33 @@ namespace WindowsApplication1
               let mut h1: i32 =  BitmapStore.Getheight(nr);
               if (w1 > 320)
               {
-                h1 =  Math.Round((double) h1 * (320.0 / (double) w1));
-                w1 =  Math.Round((double) w1 * (320.0 / (double) w1));
+                h1 =  Math.Round( h1 * (320.0 /  w1));
+                w1 =  Math.Round( w1 * (320.0 /  w1));
               }
               if (h1 > 200)
               {
-                h1 =  Math.Round((double) h1 * (200.0 / (double) h1));
-                w1 =  Math.Round((double) w1 * (200.0 / (double) h1));
+                h1 =  Math.Round( h1 * (200.0 /  h1));
+                w1 =  Math.Round( w1 * (200.0 /  h1));
               }
               if (this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr] >= 10000)
               {
-                DrawMod.DrawOfficer(graphics, this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr] - 10000,  Math.Round(690.0 - (double) w1 / 2.0), 140, w1, h1);
+                DrawMod.DrawOfficer(graphics, this.game.Data.RegimeObj[this.game.Data.Turn].MessFrontPic[this.detailnr] - 10000,  Math.Round(690.0 -  w1 / 2.0), 140, w1, h1);
               }
               else
               {
                  let mut local1: &Graphics = &graphics;
                 Bitmap bitmap = BitmapStore.GetBitmap(nr);
                  let mut local2: &Bitmap = &bitmap;
-                let mut x: i32 =   Math.Round(690.0 - (double) w1 / 2.0);
+                let mut x: i32 =   Math.Round(690.0 -  w1 / 2.0);
                 let mut w2: i32 =  w1;
                 let mut h2: i32 =  h1;
                 DrawMod.DrawScaled( local1,  local2, x, 140, w2, h2);
-                DrawMod.DrawRectangle( graphics,  Math.Round(689.0 - (double) w1 / 2.0), 139, w1 + 2, h1 + 2,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
+                DrawMod.DrawRectangle( graphics,  Math.Round(689.0 -  w1 / 2.0), 139, w1 + 2, h1 + 2,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
               }
               num3 = 20 + h1 + 25;
             }
           }
-          let mut num4: i32 =   Math.Round(26.0 - (double) num3 / 20.0);
+          let mut num4: i32 =   Math.Round(26.0 -  num3 / 20.0);
           if (this.Text2Id == 0)
           {
             let mut num5: i32 =  430;
@@ -1001,7 +1001,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
     }
@@ -1061,7 +1061,7 @@ namespace WindowsApplication1
                 num1 = num2;
               tname: String = this.game.Data.ResearchObj[tdata].Name;
               let mut Number: i32 =  0;
-              if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & (double) this.game.Data.RuleVar[530] == 1.0)
+              if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) &  this.game.Data.RuleVar[530] == 1.0)
               {
                 let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
                 for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
@@ -1071,7 +1071,7 @@ namespace WindowsApplication1
                 }
               }
               if (Number > 0)
-                tname = tname + " (" + Strings.Trim(Conversion.Str((object) Number)) + ")";
+                tname = tname + " (" + Strings.Trim(Conversion.Str( Number)) + ")";
               this.OptionsListObj.add(tname, tdata);
             }
           }
@@ -1121,7 +1121,7 @@ namespace WindowsApplication1
                 num1 = num4;
               tname: String = this.game.Data.ResearchObj[tdata].Name;
               let mut Number: i32 =  0;
-              if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & (double) this.game.Data.RuleVar[530] == 1.0)
+              if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) &  this.game.Data.RuleVar[530] == 1.0)
               {
                 let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
                 for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
@@ -1131,7 +1131,7 @@ namespace WindowsApplication1
                 }
               }
               if (Number > 0)
-                tname = tname + " (" + Strings.Trim(Conversion.Str((object) Number)) + ")";
+                tname = tname + " (" + Strings.Trim(Conversion.Str( Number)) + ")";
               this.OptionsList3Obj.add(tname, tdata);
             }
           }
@@ -1174,7 +1174,7 @@ namespace WindowsApplication1
               if (this.game.Data.RegimeObj[this.pregnr].ResField[index] && this.game.Data.ResearchObj[index].Blocks == tdata)
               {
                 num7 = 0;
-                if (this.game.HandyFunctionsObj.HasAllies(this.pregnr, true) & (double) this.game.Data.RuleVar[530] == 1.0)
+                if (this.game.HandyFunctionsObj.HasAllies(this.pregnr, true) &  this.game.Data.RuleVar[530] == 1.0)
                   num7 = 1;
               }
             }
@@ -1185,7 +1185,7 @@ namespace WindowsApplication1
                 num1 = num6;
               tname: String = this.game.Data.ResearchObj[tdata].Name;
               let mut Number: i32 =  0;
-              if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & (double) this.game.Data.RuleVar[530] == 1.0)
+              if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) &  this.game.Data.RuleVar[530] == 1.0)
               {
                 let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
                 for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
@@ -1195,7 +1195,7 @@ namespace WindowsApplication1
                 }
               }
               if (Number > 0)
-                tname = tname + " (" + Strings.Trim(Conversion.Str((object) Number)) + ")";
+                tname = tname + " (" + Strings.Trim(Conversion.Str( Number)) + ")";
               this.OptionsList2Obj.add(tname, tdata);
             }
           }
@@ -1233,7 +1233,7 @@ namespace WindowsApplication1
           let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
           for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
           {
-            if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, reg2) & this.game.Data.Turn != reg2 & (double) this.game.Data.RuleVar[530] == 1.0 && this.game.Data.RegimeObj[reg2].ResField[index1])
+            if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, reg2) & this.game.Data.Turn != reg2 &  this.game.Data.RuleVar[530] == 1.0 && this.game.Data.RegimeObj[reg2].ResField[index1])
             {
               if (num8 == 0)
                 DrawMod.DrawText( Expression, "Allies:", this.game.GameFont1, x1, 145);
@@ -1279,22 +1279,22 @@ namespace WindowsApplication1
           Bitmap bitmap;
           Rectangle rectangle1;
           Rectangle rectangle2;
-          if ((double) this.game.Data.RuleVar[869] >= 1.0)
+          if ( this.game.Data.RuleVar[869] >= 1.0)
           {
             let mut sfTypePic: i32 =  this.game.Data.ResearchObj[index1].SFTypePic;
-            index3 =  Math.Round((double) this.game.Data.RuleVar[873]);
+            index3 =  Math.Round( this.game.Data.RuleVar[873]);
             index4 = 0;
-            if ((double) this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[sfTypePic].Theater == 2)
+            if ( this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[sfTypePic].Theater == 2)
             {
-              index3 =  Math.Round((double) this.game.Data.RuleVar[848]);
+              index3 =  Math.Round( this.game.Data.RuleVar[848]);
               index4 = 0;
             }
-            if ((double) this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[sfTypePic].Theater == 1)
+            if ( this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[sfTypePic].Theater == 1)
             {
-              index3 =  Math.Round((double) this.game.Data.RuleVar[872]);
+              index3 =  Math.Round( this.game.Data.RuleVar[872]);
               index4 = 0;
             }
-            if ((double) this.game.Data.RuleVar[869] == 3.0)
+            if ( this.game.Data.RuleVar[869] == 3.0)
             {
               let mut nr: i32 =  this.game.Data.LandscapeTypeObj[index3].BasicPicID[index4];
                let mut local3: &Graphics = &Expression;
@@ -1308,7 +1308,7 @@ namespace WindowsApplication1
             }
             else
             {
-              if ((double) this.game.Data.RuleVar[869] == 1.0)
+              if ( this.game.Data.RuleVar[869] == 1.0)
               {
                 let mut nr: i32 =  this.game.Data.LandscapeTypeObj[index3].SidewaysSPriteID1[index4];
                  let mut local5: &Graphics = &Expression;
@@ -1357,10 +1357,10 @@ namespace WindowsApplication1
               let mut h2: i32 =  height;
               let mut width2: i32 =  BitmapStore.GetWidth(picSpriteId);
               let mut origh1: i32 =  BitmapStore.Getheight(picSpriteId);
-              double r1 = (double) ((float) red / 256f);
-              double g1 = (double) ((float) green / 256f);
-              double b1 = (double) ((float) blue / 256f);
-              DrawMod.DrawScaledColorized2( local11,  local12, x5, y3, w2, h2, width2, origh1, (float) r1, (float) g1, (float) b1, 1f);
+              double r1 =  ( red / 256f);
+              double g1 =  ( green / 256f);
+              double b1 =  ( blue / 256f);
+              DrawMod.DrawScaledColorized2( local11,  local12, x5, y3, w2, h2, width2, origh1,  r1,  g1,  b1, 1f);
               break;
             case 2:
               let mut red2: i32 =  this.game.Data.RegimeObj[turn].Red2;
@@ -1375,10 +1375,10 @@ namespace WindowsApplication1
               let mut h3: i32 =  height;
               let mut width3: i32 =  BitmapStore.GetWidth(picSpriteId);
               let mut origh2: i32 =  BitmapStore.Getheight(picSpriteId);
-              double r2 = (double) ((float) red2 / 256f);
-              double g2 = (double) ((float) green2 / 256f);
-              double b2 = (double) ((float) blue2 / 256f);
-              DrawMod.DrawScaledColorized2( local13,  local14, x6, y4, w3, h3, width3, origh2, (float) r2, (float) g2, (float) b2, 1f);
+              double r2 =  ( red2 / 256f);
+              double g2 =  ( green2 / 256f);
+              double b2 =  ( blue2 / 256f);
+              DrawMod.DrawScaledColorized2( local13,  local14, x6, y4, w3, h3, width3, origh2,  r2,  g2,  b2, 1f);
               break;
             case 3:
               let mut red3: i32 =  this.game.Data.RegimeObj[turn].Red3;
@@ -1393,10 +1393,10 @@ namespace WindowsApplication1
               let mut h4: i32 =  height;
               let mut width4: i32 =  BitmapStore.GetWidth(picSpriteId);
               let mut origh3: i32 =  BitmapStore.Getheight(picSpriteId);
-              double r3 = (double) ((float) red3 / 256f);
-              double g3 = (double) ((float) green3 / 256f);
-              double b3 = (double) ((float) blue3 / 256f);
-              DrawMod.DrawScaledColorized2( local15,  local16, x7, y5, w4, h4, width4, origh3, (float) r3, (float) g3, (float) b3, 1f);
+              double r3 =  ( red3 / 256f);
+              double g3 =  ( green3 / 256f);
+              double b3 =  ( blue3 / 256f);
+              DrawMod.DrawScaledColorized2( local15,  local16, x7, y5, w4, h4, width4, origh3,  r3,  g3,  b3, 1f);
               break;
             case 4:
               let mut red4: i32 =  this.game.Data.RegimeObj[turn].Red4;
@@ -1411,10 +1411,10 @@ namespace WindowsApplication1
               let mut h5: i32 =  height;
               let mut width5: i32 =  BitmapStore.GetWidth(picSpriteId);
               let mut origh4: i32 =  BitmapStore.Getheight(picSpriteId);
-              double r4 = (double) ((float) red4 / 256f);
-              double g4 = (double) ((float) green4 / 256f);
-              double b4 = (double) ((float) blue4 / 256f);
-              DrawMod.DrawScaledColorized2( local17,  local18, x8, y6, w5, h5, width5, origh4, (float) r4, (float) g4, (float) b4, 1f);
+              double r4 =  ( red4 / 256f);
+              double g4 =  ( green4 / 256f);
+              double b4 =  ( blue4 / 256f);
+              DrawMod.DrawScaledColorized2( local17,  local18, x8, y6, w5, h5, width5, origh4,  r4,  g4,  b4, 1f);
               break;
             case 5:
                let mut local19: &Graphics = &Expression;
@@ -1426,10 +1426,10 @@ namespace WindowsApplication1
               let mut h6: i32 =  height;
               let mut width6: i32 =  BitmapStore.GetWidth(picSpriteId);
               let mut origh5: i32 =  BitmapStore.Getheight(picSpriteId);
-              double r5 = (double) ((float) (red + 392) / 1024f);
-              double g5 = (double) ((float) (green + 392) / 1024f);
-              double b5 = (double) ((float) (blue + 392) / 1024f);
-              DrawMod.DrawScaledColorized2( local19,  local20, x9, y7, w6, h6, width6, origh5, (float) r5, (float) g5, (float) b5, 1f);
+              double r5 =  ( (red + 392) / 1024f);
+              double g5 =  ( (green + 392) / 1024f);
+              double b5 =  ( (blue + 392) / 1024f);
+              DrawMod.DrawScaledColorized2( local19,  local20, x9, y7, w6, h6, width6, origh5,  r5,  g5,  b5, 1f);
               break;
             case 6:
                let mut local21: &Graphics = &Expression;
@@ -1441,13 +1441,13 @@ namespace WindowsApplication1
               let mut h7: i32 =  height;
               let mut width7: i32 =  BitmapStore.GetWidth(picSpriteId);
               let mut origh6: i32 =  BitmapStore.Getheight(picSpriteId);
-              double r6 = (double) ((float) (red + 80) / 512f);
-              double g6 = (double) ((float) (green + 200) / 512f);
-              double b6 = (double) ((float) (blue + 80) / 512f);
-              DrawMod.DrawScaledColorized2( local21,  local22, x10, y8, w7, h7, width7, origh6, (float) r6, (float) g6, (float) b6, 1f);
+              double r6 =  ( (red + 80) / 512f);
+              double g6 =  ( (green + 200) / 512f);
+              double b6 =  ( (blue + 80) / 512f);
+              DrawMod.DrawScaledColorized2( local21,  local22, x10, y8, w7, h7, width7, origh6,  r6,  g6,  b6, 1f);
               break;
           }
-          if ((double) this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing((object) BitmapStore.GetBitmap(sidewaysSpriteId)))
+          if ( this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing( BitmapStore.GetBitmap(sidewaysSpriteId)))
           {
              let mut local23: &Graphics = &Expression;
             bitmap = BitmapStore.GetBitmap(sidewaysSpriteId);
@@ -1458,7 +1458,7 @@ namespace WindowsApplication1
             let mut h8: i32 =  height;
             DrawMod.DrawScaled( local23,  local24, x11, y9, w8, h8);
           }
-          if ((double) this.game.Data.RuleVar[869] >= 1.0 & (double) this.game.Data.RuleVar[869] < 3.0)
+          if ( this.game.Data.RuleVar[869] >= 1.0 &  this.game.Data.RuleVar[869] < 3.0)
           {
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[index3].SidewaysSPriteID3[index4];
              let mut local25: &Graphics = &Expression;
@@ -1485,23 +1485,23 @@ namespace WindowsApplication1
           tstring: String = "PreReq: " + this.game.Data.ResearchObj[this.game.Data.ResearchObj[index1].PreReq2].Name;
           DrawMod.DrawTextVic2( Expression, tstring, this.game.VicFont2, 675, 465, Color.Black, Color.Transparent);
         }
-        tstring1: String = this.game.Data.ResearchObj[index1].CostType <= -1 ? Conversion.Str((object) Conversion.Int((float) this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] * this.game.Data.ResCostMod)) + "pp" : Conversion.Str((object) Conversion.Int((float) this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] * this.game.Data.ResCostMod)) + " " + this.game.Data.RegimeSlotName[this.game.Data.ResearchObj[index1].CostType];
+        tstring1: String = this.game.Data.ResearchObj[index1].CostType <= -1 ? Conversion.Str( Conversion.Int( this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] * this.game.Data.ResCostMod)) + "pp" : Conversion.Str( Conversion.Int( this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] * this.game.Data.ResCostMod)) + " " + this.game.Data.RegimeSlotName[this.game.Data.ResearchObj[index1].CostType];
         DrawMod.DrawTextVic2( Expression, tstring1, this.game.VicFont1, 670, 480, Color.Black, Color.Transparent);
         if (this.game.Data.ResearchObj[index1].CostType == -1)
         {
-          if (this.detailnr2 == -1 & this.detailnr3 == -1 & (double) Conversion.Int(this.game.Data.ResCostMod * (float) this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup]) <= (double) this.game.Data.RegimeObj[this.regnr].ResPts)
+          if (this.detailnr2 == -1 & this.detailnr3 == -1 &  Conversion.Int(this.game.Data.ResCostMod *  this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup]) <=  this.game.Data.RegimeObj[this.regnr].ResPts)
           {
             tsubpart =  new TextButtonPartClass("Buy", 100, "Buy selected researchfield",  this.OwnBitmap, 750, 635);
             this.B2Id = this.AddSubPart( tsubpart, 750, 635, 100, 35, 1);
           }
         }
-        else if (this.detailnr2 == -1 & this.detailnr3 == -1 & (double) Conversion.Int(this.game.Data.ResCostMod * (float) this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup]) <= (double) this.game.Data.RegimeObj[this.regnr].RegimeSlot[this.game.Data.ResearchObj[index1].CostType])
+        else if (this.detailnr2 == -1 & this.detailnr3 == -1 &  Conversion.Int(this.game.Data.ResCostMod *  this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup]) <=  this.game.Data.RegimeObj[this.regnr].RegimeSlot[this.game.Data.ResearchObj[index1].CostType])
         {
           tsubpart =  new TextButtonPartClass("Buy", 100, "Buy selected researchfield",  this.OwnBitmap, 750, 635);
           this.B2Id = this.AddSubPart( tsubpart, 750, 635, 100, 35, 1);
         }
         let mut num9: i32 =  0;
-        if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & this.game.Data.RegimeObj[this.game.Data.Turn].ResField[index1] & (double) this.game.Data.RuleVar[530] == 1.0 && this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] > -1)
+        if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true) & this.game.Data.RegimeObj[this.game.Data.Turn].ResField[index1] &  this.game.Data.RuleVar[530] == 1.0 && this.game.Data.ResearchObj[index1].PointCost[this.game.Data.PeopleObj[this.pplnr].PeopleGroup] > -1)
         {
           let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
           for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
@@ -1524,7 +1524,7 @@ namespace WindowsApplication1
         tsubpart =  new TextAreaClass(this.game, 280, 4, this.game.VicFont3, "", false, this.game.Data.ResearchObj[index1].Text, Color.Black, tbackbitmap: ( this.OwnBitmap), bbx: 665, bby: 510, tHideShade: true, tBlockScroller: true);
         this.Text4id = this.AddSubPart( tsubpart, 665, 510, 280, 80, 0);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -1558,7 +1558,7 @@ namespace WindowsApplication1
       let mut upperBound: i32 =  this.tempbmp.GetUpperBound(0);
       for (let mut index: i32 =  0; index <= upperBound; index += 1)
       {
-        if (!Information.IsNothing((object) this.tempbmp[index]))
+        if (!Information.IsNothing( this.tempbmp[index]))
         {
           this.tempbmp[index].Dispose();
           this.tempbmp[index] = (Bitmap) null;
@@ -1580,7 +1580,7 @@ namespace WindowsApplication1
           windowReturnClass.SetFlag(true);
           return windowReturnClass;
         }
-        let mut num: i32 =   Interaction.MsgBox((object) "Error. Cant have selected an Area X,Y already.");
+        let mut num: i32 =   Interaction.MsgBox( "Error. Cant have selected an Area X,Y already.");
         windowReturnClass.SetFlag(true);
         return windowReturnClass;
       }
@@ -1643,7 +1643,7 @@ namespace WindowsApplication1
       }
       if (t2 > 0)
       {
-        let mut num1: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) t2) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox( (Conversion.Str( t2) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
       }
       if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter > messCounter)
       {
@@ -1812,7 +1812,7 @@ label_71:
               }
               if (Number > 0)
               {
-                let mut num4: i32 =   Interaction.MsgBox((object) ("Automatically switched " + Conversion.Str((object) Number) + " production line(s)."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =   Interaction.MsgBox( ("Automatically switched " + Conversion.Str( Number) + " production line(s)."), Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.detailnr = -1;
               this.detailnr2 = -1;

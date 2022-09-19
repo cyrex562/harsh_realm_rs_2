@@ -9,14 +9,14 @@ namespace WindowsApplication1
   pub class HexHeightMapData
   {
     pub Coordinate[] neighbourCoord;
-    pub int[] neighbourHeight;
+    pub neighbourHeight: Vec<i32>;
     pub maxLowerHeight: i32;
-    pub int[] lineHeightLevel;
+    pub lineHeightLevel: Vec<i32>;
     pub maxLines: i32;
     pub cHeight: i32;
-    pub int[] HexRiverHeight;
+    pub HexRiverHeight: Vec<i32>;
     pub highestRiverHeight: i32;
-    pub int[] riverHeightApplied;
+    pub riverHeightApplied: Vec<i32>;
     pub seaHex: bool;
 
     pub HexHeightMapData( GameClass game, int cx, int cy, int cmap, bool forInteriorSea)

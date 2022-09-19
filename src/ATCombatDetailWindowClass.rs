@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -124,7 +124,7 @@ namespace WindowsApplication1
       }
       SizeF sizeF = SizeF::new();
       bool flag;
-      if ((double) this.game.Data.RuleVar[839] >= 1.0)
+      if ( this.game.Data.RuleVar[839] >= 1.0)
       {
         flag = true;
         this.NewBackGroundAndClearAll(1024, 768, -1);
@@ -155,7 +155,7 @@ namespace WindowsApplication1
             this.detailnr = index;
           if (this.detailnr == index)
             tlistselect1 = num1;
-          this.OptionsListObj.add("Round " + Strings.Trim(Conversion.Str((object) index)), index);
+          this.OptionsListObj.add("Round " + Strings.Trim(Conversion.Str( index)), index);
         }
         if (this.OptionsListId > 0)
         {
@@ -255,7 +255,7 @@ namespace WindowsApplication1
               tlistselect4 = num5;
             string tvalue;
             string tvalue2;
-            if (!Information.IsNothing((object) this.game.TempCombat.IList[tdata].IHistoricState))
+            if (!Information.IsNothing( this.game.TempCombat.IList[tdata].IHistoricState))
             {
               tvalue = this.game.TempCombat.IList[tdata].IHistoricState[this.detailnr];
               tvalue2 = this.game.TempCombat.IList[tdata].IHistoricState2[this.detailnr];
@@ -265,7 +265,7 @@ namespace WindowsApplication1
               tvalue = "";
               tvalue2 = "";
             }
-            this.OptionsList3Obj.add(Strings.Left(Strings.Trim(Conversion.Str((object) this.game.TempCombat.IList[tdata].IID)) + ") " + this.game.Data.SFTypeObj[this.game.TempCombat.IList[tdata].ISFType].Name, 30), tdata, tvalue, tvalue2);
+            this.OptionsList3Obj.add(Strings.Left(Strings.Trim(Conversion.Str( this.game.TempCombat.IList[tdata].IID)) + ") " + this.game.Data.SFTypeObj[this.game.TempCombat.IList[tdata].ISFType].Name, 30), tdata, tvalue, tvalue2);
           }
         }
         if (tlistselect4 == -1)
@@ -353,8 +353,8 @@ namespace WindowsApplication1
           let mut index2: i32 =  1;
           do
           {
-            if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index2, 0, index1]) && this.game.TempCombat.RepCom[index2, 0, index1].Length > 0 & (index2 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index2 - 1, 2, index1], this.game.TempCombat.RepCom[index2, 2, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index2, 0, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index2, 2, index1], "?", false) != 0)
-              this.OptionsList5Obj.add(this.game.TempCombat.RepCom[index2, 0, index1], -1, this.game.TempCombat.RepCom[index2, 1, index1], Conversions.ToString(Math.Round((double) Conversions.ToSingle(this.game.TempCombat.RepCom[index2, 2, index1]), 1)));
+            if (!Information.IsNothing( this.game.TempCombat.RepCom[index2, 0, index1]) && this.game.TempCombat.RepCom[index2, 0, index1].Length > 0 & (index2 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index2 - 1, 2, index1], this.game.TempCombat.RepCom[index2, 2, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index2, 0, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index2, 2, index1], "?", false) != 0)
+              this.OptionsList5Obj.add(this.game.TempCombat.RepCom[index2, 0, index1], -1, this.game.TempCombat.RepCom[index2, 1, index1], Conversions.ToString(Math.Round( Conversions.ToSingle(this.game.TempCombat.RepCom[index2, 2, index1]), 1)));
             index2 += 1;
           }
           while (index2 <= 30);
@@ -365,8 +365,8 @@ namespace WindowsApplication1
           let mut index3: i32 =  1;
           do
           {
-            if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index3, 3, index1]) & !Information.IsNothing((object) this.game.TempCombat.RepCom[index3, 5, index1]) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0 & this.game.TempCombat.RepCom[index3, 3, index1].Length > 0 & (index3 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index3 - 1, 5, index1], this.game.TempCombat.RepCom[index3, 5, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index3, 3, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0)
-              this.OptionsList6Obj.add(this.game.TempCombat.RepCom[index3, 3, index1], -1, this.game.TempCombat.RepCom[index3, 4, index1], Conversions.ToString(Math.Round((double) Conversions.ToSingle(this.game.TempCombat.RepCom[index3, 5, index1]), 1)));
+            if (!Information.IsNothing( this.game.TempCombat.RepCom[index3, 3, index1]) & !Information.IsNothing( this.game.TempCombat.RepCom[index3, 5, index1]) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0 & this.game.TempCombat.RepCom[index3, 3, index1].Length > 0 & (index3 == 1 | Operators.CompareString(this.game.TempCombat.RepCom[index3 - 1, 5, index1], this.game.TempCombat.RepCom[index3, 5, index1], false) != 0 | Operators.CompareString(this.game.TempCombat.RepCom[index3, 3, index1], "After mods", false) == 0) && Operators.CompareString(this.game.TempCombat.RepCom[index3, 5, index1], "?", false) != 0)
+              this.OptionsList6Obj.add(this.game.TempCombat.RepCom[index3, 3, index1], -1, this.game.TempCombat.RepCom[index3, 4, index1], Conversions.ToString(Math.Round( Conversions.ToSingle(this.game.TempCombat.RepCom[index3, 5, index1]), 1)));
             index3 += 1;
           }
           while (index3 <= 30);
@@ -380,7 +380,7 @@ namespace WindowsApplication1
           let mut index4: i32 =  1;
           do
           {
-            if (!Information.IsNothing((object) this.game.TempCombat.RepCom[index4, 0, index1]) && this.game.TempCombat.RepCom[index4, 0, index1].Length > 0)
+            if (!Information.IsNothing( this.game.TempCombat.RepCom[index4, 0, index1]) && this.game.TempCombat.RepCom[index4, 0, index1].Length > 0)
               this.OptionsList5Obj.add(this.game.TempCombat.RepCom[index4, 0, index1], -1, this.game.TempCombat.RepCom[index4, 1, index1]);
             index4 += 1;
           }
@@ -422,7 +422,7 @@ namespace WindowsApplication1
         tsubpart =  new TextButtonPartClass("Back", 100, tBackbitmap: (ref this.OwnBitmap), bbx: 460, bby: (this.Hn - 70));
         this.okid = this.AddSubPart(ref tsubpart, 460, this.Hn - 70, 100, 35, 1);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -547,7 +547,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.okid)
             {
-              if ((double) this.game.Data.RuleVar[839] == 1.0)
+              if ( this.game.Data.RuleVar[839] == 1.0)
               {
                 this.game.EditObj.PopupValue = 7;
                 windowReturnClass.AddCommand(5, 10);

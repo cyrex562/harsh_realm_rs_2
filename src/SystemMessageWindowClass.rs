@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -58,7 +58,7 @@ namespace WindowsApplication1
           str1 = "";
         }
         SizeF sizeF2 = graphics.MeasureString(str2, self.game.MarcFont4);
-        DrawMod.DrawTextColouredMarc( graphics, str2, self.game.MarcFont4,  Math.Round(300.0 - (double) sizeF2.Width / 2.0), 40 + num1 * 20, Color.White);
+        DrawMod.DrawTextColouredMarc( graphics, str2, self.game.MarcFont4,  Math.Round(300.0 -  sizeF2.Width / 2.0), 40 + num1 * 20, Color.White);
       }
       let mut tsubpart: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( self.OwnBitmap), bbx: 200, bby: 100, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
       self.cancelid = self.AddSubPart( tsubpart, 200, 100, 200, 36, 1);

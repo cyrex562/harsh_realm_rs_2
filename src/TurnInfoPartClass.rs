@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -55,18 +55,18 @@ namespace WindowsApplication1
         string str;
         if (self.game.Data.AlternateRound == -1)
         {
-          str = "Round " + Conversion.Str((object) self.game.Data.Round);
+          str = "Round " + Conversion.Str( self.game.Data.Round);
           if (self.game.Data.AlternateRound2 > 0)
           {
-            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays((double) (self.game.Data.StartData.Day - 1)).AddHours((double) self.game.Data.StartData.Hour);
+            DateTime dateTime = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays( (self.game.Data.StartData.Day - 1)).AddHours( self.game.Data.StartData.Hour);
             TimeSpan timeSpan = new TimeSpan(0, (self.game.Data.Round - 1) * self.game.Data.AlternateRound2, 0, 0);
             dateTime = dateTime.Add(timeSpan);
-            str = Strings.Trim(Conversion.Str((object) dateTime.Day)) + "-" + Strings.Trim(Conversion.Str((object) dateTime.Month)) + "-" + Strings.Trim(Conversion.Str((object) dateTime.Year)) + " " + Strings.Trim(Conversion.Str((object) dateTime.Hour)) + ":00";
+            str = Strings.Trim(Conversion.Str( dateTime.Day)) + "-" + Strings.Trim(Conversion.Str( dateTime.Month)) + "-" + Strings.Trim(Conversion.Str( dateTime.Year)) + " " + Strings.Trim(Conversion.Str( dateTime.Hour)) + ":00";
           }
         }
         else
         {
-          DateTime dateTime1 = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays((double) (self.game.Data.StartData.Day - 1));
+          DateTime dateTime1 = DateTime::new().AddYears(self.game.Data.StartData.Year - 1).AddMonths(self.game.Data.StartData.Month - 1).AddDays( (self.game.Data.StartData.Day - 1));
           DateTime dateTime2;
           if (self.game.Data.AlternateRound == 31)
           {
@@ -77,14 +77,14 @@ namespace WindowsApplication1
             TimeSpan timeSpan = new TimeSpan((self.game.Data.Round - 1) * self.game.Data.AlternateRound, 0, 0, 0);
             dateTime2 = dateTime1.Add(timeSpan);
           }
-          str = Strings.Trim(Conversion.Str((object) dateTime2.Day)) + "-" + Strings.Trim(Conversion.Str((object) dateTime2.Month)) + "-" + Strings.Trim(Conversion.Str((object) dateTime2.Year));
+          str = Strings.Trim(Conversion.Str( dateTime2.Day)) + "-" + Strings.Trim(Conversion.Str( dateTime2.Month)) + "-" + Strings.Trim(Conversion.Str( dateTime2.Year));
         }
         sizeF1 = Expression.MeasureString(str, Font::new("Times New Roman", 11f, FontStyle.Bold, GraphicsUnit.Pixel));
         DrawMod.DrawTextColoured( Expression, str, Font::new("Times New Roman", 11f, FontStyle.Bold, GraphicsUnit.Pixel), 10, 5, c);
         name: String = self.game.Data.RegimeObj[self.game.Data.Turn].Name;
         sizeF1 = Expression.MeasureString(name, Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel));
         DrawMod.DrawTextColoured( Expression, name, Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), 10, 25, c);
-        tstring: String = "PolPts: " + Strings.Trim(Conversion.Str((object) self.game.Data.RegimeObj[self.game.Data.Turn].ResPts));
+        tstring: String = "PolPts: " + Strings.Trim(Conversion.Str( self.game.Data.RegimeObj[self.game.Data.Turn].ResPts));
         DrawMod.DrawTextColoured( Expression, tstring, Font::new("Times New Roman", 11f, FontStyle.Bold, GraphicsUnit.Pixel), 120, 5, c);
       }
       else
@@ -92,9 +92,9 @@ namespace WindowsApplication1
         Color c = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         str: String = "Editor Mode";
         SizeF sizeF2 = Expression.MeasureString(str, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel));
-        DrawMod.DrawTextColoured( Expression, str, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(100.0 - (double) sizeF2.Width / 2.0), 5, c);
+        DrawMod.DrawTextColoured( Expression, str, Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(100.0 -  sizeF2.Width / 2.0), 5, c);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return self.OwnBitmap;
     }
@@ -106,7 +106,7 @@ namespace WindowsApplication1
       Bitmap bitmap = BitmapStore.GetBitmap(Conversions.ToInteger(self.OwnBitmapNr));
        let mut local2: &Bitmap = &bitmap;
       DrawMod.Draw( local1,  local2, 0, 0, 0.3f, 0.3f, 0.3f, 1f);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return self.OwnBitmap;
     }

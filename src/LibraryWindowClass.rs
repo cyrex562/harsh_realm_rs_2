@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -67,7 +67,7 @@ namespace WindowsApplication1
       let mut libraryCounter: i32 =  this.game.Data.LibraryCounter;
       for (let mut index: i32 =  0; index <= libraryCounter; index += 1)
       {
-        this.LibListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index);
+        this.LibListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibraryObj[index].name, index);
         if (this.LibId == index)
           tLibNr = index + 1;
       }
@@ -168,7 +168,7 @@ namespace WindowsApplication1
           if (this.game.Data.LibVarObj[index].libId.libSlot == this.LibId)
           {
             num2 += 1;
-            this.LibVarListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibVarObj[index].name, index);
+            this.LibVarListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibVarObj[index].name, index);
             if (this.LibVarId == index)
               num1 = num2;
           }
@@ -332,7 +332,7 @@ namespace WindowsApplication1
               if (this.LibId < 0)
                 return windowReturnClass;
               tinitdir: String = this.game.AppPath + "scenarios\\";
-              if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+              if (!Information.IsNothing( this.game.Data.ScenarioDir))
               {
                 if (this.game.Data.ScenarioDir.Length > 1)
                   tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -409,7 +409,7 @@ namespace WindowsApplication1
               this.game.HandyFunctionsObj.ZipFile(str);
               windowReturnClass.SetFlag(true);
               this.game.FormRef.Cursor = Cursors.Default;
-              let mut num6: i32 =   Interaction.MsgBox((object) "Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num6: i32 =   Interaction.MsgBox( "Saved", Title: ( "Shadow Empire : Planetary Conquest"));
             }
             else
             {
@@ -447,7 +447,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num8: i32 =   Interaction.MsgBox((object) "Value between 1-9999 please.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num8: i32 =   Interaction.MsgBox( "Value between 1-9999 please.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.MakeLibListGUI(this.LibId);
                 windowReturnClass.SetFlag(true);

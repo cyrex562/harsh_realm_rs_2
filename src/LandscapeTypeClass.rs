@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -19,35 +19,35 @@ namespace WindowsApplication1
     pub Name: String;
     pub BasicSpriteCounter: i32;
     pub string[] BasicSpriteFileName;
-    pub int[] BasicSpriteID;
+    pub BasicSpriteID: Vec<i32>;
     pub string[] BasicSpriteFileName2;
     pub string[] BasicSpriteFileName3;
-    pub int[] BasicSpriteID2;
-    pub int[] BasicSpriteID3;
-    pub int[] BasicSpriteRandom;
+    pub BasicSpriteID2: Vec<i32>;
+    pub BasicSpriteID3: Vec<i32>;
+    pub BasicSpriteRandom: Vec<i32>;
     pub string[] BasicPicFileName;
-    pub int[] BasicPicID;
-    pub bool[] PlotLast;
-    pub bool[] PlotBeforeRiver;
+    pub BasicPicID: Vec<i32>;
+    pub PlotLast: Vec<bool>;
+    pub PlotBeforeRiver: Vec<bool>;
     pub SheetFileName: String;
     pub SheetSpriteID: i32;
     pub UseSheet: bool;
     pub string[] SidewaysSpriteFileName1;
-    pub int[] SidewaysSPriteID1;
+    pub SidewaysSPriteID1: Vec<i32>;
     pub string[] SidewaysSpriteFileName2;
-    pub int[] SidewaysSPriteID2;
+    pub SidewaysSPriteID2: Vec<i32>;
     pub string[] SidewaysSpriteFileName3;
-    pub int[] SidewaysSPriteID3;
+    pub SidewaysSPriteID3: Vec<i32>;
     pub SpecialLayer: bool;
     pub SpecialLayer6: bool;
-    pub int[] LayerSpriteID;
+    pub LayerSpriteID: Vec<i32>;
     pub string[] LayerSpriteFileName;
     pub OverridesCount: i32;
-    pub int[] OverridesType;
+    pub OverridesType: Vec<i32>;
     pub OverridesZ: i32;
     pub OverridesCount2: i32;
-    pub int[] OverridesType2;
-    pub int[] MoveCost;
+    pub OverridesType2: Vec<i32>;
+    pub MoveCost: Vec<i32>;
     pub BuildGround: i32;
     pub IsSea: bool;
     pub float[] DefBonus;
@@ -56,7 +56,7 @@ namespace WindowsApplication1
     pub CanParadrop: bool;
     pub CanAmph: bool;
     pub float RoadCostModifier;
-    pub bool[] OverIsTop;
+    pub OverIsTop: Vec<bool>;
     pub HidePts: i32;
     pub PreHexPicFileName: String;
     pub PreHexPicID: i32;
@@ -105,40 +105,40 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (LandscapeTypeClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
+      info.AddValue("Name",  this.Name);
       info.AddValue("BasicSpriteCounter", this.BasicSpriteCounter);
-      info.AddValue("BasicSpriteFileName", (object) this.BasicSpriteFileName);
-      info.AddValue("BasicSpriteFileName2", (object) this.BasicSpriteFileName2);
-      info.AddValue("BasicSpriteFileName3", (object) this.BasicSpriteFileName3);
-      info.AddValue("BasicPicFileName", (object) this.BasicPicFileName);
+      info.AddValue("BasicSpriteFileName",  this.BasicSpriteFileName);
+      info.AddValue("BasicSpriteFileName2",  this.BasicSpriteFileName2);
+      info.AddValue("BasicSpriteFileName3",  this.BasicSpriteFileName3);
+      info.AddValue("BasicPicFileName",  this.BasicPicFileName);
       info.AddValue("SpecialLayer", this.SpecialLayer);
       info.AddValue("SpecialLayer6", this.SpecialLayer6);
-      info.AddValue("LayerSpriteFileName", (object) this.LayerSpriteFileName);
+      info.AddValue("LayerSpriteFileName",  this.LayerSpriteFileName);
       info.AddValue("OverridesCount", this.OverridesCount);
       info.AddValue("OverridesZ", this.OverridesZ);
-      info.AddValue("OverridesType", (object) this.OverridesType);
+      info.AddValue("OverridesType",  this.OverridesType);
       info.AddValue("OverridesCount2", this.OverridesCount2);
-      info.AddValue("OverridesType2", (object) this.OverridesType2);
-      info.AddValue("MoveCost", (object) this.MoveCost);
+      info.AddValue("OverridesType2",  this.OverridesType2);
+      info.AddValue("MoveCost",  this.MoveCost);
       info.AddValue("BuildGround", this.BuildGround);
-      info.AddValue("PlotLast", (object) this.PlotLast);
+      info.AddValue("PlotLast",  this.PlotLast);
       info.AddValue("IsSea", this.IsSea);
-      info.AddValue("DefBonus", (object) this.DefBonus);
-      info.AddValue("DefBonusMax", (object) this.DefBonusMax);
+      info.AddValue("DefBonus",  this.DefBonus);
+      info.AddValue("DefBonusMax",  this.DefBonusMax);
       info.AddValue("CanBuildRoad", this.CanBuildRoad);
       info.AddValue("HidePts", this.HidePts);
       info.AddValue("RoadCostModifier", this.RoadCostModifier);
-      info.AddValue("PreHexPicFileName", (object) this.PreHexPicFileName);
+      info.AddValue("PreHexPicFileName",  this.PreHexPicFileName);
       info.AddValue("AIBlock", this.AIBlock);
       info.AddValue("CanParadrop", this.CanParadrop);
-      info.AddValue("BasicSpriteRandom", (object) this.BasicSpriteRandom);
+      info.AddValue("BasicSpriteRandom",  this.BasicSpriteRandom);
       info.AddValue("CanAmph", this.CanAmph);
       info.AddValue("Red", this.Red);
       info.AddValue("Blue", this.Blue);
@@ -148,20 +148,20 @@ namespace WindowsApplication1
       info.AddValue("ExtraExteriorSame", this.ExtraExteriorSame);
       info.AddValue("BlackedOut", this.BlackedOut);
       info.AddValue("PreHexBorder", this.PreHexBorder);
-      info.AddValue("SidewaysSpriteFileName1", (object) this.SidewaysSpriteFileName1);
-      info.AddValue("SidewaysSpriteFileName2", (object) this.SidewaysSpriteFileName2);
-      info.AddValue("SidewaysSpriteFileName3", (object) this.SidewaysSpriteFileName3);
-      info.AddValue("Description", (object) this.Description);
-      info.AddValue("OverIsTop", (object) this.OverIsTop);
+      info.AddValue("SidewaysSpriteFileName1",  this.SidewaysSpriteFileName1);
+      info.AddValue("SidewaysSpriteFileName2",  this.SidewaysSpriteFileName2);
+      info.AddValue("SidewaysSpriteFileName3",  this.SidewaysSpriteFileName3);
+      info.AddValue("Description",  this.Description);
+      info.AddValue("OverIsTop",  this.OverIsTop);
       info.AddValue("DontShowInList", this.DontShowInList);
       info.AddValue("NavyOverride", this.NavyOverride);
       info.AddValue("AirOverride", this.AirOverride);
-      info.AddValue("SheetFileName", (object) this.SheetFileName);
+      info.AddValue("SheetFileName",  this.SheetFileName);
       info.AddValue("UseSheet", this.UseSheet);
       info.AddValue("Transparent", this.Transparent);
       info.AddValue("NoPortReq", this.NoPortReq);
-      info.AddValue("PlotBeforeRiver", (object) this.PlotBeforeRiver);
-      info.AddValue("PreHexTextureFileName", (object) this.PreHexTextureFileName);
+      info.AddValue("PlotBeforeRiver",  this.PlotBeforeRiver);
+      info.AddValue("PreHexTextureFileName",  this.PreHexTextureFileName);
       info.AddValue("UsePreHexTexture", this.UsePreHexTexture);
       info.AddValue("UsePreHexBorderTexture", this.UsePreHexBorderTexture);
       info.AddValue("UsePreHexBorderOwnZ", this.usePreHexBorderOwnZ);

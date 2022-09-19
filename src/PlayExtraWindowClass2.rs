@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -189,53 +189,53 @@ namespace WindowsApplication1
       {
         if (this.w >= 1840)
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1840) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1840) / 2.0), 0, 1280, this.h);
           this.ZoneBottomTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1840) / 2.0) + 1280, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1840) / 2.0) + 1280, 0, 280, this.h);
           this.QuickRegimeTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1840) / 2.0) + 1280 + 280, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1840) / 2.0) + 1280 + 280, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local1: &Graphics = &graphics;
           Bitmap bitmap1 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local2: &Bitmap = &bitmap1;
-          let mut x1: i32 =   Math.Round((double) (this.w - 1840) / 2.0) - 80;
+          let mut x1: i32 =   Math.Round( (this.w - 1840) / 2.0) - 80;
           DrawMod.DrawSimple( local1,  local2, x1, 0);
            let mut local3: &Graphics = &graphics;
           Bitmap bitmap2 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local4: &Bitmap = &bitmap2;
-          let mut x2: i32 =   Math.Round((double) (this.w - 1840) / 2.0) + 1840;
+          let mut x2: i32 =   Math.Round( (this.w - 1840) / 2.0) + 1840;
           DrawMod.DrawSimple( local3,  local4, x2, 0);
         }
         else if (this.w >= 1560)
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1560) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1560) / 2.0), 0, 1280, this.h);
           this.ZoneBottomTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1560) / 2.0) + 1280, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1560) / 2.0) + 1280, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local5: &Graphics = &graphics;
           Bitmap bitmap3 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local6: &Bitmap = &bitmap3;
-          let mut x3: i32 =   Math.Round((double) (this.w - 1560) / 2.0) - 80;
+          let mut x3: i32 =   Math.Round( (this.w - 1560) / 2.0) - 80;
           DrawMod.DrawSimple( local5,  local6, x3, 0);
            let mut local7: &Graphics = &graphics;
           Bitmap bitmap4 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local8: &Bitmap = &bitmap4;
-          let mut x4: i32 =   Math.Round((double) (this.w - 1560) / 2.0) + 1560;
+          let mut x4: i32 =   Math.Round( (this.w - 1560) / 2.0) + 1560;
           DrawMod.DrawSimple( local7,  local8, x4, 0);
         }
         else
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           this.ZoneBottomTab(graphics, useRect);
            let mut local9: &Graphics = &graphics;
           Bitmap bitmap5 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local10: &Bitmap = &bitmap5;
-          let mut x5: i32 =   Math.Round((double) (this.w - 1280) / 2.0) - 80;
+          let mut x5: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local9,  local10, x5, 0);
            let mut local11: &Graphics = &graphics;
           Bitmap bitmap6 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local12: &Bitmap = &bitmap6;
-          let mut x6: i32 =   Math.Round((double) (this.w - 1280) / 2.0) + 1280;
+          let mut x6: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local11,  local12, x6, 0);
         }
       }
@@ -246,54 +246,54 @@ namespace WindowsApplication1
         {
           let mut num: i32 =  (this.w - 732) % 156;
           let mut width: i32 =  this.w - (536 + num);
-          useRect = Rectangle::new(256 +  Math.Round((double) num / 2.0), 0, width, this.h);
+          useRect = Rectangle::new(256 +  Math.Round( num / 2.0), 0, width, this.h);
           this.UnitBottomTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) num / 2.0), 0, 256, this.h);
+          useRect = Rectangle::new( Math.Round( num / 2.0), 0, 256, this.h);
           this.OtherUnits(graphics, useRect);
-          useRect = Rectangle::new(256 +  Math.Round((double) num / 2.0) + width, 0, 280, this.h);
+          useRect = Rectangle::new(256 +  Math.Round( num / 2.0) + width, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local13: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local14: &Bitmap = &bitmap7;
-          let mut x7: i32 =   Math.Round((double) num / 2.0) - 80;
+          let mut x7: i32 =   Math.Round( num / 2.0) - 80;
           DrawMod.DrawSimple( local13,  local14, x7, 0);
            let mut local15: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local16: &Bitmap = &bitmap7;
-          let mut x8: i32 =  this.w -  Math.Round((double) num / 2.0);
+          let mut x8: i32 =  this.w -  Math.Round( num / 2.0);
           DrawMod.DrawSimple( local15,  local16, x8, 0);
         }
         else if (this.w >= 1536)
         {
           let mut num: i32 =  (this.w - 1536) % 156;
-          useRect = Rectangle::new(256 +  Math.Round((double) num / 2.0), 0, this.w - (256 + num), this.h);
+          useRect = Rectangle::new(256 +  Math.Round( num / 2.0), 0, this.w - (256 + num), this.h);
           this.UnitBottomTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) num / 2.0), 0, 256, this.h);
+          useRect = Rectangle::new( Math.Round( num / 2.0), 0, 256, this.h);
           this.OtherUnits(graphics, useRect);
            let mut local17: &Graphics = &graphics;
           Bitmap bitmap8 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local18: &Bitmap = &bitmap8;
-          let mut x9: i32 =   Math.Round((double) num / 2.0) - 80;
+          let mut x9: i32 =   Math.Round( num / 2.0) - 80;
           DrawMod.DrawSimple( local17,  local18, x9, 0);
            let mut local19: &Graphics = &graphics;
           Bitmap bitmap9 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local20: &Bitmap = &bitmap9;
-          let mut x10: i32 =  this.w -  Math.Round((double) num / 2.0);
+          let mut x10: i32 =  this.w -  Math.Round( num / 2.0);
           DrawMod.DrawSimple( local19,  local20, x10, 0);
         }
         else
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           this.UnitBottomTab(graphics, useRect);
            let mut local21: &Graphics = &graphics;
           Bitmap bitmap10 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local22: &Bitmap = &bitmap10;
-          let mut x11: i32 =   Math.Round((double) (this.w - 1280) / 2.0) - 80;
+          let mut x11: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local21,  local22, x11, 0);
            let mut local23: &Graphics = &graphics;
           Bitmap bitmap11 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local24: &Bitmap = &bitmap11;
-          let mut x12: i32 =   Math.Round((double) (this.w - 1280) / 2.0) + 1280;
+          let mut x12: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local23,  local24, x12, 0);
         }
       }
@@ -301,72 +301,72 @@ namespace WindowsApplication1
       {
         if (this.w >= 1434)
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1434) / 2.0), 0, 1434, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1434) / 2.0), 0, 1434, this.h);
           useRect.X = useRect.X + 280 + 154;
           useRect.Width -= 560;
           this.RegimeBottomTab(graphics, useRect);
           useRect.X -= 280;
           useRect.Width = 280;
           this.QuickRegimeTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1434) / 2.0) + 1154, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1434) / 2.0) + 1154, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1434) / 2.0), 0, 1434, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1434) / 2.0), 0, 1434, this.h);
           useRect.Width = 154;
           this.QuickFlagTab(graphics, useRect);
            let mut local25: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local26: &Bitmap = &bitmap7;
-          let mut x13: i32 =   Math.Round((double) (this.w - 1434) / 2.0) - 80;
+          let mut x13: i32 =   Math.Round( (this.w - 1434) / 2.0) - 80;
           DrawMod.DrawSimple( local25,  local26, x13, 0);
            let mut local27: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local28: &Bitmap = &bitmap7;
-          let mut x14: i32 =   Math.Round((double) (this.w - 1434) / 2.0) + 1434;
+          let mut x14: i32 =   Math.Round( (this.w - 1434) / 2.0) + 1434;
           DrawMod.DrawSimple( local27,  local28, x14, 0);
         }
         else if (this.w >= 1280)
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           useRect.X += 280;
           useRect.Width -= 560;
           this.RegimeBottomTab(graphics, useRect);
           useRect.X -= 280;
           useRect.Width = 280;
           this.QuickRegimeTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0) + 1000, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0) + 1000, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local29: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local30: &Bitmap = &bitmap7;
-          let mut x15: i32 =   Math.Round((double) (this.w - 1280) / 2.0) - 80;
+          let mut x15: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local29,  local30, x15, 0);
            let mut local31: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local32: &Bitmap = &bitmap7;
-          let mut x16: i32 =   Math.Round((double) (this.w - 1280) / 2.0) + 1280;
+          let mut x16: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local31,  local32, x16, 0);
         }
         else
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           useRect.X += 280;
           useRect.Width -= 560;
           this.RegimeBottomTab(graphics, useRect);
           useRect.X -= 280;
           useRect.Width = 280;
           this.QuickRegimeTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0) + 1000, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0) + 1000, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
           useRect.Width = 1280;
            let mut local33: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local34: &Bitmap = &bitmap7;
-          let mut x17: i32 =   Math.Round((double) (this.w - 1280) / 2.0) - 80;
+          let mut x17: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local33,  local34, x17, 0);
            let mut local35: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local36: &Bitmap = &bitmap7;
-          let mut x18: i32 =   Math.Round((double) (this.w - 1280) / 2.0) + 1280;
+          let mut x18: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local35,  local36, x18, 0);
         }
       }
@@ -375,50 +375,50 @@ namespace WindowsApplication1
         if (this.w >= 1536 & this.game.EditObj.maximumInterfaceSpace)
         {
           let mut num: i32 =  (this.w - 480) % 160;
-          useRect = Rectangle::new( Math.Round((double) num / 2.0), 0, this.w - (0 + num), this.h);
+          useRect = Rectangle::new( Math.Round( num / 2.0), 0, this.w - (0 + num), this.h);
           this.AssetBottomTab(graphics, useRect);
            let mut local37: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local38: &Bitmap = &bitmap7;
-          let mut x19: i32 =   Math.Round((double) num / 2.0) - 80;
+          let mut x19: i32 =   Math.Round( num / 2.0) - 80;
           DrawMod.DrawSimple( local37,  local38, x19, 0);
            let mut local39: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local40: &Bitmap = &bitmap7;
-          let mut x20: i32 =  this.w -  Math.Round((double) num / 2.0);
+          let mut x20: i32 =  this.w -  Math.Round( num / 2.0);
           DrawMod.DrawSimple( local39,  local40, x20, 0);
         }
         else if (this.w >= 1536)
         {
           let mut num: i32 =  (this.w - 760) % 160;
-          useRect = Rectangle::new( Math.Round((double) num / 2.0), 0, this.w - (280 + num), this.h);
+          useRect = Rectangle::new( Math.Round( num / 2.0), 0, this.w - (280 + num), this.h);
           this.AssetBottomTab(graphics, useRect);
-          useRect = Rectangle::new(this.w - 280 -  Math.Round((double) num / 2.0), 0, 280, this.h);
+          useRect = Rectangle::new(this.w - 280 -  Math.Round( num / 2.0), 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local41: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local42: &Bitmap = &bitmap7;
-          let mut x21: i32 =   Math.Round((double) num / 2.0) - 80;
+          let mut x21: i32 =   Math.Round( num / 2.0) - 80;
           DrawMod.DrawSimple( local41,  local42, x21, 0);
            let mut local43: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local44: &Bitmap = &bitmap7;
-          let mut x22: i32 =  this.w -  Math.Round((double) num / 2.0);
+          let mut x22: i32 =  this.w -  Math.Round( num / 2.0);
           DrawMod.DrawSimple( local43,  local44, x22, 0);
         }
         else
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           this.AssetBottomTab(graphics, useRect);
            let mut local45: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local46: &Bitmap = &bitmap7;
-          let mut x23: i32 =   Math.Round((double) (this.w - 1280) / 2.0) - 80;
+          let mut x23: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local45,  local46, x23, 0);
            let mut local47: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local48: &Bitmap = &bitmap7;
-          let mut x24: i32 =   Math.Round((double) (this.w - 1280) / 2.0) + 1280;
+          let mut x24: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local47,  local48, x24, 0);
         }
       }
@@ -426,57 +426,57 @@ namespace WindowsApplication1
       {
         if (this.w >= 1840)
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1840) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1840) / 2.0), 0, 1280, this.h);
           this.ItemBottomTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1840) / 2.0) + 1280, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1840) / 2.0) + 1280, 0, 280, this.h);
           this.QuickRegimeTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1840) / 2.0) + 1280 + 280, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1840) / 2.0) + 1280 + 280, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local49: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local50: &Bitmap = &bitmap7;
-          let mut x25: i32 =   Math.Round((double) (this.w - 1840) / 2.0) - 80;
+          let mut x25: i32 =   Math.Round( (this.w - 1840) / 2.0) - 80;
           DrawMod.DrawSimple( local49,  local50, x25, 0);
            let mut local51: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local52: &Bitmap = &bitmap7;
-          let mut x26: i32 =   Math.Round((double) (this.w - 1840) / 2.0) + 1840;
+          let mut x26: i32 =   Math.Round( (this.w - 1840) / 2.0) + 1840;
           DrawMod.DrawSimple( local51,  local52, x26, 0);
         }
         else if (this.w >= 1560)
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1560) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1560) / 2.0), 0, 1280, this.h);
           this.ItemBottomTab(graphics, useRect);
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1560) / 2.0) + 1280, 0, 280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1560) / 2.0) + 1280, 0, 280, this.h);
           this.QuickHexTab(graphics, useRect);
            let mut local53: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local54: &Bitmap = &bitmap7;
-          let mut x27: i32 =   Math.Round((double) (this.w - 1560) / 2.0) - 80;
+          let mut x27: i32 =   Math.Round( (this.w - 1560) / 2.0) - 80;
           DrawMod.DrawSimple( local53,  local54, x27, 0);
            let mut local55: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local56: &Bitmap = &bitmap7;
-          let mut x28: i32 =   Math.Round((double) (this.w - 1560) / 2.0) + 1560;
+          let mut x28: i32 =   Math.Round( (this.w - 1560) / 2.0) + 1560;
           DrawMod.DrawSimple( local55,  local56, x28, 0);
         }
         else
         {
-          useRect = Rectangle::new( Math.Round((double) (this.w - 1280) / 2.0), 0, 1280, this.h);
+          useRect = Rectangle::new( Math.Round( (this.w - 1280) / 2.0), 0, 1280, this.h);
           this.ItemBottomTab(graphics, useRect);
            let mut local57: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALLEFT);
            let mut local58: &Bitmap = &bitmap7;
-          let mut x29: i32 =   Math.Round((double) (this.w - 1280) / 2.0) - 80;
+          let mut x29: i32 =   Math.Round( (this.w - 1280) / 2.0) - 80;
           DrawMod.DrawSimple( local57,  local58, x29, 0);
            let mut local59: &Graphics = &graphics;
           bitmap7 = BitmapStore.GetBitmap(this.game.SE1_BOTTOMORNAMENTALRIGHT);
            let mut local60: &Bitmap = &bitmap7;
-          let mut x30: i32 =   Math.Round((double) (this.w - 1280) / 2.0) + 1280;
+          let mut x30: i32 =   Math.Round( (this.w - 1280) / 2.0) + 1280;
           DrawMod.DrawSimple( local59,  local60, x30, 0);
         }
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;
@@ -577,9 +577,9 @@ namespace WindowsApplication1
       let mut x5: i32 =  x4 + 68;
       if (num1 < 0)
         num1 = 0;
-      dataText1: String = Math.Round((double) num1 / 1000.0, 1).ToString() + "k";
+      dataText1: String = Math.Round( num1 / 1000.0, 1).ToString() + "k";
       if (num1 >= 100000)
-        dataText1 = Math.Round((double) num1 / 1000.0, 0).ToString() + "k";
+        dataText1 = Math.Round( num1 / 1000.0, 0).ToString() + "k";
       if (num1 == 0)
         dataText1 = "0";
       this.DrawVarBox2(g, x5, y3, "Scav", dataText1, "Amount of Scavenge Points left in Hex.");
@@ -590,7 +590,7 @@ namespace WindowsApplication1
       dataText2: String = integer.ToString();
       let mut hidePts: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType].HidePts;
       str3: String = "Current Recon Points on the selected Hex." + "\r\n";
-      let mut num4: i32 =   Math.Round((double) this.game.Data.RuleVar[55]);
+      let mut num4: i32 =   Math.Round( this.game.Data.RuleVar[55]);
       str4: String = str3 + "Minimum recon for unit info: " + num4.ToString();
       int num5;
       if (hidePts > 0)
@@ -601,7 +601,7 @@ namespace WindowsApplication1
         str4 = str5 + " (" + str6 + " for this hex)";
       }
       str7: String = str4 + "." + "\r\n";
-      num4 =  Math.Round((double) this.game.Data.RuleVar[56]);
+      num4 =  Math.Round( this.game.Data.RuleVar[56]);
       str8: String = str7 + "Minimum recon for full unit info: " + num4.ToString();
       if (hidePts > 0)
       {
@@ -616,7 +616,7 @@ namespace WindowsApplication1
       mouseOver1: String = str11 + "Your ZOC points on hex: " + str12 + ".";
       this.DrawVarBox2(g, x6, y4, "Recon", dataText2, mouseOver1);
       let mut x7: i32 =  x6 + 68;
-      str13: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetHexStackPts(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected)));
+      str13: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetHexStackPts(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected)));
       if (this.game.Data.FOWOn)
       {
         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime, this.game.Data.Turn))
@@ -636,7 +636,7 @@ namespace WindowsApplication1
         if (num6 > 0)
           str13 = num6.ToString();
       }
-      this.DrawVarBox2(g, x7, y4, "Stack", str13, "How much stack points are in this hex.\r\nAbove " + Strings.Trim(Conversion.Str((object) this.game.Data.RuleVar[30])) + " points the hex becomes overstacked.");
+      this.DrawVarBox2(g, x7, y4, "Stack", str13, "How much stack points are in this hex.\r\nAbove " + Strings.Trim(Conversion.Str( this.game.Data.RuleVar[30])) + " points the hex becomes overstacked.");
       let mut x8: i32 =  x7 + 68;
       let mut num7: i32 =  0;
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
@@ -644,7 +644,7 @@ namespace WindowsApplication1
       {
         let mut num8: i32 =  0;
         if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.EditObj.RealTurn, index2) && this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ZocPts(index2) > 0 && this.game.HandyFunctionsObj.VisibleEnemyUnitsInOrAroundHEx(this.game.SelectX, this.game.SelectY, 0, this.game.EditObj.RealTurn))
-          num8 =  Math.Round((double) ((float) num8 + this.game.Data.RuleVar[323]));
+          num8 =  Math.Round( ( num8 + this.game.Data.RuleVar[323]));
         if (num8 > num7)
           num7 = num8;
       }
@@ -942,9 +942,9 @@ namespace WindowsApplication1
       let mut num6: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "voteLast", 2)));
       let mut num7: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "votePeriod", 2)));
       int index2;
-      let mut num8: i32 =   Math.Round(Conversion.Val((object) this.game.Data.StringListObj[index2].FindRow2(1, 11, 0, id1)));
-      let mut num9: i32 =   Math.Round(Conversion.Val((object) this.game.Data.StringListObj[index2].FindRow2(1, 28, 0, id1)));
-      let mut num10: i32 =   Math.Round(Conversion.Val((object) this.game.Data.StringListObj[index2].FindRow2(1, 29, 0, id1)));
+      let mut num8: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[index2].FindRow2(1, 11, 0, id1)));
+      let mut num9: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[index2].FindRow2(1, 28, 0, id1)));
+      let mut num10: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[index2].FindRow2(1, 29, 0, id1)));
       if (num8 > -1)
         ;
       if (num9 > -1)
@@ -1233,9 +1233,9 @@ namespace WindowsApplication1
         {
           str8: String = "YOUR REGIME";
           SizeF sizeF = g.MeasureString(str8, DrawMod.TGame.MarcFont16);
-          let mut x13: i32 =   Math.Round((double) ((float) useRect.X + (float) ((174.0 - (double) sizeF.Width) / 2.0))) + 89;
+          let mut x13: i32 =   Math.Round( ( useRect.X +  ((174.0 -  sizeF.Width) / 2.0))) + 89;
           let mut num28: i32 =  82;
-          DrawMod.DrawBlock( g, x13 - 4, num28 + 2,  Math.Round((double) (sizeF.Width + 8f)), 22, 150, 150, 150,  byte.MaxValue);
+          DrawMod.DrawBlock( g, x13 - 4, num28 + 2,  Math.Round( (sizeF.Width + 8f)), 22, 150, 150, 150,  byte.MaxValue);
           DrawMod.DrawTextColouredConsole( g, str8, DrawMod.TGame.MarcFont16, x13, num28 + 4, DrawMod.TGame.seColWhite);
         }
         else
@@ -1246,15 +1246,15 @@ namespace WindowsApplication1
           let mut num29: i32 =  0;
           if (num11 > 0 & index1 != this.game.Data.Turn & num12 <= 2)
             num29 = 69;
-          let mut x14: i32 =   Math.Round((double) ((float) useRect.X + (float) ((189.0 - ((double) sizeF1.Width + 10.0 + (double) sizeF2.Width + (double) num29)) / 2.0))) + 89;
+          let mut x14: i32 =   Math.Round( ( useRect.X +  ((189.0 - ( sizeF1.Width + 10.0 +  sizeF2.Width +  num29)) / 2.0))) + 89;
           let mut num30: i32 =  82;
-          DrawMod.DrawBlock( g, x14 - 4, num30 + 2,  Math.Round((double) (sizeF1.Width + 8f)), 22, 0, 0, 0,  byte.MaxValue);
+          DrawMod.DrawBlock( g, x14 - 4, num30 + 2,  Math.Round( (sizeF1.Width + 8f)), 22, 0, 0, 0,  byte.MaxValue);
           DrawMod.DrawTextColouredConsole( g, num13.ToString(), DrawMod.TGame.MarcFont16, x14, num30 + 4, DrawMod.TGame.seColWhite);
-          DrawMod.DrawBlock( g,  Math.Round((double) ((float) (x14 + 6) + sizeF1.Width)), num30 + 2,  Math.Round((double) (sizeF2.Width + 8f)), 22,  color.R,  color.G,  color.B,  color.A);
-          DrawMod.DrawTextColouredConsole( g, str1.ToString(), DrawMod.TGame.MarcFont16,  Math.Round((double) x14 + (double) sizeF1.Width + 10.0), num30 + 4, DrawMod.TGame.seColWhite);
+          DrawMod.DrawBlock( g,  Math.Round( ( (x14 + 6) + sizeF1.Width)), num30 + 2,  Math.Round( (sizeF2.Width + 8f)), 22,  color.R,  color.G,  color.B,  color.A);
+          DrawMod.DrawTextColouredConsole( g, str1.ToString(), DrawMod.TGame.MarcFont16,  Math.Round( x14 +  sizeF1.Width + 10.0), num30 + 4, DrawMod.TGame.seColWhite);
           if (num11 > 0 & index1 != this.game.Data.Turn & num12 <= 2)
           {
-            let mut num31: i32 =   Math.Round((double) ((float) ((double) (x14 + 6) + (double) sizeF1.Width + 9.0) + sizeF2.Width));
+            let mut num31: i32 =   Math.Round( ( ( (x14 + 6) +  sizeF1.Width + 9.0) + sizeF2.Width));
             this += 1.regButtonCounter;
             int[] regButton = this.regButton;
             let mut regButtonCounter: i32 =  this.regButtonCounter;
@@ -1308,10 +1308,10 @@ namespace WindowsApplication1
       let mut y3: i32 =  num2;
       let mut w1: i32 =  num3;
       let mut h1: i32 =  num4;
-      double r1 = (double) ((float) this.game.Data.RegimeObj[index].Red / (float) byte.MaxValue);
-      double g1 = (double) ((float) this.game.Data.RegimeObj[index].Green / (float) byte.MaxValue);
-      double b1 = (double) ((float) this.game.Data.RegimeObj[index].Blue / (float) byte.MaxValue);
-      DrawMod.DrawScaledColorized2( local3,  local4, x3, y3, w1, h1, 124, 210, (float) r1, (float) g1, (float) b1, 1f);
+      double r1 =  ( this.game.Data.RegimeObj[index].Red /  byte.MaxValue);
+      double g1 =  ( this.game.Data.RegimeObj[index].Green /  byte.MaxValue);
+      double b1 =  ( this.game.Data.RegimeObj[index].Blue /  byte.MaxValue);
+      DrawMod.DrawScaledColorized2( local3,  local4, x3, y3, w1, h1, 124, 210,  r1,  g1,  b1, 1f);
       let mut bannerSpriteNr2: i32 =  this.game.Data.RegimeObj[index].BannerSpriteNr2;
       Bitmap bitmap3;
       if (bannerSpriteNr2 > 0)
@@ -1323,10 +1323,10 @@ namespace WindowsApplication1
         let mut y4: i32 =  num2;
         let mut w2: i32 =  num3;
         let mut h2: i32 =  num4;
-        double r2 = (double) ((float) this.game.Data.RegimeObj[index].Red2 / (float) byte.MaxValue);
-        double g2 = (double) ((float) this.game.Data.RegimeObj[index].Green2 / (float) byte.MaxValue);
-        double b2 = (double) ((float) this.game.Data.RegimeObj[index].Blue2 / (float) byte.MaxValue);
-        DrawMod.DrawScaledColorized2( local5,  local6, x4, y4, w2, h2, 124, 210, (float) r2, (float) g2, (float) b2, 1f);
+        double r2 =  ( this.game.Data.RegimeObj[index].Red2 /  byte.MaxValue);
+        double g2 =  ( this.game.Data.RegimeObj[index].Green2 /  byte.MaxValue);
+        double b2 =  ( this.game.Data.RegimeObj[index].Blue2 /  byte.MaxValue);
+        DrawMod.DrawScaledColorized2( local5,  local6, x4, y4, w2, h2, 124, 210,  r2,  g2,  b2, 1f);
       }
       let mut symbolSpriteNr: i32 =  this.game.Data.RegimeObj[index].SymbolSpriteNr;
       if (symbolSpriteNr <= 0)
@@ -1336,10 +1336,10 @@ namespace WindowsApplication1
        let mut local8: &Bitmap = &bitmap3;
       let mut x5: i32 =  num1 + 44;
       let mut y5: i32 =  num2 + 45;
-      double r3 = (double) ((float) this.game.Data.RegimeObj[index].Red3 / (float) byte.MaxValue) - 1.0;
-      double g3 = (double) ((float) this.game.Data.RegimeObj[index].Green3 / (float) byte.MaxValue) - 1.0;
-      double b3 = (double) ((float) this.game.Data.RegimeObj[index].Blue3 / (float) byte.MaxValue) - 1.0;
-      DrawMod.Draw( local7,  local8, x5, y5, (float) r3, (float) g3, (float) b3, 0.95f);
+      double r3 =  ( this.game.Data.RegimeObj[index].Red3 /  byte.MaxValue) - 1.0;
+      double g3 =  ( this.game.Data.RegimeObj[index].Green3 /  byte.MaxValue) - 1.0;
+      double b3 =  ( this.game.Data.RegimeObj[index].Blue3 /  byte.MaxValue) - 1.0;
+      DrawMod.Draw( local7,  local8, x5, y5,  r3,  g3,  b3, 0.95f);
     }
 
     pub void DrawItemBox(
@@ -1475,7 +1475,7 @@ namespace WindowsApplication1
             str1 = "OUT";
           if (num7 == 4)
             str1 = "STOCK";
-          DrawMod.DrawTextColouredConsoleCenterEmbossed( g, str1, this.game.MarcFont16, num1 + num3 * num6 + num4 * num7 +  Math.Round((double) num4 / 2.0), num2 + 10, Color.FromArgb(215, 70, 70, 70));
+          DrawMod.DrawTextColouredConsoleCenterEmbossed( g, str1, this.game.MarcFont16, num1 + num3 * num6 + num4 * num7 +  Math.Round( num4 / 2.0), num2 + 10, Color.FromArgb(215, 70, 70, 70));
           let mut num8: i32 =  0;
           do
           {
@@ -1710,7 +1710,7 @@ namespace WindowsApplication1
           str1 = num34.ToString();
           if (num34 > 999)
           {
-            num35 = Math.Round((double) num34 / 1000.0, 1);
+            num35 = Math.Round( num34 / 1000.0, 1);
             str1 = num35.ToString() + "k";
           }
           num36 = this.game.EventRelatedObj.GetEventPicSlotFor(num18, "", "");
@@ -1745,7 +1745,7 @@ namespace WindowsApplication1
           str3: String = num34.ToString();
           if (num34 > 999)
           {
-            num35 = Math.Round((double) num34 / 1000.0, 1);
+            num35 = Math.Round( num34 / 1000.0, 1);
             str3 = num35.ToString() + "k";
           }
           if (num21 > 0)
@@ -1849,7 +1849,7 @@ namespace WindowsApplication1
           str7: String = num34.ToString();
           if (num34 > 999)
           {
-            num35 = Math.Round((double) num34 / 1000.0, 1);
+            num35 = Math.Round( num34 / 1000.0, 1);
             str7 = num35.ToString() + "k";
           }
           if (num23 > 0)
@@ -1919,7 +1919,7 @@ namespace WindowsApplication1
           str1 = num34.ToString();
           if (num34 > 999)
           {
-            num35 = Math.Round((double) num34 / 1000.0, 1);
+            num35 = Math.Round( num34 / 1000.0, 1);
             str1 = num35.ToString() + "k";
           }
           let mut eventPicSlotFor: i32 =  this.game.EventRelatedObj.GetEventPicSlotFor(num18, "", "");
@@ -1948,7 +1948,7 @@ namespace WindowsApplication1
         num24 = 0;
         let mut num73: i32 =  0;
         let mut num74: i32 =  0;
-        if (Information.IsNothing((object) this.game.Data.LocObj[index2].items))
+        if (Information.IsNothing( this.game.Data.LocObj[index2].items))
           this.game.Data.LocObj[index2].items = ItemList::new();
         let mut weight: i32 =  this.game.Data.LocObj[index2].items.list.FindWeight(num18);
         let mut num75: i32 =  0;
@@ -1986,7 +1986,7 @@ namespace WindowsApplication1
             str6 = num34.ToString();
             if (num34 > 999)
             {
-              num35 = Math.Round((double) num34 / 1000.0, 1);
+              num35 = Math.Round( num34 / 1000.0, 1);
               str6 = num35.ToString() + "k ";
             }
             str1 = "Items lost due to exceeding the maximum stockage capacity of the zone";
@@ -1999,7 +1999,7 @@ namespace WindowsApplication1
           str10: String = num34.ToString();
           if (num34 > 999)
           {
-            num35 = Math.Round((double) num34 / 1000.0, 1);
+            num35 = Math.Round( num34 / 1000.0, 1);
             str10 = num35.ToString() + "k";
           }
           num36 = this.game.Data.FindEventPic("", 23, "SE_Present");
@@ -2016,7 +2016,7 @@ namespace WindowsApplication1
           str6 = num34.ToString();
           if (num34 > 999)
           {
-            num35 = Math.Round((double) num34 / 1000.0, 1);
+            num35 = Math.Round( num34 / 1000.0, 1);
             str6 = num35.ToString() + "k";
           }
           num36 = this.game.Data.FindEventPic("", 22, "SE_Present");
@@ -2042,7 +2042,7 @@ namespace WindowsApplication1
           str1 = num34.ToString();
           if (num34 > 999)
           {
-            num35 = Math.Round((double) num34 / 1000.0, 1);
+            num35 = Math.Round( num34 / 1000.0, 1);
             str1 = num35.ToString() + "k";
           }
           let mut eventPicSlotFor: i32 =  this.game.EventRelatedObj.GetEventPicSlotFor(num18, "", "");
@@ -2146,9 +2146,9 @@ namespace WindowsApplication1
       let mut num5: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "voteLeader", 2)));
       let mut num6: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "voteLast", 2)));
       let mut num7: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById3].GetData2(0, id1, 1, "votePeriod", 2)));
-      let mut num8: i32 =   Math.Round(Conversion.Val((object) this.game.Data.StringListObj[stringListById10].FindRow2(1, 11, 0, id1)));
-      let mut num9: i32 =   Math.Round(Conversion.Val((object) this.game.Data.StringListObj[stringListById10].FindRow2(1, 28, 0, id1)));
-      let mut num10: i32 =   Math.Round(Conversion.Val((object) this.game.Data.StringListObj[stringListById10].FindRow2(1, 29, 0, id1)));
+      let mut num8: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[stringListById10].FindRow2(1, 11, 0, id1)));
+      let mut num9: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[stringListById10].FindRow2(1, 28, 0, id1)));
+      let mut num10: i32 =   Math.Round(Conversion.Val( this.game.Data.StringListObj[stringListById10].FindRow2(1, 29, 0, id1)));
       bool flag1;
       if (num8 > -1)
         flag1 = true;
@@ -2659,7 +2659,7 @@ namespace WindowsApplication1
       else if (num10 >= 9000000 & num10 < 15000000)
       {
         let mut num12: i32 =  num10 - 9000000;
-        let mut num13: i32 =   Math.Round(Math.Floor((double) num12 / 1000.0));
+        let mut num13: i32 =   Math.Round(Math.Floor( num12 / 1000.0));
         let mut num14: i32 =  num12 - num13 * 1000;
         x4 = num13;
         y3 = num14;
@@ -2677,7 +2677,7 @@ namespace WindowsApplication1
       else if (num10 >= 15000000 & num10 < 16000000)
       {
         let mut num15: i32 =  num10 - 15000000;
-        let mut num16: i32 =   Math.Round(Math.Floor((double) num15 / 1000.0));
+        let mut num16: i32 =   Math.Round(Math.Floor( num15 / 1000.0));
         let mut num17: i32 =  num15 - num16 * 1000;
         x4 = num16;
         y3 = num17;
@@ -2758,11 +2758,11 @@ namespace WindowsApplication1
               }
             }
             if (num28 > 0)
-              num27 =  Math.Round((double) (num27 * num21) / (double) num28);
+              num27 =  Math.Round( (num27 * num21) /  num28);
             let mut num29: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById10].GetData2(0, num3, 1, "government", 2)));
-            let mut num30: i32 =  num27 -  Math.Round((double) (num27 * num29) / 100.0);
-            if (num30 >  Math.Round((double) num25 * 0.7))
-              num30 =  Math.Round((double) num25 * 0.7);
+            let mut num30: i32 =  num27 -  Math.Round( (num27 * num29) / 100.0);
+            if (num30 >  Math.Round( num25 * 0.7))
+              num30 =  Math.Round( num25 * 0.7);
             let mut setValue2: i32 =  num25 - num30;
             num20 = num26 - setValue2;
             this.game.Data.StringListObj[stringListById6].SetData2(0, integer1, 1, "popHapiness", 2, setValue2, true);
@@ -2784,7 +2784,7 @@ namespace WindowsApplication1
           let mut counter1: i32 =  SL.Counter;
           for (let mut index7: i32 =  0; index7 <= counter1; index7 += 1)
           {
-            SL.Weight[index7] =  Math.Round((double) (SL.Weight[index7] * num23) / 3.0);
+            SL.Weight[index7] =  Math.Round( (SL.Weight[index7] * num23) / 3.0);
             if (SL.Id[index7] == 8)
               SL.Weight[index7] = 0;
             if (SL.Weight[index7] > 0)
@@ -2818,7 +2818,7 @@ namespace WindowsApplication1
           {
             if (num31 < 1)
               num31 = 500;
-            let mut num34: i32 =   Math.Round((double) num31 / 3.0);
+            let mut num34: i32 =   Math.Round( num31 / 3.0);
             let mut setValue3: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[stringListById6].GetData2(0, integer1, 1, "popCredits", 2)) + num34;
             this.game.Data.StringListObj[stringListById6].SetData2(0, integer1, 1, "popCredits", 2, setValue3, true);
             this.orderfeedbackString = this.orderfeedbackString + "Disbanding resulted in recovery of " + num34.ToString() + " Private Credits.";
@@ -2856,7 +2856,7 @@ namespace WindowsApplication1
           let mut num40: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById8].GetData(0, num39, 2)));
           let mut num41: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById11].GetData3(0, idValue4, 1, 3, 2, "credits", 3)));
           let mut setValue5: i32 =  num9 - num41;
-          let mut num42: i32 =   Math.Round((double) num41 / 2.0);
+          let mut num42: i32 =   Math.Round( num41 / 2.0);
           this.game.Data.StringListObj[stringListById10].SetData2(0, num3, 1, "credits", 2, setValue5);
           let mut setValue6: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData2(0, integer1, 1, "popCredits", 2))) + num42;
           let mut num43: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById6].GetData2(0, integer1, 1, "popHapiness", 2)));
@@ -2874,11 +2874,11 @@ namespace WindowsApplication1
             }
           }
           if (num45 > 0)
-            num44 =  Math.Round((double) (num44 * num40) / (double) num45);
+            num44 =  Math.Round( (num44 * num40) /  num45);
           let mut num46: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById10].GetData2(0, num3, 1, "government", 2)));
-          let mut num47: i32 =  num44 -  Math.Round((double) (num44 * num46) / 100.0);
-          if (num47 >  Math.Round((double) num43 * 0.7))
-            num47 =  Math.Round((double) num43 * 0.7);
+          let mut num47: i32 =  num44 -  Math.Round( (num44 * num46) / 100.0);
+          if (num47 >  Math.Round( num43 * 0.7))
+            num47 =  Math.Round( num43 * 0.7);
           let mut setValue7: i32 =  num43 - num47;
           num20 -= setValue7;
           this.game.Data.StringListObj[stringListById6].SetData2(0, integer1, 1, "popCredits", 2, setValue6, true);
@@ -2903,7 +2903,7 @@ namespace WindowsApplication1
               if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index12, 0])) == num10 &&  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index12, 1])) == 1)
               {
                 let mut tid: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index12, 2]));
-                let mut tweight: i32 =   Math.Round((double)  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index12, 3])) / 2.0);
+                let mut tweight: i32 =   Math.Round(  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index12, 3])) / 2.0);
                 if (tweight > 0)
                   simpleList.AddWeight(tid, tweight);
               }
@@ -3175,11 +3175,11 @@ namespace WindowsApplication1
       }
       while (num65 >= 0);
       let mut num72: i32 =  0;
-      let mut num73: i32 =   Math.Round(Math.Floor((double) simpleList1.Counter / (double) int32)) + 1;
+      let mut num73: i32 =   Math.Round(Math.Floor( simpleList1.Counter /  int32)) + 1;
       int num74;
       if (num64 > -1)
       {
-        num72 =  Math.Round(Math.Floor((double) (num64 - 1) / (double) int32));
+        num72 =  Math.Round(Math.Floor( (num64 - 1) /  int32));
         num74 = num72 * int32 + 1;
       }
       else
@@ -3203,7 +3203,7 @@ namespace WindowsApplication1
         num75 = 8;
       let mut x7: i32 =  useRect.X + useRect.Width - 156;
       let mut num76: i32 =  5;
-      let mut num77: i32 =   Math.Round(Math.Floor(200.0 / (double) num75)) - 4;
+      let mut num77: i32 =   Math.Round(Math.Floor(200.0 /  num75)) - 4;
       let mut num78: i32 =  1;
       if (num75 < num73)
       {
@@ -3443,7 +3443,7 @@ namespace WindowsApplication1
                   y14 = y15 + 20;
                   if (index2 == this.game.Data.Turn)
                   {
-                    Left: String = ((float) Math.Round((double) ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].Data[index23, 7])) * 100 -  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].Data[index23, 12]))) / 100.0, 1)).ToString();
+                    Left: String = ( Math.Round( ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].Data[index23, 7])) * 100 -  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById7].Data[index23, 12]))) / 100.0, 1)).ToString();
                     if (Operators.CompareString(Left, "0", false) == 0)
                       Left = "0.1";
                     tstring5: String = "CONSTRUCTION:" + Left + " turns left.";
@@ -3834,7 +3834,7 @@ namespace WindowsApplication1
       }
       if (this.game.EditObj.UnitSelected <= -1)
         return;
-      let mut num3: i32 =   Math.Round(Math.Floor((double) (useRect.Width - 652) / 156.0));
+      let mut num3: i32 =   Math.Round(Math.Floor( (useRect.Width - 652) / 156.0));
       Graphics g1 = g;
       rectangle = Rectangle::new(useRect.X + 600, useRect.Y, num3 * 156, 222);
       let mut useRect1: &Rectangle = &rectangle
@@ -3843,7 +3843,7 @@ namespace WindowsApplication1
       this.game.EditObj.se1_UnitPage = coordinate.x;
       let mut y3: i32 =  coordinate.y;
       let mut x4: i32 =  useRect.X + useRect.Width - 56;
-      let mut num4: i32 =   Math.Round(Math.Floor(200.0 / (double) y3)) - 4;
+      let mut num4: i32 =   Math.Round(Math.Floor(200.0 /  y3)) - 4;
       let mut num5: i32 =  y3;
       for (let mut index4: i32 =  1; index4 <= num5; index4 += 1)
       {
@@ -4052,16 +4052,16 @@ namespace WindowsApplication1
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(index5, num18);
-        float num19 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num20 = (float) ((1.0 - (double) num19) * 2.0);
+        float num19 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num20 =  ((1.0 -  num19) * 2.0);
         float num21 = VBMath.Rnd() * num20 + num19;
-        num18 =  Math.Round((double) ((float) num18 * num21));
+        num18 =  Math.Round( ( num18 * num21));
         if (num18 < 0)
           num18 = 0;
         if (num18 > 100)
           num18 = 100;
       }
-      str6 = Conversion.Str((object) num18);
+      str6 = Conversion.Str( num18);
       if (reconMinusHide.x < 2)
         str6 = "?";
       int r;
@@ -4113,10 +4113,10 @@ namespace WindowsApplication1
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(index5, i1);
-        float num23 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num24 = (float) ((1.0 - (double) num23) * 2.0);
+        float num23 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num24 =  ((1.0 -  num23) * 2.0);
         float num25 = VBMath.Rnd() * num24 + num23;
-        i1 =  Math.Round((double) ((float) i1 * num25));
+        i1 =  Math.Round( ( i1 * num25));
         if (i1 < 0)
           i1 = 0;
         if (i1 > 100)
@@ -4141,10 +4141,10 @@ namespace WindowsApplication1
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(index5, i2);
-        float num27 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num28 = (float) ((1.0 - (double) num27) * 2.0);
+        float num27 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num28 =  ((1.0 -  num27) * 2.0);
         float num29 = VBMath.Rnd() * num28 + num27;
-        i2 =  Math.Round((double) ((float) i2 * num29));
+        i2 =  Math.Round( ( i2 * num29));
         if (i2 < 0)
           i2 = 0;
         if (i2 > 100)
@@ -4169,10 +4169,10 @@ namespace WindowsApplication1
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(index5, i3);
-        float num31 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num32 = (float) ((1.0 - (double) num31) * 2.0);
+        float num31 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num32 =  ((1.0 -  num31) * 2.0);
         float num33 = VBMath.Rnd() * num32 + num31;
-        i3 =  Math.Round((double) ((float) i3 * num33));
+        i3 =  Math.Round( ( i3 * num33));
         if (i3 < 0)
           i3 = 0;
         if (i3 > 100)
@@ -4201,7 +4201,7 @@ namespace WindowsApplication1
         tDataString7 = "?";
       if (reconMinusHide.x < 2)
         tDataString7 = "?";
-      tDescript8: String = "HQ Power\r\nSkills of OHQ Commander are " + Strings.Trim(Conversion.Str((object) Number)) + "% effective.";
+      tDescript8: String = "HQ Power\r\nSkills of OHQ Commander are " + Strings.Trim(Conversion.Str( Number)) + "% effective.";
       this += 1.unitButtonCounter;
       int[] unitButton8 = this.unitButton;
       let mut unitButtonCounter8: i32 =  this.unitButtonCounter;
@@ -4272,7 +4272,7 @@ namespace WindowsApplication1
         }
         if (num39 > 0 & num40 < num39)
         {
-          let mut num41: i32 =   Math.Round((double) (num40 * 100) / (double) num39);
+          let mut num41: i32 =   Math.Round( (num40 * 100) /  num39);
           if (num41 < 25)
           {
             tOverruleR =  byte.MaxValue;
@@ -4628,7 +4628,7 @@ namespace WindowsApplication1
         sizeF2 = g.MeasureString(str12, DrawMod.TGame.se1TypeWriterMedium);
         if (moveTypeLogo.y > -1)
         {
-          index6 =  Math.Round(154.0 - ((double) sizeF2.Width / 2.0 + 20.0));
+          index6 =  Math.Round(154.0 - ( sizeF2.Width / 2.0 + 20.0));
           if (this.game.Data.SFTypeObj[this.game.Data.SFObj[moveTypeLogo.y].Type].SFTypeVar[81] > 0)
           {
             Bitmap objBitmap = this.game.CustomBitmapObj.DrawSFTypeGraphic(this.game.Data.SFObj[moveTypeLogo.y].Type, false, 1, this.game.Data.Turn, index5);
@@ -4636,21 +4636,21 @@ namespace WindowsApplication1
             let mut h: i32 =  objBitmap.Height;
             if (num10 > 64)
             {
-              h =  Math.Round((double) (h * 64) / (double) num10);
+              h =  Math.Round( (h * 64) /  num10);
               num10 = 64;
             }
             if (h > 40)
             {
-              num10 =  Math.Round((double) (num10 * 40) / (double) h);
+              num10 =  Math.Round( (num10 * 40) /  h);
               h = 40;
             }
-            DrawMod.DrawScaled( g,  objBitmap,  Math.Round((double) (num54 + index6) - (double) num10 / 2.0), num55 + 5, num10, h, true);
+            DrawMod.DrawScaled( g,  objBitmap,  Math.Round( (num54 + index6) -  num10 / 2.0), num55 + 5, num10, h, true);
           }
-          DrawMod.DrawTextColouredConsole( g, str12, DrawMod.TGame.se1TypeWriterMedium,  Math.Round((double) (num54 + index6) + (double) num10 / 2.0), num55 + 17, DrawMod.TGame.seColTW);
+          DrawMod.DrawTextColouredConsole( g, str12, DrawMod.TGame.se1TypeWriterMedium,  Math.Round( (num54 + index6) +  num10 / 2.0), num55 + 17, DrawMod.TGame.seColTW);
         }
         else
         {
-          index6 =  Math.Round(154.0 - (double) sizeF2.Width / 2.0);
+          index6 =  Math.Round(154.0 -  sizeF2.Width / 2.0);
           DrawMod.DrawTextColouredConsole( g, str12, DrawMod.TGame.se1TypeWriterMedium, num54 + index6, num55 + 17, DrawMod.TGame.seColTW);
         }
         tstring5: String = "Start Turn AP Calc.";
@@ -4765,19 +4765,19 @@ namespace WindowsApplication1
         index6 = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].LandscapeType;
         name: String = this.game.Data.LandscapeTypeObj[index6].Name;
         str13: String = "Infantry";
-        str14: String = "Auto:" + ( Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonus[0])).ToString();
-        let mut num64: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonusMax[0]);
+        str14: String = "Auto:" + ( Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonus[0])).ToString();
+        let mut num64: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonusMax[0]);
         str15: String = "Max:" + num64.ToString();
         str16: String = str13 + "\r\n";
         str17: String = str14 + "\r\n";
         str18: String = str15 + "\r\n";
         str19: String = str16 + "Gun";
         str20: String = str17;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonus[1]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonus[1]);
         str21: String = num64.ToString();
         str22: String = str20 + "Auto:" + str21;
         str23: String = str18;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonusMax[1]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonusMax[1]);
         str24: String = num64.ToString();
         str25: String = str23 + "Max:" + str24;
         str26: String = str19 + "\r\n";
@@ -4785,11 +4785,11 @@ namespace WindowsApplication1
         str28: String = str25 + "\r\n";
         str29: String = str26 + "Mobile";
         str30: String = str27;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonus[2]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonus[2]);
         str31: String = num64.ToString();
         str32: String = str30 + "Auto:" + str31;
         str33: String = str28;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonusMax[2]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonusMax[2]);
         str34: String = num64.ToString();
         str35: String = str33 + "Max:" + str34;
         str36: String = str29 + "\r\n";
@@ -4797,11 +4797,11 @@ namespace WindowsApplication1
         str38: String = str35 + "\r\n";
         str39: String = str36 + "Tank";
         str40: String = str37;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonus[3]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonus[3]);
         str41: String = num64.ToString();
         str42: String = str40 + "Auto:" + str41;
         str43: String = str38;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonusMax[3]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonusMax[3]);
         str44: String = num64.ToString();
         str45: String = str43 + "Max:" + str44;
         str46: String = str39 + "\r\n";
@@ -4809,11 +4809,11 @@ namespace WindowsApplication1
         str48: String = str45 + "\r\n";
         str49: String = str46 + "Walker";
         str50: String = str47;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonus[4]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonus[4]);
         str51: String = num64.ToString();
         str52: String = str50 + "Auto:" + str51;
         str53: String = str48;
-        num64 =  Math.Round((double) this.game.Data.LandscapeTypeObj[index6].DefBonusMax[4]);
+        num64 =  Math.Round( this.game.Data.LandscapeTypeObj[index6].DefBonusMax[4]);
         str54: String = num64.ToString();
         str55: String = str53 + "Max:" + str54;
         tstring16: String = str49 + "\r\n";
@@ -4850,17 +4850,17 @@ namespace WindowsApplication1
           let mut breakPercent: i32 =  this.game.HandyFunctionsObj.GetBreakPercent(index5);
           let mut replacementPercent: i32 =  this.game.Data.UnitObj[index5].SOReplacementPercent;
           predefnr = this.game.HandyFunctionsObj.GetPowerPtsAbsolute(index5);
-          let mut num68: i32 =   Math.Round((double) this.game.Data.RuleVar[307]);
+          let mut num68: i32 =   Math.Round( this.game.Data.RuleVar[307]);
           let mut startPower: i32 =  this.game.HandyFunctionsObj.GetStartPower(index5);
-          index6 =  Math.Round((double) startPower * ((double) breakPercent / 100.0));
-          str57: String = startPower != 0 ? Conversions.ToString(Math.Min(100,  Math.Round((double) predefnr / (double) startPower * 100.0))) : "100";
+          index6 =  Math.Round( startPower * ( breakPercent / 100.0));
+          str57: String = startPower != 0 ? Conversions.ToString(Math.Min(100,  Math.Round( predefnr /  startPower * 100.0))) : "100";
           if (reconMinusHide.x == 2)
             tstring19 = "?";
           if (reconMinusHide.x < 2)
             tstring19 = "?";
           string tstring20;
           if (replacementPercent > 0)
-            tstring20 = str56 + "Int: " + str57 + "%, Brk: " + Strings.Trim(Conversion.Str((object) breakPercent)) + "%, Rpl: " + replacementPercent.ToString() + "%";
+            tstring20 = str56 + "Int: " + str57 + "%, Brk: " + Strings.Trim(Conversion.Str( breakPercent)) + "%, Rpl: " + replacementPercent.ToString() + "%";
           else
             tstring20 = str56 + "Int: " + str57 + "%, UNIT IS DISBANDING";
           DrawMod.DrawTextColouredConsoleCenter( g, tstring19, DrawMod.TGame.se1TypeWriterMedium, num65 + 156, num66 + 6, DrawMod.TGame.seColTW);
@@ -4874,7 +4874,7 @@ namespace WindowsApplication1
             let mut num69: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData3(0, id, 1, this.game.Data.HistoricalUnitObj[index2].ID, 2, 23, 4)));
             if (index6 > 0)
             {
-              predefnr =  Math.Round((double) (num69 * 100) / (double) index6) - 100;
+              predefnr =  Math.Round( (num69 * 100) /  index6) - 100;
               str58 = str58 + "AP Bonus (OHQ) = " + predefnr.ToString() + "%" + "\r\n";
             }
             index6 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData3(0, id, 1, this.game.Data.HistoricalUnitObj[index2].ID, 2, 32, 4)));
@@ -4885,14 +4885,14 @@ namespace WindowsApplication1
             let mut num70: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData3(0, id, 1, this.game.Data.HistoricalUnitObj[index2].ID, 2, 46, 4)));
             if (index6 > 0)
             {
-              predefnr =  Math.Round((double) (num70 * 100) / (double) index6) - 100;
+              predefnr =  Math.Round( (num70 * 100) /  index6) - 100;
               str60 = str60 + "Morale Gain Bonus (OHQ) = " + predefnr.ToString() + "%" + "\r\n";
             }
             index6 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData3(0, id, 1, this.game.Data.HistoricalUnitObj[index2].ID, 2, 66, 4)));
             let mut num71: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData3(0, id, 1, this.game.Data.HistoricalUnitObj[index2].ID, 2, 67, 4)));
             if (index6 > 0)
             {
-              predefnr =  Math.Round((double) (num71 * 100) / (double) index6) - 100;
+              predefnr =  Math.Round( (num71 * 100) /  index6) - 100;
               str60 = str60 + "XP Gain Bonus (OHQ) = " + predefnr.ToString() + "%" + "\r\n";
             }
             index6 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData3(0, id, 1, this.game.Data.HistoricalUnitObj[index2].ID, 2, 71, 4)));
@@ -4908,12 +4908,12 @@ namespace WindowsApplication1
         let mut num72: i32 =  useRect.X + 278;
         let mut num73: i32 =  11;
         ItemList itemList = ItemList::new();
-        let mut index13: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 5;
-        let mut index14: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 2;
-        let mut index15: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 0;
-        let mut index16: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 9;
-        let mut index17: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 8;
-        let mut index18: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 7;
+        let mut index13: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 5;
+        let mut index14: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 2;
+        let mut index15: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 0;
+        let mut index16: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 9;
+        let mut index17: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 8;
+        let mut index18: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 7;
         let mut sfCount1: i32 =  this.game.Data.UnitObj[index5].SFCount;
         for (let mut index19: i32 =  0; index19 <= sfCount1; index19 += 1)
         {
@@ -5003,13 +5003,13 @@ namespace WindowsApplication1
             double num86;
             if (num85 > 999)
             {
-              num86 = Math.Round((double) num85 / 1000.0, 1);
+              num86 = Math.Round( num85 / 1000.0, 1);
               str61 = num86.ToString() + "k";
             }
             str62: String = num84.ToString();
             if (num84 > 999)
             {
-              num86 = Math.Round((double) num84 / 1000.0, 1);
+              num86 = Math.Round( num84 / 1000.0, 1);
               str62 = num86.ToString() + "k";
             }
             str6 = str61 + "/" + str62;
@@ -5024,7 +5024,7 @@ namespace WindowsApplication1
             }
             else if (index6 > 0)
             {
-              predefnr =  Math.Round((double) (100 * num77) / (double) index6);
+              predefnr =  Math.Round( (100 * num77) /  index6);
               g2 =  byte.MaxValue;
               r = 0;
               b = 0;
@@ -5057,7 +5057,7 @@ namespace WindowsApplication1
               predefnr = 100;
             DrawMod.DrawTextColouredConsoleCenter( g, "REPL", DrawMod.TGame.se1TypeWriterSmall, num72 + 20, num75, DrawMod.TGame.seColTW);
             DrawMod.DrawBlock( g, num72 + 40, num75, 30, 16, 0, 0, 0, 100);
-            DrawMod.DrawBlock( g, num72 + 41, num75 + 1,  Math.Round((double) (28 * predefnr) / 100.0), 14, r, g2, b,  byte.MaxValue);
+            DrawMod.DrawBlock( g, num72 + 41, num75 + 1,  Math.Round( (28 * predefnr) / 100.0), 14, r, g2, b,  byte.MaxValue);
             DrawMod.DrawTextColouredConsole( g, num77.ToString() + "/" + index6.ToString(), DrawMod.TGame.se1TypeWriterSmall, num72 + 75, num75, DrawMod.TGame.seColTW);
             ttext1: String = num77.ToString() + " Replacements received.\r\n" + index6.ToString() + " Replacements requested. ";
             rectangle = Rectangle::new(num72 + 10, num75, 150, 16);
@@ -5074,7 +5074,7 @@ namespace WindowsApplication1
               }
               else if (num79 > 0)
               {
-                predefnr =  Math.Round((double) (100 * num80) / (double) num79);
+                predefnr =  Math.Round( (100 * num80) /  num79);
                 g2 =  byte.MaxValue;
                 r = 0;
                 b = 0;
@@ -5108,7 +5108,7 @@ namespace WindowsApplication1
               num75 += 18;
               DrawMod.DrawTextColouredConsoleCenter( g, "RET.", DrawMod.TGame.se1TypeWriterSmall, num72 + 20, num75, DrawMod.TGame.seColTW);
               DrawMod.DrawBlock( g, num72 + 40, num75, 30, 16, 0, 0, 0, 100);
-              DrawMod.DrawBlock( g, num72 + 41, num75 + 1,  Math.Round((double) (28 * predefnr) / 100.0), 14, r, g2, b,  byte.MaxValue);
+              DrawMod.DrawBlock( g, num72 + 41, num75 + 1,  Math.Round( (28 * predefnr) / 100.0), 14, r, g2, b,  byte.MaxValue);
               DrawMod.DrawTextColouredConsole( g, num80.ToString() + "/" + num79.ToString(), DrawMod.TGame.se1TypeWriterSmall, num72 + 75, num75, DrawMod.TGame.seColTW);
               ttext2: String = num80.ToString() + " Returned troops \r\n" + num79.ToString() + " Returns offered. ";
               rectangle = Rectangle::new(num72 + 10, num75, 150, 16);
@@ -5124,7 +5124,7 @@ namespace WindowsApplication1
             }
             else if (num84 > 0)
             {
-              predefnr =  Math.Round((double) (100 * num85) / (double) num84);
+              predefnr =  Math.Round( (100 * num85) /  num84);
               g2 =  byte.MaxValue;
               r = 0;
               b = 0;
@@ -5151,7 +5151,7 @@ namespace WindowsApplication1
             }
             if (predefnr > 100)
               predefnr = 100;
-            if (!Information.IsNothing((object) this.game.Data.UnitObj[index5].items))
+            if (!Information.IsNothing( this.game.Data.UnitObj[index5].items))
             {
               let mut counter: i32 =  this.game.Data.UnitObj[index5].items.list.Counter;
               for (let mut index23: i32 =  0; index23 <= counter; index23 += 1)
@@ -5197,7 +5197,7 @@ namespace WindowsApplication1
                   let mut weight: i32 =  itemList.list.FindWeight(index6);
                   if (this.game.Data.HistoricalUnitObj[index2].Type != 8 && simpleList3.Data1[index26] > 0)
                   {
-                    index6 =  Math.Round((double) (simpleList3.Data2[index26] * 100) / (double) simpleList3.Data1[index26]);
+                    index6 =  Math.Round( (simpleList3.Data2[index26] * 100) /  simpleList3.Data1[index26]);
                     str6 = index6.ToString() + "%";
                     str6 = simpleList3.Data2[index26].ToString() + "/" + simpleList3.Data1[index26].ToString();
                   }
@@ -5257,7 +5257,7 @@ namespace WindowsApplication1
                   }
                   else if (predefnr > 0)
                   {
-                    num93 =  Math.Round((double) (100 * num91) / (double) predefnr);
+                    num93 =  Math.Round( (100 * num91) /  predefnr);
                     g2 =  byte.MaxValue;
                     r = 0;
                     b = 0;
@@ -5290,7 +5290,7 @@ namespace WindowsApplication1
                     num93 = 100;
                   DrawMod.DrawTextColouredConsoleCenter( g, str63, DrawMod.TGame.se1TypeWriterSmall, num87 + 20, num75, DrawMod.TGame.seColTW);
                   DrawMod.DrawBlock( g, num87 + 40, num75, 30, 16, 0, 0, 0, 100);
-                  DrawMod.DrawBlock( g, num87 + 41, num75 + 1,  Math.Round((double) (28 * num93) / 100.0), 14, r, g2, b,  byte.MaxValue);
+                  DrawMod.DrawBlock( g, num87 + 41, num75 + 1,  Math.Round( (28 * num93) / 100.0), 14, r, g2, b,  byte.MaxValue);
                   DrawMod.DrawTextColouredConsole( g, num91.ToString() + "/" + predefnr.ToString(), DrawMod.TGame.se1TypeWriterSmall, num87 + 75, num75, DrawMod.TGame.seColTW);
                   rectangle = Rectangle::new(num87 + 10, num75, 150, 16);
                   trect = rectangle;
@@ -5313,7 +5313,7 @@ namespace WindowsApplication1
                     }
                     else if (num92 > 0)
                     {
-                      num93 =  Math.Round((double) (100 * num90) / (double) num92);
+                      num93 =  Math.Round( (100 * num90) /  num92);
                       g2 =  byte.MaxValue;
                       r = 0;
                       b = 0;
@@ -5346,7 +5346,7 @@ namespace WindowsApplication1
                     }
                     DrawMod.DrawTextColouredConsoleCenter( g, Strings.Left(str63, 2) + "-C.", DrawMod.TGame.se1TypeWriterSmall, num87 + 20, num76, DrawMod.TGame.seColTW);
                     DrawMod.DrawBlock( g, num88 + 40, num76, 30, 16, 0, 0, 0, 100);
-                    DrawMod.DrawBlock( g, num88 + 41, num76 + 1,  Math.Round((double) (28 * num93) / 100.0), 14, r, g2, b,  byte.MaxValue);
+                    DrawMod.DrawBlock( g, num88 + 41, num76 + 1,  Math.Round( (28 * num93) / 100.0), 14, r, g2, b,  byte.MaxValue);
                     DrawMod.DrawTextColouredConsole( g, num90.ToString() + "/" + num92.ToString(), DrawMod.TGame.se1TypeWriterSmall, num88 + 75, num76, DrawMod.TGame.seColTW);
                     rectangle = Rectangle::new(num88 + 10, num76, 150, 16);
                     trect = rectangle;
@@ -5367,7 +5367,7 @@ namespace WindowsApplication1
                     }
                     else if (num96 > 0)
                     {
-                      num93 =  Math.Round((double) (100 * num89) / (double) num96);
+                      num93 =  Math.Round( (100 * num89) /  num96);
                       g2 =  byte.MaxValue;
                       r = 0;
                       b = 0;
@@ -5404,7 +5404,7 @@ namespace WindowsApplication1
                     DrawMod.DrawTextColouredConsoleCenter( g, str63, DrawMod.TGame.se1TypeWriterSmall, num88 + 20, num76, DrawMod.TGame.seColTW);
                     DrawMod.DrawBlock( g, num88 + 40, num76, 30, 16, 0, 0, 0, 100);
                     if (num93 > 0)
-                      DrawMod.DrawBlock( g, num88 + 41, num76 + 1,  Math.Round((double) (28 * num93) / 100.0), 14, r, g2, b,  byte.MaxValue);
+                      DrawMod.DrawBlock( g, num88 + 41, num76 + 1,  Math.Round( (28 * num93) / 100.0), 14, r, g2, b,  byte.MaxValue);
                     DrawMod.DrawTextColouredConsole( g, num89.ToString() + "/" + num97.ToString(), DrawMod.TGame.se1TypeWriterSmall, num88 + 75, num76, DrawMod.TGame.seColTW);
                     rectangle = Rectangle::new(num88 + 10, num76, 150, 16);
                     trect = rectangle;
@@ -5440,9 +5440,9 @@ namespace WindowsApplication1
               if (ttitle1.Length > 1)
               {
                 sizeF2 = g.MeasureString("[" + ttitle1 + "]", DrawMod.TGame.se1TypeWriterSmall);
-                num99 =  Math.Round((double) ((float) num98 + sizeF2.Width));
+                num99 =  Math.Round( ( num98 + sizeF2.Width));
                 DrawMod.DrawTextColouredConsole( g, "[" + ttitle1 + "]", DrawMod.TGame.se1TypeWriterSmall, num88 + 160, y10, DrawMod.TGame.seColTW);
-                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round((double) sizeF2.Width), 16);
+                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round( sizeF2.Width), 16);
                 trect = rectangle;
                 this.AddMouse( trect, ttitle1, ttext3);
                 y10 += 18;
@@ -5452,10 +5452,10 @@ namespace WindowsApplication1
                 str66: String = "Low Log.Pts";
                 ttext4: String = "Unit did not get all it needed delivered to Pickup Point because the Logistical Points on the road between the Pickup Point and its SHQ where too low.";
                 sizeF2 = g.MeasureString("[" + str66 + "]", DrawMod.TGame.se1TypeWriterSmall);
-                num99 =  Math.Round((double) ((float) num99 + sizeF2.Width));
+                num99 =  Math.Round( ( num99 + sizeF2.Width));
                 DrawMod.DrawTextColouredConsole( g, "[" + str66 + "]", DrawMod.TGame.se1TypeWriterSmall, num88 + 160, y10, DrawMod.TGame.seColTW);
                 ttitle2: String = "Low Logistical Points";
-                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round((double) sizeF2.Width), 16);
+                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round( sizeF2.Width), 16);
                 trect = rectangle;
                 this.AddMouse( trect, ttitle2, ttext4);
                 y10 += 18;
@@ -5465,10 +5465,10 @@ namespace WindowsApplication1
                 str67: String = "SHQ miss.Items";
                 ttext5: String = "Unit did not get all it needed delivered to Pickup Point because its SHQ had not enough Items in inventory to send everything requested.";
                 sizeF2 = g.MeasureString("[" + str67 + "]", DrawMod.TGame.se1TypeWriterSmall);
-                num99 =  Math.Round((double) ((float) num99 + sizeF2.Width));
+                num99 =  Math.Round( ( num99 + sizeF2.Width));
                 DrawMod.DrawTextColouredConsole( g, "[" + str67 + "]", DrawMod.TGame.se1TypeWriterSmall, num88 + 160, y10, DrawMod.TGame.seColTW);
                 ttitle3: String = "SHQ is missing Items";
-                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round((double) sizeF2.Width), 16);
+                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round( sizeF2.Width), 16);
                 trect = rectangle;
                 this.AddMouse( trect, ttitle3, ttext5);
                 y10 += 18;
@@ -5478,10 +5478,10 @@ namespace WindowsApplication1
                 str68: String = "SHQ Log.Limit";
                 ttext6: String = "Unit did not get all it needed delivered to Pickup Point because the Logistical Points on the road between the Pickup Point and its SHQ reached the limit that it was allowed to use (See Unit Admin order for SHQ).";
                 sizeF2 = g.MeasureString("[" + str68 + "]", DrawMod.TGame.se1TypeWriterSmall);
-                num98 =  Math.Round((double) ((float) num99 + sizeF2.Width));
+                num98 =  Math.Round( ( num99 + sizeF2.Width));
                 DrawMod.DrawTextColouredConsole( g, "[" + str68 + "]", DrawMod.TGame.se1TypeWriterSmall, num88 + 160, y10, DrawMod.TGame.seColTW);
                 ttitle4: String = "SHQ Logistical Limit";
-                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round((double) sizeF2.Width), 16);
+                rectangle = Rectangle::new(num88 + 170, y10,  Math.Round( sizeF2.Width), 16);
                 trect = rectangle;
                 this.AddMouse( trect, ttitle4, ttext6);
                 let mut num100: i32 =  y10 + 18;
@@ -5600,7 +5600,7 @@ namespace WindowsApplication1
               }
               else if (num121 > 0)
               {
-                let mut num124: i32 =   Math.Round((double) (100 * num122) / (double) num121);
+                let mut num124: i32 =   Math.Round( (100 * num122) /  num121);
                 g2 =  byte.MaxValue;
                 r = 0;
                 b = 0;
@@ -5628,7 +5628,7 @@ namespace WindowsApplication1
                   r = 0;
                   b = 0;
                 }
-                num123 = num124 +  Math.Round((double) (100 - num124) * 0.1);
+                num123 = num124 +  Math.Round( (100 - num124) * 0.1);
               }
               if (num123 > 100)
                 num123 = 100;
@@ -5650,7 +5650,7 @@ namespace WindowsApplication1
               num101 += 18;
               DrawMod.DrawTextColouredConsole( g, tstring27, DrawMod.TGame.se1TypeWriterSmall, num102 + 3, num101, DrawMod.TGame.seColTW);
               DrawMod.DrawBlock( g, num102 + 90, num101, 60, 16, 0, 0, 0, 100);
-              DrawMod.DrawBlock( g, num102 + 91, num101 + 1,  Math.Round((double) (58 * num123) / 100.0), 14, r, g2, b,  byte.MaxValue);
+              DrawMod.DrawBlock( g, num102 + 91, num101 + 1,  Math.Round( (58 * num123) / 100.0), 14, r, g2, b,  byte.MaxValue);
               DrawMod.DrawTextColouredConsole( g, num122.ToString() + "/" + num121.ToString(), DrawMod.TGame.se1TypeWriterSmall, num102 + 160, num101, DrawMod.TGame.seColTW);
               rectangle = Rectangle::new(num102 + 10, num101, 220, 16);
               trect = rectangle;
@@ -5686,7 +5686,7 @@ namespace WindowsApplication1
               }
               else if (num122 > 0 | num125 > 0)
               {
-                num123 =  Math.Round((double) (100 * num122) / (double) num125);
+                num123 =  Math.Round( (100 * num122) /  num125);
                 r = 192;
                 g2 = 192;
                 b = 192;
@@ -5696,7 +5696,7 @@ namespace WindowsApplication1
               num103 += 18;
               DrawMod.DrawTextColouredConsole( g, tstring27, DrawMod.TGame.se1TypeWriterSmall, num102 + 3, num103, DrawMod.TGame.seColTW);
               DrawMod.DrawBlock( g, num102 + 90, num103, 60, 16, 0, 0, 0, 100);
-              DrawMod.DrawBlock( g, num102 + 91, num103 + 1,  Math.Round((double) (58 * num123) / 100.0), 14, r, g2, b,  byte.MaxValue);
+              DrawMod.DrawBlock( g, num102 + 91, num103 + 1,  Math.Round( (58 * num123) / 100.0), 14, r, g2, b,  byte.MaxValue);
               DrawMod.DrawTextColouredConsole( g, num122.ToString() + "/" + num125.ToString(), DrawMod.TGame.se1TypeWriterSmall, num102 + 160, num103, DrawMod.TGame.seColTW);
               rectangle = Rectangle::new(num102 + 10, num103, 220, 16);
               trect = rectangle;
@@ -5924,7 +5924,7 @@ namespace WindowsApplication1
             str7 = Strings.Left(str7, str7.Length - 3) + "." + Strings.Right(str7, 3);
           if (index3 >= 1000000)
           {
-            num16 = Math.Floor((double) index3 / 1000.0);
+            num16 = Math.Floor( index3 / 1000.0);
             str7 = num16.ToString() + "K";
           }
           if (num5 < 3)
@@ -5937,7 +5937,7 @@ namespace WindowsApplication1
           this.AddMouse( trect1, ttitle3, ttext3);
           let mut y7: i32 =  y6 + 30;
           index3 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, integer1, 12)));
-          num19 =  Math.Round((double) Math.Max(0,  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, integer1, 13)))) / (double) num1);
+          num19 =  Math.Round( Math.Max(0,  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, integer1, 13)))) /  num1);
           index3 = num5;
           if (index3 > 999)
             index3 = 999;
@@ -6133,7 +6133,7 @@ namespace WindowsApplication1
           DrawMod.DrawTextColouredConsole( g, tstring19, DrawMod.TGame.se1TypeWriterMedium, num31 + 40, y15, DrawMod.TGame.seColTW);
           if (num34 > 0)
           {
-            num16 = Math.Round((double) index3 / (double) (num34 * 100), 3);
+            num16 = Math.Round( index3 /  (num34 * 100), 3);
             tstring20: String = num16.ToString() + "cr";
             if (num5 < 15)
               tstring20 = "?";
@@ -6152,20 +6152,20 @@ namespace WindowsApplication1
           trect1 = trect2;
           this.AddMouse( trect1, ttitle8, ttext9);
           let mut y16: i32 =  y15 + 30;
-          object obj1 = (object) 0;
-          object obj2 = (object) 0;
-          object Left = (object) 0;
+          object obj1 =  0;
+          object obj2 =  0;
+          object Left =  0;
           let mut length2: i32 =  this.game.Data.StringListObj[stringListById1].Length;
           for (let mut index5: i32 =  0; index5 <= length2; index5 += 1)
           {
             if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 0])) == num2 &&  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 2])) == integer1)
             {
               if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 1])) == 5)
-                obj1 = Operators.AddObject(obj1, (object)  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 4])));
+                obj1 = Operators.AddObject(obj1,   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 4])));
               if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 1])) == 1)
-                Left = Operators.AddObject(Left, (object)  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 4])));
+                Left = Operators.AddObject(Left,   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 4])));
               if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 1])) == 2)
-                obj2 = Operators.AddObject(obj2, (object)  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 4])));
+                obj2 = Operators.AddObject(obj2,   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[index5, 4])));
             }
           }
           let mut num35: i32 =  Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "syndicate_privateCreditsTaken", 2)));
@@ -6179,7 +6179,7 @@ namespace WindowsApplication1
           let mut num41: i32 =  Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "buyingAssetsExpenses", 2)));
           let mut num42: i32 =  Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "buyingPopExpenses", 2)));
           let mut num43: i32 =  index3 + num37 + num38 + idValue1;
-          let mut integer2: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.AddObject((object) (num39 + num40 + num41 + num42 + num36 + num35), obj1), obj2));
+          let mut integer2: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.AddObject( (num39 + num40 + num41 + num42 + num36 + num35), obj1), obj2));
           tstring22: String = "Private Eco.";
           DrawMod.DrawTextColouredConsole( g, tstring22, DrawMod.TGame.se1TypeWriterMedium, num31 + 40, y16, DrawMod.TGame.seColTW);
           tstring23: String = "+" + num43.ToString() + "cr -" + integer2.ToString() + "cr";
@@ -6321,7 +6321,7 @@ namespace WindowsApplication1
           index3 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById12].GetData(0, integer1, 2)));
           tstring32: String = "Salary";
           DrawMod.DrawTextColouredConsole( g, tstring32, DrawMod.TGame.se1TypeWriterMedium, num47 + 40, y24, DrawMod.TGame.seColTW);
-          num16 = Math.Round((double) index3 / 1000.0, 3);
+          num16 = Math.Round( index3 / 1000.0, 3);
           tstring33: String = num16.ToString() + "cr";
           if (num5 < 15 | regNr != this.game.Data.Turn)
             tstring33 = "?";
@@ -6485,15 +6485,15 @@ namespace WindowsApplication1
           str16: String = num9.ToString();
           if (num9 >= 1000)
           {
-            num16 = Math.Round((double) num9 / 1000.0, 1);
+            num16 = Math.Round( num9 / 1000.0, 1);
             str16 = num16.ToString() + "k";
           }
           if (num9 >= 10000)
           {
-            num16 = Math.Round((double) num9 / 1000.0, 0);
+            num16 = Math.Round( num9 / 1000.0, 0);
             str16 = num16.ToString() + "k";
           }
-          num16 = Math.Round((double) index3 / 1000.0, 3);
+          num16 = Math.Round( index3 / 1000.0, 3);
           tstring49: String = num16.ToString() + "cr (" + str16 + ")";
           if (flag1 | num5 < 15 | num13 < 1)
             tstring49 = "?";
@@ -6511,15 +6511,15 @@ namespace WindowsApplication1
           str17: String = num9.ToString();
           if (num9 >= 1000)
           {
-            num16 = Math.Round((double) num9 / 1000.0, 1);
+            num16 = Math.Round( num9 / 1000.0, 1);
             str17 = num16.ToString() + "k";
           }
           if (num9 >= 10000)
           {
-            num16 = Math.Round((double) num9 / 1000.0, 0);
+            num16 = Math.Round( num9 / 1000.0, 0);
             str17 = num16.ToString() + "k";
           }
-          num16 = Math.Round((double) index3 / 1000.0, 3);
+          num16 = Math.Round( index3 / 1000.0, 3);
           tstring51: String = num16.ToString() + "cr (" + str17 + ")";
           if (flag1 | num5 < 15 | num13 < 1)
             tstring51 = "?";
@@ -6624,10 +6624,10 @@ namespace WindowsApplication1
           index3 = Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "shortTermWarCasualties", 2)));
           num9 = Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "shortTermWarCasualtyTreshold", 2)));
           tstring59: String = "Short Cas.";
-          num9 +=  Math.Round((double) (index3 * num58) / 100.0);
+          num9 +=  Math.Round( (index3 * num58) / 100.0);
           DrawMod.DrawTextColouredConsole( g, tstring59, DrawMod.TGame.se1TypeWriterMedium, num54 + 40, y42, DrawMod.TGame.seColTW);
-          str20: String = Math.Round((double) index3 / 10.0, 1).ToString();
-          num16 = Math.Round((double) num9 / 10.0, 1);
+          str20: String = Math.Round( index3 / 10.0, 1).ToString();
+          num16 = Math.Round( num9 / 10.0, 1);
           str21: String = num16.ToString();
           tstring60: String = str20 + "% / " + str21 + "%";
           if (flag1 | num5 < 13)
@@ -6641,11 +6641,11 @@ namespace WindowsApplication1
           let mut y43: i32 =  y42 + 30;
           index3 = Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "longTermWarCasualties", 2)));
           num9 = Math.Max(0, Conversions.ToInteger(this.game.Data.StringListObj[stringListById3].GetData2(0, integer1, 1, "longTermWarCasualtyTreshold", 2)));
-          num9 +=  Math.Round((double) (index3 * num58) / 100.0);
+          num9 +=  Math.Round( (index3 * num58) / 100.0);
           tstring61: String = "Long Cas.";
           DrawMod.DrawTextColouredConsole( g, tstring61, DrawMod.TGame.se1TypeWriterMedium, num54 + 40, y43, DrawMod.TGame.seColTW);
-          num16 = Math.Round((double) index3 / 10.0, 1);
-          tstring62: String = num16.ToString() + "% / " + Math.Round((double) num9 / 10.0, 1).ToString() + "%";
+          num16 = Math.Round( index3 / 10.0, 1);
+          tstring62: String = num16.ToString() + "% / " + Math.Round( num9 / 10.0, 1).ToString() + "%";
           if (flag1 | num5 < 13)
             tstring62 = "?";
           DrawMod.DrawTextColouredConsole( g, tstring62, DrawMod.TGame.se1TypeWriterMedium, num54 + num14, y43, DrawMod.TGame.seColTW);
@@ -7413,7 +7413,7 @@ namespace WindowsApplication1
                 }
                 else if (num89 >= 9 & simpleList.Counter + 1 - num89 > 0)
                 {
-                  tstring111: String = Conversions.ToString(Conversions.ToDouble("+") + (double) (simpleList.Counter + 1 - num89) + Conversions.ToDouble(" other"));
+                  tstring111: String = Conversions.ToString(Conversions.ToDouble("+") +  (simpleList.Counter + 1 - num89) + Conversions.ToDouble(" other"));
                   DrawMod.DrawTextColouredConsole( g, tstring111, DrawMod.TGame.se1TypeWriterMedium, num75 + 40, y60, DrawMod.TGame.seColTW);
                 }
               }
@@ -8326,8 +8326,8 @@ namespace WindowsApplication1
 
     pub void SmallRightUds(Graphics g)
     {
-      let mut num: i32 =   Math.Round((double) (this.w - 1024) / 2.0) + 1024;
-      let mut enr: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[450]));
+      let mut num: i32 =   Math.Round( (this.w - 1024) / 2.0) + 1024;
+      let mut enr: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[450]));
       let mut areaX: i32 =  this.game.EditObj.AreaX;
       let mut areaY: i32 =  this.game.EditObj.AreaY;
       this.game.EditObj.AreaX = this.game.SelectX;
@@ -8341,8 +8341,8 @@ namespace WindowsApplication1
 
     pub void Old_UnitUDSBottomTab(Graphics g)
     {
-      let mut num: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
-      let mut enr1: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[410]));
+      let mut num: i32 =   Math.Round( (this.w - 1024) / 2.0);
+      let mut enr1: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[410]));
       let mut areaX1: i32 =  this.game.EditObj.AreaX;
       let mut areaY1: i32 =  this.game.EditObj.AreaY;
       this.game.EditObj.AreaX = this.game.SelectX;
@@ -8353,8 +8353,8 @@ namespace WindowsApplication1
       let mut tsubpart1: SubPartClass =  new UDSPartClass(this.game, 1280, 210, this.game.EditObj.UDSbottomText,  this.OwnBitmap, num - 128, 7, true);
       this.extraTabId = this.AddSubPart( tsubpart1, num - 128, 7, 1280, 210, 1);
       let mut enr2: i32 =  -1;
-      if ((double) this.game.Data.RuleVar[450] > 0.0 & this.game.ScreenWidth >= 1920)
-        enr2 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[450]));
+      if ( this.game.Data.RuleVar[450] > 0.0 & this.game.ScreenWidth >= 1920)
+        enr2 =  Math.Round(Conversion.Val( this.game.Data.RuleVar[450]));
       if (enr2 <= 0)
         return;
       let mut areaX2: i32 =  this.game.EditObj.AreaX;
@@ -8373,7 +8373,7 @@ namespace WindowsApplication1
     pub void OfficerTab(Graphics g)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut x1: i32 =   Math.Round(440.0 + (double) (this.w - 1024) / 2.0);
+      let mut x1: i32 =   Math.Round(440.0 +  (this.w - 1024) / 2.0);
       let mut unitSelected: i32 =  this.game.EditObj.UnitSelected;
       let mut historical: i32 =  this.game.Data.UnitObj[unitSelected].Historical;
       Coordinate reconMinusHide;
@@ -8394,7 +8394,7 @@ namespace WindowsApplication1
         let mut staffNeeded: i32 =  this.game.HandyFunctionsObj.GetStaffNeeded(unitSelected);
         DrawMod.DrawBlockGradient2( g, x1 + 5, 190, 79, 20, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, x1 + 5, 191, 80, 19, -1, -1);
-        str: String = Strings.Trim(Conversion.Str((object) Math.Round((double) staffPoints / (double) staffNeeded, 2)));
+        str: String = Strings.Trim(Conversion.Str( Math.Round( staffPoints /  staffNeeded, 2)));
         DrawMod.DrawTextColouredMarc( g, "S:T = " + str, this.game.MarcFont5, x1 + 10, 195, Color.White);
         Rectangle trect = Rectangle::new(x1 + 10, 191, 80, 20);
         this.AddMouse( trect, "STAFF : TROOPS RATIO", "If above 1 there is a full staff complement.\r\nIf below 1 there is not enough staff\r\nto command all troops. see details tab.");
@@ -8406,13 +8406,13 @@ namespace WindowsApplication1
         if (num1 == 0)
           num1 = 1;
         int num2;
-        if ( Math.Round(40.0 * ((double) staffPoints / (double) num1)) > 80)
+        if ( Math.Round(40.0 * ( staffPoints /  num1)) > 80)
           num2 = 80;
-        if ( Math.Round(40.0 * ((double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) num1)) > 80)
+        if ( Math.Round(40.0 * ( this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)) > 80)
           num2 = 80;
         int Number1;
         if (this.game.Data.UnitObj[unitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[historical].StaffSize > 0)
-          Number1 = !(this.game.Data.HistoricalUnitObj[historical].Type < 6 | (double) this.game.Data.RuleVar[927] == 0.0) ? 0 : (num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round((double) this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0, (double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) num1)));
+          Number1 = !(this.game.Data.HistoricalUnitObj[historical].Type < 6 |  this.game.Data.RuleVar[927] == 0.0) ? 0 : (num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round( this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0,  this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)));
         int num3;
         int num4;
         if (this.game.Data.UnitObj[unitSelected].SFCount > -1)
@@ -8421,43 +8421,43 @@ namespace WindowsApplication1
           for (let mut index: i32 =  0; index <= sfCount; index += 1)
           {
             num3 += this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Qty;
-            num4 =  Math.Round((double) num4 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Qty) * ((double) this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Xp / 100.0) * (double) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Type].StaffCombatMod * Math.Min(1.0, (double) staffPoints / (double) num1));
+            num4 =  Math.Round( num4 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Qty) * ( this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Xp / 100.0) *  this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unitSelected].SFList[index]].Type].StaffCombatMod * Math.Min(1.0,  staffPoints /  num1));
           }
         }
-        let mut num5: i32 =  num3 <= 0 ? 0 :  Math.Round(100.0 * ((double) num4 / (double) num3));
-        let mut num6: i32 =   Math.Round((double) num5 * ((double) (100 + Number1) / 100.0));
-        let mut num7: i32 =  num5 +  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1));
-        let mut num8: i32 =   Math.Round((double) this.game.HandyFunctionsObj.GetStaffCombatMod(unitSelected));
-        let mut Number2: i32 =  num6 +  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1));
+        let mut num5: i32 =  num3 <= 0 ? 0 :  Math.Round(100.0 * ( num4 /  num3));
+        let mut num6: i32 =   Math.Round( num5 * ( (100 + Number1) / 100.0));
+        let mut num7: i32 =  num5 +  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1));
+        let mut num8: i32 =   Math.Round( this.game.HandyFunctionsObj.GetStaffCombatMod(unitSelected));
+        let mut Number2: i32 =  num6 +  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1));
         if (Number2 > 0)
-          DrawMod.DrawTextColouredMarc( g, "+" + Strings.Trim(Conversion.Str((object) Number2)) + "%", this.game.MarcFont12, x1 + 5, 103, Color.White);
+          DrawMod.DrawTextColouredMarc( g, "+" + Strings.Trim(Conversion.Str( Number2)) + "%", this.game.MarcFont12, x1 + 5, 103, Color.White);
         else
-          DrawMod.DrawTextColouredMarc( g, Strings.Trim(Conversion.Str((object) Number2)) + "%", this.game.MarcFont12, x1 + 5, 103, Color.White);
-        let mut Number3: i32 =  num7 -  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1));
-        let mut Number4: i32 =   Math.Round((double) (100 + Number1) / 100.0 * (double) (num7 -  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1))));
+          DrawMod.DrawTextColouredMarc( g, Strings.Trim(Conversion.Str( Number2)) + "%", this.game.MarcFont12, x1 + 5, 103, Color.White);
+        let mut Number3: i32 =  num7 -  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1));
+        let mut Number4: i32 =   Math.Round( (100 + Number1) / 100.0 *  (num7 -  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1))));
         Rectangle rectangle;
-        if ((double) this.game.Data.RuleVar[976] < 1.0)
+        if ( this.game.Data.RuleVar[976] < 1.0)
         {
-          if (this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unitSelected].Historical].Type < 6 | (double) this.game.Data.RuleVar[927] == 0.0)
+          if (this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unitSelected].Historical].Type < 6 |  this.game.Data.RuleVar[927] == 0.0)
           {
             rectangle = Rectangle::new(x1 + 5, 103, 80, 30);
             let mut trect: &Rectangle = &rectangle
-            this.AddMouse( trect, "", "Total combat bonus for units\r\nunder direct command of this officer.\r\nBase bonus for full staff complement: " + Strings.Trim(Conversion.Str((object)  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1)))) + "%.\r\nStaff bonus (based on staff XP) is: " + Strings.Trim(Conversion.Str((object) Number3)) + "%. \r\nStaff bonus is increased with " + Strings.Trim(Conversion.Str((object) Number1)) + "% for officer skill.\r\nResulting in a modified staff bonus of " + Strings.Trim(Conversion.Str((object) Number4)) + "%.\r\nBase bonus and modified staff bonus are added up. \r\nAnd results in " + Strings.Trim(Conversion.Str((object) Number2)) + "% total bonus.");
+            this.AddMouse( trect, "", "Total combat bonus for units\r\nunder direct command of this officer.\r\nBase bonus for full staff complement: " + Strings.Trim(Conversion.Str(  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1)))) + "%.\r\nStaff bonus (based on staff XP) is: " + Strings.Trim(Conversion.Str( Number3)) + "%. \r\nStaff bonus is increased with " + Strings.Trim(Conversion.Str( Number1)) + "% for officer skill.\r\nResulting in a modified staff bonus of " + Strings.Trim(Conversion.Str( Number4)) + "%.\r\nBase bonus and modified staff bonus are added up. \r\nAnd results in " + Strings.Trim(Conversion.Str( Number2)) + "% total bonus.");
           }
           else
           {
             rectangle = Rectangle::new(x1 + 5, 103, 80, 30);
             let mut trect: &Rectangle = &rectangle
-            this.AddMouse( trect, "", "Total combat bonus for units\r\nunder direct command of this HQ.\r\nKeep in mind that officers in HQs above the lowest level do not give any combat bonus.\r\nBase bonus for full staff complement: " + Strings.Trim(Conversion.Str((object)  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1)))) + "%.\r\nStaff bonus (based on staff XP) is: " + Strings.Trim(Conversion.Str((object) Number3)) + "%. \r\nBase bonus and staff bonus are added up. \r\nAnd results in " + Strings.Trim(Conversion.Str((object) Number2)) + "% total bonus.");
+            this.AddMouse( trect, "", "Total combat bonus for units\r\nunder direct command of this HQ.\r\nKeep in mind that officers in HQs above the lowest level do not give any combat bonus.\r\nBase bonus for full staff complement: " + Strings.Trim(Conversion.Str(  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1)))) + "%.\r\nStaff bonus (based on staff XP) is: " + Strings.Trim(Conversion.Str( Number3)) + "%. \r\nBase bonus and staff bonus are added up. \r\nAnd results in " + Strings.Trim(Conversion.Str( Number2)) + "% total bonus.");
           }
         }
         else
         {
           rectangle = Rectangle::new(x1 + 5, 103, 80, 30);
           let mut trect: &Rectangle = &rectangle
-          this.AddMouse( trect, "", "Total combat bonus for units\r\nunder direct command of this officer.\r\nBase bonus for full staff complement: " + Strings.Trim(Conversion.Str((object)  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1)))) + "%.\r\nStaff bonus (based on staff XP) is: " + Strings.Trim(Conversion.Str((object) Number3)) + "%. \r\nBase bonus and modified staff bonus are added up. \r\nAnd results in " + Strings.Trim(Conversion.Str((object) Number2)) + "% total bonus.");
+          this.AddMouse( trect, "", "Total combat bonus for units\r\nunder direct command of this officer.\r\nBase bonus for full staff complement: " + Strings.Trim(Conversion.Str(  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1)))) + "%.\r\nStaff bonus (based on staff XP) is: " + Strings.Trim(Conversion.Str( Number3)) + "%. \r\nBase bonus and modified staff bonus are added up. \r\nAnd results in " + Strings.Trim(Conversion.Str( Number2)) + "% total bonus.");
         }
-        if ((double) this.game.Data.RuleVar[976] < 1.0)
+        if ( this.game.Data.RuleVar[976] < 1.0)
         {
           DrawMod.DrawBlockGradient2( g, x1 + 5, 140, 79, 20, this.game.MarcCol1, this.game.MarcCol2);
           DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, x1 + 5, 141, 80, 19, -1, -1);
@@ -8468,15 +8468,15 @@ namespace WindowsApplication1
           this.AddMouse( trect1, "POLITICAL VALUE", "A negative political value is the cost in PP to replace this officer.\r\nA positive political value is the cost to appoint the officer.");
           DrawMod.DrawBlockGradient2( g, x1 + 5, 165, 79, 20, this.game.MarcCol1, this.game.MarcCol2);
           DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, x1 + 5, 166, 80, 19, -1, -1);
-          str2: String = Strings.Trim(Conversion.Str((object) Math.Round((double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) staffPoints, 2)));
+          str2: String = Strings.Trim(Conversion.Str( Math.Round( this.game.Data.HistoricalUnitObj[historical].StaffSize /  staffPoints, 2)));
           DrawMod.DrawTextColouredMarc( g, "O:S = " + str2, this.game.MarcFont5, x1 + 10, 170, Color.White);
           rectangle = Rectangle::new(x1 + 10, 166, 80, 20);
           let mut trect2: &Rectangle = &rectangle
-          this.AddMouse( trect2, "OFFICER : STAFF RATIO", "If above 1 the officer can command more staff without penalty.\r\nIf below 1 the officer has to much staff for his ability.\r\nMaximum staff points officer can command = " + Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[historical].StaffSize)) + ".\r\nCurrent staff points under command = " + Strings.Trim(Conversion.Str((object) staffPoints)));
+          this.AddMouse( trect2, "OFFICER : STAFF RATIO", "If above 1 the officer can command more staff without penalty.\r\nIf below 1 the officer has to much staff for his ability.\r\nMaximum staff points officer can command = " + Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[historical].StaffSize)) + ".\r\nCurrent staff points under command = " + Strings.Trim(Conversion.Str( staffPoints)));
         }
         DrawMod.DrawBlockGradient2( g, x1 + 5, 190, 79, 20, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, x1 + 5, 191, 80, 19, -1, -1);
-        str3: String = Strings.Trim(Conversion.Str((object) Math.Round((double) staffPoints / (double) num1, 2)));
+        str3: String = Strings.Trim(Conversion.Str( Math.Round( staffPoints /  num1, 2)));
         DrawMod.DrawTextColouredMarc( g, "S:T = " + str3, this.game.MarcFont5, x1 + 10, 195, Color.White);
         rectangle = Rectangle::new(x1 + 10, 191, 80, 20);
         let mut trect3: &Rectangle = &rectangle
@@ -8503,7 +8503,7 @@ namespace WindowsApplication1
         if ((uint) (-(this.game.Data.Product < 4 ? 1 : 0) & this.game.HandyFunctionsObj.GetVisibleHisVar(historical)) > 0U)
           flag1 = true;
         Bitmap bitmap1;
-        if ((double) this.game.Data.RuleVar[879] < 1.0 | this.game.HandyFunctionsObj.GetVisibleHisVar(historical) < 1 | !flag1)
+        if ( this.game.Data.RuleVar[879] < 1.0 | this.game.HandyFunctionsObj.GetVisibleHisVar(historical) < 1 | !flag1)
         {
           TextAreaClass2 textAreaClass2 = new TextAreaClass2(this.game, 340, 5, this.game.MarcFont13, "\r\n\r\n" + this.game.Data.HistoricalUnitObj[historical].Descript, 12,  this.BackBitmap, x1 + 110, -7, true);
            let mut local1: &Graphics = &g;
@@ -8543,9 +8543,9 @@ namespace WindowsApplication1
               if (flag3 & (this.game.Data.HistoricalUnitObj[historical].HisVarNato[index] > 0 | this.game.Data.HistoricalUnitObj[historical].HisVarSmall[index] > -1))
               {
                 DrawMod.DrawBlockGradient2( g, x1 + num9 + 35, 51, 2, 41, this.game.MarcCol3, this.game.MarcCol2);
-                str4: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[historical].HisVarValue[index]));
+                str4: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[historical].HisVarValue[index]));
                 SizeF sizeF2 = g.MeasureString(str4, this.game.MarcFont8b);
-                let mut x4: i32 =   Math.Round((double) ((float) (x1 + num9 + 18) - sizeF2.Width / 2f));
+                let mut x4: i32 =   Math.Round( ( (x1 + num9 + 18) - sizeF2.Width / 2f));
                 DrawMod.DrawTextColouredMarc( g, str4, this.game.MarcFont8b, x4, 73, Color.White);
                 if (this.game.Data.HistoricalUnitObj[historical].HisVarSmall[index] > -1)
                 {
@@ -8684,7 +8684,7 @@ namespace WindowsApplication1
               }
               rectangle = Rectangle::new(x7, y1, 33, 46);
               let mut trect9: &Rectangle = &rectangle
-              this.AddMouse( trect9, "DECK CARD", this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[historical].DeckCard[index1]].Title + "\r\n" + Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[historical].DeckChance[index1])) + "% chance to get it as handcard.", 7000 + index1);
+              this.AddMouse( trect9, "DECK CARD", this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[historical].DeckCard[index1]].Title + "\r\n" + Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[historical].DeckChance[index1])) + "% chance to get it as handcard.", 7000 + index1);
             }
           }
         }
@@ -8701,7 +8701,7 @@ namespace WindowsApplication1
             if (this.cardsel >= 5000)
             {
               nr = this.game.Data.HistoricalUnitObj[historical].HandCard[this.cardsel - 5000];
-              if (!Information.IsNothing((object) this.game.Data.ActionCardObj[nr].MouseOver))
+              if (!Information.IsNothing( this.game.Data.ActionCardObj[nr].MouseOver))
               {
                 if (this.game.Data.ActionCardObj[nr].MouseOver.Length > 0)
                 {
@@ -8775,7 +8775,7 @@ namespace WindowsApplication1
             if (this.cardhover >= 5000)
             {
               nr = this.game.Data.HistoricalUnitObj[historical].HandCard[this.cardhover - 5000];
-              if (!Information.IsNothing((object) this.game.Data.ActionCardObj[nr].MouseOver))
+              if (!Information.IsNothing( this.game.Data.ActionCardObj[nr].MouseOver))
               {
                 if (this.game.Data.ActionCardObj[nr].MouseOver.Length > 0)
                 {
@@ -8814,7 +8814,7 @@ namespace WindowsApplication1
     pub void CombatTab(Graphics g)
     {
       SizeF sizeF = SizeF::new();
-      let mut num1: i32 =   Math.Round(580.0 + (double) (this.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round(580.0 +  (this.w - 1024) / 2.0);
       let mut num2: i32 =  0;
       DrawMod.DrawTextColouredMarc( g, "TARGET", this.game.MarcFont4, num1 - 90, 35, Color.White);
       DrawMod.DrawTextColouredMarc( g, "HEX", this.game.MarcFont4, num1 - 80, 55, Color.White);
@@ -8886,7 +8886,7 @@ namespace WindowsApplication1
         DrawMod.DrawBlockGradient2( g, num1 + 20, 5, 399, 99, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num1 + 20, 5, 400, 100, -1, -1);
       }
-      let mut num9: i32 =   Math.Round(580.0 + (double) (this.w - 1024) / 2.0);
+      let mut num9: i32 =   Math.Round(580.0 +  (this.w - 1024) / 2.0);
       num2 = 0;
       let mut num10: i32 =  -1;
       let mut counter1: i32 =  this.game.EditObj.TempUnitList.counter;
@@ -8971,7 +8971,7 @@ namespace WindowsApplication1
       let mut hexLibVarValue: i32 =  DrawMod.TGame.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unitSelected].X, this.game.Data.UnitObj[unitSelected].Y].GetHexLibVarValue(libVar);
       if (hexLibVarValue > 0)
         num2 =  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById2].GetData(0, hexLibVarValue, 13)));
-      let mut num3: i32 =   Math.Round((double) num2 / (double) num1);
+      let mut num3: i32 =   Math.Round( num2 /  num1);
       int eventPicOrigSlot1;
       int eventPicOrigSlot2;
       if (stringListById1 > -1)
@@ -9018,8 +9018,8 @@ namespace WindowsApplication1
         if (lessSubs < 1 & simpleList1.Counter >= 0)
           lessSubs = 1;
         SimpleList simpleList2 = (SimpleList) this.game.HandyFunctionsObj.Get8Subformations(unitSelected, lessSubs, true);
-        let mut num5: i32 =   Math.Round(Math.Floor((double) useRect.Width / 156.0));
-        val2 =  Math.Round(Math.Ceiling((double) (simpleList2.Counter + 1 + num4 + 1 + this.game.Data.UnitObj[unitSelected].PassengerCounter) / (double) (num5 * 2)));
+        let mut num5: i32 =   Math.Round(Math.Floor( useRect.Width / 156.0));
+        val2 =  Math.Round(Math.Ceiling( (simpleList2.Counter + 1 + num4 + 1 + this.game.Data.UnitObj[unitSelected].PassengerCounter) /  (num5 * 2)));
         if (PageNr > val2)
           PageNr = Math.Min(1, val2);
         let mut num6: i32 =  (PageNr - 1) * (num5 * 2);
@@ -9070,15 +9070,15 @@ namespace WindowsApplication1
               if (reconMinusHide.x == 2)
               {
                 this.game.HandyFunctionsObj.RandomizeForUnit(unitSelected, qty);
-                float num13 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-                float num14 = (float) ((1.0 - (double) num13) * 2.0);
-                if ( Math.Round((double) Conversion.Int((VBMath.Rnd() * num14 + num13) * (float) qty)) < 1)
+                float num13 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+                float num14 =  ((1.0 -  num13) * 2.0);
+                if ( Math.Round( Conversion.Int((VBMath.Rnd() * num14 + num13) *  qty)) < 1)
                   ;
                 this.game.HandyFunctionsObj.RandomizeForUnit(unitSelected, num12);
-                float num15 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-                float num16 = (float) ((1.0 - (double) num15) * 2.0);
+                float num15 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+                float num16 =  ((1.0 -  num15) * 2.0);
                 float num17 = VBMath.Rnd() * num16 + num15;
-                num12 =  Math.Round((double) ((float) num12 * num17));
+                num12 =  Math.Round( ( num12 * num17));
                 if (num12 < 0)
                   num12 = 0;
                 if (num12 > 100)
@@ -9217,10 +9217,10 @@ namespace WindowsApplication1
                   let mut srcrect: &Rectangle = &rectangle
                   trect = Rectangle::new(x3 + 8 + 30, num8 + 12, 76, 76);
                   let mut destrect: &Rectangle = &trect
-                  double r = (double) ((float) this.game.Data.SFTypeObj[type2].artCode[1] / (float) byte.MaxValue);
-                  double g1 = (double) ((float) this.game.Data.SFTypeObj[type2].artCode[2] / (float) byte.MaxValue);
-                  double b = (double) ((float) this.game.Data.SFTypeObj[type2].artCode[3] / (float) byte.MaxValue);
-                  DrawMod.DrawSimplePart2ColouredNew( local12,  local13, srcrect, destrect, (float) r, (float) g1, (float) b, 1f);
+                  double r =  ( this.game.Data.SFTypeObj[type2].artCode[1] /  byte.MaxValue);
+                  double g1 =  ( this.game.Data.SFTypeObj[type2].artCode[2] /  byte.MaxValue);
+                  double b =  ( this.game.Data.SFTypeObj[type2].artCode[3] /  byte.MaxValue);
+                  DrawMod.DrawSimplePart2ColouredNew( local12,  local13, srcrect, destrect,  r,  g1,  b, 1f);
                 }
                 if (this.game.Data.SFTypeObj[type2].artCode[5] >= 1)
                 {
@@ -9231,11 +9231,11 @@ namespace WindowsApplication1
                   let mut srcrect: &Rectangle = &rectangle
                   trect = Rectangle::new(x3 + 8 + 30, num8 + 12, 76, 76);
                   let mut destrect: &Rectangle = &trect
-                  double r = (double) ((float) this.game.Data.SFTypeObj[type2].artCode[6] / (float) byte.MaxValue);
-                  double g2 = (double) ((float) this.game.Data.SFTypeObj[type2].artCode[7] / (float) byte.MaxValue);
-                  double b = (double) ((float) this.game.Data.SFTypeObj[type2].artCode[8] / (float) byte.MaxValue);
-                  double a = (double) ((float) this.game.Data.SFTypeObj[type2].artCode[9] / (float) byte.MaxValue);
-                  DrawMod.DrawSimplePart2ColouredNew( local14,  local15, srcrect, destrect, (float) r, (float) g2, (float) b, (float) a);
+                  double r =  ( this.game.Data.SFTypeObj[type2].artCode[6] /  byte.MaxValue);
+                  double g2 =  ( this.game.Data.SFTypeObj[type2].artCode[7] /  byte.MaxValue);
+                  double b =  ( this.game.Data.SFTypeObj[type2].artCode[8] /  byte.MaxValue);
+                  double a =  ( this.game.Data.SFTypeObj[type2].artCode[9] /  byte.MaxValue);
+                  DrawMod.DrawSimplePart2ColouredNew( local14,  local15, srcrect, destrect,  r,  g2,  b,  a);
                 }
               }
               else
@@ -9257,7 +9257,7 @@ namespace WindowsApplication1
               bool isMilitia = this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unitSelected].Historical].GiveHisVarValue(11) > 0;
               let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[stringListById8].GetData(0, tv0, 1));
               Bitmap objBitmap = this.game.CustomBitmapObj.DrawSFTypeGraphic(type2, isMilitia, integer, this.game.Data.UnitObj[unitSelected].Regime, unitSelected);
-              if (!Information.IsNothing((object) objBitmap))
+              if (!Information.IsNothing( objBitmap))
               {
                 let mut num19: i32 =  8;
                 let mut num20: i32 =  8;
@@ -9270,34 +9270,34 @@ namespace WindowsApplication1
                 {
                   int w;
                   int num23;
-                  if ((double) width / (double) num21 < (double) height / (double) h)
+                  if ( width /  num21 <  height /  h)
                   {
-                    float num24 = (float) h / (float) height;
+                    float num24 =  h /  height;
                     index2 = num21;
-                    w =  Math.Round((double) ((float) width * num24));
+                    w =  Math.Round( ( width * num24));
                     index2 -= w;
-                    num23 = num19 +  Math.Round((double) index2 / 2.0);
+                    num23 = num19 +  Math.Round( index2 / 2.0);
                   }
                   else
                   {
-                    float num25 = (float) num21 / (float) width;
+                    float num25 =  num21 /  width;
                     index2 = h;
-                    h =  Math.Round((double) ((float) height * num25));
+                    h =  Math.Round( ( height * num25));
                     index2 -= h;
-                    num20 +=  Math.Round((double) index2 / 2.0);
+                    num20 +=  Math.Round( index2 / 2.0);
                     index2 = num21;
-                    w =  Math.Round((double) ((float) width * num25));
+                    w =  Math.Round( ( width * num25));
                     index2 -= w;
-                    num23 = num19 +  Math.Round((double) index2 / 2.0);
+                    num23 = num19 +  Math.Round( index2 / 2.0);
                   }
                   if (124 - w > 0 && isPeoplePortraitGroup > 0)
-                    num22 =  Math.Round((double) (124 - w) * 0.2);
+                    num22 =  Math.Round( (124 - w) * 0.2);
                   DrawMod.DrawScaled( g,  objBitmap, x3 + num23 + num22, num8 + num20, w, h);
                 }
                 else
                 {
-                  let mut num26: i32 =  isPeoplePortraitGroup <= 0 ?  Math.Round((double) (136 - width) * 0.5) :  Math.Round((double) (136 - width) * 0.75);
-                  DrawMod.DrawSimple( g,  objBitmap, x3 + num26 + num19, num8 + num20 +  Math.Round((double) (h - height) / 2.0));
+                  let mut num26: i32 =  isPeoplePortraitGroup <= 0 ?  Math.Round( (136 - width) * 0.5) :  Math.Round( (136 - width) * 0.75);
+                  DrawMod.DrawSimple( g,  objBitmap, x3 + num26 + num19, num8 + num20 +  Math.Round( (h - height) / 2.0));
                 }
                 objBitmap.Dispose();
                 objBitmap = (Bitmap) null;
@@ -9331,7 +9331,7 @@ namespace WindowsApplication1
                 DrawMod.DrawTextCenterSmallLabel( g, this.game.HandyFunctionsObj.GetRomanNumerical(index2), this.game.MarcFont4, x3 + 111 + 15, num8 + 67 + 7);
               }
             }
-            if (this.game.Data.SFTypeObj[type2].Theater == 2 & (double) this.game.Data.RuleVar[848] > 0.0 || !(this.game.Data.SFTypeObj[type2].Theater == 1 & (double) this.game.Data.RuleVar[872] > 0.0))
+            if (this.game.Data.SFTypeObj[type2].Theater == 2 &  this.game.Data.RuleVar[848] > 0.0 || !(this.game.Data.SFTypeObj[type2].Theater == 1 &  this.game.Data.RuleVar[872] > 0.0))
               ;
             if (isPeoplePortraitGroup > 0 | isUniformEventPic > 0)
             {
@@ -9349,35 +9349,35 @@ namespace WindowsApplication1
             {
               if (this.game.Data.SFObj[sfNr].OffMod > 0)
               {
-                tstring: String = "+" + Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sfNr].OffMod)) + "%";
+                tstring: String = "+" + Strings.Trim(Conversion.Str( this.game.Data.SFObj[sfNr].OffMod)) + "%";
                 DrawMod.DrawBlockGradient2( g, x3 + 5, num8 + 22, 40, 16, Color.Red, Color.DarkRed);
                 DrawMod.DrawTextColouredMarc( g, tstring, this.game.MarcFont4, x3 + 5, num8 + 20, Color.White);
               }
               else if (this.game.Data.SFObj[sfNr].OffMod < 0)
               {
-                tstring: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sfNr].OffMod)) + "%";
+                tstring: String = Strings.Trim(Conversion.Str( this.game.Data.SFObj[sfNr].OffMod)) + "%";
                 DrawMod.DrawBlockGradient2( g, x3 + 5, num8 + 22, 40, 16, Color.Red, Color.DarkRed);
                 DrawMod.DrawTextColouredMarc( g, tstring, this.game.MarcFont4, x3 + 5, num8 + 20, Color.White);
               }
               if (this.game.Data.SFObj[sfNr].DefMod > 0)
               {
-                tstring: String = "+" + Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sfNr].DefMod)) + "%";
+                tstring: String = "+" + Strings.Trim(Conversion.Str( this.game.Data.SFObj[sfNr].DefMod)) + "%";
                 DrawMod.DrawBlockGradient2( g, x3 + 95, num8 + 22, 40, 16, Color.Blue, Color.DarkBlue);
                 DrawMod.DrawTextColouredMarc( g, tstring, this.game.MarcFont4, x3 + 95, num8 + 20, Color.White);
               }
               else if (this.game.Data.SFObj[sfNr].DefMod < 0)
               {
-                tstring: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sfNr].DefMod)) + "%";
+                tstring: String = Strings.Trim(Conversion.Str( this.game.Data.SFObj[sfNr].DefMod)) + "%";
                 DrawMod.DrawBlockGradient2( g, x3 + 95, num8 + 22, 40, 16, Color.Blue, Color.DarkBlue);
                 DrawMod.DrawTextColouredMarc( g, tstring, this.game.MarcFont4, x3 + 95, num8 + 20, Color.White);
               }
             }
-            str4: String = Strings.Trim(Conversion.Str((object) Number)) + "x " + name;
+            str4: String = Strings.Trim(Conversion.Str( Number)) + "x " + name;
             if (str4.Length > 20)
               str4 = Strings.Left(str4, 20) + ".";
             sizeF1 = g.MeasureString(str4, this.game.MarcFont7);
             DrawMod.DrawTextColouredConsoleCenter( g, str4, this.game.MarcFont7, x3 + 76, num8 + 85, this.game.seColGray);
-            tstring1: String = Strings.Trim(Conversion.Str((object) num12)) + "xp";
+            tstring1: String = Strings.Trim(Conversion.Str( num12)) + "xp";
             Color c = Color.White;
             if (this.game.Data.PeopleObj[people1].tv1 == 1)
               c = Color.FromArgb( byte.MaxValue, 170,  byte.MaxValue, 170);
@@ -9394,7 +9394,7 @@ namespace WindowsApplication1
             if (this.game.Data.PeopleObj[people1].tv1 == 14)
               c = Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
             DrawMod.DrawTextColouredConsoleCenter( g, tstring1, this.game.MarcFont8, x3 + 34, num8 + 67, c);
-            ttitle: String = Strings.Trim(Conversion.Str((object) Number)) + "x " + name;
+            ttitle: String = Strings.Trim(Conversion.Str( Number)) + "x " + name;
             str5: String = "Troop type is " + this.game.Data.PeopleObj[people1].Name + "\r\n\r\n";
             if (str3.Length > 1)
               str5 = str5 + str3 + "\r\n\r\n";
@@ -9462,8 +9462,8 @@ namespace WindowsApplication1
                  let mut local24: &Graphics = &g;
                 bitmap = BitmapStore.GetBitmap(nr);
                  let mut local25: &Bitmap = &bitmap;
-                let mut x6: i32 =  x5 + num29 +  Math.Round((double) (num31 - width) / 2.0);
-                let mut y: i32 =  num8 + num30 +  Math.Round((double) (num32 - num33) / 2.0);
+                let mut x6: i32 =  x5 + num29 +  Math.Round( (num31 - width) / 2.0);
+                let mut y: i32 =  num8 + num30 +  Math.Round( (num32 - num33) / 2.0);
                 DrawMod.DrawSimple( local24,  local25, x6, y);
               }
               else
@@ -9483,7 +9483,7 @@ namespace WindowsApplication1
               let mut x7: i32 =  x5;
               let mut y1: i32 =  num8;
               DrawMod.DrawSimple( local28,  local29, x7, y1);
-              str6: String = Strings.Trim(Conversion.Str((object) Number)) + "x " + data2;
+              str6: String = Strings.Trim(Conversion.Str( Number)) + "x " + data2;
               if (Strings.Len(str6) > 20)
                 str6 = Strings.Left(str6, 20) + ".";
               sizeF1 = g.MeasureString(str6, this.game.MarcFont7);
@@ -9496,9 +9496,9 @@ namespace WindowsApplication1
               let mut stringListById9: i32 =  this.game.HandyFunctionsObj.GetStringListByID(this.game.EventRelatedObj.CheckStringlistID("SE_Data", 210, 0, 0));
               let mut idValue4: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById5].GetData(0, idValue3, 1)));
               data4: String = this.game.Data.StringListObj[stringListById4].GetData(0, idValue4, 5);
-              float num34 = (float)  Math.Round((double) ((float) (1000 -  Math.Round(100.0 * Math.Sqrt((double) (100 -  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById9].GetData2(0, this.game.Data.RegimeObj[this.game.Data.UnitObj[unitSelected].Regime].id, 1, data4, 2))))))) / 6f));
+              float num34 =   Math.Round( ( (1000 -  Math.Round(100.0 * Math.Sqrt( (100 -  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById9].GetData2(0, this.game.Data.RegimeObj[this.game.Data.UnitObj[unitSelected].Regime].id, 1, data4, 2))))))) / 6f));
               if (this.game.Data.UnitObj[unitSelected].Regime == this.game.Data.Turn && this.game.Data.StringListObj[stringListById5].GetData(0, idValue3, 4).Length > 0)
-                str7 = str7 + "Acquire 1st chance per round: " + Math.Round((double) Conversions.ToInteger(this.game.Data.StringListObj[stringListById5].GetData(0, idValue3, 4)) * (double) num34 / 1000.0, 2).ToString() + "%\r\n";
+                str7 = str7 + "Acquire 1st chance per round: " + Math.Round( Conversions.ToInteger(this.game.Data.StringListObj[stringListById5].GetData(0, idValue3, 4)) *  num34 / 1000.0, 2).ToString() + "%\r\n";
               str8: String = str7 + "Embeds with howmany Sub Units: " + this.game.Data.StringListObj[stringListById5].GetData(0, idValue3, 13);
               ttext: String = data3 + "\r\n" + str8;
               rectangle = Rectangle::new(x5, num8, 152, 101);
@@ -9514,7 +9514,7 @@ namespace WindowsApplication1
           {
             let mut num35: i32 =  index + num11 + 1 + stringListById5;
             let mut passenger: i32 =  this.game.Data.UnitObj[unitSelected].PassengerList[index];
-            let mut num36: i32 =   Math.Round((double) (this.w - 1024) / 2.0) + 440;
+            let mut num36: i32 =   Math.Round( (this.w - 1024) / 2.0) + 440;
             DrawMod.DrawBlockGradient2( g, num36, num8, 140, 20, this.game.MarcCol3, this.game.MarcCol2);
             DrawMod.DrawBlockGradient2( g, num36 + 88, num8 + 84, 52, 16, Color.FromArgb(0,  this.game.MarcCol3.R,  this.game.MarcCol3.G,  this.game.MarcCol3.B), this.game.MarcCol3);
             if (this.game.EditObj.SFSelected == num35)
@@ -9524,9 +9524,9 @@ namespace WindowsApplication1
             }
             this.game.CustomBitmapObj.DrawUnitBig(passenger, toG: g, tx: (num36 + 12), ty: (num8 + 23));
             DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num36, num8, 141, 101, -1, -1);
-            str9: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetLowestAp(passenger)));
+            str9: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(passenger)));
             SizeF sizeF2 = g.MeasureString(str9, this.game.MarcFont8b);
-            DrawMod.DrawTextColouredMarc( g, str9, this.game.MarcFont8b,  Math.Round((double) ((float) (num36 + 98 + 16) - sizeF2.Width / 2f)), num8 + 56, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str9, this.game.MarcFont8b,  Math.Round( ( (num36 + 98 + 16) - sizeF2.Width / 2f)), num8 + 56, Color.White);
              let mut local30: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.ICONAP1);
              let mut local31: &Bitmap = &bitmap;
@@ -9540,7 +9540,7 @@ namespace WindowsApplication1
             if (Strings.Len(str10) > 20)
               str10 = Strings.Left(str10, 18) + "...";
             SizeF sizeF3 = g.MeasureString(str10, this.game.MarcFont5);
-            DrawMod.DrawTextColouredMarc( g, str10, this.game.MarcFont5,  Math.Round((double) ((float) (num36 + 122) - sizeF3.Width)), num8 + 5, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str10, this.game.MarcFont5,  Math.Round( ( (num36 + 122) - sizeF3.Width)), num8 + 5, Color.White);
             rectangle = Rectangle::new(num36, num8, 140, 100);
             trect = rectangle;
             this.AddMouse( trect, "PASSENGER UNIT", "Select this unit to make the unloading button show up.", 9999000 + num35);
@@ -9560,7 +9560,7 @@ namespace WindowsApplication1
       if (this.game.EmpireStyle)
         num1 = 128;
       let mut unitSelected1: i32 =  this.game.EditObj.UnitSelected;
-      let mut num2: i32 =   Math.Round((double) (this.w - 1024) / 2.0) + 440;
+      let mut num2: i32 =   Math.Round( (this.w - 1024) / 2.0) + 440;
       DrawMod.DrawBlockGradient2( g, num2, 35, 580 + num1, 175, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num2, 35, 580 + num1, 174, -1, -1);
       Bitmap bitmap;
@@ -9573,13 +9573,13 @@ namespace WindowsApplication1
         DrawMod.Draw( local1,  local2, x1, 11, -0.1f, -0.1f, -0.1f, 1f);
         str1: String = "BASIC DETAIL";
         SizeF sizeF2 = g.MeasureString(str1, this.game.MarcFont16);
-        let mut x2: i32 =   Math.Round((double) ((float) (num2 + 20 + 91) - sizeF2.Width / 2f));
+        let mut x2: i32 =   Math.Round( ( (num2 + 20 + 91) - sizeF2.Width / 2f));
         let mut y1: i32 =  11;
         DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16, x2, y1 + 4, Color.White);
         Rectangle trect1 = Rectangle::new(num2 + 20, y1, 182, 24);
         this.AddMouse( trect1, "", "Click to inspect basic details like supply and carry statistics.", 101);
         Rectangle trect2;
-        if ((double) this.game.Data.RuleVar[337] > 0.0)
+        if ( this.game.Data.RuleVar[337] > 0.0)
         {
            let mut local3: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9588,13 +9588,13 @@ namespace WindowsApplication1
           DrawMod.Draw( local3,  local4, x3, 11, -0.1f, -0.1f, -0.1f, 1f);
           str2: String = "REPL RECEIVED";
           SizeF sizeF3 = g.MeasureString(str2, this.game.MarcFont16);
-          let mut x4: i32 =   Math.Round((double) ((float) (num2 + 20 + 170 + 91) - sizeF3.Width / 2f));
+          let mut x4: i32 =   Math.Round( ( (num2 + 20 + 170 + 91) - sizeF3.Width / 2f));
           let mut y2: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont16, x4, y2 + 4, Color.White);
           trect1 = Rectangle::new(num2 + 20 + 170, y2, 182, 24);
           let mut trect3: &Rectangle = &trect1
           this.AddMouse( trect3, "", "Click to inspect the replacement logs.", 102);
-          if (this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
+          if (this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
           {
              let mut local5: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9603,7 +9603,7 @@ namespace WindowsApplication1
             DrawMod.Draw( local5,  local6, x5, 11, -0.1f, -0.1f, -0.1f, 1f);
             str3: String = "REPL SENT OUT";
             SizeF sizeF4 = g.MeasureString(str3, this.game.MarcFont16);
-            let mut x6: i32 =   Math.Round((double) ((float) (num2 + 20 + 340 + 91) - sizeF4.Width / 2f));
+            let mut x6: i32 =   Math.Round( ( (num2 + 20 + 340 + 91) - sizeF4.Width / 2f));
             let mut y3: i32 =  11;
             DrawMod.DrawTextColouredMarc( g, str3, this.game.MarcFont16, x6, y3 + 4, Color.White);
             trect1 = Rectangle::new(num2 + 20 + 340, y3, 182, 24);
@@ -9611,7 +9611,7 @@ namespace WindowsApplication1
             this.AddMouse( trect2, "", "Click to inspect the replacement logs.", 103);
           }
         }
-        if ((double) this.game.Data.RuleVar[403] > 0.0)
+        if ( this.game.Data.RuleVar[403] > 0.0)
         {
            let mut local7: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9620,7 +9620,7 @@ namespace WindowsApplication1
           DrawMod.DrawSimple( local7,  local8, x7, 11);
           str4: String = "ITEMS";
           SizeF sizeF5 = g.MeasureString(str4, this.game.MarcFont16);
-          let mut x8: i32 =   Math.Round((double) ((float) (num2 + 20 + 510 + 91) - sizeF5.Width / 2f));
+          let mut x8: i32 =   Math.Round( ( (num2 + 20 + 510 + 91) - sizeF5.Width / 2f));
           let mut y4: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str4, this.game.MarcFont16, x8, y4 + 4, Color.White);
           trect1 = Rectangle::new(num2 + 20 + 510, y4, 182, 24);
@@ -9632,7 +9632,7 @@ namespace WindowsApplication1
       {
         Rectangle rectangle;
         Rectangle trect;
-        if ((double) this.game.Data.RuleVar[403] > 0.0)
+        if ( this.game.Data.RuleVar[403] > 0.0)
         {
            let mut local9: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9641,7 +9641,7 @@ namespace WindowsApplication1
           DrawMod.Draw( local9,  local10, x9, 11, -0.1f, -0.1f, -0.1f, 1f);
           str: String = "ITEMS";
           SizeF sizeF6 = g.MeasureString(str, this.game.MarcFont16);
-          let mut x10: i32 =   Math.Round((double) ((float) (num2 + 20 + 510 + 91) - sizeF6.Width / 2f));
+          let mut x10: i32 =   Math.Round( ( (num2 + 20 + 510 + 91) - sizeF6.Width / 2f));
           let mut y: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x10, y + 4, Color.White);
           rectangle = Rectangle::new(num2 + 20 + 510, y, 182, 24);
@@ -9655,13 +9655,13 @@ namespace WindowsApplication1
         DrawMod.Draw( local11,  local12, x11, 11, -0.1f, -0.1f, -0.1f, 1f);
         str5: String = "BASIC DETAIL";
         SizeF sizeF7 = g.MeasureString(str5, this.game.MarcFont16);
-        let mut x12: i32 =   Math.Round((double) ((float) (num2 + 20 + 91) - sizeF7.Width / 2f));
+        let mut x12: i32 =   Math.Round( ( (num2 + 20 + 91) - sizeF7.Width / 2f));
         let mut y5: i32 =  11;
         DrawMod.DrawTextColouredMarc( g, str5, this.game.MarcFont16, x12, y5 + 4, Color.White);
         rectangle = Rectangle::new(num2 + 20, y5, 182, 24);
         trect = rectangle;
         this.AddMouse( trect, "", "Click to inspect basic details like supply and carry statistics.", 101);
-        if ((double) this.game.Data.RuleVar[337] > 0.0)
+        if ( this.game.Data.RuleVar[337] > 0.0)
         {
            let mut local13: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9670,13 +9670,13 @@ namespace WindowsApplication1
           DrawMod.Draw( local13,  local14, x13, 11, -0.1f, -0.1f, -0.1f, 1f);
           str6: String = "REPL RECEIVED";
           SizeF sizeF8 = g.MeasureString(str6, this.game.MarcFont16);
-          let mut x14: i32 =   Math.Round((double) ((float) (num2 + 20 + 170 + 91) - sizeF8.Width / 2f));
+          let mut x14: i32 =   Math.Round( ( (num2 + 20 + 170 + 91) - sizeF8.Width / 2f));
           let mut y6: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str6, this.game.MarcFont16, x14, y6 + 4, Color.White);
           rectangle = Rectangle::new(num2 + 20 + 170, y6, 182, 24);
           trect = rectangle;
           this.AddMouse( trect, "", "Click to inspect the replacement logs.", 102);
-          if (this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
+          if (this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
           {
              let mut local15: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9685,7 +9685,7 @@ namespace WindowsApplication1
             DrawMod.DrawSimple( local15,  local16, x15, 11);
             str7: String = "REPL SENT OUT";
             SizeF sizeF9 = g.MeasureString(str7, this.game.MarcFont16);
-            let mut x16: i32 =   Math.Round((double) ((float) (num2 + 20 + 340 + 91) - sizeF9.Width / 2f));
+            let mut x16: i32 =   Math.Round( ( (num2 + 20 + 340 + 91) - sizeF9.Width / 2f));
             let mut y7: i32 =  11;
             DrawMod.DrawTextColouredMarc( g, str7, this.game.MarcFont16, x16, y7 + 4, Color.White);
             rectangle = Rectangle::new(num2 + 20 + 340, y7, 182, 24);
@@ -9698,7 +9698,7 @@ namespace WindowsApplication1
       {
         Rectangle rectangle;
         Rectangle trect;
-        if ((double) this.game.Data.RuleVar[403] > 0.0)
+        if ( this.game.Data.RuleVar[403] > 0.0)
         {
            let mut local17: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9707,7 +9707,7 @@ namespace WindowsApplication1
           DrawMod.Draw( local17,  local18, x17, 11, -0.1f, -0.1f, -0.1f, 1f);
           str: String = "ITEMS";
           SizeF sizeF10 = g.MeasureString(str, this.game.MarcFont16);
-          let mut x18: i32 =   Math.Round((double) ((float) (num2 + 20 + 510 + 91) - sizeF10.Width / 2f));
+          let mut x18: i32 =   Math.Round( ( (num2 + 20 + 510 + 91) - sizeF10.Width / 2f));
           let mut y: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x18, y + 4, Color.White);
           rectangle = Rectangle::new(num2 + 20 + 510, y, 182, 24);
@@ -9721,15 +9721,15 @@ namespace WindowsApplication1
         DrawMod.Draw( local19,  local20, x19, 11, -0.1f, -0.1f, -0.1f, 1f);
         str8: String = "BASIC DETAIL";
         SizeF sizeF11 = g.MeasureString(str8, this.game.MarcFont16);
-        let mut x20: i32 =   Math.Round((double) ((float) (num2 + 20 + 91) - sizeF11.Width / 2f));
+        let mut x20: i32 =   Math.Round( ( (num2 + 20 + 91) - sizeF11.Width / 2f));
         let mut y8: i32 =  11;
         DrawMod.DrawTextColouredMarc( g, str8, this.game.MarcFont16, x20, y8 + 4, Color.White);
         rectangle = Rectangle::new(num2 + 20, y8, 182, 24);
         trect = rectangle;
         this.AddMouse( trect, "", "Click to inspect basic details like supply and carry statistics.", 101);
-        if ((double) this.game.Data.RuleVar[337] > 0.0)
+        if ( this.game.Data.RuleVar[337] > 0.0)
         {
-          if (this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
+          if (this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
           {
              let mut local21: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9738,7 +9738,7 @@ namespace WindowsApplication1
             DrawMod.Draw( local21,  local22, x21, 11, -0.1f, -0.1f, -0.1f, 1f);
             str9: String = "REPL SENT OUT";
             SizeF sizeF12 = g.MeasureString(str9, this.game.MarcFont16);
-            let mut x22: i32 =   Math.Round((double) ((float) (num2 + 20 + 340 + 91) - sizeF12.Width / 2f));
+            let mut x22: i32 =   Math.Round( ( (num2 + 20 + 340 + 91) - sizeF12.Width / 2f));
             let mut y9: i32 =  11;
             DrawMod.DrawTextColouredMarc( g, str9, this.game.MarcFont16, x22, y9 + 4, Color.White);
             rectangle = Rectangle::new(num2 + 20 + 340, y9, 182, 24);
@@ -9752,7 +9752,7 @@ namespace WindowsApplication1
           DrawMod.DrawSimple( local23,  local24, x23, 11);
           str10: String = "REPL RECEIVED";
           SizeF sizeF13 = g.MeasureString(str10, this.game.MarcFont16);
-          let mut x24: i32 =   Math.Round((double) ((float) (num2 + 20 + 170 + 91) - sizeF13.Width / 2f));
+          let mut x24: i32 =   Math.Round( ( (num2 + 20 + 170 + 91) - sizeF13.Width / 2f));
           let mut y10: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str10, this.game.MarcFont16, x24, y10 + 4, Color.White);
           rectangle = Rectangle::new(num2 + 20 + 170, y10, 182, 24);
@@ -9764,7 +9764,7 @@ namespace WindowsApplication1
       {
         Rectangle rectangle;
         Rectangle trect;
-        if ((double) this.game.Data.RuleVar[403] > 0.0)
+        if ( this.game.Data.RuleVar[403] > 0.0)
         {
            let mut local25: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9773,16 +9773,16 @@ namespace WindowsApplication1
           DrawMod.Draw( local25,  local26, x25, 11, -0.1f, -0.1f, -0.1f, 1f);
           str: String = "ITEMS";
           SizeF sizeF14 = g.MeasureString(str, this.game.MarcFont16);
-          let mut x26: i32 =   Math.Round((double) ((float) (num2 + 20 + 510 + 91) - sizeF14.Width / 2f));
+          let mut x26: i32 =   Math.Round( ( (num2 + 20 + 510 + 91) - sizeF14.Width / 2f));
           let mut y: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x26, y + 4, Color.White);
           rectangle = Rectangle::new(num2 + 20 + 510, y, 182, 24);
           trect = rectangle;
           this.AddMouse( trect, "", "Click to inspect the items and item logs.", 104);
         }
-        if ((double) this.game.Data.RuleVar[337] > 0.0)
+        if ( this.game.Data.RuleVar[337] > 0.0)
         {
-          if (this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ & (double) this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
+          if (this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 0.0 | this.game.Data.UnitObj[unitSelected1].IsHQ &  this.game.Data.RuleVar[887] == 1.0 & this.game.Data.UnitObj[unitSelected1].HQ == -1)
           {
              let mut local27: &Graphics = &g;
             bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
@@ -9791,7 +9791,7 @@ namespace WindowsApplication1
             DrawMod.Draw( local27,  local28, x27, 11, -0.1f, -0.1f, -0.1f, 1f);
             str: String = "REPL SENT OUT";
             SizeF sizeF15 = g.MeasureString(str, this.game.MarcFont16);
-            let mut x28: i32 =   Math.Round((double) ((float) (num2 + 20 + 340 + 91) - sizeF15.Width / 2f));
+            let mut x28: i32 =   Math.Round( ( (num2 + 20 + 340 + 91) - sizeF15.Width / 2f));
             let mut y: i32 =  11;
             DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x28, y + 4, Color.White);
             rectangle = Rectangle::new(num2 + 20 + 340, y, 182, 24);
@@ -9805,7 +9805,7 @@ namespace WindowsApplication1
           DrawMod.Draw( local29,  local30, x29, 11, -0.1f, -0.1f, -0.1f, 1f);
           str11: String = "REPL RECEIVED";
           SizeF sizeF16 = g.MeasureString(str11, this.game.MarcFont16);
-          let mut x30: i32 =   Math.Round((double) ((float) (num2 + 20 + 170 + 91) - sizeF16.Width / 2f));
+          let mut x30: i32 =   Math.Round( ( (num2 + 20 + 170 + 91) - sizeF16.Width / 2f));
           let mut y11: i32 =  11;
           DrawMod.DrawTextColouredMarc( g, str11, this.game.MarcFont16, x30, y11 + 4, Color.White);
           rectangle = Rectangle::new(num2 + 20 + 170, y11, 182, 24);
@@ -9819,7 +9819,7 @@ namespace WindowsApplication1
         DrawMod.DrawSimple( local31,  local32, x31, 11);
         str12: String = "BASIC DETAIL";
         SizeF sizeF17 = g.MeasureString(str12, this.game.MarcFont16);
-        let mut x32: i32 =   Math.Round((double) ((float) (num2 + 20 + 91) - sizeF17.Width / 2f));
+        let mut x32: i32 =   Math.Round( ( (num2 + 20 + 91) - sizeF17.Width / 2f));
         let mut y12: i32 =  11;
         DrawMod.DrawTextColouredMarc( g, str12, this.game.MarcFont16, x32, y12 + 4, Color.White);
         rectangle = Rectangle::new(num2 + 20, y12, 182, 24);
@@ -9838,39 +9838,39 @@ namespace WindowsApplication1
       if (this.game.EditObj.SetSubViewMode == 0)
       {
         ListClass listClass1 = ListClass::new();
-        str: String = !this.game.Data.UnitObj[unitSelected2].IsHQ ? Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected2].Supply)) : Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetRealHQSupplyPts(unitSelected2)));
-        tvalue1: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected2].Supply));
+        str: String = !this.game.Data.UnitObj[unitSelected2].IsHQ ? Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected2].Supply)) : Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetRealHQSupplyPts(unitSelected2)));
+        tvalue1: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected2].Supply));
         listClass1.add("Supply Stock", -1, tvalue1);
         if (!this.game.Data.UnitObj[unitSelected2].IsHQ)
         {
           string tvalue2;
           if (this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected2) > 0)
           {
-            float Number = (float) Math.Round((double) ((float) this.game.Data.UnitObj[unitSelected2].Supply / (float) this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected2)), 1);
-            if ((double) Number > 99.0)
+            float Number =  Math.Round( ( this.game.Data.UnitObj[unitSelected2].Supply /  this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected2)), 1);
+            if ( Number > 99.0)
               Number = 99f;
-            tvalue2 = Strings.Trim(Conversion.Str((object) Number));
+            tvalue2 = Strings.Trim(Conversion.Str( Number));
           }
           else
             tvalue2 = ">99";
           listClass1.add("Rounds of Stock", -1, tvalue2);
         }
-        if (Operators.ConditionalCompareObjectGreater(this.game.HandyFunctionsObj.GetStockpileUsePerRound(unitSelected2), (object) 0, false))
+        if (Operators.ConditionalCompareObjectGreater(this.game.HandyFunctionsObj.GetStockpileUsePerRound(unitSelected2),  0, false))
         {
-          tvalue3: String = Strings.Trim(Conversion.Str((object) Conversion.Int(this.game.Data.UnitObj[unitSelected2].StockpileCurrent))) + "/" + this.game.HandyFunctionsObj.GetMaxStockpile(unitSelected2).ToString() + " (" + Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(Conversion.Int(Operators.DivideObject((object) this.game.Data.UnitObj[unitSelected2].StockpileCurrent, this.game.HandyFunctionsObj.GetStockpileUsePerRound(unitSelected2)))))) + ")";
+          tvalue3: String = Strings.Trim(Conversion.Str( Conversion.Int(this.game.Data.UnitObj[unitSelected2].StockpileCurrent))) + "/" + this.game.HandyFunctionsObj.GetMaxStockpile(unitSelected2).ToString() + " (" + Strings.Trim(Conversion.Str(RuntimeHelpers.GetObjectValue(Conversion.Int(Operators.DivideObject( this.game.Data.UnitObj[unitSelected2].StockpileCurrent, this.game.HandyFunctionsObj.GetStockpileUsePerRound(unitSelected2)))))) + ")";
           listClass1.add("Stockpile", -1, tvalue3);
         }
-        tvalue4: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected2].SupplyInReq));
+        tvalue4: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected2].SupplyInReq));
         listClass1.add("Supply In Req", -1, tvalue4);
-        tvalue5: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected2].SupplyIn));
+        tvalue5: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected2].SupplyIn));
         listClass1.add("Supply In", -1, tvalue5);
-        tvalue6: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected2].SupplyLost));
+        tvalue6: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected2].SupplyLost));
         listClass1.add("Supply Lost", -1, tvalue6);
         if (this.game.Data.UnitObj[unitSelected2].IsHQ)
         {
-          tvalue7: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected2].SupplyReq));
+          tvalue7: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected2].SupplyReq));
           listClass1.add("Supply Out Req", -1, tvalue7);
-          tvalue8: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected2].SupplyOut));
+          tvalue8: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected2].SupplyOut));
           listClass1.add("Supply Out", -1, tvalue8);
         }
         ListClass tListobj1 = listClass1;
@@ -9887,15 +9887,15 @@ namespace WindowsApplication1
         let mut x34: i32 =  x33;
         DrawMod.DrawSimple( local35,  local36, x34, 59);
         ListClass listClass2 = ListClass::new();
-        tvalue9: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unitSelected2)));
+        tvalue9: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unitSelected2)));
         listClass2.add("Power points", -1, tvalue9);
         tvalue10: String = Strings.Trim(Conversion.Str(Operators.AddObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unitSelected2, true), this.game.HandyFunctionsObj.GetUnitExcessWeight(unitSelected2))));
         listClass2.add("Weight", -1, tvalue10);
-        tvalue11: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetUnitStackPts(unitSelected2)));
+        tvalue11: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetUnitStackPts(unitSelected2)));
         listClass2.add("Stack points", -1, tvalue11);
         if (!this.game.Data.UnitObj[unitSelected2].IsHQ)
         {
-          tvalue12: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.Gethqpow(unitSelected2))) + "%";
+          tvalue12: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.Gethqpow(unitSelected2))) + "%";
           listClass2.add("HQ Power", -1, tvalue12);
           let mut hq: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].HQ;
           let mut num3: i32 =  this.game.HandyFunctionsObj.GetStaffPercent(hq, true);
@@ -9910,30 +9910,30 @@ namespace WindowsApplication1
             num5 = 100;
           if (num6 > 100)
             num6 = 100;
-          let mut Number1: i32 =   Math.Round((double)  Math.Round((double) num3 * (double) this.game.HandyFunctionsObj.GetStaffCombatMod(hq) * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) + (double) num5 * (double) this.game.Data.RuleVar[140] * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
-          let mut Number2: i32 =   Math.Round((double)  Math.Round((double) num4 * (double) this.game.HandyFunctionsObj.GetStaffMoraleMod(hq) * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) + (double) num6 * (double) this.game.Data.RuleVar[141] * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
-          tvalue13: String = Strings.Trim(Conversion.Str((object) Number1)) + "%";
+          let mut Number1: i32 =   Math.Round(  Math.Round( num3 *  this.game.HandyFunctionsObj.GetStaffCombatMod(hq) * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) +  num5 *  this.game.Data.RuleVar[140] * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
+          let mut Number2: i32 =   Math.Round(  Math.Round( num4 *  this.game.HandyFunctionsObj.GetStaffMoraleMod(hq) * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) +  num6 *  this.game.Data.RuleVar[141] * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
+          tvalue13: String = Strings.Trim(Conversion.Str( Number1)) + "%";
           listClass2.add("HQ Combat mod", -1, tvalue13);
-          tvalue14: String = Strings.Trim(Conversion.Str((object) Number2)) + "%";
+          tvalue14: String = Strings.Trim(Conversion.Str( Number2)) + "%";
           listClass2.add("HQ Morale mod", -1, tvalue14);
         }
         if (this.game.Data.UnitObj[unitSelected2].Historical > -1)
         {
-          tvalue15: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unitSelected2].Historical].StartSize));
+          tvalue15: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unitSelected2].Historical].StartSize));
           listClass2.add("Div Subunits", -1, tvalue15);
         }
         if (this.game.HandyFunctionsObj.HasUnitNavySF(unitSelected2))
         {
-          tvalue16: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected2, 1)));
+          tvalue16: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected2, 1)));
           listClass2.add("Nav.carry", -1, tvalue16);
-          tvalue17: String = Strings.Trim(Conversion.Str((object) (this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected2, 1) - this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected2, 1, true))));
+          tvalue17: String = Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected2, 1) - this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected2, 1, true))));
           listClass2.add("Nav.carry used ", -1, tvalue17);
         }
         if (this.game.Data.UnitObj[unitSelected2].IsHQ)
         {
-          tvalue18: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetStaffNeeded(unitSelected2)));
+          tvalue18: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetStaffNeeded(unitSelected2)));
           listClass2.add("Staff pts needed", -1, tvalue18);
-          tvalue19: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetStaffPoints(unitSelected2)));
+          tvalue19: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetStaffPoints(unitSelected2)));
           listClass2.add("Staff points", -1, tvalue19);
         }
         ListClass tListobj2 = listClass2;
@@ -9996,7 +9996,7 @@ namespace WindowsApplication1
           if (numArray1[index] > 0)
           {
             num9 += 1;
-            listClass4.add(this.game.Data.TempString[index], -1, Strings.Trim(Conversion.Str((object) numArray1[index])), Strings.Trim(Conversion.Str((object) numArray2[index])));
+            listClass4.add(this.game.Data.TempString[index], -1, Strings.Trim(Conversion.Str( numArray1[index])), Strings.Trim(Conversion.Str( numArray2[index])));
           }
           index += 1;
         }
@@ -10118,14 +10118,14 @@ namespace WindowsApplication1
       {
         if (this.game.EditObj.SetSubViewMode != 3)
           return;
-        let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]));
+        let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[404]));
         this.rlist4obj = ListClass::new();
         this.rlist4obj.add("ITEM TYPE", -1, "PRESENT", "ZONE REQ", "ZONE DELIVER", "CONSUMED");
         let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
         for (let mut index10: i32 =  0; index10 <= length; index10 += 1)
         {
           let mut num20: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index10, 0]));
-          if (Information.IsNothing((object) this.game.Data.UnitObj[unitSelected2].items))
+          if (Information.IsNothing( this.game.Data.UnitObj[unitSelected2].items))
             this.game.Data.UnitObj[unitSelected2].items = ItemList::new();
           let mut nr: i32 =  this.game.Data.UnitObj[unitSelected2].items.list.FindNr(num20);
           let mut num21: i32 =  0;
@@ -10166,7 +10166,7 @@ namespace WindowsApplication1
     pub void StandingOrders(Graphics g)
     {
       SizeF sizeF = SizeF::new();
-      let mut num1: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.w - 1024) / 2.0);
       let mut num2: i32 =  0;
       if (this.game.EditObj.UnitSelected <= -1)
         return;
@@ -10178,7 +10178,7 @@ namespace WindowsApplication1
         return;
       DrawMod.DrawBlockGradient2( g, num1 + 325, 5, 104, 21, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num1 + 325, 5, 105, 22, -1, -1);
-      tstring1: String = "RETR = " + Strings.Trim(Conversion.Str((object) (100 - this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SODefendPercent))) + "%";
+      tstring1: String = "RETR = " + Strings.Trim(Conversion.Str( (100 - this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SODefendPercent))) + "%";
       DrawMod.DrawTextColouredMarc( g, tstring1, this.game.MarcFont5, num1 + 340 + 5, 10, Color.White);
       let mut tdata1: i32 =  num2 != 2 ? 2 : 0;
       Rectangle trect1 = Rectangle::new(num1 + 325, 5, 105, 22);
@@ -10186,8 +10186,8 @@ namespace WindowsApplication1
       this.AddMouse( trect2, "RETREAT PERCENTAGE", "If 100% unit is ordered to fight to the last man.\r\nIf 25% then unit retreats once losses reach 25%\r\nIf you set this for a HQ, the setting will be automaticly copied by\r\nALL subordinate units. So if you change your top HQ, all subordinate units settings will be changed.", tdata1);
       DrawMod.DrawBlockGradient2( g, num1 + 325, 30, 104, 21, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num1 + 325, 30, 105, 22, -1, -1);
-      str1: String = (double) this.game.Data.RuleVar[887] != 1.0 ? "SUPL = " + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOSupReqPercent)) + "%" : "SUPL = " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetAggregatedSupplyRequest(this.game.EditObj.UnitSelected))) + "%" + "(" + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOSupReqPercent.ToString() + "%)";
-      let mut num3: i32 =   Math.Round((double) (g.MeasureString(str1, this.game.MarcFont5).Width / 2f));
+      str1: String =  this.game.Data.RuleVar[887] != 1.0 ? "SUPL = " + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOSupReqPercent)) + "%" : "SUPL = " + Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetAggregatedSupplyRequest(this.game.EditObj.UnitSelected))) + "%" + "(" + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOSupReqPercent.ToString() + "%)";
+      let mut num3: i32 =   Math.Round( (g.MeasureString(str1, this.game.MarcFont5).Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont5, num1 + 372 - num3 + 5, 35, Color.White);
       let mut tdata2: i32 =  num2 != 2 ? 3 : 0;
       trect2 = Rectangle::new(num1 + 325, 30, 105, 22);
@@ -10198,7 +10198,7 @@ namespace WindowsApplication1
       {
         DrawMod.DrawBlockGradient2( g, num1 + 325, 55, 104, 21, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num1 + 325, 55, 105, 22, -1, -1);
-        tstring2: String = "INTC = " + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOInterceptRdnStop)) + "%";
+        tstring2: String = "INTC = " + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOInterceptRdnStop)) + "%";
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOInterceptRdnStop == 100)
           tstring2 = "DONT INTC";
         DrawMod.DrawTextColouredMarc( g, tstring2, this.game.MarcFont5, num1 + 340 + 5, 60, Color.White);
@@ -10208,14 +10208,14 @@ namespace WindowsApplication1
         this.AddMouse( trect1, "INTERCEPT PERCENTAGE", "If 75% unit will only intercept if at >75 readiness pts.\r\nIf 50% it will intercept if >50 readiness pts.\r\nKeep in mind bombers and transporters never intercept.", tdata3);
         num4 += 25;
       }
-      if (!((double) this.game.Data.RuleVar[337] > 0.0 & !this.game.HandyFunctionsObj.HasUnitNavySF(this.game.EditObj.UnitSelected)))
+      if (!( this.game.Data.RuleVar[337] > 0.0 & !this.game.HandyFunctionsObj.HasUnitNavySF(this.game.EditObj.UnitSelected)))
         return;
       DrawMod.DrawBlockGradient2( g, num1 + 325, num4, 104, 21, this.game.MarcCol1, this.game.MarcCol2);
       DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, num1 + 325, num4, 105, 22, -1, -1);
       string str2;
-      if ((double) this.game.Data.RuleVar[887] == 1.0)
+      if ( this.game.Data.RuleVar[887] == 1.0)
       {
-        str3: String = "RPL = " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetAggregatedReplacementRequest(this.game.EditObj.UnitSelected))) + "%";
+        str3: String = "RPL = " + Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetAggregatedReplacementRequest(this.game.EditObj.UnitSelected))) + "%";
         if (this.game.HandyFunctionsObj.GetAggregatedReplacementRequest(this.game.EditObj.UnitSelected) == 0)
           str3 = "DISBAND";
         if (this.game.HandyFunctionsObj.GetAggregatedReplacementRequest(this.game.EditObj.UnitSelected) == 999)
@@ -10224,17 +10224,17 @@ namespace WindowsApplication1
       }
       else
       {
-        str2 = "RPL = " + Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOReplacementPercent)) + "%";
+        str2 = "RPL = " + Strings.Trim(Conversion.Str( this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOReplacementPercent)) + "%";
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOReplacementPercent == 0)
           str2 = "DISBAND";
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOReplacementPercent == 999)
           str2 = "PRIORITY RPL";
       }
-      let mut num5: i32 =   Math.Round((double) (g.MeasureString(str2, this.game.MarcFont5).Width / 2f));
+      let mut num5: i32 =   Math.Round( (g.MeasureString(str2, this.game.MarcFont5).Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont5, num1 + 372 - num5 + 5, num4 + 5, Color.White);
       let mut tdata4: i32 =  num2 != 2 ? 6 : 0;
       str4: String = "If 75% unit will only start requesting replacements if below 75%.\r\nIf 50% it will only start requesting replacements if below 50%\r\n";
-      if ((double) this.game.Data.RuleVar[977] < 1.0)
+      if ( this.game.Data.RuleVar[977] < 1.0)
         str4 += "If at 'DISBANDING' status it is at 0% replacement level and it will never request replacements.\r\n";
       ttext: String = str4 + "If at 'PRIORITY RPL' status it will be at 100% replacement level but get precedence above no-priority units.\r\nThe number presented is the cumulative effect of the units settings and its HQs.\r\nThe number between brackets is this units setting.";
       trect2 = Rectangle::new(num1 + 325, num4, 105, 22);
@@ -10334,7 +10334,7 @@ namespace WindowsApplication1
     pub void DrawViewModeExtra(Graphics g, int tabNr)
     {
       SizeF sizeF = SizeF::new();
-      let mut x: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+      let mut x: i32 =   Math.Round( (this.w - 1024) / 2.0);
       let mut enr1: i32 =  this.game.Data.ExtraTabEvent;
       if (tabNr == 2)
         enr1 = this.game.Data.ExtraTabEvent2;
@@ -10343,9 +10343,9 @@ namespace WindowsApplication1
       if (tabNr == 4)
         enr1 = this.game.Data.ExtraTabEvent4;
       let mut enr2: i32 =  -1;
-      if ((double) this.game.Data.RuleVar[450] > 0.0 & this.game.ScreenWidth >= 1920)
-        enr2 =  Math.Round(Conversion.Val((object) this.game.Data.RuleVar[450]));
-      if ((double) this.game.Data.RuleVar[440] < 1.0)
+      if ( this.game.Data.RuleVar[450] > 0.0 & this.game.ScreenWidth >= 1920)
+        enr2 =  Math.Round(Conversion.Val( this.game.Data.RuleVar[450]));
+      if ( this.game.Data.RuleVar[440] < 1.0)
       {
         DrawMod.DrawBlockGradient2( g, x + 6, 5, 1012, 210, this.game.MarcCol1, this.game.MarcCol2);
         DrawMod.DrawFrame( this.OwnBitmap,  this.BackBitmap,  g, x + 6, 5, 1012, 210, -1, -1);
@@ -10356,7 +10356,7 @@ namespace WindowsApplication1
         int index;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].MessCounter == messCounter)
         {
-          let mut num: i32 =   Interaction.MsgBox((object) "Error!!! The event called specified by ExecSetExtraTabEvent did not generate a message for our current regime.");
+          let mut num: i32 =   Interaction.MsgBox( "Error!!! The event called specified by ExecSetExtraTabEvent did not generate a message for our current regime.");
           index = 0;
         }
         else
@@ -10372,14 +10372,14 @@ namespace WindowsApplication1
         let mut location: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location;
         if (location > -1)
         {
-          let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]));
+          let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[404]));
           this.rlist5obj = ListClass::new();
           this.rlist5obj.add("ITEM TYPE", -1, "PRESENT", "LOC IN", "LOC OUT", "CONSUMED");
           let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
           for (let mut index1: i32 =  0; index1 <= length; index1 += 1)
           {
             let mut num1: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index1, 0]));
-            if (Information.IsNothing((object) this.game.Data.LocObj[location].items))
+            if (Information.IsNothing( this.game.Data.LocObj[location].items))
               this.game.Data.LocObj[location].items = ItemList::new();
             let mut nr: i32 =  this.game.Data.LocObj[location].items.list.FindNr(num1);
             let mut num2: i32 =  0;
@@ -10455,7 +10455,7 @@ namespace WindowsApplication1
     pub void DrawUnitInfo(Graphics g, int unr)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut num1: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.w - 1024) / 2.0);
       Coordinate reconMinusHide;
       if (this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn | this.game.Data.Round == 0 | !this.game.Data.FOWOn)
         reconMinusHide.x = 3;
@@ -10551,7 +10551,7 @@ namespace WindowsApplication1
       str2: String = Strings.UCase(str1);
       SizeF sizeF2 = g.MeasureString(str2, this.game.MarcFont8b);
       let mut num4: i32 =  0;
-      for (; (double) sizeF2.Width > (double) (230 - num2); sizeF2 = g.MeasureString(str2, this.game.MarcFont8b))
+      for (;  sizeF2.Width >  (230 - num2); sizeF2 = g.MeasureString(str2, this.game.MarcFont8b))
       {
         num4 = 1;
         str2 = Strings.Left(str2, Strings.Len(str2) - 1);
@@ -10561,7 +10561,7 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont8b, num1 + 70, 10, Color.White);
       if (this.game.Data.Turn == this.game.Data.UnitObj[unr].Regime && this.game.Data.UnitObj[unr].Historical > -1)
       {
-        trect2 = Rectangle::new(num1 + 70, 10,  Math.Round((double) sizeF2.Width), 15);
+        trect2 = Rectangle::new(num1 + 70, 10,  Math.Round( sizeF2.Width), 15);
         trect1 = trect2;
         this.AddMouse( trect1, "", "Click to change name of unit", 40);
       }
@@ -10583,7 +10583,7 @@ namespace WindowsApplication1
       SizeF sizeF3 = g.MeasureString(str4, this.game.MarcFont13);
       if (this.game.Data.UnitObj[unr].HQ > -1 & this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime, this.game.Data.Turn) | this.game.Data.Round == 0)
       {
-        trect2 = Rectangle::new(num1 + 70, 30,  Math.Round((double) sizeF3.Width), 15);
+        trect2 = Rectangle::new(num1 + 70, 30,  Math.Round( sizeF3.Width), 15);
         trect1 = trect2;
         this.AddMouse( trect1, "HQ", "Click to jump to its map location.", 1);
       }
@@ -10614,13 +10614,13 @@ namespace WindowsApplication1
       DrawMod.DrawBlock( g, num1 + num5, 50, 247, 2,  this.game.MarcCol3.R,  this.game.MarcCol3.G,  this.game.MarcCol3.B,  byte.MaxValue);
       for (; num5 < 300; num5 += 35)
         DrawMod.DrawBlockGradient2( g, num1 + num5, 51, 2, 51, this.game.MarcCol3, this.game.MarcCol2);
-      str5: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetLowestAp(unr)));
+      str5: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetLowestAp(unr)));
       if (reconMinusHide.x == 2)
         str5 = "?";
       if (reconMinusHide.x < 2)
         str5 = "?";
       SizeF sizeF4 = g.MeasureString(str5, this.game.MarcFont8b);
-      let mut x3: i32 =   Math.Round((double) ((float) (num1 + 72 + 0 + 18) - sizeF4.Width / 2f));
+      let mut x3: i32 =   Math.Round( ( (num1 + 72 + 0 + 18) - sizeF4.Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str5, this.game.MarcFont8b, x3, 78, Color.White);
       let mut num7: i32 =  num6 + 35;
        let mut local11: &Graphics = &g;
@@ -10631,13 +10631,13 @@ namespace WindowsApplication1
       trect2 = Rectangle::new(num7 - 4, 50, 35, 50);
       trect1 = trect2;
       this.AddMouse( trect1, "ACTION POINTS", "Neccessary for movement and combat.", 0);
-      str6: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unr].SupplyConsume));
+      str6: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unr].SupplyConsume));
       if (reconMinusHide.x == 2)
         str6 = "?";
       if (reconMinusHide.x < 2)
         str6 = "?";
       SizeF sizeF5 = g.MeasureString(str6, this.game.MarcFont8b);
-      let mut x5: i32 =   Math.Round((double) ((float) (num1 + 72 + 35 + 18) - sizeF5.Width / 2f));
+      let mut x5: i32 =   Math.Round( ( (num1 + 72 + 35 + 18) - sizeF5.Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str6, this.game.MarcFont8b, x5, 78, Color.White);
       let mut num8: i32 =  num7 + 35;
        let mut local13: &Graphics = &g;
@@ -10650,16 +10650,16 @@ namespace WindowsApplication1
       this.AddMouse( trect1, "SUPPLY CONSUMPTION", "Percentage of supply consumed for optimal functioning.", 0);
       let mut breakPercent: i32 =  this.game.HandyFunctionsObj.GetBreakPercent(unr);
       let mut powerPtsAbsolute: i32 =  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr);
-      let mut num9: i32 =   Math.Round((double) this.game.Data.RuleVar[307]);
+      let mut num9: i32 =   Math.Round( this.game.Data.RuleVar[307]);
       let mut startPower: i32 =  this.game.HandyFunctionsObj.GetStartPower(unr);
-      let mut num10: i32 =   Math.Round((double) startPower * ((double) breakPercent / 100.0));
-      str7: String = startPower != 0 ? Conversions.ToString(Math.Min(100,  Math.Round((double) powerPtsAbsolute / (double) startPower * 100.0))) : "100";
+      let mut num10: i32 =   Math.Round( startPower * ( breakPercent / 100.0));
+      str7: String = startPower != 0 ? Conversions.ToString(Math.Min(100,  Math.Round( powerPtsAbsolute /  startPower * 100.0))) : "100";
       if (reconMinusHide.x == 2)
         str7 = "?";
       if (reconMinusHide.x < 2)
         str7 = "?";
       SizeF sizeF6 = g.MeasureString(str7, this.game.MarcFont8b);
-      let mut x7: i32 =   Math.Round((double) ((float) (num1 + 72 + 70 + 18) - sizeF6.Width / 2f));
+      let mut x7: i32 =   Math.Round( ( (num1 + 72 + 70 + 18) - sizeF6.Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str7, this.game.MarcFont8b, x7, 78, Color.White);
       let mut num11: i32 =  num8 + 35;
        let mut local15: &Graphics = &g;
@@ -10669,25 +10669,25 @@ namespace WindowsApplication1
       DrawMod.DrawSimple( local15,  local16, x8, 54);
       trect2 = Rectangle::new(num11 - 4, 50, 35, 50);
       trect1 = trect2;
-      this.AddMouse( trect1, "INTEGRITY", "If unit drops below " + Strings.Trim(Conversion.Str((object) breakPercent)) + "%\r\nit can break.", 0);
+      this.AddMouse( trect1, "INTEGRITY", "If unit drops below " + Strings.Trim(Conversion.Str( breakPercent)) + "%\r\nit can break.", 0);
       let mut num12: i32 =  this.game.HandyFunctionsObj.GetAverageRdn(unr);
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(unr, num12);
-        float num13 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num14 = (float) ((1.0 - (double) num13) * 2.0);
+        float num13 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num14 =  ((1.0 -  num13) * 2.0);
         float num15 = VBMath.Rnd() * num14 + num13;
-        num12 =  Math.Round((double) Conversion.Int((float) num12 * num15));
+        num12 =  Math.Round( Conversion.Int( num12 * num15));
         if (num12 < 0)
           num12 = 0;
         if (num12 > 100)
           num12 = 100;
       }
-      str8: String = Conversion.Str((object) num12);
+      str8: String = Conversion.Str( num12);
       if (reconMinusHide.x < 2)
         str8 = "?";
       SizeF sizeF7 = g.MeasureString(str8, this.game.MarcFont8b);
-      let mut x9: i32 =   Math.Round((double) ((float) (num1 + 72 + 105 + 18) - sizeF7.Width / 2f));
+      let mut x9: i32 =   Math.Round( ( (num1 + 72 + 105 + 18) - sizeF7.Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str8, this.game.MarcFont8b, x9, 78, Color.White);
       let mut num16: i32 =  num11 + 35;
        let mut local17: &Graphics = &g;
@@ -10702,20 +10702,20 @@ namespace WindowsApplication1
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(unr, num17);
-        float num18 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num19 = (float) ((1.0 - (double) num18) * 2.0);
+        float num18 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num19 =  ((1.0 -  num18) * 2.0);
         float num20 = VBMath.Rnd() * num19 + num18;
-        num17 =  Math.Round((double) Conversion.Int((float) num17 * num20));
+        num17 =  Math.Round( Conversion.Int( num17 * num20));
         if (num17 < 0)
           num17 = 0;
         if (num17 > 100)
           num17 = 100;
       }
-      str9: String = Conversion.Str((object) num17);
+      str9: String = Conversion.Str( num17);
       if (reconMinusHide.x < 2)
         str9 = "?";
       SizeF sizeF8 = g.MeasureString(str9, this.game.MarcFont8b);
-      let mut x11: i32 =   Math.Round((double) ((float) (num1 + 72 + 140 + 18) - sizeF8.Width / 2f));
+      let mut x11: i32 =   Math.Round( ( (num1 + 72 + 140 + 18) - sizeF8.Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str9, this.game.MarcFont8b, x11, 78, Color.White);
       let mut num21: i32 =  num16 + 35;
        let mut local19: &Graphics = &g;
@@ -10730,20 +10730,20 @@ namespace WindowsApplication1
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(unr, num22);
-        float num23 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num24 = (float) ((1.0 - (double) num23) * 2.0);
+        float num23 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num24 =  ((1.0 -  num23) * 2.0);
         float num25 = VBMath.Rnd() * num24 + num23;
-        num22 =  Math.Round((double) Conversion.Int((float) num22 * num25));
+        num22 =  Math.Round( Conversion.Int( num22 * num25));
         if (num22 < 0)
           num22 = 0;
         if (num22 > 100)
           num22 = 100;
       }
-      str10: String = Conversion.Str((object) num22);
+      str10: String = Conversion.Str( num22);
       if (reconMinusHide.x < 2)
         str10 = "?";
       SizeF sizeF9 = g.MeasureString(str10, this.game.MarcFont8b);
-      let mut x13: i32 =   Math.Round((double) ((float) (num1 + 72 + 175 + 18) - sizeF9.Width / 2f));
+      let mut x13: i32 =   Math.Round( ( (num1 + 72 + 175 + 18) - sizeF9.Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str10, this.game.MarcFont8b, x13, 78, Color.White);
       let mut num26: i32 =  num21 + 35;
        let mut local21: &Graphics = &g;
@@ -10758,20 +10758,20 @@ namespace WindowsApplication1
       if (reconMinusHide.x == 2)
       {
         this.game.HandyFunctionsObj.RandomizeForUnit(unr, num27);
-        float num28 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-        float num29 = (float) ((1.0 - (double) num28) * 2.0);
+        float num28 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+        float num29 =  ((1.0 -  num28) * 2.0);
         float num30 = VBMath.Rnd() * num29 + num28;
-        num27 =  Math.Round((double) Conversion.Int((float) num27 * num30));
+        num27 =  Math.Round( Conversion.Int( num27 * num30));
         if (num27 < 0)
           num27 = 0;
         if (num27 > 999)
           num27 = 999;
       }
-      str11: String = Conversion.Str((object) num27);
+      str11: String = Conversion.Str( num27);
       if (reconMinusHide.x < 2)
         str11 = "?";
       SizeF sizeF10 = g.MeasureString(str11, this.game.MarcFont8b);
-      let mut x15: i32 =   Math.Round((double) ((float) (num1 + 72 + 210 + 18) - sizeF10.Width / 2f));
+      let mut x15: i32 =   Math.Round( ( (num1 + 72 + 210 + 18) - sizeF10.Width / 2f));
       DrawMod.DrawTextColouredMarc( g, str11, this.game.MarcFont8b, x15, 78, Color.White);
       let mut num31: i32 =  num26 + 35;
        let mut local23: &Graphics = &g;
@@ -10789,7 +10789,7 @@ namespace WindowsApplication1
       this.game.EditObj.HandCard = -1;
       if (this.game.EditObj.UnitSelected > -1 && this.cardsel >= 5000 & this.cardsel < 7000 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].HandCardCounter < this.cardsel - 5000)
         this.cardsel = -1;
-      if (!((double) this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.UnitSelected > -1))
+      if (!( this.game.Data.RuleVar[701] >= 1.0 & this.game.EditObj.UnitSelected > -1))
         return;
       this.game.EditObj.udsReturnFromPopup = true;
     }
@@ -10934,13 +10934,13 @@ namespace WindowsApplication1
             {
               if (index3 != this.game.EditObj.UnitSelected)
               {
-                if ((double) this.game.Data.RuleVar[701] > 0.0)
+                if ( this.game.Data.RuleVar[701] > 0.0)
                 {
                   ScreenClass screeny = this.formref.Screeny;
                   System.Type type = typeof (MapWindowClass2);
                    System.Type local =  type;
                   MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-                  if (!Information.IsNothing((object) window))
+                  if (!Information.IsNothing( window))
                   {
                     this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                     this.game.EditObj.UnitSelected = index3;
@@ -10970,7 +10970,7 @@ namespace WindowsApplication1
                   return windowReturnClass1;
                 }
               }
-              else if ((double) this.game.Data.RuleVar[701] > 0.0)
+              else if ( this.game.Data.RuleVar[701] > 0.0)
               {
                 this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                 this.game.EditObj.UnitSelected = index3;
@@ -11062,7 +11062,7 @@ namespace WindowsApplication1
             }
             if (this.MouseData[index1] == 40)
             {
-              if (Interaction.MsgBox((object) "Renaming might cause double names or other confusion. Are you sure you want to rename the unit?", MsgBoxStyle.YesNo, (object) "Rename a Unit") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Renaming might cause double names or other confusion. Are you sure you want to rename the unit?", MsgBoxStyle.YesNo,  "Rename a Unit") == MsgBoxResult.Yes)
               {
                 let mut historical: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical;
                 str1: String = Interaction.InputBox("Give New Name for Unit", "Rename a Unit", this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Name);
@@ -11246,7 +11246,7 @@ namespace WindowsApplication1
                       this.game.Data.UnitObj[index8].SOReplacementPercent = 999;
                     else
                       this.game.Data.UnitObj[index8].SOReplacementPercent = 75;
-                    if ((double) this.game.Data.RuleVar[977] > 0.0 && this.game.Data.UnitObj[index8].SOReplacementPercent == 0)
+                    if ( this.game.Data.RuleVar[977] > 0.0 && this.game.Data.UnitObj[index8].SOReplacementPercent == 0)
                       this.game.Data.UnitObj[index8].SOReplacementPercent = 100;
                   }
                 }
@@ -11731,7 +11731,7 @@ namespace WindowsApplication1
             let mut num1: i32 =  this.SubPartID[index9];
             if (num1 == this.extraTabId)
             {
-              if ((double) this.game.Data.RuleVar[440] != 1.0)
+              if ( this.game.Data.RuleVar[440] != 1.0)
                 return windowReturnClass1;
               let mut enr: i32 =  this.SubPartList[index9].Click(x - this.SubPartX[index9], y - this.SubPartY[index9]);
               if (enr > 0)
@@ -11768,7 +11768,7 @@ namespace WindowsApplication1
                 {
                   this.game.EditObj.interfaceCue = 0;
                   this.RemoveSubPart(this.extraTabId);
-                  let mut num3: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+                  let mut num3: i32 =   Math.Round( (this.w - 1024) / 2.0);
                   let mut tsubpart: SubPartClass =  new UDSPartClass(this.game, 1280, 210, this.game.EditObj.UDSbottomText,  this.OwnBitmap, num3 - 128, 7, true);
                   this.extraTabId = this.AddSubPart( tsubpart, num3 - 128, 7, 1280, 210, 1);
                   windowReturnClass1.SetFlag(true);
@@ -11779,7 +11779,7 @@ namespace WindowsApplication1
                   this.game.EditObj.interfaceCue = 0;
                   this.game.HandyFunctionsObj.CenterOnXY(this.game.SelectX, this.game.SelectY, true);
                   this.RemoveSubPart(this.extraTabId);
-                  let mut num4: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+                  let mut num4: i32 =   Math.Round( (this.w - 1024) / 2.0);
                   let mut tsubpart: SubPartClass =  new UDSPartClass(this.game, 1280, 210, this.game.EditObj.UDSbottomText,  this.OwnBitmap, num4 - 128, 7, true);
                   this.extraTabId = this.AddSubPart( tsubpart, num4 - 128, 7, 1280, 210, 1);
                   windowReturnClass1.SetFlag(true);
@@ -11930,7 +11930,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (Information.IsNothing((object) this.game.EditObj.UDSpushedPopupText) || this.game.EditObj.UDSpushedPopupText.Length <= 1)
+      if (Information.IsNothing( this.game.EditObj.UDSpushedPopupText) || this.game.EditObj.UDSpushedPopupText.Length <= 1)
         return windowReturnClass;
       this.game.EditObj.UDSpopupText = this.game.EditObj.UDSpushedPopupText;
       this.game.EditObj.UDSpushedPopupText = "";

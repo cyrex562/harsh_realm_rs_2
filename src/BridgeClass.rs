@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.Serialization;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.Serialization;
 
 namespace WindowsApplication1
 {
@@ -14,9 +14,9 @@ namespace WindowsApplication1
   pub class BridgeClass : ISerializable
   {
     pub string[] BasicSpriteFileName;
-    pub int[] BasicSpriteID;
+    pub BasicSpriteID: Vec<i32>;
     pub string[] AlternateSpriteFileName;
-    pub int[] AlternateSpriteID;
+    pub AlternateSpriteID: Vec<i32>;
     pub AlternateIfRoadType: i32;
     pub AlternateIfRoadType2: i32;
     pub AlternateIfRoadType3: i32;
@@ -25,8 +25,8 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("BasicSpriteFileName", (object) this.BasicSpriteFileName);
-      info.AddValue("AlternateSpriteFileName", (object) this.AlternateSpriteFileName);
+      info.AddValue("BasicSpriteFileName",  this.BasicSpriteFileName);
+      info.AddValue("AlternateSpriteFileName",  this.AlternateSpriteFileName);
       info.AddValue("EPCost", this.EPCost);
       info.AddValue("AlternateIfRoadType", this.AlternateIfRoadType);
       info.AddValue("AlternateIfRoadType2", this.AlternateIfRoadType2);

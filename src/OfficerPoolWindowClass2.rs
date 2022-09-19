@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -84,7 +84,7 @@ namespace WindowsApplication1
         this.RemoveSubPart(this.B4Id);
       if (this.B2TextId > 0)
         this.RemoveSubPart(this.B2TextId);
-      let mut num1: i32 =   Math.Round((double) (this.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (this.w - 1024) / 2.0);
       this.NewBackGroundAndClearAll(this.w, this.h, this.game.MARCBOTBAR);
       this.ClearMouse();
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
@@ -92,7 +92,7 @@ namespace WindowsApplication1
       if (this.game.EditObj.OrderUnit > -1)
       {
         index1 = this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical;
-        if (!Information.IsNothing((object) this.game.Data.HistoricalUnitObj[index1].CommanderName))
+        if (!Information.IsNothing( this.game.Data.HistoricalUnitObj[index1].CommanderName))
           ;
         if (!this.game.Data.UnitObj[this.game.EditObj.OrderUnit].IsHQ)
           index1 = -1;
@@ -112,7 +112,7 @@ namespace WindowsApplication1
         let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
         for (let mut tdata: i32 =  0; tdata <= historicalUnitCounter; tdata += 1)
         {
-          if (Information.IsNothing((object) this.game.Data.HistoricalUnitObj[tdata].CommanderName))
+          if (Information.IsNothing( this.game.Data.HistoricalUnitObj[tdata].CommanderName))
             this.game.Data.HistoricalUnitObj[tdata].CommanderName = "";
           if (this.game.Data.HistoricalUnitObj[tdata].Pool & this.game.Data.HistoricalUnitObj[tdata].TempRegime == this.game.Data.Turn & this.game.Data.HistoricalUnitObj[tdata].CommanderName.Length >= 1)
           {
@@ -125,9 +125,9 @@ namespace WindowsApplication1
             {
               commanderName: String = this.game.Data.HistoricalUnitObj[tdata].CommanderName;
               if (this.game.Data.HistoricalUnitObj[tdata].People > -1)
-                this.OptionsListObj.add(commanderName, tdata, Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].PP)) + "PP", tbmp: BitmapStore.GetBitmap(this.game.Data.PeopleObj[this.game.Data.HistoricalUnitObj[tdata].People].NationalSpriteID, 1));
+                this.OptionsListObj.add(commanderName, tdata, Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].PP)) + "PP", tbmp: BitmapStore.GetBitmap(this.game.Data.PeopleObj[this.game.Data.HistoricalUnitObj[tdata].People].NationalSpriteID, 1));
               else
-                this.OptionsListObj.add(commanderName, tdata, Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].PP)) + "PP");
+                this.OptionsListObj.add(commanderName, tdata, Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].PP)) + "PP");
               num5 += 1;
               if (num2 == -1)
               {
@@ -182,7 +182,7 @@ namespace WindowsApplication1
       }
       DrawMod.DrawTextColouredMarc( graphics, "Base cost: " + this.game.Data.RuleVar[904].ToString() + "PP.", this.game.MarcFont4, num1 + 870, 24, Color.White);
       int num7;
-      let mut num8: i32 =   Math.Round((double) ((float) num7 + this.game.Data.RuleVar[904]));
+      let mut num8: i32 =   Math.Round( ( num7 + this.game.Data.RuleVar[904]));
       if (index1 > -1)
       {
         if (this.game.Data.HistoricalUnitObj[index1].PP > 0)
@@ -191,7 +191,7 @@ namespace WindowsApplication1
         }
         else
         {
-          DrawMod.DrawTextColouredMarc( graphics, Strings.Trim(Conversion.Str((object) Math.Abs(this.game.Data.HistoricalUnitObj[index1].PP))) + " PP cost to dismiss.", this.game.MarcFont4, num1 + 870, 54, Color.White);
+          DrawMod.DrawTextColouredMarc( graphics, Strings.Trim(Conversion.Str( Math.Abs(this.game.Data.HistoricalUnitObj[index1].PP))) + " PP cost to dismiss.", this.game.MarcFont4, num1 + 870, 54, Color.White);
           num8 += Math.Abs(this.game.Data.HistoricalUnitObj[index1].PP);
         }
         DrawMod.DrawTextColouredMarc( graphics, this.game.Data.HistoricalUnitObj[index1].CommanderName, this.game.MarcFont4, num1 + 870, 70, Color.White);
@@ -204,7 +204,7 @@ namespace WindowsApplication1
         }
         else
         {
-          DrawMod.DrawTextColouredMarc( graphics, Strings.Trim(Conversion.Str((object) Math.Abs(this.game.Data.HistoricalUnitObj[this.detailnr].PP))) + " PP cost to appoint.", this.game.MarcFont4, num1 + 870, 100, Color.White);
+          DrawMod.DrawTextColouredMarc( graphics, Strings.Trim(Conversion.Str( Math.Abs(this.game.Data.HistoricalUnitObj[this.detailnr].PP))) + " PP cost to appoint.", this.game.MarcFont4, num1 + 870, 100, Color.White);
           num8 += Math.Abs(this.game.Data.HistoricalUnitObj[this.detailnr].PP);
         }
         DrawMod.DrawTextColouredMarc( graphics, this.game.Data.HistoricalUnitObj[this.detailnr].CommanderName, this.game.MarcFont4, num1 + 870, 116, Color.White);
@@ -215,7 +215,7 @@ namespace WindowsApplication1
       {
         if (this.game.Data.HistoricalUnitObj[this.detailnr].People == this.game.Data.HistoricalUnitObj[index1].People | this.game.Data.HistoricalUnitObj[this.detailnr].People == -1 | this.game.Data.HistoricalUnitObj[index1].People == -1)
         {
-          if (Information.IsNothing((object) this.game.Data.HistoricalUnitObj[index1].CommanderName))
+          if (Information.IsNothing( this.game.Data.HistoricalUnitObj[index1].CommanderName))
             this.game.Data.HistoricalUnitObj[index1].CommanderName = "";
           if (this.detailnr > -1 & index1 > -1)
           {
@@ -224,7 +224,7 @@ namespace WindowsApplication1
               let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT (" + num8.ToString() + "pp)", 140, "Click to swap officer in selected HQ with officer selected in officerpool",  this.OwnBitmap, num1 + 870, 150, theight: 65, useshadow: true, tMarcStyle: true);
               this.B2Id = this.AddSubPart( tsubpart, num1 + 870, 150, 140, 65, 1);
             }
-            else if ((double) this.game.Data.RuleVar[896] == 1.0 & this.game.Data.HistoricalUnitObj[index1].Type == 8 & this.game.Data.HistoricalUnitObj[index1].CommanderName.Length > 1)
+            else if ( this.game.Data.RuleVar[896] == 1.0 & this.game.Data.HistoricalUnitObj[index1].Type == 8 & this.game.Data.HistoricalUnitObj[index1].CommanderName.Length > 1)
             {
               let mut tsubpart: SubPartClass =  new TextButtonPartClass("APPOINT (" + num8.ToString() + "pp)", 140, "You are not allowed to swap the officer of the high command HQ.",  this.OwnBitmap, num1 + 870, 150, true, theight: 65, useshadow: true, tMarcStyle: true);
               this.b2bid = this.AddSubPart( tsubpart, num1 + 870, 150, 140, 65, 0);
@@ -286,7 +286,7 @@ namespace WindowsApplication1
       let mut his: i32 =  index1;
       if (his > -1)
       {
-        if (Information.IsNothing((object) this.game.Data.HistoricalUnitObj[index1].CommanderName))
+        if (Information.IsNothing( this.game.Data.HistoricalUnitObj[index1].CommanderName))
           his = -1;
         else if (this.game.Data.HistoricalUnitObj[index1].CommanderName.Length <= 0)
           his = -1;
@@ -296,7 +296,7 @@ namespace WindowsApplication1
       Rectangle trect2;
       if (his > -1)
       {
-        let mut num12: i32 =   Math.Round((double) (this.w - 1024) / 2.0) + 400;
+        let mut num12: i32 =   Math.Round( (this.w - 1024) / 2.0) + 400;
         DrawMod.DrawOfficer(graphics, his, num12 + 12, 34, 65, 72);
         trect1 = Rectangle::new(num12 + 12, 34, 65, 72);
         this.AddMouse( trect1, "OFFICER PORTRAIT", "Click to get full stats and biography", 50);
@@ -305,7 +305,7 @@ namespace WindowsApplication1
          let mut local8: &Bitmap = &bitmap;
         let mut x1: i32 =  num12 + 12 + 45;
         DrawMod.DrawSimple( local7,  local8, x1, 76);
-        if ((double) this.game.Data.RuleVar[879] < 1.0)
+        if ( this.game.Data.RuleVar[879] < 1.0)
         {
           TextAreaClass2 textAreaClass2 = new TextAreaClass2(this.game, 340, 4, this.game.MarcFont13, "\r\n\r\n" + this.game.Data.HistoricalUnitObj[his].Descript, 12,  this.BackBitmap, num12 + 110, 22, true);
            let mut local9: &Graphics = &graphics;
@@ -344,9 +344,9 @@ namespace WindowsApplication1
               {
                 DrawMod.DrawBlock( graphics, num12 + num13, 67, 37, 2,  this.game.MarcCol3.R,  this.game.MarcCol3.G,  this.game.MarcCol3.B,  byte.MaxValue);
                 DrawMod.DrawBlockGradient2( graphics, num12 + num13, 68, 2, 41, this.game.MarcCol3, this.game.MarcCol2);
-                str: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[his].HisVarValue[index2]));
+                str: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[his].HisVarValue[index2]));
                 sizeF2 = graphics.MeasureString(str, this.game.MarcFont8b);
-                let mut x4: i32 =   Math.Round((double) ((float) (num12 + num13 + 18) - sizeF2.Width / 2f));
+                let mut x4: i32 =   Math.Round( ( (num12 + num13 + 18) - sizeF2.Width / 2f));
                 DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont8b, x4, 90, Color.White);
                 if (this.game.Data.HistoricalUnitObj[his].HisVarSmall[index2] > -1)
                 {
@@ -379,7 +379,7 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut num14: i32 =   Math.Round((double) (this.w - 1024) / 2.0) + 400;
+        let mut num14: i32 =   Math.Round( (this.w - 1024) / 2.0) + 400;
         TextAreaClass2 textAreaClass2 = new TextAreaClass2(this.game, 340, 4, this.game.MarcFont13, "", 12,  this.BackBitmap, num14 + 110, 22, true);
          let mut local17: &Graphics = &graphics;
         bitmap = textAreaClass2.Paint();
@@ -393,12 +393,12 @@ namespace WindowsApplication1
       {
         let mut detailnr: i32 =  this.detailnr;
         let mut num15: i32 =  108;
-        let mut num16: i32 =   Math.Round((double) (this.w - 1024) / 2.0) + 400;
+        let mut num16: i32 =   Math.Round( (this.w - 1024) / 2.0) + 400;
         DrawMod.DrawOfficer(graphics, detailnr, num16 + 12, num15 + 34, 65, 72);
         trect1 = Rectangle::new(num16 + 12, num15 + 34, 65, 72);
         trect2 = trect1;
         this.AddMouse( trect2, "OFFICER PORTRAIT", "Click to get full stats and biography", 51);
-        if ((double) this.game.Data.RuleVar[879] < 1.0)
+        if ( this.game.Data.RuleVar[879] < 1.0)
         {
           TextAreaClass2 textAreaClass2 = new TextAreaClass2(this.game, 340, 4, this.game.MarcFont13, "\r\n\r\n" + this.game.Data.HistoricalUnitObj[detailnr].Descript, 12,  this.BackBitmap, num16 + 110, num15 + 22, true);
            let mut local19: &Graphics = &graphics;
@@ -438,9 +438,9 @@ namespace WindowsApplication1
                 flag = false;
               if (flag & (this.game.Data.HistoricalUnitObj[detailnr].HisVarNato[index3] > 0 | this.game.Data.HistoricalUnitObj[detailnr].HisVarSmall[index3] > -1))
               {
-                str: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[detailnr].HisVarValue[index3]));
+                str: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[detailnr].HisVarValue[index3]));
                 sizeF2 = graphics.MeasureString(str, this.game.MarcFont8b);
-                let mut x8: i32 =   Math.Round((double) ((float) (num16 + num17 + 18) - sizeF2.Width / 2f));
+                let mut x8: i32 =   Math.Round( ( (num16 + num17 + 18) - sizeF2.Width / 2f));
                 DrawMod.DrawTextColouredMarc( graphics, str, this.game.MarcFont8b, x8, num15 + 90, Color.White);
                 if (this.game.Data.HistoricalUnitObj[detailnr].HisVarSmall[index3] > -1)
                 {
@@ -470,7 +470,7 @@ namespace WindowsApplication1
         }
         DrawMod.DrawTextColouredMarc( graphics, "SELECTED POOL OFFICER", this.game.MarcFont8b, num16 + 10, num15 + 14, Color.White);
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;

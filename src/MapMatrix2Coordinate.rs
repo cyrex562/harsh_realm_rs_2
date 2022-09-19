@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -22,7 +22,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (MapMatrix2Coordinate) binaryFormatter.Deserialize((Stream) serializationStream);
     }
@@ -53,12 +53,12 @@ namespace WindowsApplication1
           flagArray[index1, index2] = this.Value[index1, index2].onmap;
         }
       }
-      info.AddValue("t1", (object) numArray1);
-      info.AddValue("t2", (object) numArray2);
-      info.AddValue("t3", (object) numArray3);
-      info.AddValue("t4", (object) numArray4);
-      info.AddValue("t5", (object) numArray5);
-      info.AddValue("t6", (object) flagArray);
+      info.AddValue("t1",  numArray1);
+      info.AddValue("t2",  numArray2);
+      info.AddValue("t3",  numArray3);
+      info.AddValue("t4",  numArray4);
+      info.AddValue("t5",  numArray5);
+      info.AddValue("t6",  flagArray);
     }
 
     protected MapMatrix2Coordinate(SerializationInfo info, StreamingContext context)

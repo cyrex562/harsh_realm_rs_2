@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -394,7 +394,7 @@ namespace WindowsApplication1
       let mut num3: i32 =  y2 + 67;
       if (this.ltnr > -1 & this.spnr > -1)
       {
-        if ((double) this.game.Data.RuleVar[869] == 0.0 | (double) this.game.Data.RuleVar[869] == 3.0)
+        if ( this.game.Data.RuleVar[869] == 0.0 |  this.game.Data.RuleVar[869] == 3.0)
         {
           let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].BasicPicID[this.spnr];
            let mut local3: &Graphics = &Expression;
@@ -406,7 +406,7 @@ namespace WindowsApplication1
         }
         else
         {
-          if ((double) this.game.Data.RuleVar[869] == 1.0)
+          if ( this.game.Data.RuleVar[869] == 1.0)
           {
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.ltnr].SidewaysSPriteID1[this.spnr];
              let mut local5: &Graphics = &Expression;
@@ -433,7 +433,7 @@ namespace WindowsApplication1
         }
         if (this.locnr > -1 && this.game.Data.LocTypeObj[this.locnr].PictureLT > -1)
         {
-          if ((double) this.game.Data.RuleVar[869] == 0.0 | (double) this.game.Data.RuleVar[869] == 3.0)
+          if ( this.game.Data.RuleVar[869] == 0.0 |  this.game.Data.RuleVar[869] == 3.0)
           {
             let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].BasicPicID[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
              let mut local11: &Graphics = &Expression;
@@ -445,7 +445,7 @@ namespace WindowsApplication1
           }
           else
           {
-            if ((double) this.game.Data.RuleVar[869] == 1.0)
+            if ( this.game.Data.RuleVar[869] == 1.0)
             {
               let mut nr: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].PictureLT].SidewaysSPriteID1[this.game.Data.LocTypeObj[this.locnr].PictureSprite];
                let mut local13: &Graphics = &Expression;
@@ -562,25 +562,25 @@ namespace WindowsApplication1
         this.OptionsList3Obj = ATListClass::new();
         str2 = "";
         str3 = "";
-        this.OptionsList3Obj.add("Can Build Road", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].CanBuildRoad)));
+        this.OptionsList3Obj.add("Can Build Road", -1, Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].CanBuildRoad)));
         str2 = "";
         str3 = "";
-        this.OptionsList3Obj.add("Can Amphibious", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].CanAmph)));
+        this.OptionsList3Obj.add("Can Amphibious", -1, Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].CanAmph)));
         str2 = "";
         str3 = "";
-        this.OptionsList3Obj.add("Can Paradrop", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].CanParadrop)));
+        this.OptionsList3Obj.add("Can Paradrop", -1, Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].CanParadrop)));
         str2 = "";
         str3 = "";
-        this.OptionsList3Obj.add("Road Cost Mod", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].RoadCostModifier)));
+        this.OptionsList3Obj.add("Road Cost Mod", -1, Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].RoadCostModifier)));
         str2 = "";
         str3 = "";
         this.OptionsList3Obj.add("LandscapeType Group", -1, this.game.Data.TempString[this.game.Data.LandscapeTypeObj[this.ltnr].BuildGround + 100]);
         str2 = "";
         str3 = "";
-        this.OptionsList3Obj.add("Is Sea", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].IsSea)));
+        this.OptionsList3Obj.add("Is Sea", -1, Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].IsSea)));
         str2 = "";
         str3 = "";
-        this.OptionsList3Obj.add("Hide Points", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].HidePts)));
+        this.OptionsList3Obj.add("Hide Points", -1, Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].HidePts)));
         if (this.OptionsList3Id > 0)
         {
           this.SubPartList[this.SubpartNr(this.OptionsList3Id)].Refresh(this.OptionsList3Obj, -1);
@@ -606,31 +606,31 @@ namespace WindowsApplication1
           this.OptionsList4Obj.add("Loc on Destruct", -1, !(this.game.Data.LocTypeObj[this.locnr].OnDestructLT > -1 & !this.game.Data.LocTypeObj[this.locnr].Invincible) ? "Indestructable" : this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.locnr].OnDestructLT].Name);
           str2 = "";
           str3 = "";
-          tvalue: String = Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].IsAirfield));
+          tvalue: String = Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].IsAirfield));
           if (this.game.Data.LocTypeObj[this.locnr].IsAirfield)
-            tvalue = this.game.Data.LocTypeObj[this.locnr].TopAirStack <= 0 ? tvalue + ", unlimited stacking" : tvalue + ", max stack " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].TopAirStack));
+            tvalue = this.game.Data.LocTypeObj[this.locnr].TopAirStack <= 0 ? tvalue + ", unlimited stacking" : tvalue + ", max stack " + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].TopAirStack));
           this.OptionsList4Obj.add("Is Airfield", -1, tvalue);
           str2 = "";
           str3 = "";
-          this.OptionsList4Obj.add("Is Port", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].IsPort)));
+          this.OptionsList4Obj.add("Is Port", -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].IsPort)));
           str2 = "";
           str3 = "";
-          this.OptionsList4Obj.add("Buildable", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].Buildable)));
+          this.OptionsList4Obj.add("Buildable", -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].Buildable)));
           str2 = "";
           str3 = "";
           this.OptionsList4Obj.add("Effect on LT", -1, this.game.Data.LocTypeObj[this.locnr].PictureLT <= -1 ? "No effect on LT" : "Adds to LT mods");
           str2 = "";
           str3 = "";
-          this.OptionsList4Obj.add("Structural Points", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].StructuralPts)));
+          this.OptionsList4Obj.add("Structural Points", -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].StructuralPts)));
           str2 = "";
           str3 = "";
-          this.OptionsList4Obj.add("Auto Repair", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].AutoRecoverPts)));
+          this.OptionsList4Obj.add("Auto Repair", -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].AutoRecoverPts)));
           str2 = "";
           str3 = "";
           this.OptionsList4Obj.add("Is Upgrade", -1, this.game.Data.LocTypeObj[this.locnr].UpgradeNr <= -1 ? "No" : "Yes, from " + this.game.Data.LocTypeObj[this.game.Data.LocTypeObj[this.locnr].UpgradeNr].Name);
           str2 = "";
           str3 = "";
-          this.OptionsList4Obj.add("Production Points", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].MaxProd)));
+          this.OptionsList4Obj.add("Production Points", -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].MaxProd)));
            let mut local20: &Graphics = &Expression;
           rectangle2 = Rectangle::new(num16, num17 - 14, 330, 13);
           let mut rect1_4: &Rectangle = &rectangle2
@@ -692,15 +692,15 @@ namespace WindowsApplication1
         let mut index2: i32 =  0;
         do
         {
-          if (!Information.IsNothing((object) this.game.Data.TempString[400 + index2]) && this.game.Data.TempString[400 + index2].Length > 1)
+          if (!Information.IsNothing( this.game.Data.TempString[400 + index2]) && this.game.Data.TempString[400 + index2].Length > 1)
           {
             tname: String = this.game.Data.TempString[400 + index2];
-            tvalue: String = Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].DefBonus[index2]));
-            tvalue2: String = Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].DefBonusMax[index2]));
+            tvalue: String = Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].DefBonus[index2]));
+            tvalue2: String = Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].DefBonusMax[index2]));
             if (index1 > -1)
             {
-              tvalue3 = "+" + Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[index1].DefBonus[index2]));
-              tvalue4 = "+" + Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[index1].DefBonusMax[index2]));
+              tvalue3 = "+" + Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[index1].DefBonus[index2]));
+              tvalue4 = "+" + Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[index1].DefBonusMax[index2]));
             }
             if (index1 > -1)
               this.OptionsList3Obj.add(tname, -1, tvalue, tvalue2, tvalue3, tvalue4);
@@ -746,26 +746,26 @@ namespace WindowsApplication1
           if (!this.game.Data.SFTypeObj[index4].DontShowInList)
           {
             let mut num26: i32 =  0;
-            if ((double) this.game.Data.SFTypeObj[index4].CombatModAtt[this.ltnr] != 1.0)
+            if ( this.game.Data.SFTypeObj[index4].CombatModAtt[this.ltnr] != 1.0)
               num26 = 1;
-            if ((double) this.game.Data.SFTypeObj[index4].CombatModDef[this.ltnr] != 1.0)
+            if ( this.game.Data.SFTypeObj[index4].CombatModDef[this.ltnr] != 1.0)
               num26 = 1;
             if (index3 > -1)
             {
-              if ((double) this.game.Data.SFTypeObj[index4].CombatModAtt[index3] != 1.0)
+              if ( this.game.Data.SFTypeObj[index4].CombatModAtt[index3] != 1.0)
                 num26 = 1;
-              if ((double) this.game.Data.SFTypeObj[index4].CombatModDef[index3] != 1.0)
+              if ( this.game.Data.SFTypeObj[index4].CombatModDef[index3] != 1.0)
                 num26 = 1;
             }
             if (num26 == 1)
             {
               name2: String = this.game.Data.SFTypeObj[index4].Name;
-              tvalue: String = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[index4].CombatModAtt[this.ltnr]));
-              tvalue2: String = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[index4].CombatModDef[this.ltnr]));
+              tvalue: String = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[index4].CombatModAtt[this.ltnr]));
+              tvalue2: String = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[index4].CombatModDef[this.ltnr]));
               if (index3 > -1)
               {
-                tvalue3 = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[index4].CombatModAtt[index3]));
-                tvalue4 = "* " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[index4].CombatModDef[index3]));
+                tvalue3 = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[index4].CombatModAtt[index3]));
+                tvalue4 = "* " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[index4].CombatModDef[index3]));
               }
               if (index3 > -1)
                 this.OptionsList3Obj.add(name2, -1, tvalue, tvalue2, tvalue3, tvalue4);
@@ -798,7 +798,7 @@ namespace WindowsApplication1
         do
         {
           if (this.game.Data.TempString[index].Length > 1)
-            this.OptionsList3Obj.add(this.game.Data.TempString[index], -1, Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.ltnr].MoveCost[index])));
+            this.OptionsList3Obj.add(this.game.Data.TempString[index], -1, Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.ltnr].MoveCost[index])));
           index += 1;
         }
         while (index <= 99);
@@ -828,11 +828,11 @@ namespace WindowsApplication1
         this.OptionsList3Obj = ATListClass::new();
         str2 = "";
         str3 = "";
-        this.OptionsList3Obj.add("Buildable", -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].Buildable)));
+        this.OptionsList3Obj.add("Buildable", -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].Buildable)));
         str2 = "";
         str3 = "";
         string tvalue;
-        if ((double) this.game.Data.RuleVar[902] == 1.0)
+        if ( this.game.Data.RuleVar[902] == 1.0)
         {
           tvalue = "No";
         }
@@ -840,7 +840,7 @@ namespace WindowsApplication1
         {
           tvalue = "No";
           if (this.game.Data.LocTypeObj[this.locnr].EPCost > 0)
-            tvalue = "Yes, EP cost " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].EPCost));
+            tvalue = "Yes, EP cost " + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].EPCost));
         }
         this.OptionsList3Obj.add("Repairable", -1, tvalue);
         if (this.game.Data.LocTypeObj[this.locnr].Buildable)
@@ -865,12 +865,12 @@ namespace WindowsApplication1
           if (this.game.Data.LocTypeObj[this.locnr].PPCost > 0)
             this.OptionsList3Obj.add("PP Cost", -1, Conversions.ToString(this.game.Data.LocTypeObj[this.locnr].PPCost));
           if (this.game.Data.LocTypeObj[this.locnr].SupplyCost > 0)
-            this.OptionsList3Obj.add("Supply Cost", -1, Conversions.ToString( Math.Round((double) ((float) this.game.Data.LocTypeObj[this.locnr].SupplyCost / this.game.Data.RuleVar[77]))));
+            this.OptionsList3Obj.add("Supply Cost", -1, Conversions.ToString( Math.Round( ( this.game.Data.LocTypeObj[this.locnr].SupplyCost / this.game.Data.RuleVar[77]))));
           let mut index6: i32 =  0;
           do
           {
             if (this.game.Data.LocTypeObj[this.locnr].VarQty[index6] > 0 | this.game.Data.LocTypeObj[this.locnr].VarType[index6] > -1)
-              this.OptionsList3Obj.add(this.game.Data.RegimeSlotName[this.game.Data.LocTypeObj[this.locnr].VarType[index6]], -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].VarQty[index6])));
+              this.OptionsList3Obj.add(this.game.Data.RegimeSlotName[this.game.Data.LocTypeObj[this.locnr].VarType[index6]], -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].VarQty[index6])));
             index6 += 1;
           }
           while (index6 <= 4);
@@ -896,7 +896,7 @@ namespace WindowsApplication1
         let mut index7: i32 =  0;
         do
         {
-          if (!Information.IsNothing((object) this.game.Data.TempString[300 + index7]) && this.game.Data.TempString[300 + index7].Length > 1 & this.game.Data.LocTypeObj[this.locnr].ItemGroup[index7])
+          if (!Information.IsNothing( this.game.Data.TempString[300 + index7]) && this.game.Data.TempString[300 + index7].Length > 1 & this.game.Data.LocTypeObj[this.locnr].ItemGroup[index7])
           {
             str2 = "";
             str3 = "";
@@ -926,7 +926,7 @@ namespace WindowsApplication1
         let mut index8: i32 =  0;
         do
         {
-          if (!Information.IsNothing((object) this.game.Data.TempString[200 + index8]) && this.game.Data.TempString[200 + index8].Length > 1 & this.game.Data.LocTypeObj[this.locnr].PeopleGroup[index8])
+          if (!Information.IsNothing( this.game.Data.TempString[200 + index8]) && this.game.Data.TempString[200 + index8].Length > 1 & this.game.Data.LocTypeObj[this.locnr].PeopleGroup[index8])
           {
             str2 = "";
             str3 = "";
@@ -965,7 +965,7 @@ namespace WindowsApplication1
               if (this.game.Data.LocTypeObj[this.locnr].MinDistance[this.game.Data.LocTypeObj[index10].LocTypeGroup] > 1)
               {
                 num38 += 1;
-                this.OptionsList6Obj.add(this.game.Data.LocTypeObj[index10].Name, -1, Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.locnr].MinDistance[this.game.Data.LocTypeObj[index10].LocTypeGroup])));
+                this.OptionsList6Obj.add(this.game.Data.LocTypeObj[index10].Name, -1, Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.locnr].MinDistance[this.game.Data.LocTypeObj[index10].LocTypeGroup])));
               }
             }
           }
@@ -1029,7 +1029,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -1068,7 +1068,7 @@ namespace WindowsApplication1
             symbolSpriteId = this.game.Data.SFTypeObj[typ].ExtraSymbolSpriteID[index];
         }
       }
-      return (object) symbolSpriteId;
+      return  symbolSpriteId;
     }
 
     pub HandleKeyPress: WindowReturnClass(int nr, bool fromTimer = false)
@@ -1277,7 +1277,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.but2id)
             {
-              if (Interaction.MsgBox((object) "Are you sure you want to disband this subformation?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you sure you want to disband this subformation?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 if (this.game.EditObj.SoundOn)
                   SoundMod.PlayAWave(this.game.AppPath + "sound/disband.wav",  this.game.EditObj);
@@ -1286,7 +1286,7 @@ namespace WindowsApplication1
                 {
                   if (orderResult.ErrorString.Length > 1)
                   {
-                    let mut num5: i32 =   Interaction.MsgBox((object) orderResult.ErrorString, Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num5: i32 =   Interaction.MsgBox( orderResult.ErrorString, Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   windowReturnClass.AddCommand(6, 0);
                   windowReturnClass.SetFlag(true);
@@ -1307,7 +1307,7 @@ namespace WindowsApplication1
               {
                 if (!this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ & this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount > 6 && this.game.Data.SFObj[this.sfnr].Qty != this.detailnr2)
                 {
-                  let mut num6: i32 =   Interaction.MsgBox((object) "You can only upgrade ALL because there is already 8 subformations in unit.");
+                  let mut num6: i32 =   Interaction.MsgBox( "You can only upgrade ALL because there is already 8 subformations in unit.");
                   return windowReturnClass;
                 }
                 OrderResult orderResult = this.game.ProcessingObj.DoUpgrade(this.game.EditObj.UnitSelected, this.sfnr, this.detailnr2, this.HQselect);

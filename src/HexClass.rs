@@ -1,102 +1,106 @@
 ﻿// Decompiled with JetBrains decompiler
+#![allow(non_snake_case)]
 // Type: WindowsApplication1.HexClass
 // Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
-namespace WindowsApplication1
-{
-  [Serializable]
-  pub class HexClass : ISerializable
-  {
-    pub LandscapeType: i32;
-    pub SpriteNr: i32;
-    pub int[] RoadType;
-    pub int[] RiverType;
-    pub Regime: i32;
-    pub UnitCounter: i32;
-    pub int[] UnitList;
-    pub Location: i32;
-    pub Location2: i32;
-    pub SpecialType: i32;
-    pub SpecialSprite: i32;
-    pub SpecialType2: i32;
-    pub SpecialSprite2: i32;
-    pub SpecialType3: i32;
-    pub SpecialSprite3: i32;
-    pub DammageVisible: i32;
-    pub bool[] Bridge;
-    pub RegimeCount: i32;
-    pub RegimeFullCount: i32;
-    pub int[] tAPPenalty;
-    pub int[] AreaCode;
-    pub HexLibVarCounter: i32;
-    pub int[] HexLibVarSlotNr;
-    pub int[] HexLibVarValue;
-    pub DammageToInfra: i32;
-    pub int[] tDammagePerRegime;
-    pub int[] tSeeNow;
-    pub int[] tLastLT;
-    pub int[] tLastSpr;
-    pub int[] tLastReg;
-    pub int[] tReconPts;
-    pub int[] tZOCPts;
-    pub int[] tPowerPointsKilled;
-    pub int[] tSupplyKilled;
-    pub int[] tPowerPointsLost;
-    pub int[] tSupplyLost;
-    pub MaxRecon: i32;
-    pub MaxLos: i32;
-    pub MaxObstruct: i32;
-    pub VP: i32;
-    pub Name: String;
-    pub LabelText1: String;
-    pub LabelText2: String;
-    pub LabelType1: i32;
-    pub LabelType2: i32;
-    pub CardUponConquest: i32;
-    pub int[] tBattleStack;
-    pub int[] tBattlePenalty;
-    pub int[] tBattleStackAir;
-    pub int[] tBattleStackArt;
-    pub int[] ConnectionX;
-    pub int[] ConnectionY;
-    pub ConnectionCount: i32;
-    pub int[] ConnectionMap;
-    pub TempOwner: i32;
-    pub TempPowerAbove: i32;
-    pub TempPowerMulti: i32;
-    pub TempGuiFrontZone: i32;
-    pub OrigOwner: i32;
-    pub randomOverrule: i32;
-    pub SmallLabel: String;
-    pub SmallLabelType: i32;
-    pub int[] LISpoints;
-    pub int[] LIShistory;
-    pub int[] LIStotalHistory;
-    pub int[] LISorganic;
-    pub int[] LISpull;
-    pub int[] LISorganicPercentage;
-    pub int[] tempOldLISpoints;
-    pub int[] tempPreviewLIS;
-    pub int[] tempPreviewAssetLIS;
-    pub int[] tempPreviewPull;
-    pub int[] tempPreviewRoadPull;
-    pub SimpleList tempLISjumps;
-    pub HeightLevel: i32;
-    pub FuzzyBlock: i32;
-    pub WindowsApplication1.UnitList tempInterceptList;
-    pub tempFireListEntry: bool;
-    pub tempSelectable: bool;
-    pub tempDc4_var1: i32;
+// namespace WindowsApplication1
+// {
+//   [Serializable]
+  pub struct HexClass {
+    pub LandscapeType: i32,
+    pub SpriteNr: i32,
+    pub RoadType: Vec<i32>,
+    pub RiverType: Vec<i32>,
+    pub Regime: i32,
+    pub UnitCounter: i32,
+    pub UnitList: Vec<i32>,
+    pub Location: i32,
+    pub Location2: i32,
+    pub SpecialType: i32,
+    pub SpecialSprite: i32,
+    pub SpecialType2: i32,
+    pub SpecialSprite2: i32,
+    pub SpecialType3: i32,
+    pub SpecialSprite3: i32,
+    pub DammageVisible: i32,
+    pub Bridge: Vec<bool>,
+    pub RegimeCount: i32,
+    pub RegimeFullCount: i32,
+    pub tAPPenalty: Vec<i32>,
+    pub AreaCode: Vec<i32>,
+    pub HexLibVarCounter: i32,
+    pub HexLibVarSlotNr: Vec<i32>,
+    pub HexLibVarValue: Vec<i32>,
+    pub DammageToInfra: i32,
+    pub tDammagePerRegime: Vec<i32>,
+    pub tSeeNow: Vec<i32>,
+    pub tLastLT: Vec<i32>,
+    pub tLastSpr: Vec<i32>,
+    pub tLastReg: Vec<i32>,
+    pub tReconPts: Vec<i32>,
+    pub tZOCPts: Vec<i32>,
+    pub tPowerPointsKilled: Vec<i32>,
+    pub tSupplyKilled: Vec<i32>,
+    pub tPowerPointsLost: Vec<i32>,
+    pub tSupplyLost: Vec<i32>,
+    pub MaxRecon: i32,
+    pub MaxLos: i32,
+    pub MaxObstruct: i32,
+    pub VP: i32,
+    pub Name: String,
+    pub LabelText1: String,
+    pub LabelText2: String,
+    pub LabelType1: i32,
+    pub LabelType2: i32,
+    pub CardUponConquest: i32,
+    pub tBattleStack: Vec<i32>,
+    pub tBattlePenalty: Vec<i32>,
+    pub tBattleStackAir: Vec<i32>,
+    pub tBattleStackArt: Vec<i32>,
+    pub ConnectionX: Vec<i32>,
+    pub ConnectionY: Vec<i32>,
+    pub ConnectionCount: i32,
+    pub ConnectionMap: Vec<i32>,
+    pub TempOwner: i32,
+    pub TempPowerAbove: i32,
+    pub TempPowerMulti: i32,
+    pub TempGuiFrontZone: i32,
+    pub OrigOwner: i32,
+    pub randomOverrule: i32,
+    pub SmallLabel: String,
+    pub SmallLabelType: i32,
+    pub LISpoints: Vec<i32>,
+    pub LIShistory: Vec<i32>,
+    pub LIStotalHistory: Vec<i32>,
+    pub LISorganic: Vec<i32>,
+    pub LISpull: Vec<i32>,
+    pub LISorganicPercentage: Vec<i32>,
+    pub tempOldLISpoints: Vec<i32>,
+    pub tempPreviewLIS: Vec<i32>,
+    pub tempPreviewAssetLIS: Vec<i32>,
+    pub tempPreviewPull: Vec<i32>,
+    pub tempPreviewRoadPull: Vec<i32>,
+    pub tempLISjumps: SimpleList,
+    pub HeightLevel: i32,
+    pub FuzzyBlock: i32,
+    // pub tempInterceptList: WindowsApplication1.UnitList ,
+    pub tempFireListEntry: bool,
+    pub tempSelectable: bool,
+    pub tempDc4_var1: i32,
 
+// }
+}
+impl HexClass {
+  
     pub int get_SeeNow(int Index) => Index > this.RegimeFullCount ? 1 : this.tSeeNow[Index];
 
     pub void set_SeeNow(int Index, int value)
@@ -360,7 +364,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (HexClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
@@ -599,7 +603,7 @@ namespace WindowsApplication1
       bw.Write(this.DammageToInfra);
       bw.Write(this.DammageVisible);
       bw.Write(this.VP);
-      if (Information.IsNothing((object) this.Name))
+      if (Information.IsNothing( this.Name))
         this.Name = "";
       bw.Write(this.Name);
       bw.Write(this.RegimeCount);
@@ -636,9 +640,9 @@ namespace WindowsApplication1
       }
       while (index3 <= 9);
       bw.Write(this.MaxRecon);
-      if (Information.IsNothing((object) this.LabelText1))
+      if (Information.IsNothing( this.LabelText1))
         this.LabelText1 = "";
-      if (Information.IsNothing((object) this.LabelText2))
+      if (Information.IsNothing( this.LabelText2))
         this.LabelText2 = "";
       bw.Write(this.LabelText1);
       bw.Write(this.LabelType1);
@@ -693,47 +697,47 @@ namespace WindowsApplication1
     {
       info.AddValue("LandscapeType", this.LandscapeType);
       info.AddValue("SpriteNr", this.SpriteNr);
-      info.AddValue("RoadType", (object) this.RoadType);
+      info.AddValue("RoadType",  this.RoadType);
       info.AddValue("Regime", this.Regime);
       info.AddValue("UnitCounter", this.UnitCounter);
-      info.AddValue("UnitList", (object) this.UnitList);
+      info.AddValue("UnitList",  this.UnitList);
       info.AddValue("Location", this.Location);
       info.AddValue("Location2", this.Location2);
-      info.AddValue("RiverType", (object) this.RiverType);
+      info.AddValue("RiverType",  this.RiverType);
       info.AddValue("DammageToInfra", this.DammageToInfra);
       info.AddValue("DammageVisible", this.DammageVisible);
-      info.AddValue("Bridge", (object) this.Bridge);
-      info.AddValue("APPenalty", (object) this.tAPPenalty);
+      info.AddValue("Bridge",  this.Bridge);
+      info.AddValue("APPenalty",  this.tAPPenalty);
       info.AddValue("RegimeCount", this.RegimeCount);
       info.AddValue("RegimeFullCount", this.RegimeFullCount);
-      info.AddValue("SeeNow", (object) this.tSeeNow);
-      info.AddValue("LastLT", (object) this.tLastLT);
-      info.AddValue("LastSpr", (object) this.tLastSpr);
-      info.AddValue("LastReg", (object) this.tLastReg);
-      info.AddValue("ReconPts", (object) this.tReconPts);
-      info.AddValue("ZOCPts", (object) this.tZOCPts);
+      info.AddValue("SeeNow",  this.tSeeNow);
+      info.AddValue("LastLT",  this.tLastLT);
+      info.AddValue("LastSpr",  this.tLastSpr);
+      info.AddValue("LastReg",  this.tLastReg);
+      info.AddValue("ReconPts",  this.tReconPts);
+      info.AddValue("ZOCPts",  this.tZOCPts);
       info.AddValue("VP", this.VP);
-      info.AddValue("Name", (object) this.Name);
-      info.AddValue("AreaCode", (object) this.AreaCode);
-      info.AddValue("PowerPointsKilled", (object) this.tPowerPointsKilled);
-      info.AddValue("SupplyKilled", (object) this.tSupplyKilled);
-      info.AddValue("DammagePerRegime", (object) this.tDammagePerRegime);
-      info.AddValue("PowerPointsLost", (object) this.tPowerPointsLost);
-      info.AddValue("SupplyLost", (object) this.tSupplyLost);
+      info.AddValue("Name",  this.Name);
+      info.AddValue("AreaCode",  this.AreaCode);
+      info.AddValue("PowerPointsKilled",  this.tPowerPointsKilled);
+      info.AddValue("SupplyKilled",  this.tSupplyKilled);
+      info.AddValue("DammagePerRegime",  this.tDammagePerRegime);
+      info.AddValue("PowerPointsLost",  this.tPowerPointsLost);
+      info.AddValue("SupplyLost",  this.tSupplyLost);
       info.AddValue("MaxRecon", this.MaxRecon);
-      info.AddValue("LabelText1", (object) this.LabelText1);
+      info.AddValue("LabelText1",  this.LabelText1);
       info.AddValue("LabelType1", this.LabelType1);
-      info.AddValue("LabelText2", (object) this.LabelText2);
+      info.AddValue("LabelText2",  this.LabelText2);
       info.AddValue("LabelType2", this.LabelType2);
       info.AddValue("CardUponConquest", this.CardUponConquest);
-      info.AddValue("BattleStack", (object) this.tBattleStack);
-      info.AddValue("BattleStackAir", (object) this.tBattleStackAir);
-      info.AddValue("BattleStackArt", (object) this.tBattleStackArt);
-      info.AddValue("BattlePenalty", (object) this.tBattlePenalty);
+      info.AddValue("BattleStack",  this.tBattleStack);
+      info.AddValue("BattleStackAir",  this.tBattleStackAir);
+      info.AddValue("BattleStackArt",  this.tBattleStackArt);
+      info.AddValue("BattlePenalty",  this.tBattlePenalty);
       info.AddValue("ConnectionCount", this.ConnectionCount);
-      info.AddValue("ConnectionX", (object) this.ConnectionX);
-      info.AddValue("ConnectionY", (object) this.ConnectionY);
-      info.AddValue("ConnectionMap", (object) this.ConnectionMap);
+      info.AddValue("ConnectionX",  this.ConnectionX);
+      info.AddValue("ConnectionY",  this.ConnectionY);
+      info.AddValue("ConnectionMap",  this.ConnectionMap);
       info.AddValue("SpecialType", this.SpecialType);
       info.AddValue("SpecialSprite", this.SpecialSprite);
       info.AddValue("SpecialType2", this.SpecialType2);
@@ -742,9 +746,9 @@ namespace WindowsApplication1
       info.AddValue("SpecialSprite3", this.SpecialSprite3);
       info.AddValue("OrigOwner", this.OrigOwner);
       info.AddValue("HexLibVarCounter", this.HexLibVarCounter);
-      info.AddValue("HexLibVarSlotNr", (object) this.HexLibVarSlotNr);
-      info.AddValue("HexLibVarValue", (object) this.HexLibVarValue);
-      info.AddValue("SmallLabel", (object) this.SmallLabel);
+      info.AddValue("HexLibVarSlotNr",  this.HexLibVarSlotNr);
+      info.AddValue("HexLibVarValue",  this.HexLibVarValue);
+      info.AddValue("SmallLabel",  this.SmallLabel);
       info.AddValue("HeightLevel", this.HeightLevel);
     }
 
@@ -1415,4 +1419,3 @@ namespace WindowsApplication1
       this.UnitList = (int[]) Utils.CopyArray((Array) this.UnitList, (Array) new int[this.UnitCounter + 1]);
     }
   }
-}

@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -22,8 +22,8 @@ namespace WindowsApplication1
     pub MouseCounter: i32;
     pub string[] MouseText;
     pub string[] MouseTitle;
-    pub int[] MouseData;
-    pub int[] MouseType;
+    pub MouseData: Vec<i32>;
+    pub MouseType: Vec<i32>;
     pub oldStyle: bool;
 
     pub virtual bool UseSourceCopyForPaintSpecific() => false;
@@ -47,7 +47,7 @@ namespace WindowsApplication1
 
     pub void Dispose()
     {
-      if (!Information.IsNothing((object) self.OwnBitmap))
+      if (!Information.IsNothing( self.OwnBitmap))
         self.OwnBitmap.Dispose();
       self.OwnBitmap = (Bitmap) null;
       self.SubDispose();
@@ -57,7 +57,7 @@ namespace WindowsApplication1
     {
     }
 
-    pub int GetMemorySize() =>  Math.Round((double) (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
+    pub int GetMemorySize() =>  Math.Round( (64 * self.OwnBitmap.Width * self.OwnBitmap.Height) / 8000.0);
 
     pub virtual int GetSelect() => -1;
 
@@ -70,10 +70,10 @@ namespace WindowsApplication1
       if (w > 0 & h > 0)
       {
         self.OwnBitmap = new Bitmap(w, h, PixelFormat.Format32bppPArgb);
-        self.OwnBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        self.OwnBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
         DrawMod.ClearTransparent( objgraphics);
-        if (!Information.IsNothing((object) objgraphics))
+        if (!Information.IsNothing( objgraphics))
           objgraphics.Dispose();
       }
       self.MouseOver = false;
@@ -81,13 +81,13 @@ namespace WindowsApplication1
 
     pub void Resize(int w, int h)
     {
-      if (!Information.IsNothing((object) self.OwnBitmap))
+      if (!Information.IsNothing( self.OwnBitmap))
         self.OwnBitmap.Dispose();
       self.OwnBitmap = new Bitmap(w, h, PixelFormat.Format32bppPArgb);
-      self.OwnBitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      self.OwnBitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
       DrawMod.ClearTransparent( objgraphics);
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
     }
@@ -116,7 +116,7 @@ namespace WindowsApplication1
     {
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
       DrawMod.ClearTransparent( objgraphics);
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
     }

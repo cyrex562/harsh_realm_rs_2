@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Drawing.Text;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Drawing.Text;
 
 namespace WindowsApplication1
 {
@@ -50,15 +50,15 @@ namespace WindowsApplication1
       self.ourfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Bold, GraphicsUnit.Pixel);
       self.overrule = false;
       self.Descript = tDescript;
-      if (!Information.IsNothing((object) tBackbitmap))
+      if (!Information.IsNothing( tBackbitmap))
       {
         self.backbitmap = new Bitmap(self.OwnBitmap.Width, self.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics Expression = Graphics.FromImage((Image) self.backbitmap);
         Expression.CompositingMode = CompositingMode.SourceCopy;
         Expression.DrawImage((Image) tBackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
         Expression.CompositingMode = CompositingMode.SourceOver;
-        if (!Information.IsNothing((object) Expression))
+        if (!Information.IsNothing( Expression))
           Expression.Dispose();
       }
       self.buttext = buttontext;
@@ -69,7 +69,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) self.backbitmap))
+      if (Information.IsNothing( self.backbitmap))
         return;
       self.backbitmap.Dispose();
       self.backbitmap = (Bitmap) null;
@@ -79,7 +79,7 @@ namespace WindowsApplication1
     {
       SizeF sizeF1 = SizeF::new();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
       {
         Expression.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( Expression,  self.backbitmap, 0, 0);
@@ -143,14 +143,14 @@ namespace WindowsApplication1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
       SizeF sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-      let mut x1: i32 =  Math.Round(2.0 + ((double) self.width - (double) sizeF2.Width) / 2.0);
-      let mut y1: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF2.Height) / 2.0);
+      let mut x1: i32 =  Math.Round(2.0 + ( self.width -  sizeF2.Width) / 2.0);
+      let mut y1: i32 =  Math.Round(2.0 + ( self.height -  sizeF2.Height) / 2.0);
       DrawMod.DrawTextColouredFuzzy( Expression, self.buttext, self.ourfont, x1, y1, Color.FromArgb(200, 0, 0, 0));
       SizeF sizeF3 = Expression.MeasureString(self.buttext, self.ourfont);
-      let mut x2: i32 =  Math.Round(((double) self.width - (double) sizeF3.Width) / 2.0);
-      let mut y2: i32 =  Math.Round(((double) self.height - (double) sizeF3.Height) / 2.0);
+      let mut x2: i32 =  Math.Round(( self.width -  sizeF3.Width) / 2.0);
+      let mut y2: i32 =  Math.Round(( self.height -  sizeF3.Height) / 2.0);
       DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, x2, y2, Color.White);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -164,7 +164,7 @@ namespace WindowsApplication1
       if (self.inactive)
         return self.Paint();
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
-      if (!Information.IsNothing((object) self.backbitmap))
+      if (!Information.IsNothing( self.backbitmap))
         DrawMod.DrawSimple( Expression,  self.backbitmap, 0, 0);
       Expression.SmoothingMode = SmoothingMode.AntiAlias;
       Expression.TextRenderingHint = TextRenderingHint.AntiAlias;
@@ -194,14 +194,14 @@ namespace WindowsApplication1
       let mut destrect3: &Rectangle = &rectangle1
       DrawMod.DrawSimplePart2( local5,  local6, srcrect3, destrect3);
       SizeF sizeF2 = Expression.MeasureString(self.buttext, self.ourfont);
-      let mut x1: i32 =  Math.Round(2.0 + ((double) self.width - (double) sizeF2.Width) / 2.0);
-      let mut y1: i32 =  Math.Round(2.0 + ((double) self.height - (double) sizeF2.Height) / 2.0);
+      let mut x1: i32 =  Math.Round(2.0 + ( self.width -  sizeF2.Width) / 2.0);
+      let mut y1: i32 =  Math.Round(2.0 + ( self.height -  sizeF2.Height) / 2.0);
       DrawMod.DrawTextColouredFuzzy( Expression, self.buttext, self.ourfont, x1, y1, Color.FromArgb(200, 0, 0, 0));
       SizeF sizeF3 = Expression.MeasureString(self.buttext, self.ourfont);
-      let mut x2: i32 =  Math.Round(((double) self.width - (double) sizeF3.Width) / 2.0);
-      let mut y2: i32 =  Math.Round(((double) self.height - (double) sizeF3.Height) / 2.0);
+      let mut x2: i32 =  Math.Round(( self.width -  sizeF3.Width) / 2.0);
+      let mut y2: i32 =  Math.Round(( self.height -  sizeF3.Height) / 2.0);
       DrawMod.DrawTextColouredNicely( Expression, self.buttext, self.ourfont, x2, y2, Color.White);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return self.OwnBitmap;
     }

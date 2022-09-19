@@ -4,16 +4,16 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Net;
-using System.Text;
-using System.Threading;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
+// usingSystem.Net;
+// usingSystem.Text;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -130,7 +130,7 @@ namespace WindowsApplication1
         this.PhaseData = -1;
         this.saved = false;
         this.showtime = DateAndTime.Now;
-        if (this.game.EditObj.RealRound == 0 & (double) this.game.Data.RuleVar[319] < 1.0)
+        if (this.game.EditObj.RealRound == 0 &  this.game.Data.RuleVar[319] < 1.0)
         {
           let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
           for (let mut index1: i32 =  0; index1 <= sfTypeCounter; index1 += 1)
@@ -138,7 +138,7 @@ namespace WindowsApplication1
             let mut killPercent: i32 =  this.game.Data.SFTypeObj[index1].KillPercent;
             if (killPercent > 0)
             {
-              let mut num: i32 =   Math.Round((double) Conversion.Int((float) killPercent * this.game.Data.RuleVar[319]));
+              let mut num: i32 =   Math.Round( Conversion.Int( killPercent * this.game.Data.RuleVar[319]));
               SFTypeClass[] sfTypeObj = this.game.Data.SFTypeObj;
               SFTypeClass[] sfTypeClassArray = sfTypeObj;
               let mut index2: i32 =  index1;
@@ -161,7 +161,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (!Information.IsNothing((object) this.game.se1Thread))
+      if (!Information.IsNothing( this.game.se1Thread))
       {
         if (!this.game.se1Running & this.game.se1ThreadRunning)
         {
@@ -258,7 +258,7 @@ namespace WindowsApplication1
           windowReturnClass.Flag = true;
           g.Dispose();
           g = (Graphics) null;
-          if (Information.IsNothing((object) this.game.EditObj.TempAIString))
+          if (Information.IsNothing( this.game.EditObj.TempAIString))
             this.game.EditObj.TempAIString = "";
           SubPartClass tsubpart1;
           if (this.game.EditObj.TempAIString.Length < 1)
@@ -274,7 +274,7 @@ namespace WindowsApplication1
             this.TempText = this.AddSubPart( tsubpart1, 120, 80, 800, 40, 0);
             if (this.game.EditObj.AIProgressMax > 0)
             {
-              tsubpart1 =  TextPartClass::new(Strings.Trim(Conversion.Str((object)  Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0))) + "% completed", this.game.MarcFont1, 600, 40, true, tBlackBack: true, tProgress: ( Math.Round((double) this.game.EditObj.AIProgressNow / (double) this.game.EditObj.AIProgressMax * 100.0)), tMarc: true);
+              tsubpart1 =  TextPartClass::new(Strings.Trim(Conversion.Str(  Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0))) + "% completed", this.game.MarcFont1, 600, 40, true, tBlackBack: true, tProgress: ( Math.Round( this.game.EditObj.AIProgressNow /  this.game.EditObj.AIProgressMax * 100.0)), tMarc: true);
               this.TempText2 = this.AddSubPart( tsubpart1, 220, 125, 600, 100, 0);
             }
           }
@@ -369,10 +369,10 @@ namespace WindowsApplication1
         let mut h1: i32 =  num5;
         let mut origw1: i32 =  num4;
         let mut origh1: i32 =  num5;
-        double r1 = (double) ((float) red / (float) byte.MaxValue);
-        double g1 = (double) ((float) green / (float) byte.MaxValue);
-        double b1 = (double) ((float) blue / (float) byte.MaxValue);
-        DrawMod.DrawScaledColorized2( local1,  local2, x1, y1, w1, h1, origw1, origh1, (float) r1, (float) g1, (float) b1, 1f);
+        double r1 =  ( red /  byte.MaxValue);
+        double g1 =  ( green /  byte.MaxValue);
+        double b1 =  ( blue /  byte.MaxValue);
+        DrawMod.DrawScaledColorized2( local1,  local2, x1, y1, w1, h1, origw1, origh1,  r1,  g1,  b1, 1f);
         let mut bannerSpriteNr2: i32 =  this.game.Data.RegimeObj[index].BannerSpriteNr2;
         if (bannerSpriteNr2 > 0)
         {
@@ -385,10 +385,10 @@ namespace WindowsApplication1
           let mut h2: i32 =  num5;
           let mut origw2: i32 =  num4;
           let mut origh2: i32 =  num5;
-          double r2 = (double) ((float) red2 / (float) byte.MaxValue);
-          double g2 = (double) ((float) green2 / (float) byte.MaxValue);
-          double b2 = (double) ((float) blue2 / (float) byte.MaxValue);
-          DrawMod.DrawScaledColorized2( local3,  local4, x2, y2, w2, h2, origw2, origh2, (float) r2, (float) g2, (float) b2, 1f);
+          double r2 =  ( red2 /  byte.MaxValue);
+          double g2 =  ( green2 /  byte.MaxValue);
+          double b2 =  ( blue2 /  byte.MaxValue);
+          DrawMod.DrawScaledColorized2( local3,  local4, x2, y2, w2, h2, origw2, origh2,  r2,  g2,  b2, 1f);
         }
         let mut hqSpriteNr2: i32 =  this.game.Data.RegimeObj[index].HQSpriteNr2;
         if (hqSpriteNr2 > 0)
@@ -398,10 +398,10 @@ namespace WindowsApplication1
            let mut local6: &Bitmap = &bitmap3;
           let mut x3: i32 =  num2 + 16;
           let mut y3: i32 =  num3 + 60;
-          double r3 = (double) ((float) this.game.Data.RegimeObj[index].Red3 / (float) byte.MaxValue) - 1.0;
-          double g3 = (double) ((float) this.game.Data.RegimeObj[index].Green3 / (float) byte.MaxValue) - 1.0;
-          double b3 = (double) ((float) this.game.Data.RegimeObj[index].Blue3 / (float) byte.MaxValue) - 1.0;
-          DrawMod.Draw( local5,  local6, x3, y3, (float) r3, (float) g3, (float) b3, 0.95f);
+          double r3 =  ( this.game.Data.RegimeObj[index].Red3 /  byte.MaxValue) - 1.0;
+          double g3 =  ( this.game.Data.RegimeObj[index].Green3 /  byte.MaxValue) - 1.0;
+          double b3 =  ( this.game.Data.RegimeObj[index].Blue3 /  byte.MaxValue) - 1.0;
+          DrawMod.Draw( local5,  local6, x3, y3,  r3,  g3,  b3, 0.95f);
         }
         num1 += 1;
       }
@@ -495,7 +495,7 @@ namespace WindowsApplication1
         }
         else
         {
-          let mut num: i32 =   Interaction.MsgBox((object) "Strange error. a player with no pbemPlayer set. should not be possible unless scenario uses some unexpected scripting. Continue might be possible since code allows access to turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num: i32 =   Interaction.MsgBox( "Strange error. a player with no pbemPlayer set. should not be possible unless scenario uses some unexpected scripting. Continue might be possible since code allows access to turn.", Title: ( "Shadow Empire : Planetary Conquest"));
           this.loggedin = true;
         }
       }
@@ -511,7 +511,7 @@ namespace WindowsApplication1
       else if (this.game.Data.VPWin == -1)
         txt = this.game.Data.Winner != -1 ? (!(this.game.Data.Winner == this.game.EditObj.RealTurn | this.game.Data.Winner == this.game.Data.RegimeObj[this.game.EditObj.RealTurn].UberRegime) ? this.game.Data.RegimeObj[this.game.Data.Winner].Name + " has won this game. You have lost!" : this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + ", You have won this game!") : this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + ", Round " + this.game.EditObj.RealRound.ToString();
       else if (this.game.Data.Winner == -1)
-        txt = this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + ", You have" + Conversion.Str((object) this.game.HandyFunctionsObj.GetRegimeVP(this.game.EditObj.RealTurn)) + " VP of the" + Conversion.Str((object) this.game.Data.VPWin) + " VP required to win.";
+        txt = this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + ", You have" + Conversion.Str( this.game.HandyFunctionsObj.GetRegimeVP(this.game.EditObj.RealTurn)) + " VP of the" + Conversion.Str( this.game.Data.VPWin) + " VP required to win.";
       else
         txt = this.game.Data.Winner != this.game.EditObj.RealTurn ? this.game.Data.RegimeObj[this.game.Data.Winner].Name + " has won this game. You have lost!" : this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + ", You have won this game!";
       Font marcFont1 = this.game.MarcFont1;
@@ -521,7 +521,7 @@ namespace WindowsApplication1
       int[] numArray1 = new int[100];
       int[] numArray2 = new int[100];
       int[] numArray3 = new int[100];
-      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[441]));
+      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[441]));
       let mut num1: i32 =  0;
       let mut num2: i32 =  0;
       let mut num3: i32 =  0;
@@ -629,7 +629,7 @@ namespace WindowsApplication1
       Font marcFont4_2 = this.game.MarcFont4;
       if (!this.loggedin & this.game.Data.PbemGameID < 1)
       {
-        buttontext: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
+        buttontext: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
         if (!this.saved)
         {
           tsubpart2 =  new TextButtonPartClass(buttontext, 100, "You have to login if playing PBEM and/or using passwords.",  this.OwnBitmap, 400, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
@@ -643,14 +643,14 @@ namespace WindowsApplication1
       }
       if (this.game.Data.PbemGameID < 1)
       {
-        buttontext: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Save & Quit" : "SAVE + QUIT";
+        buttontext: String =  this.game.Data.RuleVar[839] != 1.0 ? "Save & Quit" : "SAVE + QUIT";
         if (!this.loggedin & !this.saved)
         {
           tsubpart2 =  new TextButtonPartClass(buttontext, 100, "If your playing a PBEM and your not playing\r\nthis regime this is a good place to save and quit.", ref this.OwnBitmap, 530, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
           this.SaveId = this.AddSubPart(ref tsubpart2, 530, 173, 100, 35, 1);
         }
       }
-      buttontext1: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Start Turn" : "START TURN";
+      buttontext1: String =  this.game.Data.RuleVar[839] != 1.0 ? "Start Turn" : "START TURN";
       if (this.loggedin)
       {
         SoundMod.PlayAWave(this.game.AppPath + "sound/drums/Drum " + DrawMod.RandyNumber.Next(1, 8).ToString() + ".OGG", ref this.game.EditObj, volumeMod: 250);
@@ -662,7 +662,7 @@ namespace WindowsApplication1
         tsubpart2 =  new TextButtonPartClass("UPLOAD", 100, "Click to upload your turn to your opponent on the PBEM++ server.", ref this.OwnBitmap, 455, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
         this.uploadid = this.AddSubPart(ref tsubpart2, 455, 173, 100, 35, 1);
       }
-      if (Information.IsNothing((object) g))
+      if (Information.IsNothing( g))
         return;
       g.Dispose();
     }
@@ -741,7 +741,7 @@ namespace WindowsApplication1
       Font marcFont4_2 = this.game.MarcFont4;
       if (this.game.Data.se1_earlyCinematicsLogin == 0)
         this.game.Data.se1_earlyCinematicsLogin = 1;
-      buttontext1: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
+      buttontext1: String =  this.game.Data.RuleVar[839] != 1.0 ? "Login" : "LOGIN";
       if (!this.saved)
       {
         tsubpart2 =  new TextButtonPartClass(buttontext1, 100, "You have to login if playing PBEM and/or using passwords.", ref this.OwnBitmap, 400, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
@@ -752,13 +752,13 @@ namespace WindowsApplication1
         tsubpart2 =  new TextButtonPartClass(buttontext1, 100, "You have to login if playing PBEM and/or using passwords.", ref this.OwnBitmap, 455, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
         this.login2id = this.AddSubPart(ref tsubpart2, 455, 173, 100, 35, 1);
       }
-      buttontext2: String = (double) this.game.Data.RuleVar[839] != 1.0 ? "Save & Quit" : "SAVE + QUIT";
+      buttontext2: String =  this.game.Data.RuleVar[839] != 1.0 ? "Save & Quit" : "SAVE + QUIT";
       if (!this.loggedin & !this.saved)
       {
         tsubpart2 =  new TextButtonPartClass(buttontext2, 100, "If your playing a PBEM and your not playing\r\nthis regime this is a good place to save and quit.", ref this.OwnBitmap, 530, 173, usefont: marcFont4_2, useshadow: (!flag2), tMarcStyle: (!flag2));
         this.SaveId = this.AddSubPart(ref tsubpart2, 530, 173, 100, 35, 1);
       }
-      if (Information.IsNothing((object) g))
+      if (Information.IsNothing( g))
         return;
       g.Dispose();
       g = (Graphics) null;
@@ -837,7 +837,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.QuitId)
             {
-              if (Interaction.MsgBox((object) "Are you Sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you Sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 this.game.Data = DataClass::new();
                 this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
@@ -874,7 +874,7 @@ namespace WindowsApplication1
                   }
                   else
                   {
-                    let mut num2: i32 =   Interaction.MsgBox((object) "Wrong password.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num2: i32 =   Interaction.MsgBox( "Wrong password.", Title: ( "Shadow Empire : Planetary Conquest"));
                     this.loggedin = false;
                     this.EnterTurn();
                     windowReturnClass.SetFlag(true);
@@ -915,28 +915,28 @@ namespace WindowsApplication1
                     this.game.Data.RegimeObj[this.game.EditObj.RealTurn].FirstRound = this.game.EditObj.RealRound;
                   if (this.game.EditObj.RealRound == 1 | this.game.Data.RegimeObj[this.game.EditObj.RealTurn].FirstRound == this.game.EditObj.RealRound)
                   {
-                    if (this.game.Data.Round == 1 & this.game.EditObj.RealTurn > 2 & this.game.Data.PasswordsOn && Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn - 1, this.game.Data.RegimeObj[this.game.EditObj.RealTurn - 1].RandomCode), (object) 0, false))
+                    if (this.game.Data.Round == 1 & this.game.EditObj.RealTurn > 2 & this.game.Data.PasswordsOn && Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn - 1, this.game.Data.RegimeObj[this.game.EditObj.RealTurn - 1].RandomCode),  0, false))
                     {
                       this.loggedin = false;
-                      let mut num3: i32 =   Interaction.MsgBox((object) "We cannot allow you to log into this turn as you have already logged in to the previous turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num3: i32 =   Interaction.MsgBox( "We cannot allow you to log into this turn as you have already logged in to the previous turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                       windowReturnClass.SetFlag(true);
                       return windowReturnClass;
                     }
-                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 1, false))
+                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1),  1, false))
                     {
-                      this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode =  Math.Round((double) Conversion.Int(VBMath.Rnd() * 9999f));
+                      this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode =  Math.Round( Conversion.Int(VBMath.Rnd() * 9999f));
                       masterLogClass.SetEntry(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode);
                     }
                   }
                   else
                   {
                     int integer1;
-                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound - 1, this.game.EditObj.RealTurn, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode), (object) 1, false))
+                    if (Operators.ConditionalCompareObjectLess(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound - 1, this.game.EditObj.RealTurn, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode),  1, false))
                     {
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num4: i32 =   Interaction.MsgBox((object) "Wiped Logbook. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num4: i32 =   Interaction.MsgBox( "Wiped Logbook. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -967,13 +967,13 @@ namespace WindowsApplication1
                         this.game.Data.RegimeObj[index2].MessFrontPic[messCounter] = -1;
                       }
                     }
-                    else if (Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 0, false))
+                    else if (Operators.ConditionalCompareObjectGreater(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1),  0, false))
                     {
-                      let mut integer2: i32 =  Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 1));
+                      let mut integer2: i32 =  Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1),  1));
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num5: i32 =   Interaction.MsgBox((object) "Turn has already been opened before. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num5: i32 =   Interaction.MsgBox( "Turn has already been opened before. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -999,18 +999,18 @@ namespace WindowsApplication1
                         this.game.Data.RegimeObj[index5].MesHideFromStart = (bool[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index5].MesHideFromStart, (Array) new bool[messCounter + 1]);
                         this.game.Data.RegimeObj[index5].MesHideFromTab = (bool[]) Utils.CopyArray((Array) this.game.Data.RegimeObj[index5].MesHideFromTab, (Array) new bool[messCounter + 1]);
                         this.game.Data.RegimeObj[index5].MesStyle[messCounter] = 0;
-                        this.game.Data.RegimeObj[index5].MessString[messCounter] = "Possible PBEM cheat\r\n\r\n" + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + " has opened round " + Conversion.Str((object) this.game.EditObj.RealRound) + " for the " + Conversion.Str((object) integer2) + "th time.";
+                        this.game.Data.RegimeObj[index5].MessString[messCounter] = "Possible PBEM cheat\r\n\r\n" + this.game.Data.RegimeObj[this.game.EditObj.RealTurn].Name + " has opened round " + Conversion.Str( this.game.EditObj.RealRound) + " for the " + Conversion.Str( integer2) + "th time.";
                         this.game.Data.RegimeObj[index5].MessBackPic[messCounter] = -2;
                         this.game.Data.RegimeObj[index5].MessFrontPic[messCounter] = -1;
                       }
                     }
-                    else if (Information.IsNothing((object) Expression))
+                    else if (Information.IsNothing( Expression))
                     {
-                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 1));
+                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1),  1));
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num6: i32 =   Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num6: i32 =   Interaction.MsgBox( "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -1043,11 +1043,11 @@ namespace WindowsApplication1
                     }
                     else if (DateTime.Compare(masterLogClass.LastSave, Expression.CreationTime) != 0)
                     {
-                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1), (object) 1));
+                      integer1 = Conversions.ToInteger(Operators.AddObject(masterLogClass.ReturnQty(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, -1),  1));
                       if (this.game.Data.TerrorMode)
                       {
                         this.loggedin = false;
-                        let mut num7: i32 =   Interaction.MsgBox((object) "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num7: i32 =   Interaction.MsgBox( "Unknown operations done to logfiles by user. Terror Mode aborts opening this turn.", Title: ( "Shadow Empire : Planetary Conquest"));
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -1078,7 +1078,7 @@ namespace WindowsApplication1
                         this.game.Data.RegimeObj[index11].MessFrontPic[messCounter] = -1;
                       }
                     }
-                    this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode =  Math.Round((double) Conversion.Int(VBMath.Rnd() * 9999f));
+                    this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode =  Math.Round( Conversion.Int(VBMath.Rnd() * 9999f));
                     masterLogClass.SetEntry(this.game.Data.GameID, this.game.EditObj.RealRound, this.game.EditObj.RealTurn, this.game.Data.RegimeObj[this.game.EditObj.RealTurn].RandomCode);
                   }
                   DirectoryInfo directoryInfo1 = (DirectoryInfo) null;
@@ -1123,14 +1123,14 @@ namespace WindowsApplication1
                   let mut stringListById4: i32 =  this.game.HandyFunctionsObj.GetStringListByID(DrawMod.TGame.EventRelatedObj.CheckStringlistID("SE_Data", 292, 0, 0));
                   let mut id: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].id;
                   bool flag1 = false;
-                  if (((!Information.IsNothing((object) this.game.EditObj) & !Information.IsNothing((object) this.game.MetricsURL) ? 1 : 0) & 0) != 0 && this.game.EditObj.allowMetrics & this.game.MetricsURL.Length > 4 & (this.game.Data.Round % 20 == 0 | this.game.Data.Winner > -1) && Strings.InStr(this.game.MetricsURL, "http://") > 0 && this.game.Data.Winner == -1 | this.game.Data.LastWinner != this.game.Data.Winner)
+                  if (((!Information.IsNothing( this.game.EditObj) & !Information.IsNothing( this.game.MetricsURL) ? 1 : 0) & 0) != 0 && this.game.EditObj.allowMetrics & this.game.MetricsURL.Length > 4 & (this.game.Data.Round % 20 == 0 | this.game.Data.Winner > -1) && Strings.InStr(this.game.MetricsURL, "http://") > 0 && this.game.Data.Winner == -1 | this.game.Data.LastWinner != this.game.Data.Winner)
                   {
                     this.game.FormRef.Cursor = Cursors.WaitCursor;
                     try
                     {
                       bool flag2 = true;
                       str1: String = "?" + "t2=" + this.game.HandyFunctionsObj.Encrypt(this.game.EditObj.PbemSerial) + "&t3=" + 110.ToString() + "&t4=" + this.game.Data.Name + "&t5=" + this.game.Data.Designer + "&t6=" + this.game.Data.GameID.ToString() + "&t7=" + this.game.Data.Round.ToString() + "&t8=" + this.game.Data.Turn.ToString() + "&t9=" + this.game.Data.Winner.ToString() + "&t10=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "victoryScore", 2) + "&t11=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "Population", 4) + "&t12=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "Workers", 4) + "&t13=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "Soldiers", 4) + "&t14=" + this.game.Data.StringListObj[stringListById1].GetData(0, 79, 2);
-                      if (Information.IsNothing((object) this.game.Data.Designer))
+                      if (Information.IsNothing( this.game.Data.Designer))
                         this.game.Data.Designer = "0";
                       str2: String = str1 + "&t15=.04b" + "&t16=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "bp", 2) + "&t17=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "pp", 2) + "&t18=" + this.game.Data.StringListObj[stringListById3].GetData2(0, id, 1, "credits", 2) + "&t19=" + this.game.Data.StringListObj[stringListById4].GetData3(3, this.game.Data.Round, 1, this.game.Data.Turn, 2, "sizeHex", 4) + "&t20=" + this.game.Data.StringListObj[stringListById2].GetData(0, 42, 2) + "&t21=0";
                       if (flag2)
@@ -1190,9 +1190,9 @@ namespace WindowsApplication1
                   this.game.ProcessingObj.LocationProductionPrognosis();
                   this.game.HandyFunctionsObj.SetInitialXY(this.game.EditObj.RealTurn);
                   bool flag3 = false;
-                  if ((double) this.game.Data.RuleVar[971] > 0.0)
+                  if ( this.game.Data.RuleVar[971] > 0.0)
                   {
-                    let mut stringListById5: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]));
+                    let mut stringListById5: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[971]));
                     if (stringListById5 > -1 && this.game.Data.StringListObj[stringListById5].Length > -1)
                       flag3 = true;
                   }
@@ -1220,9 +1220,9 @@ namespace WindowsApplication1
                 this.game.HandyFunctionsObj.SetInitialXY(this.game.EditObj.RealTurn);
                 this.game.ProcessingObj.LocationProductionPrognosis();
                 bool flag = false;
-                if ((double) this.game.Data.RuleVar[971] > 0.0)
+                if ( this.game.Data.RuleVar[971] > 0.0)
                 {
-                  let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]));
+                  let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[971]));
                   if (stringListById > -1 && this.game.Data.StringListObj[stringListById].Length > -1)
                     flag = true;
                 }
@@ -1239,7 +1239,7 @@ namespace WindowsApplication1
                 str: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Scenario file (*.se1)|*.se1", "Give save name...", this.game.AppPath_SAVEGAMES, false);
                 if (Strings.Len(str) < 2)
                 {
-                  let mut num8: i32 =   Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num8: i32 =   Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -1268,21 +1268,21 @@ namespace WindowsApplication1
     {
       if (this.game.Data.RegimeObj[this.game.EditObj.RealTurn].AI)
         return;
-      if (!Information.IsNothing((object) this.game.EditObj.MiniMap))
+      if (!Information.IsNothing( this.game.EditObj.MiniMap))
       {
         this.game.EditObj.MiniMap.Dispose();
         this.game.EditObj.MiniMap = (Bitmap) null;
       }
       this.game.EditObj.MiniMap = new Bitmap(205, 110, PixelFormat.Format32bppPArgb);
-      this.game.EditObj.MiniMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.game.EditObj.MiniMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, 205, 110, false);
-      if (!Information.IsNothing((object) this.game.EditObj.StratMap))
+      if (!Information.IsNothing( this.game.EditObj.StratMap))
       {
         this.game.EditObj.StratMap.Dispose();
         this.game.EditObj.StratMap = (Bitmap) null;
       }
       this.game.EditObj.StratMap = new Bitmap(this.game.ScreenWidth, this.game.ScreenHeight - 305, PixelFormat.Format32bppPArgb);
-      this.game.EditObj.StratMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.game.EditObj.StratMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.StratMap, this.game.ScreenWidth, this.game.ScreenHeight - 305, false, true, false);
     }
 

@@ -4,15 +4,15 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Drawing.Text;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.Drawing.Text;
+// usingSystem.Runtime.InteropServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -96,7 +96,7 @@ namespace WindowsApplication1
     static DrawMod()
     {
       VBMath.Randomize();
-      DrawMod.RandyNumber = new Random( Math.Round((double) (VBMath.Rnd() * 100000f)) + 1);
+      DrawMod.RandyNumber = new Random( Math.Round( (VBMath.Rnd() * 100000f)) + 1);
       DrawMod.DPIx = 96;
       DrawMod.DPIy = 96;
     }
@@ -116,7 +116,7 @@ namespace WindowsApplication1
       let mut height: i32 =  tempBmp.Height;
       let mut width: i32 =  tempBmp.Width;
       bool flag = false;
-      if (height >= 2 * slotHeight & (double) DrawMod.TGame.Data.RuleVar[492] > 0.0 & DrawMod.TGame.Data.Product >= 6)
+      if (height >= 2 * slotHeight &  DrawMod.TGame.Data.RuleVar[492] > 0.0 & DrawMod.TGame.Data.Product >= 6)
         flag = true;
       if (height == width)
         flag = false;
@@ -192,9 +192,9 @@ namespace WindowsApplication1
         {
           let mut num5: i32 =   num2;
           let mut num6: i32 =   num3;
-          let mut num7: i32 =  Math.Min( byte.MaxValue,  Math.Round((double) num4 / (double) fr * (double) tr));
-          let mut num8: i32 =  Math.Min( byte.MaxValue,  Math.Round((double) num6 / (double) fg * (double) tg));
-          byte num9 = (byte) Math.Min( byte.MaxValue,  Math.Round((double) num5 / (double) fb * (double) tb));
+          let mut num7: i32 =  Math.Min( byte.MaxValue,  Math.Round( num4 /  fr *  tr));
+          let mut num8: i32 =  Math.Min( byte.MaxValue,  Math.Round( num6 /  fg *  tg));
+          byte num9 = (byte) Math.Min( byte.MaxValue,  Math.Round( num5 /  fb *  tb));
           byte num10 = (byte) num8;
           byte num11 = (byte) num7;
           numArray[index] = num9;
@@ -229,7 +229,7 @@ namespace WindowsApplication1
           byte num5 = numArray[index + 2];
           if (numArray[index + 3] > (byte) 0)
           {
-            let mut num6: i32 =   Math.Round((double) ((float) num3 * 0.21f)) +  Math.Round((double) ((float) num4 * 0.71f)) +  Math.Round((double) ((float) num5 * 0.07f));
+            let mut num6: i32 =   Math.Round( ( num3 * 0.21f)) +  Math.Round( ( num4 * 0.71f)) +  Math.Round( ( num5 * 0.07f));
             if (num6 >  byte.MaxValue)
               num6 =  byte.MaxValue;
             byte num7 = (byte) num6;
@@ -249,10 +249,10 @@ namespace WindowsApplication1
           byte num11 = numArray[index + 2];
           if (numArray[index + 3] > (byte) 0)
           {
-            let mut num12: i32 =   Math.Round((double) ((float) num9 * 0.21f)) +  Math.Round((double) ((float) num10 * 0.71f)) +  Math.Round((double) ((float) num11 * 0.07f));
-            let mut num13: i32 =   Math.Round((double) (num12 * effectStrength) / (double) byte.MaxValue) +  Math.Round((double) ( num9 * num1) / (double) byte.MaxValue);
-            let mut num14: i32 =   Math.Round((double) (num12 * effectStrength) / (double) byte.MaxValue) +  Math.Round((double) ( num10 * num1) / (double) byte.MaxValue);
-            let mut num15: i32 =   Math.Round((double) (num12 * effectStrength) / (double) byte.MaxValue) +  Math.Round((double) ( num11 * num1) / (double) byte.MaxValue);
+            let mut num12: i32 =   Math.Round( ( num9 * 0.21f)) +  Math.Round( ( num10 * 0.71f)) +  Math.Round( ( num11 * 0.07f));
+            let mut num13: i32 =   Math.Round( (num12 * effectStrength) /  byte.MaxValue) +  Math.Round( ( num9 * num1) /  byte.MaxValue);
+            let mut num14: i32 =   Math.Round( (num12 * effectStrength) /  byte.MaxValue) +  Math.Round( ( num10 * num1) /  byte.MaxValue);
+            let mut num15: i32 =   Math.Round( (num12 * effectStrength) /  byte.MaxValue) +  Math.Round( ( num11 * num1) /  byte.MaxValue);
             if (num13 >  byte.MaxValue)
               num13 =  byte.MaxValue;
             if (num15 >  byte.MaxValue)
@@ -295,25 +295,25 @@ namespace WindowsApplication1
       Rectangle rect2 = Rectangle::new(0, 0, width, height);
       BitmapData bitmapdata1 = dest.LockBits(rect1, ImageLockMode.WriteOnly, PixelFormat.Format32bppPArgb);
       BitmapData bitmapdata2 = from.LockBits(rect2, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
-      float num4 = (float) tr / (float) byte.MaxValue;
-      float num5 = (float) tg / (float) byte.MaxValue;
-      float num6 = (float) tb / (float) byte.MaxValue;
-      float num7 = (float) ta / (float) byte.MaxValue;
+      float num4 =  tr /  byte.MaxValue;
+      float num5 =  tg /  byte.MaxValue;
+      float num6 =  tb /  byte.MaxValue;
+      float num7 =  ta /  byte.MaxValue;
       byte[] numArray1 = new byte[256];
       byte[] numArray2 = new byte[256];
       byte[] numArray3 = new byte[256];
       byte[] numArray4 = new byte[256];
       let mut num8: i32 =  0;
-      if ((double) num4 == 1.0 & (double) num5 == 1.0 & (double) num6 == 1.0)
+      if ( num4 == 1.0 &  num5 == 1.0 &  num6 == 1.0)
         num8 = 1;
-      if ((double) num4 == 0.0 & (double) num5 == 0.0 & (double) num6 == 0.0)
+      if ( num4 == 0.0 &  num5 == 0.0 &  num6 == 0.0)
         num8 = 2;
       if (num8 == 2)
       {
         let mut index: i32 =  0;
         do
         {
-          numArray4[index] = (byte) Math.Round((double) ((float) index * num7));
+          numArray4[index] = (byte) Math.Round( ( index * num7));
           index += 1;
         }
         while (index <=  byte.MaxValue);
@@ -323,10 +323,10 @@ namespace WindowsApplication1
         let mut index: i32 =  0;
         do
         {
-          numArray1[index] = (byte) Math.Round((double) ((float) index * num6 * num7));
-          numArray2[index] = (byte) Math.Round((double) ((float) index * num5 * num7));
-          numArray3[index] = (byte) Math.Round((double) ((float) index * num4 * num7));
-          numArray4[index] = (byte) Math.Round((double) ((float) index * num7));
+          numArray1[index] = (byte) Math.Round( ( index * num6 * num7));
+          numArray2[index] = (byte) Math.Round( ( index * num5 * num7));
+          numArray3[index] = (byte) Math.Round( ( index * num4 * num7));
+          numArray4[index] = (byte) Math.Round( ( index * num7));
           index += 1;
         }
         while (index <=  byte.MaxValue);
@@ -369,9 +369,9 @@ namespace WindowsApplication1
             {
               if (numArray5[index4 + 3] > (byte) 0)
               {
-                numArray5[index4 + 2] = (byte) Math.Round((double) ((float) numArray5[index4 + 2] * num4));
-                numArray5[index4 + 1] = (byte) Math.Round((double) ((float) numArray5[index4 + 2] * num5));
-                numArray5[index4] = (byte) Math.Round((double) ((float) numArray5[index4 + 2] * num6));
+                numArray5[index4 + 2] = (byte) Math.Round( ( numArray5[index4 + 2] * num4));
+                numArray5[index4 + 1] = (byte) Math.Round( ( numArray5[index4 + 2] * num5));
+                numArray5[index4] = (byte) Math.Round( ( numArray5[index4 + 2] * num6));
                 numArray5[index4 + 3] = numArray4[ numArray5[index4 + 3]];
               }
             }
@@ -400,18 +400,18 @@ namespace WindowsApplication1
       let mut length: i32 =  Math.Abs(bitmapdata.Stride) * bmp.Height;
       byte[] numArray1 = new byte[length - 1 + 1];
       Marshal.Copy(scan0, numArray1, 0, length);
-      float num1 = (float) tr / (float) byte.MaxValue;
-      float num2 = (float) tg / (float) byte.MaxValue;
-      float num3 = (float) tb / (float) byte.MaxValue;
-      float num4 = (float) ta / (float) byte.MaxValue;
-      if ((double) num1 == 0.0 & (double) num2 == 0.0 & (double) num3 == 0.0 | (double) num1 == 1.0 & (double) num2 == 1.0 & (double) num3 == 1.0)
+      float num1 =  tr /  byte.MaxValue;
+      float num2 =  tg /  byte.MaxValue;
+      float num3 =  tb /  byte.MaxValue;
+      float num4 =  ta /  byte.MaxValue;
+      if ( num1 == 0.0 &  num2 == 0.0 &  num3 == 0.0 |  num1 == 1.0 &  num2 == 1.0 &  num3 == 1.0)
       {
         byte[] source = new byte[length - 1 + 1];
         byte[] numArray2 = new byte[256];
         let mut index1: i32 =  0;
         do
         {
-          numArray2[index1] = (byte) Math.Round((double) ((float) index1 * num4));
+          numArray2[index1] = (byte) Math.Round( ( index1 * num4));
           index1 += 1;
         }
         while (index1 <=  byte.MaxValue);
@@ -428,10 +428,10 @@ namespace WindowsApplication1
         {
           if (numArray1[index + 3] > (byte) 0)
           {
-            numArray1[index + 2] = (byte) Math.Round((double) ((float) numArray1[index + 2] * num1));
-            numArray1[index + 1] = (byte) Math.Round((double) ((float) numArray1[index + 2] * num2));
-            numArray1[index] = (byte) Math.Round((double) ((float) numArray1[index + 2] * num3));
-            numArray1[index + 3] = (byte) Math.Round((double) ((float) numArray1[index + 3] * num4));
+            numArray1[index + 2] = (byte) Math.Round( ( numArray1[index + 2] * num1));
+            numArray1[index + 1] = (byte) Math.Round( ( numArray1[index + 2] * num2));
+            numArray1[index] = (byte) Math.Round( ( numArray1[index + 2] * num3));
+            numArray1[index + 3] = (byte) Math.Round( ( numArray1[index + 3] * num4));
           }
         }
         Marshal.Copy(numArray1, 0, scan0, length);
@@ -583,7 +583,7 @@ namespace WindowsApplication1
       float a)
     {
       Bitmap bitmap = new Bitmap(destrect.Width, destrect.Height);
-      bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       graphics.DrawImage((Image) objBitmap, Rectangle::new(0, 0, destrect.Width, destrect.Height), Rectangle::new(srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height), GraphicsUnit.Pixel);
       graphics.Dispose();
@@ -611,7 +611,7 @@ namespace WindowsApplication1
       float a)
     {
       Bitmap bitmap = new Bitmap(destrect.Width, destrect.Height);
-      bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       graphics.DrawImage((Image) objBitmap, Rectangle::new(0, 0, destrect.Width, destrect.Height), Rectangle::new(srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height), GraphicsUnit.Pixel);
       graphics.Dispose();
@@ -639,7 +639,7 @@ namespace WindowsApplication1
       float a,
       ref Bitmap destBitmap = null)
     {
-      if ((double) a == 0.0)
+      if ( a == 0.0)
         return;
       if (!DrawMod.TGame.EditObj.highGfxSpeedOn)
       {
@@ -651,10 +651,10 @@ namespace WindowsApplication1
         Bitmap bitmap;
         if (srcrect.Width == 128 & srcrect.Height == 96)
         {
-          if (Information.IsNothing((object) DrawMod.tempBmp128))
+          if (Information.IsNothing( DrawMod.tempBmp128))
           {
             bitmap = new Bitmap(srcrect.Width, srcrect.Height, PixelFormat.Format32bppPArgb);
-            bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             DrawMod.tempBmp128 = bitmap;
           }
           else
@@ -663,10 +663,10 @@ namespace WindowsApplication1
         }
         else if (srcrect.Width == 64 & srcrect.Height == 32)
         {
-          if (Information.IsNothing((object) DrawMod.tempBmp64))
+          if (Information.IsNothing( DrawMod.tempBmp64))
           {
             bitmap = new Bitmap(srcrect.Width, srcrect.Height, PixelFormat.Format32bppPArgb);
-            bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             DrawMod.tempBmp64 = bitmap;
           }
           else
@@ -675,10 +675,10 @@ namespace WindowsApplication1
         }
         else if (srcrect.Width == 32 & srcrect.Height == 24)
         {
-          if (Information.IsNothing((object) DrawMod.tempBmp32))
+          if (Information.IsNothing( DrawMod.tempBmp32))
           {
             bitmap = new Bitmap(srcrect.Width, srcrect.Height, PixelFormat.Format32bppPArgb);
-            bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             DrawMod.tempBmp32 = bitmap;
           }
           else
@@ -687,10 +687,10 @@ namespace WindowsApplication1
         }
         else if (srcrect.Width == 32 & srcrect.Height == 48)
         {
-          if (Information.IsNothing((object) DrawMod.tempBmp32by48))
+          if (Information.IsNothing( DrawMod.tempBmp32by48))
           {
             bitmap = new Bitmap(srcrect.Width, srcrect.Height, PixelFormat.Format32bppPArgb);
-            bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             DrawMod.tempBmp32by48 = bitmap;
           }
           else
@@ -699,10 +699,10 @@ namespace WindowsApplication1
         }
         else if (srcrect.Width == 64 & srcrect.Height == 64)
         {
-          if (Information.IsNothing((object) DrawMod.tempBmp64by64))
+          if (Information.IsNothing( DrawMod.tempBmp64by64))
           {
             bitmap = new Bitmap(srcrect.Width, srcrect.Height, PixelFormat.Format32bppPArgb);
-            bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             DrawMod.tempBmp64by64 = bitmap;
           }
           else
@@ -711,10 +711,10 @@ namespace WindowsApplication1
         }
         else if (srcrect.Width == 64 & srcrect.Height == 16)
         {
-          if (Information.IsNothing((object) DrawMod.tempBmp64by16))
+          if (Information.IsNothing( DrawMod.tempBmp64by16))
           {
             bitmap = new Bitmap(srcrect.Width, srcrect.Height, PixelFormat.Format32bppPArgb);
-            bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+            bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
             DrawMod.tempBmp64by16 = bitmap;
           }
           else
@@ -724,9 +724,9 @@ namespace WindowsApplication1
         else
         {
           bitmap = new Bitmap(srcrect.Width, srcrect.Height, PixelFormat.Format32bppPArgb);
-          bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         }
-        DrawMod.CopyPerLineAndGrayscale(ref objBitmap, ref bitmap, srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height, 0, 0,  Math.Round((double) (r * (float) byte.MaxValue)),  Math.Round((double) (g * (float) byte.MaxValue)),  Math.Round((double) (b * (float) byte.MaxValue)),  Math.Round((double) (a * (float) byte.MaxValue)));
+        DrawMod.CopyPerLineAndGrayscale(ref objBitmap, ref bitmap, srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height, 0, 0,  Math.Round( (r *  byte.MaxValue)),  Math.Round( (g *  byte.MaxValue)),  Math.Round( (b *  byte.MaxValue)),  Math.Round( (a *  byte.MaxValue)));
         DrawMod.DrawSimple(ref objGraphics, ref bitmap, destrect.X, destrect.Y);
         if (flag)
           return;
@@ -759,7 +759,7 @@ namespace WindowsApplication1
 
     pub static void DrawSimple(ref Graphics objGraphics, ref Bitmap objBitmap, int x, int y)
     {
-      if (Information.IsNothing((object) objBitmap))
+      if (Information.IsNothing( objBitmap))
         return;
       Rectangle destRect = Rectangle::new(x, y, objBitmap.Width, objBitmap.Height);
       if (!DrawMod.TGame.EmpireStyle | !DrawMod.TGame.EditObj.highGfxSpeedOn)
@@ -831,9 +831,9 @@ namespace WindowsApplication1
         let mut num6: i32 =  numArray.Length - 4;
         for (let mut index2: i32 =  0; index2 <= num6; index2 += 4)
         {
-          numArray[index2] = (byte) Math.Round((double) (byte) ((uint) destination[index2] * (uint) destination[index2 + 3]) / (double) byte.MaxValue + (double) ( numArray[index2] * ( byte.MaxValue -  destination[index2 + 3])) / (double) byte.MaxValue);
-          numArray[index2 + 1] = (byte) Math.Round((double) (byte) ((uint) destination[index2 + 1] * (uint) destination[index2 + 3]) / (double) byte.MaxValue + (double) ( numArray[index2 + 1] * ( byte.MaxValue -  destination[index2 + 3])) / (double) byte.MaxValue);
-          numArray[index2 + 2] = (byte) Math.Round((double) (byte) ((uint) destination[index2 + 2] * (uint) destination[index2 + 3]) / (double) byte.MaxValue + (double) ( numArray[index2 + 2] * ( byte.MaxValue -  destination[index2 + 3])) / (double) byte.MaxValue);
+          numArray[index2] = (byte) Math.Round( (byte) ((uint) destination[index2] * (uint) destination[index2 + 3]) /  byte.MaxValue +  ( numArray[index2] * ( byte.MaxValue -  destination[index2 + 3])) /  byte.MaxValue);
+          numArray[index2 + 1] = (byte) Math.Round( (byte) ((uint) destination[index2 + 1] * (uint) destination[index2 + 3]) /  byte.MaxValue +  ( numArray[index2 + 1] * ( byte.MaxValue -  destination[index2 + 3])) /  byte.MaxValue);
+          numArray[index2 + 2] = (byte) Math.Round( (byte) ((uint) destination[index2 + 2] * (uint) destination[index2 + 3]) /  byte.MaxValue +  ( numArray[index2 + 2] * ( byte.MaxValue -  destination[index2 + 3])) /  byte.MaxValue);
         }
         Marshal.Copy(numArray, 0, num5, numArray.Length);
       }
@@ -937,9 +937,9 @@ namespace WindowsApplication1
         let mut num7: i32 =  numArray.Length - 4;
         for (let mut index2: i32 =  0; index2 <= num7; index2 += 4)
         {
-          numArray[index2] = (byte) Math.Round((double) (byte) ((uint) destination[index2] * (uint) destination[index2 + 3]) / (double) byte.MaxValue + (double) ( numArray[index2] * ( byte.MaxValue -  destination[index2 + 3])) / (double) byte.MaxValue);
-          numArray[index2 + 1] = (byte) Math.Round((double) (byte) ((uint) destination[index2 + 1] * (uint) destination[index2 + 3]) / (double) byte.MaxValue + (double) ( numArray[index2 + 1] * ( byte.MaxValue -  destination[index2 + 3])) / (double) byte.MaxValue);
-          numArray[index2 + 2] = (byte) Math.Round((double) (byte) ((uint) destination[index2 + 2] * (uint) destination[index2 + 3]) / (double) byte.MaxValue + (double) ( numArray[index2 + 2] * ( byte.MaxValue -  destination[index2 + 3])) / (double) byte.MaxValue);
+          numArray[index2] = (byte) Math.Round( (byte) ((uint) destination[index2] * (uint) destination[index2 + 3]) /  byte.MaxValue +  ( numArray[index2] * ( byte.MaxValue -  destination[index2 + 3])) /  byte.MaxValue);
+          numArray[index2 + 1] = (byte) Math.Round( (byte) ((uint) destination[index2 + 1] * (uint) destination[index2 + 3]) /  byte.MaxValue +  ( numArray[index2 + 1] * ( byte.MaxValue -  destination[index2 + 3])) /  byte.MaxValue);
+          numArray[index2 + 2] = (byte) Math.Round( (byte) ((uint) destination[index2 + 2] * (uint) destination[index2 + 3]) /  byte.MaxValue +  ( numArray[index2 + 2] * ( byte.MaxValue -  destination[index2 + 3])) /  byte.MaxValue);
         }
         Marshal.Copy(numArray, 0, num6, numArray.Length);
       }
@@ -1100,8 +1100,8 @@ namespace WindowsApplication1
       int x,
       int y)
     {
-      let mut width: i32 =   Math.Round((double) fw * 1.5);
-      let mut height: i32 =   Math.Round((double) fh * 1.5);
+      let mut width: i32 =   Math.Round( fw * 1.5);
+      let mut height: i32 =   Math.Round( fh * 1.5);
       let mut num1: i32 =  fx * 4;
       let mut num2: i32 =  fy;
       let mut num3: i32 =  (fx + fw) * 4 - num1;
@@ -1187,7 +1187,7 @@ namespace WindowsApplication1
       BitmapData bitmapdata2 = from.LockBits(rect, ImageLockMode.ReadOnly, PixelFormat.Format32bppPArgb);
       byte[] numArray = new byte[8192];
       int num;
-      for (num = 0; (double) num < (double) (bitmapdata1.Stride * bitmapdata1.Height) / (double) numArray.Length; num += 1)
+      for (num = 0;  num <  (bitmapdata1.Stride * bitmapdata1.Height) /  numArray.Length; num += 1)
       {
         IntPtr source = (IntPtr) (bitmapdata2.Scan0.ToInt32() + num * numArray.Length);
         IntPtr destination = (IntPtr) (bitmapdata1.Scan0.ToInt32() + num * numArray.Length);
@@ -1238,11 +1238,11 @@ namespace WindowsApplication1
             h = DrawMod.SelectObject(num2, num3);
             if (h == IntPtr.Zero)
             {
-              let mut num4: i32 =   Interaction.MsgBox((object) "Zero object exception. Gfx optimization error.");
+              let mut num4: i32 =   Interaction.MsgBox( "Zero object exception. Gfx optimization error.");
             }
             if (DrawMod.BitBlt(num1, 0, 0, frm.Width, frm.Height, num2, 0, 0, 13369376))
               return;
-            let mut num5: i32 =   Interaction.MsgBox((object) "BitBlt exception. Gfx optimization error.");
+            let mut num5: i32 =   Interaction.MsgBox( "BitBlt exception. Gfx optimization error.");
           }
           catch (Exception ex)
           {
@@ -1282,12 +1282,12 @@ namespace WindowsApplication1
             h = DrawMod.SelectObject(num2, num3);
             if (h == IntPtr.Zero)
             {
-              let mut num4: i32 =   Interaction.MsgBox((object) "StretchBlt Zero object exception. Gfx optimization error.");
+              let mut num4: i32 =   Interaction.MsgBox( "StretchBlt Zero object exception. Gfx optimization error.");
             }
             DrawMod.SetStretchBltMode(num1, 4L);
             if (DrawMod.StretchBlt(num1, 0, 0, frm.Width, frm.Height, num2, 0, 0, bmp.Width, bmp.Height, 13369376))
               return;
-            let mut num5: i32 =   Interaction.MsgBox((object) "StretchBlt exception. Gfx optimization error.");
+            let mut num5: i32 =   Interaction.MsgBox( "StretchBlt exception. Gfx optimization error.");
           }
           finally
           {
@@ -1322,11 +1322,11 @@ namespace WindowsApplication1
             h = DrawMod.SelectObject(num2, num3);
             if (h == IntPtr.Zero)
             {
-              let mut num4: i32 =   Interaction.MsgBox((object) "BitBlt (rect) Zero object exception. Gfx optimization error.");
+              let mut num4: i32 =   Interaction.MsgBox( "BitBlt (rect) Zero object exception. Gfx optimization error.");
             }
             if (DrawMod.BitBlt(num1, rect.X, rect.Y, rect.Width, rect.Height, num2, rect.X, rect.Y, 13369376))
               return;
-            let mut num5: i32 =   Interaction.MsgBox((object) "BitBlt (rect) exception. Gfx optimization error.");
+            let mut num5: i32 =   Interaction.MsgBox( "BitBlt (rect) exception. Gfx optimization error.");
           }
           finally
           {
@@ -1366,11 +1366,11 @@ namespace WindowsApplication1
             h = DrawMod.SelectObject(num2, num3);
             if (h == IntPtr.Zero)
             {
-              let mut num4: i32 =   Interaction.MsgBox((object) "BitBlt (rect) Zero object exception. Gfx optimization error.");
+              let mut num4: i32 =   Interaction.MsgBox( "BitBlt (rect) Zero object exception. Gfx optimization error.");
             }
             if (DrawMod.BitBlt(num1, targetx, targetY, sourcerect.Width, sourcerect.Height, num2, sourcerect.X, sourcerect.Y, 13369376))
               return;
-            let mut num5: i32 =   Interaction.MsgBox((object) "BitBlt (rect) exception. Gfx optimization error.");
+            let mut num5: i32 =   Interaction.MsgBox( "BitBlt (rect) exception. Gfx optimization error.");
           }
           finally
           {
@@ -1457,30 +1457,30 @@ namespace WindowsApplication1
               let mut alpha: i32 =   byte.MaxValue;
               if (x <= range)
               {
-                let mut num10: i32 =   Math.Round((double) alpha * ((double) x / (double) range) * ((double) x / (double) range));
+                let mut num10: i32 =   Math.Round( alpha * ( x /  range) * ( x /  range));
                 if (alpha > num10)
                   alpha = num10;
               }
               if (y <= range)
               {
-                let mut num11: i32 =   Math.Round((double) alpha * ((double) y / (double) range) * ((double) y / (double) range));
+                let mut num11: i32 =   Math.Round( alpha * ( y /  range) * ( y /  range));
                 if (alpha > num11)
                   alpha = num11;
               }
               if (x >= b.Width - range)
               {
-                let mut num12: i32 =   Math.Round((double) alpha * ((double) (b.Width - x) / (double) range) * ((double) (b.Width - x) / (double) range));
+                let mut num12: i32 =   Math.Round( alpha * ( (b.Width - x) /  range) * ( (b.Width - x) /  range));
                 if (alpha > num12)
                   alpha = num12;
               }
               if (y >= b.Height - range)
               {
-                let mut num13: i32 =   Math.Round((double) alpha * ((double) (b.Height - y) / (double) range) * ((double) (b.Height - y) / (double) range));
+                let mut num13: i32 =   Math.Round( alpha * ( (b.Height - y) /  range) * ( (b.Height - y) /  range));
                 if (alpha > num13)
                   alpha = num13;
               }
               if (alpha <  byte.MaxValue)
-                alpha +=  Math.Round((double) ( byte.MaxValue - alpha) * ((double) alpha / (double) byte.MaxValue));
+                alpha +=  Math.Round( ( byte.MaxValue - alpha) * ( alpha /  byte.MaxValue));
               b.SetPixel(x, y, Color.FromArgb(alpha,  pixel.R,  pixel.G,  pixel.B));
             }
           }
@@ -1500,25 +1500,25 @@ namespace WindowsApplication1
             let mut alpha: i32 =   byte.MaxValue;
             if (x <= range & special != 1)
             {
-              let mut num16: i32 =   Math.Round((double) byte.MaxValue * ((double) x / (double) range));
+              let mut num16: i32 =   Math.Round( byte.MaxValue * ( x /  range));
               if (alpha > num16)
                 alpha = num16;
             }
             if (y <= range)
             {
-              let mut num17: i32 =   Math.Round((double) byte.MaxValue * ((double) y / (double) range));
+              let mut num17: i32 =   Math.Round( byte.MaxValue * ( y /  range));
               if (alpha > num17)
                 alpha = num17;
             }
             if (x >= b.Width - range & special != 1)
             {
-              let mut num18: i32 =   Math.Round((double) byte.MaxValue * ((double) (b.Width - x) / (double) range));
+              let mut num18: i32 =   Math.Round( byte.MaxValue * ( (b.Width - x) /  range));
               if (alpha > num18)
                 alpha = num18;
             }
             if (y >= b.Height - range)
             {
-              let mut num19: i32 =   Math.Round((double) byte.MaxValue * ((double) (b.Height - y) / (double) range));
+              let mut num19: i32 =   Math.Round( byte.MaxValue * ( (b.Height - y) /  range));
               if (alpha > num19)
                 alpha = num19;
             }
@@ -1620,7 +1620,7 @@ namespace WindowsApplication1
       Rectangle srcrect,
       Rectangle destrect)
     {
-      if (Information.IsNothing((object) objBitmap))
+      if (Information.IsNothing( objBitmap))
         return;
       if (!DrawMod.TGame.EmpireStyle | !DrawMod.TGame.EditObj.highGfxSpeedOn | !(srcrect.Width == destrect.Width & srcrect.Height == destrect.Height))
         objGraphics.DrawImage((Image) objBitmap, destrect, srcrect, GraphicsUnit.Pixel);
@@ -1647,7 +1647,7 @@ namespace WindowsApplication1
       {
         if (srcrect.Width != destrect.Width | srcrect.Height != destrect.Height)
         {
-          let mut num: i32 =   Interaction.MsgBox((object) "DrawSimplePart2Fast Drawing Error");
+          let mut num: i32 =   Interaction.MsgBox( "DrawSimplePart2Fast Drawing Error");
         }
         DrawMod.CopyPerLine(ref sourceBitmap, ref destBitmap, srcrect.X, srcrect.Y, srcrect.Width, srcrect.Height, destrect.X, destrect.Y);
       }
@@ -1735,7 +1735,7 @@ namespace WindowsApplication1
       int a,
       let mut widdy: i32 =  1)
     {
-      Pen pen = new Pen(Color.FromArgb(a, r, g, b), (float) widdy);
+      Pen pen = new Pen(Color.FromArgb(a, r, g, b),  widdy);
       objGraphics.DrawEllipse(pen, x1, y1, w, h);
     }
 
@@ -1866,7 +1866,7 @@ namespace WindowsApplication1
         g =  byte.MaxValue;
       if (b >  byte.MaxValue)
         b =  byte.MaxValue;
-      Pen pen = new Pen(Color.FromArgb(a, r, g, b), (float) widdy);
+      Pen pen = new Pen(Color.FromArgb(a, r, g, b),  widdy);
       objGraphics.DrawRectangle(pen, x1, y1, w, h);
     }
 
@@ -1888,7 +1888,7 @@ namespace WindowsApplication1
         g =  byte.MaxValue;
       if (b >  byte.MaxValue)
         b =  byte.MaxValue;
-      Pen pen = new Pen(Color.FromArgb(a, r, g, b), (float) widdy);
+      Pen pen = new Pen(Color.FromArgb(a, r, g, b),  widdy);
       objGraphics.DrawRectangle(pen, x1, y1, w, h);
     }
 
@@ -1909,7 +1909,7 @@ namespace WindowsApplication1
           g.Clip = new Region(rect1);
           sizeF2 = g.MeasureString(txt1, DrawMod.TGame.VicFont1);
           let mut x: i32 =  rect1.X;
-          let mut y: i32 =  rect1.Y +  Math.Round(((double) rect1.Height - (double) sizeF2.Height) / 2.0);
+          let mut y: i32 =  rect1.Y +  Math.Round(( rect1.Height -  sizeF2.Height) / 2.0);
           DrawMod.DrawTextVic(ref g, txt1, DrawMod.TGame.VicFont1, x, y, DrawMod.TGame.VicColor1, DrawMod.TGame.VicColor1Shade);
         }
         else if (SpecialMode == 3 | SpecialMode == 31 | SpecialMode == 32 | SpecialMode == 33)
@@ -1917,7 +1917,7 @@ namespace WindowsApplication1
           g.Clip = new Region(rect1);
           sizeF2 = g.MeasureString(txt1, DrawMod.TGame.VicFont5);
           let mut x: i32 =  rect1.X;
-          let mut y: i32 =  rect1.Y + 1 +  Math.Round((double) (Math.Max(0.0f, (float) rect2.Height - sizeF2.Height) / 2f));
+          let mut y: i32 =  rect1.Y + 1 +  Math.Round( (Math.Max(0.0f,  rect2.Height - sizeF2.Height) / 2f));
           DrawMod.DrawTextVic(ref g, txt1, DrawMod.TGame.VicFont5, x, y, DrawMod.TGame.VicColor1, DrawMod.TGame.VicColor1Shade);
         }
       }
@@ -1929,20 +1929,20 @@ namespace WindowsApplication1
           case 0:
             sizeF2 = g.MeasureString(txt2, DrawMod.TGame.VicFont2);
             let mut height1: i32 =  rect2.Height;
-            DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round((double) (rect2.Height - height1) / 2.0), rect2.Width, height1, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
+            DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round( (rect2.Height - height1) / 2.0), rect2.Width, height1, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
             g.Clip = new Region(rect2);
             let mut x1: i32 =  rect2.X;
-            let mut num1: i32 =  rect2.Y +  Math.Round((double) (Math.Max(0.0f, (float) rect2.Height - sizeF2.Height) / 2f));
-            DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont2, x1 +  Math.Round((double) ((float) (rect2.Width - 1) - sizeF2.Width)), num1 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
+            let mut num1: i32 =  rect2.Y +  Math.Round( (Math.Max(0.0f,  rect2.Height - sizeF2.Height) / 2f));
+            DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont2, x1 +  Math.Round( ( (rect2.Width - 1) - sizeF2.Width)), num1 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
             break;
           case 1:
             sizeF2 = g.MeasureString(txt2, DrawMod.TGame.VicFont3);
             let mut height2: i32 =  rect2.Height;
-            DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round((double) (rect2.Height - height2) / 2.0), rect2.Width, height2, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
+            DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round( (rect2.Height - height2) / 2.0), rect2.Width, height2, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
             g.Clip = new Region(rect2);
             let mut x2: i32 =  rect2.X;
-            let mut num2: i32 =  rect2.Y +  Math.Round((double) (Math.Max(0.0f, (float) rect2.Height - sizeF2.Height) / 2f));
-            DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont3, x2 +  Math.Round((double) ((float) (rect2.Width - 1) - sizeF2.Width)), num2 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
+            let mut num2: i32 =  rect2.Y +  Math.Round( (Math.Max(0.0f,  rect2.Height - sizeF2.Height) / 2f));
+            DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont3, x2 +  Math.Round( ( (rect2.Width - 1) - sizeF2.Width)), num2 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
             break;
           default:
             if (SpecialMode == 2 | SpecialMode == 3)
@@ -1950,28 +1950,28 @@ namespace WindowsApplication1
               txt2 = Strings.UCase(txt2);
               sizeF2 = g.MeasureString(txt2, DrawMod.TGame.VicFont3);
               let mut height3: i32 =  rect2.Height;
-              DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round((double) (rect2.Height - height3) / 2.0), rect2.Width, height3, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
+              DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round( (rect2.Height - height3) / 2.0), rect2.Width, height3, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
               g.Clip = new Region(rect2);
               let mut x3: i32 =  rect2.X;
-              let mut num3: i32 =  rect2.Y +  Math.Round((double) (Math.Max(0.0f, (float) rect2.Height - sizeF2.Height) / 2f));
-              DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont3, x3 + 2 +  Math.Round((double) ((float) (rect2.Width - 1) - sizeF2.Width)), num3 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
+              let mut num3: i32 =  rect2.Y +  Math.Round( (Math.Max(0.0f,  rect2.Height - sizeF2.Height) / 2f));
+              DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont3, x3 + 2 +  Math.Round( ( (rect2.Width - 1) - sizeF2.Width)), num3 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
               break;
             }
             if (SpecialMode == 31 | SpecialMode == 32 | SpecialMode == 33)
             {
               sizeF2 = g.MeasureString(txt2, DrawMod.TGame.VicFont4);
               let mut height4: i32 =  rect2.Height;
-              DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round((double) (rect2.Height - height4) / 2.0), rect2.Width, height4, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
+              DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round( (rect2.Height - height4) / 2.0), rect2.Width, height4, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
               g.Clip = new Region(rect2);
               let mut x4: i32 =  rect2.X;
-              let mut num4: i32 =  rect2.Y +  Math.Round((double) (Math.Max(0.0f, (float) rect2.Height - sizeF2.Height) / 2f));
+              let mut num4: i32 =  rect2.Y +  Math.Round( (Math.Max(0.0f,  rect2.Height - sizeF2.Height) / 2f));
               if (SpecialMode == 31)
-                DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont4, x4 +  Math.Round((double) ((float) (rect2.Width - 1) - sizeF2.Width)), num4 + 1, Color.Red, Color.Black);
+                DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont4, x4 +  Math.Round( ( (rect2.Width - 1) - sizeF2.Width)), num4 + 1, Color.Red, Color.Black);
               if (SpecialMode == 32)
-                DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont4, x4 +  Math.Round((double) ((float) (rect2.Width - 1) - sizeF2.Width)), num4 + 1, Color.Yellow, Color.Black);
+                DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont4, x4 +  Math.Round( ( (rect2.Width - 1) - sizeF2.Width)), num4 + 1, Color.Yellow, Color.Black);
               if (SpecialMode == 33)
               {
-                DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont4, x4 +  Math.Round((double) ((float) (rect2.Width - 1) - sizeF2.Width)), num4 + 1, Color.FromArgb( byte.MaxValue, 0,  byte.MaxValue, 0), Color.Black);
+                DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont4, x4 +  Math.Round( ( (rect2.Width - 1) - sizeF2.Width)), num4 + 1, Color.FromArgb( byte.MaxValue, 0,  byte.MaxValue, 0), Color.Black);
                 break;
               }
               break;
@@ -1980,11 +1980,11 @@ namespace WindowsApplication1
             {
               sizeF2 = g.MeasureString(txt2, DrawMod.TGame.VicFont1);
               let mut height5: i32 =  rect2.Height;
-              DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round((double) (rect2.Height - height5) / 2.0), rect2.Width, height5, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
+              DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round( (rect2.Height - height5) / 2.0), rect2.Width, height5, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
               g.Clip = new Region(rect2);
               let mut x5: i32 =  rect2.X;
-              let mut num5: i32 =  rect2.Y - 2 +  Math.Round((double) (Math.Max(0.0f, (float) rect2.Height - sizeF2.Height) / 2f));
-              DrawMod.DrawTextVic3(ref g, txt2, DrawMod.TGame.VicFont1, x5 +  Math.Round((double) ((float) (rect2.Width - 1) - sizeF2.Width)), num5 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
+              let mut num5: i32 =  rect2.Y - 2 +  Math.Round( (Math.Max(0.0f,  rect2.Height - sizeF2.Height) / 2f));
+              DrawMod.DrawTextVic3(ref g, txt2, DrawMod.TGame.VicFont1, x5 +  Math.Round( ( (rect2.Width - 1) - sizeF2.Width)), num5 + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
               break;
             }
             break;
@@ -2008,7 +2008,7 @@ namespace WindowsApplication1
         g.Clip = new Region(rect1);
         sizeF2 = g.MeasureString(txt1, DrawMod.TGame.VicFont5);
         let mut x: i32 =  rect1.X;
-        let mut y: i32 =  rect1.Y +  Math.Round(((double) rect1.Height - (double) sizeF2.Height) / 2.0);
+        let mut y: i32 =  rect1.Y +  Math.Round(( rect1.Height -  sizeF2.Height) / 2.0);
         DrawMod.DrawTextVic(ref g, txt1, DrawMod.TGame.VicFont5, x, y, DrawMod.TGame.VicColor1, DrawMod.TGame.VicColor1Shade);
       }
       g.Clip = Region::new();
@@ -2016,10 +2016,10 @@ namespace WindowsApplication1
       {
         sizeF2 = g.MeasureString(txt2, DrawMod.TGame.VicFont2);
         let mut height: i32 =  rect2.Height;
-        DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round((double) (rect2.Height - height) / 2.0), rect2.Width, height, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
+        DrawMod.DrawBoxVic(ref g, rect2.X, rect2.Y +  Math.Round( (rect2.Height - height) / 2.0), rect2.Width, height, DrawMod.TGame.VicColor3, DrawMod.TGame.VicColor3Shade);
         g.Clip = new Region(rect2);
         let mut x: i32 =  rect2.X;
-        let mut num: i32 =  rect2.Y +  Math.Round((double) (Math.Max(0.0f, (float) rect2.Height - sizeF2.Height) / 2f));
+        let mut num: i32 =  rect2.Y +  Math.Round( (Math.Max(0.0f,  rect2.Height - sizeF2.Height) / 2f));
         DrawMod.DrawTextVic2(ref g, txt2, DrawMod.TGame.VicFont2, x + 1, num + 1, DrawMod.TGame.VicColor2, DrawMod.TGame.VicColor2Shade);
       }
       g.Clip = Region::new();
@@ -2038,9 +2038,9 @@ namespace WindowsApplication1
       Color color = Color::new();
       color = Color.FromArgb(Math.Min( byte.MaxValue,  BackC.A), Math.Min( byte.MaxValue,  BackC.R + 55), Math.Min( byte.MaxValue,  BackC.G + 55), Math.Min( byte.MaxValue,  BackC.B + 55));
       Rectangle rect = Rectangle::new(x1, y1, w, h);
-      Rectangle rectangle = Rectangle::new(x1, y1 +  Math.Round((double) h / 2.0), w, h -  Math.Round((double) h / 2.0));
-      Color.FromArgb( byte.MaxValue,  Math.Round((double) FrontC.R * 0.75),  Math.Round((double) FrontC.G * 0.75),  Math.Round((double) FrontC.B * 0.76));
-      Color.FromArgb( byte.MaxValue,  Math.Round((double) FrontC.R * 0.5),  Math.Round((double) FrontC.G * 0.5),  Math.Round((double) FrontC.B * 0.5));
+      Rectangle rectangle = Rectangle::new(x1, y1 +  Math.Round( h / 2.0), w, h -  Math.Round( h / 2.0));
+      Color.FromArgb( byte.MaxValue,  Math.Round( FrontC.R * 0.75),  Math.Round( FrontC.G * 0.75),  Math.Round( FrontC.B * 0.76));
+      Color.FromArgb( byte.MaxValue,  Math.Round( FrontC.R * 0.5),  Math.Round( FrontC.G * 0.5),  Math.Round( FrontC.B * 0.5));
       Color.FromArgb( byte.MaxValue,  FrontC.R,  FrontC.G,  FrontC.B);
       SolidBrush solidBrush = new SolidBrush(BackC);
       if (!RectMode)
@@ -2060,7 +2060,7 @@ namespace WindowsApplication1
       int a,
       let mut widdy: i32 =  1)
     {
-      Pen pen = new Pen(Color.FromArgb(a, r, g, b), (float) widdy);
+      Pen pen = new Pen(Color.FromArgb(a, r, g, b),  widdy);
       objGraphics.DrawLine(pen, x1, y1, x2, y2);
       pen.Dispose();
     }
@@ -2074,7 +2074,7 @@ namespace WindowsApplication1
       Color c,
       let mut widdy: i32 =  1)
     {
-      Pen pen = new Pen(c, (float) widdy);
+      Pen pen = new Pen(c,  widdy);
       objGraphics.DrawLine(pen, x1, y1, x2, y2);
     }
 
@@ -2087,7 +2087,7 @@ namespace WindowsApplication1
       Color c,
       let mut widdy: i32 =  1)
     {
-      Pen pen = new Pen(c, (float) widdy);
+      Pen pen = new Pen(c,  widdy);
       float[] numArray = new float[2]{ 1f, 2f };
       pen.DashStyle = DashStyle.Dot;
       pen.DashPattern = numArray;
@@ -2103,7 +2103,7 @@ namespace WindowsApplication1
       Color c,
       let mut widdy: i32 =  1)
     {
-      objGraphics.DrawLine(new Pen(c, (float) widdy)
+      objGraphics.DrawLine(new Pen(c,  widdy)
       {
         DashStyle = DashStyle.Dash
       }, x1, y1, x2, y2);
@@ -2139,8 +2139,8 @@ namespace WindowsApplication1
         tfont = DrawMod.ttfont;
       SizeF sizeF1 = SizeF::new();
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
-      Bitmap bitmap = new Bitmap( Math.Round((double) sizeF2.Width),  Math.Round((double) sizeF2.Height) + 1, PixelFormat.Format32bppPArgb);
-      bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      Bitmap bitmap = new Bitmap( Math.Round( sizeF2.Width),  Math.Round( sizeF2.Height) + 1, PixelFormat.Format32bppPArgb);
+      bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       graphics.TextContrast = 4;
       graphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
@@ -2165,7 +2165,7 @@ namespace WindowsApplication1
       StringFormat format = StringFormat::new();
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb(165,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
       format.FormatFlags = StringFormatFlags.DirectionVertical;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y, format);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y, format);
     }
 
     pub static void DrawText(
@@ -2179,11 +2179,11 @@ namespace WindowsApplication1
         tfont = DrawMod.ttfont;
       objgraphics.TextContrast = 4;
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) (x + 1), (float) (y + 1));
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) (x + 1), (float) (y - 1));
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) (x - 1), (float) (y + 1));
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) (x - 1), (float) (y - 1));
-      objgraphics.DrawString(tstring, tfont, Brushes.White, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  (x + 1),  (y + 1));
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  (x + 1),  (y - 1));
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  (x - 1),  (y + 1));
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  (x - 1),  (y - 1));
+      objgraphics.DrawString(tstring, tfont, Brushes.White,  x,  y);
     }
 
     pub static void DrawTextOutline(
@@ -2197,11 +2197,11 @@ namespace WindowsApplication1
         tfont = DrawMod.ttfont;
       objgraphics.TextContrast = 4;
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) (x - 1), (float) y);
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) x, (float) (y - 1));
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) (x + 1), (float) y);
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) x, (float) (y + 1));
-      objgraphics.DrawString(tstring, tfont, Brushes.White, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  (x - 1),  y);
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  x,  (y - 1));
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  (x + 1),  y);
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  x,  (y + 1));
+      objgraphics.DrawString(tstring, tfont, Brushes.White,  x,  y);
     }
 
     pub static void DrawTextCenter(
@@ -2218,8 +2218,8 @@ namespace WindowsApplication1
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
       objgraphics.TextContrast = 4;
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) (x + 1) - sizeF2.Width / 2f, (float) (y + 1), StringFormat.GenericTypographic);
-      objgraphics.DrawString(tstring, tfont, Brushes.White, (float) x - sizeF2.Width / 2f, (float) y, StringFormat.GenericTypographic);
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  (x + 1) - sizeF2.Width / 2f,  (y + 1), StringFormat.GenericTypographic);
+      objgraphics.DrawString(tstring, tfont, Brushes.White,  x - sizeF2.Width / 2f,  y, StringFormat.GenericTypographic);
     }
 
     pub static void DrawTextCenterSmallLabel(
@@ -2255,7 +2255,7 @@ namespace WindowsApplication1
         objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
         objgraphics.TextContrast = 12;
       }
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) (x + 1) - sizeF2.Width / 2f, (float) ((double) y - (double) sizeF2.Height / 2.0 + 1.0));
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  (x + 1) - sizeF2.Width / 2f,  ( y -  sizeF2.Height / 2.0 + 1.0));
       SolidBrush solidBrush2 = tcol != 1 ? (tcol != 2 ? (tcol != 3 ? (tcol != 4 ? (tcol != 5 ? (tcol != 11 ? (tcol != 12 ? (tcol != 13 ? (tcol != 13 ? new SolidBrush(Color.White) : new SolidBrush(Color.FromArgb( byte.MaxValue, 150, 150, 0))) : new SolidBrush(Color.FromArgb( byte.MaxValue, 100, 70, 100))) : new SolidBrush(Color.FromArgb( byte.MaxValue, 50, 0, 50))) : new SolidBrush(Color.FromArgb( byte.MaxValue, 150, 150, 150))) : new SolidBrush(Color.LightBlue)) : new SolidBrush(Color.Yellow)) : new SolidBrush(Color.Blue)) : new SolidBrush(Color.Green)) : new SolidBrush(Color.FromArgb( byte.MaxValue,  byte.MaxValue, 100, 100));
       if (flag)
       {
@@ -2275,7 +2275,7 @@ namespace WindowsApplication1
         objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
         objgraphics.TextContrast = 1;
       }
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2, (float) x - sizeF2.Width / 2f, (float) y - sizeF2.Height / 2f);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2,  x - sizeF2.Width / 2f,  y - sizeF2.Height / 2f);
     }
 
     pub static void DrawTextCenterSmallLabelMultiLine(
@@ -2288,11 +2288,11 @@ namespace WindowsApplication1
     {
       string[] strArray = tstring.Split(' ');
       let mut num: i32 =  10;
-      if (!Information.IsNothing((object) tfont))
-        num =  Math.Round((double) tfont.Height * 0.75);
+      if (!Information.IsNothing( tfont))
+        num =  Math.Round( tfont.Height * 0.75);
       let mut upperBound: i32 =  strArray.GetUpperBound(0);
       for (let mut index: i32 =  0; index <= upperBound; index += 1)
-        DrawMod.DrawTextCenterSmallLabel(ref objgraphics, strArray[index], tfont, x, y -  Math.Round((double) (strArray.GetUpperBound(0) * num) / 2.0) + index * num, tcol);
+        DrawMod.DrawTextCenterSmallLabel(ref objgraphics, strArray[index], tfont, x, y -  Math.Round( (strArray.GetUpperBound(0) * num) / 2.0) + index * num, tcol);
     }
 
     pub static void DrawText2(
@@ -2306,12 +2306,12 @@ namespace WindowsApplication1
         tfont = DrawMod.ttfont;
       objgraphics.TextContrast = 4;
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
-      objgraphics.DrawString(tstring, tfont, Brushes.Black, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, Brushes.Black,  x,  y);
     }
 
     pub static void DrawFrame2(ref Bitmap b, ref Graphics g, int x, int y, int w, int h)
     {
-      if (!Information.IsNothing((object) b))
+      if (!Information.IsNothing( b))
       {
         g.CompositingMode = CompositingMode.SourceCopy;
         let mut num1: i32 =  h - 1;
@@ -2454,7 +2454,7 @@ namespace WindowsApplication1
       let mut watermark: i32 =  -1)
     {
       Rectangle rectangle1;
-      if (!Information.IsNothing((object) b))
+      if (!Information.IsNothing( b))
       {
         w -= 11;
         h -= 11;
@@ -2599,7 +2599,7 @@ namespace WindowsApplication1
       string HeaderString,
       let mut watermark: i32 =  -1)
     {
-      if (!Information.IsNothing((object) b))
+      if (!Information.IsNothing( b))
       {
         Color c1 = Color.FromArgb( byte.MaxValue, 40, 80, 120);
         Color c2 = Color.FromArgb( byte.MaxValue, 100, 140, 180);
@@ -2618,7 +2618,7 @@ namespace WindowsApplication1
         g.SmoothingMode = SmoothingMode.AntiAlias;
         DrawMod.DrawBlock(ref g, 2, 27, w - 4, 38, 0, 0, 0, 128);
         SizeF sizeF = g.MeasureString(HeaderString, DrawMod.TGame.MarcFont1);
-        DrawMod.DrawTextColouredMarc(ref g, HeaderString, DrawMod.TGame.MarcFont1,  Math.Round((double) w / 2.0 - (double) sizeF.Width / 2.0),  Math.Round(47.0 - (double) sizeF.Height / 2.0), Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
+        DrawMod.DrawTextColouredMarc(ref g, HeaderString, DrawMod.TGame.MarcFont1,  Math.Round( w / 2.0 -  sizeF.Width / 2.0),  Math.Round(47.0 -  sizeF.Height / 2.0), Color.FromArgb( byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
         g.CompositingMode = CompositingMode.SourceCopy;
         let mut num1: i32 =  h - 1;
         for (let mut index1: i32 =  0; index1 <= num1; index1 += 1)
@@ -2724,13 +2724,13 @@ namespace WindowsApplication1
       int sx,
       int sy)
     {
-      if (!Information.IsNothing((object) b))
+      if (!Information.IsNothing( b))
       {
         if (w > b.Width)
           w = b.Width;
         if (h > b.Height)
           h = b.Height;
-        if (!Information.IsNothing((object) backb))
+        if (!Information.IsNothing( backb))
         {
           g.CompositingMode = CompositingMode.SourceCopy;
           let mut num1: i32 =  h - 1;
@@ -2926,7 +2926,7 @@ namespace WindowsApplication1
       SolidBrush solidBrush = new SolidBrush(c);
       objgraphics.TextContrast = 4;
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static void DrawTextColouredNicely(
@@ -2942,7 +2942,7 @@ namespace WindowsApplication1
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
       objgraphics.TextContrast = tTextContrast;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static void DrawTextVic(
@@ -2958,10 +2958,10 @@ namespace WindowsApplication1
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
       SolidBrush solidBrush1 = new SolidBrush(shadec);
       objgraphics.TextContrast = 12;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) (x + 2), (float) (y + 2));
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  (x + 2),  (y + 2));
       SolidBrush solidBrush2 = new SolidBrush(frontc);
       objgraphics.TextContrast = 1;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2,  x,  y);
     }
 
     pub static void DrawTextVic2(
@@ -2978,7 +2978,7 @@ namespace WindowsApplication1
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
       objgraphics.TextContrast = 1;
       SolidBrush solidBrush = new SolidBrush(frontc);
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static void DrawTextVic3(
@@ -2995,11 +2995,11 @@ namespace WindowsApplication1
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
       SolidBrush solidBrush1 = new SolidBrush(shadec);
       objgraphics.TextContrast = 1;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) (x + 1), (float) (y + 1));
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  (x + 1),  (y + 1));
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
       SolidBrush solidBrush2 = new SolidBrush(frontc);
       objgraphics.TextContrast = 1;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2,  x,  y);
     }
 
     pub static void DrawTextColouredMarcCapped(
@@ -3012,13 +3012,13 @@ namespace WindowsApplication1
       bool HardBlack = false,
       let mut maxWidth: i32 =  200)
     {
-      if (Information.IsNothing((object) tstring))
+      if (Information.IsNothing( tstring))
         return;
       SizeF sizeF1 = SizeF::new();
       StringFormat stringFormat = StringFormat::new();
-      for (SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont); (double) sizeF2.Width > (double) maxWidth & tstring.Length > 3; sizeF2 = objgraphics.MeasureString(tstring, tfont))
+      for (SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);  sizeF2.Width >  maxWidth & tstring.Length > 3; sizeF2 = objgraphics.MeasureString(tstring, tfont))
       {
-        let mut Length: i32 =   Math.Round((double) ((float) tstring.Length * ((float) maxWidth / sizeF2.Width))) - 1;
+        let mut Length: i32 =   Math.Round( ( tstring.Length * ( maxWidth / sizeF2.Width))) - 1;
         if (Length < 1)
           Length = 1;
         tstring = Strings.Left(tstring, Length);
@@ -3035,9 +3035,9 @@ namespace WindowsApplication1
       Color c,
       bool HardBlack = false)
     {
-      if (Information.IsNothing((object) tfont))
+      if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
-      if ((double) tfont.Size > 11.0)
+      if ( tfont.Size > 11.0)
       {
         SolidBrush solidBrush1 = new SolidBrush(Color.Black);
         if (HardBlack)
@@ -3052,9 +3052,9 @@ namespace WindowsApplication1
           objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
           objgraphics.TextContrast = 12;
         }
-        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) x, (float) y);
-        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) (x + 1), (float) (y + 1));
-        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) (x + 2), (float) (y + 2));
+        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  x,  y);
+        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  (x + 1),  (y + 1));
+        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  (x + 2),  (y + 2));
         SolidBrush solidBrush2 = new SolidBrush(c);
         if (HardBlack)
         {
@@ -3068,7 +3068,7 @@ namespace WindowsApplication1
           objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
           objgraphics.TextContrast = 1;
         }
-        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2, (float) x, (float) y);
+        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2,  x,  y);
       }
       else
       {
@@ -3085,7 +3085,7 @@ namespace WindowsApplication1
           objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
           objgraphics.TextContrast = 12;
         }
-        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush3, (float) (x + 1), (float) (y + 1));
+        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush3,  (x + 1),  (y + 1));
         SolidBrush solidBrush4 = new SolidBrush(c);
         if (HardBlack)
         {
@@ -3099,7 +3099,7 @@ namespace WindowsApplication1
           objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
           objgraphics.TextContrast = 1;
         }
-        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush4, (float) x, (float) y);
+        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush4,  x,  y);
       }
     }
 
@@ -3111,13 +3111,13 @@ namespace WindowsApplication1
       int y,
       Color c)
     {
-      if (Information.IsNothing((object) tfont))
+      if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb( c.A,  c.R,  c.G,  c.B));
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
       objgraphics.TextContrast = 1;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static void DrawTextColouredConsoleMultiline(
@@ -3131,7 +3131,7 @@ namespace WindowsApplication1
       int h,
       bool centerText = false)
     {
-      if (Information.IsNothing((object) tfont))
+      if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb( c.A,  c.R,  c.G,  c.B));
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
@@ -3154,17 +3154,17 @@ namespace WindowsApplication1
       int y,
       Color c)
     {
-      if (Information.IsNothing((object) tfont))
+      if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
       SizeF sizeF1 = SizeF::new();
       StringFormat stringFormat = StringFormat::new();
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
-      x =  Math.Round((double) ((float) x - sizeF2.Width / 2f));
+      x =  Math.Round( ( x - sizeF2.Width / 2f));
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb( c.A,  c.R,  c.G,  c.B));
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
       objgraphics.TextContrast = 1;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static void DrawTextColouredConsoleCenterEmbossed(
@@ -3175,23 +3175,23 @@ namespace WindowsApplication1
       int y,
       Color c)
     {
-      if (Information.IsNothing((object) tfont))
+      if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
       SizeF sizeF1 = SizeF::new();
       StringFormat stringFormat = StringFormat::new();
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
-      Bitmap objBitmap = new Bitmap( Math.Round((double) sizeF2.Width) + 8,  Math.Round((double) sizeF2.Height) + 8, PixelFormat.Format32bppPArgb);
+      Bitmap objBitmap = new Bitmap( Math.Round( sizeF2.Width) + 8,  Math.Round( sizeF2.Height) + 8, PixelFormat.Format32bppPArgb);
       Graphics graphics = Graphics.FromImage((Image) objBitmap);
       graphics.Clear(Color.Transparent);
-      x =  Math.Round((double) ((float) x - sizeF2.Width / 2f));
+      x =  Math.Round( ( x - sizeF2.Width / 2f));
       SolidBrush solidBrush = new SolidBrush(Color.FromArgb( c.A,  c.R,  c.G,  c.B));
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
       graphics.TextContrast = 1;
       graphics.DrawString(tstring, tfont, (Brush) solidBrush, 4f, 4f);
       graphics.CompositingMode = CompositingMode.SourceCopy;
-      let mut num1: i32 =   Math.Round((double) sizeF2.Width) + 8;
-      let mut num2: i32 =   Math.Round((double) sizeF2.Height) + 8;
+      let mut num1: i32 =   Math.Round( sizeF2.Width) + 8;
+      let mut num2: i32 =   Math.Round( sizeF2.Height) + 8;
       let mut alpha: i32 =  200;
       Color color1 = DrawMod.LightenColor(c, 100);
       Color color2 = DrawMod.LightenColor(c, 60);
@@ -3275,12 +3275,12 @@ namespace WindowsApplication1
       Color c,
       bool HardBlack = false)
     {
-      if (Information.IsNothing((object) tfont))
+      if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
       SizeF sizeF1 = SizeF::new();
       StringFormat stringFormat = StringFormat::new();
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
-      x =  Math.Round((double) ((float) x - sizeF2.Width / 2f));
+      x =  Math.Round( ( x - sizeF2.Width / 2f));
       SolidBrush solidBrush1 = new SolidBrush(Color.Black);
       if (HardBlack)
       {
@@ -3294,7 +3294,7 @@ namespace WindowsApplication1
         objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
         objgraphics.TextContrast = 12;
       }
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) (x + 1), (float) (y + 1));
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  (x + 1),  (y + 1));
       SolidBrush solidBrush2 = new SolidBrush(c);
       if (HardBlack)
       {
@@ -3308,7 +3308,7 @@ namespace WindowsApplication1
         objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
         objgraphics.TextContrast = 1;
       }
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2,  x,  y);
     }
 
     pub static void DrawTextColouredMarcCenterCinematic(
@@ -3319,16 +3319,16 @@ namespace WindowsApplication1
       int y,
       Color c)
     {
-      if (Information.IsNothing((object) tfont))
+      if (Information.IsNothing( tfont))
         tfont = Font::new(DrawMod.TGame.FontCol.Families[1], 12f, FontStyle.Regular);
       SizeF sizeF1 = SizeF::new();
       StringFormat stringFormat = StringFormat::new();
       SizeF sizeF2 = objgraphics.MeasureString(tstring, tfont);
-      x =  Math.Round((double) ((float) x - sizeF2.Width / 2f));
+      x =  Math.Round( ( x - sizeF2.Width / 2f));
       SolidBrush solidBrush = new SolidBrush(c);
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static void DrawTextColouredMarcCounter(
@@ -3340,7 +3340,7 @@ namespace WindowsApplication1
       Color c,
       bool HardBlack = false)
     {
-      if (Information.IsNothing((object) c))
+      if (Information.IsNothing( c))
         c = Color.White;
       if (c.R > (byte) 128 | c.B > (byte) 128 | c.G > (byte) 128)
       {
@@ -3348,13 +3348,13 @@ namespace WindowsApplication1
         objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
         objgraphics.SmoothingMode = SmoothingMode.None;
         objgraphics.TextContrast = 1;
-        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) (x + 1), (float) (y + 1));
+        objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  (x + 1),  (y + 1));
       }
       SolidBrush solidBrush1 = new SolidBrush(c);
       objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
       objgraphics.SmoothingMode = SmoothingMode.None;
       objgraphics.TextContrast = 1;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  x,  y);
     }
 
     pub static void DrawTextColouredFuzzy(
@@ -3369,7 +3369,7 @@ namespace WindowsApplication1
       objgraphics.TextRenderingHint = TextRenderingHint.AntiAlias;
       objgraphics.SmoothingMode = SmoothingMode.AntiAlias;
       objgraphics.TextContrast = 12;
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static void DrawTextColouredOutline(
@@ -3393,9 +3393,9 @@ namespace WindowsApplication1
         objgraphics.TextContrast = 4;
         objgraphics.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
       }
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2, (float) (x + 1), (float) y);
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2, (float) x, (float) (y + 1));
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1, (float) x, (float) y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2,  (x + 1),  y);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush2,  x,  (y + 1));
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush1,  x,  y);
     }
 
     pub static void DrawButton(
@@ -3485,38 +3485,38 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       Font font = DrawMod.TGame.VicFont2;
       str: String = ttext;
-      if (!Information.IsNothing((object) customfont))
+      if (!Information.IsNothing( customfont))
         font = customfont;
       int num1;
       let mut num2: i32 =  num1 - 2;
       --plusy;
       SizeF sizeF2 = g.MeasureString(str, font);
-      let mut x1: i32 =   Math.Round((double) ((float) x + (float) (((double) width - (double) sizeF2.Width) / 2.0) + (float) num2));
-      let mut y1: i32 =   Math.Round((double) ((float) ((double) y + ((double) height - (double) sizeF2.Height) / 2.0 - 1.0) + (float) plusy));
+      let mut x1: i32 =   Math.Round( ( x +  (( width -  sizeF2.Width) / 2.0) +  num2));
+      let mut y1: i32 =   Math.Round( ( ( y + ( height -  sizeF2.Height) / 2.0 - 1.0) +  plusy));
       if (width > 50)
         y1 -= 2;
       DrawMod.DrawTextColoured(ref g, str, font, x1, y1, c1);
       sizeF2 = g.MeasureString(str, font);
-      let mut x2: i32 =   Math.Round((double) ((float) x + (float) (((double) width - (double) sizeF2.Width) / 2.0) + (float) num2));
-      let mut y2: i32 =   Math.Round((double) ((float) ((double) y + ((double) height - (double) sizeF2.Height) / 2.0 + 1.0) + (float) plusy));
+      let mut x2: i32 =   Math.Round( ( x +  (( width -  sizeF2.Width) / 2.0) +  num2));
+      let mut y2: i32 =   Math.Round( ( ( y + ( height -  sizeF2.Height) / 2.0 + 1.0) +  plusy));
       if (width > 50)
         y2 -= 2;
       DrawMod.DrawTextColoured(ref g, str, font, x2, y2, c1);
       sizeF2 = g.MeasureString(str, font);
-      let mut x3: i32 =   Math.Round((double) ((float) ((double) x + ((double) width - (double) sizeF2.Width) / 2.0 + 1.0) + (float) num2));
-      let mut y3: i32 =   Math.Round((double) ((float) y + (float) (((double) height - (double) sizeF2.Height) / 2.0) + (float) plusy));
+      let mut x3: i32 =   Math.Round( ( ( x + ( width -  sizeF2.Width) / 2.0 + 1.0) +  num2));
+      let mut y3: i32 =   Math.Round( ( y +  (( height -  sizeF2.Height) / 2.0) +  plusy));
       if (width > 50)
         y3 -= 2;
       DrawMod.DrawTextColoured(ref g, str, font, x3, y3, c1);
       sizeF2 = g.MeasureString(str, font);
-      let mut x4: i32 =   Math.Round((double) ((float) ((double) x + ((double) width - (double) sizeF2.Width) / 2.0 - 1.0) + (float) num2));
-      let mut y4: i32 =   Math.Round((double) ((float) y + (float) (((double) height - (double) sizeF2.Height) / 2.0) + (float) plusy));
+      let mut x4: i32 =   Math.Round( ( ( x + ( width -  sizeF2.Width) / 2.0 - 1.0) +  num2));
+      let mut y4: i32 =   Math.Round( ( y +  (( height -  sizeF2.Height) / 2.0) +  plusy));
       if (width > 50)
         y4 -= 2;
       DrawMod.DrawTextColoured(ref g, str, font, x4, y4, c1);
       sizeF2 = g.MeasureString(str, font);
-      let mut x5: i32 =   Math.Round((double) ((float) x + (float) (((double) width - (double) sizeF2.Width) / 2.0) + (float) num2));
-      let mut y5: i32 =   Math.Round((double) ((float) y + (float) (((double) height - (double) sizeF2.Height) / 2.0) + (float) plusy));
+      let mut x5: i32 =   Math.Round( ( x +  (( width -  sizeF2.Width) / 2.0) +  num2));
+      let mut y5: i32 =   Math.Round( ( y +  (( height -  sizeF2.Height) / 2.0) +  plusy));
       if (width > 50)
         y5 -= 2;
       DrawMod.DrawTextColoured(ref g, str, font, x5, y5, c2);
@@ -3524,7 +3524,7 @@ namespace WindowsApplication1
 
     pub static void DrawFrame(ref Bitmap b, ref Graphics g, int x, int y, int w, int h)
     {
-      if (!Information.IsNothing((object) b))
+      if (!Information.IsNothing( b))
       {
         g.CompositingMode = CompositingMode.SourceCopy;
         let mut num1: i32 =  h - 1;
@@ -3745,8 +3745,8 @@ namespace WindowsApplication1
     {
       SolidBrush solidBrush = new SolidBrush(c);
       SizeF sizeF = objgraphics.MeasureString(tstring, tfont);
-      DrawMod.DrawBlock(ref objgraphics, x, y,  Math.Round((double) sizeF.Width),  Math.Round((double) sizeF.Height),  bc.R,  bc.G,  bc.B,  bc.A);
-      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush, (float) x, (float) y);
+      DrawMod.DrawBlock(ref objgraphics, x, y,  Math.Round( sizeF.Width),  Math.Round( sizeF.Height),  bc.R,  bc.G,  bc.B,  bc.A);
+      objgraphics.DrawString(tstring, tfont, (Brush) solidBrush,  x,  y);
     }
 
     pub static int InvColor(int colval)
@@ -3799,7 +3799,7 @@ namespace WindowsApplication1
       int height;
       if (tabnr == 8)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 300;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 300;
         width = 800;
         height = 300;
       }
@@ -3811,7 +3811,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 11)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 75;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 75;
         width = 1240;
         height = DrawMod.TGame.ScreenHeight - 388;
         if (DrawMod.TGame.EditObj.GuiDown)
@@ -3821,7 +3821,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 12)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 150;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 150;
         width = 1240;
         height = DrawMod.TGame.ScreenHeight - 388;
         if (DrawMod.TGame.EditObj.GuiDown)
@@ -3831,7 +3831,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 13)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 300;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 300;
         width = 1240;
         height = DrawMod.TGame.ScreenHeight - 388;
         if (DrawMod.TGame.EditObj.GuiDown)
@@ -3841,7 +3841,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 9)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 225;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 225;
         width = 800;
         height = 380;
       }
@@ -3853,13 +3853,13 @@ namespace WindowsApplication1
       }
       if (tabnr == 1)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 225;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 225;
         width = 680;
         height = 380;
       }
       if (tabnr == 2)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 150;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 150;
         width = DrawMod.TGame.ScreenWidth - 144;
         if (width > 1600)
           width = 1600;
@@ -3867,7 +3867,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 3)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 75;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 75;
         width = DrawMod.TGame.ScreenWidth - 144;
         if (width > 880)
           width = 880;
@@ -3883,7 +3883,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 4)
       {
-        x =  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 0;
+        x =  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 0;
         width = DrawMod.TGame.ScreenWidth - 144;
         if (width > 880)
           width = 880;
@@ -3891,7 +3891,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 5)
       {
-        x = DrawMod.TGame.Data.Product < 7 ?  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 75 :  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 0;
+        x = DrawMod.TGame.Data.Product < 7 ?  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 75 :  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 0;
         width = 680;
         height = 380;
         if (DrawMod.TGame.Data.Product >= 6)
@@ -3908,7 +3908,7 @@ namespace WindowsApplication1
       }
       if (tabnr == 6)
       {
-        x = DrawMod.TGame.Data.Product < 6 ?  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 150 :  Math.Round((double) DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 75;
+        x = DrawMod.TGame.Data.Product < 6 ?  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 + 158.0) + 150 :  Math.Round( DrawMod.TGame.ScreenWidth / 2.0 - 158.0) - 75;
         width = DrawMod.TGame.ScreenWidth - 144;
         height = DrawMod.TGame.ScreenHeight - 388;
         if (DrawMod.TGame.Data.Product < 6)
@@ -3919,16 +3919,16 @@ namespace WindowsApplication1
             height = 520;
           if (DrawMod.TGame.Data.MapObj[0].MapHeight <= 70 & height > 640)
             height = 640;
-          if (width > 680 & (double) width / (double) height > 1.8)
-            width =  Math.Round((double) height * 1.8);
+          if (width > 680 &  width /  height > 1.8)
+            width =  Math.Round( height * 1.8);
         }
         else if (DrawMod.TGame.Data.Product >= 6)
         {
-          float num1 = (float) ((double) DrawMod.TGame.Data.MapObj[0].MapHeight / (double) DrawMod.TGame.Data.MapObj[0].MapWidth * (53.0 / 64.0));
-          float num2 = (float) (height - 40) / (float) (width - 310);
-          if ((double) num1 < 1.0 & (double) num1 < (double) num2)
+          float num1 =  ( DrawMod.TGame.Data.MapObj[0].MapHeight /  DrawMod.TGame.Data.MapObj[0].MapWidth * (53.0 / 64.0));
+          float num2 =  (height - 40) /  (width - 310);
+          if ( num1 < 1.0 &  num1 <  num2)
           {
-            let mut num3: i32 =   Math.Round((double) ((float) (height - 40) * (num2 - num1)));
+            let mut num3: i32 =   Math.Round( ( (height - 40) * (num2 - num1)));
             height -= num3;
           }
         }
@@ -3942,10 +3942,10 @@ namespace WindowsApplication1
       if (DrawMod.TGame.Data.Product >= 7)
       {
         if (tabnr != 107 & tabnr != 7)
-          x =  Math.Round((double) x - (double) width / 2.0);
+          x =  Math.Round( x -  width / 2.0);
       }
       else if (tabnr != 107 & tabnr != 7 & tabnr != 8)
-        x =  Math.Round((double) x - (double) width / 2.0);
+        x =  Math.Round( x -  width / 2.0);
       let mut num4: i32 =  x;
       let mut num5: i32 =  50;
       let mut num6: i32 =  50;
@@ -4120,7 +4120,7 @@ namespace WindowsApplication1
       }
       if (tabnr > -1)
       {
-        rectForTab.X +=  Math.Round((double) w / 2.0);
+        rectForTab.X +=  Math.Round( w / 2.0);
         if (rectForTab.X < 16)
           rectForTab.X = 16;
         rectForTab.Y = h - 32;
@@ -4181,7 +4181,7 @@ namespace WindowsApplication1
         let mut num: i32 =  3;
         if (DrawMod.TGame.Data.Product == 7)
           num += 7;
-        DrawMod.DrawTextColouredMarc(ref g, s, DrawMod.TGame.MarcFont4, rectForTab.X + 15 +  Math.Round(((double) (rectForTab.Width - 30) - (double) sizeF.Width) / 2.0), rectForTab.Y + num, Color.White);
+        DrawMod.DrawTextColouredMarc(ref g, s, DrawMod.TGame.MarcFont4, rectForTab.X + 15 +  Math.Round(( (rectForTab.Width - 30) -  sizeF.Width) / 2.0), rectForTab.Y + num, Color.White);
       }
       else
       {
@@ -4202,10 +4202,10 @@ namespace WindowsApplication1
         let mut destrect13: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2(ref local25, ref local26, srcrect13, destrect13);
         let mut width3: i32 =  32;
-        for (let mut x: i32 =  16; (double) x < (double) w / 2.0; x += 32)
+        for (let mut x: i32 =  16;  x <  w / 2.0; x += 32)
         {
-          if ((double) (x + width3) > (double) w / 2.0)
-            width3 =  Math.Round((double) w / 2.0 - (double) x);
+          if ( (x + width3) >  w / 2.0)
+            width3 =  Math.Round( w / 2.0 -  x);
           ref Graphics local27 = ref g;
           bitmap = BitmapStore.GetBitmap(DrawMod.TGame.MARCTAB);
           ref Bitmap local28 = ref bitmap;
@@ -4216,7 +4216,7 @@ namespace WindowsApplication1
           DrawMod.DrawSimplePart2(ref local27, ref local28, srcrect14, destrect14);
         }
         let mut width4: i32 =  32;
-        for (let mut x: i32 =   Math.Round((double) w / 2.0); x < w - 16; x += 32)
+        for (let mut x: i32 =   Math.Round( w / 2.0); x < w - 16; x += 32)
         {
           if (x + width4 > w - 16)
             width4 = w - 16 - x;
@@ -4235,7 +4235,7 @@ namespace WindowsApplication1
 
     pub static int GetWidthForMiniMap()
     {
-      let mut widthForMiniMap: i32 =  DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapWidth <= DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapHeight ? 200 :  Math.Round(200.0 * ((double) DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapWidth / (double) DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapHeight));
+      let mut widthForMiniMap: i32 =  DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapWidth <= DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapHeight ? 200 :  Math.Round(200.0 * ( DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapWidth /  DrawMod.TGame.Data.MapObj[DrawMod.TGame.EditObj.MapSelected].MapHeight));
       if (widthForMiniMap > 300)
         widthForMiniMap = 300;
       return widthForMiniMap;
@@ -4256,7 +4256,7 @@ namespace WindowsApplication1
       let mut red: i32 =  DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.HistoricalUnitObj[his].TempRegime].Red;
       let mut green: i32 =  DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.HistoricalUnitObj[his].TempRegime].Green;
       let mut blue: i32 =  DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.HistoricalUnitObj[his].TempRegime].Blue;
-      DrawMod.DrawBlockGradient2(ref g, x, y, w, h, Color.FromArgb(64,  Math.Round((double) red / 2.0),  Math.Round((double) green / 2.0),  Math.Round((double) blue / 2.0)), Color.FromArgb(176,  Math.Round((double) red / 2.0),  Math.Round((double) green / 2.0),  Math.Round((double) blue / 2.0)));
+      DrawMod.DrawBlockGradient2(ref g, x, y, w, h, Color.FromArgb(64,  Math.Round( red / 2.0),  Math.Round( green / 2.0),  Math.Round( blue / 2.0)), Color.FromArgb(176,  Math.Round( red / 2.0),  Math.Round( green / 2.0),  Math.Round( blue / 2.0)));
       DrawMod.DrawBlockGradient3(ref g, x, y, w, h, Color.FromArgb(64, 0, 0, 0), Color.FromArgb(176, 0, 0, 0));
       ref Graphics local3 = ref g;
       Bitmap bitmap2 = BitmapStore.GetBitmap(commanderSpriteId);
@@ -4267,10 +4267,10 @@ namespace WindowsApplication1
       let mut h1: i32 =  h;
       let mut width: i32 =  BitmapStore.GetWidth(commanderSpriteId);
       let mut origh: i32 =  BitmapStore.Getheight(commanderSpriteId);
-      double r = (double)  Math.Round((double) (red + 80) / 512.0);
-      double g1 = (double)  Math.Round((double) (green + 200) / 512.0);
-      double b = (double)  Math.Round((double) (blue + 80) / 512.0);
-      DrawMod.DrawScaledColorized2(ref local3, ref local4, x1, y1, w1, h1, width, origh, (float) r, (float) g1, (float) b, 1f);
+      double r =   Math.Round( (red + 80) / 512.0);
+      double g1 =   Math.Round( (green + 200) / 512.0);
+      double b =   Math.Round( (blue + 80) / 512.0);
+      DrawMod.DrawScaledColorized2(ref local3, ref local4, x1, y1, w1, h1, width, origh,  r,  g1,  b, 1f);
       if (DrawMod.TGame.Data.HistoricalUnitObj[his].OverdrawSpriteID > -1)
       {
         let mut overdrawSpriteId: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[his].OverdrawSpriteID;
@@ -4304,7 +4304,7 @@ namespace WindowsApplication1
         if (DrawMod.TGame.Data.HistoricalUnitObj[his].OverdrawSpriteID <= -1)
           return;
         let mut overdrawSpriteId: i32 =  DrawMod.TGame.Data.HistoricalUnitObj[his].OverdrawSpriteID;
-        if ((double) DrawMod.TGame.Data.RuleVar[839] == 1.0)
+        if ( DrawMod.TGame.Data.RuleVar[839] == 1.0)
         {
           ref Graphics local3 = ref g;
           Bitmap bitmap2 = BitmapStore.GetBitmap(overdrawSpriteId);
@@ -4372,10 +4372,10 @@ namespace WindowsApplication1
       gr = 128;
       b = 128;
       a =  byte.MaxValue;
-      let mut num2: i32 =   Math.Round(Conversion.Int((double) w / (double) width1));
+      let mut num2: i32 =   Math.Round(Conversion.Int( w /  width1));
       for (let mut index1: i32 =  0; index1 <= num2; index1 += 1)
       {
-        let mut num3: i32 =   Math.Round(Conversion.Int((double) h / (double) num1));
+        let mut num3: i32 =   Math.Round(Conversion.Int( h /  num1));
         for (let mut index2: i32 =  0; index2 <= num3; index2 += 1)
         {
           let mut width2: i32 =  index1 * w + width1;
@@ -4394,9 +4394,9 @@ namespace WindowsApplication1
           DrawMod.DrawSimplePart2(ref local1, ref local2, srcrect, destrect);
         }
       }
-      DrawMod.DrawRectangle(ref g, x - 1, y - 1, w + 1, h + 1,  Math.Round((double) r / 2.0),  Math.Round((double) gr / 2.0),  Math.Round((double) b / 2.0),  byte.MaxValue);
+      DrawMod.DrawRectangle(ref g, x - 1, y - 1, w + 1, h + 1,  Math.Round( r / 2.0),  Math.Round( gr / 2.0),  Math.Round( b / 2.0),  byte.MaxValue);
       DrawMod.DrawRectangle(ref g, x, y, w - 1, h - 1, Conversion.Int(r * 2), Conversion.Int(gr * 2), Conversion.Int(b * 2),  byte.MaxValue);
-      DrawMod.DrawRectangle(ref g, x + 3, y + 3, w - 7, h - 7,  Math.Round((double) r * 0.2),  Math.Round((double) gr * 0.2),  Math.Round((double) b * 0.2),  byte.MaxValue);
+      DrawMod.DrawRectangle(ref g, x + 3, y + 3, w - 7, h - 7,  Math.Round( r * 0.2),  Math.Round( gr * 0.2),  Math.Round( b * 0.2),  byte.MaxValue);
       DrawMod.DrawRectangle(ref g, x + 1, y + 1, w - 3, h - 3,  byte.MaxValue, 0, 0,  byte.MaxValue);
       DrawMod.DrawRectangle(ref g, x + 2, y + 2, w - 5, h - 5,  byte.MaxValue, 0, 0,  byte.MaxValue);
       if (HideOff)
@@ -4421,10 +4421,10 @@ namespace WindowsApplication1
       let mut nr: i32 =  bitmapNr;
       let mut width1: i32 =  BitmapStore.GetWidth(nr);
       let mut num1: i32 =  BitmapStore.Getheight(nr);
-      let mut num2: i32 =   Math.Round(Conversion.Int((double) w / (double) width1));
+      let mut num2: i32 =   Math.Round(Conversion.Int( w /  width1));
       for (let mut index1: i32 =  0; index1 <= num2; index1 += 1)
       {
-        let mut num3: i32 =   Math.Round(Conversion.Int((double) h / (double) num1));
+        let mut num3: i32 =   Math.Round(Conversion.Int( h /  num1));
         for (let mut index2: i32 =  0; index2 <= num3; index2 += 1)
         {
           let mut width2: i32 =  index1 * w + width1;

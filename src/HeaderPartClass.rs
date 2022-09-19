@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -70,7 +70,7 @@ namespace WindowsApplication1
       Color c = Color.FromArgb( byte.MaxValue, red1, green1, blue1);
       header: String = this.header;
       SizeF sizeF2 = graphics.MeasureString(header, Font::new("Times New Roman", 25f, FontStyle.Regular, GraphicsUnit.Pixel));
-      DrawMod.DrawTextColoured( graphics, header, Font::new("Times New Roman", 25f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round((double) this.width / 2.0 - (double) sizeF2.Width / 2.0),  Math.Round((double) this.height / 2.0 - (double) sizeF2.Height / 2.0), c);
+      DrawMod.DrawTextColoured( graphics, header, Font::new("Times New Roman", 25f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round( this.width / 2.0 -  sizeF2.Width / 2.0),  Math.Round( this.height / 2.0 -  sizeF2.Height / 2.0), c);
       return this.OwnBitmap;
     }
 

@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -51,7 +51,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       if (this.listId > 0)
         this.RemoveSubPart(this.listId);
       if (this.list2Id > 0)
@@ -100,7 +100,7 @@ namespace WindowsApplication1
       for (let mut index: i32 = 0; index <= regimeCounter; index += 1)
       {
         num2 += 1;
-        this.listObj.add(Conversion.Str((object) index) + ") " + this.game.Data.RegimeObj[index].Name, index);
+        this.listObj.add(Conversion.Str( index) + ") " + this.game.Data.RegimeObj[index].Name, index);
         if (this.regId == index)
           num3 = num2;
       }
@@ -151,9 +151,9 @@ namespace WindowsApplication1
             num5 += 1;
             let mut people: i32 = this.game.Data.HistoricalUnitObj[index].People;
             if (people > -1)
-              this.list2Obj.add(Conversion.Str((object) index) + ") " + this.game.Data.HistoricalUnitObj[index].CommanderName + " (" + this.game.Data.PeopleObj[people].Name + ")", index);
+              this.list2Obj.add(Conversion.Str( index) + ") " + this.game.Data.HistoricalUnitObj[index].CommanderName + " (" + this.game.Data.PeopleObj[people].Name + ")", index);
             else
-              this.list2Obj.add(Conversion.Str((object) index) + ") " + this.game.Data.HistoricalUnitObj[index].CommanderName, index);
+              this.list2Obj.add(Conversion.Str( index) + ") " + this.game.Data.HistoricalUnitObj[index].CommanderName, index);
             if (this.offid == index)
               num6 = num5;
           }
@@ -268,7 +268,7 @@ namespace WindowsApplication1
         tsubpart =  new TextButtonPartClass("Change", 70, "Click to change the HQ flag of the selected regime",  this.OwnBitmap, num7 + 250, y13 + 5, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);
         this.ChangeFlag = this.AddSubPart( tsubpart, num7 + 250, y13 + 5, 60, 35, 1);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -451,7 +451,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num4: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.DoStuff();
               windowReturnClass.SetFlag(true);
@@ -466,7 +466,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num5: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.DoStuff();
               windowReturnClass.SetFlag(true);
@@ -481,7 +481,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num6: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.DoStuff();
               windowReturnClass.SetFlag(true);

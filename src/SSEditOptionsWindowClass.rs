@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using System;
-using System.Drawing;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -75,7 +75,7 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.DebugId);
       if (self.DebugIdb > 0)
         self.RemoveSubPart(self.DebugIdb);
-      let mut num1: i32 = 10 +  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 = 10 +  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       let mut tsubpart1: SubPartClass =  new TextButtonPartClass("Exit", 100, tBackbitmap: ( self.OwnBitmap), bbx: 10, bby: 5, theight: 40, usefont: self.game.MarcFont3, useshadow: true, tMarcStyle: true);
       self.BackId = self.AddSubPart( tsubpart1, 10, 5, 100, 40, 1);
       let mut num2: i32 = num1 + 110;

@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Drawing;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.ComponentModel;
+// usingSystem.Diagnostics;
+// usingSystem.Drawing;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -250,16 +250,16 @@ namespace WindowsApplication1
         {
           DrawMod.TGame.HandyFunctionsObj.AddMessageForOne("MESSAGE FROM " + DrawMod.TGame.Data.RegimeObj[DrawMod.TGame.Data.Turn].Name + "\r\n\r\n'" + this.TextBox1.Text + "'", this.nr, -1, 0);
           DrawMod.TGame.HandyFunctionsObj.AddMessageForOne("YOUR MESSAGE TO " + DrawMod.TGame.Data.RegimeObj[this.nr].Name + "\r\n\r\n'" + this.TextBox1.Text + "'", DrawMod.TGame.Data.Turn, -1, 0);
-          let mut num: i32 =   Interaction.MsgBox((object) "Your message has been sent!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num: i32 =   Interaction.MsgBox( "Your message has been sent!", Title: ( "Shadow Empire : Planetary Conquest"));
         }
         else
         {
           if (Strings.Len(this.TextBox1.Text) >= 4000)
           {
-            let mut num: i32 =   Interaction.MsgBox((object) ("To many characters. currently " + Conversion.Str((object) Strings.Len(this.TextBox1.Text)) + ". should be less then 1000"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num: i32 =   Interaction.MsgBox( ("To many characters. currently " + Conversion.Str( Strings.Len(this.TextBox1.Text)) + ". should be less then 1000"), Title: ( "Shadow Empire : Planetary Conquest"));
             return;
           }
-          let mut num1: i32 =   Interaction.MsgBox((object) "Cancelled. Your message has not been sent because there was 1 or less characters in it.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num1: i32 =   Interaction.MsgBox( "Cancelled. Your message has not been sent because there was 1 or less characters in it.", Title: ( "Shadow Empire : Planetary Conquest"));
         }
       }
       else if (this.type == 8)

@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
 
 namespace WindowsApplication1
 {
@@ -62,7 +62,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.textId > 0)
       {
         self.RemoveSubPart(self.textId);
@@ -129,7 +129,7 @@ namespace WindowsApplication1
       }
       let mut num6: i32 = 0;
       if (self.game.ScreenHeight > 800)
-        num6 =  Math.Round((double) (self.game.ScreenHeight - 800) / 20.0);
+        num6 =  Math.Round( (self.game.ScreenHeight - 800) / 20.0);
       if (self.detailnr > self.game.Data.SmallPicCounter)
         self.detailnr = -1;
       if (self.listId > 0)
@@ -169,7 +169,7 @@ namespace WindowsApplication1
       let mut num13: i32 = BitmapStore.Getheight(nr);
       if (num12 > 500)
       {
-        num13 =  Math.Round((double) (num13 * 500) / (double) num12);
+        num13 =  Math.Round( (num13 * 500) /  num12);
         num12 = 500;
       }
        let mut local3: &Graphics = &objgraphics;
@@ -223,7 +223,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num5: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to self.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num5: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 self.DoStuff();
                 windowReturnClass.SetFlag(true);
@@ -245,7 +245,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num6: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to self.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to self.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 self.DoStuff();
                 windowReturnClass.SetFlag(true);

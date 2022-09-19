@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -193,9 +193,9 @@ namespace WindowsApplication1
           if (this.detailnr == tdata)
             tlistselect1 = num1;
           if (this.game.Data.HistoricalUnitObj[tdata].Fixed)
-            this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].PP)) + "pp", "-", Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].Counter)));
+            this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].PP)) + "pp", "-", Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].Counter)));
           else
-            this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].PP)) + "pp", "Fixed", Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].Counter)));
+            this.OptionsListObj.add(this.game.Data.HistoricalUnitObj[tdata].Name, tdata, Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].PP)) + "pp", "Fixed", Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].Counter)));
         }
       }
       if (this.OptionsListId > 0)
@@ -260,7 +260,7 @@ namespace WindowsApplication1
             let mut preDef: i32 = this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[tdata]);
             if (this.detailnr2 == tdata)
               tlistselect3 = num2;
-            this.OptionsList2Obj.add(this.game.Data.UnitObj[preDef].Name, tdata, Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Designation[tdata])));
+            this.OptionsList2Obj.add(this.game.Data.UnitObj[preDef].Name, tdata, Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Designation[tdata])));
           }
           tdata += 1;
         }
@@ -316,8 +316,8 @@ namespace WindowsApplication1
           let mut sf: i32 = this.game.Data.UnitObj[preDef].SFList[index];
           if (this.detailnr3 == sf)
             tlistselect5 = num3;
-          tvalue: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sf].Qty)) + " X " + Strings.Trim(Conversion.Str((object) this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Ratio)) + " = " + Strings.Trim(Conversion.Str((object) (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Ratio)));
-          this.OptionsList3Obj.add(Strings.Trim(Conversion.Str((object) (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Ratio))) + "x " + this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Name, sf, tvalue, this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].Name);
+          tvalue: String = Strings.Trim(Conversion.Str( this.game.Data.SFObj[sf].Qty)) + " X " + Strings.Trim(Conversion.Str( this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Ratio)) + " = " + Strings.Trim(Conversion.Str( (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Ratio)));
+          this.OptionsList3Obj.add(Strings.Trim(Conversion.Str( (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Ratio))) + "x " + this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Name, sf, tvalue, this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].Name);
         }
         if (this.OptionsList3Id > 0)
         {
@@ -400,7 +400,7 @@ namespace WindowsApplication1
       }
       let mut tsubpart25: SubPartClass =  new SteveButtonPartClass(this.game.BACKBUTTON, tBackbitmap: ( this.OwnBitmap), bbx: 20, bby: 710);
       this.but1id = this.AddSubPart( tsubpart25, 20, 710, 35, 35, 1);
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
     }
@@ -442,10 +442,10 @@ namespace WindowsApplication1
             let mut num1: i32 = this.SubPartID[index1];
             if (num1 == this.TempText11)
             {
-              let mut num2: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new overdraw graphic # (0-" + Conversion.Str((object) this.game.NATO.GetUpperBound(0)) + ")", "Shadow Empire : Planetary Conquest")));
+              let mut num2: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new overdraw graphic # (0-" + Conversion.Str( this.game.NATO.GetUpperBound(0)) + ")", "Shadow Empire : Planetary Conquest")));
               if (num2 < 0 | num2 > this.game.NATO.GetUpperBound(0))
               {
-                let mut num3: i32 =  Interaction.MsgBox((object) "Overdraw change aborted. Wrong input.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =  Interaction.MsgBox( "Overdraw change aborted. Wrong input.", Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               this.game.Data.HistoricalUnitObj[this.detailnr].Counter = num2;
@@ -465,7 +465,7 @@ namespace WindowsApplication1
               let mut num4: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new qty ( before multiplication )", "Shadow Empire : Planetary Conquest")));
               if (num4 < 0 | num4 > 99)
               {
-                let mut num5: i32 =  Interaction.MsgBox((object) "Overdraw change aborted. Min 1, Max 99. Wrong input.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  Interaction.MsgBox( "Overdraw change aborted. Min 1, Max 99. Wrong input.", Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               this.game.Data.SFObj[this.detailnr3].Qty = num4;
@@ -509,10 +509,10 @@ namespace WindowsApplication1
             }
             if (num1 == this.temptext5)
             {
-              let mut num6: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new overdraw graphic # (0-" + Conversion.Str((object) this.game.NATO.GetUpperBound(0)) + ")", "Shadow Empire : Planetary Conquest")));
+              let mut num6: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new overdraw graphic # (0-" + Conversion.Str( this.game.NATO.GetUpperBound(0)) + ")", "Shadow Empire : Planetary Conquest")));
               if (num6 < 0 | num6 > this.game.NATO.GetUpperBound(0))
               {
-                let mut num7: i32 =  Interaction.MsgBox((object) "Overdraw change aborted. Wrong input.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num7: i32 =  Interaction.MsgBox( "Overdraw change aborted. Wrong input.", Title: ( "Shadow Empire : Planetary Conquest"));
                 return windowReturnClass;
               }
               preDef = this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[this.detailnr2]);
@@ -541,7 +541,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.temptext2)
             {
-              if (Interaction.MsgBox((object) "Are you sure you want to delete this model? If you do any units with this model will be put to ad-hoc status.", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Are you sure you want to delete this model? If you do any units with this model will be put to ad-hoc status.", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 this.game.Data.RemoveHistoricalUnit(this.detailnr);
                 this.detailnr = -1;
@@ -555,16 +555,16 @@ namespace WindowsApplication1
             }
             if (num1 == this.TempText1)
             {
-              if (Interaction.MsgBox((object) "Add a HQ?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Add a HQ?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 int num8;
                 int historicalUnitCounter;
-                if ((double) this.game.Data.RuleVar[348] == 1.0)
+                if ( this.game.Data.RuleVar[348] == 1.0)
                 {
                   num8 =  Math.Round(Conversion.Val(Interaction.InputBox("Level of the HQ? (1=Corps, 2=Army, 3=Armygroup, 4=Highest)", "Shadow Empire : Planetary Conquest")));
                   if (num8 < 1 | num8 > 4)
                   {
-                    let mut num9: i32 =  Interaction.MsgBox((object) "Adding aborted. Wrong input.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num9: i32 =  Interaction.MsgBox( "Adding aborted. Wrong input.", Title: ( "Shadow Empire : Planetary Conquest"));
                     return windowReturnClass;
                   }
                   this.game.Data.AddHistoricalUnit();
@@ -609,7 +609,7 @@ namespace WindowsApplication1
                 let mut num10: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Number of subunits? (1-4)", "Shadow Empire : Planetary Conquest")));
                 if (num10 < 1 | num10 > 4)
                 {
-                  let mut num11: i32 =  Interaction.MsgBox((object) "Adding aborted. Wrong input.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num11: i32 =  Interaction.MsgBox( "Adding aborted. Wrong input.", Title: ( "Shadow Empire : Planetary Conquest"));
                   return windowReturnClass;
                 }
                 this.game.Data.AddHistoricalUnit();

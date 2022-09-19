@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -94,7 +94,7 @@ namespace WindowsApplication1
       {
         DrawMod.DrawBlock( toG, 0, 0, 210, 85, 0, 0, 0,  byte.MaxValue);
         string str;
-        tstring: String = str + "Shrouded (" + Conversion.Str((object) this.x) + "," + Conversion.Str((object) this.y) + ")";
+        tstring: String = str + "Shrouded (" + Conversion.Str( this.x) + "," + Conversion.Str( this.y) + ")";
         DrawMod.DrawText( toG, tstring, Font::new("Times New Roman", 12f, FontStyle.Bold, GraphicsUnit.Pixel), 10, 35);
         return this.OwnBitmap;
       }
@@ -135,10 +135,10 @@ namespace WindowsApplication1
           if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
           {
             --num4;
-            let mut num5: i32 =   Math.Round(170.0 / (Conversion.Int((double) num3 / 2.0) + 1.0));
+            let mut num5: i32 =   Math.Round(170.0 / (Conversion.Int( num3 / 2.0) + 1.0));
             if (num5 > 39)
               num5 = 39;
-            let mut num6: i32 =   Math.Round(Conversion.Int((double) (unitCounter2 + 1) / 2.0));
+            let mut num6: i32 =   Math.Round(Conversion.Int( (unitCounter2 + 1) / 2.0));
             if (num6 < 4)
               num6 = 4;
             int ty;
@@ -175,7 +175,7 @@ namespace WindowsApplication1
             if (this.game.HandyFunctionsObj.CanWeSeeUnit(unit, this.game.Data.Turn) > 0)
             {
               let mut ty: i32 =  4;
-              let mut num: i32 =   Math.Round(170.0 / (double) (unitCounter + 1));
+              let mut num: i32 =   Math.Round(170.0 /  (unitCounter + 1));
               if (num > 39)
                 num = 39;
               let mut tx: i32 =  4 + index * num;
@@ -196,7 +196,7 @@ namespace WindowsApplication1
             if (this.game.HandyFunctionsObj.CanWeSeeUnit(num7, this.game.Data.Turn) > 0)
             {
               let mut ty: i32 =  44;
-              let mut num8: i32 =   Math.Round(190.0 / (double) (counter + 1));
+              let mut num8: i32 =   Math.Round(190.0 /  (counter + 1));
               if (num8 > 39)
                 num8 = 39;
               let mut tx: i32 =  4 + index * num8;

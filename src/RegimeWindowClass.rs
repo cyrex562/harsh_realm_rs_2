@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -140,7 +140,7 @@ namespace WindowsApplication1
         num2 += 1;
         if (this.LibNr == index)
           num1 = num2;
-        this.LibListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index);
+        this.LibListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibraryObj[index].name, index);
       }
       if (this.LibNr == -1)
         num1 = 0;
@@ -162,7 +162,7 @@ namespace WindowsApplication1
         {
           if (this.game.Data.RegimeObj[index].libId.libSlot == this.LibNr | this.LibNr == -1)
           {
-            this.regimeListObj.add(Strings.Trim(Conversion.Str((object) index)) + ") " + this.game.Data.RegimeObj[index].Name + "(id=" + this.game.Data.RegimeObj[index].id.ToString() + ")", index);
+            this.regimeListObj.add(Strings.Trim(Conversion.Str( index)) + ") " + this.game.Data.RegimeObj[index].Name + "(id=" + this.game.Data.RegimeObj[index].id.ToString() + ")", index);
             num3 += 1;
             if (this.LibNr == index)
               num4 = num3;
@@ -342,32 +342,32 @@ namespace WindowsApplication1
         this.ss = "Click to set basemorale for regime. 100 means the basemorale of a people is not modified. 50 means basemorale of a people will be 50% lower.";
         let mut tsubpart7: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BMorId = this.AddSubPart( tsubpart7, 370, 180, 32, 16, 1);
-        let mut tsubpart8: SubPartClass =  TextPartClass::new("BaseMorale: " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].BaseMorale), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        let mut tsubpart8: SubPartClass =  TextPartClass::new("BaseMorale: " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].BaseMorale), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.BMorTextId = this.AddSubPart( tsubpart8, 410, 179, 200, 20, 0);
         this.ss = "Click to set the political points this regime starts with";
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BResId = this.AddSubPart( tsubpart8, 370, 200, 32, 16, 1);
-        tsubpart8 =  TextPartClass::new("Pol.Pts: " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].ResPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart8 =  TextPartClass::new("Pol.Pts: " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].ResPts), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.BResTextId = this.AddSubPart( tsubpart8, 410, 199, 200, 20, 0);
         this.ss = "Click to set if this regime is an AI as default or not";
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BAIId = this.AddSubPart( tsubpart8, 370, 240, 32, 16, 1);
-        tsubpart8 =  TextPartClass::new("is AI: " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].AI), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart8 =  TextPartClass::new("is AI: " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].AI), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.BAITextID = this.AddSubPart( tsubpart8, 410, 239, 200, 20, 0);
         this.ss = "Click to set if this regime is sleeping. (sleeping means it wont be able to play until an event wakes it)";
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.e5id = this.AddSubPart( tsubpart8, 670, 220, 32, 16, 1);
-        tsubpart8 =  TextPartClass::new("Sleeping: " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].Sleep), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart8 =  TextPartClass::new("Sleeping: " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].Sleep), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.e5textid = this.AddSubPart( tsubpart8, 710, 219, 200, 20, 0);
         this.ss = "Click to set the PBEM++ Player for this regime. 0=auto set, 1=player 1, 2=player 2";
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.PbemId = this.AddSubPart( tsubpart8, 670, 240, 32, 16, 1);
-        tsubpart8 =  TextPartClass::new("PBEM++ player: " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].PbemPlayer), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart8 =  TextPartClass::new("PBEM++ player: " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].PbemPlayer), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.PbemTextId = this.AddSubPart( tsubpart8, 710, 239, 200, 20, 0);
         this.ss = "Set to true if regime uses Alternative actioncard pictures";
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.altid = this.AddSubPart( tsubpart8, 670, 260, 32, 16, 1);
-        tsubpart8 =  TextPartClass::new("Alt.ActionCardPics: " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].UseAlternateActionCardPics), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart8 =  TextPartClass::new("Alt.ActionCardPics: " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].UseAlternateActionCardPics), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.alttextid = this.AddSubPart( tsubpart8, 710, 259, 200, 20, 0);
         this.ss = "Click to set all subformations of this regime to its current people!";
         tsubpart8 =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
@@ -502,7 +502,7 @@ namespace WindowsApplication1
       this.ss = "Click to select if this HQ sprite should have its colours adjusted for the regimes color.";
       let mut tsubpart5: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.e8id = this.AddSubPart( tsubpart5, 10, 450, 32, 16, 1);
-      let mut tsubpart6: SubPartClass =  TextPartClass::new("HQSymbolOverrule: " + Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].HQSpriteOverrule)), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      let mut tsubpart6: SubPartClass =  TextPartClass::new("HQSymbolOverrule: " + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].HQSpriteOverrule)), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.e8textid = this.AddSubPart( tsubpart6, 50, 449, 400, 20, 0);
       this.ss = "Click to change the National Icon of this regime";
       let mut tsubpart7: SubPartClass =  ButtonPartClass::new(this.game.Data.RegimeObj[this.regimeNr].NationalIconSprite, tDescript: this.ss);
@@ -526,7 +526,7 @@ namespace WindowsApplication1
       this.ss = "Click to set if SFType sprites should be mirrored for this regime";
       tsubpart10 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.e13id = this.AddSubPart( tsubpart10, 10, 610, 32, 16, 1);
-      tsubpart10 =  TextPartClass::new("Mirror: " + Strings.Trim(Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].Mirror)), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+      tsubpart10 =  TextPartClass::new("Mirror: " + Strings.Trim(Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].Mirror)), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
       this.e13textid = this.AddSubPart( tsubpart10, 50, 609, 400, 20, 0);
       this.ss = "Click to change the Roundel Icon of this regime";
       tsubpart10 =  ButtonPartClass::new(this.game.Data.RegimeObj[this.regimeNr].RoundelIconSprite, tDescript: this.ss, tResizeX: 20, tresizeY: 20);
@@ -541,7 +541,7 @@ namespace WindowsApplication1
       let mut index: i32 = 0;
       do
       {
-        this.stringListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.RegimeSlotName[index] + " = " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].RegimeSlot[index]), index);
+        this.stringListObj.add(Conversion.Str( index) + ") " + this.game.Data.RegimeSlotName[index] + " = " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].RegimeSlot[index]), index);
         index += 1;
       }
       while (index <= 499);
@@ -576,7 +576,7 @@ namespace WindowsApplication1
         return;
       let mut researchCounter: i32 = this.game.Data.ResearchCounter;
       for (let mut index: i32 = 0; index <= researchCounter; index += 1)
-        this.ResListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.ResearchObj[index].Name + " = " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].ResField[index]), index);
+        this.ResListObj.add(Conversion.Str( index) + ") " + this.game.Data.ResearchObj[index].Name + " = " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].ResField[index]), index);
       if (this.DetailNr > this.game.Data.ResearchCounter)
         this.DetailNr = -1;
       ListClass resListObj = this.ResListObj;
@@ -613,7 +613,7 @@ namespace WindowsApplication1
         return;
       let mut regimeCounter: i32 = this.game.Data.RegimeCounter;
       for (let mut index: i32 = 0; index <= regimeCounter; index += 1)
-        this.dipListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.RegimeObj[index].Name + " = " + Conversion.Str((object) this.game.Data.RegimeObj[this.regimeNr].RegimeRel[index]), index);
+        this.dipListObj.add(Conversion.Str( index) + ") " + this.game.Data.RegimeObj[index].Name + " = " + Conversion.Str( this.game.Data.RegimeObj[this.regimeNr].RegimeRel[index]), index);
       if (this.DetailNr > this.game.Data.RegimeCounter)
         this.DetailNr = -1;
       ListClass dipListObj = this.dipListObj;
@@ -704,7 +704,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num5: i32 =  Interaction.MsgBox((object) "Wrong input. between 0-300 please. Cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num5: i32 =  Interaction.MsgBox( "Wrong input. between 0-300 please. Cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
             }
             else if (num1 == this.BResId)
             {
@@ -716,7 +716,7 @@ namespace WindowsApplication1
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              let mut num7: i32 =  Interaction.MsgBox((object) "Wrong input. between 0-9999 please. Cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num7: i32 =  Interaction.MsgBox( "Wrong input. between 0-9999 please. Cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
             }
             else
             {
@@ -751,7 +751,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num9: i32 =  Interaction.MsgBox((object) "Wrong input. between 0-2 please. Cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num9: i32 =  Interaction.MsgBox( "Wrong input. between 0-2 please. Cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               else
               {
@@ -971,7 +971,7 @@ namespace WindowsApplication1
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
-                  let mut num15: i32 =  Interaction.MsgBox((object) "Wrong input. Cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num15: i32 =  Interaction.MsgBox( "Wrong input. Cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else if (num1 == this.e10id)
                 {
@@ -983,7 +983,7 @@ namespace WindowsApplication1
                     windowReturnClass.SetFlag(true);
                     return windowReturnClass;
                   }
-                  let mut num17: i32 =  Interaction.MsgBox((object) "Wrong input. Cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num17: i32 =  Interaction.MsgBox( "Wrong input. Cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -1011,7 +1011,7 @@ namespace WindowsApplication1
                       windowReturnClass.SetFlag(true);
                       return windowReturnClass;
                     }
-                    let mut num19: i32 =  Interaction.MsgBox((object) "Wrong input. Cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num19: i32 =  Interaction.MsgBox( "Wrong input. Cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else if (num1 == this.b4Id)
                   {
@@ -1020,7 +1020,7 @@ namespace WindowsApplication1
                       let mut num20: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give new relation please. 0=war, 1=peace, 2=allied ", "Shadow Empire : Planetary Conquest")));
                       if (num20 < 0 | num20 > 2)
                       {
-                        let mut num21: i32 =  Interaction.MsgBox((object) "Beep. Not allowed. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num21: i32 =  Interaction.MsgBox( "Beep. Not allowed. ", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       else
                       {
@@ -1033,7 +1033,7 @@ namespace WindowsApplication1
                     }
                     else
                     {
-                      let mut num22: i32 =  Interaction.MsgBox((object) "You cannot change relation with your self", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num22: i32 =  Interaction.MsgBox( "You cannot change relation with your self", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                   }
                   else
@@ -1047,7 +1047,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num23: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num23: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       this.maketabsheet();
                       windowReturnClass.SetFlag(true);
@@ -1062,7 +1062,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num24: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num24: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       this.maketabsheet();
                       windowReturnClass.SetFlag(true);
@@ -1077,7 +1077,7 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num25: i32 =  Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num25: i32 =  Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       this.maketabsheet();
                       windowReturnClass.SetFlag(true);
@@ -1100,7 +1100,7 @@ namespace WindowsApplication1
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
-                      let mut num27: i32 =  Interaction.MsgBox((object) "Invalid input", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num27: i32 =  Interaction.MsgBox( "Invalid input", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
@@ -1123,7 +1123,7 @@ namespace WindowsApplication1
                               this.game.Data.SFObj[this.game.Data.UnitObj[index3].SFList[index4]].People = this.game.Data.RegimeObj[this.regimeNr].People;
                           }
                         }
-                        let mut num28: i32 =  Interaction.MsgBox((object) "Done", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num28: i32 =  Interaction.MsgBox( "Done", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       else if (num1 == this.e4id)
                       {
@@ -1135,7 +1135,7 @@ namespace WindowsApplication1
                           windowReturnClass.SetFlag(true);
                           return windowReturnClass;
                         }
-                        let mut num30: i32 =  Interaction.MsgBox((object) "Invalid input", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num30: i32 =  Interaction.MsgBox( "Invalid input", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                       else
                       {

@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
 
 namespace WindowsApplication1
 {
@@ -54,7 +54,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       Graphics graphics = Graphics.FromImage((Image) self.OwnBitmap);
       graphics.SmoothingMode = SmoothingMode.AntiAlias;
       graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
@@ -165,31 +165,31 @@ namespace WindowsApplication1
         string str3;
         if (self.game.EditObj.PencilType == 1 | self.game.EditObj.PencilType == 10)
         {
-          str1 = "Landsc# " + Conversion.Str((object) self.game.EditObj.PencilData1) + "," + Conversion.Str((object) self.game.EditObj.PencilData2);
+          str1 = "Landsc# " + Conversion.Str( self.game.EditObj.PencilData1) + "," + Conversion.Str( self.game.EditObj.PencilData2);
           str2 = self.game.Data.LandscapeTypeObj[self.game.EditObj.PencilData1].Name;
           str3 = "Left click to draw this landscape+sprite on a hex, right click to only select a hex.";
         }
         else if (self.game.EditObj.PencilType == 2)
         {
-          str1 = "Road# " + Conversion.Str((object) self.game.EditObj.PencilData1);
+          str1 = "Road# " + Conversion.Str( self.game.EditObj.PencilData1);
           str2 = self.game.Data.RoadTypeObj[self.game.EditObj.PencilData1].Name;
           str3 = "First right click to select a hex, then left click on a neighbouring hex to draw a road between them.";
         }
         else if (self.game.EditObj.PencilType == 3)
         {
-          str1 = "Reg# " + Conversion.Str((object) self.game.EditObj.PencilData1);
+          str1 = "Reg# " + Conversion.Str( self.game.EditObj.PencilData1);
           str2 = self.game.EditObj.PencilData1 <= self.game.Data.RegimeCounter ? self.game.Data.RegimeObj[self.game.EditObj.PencilData1].Name : "Neutral Hex";
           str3 = "Left click to draw this regime on a hex, right click just to select a hex, clicking twice results in hex becoming neutral again.";
         }
         else if (self.game.EditObj.PencilType == 4)
         {
-          str1 = "LocTyp# " + Conversion.Str((object) self.game.EditObj.PencilData1);
+          str1 = "LocTyp# " + Conversion.Str( self.game.EditObj.PencilData1);
           str2 = self.game.Data.LocTypeObj[self.game.EditObj.PencilData1].Name;
           str3 = "Left click on a hex to place a location of this locationtype. Right click is only select.";
         }
         else if (self.game.EditObj.PencilType == 5)
         {
-          str1 = "RiverTyp# " + Conversion.Str((object) self.game.EditObj.PencilData1);
+          str1 = "RiverTyp# " + Conversion.Str( self.game.EditObj.PencilData1);
           str2 = self.game.Data.RiverTypeObj[self.game.EditObj.PencilData1].Name;
           str3 = "First right click to select a hex, then left click on a neighbouring hex to draw a river inbetween them.";
         }
@@ -201,20 +201,20 @@ namespace WindowsApplication1
         }
         else if (self.game.EditObj.PencilType == 9)
         {
-          str1 = "Slot# " + Conversion.Str((object) self.game.EditObj.PencilData1) + ", => " + Conversion.Str((object) self.game.EditObj.PencilData2);
+          str1 = "Slot# " + Conversion.Str( self.game.EditObj.PencilData1) + ", => " + Conversion.Str( self.game.EditObj.PencilData2);
           str2 = "";
           str3 = "Left click to place this value on a hex, right click just to select a hex.";
         }
         else if (self.game.EditObj.PencilType == 11)
         {
-          str1 = "Hex LibVar# " + Conversion.Str((object) self.game.EditObj.PencilData1);
-          str2 = "value " + Conversion.Str((object) self.game.EditObj.PencilData2);
+          str1 = "Hex LibVar# " + Conversion.Str( self.game.EditObj.PencilData1);
+          str2 = "value " + Conversion.Str( self.game.EditObj.PencilData2);
           str3 = "Left click to place this value on a hex, right click just to select a hex.";
         }
         else if (self.game.EditObj.PencilType == 12)
         {
           str1 = "Height Level";
-          str2 = Conversion.Str((object) self.game.EditObj.PencilData2);
+          str2 = Conversion.Str( self.game.EditObj.PencilData2);
           str3 = "Left click to place this value on a hex.";
         }
         else
@@ -316,7 +316,7 @@ namespace WindowsApplication1
               self.SubPartFlag[index1] = true;
               if (num2 > -1)
               {
-                let mut tx: i32 =  Math.Round(Conversion.Int((double) num2 / 10000.0));
+                let mut tx: i32 =  Math.Round(Conversion.Int( num2 / 10000.0));
                 let mut ty: i32 = num2 % 10000;
                 self.game.SelectX = tx;
                 self.game.SelectY = ty;
@@ -402,7 +402,7 @@ namespace WindowsApplication1
                 self.game.HandyFunctionsObj.MakeAutoLabels(1, 1);
                 self.game.HandyFunctionsObj.MakeAutoLabels(2, 2);
                 self.game.HandyFunctionsObj.MakeAutoLabels(5, 3);
-                let mut num3: i32 =  Interaction.MsgBox((object) "Set all hex labels");
+                let mut num3: i32 =  Interaction.MsgBox( "Set all hex labels");
                 self.DoStuff();
                 windowReturnClass.AddCommand(4, 12);
                 windowReturnClass.SetFlag(true);
@@ -424,7 +424,7 @@ namespace WindowsApplication1
                     self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[index2, index3].SmallLabelType = 0;
                   }
                 }
-                let mut num4: i32 =  Interaction.MsgBox((object) "Removed all hex labels");
+                let mut num4: i32 =  Interaction.MsgBox( "Removed all hex labels");
                 self.DoStuff();
                 windowReturnClass.AddCommand(4, 12);
                 windowReturnClass.SetFlag(true);

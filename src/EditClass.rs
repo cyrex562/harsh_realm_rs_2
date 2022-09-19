@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
 
 namespace WindowsApplication1
 {
@@ -99,7 +99,7 @@ namespace WindowsApplication1
     pub int[,,] PossiblePull;
     pub int[,,] origPossiblePull;
     pub tempGroupMoveCounter: i32;
-    pub int[] tempGroupMoveUnr;
+    pub tempGroupMoveUnr: Vec<i32>;
     pub CoordList[] tempGroupMoveCameFrom;
     pub CoordList[] tempGroupMovePath;
     pub MapMatrix2[] TempSup;
@@ -113,7 +113,7 @@ namespace WindowsApplication1
     pub HideAS: bool;
     pub CombatSim: bool;
     pub DoQuit: bool;
-    pub int[] RemoveReinforce;
+    pub RemoveReinforce: Vec<i32>;
     pub LoadGame: String;
     pub ShownWelcome: bool;
     pub ShowInitialMenu: bool;
@@ -171,18 +171,18 @@ namespace WindowsApplication1
     pub HisRegimeWon: i32;
     pub HisLossAttReg: i32;
     pub HisLossDefReg: i32;
-    pub int[] HisLossSFType;
-    pub int[] HisLossAttacker;
-    pub int[] HisLossOK;
-    pub int[] HisLossDEAD;
+    pub HisLossSFType: Vec<i32>;
+    pub HisLossAttacker: Vec<i32>;
+    pub HisLossOK: Vec<i32>;
+    pub HisLossDEAD: Vec<i32>;
     pub HisLossCounter2: i32;
     pub HisRegimeWon2: i32;
     pub HisLossAttReg2: i32;
     pub HisLossDefReg2: i32;
-    pub int[] HisLossSFType2;
-    pub int[] HisLossAttacker2;
-    pub int[] HisLossOK2;
-    pub int[] HisLossDEAD2;
+    pub HisLossSFType2: Vec<i32>;
+    pub HisLossAttacker2: Vec<i32>;
+    pub HisLossOK2: Vec<i32>;
+    pub HisLossDEAD2: Vec<i32>;
     pub HisInfoString: String;
     pub TempPeopleSlot: i32;
     pub TempItemSlot: i32;
@@ -430,7 +430,7 @@ namespace WindowsApplication1
     pub tempRenameString3: String;
     pub statsTab_tab: i32;
     pub statsTab_item: i32;
-    pub int[] uds_subtab;
+    pub uds_subtab: Vec<i32>;
     pub int[,] uds_page;
     pub RealTurn: i32;
     pub RealRound: i32;
@@ -509,10 +509,10 @@ namespace WindowsApplication1
     pub Zoom: i32;
     pub CombatNumbers: bool;
     pub Screenshoton: bool;
-    pub int[] StartRdn;
-    pub int[] StartXp;
-    pub int[] StartMor;
-    pub int[] StartEntr;
+    pub StartRdn: Vec<i32>;
+    pub StartXp: Vec<i32>;
+    pub StartMor: Vec<i32>;
+    pub StartEntr: Vec<i32>;
     pub OverlayMode: i32;
     pub overlayOffsetX: i32;
     pub overlayOffsetY: i32;
@@ -557,7 +557,7 @@ namespace WindowsApplication1
     pub layerLis_LogType: i32;
     pub layerLis_TraficWindowOpen: i32;
     pub int[,] tempZoneTest;
-    pub int[] tempOtherTest;
+    pub tempOtherTest: Vec<i32>;
     pub string[] tempOtherTestText;
     pub layerUnits: bool;
     pub inRandomScreen: bool;
@@ -750,8 +750,8 @@ namespace WindowsApplication1
       this.MapSelected = 0;
       this.TutOrder = -1;
       this.OldUnit = -1;
-      this.TutX = (object) -1;
-      this.TutY = (object) -1;
+      this.TutX =  -1;
+      this.TutY =  -1;
       this.overruleScreenResWidth = -1;
       this.overruleScreenResHeight = -1;
       this.TutMode = false;
@@ -903,7 +903,7 @@ namespace WindowsApplication1
       this.Zoom = 0;
       this.TargetY = -1;
       this.MiniMap = new Bitmap(200, 150);
-      this.MiniMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.MiniMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       this.ShownWelcome = true;
       this.PaintShortcut1 = -1;
       this.PaintShortcut2 = -1;
@@ -925,8 +925,8 @@ namespace WindowsApplication1
       this.ButtonLoadMode = false;
       this.TutStep = 0;
       this.TextInputString = "";
-      this.TutX = (object) -1;
-      this.TutY = (object) -1;
+      this.TutX =  -1;
+      this.TutY =  -1;
       this.Layout = 0;
       this.TempHisUnit = -1;
       this.HandCard = -1;
@@ -1131,16 +1131,16 @@ namespace WindowsApplication1
             this.ShowAirRange = false;
             ProjectData.ClearProjectError();
           }
-          if (Information.IsNothing((object) this.PbemUserName))
+          if (Information.IsNothing( this.PbemUserName))
             this.PbemUserName = "";
-          if (Information.IsNothing((object) this.PbemPassword))
+          if (Information.IsNothing( this.PbemPassword))
             this.PbemPassword = "";
-          if (Information.IsNothing((object) this.PbemEmail))
+          if (Information.IsNothing( this.PbemEmail))
             this.PbemEmail = "";
           try
           {
             str: String = streamReader.ReadLine();
-            this.Volume = !Information.IsNothing((object) str) ?  Math.Round(Conversion.Val(str)) : 50;
+            this.Volume = !Information.IsNothing( str) ?  Math.Round(Conversion.Val(str)) : 50;
           }
           catch (Exception ex)
           {
@@ -1151,7 +1151,7 @@ namespace WindowsApplication1
           try
           {
             str: String = streamReader.ReadLine();
-            this.Volume2 = !Information.IsNothing((object) str) ?  Math.Round(Conversion.Val(str)) : 50;
+            this.Volume2 = !Information.IsNothing( str) ?  Math.Round(Conversion.Val(str)) : 50;
           }
           catch (Exception ex)
           {
@@ -1408,14 +1408,14 @@ namespace WindowsApplication1
           ProjectData.SetProjectError(ex);
           Exception exception = ex;
           this.initialSet();
-          let mut num: i32 =   Interaction.MsgBox((object) ("Prefs loading issue: '" + exception.Message + "'.. you can continue game however"), Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num: i32 =   Interaction.MsgBox( ("Prefs loading issue: '" + exception.Message + "'.. you can continue game however"), Title: ( "Shadow Empire : Planetary Conquest"));
           ProjectData.ClearProjectError();
         }
         streamReader.Close();
       }
       else
       {
-        let mut num1: i32 =   Interaction.MsgBox((object) "Prefs not found and could not be loaded at all. you can continue game however", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox( "Prefs not found and could not be loaded at all. you can continue game however", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       if (this.PbemSerial.Length < 19)
         this.PbemSerial = "0000-0000-0000-0000";

@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Diagnostics;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -276,7 +276,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
-      if (Information.IsNothing((object) this.game.EditObj.pdfGenerated))
+      if (Information.IsNothing( this.game.EditObj.pdfGenerated))
         this.game.EditObj.pdfGenerated = "";
       if (this.EndingTurn)
         return this.DoEndTurnStuff();
@@ -313,7 +313,7 @@ namespace WindowsApplication1
           catch (Exception ex)
           {
             ProjectData.SetProjectError(ex);
-            let mut num: i32 =   Interaction.MsgBox((object) "PROBLEM", Title: ((object) "Sadly there was a problem trying to let your Windows system open this PDF. Please check the game forums for possible causes."));
+            let mut num: i32 =   Interaction.MsgBox( "PROBLEM", Title: ( "Sadly there was a problem trying to let your Windows system open this PDF. Please check the game forums for possible causes."));
             this.dostuff();
             windowReturnClass2 = windowReturnClass1;
             ProjectData.ClearProjectError();
@@ -324,9 +324,9 @@ namespace WindowsApplication1
 label_10:
       if (this.Surrendering)
       {
-        if ((double) this.game.Data.RuleVar[950] > 0.0)
+        if ( this.game.Data.RuleVar[950] > 0.0)
         {
-          this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round((double) this.game.Data.RuleVar[950]));
+          this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round( this.game.Data.RuleVar[950]));
           this.RealSurrendering = true;
           this.Surrendering = false;
           DrawMod.TGame.EditObj.PopupValue = 0;
@@ -368,9 +368,9 @@ label_10:
       this.ClearMouse();
       this.NewBackGroundAndClearAll(this.w, this.h, -1);
       Graphics g = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!this.game.EditObj.useLeftRightClickMode | (double) this.game.Data.RuleVar[701] < 1.0 | this.game.EditObj.OrderType == 26)
+      if (!this.game.EditObj.useLeftRightClickMode |  this.game.Data.RuleVar[701] < 1.0 | this.game.EditObj.OrderType == 26)
       {
-        let mut num1: i32 =   Math.Round((double) this.game.ScreenWidth / 116.0);
+        let mut num1: i32 =   Math.Round( this.game.ScreenWidth / 116.0);
         Bitmap bitmap;
         for (let mut index: i32 =  0; index <= num1; index += 1)
         {
@@ -383,7 +383,7 @@ label_10:
         let mut num2: i32 =  0;
         if (this.game.EditObj.OrderType == 26)
         {
-          let mut num3: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+          let mut num3: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
            let mut local3: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBARHISTORY);
            let mut local4: &Bitmap = &bitmap;
@@ -393,7 +393,7 @@ label_10:
         }
         else
         {
-          let mut num4: i32 =   Math.Round((double) (this.game.ScreenWidth - BitmapStore.GetWidth(this.game.MARCBUTBAR)) / 2.0);
+          let mut num4: i32 =   Math.Round( (this.game.ScreenWidth - BitmapStore.GetWidth(this.game.MARCBUTBAR)) / 2.0);
            let mut local5: &Graphics = &g;
           bitmap = BitmapStore.GetBitmap(this.game.MARCBUTBAR);
            let mut local6: &Bitmap = &bitmap;
@@ -407,7 +407,7 @@ label_10:
         DrawMod.DrawBlock( g, this.w - 290, 0, 290, 15, 0, 0, 0, 128);
         DrawMod.DrawBlock( g, 0, 15, this.w, 20, 0, 0, 0, 128);
         DrawMod.DrawBlock( g, 0, 33, this.w, this.h - 33, 0, 0, 0,  byte.MaxValue);
-        let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 116.0);
+        let mut num: i32 =   Math.Round( this.game.ScreenWidth / 116.0);
         for (let mut index: i32 =  0; index <= num; index += 1)
         {
            let mut local7: &Graphics = &g;
@@ -418,7 +418,7 @@ label_10:
         }
       }
       this.BackBitmap = (Bitmap) this.OwnBitmap.Clone();
-      if (Information.IsNothing((object) this.game.EditObj.TempUnitList))
+      if (Information.IsNothing( this.game.EditObj.TempUnitList))
         this.game.EditObj.TempUnitList = UnitList::new();
       this.DoTabs( g);
       if (!this.game.EditObj.PurelyOrderRedrawRefresh)
@@ -428,7 +428,7 @@ label_10:
       else
       {
         this.game.EditObj.PurelyOrderRedrawRefresh = false;
-        if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+        if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
           this.dostuff2(g);
         this.FlagAll();
       }
@@ -504,7 +504,7 @@ label_10:
         windowReturnClass11.SetFlag(true);
         return windowReturnClass11;
       }
-      if ((nr == 98 | nr == 50) & this.HexUnitButtonId > 0 + num1 & (double) this.game.Data.RuleVar[344] > (double) (0 + num1) & this.game.EditObj.TutOrder == -1)
+      if ((nr == 98 | nr == 50) & this.HexUnitButtonId > 0 + num1 &  this.game.Data.RuleVar[344] >  (0 + num1) & this.game.EditObj.TutOrder == -1)
       {
         this.game.EditObj.HideUnit = 1;
         windowReturnClass12: WindowReturnClass = this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.HexUnitButtonId)] + 1, this.SubPartY[this.SubpartNr(this.HexUnitButtonId)] + 1, 1);
@@ -514,7 +514,7 @@ label_10:
       if ((nr == 96 | nr == 48) & this.HexUnitButtonId > 0 + num1 & this.game.EditObj.TutOrder == -1)
       {
         let mut num2: i32 =  0;
-        if ((double) this.game.Data.RuleVar[344] > (double) (0 + num1))
+        if ( this.game.Data.RuleVar[344] >  (0 + num1))
           num2 = 0;
         if (this.lastHideUnit > -1 & this.lastHideUnit != num2)
         {
@@ -601,32 +601,32 @@ label_10:
         }
         else
         {
-          let mut num4: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-          let mut num5: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-          let mut num6: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 53.0));
-          let mut num7: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 106.0));
+          let mut num4: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 53.0));
+          let mut num5: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
+          let mut num6: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 53.0));
+          let mut num7: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 106.0));
           int num8;
           int num9;
           if (this.game.EditObj.Zoom == 0)
           {
             this.game.EditObj.Zoom = 1;
-            this.game.CornerX +=  Math.Round(Conversion.Int((double) num5 / 2.0));
-            this.game.CornerY +=  Math.Round(Conversion.Int((double) num7 / 2.0));
+            this.game.CornerX +=  Math.Round(Conversion.Int( num5 / 2.0));
+            this.game.CornerY +=  Math.Round(Conversion.Int( num7 / 2.0));
             num8 = 106;
             num9 = 96;
           }
           else
           {
             this.game.EditObj.Zoom = 0;
-            this.game.CornerX +=  Math.Round(Conversion.Int((double) num4 / 2.0));
-            this.game.CornerY +=  Math.Round(Conversion.Int((double) num6 / 2.0));
+            this.game.CornerX +=  Math.Round(Conversion.Int( num4 / 2.0));
+            this.game.CornerY +=  Math.Round(Conversion.Int( num6 / 2.0));
             num8 = 53;
             num9 = 48;
           }
-          if ((double) this.game.CornerX + (double) this.game.ScreenWidth / (double) num8 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-            this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num8);
-          if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - (256 - num3)) / (double) num9 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-            this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - (256 - num3)) / (double) num9);
+          if ( this.game.CornerX +  this.game.ScreenWidth /  num8 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+            this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num8);
+          if ( this.game.CornerY +  (this.game.ScreenHeight - (256 - num3)) /  num9 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+            this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - (256 - num3)) /  num9);
           if (this.game.CornerX < 0)
             this.game.CornerX = 0;
           if (this.game.CornerY < 0)
@@ -651,32 +651,32 @@ label_10:
         }
         else
         {
-          let mut num10: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-          let mut num11: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-          let mut num12: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 53.0));
-          let mut num13: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num3)) / 106.0));
+          let mut num10: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 53.0));
+          let mut num11: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
+          let mut num12: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 53.0));
+          let mut num13: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num3)) / 106.0));
           int num14;
           int num15;
           if (this.game.EditObj.Zoom == 0)
           {
             this.game.EditObj.Zoom = -1;
-            this.game.CornerX -=  Math.Round(Conversion.Int((double) num10 / 2.0));
-            this.game.CornerY -=  Math.Round(Conversion.Int((double) num12 / 2.0));
+            this.game.CornerX -=  Math.Round(Conversion.Int( num10 / 2.0));
+            this.game.CornerY -=  Math.Round(Conversion.Int( num12 / 2.0));
             num14 = 27;
             num15 = 24;
           }
           else
           {
             this.game.EditObj.Zoom = 0;
-            this.game.CornerX -=  Math.Round(Conversion.Int((double) num11 / 2.0));
-            this.game.CornerY -=  Math.Round(Conversion.Int((double) num13 / 2.0));
+            this.game.CornerX -=  Math.Round(Conversion.Int( num11 / 2.0));
+            this.game.CornerY -=  Math.Round(Conversion.Int( num13 / 2.0));
             num14 = 53;
             num15 = 48;
           }
-          if ((double) this.game.CornerX + (double) this.game.ScreenWidth / (double) num14 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-            this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num14);
-          if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - (256 - num3)) / (double) num15 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-            this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - (256 - num3)) / (double) num15);
+          if ( this.game.CornerX +  this.game.ScreenWidth /  num14 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+            this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num14);
+          if ( this.game.CornerY +  (this.game.ScreenHeight - (256 - num3)) /  num15 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+            this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - (256 - num3)) /  num15);
           if (this.game.CornerX < 0)
             this.game.CornerX = 0;
           if (this.game.CornerY < 0)
@@ -725,7 +725,7 @@ label_10:
           windowReturnClass1 = this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.MoveButtonId)] + 1, this.SubPartY[this.SubpartNr(this.MoveButtonId)] + 1, 1);
           windowReturnClass1.SetFlag(true);
         }
-        else if (nr == 77 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+        else if (nr == 77 &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         {
           let mut mouseCounter: i32 =  this.MouseCounter;
           for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
@@ -750,7 +750,7 @@ label_10:
             windowReturnClass1 = this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.MoveButtonId)] + 1, this.SubPartY[this.SubpartNr(this.MoveButtonId)] + 1, 1);
             windowReturnClass1.SetFlag(true);
           }
-          else if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+          else if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
           {
             let mut mouseCounter: i32 =  this.MouseCounter;
             for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
@@ -764,7 +764,7 @@ label_10:
             }
           }
         }
-        if (nr == 83 & this.StrategicButtonId > 1 + num1 & (double) this.game.Data.RuleVar[520] == 0.0)
+        if (nr == 83 & this.StrategicButtonId > 1 + num1 &  this.game.Data.RuleVar[520] == 0.0)
         {
           windowReturnClass1 = this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.StrategicButtonId)] + 1, this.SubPartY[this.SubpartNr(this.StrategicButtonId)] + 1, 1);
           windowReturnClass1.SetFlag(true);
@@ -851,7 +851,7 @@ label_10:
       }
       if (this.game.EditObj.OrderType > 0)
       {
-        if (nr == 77 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+        if (nr == 77 &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         {
           let mut mouseCounter: i32 =  this.MouseCounter;
           for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
@@ -864,7 +864,7 @@ label_10:
             }
           }
         }
-        if (nr == 71 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+        if (nr == 71 &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         {
           let mut mouseCounter: i32 =  this.MouseCounter;
           for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
@@ -886,7 +886,7 @@ label_10:
           windowReturnClass1.SetFlag(true);
         }
       }
-      else if (this.game.EditObj.OrderType > 0 & (nr == 27 | nr == 32) & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.udsUnitOrderMode > 0)
+      else if (this.game.EditObj.OrderType > 0 & (nr == 27 | nr == 32) &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.udsUnitOrderMode > 0)
       {
         let mut mouseCounter: i32 =  this.MouseCounter;
         for (let mut index: i32 =  0; index <= mouseCounter; index += 1)
@@ -934,10 +934,10 @@ label_10:
     {
       SizeF sizeF1 = SizeF::new();
       let mut num1: i32 =  31;
-      let mut num2: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+      let mut num2: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
-        num2 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0 - 128.0) + 240;
+        num2 =  Math.Round( (this.game.ScreenWidth - 1024) / 2.0 - 128.0) + 240;
         num1 += 16;
       }
       if (this.Info1Id > 0)
@@ -1558,14 +1558,14 @@ label_10:
         this.RemoveSubPart(this.Battle2Id);
         this.Battle2Id = 0;
       }
-      if (Information.IsNothing((object) this.game.EditObj.TempUnitList))
+      if (Information.IsNothing( this.game.EditObj.TempUnitList))
         this.game.EditObj.TempUnitList = UnitList::new();
-      if ((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
+      if ( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
         this.game.EditObj.udsUnitOrderMode = 0;
       Rectangle rectangle;
       Rectangle trect1;
       string str1;
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
         let mut width: i32 =  75;
         let mut num3: i32 =  num2 - 200 + 12;
@@ -1600,9 +1600,9 @@ label_10:
         }
         str1 = "MOVE";
         SizeF sizeF2 = g.MeasureString(str1, this.game.MarcFont16);
-        DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round((double) x + (double) width / 2.0 - (double) sizeF2.Width / 2.0 - 2.0), 37 +  Math.Round((double) (90 - height) / 2.0), Color.White);
+        DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round( x +  width / 2.0 -  sizeF2.Width / 2.0 - 2.0), 37 +  Math.Round( (90 - height) / 2.0), Color.White);
       }
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
         let mut width: i32 =  75;
         let mut num4: i32 =  num2 - 200 + 12;
@@ -1639,9 +1639,9 @@ label_10:
         }
         str1 = "GROUP";
         SizeF sizeF3 = g.MeasureString(str1, this.game.MarcFont16);
-        DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round((double) x + (double) width / 2.0 - (double) sizeF3.Width / 2.0 - 2.0), 37 +  Math.Round((double) (90 - height) / 2.0), Color.White);
+        DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round( x +  width / 2.0 -  sizeF3.Width / 2.0 - 2.0), 37 +  Math.Round( (90 - height) / 2.0), Color.White);
       }
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
       {
         let mut width: i32 =  75;
         let mut num5: i32 =  num2 - 200 + 12;
@@ -1678,10 +1678,10 @@ label_10:
         }
         str1 = "ORDER";
         SizeF sizeF4 = g.MeasureString(str1, this.game.MarcFont16);
-        DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round((double) x + (double) width / 2.0 - (double) sizeF4.Width / 2.0 - 2.0), 37 +  Math.Round((double) (90 - height) / 2.0), Color.White);
+        DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round( x +  width / 2.0 -  sizeF4.Width / 2.0 - 2.0), 37 +  Math.Round( (90 - height) / 2.0), Color.White);
       }
       SubPartClass tsubpart;
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.OrderType == 0 & this.game.EditObj.udsUnitOrderMode == 0)
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode & this.game.EditObj.OrderType == 0 & this.game.EditObj.udsUnitOrderMode == 0)
       {
         this.GuiDownId = 1;
         if (this.game.Data.Round == 0)
@@ -1701,7 +1701,7 @@ label_10:
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[419] > 0.0 & this.game.Data.Product >= 6 & this.game.EditObj.MouseOverX > -1 & !Information.IsNothing((object) this.game.EditObj.airRangeTempLos))
+      if ( this.game.Data.RuleVar[419] > 0.0 & this.game.Data.Product >= 6 & this.game.EditObj.MouseOverX > -1 & !Information.IsNothing( this.game.EditObj.airRangeTempLos))
       {
         if (this.game.EditObj.UnitSelected > -1)
         {
@@ -1712,7 +1712,7 @@ label_10:
           let mut num11: i32 =  num9;
           for (let mut index2: i32 =  2; index2 <= num11; index2 += 1)
           {
-            if ((double) index2 > (double) this.game.Data.RuleVar[422])
+            if ( index2 >  this.game.Data.RuleVar[422])
               num10 = 0.0f;
             else
               num10 *= this.game.Data.RuleVar[421];
@@ -1722,25 +1722,25 @@ label_10:
           if (num7 > 0)
           {
             str3: String = this.game.EditObj.MouseOverX.ToString() + "," + this.game.EditObj.MouseOverY.ToString() + " - Los:" + num7.ToString() + " - Obs:" + num8.ToString();
-            str2 = (double) num10 <= 0.0 ? str3 + " - To far" : str3 + " - Dis: /" + num10.ToString();
+            str2 =  num10 <= 0.0 ? str3 + " - To far" : str3 + " - Dis: /" + num10.ToString();
           }
           else
             str2 = this.game.EditObj.MouseOverX.ToString() + "," + this.game.EditObj.MouseOverY.ToString() + " - No Los";
-          str1 = str2 + " - Hid: " + Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY].LandscapeType].HidePts));
+          str1 = str2 + " - Hid: " + Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY].LandscapeType].HidePts));
           SizeF sizeF5 = g.MeasureString(str1, this.game.MarcFont16);
-          DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont4,  Math.Round((double) (num12 + 150) - (double) sizeF5.Width / 2.0 - 2.0), 8, Color.LightGray);
+          DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont4,  Math.Round( (num12 + 150) -  sizeF5.Width / 2.0 - 2.0), 8, Color.LightGray);
         }
         else
         {
           let mut num13: i32 =  this.game.ScreenWidth - 290;
           str1 = "No Unit selected";
           SizeF sizeF6 = g.MeasureString(str1, this.game.MarcFont16);
-          DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont4,  Math.Round((double) (num13 + 150) - (double) sizeF6.Width / 2.0 - 2.0), 8, Color.LightGray);
+          DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont4,  Math.Round( (num13 + 150) -  sizeF6.Width / 2.0 - 2.0), 8, Color.LightGray);
         }
       }
       if (this.game.EditObj.OrderType == 0 & this.game.EditObj.udsUnitOrderMode < 1 & !this.game.EditObj.LayerSupplyOn)
       {
-        if (!((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode))
+        if (!( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode))
         {
           this.GuiDownId = 1;
           if (this.game.Data.Round == 0)
@@ -1765,7 +1765,7 @@ label_10:
         {
           this.ResearchId = 1;
           this.SFDesignButtonId = 1;
-          if (this.game.Data.Turn > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 && (double) this.game.Data.RuleVar[531] == 1.0)
+          if (this.game.Data.Turn > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 &&  this.game.Data.RuleVar[531] == 1.0)
             this.ModelDesignerId = 1;
           this.DipId = 1;
           if (this.game.Data.RegimeObj[this.game.Data.Turn].HistoryStepCounter > -1)
@@ -1794,7 +1794,7 @@ label_10:
           this.ButtonZoomInId = 1;
           this.ButtonZoomOutId = 1;
           this.OfficerId = 0;
-          if (this.game.Data.Round > 0 && (double) this.game.Data.RuleVar[343] == 1.0)
+          if (this.game.Data.Round > 0 &&  this.game.Data.RuleVar[343] == 1.0)
             this.OfficerId = 1;
           if (this.game.SelectX <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth && this.game.SelectY <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
           {
@@ -1802,19 +1802,19 @@ label_10:
             {
               if (this.game.EditObj.UnitSelected > -1)
               {
-                if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime, this.game.Data.Turn) && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ | (double) this.game.Data.RuleVar[887] == 1.0)
+                if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime, this.game.Data.Turn) && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ |  this.game.Data.RuleVar[887] == 1.0)
                   this.SupplyLayerButtonId = 1;
               }
-              else if ((double) this.game.Data.RuleVar[887] == 1.0)
+              else if ( this.game.Data.RuleVar[887] == 1.0)
                 this.SupplyLayerButtonId = 1;
-              if ((double) this.game.Data.RuleVar[887] == 1.0)
+              if ( this.game.Data.RuleVar[887] == 1.0)
                 this.SupplyLayerButtonId = 1;
             }
             else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > -1 && this.game.Data.UnitObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitList[0]].Regime == this.game.Data.Turn && this.game.Data.Round > 0)
               this.SupplyLayerButtonId = 1;
           }
         }
-        if (this.game.SelectX > -1 && this.game.Data.Round == 0 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && (double) this.game.Data.RuleVar[512] == 0.0)
+        if (this.game.SelectX > -1 && this.game.Data.Round == 0 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 &&  this.game.Data.RuleVar[512] == 0.0)
           this.NewUnitButtonId = 1;
         if (this.game.EditObj.UnitSelected > -1)
         {
@@ -1822,7 +1822,7 @@ label_10:
           {
             if (!this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].ModelMaster].Fixed)
             {
-              if ((double) this.game.Data.RuleVar[531] == 1.0)
+              if ( this.game.Data.RuleVar[531] == 1.0)
                 this.ChangeModelId = 1;
             }
             else
@@ -1832,7 +1832,7 @@ label_10:
             this.ChangeModelId = 0;
           if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn | this.game.Data.Round == 0)
           {
-            if (this.game.Data.Turn > -1 && (double) this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
+            if (this.game.Data.Turn > -1 &&  this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
             {
               if (this.game.HandyFunctionsObj.HasAllies(this.game.Data.Turn, true))
                 this.GiveUnitId = 1;
@@ -1844,7 +1844,7 @@ label_10:
             else if (this.game.HandyFunctionsObj.CanUnitMove(this.game.EditObj.UnitSelected))
             {
               this.MoveButtonId = 1;
-              if ((double) this.game.Data.RuleVar[954] == 1.0 | this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1)
+              if ( this.game.Data.RuleVar[954] == 1.0 | this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1)
                 this.GroupMoveButtonId = 1;
             }
             else
@@ -1854,19 +1854,19 @@ label_10:
               this.GroupMoveButtonId = 0;
               this.GroupMoveButtonText = "Unit does not have enough Action Points to move.";
             }
-            if (this.game.Data.Round > 0 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].Type > 7 && (double) this.game.Data.RuleVar[894] > 0.0)
+            if (this.game.Data.Round > 0 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].Type > 7 &&  this.game.Data.RuleVar[894] > 0.0)
             {
               this.MoveButtonId = 0;
               this.MoveButtonText = "High command cannot move";
               this.GroupMoveButtonId = 0;
               this.GroupMoveButtonText = "High command cannot move";
             }
-            if ((double) this.game.Data.RuleVar[521] == 0.0)
+            if ( this.game.Data.RuleVar[521] == 0.0)
               this.HqUnitButtonId = 1;
             if (this.game.Data.Turn > -1 && this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false) > this.game.Data.RegimeObj[this.game.Data.Turn].ResPts & !this.game.EditObj.TutMode)
             {
               this.HqUnitButtonId = 0;
-              this.HqUnitButtonText = "You dont have the required " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
+              this.HqUnitButtonText = "You dont have the required " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
             }
             if (!this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
             {
@@ -1874,7 +1874,7 @@ label_10:
               {
                 if (!this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].ModelMaster].Fixed)
                 {
-                  if ((double) this.game.Data.RuleVar[531] == 1.0)
+                  if ( this.game.Data.RuleVar[531] == 1.0)
                     this.ChangeModelId = 1;
                 }
                 else
@@ -1944,7 +1944,7 @@ label_10:
                 else
                 {
                   this.InfraButtonId = 0;
-                  this.infrabuttontext = !((double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6) ? "Unit does not have EP required or other side of river is enemy hex." : "Unit does not have the EP required.";
+                  this.infrabuttontext = !( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6) ? "Unit does not have EP required or other side of river is enemy hex." : "Unit does not have the EP required.";
                 }
               }
               else
@@ -1953,14 +1953,14 @@ label_10:
                 this.infrabuttontext = "Unit has no engineer points.";
               }
             }
-            if (this.game.Data.Round > 0 & this.game.SelectX > -1 && (double) this.game.Data.RuleVar[474] > 0.0 & this.game.Data.Product >= 6)
+            if (this.game.Data.Round > 0 & this.game.SelectX > -1 &&  this.game.Data.RuleVar[474] > 0.0 & this.game.Data.Product >= 6)
             {
               if (this.game.HandyFunctionsObj.CanTransport(this.game.EditObj.UnitSelected))
                 this.TransportButtonId = 1;
               else
                 this.transportButtonText = "Unit is not capable of Transporting other Units.";
             }
-            if (this.game.Data.Round > 0 & this.game.SelectX > -1 && (double) this.game.Data.RuleVar[475] > 0.0 & this.game.Data.Product >= 6)
+            if (this.game.Data.Round > 0 & this.game.SelectX > -1 &&  this.game.Data.RuleVar[475] > 0.0 & this.game.Data.Product >= 6)
               this.BattleGroupButtonId = 1;
             if (this.game.Data.Round > 0 & this.game.SelectX > -1)
             {
@@ -2029,7 +2029,7 @@ label_10:
                 this.game.EditObj.UnitSelected = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].OnBoard;
               if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].PassengerCounter == -1)
               {
-                if ((double) this.game.Data.RuleVar[315] == 1.0 & !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
+                if ( this.game.Data.RuleVar[315] == 1.0 & !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
                 {
                   this.TransferButtonId = 0;
                   this.TransferButtonText = "You can only transfer from a HQ.";
@@ -2141,7 +2141,7 @@ label_10:
                 {
                   if (this.game.HandyFunctionsObj.GetLowestAp(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].PassengerList[this.game.EditObj.SFSelected - (1 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount)]) > 0 | this.game.Data.Round == 0)
                     this.UnLoadButtonID = 1;
-                  else if ((double) this.game.Data.RuleVar[880] > 0.0)
+                  else if ( this.game.Data.RuleVar[880] > 0.0)
                   {
                     if (this.game.HandyFunctionsObj.IsHexPort(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, 0))
                       this.UnLoadButtonID = 1;
@@ -2172,7 +2172,7 @@ label_10:
               if (this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false) > this.game.Data.RegimeObj[this.game.Data.Turn].ResPts)
               {
                 this.HqUnitButtonId = 0;
-                this.HqUnitButtonText = "You dont have the required " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
+                this.HqUnitButtonText = "You dont have the required " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.UnitSelected, false)) + " PP to switch the HQ of this unit.";
               }
             }
             this.supplylayerbuttontext = "Not a friendly unit.";
@@ -2232,7 +2232,7 @@ label_10:
             }
           }
         }
-        if (this.game.SelectX > -1 & this.game.SelectY > -1 && this.game.Data.Turn > -1 && (double) this.game.Data.RuleVar[529] == 1.0)
+        if (this.game.SelectX > -1 & this.game.SelectY > -1 && this.game.Data.Turn > -1 &&  this.game.Data.RuleVar[529] == 1.0)
         {
           if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime == this.game.Data.Turn)
           {
@@ -2256,7 +2256,7 @@ label_10:
                 this.HqUnitButtonId = 1;
               if (this.game.Data.Turn > -1)
               {
-                if ((double) this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].UberRegime == this.game.Data.Turn)
+                if ( this.game.Data.RuleVar[528] == 1.0 && this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].UberRegime == this.game.Data.Turn)
                   this.GiveUnitId = 1;
                 if (this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].UberRegime == this.game.Data.Turn)
                 {
@@ -2296,7 +2296,7 @@ label_10:
                   }
                 }
               }
-              if ((double) this.game.Data.RuleVar[894] > 0.0 && this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].Type == 8)
+              if ( this.game.Data.RuleVar[894] > 0.0 && this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].Type == 8)
               {
                 this.StrategicButtonId = 0;
                 this.GroupStrategicButtonId = 0;
@@ -2335,7 +2335,7 @@ label_10:
               this.SeaAttackButtonText = str4;
               this.SeaArtAttackButtonText = str4;
               this.AirAttackButtonText = str4;
-              if ((double) this.game.Data.RuleVar[318] > 0.0 && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime] == 0 && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime != this.game.Data.Turn)
+              if ( this.game.Data.RuleVar[318] > 0.0 && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime] == 0 && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime != this.game.Data.Turn)
                 this.AirAttackButtonId = 1;
             }
             if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Location > -1 & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime] == 0)
@@ -2377,9 +2377,9 @@ label_10:
         {
           if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime, this.game.Data.Turn) & this.game.Data.Round != 0)
           {
-            if ((double) this.game.Data.RuleVar[512] == 0.0)
+            if ( this.game.Data.RuleVar[512] == 0.0)
               this.NewUnitButtonId = 1;
-            if ((double) this.game.Data.RuleVar[527] > 0.0)
+            if ( this.game.Data.RuleVar[527] > 0.0)
               this.NewUnitButton2Id = 1;
             if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime != this.game.Data.Turn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_ReconPts(this.game.Data.Turn) < 1)
             {
@@ -2405,7 +2405,7 @@ label_10:
           this.NewUnitButtonId = 0;
           this.NewUnitButton2Id = 0;
         }
-        if ((double) this.game.Data.RuleVar[527] == 0.0)
+        if ( this.game.Data.RuleVar[527] == 0.0)
         {
           this.newunitbutton2text = "";
           this.NewUnitButton2Id = 0;
@@ -2493,7 +2493,7 @@ label_10:
             this.OfficerText = "Cannot use this order with the Gui down.";
           }
         }
-        if ((double) this.game.Data.RuleVar[814] == 1.0)
+        if ( this.game.Data.RuleVar[814] == 1.0)
         {
           this.OfficerId = 0;
           this.OfficerId2 = 1;
@@ -2511,7 +2511,7 @@ label_10:
         let mut num19: i32 =  800 + num2;
         int num20;
         int num21;
-        if ((double) this.game.Data.RuleVar[343] == 1.0)
+        if ( this.game.Data.RuleVar[343] == 1.0)
         {
           if (this.OfficerId > 0)
           {
@@ -2584,11 +2584,11 @@ label_10:
         let mut num27: i32 =  40 + num2;
         int num28;
         int num29;
-        if ((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
+        if ( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
         {
-          if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
+          if ( this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
           {
-            let mut num30: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+            let mut num30: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[458]));
             if (num30 > 3)
               num30 = 3;
             let mut num31: i32 =  num30 * 33;
@@ -2610,9 +2610,9 @@ label_10:
                 this.MoveButtonId2 = this.AddSubPart( tsubpart, num27 + num33 * 33, num1, 29 + num31, 29, 0);
                 num29 = num33 + num30;
               }
-              if ((double) this.game.Data.RuleVar[533] == 0.0 & (double) this.game.Data.RuleVar[344] > 0.0)
+              if ( this.game.Data.RuleVar[533] == 0.0 &  this.game.Data.RuleVar[344] > 0.0)
               {
-                if ((double) this.game.Data.RuleVar[344] > 0.0 & this.GroupMoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 48))
+                if ( this.game.Data.RuleVar[344] > 0.0 & this.GroupMoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 48))
                 {
                   let mut num34: i32 =  num29 + 1;
                   tsubpart =  new MarcButtonFlexPartClass(this.game.BUTTONMOVE2, "Group Move", tDescript: "Group Move [G]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num34 * 33), bby: num1, totherback: 1, tWidth: (29 + num31), tHeight: 29);
@@ -2647,9 +2647,9 @@ label_10:
               tsubpart =  new MarcButtonPartClass(this.game.BUTTONMOVE, 1, this.MoveButtonText,  this.OwnBitmap, num27 + num29 * 33, num1, 1, 29);
               this.MoveButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
-            if ((double) this.game.Data.RuleVar[533] == 0.0 & (double) this.game.Data.RuleVar[344] > 0.0)
+            if ( this.game.Data.RuleVar[533] == 0.0 &  this.game.Data.RuleVar[344] > 0.0)
             {
-              if ((double) this.game.Data.RuleVar[344] > 0.0 & this.GroupMoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 48))
+              if ( this.game.Data.RuleVar[344] > 0.0 & this.GroupMoveButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 48))
               {
                 num29 += 1;
                 tsubpart =  new MarcButtonPartClass(this.game.BUTTONMOVE2, tDescript: "Group Move Unit [G]", tBackbitmap: ( this.OwnBitmap), bbx: (num27 + num29 * 33), bby: num1, totherback: 1, tsize: 29);
@@ -2668,15 +2668,15 @@ label_10:
         }
         if (num18 == 0 | num18 == 2)
         {
-          if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
+          if ( this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
           {
-            let mut num36: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
-            if (((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num36 > 1)
+            let mut num36: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[458]));
+            if (( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num36 > 1)
               num36 = 1;
             if (num36 > 2)
               num36 = 2;
             let mut num37: i32 =  num36 * 33;
-            if ((double) this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
+            if ( this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
             {
               if (this.HqUnitButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 3))
               {
@@ -2701,7 +2701,7 @@ label_10:
               this.HqUnitButtonId2 = 0;
             }
           }
-          else if ((double) this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
+          else if ( this.game.Data.RuleVar[521] == 0.0 | this.game.Data.Round == 0)
           {
             if (this.HqUnitButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 3))
             {
@@ -2723,7 +2723,7 @@ label_10:
             this.HqUnitButtonId = 0;
             this.HqUnitButtonId2 = 0;
           }
-          if ((double) this.game.Data.RuleVar[520] == 0.0)
+          if ( this.game.Data.RuleVar[520] == 0.0)
           {
             if (this.StrategicButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 18))
             {
@@ -2739,7 +2739,7 @@ label_10:
               tsubpart =  new MarcButtonPartClass(this.game.BUTTONSTRATEGIC, 1, this.strategicbuttontext,  this.OwnBitmap, num27 + num29 * 33, num1, 1, 29);
               this.StrategicButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
-            if ((double) this.game.Data.RuleVar[533] == 0.0 & (double) this.game.Data.RuleVar[344] > 0.0)
+            if ( this.game.Data.RuleVar[533] == 0.0 &  this.game.Data.RuleVar[344] > 0.0)
             {
               if (this.GroupStrategicButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 49))
               {
@@ -2764,7 +2764,7 @@ label_10:
             this.GroupStrategicButtonId = 0;
             this.GroupStrategicButtonId2 = 0;
           }
-          if ((double) this.game.Data.RuleVar[528] == 1.0)
+          if ( this.game.Data.RuleVar[528] == 1.0)
           {
             if (this.GiveUnitId > 0)
             {
@@ -2786,7 +2786,7 @@ label_10:
             this.GiveUnitId = 0;
             this.GiveUnitId2 = 0;
           }
-          if ((double) this.game.Data.RuleVar[512] == 0.0)
+          if ( this.game.Data.RuleVar[512] == 0.0)
           {
             if (this.NewUnitButtonId > 0)
             {
@@ -2806,7 +2806,7 @@ label_10:
             this.NewUnitButtonId = 0;
             this.NewUnitButtonId2 = 0;
           }
-          if ((double) this.game.Data.RuleVar[527] > 0.0)
+          if ( this.game.Data.RuleVar[527] > 0.0)
           {
             if (this.NewUnitButton2Id > 0)
             {
@@ -2821,7 +2821,7 @@ label_10:
               this.NewUnitButton2Id2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[531] == 1.0)
+          if ( this.game.Data.RuleVar[531] == 1.0)
           {
             if (this.ChangeModelId > 0)
             {
@@ -2839,7 +2839,7 @@ label_10:
         }
         if (num18 == 0)
         {
-          if ((double) this.game.Data.RuleVar[522] == 0.0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 33))
+          if ( this.game.Data.RuleVar[522] == 0.0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 33))
           {
             if (this.AirReconButtonId > 0)
             {
@@ -2856,14 +2856,14 @@ label_10:
               this.AirReconButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[505] == 0.0)
+          if ( this.game.Data.RuleVar[505] == 0.0)
           {
-            if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
+            if ( this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
             {
-              let mut num40: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+              let mut num40: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[458]));
               if (num40 > 2)
                 num40 = 2;
-              if (((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num40 > 1)
+              if (( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num40 > 1)
                 num40 = 1;
               let mut num41: i32 =  num40 * 33;
               if (this.BlowBridgeButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 35))
@@ -2882,7 +2882,7 @@ label_10:
                 this.BlowBridgeButtonId2 = this.AddSubPart( tsubpart, num27 + num43 * 33, num1, 29 + num41, 29, 0);
                 num29 = num43 + num40;
               }
-              if ((double) this.game.Data.RuleVar[474] > 0.0)
+              if ( this.game.Data.RuleVar[474] > 0.0)
               {
                 if (this.TransportButtonId > 0)
                 {
@@ -2899,7 +2899,7 @@ label_10:
                   num29 = num45 + num40;
                 }
               }
-              if ((double) this.game.Data.RuleVar[475] > 0.0)
+              if ( this.game.Data.RuleVar[475] > 0.0)
               {
                 if (this.BattleGroupButtonId > 0)
                 {
@@ -2932,14 +2932,14 @@ label_10:
               this.BlowBridgeButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[503] == 0.0)
+          if ( this.game.Data.RuleVar[503] == 0.0)
           {
-            if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
+            if ( this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
             {
-              let mut num48: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+              let mut num48: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[458]));
               if (num48 > 2)
                 num48 = 2;
-              if (((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num48 > 1)
+              if (( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode) & num48 > 1)
                 num48 = 1;
               let mut num49: i32 =  num48 * 33;
               if (this.InfraButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 37))
@@ -2974,7 +2974,7 @@ label_10:
               this.InfraButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[515] == 0.0)
+          if ( this.game.Data.RuleVar[515] == 0.0)
           {
             if (this.ParadropButtonId > 0 & this.game.EditObj.TutOrder == -1)
             {
@@ -2989,7 +2989,7 @@ label_10:
               this.ParadropButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[516] == 0.0)
+          if ( this.game.Data.RuleVar[516] == 0.0)
           {
             if (this.AirSupplyButtonId > 0 & this.game.EditObj.TutOrder == -1)
             {
@@ -3004,7 +3004,7 @@ label_10:
               this.AirSupplyButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[507] == 0.0)
+          if ( this.game.Data.RuleVar[507] == 0.0)
           {
             if (this.LoadButtonId > 0 & this.game.EditObj.TutOrder == -1)
             {
@@ -3019,7 +3019,7 @@ label_10:
               this.LoadButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
           }
-          if ((double) this.game.Data.RuleVar[507] == 0.0)
+          if ( this.game.Data.RuleVar[507] == 0.0)
           {
             if (this.UnLoadButtonID > 0 & this.game.EditObj.TutOrder == -1)
             {
@@ -3037,9 +3037,9 @@ label_10:
         }
         if (num18 == 1)
         {
-          if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
+          if ( this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
           {
-            let mut num52: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+            let mut num52: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[458]));
             if (num52 > 3)
               num52 = 3;
             let mut num53: i32 =  num52 * 33;
@@ -3059,7 +3059,7 @@ label_10:
               this.AttackButtonId2 = this.AddSubPart( tsubpart, num27 + num55 * 33, num1, 29 + num53, 29, 0);
               num29 = num55 + num52;
             }
-            if ((double) this.game.Data.RuleVar[953] == 0.0)
+            if ( this.game.Data.RuleVar[953] == 0.0)
             {
               if (this.ArtAttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 11))
               {
@@ -3100,7 +3100,7 @@ label_10:
               tsubpart =  new MarcButtonPartClass(this.game.BUTTONATTACK, 1, this.AttackButtonText,  this.OwnBitmap, num27 + num29 * 33, num1, 2, 29);
               this.AttackButtonId2 = this.AddSubPart( tsubpart, num27 + num29 * 33, num1, 29, 29, 0);
             }
-            if ((double) this.game.Data.RuleVar[953] == 0.0)
+            if ( this.game.Data.RuleVar[953] == 0.0)
             {
               if (this.ArtAttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 11))
               {
@@ -3123,7 +3123,7 @@ label_10:
               this.ArtAttackButtonId2 = 0;
             }
           }
-          if ((double) this.game.Data.RuleVar[952] == 0.0)
+          if ( this.game.Data.RuleVar[952] == 0.0)
           {
             if (this.AirAttackButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 14))
             {
@@ -3145,7 +3145,7 @@ label_10:
             this.AirAttackButtonId = 0;
             this.AirAttackButtonId2 = 0;
           }
-          if ((double) this.game.Data.RuleVar[511] == 0.0)
+          if ( this.game.Data.RuleVar[511] == 0.0)
           {
             int num58;
             if (this.seaAttackButtonId > 0 & this.game.EditObj.TutOrder == -1)
@@ -3339,7 +3339,7 @@ label_10:
           tsubpart =  new MarcButtonPartClass(this.game.BUTTONSPREADUNIT, 1, tBackbitmap: ( this.OwnBitmap), bbx: (num60 + num66 * 33), bby: num1, totherback: 3, tsize: 29);
           this.ButtonStackedUnitId2 = this.AddSubPart( tsubpart, num60 + 36 * num66, num1, 29, 29, 0);
         }
-        if ((double) this.game.Data.RuleVar[523] != 0.0)
+        if ( this.game.Data.RuleVar[523] != 0.0)
           return;
         if (this.SupplyLayerButtonId > 0 & (this.game.EditObj.TutOrder == -1 | this.game.EditObj.TutOrder == 51))
         {
@@ -3447,7 +3447,7 @@ label_10:
         if (this.game.EditObj.LayerSupplyOn)
         {
           let mut layerSupplyAp: i32 =  this.game.EditObj.LayerSupplyAP;
-          if ((double) this.game.Data.RuleVar[471] > 0.0 & this.game.Data.Product >= 6)
+          if ( this.game.Data.RuleVar[471] > 0.0 & this.game.Data.Product >= 6)
           {
             let mut location2: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.OrderX, this.game.EditObj.OrderY].Location2;
             string str5;
@@ -3462,10 +3462,10 @@ label_10:
             }
             else
               str5 = "Cumulative supply flow from all Supply Sources. ";
-            str1 = str5 + "Click a hex for path. Selected Hex: " + Strings.Trim(Conversion.Str((object) this.game.EditObj.TempSup[this.game.EditObj.MapSelected].Value[this.game.SelectX, this.game.SelectY])) + "ap/" + Strings.Trim(Conversion.Str((object) layerSupplyAp)) + "ap";
+            str1 = str5 + "Click a hex for path. Selected Hex: " + Strings.Trim(Conversion.Str( this.game.EditObj.TempSup[this.game.EditObj.MapSelected].Value[this.game.SelectX, this.game.SelectY])) + "ap/" + Strings.Trim(Conversion.Str( layerSupplyAp)) + "ap";
           }
           else
-            str1 = "Viewing Supply layer. Click a hex to see path from HQ. Selected Hex: " + Strings.Trim(Conversion.Str((object) this.game.EditObj.TempSup[this.game.EditObj.MapSelected].Value[this.game.SelectX, this.game.SelectY])) + "ap/" + Strings.Trim(Conversion.Str((object) layerSupplyAp)) + "ap";
+            str1 = "Viewing Supply layer. Click a hex to see path from HQ. Selected Hex: " + Strings.Trim(Conversion.Str( this.game.EditObj.TempSup[this.game.EditObj.MapSelected].Value[this.game.SelectX, this.game.SelectY])) + "ap/" + Strings.Trim(Conversion.Str( layerSupplyAp)) + "ap";
         }
         if (this.game.EditObj.udsUnitOrderMode == 1)
           str1 = "Movement Mode";
@@ -3478,12 +3478,12 @@ label_10:
         {
           let mut Number: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].MaxProd;
           if (this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts > 0)
-            Number =  Math.Round(Conversion.Int((double) Number * ((double) this.game.Data.LocObj[this.game.EditObj.OrderLoc].StructuralPts / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts)));
+            Number =  Math.Round(Conversion.Int( Number * ( this.game.Data.LocObj[this.game.EditObj.OrderLoc].StructuralPts /  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].Type].StructuralPts)));
           if (this.game.Data.Round <= 0)
             ;
-          str1 = "Production for " + this.game.Data.LocObj[this.game.EditObj.OrderLoc].Name + " (" + Strings.Trim(Conversion.Str((object) Number)) + "points)";
+          str1 = "Production for " + this.game.Data.LocObj[this.game.EditObj.OrderLoc].Name + " (" + Strings.Trim(Conversion.Str( Number)) + "points)";
           if (this.game.Data.Round != 0)
-            str1 = str1 + " (" + Conversion.Str((object) Conversion.Int(this.game.Data.PeopleObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].PeopleGroup] * 100f)) + "%)";
+            str1 = str1 + " (" + Conversion.Str( Conversion.Int(this.game.Data.PeopleObj[this.game.Data.LocObj[this.game.EditObj.OrderLoc].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].PeopleGroup] * 100f)) + "%)";
           if (this.game.HandyFunctionsObj.GetProdTotalPercent(this.game.EditObj.OrderLoc) > 100)
             flag1 = false;
         }
@@ -3510,10 +3510,10 @@ label_10:
           if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Historical > -1)
           {
             if (this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, true) > 0)
-              str1 = str1 + ". Costs " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP - " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, true)) + " PP to switch due to current commander.";
+              str1 = str1 + ". Costs " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP - " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, true)) + " PP to switch due to current commander.";
           }
           else if (this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false) > 0)
-            str1 = str1 + ". Costs " + Conversion.Str((object) this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP due to current commander.";
+            str1 = str1 + ". Costs " + Conversion.Str( this.game.HandyFunctionsObj.ExtraHQSwitchPPCost(this.game.EditObj.OrderUnit, false)) + " PP due to current commander.";
           if (this.game.EditObj.UnitSelected > -1)
           {
             this.NotOkText = "Unit is not a HQ";
@@ -3532,12 +3532,12 @@ label_10:
                     if (this.game.HandyFunctionsObj.CanUnitBecomeHQfor(this.game.EditObj.UnitSelected, this.game.EditObj.OrderUnit))
                     {
                       flag2 = true;
-                      if ((double) this.game.Data.RuleVar[304] > 0.0)
+                      if ( this.game.Data.RuleVar[304] > 0.0)
                       {
                         let mut num70: i32 =  0;
                         if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].IsHQ)
                           num70 = 1;
-                        if ((double) (this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected) + this.game.HandyFunctionsObj.HowmanyHQsBelow(this.game.EditObj.OrderUnit) + 1 + num70) > (double) this.game.Data.RuleVar[304])
+                        if ( (this.game.HandyFunctionsObj.HowmanyHQsAbove(this.game.EditObj.UnitSelected) + this.game.HandyFunctionsObj.HowmanyHQsBelow(this.game.EditObj.OrderUnit) + 1 + num70) >  this.game.Data.RuleVar[304])
                         {
                           this.NotOkText = "Cannot select as HQ because it would exceed the maximum amount of HQs in HQ chain.";
                           flag2 = false;
@@ -3611,8 +3611,8 @@ label_10:
                 this.NotOkText = "Option not available..";
                 if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime))
                 {
-                  this.NotOkText = "Unit needs at least " + Conversion.Str((object) this.game.Data.RuleVar[307]) + " power points to capture enemy territory.";
-                  if ((double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
+                  this.NotOkText = "Unit needs at least " + Conversion.Str( this.game.Data.RuleVar[307]) + " power points to capture enemy territory.";
+                  if ( this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
                   {
                     this.NotOkText = "Unit does not only have paratroopers.";
                     if (this.game.HandyFunctionsObj.HasUnitOnlyParaLandSF(this.game.EditObj.OrderTarget))
@@ -3656,15 +3656,15 @@ label_10:
           if (this.game.Data.UnitObj[this.game.EditObj.OrderUnit].HQ > -1 & this.game.HandyFunctionsObj.GetLowestAirAp(this.game.EditObj.OrderUnit) >= 40)
           {
             let mut supply: i32 =  this.game.Data.UnitObj[this.game.Data.UnitObj[this.game.EditObj.OrderUnit].HQ].Supply;
-            let mut Number1: i32 =   Math.Round((double) Conversion.Int((float) this.game.HandyFunctionsObj.GetCarryCapPts(this.game.EditObj.OrderUnit, 2) / this.game.Data.RuleVar[33]));
+            let mut Number1: i32 =   Math.Round( Conversion.Int( this.game.HandyFunctionsObj.GetCarryCapPts(this.game.EditObj.OrderUnit, 2) / this.game.Data.RuleVar[33]));
             if (Number1 > supply)
               Number1 = supply;
-            str6: String = (this.game.EditObj.TempValue2[0].Value[this.game.SelectX, this.game.SelectY] >= 9999 ? str1 + " Ap: out of range" : str1 + " Ap: " + this.game.EditObj.TempValue2[0].Value[this.game.SelectX, this.game.SelectY].ToString()) + ", Max: " + Strings.Trim(Conversion.Str((object) Number1)) + ".";
+            str6: String = (this.game.EditObj.TempValue2[0].Value[this.game.SelectX, this.game.SelectY] >= 9999 ? str1 + " Ap: out of range" : str1 + " Ap: " + this.game.EditObj.TempValue2[0].Value[this.game.SelectX, this.game.SelectY].ToString()) + ", Max: " + Strings.Trim(Conversion.Str( Number1)) + ".";
             if (this.game.EditObj.UnitSelected > -1)
             {
               if (this.LastAirSupplyTarget == this.game.EditObj.UnitSelected)
               {
-                str1 = str6 + ", target area needs: " + Strings.Trim(Conversion.Str((object) this.LastAirSupplyNeed));
+                str1 = str6 + ", target area needs: " + Strings.Trim(Conversion.Str( this.LastAirSupplyNeed));
                 let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
                 for (let mut index11: i32 =  0; index11 <= mapWidth; index11 += 1)
                 {
@@ -3684,7 +3684,7 @@ label_10:
                   for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
                     this.game.EditObj.TempValue[0].Value[index13, index14] = this.game.EditObj.TempValue2[0].Value[index13, index14];
                 }
-                str1 = str6 + ", target area needs: " + Strings.Trim(Conversion.Str((object) Number2));
+                str1 = str6 + ", target area needs: " + Strings.Trim(Conversion.Str( Number2));
                 this.LastAirSupplyMax = Number1;
                 this.LastAirSupplyNeed = Number2;
                 this.LastAirSupplyTarget = this.game.EditObj.UnitSelected;
@@ -3718,21 +3718,21 @@ label_10:
             let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].UnitList[index15];
             num71 += this.game.HandyFunctionsObj.GetStackWithFOW(unit, this.game.Data.Turn);
           }
-          str7: String = "Select attackers. Stack: " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + " /" + Conversion.Str((object) this.game.HandyFunctionsObj.maxAttackStack());
+          str7: String = "Select attackers. Stack: " + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStack() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStack(this.game.Data.Turn))) + " /" + Conversion.Str( this.game.HandyFunctionsObj.maxAttackStack());
           if (num71 > 0)
             str7 = str7 + " vs " + num71.ToString();
-          str1 = str7 + ". Concentric: +" + Conversion.Str((object) Conversion.Int((float) (((double) this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
+          str1 = str7 + ". Concentric: +" + Conversion.Str( Conversion.Int( (( this.game.HandyFunctionsObj.GetConcentricBonus2() - 1.0) * 100.0))) + "%";
           let mut divBonusForAttack: i32 =  this.game.HandyFunctionsObj.GetDivBonusForAttack(this.game.EditObj.TargetX, this.game.EditObj.TargetY, this.game.EditObj.TargetMap);
           if (divBonusForAttack > 0)
-            str1 = str1 + ". Divisional: +" + Conversion.Str((object) Conversion.Int(divBonusForAttack)) + "%";
+            str1 = str1 + ". Divisional: +" + Conversion.Str( Conversion.Int(divBonusForAttack)) + "%";
           if (this.game.EditObj.UnitSelected > -1)
           {
             target = Coordinate::new();
             target.x = this.game.EditObj.TargetX;
             target.y = this.game.EditObj.TargetY;
             target.map = this.game.EditObj.MapSelected;
-            this.NotOkText = "Unit needs at least " + Conversion.Str((object) this.game.Data.RuleVar[307]) + " power points to join in attack.";
-            if ((double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.UnitSelected))
+            this.NotOkText = "Unit needs at least " + Conversion.Str( this.game.Data.RuleVar[307]) + " power points to join in attack.";
+            if ( this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.UnitSelected))
             {
               this.NotOkText = "Unit does not have enough AP to join in attack.";
               if (this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Map, target.x, target.y, target.map) <= 1)
@@ -3755,8 +3755,8 @@ label_10:
         {
           this.PopupButtonId = 1;
           str1 = "Preparing Air Strike. Select attackers. ";
-          if ((double) this.game.Data.RuleVar[833] > 0.0)
-            str1 = str1 + "Stack:" + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[833]);
+          if ( this.game.Data.RuleVar[833] > 0.0)
+            str1 = str1 + "Stack:" + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[833]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             target = Coordinate::new();
@@ -3776,7 +3776,7 @@ label_10:
         {
           if (this.game.EditObj.OrderUnit == -1)
             str1 += " - Please select a Unit";
-          else if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.udsUnitOrderMode > 0 & this.game.EditObj.useLeftRightClickMode)
+          else if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.udsUnitOrderMode > 0 & this.game.EditObj.useLeftRightClickMode)
           {
             bool flag4 = false;
             bool flag5 = false;
@@ -3795,7 +3795,7 @@ label_10:
                 index16 += 1;
               }
               while (index16 <= 5);
-              str1 = !flag4 ? ((double) this.game.Data.RuleVar[419] <= 0.0 ? str1 + " - AP Cost: " + this.game.EditObj.CurrentDescript : (this.game.EditObj.TempLos[0].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] <= 0 ? str1 + " - AP Cost: " + this.game.EditObj.CurrentDescript : str1 + " - Right Click to do Ranged Attack")) : (!flag5 ? (!((double) this.game.Data.RuleVar[419] > 0.0 & this.game.EditObj.TempLos[0].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] > 0) ? str1 + " - Move next to target todo Regular Attack" : str1 + " - Right Click to do Ranged Attack") : str1 + " - Right Click to Attack");
+              str1 = !flag4 ? ( this.game.Data.RuleVar[419] <= 0.0 ? str1 + " - AP Cost: " + this.game.EditObj.CurrentDescript : (this.game.EditObj.TempLos[0].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] <= 0 ? str1 + " - AP Cost: " + this.game.EditObj.CurrentDescript : str1 + " - Right Click to do Ranged Attack")) : (!flag5 ? (!( this.game.Data.RuleVar[419] > 0.0 & this.game.EditObj.TempLos[0].Value[this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY] > 0) ? str1 + " - Move next to target todo Regular Attack" : str1 + " - Right Click to do Ranged Attack") : str1 + " - Right Click to Attack");
               if (this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, 0, this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY, 0) == 1 && Strings.InStr(str1, "AP") < 1)
               {
                 Coordinate coordinate = this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, 0, this.game.EditObj.MouseOverX, this.game.EditObj.MouseOverY, 0, true, ismove: true);
@@ -3809,7 +3809,7 @@ label_10:
         if (this.game.EditObj.OrderType == 15)
         {
           this.PopupButtonId = 1;
-          str1 = "Preparing Bombing Run. Select participants." + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[833]);
+          str1 = "Preparing Bombing Run. Select participants." + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[833]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             target = Coordinate::new();
@@ -3829,8 +3829,8 @@ label_10:
         {
           str1 = "Preparing Art Attack. Select attackers. ";
           this.PopupButtonId = 1;
-          if ((double) this.game.Data.RuleVar[834] > 0.0)
-            str1 = str1 + "Stack" + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[834]);
+          if ( this.game.Data.RuleVar[834] > 0.0)
+            str1 = str1 + "Stack" + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[834]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             target = Coordinate::new();
@@ -3838,7 +3838,7 @@ label_10:
             target.y = this.game.EditObj.TargetY;
             if (this.game.HandyFunctionsObj.CanDoArtAttack(this.game.EditObj.UnitSelected, target, false))
               flag2 = true;
-            else if ((double) this.game.Data.RuleVar[419] > 0.0 && this.game.HandyFunctionsObj.CanDoDirectAttack(this.game.EditObj.UnitSelected, target, false))
+            else if ( this.game.Data.RuleVar[419] > 0.0 && this.game.HandyFunctionsObj.CanDoDirectAttack(this.game.EditObj.UnitSelected, target, false))
               flag2 = true;
           }
           this.AllId = 1;
@@ -3850,7 +3850,7 @@ label_10:
         }
         if (this.game.EditObj.OrderType == 13)
         {
-          str1 = "Preparing Shore Bombardment. Select participants. " + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[834]);
+          str1 = "Preparing Shore Bombardment. Select participants. " + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackart() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackArt(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[834]);
           if (this.game.EditObj.UnitSelected > -1)
           {
             target = Coordinate::new();
@@ -3920,7 +3920,7 @@ label_10:
                       num72 = 1;
                       this.NotOkText = "Unit is not next to naval unit.";
                     }
-                    if (((ulong) -(this.game.HandyFunctionsObj.GetLowestAp(this.game.EditObj.UnitSelected) <= 0 ? 1 : 0) & (ulong) (long) Math.Round((double) this.game.Data.RuleVar[882])) > 0UL)
+                    if (((ulong) -(this.game.HandyFunctionsObj.GetLowestAp(this.game.EditObj.UnitSelected) <= 0 ? 1 : 0) & (ulong) (long) Math.Round( this.game.Data.RuleVar[882])) > 0UL)
                     {
                       num72 = 1;
                       this.NotOkText = "Unit needs more then 0 ap in order to be able to get of the beaches.";
@@ -3958,8 +3958,8 @@ label_10:
               {
                 if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime))
                 {
-                  this.NotOkText = "Unit needs at least " + Conversion.Str((object) this.game.Data.RuleVar[307]) + " power points to do amphibious invasion.";
-                  if ((double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
+                  this.NotOkText = "Unit needs at least " + Conversion.Str( this.game.Data.RuleVar[307]) + " power points to do amphibious invasion.";
+                  if ( this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.game.EditObj.OrderTarget))
                     flag2 = true;
                 }
                 else if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].Regime, this.game.Data.Turn) && this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter < 15)
@@ -3976,11 +3976,11 @@ label_10:
         else if (this.game.EditObj.udsUnitOrderMode > 0)
         {
           let mut num73: i32 =  0;
-          if (!((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode))
+          if (!( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode))
           {
-            if ((double) this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
+            if ( this.game.Data.RuleVar[458] > 0.0 & this.game.Data.Product >= 6)
             {
-              let mut num74: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[458]));
+              let mut num74: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[458]));
               if (num74 > 3)
                 num74 = 3;
               num73 = (num74 + 1) * 33;
@@ -4004,7 +4004,7 @@ label_10:
               this.Cancelid = this.AddSubPart( tsubpart, num2 + 42, num1, 32, 32, 1);
             }
           }
-          DrawMod.DrawTextColouredMarcCenter( g, str1, this.game.MarcFont3,  Math.Round((double) num73 / 2.0) +  Math.Round((double) this.w / 2.0), num1 + 3, Color.White);
+          DrawMod.DrawTextColouredMarcCenter( g, str1, this.game.MarcFont3,  Math.Round( num73 / 2.0) +  Math.Round( this.w / 2.0), num1 + 3, Color.White);
         }
         else
         {
@@ -4082,11 +4082,11 @@ label_10:
 
     pub void DoTabs( Graphics g)
     {
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
         return;
       SizeF sizeF1 = SizeF::new();
       bool flag1 = false;
-      if (this.game.Data.Product > 5 && (double) this.game.Data.RuleVar[461] > 0.0 && this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location2 > -1)
+      if (this.game.Data.Product > 5 &&  this.game.Data.RuleVar[461] > 0.0 && this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location2 > -1)
       {
         if (this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location2].Type].isSupplyBase)
           flag1 = true;
@@ -4111,9 +4111,9 @@ label_10:
         {
           let mut width: i32 =  182;
           let mut num2: i32 =  180;
-          if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+          if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num2 += 240;
-          let mut x1: i32 =   Math.Round((double) num2 + (double) this.game.ScreenWidth / 2.0 - 480.0) - (width - 0);
+          let mut x1: i32 =   Math.Round( num2 +  this.game.ScreenWidth / 2.0 - 480.0) - (width - 0);
            let mut local1: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
            let mut local2: &Bitmap = &bitmap;
@@ -4122,7 +4122,7 @@ label_10:
           DrawMod.DrawScaledColorized( local1,  local2, x2, 66, w, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
           str: String = "SUPPLY BASE";
           SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-          DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x1 + (double) width / 2.0 - (double) sizeF2.Width / 2.0), 70, Color.White);
+          DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round( x1 +  width / 2.0 -  sizeF2.Width / 2.0), 70, Color.White);
           Rectangle trect = Rectangle::new(x1, 66, width, 24);
           this.AddMouse( trect, "", "Information on the Supply Base in this Hex");
         }
@@ -4145,12 +4145,12 @@ label_10:
             num3 = 300;
             num4 = 3;
           }
-          if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+          if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num3 += 240;
           let mut num5: i32 =  num3 - width;
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
-            let mut x3: i32 =   Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x3: i32 =   Math.Round( num5 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0)
@@ -4164,7 +4164,7 @@ label_10:
               DrawMod.DrawScaledColorized( local3,  local4, x4, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF3 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x3 + (double) width / 2.0 - (double) sizeF3.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x3 +  width / 2.0 -  sizeF3.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x3, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
@@ -4181,7 +4181,7 @@ label_10:
               DrawMod.DrawScaledColorized( local5,  local6, x5, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF4 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x3 + (double) width / 2.0 - (double) sizeF4.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x3 +  width / 2.0 -  sizeF4.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x3, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
@@ -4196,7 +4196,7 @@ label_10:
             DrawMod.DrawScaledColorized( local7,  local8, x7, 66, w1, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             upper1: String = this.game.Data.ExtraTabName.ToUpper();
             SizeF sizeF5 = g.MeasureString(upper1, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper1, this.game.MarcFont16,  Math.Round((double) x6 + (double) width / 2.0 - (double) sizeF5.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper1, this.game.MarcFont16,  Math.Round( x6 +  width / 2.0 -  sizeF5.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x6, 66, width, 24);
             let mut trect1: &Rectangle = &rectangle
             this.AddMouse( trect1, "", "Extra data sheet.", 51);
@@ -4204,7 +4204,7 @@ label_10:
           }
           else
           {
-            let mut x8: i32 =   Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x8: i32 =   Math.Round( num5 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             string upper;
             Rectangle rectangle;
@@ -4219,7 +4219,7 @@ label_10:
               DrawMod.DrawScaledColorized( local9,  local10, x9, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF6 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x8 + (double) width / 2.0 - (double) sizeF6.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x8 +  width / 2.0 -  sizeF6.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x8, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
@@ -4238,7 +4238,7 @@ label_10:
               DrawMod.DrawScaledColorized( local11,  local12, x10, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF7 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x8 + (double) width / 2.0 - (double) sizeF7.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x8 +  width / 2.0 -  sizeF7.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x8, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
@@ -4257,7 +4257,7 @@ label_10:
               DrawMod.DrawScaledColorized( local13,  local14, x12, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper = this.game.Data.ExtraTabName.ToUpper();
               SizeF sizeF8 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x11 + (double) width / 2.0 - (double) sizeF8.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x11 +  width / 2.0 -  sizeF8.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x11, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 51);
@@ -4265,7 +4265,7 @@ label_10:
             }
             else if (this.game.Data.ExtraTabName.Length > 0)
               num1 = x8 - (width - 12);
-            let mut x13: i32 =   Math.Round((double) num5 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x13: i32 =   Math.Round( num5 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (this.game.EditObj.SetViewModeExtraNr == 1)
             {
               upper = this.game.Data.ExtraTabName.ToUpper();
@@ -4288,7 +4288,7 @@ label_10:
             let mut w2: i32 =  width;
             DrawMod.DrawScaledColorized( local15,  local16, x14, 66, w2, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             SizeF sizeF9 = g.MeasureString(upper, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x13 + (double) width / 2.0 - (double) sizeF9.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x13 +  width / 2.0 -  sizeF9.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x13, 66, width, 24);
             let mut trect2: &Rectangle = &rectangle
             this.AddMouse( trect2, "", "Extra data sheet.", 50 + this.game.EditObj.SetViewModeExtraNr);
@@ -4306,27 +4306,27 @@ label_10:
       {
         if (this.game.EditObj.UnitSelected <= -1)
           return;
-        object obj = (object) true;
+        object obj =  true;
         if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical > -1)
         {
-          if (Information.IsNothing((object) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].CommanderName))
-            obj = (object) false;
+          if (Information.IsNothing( this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].CommanderName))
+            obj =  false;
           else if (this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical].CommanderName.Length < 1)
-            obj = (object) false;
+            obj =  false;
           if (!this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ)
             ;
         }
         else
-          obj = (object) false;
+          obj =  false;
         if (this.game.EditObj.OrderType == 18 || this.game.EditObj.OrderType == 7 || this.game.EditObj.OrderType == 44 || this.game.EditObj.OrderType == 45 || this.game.EditObj.OrderType == 46 || this.game.EditObj.OrderType == 49)
           return;
         if (flag1)
         {
           let mut width: i32 =  182;
           let mut num6: i32 =  180;
-          if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+          if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num6 += 120;
-          let mut num7: i32 =   Math.Round((double) num6 + (double) this.game.ScreenWidth / 2.0 - 480.0);
+          let mut num7: i32 =   Math.Round( num6 +  this.game.ScreenWidth / 2.0 - 480.0);
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
             let mut x15: i32 =  num7 + (width - 34) - (width - 24);
@@ -4338,7 +4338,7 @@ label_10:
             DrawMod.DrawScaledColorized( local17,  local18, x16, 66, w3, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str1: String = "SUPPLY BASE";
             SizeF sizeF10 = g.MeasureString(str1, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round((double) x15 + (double) width / 2.0 - (double) sizeF10.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str1, this.game.MarcFont16,  Math.Round( x15 +  width / 2.0 -  sizeF10.Width / 2.0), 70, Color.White);
             Rectangle rectangle = Rectangle::new(x15, 66, width, 24);
             let mut trect3: &Rectangle = &rectangle
             this.AddMouse( trect3, "", "Information on the Supply Base in this Hex", 101);
@@ -4352,7 +4352,7 @@ label_10:
             DrawMod.DrawScaledColorized( local19,  local20, x18, 66, w4, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str2: String = "UNIT BASE INFO";
             SizeF sizeF11 = g.MeasureString(str2, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont16,  Math.Round((double) x17 + (double) width / 2.0 - (double) sizeF11.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str2, this.game.MarcFont16,  Math.Round( x17 +  width / 2.0 -  sizeF11.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x17, 66, width, 24);
             let mut trect4: &Rectangle = &rectangle
             this.AddMouse( trect4, "", "The base info of the unit is always shown.");
@@ -4368,7 +4368,7 @@ label_10:
             DrawMod.DrawScaledColorized( local21,  local22, x20, 66, w5, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str3: String = "UNIT BASE INFO";
             SizeF sizeF12 = g.MeasureString(str3, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str3, this.game.MarcFont16,  Math.Round((double) x19 + (double) width / 2.0 - (double) sizeF12.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str3, this.game.MarcFont16,  Math.Round( x19 +  width / 2.0 -  sizeF12.Width / 2.0), 70, Color.White);
             Rectangle rectangle = Rectangle::new(x19, 66, width, 24);
             let mut trect5: &Rectangle = &rectangle
             this.AddMouse( trect5, "", "The base info of the unit is always shown.", 6);
@@ -4382,7 +4382,7 @@ label_10:
             DrawMod.DrawScaledColorized( local23,  local24, x22, 66, w6, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str4: String = "SUPPLY BASE";
             SizeF sizeF13 = g.MeasureString(str4, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str4, this.game.MarcFont16,  Math.Round((double) x21 + (double) width / 2.0 - (double) sizeF13.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str4, this.game.MarcFont16,  Math.Round( x21 +  width / 2.0 -  sizeF13.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x21, 66, width, 24);
             let mut trect6: &Rectangle = &rectangle
             this.AddMouse( trect6, "", "Information on the Supply Base in this Hex");
@@ -4405,11 +4405,11 @@ label_10:
             num8 = 300;
             num9 = 3;
           }
-          if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+          if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num8 += 120;
           if (this.game.EditObj.SetViewModeExtraNr == 0)
           {
-            let mut x23: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x23: i32 =   Math.Round( num8 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0)
@@ -4423,7 +4423,7 @@ label_10:
               DrawMod.DrawScaledColorized( local25,  local26, x24, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF14 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF14.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x23 +  width / 2.0 -  sizeF14.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x23, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
@@ -4440,7 +4440,7 @@ label_10:
               DrawMod.DrawScaledColorized( local27,  local28, x25, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF15 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x23 + (double) width / 2.0 - (double) sizeF15.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x23 +  width / 2.0 -  sizeF15.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x23, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
@@ -4455,7 +4455,7 @@ label_10:
             DrawMod.DrawScaledColorized( local29,  local30, x27, 66, w7, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             upper2: String = this.game.Data.ExtraTabName.ToUpper();
             SizeF sizeF16 = g.MeasureString(upper2, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, upper2, this.game.MarcFont16,  Math.Round((double) x26 + (double) width / 2.0 - (double) sizeF16.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, upper2, this.game.MarcFont16,  Math.Round( x26 +  width / 2.0 -  sizeF16.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x26, 66, width, 24);
             let mut trect7: &Rectangle = &rectangle
             this.AddMouse( trect7, "", "Extra data sheet.", 51);
@@ -4469,14 +4469,14 @@ label_10:
             DrawMod.DrawScaledColorized( local31,  local32, x29, 66, w8, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             str: String = "UNIT INFO";
             SizeF sizeF17 = g.MeasureString(str, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x28 + (double) width / 2.0 - (double) sizeF17.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round( x28 +  width / 2.0 -  sizeF17.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x28, 66, width, 24);
             let mut trect8: &Rectangle = &rectangle
             this.AddMouse( trect8, "", "The base info of the unit is always shown.");
           }
           else
           {
-            let mut x30: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x30: i32 =   Math.Round( num8 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             Bitmap bitmap;
             Rectangle rectangle;
             if (this.game.Data.ExtraTabName3.Length > 0 & this.game.EditObj.SetViewModeExtraNr != 3)
@@ -4490,7 +4490,7 @@ label_10:
               DrawMod.DrawScaledColorized( local33,  local34, x31, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName3.ToUpper();
               SizeF sizeF18 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x30 + (double) width / 2.0 - (double) sizeF18.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x30 +  width / 2.0 -  sizeF18.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x30, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 53);
@@ -4509,7 +4509,7 @@ label_10:
               DrawMod.DrawScaledColorized( local35,  local36, x32, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName2.ToUpper();
               SizeF sizeF19 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x30 + (double) width / 2.0 - (double) sizeF19.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x30 +  width / 2.0 -  sizeF19.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x30, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 52);
@@ -4528,7 +4528,7 @@ label_10:
               DrawMod.DrawScaledColorized( local37,  local38, x34, 66, w, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
               upper: String = this.game.Data.ExtraTabName.ToUpper();
               SizeF sizeF20 = g.MeasureString(upper, this.game.MarcFont16);
-              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round((double) x33 + (double) width / 2.0 - (double) sizeF20.Width / 2.0), 70, Color.White);
+              DrawMod.DrawTextColouredMarc( g, upper, this.game.MarcFont16,  Math.Round( x33 +  width / 2.0 -  sizeF20.Width / 2.0), 70, Color.White);
               rectangle = Rectangle::new(x33, 66, width, 24);
               let mut trect: &Rectangle = &rectangle
               this.AddMouse( trect, "", "Extra data sheet.", 51);
@@ -4536,7 +4536,7 @@ label_10:
             }
             else if (this.game.Data.ExtraTabName.Length > 0)
               num1 = x30 - (width - 12);
-            let mut num10: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut num10: i32 =   Math.Round( num8 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (this.game.Data.ExtraTabName3.Length > 0)
               num10 -= width - 12;
             if (this.game.Data.ExtraTabName2.Length > 0)
@@ -4552,12 +4552,12 @@ label_10:
             DrawMod.DrawScaledColorized( local39,  local40, x36, 66, w9, 24, 182, 24, -0.1f, -0.1f, -0.1f, 1f);
             str: String = "UNIT INFO";
             SizeF sizeF21 = g.MeasureString(str, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x35 + (double) width / 2.0 - (double) sizeF21.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round( x35 +  width / 2.0 -  sizeF21.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x35, 66, width, 24);
             let mut trect9: &Rectangle = &rectangle
             this.AddMouse( trect9, "", "The base info of the unit is always shown.", 6);
             this.tab6 = this.MouseCounter;
-            let mut x37: i32 =   Math.Round((double) num8 + (double) this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
+            let mut x37: i32 =   Math.Round( num8 +  this.game.ScreenWidth / 2.0 - 480.0) + (width - 12);
             if (this.game.EditObj.SetViewModeExtraNr == 1)
             {
               str = this.game.Data.ExtraTabName.ToUpper();
@@ -4580,7 +4580,7 @@ label_10:
             let mut w10: i32 =  width;
             DrawMod.DrawScaledColorized( local41,  local42, x38, 66, w10, 24, 182, 24, 0.0f, 0.0f, 0.0f, 1f);
             SizeF sizeF22 = g.MeasureString(str, this.game.MarcFont16);
-            DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) x37 + (double) width / 2.0 - (double) sizeF22.Width / 2.0), 70, Color.White);
+            DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round( x37 +  width / 2.0 -  sizeF22.Width / 2.0), 70, Color.White);
             rectangle = Rectangle::new(x37, 66, width, 24);
             let mut trect10: &Rectangle = &rectangle
             this.AddMouse( trect10, "", "Extra data sheet.", 50 + this.game.EditObj.SetViewModeExtraNr);
@@ -4595,9 +4595,9 @@ label_10:
         else
         {
           let mut num11: i32 =  0;
-          if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+          if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
             num11 += 120;
-          let mut x39: i32 =   Math.Round((double) num11 + (double) this.game.ScreenWidth / 2.0 - 480.0);
+          let mut x39: i32 =   Math.Round( num11 +  this.game.ScreenWidth / 2.0 - 480.0);
            let mut local43: &Graphics = &g;
           Bitmap bitmap = BitmapStore.GetBitmap(this.game.MARCLARGETAB);
            let mut local44: &Bitmap = &bitmap;
@@ -4605,7 +4605,7 @@ label_10:
           DrawMod.DrawSimple( local43,  local44, x40, 66);
           str: String = "UNIT BASE INFO";
           SizeF sizeF23 = g.MeasureString(str, this.game.MarcFont16);
-          DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round((double) ((float) (x39 + 91) - sizeF23.Width / 2f)), 70, Color.White);
+          DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16,  Math.Round( ( (x39 + 91) - sizeF23.Width / 2f)), 70, Color.White);
           Rectangle trect = Rectangle::new(x39, 66, BitmapStore.GetWidth(this.game.MARCLARGETAB), 24);
           this.AddMouse( trect, "", "The base info of the unit is always shown.");
         }
@@ -4629,19 +4629,19 @@ label_10:
           this.CurrentView = 0;
           this.game.EditObj.SetViewMode = 0;
         }
-        if (Conversions.ToBoolean(Operators.AndObject((object) (this.CurrentView == 3), Operators.OrObject((object) !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj, (object) false, false)))))
+        if (Conversions.ToBoolean(Operators.AndObject( (this.CurrentView == 3), Operators.OrObject( !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj,  false, false)))))
         {
           this.CurrentView = 0;
           this.game.EditObj.SetViewMode = 0;
           this.game.EditObj.SetViewMode3 = false;
         }
-        if (Conversions.ToBoolean(Operators.AndObject((object) (this.CurrentView == 0), Operators.AndObject((object) this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ, obj))) && !this.game.EditObj.SetViewMode3)
+        if (Conversions.ToBoolean(Operators.AndObject( (this.CurrentView == 0), Operators.AndObject( this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ, obj))) && !this.game.EditObj.SetViewMode3)
         {
           this.CurrentView = 3;
           this.game.EditObj.SetViewMode = 3;
           this.game.EditObj.SetViewMode3 = true;
         }
-        if (Conversions.ToBoolean(Operators.AndObject((object) this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj, (object) true, false))))
+        if (Conversions.ToBoolean(Operators.AndObject( this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ, Operators.CompareObjectEqual(obj,  true, false))))
         {
           if (this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime, this.game.Data.Turn) | !this.game.Data.FOWOn)
           {
@@ -4730,7 +4730,7 @@ label_10:
     pub void DoTabs1( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -4749,13 +4749,13 @@ label_10:
       }
       str: String = "UNIT TROOPS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =   Math.Round( ( (num + 420 + 91) - sizeF2.Width / 2f));
       let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount + 1 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].PassengerCounter > 7)
       {
-        DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0 + 2.0), y + 8 + 2, 9, 9, 0, 0, 0, 196);
-        DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0), y + 8, 9, 9,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+        DrawMod.DrawBlock( g,  Math.Round( x1 +  sizeF2.Width + 1.0 + 2.0), y + 8 + 2, 9, 9, 0, 0, 0, 196);
+        DrawMod.DrawBlock( g,  Math.Round( x1 +  sizeF2.Width + 1.0), y + 8, 9, 9,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       }
       Rectangle trect = Rectangle::new(num + 420, y, 182, 24);
       this.AddMouse( trect, "", "Click to get more stats on selected unit. [F10]", 1);
@@ -4765,7 +4765,7 @@ label_10:
     pub void DoTabs1B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -4784,13 +4784,13 @@ label_10:
       }
       str: String = "UNIT TROOPS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =   Math.Round( ( (num + 420 + 170 + 91) - sizeF2.Width / 2f));
       let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       if (this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SFCount + 1 + this.game.Data.UnitObj[this.game.EditObj.UnitSelected].PassengerCounter > 7)
       {
-        DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0 + 2.0), y + 8 + 2, 9, 9, 0, 0, 0, 196);
-        DrawMod.DrawBlock( g,  Math.Round((double) x1 + (double) sizeF2.Width + 1.0), y + 8, 9, 9,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+        DrawMod.DrawBlock( g,  Math.Round( x1 +  sizeF2.Width + 1.0 + 2.0), y + 8 + 2, 9, 9, 0, 0, 0, 196);
+        DrawMod.DrawBlock( g,  Math.Round( x1 +  sizeF2.Width + 1.0), y + 8, 9, 9,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
       }
       Rectangle trect = Rectangle::new(num + 420 + 170, y, 182, 24);
       this.AddMouse( trect, "", "Click to get more stats on selected unit. [F10]", 1);
@@ -4802,7 +4802,7 @@ label_10:
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
         return;
-      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -4821,7 +4821,7 @@ label_10:
       }
       str: String = "UNIT DETAILS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =   Math.Round( ( (num + 420 + 170 + 91) - sizeF2.Width / 2f));
       let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 170 + 420, y, 182, 24);
@@ -4834,7 +4834,7 @@ label_10:
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
         return;
-      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -4853,7 +4853,7 @@ label_10:
       }
       str: String = "UNIT DETAILS";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =   Math.Round( ( (num + 420 + 340 + 91) - sizeF2.Width / 2f));
       let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 340 + 420, y, 182, 24);
@@ -4866,7 +4866,7 @@ label_10:
       SizeF sizeF1 = SizeF::new();
       if (this.game.Data.Round == 0)
         return;
-      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -4885,7 +4885,7 @@ label_10:
       }
       str: String = "COMBAT SETUP";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 340 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =   Math.Round( ( (num + 420 + 340 + 91) - sizeF2.Width / 2f));
       let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 340 + 420, y, 182, 24);
@@ -4896,7 +4896,7 @@ label_10:
     pub void DoTabs4( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -4915,7 +4915,7 @@ label_10:
       }
       str: String = "OFFICER INFO";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 0 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =   Math.Round( ( (num + 420 + 0 + 91) - sizeF2.Width / 2f));
       let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 0 + 420, y, 182, 24);
@@ -4926,7 +4926,7 @@ label_10:
     pub void DoTabs4B( Graphics g, bool Active = false)
     {
       SizeF sizeF1 = SizeF::new();
-      let mut num: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 480.0);
+      let mut num: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 480.0);
       if (!Active)
       {
          let mut local1: &Graphics = &g;
@@ -4945,7 +4945,7 @@ label_10:
       }
       str: String = "OFFICER INFO";
       SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont16);
-      let mut x1: i32 =   Math.Round((double) ((float) (num + 420 + 170 + 91) - sizeF2.Width / 2f));
+      let mut x1: i32 =   Math.Round( ( (num + 420 + 170 + 91) - sizeF2.Width / 2f));
       let mut y: i32 =  66;
       DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont16, x1, y + 4, Color.White);
       Rectangle trect = Rectangle::new(num + 170 + 420, y, 182, 24);
@@ -4974,9 +4974,9 @@ label_10:
     pub HandleMouseMove: WindowReturnClass(int x, int y)
     {
       windowReturnClass: WindowReturnClass = base.HandleMouseMove(x, y);
-      if (y > 18 && (double) this.w / 2.0 - 500.0 < (double) x & (double) x < (double) this.w / 2.0 + 500.0)
+      if (y > 18 &&  this.w / 2.0 - 500.0 <  x &  x <  this.w / 2.0 + 500.0)
         windowReturnClass.NoMouseClickBelow = true;
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode && y > 0 && (double) this.w / 2.0 - 640.0 < (double) x & (double) x < (double) this.w / 2.0 + 640.0)
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode && y > 0 &&  this.w / 2.0 - 640.0 <  x &  x <  this.w / 2.0 + 640.0)
         windowReturnClass.NoMouseClickBelow = true;
       return windowReturnClass;
     }
@@ -4987,7 +4987,7 @@ label_10:
       windowReturnClass1: WindowReturnClass = WindowReturnClass::new();
       if (this.game.EditObj.BattleTimerActive)
         return windowReturnClass1;
-      if (y > 18 && (double) this.w / 2.0 - 500.0 < (double) x & (double) x < (double) this.w / 2.0 + 500.0)
+      if (y > 18 &&  this.w / 2.0 - 500.0 <  x &  x <  this.w / 2.0 + 500.0)
         windowReturnClass1.NoMouseClickBelow = true;
       for (let mut mouseCounter: i32 =  this.MouseCounter; mouseCounter >= 0; mouseCounter += -1)
       {
@@ -5059,7 +5059,7 @@ label_10:
               System.Type type1 = typeof (MapWindowClass2);
                System.Type local1 =  type1;
               MapWindowClass2 window1 = (MapWindowClass2) screeny1.GetWindow( local1);
-              if (!Information.IsNothing((object) window1))
+              if (!Information.IsNothing( window1))
               {
                 this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                 if (this.game.EditObj.UnitSelected > -1)
@@ -5084,7 +5084,7 @@ label_10:
               System.Type type2 = typeof (MapWindowClass2);
                System.Type local2 =  type2;
               MapWindowClass2 window2 = (MapWindowClass2) screeny2.GetWindow( local2);
-              if (!Information.IsNothing((object) window2))
+              if (!Information.IsNothing( window2))
               {
                 this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                 if (this.game.EditObj.UnitSelected > -1)
@@ -5105,14 +5105,14 @@ label_10:
               if (this.Cancelid > 0)
                 this.HandleMouseClick(this.SubPartX[this.SubpartNr(this.Cancelid)] + 1, this.SubPartY[this.SubpartNr(this.Cancelid)] + 1, 1);
               this.game.EditObj.OrderType = 0;
-              if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+              if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
               {
                 this.game.EditObj.udsUnitOrderMode = 0;
                 ScreenClass screeny3 = this.formref.Screeny;
                 System.Type type3 = typeof (MapWindowClass2);
                  System.Type local3 =  type3;
                 MapWindowClass2 window3 = (MapWindowClass2) screeny3.GetWindow( local3);
-                if (!Information.IsNothing((object) window3))
+                if (!Information.IsNothing( window3))
                 {
                   this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                   if (this.game.EditObj.UnitSelected > -1)
@@ -5172,7 +5172,7 @@ label_10:
                   if (this.game.Data.Round == 0)
                   {
                     str2: String = this.game.AppPath + "scenarios\\";
-                    if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+                    if (!Information.IsNothing( this.game.Data.ScenarioDir))
                     {
                       if (this.game.Data.ScenarioDir.Length > 1)
                         str1 = str2.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -5196,7 +5196,7 @@ label_10:
                 }
                 else if (num1 == this.BattleId)
                 {
-                  if (this.game.Data.Product >= 6 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+                  if (this.game.Data.Product >= 6 &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
                   {
                     this.game.EditObj.PopupValue = 22;
                     windowReturnClass1.AddCommand(5, 14);
@@ -5325,25 +5325,25 @@ label_10:
                                 {
                                   if (this.game.HandyFunctionsObj.CanDoArtAttack(unit, target, false))
                                   {
-                                    if ((double) this.game.Data.RuleVar[899] < 1.0)
+                                    if ( this.game.Data.RuleVar[899] < 1.0)
                                     {
                                       this.game.EditObj.TempCoordList.AddCoord(coordinate.x, coordinate.y, coordinate.map);
                                       this.game.EditObj.TempUnitList.add(unit);
                                     }
-                                    else if ((double) this.game.HandyFunctionsObj.GetArtPercent(unit, true) >= (double) this.game.Data.RuleVar[899])
+                                    else if ( this.game.HandyFunctionsObj.GetArtPercent(unit, true) >=  this.game.Data.RuleVar[899])
                                     {
                                       this.game.EditObj.TempCoordList.AddCoord(coordinate.x, coordinate.y, coordinate.map);
                                       this.game.EditObj.TempUnitList.add(unit);
                                     }
                                   }
-                                  else if ((double) this.game.Data.RuleVar[419] > 0.0 && this.game.HandyFunctionsObj.CanDoDirectAttack(unit, target, false))
+                                  else if ( this.game.Data.RuleVar[419] > 0.0 && this.game.HandyFunctionsObj.CanDoDirectAttack(unit, target, false))
                                   {
-                                    if ((double) this.game.Data.RuleVar[899] < 1.0)
+                                    if ( this.game.Data.RuleVar[899] < 1.0)
                                     {
                                       this.game.EditObj.TempCoordList.AddCoord(coordinate.x, coordinate.y, coordinate.map);
                                       this.game.EditObj.TempUnitList.add(unit);
                                     }
-                                    else if ((double) this.game.HandyFunctionsObj.GetDirectPercent(unit, true) >= (double) this.game.Data.RuleVar[899])
+                                    else if ( this.game.HandyFunctionsObj.GetDirectPercent(unit, true) >=  this.game.Data.RuleVar[899])
                                     {
                                       this.game.EditObj.TempCoordList.AddCoord(coordinate.x, coordinate.y, coordinate.map);
                                       this.game.EditObj.TempUnitList.add(unit);
@@ -5434,7 +5434,7 @@ label_10:
                       break;
                     case 3:
                       let mut historical: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Historical;
-                      if (historical > -1 && this.game.Data.HistoricalUnitObj[historical].HandCardCounter > -1 & (double) this.game.Data.RuleVar[897] == 0.0 && Interaction.MsgBox((object) "This action will cause the HQ to lose all handcards. Are you sure?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+                      if (historical > -1 && this.game.Data.HistoricalUnitObj[historical].HandCardCounter > -1 &  this.game.Data.RuleVar[897] == 0.0 && Interaction.MsgBox( "This action will cause the HQ to lose all handcards. Are you sure?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
                       {
                         this.game.EditObj.OrderType = 0;
                         this.game.EditObj.TempCoordList = CoordList::new();
@@ -5494,7 +5494,7 @@ label_10:
                         this.game.EditObj.OrderTarget = this.game.EditObj.UnitSelected;
                         if (this.game.HandyFunctionsObj.HasUnitOnlyParaLandSF(this.game.EditObj.OrderTarget))
                         {
-                          if (Interaction.MsgBox((object) "Do you want to paradrop?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                          if (Interaction.MsgBox( "Do you want to paradrop?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                           {
                             this.game.EditObj.OrderType = 19;
                             this.game.EditObj.TempCoordList = this.game.HandyFunctionsObj.MakeMovePrediction(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Map, false, PredictAirOnly: true, ClearSea: true, attack: true, isparadrop: true);
@@ -5525,7 +5525,7 @@ label_10:
                         if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].UnitCounter > 14)
                         {
                           num3 = 1;
-                          let mut num4: i32 =   Interaction.MsgBox((object) "Already 16 units in that hex.");
+                          let mut num4: i32 =   Interaction.MsgBox( "Already 16 units in that hex.");
                           this.game.EditObj.OrderType = 0;
                           windowReturnClass1.AddCommand(4, 12);
                           windowReturnClass1.AddCommand(4, 68);
@@ -5656,7 +5656,7 @@ label_10:
                       this.game.EditObj.TempUnitList.add(this.game.EditObj.OrderUnit);
                       if (this.game.TempCombat.Init(Target1, 1, this.game.EditObj.TempUnitList, this.game.EditObj.OrderType).OK)
                       {
-                        if ((double) this.game.Data.RuleVar[839] == 1.0)
+                        if ( this.game.Data.RuleVar[839] == 1.0)
                         {
                           this.game.EditObj.PopupValue = 7;
                           windowReturnClass1.AddCommand(5, 14);
@@ -6091,7 +6091,7 @@ label_10:
                       this.game.EditObj.HideUnit = 1;
                     else if (this.game.EditObj.HideUnit == 1)
                     {
-                      if ((double) this.game.Data.RuleVar[344] == 1.0)
+                      if ( this.game.Data.RuleVar[344] == 1.0)
                         this.game.EditObj.HideUnit = 2;
                       else
                         this.game.EditObj.HideUnit = 0;
@@ -6111,32 +6111,32 @@ label_10:
                     let mut num10: i32 =  0;
                     if (this.game.EditObj.GuiDown)
                       num10 = 222;
-                    let mut num11: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-                    let mut num12: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-                    let mut num13: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num10)) / 53.0));
-                    let mut num14: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num10)) / 106.0));
+                    let mut num11: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 53.0));
+                    let mut num12: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
+                    let mut num13: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num10)) / 53.0));
+                    let mut num14: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num10)) / 106.0));
                     int num15;
                     int num16;
                     if (this.game.EditObj.Zoom == 0)
                     {
                       this.game.EditObj.Zoom = -1;
-                      this.game.CornerX -=  Math.Round(Conversion.Int((double) num11 / 2.0));
-                      this.game.CornerY -=  Math.Round(Conversion.Int((double) num13 / 2.0));
+                      this.game.CornerX -=  Math.Round(Conversion.Int( num11 / 2.0));
+                      this.game.CornerY -=  Math.Round(Conversion.Int( num13 / 2.0));
                       num15 = 27;
                       num16 = 24;
                     }
                     else
                     {
                       this.game.EditObj.Zoom = 0;
-                      this.game.CornerX -=  Math.Round(Conversion.Int((double) num12 / 2.0));
-                      this.game.CornerY -=  Math.Round(Conversion.Int((double) num14 / 2.0));
+                      this.game.CornerX -=  Math.Round(Conversion.Int( num12 / 2.0));
+                      this.game.CornerY -=  Math.Round(Conversion.Int( num14 / 2.0));
                       num15 = 53;
                       num16 = 48;
                     }
-                    if ((double) this.game.CornerX + (double) this.game.ScreenWidth / (double) num15 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-                      this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num15);
-                    if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - (256 - num10)) / (double) num16 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-                      this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - (256 - num10)) / (double) num16);
+                    if ( this.game.CornerX +  this.game.ScreenWidth /  num15 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+                      this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num15);
+                    if ( this.game.CornerY +  (this.game.ScreenHeight - (256 - num10)) /  num16 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+                      this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - (256 - num10)) /  num16);
                     if (this.game.CornerX < 0)
                       this.game.CornerX = 0;
                     if (this.game.CornerY < 0)
@@ -6155,32 +6155,32 @@ label_10:
                     let mut num17: i32 =  0;
                     if (this.game.EditObj.GuiDown)
                       num17 = 222;
-                    let mut num18: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 53.0));
-                    let mut num19: i32 =   Math.Round(Conversion.Int((double) this.game.ScreenWidth / 106.0));
-                    let mut num20: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num17)) / 53.0));
-                    let mut num21: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - (265 - num17)) / 106.0));
+                    let mut num18: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 53.0));
+                    let mut num19: i32 =   Math.Round(Conversion.Int( this.game.ScreenWidth / 106.0));
+                    let mut num20: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num17)) / 53.0));
+                    let mut num21: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - (265 - num17)) / 106.0));
                     int num22;
                     int num23;
                     if (this.game.EditObj.Zoom == 0)
                     {
                       this.game.EditObj.Zoom = 1;
-                      this.game.CornerX +=  Math.Round(Conversion.Int((double) num19 / 2.0));
-                      this.game.CornerY +=  Math.Round(Conversion.Int((double) num21 / 2.0));
+                      this.game.CornerX +=  Math.Round(Conversion.Int( num19 / 2.0));
+                      this.game.CornerY +=  Math.Round(Conversion.Int( num21 / 2.0));
                       num22 = 106;
                       num23 = 96;
                     }
                     else
                     {
                       this.game.EditObj.Zoom = 0;
-                      this.game.CornerX +=  Math.Round(Conversion.Int((double) num18 / 2.0));
-                      this.game.CornerY +=  Math.Round(Conversion.Int((double) num20 / 2.0));
+                      this.game.CornerX +=  Math.Round(Conversion.Int( num18 / 2.0));
+                      this.game.CornerY +=  Math.Round(Conversion.Int( num20 / 2.0));
                       num22 = 53;
                       num23 = 48;
                     }
-                    if ((double) this.game.CornerX + (double) this.game.ScreenWidth / (double) num22 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
-                      this.game.CornerX =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) - (double) (this.game.ScreenWidth - 200) / (double) num22);
-                    if ((double) this.game.CornerY + (double) (this.game.ScreenHeight - (256 - num17)) / (double) num23 > (double) this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
-                      this.game.CornerY =  Math.Round((double) (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) - (double) (this.game.ScreenHeight - (256 - num17)) / (double) num23);
+                    if ( this.game.CornerX +  this.game.ScreenWidth /  num22 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+                      this.game.CornerX =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth) -  (this.game.ScreenWidth - 200) /  num22);
+                    if ( this.game.CornerY +  (this.game.ScreenHeight - (256 - num17)) /  num23 >  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight)
+                      this.game.CornerY =  Math.Round( (1 + this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight) -  (this.game.ScreenHeight - (256 - num17)) /  num23);
                     if (this.game.CornerX < 0)
                       this.game.CornerX = 0;
                     if (this.game.CornerY < 0)
@@ -6214,7 +6214,7 @@ label_10:
                     {
                       this.game.EditObj.LayerSupplyOn = true;
                       let mut unr: i32 =  this.game.EditObj.UnitSelected;
-                      if (this.game.Data.Product >= 6 & (double) this.game.Data.RuleVar[471] > 0.0)
+                      if (this.game.Data.Product >= 6 &  this.game.Data.RuleVar[471] > 0.0)
                       {
                         let mut index22: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location2;
                         if (index22 > -1)
@@ -6238,7 +6238,7 @@ label_10:
                             if (!this.game.Data.UnitObj[unr].IsHQ)
                               unr = this.game.Data.UnitObj[unr].HQ;
                             this.game.EditObj.LayerSupplyHQ = unr;
-                            if ((double) this.game.Data.RuleVar[887] == 1.0)
+                            if ( this.game.Data.RuleVar[887] == 1.0)
                             {
                               this.game.EditObj.LayerSupplyHQ = this.game.HandyFunctionsObj.GetTopHQ(unr);
                               unr = this.game.EditObj.LayerSupplyHQ;
@@ -6260,7 +6260,7 @@ label_10:
                           }
                           this.game.EditObj.LayerSupplyHQ = -1;
                         }
-                        if ((double) this.game.Data.RuleVar[462] > 0.0 && this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn && !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ && this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y].Location].Type].isSupplyBase)
+                        if ( this.game.Data.RuleVar[462] > 0.0 && this.game.EditObj.UnitSelected > -1 && this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime == this.game.Data.Turn && !this.game.Data.UnitObj[this.game.EditObj.UnitSelected].IsHQ && this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].X, this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Y].Location].Type].isSupplyBase)
                           this.game.EditObj.LayerSupplyHQ = -1;
                         if (this.game.EditObj.LayerSupplyHQ == -1)
                           this.game.HandyFunctionsObj.MakeSupplyLayer2(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected);
@@ -6288,7 +6288,7 @@ label_10:
                   }
                   else if (num1 == this.GroupMoveButtonId)
                   {
-                    if ((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
+                    if ( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
                     {
                       this.game.EditObj.OrderType = 48;
                       this.game.EditObj.TempCoordList = this.game.HandyFunctionsObj.MakeMovePredictionGroup(this.game.EditObj.UnitSelected, this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, attackoptions: true, ismove: true);
@@ -6313,7 +6313,7 @@ label_10:
                       System.Type type = typeof (MapWindowClass2);
                        System.Type local =  type;
                       MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-                      if (!Information.IsNothing((object) window))
+                      if (!Information.IsNothing( window))
                       {
                         this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                         if (this.game.EditObj.UnitSelected > -1)
@@ -6332,7 +6332,7 @@ label_10:
                   {
                     if (num1 == this.MoveButtonId)
                     {
-                      if ((double) this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
+                      if ( this.game.Data.RuleVar[701] < 1.0 | !this.game.EditObj.useLeftRightClickMode)
                       {
                         if (this.game.EditObj.UnitSelected == -1)
                           return windowReturnClass1;
@@ -6349,7 +6349,7 @@ label_10:
                         System.Type type = typeof (MapWindowClass2);
                          System.Type local =  type;
                         MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-                        if (!Information.IsNothing((object) window))
+                        if (!Information.IsNothing( window))
                         {
                           this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                           if (this.game.EditObj.UnitSelected > -1)
@@ -6619,14 +6619,14 @@ label_10:
                             case 43:
                             case 48:
                               this.game.EditObj.OrderType = 0;
-                              if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
+                              if ( this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode)
                               {
                                 this.game.EditObj.udsUnitOrderMode = 0;
                                 ScreenClass screeny = this.formref.Screeny;
                                 System.Type type = typeof (MapWindowClass2);
                                  System.Type local =  type;
                                 MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-                                if (!Information.IsNothing((object) window))
+                                if (!Information.IsNothing( window))
                                 {
                                   this.game.EditObj.OldUnit = this.game.EditObj.UnitSelected;
                                   if (this.game.EditObj.UnitSelected > -1)
@@ -6830,7 +6830,7 @@ label_10:
 
     pub void PopUpRefresh()
     {
-      if (this.game.Data.Product >= 6 & (double) this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode && !this.game.EditObj.battleTimerPopupRefreshDoesntStartIt)
+      if (this.game.Data.Product >= 6 &  this.game.Data.RuleVar[701] > 0.0 & this.game.EditObj.useLeftRightClickMode && !this.game.EditObj.battleTimerPopupRefreshDoesntStartIt)
       {
         if (this.game.EditObj.OrderType == 2)
         {
@@ -6934,7 +6934,7 @@ label_10:
         }
       }
       this.game.EventRelatedObj.ExecMessage2(-1, -1, -1, -1, this.game.Data.RegimeObj[this.game.Data.Turn].Name + " has surrendered.");
-      if ((double) this.game.Data.RuleVar[978] < 1.0)
+      if ( this.game.Data.RuleVar[978] < 1.0)
       {
         this.game.Data.LastWinner = this.game.Data.Winner;
         if (this.game.Data.PbemGameID < 1)
@@ -6943,7 +6943,7 @@ label_10:
       this.EndingTurn = true;
       this.dostuff();
       windowReturnClass.SetFlag(true);
-      if (humanPlayers > 1 | (double) this.game.Data.RuleVar[978] > 0.0 | this.game.Data.PbemGameID > 0)
+      if (humanPlayers > 1 |  this.game.Data.RuleVar[978] > 0.0 | this.game.Data.PbemGameID > 0)
       {
         windowReturnClass.AddCommand(3, 13);
       }
@@ -6953,7 +6953,7 @@ label_10:
         this.game.EditObj = new EditClass(this.game.AppPath + "editobj.txt");
         if (this.game.Data.UseAI == 1)
         {
-          if (Information.IsNothing((object) this.game.NewAIObj))
+          if (Information.IsNothing( this.game.NewAIObj))
             this.game.NewAIObj = new NewAIClass(this.game);
           this.game.NewAIObj.LastRegime = -1;
         }
@@ -6971,12 +6971,12 @@ label_10:
       for (let mut regnr: i32 =  0; regnr <= regimeCounter; regnr += 1)
       {
         if (this.game.Data.RegimeObj[regnr].Sleep | this.game.Data.RegimeObj[regnr].AI)
-          this.game.HandyFunctionsObj.ClearHistory((object) regnr);
+          this.game.HandyFunctionsObj.ClearHistory( regnr);
       }
       let mut humanPlayers: i32 =  this.game.HandyFunctionsObj.GetHumanPlayers();
       this.game.EditObj.DoCardSlot = -1;
       this.game.EditObj.HandCard = -1;
-      if (this.game.Data.UseAI == 1 && Information.IsNothing((object) this.game.NewAIObj))
+      if (this.game.Data.UseAI == 1 && Information.IsNothing( this.game.NewAIObj))
         this.game.NewAIObj = new NewAIClass(this.game);
       if (humanPlayers < 1)
       {

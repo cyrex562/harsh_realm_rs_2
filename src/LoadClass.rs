@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -41,7 +41,7 @@ namespace WindowsApplication1
       this.game.EditObj.LoadNoNewEdit = false;
       if (this.game.Data.UseAI == 1)
       {
-        if (Information.IsNothing((object) this.game.NewAIObj))
+        if (Information.IsNothing( this.game.NewAIObj))
           this.game.NewAIObj = new NewAIClass(this.game);
         this.game.NewAIObj.LastRegime = -1;
       }
@@ -128,7 +128,7 @@ namespace WindowsApplication1
           this.game.EditObj.TempFileName = tempFileName;
           if (str2.Length > 1)
           {
-            let mut num: i32 =   Interaction.MsgBox((object) ("MOD LIBRARY PROBLEMS ENCOUNTERED: \r\n" + str2 + "\r\n\r\nYou are advised to to back to Main Menu and reconfigure your Mod Libraries activations in the Mod Library Picker."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num: i32 =   Interaction.MsgBox( ("MOD LIBRARY PROBLEMS ENCOUNTERED: \r\n" + str2 + "\r\n\r\nYou are advised to to back to Main Menu and reconfigure your Mod Libraries activations in the Mod Library Picker."), Title: ( "Shadow Empire : Planetary Conquest"));
           }
         }
         let mut stringListCounter: i32 =  this.game.Data.StringListCounter;
@@ -150,21 +150,21 @@ namespace WindowsApplication1
                 if (id > -1)
                 {
                   let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(id);
-                  if (num == 1 && Conversions.ToDouble(str4) > -1.0 & Conversions.ToDouble(str5) > -1.0 & Conversions.ToDouble(str4) <= (double) this.game.Data.StringListObj[stringListById].Length & Conversions.ToDouble(str5) <= (double) this.game.Data.StringListObj[stringListById].Width)
+                  if (num == 1 && Conversions.ToDouble(str4) > -1.0 & Conversions.ToDouble(str5) > -1.0 & Conversions.ToDouble(str4) <=  this.game.Data.StringListObj[stringListById].Length & Conversions.ToDouble(str5) <=  this.game.Data.StringListObj[stringListById].Width)
                   {
-                    if (Information.IsNothing((object) this.game.Data.StringListObj[index5].Data[index6, 6]))
+                    if (Information.IsNothing( this.game.Data.StringListObj[index5].Data[index6, 6]))
                       this.game.Data.StringListObj[index5].Data[index6, 6] = "";
                     if (Operators.CompareString(this.game.Data.StringListObj[index5].Data[index6, 6], "*SKIP*", false) != 0)
                       this.game.Data.StringListObj[stringListById].Data[Conversions.ToInteger(str4), Conversions.ToInteger(str5)] = this.game.Data.StringListObj[index5].Data[index6, 6];
                   }
-                  if (num == 2 && Conversions.ToDouble(str4) > -1.0 & Conversions.ToDouble(str4) <= (double) this.game.Data.StringListObj[stringListById].Length)
+                  if (num == 2 && Conversions.ToDouble(str4) > -1.0 & Conversions.ToDouble(str4) <=  this.game.Data.StringListObj[stringListById].Length)
                   {
                     let mut width: i32 =  this.game.Data.StringListObj[stringListById].Width;
                     for (let mut index7: i32 =  0; index7 <= width; index7 += 1)
                     {
                       if (index7 + 6 <= this.game.Data.StringListObj[index5].Data.GetUpperBound(1))
                       {
-                        if (Information.IsNothing((object) this.game.Data.StringListObj[index5].Data[index6, index7 + 6]))
+                        if (Information.IsNothing( this.game.Data.StringListObj[index5].Data[index6, index7 + 6]))
                           this.game.Data.StringListObj[index5].Data[index6, index7 + 6] = "";
                         if (Operators.CompareString(this.game.Data.StringListObj[index5].Data[index6, index7 + 6], "*SKIP*", false) != 0)
                           this.game.Data.StringListObj[stringListById].Data[Conversions.ToInteger(str4), index7] = this.game.Data.StringListObj[index5].Data[index6, index7 + 6];
@@ -180,7 +180,7 @@ namespace WindowsApplication1
                     {
                       if (index8 + 6 <= this.game.Data.StringListObj[index5].Data.GetUpperBound(1))
                       {
-                        if (Information.IsNothing((object) this.game.Data.StringListObj[index5].Data[index6, index8 + 6]))
+                        if (Information.IsNothing( this.game.Data.StringListObj[index5].Data[index6, index8 + 6]))
                           this.game.Data.StringListObj[index5].Data[index6, index8 + 6] = "";
                         if (Operators.CompareString(this.game.Data.StringListObj[index5].Data[index6, index8 + 6], "*SKIP*", false) != 0)
                           this.game.Data.StringListObj[stringListById].Data[Conversions.ToInteger(str6), index8] = this.game.Data.StringListObj[index5].Data[index6, index8 + 6];
@@ -193,7 +193,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[344] == 1.0 & this.game.EditObj.HideUnit == 0)
+      if ( this.game.Data.RuleVar[344] == 1.0 & this.game.EditObj.HideUnit == 0)
         this.game.EditObj.HideUnit = 2;
       this.game.EditObj.TempValue = new MapMatrix2[this.game.Data.MapCounter + 1];
       this.game.EditObj.TempValue2 = new MapMatrix2[this.game.Data.MapCounter + 1];
@@ -395,7 +395,7 @@ namespace WindowsApplication1
         this.game.EditObj.LoadString = "Make Mini/Strategy Map";
         this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, 200, 150, false);
         this.game.EditObj.StratMap = new Bitmap(this.game.ScreenWidth, this.game.ScreenHeight - 305);
-        this.game.EditObj.StratMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.game.EditObj.StratMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         if (this.game.Data.Product == 7)
           this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.StratMap, this.game.ScreenWidth, this.game.ScreenHeight - 305, false, alsoshading: false);
         else
@@ -405,14 +405,14 @@ namespace WindowsApplication1
         {
           if (this.game.Data.UseAI == 1)
           {
-            if (Information.IsNothing((object) this.game.NewAIObj))
+            if (Information.IsNothing( this.game.NewAIObj))
               this.game.NewAIObj = new NewAIClass(this.game);
             this.game.DC2AIObj = (DC2AIClass) null;
             this.game.AIObj = (AIClass) null;
           }
           else if (this.game.Data.UseAI == 2)
           {
-            if (Information.IsNothing((object) this.game.DC2AIObj))
+            if (Information.IsNothing( this.game.DC2AIObj))
               this.game.DC2AIObj = new DC2AIClass(this.game);
             this.game.NewAIObj = (NewAIClass) null;
             this.game.AIObj = (AIClass) null;
@@ -441,11 +441,11 @@ namespace WindowsApplication1
           str1 = Interaction.InputBox("This File is protected by a load password. Please give it in order to load it.", "Shadow Empire : Planetary Conquest");
           if (Operators.CompareString(Strings.LCase(str1), Strings.LCase(this.game.Data.LoadPass), false) == 0)
           {
-            let mut num7: i32 =   Interaction.MsgBox((object) "You are cleared.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num7: i32 =   Interaction.MsgBox( "You are cleared.", Title: ( "Shadow Empire : Planetary Conquest"));
           }
           else
           {
-            let mut num8: i32 =   Interaction.MsgBox((object) "Wrong Password. You cannot Load this file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num8: i32 =   Interaction.MsgBox( "Wrong Password. You cannot Load this file", Title: ( "Shadow Empire : Planetary Conquest"));
             this.game.Data = DataClass::new();
             this.game.EditObj.LoadingFinished = true;
             return;
@@ -473,7 +473,7 @@ namespace WindowsApplication1
           if (this.game.EditObj.ButtonLoadMode)
             this.game.EventRelatedObj.DoCheckEvents(9);
           this.game.EventRelatedObj.DoCheckEvents(10);
-          if (this.game.EditObj.ButtonLoadMode & (double) this.game.Data.RuleVar[442] > 0.0)
+          if (this.game.EditObj.ButtonLoadMode &  this.game.Data.RuleVar[442] > 0.0)
             this.game.EditObj.LoadingResult = LoadType.RandomScreen;
           this.game.EditObj.ButtonLoadMode = false;
         }

@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -49,10 +49,10 @@ namespace WindowsApplication1
       this.maxval = tmaxval;
       this.curval = startval;
       this.suffix = tsuffix;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
         this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -71,13 +71,13 @@ namespace WindowsApplication1
     pub Bitmap Paint()
     {
       Graphics Expression = Graphics.FromImage((Image) this.OwnBitmap);
-      if (!Information.IsNothing((object) this.backbitmap))
+      if (!Information.IsNothing( this.backbitmap))
       {
         Expression.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple( Expression,  this.backbitmap, 0, 0);
         Expression.CompositingMode = CompositingMode.SourceOver;
       }
-      let mut num1: i32 =   Math.Round(Conversion.Int((double) this.curval / (double) this.maxval * (double) (this.Width - 291)));
+      let mut num1: i32 =   Math.Round(Conversion.Int( this.curval /  this.maxval *  (this.Width - 291)));
       DrawMod.DrawSteveBlock( Expression, 200, 0, this.Width - 201, 20);
       let mut num2: i32 =  num1 - 11;
       if (num2 < 0)
@@ -107,9 +107,9 @@ namespace WindowsApplication1
       DrawMod.DrawSimple( local9,  local10, x3, 0);
       DrawMod.DrawSteveBlock( Expression, 0, 0, 180, 20);
       SizeF sizeF1 = SizeF::new();
-      SizeF sizeF2 = Expression.MeasureString(this.prefix + Conversion.Str((object) this.curval) + this.suffix, this.OwnFont);
-      DrawMod.DrawText( Expression, this.prefix + Conversion.Str((object) this.curval) + this.suffix, this.OwnFont,  Math.Round((double) (172f - sizeF2.Width)), 0);
-      if (!Information.IsNothing((object) Expression))
+      SizeF sizeF2 = Expression.MeasureString(this.prefix + Conversion.Str( this.curval) + this.suffix, this.OwnFont);
+      DrawMod.DrawText( Expression, this.prefix + Conversion.Str( this.curval) + this.suffix, this.OwnFont,  Math.Round( (172f - sizeF2.Width)), 0);
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -151,7 +151,7 @@ namespace WindowsApplication1
       else
       {
         this.clickscroll = 1;
-        this.curval =  Math.Round(Conversion.Int((double) (x - 240) / (double) (this.Width - 291) * (double) this.maxval));
+        this.curval =  Math.Round(Conversion.Int( (x - 240) /  (this.Width - 291) *  this.maxval));
         if (this.curval % this.smallchange > 0)
           this.curval -= this.curval % this.smallchange;
       }

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -189,7 +189,7 @@ namespace WindowsApplication1
         self.RemoveSubPart(self.OrderTextId);
       if (self.OrderText2Id > 0)
         self.RemoveSubPart(self.OrderText2Id);
-      let mut num1: i32 =   Math.Round((double) (self.w - 1024) / 2.0);
+      let mut num1: i32 =   Math.Round( (self.w - 1024) / 2.0);
       self.NewBackGroundAndClearAll(self.w, self.h, self.game.MARCBOTBAR);
       self.ClearMouse();
       Graphics objgraphics = Graphics.FromImage((Image) self.OwnBitmap);
@@ -259,7 +259,7 @@ namespace WindowsApplication1
               num3 += 1;
               if (tdata == self.detailnr2)
                 tlistselect3 = num3;
-              self.OptionsList2Obj.add(self.game.Data.UnitObj[self.game.HandyFunctionsObj.GetPreDef(self.game.Data.HistoricalUnitObj[self.detailnr].SubParts[tdata])].Name, tdata, Conversion.Str((object)  Math.Round((double) self.game.Data.HistoricalUnitObj[self.game.Data.HistoricalUnitObj[self.detailnr].ModelMaster].PP / (double) self.ModCnt[self.detailnr])));
+              self.OptionsList2Obj.add(self.game.Data.UnitObj[self.game.HandyFunctionsObj.GetPreDef(self.game.Data.HistoricalUnitObj[self.detailnr].SubParts[tdata])].Name, tdata, Conversion.Str(  Math.Round( self.game.Data.HistoricalUnitObj[self.game.Data.HistoricalUnitObj[self.detailnr].ModelMaster].PP /  self.ModCnt[self.detailnr])));
             }
             tdata += 1;
           }
@@ -283,7 +283,7 @@ namespace WindowsApplication1
           }
           if (self.detailnr2 > -1)
           {
-            if (self.game.Data.RegimeObj[self.game.Data.Turn].ResPts >=  Math.Round((double) self.game.Data.HistoricalUnitObj[self.game.Data.HistoricalUnitObj[self.detailnr].ModelMaster].PP / (double) self.ModCnt[self.detailnr]) & self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.SelectX, self.game.SelectY].UnitCounter < 15)
+            if (self.game.Data.RegimeObj[self.game.Data.Turn].ResPts >=  Math.Round( self.game.Data.HistoricalUnitObj[self.game.Data.HistoricalUnitObj[self.detailnr].ModelMaster].PP /  self.ModCnt[self.detailnr]) & self.game.Data.MapObj[self.game.EditObj.MapSelected].HexObj[self.game.SelectX, self.game.SelectY].UnitCounter < 15)
             {
               let mut tsubpart: SubPartClass =  new TextButtonPartClass("CREATE UNIT", 180, "Click to create this unit [SPACE]",  self.BackBitmap, num1 + 750, 80, theight: 50, usefont: self.game.MarcFont1, useshadow: true, tMarcStyle: true);
               self.B3Id = self.AddSubPart( tsubpart, num1 + 750, 80, 180, 50, 1);
@@ -308,7 +308,7 @@ namespace WindowsApplication1
       }
       else
         DrawMod.DrawTextColouredMarc( objgraphics, "To many units in hex to create a new one.", self.game.MarcFont4, num1 + 50, 91, Color.White);
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
     }

@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -32,12 +32,12 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (!Information.IsNothing((object) this.backbitmap))
+      if (!Information.IsNothing( this.backbitmap))
       {
         this.backbitmap.Dispose();
         this.backbitmap = (Bitmap) null;
       }
-      if (Information.IsNothing((object) this.paper))
+      if (Information.IsNothing( this.paper))
         return;
       this.paper.Dispose();
       this.paper = (Bitmap) null;
@@ -83,10 +83,10 @@ namespace WindowsApplication1
       this.texty = tTexty;
       this.useActualWidth = tUseActualWidth;
       this.alwaysBlockScrollBar = talwaysBlockScrollBar;
-      if (!Information.IsNothing((object) tbackbitmap) & !tJustCheckHeight)
+      if (!Information.IsNothing( tbackbitmap) & !tJustCheckHeight)
       {
         this.backbitmap = new Bitmap(this.OwnBitmap.Width, this.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        this.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        this.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) this.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, this.OwnBitmap.Width, this.OwnBitmap.Height), Rectangle::new(bbx, bby, this.OwnBitmap.Width, this.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -136,7 +136,7 @@ namespace WindowsApplication1
           {
             let mut game: GameClass = this.game;
             let mut w: i32 =  dynamicData.element[index1].w;
-            let mut trows: i32 =   Math.Round((double) dynamicData.element[index1].h / (double) dynamicData.element[index1].lineHeight);
+            let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
             Font marcFont4b = this.game.MarcFont4b;
             texty: String = dynamicData.element[index1].texty;
             let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
@@ -157,7 +157,7 @@ namespace WindowsApplication1
             {
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index1].w;
-              let mut trows: i32 =   Math.Round((double) dynamicData.element[index1].h / (double) dynamicData.element[index1].lineHeight);
+              let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
               Font tfont = this.game.DynFont[index2];
               texty: String = dynamicData.element[index1].texty;
               let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
@@ -199,7 +199,7 @@ namespace WindowsApplication1
           {
             let mut game: GameClass = this.game;
             let mut w: i32 =  dynamicData.element[index1].w;
-            let mut trows: i32 =   Math.Round((double) dynamicData.element[index1].h / (double) dynamicData.element[index1].lineHeight);
+            let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
             Font marcFont4 = this.game.MarcFont4;
             texty: String = dynamicData.element[index1].texty;
             let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
@@ -222,7 +222,7 @@ namespace WindowsApplication1
             {
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index1].w;
-              let mut trows: i32 =   Math.Round((double) dynamicData.element[index1].h / (double) dynamicData.element[index1].lineHeight);
+              let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
               Font tfont = this.game.DynFont[index2];
               texty: String = dynamicData.element[index1].texty;
               let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
@@ -238,7 +238,7 @@ namespace WindowsApplication1
             {
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index1].w;
-              let mut trows: i32 =   Math.Round((double) dynamicData.element[index1].h / (double) dynamicData.element[index1].lineHeight);
+              let mut trows: i32 =   Math.Round( dynamicData.element[index1].h /  dynamicData.element[index1].lineHeight);
               Font tfont = this.game.DynFont[index2];
               texty: String = dynamicData.element[index1].texty;
               let mut lineHeight: i32 =  dynamicData.element[index1].lineHeight;
@@ -273,7 +273,7 @@ namespace WindowsApplication1
       }
       this.curY = 0;
       this.paper = this.alwaysBlockScrollBar ? new Bitmap(this.Width, this.maxY, PixelFormat.Format32bppPArgb) : (!this.useActualWidth ? new Bitmap(540, this.maxY, PixelFormat.Format32bppPArgb) : (this.alwaysBlockScrollBar ? new Bitmap(this.Width, this.maxY, PixelFormat.Format32bppPArgb) : new Bitmap(this.Width - 30, this.maxY, PixelFormat.Format32bppPArgb)));
-      this.paper.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.paper.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics g1 = Graphics.FromImage((Image) this.paper);
       if (!this.alwaysBlockScrollBar)
       {
@@ -311,7 +311,7 @@ namespace WindowsApplication1
           {
             let mut game: GameClass = this.game;
             let mut w: i32 =  dynamicData.element[index3].w;
-            let mut trows: i32 =   Math.Round((double) dynamicData.element[index3].h / (double) dynamicData.element[index3].lineHeight);
+            let mut trows: i32 =   Math.Round( dynamicData.element[index3].h /  dynamicData.element[index3].lineHeight);
             Font marcFont4b = this.game.MarcFont4b;
             texty: String = dynamicData.element[index3].texty;
             let mut lineHeight: i32 =  dynamicData.element[index3].lineHeight;
@@ -339,7 +339,7 @@ namespace WindowsApplication1
             {
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index3].w;
-              let mut trows: i32 =   Math.Round((double) dynamicData.element[index3].h / (double) dynamicData.element[index3].lineHeight);
+              let mut trows: i32 =   Math.Round( dynamicData.element[index3].h /  dynamicData.element[index3].lineHeight);
               Font tfont = this.game.DynFont[index4];
               texty: String = dynamicData.element[index3].texty;
               let mut lineHeight: i32 =  dynamicData.element[index3].lineHeight;
@@ -355,7 +355,7 @@ namespace WindowsApplication1
             {
               let mut game: GameClass = this.game;
               let mut w: i32 =  dynamicData.element[index3].w;
-              let mut trows: i32 =   Math.Round((double) dynamicData.element[index3].h / (double) dynamicData.element[index3].lineHeight);
+              let mut trows: i32 =   Math.Round( dynamicData.element[index3].h /  dynamicData.element[index3].lineHeight);
               Font tfont = this.game.DynFont[index4];
               texty: String = dynamicData.element[index3].texty;
               let mut lineHeight: i32 =  dynamicData.element[index3].lineHeight;
@@ -402,11 +402,11 @@ namespace WindowsApplication1
             let mut h: i32 =  dynamicData.element[index3].h;
             let mut width: i32 =  BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]).Width;
             let mut height: i32 =  BitmapStore.GetBitmap(this.game.Data.EventPicNr[dynamicData.element[index3].eventPicture]).Height;
-            double r = (double) ((float) dynamicData.element[index3].color.R / (float) byte.MaxValue);
-            double g5 = (double) ((float) dynamicData.element[index3].color.G / (float) byte.MaxValue);
-            double b = (double) ((float) dynamicData.element[index3].color.B / (float) byte.MaxValue);
-            double a = (double) ((float) dynamicData.element[index3].color.A / (float) byte.MaxValue);
-            DrawMod.DrawScaledColorized(ref local1, ref local2, x, y, w, h, width, height, (float) r, (float) g5, (float) b, (float) a);
+            double r =  ( dynamicData.element[index3].color.R /  byte.MaxValue);
+            double g5 =  ( dynamicData.element[index3].color.G /  byte.MaxValue);
+            double b =  ( dynamicData.element[index3].color.B /  byte.MaxValue);
+            double a =  ( dynamicData.element[index3].color.A /  byte.MaxValue);
+            DrawMod.DrawScaledColorized(ref local1, ref local2, x, y, w, h, width, height,  r,  g5,  b,  a);
           }
           else if (dynamicData.element[index3].color.R == byte.MaxValue & dynamicData.element[index3].color.G == byte.MaxValue & dynamicData.element[index3].color.B == byte.MaxValue & dynamicData.element[index3].color.A == byte.MaxValue)
           {
@@ -424,11 +424,11 @@ namespace WindowsApplication1
             ref Bitmap local6 = ref bitmap;
             let mut x: i32 =  dynamicData.element[index3].x;
             let mut y: i32 =  dynamicData.element[index3].y;
-            double r = (double) ((float) dynamicData.element[index3].color.R / (float) byte.MaxValue);
-            double g6 = (double) ((float) dynamicData.element[index3].color.G / (float) byte.MaxValue);
-            double b = (double) ((float) dynamicData.element[index3].color.B / (float) byte.MaxValue);
-            double a = (double) ((float) dynamicData.element[index3].color.A / (float) byte.MaxValue);
-            DrawMod.Draw(ref local5, ref local6, x, y, (float) r, (float) g6, (float) b, (float) a);
+            double r =  ( dynamicData.element[index3].color.R /  byte.MaxValue);
+            double g6 =  ( dynamicData.element[index3].color.G /  byte.MaxValue);
+            double b =  ( dynamicData.element[index3].color.B /  byte.MaxValue);
+            double a =  ( dynamicData.element[index3].color.A /  byte.MaxValue);
+            DrawMod.Draw(ref local5, ref local6, x, y,  r,  g6,  b,  a);
           }
         }
       }
@@ -453,7 +453,7 @@ namespace WindowsApplication1
         }
         this.lastY = this.curY;
       }
-      if (!Information.IsNothing((object) this.backbitmap))
+      if (!Information.IsNothing( this.backbitmap))
       {
         objGraphics.CompositingMode = CompositingMode.SourceCopy;
         DrawMod.DrawSimple(ref objGraphics, ref this.backbitmap, 0, 0);
@@ -510,7 +510,7 @@ namespace WindowsApplication1
       if (!this.alwaysBlockScrollBar && this.maxY > this.Height)
       {
         let mut x1: i32 =  this.Width - 20;
-        let mut num: i32 =   Math.Round((double) (this.Height - 16) * ((double) this.curY / (double) (this.maxY - this.Height)) + 8.0);
+        let mut num: i32 =   Math.Round( (this.Height - 16) * ( this.curY /  (this.maxY - this.Height)) + 8.0);
         if (num > this.Height - 16)
           num = this.Height - 16;
         ref Graphics local1 = ref objGraphics;
@@ -612,7 +612,7 @@ namespace WindowsApplication1
       }
       this.clickscroll = 1;
       this.Scroller = true;
-      this.curY =  Math.Round((double) (this.maxY - this.Height) * ((double) (y - 8) / (double) (this.Height - 16)));
+      this.curY =  Math.Round( (this.maxY - this.Height) * ( (y - 8) /  (this.Height - 16)));
       if (0 > this.curY)
         this.curY = 0;
       if (this.curY > this.maxY - this.Height)
@@ -628,7 +628,7 @@ namespace WindowsApplication1
       this.Scroller = true;
       this.clickscroll = 1;
       this.Scroller = true;
-      this.curY =  Math.Round((double) (this.maxY - this.Height) * ((double) (y - 8) / (double) (this.Height - 16)));
+      this.curY =  Math.Round( (this.maxY - this.Height) * ( (y - 8) /  (this.Height - 16)));
       if (0 > this.curY)
         this.curY = 0;
       if (this.curY > this.maxY - this.Height)

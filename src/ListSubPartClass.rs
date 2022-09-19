@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
 
 namespace WindowsApplication1
 {
@@ -52,7 +52,7 @@ namespace WindowsApplication1
 
     pub void SubDispose()
     {
-      if (Information.IsNothing((object) self.backbitmap))
+      if (Information.IsNothing( self.backbitmap))
         return;
       self.backbitmap.Dispose();
       self.backbitmap = (Bitmap) null;
@@ -80,22 +80,22 @@ namespace WindowsApplication1
       let mut overruleItemSize: i32 =  16)
       : base(twidth, (tlistsize + 3) * overruleItemSize)
     {
-      self.ItemSize = (object) 16;
+      self.ItemSize =  16;
       self.ItemFontOffset = 3;
       self.LeftTextOffset = 5;
-      self.ItemSize = (object) overruleItemSize;
+      self.ItemSize =  overruleItemSize;
       if (!tdotopandbottom)
-        self.Resize(twidth, Conversions.ToInteger(Operators.MultiplyObject((object) (tlistsize + 1), self.ItemSize)));
+        self.Resize(twidth, Conversions.ToInteger(Operators.MultiplyObject( (tlistsize + 1), self.ItemSize)));
       self.MarcStyle = tMarcStyle;
       if (self.MarcStyle)
         self.LeftTextOffset = 10;
       self.ShowPair = tShowPair;
       self.ValueWidth = tValueWidth;
       self.DoTopAndBottom = tdotopandbottom;
-      if (!Information.IsNothing((object) tbackbitmap))
+      if (!Information.IsNothing( tbackbitmap))
       {
         self.backbitmap = new Bitmap(self.OwnBitmap.Width, self.OwnBitmap.Height, PixelFormat.Format32bppPArgb);
-        self.backbitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+        self.backbitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         Graphics graphics = Graphics.FromImage((Image) self.backbitmap);
         graphics.CompositingMode = CompositingMode.SourceCopy;
         graphics.DrawImage((Image) tbackbitmap, Rectangle::new(0, 0, self.OwnBitmap.Width, self.OwnBitmap.Height), Rectangle::new(bbx, bby, self.OwnBitmap.Width, self.OwnBitmap.Height), GraphicsUnit.Pixel);
@@ -103,9 +103,9 @@ namespace WindowsApplication1
         graphics.Dispose();
       }
       self.Width = twidth;
-      self.Height = Conversions.ToInteger(Operators.MultiplyObject((object) (tlistsize + 3), self.ItemSize));
+      self.Height = Conversions.ToInteger(Operators.MultiplyObject( (tlistsize + 3), self.ItemSize));
       if (!self.DoTopAndBottom)
-        self.Height = Conversions.ToInteger(Operators.MultiplyObject((object) (tlistsize + 1), self.ItemSize));
+        self.Height = Conversions.ToInteger(Operators.MultiplyObject( (tlistsize + 1), self.ItemSize));
       self.ListSize = tlistsize;
       self.ListSelect = tlistselect;
       self.ListObj = tListobj;
@@ -124,7 +124,7 @@ namespace WindowsApplication1
           self.TopItem = 0;
           break;
         case 0:
-          self.TopItem =  Math.Round((double) self.ListSelect - Conversion.Int((double) self.ListSize / 2.0));
+          self.TopItem =  Math.Round( self.ListSelect - Conversion.Int( self.ListSize / 2.0));
           if (self.TopItem < 0)
           {
             self.TopItem = 0;
@@ -132,7 +132,7 @@ namespace WindowsApplication1
           }
           break;
       }
-      if (Information.IsNothing((object) overruleFont))
+      if (Information.IsNothing( overruleFont))
       {
         if (self.MarcStyle)
           self.OwnFont =  self.game.MarcFont5.Clone();
@@ -162,7 +162,7 @@ namespace WindowsApplication1
       Graphics Expression = Graphics.FromImage((Image) self.OwnBitmap);
       if (self.ListSize >= self.ListObj.ListCount)
         self.TopItem = 0;
-      if (Information.IsNothing((object) self.backbitmap))
+      if (Information.IsNothing( self.backbitmap))
       {
         Expression.Clear(Color.Transparent);
       }
@@ -182,10 +182,10 @@ namespace WindowsApplication1
         if (self.game.Data.Product == 7)
         {
           SizeF sizeF2 = Expression.MeasureString("Yj2", self.OwnFont);
-          if (Operators.ConditionalCompareObjectLess((object) sizeF2.Height, Operators.SubtractObject(self.ItemSize, (object) 4), false))
-            self.ItemFontOffset += Conversions.ToInteger(NewLateBinding.LateGet((object) null, typeof (Math), "Floor", new object[1]
+          if (Operators.ConditionalCompareObjectLess( sizeF2.Height, Operators.SubtractObject(self.ItemSize,  4), false))
+            self.ItemFontOffset += Conversions.ToInteger(NewLateBinding.LateGet( null, typeof (Math), "Floor", new object[1]
             {
-              Operators.DivideObject(Operators.SubtractObject(Operators.SubtractObject(self.ItemSize, (object) 4), (object) sizeF2.Height), (object) 2)
+              Operators.DivideObject(Operators.SubtractObject(Operators.SubtractObject(self.ItemSize,  4),  sizeF2.Height),  2)
             }, (string[]) null, (Type[]) null, (bool[]) null));
         }
         if (!self.DoTopAndBottom)
@@ -209,23 +209,23 @@ namespace WindowsApplication1
           if (!(Right == self.ListSize + 2 & self.DoTopAndBottom) && self.ListSelect == index - num3 & self.ListSelect > -1 & self.Highlight)
           {
             if (self.MarcStyle)
-              DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.Width - num1, Conversions.ToInteger(self.ItemSize), Color.FromArgb(175,  byte.MaxValue, 200,  byte.MaxValue), Color.FromArgb(50,  byte.MaxValue, 200,  byte.MaxValue));
+              DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.Width - num1, Conversions.ToInteger(self.ItemSize), Color.FromArgb(175,  byte.MaxValue, 200,  byte.MaxValue), Color.FromArgb(50,  byte.MaxValue, 200,  byte.MaxValue));
             else
-              DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.Width - num1, Conversions.ToInteger(self.ItemSize), Color.FromArgb(175, 0,  byte.MaxValue, 0), Color.FromArgb(50, 0,  byte.MaxValue, 0));
+              DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.Width - num1, Conversions.ToInteger(self.ItemSize), Color.FromArgb(175, 0,  byte.MaxValue, 0), Color.FromArgb(50, 0,  byte.MaxValue, 0));
           }
           if (index - num3 <= self.ListObj.ListCount & index - num3 >= 0)
           {
             if (!self.ShowPair)
             {
-              if (!Information.IsNothing((object) self.ListObj.ListBmp[index - num3]))
+              if (!Information.IsNothing( self.ListObj.ListBmp[index - num3]))
               {
-                if (Operators.ConditionalCompareObjectLess((object) self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
+                if (Operators.ConditionalCompareObjectLess( self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
                 {
                    let mut local1: &Graphics = &Expression;
                    Bitmap local2 =  self.ListObj.ListBmp[index - num3];
                   rectangle1 = Rectangle::new(0, 0, 32, self.ListObj.ListBmp[index - num3].Height);
                   let mut srcrect: &Rectangle = &rectangle1
-                  rectangle2 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 1), (object) Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject(self.ItemSize, (object) self.ListObj.ListBmp[index - num3].Height), (object) 2)))), 32, self.ListObj.ListBmp[index - num3].Height);
+                  rectangle2 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  1),  Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject(self.ItemSize,  self.ListObj.ListBmp[index - num3].Height),  2)))), 32, self.ListObj.ListBmp[index - num3].Height);
                   let mut destrect: &Rectangle = &rectangle2
                   DrawMod.DrawSimplePart2( local1,  local2, srcrect, destrect);
                 }
@@ -235,33 +235,33 @@ namespace WindowsApplication1
                    Bitmap local4 =  self.ListObj.ListBmp[index - num3];
                   rectangle2 = Rectangle::new(0, 0, 32, Conversions.ToInteger(self.ItemSize));
                   let mut srcrect: &Rectangle = &rectangle2
-                  rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3)), 32, Conversions.ToInteger(self.ItemSize));
+                  rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  3)), 32, Conversions.ToInteger(self.ItemSize));
                   let mut destrect: &Rectangle = &rectangle1
                   DrawMod.DrawSimplePart2( local3,  local4, srcrect, destrect);
                 }
                 if (self.ListObj.ListColor[index - num3] < 0)
-                  DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White);
+                  DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White);
                 else
-                  DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.FromArgb( byte.MaxValue, 0, 150, 0));
+                  DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.FromArgb( byte.MaxValue, 0, 150, 0));
               }
               else if (self.ListObj.ListColor[index - num3] < 0)
-                DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White);
+                DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White);
               else
-                DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.FromArgb( byte.MaxValue, 0, 150, 0));
+                DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.FromArgb( byte.MaxValue, 0, 150, 0));
             }
             else
             {
-              if (!Information.IsNothing((object) self.ListObj.ListBmp[index - num3]))
+              if (!Information.IsNothing( self.ListObj.ListBmp[index - num3]))
               {
                 if (self.game.Data.Product >= 7)
                 {
-                  if (Operators.ConditionalCompareObjectLess((object) self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
+                  if (Operators.ConditionalCompareObjectLess( self.ListObj.ListBmp[index - num3].Height, self.ItemSize, false))
                   {
                      let mut local5: &Graphics = &Expression;
                      Bitmap local6 =  self.ListObj.ListBmp[index - num3];
                     rectangle2 = Rectangle::new(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
                     let mut srcrect: &Rectangle = &rectangle2
-                    rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.ListObj.ListBmp[index - num3].Width, Conversions.ToInteger(self.ItemSize));
+                    rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.ListObj.ListBmp[index - num3].Width, Conversions.ToInteger(self.ItemSize));
                     let mut destrect: &Rectangle = &rectangle1
                     DrawMod.DrawSimplePart2( local5,  local6, srcrect, destrect);
                   }
@@ -271,7 +271,7 @@ namespace WindowsApplication1
                      Bitmap local8 =  self.ListObj.ListBmp[index - num3];
                     rectangle2 = Rectangle::new(0, 0, self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
                     let mut srcrect: &Rectangle = &rectangle2
-                    rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject((object) self.ListObj.ListBmp[index - num3].Height, self.ItemSize), (object) 2)))), self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
+                    rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  Conversions.ToInteger(Operators.DivideObject(Operators.SubtractObject( self.ListObj.ListBmp[index - num3].Height, self.ItemSize),  2)))), self.ListObj.ListBmp[index - num3].Width, self.ListObj.ListBmp[index - num3].Height);
                     let mut destrect: &Rectangle = &rectangle1
                     DrawMod.DrawSimplePart2( local7,  local8, srcrect, destrect);
                   }
@@ -280,11 +280,11 @@ namespace WindowsApplication1
                   {
                     tstring1: String = Strings.Left(str, Strings.InStr(str, "\r\n") - 1);
                     tstring2: String = Strings.Mid(str, Strings.InStr(str, "\r\n") + 2);
-                    DrawMod.DrawTextColouredMarc( Expression, tstring1, self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset), (object)  Math.Round((double) self.OwnFont.Height / 2.0))), Color.White);
-                    DrawMod.DrawTextColouredMarc( Expression, tstring2, self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset), (object)  Math.Round((double) self.OwnFont.Height / 2.0))), Color.White);
+                    DrawMod.DrawTextColouredMarc( Expression, tstring1, self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset),   Math.Round( self.OwnFont.Height / 2.0))), Color.White);
+                    DrawMod.DrawTextColouredMarc( Expression, tstring2, self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset),   Math.Round( self.OwnFont.Height / 2.0))), Color.White);
                   }
                   else
-                    DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White);
+                    DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White);
                 }
                 else
                 {
@@ -292,36 +292,36 @@ namespace WindowsApplication1
                    Bitmap local10 =  self.ListObj.ListBmp[index - num3];
                   rectangle2 = Rectangle::new(0, 0, 32, Conversions.ToInteger(self.ItemSize));
                   let mut srcrect: &Rectangle = &rectangle2
-                  rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3)), 32, Conversions.ToInteger(self.ItemSize));
+                  rectangle1 = Rectangle::new(self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  3)), 32, Conversions.ToInteger(self.ItemSize));
                   let mut destrect: &Rectangle = &rectangle1
                   DrawMod.DrawSimplePart2( local9,  local10, srcrect, destrect);
-                  DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White);
+                  DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.ListObj.ListBmp[index - num3].Width + 7 + self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White);
                 }
               }
               else
-                DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White);
+                DrawMod.DrawTextColouredMarc( Expression, self.ListObj.ListName[index - num3], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White);
               if (Operators.CompareString(self.ListObj.ListValue4[index - num3], "", false) != 0)
               {
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.25)));
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue2[index - num3], self.OwnFont,  Math.Round((double) (self.Width - num1) - ((double) self.ValueWidth * 0.75 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.25)));
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue3[index - num3], self.OwnFont,  Math.Round((double) (self.Width - num1) - ((double) self.ValueWidth * 0.5 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.25)));
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue4[index - num3], self.OwnFont,  Math.Round((double) (self.Width - num1) - ((double) self.ValueWidth * 0.25 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.25)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.25)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue2[index - num3], self.OwnFont,  Math.Round( (self.Width - num1) - ( self.ValueWidth * 0.75 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.25)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue3[index - num3], self.OwnFont,  Math.Round( (self.Width - num1) - ( self.ValueWidth * 0.5 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.25)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue4[index - num3], self.OwnFont,  Math.Round( (self.Width - num1) - ( self.ValueWidth * 0.25 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.25)));
               }
               else if (Operators.CompareString(self.ListObj.ListValue3[index - num3], "", false) != 0)
               {
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.33)));
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue2[index - num3], self.OwnFont,  Math.Round((double) (self.Width - num1) - ((double) self.ValueWidth * 0.66 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.33)));
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue3[index - num3], self.OwnFont,  Math.Round((double) (self.Width - num1) - ((double) self.ValueWidth * 0.33 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.33)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.33)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue2[index - num3], self.OwnFont,  Math.Round( (self.Width - num1) - ( self.ValueWidth * 0.66 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.33)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue3[index - num3], self.OwnFont,  Math.Round( (self.Width - num1) - ( self.ValueWidth * 0.33 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.33)));
               }
               else if (Operators.CompareString(self.ListObj.ListValue2[index - num3], "", false) != 0)
               {
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.5)));
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue2[index - num3], self.OwnFont,  Math.Round((double) (self.Width - num1) - ((double) self.ValueWidth / 2.0 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round((double) self.ValueWidth * 0.5)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.5)));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue2[index - num3], self.OwnFont,  Math.Round( (self.Width - num1) - ( self.ValueWidth / 2.0 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: ( Math.Round( self.ValueWidth * 0.5)));
               }
               else
-                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.White, maxWidth: (self.ValueWidth * 1));
+                DrawMod.DrawTextColouredMarcCapped( Expression, self.ListObj.ListValue[index - num3], self.OwnFont, self.Width - num1 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.White, maxWidth: (self.ValueWidth * 1));
               if (index - num3 <= self.ListObj.ListCount & index > self.TopItem)
-                DrawMod.drawLine( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.Width, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)),  self.game.MarcCol2.R,  self.game.MarcCol2.G,  self.game.MarcCol2.B,  self.game.MarcCol2.A);
+                DrawMod.drawLine( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.Width, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)),  self.game.MarcCol2.R,  self.game.MarcCol2.G,  self.game.MarcCol2.B,  self.game.MarcCol2.A);
               else
                 index = index;
             }
@@ -331,7 +331,7 @@ namespace WindowsApplication1
       else
       {
         if (self.DoTopAndBottom)
-          DrawMod.DrawBlock( Expression, 0, Conversions.ToInteger(self.ItemSize), self.Width, Conversions.ToInteger(Operators.SubtractObject((object) self.Height, Operators.MultiplyObject((object) 2, self.ItemSize))), 0, 0, 0, 166);
+          DrawMod.DrawBlock( Expression, 0, Conversions.ToInteger(self.ItemSize), self.Width, Conversions.ToInteger(Operators.SubtractObject( self.Height, Operators.MultiplyObject( 2, self.ItemSize))), 0, 0, 0, 166);
         else
           DrawMod.DrawBlock( Expression, 0, 0, self.Width, self.Height, 0, 0, 0, 166);
         let mut num5: i32 =  20;
@@ -355,10 +355,10 @@ namespace WindowsApplication1
             if ((Right + 10) % 2 == 0)
             {
               if (self.ListSelect == index - num7 & self.ListSelect > -1 & self.Highlight)
-                DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.Width - num5, Conversions.ToInteger(self.ItemSize), Color.FromArgb(100, 100, 155, 100), Color.FromArgb(150, 100, 155, 100));
+                DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.Width - num5, Conversions.ToInteger(self.ItemSize), Color.FromArgb(100, 100, 155, 100), Color.FromArgb(150, 100, 155, 100));
             }
             else if (self.ListSelect == index - num7 & self.ListSelect > -1 & self.Highlight)
-              DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.Width - num5, Conversions.ToInteger(self.ItemSize), Color.FromArgb(100, 100, 155, 100), Color.FromArgb(150, 100, 155, 100));
+              DrawMod.DrawBlockGradient2( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.Width - num5, Conversions.ToInteger(self.ItemSize), Color.FromArgb(100, 100, 155, 100), Color.FromArgb(150, 100, 155, 100));
           }
           if (Right == 0 & self.DoTopAndBottom)
           {
@@ -366,9 +366,9 @@ namespace WindowsApplication1
             {
               SizeF sizeF3 = Expression.MeasureString(self.Header, self.ownfont2);
               if (self.HeaderCenter)
-                DrawMod.DrawText( Expression, self.Header, self.ownfont2,  Math.Round((double) self.Width / 2.0 - (double) sizeF3.Width / 2.0), Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset), (object) 1)));
+                DrawMod.DrawText( Expression, self.Header, self.ownfont2,  Math.Round( self.Width / 2.0 -  sizeF3.Width / 2.0), Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset),  1)));
               else
-                DrawMod.DrawText( Expression, self.Header, self.ownfont2, self.LeftTextOffset, Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset), (object) 1)));
+                DrawMod.DrawText( Expression, self.Header, self.ownfont2, self.LeftTextOffset, Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset),  1)));
             }
             if (self.TopItem > 0)
             {
@@ -400,7 +400,7 @@ namespace WindowsApplication1
                 bitmap = BitmapStore.GetBitmap(self.game.LISTBLOCK);
                  let mut local16: &Bitmap = &bitmap;
                 let mut x: i32 =  self.Width - 20;
-                let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3));
+                let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  3));
                 DrawMod.DrawSimple( local15,  local16, x, integer);
               }
             }
@@ -410,7 +410,7 @@ namespace WindowsApplication1
               bitmap = BitmapStore.GetBitmap(self.game.LISTDOWN);
                let mut local18: &Bitmap = &bitmap;
               let mut x: i32 =  self.Width - 20;
-              let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) 3));
+              let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  3));
               DrawMod.DrawSimple( local17,  local18, x, integer);
             }
           }
@@ -419,56 +419,56 @@ namespace WindowsApplication1
             if (!self.ShowPair)
             {
               if (self.ListObj.ListColor[index - num7] < 0)
-                DrawMod.DrawText( Expression, self.ListObj.ListName[index - num7], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListName[index - num7], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
               else
-                DrawMod.DrawTextColoured( Expression, self.ListObj.ListName[index - num7], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)), Color.FromArgb( byte.MaxValue, 210, 170, 100));
+                DrawMod.DrawTextColoured( Expression, self.ListObj.ListName[index - num7], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)), Color.FromArgb( byte.MaxValue, 210, 170, 100));
             }
             else
             {
               if (self.ListSize < self.ListObj.ListCount)
-                DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.Width - 21, Conversions.ToInteger(self.ItemSize),  color.R,  color.G,  color.B,  byte.MaxValue);
+                DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.Width - 21, Conversions.ToInteger(self.ItemSize),  color.R,  color.G,  color.B,  byte.MaxValue);
               else
-                DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize, (object) Right)), self.Width - 1, Conversions.ToInteger(self.ItemSize),  color.R,  color.G,  color.B,  byte.MaxValue);
-              DrawMod.DrawText( Expression, self.ListObj.ListName[index - num7], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
+                DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(Operators.MultiplyObject(self.ItemSize,  Right)), self.Width - 1, Conversions.ToInteger(self.ItemSize),  color.R,  color.G,  color.B,  byte.MaxValue);
+              DrawMod.DrawText( Expression, self.ListObj.ListName[index - num7], self.OwnFont, self.LeftTextOffset, Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
               if (Operators.CompareString(self.ListObj.ListValue4[index - num7], "", false) != 0)
               {
-                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
-                DrawMod.DrawText( Expression, self.ListObj.ListValue2[index - num7], self.OwnFont,  Math.Round((double) (self.Width - num5) - ((double) self.ValueWidth * 0.75 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
-                DrawMod.DrawText( Expression, self.ListObj.ListValue3[index - num7], self.OwnFont,  Math.Round((double) (self.Width - num5) - ((double) self.ValueWidth * 0.5 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
-                DrawMod.DrawText( Expression, self.ListObj.ListValue4[index - num7], self.OwnFont,  Math.Round((double) (self.Width - num5) - ((double) self.ValueWidth * 0.25 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue2[index - num7], self.OwnFont,  Math.Round( (self.Width - num5) - ( self.ValueWidth * 0.75 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue3[index - num7], self.OwnFont,  Math.Round( (self.Width - num5) - ( self.ValueWidth * 0.5 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue4[index - num7], self.OwnFont,  Math.Round( (self.Width - num5) - ( self.ValueWidth * 0.25 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
               }
               else if (Operators.CompareString(self.ListObj.ListValue3[index - num7], "", false) != 0)
               {
-                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
-                DrawMod.DrawText( Expression, self.ListObj.ListValue2[index - num7], self.OwnFont,  Math.Round((double) (self.Width - num5) - ((double) self.ValueWidth * 0.66 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
-                DrawMod.DrawText( Expression, self.ListObj.ListValue3[index - num7], self.OwnFont,  Math.Round((double) (self.Width - num5) - ((double) self.ValueWidth * 0.33 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue2[index - num7], self.OwnFont,  Math.Round( (self.Width - num5) - ( self.ValueWidth * 0.66 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue3[index - num7], self.OwnFont,  Math.Round( (self.Width - num5) - ( self.ValueWidth * 0.33 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
               }
               else if (Operators.CompareString(self.ListObj.ListValue2[index - num7], "", false) != 0)
               {
-                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
-                DrawMod.DrawText( Expression, self.ListObj.ListValue2[index - num7], self.OwnFont,  Math.Round((double) (self.Width - num5) - ((double) self.ValueWidth / 2.0 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue2[index - num7], self.OwnFont,  Math.Round( (self.Width - num5) - ( self.ValueWidth / 2.0 - 3.0)), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
               }
               else
-                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize, (object) Right), (object) self.ItemFontOffset)));
+                DrawMod.DrawText( Expression, self.ListObj.ListValue[index - num7], self.OwnFont, self.Width - num5 - (self.ValueWidth - 3), Conversions.ToInteger(Operators.AddObject(Operators.MultiplyObject(self.ItemSize,  Right),  self.ItemFontOffset)));
             }
           }
         }
       }
-      let mut Left: i32 =  Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
-      float num9 = self.ListObj.ListCount <= 0 ? 1f : (float) self.ListSize / (float) self.ListObj.ListCount;
-      if ((double) num9 > 1.0)
+      let mut Left: i32 =  Conversions.ToInteger(Operators.MultiplyObject( (self.ListSize + 1), self.ItemSize));
+      float num9 = self.ListObj.ListCount <= 0 ? 1f :  self.ListSize /  self.ListObj.ListCount;
+      if ( num9 > 1.0)
         num9 = 1f;
-      let mut num10: i32 =   Math.Round((double) Conversion.Int((float) Left * num9));
-      float num11 = self.ListObj.ListCount <= 0 ? 0.0f : (float) self.TopItem / (float) self.ListObj.ListCount;
-      if ((double) num11 > 1.0)
+      let mut num10: i32 =   Math.Round( Conversion.Int( Left * num9));
+      float num11 = self.ListObj.ListCount <= 0 ? 0.0f :  self.TopItem /  self.ListObj.ListCount;
+      if ( num11 > 1.0)
         num11 = 1f;
-      let mut num12: i32 =   Math.Round((double) Conversion.Int((float) Left * num11));
+      let mut num12: i32 =   Math.Round( Conversion.Int( Left * num11));
       if (self.DoTopAndBottom)
-        num12 = Conversions.ToInteger(Operators.AddObject((object) num12, self.ItemSize));
+        num12 = Conversions.ToInteger(Operators.AddObject( num12, self.ItemSize));
       if (Left < 5)
         Left = 5;
-      if (Operators.ConditionalCompareObjectGreater((object) (num12 + num10), Operators.AddObject((object) Left, self.ItemSize), false))
-        num10 = Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject((object) Left, self.ItemSize), (object) num12));
+      if (Operators.ConditionalCompareObjectGreater( (num12 + num10), Operators.AddObject( Left, self.ItemSize), false))
+        num10 = Conversions.ToInteger(Operators.SubtractObject(Operators.AddObject( Left, self.ItemSize),  num12));
       if (self.ListSize < self.ListObj.ListCount)
       {
         let mut x: i32 =  self.Width - 18;
@@ -559,9 +559,9 @@ namespace WindowsApplication1
         if (self.DoTopAndBottom)
         {
           if (self.ListSize < self.ListObj.ListCount)
-            DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(self.ItemSize), self.Width - 21, Conversions.ToInteger(Operators.SubtractObject((object) self.Height, Operators.MultiplyObject(self.ItemSize, (object) 2))),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+            DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(self.ItemSize), self.Width - 21, Conversions.ToInteger(Operators.SubtractObject( self.Height, Operators.MultiplyObject(self.ItemSize,  2))),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
           else
-            DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(self.ItemSize), self.Width - 1, Conversions.ToInteger(Operators.SubtractObject((object) self.Height, Operators.MultiplyObject(self.ItemSize, (object) 2))),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
+            DrawMod.DrawRectangle( Expression, 0, Conversions.ToInteger(self.ItemSize), self.Width - 1, Conversions.ToInteger(Operators.SubtractObject( self.Height, Operators.MultiplyObject(self.ItemSize,  2))),  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
         }
         else if (self.ListSize < self.ListObj.ListCount)
           DrawMod.DrawRectangle( Expression, 0, 0, self.Width - 21, self.Height - 1,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue);
@@ -570,7 +570,7 @@ namespace WindowsApplication1
       }
       if (self.MarcStyle)
         DrawMod.DrawFrame( self.OwnBitmap,  self.backbitmap,  Expression, 0, 0, self.Width, self.Height, -1, -1);
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
       {
         Expression.Dispose();
         Expression = (Graphics) null;
@@ -581,7 +581,7 @@ namespace WindowsApplication1
     pub void ShiftDown()
     {
       self += 1.ListSelect;
-      if ((double) self.ListSelect > (double) self.TopItem + (double) self.ListSize / 2.0)
+      if ( self.ListSelect >  self.TopItem +  self.ListSize / 2.0)
         self += 1.TopItem;
       if (self.TopItem > self.ListObj.ListCount - self.ListSize)
         self.TopItem = self.ListObj.ListCount - self.ListSize;
@@ -597,7 +597,7 @@ namespace WindowsApplication1
     pub void ShiftUp()
     {
       --self.ListSelect;
-      if ((double) (self.ListSelect - self.TopItem) < (double) self.ListSize / 2.0)
+      if ( (self.ListSelect - self.TopItem) <  self.ListSize / 2.0)
         --self.TopItem;
       if (self.TopItem > self.ListObj.ListCount - self.ListSize)
         self.TopItem = self.ListObj.ListCount - self.ListSize;
@@ -617,7 +617,7 @@ namespace WindowsApplication1
     pub int Click(int x, int y, let mut b: i32 =  1)
     {
       let mut Left: i32 =  y;
-      y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject((object) y, self.ItemSize)));
+      y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject( y, self.ItemSize)));
       self.Scroller = true;
       let mut num1: i32 =  0;
       let mut num2: i32 =  2;
@@ -644,12 +644,12 @@ namespace WindowsApplication1
           return self.ListObj.ListData[self.ListSelect];
         }
         self.clickscroll = 1;
-        let mut integer: i32 =  Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
+        let mut integer: i32 =  Conversions.ToInteger(Operators.MultiplyObject( (self.ListSize + 1), self.ItemSize));
         if (self.DoTopAndBottom)
-          Left = Conversions.ToInteger(Operators.SubtractObject((object) Left, self.ItemSize));
+          Left = Conversions.ToInteger(Operators.SubtractObject( Left, self.ItemSize));
         if (Left < 1)
           Left = 1;
-        let mut num5: i32 =   Math.Round((double)  Math.Round((double) ((float) Left / (float) integer * (float) self.ListObj.ListCount)) - (double) self.ListSize / 2.0);
+        let mut num5: i32 =   Math.Round(  Math.Round( ( Left /  integer *  self.ListObj.ListCount)) -  self.ListSize / 2.0);
         if (0 > num5)
           num5 = 0;
         self.TopItem = num5;
@@ -699,7 +699,7 @@ namespace WindowsApplication1
     pub bool MouseMove(int x, int y)
     {
       let mut Left: i32 =  y;
-      y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject((object) y, self.ItemSize)));
+      y = Conversions.ToInteger(Conversion.Int(Operators.DivideObject( y, self.ItemSize)));
       let mut num1: i32 =  0;
       let mut num2: i32 =  2;
       let mut num3: i32 =  1;
@@ -714,12 +714,12 @@ namespace WindowsApplication1
         num4 = 0;
       if (!(y > num1 & y < self.ListSize + num2 & self.clickscroll == 1))
         return false;
-      let mut integer: i32 =  Conversions.ToInteger(Operators.MultiplyObject((object) (self.ListSize + 1), self.ItemSize));
+      let mut integer: i32 =  Conversions.ToInteger(Operators.MultiplyObject( (self.ListSize + 1), self.ItemSize));
       if (self.DoTopAndBottom)
-        Left = Conversions.ToInteger(Operators.SubtractObject((object) Left, self.ItemSize));
+        Left = Conversions.ToInteger(Operators.SubtractObject( Left, self.ItemSize));
       if (Left < 1)
         Left = 1;
-      let mut num5: i32 =   Math.Round((double)  Math.Round((double) ((float) Left / (float) integer * (float) self.ListObj.ListCount)) - (double) self.ListSize / 2.0);
+      let mut num5: i32 =   Math.Round(  Math.Round( ( Left /  integer *  self.ListObj.ListCount)) -  self.ListSize / 2.0);
       if (0 > num5)
         num5 = 0;
       self.TopItem = num5;

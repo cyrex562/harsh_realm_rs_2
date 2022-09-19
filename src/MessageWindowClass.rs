@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -80,13 +80,13 @@ namespace WindowsApplication1
           {
             if (width1 > 160)
             {
-              height1 =  Math.Round((double) height1 * (160.0 / (double) width1));
-              width1 =  Math.Round((double) width1 * (160.0 / (double) width1));
+              height1 =  Math.Round( height1 * (160.0 /  width1));
+              width1 =  Math.Round( width1 * (160.0 /  width1));
             }
             if (height1 > 200)
             {
-              width1 =  Math.Round((double) width1 * (200.0 / (double) height1));
-              height1 =  Math.Round((double) height1 * (200.0 / (double) height1));
+              width1 =  Math.Round( width1 * (200.0 /  height1));
+              height1 =  Math.Round( height1 * (200.0 /  height1));
             }
             rectangle = Rectangle::new(85, 100, width1, height1);
             num1 = height1 + 100 + 20;
@@ -95,20 +95,20 @@ namespace WindowsApplication1
           {
             if (width1 > 724)
             {
-              height1 =  Math.Round((double) height1 * (724.0 / (double) width1));
-              width1 =  Math.Round((double) width1 * (724.0 / (double) width1));
+              height1 =  Math.Round( height1 * (724.0 /  width1));
+              width1 =  Math.Round( width1 * (724.0 /  width1));
             }
             if (height1 > 200)
             {
-              width1 =  Math.Round((double) width1 * (200.0 / (double) height1));
-              height1 =  Math.Round((double) height1 * (200.0 / (double) height1));
+              width1 =  Math.Round( width1 * (200.0 /  height1));
+              height1 =  Math.Round( height1 * (200.0 /  height1));
             }
-            rectangle = Rectangle::new( Math.Round(405.0 - (double) width1 / 2.0), 20, width1, height1);
+            rectangle = Rectangle::new( Math.Round(405.0 -  width1 / 2.0), 20, width1, height1);
             num1 = height1 + 20 + 20;
           }
           if (self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] >= 10000)
           {
-            DrawMod.DrawOfficer(g, self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] - 10000,  Math.Round(412.0 - (double) BitmapStore.GetWidth(nr) / 2.0), 70, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
+            DrawMod.DrawOfficer(g, self.game.Data.RegimeObj[self.game.Data.Turn].MessFrontPic[self.FromMessage] - 10000,  Math.Round(412.0 -  BitmapStore.GetWidth(nr) / 2.0), 70, BitmapStore.GetWidth(nr), BitmapStore.Getheight(nr));
             num1 += 50;
           }
           else
@@ -126,13 +126,13 @@ namespace WindowsApplication1
       }
       else
         num1 = 60;
-      let mut num2: i32 =   Math.Round(Conversion.Int(32.5) - (double) num1 / 16.0);
+      let mut num2: i32 =   Math.Round(Conversion.Int(32.5) -  num1 / 16.0);
       DrawMod.DrawPaperSheet( g, 55, num1 - 10, 690, 16 * (num2 - 1) + 20);
       let mut tsubpart1: SubPartClass =  new PaperAreaClass(self.game, 650, num2 - 2,  null, "Description", false, self.game.Data.RegimeObj[self.game.Data.Turn].MessString[self.FromMessage], self.game.VicColor8, tbackbitmap: ( self.OwnBitmap), bbx: 75, bby: num1);
       self.TAid = self.AddSubPart( tsubpart1, 75, num1, 650, 16 * (num2 - 2), 0);
       let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( self.OwnBitmap), bbx: 300, bby: 540);
       self.okid = self.AddSubPart( tsubpart2, 300, 540, 200, 35, 1);
-      if (Information.IsNothing((object) g))
+      if (Information.IsNothing( g))
         return;
       g.Dispose();
     }

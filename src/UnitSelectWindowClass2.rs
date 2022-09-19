@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -65,17 +65,17 @@ namespace WindowsApplication1
     {
       self.FromMessage = tGame.EditObj.FromMessage;
       tGame.EditObj.MapPopupMode = true;
-      if (Information.IsNothing((object) self.game.EditObj.TempValue[0]))
+      if (Information.IsNothing( self.game.EditObj.TempValue[0]))
         self.game.HandyFunctionsObj.RedimTempValue(9999);
-      if (Information.IsNothing((object) self.game.EditObj.TempValueSpecial[0]))
+      if (Information.IsNothing( self.game.EditObj.TempValueSpecial[0]))
         self.game.HandyFunctionsObj.RedimTempValueSpecial(0);
-      if (Information.IsNothing((object) self.game.EditObj.TempValueSpecial2[0]))
+      if (Information.IsNothing( self.game.EditObj.TempValueSpecial2[0]))
         self.game.HandyFunctionsObj.RedimTempValueSpecial2(0);
-      if (Information.IsNothing((object) self.game.EditObj.TempValue2[0]))
+      if (Information.IsNothing( self.game.EditObj.TempValue2[0]))
         self.game.HandyFunctionsObj.RedimTempValue2(9999);
-      if (Information.IsNothing((object) self.game.EditObj.TempCameFrom[0]))
+      if (Information.IsNothing( self.game.EditObj.TempCameFrom[0]))
         self.game.HandyFunctionsObj.RedimTempCameFrom();
-      if (Information.IsNothing((object) self.game.EditObj.TempAttack[0]))
+      if (Information.IsNothing( self.game.EditObj.TempAttack[0]))
         self.game.HandyFunctionsObj.RedimTempAttack(true);
       self.cacheTemp = self.game.EditObj.TempValue[0].Clone();
       self.cacheTempCameFrom = self.game.EditObj.TempCameFrom[0].Clone();
@@ -569,11 +569,11 @@ namespace WindowsApplication1
                   while (index5 <= 3);
                 }
               }
-              if ((double) self.game.Data.RuleVar[701] > 0.0 & self.game.Data.Product >= 6)
+              if ( self.game.Data.RuleVar[701] > 0.0 & self.game.Data.Product >= 6)
                 self.game.EditObj.udsReturnFromPopup = true;
               if (Number > 0)
               {
-                let mut num4: i32 =  Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  Interaction.MsgBox( (Conversion.Str( Number) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
               }
               if (self.game.Data.RegimeObj[self.game.Data.Turn].MessCounter > messCounter)
               {
@@ -670,8 +670,8 @@ namespace WindowsApplication1
       let mut num1: i32 = 230;
       if (self.game.Data.Round == 0)
         num1 += 100;
-      let mut num2: i32 =  Math.Round(Conversion.Int((double) (self.OwnBitmap.Width - 250) / (double) (53 * (self.game.EditObj.Zoom + 1))));
-      let mut num3: i32 =  Math.Round(Conversion.Int((double) (self.OwnBitmap.Height - num1) / (double) (48 * (self.game.EditObj.Zoom + 1))));
+      let mut num2: i32 =  Math.Round(Conversion.Int( (self.OwnBitmap.Width - 250) /  (53 * (self.game.EditObj.Zoom + 1))));
+      let mut num3: i32 =  Math.Round(Conversion.Int( (self.OwnBitmap.Height - num1) /  (48 * (self.game.EditObj.Zoom + 1))));
       let mut num4: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapWidth - self.game.CornerX + 1;
       let mut num5: i32 = self.game.Data.MapObj[self.game.EditObj.MapSelected].MapHeight - self.game.CornerY + 1;
       if (num2 > num4 & !self.game.Data.MapObj[self.game.EditObj.MapSelected].MapLoop)

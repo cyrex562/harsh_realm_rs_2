@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -45,7 +45,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut val1: i32 =  Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut val1: i32 =  Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       if (this.listId > 0)
         this.RemoveSubPart(this.listId);
       if (this.loadMapId > 0)
@@ -80,7 +80,7 @@ namespace WindowsApplication1
       this.listObj = ListClass::new();
       this.currentStep = 0;
       this.listObj.add("CHECKLIST ITEM", 0, "IS SET?", "DETAILS");
-      if (Information.IsNothing((object) this.game.Data.RuleSetName))
+      if (Information.IsNothing( this.game.Data.RuleSetName))
         this.game.Data.RuleSetName = "";
       ruleSetName: String = this.game.Data.RuleSetName;
       str: String = this.game.Data.scenarioVersionMaster.Length <= 0 ? ruleSetName + " (base version)" : ruleSetName + " (version " + this.game.Data.scenarioVersionMaster + ")";
@@ -240,7 +240,7 @@ namespace WindowsApplication1
         this.listObj.add("Distribute ready?", 11, "Don't think so");
       if (this.detailnr == -1)
         this.detailnr = this.currentStep + 1;
-      let mut tsubpart: SubPartClass =  new ListSubPartClass(this.listObj, 18, 500 + Math.Max(0, val1 - 50), this.detailnr, this.game, true, "Checklist", false, tShowPair: true, tValueWidth: ( Math.Round(260.0 + (double) val1 * 0.8)), tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: (10 + Math.Min(val1, 50)), bby: 72, tMarcStyle: true, overruleFont: ( this.game.MarcFont4), overruleItemSize: 24);
+      let mut tsubpart: SubPartClass =  new ListSubPartClass(this.listObj, 18, 500 + Math.Max(0, val1 - 50), this.detailnr, this.game, true, "Checklist", false, tShowPair: true, tValueWidth: ( Math.Round(260.0 +  val1 * 0.8)), tdotopandbottom: false, tbackbitmap: ( this.OwnBitmap), bbx: (10 + Math.Min(val1, 50)), bby: 72, tMarcStyle: true, overruleFont: ( this.game.MarcFont4), overruleItemSize: 24);
       this.listId = this.AddSubPart( tsubpart, 10 + Math.Min(val1, 50), 72, 500 + Math.Max(0, val1 - 50), 504, 0);
       tsubpart =  new TextButtonPartClass("Save Scenario", 180, tBackbitmap: ( this.OwnBitmap), bbx: (val1 + 10), bby: 588, usefont: this.game.MarcFont3, useshadow: true, tMarcStyle: true);
       this.saveId = this.AddSubPart( tsubpart, val1 + 10, 588, 180, 35, 1);
@@ -415,7 +415,7 @@ namespace WindowsApplication1
             }
             if (num1 == this.setdateid)
             {
-              if (Interaction.MsgBox((object) "Use the normal days system for rounds? (yes = use days, no = use hours)", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+              if (Interaction.MsgBox( "Use the normal days system for rounds? (yes = use days, no = use hours)", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
               {
                 str1: String = Interaction.InputBox("Give new Day (1-31).", "Shadow Empire : Planetary Conquest");
                 if (Conversions.ToInteger(str1) >= 1 & Conversions.ToInteger(str1) <= 31)
@@ -439,22 +439,22 @@ namespace WindowsApplication1
                       }
                       else
                       {
-                        let mut num2: i32 =  Interaction.MsgBox((object) "Sorry. Invalid round length.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num2: i32 =  Interaction.MsgBox( "Sorry. Invalid round length.", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                     }
                     else
                     {
-                      let mut num3: i32 =  Interaction.MsgBox((object) "Sorry. Invalid year.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num3: i32 =  Interaction.MsgBox( "Sorry. Invalid year.", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                   }
                   else
                   {
-                    let mut num4: i32 =  Interaction.MsgBox((object) "Sorry. Invalid month.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num4: i32 =  Interaction.MsgBox( "Sorry. Invalid month.", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 else
                 {
-                  let mut num5: i32 =  Interaction.MsgBox((object) "Sorry. Invalid day of the month.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num5: i32 =  Interaction.MsgBox( "Sorry. Invalid day of the month.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               else
@@ -485,27 +485,27 @@ namespace WindowsApplication1
                         }
                         else
                         {
-                          let mut num6: i32 =  Interaction.MsgBox((object) "Sorry. Invalid round length.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                          let mut num6: i32 =  Interaction.MsgBox( "Sorry. Invalid round length.", Title: ( "Shadow Empire : Planetary Conquest"));
                         }
                       }
                       else
                       {
-                        let mut num7: i32 =  Interaction.MsgBox((object) "Sorry. Invalid hour.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                        let mut num7: i32 =  Interaction.MsgBox( "Sorry. Invalid hour.", Title: ( "Shadow Empire : Planetary Conquest"));
                       }
                     }
                     else
                     {
-                      let mut num8: i32 =  Interaction.MsgBox((object) "Sorry. Invalid year.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num8: i32 =  Interaction.MsgBox( "Sorry. Invalid year.", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                   }
                   else
                   {
-                    let mut num9: i32 =  Interaction.MsgBox((object) "Sorry. Invalid month.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num9: i32 =  Interaction.MsgBox( "Sorry. Invalid month.", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                 }
                 else
                 {
-                  let mut num10: i32 =  Interaction.MsgBox((object) "Sorry. Invalid day of the month.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num10: i32 =  Interaction.MsgBox( "Sorry. Invalid day of the month.", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
               this.DoStuff();
@@ -518,7 +518,7 @@ namespace WindowsApplication1
               if (this.game.Data.Round == 0)
               {
                 tinitdir = this.game.AppPath + "scenarios\\";
-                if (!Information.IsNothing((object) this.game.Data.ScenarioDir))
+                if (!Information.IsNothing( this.game.Data.ScenarioDir))
                 {
                   if (this.game.Data.ScenarioDir.Length > 1)
                     tinitdir = tinitdir.Replace("scenarios", this.game.Data.ScenarioDir);
@@ -539,7 +539,7 @@ namespace WindowsApplication1
                 this.game.HandyFunctionsObj.ZipFile(str);
                 windowReturnClass.SetFlag(true);
                 this.game.FormRef.Cursor = Cursors.Default;
-                let mut num11: i32 =  Interaction.MsgBox((object) "Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num11: i32 =  Interaction.MsgBox( "Saved", Title: ( "Shadow Empire : Planetary Conquest"));
               }
             }
             else
@@ -552,11 +552,11 @@ namespace WindowsApplication1
                 this.game.FormRef.Cursor = Cursors.Default;
                 if (flag)
                 {
-                  let mut num12: i32 =  Interaction.MsgBox((object) "Loaded map", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num12: i32 =  Interaction.MsgBox( "Loaded map", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
-                  let mut num13: i32 =  Interaction.MsgBox((object) "Error while loading map", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num13: i32 =  Interaction.MsgBox( "Error while loading map", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 this.detailnr = -1;
                 this.DoStuff();
@@ -575,7 +575,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num14: i32 =  Interaction.MsgBox((object) "Could not find file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num14: i32 =  Interaction.MsgBox( "Could not find file", Title: ( "Shadow Empire : Planetary Conquest"));
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }

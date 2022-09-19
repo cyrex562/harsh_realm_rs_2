@@ -28,7 +28,7 @@ namespace WindowsApplication1
     pub UBreaks: bool;
     pub UAA: i32;
     pub URetreated: i32;
-    pub int[] ULos;
+    pub ULos: Vec<i32>;
     pub UinitialRdn: i32;
     pub previewInfoLevel: i32;
     pub UDice: i32;

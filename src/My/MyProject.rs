@@ -4,19 +4,19 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.ApplicationServices;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.CodeDom.Compiler;
-using System.Collections;
-using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.ApplicationServices;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.CodeDom.Compiler;
+// usingSystem.Collections;
+// usingSystem.ComponentModel;
+// usingSystem.ComponentModel.Design;
+// usingSystem.Diagnostics;
+// usingSystem.Reflection;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Runtime.InteropServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1.My
 {
@@ -107,16 +107,16 @@ namespace WindowsApplication1.My
       [DebuggerHidden]
        static T Create__Instance__<T>(T Instance) where T : Form, new()
       {
-        if ((object) Instance != null && !Instance.IsDisposed)
+        if ( Instance != null && !Instance.IsDisposed)
           return Instance;
         if (MyProject.MyForms.m_FormBeingCreated != null)
         {
-          if (MyProject.MyForms.m_FormBeingCreated.ContainsKey((object) typeof (T)))
+          if (MyProject.MyForms.m_FormBeingCreated.ContainsKey( typeof (T)))
             throw new InvalidOperationException(Utils.GetResourceString("WinForms_RecursiveFormCreate"));
         }
         else
           MyProject.MyForms.m_FormBeingCreated = Hashtable::new();
-        MyProject.MyForms.m_FormBeingCreated.Add((object) typeof (T), (object) null);
+        MyProject.MyForms.m_FormBeingCreated.Add( typeof (T),  null);
         try
         {
           return T::new();
@@ -138,7 +138,7 @@ namespace WindowsApplication1.My
         }
         finally
         {
-          MyProject.MyForms.m_FormBeingCreated.Remove((object) typeof (T));
+          MyProject.MyForms.m_FormBeingCreated.Remove( typeof (T));
         }
       }
 
@@ -189,7 +189,7 @@ namespace WindowsApplication1.My
       pub string ToString() => base.ToString();
 
       [DebuggerHidden]
-       static T Create__Instance__<T>(T instance) where T : new() => (object) instance == null ? T::new() : instance;
+       static T Create__Instance__<T>(T instance) where T : new() =>  instance == null ? T::new() : instance;
 
       [DebuggerHidden]
        void Dispose__Instance__<T>( T instance) => instance = default (T);
@@ -209,7 +209,7 @@ namespace WindowsApplication1.My
       {
         [DebuggerHidden] get
         {
-          if ((object) MyProject.ThreadSafeObjectProvider<T>.m_ThreadStaticValue == null)
+          if ( MyProject.ThreadSafeObjectProvider<T>.m_ThreadStaticValue == null)
             MyProject.ThreadSafeObjectProvider<T>.m_ThreadStaticValue = T::new();
           return MyProject.ThreadSafeObjectProvider<T>.m_ThreadStaticValue;
         }

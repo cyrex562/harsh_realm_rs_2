@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -111,7 +111,7 @@ namespace WindowsApplication1
         if (x > this.MouseRect[index].X & x < this.MouseRect[index].X + this.MouseRect[index].Width && y > this.MouseRect[index].Y & y < this.MouseRect[index].Y + this.MouseRect[index].Height)
           return this.MouseText[index];
       }
-      let mut num: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut num: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       return str;
     }
 
@@ -430,7 +430,7 @@ namespace WindowsApplication1
         num1 = 0;
       this.ClearMouse();
       let mut h: i32 =  200;
-      let mut x1: i32 =   Math.Round((double) (this.game.ScreenWidth - 1024) / 2.0);
+      let mut x1: i32 =   Math.Round( (this.game.ScreenWidth - 1024) / 2.0);
       let mut num2: i32 =  10;
       DrawMod.DrawBlock( Expression, 0, 0, this.game.ScreenWidth, num2,  this.game.VicColor4.R,  this.game.VicColor4.G,  this.game.VicColor4.B,  this.game.VicColor4.A);
       let mut num3: i32 =  0;
@@ -506,7 +506,7 @@ namespace WindowsApplication1
         {
           Conversions.ToInteger(this.game.HandyFunctionsObj.GetUnitPeople(this.game.EditObj.UnitSelected));
           let mut regime: i32 =  this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime;
-          tname = Strings.Trim(Conversion.Str((object) (100 - this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SODefendPercent))) + "%";
+          tname = Strings.Trim(Conversion.Str( (100 - this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SODefendPercent))) + "%";
           let mut tsubpart1: SubPartClass =  TextPartClass::new("", this.game.GameFont2, 49, 23, true, 0, "Retreat Percentage. Unit retreats if this % of losses has been suffered. 25%=retreat quickly, 100%=to death");
           this.DefId = this.AddSubPart( tsubpart1, num5 + 975, num6 + 91, 49, 23, 0);
            let mut local1: &Graphics = &Expression;
@@ -518,7 +518,7 @@ namespace WindowsApplication1
           DrawMod.MakeFullBoxVic2( local1, rect1_1, "LOSS", rect2_1, txt2_1);
           if (this.game.HandyFunctionsObj.HasUnitAirSF(this.game.EditObj.UnitSelected))
           {
-            tname = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOInterceptRdnStop != 100 ? Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOInterceptRdnStop)) : "Don't";
+            tname = this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOInterceptRdnStop != 100 ? Strings.Trim(Conversion.Str( this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOInterceptRdnStop)) : "Don't";
             let mut tsubpart2: SubPartClass =  TextPartClass::new("", this.game.GameFont2, 49, 23, true, 0, "Intercepts only if readiness is greater than specified. You can put on don't, which forbids intercept.");
             this.InterceptId = this.AddSubPart( tsubpart2, num5 + 975, num6 + 3 + 28 + 23, 49, 23, 0);
              let mut local2: &Graphics = &Expression;
@@ -545,7 +545,7 @@ namespace WindowsApplication1
         }
         if (this.game.Data.Turn == this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime | this.game.Data.Round == 0 | !this.game.Data.FOWOn | this.game.Data.Turn == this.game.Data.RegimeObj[this.game.Data.UnitObj[this.game.EditObj.UnitSelected].Regime].UberRegime && this.game.Data.Turn > -1)
         {
-          tname = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOSupReqPercent)) + "%";
+          tname = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[this.game.EditObj.UnitSelected].SOSupReqPercent)) + "%";
           let mut tsubpart: SubPartClass =  TextPartClass::new("", this.game.GameFont2, 49, 23, true, 0, "Supply Rationing. The % of supply requested that will be alloted by superior hq.");
           this.SupplyId = this.AddSubPart( tsubpart, num5 + 975, num6 + 4 + 56 + 69, 49, 23, 0);
            let mut local: &Graphics = &Expression;
@@ -590,12 +590,12 @@ namespace WindowsApplication1
               num10 += 1;
               if (this.detail1 == sf)
                 tlistselect = num10;
-              tname = Strings.Trim(Conversion.Str((object) qty)) + "x " + this.game.Data.SFTypeObj[type].Name;
+              tname = Strings.Trim(Conversion.Str( qty)) + "x " + this.game.Data.SFTypeObj[type].Name;
               if (this.game.Data.SFObj[sf].MoveType > -1)
                 tname = tname + " (" + this.game.Data.TempString[this.game.Data.SFObj[sf].MoveType] + ")";
-              tvalue: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sf].Ap));
-              tvalue2: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sf].Rdn));
-              tvalue3: String = Strings.Trim(Conversion.Str((object) this.game.Data.SFObj[sf].Xp));
+              tvalue: String = Strings.Trim(Conversion.Str( this.game.Data.SFObj[sf].Ap));
+              tvalue2: String = Strings.Trim(Conversion.Str( this.game.Data.SFObj[sf].Rdn));
+              tvalue3: String = Strings.Trim(Conversion.Str( this.game.Data.SFObj[sf].Xp));
               tvalue4: String = Strings.Left(this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].Name, 3);
               this.OptionsListObj.add(tname, tdata, tvalue, tvalue2, tvalue3, tvalue4);
             }
@@ -640,7 +640,7 @@ namespace WindowsApplication1
             let mut width: i32 =  80;
             if (this.game.Data.UnitObj[unitSelected].IsHQ)
             {
-              str1: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].LandCap));
+              str1: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].LandCap));
                let mut local4: &Graphics = &Expression;
               trect1 = Rectangle::new(x2, 25, width, 14);
               let mut rect1_4: &Rectangle = &trect1
@@ -648,7 +648,7 @@ namespace WindowsApplication1
               let mut rect2_4: &Rectangle = &trect2
               txt2_4: String = str1;
               DrawMod.MakeFullBoxVic2( local4, rect1_4, "LAND CAP", rect2_4, txt2_4);
-              str2: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].NavyCap));
+              str2: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].NavyCap));
                let mut local5: &Graphics = &Expression;
               trect1 = Rectangle::new(x2, 70, width, 14);
               let mut rect1_5: &Rectangle = &trect1
@@ -656,7 +656,7 @@ namespace WindowsApplication1
               let mut rect2_5: &Rectangle = &trect2
               txt2_5: String = str2;
               DrawMod.MakeFullBoxVic2( local5, rect1_5, "NAVY CAP", rect2_5, txt2_5);
-              str3: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].AirCap));
+              str3: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].AirCap));
                let mut local6: &Graphics = &Expression;
               trect1 = Rectangle::new(x2, 115, width, 14);
               let mut rect1_6: &Rectangle = &trect1
@@ -666,14 +666,14 @@ namespace WindowsApplication1
               DrawMod.MakeFullBoxVic2( local6, rect1_6, "RAIL CAP", rect2_6, txt2_6);
               x2 += 100;
             }
-            str4: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].Supply));
+            str4: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].Supply));
             string str5;
             if (this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected) > 0)
             {
-              float Number = (float) Math.Round((double) ((float) this.game.Data.UnitObj[unitSelected].Supply / (float) this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected)), 1);
-              if ((double) Number > 99.0)
+              float Number =  Math.Round( ( this.game.Data.UnitObj[unitSelected].Supply /  this.game.HandyFunctionsObj.UnitSupplyUse(unitSelected)), 1);
+              if ( Number > 99.0)
                 Number = 99f;
-              str5 = Strings.Trim(Conversion.Str((object) Number));
+              str5 = Strings.Trim(Conversion.Str( Number));
             }
             else
               str5 = ">99";
@@ -693,7 +693,7 @@ namespace WindowsApplication1
             txt2_8: String = str6;
             DrawMod.MakeFullBoxVic2( local8, rect1_8, "ROUNDS LEFT", rect2_8, txt2_8);
             let mut x3: i32 =  x2 + 100;
-            str7: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].SupplyInReq));
+            str7: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].SupplyInReq));
              let mut local9: &Graphics = &Expression;
             trect1 = Rectangle::new(x3, 25, width, 14);
             let mut rect1_9: &Rectangle = &trect1
@@ -701,7 +701,7 @@ namespace WindowsApplication1
             let mut rect2_9: &Rectangle = &trect2
             txt2_9: String = str7;
             DrawMod.MakeFullBoxVic2( local9, rect1_9, "REQUEST IN", rect2_9, txt2_9);
-            str8: String = Strings.Trim(Conversion.Str((object) (this.game.Data.UnitObj[unitSelected].SupplyIn + this.game.Data.UnitObj[unitSelected].SupplyLost)));
+            str8: String = Strings.Trim(Conversion.Str( (this.game.Data.UnitObj[unitSelected].SupplyIn + this.game.Data.UnitObj[unitSelected].SupplyLost)));
              let mut local10: &Graphics = &Expression;
             trect1 = Rectangle::new(x3, 70, width, 14);
             let mut rect1_10: &Rectangle = &trect1
@@ -709,7 +709,7 @@ namespace WindowsApplication1
             let mut rect2_10: &Rectangle = &trect2
             txt2_10: String = str8;
             DrawMod.MakeFullBoxVic2( local10, rect1_10, "SUPPLY SEND", rect2_10, txt2_10);
-            str9: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].SupplyLost));
+            str9: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].SupplyLost));
              let mut local11: &Graphics = &Expression;
             trect1 = Rectangle::new(x3, 115, width, 14);
             let mut rect1_11: &Rectangle = &trect1
@@ -717,7 +717,7 @@ namespace WindowsApplication1
             let mut rect2_11: &Rectangle = &trect2
             txt2_11: String = str9;
             DrawMod.MakeFullBoxVic2( local11, rect1_11, "DESTROYED", rect2_11, txt2_11);
-            tname = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].SupplyIn));
+            tname = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].SupplyIn));
              let mut local12: &Graphics = &Expression;
             trect1 = Rectangle::new(x3, 160, width, 14);
             let mut rect1_12: &Rectangle = &trect1
@@ -728,7 +728,7 @@ namespace WindowsApplication1
             if (this.game.Data.UnitObj[unitSelected].IsHQ)
             {
               x3 += 100;
-              str10: String = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetRealHQSupplyPts(unitSelected)));
+              str10: String = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetRealHQSupplyPts(unitSelected)));
                let mut local13: &Graphics = &Expression;
               trect1 = Rectangle::new(x3, 25, width, 14);
               let mut rect1_13: &Rectangle = &trect1
@@ -736,7 +736,7 @@ namespace WindowsApplication1
               let mut rect2_13: &Rectangle = &trect2
               txt2_13: String = str10;
               DrawMod.MakeFullBoxVic2( local13, rect1_13, "EXCESS SUP", rect2_13, txt2_13);
-              str11: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].SupplyReq));
+              str11: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].SupplyReq));
                let mut local14: &Graphics = &Expression;
               trect1 = Rectangle::new(x3, 70, width, 14);
               let mut rect1_14: &Rectangle = &trect1
@@ -744,7 +744,7 @@ namespace WindowsApplication1
               let mut rect2_14: &Rectangle = &trect2
               txt2_14: String = str11;
               DrawMod.MakeFullBoxVic2( local14, rect1_14, "REQUEST OUT", rect2_14, txt2_14);
-              str12: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].SupplyOut));
+              str12: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].SupplyOut));
                let mut local15: &Graphics = &Expression;
               trect1 = Rectangle::new(x3, 115, width, 14);
               let mut rect1_15: &Rectangle = &trect1
@@ -752,7 +752,7 @@ namespace WindowsApplication1
               let mut rect2_15: &Rectangle = &trect2
               txt2_15: String = str12;
               DrawMod.MakeFullBoxVic2( local15, rect1_15, "SUPPLY OUT", rect2_15, txt2_15);
-              tname = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].Reserve));
+              tname = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].Reserve));
                let mut local16: &Graphics = &Expression;
               trect1 = Rectangle::new(x3, 160, width, 14);
               let mut rect1_16: &Rectangle = &trect1
@@ -764,7 +764,7 @@ namespace WindowsApplication1
             if (this.game.HandyFunctionsObj.DoesUnitUseFuel(unitSelected))
             {
               x3 += 100;
-              str13: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].FuelUsedMove));
+              str13: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].FuelUsedMove));
                let mut local17: &Graphics = &Expression;
               trect1 = Rectangle::new(x3, 25, width, 14);
               let mut rect1_17: &Rectangle = &trect1
@@ -772,7 +772,7 @@ namespace WindowsApplication1
               let mut rect2_17: &Rectangle = &trect2
               txt2_17: String = str13;
               DrawMod.MakeFullBoxVic2( local17, rect1_17, "FUEL MOVING", rect2_17, txt2_17);
-              str14: String = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].FuelUsedAtt));
+              str14: String = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].FuelUsedAtt));
                let mut local18: &Graphics = &Expression;
               trect1 = Rectangle::new(x3, 70, width, 14);
               let mut rect1_18: &Rectangle = &trect1
@@ -780,7 +780,7 @@ namespace WindowsApplication1
               let mut rect2_18: &Rectangle = &trect2
               txt2_18: String = str14;
               DrawMod.MakeFullBoxVic2( local18, rect1_18, "FUEL ATTACK", rect2_18, txt2_18);
-              tname = Strings.Trim(Conversion.Str((object) this.game.Data.UnitObj[unitSelected].FuelUsedDef));
+              tname = Strings.Trim(Conversion.Str( this.game.Data.UnitObj[unitSelected].FuelUsedDef));
                let mut local19: &Graphics = &Expression;
               trect1 = Rectangle::new(x3, 115, width, 14);
               let mut rect1_19: &Rectangle = &trect1
@@ -838,7 +838,7 @@ namespace WindowsApplication1
               if (numArray1[index] > 0)
               {
                 num14 += 1;
-                this.ListObj.add(Strings.Left(this.game.Data.TempString[index], 9), -1, Strings.Trim(Conversion.Str((object) numArray1[index])), Strings.Trim(Conversion.Str((object) numArray2[index])));
+                this.ListObj.add(Strings.Left(this.game.Data.TempString[index], 9), -1, Strings.Trim(Conversion.Str( numArray1[index])), Strings.Trim(Conversion.Str( numArray2[index])));
               }
               index += 1;
             }
@@ -849,7 +849,7 @@ namespace WindowsApplication1
               if (integer > 0)
               {
                 num14 += 1;
-                this.ListObj.add("Excess Sup", -1, Strings.Trim(Strings.Trim(Conversion.Str((object) integer))), "0");
+                this.ListObj.add("Excess Sup", -1, Strings.Trim(Strings.Trim(Conversion.Str( integer))), "0");
               }
             }
             if (num14 > 0)
@@ -866,7 +866,7 @@ namespace WindowsApplication1
             let mut x5: i32 =  bbx + 215;
             let mut width1: i32 =  80;
             let mut unitCarryCap1: i32 =  this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 0);
-            str15: String = Strings.Trim(Conversion.Str((object) (this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 0) - this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 0, true)))) + " / " + Strings.Trim(Conversion.Str((object) unitCarryCap1));
+            str15: String = Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 0) - this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 0, true)))) + " / " + Strings.Trim(Conversion.Str( unitCarryCap1));
              let mut local22: &Graphics = &Expression;
             trect1 = Rectangle::new(x5, 25, width1, 14);
             let mut rect1_20: &Rectangle = &trect1
@@ -875,7 +875,7 @@ namespace WindowsApplication1
             txt2_20: String = str15;
             DrawMod.MakeFullBoxVic2( local22, rect1_20, "LAND CARRIED", rect2_20, txt2_20);
             let mut unitCarryCap2: i32 =  this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 1);
-            str16: String = Strings.Trim(Conversion.Str((object) (this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 1) - this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 1, true)))) + " / " + Strings.Trim(Conversion.Str((object) unitCarryCap2));
+            str16: String = Strings.Trim(Conversion.Str( (this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 1) - this.game.HandyFunctionsObj.GetUnitCarryCap(unitSelected, 1, true)))) + " / " + Strings.Trim(Conversion.Str( unitCarryCap2));
              let mut local23: &Graphics = &Expression;
             trect1 = Rectangle::new(x5, 70, width1, 14);
             let mut rect1_21: &Rectangle = &trect1
@@ -884,7 +884,7 @@ namespace WindowsApplication1
             txt2_21: String = str16;
             DrawMod.MakeFullBoxVic2( local23, rect1_21, "NAVY CARRIED", rect2_21, txt2_21);
             let mut airCarryCapPts: i32 =  this.game.HandyFunctionsObj.GetAirCarryCapPts(unitSelected);
-            str17: String = Strings.Trim(Conversion.Str((object) Conversions.ToInteger(Operators.SubtractObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unitSelected, true), this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unitSelected, false))))) + " / " + Strings.Trim(Conversion.Str((object) airCarryCapPts));
+            str17: String = Strings.Trim(Conversion.Str( Conversions.ToInteger(Operators.SubtractObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unitSelected, true), this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unitSelected, false))))) + " / " + Strings.Trim(Conversion.Str( airCarryCapPts));
              let mut local24: &Graphics = &Expression;
             trect1 = Rectangle::new(x5, 115, width1, 14);
             let mut rect1_22: &Rectangle = &trect1
@@ -902,7 +902,7 @@ namespace WindowsApplication1
             let mut rect2_23: &Rectangle = &trect2
             txt2_23: String = str18;
             DrawMod.MakeFullBoxVic2( local25, rect1_23, "WEIGHT", rect2_23, txt2_23);
-            tname = Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetUnitStackPts(unitSelected)));
+            tname = Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetUnitStackPts(unitSelected)));
              let mut local26: &Graphics = &Expression;
             trect1 = Rectangle::new(x6, 70, width2, 14);
             let mut rect1_24: &Rectangle = &trect1
@@ -927,9 +927,9 @@ namespace WindowsApplication1
                 num17 = 100;
               if (num18 > 100)
                 num18 = 100;
-              let mut Number1: i32 =   Math.Round((double)  Math.Round((double) num15 * (double) this.game.HandyFunctionsObj.GetStaffCombatMod(hq) * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) + (double) num17 * (double) this.game.Data.RuleVar[140] * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
-              let mut Number2: i32 =   Math.Round((double)  Math.Round((double) num16 * (double) this.game.HandyFunctionsObj.GetStaffMoraleMod(hq) * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) + (double) num18 * (double) this.game.Data.RuleVar[141] * ((double) this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
-              str19: String = Strings.Trim(Conversion.Str((object) Number1)) + "%";
+              let mut Number1: i32 =   Math.Round(  Math.Round( num15 *  this.game.HandyFunctionsObj.GetStaffCombatMod(hq) * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) +  num17 *  this.game.Data.RuleVar[140] * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
+              let mut Number2: i32 =   Math.Round(  Math.Round( num16 *  this.game.HandyFunctionsObj.GetStaffMoraleMod(hq) * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0)) +  num18 *  this.game.Data.RuleVar[141] * ( this.game.HandyFunctionsObj.Gethqpow(this.game.EditObj.UnitSelected) / 100.0));
+              str19: String = Strings.Trim(Conversion.Str( Number1)) + "%";
                let mut local27: &Graphics = &Expression;
               trect1 = Rectangle::new(x7, 25, width3, 14);
               let mut rect1_25: &Rectangle = &trect1
@@ -937,7 +937,7 @@ namespace WindowsApplication1
               let mut rect2_25: &Rectangle = &trect2
               txt2_25: String = str19;
               DrawMod.MakeFullBoxVic2( local27, rect1_25, "STF.COMBAT", rect2_25, txt2_25);
-              tname = Strings.Trim(Conversion.Str((object) Number2)) + "%";
+              tname = Strings.Trim(Conversion.Str( Number2)) + "%";
                let mut local28: &Graphics = &Expression;
               trect1 = Rectangle::new(x7, 70, width3, 14);
               let mut rect1_26: &Rectangle = &trect1
@@ -956,12 +956,12 @@ namespace WindowsApplication1
         Expression = Graphics.FromImage((Image) this.OwnBitmap);
         let mut landscapeType: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].LandscapeType;
         let mut spriteNr: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].SpriteNr;
-        let mut num19: i32 =   Math.Round((double) this.game.ScreenWidth / 2.0 - 174.0);
+        let mut num19: i32 =   Math.Round( this.game.ScreenWidth / 2.0 - 174.0);
         let mut y1: i32 =  55;
         if (this.game.Data.Round > 0 && this.game.Data.ShrowdOn & this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[selectX, selectY].get_SeeNow(this.game.Data.Turn) < 1)
         {
           DrawMod.DrawBlock( Expression, num19, y1, 384, 144, 0, 0, 0,  byte.MaxValue);
-          tstring: String = tname + "Shrouded (" + Conversion.Str((object) selectX) + "," + Conversion.Str((object) selectY) + ")";
+          tstring: String = tname + "Shrouded (" + Conversion.Str( selectX) + "," + Conversion.Str( selectY) + ")";
           DrawMod.DrawText( Expression, tstring, Font::new("Times New Roman", 12f, FontStyle.Bold, GraphicsUnit.Pixel), 10, 35);
         }
         if (landscapeType > -1 & spriteNr > -1)
@@ -995,7 +995,7 @@ namespace WindowsApplication1
         txt2: String = str;
         DrawMod.MakeFullBoxVic2( local, rect1, "HEX OWNER", rect2, txt2);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;

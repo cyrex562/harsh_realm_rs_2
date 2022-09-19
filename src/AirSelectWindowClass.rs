@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -115,12 +115,12 @@ namespace WindowsApplication1
       SizeF sizeF1 = SizeF::new();
       str1: String = "Select/deselect air units";
       SizeF sizeF2 = toG.MeasureString(str1, this.game.MarcFont4);
-      DrawMod.DrawTextColouredMarc(ref toG, str1, this.game.MarcFont4, (int) Math.Round(435.0 - (double) sizeF2.Width / 2.0), 40, Color.White);
+      DrawMod.DrawTextColouredMarc(ref toG, str1, this.game.MarcFont4, (int) Math.Round(435.0 -  sizeF2.Width / 2.0), 40, Color.White);
       str2: String = "";
-      if ((double) this.game.Data.RuleVar[833] > 0.0)
-        str2 = str2 + "Stack:" + Conversion.Str((object) (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str((object) this.game.Data.RuleVar[833]);
+      if ( this.game.Data.RuleVar[833] > 0.0)
+        str2 = str2 + "Stack:" + Conversion.Str( (this.game.HandyFunctionsObj.CurrentAttackStackAir() + this.game.Data.MapObj[this.game.EditObj.TargetMap].HexObj[this.game.EditObj.TargetX, this.game.EditObj.TargetY].get_BattleStackAir(this.game.Data.Turn))) + "/" + Conversion.Str( this.game.Data.RuleVar[833]);
       SizeF sizeF3 = toG.MeasureString(str2, this.game.MarcFont4);
-      DrawMod.DrawTextColouredMarc(ref toG, str2, this.game.MarcFont4, (int) Math.Round(435.0 - (double) sizeF3.Width / 2.0), 478, Color.White);
+      DrawMod.DrawTextColouredMarc(ref toG, str2, this.game.MarcFont4, (int) Math.Round(435.0 -  sizeF3.Width / 2.0), 478, Color.White);
       let mut num1: i32 =  45;
       let mut num2: i32 =  100;
       let mut counter: i32 =  this.UL.counter;
@@ -146,10 +146,10 @@ namespace WindowsApplication1
               num3 += 1;
               if (num3 > 1)
                 str3 += ", ";
-              str3 = str3 + Strings.Trim(Conversion.Str((object) (DrawMod.TGame.Data.SFObj[sf].Qty * DrawMod.TGame.Data.SFTypeObj[type].Ratio))) + "x " + DrawMod.TGame.Data.SFTypeObj[type].Name;
+              str3 = str3 + Strings.Trim(Conversion.Str( (DrawMod.TGame.Data.SFObj[sf].Qty * DrawMod.TGame.Data.SFTypeObj[type].Ratio))) + "x " + DrawMod.TGame.Data.SFTypeObj[type].Name;
             }
           }
-          ttext: String = str3 + "\r\n" + "Average Readiness: " + Strings.Trim(Conversion.Str((object) this.game.HandyFunctionsObj.GetAverageRdn(this.UL.unr[index2])));
+          ttext: String = str3 + "\r\n" + "Average Readiness: " + Strings.Trim(Conversion.Str( this.game.HandyFunctionsObj.GetAverageRdn(this.UL.unr[index2])));
           this.game.CustomBitmapObj.DrawUnit(this.UL.unr[index2], toG: toG, tx: num1, ty: num2, ShowAttacker: true);
           Rectangle trect = Rectangle::new(num1, num2, 38, 38);
           this.AddMouse(ref trect, this.game.Data.UnitObj[this.UL.unr[index2]].Name, ttext, this.UL.unr[index2]);
@@ -160,7 +160,7 @@ namespace WindowsApplication1
           while (num4 <= 0)
           {
             sizeF4 = toG.MeasureString(str4, this.game.MarcFont10);
-            if ((double) sizeF4.Width > 70.0)
+            if ( sizeF4.Width > 70.0)
             {
               num5 = 1;
               str4 = Strings.Left(str4, str4.Length - 1);
@@ -171,10 +171,10 @@ namespace WindowsApplication1
           if (num5 == 1)
             str4 = Strings.Left(str4, str4.Length - 1) + "...";
           sizeF4 = toG.MeasureString(str4, this.game.MarcFont10);
-          DrawMod.DrawTextColouredMarc(ref toG, str4, this.game.MarcFont10, (int) Math.Round((double) ((float) (num1 + 19) - sizeF4.Width / 2f)), num2 + 38, Color.White);
+          DrawMod.DrawTextColouredMarc(ref toG, str4, this.game.MarcFont10, (int) Math.Round( ( (num1 + 19) - sizeF4.Width / 2f)), num2 + 38, Color.White);
           str5: String = "(dist: " + this.UL.data[index2].ToString() + ")";
           sizeF4 = toG.MeasureString(str5, this.game.MarcFont10);
-          DrawMod.DrawTextColouredMarc(ref toG, str5, this.game.MarcFont10, (int) Math.Round((double) ((float) (num1 + 19) - sizeF4.Width / 2f)), num2 + 38 + 9, Color.White);
+          DrawMod.DrawTextColouredMarc(ref toG, str5, this.game.MarcFont10, (int) Math.Round( ( (num1 + 19) - sizeF4.Width / 2f)), num2 + 38 + 9, Color.White);
         }
       }
       let mut tsubpart: SubPartClass =  new TextButtonPartClass("OK", 150, "Click to return to main screen.", ref this.OwnBitmap, 365, 515, theight: 40, usefont: this.game.MarcFont4, useshadow: true, tMarcStyle: true);

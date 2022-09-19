@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -112,7 +112,7 @@ namespace WindowsApplication1
       SimpleList simpleList1 = SimpleList::new();
       Graphics graphics = Graphics.FromImage((Image) this.OwnBitmap);
       let mut num3: i32 = 20;
-      let mut num4: i32 =  Math.Round((double) (this.game.ScreenWidth - 1080) / 2.0);
+      let mut num4: i32 =  Math.Round( (this.game.ScreenWidth - 1080) / 2.0);
       if (num4 < 0)
         num4 = 0;
       let mut num5: i32 = num3 + num4;
@@ -142,7 +142,7 @@ namespace WindowsApplication1
           }
         }
       }
-      this.butcount =  Math.Round((double) (this.curheight - 110) / 50.0);
+      this.butcount =  Math.Round( (this.curheight - 110) / 50.0);
       int num6;
       if (simpleList2.Counter > -1)
       {
@@ -252,15 +252,15 @@ namespace WindowsApplication1
                     else
                       DrawMod.DrawTextVic2( graphics, tstring, this.game.VicFont1, num5 + 455 + index5 * 50, num14 + 4, this.game.VicColor1, this.game.VicColor1Shade);
                   }
-                  float Number = Conversion.Int(Conversions.ToSingle(Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[index4].TempProdPredict[index5]))));
+                  float Number = Conversion.Int(Conversions.ToSingle(Strings.Trim(Conversion.Str( this.game.Data.LocObj[index4].TempProdPredict[index5]))));
                   float[] numArray2 = numArray1;
                   float[] numArray3 = numArray2;
                   let mut index9: i32 = index6;
                   let mut index10: i32 = index9;
-                  double num15 = (double) numArray2[index9] + (double) Number;
-                  numArray3[index10] = (float) num15;
+                  double num15 =  numArray2[index9] +  Number;
+                  numArray3[index10] =  num15;
                   if (this.resmode == 0)
-                    DrawMod.DrawTextVic2( graphics, Strings.Trim(Conversion.Str((object) Number)), this.game.VicFont3, num5 + 455 + index5 * 50, num14 + 27, this.game.VicColor2, this.game.VicColor2Shade);
+                    DrawMod.DrawTextVic2( graphics, Strings.Trim(Conversion.Str( Number)), this.game.VicFont3, num5 + 455 + index5 * 50, num14 + 27, this.game.VicColor2, this.game.VicColor2Shade);
                   let mut index11: i32 = 0;
                   do
                   {
@@ -270,7 +270,7 @@ namespace WindowsApplication1
                       let mut nr2: i32 = simpleList1.FindNr(this.game.Data.ItemTypeObj[index12].RegimeSlotsCost[index11]);
                       if (nr2 == -1)
                       {
-                        simpleList1.Add(this.game.Data.ItemTypeObj[index12].RegimeSlotsCost[index11],  Math.Round((double) ((float) this.game.Data.ItemTypeObj[index12].RegimeSlotsCostQty[index11] * Number)));
+                        simpleList1.Add(this.game.Data.ItemTypeObj[index12].RegimeSlotsCost[index11],  Math.Round( ( this.game.Data.ItemTypeObj[index12].RegimeSlotsCostQty[index11] * Number)));
                       }
                       else
                       {
@@ -278,7 +278,7 @@ namespace WindowsApplication1
                         int[] numArray4 = weight;
                         let mut index13: i32 = nr2;
                         let mut index14: i32 = index13;
-                        let mut num16: i32 =  Math.Round((double) ((float) weight[index13] + (float) this.game.Data.ItemTypeObj[index12].RegimeSlotsCostQty[index11] * Number));
+                        let mut num16: i32 =  Math.Round( ( weight[index13] +  this.game.Data.ItemTypeObj[index12].RegimeSlotsCostQty[index11] * Number));
                         numArray4[index14] = num16;
                       }
                     }
@@ -310,13 +310,13 @@ namespace WindowsApplication1
               if (this.game.Data.LocObj[locnr].Production[prodslot] > -1)
               {
                 let mut num17: i32 = this.game.Data.LocObj[locnr].Production[prodslot];
-                float num18 = Conversion.Int((float) this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false));
+                float num18 = Conversion.Int( this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false));
                 float[] numArray5 = numArray1;
                 float[] numArray6 = numArray5;
                 let mut index15: i32 = num17;
                 let mut index16: i32 = index15;
-                double num19 = (double) numArray5[index15] + (double) num18;
-                numArray6[index16] = (float) num19;
+                double num19 =  numArray5[index15] +  num18;
+                numArray6[index16] =  num19;
                 let mut index17: i32 = 0;
                 do
                 {
@@ -326,7 +326,7 @@ namespace WindowsApplication1
                     let mut nr: i32 = simpleList1.FindNr(this.game.Data.ItemTypeObj[index18].RegimeSlotsCost[index17]);
                     if (nr == -1)
                     {
-                      simpleList1.Add(this.game.Data.ItemTypeObj[index18].RegimeSlotsCost[index17],  Math.Round((double) ((float) this.game.Data.ItemTypeObj[index18].RegimeSlotsCostQty[index17] * num18)));
+                      simpleList1.Add(this.game.Data.ItemTypeObj[index18].RegimeSlotsCost[index17],  Math.Round( ( this.game.Data.ItemTypeObj[index18].RegimeSlotsCostQty[index17] * num18)));
                     }
                     else
                     {
@@ -334,7 +334,7 @@ namespace WindowsApplication1
                       int[] numArray7 = weight;
                       let mut index19: i32 = nr;
                       let mut index20: i32 = index19;
-                      let mut num20: i32 =  Math.Round((double) ((float) weight[index19] + (float) this.game.Data.ItemTypeObj[index18].RegimeSlotsCostQty[index17] * num18));
+                      let mut num20: i32 =  Math.Round( ( weight[index19] +  this.game.Data.ItemTypeObj[index18].RegimeSlotsCostQty[index17] * num18));
                       numArray7[index20] = num20;
                     }
                   }
@@ -388,17 +388,17 @@ namespace WindowsApplication1
               {
                 if (this.game.Data.LocObj[index22].Production[index23] > -1)
                 {
-                  float num30 = Conversion.Int(Conversions.ToSingle(Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[index22].TempProdPredict[index23]))));
+                  float num30 = Conversion.Int(Conversions.ToSingle(Strings.Trim(Conversion.Str( this.game.Data.LocObj[index22].TempProdPredict[index23]))));
                   let mut index24: i32 = 0;
                   do
                   {
                     let mut index25: i32 = this.game.Data.LocObj[index22].Production[index23];
-                    if (index25 > -1 && this.game.Data.ItemTypeObj[index25].RegimeSlotsCost[index24] > -1 && this.game.Data.ItemTypeObj[index25].RegimeSlotsCostQty[index24] > 0 & (double) num30 > 0.0)
+                    if (index25 > -1 && this.game.Data.ItemTypeObj[index25].RegimeSlotsCost[index24] > -1 && this.game.Data.ItemTypeObj[index25].RegimeSlotsCostQty[index24] > 0 &  num30 > 0.0)
                     {
                       let mut nr: i32 = simpleList3.FindNr(this.game.Data.ItemTypeObj[index25].RegimeSlotsCost[index24]);
                       if (nr == -1)
                       {
-                        simpleList3.Add(this.game.Data.ItemTypeObj[index25].RegimeSlotsCost[index24],  Math.Round((double) ((float) this.game.Data.ItemTypeObj[index25].RegimeSlotsCostQty[index24] * num30)));
+                        simpleList3.Add(this.game.Data.ItemTypeObj[index25].RegimeSlotsCost[index24],  Math.Round( ( this.game.Data.ItemTypeObj[index25].RegimeSlotsCostQty[index24] * num30)));
                       }
                       else
                       {
@@ -406,7 +406,7 @@ namespace WindowsApplication1
                         int[] numArray8 = weight;
                         let mut index26: i32 = nr;
                         let mut index27: i32 = index26;
-                        let mut num31: i32 =  Math.Round((double) ((float) weight[index26] + (float) this.game.Data.ItemTypeObj[index25].RegimeSlotsCostQty[index24] * num30));
+                        let mut num31: i32 =  Math.Round( ( weight[index26] +  this.game.Data.ItemTypeObj[index25].RegimeSlotsCostQty[index24] * num30));
                         numArray8[index27] = num31;
                       }
                     }
@@ -425,10 +425,10 @@ namespace WindowsApplication1
                 if (index28 <= 3)
                 {
                   tstring: String = Strings.Trim(Strings.Left(this.game.Data.RegimeSlotName[simpleList3.Id[index28]], 3));
-                  float Number = (float) simpleList3.Weight[index28];
+                  float Number =  simpleList3.Weight[index28];
                   num32 += 1;
                   DrawMod.DrawTextVic2( graphics, tstring, this.game.VicFont3, num5 + 455 + num32 * 50, num29 + 12, this.game.VicColor2, this.game.VicColor2Shade);
-                  DrawMod.DrawTextVic2( graphics, Strings.Trim(Conversion.Str((object) Number)), this.game.VicFont3, num5 + 455 + num32 * 50, num29 + 27, this.game.VicColor2, this.game.VicColor2Shade);
+                  DrawMod.DrawTextVic2( graphics, Strings.Trim(Conversion.Str( Number)), this.game.VicFont3, num5 + 455 + num32 * 50, num29 + 27, this.game.VicColor2, this.game.VicColor2Shade);
                 }
               }
             }
@@ -440,10 +440,10 @@ namespace WindowsApplication1
       if (num2 != 1)
         ;
       int num33;
-      if (Conversion.Int(1.0 + (double) simpleList2.Counter / (double) this.butcount) > 1.0)
+      if (Conversion.Int(1.0 +  simpleList2.Counter /  this.butcount) > 1.0)
       {
         DrawMod.DrawTextVic( graphics, "PAGE", this.game.VicFont2, 684 + num4, 30, this.game.VicColor1, this.game.VicColor1Shade);
-        let mut num34: i32 =  Math.Round(Conversion.Int(1.0 + (double) simpleList2.Counter / (double) this.butcount));
+        let mut num34: i32 =  Math.Round(Conversion.Int(1.0 +  simpleList2.Counter /  this.butcount));
         for (let mut index29: i32 = 1; index29 <= num34; index29 += 1)
         {
           if (this.curbut == index29)
@@ -527,12 +527,12 @@ namespace WindowsApplication1
       if (this.resmode == 0)
       {
         if (this.detailnr2 > -1)
-          this.OptionsList2Obj.add("Last Supply Req.", -1, Conversion.Str((object) this.game.Data.UnitObj[this.detailnr2].SupplyReq));
+          this.OptionsList2Obj.add("Last Supply Req.", -1, Conversion.Str( this.game.Data.UnitObj[this.detailnr2].SupplyReq));
         let mut itemTypeCounter: i32 = this.game.Data.ItemTypeCounter;
         for (let mut index35: i32 = 0; index35 <= itemTypeCounter; index35 += 1)
         {
-          if ((double) numArray1[index35] > 0.0)
-            this.OptionsList2Obj.add(this.game.Data.ItemTypeObj[index35].Name, -1, Conversion.Str((object) numArray1[index35]));
+          if ( numArray1[index35] > 0.0)
+            this.OptionsList2Obj.add(this.game.Data.ItemTypeObj[index35].Name, -1, Conversion.Str( numArray1[index35]));
         }
       }
       else
@@ -541,7 +541,7 @@ namespace WindowsApplication1
         for (let mut index36: i32 = 0; index36 <= counter4; index36 += 1)
         {
           if (simpleList1.Weight[index36] > 0)
-            this.OptionsList2Obj.add(this.game.Data.RegimeSlotName[simpleList1.Id[index36]], -1, Conversion.Str((object) simpleList1.Weight[index36]));
+            this.OptionsList2Obj.add(this.game.Data.RegimeSlotName[simpleList1.Id[index36]], -1, Conversion.Str( simpleList1.Weight[index36]));
         }
       }
       if (this.OptionsList2Id > 0)
@@ -554,7 +554,7 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new ATListSubPartClass(this.OptionsList2Obj, 12, 280, -1, this.game, tHeader: "Total Production", tShowPair: true, tValueWidth: 80, tbackbitmap: ( this.OwnBitmap), bbx: (this.OwnBitmap.Width - 290 - num4), bby: 220);
         this.OptionsList2Id = this.AddSubPart( tsubpart, this.OwnBitmap.Width - 290 - num4, 220, 280, 224, 0);
       }
-      if (Information.IsNothing((object) graphics))
+      if (Information.IsNothing( graphics))
         return;
       graphics.Dispose();
       graphics = (Graphics) null;
@@ -575,16 +575,16 @@ namespace WindowsApplication1
           let mut num1: i32 = 265;
           let mut selectX: i32 = this.game.SelectX;
           let mut selectY: i32 = this.game.SelectY;
-          this.game.CornerX =  Math.Round((double) selectX - ((double) this.game.ScreenWidth / 2.0 - 0.0) / 53.0);
-          this.game.CornerY =  Math.Round((double) selectY - ((double) this.game.ScreenHeight / 2.0 - (double) num1) / 48.0);
+          this.game.CornerX =  Math.Round( selectX - ( this.game.ScreenWidth / 2.0 - 0.0) / 53.0);
+          this.game.CornerY =  Math.Round( selectY - ( this.game.ScreenHeight / 2.0 -  num1) / 48.0);
           if (this.game.CornerX < 0)
             this.game.CornerX = 0;
           if (this.game.CornerY < 0)
             this.game.CornerY = 0;
           if (this.game.Data.Round == 0)
             num1 += 100;
-          let mut num2: i32 =  Math.Round((double) (this.game.ScreenWidth - 220 - 0) / 53.0);
-          let mut num3: i32 =  Math.Round((double) (this.game.ScreenHeight - num1) / 48.0);
+          let mut num2: i32 =  Math.Round( (this.game.ScreenWidth - 220 - 0) / 53.0);
+          let mut num3: i32 =  Math.Round( (this.game.ScreenHeight - num1) / 48.0);
           let mut num4: i32 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
           let mut num5: i32 = this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
           if (num2 > num4)

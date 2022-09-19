@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -240,7 +240,7 @@ namespace WindowsApplication1
           }
           y1_2 += h1;
         }
-        y1_1 = y1_2 +  Math.Round((double) h2 / 2.0);
+        y1_1 = y1_2 +  Math.Round( h2 / 2.0);
         num1 += 1;
       }
       while (num1 <= 3);

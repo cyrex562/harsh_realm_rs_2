@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -99,8 +99,8 @@ namespace WindowsApplication1
         let mut destrect6: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
-      let mut x: i32 =  Math.Round((double) (this.width - 48) / 2.0);
-      let mut y: i32 =  Math.Round((double) (this.height - 32) / 2.0);
+      let mut x: i32 =  Math.Round( (this.width - 48) / 2.0);
+      let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
       if (this.gray)
       {
          let mut local13: &Graphics = &Expression;
@@ -123,7 +123,7 @@ namespace WindowsApplication1
         let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }
@@ -188,8 +188,8 @@ namespace WindowsApplication1
         let mut destrect6: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local11,  local12, srcrect6, destrect6);
       }
-      let mut x: i32 =  Math.Round((double) (this.width - 48) / 2.0);
-      let mut y: i32 =  Math.Round((double) (this.height - 32) / 2.0);
+      let mut x: i32 =  Math.Round( (this.width - 48) / 2.0);
+      let mut y: i32 =  Math.Round( (this.height - 32) / 2.0);
       if (this.gray)
       {
          let mut local13: &Graphics = &Expression;
@@ -212,7 +212,7 @@ namespace WindowsApplication1
         let mut destrect: &Rectangle = &rectangle1
         DrawMod.DrawSimplePart2( local15,  local16, srcrect, destrect);
       }
-      if (!Information.IsNothing((object) Expression))
+      if (!Information.IsNothing( Expression))
         Expression.Dispose();
       return this.OwnBitmap;
     }

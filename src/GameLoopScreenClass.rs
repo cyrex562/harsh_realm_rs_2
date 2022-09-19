@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -17,16 +17,16 @@ namespace WindowsApplication1
     pub GameLoopScreenClass( GameClass tGame, Form1 tformref)
       : base( tGame, tGame.BACKGROUND1MARC, tformref)
     {
-      let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-      let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+      let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+      let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
       this.AddWindow((WindowClass) new GameLoopMainWindowClass( tGame), x, y, 1024, 768);
     }
 
     pub GameLoopScreenClass( GameClass tGame, Form1 tformref, bool NewGfx)
       : base( tGame, tGame.BACKGROUND1MARC, tformref)
     {
-      let mut x: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenWidth - 1024) / 2.0));
-      let mut y: i32 =   Math.Round(Conversion.Int((double) (tGame.ScreenHeight - 768) / 2.0));
+      let mut x: i32 =   Math.Round(Conversion.Int( (tGame.ScreenWidth - 1024) / 2.0));
+      let mut y: i32 =   Math.Round(Conversion.Int( (tGame.ScreenHeight - 768) / 2.0));
       this.AddWindow((WindowClass) new GameLoopMainWindowClass( tGame, true), x, y, 1024, 768);
     }
 
@@ -36,7 +36,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass1 = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want quit?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want quit?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         if (this.Game.Data.Turn > -1)
         {

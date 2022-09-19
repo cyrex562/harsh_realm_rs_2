@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -83,13 +83,13 @@ namespace WindowsApplication1
       DrawMod.DrawTextColouredMarc( graphics, "Email:", this.game.MarcFont4, 80, 315, Color.White);
       let mut tsubpart4: SubPartClass =  new InputTextClass("", this.game.MarcFont4, 440, 36, false, 40, true);
       this.emailid = this.AddSubPart( tsubpart4, 80, 340, 440, 36, 0);
-      if (Information.IsNothing((object) this.game.EditObj.PbemEmail))
+      if (Information.IsNothing( this.game.EditObj.PbemEmail))
         this.game.EditObj.PbemEmail = "";
-      if (Information.IsNothing((object) this.game.EditObj.PbemPassword))
+      if (Information.IsNothing( this.game.EditObj.PbemPassword))
         this.game.EditObj.PbemPassword = "";
-      if (Information.IsNothing((object) this.game.EditObj.PbemUserName))
+      if (Information.IsNothing( this.game.EditObj.PbemUserName))
         this.game.EditObj.PbemUserName = "";
-      if (Information.IsNothing((object) this.game.EditObj.PbemSerial))
+      if (Information.IsNothing( this.game.EditObj.PbemSerial))
         this.game.EditObj.PbemSerial = "";
       this.SubPartList[this.SubpartNr(this.userid)].Refresh(this.game.EditObj.PbemUserName);
       this.SubPartList[this.SubpartNr(this.passid)].Refresh(this.game.EditObj.PbemPassword);
@@ -124,7 +124,7 @@ namespace WindowsApplication1
     pub handleTimer: WindowReturnClass()
     {
       windowReturnClass: WindowReturnClass = WindowReturnClass::new();
-      if (!Information.IsNothing((object) this.game.EditObj.TextInputString) && this.game.EditObj.TextInputString.Length > 0)
+      if (!Information.IsNothing( this.game.EditObj.TextInputString) && this.game.EditObj.TextInputString.Length > 0)
       {
         if (this.selectedid == this.userid)
         {

@@ -8,7 +8,7 @@ namespace WindowsApplication1
 {
   pub class Neighbours
   {
-    pub int[] data;
+    pub data: Vec<i32>;
 
     pub Neighbours()
     {

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.Serialization;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.Serialization;
 
 namespace WindowsApplication1
 {
@@ -20,17 +20,17 @@ namespace WindowsApplication1
     pub Ownership: i32;
     pub Force: i32;
     pub SFType: i32;
-    pub int[] AttackDirection;
+    pub AttackDirection: Vec<i32>;
     pub AttackOtherType: i32;
     pub StepNr: i32;
     pub InfoString: String;
     pub His: i32;
     pub Depth: i32;
     pub LossCounter: i32;
-    pub int[] LossSFType;
-    pub int[] LossAttacker;
-    pub int[] LossOK;
-    pub int[] LossDEAD;
+    pub LossSFType: Vec<i32>;
+    pub LossAttacker: Vec<i32>;
+    pub LossOK: Vec<i32>;
+    pub LossDEAD: Vec<i32>;
     pub LossRegimeWin: i32;
     pub LossAttReg: i32;
     pub LossDefReg: i32;
@@ -44,18 +44,18 @@ namespace WindowsApplication1
       info.AddValue("Ownership", this.Ownership);
       info.AddValue("Force", this.Force);
       info.AddValue("SFType", this.SFType);
-      info.AddValue("AttackDirection", (object) this.AttackDirection);
+      info.AddValue("AttackDirection",  this.AttackDirection);
       info.AddValue("AttackOtherType", this.AttackOtherType);
       info.AddValue("StepNr", this.StepNr);
       info.AddValue("LossCounter", this.LossCounter);
-      info.AddValue("LossSFType", (object) this.LossSFType);
-      info.AddValue("LossOK", (object) this.LossOK);
-      info.AddValue("LossDEAD", (object) this.LossDEAD);
-      info.AddValue("LossAttacker", (object) this.LossAttacker);
+      info.AddValue("LossSFType",  this.LossSFType);
+      info.AddValue("LossOK",  this.LossOK);
+      info.AddValue("LossDEAD",  this.LossDEAD);
+      info.AddValue("LossAttacker",  this.LossAttacker);
       info.AddValue("LossRegimeWin", this.LossRegimeWin);
       info.AddValue("LossDefReg", this.LossDefReg);
       info.AddValue("LossAttReg", this.LossAttReg);
-      info.AddValue("InfoString", (object) this.InfoString);
+      info.AddValue("InfoString",  this.InfoString);
       info.AddValue("His", this.His);
       info.AddValue("Depth", this.Depth);
     }

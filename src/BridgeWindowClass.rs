@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.IO;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
 
 namespace WindowsApplication1
 {
@@ -78,7 +78,7 @@ namespace WindowsApplication1
         this.ss = "Click to set the basic EP Cost to build a bridge. This is modified by the size of the river.";
         let mut tsubpart1: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BEP = this.AddSubPart(ref tsubpart1, 10, 140, 32, 16, 1);
-        let mut tsubpart2: SubPartClass =  TextPartClass::new("EPCOST=" + Conversion.Str((object) this.game.Data.BridgeObj[0].EPCost), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
+        let mut tsubpart2: SubPartClass =  TextPartClass::new("EPCOST=" + Conversion.Str( this.game.Data.BridgeObj[0].EPCost), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 400, 20, false, tDescript: this.ss);
         this.BEPText = this.AddSubPart(ref tsubpart2, 50, 139, 400, 20, 0);
         this.ss = "Click to draw a bridge on the map.";
         let mut tsubpart3: SubPartClass =  ButtonPartClass::new(this.game.BUTTONDRAW, tDescript: this.ss);
@@ -88,7 +88,7 @@ namespace WindowsApplication1
         this.ss = "Click to set with which roadtype the alternate graphic is used. -1=never";
         let mut tsubpart5: SubPartClass =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.BAltId = this.AddSubPart(ref tsubpart5, 10, 180, 32, 16, 1);
-        let mut tsubpart6: SubPartClass =  TextPartClass::new("Alt=" + Conversion.Str((object) this.game.Data.BridgeObj[0].AlternateIfRoadType) + ", " + Conversion.Str((object) this.game.Data.BridgeObj[0].AlternateIfRoadType2) + ", " + Conversion.Str((object) this.game.Data.BridgeObj[0].AlternateIfRoadType3) + ", " + Conversion.Str((object) this.game.Data.BridgeObj[0].AlternateIfRoadType4), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        let mut tsubpart6: SubPartClass =  TextPartClass::new("Alt=" + Conversion.Str( this.game.Data.BridgeObj[0].AlternateIfRoadType) + ", " + Conversion.Str( this.game.Data.BridgeObj[0].AlternateIfRoadType2) + ", " + Conversion.Str( this.game.Data.BridgeObj[0].AlternateIfRoadType3) + ", " + Conversion.Str( this.game.Data.BridgeObj[0].AlternateIfRoadType4), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.BAltTextId = this.AddSubPart(ref tsubpart6, 50, 179, 200, 20, 0);
         this.OptionsListObj = ListClass::new();
         this.OptionsListObj.add("The 6 Sprites", 0);
@@ -228,7 +228,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num4: i32 =  (int) Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num4: i32 =  (int) Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);
@@ -243,7 +243,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num5: i32 =  (int) Interaction.MsgBox((object) "File does not exist. Operation ordered is canceled due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  (int) Interaction.MsgBox( "File does not exist. Operation ordered is canceled due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.maketabsheet();
               windowReturnClass.SetFlag(true);

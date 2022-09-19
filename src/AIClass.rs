@@ -4,19 +4,19 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
   pub class AIClass
   {
-    pub int[] TempAvgUnits;
+    pub TempAvgUnits: Vec<i32>;
     pub float[,] CombatMatrix;
      GameClass game;
      string[] LogTxt;
@@ -37,7 +37,7 @@ namespace WindowsApplication1
     pub int[,] AIVP;
     pub int[,] Matrix1;
     pub int[,] Matrix2;
-    pub int[] UnitMovePhase;
+    pub UnitMovePhase: Vec<i32>;
     pub TPlanCount: i32;
     pub AIPlanClass[] TPlanObj;
     pub const let mut PLANLANDFRONT: i32 =  20;
@@ -116,24 +116,24 @@ namespace WindowsApplication1
         {
           Application.DoEvents();
           now = DateTime.Now;
-          long num1 = (long) Math.Round((double) now.Ticks / 1000.0);
+          long num1 = (long) Math.Round( now.Ticks / 1000.0);
           this.ExecLoadUnitOnBoard(index);
           this.ExecuteMovement(index, 1);
           this.ExecUnloadUnit(index);
           now = DateTime.Now;
-          this.AddLog2("backplan ops 1 took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num1)));
+          this.AddLog2("backplan ops 1 took " + Conversion.Str( ( now.Ticks / 1000.0 -  num1)));
           now = DateTime.Now;
-          long num2 = (long) Math.Round((double) now.Ticks / 1000.0);
+          long num2 = (long) Math.Round( now.Ticks / 1000.0);
           this.ExecuteAirAttack(index, 1f * aiConservative);
           now = DateTime.Now;
-          this.AddLog2("backplan ops 2 took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num2)));
+          this.AddLog2("backplan ops 2 took " + Conversion.Str( ( now.Ticks / 1000.0 -  num2)));
           now = DateTime.Now;
-          long num3 = (long) Math.Round((double) now.Ticks / 1000.0);
+          long num3 = (long) Math.Round( now.Ticks / 1000.0);
           this.ExecuteNavalAttacks(index, 1f * aiConservative);
           now = DateTime.Now;
-          this.AddLog2("backplan ops 3 took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num3)));
+          this.AddLog2("backplan ops 3 took " + Conversion.Str( ( now.Ticks / 1000.0 -  num3)));
           now = DateTime.Now;
-          long num4 = (long) Math.Round((double) now.Ticks / 1000.0);
+          long num4 = (long) Math.Round( now.Ticks / 1000.0);
           this.ExecuteEngineer(index);
           this.ExecuteMovement(index, 2);
           this.ExecJoinUnits(index);
@@ -144,7 +144,7 @@ namespace WindowsApplication1
           this.ExecuteEngineer(index);
           this.ExecuteEngineer(index);
           now = DateTime.Now;
-          this.AddLog2("backplan ops 4 took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num4)));
+          this.AddLog2("backplan ops 4 took " + Conversion.Str( ( now.Ticks / 1000.0 -  num4)));
         }
       }
       let mut tplanCount2: i32 =  this.TPlanCount;
@@ -154,7 +154,7 @@ namespace WindowsApplication1
         {
           Application.DoEvents();
           now = DateTime.Now;
-          long num = (long) Math.Round((double) now.Ticks / 1000.0);
+          long num = (long) Math.Round( now.Ticks / 1000.0);
           this.ExecuteMovement(index, 1);
           this.ExecuteEngineer(index);
           this.ExecuteEngineer(index);
@@ -162,7 +162,7 @@ namespace WindowsApplication1
           this.ExecuteEngineer(index);
           this.ExecuteEngineer(index);
           now = DateTime.Now;
-          this.AddLog2("executeOLDlandfronts took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num)));
+          this.AddLog2("executeOLDlandfronts took " + Conversion.Str( ( now.Ticks / 1000.0 -  num)));
         }
       }
       let mut tplanCount3: i32 =  this.TPlanCount;
@@ -172,10 +172,10 @@ namespace WindowsApplication1
         {
           Application.DoEvents();
           now = DateTime.Now;
-          long num = (long) Math.Round((double) now.Ticks / 1000.0);
+          long num = (long) Math.Round( now.Ticks / 1000.0);
           this.ExecuteArtilleryAttack(plannr, 1f, 1);
           now = DateTime.Now;
-          this.AddLog2("executeartilleryattack took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num)));
+          this.AddLog2("executeartilleryattack took " + Conversion.Str( ( now.Ticks / 1000.0 -  num)));
         }
       }
       let mut tplanCount4: i32 =  this.TPlanCount;
@@ -186,86 +186,86 @@ namespace WindowsApplication1
           if (this.TPlanObj[index].FriendlyUnitCount > 0)
           {
             Application.DoEvents();
-            if ((double) this.game.Data.RuleVar[225] == 0.0)
+            if ( this.game.Data.RuleVar[225] == 0.0)
             {
               now = DateTime.Now;
-              long num5 = (long) Math.Round((double) now.Ticks / 1000.0);
+              long num5 = (long) Math.Round( now.Ticks / 1000.0);
               if (this.TPlanObj[index].Stand == 2)
                 this.ExecuteLandFrontAttacks(index, 2f * aiConservative);
               else if (this.TPlanObj[index].Stand == 1)
               {
                 float d = this.TPlanObj[index].WeightEnemyForceUnMod / this.TPlanObj[index].WeightFriendlyForce;
-                if ((double) this.TPlanObj[index].WeightEnemyForce / (double) this.TPlanObj[index].WeightFriendlyForce < (double) d)
+                if ( this.TPlanObj[index].WeightEnemyForce /  this.TPlanObj[index].WeightFriendlyForce <  d)
                   d = this.TPlanObj[index].WeightEnemyForce / this.TPlanObj[index].WeightFriendlyForce;
-                float num6 = (float) Math.Sqrt((double) d);
-                if ((double) num6 < 0.25)
+                float num6 =  Math.Sqrt( d);
+                if ( num6 < 0.25)
                   num6 = 0.25f;
-                if ((double) num6 > 1.0)
+                if ( num6 > 1.0)
                   num6 = 1f;
                 this.ExecuteLandFrontAttacks(index, 1.5f * num6 * aiConservative);
               }
               else if (this.TPlanObj[index].Stand == 3)
                 this.ExecuteLandFrontAttacks(index, 2.5f * aiConservative);
               now = DateTime.Now;
-              this.AddLog2("ExecuteLandFrontAttacks took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num5)));
+              this.AddLog2("ExecuteLandFrontAttacks took " + Conversion.Str( ( now.Ticks / 1000.0 -  num5)));
               now = DateTime.Now;
-              long num7 = (long) Math.Round((double) now.Ticks / 1000.0);
+              long num7 = (long) Math.Round( now.Ticks / 1000.0);
               this.ExecuteMovement(index, 1);
               now = DateTime.Now;
-              this.AddLog2("ExecuteMovement took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num7)));
+              this.AddLog2("ExecuteMovement took " + Conversion.Str( ( now.Ticks / 1000.0 -  num7)));
             }
             else
             {
               Application.DoEvents();
               now = DateTime.Now;
-              long num8 = (long) Math.Round((double) now.Ticks / 1000.0);
+              long num8 = (long) Math.Round( now.Ticks / 1000.0);
               this.ExecuteMovement(index, 1);
               now = DateTime.Now;
-              this.AddLog2("ExecuteMovement took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num8)));
+              this.AddLog2("ExecuteMovement took " + Conversion.Str( ( now.Ticks / 1000.0 -  num8)));
               now = DateTime.Now;
-              long num9 = (long) Math.Round((double) now.Ticks / 1000.0);
+              long num9 = (long) Math.Round( now.Ticks / 1000.0);
               if (this.TPlanObj[index].Stand == 2)
                 this.ExecuteLandFrontAttacks(index, 2f * aiConservative);
               else if (this.TPlanObj[index].Stand == 1)
               {
                 float d = this.TPlanObj[index].WeightEnemyForceUnMod / this.TPlanObj[index].WeightFriendlyForce;
-                if ((double) this.TPlanObj[index].WeightEnemyForce / (double) this.TPlanObj[index].WeightFriendlyForce < (double) d)
+                if ( this.TPlanObj[index].WeightEnemyForce /  this.TPlanObj[index].WeightFriendlyForce <  d)
                   d = this.TPlanObj[index].WeightEnemyForce / this.TPlanObj[index].WeightFriendlyForce;
-                float num10 = (float) Math.Sqrt((double) d);
-                if ((double) num10 < 0.25)
+                float num10 =  Math.Sqrt( d);
+                if ( num10 < 0.25)
                   num10 = 0.25f;
-                if ((double) num10 > 1.0)
+                if ( num10 > 1.0)
                   num10 = 1f;
                 this.ExecuteLandFrontAttacks(index, 1.5f * num10 * aiConservative);
               }
               else if (this.TPlanObj[index].Stand == 3)
                 this.ExecuteLandFrontAttacks(index, 2.5f * aiConservative);
               now = DateTime.Now;
-              this.AddLog2("ExecuteLandFrontAttacks took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num9)));
+              this.AddLog2("ExecuteLandFrontAttacks took " + Conversion.Str( ( now.Ticks / 1000.0 -  num9)));
             }
             Application.DoEvents();
             now = DateTime.Now;
-            long num11 = (long) Math.Round((double) now.Ticks / 1000.0);
+            long num11 = (long) Math.Round( now.Ticks / 1000.0);
             this.ExecuteEngineer(index);
             now = DateTime.Now;
-            this.AddLog2("ExecuteEngineer took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num11)));
+            this.AddLog2("ExecuteEngineer took " + Conversion.Str( ( now.Ticks / 1000.0 -  num11)));
             Application.DoEvents();
             now = DateTime.Now;
-            long num12 = (long) Math.Round((double) now.Ticks / 1000.0);
+            long num12 = (long) Math.Round( now.Ticks / 1000.0);
             this.ExecuteArtilleryAttack(index, 1f, 2);
             now = DateTime.Now;
-            this.AddLog2("ExecuteArtilleryAttack took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num12)));
+            this.AddLog2("ExecuteArtilleryAttack took " + Conversion.Str( ( now.Ticks / 1000.0 -  num12)));
             if (this.TPlanObj[index].Stand == 2)
               this.ExecuteLandFrontAttacks(index, 2.5f * aiConservative);
             else if (this.TPlanObj[index].Stand == 1)
             {
               float d = this.TPlanObj[index].WeightEnemyForceUnMod / this.TPlanObj[index].WeightFriendlyForce;
-              if ((double) this.TPlanObj[index].WeightEnemyForce / (double) this.TPlanObj[index].WeightFriendlyForce < (double) d)
+              if ( this.TPlanObj[index].WeightEnemyForce /  this.TPlanObj[index].WeightFriendlyForce <  d)
                 d = this.TPlanObj[index].WeightEnemyForce / this.TPlanObj[index].WeightFriendlyForce;
-              float num13 = (float) Math.Sqrt((double) d);
-              if ((double) num13 < 0.25)
+              float num13 =  Math.Sqrt( d);
+              if ( num13 < 0.25)
                 num13 = 0.25f;
-              if ((double) num13 > 1.0)
+              if ( num13 > 1.0)
                 num13 = 1f;
               this.ExecuteLandFrontAttacks(index, 2f * num13 * aiConservative);
             }
@@ -287,124 +287,124 @@ namespace WindowsApplication1
       }
       Application.DoEvents();
       now = DateTime.Now;
-      long num14 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num14 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecJoinUnits();
       now = DateTime.Now;
-      this.AddLog2("ExecuteEngineer took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num14)));
+      this.AddLog2("ExecuteEngineer took " + Conversion.Str( ( now.Ticks / 1000.0 -  num14)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num15 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num15 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecChangeHQ();
       now = DateTime.Now;
-      this.AddLog2("ExecuteChangeHQ+Staff up took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num15)));
+      this.AddLog2("ExecuteChangeHQ+Staff up took " + Conversion.Str( ( now.Ticks / 1000.0 -  num15)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num16 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num16 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecSplitLandUnits();
       now = DateTime.Now;
-      this.AddLog2("ExecSplitLandunits took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num16)));
+      this.AddLog2("ExecSplitLandunits took " + Conversion.Str( ( now.Ticks / 1000.0 -  num16)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num17 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num17 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecNewairunits(1);
       now = DateTime.Now;
-      this.AddLog2("ExecNewairunits took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num17)));
+      this.AddLog2("ExecNewairunits took " + Conversion.Str( ( now.Ticks / 1000.0 -  num17)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num18 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num18 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecNewLandUnits(1);
       now = DateTime.Now;
-      this.AddLog2("Execnewlandunits took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num18)));
+      this.AddLog2("Execnewlandunits took " + Conversion.Str( ( now.Ticks / 1000.0 -  num18)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num19 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num19 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecNewNavyunits(1);
       now = DateTime.Now;
-      this.AddLog2("Execnewnavyunits took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num19)));
+      this.AddLog2("Execnewnavyunits took " + Conversion.Str( ( now.Ticks / 1000.0 -  num19)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num20 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num20 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecDisbandForTransfer();
       now = DateTime.Now;
-      this.AddLog2("Execdisbandfortransfer took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num20)));
+      this.AddLog2("Execdisbandfortransfer took " + Conversion.Str( ( now.Ticks / 1000.0 -  num20)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num21 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num21 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecLandTransfers(1);
       now = DateTime.Now;
-      this.AddLog2("Execlandtransfers took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num21)));
-      if ((double) this.game.Data.RuleVar[253] > 0.0)
+      this.AddLog2("Execlandtransfers took " + Conversion.Str( ( now.Ticks / 1000.0 -  num21)));
+      if ( this.game.Data.RuleVar[253] > 0.0)
       {
         Application.DoEvents();
         now = DateTime.Now;
-        long num22 = (long) Math.Round((double) now.Ticks / 1000.0);
+        long num22 = (long) Math.Round( now.Ticks / 1000.0);
         this.ExecNewLandUnits(2);
         now = DateTime.Now;
-        this.AddLog2("Execnewlandunits took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num22)));
+        this.AddLog2("Execnewlandunits took " + Conversion.Str( ( now.Ticks / 1000.0 -  num22)));
         Application.DoEvents();
         now = DateTime.Now;
-        long num23 = (long) Math.Round((double) now.Ticks / 1000.0);
+        long num23 = (long) Math.Round( now.Ticks / 1000.0);
         this.ExecLandTransfers(2);
         now = DateTime.Now;
-        this.AddLog2("Execlandtransfers took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num23)));
+        this.AddLog2("Execlandtransfers took " + Conversion.Str( ( now.Ticks / 1000.0 -  num23)));
       }
       Application.DoEvents();
       now = DateTime.Now;
-      long num24 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num24 = (long) Math.Round( now.Ticks / 1000.0);
       this.InitResearch();
       now = DateTime.Now;
-      this.AddLog2("InitResearch() took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num24)));
+      this.AddLog2("InitResearch() took " + Conversion.Str( ( now.Ticks / 1000.0 -  num24)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num25 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num25 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecAirTransfers(1);
       now = DateTime.Now;
-      this.AddLog2("Execairtransfers took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num25)));
+      this.AddLog2("Execairtransfers took " + Conversion.Str( ( now.Ticks / 1000.0 -  num25)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num26 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num26 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecNavyTransfers(1);
       now = DateTime.Now;
-      this.AddLog2("Execnavytransfers took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num26)));
+      this.AddLog2("Execnavytransfers took " + Conversion.Str( ( now.Ticks / 1000.0 -  num26)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num27 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num27 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecUpgrades();
       now = DateTime.Now;
-      this.AddLog2("ExecUpgrades took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num27)));
+      this.AddLog2("ExecUpgrades took " + Conversion.Str( ( now.Ticks / 1000.0 -  num27)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num28 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num28 = (long) Math.Round( now.Ticks / 1000.0);
       this.BlowBridges();
       now = DateTime.Now;
-      this.AddLog2("blowbridges took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num28)));
+      this.AddLog2("blowbridges took " + Conversion.Str( ( now.Ticks / 1000.0 -  num28)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num29 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num29 = (long) Math.Round( now.Ticks / 1000.0);
       this.EmptyHQ();
       now = DateTime.Now;
-      this.AddLog2("emptyHQ took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num29)));
+      this.AddLog2("emptyHQ took " + Conversion.Str( ( now.Ticks / 1000.0 -  num29)));
       Application.DoEvents();
       now = DateTime.Now;
-      long num30 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num30 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecSetProduction();
       now = DateTime.Now;
-      this.AddLog2("Execsetproduction took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num30)));
-      if ((double) this.game.Data.RuleVar[875] == 1.0)
+      this.AddLog2("Execsetproduction took " + Conversion.Str( ( now.Ticks / 1000.0 -  num30)));
+      if ( this.game.Data.RuleVar[875] == 1.0)
       {
         Application.DoEvents();
         now = DateTime.Now;
-        long num31 = (long) Math.Round((double) now.Ticks / 1000.0);
+        long num31 = (long) Math.Round( now.Ticks / 1000.0);
         this.ExecResourceComplient();
         now = DateTime.Now;
-        this.AddLog2("ExecResourceComplient took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num31)));
+        this.AddLog2("ExecResourceComplient took " + Conversion.Str( ( now.Ticks / 1000.0 -  num31)));
       }
       Application.DoEvents();
       now = DateTime.Now;
-      long num32 = (long) Math.Round((double) now.Ticks / 1000.0);
+      long num32 = (long) Math.Round( now.Ticks / 1000.0);
       this.ExecSendStaffUp();
       now = DateTime.Now;
-      this.AddLog2("ExecSendStaffUp took " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num32)));
+      this.AddLog2("ExecSendStaffUp took " + Conversion.Str( ( now.Ticks / 1000.0 -  num32)));
       for (let mut unitCounter: i32 =  this.game.Data.UnitCounter; unitCounter >= 0; unitCounter += -1)
       {
         if (this.game.Data.UnitObj[unitCounter].Regime == this.game.Data.Turn && this.game.Data.UnitObj[unitCounter].PreDef == -1 & !this.game.Data.UnitObj[unitCounter].IsHQ && this.game.Data.UnitObj[unitCounter].SFCount == -1)
@@ -466,141 +466,141 @@ namespace WindowsApplication1
       this.InitRandomAI();
       this.TPlanObj = new AIPlanClass[1];
       Application.DoEvents();
-      long num1 = (long) Math.Round((double) DateTime.Now.Ticks / 1000.0);
+      long num1 = (long) Math.Round( DateTime.Now.Ticks / 1000.0);
       this.InitAIVP();
-      this.AddLog2("InitAIVP took " + Conversion.Str((object) ((double) DateTime.Now.Ticks / 1000.0 - (double) num1)));
+      this.AddLog2("InitAIVP took " + Conversion.Str( ( DateTime.Now.Ticks / 1000.0 -  num1)));
       this.MakeCombatMatrix();
-      if ((double) this.game.Data.RuleVar[903] > 0.0)
+      if ( this.game.Data.RuleVar[903] > 0.0)
       {
         Application.DoEvents();
         DateTime now = DateTime.Now;
-        long num2 = (long) Math.Round((double) now.Ticks / 1000.0);
+        long num2 = (long) Math.Round( now.Ticks / 1000.0);
         this.InitDeclareWar();
         now = DateTime.Now;
-        this.AddLog2("InitDeclareWar " + Conversion.Str((object) ((double) now.Ticks / 1000.0 - (double) num2)));
+        this.AddLog2("InitDeclareWar " + Conversion.Str( ( now.Ticks / 1000.0 -  num2)));
       }
       this.InitDecisions();
-      long num3 = (long) Math.Round((double) DateTime.Now.Ticks / 1000.0);
+      long num3 = (long) Math.Round( DateTime.Now.Ticks / 1000.0);
       this.InitFindOA();
-      this.AddLog2("InitFindOA() took " + Conversion.Str((object) ((double) DateTime.Now.Ticks / 1000.0 - (double) num3)));
-      long num4 = (long) Math.Round((double) DateTime.Now.Ticks / 1000.0);
+      this.AddLog2("InitFindOA() took " + Conversion.Str( ( DateTime.Now.Ticks / 1000.0 -  num3)));
+      long num4 = (long) Math.Round( DateTime.Now.Ticks / 1000.0);
       this.InitFindContinent();
-      this.AddLog2("InitFindContinent() took " + Conversion.Str((object) ((double) DateTime.Now.Ticks / 1000.0 - (double) num4)));
+      this.AddLog2("InitFindContinent() took " + Conversion.Str( ( DateTime.Now.Ticks / 1000.0 -  num4)));
       Application.DoEvents();
-      long num5 = (long) Math.Round((double) DateTime.Now.Ticks / 1000.0);
+      long num5 = (long) Math.Round( DateTime.Now.Ticks / 1000.0);
       this.InitGetSA();
-      this.AddLog2("InitGetSA() took " + Conversion.Str((object) ((double) DateTime.Now.Ticks / 1000.0 - (double) num5)));
+      this.AddLog2("InitGetSA() took " + Conversion.Str( ( DateTime.Now.Ticks / 1000.0 -  num5)));
       DateTime now1 = DateTime.Now;
-      long num6 = (long) Math.Round((double) now1.Ticks / 1000.0);
+      long num6 = (long) Math.Round( now1.Ticks / 1000.0);
       this.InitGetSeaSA();
       now1 = DateTime.Now;
-      this.AddLog2("InitGetSeaSA() took " + Conversion.Str((object) ((double) now1.Ticks / 1000.0 - (double) num6)));
+      this.AddLog2("InitGetSeaSA() took " + Conversion.Str( ( now1.Ticks / 1000.0 -  num6)));
       Application.DoEvents();
-      long num7 = (long) Math.Round((double) DateTime.Now.Ticks / 1000.0);
+      long num7 = (long) Math.Round( DateTime.Now.Ticks / 1000.0);
       this.InitSARelations();
-      this.AddLog2("InitSARelations() took " + Conversion.Str((object) ((double) DateTime.Now.Ticks / 1000.0 - (double) num7)));
+      this.AddLog2("InitSARelations() took " + Conversion.Str( ( DateTime.Now.Ticks / 1000.0 -  num7)));
       DateTime now2 = DateTime.Now;
-      long num8 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num8 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitTPlans();
       now2 = DateTime.Now;
-      this.AddLog2("InitTPlans() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num8)));
+      this.AddLog2("InitTPlans() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num8)));
       now2 = DateTime.Now;
-      long num9 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num9 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitPlanFrontline();
       now2 = DateTime.Now;
-      this.AddLog2("InitPlanFrontline() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num9)));
+      this.AddLog2("InitPlanFrontline() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num9)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num10 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num10 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitUnits();
       now2 = DateTime.Now;
-      this.AddLog2("InitUnits() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num10)));
+      this.AddLog2("InitUnits() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num10)));
       now2 = DateTime.Now;
-      long num11 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num11 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitLandReserves();
       now2 = DateTime.Now;
-      this.AddLog2("InitLandReserves() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num11)));
+      this.AddLog2("InitLandReserves() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num11)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num12 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num12 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitLandReserveMetaHQ();
       now2 = DateTime.Now;
-      this.AddLog2("InitLandReserveMetaHQ() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num12)));
+      this.AddLog2("InitLandReserveMetaHQ() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num12)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num13 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num13 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitEmergencyUnitSwitch();
       now2 = DateTime.Now;
-      this.AddLog2("InitEmergencyUnitSwitch() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num13)));
+      this.AddLog2("InitEmergencyUnitSwitch() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num13)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num14 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num14 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitTPlanForceBalance();
       now2 = DateTime.Now;
-      this.AddLog2("InitTPlanForceBalance() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num14)));
+      this.AddLog2("InitTPlanForceBalance() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num14)));
       now2 = DateTime.Now;
-      long num15 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num15 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitTPlanForceBalanceNavy();
       now2 = DateTime.Now;
-      this.AddLog2("InitTPlanForceBalanceNavy() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num15)));
+      this.AddLog2("InitTPlanForceBalanceNavy() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num15)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num16 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num16 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitTPlanStrategicImportance();
       now2 = DateTime.Now;
-      this.AddLog2("InitTPlanStrategicImportance() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num16)));
+      this.AddLog2("InitTPlanStrategicImportance() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num16)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num17 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num17 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitTransferUnits();
       now2 = DateTime.Now;
-      this.AddLog2("InitAIVP took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num17)));
+      this.AddLog2("InitAIVP took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num17)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num18 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num18 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitPlanLevelAnalysis();
       now2 = DateTime.Now;
-      this.AddLog2("InitPlanLevelAnalysis() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num18)));
+      this.AddLog2("InitPlanLevelAnalysis() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num18)));
       now2 = DateTime.Now;
-      long num19 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num19 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitTacticalHQ();
       now2 = DateTime.Now;
-      this.AddLog2("InitTacticalHQ() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num19)));
+      this.AddLog2("InitTacticalHQ() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num19)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num20 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num20 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitTPlanAPCost();
       now2 = DateTime.Now;
-      this.AddLog2("InitTPlanAPCost() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num20)));
+      this.AddLog2("InitTPlanAPCost() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num20)));
       now2 = DateTime.Now;
-      long num21 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num21 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitUnitGoals();
       now2 = DateTime.Now;
-      this.AddLog2("InitUnitGoals() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num21)));
+      this.AddLog2("InitUnitGoals() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num21)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num22 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num22 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitAirTransferUnits();
       now2 = DateTime.Now;
-      this.AddLog2("InitAirTransferUnits() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num22)));
+      this.AddLog2("InitAirTransferUnits() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num22)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num23 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num23 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitNavyTransferUnits();
       now2 = DateTime.Now;
-      this.AddLog2("InitNavyTransferUnits() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num23)));
+      this.AddLog2("InitNavyTransferUnits() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num23)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num24 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num24 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitStrategicHQAnalysis();
       now2 = DateTime.Now;
-      this.AddLog2("InitStrategicHQAnalysis() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num24)));
+      this.AddLog2("InitStrategicHQAnalysis() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num24)));
       Application.DoEvents();
       now2 = DateTime.Now;
-      long num25 = (long) Math.Round((double) now2.Ticks / 1000.0);
+      long num25 = (long) Math.Round( now2.Ticks / 1000.0);
       this.InitRiverLine();
       now2 = DateTime.Now;
-      this.AddLog2("InitRiverLine() took " + Conversion.Str((object) ((double) now2.Ticks / 1000.0 - (double) num25)));
+      this.AddLog2("InitRiverLine() took " + Conversion.Str( ( now2.Ticks / 1000.0 -  num25)));
       this.InitSetStandingOrders();
       Application.DoEvents();
       this.InitShowStats();
@@ -611,7 +611,7 @@ namespace WindowsApplication1
     {
       int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       SimpleList simpleList = SimpleList::new();
-      if ((double) this.game.Data.RuleVar[211] < 1.0)
+      if ( this.game.Data.RuleVar[211] < 1.0)
         return;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
@@ -630,7 +630,7 @@ namespace WindowsApplication1
               if (this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y] == 0)
               {
                 this.game.ProcessingObj.BuildInfra(unr, engineerCoord.x, engineerCoord.y, engineerCoord.map, engineerCoord.data1 - 1);
-                this.AddLog(this.game.Data.UnitObj[unr].Name + " did infra construction from " + Conversion.Str((object) engineerCoord.x) + "," + Conversion.Str((object) engineerCoord.y) + " to " + Conversion.Str((object) coordinate.x) + "," + Conversion.Str((object) coordinate.y));
+                this.AddLog(this.game.Data.UnitObj[unr].Name + " did infra construction from " + Conversion.Str( engineerCoord.x) + "," + Conversion.Str( engineerCoord.y) + " to " + Conversion.Str( coordinate.x) + "," + Conversion.Str( coordinate.y));
               }
             }
           }
@@ -647,11 +647,11 @@ namespace WindowsApplication1
         let mut hq: i32 =  this.TPlanObj[index].HQ;
         if (hq > -1 && this.game.Data.UnitObj[hq].IsHQ)
         {
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[hq].Regime, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, 0, allowshoredrop: true, SeaBlock: true);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[hq].Regime, (int) Math.Round( this.game.Data.RuleVar[99]), 99, (int) Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, 0, allowshoredrop: true, SeaBlock: true);
           let mut unitCounter: i32 =  this.game.Data.UnitCounter;
           for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
           {
-            if (this.game.Data.UnitObj[unr].X > -1 & this.game.Data.UnitObj[unr].PreDef == -1 & this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && (double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] <= (double) this.game.Data.RuleVar[51])
+            if (this.game.Data.UnitObj[unr].X > -1 & this.game.Data.UnitObj[unr].PreDef == -1 & this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn &&  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] <=  this.game.Data.RuleVar[51])
             {
               for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount; sfCount >= 0; sfCount += -1)
               {
@@ -804,7 +804,7 @@ namespace WindowsApplication1
       int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       SimpleList simpleList = SimpleList::new();
       this.AddLog("JOIN UNITS:");
-      if ((double) this.game.Data.RuleVar[211] > 0.0)
+      if ( this.game.Data.RuleVar[211] > 0.0)
       {
         let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
         for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
@@ -819,7 +819,7 @@ namespace WindowsApplication1
               for (let mut index3: i32 =  0; index3 <= unitCounter; index3 += 1)
               {
                 let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[index1, index2].UnitList[index3];
-                if (plannr == -1 | plannr == this.game.Data.UnitObj[unit].AIPlanNr && Operators.ConditionalCompareObjectGreater(this.GetEPPerTurn(unit), (object) 0, false) && this.game.Data.UnitObj[unit].AIUnitGoal == 4)
+                if (plannr == -1 | plannr == this.game.Data.UnitObj[unit].AIPlanNr && Operators.ConditionalCompareObjectGreater(this.GetEPPerTurn(unit),  0, false) && this.game.Data.UnitObj[unit].AIUnitGoal == 4)
                 {
                   if (unrT == -1)
                     unrT = unit;
@@ -836,7 +836,7 @@ namespace WindowsApplication1
                       RegimeClass[] regimeClassArray = regimeObj;
                       let mut turn: i32 =  this.game.Data.Turn;
                       let mut index4: i32 =  turn;
-                      regimeClassArray[index4].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
+                      regimeClassArray[index4].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
                     }
                     else
                     {
@@ -844,7 +844,7 @@ namespace WindowsApplication1
                       RegimeClass[] regimeClassArray = regimeObj;
                       let mut turn: i32 =  this.game.Data.Turn;
                       let mut index5: i32 =  turn;
-                      regimeClassArray[index5].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
+                      regimeClassArray[index5].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
                     }
                     this.game.Data.RemoveUnit(unit, ref this.game);
                     break;
@@ -867,7 +867,7 @@ namespace WindowsApplication1
         let mut num3: i32 =  num2 + 1;
         if (num3 > this.TPlanObj[plannr].FrontSize)
           num3 = this.TPlanObj[plannr].FrontSize;
-        if (this.TPlanObj[plannr].FriendlyUnitCount > num3 && (double) this.game.Data.RuleVar[249] == 0.0)
+        if (this.TPlanObj[plannr].FriendlyUnitCount > num3 &&  this.game.Data.RuleVar[249] == 0.0)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
           for (let mut index6: i32 =  0; index6 <= mapWidth; index6 += 1)
@@ -886,7 +886,7 @@ namespace WindowsApplication1
                   {
                     if (index8 == -1)
                       index8 = unit;
-                    else if (this.game.Data.UnitObj[index8].AIPlanNr == this.game.Data.UnitObj[unit].AIPlanNr && this.game.Data.UnitObj[unit].AIUnitGoal == this.game.Data.UnitObj[index8].AIUnitGoal && !this.game.Data.UnitObj[unit].IsHQ & !this.game.Data.UnitObj[index8].IsHQ && (double) (this.game.HandyFunctionsObj.GetUnitStackPts(unit) + this.game.HandyFunctionsObj.GetUnitStackPts(index8)) < (double) this.game.Data.RuleVar[184])
+                    else if (this.game.Data.UnitObj[index8].AIPlanNr == this.game.Data.UnitObj[unit].AIPlanNr && this.game.Data.UnitObj[unit].AIUnitGoal == this.game.Data.UnitObj[index8].AIUnitGoal && !this.game.Data.UnitObj[unit].IsHQ & !this.game.Data.UnitObj[index8].IsHQ &&  (this.game.HandyFunctionsObj.GetUnitStackPts(unit) + this.game.HandyFunctionsObj.GetUnitStackPts(index8)) <  this.game.Data.RuleVar[184])
                     {
                       for (let mut sfCount: i32 =  this.game.Data.UnitObj[unit].SFCount; sfCount >= 0; sfCount += -1)
                       {
@@ -899,7 +899,7 @@ namespace WindowsApplication1
                         RegimeClass[] regimeClassArray = regimeObj;
                         let mut turn: i32 =  this.game.Data.Turn;
                         let mut index10: i32 =  turn;
-                        regimeClassArray[index10].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
+                        regimeClassArray[index10].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
                       }
                       else
                       {
@@ -907,7 +907,7 @@ namespace WindowsApplication1
                         RegimeClass[] regimeClassArray = regimeObj;
                         let mut turn: i32 =  this.game.Data.Turn;
                         let mut index11: i32 =  turn;
-                        regimeClassArray[index11].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
+                        regimeClassArray[index11].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
                       }
                       this.game.Data.RemoveUnit(unit, ref this.game);
                       this.AddLog("Joined unit");
@@ -937,7 +937,7 @@ namespace WindowsApplication1
                 {
                   if (index14 == -1)
                     index14 = unit;
-                  else if (this.game.Data.UnitObj[index14].AIPlanNr == this.game.Data.UnitObj[unit].AIPlanNr && this.game.Data.UnitObj[unit].AIUnitGoal == this.game.Data.UnitObj[index14].AIUnitGoal && (double) this.game.HandyFunctionsObj.GetUnitStackPts(unit) < (double) this.game.Data.RuleVar[182] & (double) this.game.HandyFunctionsObj.GetUnitStackPts(index14) < (double) this.game.Data.RuleVar[182] * 2.0 && (double) (this.game.HandyFunctionsObj.GetUnitStackPts(unit) + this.game.HandyFunctionsObj.GetUnitStackPts(index14)) < (double) this.game.Data.RuleVar[184] && !this.game.Data.UnitObj[unit].IsHQ & !this.game.Data.UnitObj[index14].IsHQ)
+                  else if (this.game.Data.UnitObj[index14].AIPlanNr == this.game.Data.UnitObj[unit].AIPlanNr && this.game.Data.UnitObj[unit].AIUnitGoal == this.game.Data.UnitObj[index14].AIUnitGoal &&  this.game.HandyFunctionsObj.GetUnitStackPts(unit) <  this.game.Data.RuleVar[182] &  this.game.HandyFunctionsObj.GetUnitStackPts(index14) <  this.game.Data.RuleVar[182] * 2.0 &&  (this.game.HandyFunctionsObj.GetUnitStackPts(unit) + this.game.HandyFunctionsObj.GetUnitStackPts(index14)) <  this.game.Data.RuleVar[184] && !this.game.Data.UnitObj[unit].IsHQ & !this.game.Data.UnitObj[index14].IsHQ)
                   {
                     for (let mut sfCount: i32 =  this.game.Data.UnitObj[unit].SFCount; sfCount >= 0; sfCount += -1)
                     {
@@ -950,7 +950,7 @@ namespace WindowsApplication1
                       RegimeClass[] regimeClassArray = regimeObj;
                       let mut turn: i32 =  this.game.Data.Turn;
                       let mut index16: i32 =  turn;
-                      regimeClassArray[index16].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
+                      regimeClassArray[index16].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
                     }
                     else
                     {
@@ -958,7 +958,7 @@ namespace WindowsApplication1
                       RegimeClass[] regimeClassArray = regimeObj;
                       let mut turn: i32 =  this.game.Data.Turn;
                       let mut index17: i32 =  turn;
-                      regimeClassArray[index17].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
+                      regimeClassArray[index17].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
                     }
                     this.game.Data.RemoveUnit(unit, ref this.game);
                     this.AddLog("Joined 2 to small unit");
@@ -1003,25 +1003,25 @@ namespace WindowsApplication1
       }
       if (num4 < 1)
         num4 = 1;
-      let mut num5: i32 =  (int) Math.Round((double) num3 / (double) num4);
-      float friendlyAirRatio = (float) num2 / (float) num5;
-      if ((double) friendlyAirRatio < 1.0)
+      let mut num5: i32 =  (int) Math.Round( num3 /  num4);
+      float friendlyAirRatio =  num2 /  num5;
+      if ( friendlyAirRatio < 1.0)
       {
-        if ((double) num1 / (double) num5 > 5.0)
+        if ( num1 /  num5 > 5.0)
           friendlyAirRatio += 0.6f;
-        if ((double) num1 / (double) num5 > 10.0)
+        if ( num1 /  num5 > 10.0)
           friendlyAirRatio += 0.12f;
-        if ((double) num1 / (double) num5 > 20.0)
+        if ( num1 /  num5 > 20.0)
           friendlyAirRatio += 0.12f;
-        if ((double) num1 / (double) num5 > 30.0)
+        if ( num1 /  num5 > 30.0)
           friendlyAirRatio += 0.12f;
-        if ((double) num1 / (double) num5 > 40.0)
+        if ( num1 /  num5 > 40.0)
           friendlyAirRatio += 0.12f;
-        if ((double) num1 / (double) num5 > 40.0)
+        if ( num1 /  num5 > 40.0)
           friendlyAirRatio += 0.12f;
-        if ((double) num1 / (double) num5 > 50.0)
+        if ( num1 /  num5 > 50.0)
           friendlyAirRatio += 0.22f;
-        if ((double) num1 / (double) num5 > 99.0)
+        if ( num1 /  num5 > 99.0)
           friendlyAirRatio += 0.36f;
       }
       return friendlyAirRatio;
@@ -1067,7 +1067,7 @@ namespace WindowsApplication1
               {
                 let mut location: i32 =  this.game.Data.MapObj[0].HexObj[this.SAObj[index2].X, this.SAObj[index2].Y].Location;
                 if (location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].MaxProd > 0 && this.game.Data.MapObj[0].HexObj[this.SAObj[index2].X, this.SAObj[index2].Y].Regime == this.game.Data.Turn && this.ProdGetSupplyItem(location) > -1)
-                  num2 = (int) Math.Round((double) num2 + (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].MaxProd / (double) this.game.Data.ItemTypeObj[this.ProdGetSupplyItem(location)].ProdWeight);
+                  num2 = (int) Math.Round( num2 +  this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].MaxProd /  this.game.Data.ItemTypeObj[this.ProdGetSupplyItem(location)].ProdWeight);
               }
             }
             let mut num3: i32 =  0;
@@ -1086,12 +1086,12 @@ namespace WindowsApplication1
                     {
                       if (this.game.HandyFunctionsObj.GetLocTypeItemTypesAmmount(this.game.Data.LocObj[locnr].Type) == num3 | num3 == 99 & this.game.HandyFunctionsObj.GetLocTypeItemTypesAmmount(this.game.Data.LocObj[locnr].Type) >= 99)
                       {
-                        if (Information.IsNothing((object) Expression))
+                        if (Information.IsNothing( Expression))
                           Expression = this.ProdWishes(index1, locnr);
                         if (this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd > 0 & this.game.HandyFunctionsObj.CanLocProduce(locnr, this.game.Data.Turn))
                         {
                           Application.DoEvents();
-                          this.AddLog("Plan #" + Conversion.Str((object) index1) + ", Location: " + this.game.Data.LocObj[locnr].Name);
+                          this.AddLog("Plan #" + Conversion.Str( index1) + ", Location: " + this.game.Data.LocObj[locnr].Name);
                           simpleList = SimpleList::new();
                           hq1 = this.TPlanObj[index1].HQ;
                           let mut landCap: i32 =  this.game.Data.UnitObj[hq1].LandCap;
@@ -1099,11 +1099,11 @@ namespace WindowsApplication1
                           int Number1;
                           if (capPts == 0)
                             Number1 = 1;
-                          else if ((double) landCap / (double) capPts < 0.2)
+                          else if ( landCap /  capPts < 0.2)
                             Number1 = 1;
                           if (this.ProdGetRole(locnr, 2) == -1)
                             Number1 = 0;
-                          if ((double) this.game.Data.RuleVar[253] == 0.0)
+                          if ( this.game.Data.RuleVar[253] == 0.0)
                             Number1 = 0;
                           if (Number1 == 0)
                           {
@@ -1113,15 +1113,15 @@ namespace WindowsApplication1
                             {
                               if (capPts == 0)
                                 Number1 = 2;
-                              else if ((double) navyCap / (double) capPts < 0.2)
+                              else if ( navyCap /  capPts < 0.2)
                                 Number1 = 2;
                               if (this.ProdGetRole(locnr, 3) == -1)
                                 Number1 = 0;
                             }
                           }
-                          if ((double) this.game.Data.RuleVar[253] == 0.0)
+                          if ( this.game.Data.RuleVar[253] == 0.0)
                             this.TPlanObj[index1].LandTransferMobility = 0;
-                          if ((double) this.game.Data.RuleVar[253] == 0.0 & capPts > 0)
+                          if ( this.game.Data.RuleVar[253] == 0.0 & capPts > 0)
                             Number1 = 0;
                           let mut num4: i32 =  0;
                           let mut num5: i32 =  this.game.HandyFunctionsObj.GetRealHQSupplyPts(this.TPlanObj[index1].HQ);
@@ -1137,11 +1137,11 @@ namespace WindowsApplication1
                           }
                           if (num5 < 0)
                             num5 = 0;
-                          let mut Number2: i32 =  (int) Math.Round((double) num4 * 1.5 - (double) num5);
+                          let mut Number2: i32 =  (int) Math.Round( num4 * 1.5 -  num5);
                           if (Number2 < 0)
                             Number2 = 0;
-                          this.AddLog("Supply before town divider: " + Conversion.Str((object) Number2));
-                          let mut Number3: i32 =  this.ProdGetSupplyItem(locnr) != -1 ? (int) Math.Round((double) Number2 * ((double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd / (double) this.game.Data.ItemTypeObj[this.ProdGetSupplyItem(locnr)].ProdWeight / (double) num2)) : 0;
+                          this.AddLog("Supply before town divider: " + Conversion.Str( Number2));
+                          let mut Number3: i32 =  this.ProdGetSupplyItem(locnr) != -1 ? (int) Math.Round( Number2 * ( this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd /  this.game.Data.ItemTypeObj[this.ProdGetSupplyItem(locnr)].ProdWeight /  num2)) : 0;
                           let mut unitCounter2: i32 =  this.game.Data.UnitCounter;
                           int Number4;
                           for (let mut unr: i32 =  0; unr <= unitCounter2; unr += 1)
@@ -1157,11 +1157,11 @@ namespace WindowsApplication1
                             Number4 = 0;
                           if (this.ProdGetRole(locnr, 1) == -1)
                             Number4 = 0;
-                          if ((double) this.game.Data.RuleVar[(int) byte.MaxValue] == 1.0)
+                          if ( this.game.Data.RuleVar[(int) byte.MaxValue] == 1.0)
                             Number4 = 0;
                           let mut num6: i32 =  0;
                           let mut num7: i32 =  0;
-                          if ((double) this.game.Data.RuleVar[211] > 0.0)
+                          if ( this.game.Data.RuleVar[211] > 0.0)
                           {
                             let mut unitCounter3: i32 =  this.game.Data.UnitCounter;
                             for (let mut unr: i32 =  0; unr <= unitCounter3; unr += 1)
@@ -1171,33 +1171,33 @@ namespace WindowsApplication1
                                 let mut aiPlanNr: i32 =  this.game.Data.UnitObj[unr].AIPlanNr;
                                 if (this.TPlanObj[aiPlanNr].Type == 20 | this.TPlanObj[aiPlanNr].Type == 40 && this.SAObj[this.GetAreaNr(this.TPlanObj[aiPlanNr].FromArea)].LandReservePlan == index1)
                                 {
-                                  let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject((object) Conversions.ToInteger(this.GetEPPerTurn(unr)), this.GetEPPerTurn(this.TPlanObj[index1].HQ)));
+                                  let mut integer: i32 =  Conversions.ToInteger(Operators.AddObject( Conversions.ToInteger(this.GetEPPerTurn(unr)), this.GetEPPerTurn(this.TPlanObj[index1].HQ)));
                                   num6 += integer;
                                   num7 += 1;
                                 }
                               }
                             }
                           }
-                          let mut num8: i32 =  num7 <= 0 ? 0 : ((double) VBMath.Rnd() * (double) this.game.Data.RuleVar[215] >= (double) num6 / (double) num7 ? 1 : 0);
+                          let mut num8: i32 =  num7 <= 0 ? 0 : ( VBMath.Rnd() *  this.game.Data.RuleVar[215] >=  num6 /  num7 ? 1 : 0);
                           int Number5;
-                          if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts < (double) this.game.Data.RuleVar[181])
+                          if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts <  this.game.Data.RuleVar[181])
                             Number5 = 1;
-                          if ((double) VBMath.Rnd() < (double) this.game.Data.RuleVar[226])
+                          if ( VBMath.Rnd() <  this.game.Data.RuleVar[226])
                             Number5 = 1;
                           if (this.ProdGetPPItem(locnr) == -1)
                             Number5 = 0;
-                          this.AddLog("Landcap: " + Conversion.Str((object) Number1) + ", Supply: " + Conversion.Str((object) Number3) + ", Staff=" + Conversion.Str((object) Number4) + ", PP=" + Conversion.Str((object) Number5));
-                          this.AddLog("LandMobAlert=" + Conversion.Str((object) this.TPlanObj[index1].LandTransferMobility) + ", SeaMobAlert=" + Conversion.Str((object) this.TPlanObj[index1].SeaTransferMobility));
+                          this.AddLog("Landcap: " + Conversion.Str( Number1) + ", Supply: " + Conversion.Str( Number3) + ", Staff=" + Conversion.Str( Number4) + ", PP=" + Conversion.Str( Number5));
+                          this.AddLog("LandMobAlert=" + Conversion.Str( this.TPlanObj[index1].LandTransferMobility) + ", SeaMobAlert=" + Conversion.Str( this.TPlanObj[index1].SeaTransferMobility));
                           if (Number5 > 0 & Number4 > 0)
                           {
-                            if ((double) VBMath.Rnd() > 0.5)
+                            if ( VBMath.Rnd() > 0.5)
                               Number4 = 0;
                             else
                               Number5 = 0;
                           }
                           if (Number1 > 0 & (Number5 > 0 | Number4 > 0))
                           {
-                            if ((double) VBMath.Rnd() > 0.5)
+                            if ( VBMath.Rnd() > 0.5)
                             {
                               Number1 = 0;
                             }
@@ -1219,7 +1219,7 @@ namespace WindowsApplication1
                               index5 = index5;
                             if (index5 > -1)
                             {
-                              let mut num10: i32 =  (int) Math.Round(100.0 * ((double) (this.game.Data.ItemTypeObj[index5].ProdWeight * Number3) / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd));
+                              let mut num10: i32 =  (int) Math.Round(100.0 * ( (this.game.Data.ItemTypeObj[index5].ProdWeight * Number3) /  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd));
                               if (num10 < 10)
                                 num10 = 10;
                               if (num10 > 100)
@@ -1230,7 +1230,7 @@ namespace WindowsApplication1
                                   int[] numArray4 = numArray3;
                                   let mut hq2: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].HQ;
                                   let mut index6: i32 =  hq2;
-                                  let mut num11: i32 =  (int) Math.Round((double) numArray3[hq2] + ((double) Number3 - (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd / (double) this.game.Data.ItemTypeObj[index5].ProdWeight));
+                                  let mut num11: i32 =  (int) Math.Round( numArray3[hq2] + ( Number3 -  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd /  this.game.Data.ItemTypeObj[index5].ProdWeight));
                                   numArray4[index6] = num11;
                                 }
                                 num10 = 100;
@@ -1267,8 +1267,8 @@ namespace WindowsApplication1
                             let mut num13: i32 =  100 - num9;
                             if (Number5 == 1)
                             {
-                              if ((double) num13 > 30.0 + 30.0 * (double) this.game.Data.RuleVar[226])
-                                num13 = (int) Math.Round(30.0 + 30.0 * (double) this.game.Data.RuleVar[226]);
+                              if ( num13 > 30.0 + 30.0 *  this.game.Data.RuleVar[226])
+                                num13 = (int) Math.Round(30.0 + 30.0 *  this.game.Data.RuleVar[226]);
                             }
                             else if (num13 > 30)
                               num13 = 30;
@@ -1288,7 +1288,7 @@ namespace WindowsApplication1
                             while (num15 == 0 & num14 < 20)
                             {
                               num14 += 1;
-                              let mut index7: i32 =  (int) Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (Expression.Counter + 1)));
+                              let mut index7: i32 =  (int) Math.Round( Conversion.Int(VBMath.Rnd() *  (Expression.Counter + 1)));
                               let mut index8: i32 =  this.ProdGetRole(locnr, Expression.Weight[index7]);
                               if (index8 == -1)
                               {
@@ -1298,7 +1298,7 @@ namespace WindowsApplication1
                               }
                               else if (Expression.Data2[index7] > -1 && this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, Expression.Data2[index7]).result)
                                 index8 = Expression.Data2[index7];
-                              if ((double) this.game.Data.RuleVar[253] > 0.0)
+                              if ( this.game.Data.RuleVar[253] > 0.0)
                               {
                                 if (this.TPlanObj[index1].LandTransferMobility == 1 & this.TPlanObj[index1].SeaTransferMobility == 0)
                                 {
@@ -1312,7 +1312,7 @@ namespace WindowsApplication1
                                 }
                                 else if (this.TPlanObj[index1].LandTransferMobility == 1 & this.TPlanObj[index1].SeaTransferMobility == 1)
                                 {
-                                  if ((double) VBMath.Rnd() > 0.5)
+                                  if ( VBMath.Rnd() > 0.5)
                                   {
                                     if (this.ProdGetRole(locnr, 2) > -1)
                                       index8 = this.ProdGetRole(locnr, 2);
@@ -1321,25 +1321,25 @@ namespace WindowsApplication1
                                     index8 = this.ProdGetRole(locnr, 3);
                                 }
                               }
-                              if ((double) this.game.Data.RuleVar[211] == 1.0 & num8 == 1 & (double) VBMath.Rnd() > 0.5)
+                              if ( this.game.Data.RuleVar[211] == 1.0 & num8 == 1 &  VBMath.Rnd() > 0.5)
                               {
                                 if (this.ProdGetRole(locnr, 5) > -1)
                                   index8 = this.ProdGetRole(locnr, 5);
                               }
-                              else if ((double) VBMath.Rnd() < (double) this.game.Data.RuleVar[226])
+                              else if ( VBMath.Rnd() <  this.game.Data.RuleVar[226])
                                 index8 = this.ProdGetPPItem(locnr);
-                              let mut num16: i32 =  (int) Math.Round(Conversion.Int((double) (100 - num9) / 2.0));
-                              if ((double) this.game.Data.LocObj[locnr].ProdPointRemainder[index4] >= (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd * ((double) num16 / 150.0))
+                              let mut num16: i32 =  (int) Math.Round(Conversion.Int( (100 - num9) / 2.0));
+                              if ( this.game.Data.LocObj[locnr].ProdPointRemainder[index4] >=  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd * ( num16 / 150.0))
                               {
                                 num9 += this.game.Data.LocObj[locnr].ProdPercent[index4];
                                 let mut index9: i32 =  this.game.Data.LocObj[locnr].Production[index4];
-                                if (index9 > -1 & num16 > 0 && (double) this.game.Data.ItemTypeObj[index9].ProdWeight > (double) this.game.HandyFunctionsObj.GetProdPtsForLoc2(locnr) * ((double) num16 / 100.0))
+                                if (index9 > -1 & num16 > 0 &&  this.game.Data.ItemTypeObj[index9].ProdWeight >  this.game.HandyFunctionsObj.GetProdPtsForLoc2(locnr) * ( num16 / 100.0))
                                   num16 = 100 - num9;
                                 this.game.Data.LocObj[locnr].ProdPercent[index4] = num16;
                                 index4 += 1;
                                 break;
                               }
-                              if (index8 > -1 & num16 > 0 && (double) this.game.Data.ItemTypeObj[index8].ProdWeight > (double) this.game.HandyFunctionsObj.GetProdPtsForLoc2(locnr) * ((double) num16 / 100.0))
+                              if (index8 > -1 & num16 > 0 &&  this.game.Data.ItemTypeObj[index8].ProdWeight >  this.game.HandyFunctionsObj.GetProdPtsForLoc2(locnr) * ( num16 / 100.0))
                                 num16 = 100 - num9;
                               if (index8 > -1)
                               {
@@ -1383,7 +1383,7 @@ namespace WindowsApplication1
                                 num18 = this.ProdGetRole(locnr, 18);
                               if (num18 == -1)
                                 num18 = this.ProdGetPPItem(locnr);
-                              if (num18 == -1 && (double) this.game.Data.RuleVar[253] > 0.0)
+                              if (num18 == -1 &&  this.game.Data.RuleVar[253] > 0.0)
                               {
                                 if (this.TPlanObj[index1].LandTransferMobility == 1 & this.TPlanObj[index1].SeaTransferMobility == 0)
                                 {
@@ -1397,7 +1397,7 @@ namespace WindowsApplication1
                                 }
                                 else if (this.TPlanObj[index1].LandTransferMobility == 1 & this.TPlanObj[index1].SeaTransferMobility == 1)
                                 {
-                                  if ((double) VBMath.Rnd() > 0.5)
+                                  if ( VBMath.Rnd() > 0.5)
                                   {
                                     if (this.ProdGetRole(locnr, 2) > -1)
                                       num18 = this.ProdGetRole(locnr, 2);
@@ -1407,7 +1407,7 @@ namespace WindowsApplication1
                                 }
                               }
                               let mut num19: i32 =  100 - num9;
-                              if ((double) this.game.Data.LocObj[locnr].ProdPointRemainder[index4] >= (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd * ((double) num19 / 150.0))
+                              if ( this.game.Data.LocObj[locnr].ProdPointRemainder[index4] >=  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd * ( num19 / 150.0))
                               {
                                 let mut num20: i32 =  num9 + this.game.Data.LocObj[locnr].ProdPercent[index4];
                                 this.game.Data.LocObj[locnr].ProdPercent[index4] = num19;
@@ -1441,7 +1441,7 @@ namespace WindowsApplication1
                                   int[] numArray6 = numArray5;
                                   let mut hq3: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].HQ;
                                   let mut index10: i32 =  hq3;
-                                  let mut num23: i32 =  (int) Math.Round((double) numArray5[hq3] + ((double) Number3 - (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd / (double) this.game.Data.ItemTypeObj[supplyItem].ProdWeight));
+                                  let mut num23: i32 =  (int) Math.Round( numArray5[hq3] + ( Number3 -  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd /  this.game.Data.ItemTypeObj[supplyItem].ProdWeight));
                                   numArray6[index10] = num23;
                                 }
                                 num22 = 100;
@@ -1457,7 +1457,7 @@ namespace WindowsApplication1
                               num9 += num22;
                             }
                           }
-                          if (num14 > 18 & num9 < 100 & index4 == 2 & (double) this.game.Data.RuleVar[226] > 0.0 & (double) this.game.Data.RuleVar[501] == 0.0)
+                          if (num14 > 18 & num9 < 100 & index4 == 2 &  this.game.Data.RuleVar[226] > 0.0 &  this.game.Data.RuleVar[501] == 0.0)
                           {
                             let mut num25: i32 =  100 - num9;
                             this.game.Data.LocObj[locnr].Production[index4] = this.ProdGetPPItem(locnr);
@@ -1485,7 +1485,7 @@ namespace WindowsApplication1
                                   int[] numArray9 = numArray8;
                                   let mut hq4: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].HQ;
                                   let mut index13: i32 =  hq4;
-                                  let mut num27: i32 =  (int) Math.Round((double) numArray8[hq4] + ((double) Number3 - (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd / (double) this.game.Data.ItemTypeObj[supplyItem].ProdWeight));
+                                  let mut num27: i32 =  (int) Math.Round( numArray8[hq4] + ( Number3 -  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd /  this.game.Data.ItemTypeObj[supplyItem].ProdWeight));
                                   numArray9[index13] = num27;
                                 }
                                 num26 = 100;
@@ -1508,7 +1508,7 @@ namespace WindowsApplication1
                             while (num29 == 0 & num30 < 20)
                             {
                               num30 += 1;
-                              let mut index16: i32 =  (int) Math.Round((double) Conversion.Int(VBMath.Rnd() * (float) (Expression.Counter + 1)));
+                              let mut index16: i32 =  (int) Math.Round( Conversion.Int(VBMath.Rnd() *  (Expression.Counter + 1)));
                               let mut role: i32 =  this.ProdGetRole(locnr, Expression.Weight[index16]);
                               if (role == -1)
                               {
@@ -1518,10 +1518,10 @@ namespace WindowsApplication1
                               }
                               else if (Expression.Data2[index16] > -1 && this.game.HandyFunctionsObj.CanProduceItem(locnr, this.game.Data.Turn, Expression.Data2[index16]).result)
                                 role = Expression.Data2[index16];
-                              if ((double) this.game.Data.RuleVar[211] == 1.0 & num8 == 1 && this.ProdGetRole(locnr, 5) > -1)
+                              if ( this.game.Data.RuleVar[211] == 1.0 & num8 == 1 && this.ProdGetRole(locnr, 5) > -1)
                                 role = this.ProdGetRole(locnr, 5);
                               let mut num31: i32 =  100 - num9;
-                              if ((double) this.game.Data.LocObj[locnr].ProdPointRemainder[index4] >= (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd * ((double) num31 / 100.0))
+                              if ( this.game.Data.LocObj[locnr].ProdPointRemainder[index4] >=  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd * ( num31 / 100.0))
                               {
                                 let mut num32: i32 =  num9 + this.game.Data.LocObj[locnr].ProdPercent[index4];
                                 this.game.Data.LocObj[locnr].ProdPercent[index4] = num31;
@@ -1608,7 +1608,7 @@ namespace WindowsApplication1
                 do
                 {
                   if (this.game.Data.LocObj[locnr].Production[prodslot] > -1 && this.game.Data.ItemTypeObj[this.game.Data.LocObj[locnr].Production[prodslot]].IsSupply)
-                    num36 = (int) Math.Round((double) num36 + this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false));
+                    num36 = (int) Math.Round( num36 + this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, locnr, true, false));
                   prodslot += 1;
                 }
                 while (prodslot <= 3);
@@ -1693,11 +1693,11 @@ namespace WindowsApplication1
               num3 = 0;
             if (this.TPlanObj[aiPlanNr].Type == 40 & this.game.Data.UnitObj[unr].AIUnitGoal == 8 && !this.needcargoships(landres))
               num3 = 0;
-            if ((double) this.game.Data.RuleVar[224] == 0.0 & this.game.Data.UnitObj[unr].AIUnitGoal == 5)
+            if ( this.game.Data.RuleVar[224] == 0.0 & this.game.Data.UnitObj[unr].AIUnitGoal == 5)
               num3 = 0;
             if (num3 == 1)
             {
-              let mut prodpts: i32 =  (int) Math.Round((double) this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd / 2.0);
+              let mut prodpts: i32 =  (int) Math.Round( this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd / 2.0);
               RoleSFResult roleSfResult = this.LandTransferWhatWantsUnit(unr, 1, prodpts: prodpts);
               let mut rolenr1: i32 =  roleSfResult.rolenr;
               let mut itemtypenr1: i32 =  roleSfResult.itemtypenr;
@@ -1737,7 +1737,7 @@ namespace WindowsApplication1
                   str = "FIGHTER";
                 if (rolenr1 == 14)
                   str = "TACTICAL BOMBER";
-                this.AddLog("RL#" + Conversion.Str((object) num1) + "..." + this.game.Data.UnitObj[unr].Name + " => ROLE = " + str);
+                this.AddLog("RL#" + Conversion.Str( num1) + "..." + this.game.Data.UnitObj[unr].Name + " => ROLE = " + str);
               }
             }
           }
@@ -1769,14 +1769,14 @@ namespace WindowsApplication1
         if (simpleList1.Data2[counter] == -1 & simpleList1.Data3[counter] == -1)
           simpleList1.Remove(simpleList1.Id[counter]);
       }
-      if (this.CanProduceAir() & (double) this.game.Data.RuleVar[221] > 0.0 & this.game.Data.Round > 3 && (double) this.GetAirPart(landres) < (double) this.game.Data.RuleVar[224])
+      if (this.CanProduceAir() &  this.game.Data.RuleVar[221] > 0.0 & this.game.Data.Round > 3 &&  this.GetAirPart(landres) <  this.game.Data.RuleVar[224])
       {
         for (let mut counter: i32 =  simpleList1.Counter; counter >= 0; counter += -1)
         {
           if (simpleList1.Data2[counter] > -1)
           {
             let mut isSfType: i32 =  this.game.Data.ItemTypeObj[simpleList1.Data2[counter]].IsSFType;
-            if (isSfType > -1 && this.game.Data.SFTypeObj[isSfType].Theater != 2 && (double) VBMath.Rnd() > 0.66)
+            if (isSfType > -1 && this.game.Data.SFTypeObj[isSfType].Theater != 2 &&  VBMath.Rnd() > 0.66)
               simpleList1.Remove(simpleList1.Id[counter]);
           }
         }
@@ -1806,7 +1806,7 @@ namespace WindowsApplication1
       }
       if (num2 < 1)
         num2 = 1;
-      return (float) num1 / (float) num2;
+      return  num1 /  num2;
     }
 
     pub needcargoships: bool(int landres)
@@ -1821,7 +1821,7 @@ namespace WindowsApplication1
         {
           num2 += this.game.HandyFunctionsObj.GetCarryCapPts(unr, 1);
           if (!this.game.Data.UnitObj[unr].AIReserve)
-            Left = Conversions.ToInteger(Operators.AddObject((object) Left, this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, false)));
+            Left = Conversions.ToInteger(Operators.AddObject( Left, this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, false)));
         }
       }
       if (num2 >= Left)
@@ -1840,7 +1840,7 @@ namespace WindowsApplication1
         if (this.game.Data.SFTypeObj[type].EP > 0)
           epPerTurn += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].EP;
       }
-      return (object) epPerTurn;
+      return  epPerTurn;
     }
 
     pub IsHQinChain: bool(int unr, int hq)
@@ -1944,7 +1944,7 @@ namespace WindowsApplication1
     {
       bool[] flagArray = new bool[this.game.Data.UnitCounter + 1];
       int[] numArray1 = new int[this.game.Data.UnitCounter + 1];
-      if ((double) this.game.Data.RuleVar[221] < 1.0 || (double) this.game.Data.RuleVar[249] == 1.0)
+      if ( this.game.Data.RuleVar[221] < 1.0 ||  this.game.Data.RuleVar[249] == 1.0)
         return;
       this.AddLog("");
       this.AddLog("New Air Units:");
@@ -1990,7 +1990,7 @@ namespace WindowsApplication1
             if (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn & this.game.Data.UnitObj[index].AIUnitGoal == 5 & this.game.Data.UnitObj[index].AIPlanNr == Number)
               num4 += 1;
           }
-          if (num4 == 0 && (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[Number].FromArea)].LandReservePlan > 0)
+          if (num4 == 0 &&  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[Number].FromArea)].LandReservePlan > 0)
           {
             let mut hq: i32 =  this.TPlanObj[this.SAObj[this.GetAreaNr(this.TPlanObj[Number].FromArea)].LandReservePlan].HQ;
             if (hq > -1 && this.game.HandyFunctionsObj.HasUnitAirSF(hq) | numArray1[hq] == 0 && this.TPlanObj[Number].FriendlyAir < 1 | numArray1[hq] == 0 && !flagArray[hq] & this.game.Data.UnitObj[hq].AIPlanNr > 0)
@@ -2003,7 +2003,7 @@ namespace WindowsApplication1
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = hq;
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].AIPlanNr = Number;
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].AIUnitGoal = 5;
-                this.AddLog("New Air unit placed at " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) Number));
+                this.AddLog("New Air unit placed at " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( Number));
                 int[] numArray4 = numArray1;
                 int[] numArray5 = numArray4;
                 let mut index4: i32 =  hq;
@@ -2061,11 +2061,11 @@ namespace WindowsApplication1
     {
       bool[] flagArray = new bool[this.game.Data.UnitCounter + 1];
       int[] numArray = new int[this.game.Data.UnitCounter + 1];
-      if ((double) this.game.Data.RuleVar[227] < 1.0)
+      if ( this.game.Data.RuleVar[227] < 1.0)
         return;
       this.AddLog("");
       this.AddLog("New Navy Units:");
-      if ((double) this.game.Data.RuleVar[249] == 1.0)
+      if ( this.game.Data.RuleVar[249] == 1.0)
         return;
       let mut tplanCount: i32 =  this.TPlanCount;
       for (let mut index1: i32 =  1; index1 <= tplanCount; index1 += 1)
@@ -2088,17 +2088,17 @@ namespace WindowsApplication1
             }
           }
           let mut num2: i32 =  0;
-          if ((double) num2 < (double) this.game.Data.RuleVar[239])
-            num2 = (int) Math.Round((double) this.game.Data.RuleVar[239]);
+          if ( num2 <  this.game.Data.RuleVar[239])
+            num2 = (int) Math.Round( this.game.Data.RuleVar[239]);
           if (this.TPlanObj[index1].SeaTarget > 0 & this.TPlanObj[index1].SeaTarget <= this.SACount)
           {
             let mut num3: i32 =  this.game.HandyFunctionsObj.Distance(this.TPlanObj[index1].FromArea.X, this.TPlanObj[index1].FromArea.Y, 0, this.SAObj[this.TPlanObj[index1].SeaTarget].X, this.SAObj[this.TPlanObj[index1].SeaTarget].Y, 0);
             if (num3 > 10)
-              num2 = (int) Math.Round((double) num2 + Math.Sqrt((double) (num3 - 10) / 10.0) * (double) this.game.Data.RuleVar[239]);
+              num2 = (int) Math.Round( num2 + Math.Sqrt( (num3 - 10) / 10.0) *  this.game.Data.RuleVar[239]);
           }
           if (this.TPlanObj[index1].EnemyNavy == 0)
-            num2 = this.TPlanObj[index1].SeaTarget >= 1 ? (int) Math.Round(1.0 + (double) num2 / 2.0) : 0;
-          if (num1 < num2 && (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].LandReservePlan > 0)
+            num2 = this.TPlanObj[index1].SeaTarget >= 1 ? (int) Math.Round(1.0 +  num2 / 2.0) : 0;
+          if (num1 < num2 &&  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].LandReservePlan > 0)
           {
             let mut hq: i32 =  this.TPlanObj[this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].LandReservePlan].HQ;
             if (hq > -1 && !flagArray[hq])
@@ -2111,7 +2111,7 @@ namespace WindowsApplication1
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = hq;
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].AIPlanNr = index1;
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].AIUnitGoal = 0;
-                this.AddLog("New Naval unit placed at " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) index1));
+                this.AddLog("New Naval unit placed at " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( index1));
                 flagArray[hq] = true;
                 this.InitUnitGoals(this.game.Data.UnitCounter);
               }
@@ -2140,8 +2140,8 @@ namespace WindowsApplication1
       }
       if (num3 < 1)
         return true;
-      let mut num4: i32 =  (int) Math.Round((double) num2 / (double) num3);
-      return (double) num1 >= (double) this.game.Data.RuleVar[182] && (double) num4 >= (double) this.game.Data.RuleVar[247];
+      let mut num4: i32 =  (int) Math.Round( num2 /  num3);
+      return  num1 >=  this.game.Data.RuleVar[182] &&  num4 >=  this.game.Data.RuleVar[247];
     }
 
     pub int GetPlanUnitGoalPercent(int plnr, int goaltype)
@@ -2183,11 +2183,11 @@ namespace WindowsApplication1
       switch (goaltype)
       {
         case 1:
-          return (int) Math.Round((double) (num1 * 100) / (double) num4);
+          return (int) Math.Round( (num1 * 100) /  num4);
         case 2:
-          return (int) Math.Round((double) (num2 * 100) / (double) num4);
+          return (int) Math.Round( (num2 * 100) /  num4);
         case 3:
-          return (int) Math.Round((double) (num3 * 100) / (double) num4);
+          return (int) Math.Round( (num3 * 100) /  num4);
         default:
           return 0;
       }
@@ -2197,7 +2197,7 @@ namespace WindowsApplication1
     {
       this.AddLog("");
       this.AddLog("New Units:");
-      if ((double) this.game.Data.RuleVar[249] == 1.0)
+      if ( this.game.Data.RuleVar[249] == 1.0)
         return;
       if (phase == 1)
       {
@@ -2206,36 +2206,36 @@ namespace WindowsApplication1
         {
           if (this.TPlanObj[index1].Type == 20)
           {
-            float num1 = (float) this.TPlanObj[index1].FriendlyUnitCount;
-            if ((double) num1 < 1.0)
+            float num1 =  this.TPlanObj[index1].FriendlyUnitCount;
+            if ( num1 < 1.0)
               num1 = 0.25f;
             let mut num2: i32 =  0;
             if (this.TPlanObj[index1].Stand == 1)
             {
-              if ((double) this.GetPlanUnitGoalPercent(index1, 2) < (double) this.game.Data.RuleVar[171] * 0.66)
+              if ( this.GetPlanUnitGoalPercent(index1, 2) <  this.game.Data.RuleVar[171] * 0.66)
                 num2 = 1;
-              if ((double) this.GetPlanUnitGoalPercent(index1, 1) < (double) this.game.Data.RuleVar[172] * 0.66)
+              if ( this.GetPlanUnitGoalPercent(index1, 1) <  this.game.Data.RuleVar[172] * 0.66)
                 num2 = 1;
-              if ((double) this.GetPlanUnitGoalPercent(index1, 3) < (double) this.game.Data.RuleVar[173])
+              if ( this.GetPlanUnitGoalPercent(index1, 3) <  this.game.Data.RuleVar[173])
                 num2 = 1;
             }
             else
             {
-              if ((double) this.GetPlanUnitGoalPercent(index1, 2) < (double) this.game.Data.RuleVar[161] * 0.66)
+              if ( this.GetPlanUnitGoalPercent(index1, 2) <  this.game.Data.RuleVar[161] * 0.66)
                 num2 = 1;
-              if ((double) this.GetPlanUnitGoalPercent(index1, 1) < (double) this.game.Data.RuleVar[162] * 0.66)
+              if ( this.GetPlanUnitGoalPercent(index1, 1) <  this.game.Data.RuleVar[162] * 0.66)
                 num2 = 1;
-              if ((double) this.GetPlanUnitGoalPercent(index1, 3) < (double) this.game.Data.RuleVar[163])
+              if ( this.GetPlanUnitGoalPercent(index1, 3) <  this.game.Data.RuleVar[163])
                 num2 = 1;
             }
             if (num2 == 1)
               this.AddLog("Set ok3=1 because we need other unitgoals in plan too.");
-            if ((double) (this.TPlanObj[index1].FrontSize * 100) / (double) num1 > (double) this.game.Data.RuleVar[155] | num2 == 1)
+            if ( (this.TPlanObj[index1].FrontSize * 100) /  num1 >  this.game.Data.RuleVar[155] | num2 == 1)
             {
               let mut num3: i32 =  this.TPlanObj[index1].EnemyUnitCount * 1;
               if (num3 == 0)
                 num3 = 1;
-              if (this.TPlanObj[index1].FriendlyUnitCount < num3 & this.Existingunitsok(index1) | num2 == 1 && (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].LandReservePlan > 0)
+              if (this.TPlanObj[index1].FriendlyUnitCount < num3 & this.Existingunitsok(index1) | num2 == 1 &&  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].LandReservePlan > 0)
               {
                 let mut hq: i32 =  this.TPlanObj[this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].LandReservePlan].HQ;
                 let mut num4: i32 =  0;
@@ -2252,13 +2252,13 @@ namespace WindowsApplication1
                 }
                 if (this.TPlanObj[index1].FriendlyUnitCount == 0 & this.TPlanObj[index1].TooArea.aivp > 0)
                   num4 = 1;
-                if (num4 > 0 & hq > -1 && this.game.Data.UnitObj[hq].LandCap > 0 | (double) this.game.Data.RuleVar[253] == 0.0 | this.TPlanObj[index1].FriendlyUnitCount == 0 & this.TPlanObj[index1].TooArea.aivp > 0)
+                if (num4 > 0 & hq > -1 && this.game.Data.UnitObj[hq].LandCap > 0 |  this.game.Data.RuleVar[253] == 0.0 | this.TPlanObj[index1].FriendlyUnitCount == 0 & this.TPlanObj[index1].TooArea.aivp > 0)
                 {
                   let mut num5: i32 =  0;
                   let mut unitCounter: i32 =  this.game.Data.UnitCounter;
                   for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
                   {
-                    if (this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && (double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) < (double) this.game.Data.RuleVar[182])
+                    if (this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn &&  this.game.HandyFunctionsObj.GetUnitStackPts(unr) <  this.game.Data.RuleVar[182])
                       num5 = 1;
                   }
                   if (num5 == 0)
@@ -2297,7 +2297,7 @@ namespace WindowsApplication1
                       let mut index3: i32 =  index1;
                       let mut index4: i32 =  index3;
                       aiPlanClassArray[index4].FriendlyUnitCount = tplanObj[index3].FriendlyUnitCount + 1;
-                      this.AddLog("New unit placed at " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) index1));
+                      this.AddLog("New unit placed at " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( index1));
                       this.InitUnitGoals(this.game.Data.UnitCounter);
                     }
                   }
@@ -2337,7 +2337,7 @@ namespace WindowsApplication1
                 RegimeClass[] regimeClassArray = regimeObj;
                 let mut turn: i32 =  this.game.Data.Turn;
                 let mut index6: i32 =  turn;
-                regimeClassArray[index6].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
+                regimeClassArray[index6].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
                 this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.Turn);
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = num8;
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].AIPlanNr = index1;
@@ -2347,7 +2347,7 @@ namespace WindowsApplication1
                 let mut index7: i32 =  index1;
                 let mut index8: i32 =  index7;
                 aiPlanClassArray[index8].FriendlyUnitCount = tplanObj[index7].FriendlyUnitCount + 1;
-                this.AddLog("New INF unit placed for AMPHIBIOUS OPS at " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) index1));
+                this.AddLog("New INF unit placed for AMPHIBIOUS OPS at " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( index1));
               }
             }
           }
@@ -2365,9 +2365,9 @@ namespace WindowsApplication1
               let mut num10: i32 =  0;
               if (this.TPlanObj[index1].SeaTarget < 1 & this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].SeaNeighbourCount > 0)
                 num10 = 1;
-              if (num10 == 0 & (double) this.game.Data.RuleVar[252] > 0.0 && this.TPlanObj[index1].AssemblyArea == 1)
+              if (num10 == 0 &  this.game.Data.RuleVar[252] > 0.0 && this.TPlanObj[index1].AssemblyArea == 1)
                 num10 = 1;
-              if (num10 == 0 & (double) this.game.Data.RuleVar[256] > 0.0 && this.TPlanObj[index1].AssemblyArea == 1)
+              if (num10 == 0 &  this.game.Data.RuleVar[256] > 0.0 && this.TPlanObj[index1].AssemblyArea == 1)
                 num10 = 1;
               if (num10 == 1)
               {
@@ -2392,17 +2392,17 @@ namespace WindowsApplication1
                   RegimeClass[] regimeClassArray = regimeObj;
                   let mut turn: i32 =  this.game.Data.Turn;
                   let mut index10: i32 =  turn;
-                  regimeClassArray[index10].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
+                  regimeClassArray[index10].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
                   this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.Turn);
                   this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = num11;
                   this.game.Data.UnitObj[this.game.Data.UnitCounter].AIPlanNr = index1;
-                  this.game.Data.UnitObj[this.game.Data.UnitCounter].AIUnitGoal = (double) VBMath.Rnd() <= 0.5 ? 2 : 1;
+                  this.game.Data.UnitObj[this.game.Data.UnitCounter].AIUnitGoal =  VBMath.Rnd() <= 0.5 ? 2 : 1;
                   AIPlanClass[] tplanObj = this.TPlanObj;
                   AIPlanClass[] aiPlanClassArray = tplanObj;
                   let mut index11: i32 =  index1;
                   let mut index12: i32 =  index11;
                   aiPlanClassArray[index12].FriendlyUnitCount = tplanObj[index11].FriendlyUnitCount + 1;
-                  this.AddLog("New INF or ARM unit placed for BACKPLAN WITHOUT AMPH/FRONT or DEFENSE IN DEPTH at " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) index1));
+                  this.AddLog("New INF or ARM unit placed for BACKPLAN WITHOUT AMPH/FRONT or DEFENSE IN DEPTH at " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( index1));
                 }
               }
             }
@@ -2457,7 +2457,7 @@ namespace WindowsApplication1
             }
             if (Number > -1)
             {
-              if (((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0) & this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 15)
+              if (( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0) & this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 15)
               {
                 this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.Turn);
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = hq;
@@ -2467,7 +2467,7 @@ namespace WindowsApplication1
                 let mut index16: i32 =  index13;
                 let mut index17: i32 =  index16;
                 aiPlanClassArray[index17].FriendlyUnitCount = tplanObj[index16].FriendlyUnitCount + 1;
-                this.AddLog("New unit placed at Landreserve " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) Number));
+                this.AddLog("New unit placed at Landreserve " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( Number));
                 if (num14 == 1)
                 {
                   this.game.Data.UnitObj[this.game.Data.UnitCounter].AIUnitGoal = 2;
@@ -2486,7 +2486,7 @@ namespace WindowsApplication1
                   num13 = 0;
                 }
               }
-              if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0 && num14 > 0 | num15 > 0 | num13 > 0 & this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 15)
+              if ( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0 && num14 > 0 | num15 > 0 | num13 > 0 & this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 15)
               {
                 this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.Turn);
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = hq;
@@ -2496,7 +2496,7 @@ namespace WindowsApplication1
                 let mut index18: i32 =  index13;
                 let mut index19: i32 =  index18;
                 aiPlanClassArray[index19].FriendlyUnitCount = tplanObj[index18].FriendlyUnitCount + 1;
-                this.AddLog("New unit placed at Landreserve " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) Number));
+                this.AddLog("New unit placed at Landreserve " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( Number));
                 if (num14 == 1)
                 {
                   this.game.Data.UnitObj[this.game.Data.UnitCounter].AIUnitGoal = 2;
@@ -2515,7 +2515,7 @@ namespace WindowsApplication1
                   num13 = 0;
                 }
               }
-              if (((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0) & this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 15)
+              if (( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0) & this.game.Data.MapObj[0].HexObj[x, y].UnitCounter < 15)
               {
                 this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.Turn);
                 this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = hq;
@@ -2525,7 +2525,7 @@ namespace WindowsApplication1
                 let mut index20: i32 =  index13;
                 let mut index21: i32 =  index20;
                 aiPlanClassArray[index21].FriendlyUnitCount = tplanObj[index20].FriendlyUnitCount + 1;
-                this.AddLog("New unit placed at Landreserve " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) Number));
+                this.AddLog("New unit placed at Landreserve " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( Number));
                 if (num14 == 1)
                 {
                   this.game.Data.UnitObj[this.game.Data.UnitCounter].AIUnitGoal = 2;
@@ -2560,7 +2560,7 @@ namespace WindowsApplication1
     {
       this.AddLog("");
       this.AddLog("Splitting Units:");
-      if ((double) this.game.Data.RuleVar[249] == 1.0)
+      if ( this.game.Data.RuleVar[249] == 1.0)
         return;
       let mut tplanCount1: i32 =  this.TPlanCount;
       int num1;
@@ -2568,15 +2568,15 @@ namespace WindowsApplication1
       {
         if (this.TPlanObj[Number].Type == 20)
         {
-          float num2 = (float) this.TPlanObj[Number].FriendlyUnitCount;
-          if ((double) num2 < 1.0)
+          float num2 =  this.TPlanObj[Number].FriendlyUnitCount;
+          if ( num2 < 1.0)
             num2 = 0.25f;
-          if ((double) ((this.TPlanObj[Number].FrontSize + 1) * 100) / (double) num2 > (double) this.game.Data.RuleVar[155])
+          if ( ((this.TPlanObj[Number].FrontSize + 1) * 100) /  num2 >  this.game.Data.RuleVar[155])
           {
             let mut num3: i32 =  this.TPlanObj[Number].EnemyUnitCount * 1;
             if (num3 == 0)
               num3 = 1;
-            if (this.TPlanObj[Number].FriendlyUnitCount < num3 & this.TPlanObj[Number].FriendlyUnitCount > 0 && (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[Number].FromArea)].LandReservePlan > 0)
+            if (this.TPlanObj[Number].FriendlyUnitCount < num3 & this.TPlanObj[Number].FriendlyUnitCount > 0 &&  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[Number].FromArea)].LandReservePlan > 0)
             {
               SimpleList simpleList = SimpleList::new();
               num1 = 0;
@@ -2586,7 +2586,7 @@ namespace WindowsApplication1
                 if (this.game.Data.UnitObj[index].AIPlanNr == Number && this.game.Data.UnitObj[index].Regime == this.game.Data.Turn && !this.game.Data.UnitObj[index].IsHQ)
                 {
                   let mut unitStackPts: i32 =  this.game.HandyFunctionsObj.GetUnitStackPts(index);
-                  if ((double) unitStackPts >= (double) this.game.Data.RuleVar[247] * 2.5)
+                  if ( unitStackPts >=  this.game.Data.RuleVar[247] * 2.5)
                     simpleList.Add(index, unitStackPts);
                 }
               }
@@ -2607,12 +2607,12 @@ namespace WindowsApplication1
                   let mut index1: i32 =  Number;
                   let mut index2: i32 =  index1;
                   aiPlanClassArray[index2].FriendlyUnitCount = tplanObj[index1].FriendlyUnitCount + 1;
-                  this.AddLog("Unit " + this.game.Data.UnitObj[unr].Name + " split at " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) Number));
+                  this.AddLog("Unit " + this.game.Data.UnitObj[unr].Name + " split at " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( Number));
                   for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount; sfCount >= 0; sfCount += -1)
                   {
                     let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[sfCount];
-                    let mut Qty: i32 =  (int) Math.Round(Conversion.Int((double) this.game.Data.SFObj[sf].Qty / 2.0));
-                    if (Qty == 0 & this.game.Data.SFObj[sf].Qty > 0 && (double) VBMath.Rnd() > 0.5)
+                    let mut Qty: i32 =  (int) Math.Round(Conversion.Int( this.game.Data.SFObj[sf].Qty / 2.0));
+                    if (Qty == 0 & this.game.Data.SFObj[sf].Qty > 0 &&  VBMath.Rnd() > 0.5)
                       Qty = 1;
                     this.game.ProcessingObj.DoTransfer(unr, this.game.Data.UnitCounter, 0, sf, Qty, true);
                   }
@@ -2625,13 +2625,13 @@ namespace WindowsApplication1
       let mut tplanCount2: i32 =  this.TPlanCount;
       for (let mut Number: i32 =  1; Number <= tplanCount2; Number += 1)
       {
-        if (this.TPlanObj[Number].Type == 20 | this.TPlanObj[Number].Type == 40 && (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[Number].FromArea)].LandReservePlan > 0)
+        if (this.TPlanObj[Number].Type == 20 | this.TPlanObj[Number].Type == 40 &&  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0 && this.SAObj[this.GetAreaNr(this.TPlanObj[Number].FromArea)].LandReservePlan > 0)
         {
           num1 = 0;
           let mut unitCounter: i32 =  this.game.Data.UnitCounter;
           for (let mut unr1: i32 =  0; unr1 <= unitCounter; unr1 += 1)
           {
-            if (this.game.Data.UnitObj[unr1].AIPlanNr == Number && this.game.Data.UnitObj[unr1].Regime == this.game.Data.Turn && !this.game.Data.UnitObj[unr1].IsHQ && this.game.Data.UnitObj[unr1].AIUnitGoal == 5 | this.game.Data.UnitObj[unr1].AIUnitGoal == 1 | this.game.Data.UnitObj[unr1].AIUnitGoal == 2 | this.game.Data.UnitObj[unr1].AIUnitGoal == 3 && (double) (this.game.HandyFunctionsObj.GetUnitStackPts(unr1) + this.game.HandyFunctionsObj.GetUnitairStackPts(unr1)) > (double) this.game.Data.RuleVar[30] && (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46])
+            if (this.game.Data.UnitObj[unr1].AIPlanNr == Number && this.game.Data.UnitObj[unr1].Regime == this.game.Data.Turn && !this.game.Data.UnitObj[unr1].IsHQ && this.game.Data.UnitObj[unr1].AIUnitGoal == 5 | this.game.Data.UnitObj[unr1].AIUnitGoal == 1 | this.game.Data.UnitObj[unr1].AIUnitGoal == 2 | this.game.Data.UnitObj[unr1].AIUnitGoal == 3 &&  (this.game.HandyFunctionsObj.GetUnitStackPts(unr1) + this.game.HandyFunctionsObj.GetUnitairStackPts(unr1)) >  this.game.Data.RuleVar[30] &&  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46])
             {
               let mut unr2: i32 =  unr1;
               let mut x: i32 =  this.game.Data.UnitObj[unr2].X;
@@ -2647,12 +2647,12 @@ namespace WindowsApplication1
                 let mut index3: i32 =  Number;
                 let mut index4: i32 =  index3;
                 aiPlanClassArray[index4].FriendlyUnitCount = tplanObj[index3].FriendlyUnitCount + 1;
-                this.AddLog("TO FAT Unit " + this.game.Data.UnitObj[unr2].Name + " split at " + Conversion.Str((object) x) + "," + Conversion.Str((object) y) + " for plan #" + Conversion.Str((object) Number));
+                this.AddLog("TO FAT Unit " + this.game.Data.UnitObj[unr2].Name + " split at " + Conversion.Str( x) + "," + Conversion.Str( y) + " for plan #" + Conversion.Str( Number));
                 for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr2].SFCount; sfCount >= 0; sfCount += -1)
                 {
                   let mut sf: i32 =  this.game.Data.UnitObj[unr2].SFList[sfCount];
-                  let mut Qty: i32 =  (int) Math.Round(Conversion.Int((double) this.game.Data.SFObj[sf].Qty / 2.0));
-                  if (Qty == 0 & this.game.Data.SFObj[sf].Qty > 0 && (double) VBMath.Rnd() > 0.5)
+                  let mut Qty: i32 =  (int) Math.Round(Conversion.Int( this.game.Data.SFObj[sf].Qty / 2.0));
+                  if (Qty == 0 & this.game.Data.SFObj[sf].Qty > 0 &&  VBMath.Rnd() > 0.5)
                     Qty = 1;
                   this.game.ProcessingObj.DoTransfer(unr2, this.game.Data.UnitCounter, 0, sf, Qty, true);
                 }
@@ -2690,14 +2690,14 @@ namespace WindowsApplication1
                     let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
                     this.game.ProcessingObj.DoTransfer(unit, hq, 0, sf, qty, true, false);
                   }
-                  this.AddLog("LandResPlannr: " + Conversion.Str((object) Number) + ", Disbanded unit " + this.game.Data.UnitObj[unit].Name);
+                  this.AddLog("LandResPlannr: " + Conversion.Str( Number) + ", Disbanded unit " + this.game.Data.UnitObj[unit].Name);
                   if (this.game.Data.UnitObj[unit].IsHQ)
                   {
                     RegimeClass[] regimeObj = this.game.Data.RegimeObj;
                     RegimeClass[] regimeClassArray = regimeObj;
                     let mut turn: i32 =  this.game.Data.Turn;
                     let mut index: i32 =  turn;
-                    regimeClassArray[index].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
+                    regimeClassArray[index].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
                   }
                   else
                   {
@@ -2705,7 +2705,7 @@ namespace WindowsApplication1
                     RegimeClass[] regimeClassArray = regimeObj;
                     let mut turn: i32 =  this.game.Data.Turn;
                     let mut index: i32 =  turn;
-                    regimeClassArray[index].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
+                    regimeClassArray[index].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
                   }
                   this.game.Data.RemoveUnit(unit, ref this.game);
                   num = 1;
@@ -2720,7 +2720,7 @@ namespace WindowsApplication1
 
     pub void EmptyHQ()
     {
-      if ((double) this.game.Data.RuleVar[253] > 0.0)
+      if ( this.game.Data.RuleVar[253] > 0.0)
         return;
       for (let mut unitCounter1: i32 =  this.game.Data.UnitCounter; unitCounter1 >= 0; unitCounter1 += -1)
       {
@@ -2768,7 +2768,7 @@ namespace WindowsApplication1
                   RegimeClass[] regimeClassArray = regimeObj;
                   let mut turn: i32 =  this.game.Data.Turn;
                   let mut index: i32 =  turn;
-                  regimeClassArray[index].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
+                  regimeClassArray[index].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[46]));
                   this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.Turn);
                   let mut Qty: i32 =  this.game.Data.SFObj[sf].Qty;
                   let mut unitCounter2: i32 =  this.game.Data.UnitCounter;
@@ -2776,7 +2776,7 @@ namespace WindowsApplication1
                   {
                     let mut num3: i32 =  Qty * this.game.Data.SFTypeObj[type].Frontage;
                     if (num3 > 60)
-                      Qty = (int) Math.Round(Math.Min(Conversion.Int((double) Qty / 2.0), Conversion.Int((double) Qty * (60.0 / (double) num3))));
+                      Qty = (int) Math.Round(Math.Min(Conversion.Int( Qty / 2.0), Conversion.Int( Qty * (60.0 /  num3))));
                     if (Qty == 0)
                       Qty = 1;
                     this.game.Data.UnitObj[unitCounter2].HQ = unr;
@@ -2801,7 +2801,7 @@ namespace WindowsApplication1
       for (let mut index: i32 =  1; index <= tplanCount1; index += 1)
       {
         if (this.TPlanObj[index].Type == 20)
-          num1 = (int) Math.Round((double) ((float) num1 + this.TPlanObj[index].WeightEnemyForce));
+          num1 = (int) Math.Round( ( num1 + this.TPlanObj[index].WeightEnemyForce));
       }
       if (num1 == 0)
         num1 = 1;
@@ -2811,10 +2811,10 @@ namespace WindowsApplication1
         if (this.TPlanObj[index1].Type == 30 | this.TPlanObj[index1].Type == 20 && this.TPlanObj[index1].HQ > -1)
         {
           this.AddLog("");
-          this.AddLog("*TransferExec for " + this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Name + " PHASE " + Conversion.Str((object) phase));
+          this.AddLog("*TransferExec for " + this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Name + " PHASE " + Conversion.Str( phase));
           let mut x: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].X;
           let mut y: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Y;
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[78]), x, y, 0);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[78]), x, y, 0);
           let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
           {
@@ -2829,9 +2829,9 @@ namespace WindowsApplication1
           int num3;
           for (let mut index4: i32 =  1; index4 <= tplanCount3; index4 += 1)
           {
-            if ((double) this.game.Data.RuleVar[253] == 0.0 | phase == 1 & (this.TPlanObj[index4].Type == 50 | this.TPlanObj[index4].Type == 20 | this.TPlanObj[index4].Type == 40) & this.SAObj[this.GetAreaNr(this.TPlanObj[index4].FromArea)].LandReservePlan == index1 | this.TPlanObj[index4].Type == 20 & phase == 2)
+            if ( this.game.Data.RuleVar[253] == 0.0 | phase == 1 & (this.TPlanObj[index4].Type == 50 | this.TPlanObj[index4].Type == 20 | this.TPlanObj[index4].Type == 40) & this.SAObj[this.GetAreaNr(this.TPlanObj[index4].FromArea)].LandReservePlan == index1 | this.TPlanObj[index4].Type == 20 & phase == 2)
             {
-              if ((double) numArray3[this.TPlanObj[index4].FromArea.X, this.TPlanObj[index4].FromArea.Y] < (double) this.game.Data.RuleVar[78] | phase == 2)
+              if ( numArray3[this.TPlanObj[index4].FromArea.X, this.TPlanObj[index4].FromArea.Y] <  this.game.Data.RuleVar[78] | phase == 2)
               {
                 let mut num4: i32 =  0;
                 if (phase == 2)
@@ -2839,25 +2839,25 @@ namespace WindowsApplication1
                 let mut num5: i32 =  0;
                 if (this.TPlanObj[index4].Type == 20)
                 {
-                  if ((double) this.TPlanObj[index4].WeightEnemyForce > (double) this.TPlanObj[index4].WeightFriendlyForce)
+                  if ( this.TPlanObj[index4].WeightEnemyForce >  this.TPlanObj[index4].WeightFriendlyForce)
                   {
-                    let mut num6: i32 =  (int) Math.Round(100.0 * ((double) this.TPlanObj[index4].WeightEnemyForce / ((double) this.TPlanObj[index4].WeightFriendlyForce + 1.0)));
-                    num5 = (int) Math.Round(100.0 * ((double) this.TPlanObj[index4].WeightEnemyForce / ((double) this.TPlanObj[index4].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
-                    num3 = (int) Math.Round((double) ((float) (num6 * (this.TPlanObj[index4].WeightStrategic + 1)) * (this.TPlanObj[index4].WeightEnemyForce / (float) num1)));
+                    let mut num6: i32 =  (int) Math.Round(100.0 * ( this.TPlanObj[index4].WeightEnemyForce / ( this.TPlanObj[index4].WeightFriendlyForce + 1.0)));
+                    num5 = (int) Math.Round(100.0 * ( this.TPlanObj[index4].WeightEnemyForce / ( this.TPlanObj[index4].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
+                    num3 = (int) Math.Round( ( (num6 * (this.TPlanObj[index4].WeightStrategic + 1)) * (this.TPlanObj[index4].WeightEnemyForce /  num1)));
                   }
                   else
                   {
-                    num5 = (int) Math.Round(100.0 * ((double) this.TPlanObj[index4].WeightEnemyForce / ((double) this.TPlanObj[index4].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
-                    num3 = (int) Math.Round((double) ((float) ((int) Math.Round(100.0 * ((double) this.TPlanObj[index4].WeightEnemyForce / ((double) this.TPlanObj[index4].WeightFriendlyForce + 1.0))) * (this.TPlanObj[index4].WeightStrategic + 1)) * (this.TPlanObj[index4].WeightEnemyForce / (float) num1)));
+                    num5 = (int) Math.Round(100.0 * ( this.TPlanObj[index4].WeightEnemyForce / ( this.TPlanObj[index4].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
+                    num3 = (int) Math.Round( ( ((int) Math.Round(100.0 * ( this.TPlanObj[index4].WeightEnemyForce / ( this.TPlanObj[index4].WeightFriendlyForce + 1.0))) * (this.TPlanObj[index4].WeightStrategic + 1)) * (this.TPlanObj[index4].WeightEnemyForce /  num1)));
                     if (num3 == 0)
                       num3 = 10 * (this.TPlanObj[index4].WeightStrategic + 1);
                   }
                 }
                 else if (this.TPlanObj[index4].Type == 40)
                 {
-                  if ((double) this.game.Data.RuleVar[252] > 0.0 & this.TPlanObj[index4].AssemblyArea == 1)
+                  if ( this.game.Data.RuleVar[252] > 0.0 & this.TPlanObj[index4].AssemblyArea == 1)
                   {
-                    num3 = (int) Math.Round((double) ((float) (this.TPlanObj[index4].WeightStrategic * 25) * this.game.Data.RuleVar[254]));
+                    num3 = (int) Math.Round( ( (this.TPlanObj[index4].WeightStrategic * 25) * this.game.Data.RuleVar[254]));
                     let mut closestFrontline: i32 =  this.GetClosestFrontline(this.TPlanObj[index4].FromArea.X, this.TPlanObj[index4].FromArea.Y);
                     if (closestFrontline > 0)
                     {
@@ -2882,13 +2882,13 @@ namespace WindowsApplication1
                   num4 += num3;
                 if (num4 > 0)
                 {
-                  this.AddLog("Plan #" + Conversion.Str((object) index4) + " importance=" + Conversion.Str((object) num5) + ", weight=" + Conversion.Str((object) num4));
+                  this.AddLog("Plan #" + Conversion.Str( index4) + " importance=" + Conversion.Str( num5) + ", weight=" + Conversion.Str( num4));
                   simpleList1.Add(index4, num4, num5);
                   num2 += num4;
                 }
               }
               else
-                this.AddLog("Plan #" + Conversion.Str((object) index4) + " IS OUT OF RANGE");
+                this.AddLog("Plan #" + Conversion.Str( index4) + " IS OUT OF RANGE");
             }
           }
           let mut num7: i32 =  0;
@@ -2897,14 +2897,14 @@ namespace WindowsApplication1
             let mut tplanCount4: i32 =  this.TPlanCount;
             for (let mut index5: i32 =  1; index5 <= tplanCount4; index5 += 1)
             {
-              if (this.TPlanObj[index5].Type == 30 && index5 != index1 && this.TPlanObj[index1].WeightStrategic < this.TPlanObj[index5].WeightStrategic && this.TPlanObj[index5].MetaChainNr > this.TPlanObj[index1].MetaChainNr && (double) numArray3[this.TPlanObj[index5].FromArea.X, this.TPlanObj[index5].FromArea.Y] < (double) this.game.Data.RuleVar[78])
+              if (this.TPlanObj[index5].Type == 30 && index5 != index1 && this.TPlanObj[index1].WeightStrategic < this.TPlanObj[index5].WeightStrategic && this.TPlanObj[index5].MetaChainNr > this.TPlanObj[index1].MetaChainNr &&  numArray3[this.TPlanObj[index5].FromArea.X, this.TPlanObj[index5].FromArea.Y] <  this.game.Data.RuleVar[78])
               {
                 let mut num8: i32 =  this.TPlanObj[index5].WeightStrategic - this.TPlanObj[index1].WeightStrategic;
                 let mut num9: i32 =  this.TPlanObj[index5].WeightStrategic - this.TPlanObj[index1].WeightStrategic;
                 if (num9 > 0)
                 {
                   simpleList1.Add(index5, num9, num8);
-                  this.AddLog("Plan #" + Conversion.Str((object) index5) + " importance=" + Conversion.Str((object) num8) + ", weight=" + Conversion.Str((object) num9));
+                  this.AddLog("Plan #" + Conversion.Str( index5) + " importance=" + Conversion.Str( num8) + ", weight=" + Conversion.Str( num9));
                   num2 += num9;
                   num7 += 1;
                 }
@@ -2925,7 +2925,7 @@ namespace WindowsApplication1
                 num11 = 9999;
               if (phase == 2)
                 num11 = 1;
-              if ((double) this.game.Data.RuleVar[253] == 0.0)
+              if ( this.game.Data.RuleVar[253] == 0.0)
                 num11 = 9999;
               let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
               for (let mut unr: i32 =  0; unr <= unitCounter1; unr += 1)
@@ -2935,15 +2935,15 @@ namespace WindowsApplication1
                   int num12;
                   if (this.TPlanObj[plnr].Type != 30)
                   {
-                    let mut num13: i32 =  (int) Math.Round(100.0 * ((double) simpleList1.Weight[index6] / (double) num2));
+                    let mut num13: i32 =  (int) Math.Round(100.0 * ( simpleList1.Weight[index6] /  num2));
                     num3 = this.game.HandyFunctionsObj.GetUnitStackPts(unr);
                     if (num3 < 1)
                       num3 = 1;
-                    if (!this.game.Data.UnitObj[unr].IsHQ & (double) num3 > (double) this.game.Data.RuleVar[247])
-                      num13 = (int) Math.Round((double) ((float) num13 * (this.game.Data.RuleVar[247] / (float) num3)));
+                    if (!this.game.Data.UnitObj[unr].IsHQ &  num3 >  this.game.Data.RuleVar[247])
+                      num13 = (int) Math.Round( ( num13 * (this.game.Data.RuleVar[247] /  num3)));
                     if (this.game.Data.UnitObj[unr].IsHQ & this.game.HandyFunctionsObj.GetStaffPercent(unr) < 100)
                       num13 *= 3;
-                    if (!this.game.Data.UnitObj[unr].IsHQ & (double) num3 < (double) this.game.Data.RuleVar[182])
+                    if (!this.game.Data.UnitObj[unr].IsHQ &  num3 <  this.game.Data.RuleVar[182])
                       num13 *= 3;
                     if (0 > num13)
                       num13 = 0;
@@ -2964,15 +2964,15 @@ namespace WindowsApplication1
                     int num14;
                     if (this.TPlanObj[plnr].Type != 30)
                     {
-                      let mut num15: i32 =  (int) Math.Round(100.0 * ((double) simpleList1.Weight[index6] / (double) num2));
+                      let mut num15: i32 =  (int) Math.Round(100.0 * ( simpleList1.Weight[index6] /  num2));
                       num3 = this.game.HandyFunctionsObj.GetUnitStackPts(index7);
                       if (num3 < 1)
                         num3 = 1;
-                      if (!this.game.Data.UnitObj[index7].IsHQ & (double) num3 > (double) this.game.Data.RuleVar[247])
-                        num15 = (int) Math.Round((double) ((float) num15 * (this.game.Data.RuleVar[247] / (float) num3)));
+                      if (!this.game.Data.UnitObj[index7].IsHQ &  num3 >  this.game.Data.RuleVar[247])
+                        num15 = (int) Math.Round( ( num15 * (this.game.Data.RuleVar[247] /  num3)));
                       if (this.game.Data.UnitObj[index7].IsHQ & this.game.HandyFunctionsObj.GetStaffPercent(index7) < 100)
                         num15 *= 3;
-                      if (!this.game.Data.UnitObj[index7].IsHQ & (double) num3 < (double) this.game.Data.RuleVar[182])
+                      if (!this.game.Data.UnitObj[index7].IsHQ &  num3 <  this.game.Data.RuleVar[182])
                         num15 *= 3;
                       if (0 > num15)
                         num15 = 0;
@@ -2986,13 +2986,13 @@ namespace WindowsApplication1
                     if (this.game.Data.UnitObj[index7].AIUnitGoal != 5)
                     {
                       simpleList2.Add(index7, num16);
-                      this.AddLog(this.game.Data.UnitObj[index7].Name + " => gets weight= " + Conversion.Str((object) num16));
+                      this.AddLog(this.game.Data.UnitObj[index7].Name + " => gets weight= " + Conversion.Str( num16));
                     }
                   }
                 }
               }
             }
-            let mut num17: i32 =  (int) Math.Round((double) num10 / 2.0);
+            let mut num17: i32 =  (int) Math.Round( num10 / 2.0);
             if (phase == 1)
               this.TPlanObj[index1].LandTransferMobility = 0;
             let mut landCap: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap;
@@ -3016,17 +3016,17 @@ namespace WindowsApplication1
                   Number2 = this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap;
                   Number3 = this.game.Data.UnitObj[this.TPlanObj[index1].HQ].NavyCap;
                 }
-                if ((double) this.game.Data.RuleVar[253] == 0.0)
+                if ( this.game.Data.RuleVar[253] == 0.0)
                 {
                   this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap = 99999;
                   Number2 = this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap;
                 }
-                this.AddLog("ROLECYCLE=" + Conversion.Str((object) Number1) + " , capleftland=" + Conversion.Str((object) Number2) + ", capleftnavy=" + Conversion.Str((object) Number3));
-                for (; num20 == 0 & num21 < 4999 && (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.TPlanObj[index1].HQ) >= (double) powerPtsAbsolute * 0.9; num21 += 1)
+                this.AddLog("ROLECYCLE=" + Conversion.Str( Number1) + " , capleftland=" + Conversion.Str( Number2) + ", capleftnavy=" + Conversion.Str( Number3));
+                for (; num20 == 0 & num21 < 4999 &&  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(this.TPlanObj[index1].HQ) >=  powerPtsAbsolute * 0.9; num21 += 1)
                 {
                   for (let mut counter2: i32 =  simpleList2.Counter; counter2 >= 0; counter2 += -1)
                   {
-                    if ((double) VBMath.Rnd() * (double) num17 < (double) simpleList2.Weight[counter2] && this.game.Data.UnitObj[simpleList2.Id[counter2]].AIUnitGoal != 5)
+                    if ( VBMath.Rnd() *  num17 <  simpleList2.Weight[counter2] && this.game.Data.UnitObj[simpleList2.Id[counter2]].AIUnitGoal != 5)
                     {
                       RoleSFResult roleSfResult = this.LandTransferWhatWantsUnit(simpleList2.Id[counter2], 1, this.TPlanObj[index1].HQ, onlyrole: true);
                       let mut rolenr: i32 =  roleSfResult.rolenr;
@@ -3035,7 +3035,7 @@ namespace WindowsApplication1
                         let mut SfNr: i32 =  this.LandTransferGetSF(this.TPlanObj[index1].HQ, rolenr, roleSfResult.sftypenr);
                         if (rolenr == 9 & phase == 2)
                           SfNr = -1;
-                        if (phase == 1 && rolenr == 9 & SfNr > -1 && this.game.Data.SFTypeObj[this.game.Data.SFObj[SfNr].Type].AIRoleScore[2] > 0 && (double) num18 >= (double) landCap * 0.33)
+                        if (phase == 1 && rolenr == 9 & SfNr > -1 && this.game.Data.SFTypeObj[this.game.Data.SFObj[SfNr].Type].AIRoleScore[2] > 0 &&  num18 >=  landCap * 0.33)
                           SfNr = -1;
                         if (SfNr == -1)
                         {
@@ -3046,17 +3046,17 @@ namespace WindowsApplication1
                           if (rolenr == 9 & phase == 2)
                             SfNr = -1;
                         }
-                        if (phase == 1 && rolenr == 9 & SfNr > -1 && this.game.Data.SFTypeObj[this.game.Data.SFObj[SfNr].Type].AIRoleScore[2] > 0 && (double) num18 >= (double) landCap * 0.33)
+                        if (phase == 1 && rolenr == 9 & SfNr > -1 && this.game.Data.SFTypeObj[this.game.Data.SFObj[SfNr].Type].AIRoleScore[2] > 0 &&  num18 >=  landCap * 0.33)
                           SfNr = -1;
                         if (SfNr > -1)
                         {
                           let mut type: i32 =  this.game.Data.SFObj[SfNr].Type;
                           let mut num23: i32 =  this.game.Data.SFTypeObj[type].Weight * numArray3[this.game.Data.UnitObj[simpleList2.Id[counter2]].X, this.game.Data.UnitObj[simpleList2.Id[counter2]].Y];
-                          if ((double) this.game.Data.RuleVar[253] == 0.0)
+                          if ( this.game.Data.RuleVar[253] == 0.0)
                             num23 = 0;
                           let mut num24: i32 =  this.game.Data.SFTypeObj[type].Theater != 0 ? 0 : this.game.Data.SFTypeObj[type].Cap;
                           let mut num25: i32 =  this.game.Data.SFTypeObj[type].Theater != 1 ? 0 : this.game.Data.SFTypeObj[type].Cap;
-                          if ((double) this.game.Data.RuleVar[253] == 0.0 | phase == 2 | Number2 - num24 >= 0 & Number3 - num25 >= 0)
+                          if ( this.game.Data.RuleVar[253] == 0.0 | phase == 2 | Number2 - num24 >= 0 & Number3 - num25 >= 0)
                           {
                             if (!this.game.Data.UnitObj[simpleList2.Id[counter2]].IsHQ && this.game.HandyFunctionsObj.GetUnitSFNr(simpleList2.Id[counter2], type, this.game.Data.SFObj[SfNr].People) == -1 && this.game.Data.UnitObj[simpleList2.Id[counter2]].SFCount > 6)
                               num23 = 9999;
@@ -3068,10 +3068,10 @@ namespace WindowsApplication1
                               {
                                 let mut num26: i32 =  1;
                                 this.game.ProcessingObj.DoTransfer(this.TPlanObj[index1].HQ, simpleList2.Id[counter2], 0, SfNr, num26, AddtoHistory: false);
-                                this.AddLog("Transfered " + Conversion.Str((object) num26) + "x " + this.game.Data.SFTypeObj[type].Name + " to " + this.game.Data.UnitObj[simpleList2.Id[counter2]].Name);
+                                this.AddLog("Transfered " + Conversion.Str( num26) + "x " + this.game.Data.SFTypeObj[type].Name + " to " + this.game.Data.UnitObj[simpleList2.Id[counter2]].Name);
                                 Number2 -= num24;
                                 Number3 -= num25;
-                                if ((double) this.game.Data.RuleVar[253] == 0.0)
+                                if ( this.game.Data.RuleVar[253] == 0.0)
                                 {
                                   Number2 = 99999;
                                   this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap = 99999;
@@ -3126,7 +3126,7 @@ namespace WindowsApplication1
       for (let mut index: i32 =  1; index <= tplanCount1; index += 1)
       {
         if (this.TPlanObj[index].Type == 20)
-          num1 = (int) Math.Round((double) ((float) num1 + this.TPlanObj[index].WeightEnemyForce));
+          num1 = (int) Math.Round( ( num1 + this.TPlanObj[index].WeightEnemyForce));
       }
       if (num1 == 0)
         num1 = 1;
@@ -3136,7 +3136,7 @@ namespace WindowsApplication1
         if (this.TPlanObj[index1].Type == 30 && this.TPlanObj[index1].HQ > -1)
         {
           this.AddLog("");
-          this.AddLog("*AIRTransferExec for " + this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Name + " PHASE " + Conversion.Str((object) phase));
+          this.AddLog("*AIRTransferExec for " + this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Name + " PHASE " + Conversion.Str( phase));
           let mut x: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].X;
           let mut y: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Y;
           let mut increaseap: i32 =  this.game.HandyFunctionsObj.GetLowestAirAp(this.TPlanObj[index1].HQ);
@@ -3155,22 +3155,22 @@ namespace WindowsApplication1
           {
             if (phase == 1 & (this.TPlanObj[index2].Type == 20 | this.TPlanObj[index2].Type == 40) | this.TPlanObj[index2].Type == 20 & phase == 2)
             {
-              if ((double) this.game.EditObj.TempValue[0].Value[this.TPlanObj[index2].FromArea.X, this.TPlanObj[index2].FromArea.Y] < (double) this.game.Data.RuleVar[78] | phase == 2)
+              if ( this.game.EditObj.TempValue[0].Value[this.TPlanObj[index2].FromArea.X, this.TPlanObj[index2].FromArea.Y] <  this.game.Data.RuleVar[78] | phase == 2)
               {
                 let mut num4: i32 =  0;
                 let mut num5: i32 =  0;
                 if (this.TPlanObj[index2].Type == 20)
                 {
-                  if ((double) this.TPlanObj[index2].WeightEnemyForce > (double) this.TPlanObj[index2].WeightFriendlyForce)
+                  if ( this.TPlanObj[index2].WeightEnemyForce >  this.TPlanObj[index2].WeightFriendlyForce)
                   {
-                    let mut num6: i32 =  (int) Math.Round(100.0 * ((double) this.TPlanObj[index2].WeightEnemyForce / ((double) this.TPlanObj[index2].WeightFriendlyForce + 1.0)));
-                    num5 = (int) Math.Round(100.0 * ((double) this.TPlanObj[index2].WeightEnemyForce / ((double) this.TPlanObj[index2].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
-                    num3 = (int) Math.Round((double) ((float) (num6 * (this.TPlanObj[index2].WeightStrategic + 1)) * (this.TPlanObj[index2].WeightEnemyForce / (float) num1)));
+                    let mut num6: i32 =  (int) Math.Round(100.0 * ( this.TPlanObj[index2].WeightEnemyForce / ( this.TPlanObj[index2].WeightFriendlyForce + 1.0)));
+                    num5 = (int) Math.Round(100.0 * ( this.TPlanObj[index2].WeightEnemyForce / ( this.TPlanObj[index2].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
+                    num3 = (int) Math.Round( ( (num6 * (this.TPlanObj[index2].WeightStrategic + 1)) * (this.TPlanObj[index2].WeightEnemyForce /  num1)));
                   }
                   else
                   {
-                    num5 = (int) Math.Round(100.0 * ((double) this.TPlanObj[index2].WeightEnemyForce / ((double) this.TPlanObj[index2].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
-                    num3 = (int) Math.Round((double) ((float) ((int) Math.Round(100.0 * ((double) this.TPlanObj[index2].WeightEnemyForce / ((double) this.TPlanObj[index2].WeightFriendlyForce + 1.0))) * (this.TPlanObj[index2].WeightStrategic + 1)) * (this.TPlanObj[index2].WeightEnemyForce / (float) num1)));
+                    num5 = (int) Math.Round(100.0 * ( this.TPlanObj[index2].WeightEnemyForce / ( this.TPlanObj[index2].WeightFriendlyForce + 1.0))) + this.TPlanObj[index1].WeightStrategic;
+                    num3 = (int) Math.Round( ( ((int) Math.Round(100.0 * ( this.TPlanObj[index2].WeightEnemyForce / ( this.TPlanObj[index2].WeightFriendlyForce + 1.0))) * (this.TPlanObj[index2].WeightStrategic + 1)) * (this.TPlanObj[index2].WeightEnemyForce /  num1)));
                     if (num3 == 0)
                       num3 = 10 * (this.TPlanObj[index2].WeightStrategic + 1);
                   }
@@ -3186,13 +3186,13 @@ namespace WindowsApplication1
                   num4 += num3;
                 if (num4 > 0)
                 {
-                  this.AddLog("Plan #" + Conversion.Str((object) index2) + " importance=" + Conversion.Str((object) num5) + ", weight=" + Conversion.Str((object) num4));
+                  this.AddLog("Plan #" + Conversion.Str( index2) + " importance=" + Conversion.Str( num5) + ", weight=" + Conversion.Str( num4));
                   simpleList1.Add(index2, num4, num5);
                   num2 += num4;
                 }
               }
               else
-                this.AddLog("Plan #" + Conversion.Str((object) index2) + " IS OUT OF RANGE");
+                this.AddLog("Plan #" + Conversion.Str( index2) + " IS OUT OF RANGE");
             }
           }
           let mut num7: i32 =  0;
@@ -3201,14 +3201,14 @@ namespace WindowsApplication1
             let mut tplanCount4: i32 =  this.TPlanCount;
             for (let mut index3: i32 =  1; index3 <= tplanCount4; index3 += 1)
             {
-              if (this.TPlanObj[index3].Type == 30 && index3 != index1 && this.TPlanObj[index1].WeightStrategic < this.TPlanObj[index3].WeightStrategic && (double) this.game.EditObj.TempValue[0].Value[this.TPlanObj[index3].FromArea.X, this.TPlanObj[index3].FromArea.Y] < (double) this.game.Data.RuleVar[78])
+              if (this.TPlanObj[index3].Type == 30 && index3 != index1 && this.TPlanObj[index1].WeightStrategic < this.TPlanObj[index3].WeightStrategic &&  this.game.EditObj.TempValue[0].Value[this.TPlanObj[index3].FromArea.X, this.TPlanObj[index3].FromArea.Y] <  this.game.Data.RuleVar[78])
               {
                 let mut num8: i32 =  this.TPlanObj[index3].WeightStrategic - this.TPlanObj[index1].WeightStrategic;
                 let mut num9: i32 =  this.TPlanObj[index3].WeightStrategic - this.TPlanObj[index1].WeightStrategic;
                 if (num9 > 0)
                 {
                   simpleList1.Add(index3, num9, num8);
-                  this.AddLog("Plan #" + Conversion.Str((object) index3) + " importance=" + Conversion.Str((object) num8) + ", weight=" + Conversion.Str((object) num9));
+                  this.AddLog("Plan #" + Conversion.Str( index3) + " importance=" + Conversion.Str( num8) + ", weight=" + Conversion.Str( num9));
                   num2 += num9;
                   num7 += 1;
                   num3 = 1;
@@ -3234,14 +3234,14 @@ namespace WindowsApplication1
               let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
               for (let mut unr: i32 =  0; unr <= unitCounter1; unr += 1)
               {
-                if (unr != this.TPlanObj[index1].HQ & this.game.Data.UnitObj[unr].X > -1 & this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.Data.UnitObj[unr].AIPlanNr == plnr | this.TPlanObj[plnr].HQ == unr | phase == 2 && this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] < num11 && this.game.Data.UnitObj[unr].AIUnitGoal == 5 && (double) this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) >= 1.0)
+                if (unr != this.TPlanObj[index1].HQ & this.game.Data.UnitObj[unr].X > -1 & this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.Data.UnitObj[unr].AIPlanNr == plnr | this.TPlanObj[plnr].HQ == unr | phase == 2 && this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] < num11 && this.game.Data.UnitObj[unr].AIUnitGoal == 5 &&  this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) >= 1.0)
                 {
                   int num12;
                   if (this.TPlanObj[plnr].Type != 30)
                   {
-                    num12 = (int) Math.Round((double) (this.game.Data.RuleVar[31] - (float) this.game.HandyFunctionsObj.GetUnitStackPts(unr)));
+                    num12 = (int) Math.Round( (this.game.Data.RuleVar[31] -  this.game.HandyFunctionsObj.GetUnitStackPts(unr)));
                     if (this.game.HandyFunctionsObj.GetUnitStackPts(unr) < 10)
-                      num12 = (int) Math.Round((double) num12 * (1.0 + (double) (10 - this.game.HandyFunctionsObj.GetUnitStackPts(unr)) / 5.0));
+                      num12 = (int) Math.Round( num12 * (1.0 +  (10 - this.game.HandyFunctionsObj.GetUnitStackPts(unr)) / 5.0));
                     if (0 > num12)
                       num12 = 0;
                   }
@@ -3260,21 +3260,21 @@ namespace WindowsApplication1
                     int num13;
                     if (this.TPlanObj[plnr].Type != 30)
                     {
-                      num13 = (int) Math.Round((double) (this.game.Data.RuleVar[31] - (float) this.game.HandyFunctionsObj.GetUnitStackPts(index5)));
+                      num13 = (int) Math.Round( (this.game.Data.RuleVar[31] -  this.game.HandyFunctionsObj.GetUnitStackPts(index5)));
                       if (this.game.HandyFunctionsObj.GetUnitStackPts(index5) < 10)
-                        num13 = (int) Math.Round((double) num13 * (1.0 + (double) (10 - this.game.HandyFunctionsObj.GetUnitStackPts(index5)) / 5.0));
+                        num13 = (int) Math.Round( num13 * (1.0 +  (10 - this.game.HandyFunctionsObj.GetUnitStackPts(index5)) / 5.0));
                       if (0 > num13)
                         num13 = 0;
                     }
                     else
                       num13 = 1;
-                    let mut num14: i32 =  (int) Math.Round(Conversion.Int((double) num13 * ((double) simpleList1.Data1[index4] / (double) num10)));
+                    let mut num14: i32 =  (int) Math.Round(Conversion.Int( num13 * ( simpleList1.Data1[index4] /  num10)));
                     if (this.game.Data.UnitObj[index5].AIUnitGoal == 4)
                       num14 *= this.PlanEngineerNeedScore(plnr);
-                    if (this.game.Data.UnitObj[index5].AIUnitGoal == 5 && (double) this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[index5].X, this.game.Data.UnitObj[index5].Y) >= 1.0)
+                    if (this.game.Data.UnitObj[index5].AIUnitGoal == 5 &&  this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[index5].X, this.game.Data.UnitObj[index5].Y) >= 1.0)
                     {
                       simpleList2.Add(index5, num14);
-                      this.AddLog(this.game.Data.UnitObj[index5].Name + " => gets weight= " + Conversion.Str((object) num14));
+                      this.AddLog(this.game.Data.UnitObj[index5].Name + " => gets weight= " + Conversion.Str( num14));
                     }
                   }
                 }
@@ -3293,7 +3293,7 @@ namespace WindowsApplication1
                 let mut counter2: i32 =  simpleList2.Counter;
                 for (let mut index6: i32 =  0; index6 <= counter2; index6 += 1)
                 {
-                  if (this.game.Data.UnitObj[simpleList2.Id[index6]].AIUnitGoal == 5 && (double) VBMath.Rnd() * (double) num10 < (double) simpleList2.Weight[index6])
+                  if (this.game.Data.UnitObj[simpleList2.Id[index6]].AIUnitGoal == 5 &&  VBMath.Rnd() *  num10 <  simpleList2.Weight[index6])
                   {
                     RoleSFResult roleSfResult = this.LandTransferWhatWantsUnit(simpleList2.Id[index6], 1, this.TPlanObj[index1].HQ, onlyrole: true);
                     let mut rolenr1: i32 =  roleSfResult.rolenr;
@@ -3351,7 +3351,7 @@ namespace WindowsApplication1
       for (let mut index: i32 =  1; index <= tplanCount1; index += 1)
       {
         if (this.TPlanObj[index].Type == 20)
-          num1 = (int) Math.Round((double) ((float) num1 + this.TPlanObj[index].WeightEnemyForce));
+          num1 = (int) Math.Round( ( num1 + this.TPlanObj[index].WeightEnemyForce));
       }
       if (num1 == 0)
         ;
@@ -3361,10 +3361,10 @@ namespace WindowsApplication1
         if (this.TPlanObj[index1].Type == 30 && this.TPlanObj[index1].HQ > -1)
         {
           this.AddLog("");
-          this.AddLog("*NavyTransferExec for " + this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Name + " PHASE " + Conversion.Str((object) phase));
+          this.AddLog("*NavyTransferExec for " + this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Name + " PHASE " + Conversion.Str( phase));
           let mut x: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].X;
           let mut y: i32 =  this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Y;
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[1]), 1, (int) Math.Round((double) this.game.Data.RuleVar[78]), x, y, 0, false, istransfer: true);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[1]), 1, (int) Math.Round( this.game.Data.RuleVar[78]), x, y, 0, false, istransfer: true);
           SimpleList simpleList1 = SimpleList::new();
           let mut num2: i32 =  0;
           let mut num3: i32 =  0;
@@ -3373,14 +3373,14 @@ namespace WindowsApplication1
             let mut tplanCount3: i32 =  this.TPlanCount;
             for (let mut index2: i32 =  1; index2 <= tplanCount3; index2 += 1)
             {
-              if (this.TPlanObj[index2].Type == 30 && index2 != index1 && this.TPlanObj[index1].WeightStrategic < this.TPlanObj[index2].WeightStrategic && (double) this.game.EditObj.TempValue[0].Value[this.TPlanObj[index2].FromArea.X, this.TPlanObj[index2].FromArea.Y] < (double) this.game.Data.RuleVar[78])
+              if (this.TPlanObj[index2].Type == 30 && index2 != index1 && this.TPlanObj[index1].WeightStrategic < this.TPlanObj[index2].WeightStrategic &&  this.game.EditObj.TempValue[0].Value[this.TPlanObj[index2].FromArea.X, this.TPlanObj[index2].FromArea.Y] <  this.game.Data.RuleVar[78])
               {
                 let mut num4: i32 =  this.TPlanObj[index2].WeightStrategic - this.TPlanObj[index1].WeightStrategic;
                 let mut num5: i32 =  this.TPlanObj[index2].WeightStrategic - this.TPlanObj[index1].WeightStrategic;
                 if (num5 > 0)
                 {
                   simpleList1.Add(index2, num5, num4);
-                  this.AddLog("Plan #" + Conversion.Str((object) index2) + " importance=" + Conversion.Str((object) num4) + ", weight=" + Conversion.Str((object) num5));
+                  this.AddLog("Plan #" + Conversion.Str( index2) + " importance=" + Conversion.Str( num4) + ", weight=" + Conversion.Str( num5));
                   num2 += num5;
                   num3 += 1;
                 }
@@ -3410,9 +3410,9 @@ namespace WindowsApplication1
                   int num8;
                   if (this.TPlanObj[index4].Type != 30)
                   {
-                    num8 = (int) Math.Round((double) (this.game.Data.RuleVar[31] - (float) this.game.HandyFunctionsObj.GetUnitStackPts(unr)));
+                    num8 = (int) Math.Round( (this.game.Data.RuleVar[31] -  this.game.HandyFunctionsObj.GetUnitStackPts(unr)));
                     if (this.game.HandyFunctionsObj.GetUnitStackPts(unr) < 10)
-                      num8 = (int) Math.Round((double) num8 * (1.0 + (double) (10 - this.game.HandyFunctionsObj.GetUnitStackPts(unr)) / 5.0));
+                      num8 = (int) Math.Round( num8 * (1.0 +  (10 - this.game.HandyFunctionsObj.GetUnitStackPts(unr)) / 5.0));
                     if (0 > num8)
                       num8 = 0;
                   }
@@ -3431,17 +3431,17 @@ namespace WindowsApplication1
                     int num9;
                     if (this.TPlanObj[index4].Type != 30)
                     {
-                      num9 = (int) Math.Round((double) (this.game.Data.RuleVar[31] - (float) this.game.HandyFunctionsObj.GetUnitStackPts(index5)));
+                      num9 = (int) Math.Round( (this.game.Data.RuleVar[31] -  this.game.HandyFunctionsObj.GetUnitStackPts(index5)));
                       if (this.game.HandyFunctionsObj.GetUnitStackPts(index5) < 10)
-                        num9 = (int) Math.Round((double) num9 * (1.0 + (double) (10 - this.game.HandyFunctionsObj.GetUnitStackPts(index5)) / 5.0));
+                        num9 = (int) Math.Round( num9 * (1.0 +  (10 - this.game.HandyFunctionsObj.GetUnitStackPts(index5)) / 5.0));
                       if (0 > num9)
                         num9 = 0;
                     }
                     else
                       num9 = 1;
-                    let mut num10: i32 =  (int) Math.Round(Conversion.Int((double) num9 * ((double) simpleList1.Data1[index3] / (double) num6)));
+                    let mut num10: i32 =  (int) Math.Round(Conversion.Int( num9 * ( simpleList1.Data1[index3] /  num6)));
                     simpleList2.Add(index5, num10);
-                    this.AddLog(this.game.Data.UnitObj[index5].Name + " => gets weight= " + Conversion.Str((object) num10));
+                    this.AddLog(this.game.Data.UnitObj[index5].Name + " => gets weight= " + Conversion.Str( num10));
                   }
                 }
               }
@@ -3463,7 +3463,7 @@ namespace WindowsApplication1
                 let mut counter2: i32 =  simpleList2.Counter;
                 for (let mut index6: i32 =  0; index6 <= counter2; index6 += 1)
                 {
-                  if ((double) VBMath.Rnd() * (double) num6 < (double) simpleList2.Weight[index6])
+                  if ( VBMath.Rnd() *  num6 <  simpleList2.Weight[index6])
                   {
                     RoleSFResult roleSfResult = this.LandTransferWhatWantsUnit(simpleList2.Id[index6], 1, this.TPlanObj[index1].HQ, onlyrole: true);
                     let mut rolenr1: i32 =  roleSfResult.rolenr;
@@ -3486,7 +3486,7 @@ namespace WindowsApplication1
                           num18 = 0;
                         if (this.game.Data.SFTypeObj[type].AIRoleScore[3] > 0 && this.game.Data.UnitObj[this.TPlanObj[index1].HQ].NavyCap > this.game.Data.SFTypeObj[type].Cap)
                         {
-                          let mut num19: i32 =  (int) Math.Round((double) (num15 - (num15 - this.game.Data.UnitObj[this.TPlanObj[index1].HQ].NavyCap)) / 2.0);
+                          let mut num19: i32 =  (int) Math.Round( (num15 - (num15 - this.game.Data.UnitObj[this.TPlanObj[index1].HQ].NavyCap)) / 2.0);
                           if (num19 > 0)
                           {
                             if (num16 + this.game.Data.SFTypeObj[type].Cap > num19)
@@ -3499,7 +3499,7 @@ namespace WindowsApplication1
                           num18 = 999999;
                         if (this.game.Data.SFTypeObj[type].AIRoleScore[2] > 0 && this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap > this.game.Data.SFTypeObj[type].Cap)
                         {
-                          let mut num20: i32 =  (int) Math.Round((double) (landCap - (landCap - this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap)) / 2.0);
+                          let mut num20: i32 =  (int) Math.Round( (landCap - (landCap - this.game.Data.UnitObj[this.TPlanObj[index1].HQ].LandCap)) / 2.0);
                           if (num20 > 0)
                           {
                             if (num17 + this.game.Data.SFTypeObj[type].Cap > num20)
@@ -3510,11 +3510,11 @@ namespace WindowsApplication1
                         }
                         if (num18 < 9999)
                         {
-                          if (num18 <= this.game.Data.UnitObj[this.TPlanObj[index1].HQ].NavyCap | (double) this.game.Data.RuleVar[253] == 0.0)
+                          if (num18 <= this.game.Data.UnitObj[this.TPlanObj[index1].HQ].NavyCap |  this.game.Data.RuleVar[253] == 0.0)
                           {
                             this.game.ProcessingObj.DoTransfer(this.TPlanObj[index1].HQ, simpleList2.Id[index6], 1, sf, 1, AddtoHistory: false);
                             this.AddLog("Transfered 1x " + this.game.Data.SFTypeObj[type].Name + " to " + this.game.Data.UnitObj[simpleList2.Id[index6]].Name);
-                            if ((double) this.game.Data.RuleVar[253] == 0.0)
+                            if ( this.game.Data.RuleVar[253] == 0.0)
                             {
                               num15 = 99999;
                               this.game.Data.UnitObj[this.TPlanObj[index1].HQ].NavyCap = 99999;
@@ -3600,19 +3600,19 @@ namespace WindowsApplication1
         if (this.game.Data.UnitObj[unr].AIUnitGoal == 4)
         {
           if (info == 1)
-            role = (double) this.game.Data.RuleVar[214] != 1.0 ? 5 : (!Operators.ConditionalCompareObjectGreaterEqual(this.GetEPPerTurn(unr), (object) this.game.Data.RuleVar[215], false) ? 5 : (!Operators.ConditionalCompareObjectLess((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false) ? -1 : 9));
+            role =  this.game.Data.RuleVar[214] != 1.0 ? 5 : (!Operators.ConditionalCompareObjectGreaterEqual(this.GetEPPerTurn(unr),  this.game.Data.RuleVar[215], false) ? 5 : (!Operators.ConditionalCompareObjectLess( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false) ? -1 : 9));
           if (info == 2)
             role = 5;
         }
         if (this.game.Data.UnitObj[unr].AIUnitGoal == 1)
         {
-          if (Conversions.ToBoolean(Operators.AndObject((object) this.game.Data.UnitObj[unr].AIMobilize, Operators.CompareObjectLessEqual((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))))
+          if (Conversions.ToBoolean(Operators.AndObject( this.game.Data.UnitObj[unr].AIMobilize, Operators.CompareObjectLessEqual( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))))
           {
-            if ((double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) > (double) this.game.Data.RuleVar[247])
+            if ( this.game.HandyFunctionsObj.GetUnitStackPts(unr) >  this.game.Data.RuleVar[247])
             {
               if (info == 1)
                 role = 9;
-              if ((double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) < (double) this.game.Data.RuleVar[182])
+              if ( this.game.HandyFunctionsObj.GetUnitStackPts(unr) <  this.game.Data.RuleVar[182])
               {
                 if (info == 2)
                   role = 6;
@@ -3627,7 +3627,7 @@ namespace WindowsApplication1
               if (info == 2)
                 role = 7;
             }
-            if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.game.Data.RuleVar[258] < (double) this.GetFriendlyAirRatio() & (double) this.GetFriendlyAirRatio() < 1.0 & (double) this.game.Data.RuleVar[258] > 0.0)
+            if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.game.Data.RuleVar[258] <  this.GetFriendlyAirRatio() &  this.GetFriendlyAirRatio() < 1.0 &  this.game.Data.RuleVar[258] > 0.0)
             {
               if (this.GetRolePercent(unr, 12) < 10)
               {
@@ -3637,7 +3637,7 @@ namespace WindowsApplication1
                   role = 6;
               }
             }
-            else if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
+            else if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
             {
               if (info == 1)
                 role = 12;
@@ -3645,9 +3645,9 @@ namespace WindowsApplication1
                 role = 6;
             }
           }
-          else if (Conversions.ToBoolean(Operators.AndObject((object) (!this.game.Data.UnitObj[unr].AIMobilize & !this.game.Data.UnitObj[unr].AIReserve), Operators.CompareObjectLess((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitSpecialAIWeightWithoutLandCarryCap(unr), false))))
+          else if (Conversions.ToBoolean(Operators.AndObject( (!this.game.Data.UnitObj[unr].AIMobilize & !this.game.Data.UnitObj[unr].AIReserve), Operators.CompareObjectLess( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitSpecialAIWeightWithoutLandCarryCap(unr), false))))
           {
-            if ((double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) > (double) this.game.Data.RuleVar[247])
+            if ( this.game.HandyFunctionsObj.GetUnitStackPts(unr) >  this.game.Data.RuleVar[247])
             {
               if (info == 1)
                 role = 9;
@@ -3662,11 +3662,11 @@ namespace WindowsApplication1
                 role = 7;
             }
           }
-          else if ((double) this.GetRolePercent(unr, 6) < (double) this.game.Data.RuleVar[156])
+          else if ( this.GetRolePercent(unr, 6) <  this.game.Data.RuleVar[156])
           {
             if (info == 1)
               role = 6;
-            if ((double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) < (double) this.game.Data.RuleVar[182])
+            if ( this.game.HandyFunctionsObj.GetUnitStackPts(unr) <  this.game.Data.RuleVar[182])
             {
               if (info == 2)
                 role = 6;
@@ -3676,7 +3676,7 @@ namespace WindowsApplication1
           }
           else
           {
-            if ((double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) < (double) this.game.Data.RuleVar[182])
+            if ( this.game.HandyFunctionsObj.GetUnitStackPts(unr) <  this.game.Data.RuleVar[182])
             {
               if (info == 1)
                 role = 6;
@@ -3690,25 +3690,25 @@ namespace WindowsApplication1
           {
             if (this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr, true) > this.GetAbsolutePowerForReserveUnit(this.game.Data.UnitObj[unr].AIPlanNr))
               role = -1;
-            if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.game.Data.RuleVar[258] < (double) this.GetFriendlyAirRatio() & (double) this.GetFriendlyAirRatio() < 1.0 & (double) this.game.Data.RuleVar[258] > 0.0)
+            if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.game.Data.RuleVar[258] <  this.GetFriendlyAirRatio() &  this.GetFriendlyAirRatio() < 1.0 &  this.game.Data.RuleVar[258] > 0.0)
             {
               if (this.GetRolePercent(unr, 12) < 20 && info == 1)
                 role = 12;
             }
-            else if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 40 && info == 1)
+            else if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 40 && info == 1)
               role = 12;
           }
         }
         if (this.game.Data.UnitObj[unr].AIUnitGoal == 5)
         {
           let mut num: i32 =  1;
-          if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258])
+          if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258])
             num = 0;
           if (this.game.HandyFunctionsObj.GetPowerPtsAbsoluteForAirOnly(unr) > 0)
-            num = (double) this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) >= 1.0 ? num : 0;
+            num =  this.game.HandyFunctionsObj.GetAirFieldStackModifier(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y) >= 1.0 ? num : 0;
           if (num == 1)
           {
-            if ((double) this.GetRolePercent(unr, 13) > 0.5)
+            if ( this.GetRolePercent(unr, 13) > 0.5)
             {
               if (info == 1)
                 role = 14;
@@ -3760,7 +3760,7 @@ namespace WindowsApplication1
             if (info == 2)
               role = 18;
           }
-          else if ((double) this.GetRolePercent(unr, 18) > 0.5)
+          else if ( this.GetRolePercent(unr, 18) > 0.5)
           {
             if (info == 1)
               role = 17;
@@ -3774,7 +3774,7 @@ namespace WindowsApplication1
             if (info == 2)
               role = -1;
           }
-          if ((double) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 1) > (double) this.game.Data.RuleVar[30] * 2.1)
+          if ( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 1) >  this.game.Data.RuleVar[30] * 2.1)
           {
             if (info == 1)
               role = 18;
@@ -3784,9 +3784,9 @@ namespace WindowsApplication1
         }
         if (this.game.Data.UnitObj[unr].AIUnitGoal == 2)
         {
-          if (Conversions.ToBoolean(Operators.AndObject((object) this.game.Data.UnitObj[unr].AIMobilize, Operators.CompareObjectLessEqual((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))))
+          if (Conversions.ToBoolean(Operators.AndObject( this.game.Data.UnitObj[unr].AIMobilize, Operators.CompareObjectLessEqual( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))))
           {
-            if ((double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) > (double) this.game.Data.RuleVar[247])
+            if ( this.game.HandyFunctionsObj.GetUnitStackPts(unr) >  this.game.Data.RuleVar[247])
             {
               if (info == 1)
                 role = 9;
@@ -3801,7 +3801,7 @@ namespace WindowsApplication1
                 role = 6;
             }
           }
-          else if ((double) this.GetRolePercent(unr, 10) < (double) this.game.Data.RuleVar[157])
+          else if ( this.GetRolePercent(unr, 10) <  this.game.Data.RuleVar[157])
           {
             if (info == 1)
               role = 10;
@@ -3815,7 +3815,7 @@ namespace WindowsApplication1
             if (info == 2)
               role = 10;
           }
-          if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.game.Data.RuleVar[258] < (double) this.GetFriendlyAirRatio() & (double) this.GetFriendlyAirRatio() < 1.0 & (double) this.game.Data.RuleVar[258] > 0.0)
+          if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.game.Data.RuleVar[258] <  this.GetFriendlyAirRatio() &  this.GetFriendlyAirRatio() < 1.0 &  this.game.Data.RuleVar[258] > 0.0)
           {
             if (this.GetRolePercent(unr, 12) < 25)
             {
@@ -3825,7 +3825,7 @@ namespace WindowsApplication1
                 role = 10;
             }
           }
-          else if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
+          else if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
           {
             if (info == 1)
               role = 12;
@@ -3837,9 +3837,9 @@ namespace WindowsApplication1
         }
         if (this.game.Data.UnitObj[unr].AIUnitGoal == 3)
         {
-          if (Conversions.ToBoolean(Operators.AndObject((object) this.game.Data.UnitObj[unr].AIMobilize, Operators.CompareObjectLess((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))))
+          if (Conversions.ToBoolean(Operators.AndObject( this.game.Data.UnitObj[unr].AIMobilize, Operators.CompareObjectLess( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))))
           {
-            if ((double) this.game.HandyFunctionsObj.GetUnitStackPts(unr) > (double) this.game.Data.RuleVar[247])
+            if ( this.game.HandyFunctionsObj.GetUnitStackPts(unr) >  this.game.Data.RuleVar[247])
             {
               if (info == 1)
                 role = 9;
@@ -3853,14 +3853,14 @@ namespace WindowsApplication1
               if (info == 1)
                 role = 6;
             }
-            if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.game.Data.RuleVar[258] < (double) this.GetFriendlyAirRatio() & (double) this.GetFriendlyAirRatio() < 1.0 & (double) this.game.Data.RuleVar[258] > 0.0)
+            if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.game.Data.RuleVar[258] <  this.GetFriendlyAirRatio() &  this.GetFriendlyAirRatio() < 1.0 &  this.game.Data.RuleVar[258] > 0.0)
             {
               if (info == 1)
                 role = 12;
               if (info == 2)
                 role = 8;
             }
-            else if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258])
+            else if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258])
             {
               if (info == 1)
                 role = 12;
@@ -3868,13 +3868,13 @@ namespace WindowsApplication1
                 role = 8;
             }
           }
-          else if ((double) this.GetRolePercent(unr, 8) < (double) this.game.Data.RuleVar[158])
+          else if ( this.GetRolePercent(unr, 8) <  this.game.Data.RuleVar[158])
           {
             if (info == 1)
               role = 8;
             if (info == 2)
               role = 6;
-            if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.game.Data.RuleVar[258] < (double) this.GetFriendlyAirRatio() & (double) this.GetFriendlyAirRatio() < 1.0 & (double) this.game.Data.RuleVar[258] > 0.0)
+            if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.game.Data.RuleVar[258] <  this.GetFriendlyAirRatio() &  this.GetFriendlyAirRatio() < 1.0 &  this.game.Data.RuleVar[258] > 0.0)
             {
               if (this.GetRolePercent(unr, 12) < 10)
               {
@@ -3884,7 +3884,7 @@ namespace WindowsApplication1
                   role = 8;
               }
             }
-            else if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
+            else if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
             {
               if (info == 1)
                 role = 12;
@@ -3906,7 +3906,7 @@ namespace WindowsApplication1
         {
           if (this.game.HandyFunctionsObj.GetStaffPercent(unr) < 100)
           {
-            if ((double) this.game.Data.RuleVar[(int) byte.MaxValue] < 1.0)
+            if ( this.game.Data.RuleVar[(int) byte.MaxValue] < 1.0)
             {
               if (info == 1)
                 role = 1;
@@ -3923,14 +3923,14 @@ namespace WindowsApplication1
           }
           else
           {
-            if (Operators.ConditionalCompareObjectLess((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
+            if (Operators.ConditionalCompareObjectLess( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
             {
               if (info == 1)
                 role = 9;
               if (info == 2)
                 role = -1;
             }
-            else if ((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr, true) < (double) this.game.Data.RuleVar[182])
+            else if ( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr, true) <  this.game.Data.RuleVar[182])
             {
               if (info == 1)
                 role = 6;
@@ -3939,7 +3939,7 @@ namespace WindowsApplication1
             }
             else
               role = -1;
-            if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.game.Data.RuleVar[258] < (double) this.GetFriendlyAirRatio() & (double) this.GetFriendlyAirRatio() < 1.0 & (double) this.game.Data.RuleVar[258] > 0.0)
+            if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.game.Data.RuleVar[258] <  this.GetFriendlyAirRatio() &  this.GetFriendlyAirRatio() < 1.0 &  this.game.Data.RuleVar[258] > 0.0)
             {
               if (this.GetRolePercent(unr, 12) < 10)
               {
@@ -3949,7 +3949,7 @@ namespace WindowsApplication1
                   role = -1;
               }
             }
-            else if ((double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] & (double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
+            else if ( this.game.Data.Round >  this.game.Data.RuleVar[259] &  this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258] && this.GetRolePercent(unr, 12) < 25)
             {
               if (info == 1)
                 role = 12;
@@ -3993,9 +3993,9 @@ namespace WindowsApplication1
         let mut type: i32 =  this.game.Data.SFObj[sf].Type;
         num1 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts;
         if (this.game.Data.SFTypeObj[type].AIRoleScore[rolenr] > 0)
-          num2 = (int) Math.Round((double) num2 + (double) (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) * ((double) this.game.Data.SFTypeObj[type].AIRoleScore[rolenr] / 100.0));
+          num2 = (int) Math.Round( num2 +  (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].PowerPts) * ( this.game.Data.SFTypeObj[type].AIRoleScore[rolenr] / 100.0));
       }
-      return num1 == 0 ? 0 : (int) Math.Round(Conversion.Int((double) (100 * num2) / (double) num1));
+      return num1 == 0 ? 0 : (int) Math.Round(Conversion.Int( (100 * num2) /  num1));
     }
 
     pub int LandTransferGetSF(int unr, int roletype, let mut sftypenr: i32 =  -1)
@@ -4065,7 +4065,7 @@ namespace WindowsApplication1
               }
             }
           }
-          if (!this.game.Data.UnitObj[unr1].IsHQ && Operators.ConditionalCompareObjectGreater(this.GetEPPerTurn(unr1), (object) this.game.Data.RuleVar[215], false))
+          if (!this.game.Data.UnitObj[unr1].IsHQ && Operators.ConditionalCompareObjectGreater(this.GetEPPerTurn(unr1),  this.game.Data.RuleVar[215], false))
           {
             for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr1].SFCount; sfCount >= 0; sfCount += -1)
             {
@@ -4079,12 +4079,12 @@ namespace WindowsApplication1
                   let mut hq: i32 =  this.TPlanObj[landReservePlan].HQ;
                   if (hq > -1)
                   {
-                    let mut num: i32 =  (int) Math.Round((double) this.game.Data.SFObj[sf].Qty / 3.0);
+                    let mut num: i32 =  (int) Math.Round( this.game.Data.SFObj[sf].Qty / 3.0);
                     if (num > 0)
                     {
                       let mut x: i32 =  this.game.Data.UnitObj[unr1].X;
                       let mut y: i32 =  this.game.Data.UnitObj[unr1].Y;
-                      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[78]), x, y, 0);
+                      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[78]), x, y, 0);
                       if (this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y] < 9999)
                       {
                         this.game.HandyFunctionsObj.AddTroops3(hq, type, this.game.Data.SFObj[sf].People, num, this.game.Data.SFObj[sf].Xp, this.game.Data.SFObj[sf].Rdn, 0, this.game.Data.SFObj[sf].Mor, MoveType: this.game.Data.SFObj[sf].MoveType);
@@ -4098,7 +4098,7 @@ namespace WindowsApplication1
           }
           if (!this.game.Data.UnitObj[unr1].IsHQ)
           {
-            let mut integer: i32 =  Conversions.ToInteger(Operators.SubtractObject((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr1, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr1)));
+            let mut integer: i32 =  Conversions.ToInteger(Operators.SubtractObject( this.game.HandyFunctionsObj.GetUnitCarryCap(unr1, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr1)));
             for (let mut sfCount: i32 =  this.game.Data.UnitObj[unr1].SFCount; sfCount >= 0; sfCount += -1)
             {
               let mut sf: i32 =  this.game.Data.UnitObj[unr1].SFList[sfCount];
@@ -4119,7 +4119,7 @@ namespace WindowsApplication1
                     {
                       let mut x: i32 =  this.game.Data.UnitObj[unr1].X;
                       let mut y: i32 =  this.game.Data.UnitObj[unr1].Y;
-                      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[78]), x, y, 0);
+                      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[78]), x, y, 0);
                       if (this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y] < 9999)
                       {
                         this.game.HandyFunctionsObj.AddTroops3(hq, type, this.game.Data.SFObj[sf].People, num, this.game.Data.SFObj[sf].Xp, this.game.Data.SFObj[sf].Rdn, 0, this.game.Data.SFObj[sf].Mor, MoveType: this.game.Data.SFObj[sf].MoveType);
@@ -4150,7 +4150,7 @@ namespace WindowsApplication1
                     {
                       let mut x: i32 =  this.game.Data.UnitObj[unr1].X;
                       let mut y: i32 =  this.game.Data.UnitObj[unr1].Y;
-                      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[78]), x, y, 0);
+                      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[78]), x, y, 0);
                       if (this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y] < 9999)
                       {
                         this.game.HandyFunctionsObj.AddTroops3(hq, type, this.game.Data.SFObj[sf].People, qty, this.game.Data.SFObj[sf].Xp, this.game.Data.SFObj[sf].Rdn, 0, this.game.Data.SFObj[sf].Mor, MoveType: this.game.Data.SFObj[sf].MoveType);
@@ -4177,12 +4177,12 @@ namespace WindowsApplication1
               {
                 let mut num2: i32 =  this.game.Data.SFObj[sf].Qty;
                 if (num1 == 2)
-                  num2 = (int) Math.Round((double) num2 / 3.0);
+                  num2 = (int) Math.Round( num2 / 3.0);
                 if (num2 > 0)
                 {
                   let mut x: i32 =  this.game.Data.UnitObj[unr1].X;
                   let mut y: i32 =  this.game.Data.UnitObj[unr1].Y;
-                  this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[78]), x, y, 0);
+                  this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[78]), x, y, 0);
                   if (this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[this.game.Data.UnitObj[unr1].HQ].X, this.game.Data.UnitObj[this.game.Data.UnitObj[unr1].HQ].Y] < 9999)
                   {
                     this.game.HandyFunctionsObj.AddTroops3(this.game.Data.UnitObj[unr1].HQ, type, this.game.Data.SFObj[sf].People, num2, this.game.Data.SFObj[sf].Xp, this.game.Data.SFObj[sf].Rdn, 0, this.game.Data.SFObj[sf].Mor, MoveType: this.game.Data.SFObj[sf].MoveType);
@@ -4198,12 +4198,12 @@ namespace WindowsApplication1
                 num3 = 2;
               if (num3 > 0)
               {
-                let mut num4: i32 =  (int) Math.Round((double) this.game.Data.SFObj[sf].Qty / 3.0);
+                let mut num4: i32 =  (int) Math.Round( this.game.Data.SFObj[sf].Qty / 3.0);
                 if (num4 > 0)
                 {
                   let mut x: i32 =  this.game.Data.UnitObj[unr1].X;
                   let mut y: i32 =  this.game.Data.UnitObj[unr1].Y;
-                  this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[78]), x, y, 0);
+                  this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[78]), x, y, 0);
                   if (this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[this.game.Data.UnitObj[unr1].HQ].X, this.game.Data.UnitObj[this.game.Data.UnitObj[unr1].HQ].Y] < 9999)
                   {
                     this.game.HandyFunctionsObj.AddTroops3(this.game.Data.UnitObj[unr1].HQ, type, this.game.Data.SFObj[sf].People, num4, this.game.Data.SFObj[sf].Xp, this.game.Data.SFObj[sf].Rdn, 0, this.game.Data.SFObj[sf].Mor, MoveType: this.game.Data.SFObj[sf].MoveType);
@@ -4243,12 +4243,12 @@ namespace WindowsApplication1
             RegimeClass[] regimeClassArray1 = regimeObj1;
             let mut turn1: i32 =  this.game.Data.Turn;
             let mut index1: i32 =  turn1;
-            regimeClassArray1[index1].ResPts = (int) Math.Round((double) ((float) regimeObj1[turn1].ResPts + this.game.Data.RuleVar[47]));
+            regimeClassArray1[index1].ResPts = (int) Math.Round( ( regimeObj1[turn1].ResPts + this.game.Data.RuleVar[47]));
             RegimeClass[] regimeObj2 = this.game.Data.RegimeObj;
             RegimeClass[] regimeClassArray2 = regimeObj2;
             let mut turn2: i32 =  this.game.Data.Turn;
             let mut index2: i32 =  turn2;
-            regimeClassArray2[index2].ResPts = (int) Math.Round((double) ((float) regimeObj2[turn2].ResPts - this.game.Data.RuleVar[46]));
+            regimeClassArray2[index2].ResPts = (int) Math.Round( ( regimeObj2[turn2].ResPts - this.game.Data.RuleVar[46]));
             if (this.game.HandyFunctionsObj.HasUnitNavySF(unr))
             {
               let mut x: i32 =  this.game.Data.UnitObj[unr].X;
@@ -4305,17 +4305,17 @@ namespace WindowsApplication1
       let mut tplanCount3: i32 =  this.TPlanCount;
       for (let mut index4: i32 =  1; index4 <= tplanCount3; index4 += 1)
       {
-        this.AddLog("ChangeHQ for " + Conversion.Str((object) index4) + "?");
+        this.AddLog("ChangeHQ for " + Conversion.Str( index4) + "?");
         SimpleList simpleList = SimpleList::new();
         let mut unitCounter3: i32 =  this.game.Data.UnitCounter;
         for (let mut tid: i32 =  0; tid <= unitCounter3; tid += 1)
         {
           if (this.game.Data.UnitObj[tid].AIPlanNr == index4 & this.game.Data.UnitObj[tid].IsHQ & this.game.Data.UnitObj[tid].Regime == this.game.Data.Turn)
           {
-            let mut num1: i32 =  (int) Math.Round((double) (this.game.Data.RuleVar[3] + Conversion.Int(this.game.Data.RuleVar[3] / 5f)));
+            let mut num1: i32 =  (int) Math.Round( (this.game.Data.RuleVar[3] + Conversion.Int(this.game.Data.RuleVar[3] / 5f)));
             let mut tdata1: i32 =  this.AverageDistanceUnitsInAP(index4, this.game.Data.UnitObj[tid].X, this.game.Data.UnitObj[tid].Y, true) * this.AverageDistanceUnits(index4, this.game.Data.UnitObj[tid].X, this.game.Data.UnitObj[tid].Y);
             let mut num2: i32 =  num1 - tdata1;
-            this.AddLog(this.game.Data.UnitObj[tid].Name + " gets weight = " + Conversion.Str((object) num2));
+            this.AddLog(this.game.Data.UnitObj[tid].Name + " gets weight = " + Conversion.Str( num2));
             simpleList.Add(tid, num2, tdata1);
           }
         }
@@ -4326,12 +4326,12 @@ namespace WindowsApplication1
           {
             if (this.GetAreaNr(this.TPlanObj[index5].FromArea) == this.GetAreaNr(this.TPlanObj[index4].FromArea) & this.TPlanObj[index5].HQ > -1)
             {
-              let mut num3: i32 =  (int) Math.Round((double) this.game.Data.RuleVar[3]);
+              let mut num3: i32 =  (int) Math.Round( this.game.Data.RuleVar[3]);
               if (this.TPlanObj[index5].Type == 20)
                 num3 += 100;
               let mut tdata1: i32 =  this.AverageDistanceUnitsInAP(index4, this.game.Data.UnitObj[this.TPlanObj[index5].HQ].X, this.game.Data.UnitObj[this.TPlanObj[index5].HQ].Y, true);
               let mut num4: i32 =  num3 - tdata1;
-              this.AddLog(this.game.Data.UnitObj[this.TPlanObj[index5].HQ].Name + " gets weight = " + Conversion.Str((object) num4));
+              this.AddLog(this.game.Data.UnitObj[this.TPlanObj[index5].HQ].Name + " gets weight = " + Conversion.Str( num4));
               simpleList.Add(this.TPlanObj[index5].HQ, num4, tdata1);
             }
             else if (this.TPlanObj[index5].HQ > -1)
@@ -4345,14 +4345,14 @@ namespace WindowsApplication1
               }
               if (num5 > 0)
               {
-                let mut num7: i32 =  (int) Math.Round((double) (this.game.Data.RuleVar[3] - (float) (num5 * 10)));
+                let mut num7: i32 =  (int) Math.Round( (this.game.Data.RuleVar[3] -  (num5 * 10)));
                 if (num6 == 1)
                   num7 -= 5;
                 if (this.TPlanObj[index5].Type == 20)
                   num7 += 5;
                 let mut tdata1: i32 =  this.AverageDistanceUnitsInAP(index4, this.game.Data.UnitObj[this.TPlanObj[index5].HQ].X, this.game.Data.UnitObj[this.TPlanObj[index5].HQ].Y, true);
                 let mut num8: i32 =  num7 - tdata1;
-                this.AddLog(this.game.Data.UnitObj[this.TPlanObj[index5].HQ].Name + " gets weight = " + Conversion.Str((object) num8));
+                this.AddLog(this.game.Data.UnitObj[this.TPlanObj[index5].HQ].Name + " gets weight = " + Conversion.Str( num8));
                 simpleList.Add(this.TPlanObj[index5].HQ, num8, tdata1);
               }
             }
@@ -4366,12 +4366,12 @@ namespace WindowsApplication1
           {
             if (this.game.Data.UnitObj[Unr].AIPlanNr == index4 && !this.game.Data.UnitObj[Unr].IsHQ && this.game.Data.UnitObj[Unr].HQ != simpleList.Id[simpleList.Counter] && this.game.Data.UnitObj[Unr].X > -1 & this.game.Data.UnitObj[Unr].Regime == this.game.Data.Turn && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[Unr].X, this.game.Data.UnitObj[Unr].Y].LandscapeType].IsSea)
             {
-              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[Unr].X, this.game.Data.UnitObj[Unr].Y, 0);
+              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[Unr].X, this.game.Data.UnitObj[Unr].Y, 0);
               let mut num9: i32 =  1;
               if (this.game.Data.UnitObj[Unr].HQ > -1)
               {
                 let mut num10: i32 =  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[this.game.Data.UnitObj[Unr].HQ].X, this.game.Data.UnitObj[this.game.Data.UnitObj[Unr].HQ].Y];
-                let mut num11: i32 =  (int) Math.Round((double) ((float) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[simpleList.Id[simpleList.Counter]].X, this.game.Data.UnitObj[simpleList.Id[simpleList.Counter]].Y] + Conversion.Int(this.game.Data.RuleVar[3] / 4f)));
+                let mut num11: i32 =  (int) Math.Round( ( this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[simpleList.Id[simpleList.Counter]].X, this.game.Data.UnitObj[simpleList.Id[simpleList.Counter]].Y] + Conversion.Int(this.game.Data.RuleVar[3] / 4f)));
                 let mut num12: i32 =  this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[this.game.Data.UnitObj[Unr].HQ].X, this.game.Data.UnitObj[this.game.Data.UnitObj[Unr].HQ].Y, 0, this.game.Data.UnitObj[Unr].X, this.game.Data.UnitObj[Unr].Y, 0);
                 let mut num13: i32 =  this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[simpleList.Id[simpleList.Counter]].X, this.game.Data.UnitObj[simpleList.Id[simpleList.Counter]].Y, 0, this.game.Data.UnitObj[Unr].X, this.game.Data.UnitObj[Unr].Y, 0);
                 if (num10 < num11 & num13 + 2 > num12)
@@ -4428,7 +4428,7 @@ namespace WindowsApplication1
         }
       }
       this.AddLog("");
-      this.AddLog("Plan " + Conversion.Str((object) PlanNr) + " execution: .. av.units=" + Conversion.Str((object) Number1));
+      this.AddLog("Plan " + Conversion.Str( PlanNr) + " execution: .. av.units=" + Conversion.Str( Number1));
       int tid1;
       Coordinate Expression;
       if (Number1 > 0)
@@ -4440,7 +4440,7 @@ namespace WindowsApplication1
           if (this.TPlanObj[PlanNr].Stand == 1 | this.TPlanObj[PlanNr].Stand == 2 & this.TPlanObj[PlanNr].RiverLine < 1)
           {
             tid1 = 0;
-            let mut num3: i32 =  !Information.IsNothing((object) this.TPlanObj[PlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0, this.TPlanObj[PlanNr].TooArea.X, this.TPlanObj[PlanNr].TooArea.Y, 0) : 15;
+            let mut num3: i32 =  !Information.IsNothing( this.TPlanObj[PlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0, this.TPlanObj[PlanNr].TooArea.X, this.TPlanObj[PlanNr].TooArea.Y, 0) : 15;
             if (num3 < 10)
               num3 = 10;
             let mut MaxDist: i32 =  num3 * 2;
@@ -4464,12 +4464,12 @@ namespace WindowsApplication1
                 {
                   let mut nr: i32 =  SL.FindNr(-1, x, y);
                   let mut num4: i32 =  this.GetForceLandStrength(unr);
-                  let mut num5: i32 =  (int) Math.Round(Conversion.Int((double) (this.GetClosestFrontlineDistance(this.GetAreaNr(this.TPlanObj[PlanNr].FromArea), x, y) + this.game.HandyFunctionsObj.Distance(x, y, 0, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0)) / 2.0));
+                  let mut num5: i32 =  (int) Math.Round(Conversion.Int( (this.GetClosestFrontlineDistance(this.GetAreaNr(this.TPlanObj[PlanNr].FromArea), x, y) + this.game.HandyFunctionsObj.Distance(x, y, 0, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0)) / 2.0));
                   if (num5 < 1)
                     num5 = 1;
                   if (this.TPlanObj[PlanNr].Stand == 1)
-                    num4 = (int) Math.Round((double) ((float) num4 * (1f + this.game.Data.RuleVar[225])));
-                  let mut tweight: i32 =  (int) Math.Round((double) num4 / (double) num5);
+                    num4 = (int) Math.Round( ( num4 * (1f + this.game.Data.RuleVar[225])));
+                  let mut tweight: i32 =  (int) Math.Round( num4 /  num5);
                   if (nr == -1)
                   {
                     tid1 += 1;
@@ -4498,21 +4498,21 @@ namespace WindowsApplication1
               num2 = 1;
             if (num1 == 0)
               num1 = 100;
-            num7 = (int) Math.Round((double) num1 / (double) num2);
+            num7 = (int) Math.Round( num1 /  num2);
             let mut x: i32 =  this.TPlanObj[PlanNr].TooArea.X;
             let mut y: i32 =  this.TPlanObj[PlanNr].TooArea.Y;
-            let mut tweight: i32 =  (int) Math.Round((double) ((float) (this.TPlanObj[PlanNr].TooArea.fuzzyvp * num7) * this.game.Data.RuleVar[151]));
+            let mut tweight: i32 =  (int) Math.Round( ( (this.TPlanObj[PlanNr].TooArea.fuzzyvp * num7) * this.game.Data.RuleVar[151]));
             if (this.TPlanObj[PlanNr].TooArea.ConstitutantCount > 0)
-              tweight = (int) Math.Round((double) tweight / 20.0);
-            if ((double) this.game.Data.RuleVar[225] > 0.0)
-              tweight = (int) Math.Round((double) tweight / Math.Pow((double) this.game.Data.RuleVar[225] + 1.0, 2.0));
+              tweight = (int) Math.Round( tweight / 20.0);
+            if ( this.game.Data.RuleVar[225] > 0.0)
+              tweight = (int) Math.Round( tweight / Math.Pow( this.game.Data.RuleVar[225] + 1.0, 2.0));
             if (tweight < 0)
               tweight = 0;
             let mut nr: i32 =  SL.FindNr(-1, x, y);
             if (nr == -1)
             {
               tid1 += 1;
-              SL.Add(tid1, tweight, x, y, (int) Math.Round((double) this.game.Data.RuleVar[152]));
+              SL.Add(tid1, tweight, x, y, (int) Math.Round( this.game.Data.RuleVar[152]));
             }
             else
             {
@@ -4526,7 +4526,7 @@ namespace WindowsApplication1
           }
           if (this.TPlanObj[PlanNr].Stand == 2 & this.TPlanObj[PlanNr].RiverLine < 1 | this.TPlanObj[PlanNr].Stand == 1)
           {
-            let mut num9: i32 =  !Information.IsNothing((object) this.TPlanObj[PlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0, this.TPlanObj[PlanNr].TooArea.X, this.TPlanObj[PlanNr].TooArea.Y, 0) : 15;
+            let mut num9: i32 =  !Information.IsNothing( this.TPlanObj[PlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0, this.TPlanObj[PlanNr].TooArea.X, this.TPlanObj[PlanNr].TooArea.Y, 0) : 15;
             if (num9 < 10)
               num9 = 10;
             let mut MaxDist: i32 =  num9 * 2;
@@ -4541,7 +4541,7 @@ namespace WindowsApplication1
                 {
                   if (this.TPlanObj[PlanNr].Stand == 2)
                   {
-                    let mut tweight: i32 =  (int) Math.Round(Conversion.Int((double) this.Matrix1[index7, index8] / (double) this.TPlanObj[PlanNr].FrontSize));
+                    let mut tweight: i32 =  (int) Math.Round(Conversion.Int( this.Matrix1[index7, index8] /  this.TPlanObj[PlanNr].FrontSize));
                     if (this.AIVP[index7, index8] > 0)
                       tweight *= 2;
                     if (tweight < 0)
@@ -4573,14 +4573,14 @@ namespace WindowsApplication1
                       if (nr == -1)
                       {
                         tid1 += 1;
-                        let mut tweight: i32 =  (int) Math.Round((double) num7 / 3.0);
+                        let mut tweight: i32 =  (int) Math.Round( num7 / 3.0);
                         if (this.AIVP[Expression.x, Expression.y] > 0)
                           tweight *= 2;
                         SL.Add(tid1, tweight, Expression.x, Expression.y, this.Matrix1[index7, index8]);
                       }
                       else
                       {
-                        let mut num11: i32 =  (int) Math.Round((double) num7 / 3.0);
+                        let mut num11: i32 =  (int) Math.Round( num7 / 3.0);
                         if (this.AIVP[Expression.x, Expression.y] > 0)
                           num11 *= 2;
                         int[] weight = SL.Weight;
@@ -4594,7 +4594,7 @@ namespace WindowsApplication1
                     else
                     {
                       tid1 += 1;
-                      let mut tweight: i32 =  (int) Math.Round((double) num7 / 3.0);
+                      let mut tweight: i32 =  (int) Math.Round( num7 / 3.0);
                       SL.Add(tid1, tweight, index7, index8, this.Matrix1[index7, index8]);
                     }
                   }
@@ -4612,7 +4612,7 @@ namespace WindowsApplication1
               {
                 if (this.HexPlan[index13, index14] == PlanNr && this.TPlanObj[PlanNr].Stand == 2)
                 {
-                  let mut tweight: i32 =  (int) Math.Round((double) ((float) (int) Math.Round((double) this.Matrix1[index13, index14] / (double) (this.TPlanObj[PlanNr].FrontSize + 1)) * this.GetEntrenchMod(index13, index14)));
+                  let mut tweight: i32 =  (int) Math.Round( ( (int) Math.Round( this.Matrix1[index13, index14] /  (this.TPlanObj[PlanNr].FrontSize + 1)) * this.GetEntrenchMod(index13, index14)));
                   if (tweight < 0)
                     tweight = 0;
                   let mut nr: i32 =  SL.FindNr(-1, index13, index14);
@@ -4635,7 +4635,7 @@ namespace WindowsApplication1
             }
           }
           let mut num14: i32 =  1;
-          if ((double) this.game.Data.RuleVar[251] == 0.0)
+          if ( this.game.Data.RuleVar[251] == 0.0)
             num14 = 0;
           if (num14 == 1)
           {
@@ -4664,9 +4664,9 @@ namespace WindowsApplication1
                     if (num15 <= 6)
                     {
                       let mut nr: i32 =  SL.FindNr(-1, index17, index18);
-                      let mut tweight: i32 =  (int) Math.Round(Math.Sqrt((double) d) * 25.0 / (double) num15);
+                      let mut tweight: i32 =  (int) Math.Round(Math.Sqrt( d) * 25.0 /  num15);
                       if (this.TPlanObj[PlanNr].Stand == 1)
-                        tweight = (int) Math.Round((double) ((float) tweight * (this.game.Data.RuleVar[251] / 2f)));
+                        tweight = (int) Math.Round( ( tweight * (this.game.Data.RuleVar[251] / 2f)));
                       if (nr == -1)
                       {
                         tid1 += 1;
@@ -4691,7 +4691,7 @@ namespace WindowsApplication1
           if (this.TPlanObj[PlanNr].Stand == 2 | this.TPlanObj[PlanNr].Stand == 1 && this.AIVP[this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y] > 0)
           {
             let mut num17: i32 =  1;
-            if (this.TPlanObj[PlanNr].Stand == 1 && (double) this.game.Data.RuleVar[251] == 0.0)
+            if (this.TPlanObj[PlanNr].Stand == 1 &&  this.game.Data.RuleVar[251] == 0.0)
               num17 = 0;
             if (num17 == 1)
             {
@@ -4699,13 +4699,13 @@ namespace WindowsApplication1
                 num2 = 1;
               if (num1 == 0)
                 num1 = 100;
-              let mut num18: i32 =  (int) Math.Round((double) num1 / (double) num2);
-              if ((double) this.TPlanObj[PlanNr].WeightFriendlyForce > 0.0)
-                num18 = (int) Math.Round((double) ((float) num18 * (this.TPlanObj[PlanNr].WeightEnemyForce / this.TPlanObj[PlanNr].WeightFriendlyForce)));
-              let mut num19: i32 =  this.TPlanObj[PlanNr].Stand != 2 ? (int) Math.Round((double) num18 / 5.0) : (int) Math.Round((double) num18 / 2.0);
+              let mut num18: i32 =  (int) Math.Round( num1 /  num2);
+              if ( this.TPlanObj[PlanNr].WeightFriendlyForce > 0.0)
+                num18 = (int) Math.Round( ( num18 * (this.TPlanObj[PlanNr].WeightEnemyForce / this.TPlanObj[PlanNr].WeightFriendlyForce)));
+              let mut num19: i32 =  this.TPlanObj[PlanNr].Stand != 2 ? (int) Math.Round( num18 / 5.0) : (int) Math.Round( num18 / 2.0);
               let mut x: i32 =  this.TPlanObj[PlanNr].FromArea.X;
               let mut y: i32 =  this.TPlanObj[PlanNr].FromArea.Y;
-              let mut tweight: i32 =  (int) Math.Round((double) ((float) (this.TPlanObj[PlanNr].FromArea.fuzzyvp * num19) * this.game.Data.RuleVar[151]));
+              let mut tweight: i32 =  (int) Math.Round( ( (this.TPlanObj[PlanNr].FromArea.fuzzyvp * num19) * this.game.Data.RuleVar[151]));
               if (tweight < 0)
                 tweight = 0;
               let mut nr: i32 =  SL.FindNr(-1, x, y);
@@ -4726,25 +4726,25 @@ namespace WindowsApplication1
               {
                 num20 = 1;
                 tdata4 = 1;
-                tweight = (int) Math.Round((double) tweight / 3.0);
+                tweight = (int) Math.Round( tweight / 3.0);
               }
               else if (frontlineDistance <= 4)
               {
                 num20 = 1;
-                tweight = (int) Math.Round((double) tweight / 5.0);
+                tweight = (int) Math.Round( tweight / 5.0);
               }
               else if (frontlineDistance <= 7)
               {
                 num20 = 1;
-                tweight = (int) Math.Round((double) tweight / 8.0);
+                tweight = (int) Math.Round( tweight / 8.0);
               }
               else
               {
                 num20 = 1;
-                tweight = (int) Math.Round((double) tweight / 15.0);
+                tweight = (int) Math.Round( tweight / 15.0);
               }
               if (this.TPlanObj[PlanNr].Stand == 1)
-                tweight = (int) Math.Round((double) ((float) tweight * this.game.Data.RuleVar[251]));
+                tweight = (int) Math.Round( ( tweight * this.game.Data.RuleVar[251]));
               if (nr == -1)
               {
                 if (num20 == 0)
@@ -4753,7 +4753,7 @@ namespace WindowsApplication1
                 for (let mut index: i32 =  1; index <= num21; index += 1)
                 {
                   tid1 += 1;
-                  SL.Add(tid1, tweight, x, y, (int) Math.Round((double) this.game.Data.RuleVar[152]), tdata4);
+                  SL.Add(tid1, tweight, x, y, (int) Math.Round( this.game.Data.RuleVar[152]), tdata4);
                 }
               }
               else
@@ -4778,10 +4778,10 @@ namespace WindowsApplication1
                 tid1 += 1;
                 let mut x: i32 =  this.SAObj[index].X;
                 let mut y: i32 =  this.SAObj[index].Y;
-                let mut tweight: i32 =  (int) Math.Round((double) ((float) this.SAObj[index].fuzzyvp * this.game.Data.RuleVar[151]));
+                let mut tweight: i32 =  (int) Math.Round( ( this.SAObj[index].fuzzyvp * this.game.Data.RuleVar[151]));
                 if (tweight < 0)
                   tweight = 0;
-                SL.Add(tid1, tweight, x, y, (int) Math.Round((double) this.game.Data.RuleVar[152]));
+                SL.Add(tid1, tweight, x, y, (int) Math.Round( this.game.Data.RuleVar[152]));
               }
             }
           }
@@ -4790,7 +4790,7 @@ namespace WindowsApplication1
         {
           int num;
           tid1 = num + 1;
-          let mut tweight: i32 =  (int) Math.Round((double) (this.game.Data.RuleVar[151] * (float) this.TPlanObj[PlanNr].FromArea.fuzzyvp));
+          let mut tweight: i32 =  (int) Math.Round( (this.game.Data.RuleVar[151] *  this.TPlanObj[PlanNr].FromArea.fuzzyvp));
           if (tweight < 0)
             tweight = 0;
           SL.Add(tid1, tweight, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 2000);
@@ -4798,7 +4798,7 @@ namespace WindowsApplication1
       }
       let mut counter1: i32 =  SL.Counter;
       for (let mut Number2: i32 =  0; Number2 <= counter1; Number2 += 1)
-        this.AddLog("FLAG " + Conversion.Str((object) Number2) + ": hex(" + Conversion.Str((object) SL.Data1[Number2]) + "," + Conversion.Str((object) SL.Data2[Number2]) + "), Weight=" + Conversion.Str((object) SL.Weight[Number2]) + ", Data4=" + Conversion.Str((object) SL.Data4[Number2]));
+        this.AddLog("FLAG " + Conversion.Str( Number2) + ": hex(" + Conversion.Str( SL.Data1[Number2]) + "," + Conversion.Str( SL.Data2[Number2]) + "), Weight=" + Conversion.Str( SL.Weight[Number2]) + ", Data4=" + Conversion.Str( SL.Data4[Number2]));
       let mut num23: i32 =  1;
       SimpleList simpleList1 = SimpleList::new();
       if (SL.Counter > -1)
@@ -4820,7 +4820,7 @@ namespace WindowsApplication1
                 Expression.onmap = true;
               }
             }
-            let mut tweight: i32 =  (int) Math.Round(Conversion.Int((double) SL.Weight[SL.Counter] / 6.0));
+            let mut tweight: i32 =  (int) Math.Round(Conversion.Int( SL.Weight[SL.Counter] / 6.0));
             int[] weight = SL.Weight;
             int[] numArray = weight;
             let mut counter2: i32 =  SL.Counter;
@@ -4847,7 +4847,7 @@ namespace WindowsApplication1
                   tid3 += 1;
                   if (num25 == 0)
                     num25 = 1;
-                  let mut tweight: i32 =  (int) Math.Round((double) num25 * Math.Sqrt((double) SL.Weight[tdata1]) * Math.Sqrt((double) SL.Weight[tdata2]));
+                  let mut tweight: i32 =  (int) Math.Round( num25 * Math.Sqrt( SL.Weight[tdata1]) * Math.Sqrt( SL.Weight[tdata2]));
                   simpleList2.Add(tid3, tweight, tdata1, tdata2);
                 }
               }
@@ -4855,7 +4855,7 @@ namespace WindowsApplication1
             simpleList2.Sort();
             if (SL.Weight[simpleList2.Data1[0]] + SL.Data4[simpleList2.Data1[0]] * 5000 > SL.Weight[simpleList2.Data2[0]] + SL.Data4[simpleList2.Data2[0]] * 5000)
             {
-              this.AddLog("Join flag " + Conversion.Str((object) simpleList2.Data2[0]) + " with flag " + Conversion.Str((object) simpleList2.Data1[0]));
+              this.AddLog("Join flag " + Conversion.Str( simpleList2.Data2[0]) + " with flag " + Conversion.Str( simpleList2.Data1[0]));
               int[] weight = SL.Weight;
               int[] numArray1 = weight;
               int[] data1 = simpleList2.Data1;
@@ -4869,7 +4869,7 @@ namespace WindowsApplication1
             }
             else
             {
-              this.AddLog("Join flag " + Conversion.Str((object) simpleList2.Data1[0]) + " with flag " + Conversion.Str((object) simpleList2.Data2[0]));
+              this.AddLog("Join flag " + Conversion.Str( simpleList2.Data1[0]) + " with flag " + Conversion.Str( simpleList2.Data2[0]));
               int[] weight = SL.Weight;
               int[] numArray3 = weight;
               int[] data2 = simpleList2.Data2;
@@ -4884,13 +4884,13 @@ namespace WindowsApplication1
             num23 = 1;
           }
         }
-        if (this.TPlanObj[PlanNr].Type == 20 & (double) this.game.Data.RuleVar[225] > 0.0 & this.TPlanObj[PlanNr].Stand == 1)
+        if (this.TPlanObj[PlanNr].Type == 20 &  this.game.Data.RuleVar[225] > 0.0 & this.TPlanObj[PlanNr].Stand == 1)
         {
           int num28;
-          if ((double) this.game.Data.RuleVar[225] == 1.0)
-            num28 = (int) Math.Round((double) SL.Counter * 0.5);
-          if ((double) this.game.Data.RuleVar[225] == 2.0)
-            num28 = (int) Math.Round((double) SL.Counter * 0.8);
+          if ( this.game.Data.RuleVar[225] == 1.0)
+            num28 = (int) Math.Round( SL.Counter * 0.5);
+          if ( this.game.Data.RuleVar[225] == 2.0)
+            num28 = (int) Math.Round( SL.Counter * 0.8);
           if (num28 == 0)
             num28 = 1;
           if (num28 >= SL.Counter + 1)
@@ -4902,10 +4902,10 @@ namespace WindowsApplication1
             let mut counter5: i32 =  SL.Counter;
             for (let mut index: i32 =  0; index <= counter5; index += 1)
             {
-              let mut num29: i32 =  (int) Math.Round(Math.Pow((double) this.game.HandyFunctionsObj.Distance(SL.Data1[index], SL.Data2[index], 0, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0), 1.5));
+              let mut num29: i32 =  (int) Math.Round(Math.Pow( this.game.HandyFunctionsObj.Distance(SL.Data1[index], SL.Data2[index], 0, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0), 1.5));
               if (num29 == 0)
                 num29 = 1;
-              let mut tweight: i32 =  (int) Math.Round((double) SL.Weight[index] / (double) num29);
+              let mut tweight: i32 =  (int) Math.Round( SL.Weight[index] /  num29);
               tid4 += 1;
               if (tweight == 0)
                 tweight = 1;
@@ -4935,7 +4935,7 @@ namespace WindowsApplication1
               Expression.x = SL.Data1[SL.Counter];
               Expression.y = SL.Data2[SL.Counter];
               Expression.onmap = true;
-              let mut tweight: i32 =  (int) Math.Round(Conversion.Int((double) SL.Weight[SL.Counter] / 3.0));
+              let mut tweight: i32 =  (int) Math.Round(Conversion.Int( SL.Weight[SL.Counter] / 3.0));
               int[] weight = SL.Weight;
               int[] numArray = weight;
               let mut counter6: i32 =  SL.Counter;
@@ -4951,7 +4951,7 @@ namespace WindowsApplication1
         SL.Sort();
         let mut counter7: i32 =  SL.Counter;
         for (let mut Number3: i32 =  0; Number3 <= counter7; Number3 += 1)
-          this.AddLog("FLAG.. " + Conversion.Str((object) Number3) + ": hex(" + Conversion.Str((object) SL.Data1[Number3]) + "," + Conversion.Str((object) SL.Data2[Number3]) + "), Weight=" + Conversion.Str((object) SL.Weight[Number3]));
+          this.AddLog("FLAG.. " + Conversion.Str( Number3) + ": hex(" + Conversion.Str( SL.Data1[Number3]) + "," + Conversion.Str( SL.Data2[Number3]) + "), Weight=" + Conversion.Str( SL.Weight[Number3]));
         object[,] objArray2 = new object[SL.Counter + 1, UL.Counter + 1];
         let mut counter8: i32 =  UL.Counter;
         for (let mut index: i32 =  0; index <= counter8; index += 1)
@@ -4962,16 +4962,16 @@ namespace WindowsApplication1
             let mut counter9: i32 =  SL.Counter;
             for (let mut Number4: i32 =  0; Number4 <= counter9; Number4 += 1)
             {
-              let mut Number5: i32 =  (int) Math.Round((double) ((float) this.game.EditObj.TempValue[0].Value[SL.Data1[Number4], SL.Data2[Number4]] * this.GetEntrenchMod(UL.Id[index])));
+              let mut Number5: i32 =  (int) Math.Round( ( this.game.EditObj.TempValue[0].Value[SL.Data1[Number4], SL.Data2[Number4]] * this.GetEntrenchMod(UL.Id[index])));
               if (Number5 < 9999)
-                Number5 = (int) Math.Round((double) Number5 * (Math.Pow((double) this.GetTerrainMovePathMod(UL.Id[index], SL.Data1[Number4], SL.Data2[Number4]), 2.0) / 1.0));
+                Number5 = (int) Math.Round( Number5 * (Math.Pow( this.GetTerrainMovePathMod(UL.Id[index], SL.Data1[Number4], SL.Data2[Number4]), 2.0) / 1.0));
               let mut num33: i32 =  0;
               if (Number5 < 9999)
-                num33 = (int) Math.Round(Math.Sqrt(Math.Sqrt((double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(UL.Id[index]))));
+                num33 = (int) Math.Round(Math.Sqrt(Math.Sqrt( this.game.HandyFunctionsObj.GetPowerPtsAbsolute(UL.Id[index]))));
               if (num33 >= 1)
-                Number5 = (int) Math.Round(Conversion.Int((double) Number5 / (double) num33));
-              objArray2[Number4, index] = (object) Number5;
-              this.AddLog(this.game.Data.UnitObj[UL.Id[index]].Name + " => flag " + Conversion.Str((object) Number4) + " = " + Conversion.Str((object) Number5));
+                Number5 = (int) Math.Round(Conversion.Int( Number5 /  num33));
+              objArray2[Number4, index] =  Number5;
+              this.AddLog(this.game.Data.UnitObj[UL.Id[index]].Name + " => flag " + Conversion.Str( Number4) + " = " + Conversion.Str( Number5));
             }
             Application.DoEvents();
           }
@@ -4983,11 +4983,11 @@ namespace WindowsApplication1
           let mut counter11: i32 =  UL.Counter;
           for (let mut index31: i32 =  0; index31 <= counter11; index31 += 1)
           {
-            if (!(this.TPlanObj[PlanNr].Type == 20 & this.game.Data.UnitObj[UL.Id[index31]].IsHQ) && !(this.TPlanObj[PlanNr].Type == 30 & this.game.Data.UnitObj[UL.Id[counter10]].IsHQ) && this.game.Data.UnitObj[UL.Id[index31]].AICutoff == 0 & !(this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 4 | this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 3) && !(this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 5 | this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 10) && !(this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 9 | this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 8) && this.game.Data.UnitObj[UL.Id[index31]].X != -1 & !this.game.Data.UnitObj[UL.Id[index31]].AIReserve & !this.game.Data.UnitObj[UL.Id[index31]].AIDisband && Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(objArray2[counter10, index31], (object) num34, false), (object) (UL.Data1[index31] == -1))))
+            if (!(this.TPlanObj[PlanNr].Type == 20 & this.game.Data.UnitObj[UL.Id[index31]].IsHQ) && !(this.TPlanObj[PlanNr].Type == 30 & this.game.Data.UnitObj[UL.Id[counter10]].IsHQ) && this.game.Data.UnitObj[UL.Id[index31]].AICutoff == 0 & !(this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 4 | this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 3) && !(this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 5 | this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 10) && !(this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 9 | this.game.Data.UnitObj[UL.Id[index31]].AIUnitGoal == 8) && this.game.Data.UnitObj[UL.Id[index31]].X != -1 & !this.game.Data.UnitObj[UL.Id[index31]].AIReserve & !this.game.Data.UnitObj[UL.Id[index31]].AIDisband && Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(objArray2[counter10, index31],  num34, false),  (UL.Data1[index31] == -1))))
             {
               num34 = Conversions.ToInteger(objArray2[counter10, index31]);
               index30 = index31;
-              this.AddLog(this.game.Data.UnitObj[UL.Id[index31]].Name + " => ASSIGNED TO flag " + Conversion.Str((object) counter10) + " with temphigh = " + Conversion.Str((object) num34));
+              this.AddLog(this.game.Data.UnitObj[UL.Id[index31]].Name + " => ASSIGNED TO flag " + Conversion.Str( counter10) + " with temphigh = " + Conversion.Str( num34));
             }
           }
           if (index30 > -1)
@@ -5002,9 +5002,9 @@ namespace WindowsApplication1
           {
             for (let mut counter13: i32 =  SL.Counter; counter13 >= 0; counter13 += -1)
             {
-              if (!(this.TPlanObj[PlanNr].Type == 20 & this.game.Data.UnitObj[UL.Id[index]].IsHQ) && !(this.TPlanObj[PlanNr].Type == 30 & this.game.Data.UnitObj[UL.Id[counter13]].IsHQ) && this.game.Data.UnitObj[UL.Id[index]].AICutoff == 0 & !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 4 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 3) && !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 5 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 10) && !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 9 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 8) && this.game.Data.UnitObj[UL.Id[index]].X != -1 & !this.game.Data.UnitObj[UL.Id[index]].AIReserve & !this.game.Data.UnitObj[UL.Id[index]].AIDisband && Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(objArray2[counter13, index], (object) num35, false), (object) (UL.Data1[index] == -1))))
+              if (!(this.TPlanObj[PlanNr].Type == 20 & this.game.Data.UnitObj[UL.Id[index]].IsHQ) && !(this.TPlanObj[PlanNr].Type == 30 & this.game.Data.UnitObj[UL.Id[counter13]].IsHQ) && this.game.Data.UnitObj[UL.Id[index]].AICutoff == 0 & !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 4 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 3) && !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 5 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 10) && !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 9 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 8) && this.game.Data.UnitObj[UL.Id[index]].X != -1 & !this.game.Data.UnitObj[UL.Id[index]].AIReserve & !this.game.Data.UnitObj[UL.Id[index]].AIDisband && Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectLess(objArray2[counter13, index],  num35, false),  (UL.Data1[index] == -1))))
               {
-                this.AddLog(this.game.Data.UnitObj[UL.Id[index]].Name + " => (LAST DITCH ASSIGN) ASSIGNED TO flag " + Conversion.Str((object) counter13) + " with temphigh = " + Conversion.Str((object) num35));
+                this.AddLog(this.game.Data.UnitObj[UL.Id[index]].Name + " => (LAST DITCH ASSIGN) ASSIGNED TO flag " + Conversion.Str( counter13) + " with temphigh = " + Conversion.Str( num35));
                 num35 = Conversions.ToInteger(objArray2[counter13, index]);
                 num36 = counter13;
               }
@@ -5024,7 +5024,7 @@ namespace WindowsApplication1
             {
               if (!(this.TPlanObj[PlanNr].Type == 20 & this.game.Data.UnitObj[UL.Id[index]].IsHQ) && !(this.TPlanObj[PlanNr].Type == 30 & this.game.Data.UnitObj[UL.Id[counter15]].IsHQ) && this.game.Data.UnitObj[UL.Id[index]].AICutoff == 0 & !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 4 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 3) && !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 5 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 10) && !(this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 9 | this.game.Data.UnitObj[UL.Id[index]].AIUnitGoal == 8) && this.game.Data.UnitObj[UL.Id[index]].X != -1 & !this.game.Data.UnitObj[UL.Id[index]].AIReserve & !this.game.Data.UnitObj[UL.Id[index]].AIDisband && UL.Data1[index] == -1)
               {
-                this.AddLog(this.game.Data.UnitObj[UL.Id[index]].Name + " => (REALLY LAST DITCH ASSIGN) ASSIGNED TO flag " + Conversion.Str((object) counter15) + " with temphigh = " + Conversion.Str((object) Number6));
+                this.AddLog(this.game.Data.UnitObj[UL.Id[index]].Name + " => (REALLY LAST DITCH ASSIGN) ASSIGNED TO flag " + Conversion.Str( counter15) + " with temphigh = " + Conversion.Str( Number6));
                 Conversions.ToInteger(objArray2[counter15, index]);
                 num37 = counter15;
                 break;
@@ -5051,7 +5051,7 @@ namespace WindowsApplication1
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, Expression.x, Expression.y, this.Matrix2[Expression.x, Expression.y]);
-                this.AddLog("HQ FLAG ADDED to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                this.AddLog("HQ FLAG ADDED to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
             }
@@ -5071,7 +5071,7 @@ namespace WindowsApplication1
                     tid1 += 1;
                     SL.Add(tid1, 100, Expression.x, Expression.y, 100);
                     UL.Data1[index32] = SL.Counter;
-                    this.AddLog("DISBAND UNIT FLAG ADDED..  to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                    this.AddLog("DISBAND UNIT FLAG ADDED..  to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                   }
                   else
                     this.game.Data.UnitObj[index33].AIReserve = true;
@@ -5091,14 +5091,14 @@ namespace WindowsApplication1
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, Expression.x, Expression.y, 100);
-                this.AddLog("RESERVE UNIT FLAG ADDED..  to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                this.AddLog("RESERVE UNIT FLAG ADDED..  to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
               else
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 100);
-                this.AddLog("RESERVE UNIT FLAG ADDED..  to  (" + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.Y) + ")");
+                this.AddLog("RESERVE UNIT FLAG ADDED..  to  (" + Conversion.Str( this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str( this.TPlanObj[PlanNr].FromArea.Y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
             }
@@ -5109,14 +5109,14 @@ namespace WindowsApplication1
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, Expression.x, Expression.y, 100);
-                this.AddLog("CUTTEN OFF UNIT FLAG ADDED.. (WE SEE ESCAPE OPTION) to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                this.AddLog("CUTTEN OFF UNIT FLAG ADDED.. (WE SEE ESCAPE OPTION) to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
               else
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 100);
-                this.AddLog("CUTTEN OFF UNIT FLAG ADDED to (" + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.Y) + ")");
+                this.AddLog("CUTTEN OFF UNIT FLAG ADDED to (" + Conversion.Str( this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str( this.TPlanObj[PlanNr].FromArea.Y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
             }
@@ -5129,14 +5129,14 @@ namespace WindowsApplication1
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, Expression.x, Expression.y, 100);
-                this.AddLog("ENGINEER UNIT FLAG ADDED..  to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                this.AddLog("ENGINEER UNIT FLAG ADDED..  to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
               else
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 100);
-                this.AddLog("ENGINEER UNIT FLAG ADDED to (" + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.Y) + ")");
+                this.AddLog("ENGINEER UNIT FLAG ADDED to (" + Conversion.Str( this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str( this.TPlanObj[PlanNr].FromArea.Y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
             }
@@ -5147,14 +5147,14 @@ namespace WindowsApplication1
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, Expression.x, Expression.y, 100);
-                this.AddLog("NAVAL UNIT FLAG ADDED..  to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                this.AddLog("NAVAL UNIT FLAG ADDED..  to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
               else
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 100);
-                this.AddLog("NAVAL UNIT FLAG ADDED to (" + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.Y) + ")");
+                this.AddLog("NAVAL UNIT FLAG ADDED to (" + Conversion.Str( this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str( this.TPlanObj[PlanNr].FromArea.Y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
             }
@@ -5165,14 +5165,14 @@ namespace WindowsApplication1
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, Expression.x, Expression.y, 100);
-                this.AddLog("AIRSUPPORT UNIT FLAG ADDED..  to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                this.AddLog("AIRSUPPORT UNIT FLAG ADDED..  to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
               else
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 100);
-                this.AddLog("AIRSUPPORT UNIT FLAG ADDED to (" + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.Y) + ")");
+                this.AddLog("AIRSUPPORT UNIT FLAG ADDED to (" + Conversion.Str( this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str( this.TPlanObj[PlanNr].FromArea.Y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
             }
@@ -5195,14 +5195,14 @@ namespace WindowsApplication1
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, Expression.x, Expression.y, 100);
-                this.AddLog("ARTILLERY UNIT FLAG ADDED..  to (" + Conversion.Str((object) Expression.x) + "," + Conversion.Str((object) Expression.y) + ")");
+                this.AddLog("ARTILLERY UNIT FLAG ADDED..  to (" + Conversion.Str( Expression.x) + "," + Conversion.Str( Expression.y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
               else
               {
                 tid1 += 1;
                 SL.Add(tid1, 100, this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 100);
-                this.AddLog("ARTILLERY UNIT FLAG ADDED to (" + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str((object) this.TPlanObj[PlanNr].FromArea.Y) + ")");
+                this.AddLog("ARTILLERY UNIT FLAG ADDED to (" + Conversion.Str( this.TPlanObj[PlanNr].FromArea.X) + "," + Conversion.Str( this.TPlanObj[PlanNr].FromArea.Y) + ")");
                 UL.Data1[index32] = SL.Counter;
               }
             }
@@ -5213,7 +5213,7 @@ namespace WindowsApplication1
       for (let mut index: i32 =  0; index <= counter17; index += 1)
       {
         if (UL.Data1[index] > -1)
-          this.AddLog("UNIT " + this.game.Data.UnitObj[UL.Id[index]].Name + " --> flag(" + Conversion.Str((object) SL.Data1[UL.Data1[index]]) + "," + Conversion.Str((object) SL.Data2[UL.Data1[index]]) + ")");
+          this.AddLog("UNIT " + this.game.Data.UnitObj[UL.Id[index]].Name + " --> flag(" + Conversion.Str( SL.Data1[UL.Data1[index]]) + "," + Conversion.Str( SL.Data2[UL.Data1[index]]) + ")");
         else
           this.AddLog("UNIT " + this.game.Data.UnitObj[UL.Id[index]].Name + " --> NO FLAG!! ");
       }
@@ -5226,7 +5226,7 @@ namespace WindowsApplication1
           let mut index35: i32 =  UL.Id[counter18];
           let mut num39: i32 =  0;
           let mut num40: i32 =  1;
-          if (MovePhaseNr == 1 & (double) this.game.Data.RuleVar[225] > 0.0 && !(this.game.Data.UnitObj[index35].AIUnitGoal == 3 | this.game.Data.UnitObj[index35].AIUnitGoal == 4) && !(this.game.Data.UnitObj[index35].AIUnitGoal == 5 | this.game.Data.UnitObj[index35].AIUnitGoal == 10) && !(this.game.Data.UnitObj[index35].AIUnitGoal == 9 | this.game.Data.UnitObj[index35].AIUnitGoal == 8) && this.game.Data.UnitObj[UL.Id[counter18]].X != -1 & !this.game.Data.UnitObj[UL.Id[counter18]].AIReserve & !this.game.Data.UnitObj[UL.Id[counter18]].AIDisband && this.TPlanObj[PlanNr].Type == 20)
+          if (MovePhaseNr == 1 &  this.game.Data.RuleVar[225] > 0.0 && !(this.game.Data.UnitObj[index35].AIUnitGoal == 3 | this.game.Data.UnitObj[index35].AIUnitGoal == 4) && !(this.game.Data.UnitObj[index35].AIUnitGoal == 5 | this.game.Data.UnitObj[index35].AIUnitGoal == 10) && !(this.game.Data.UnitObj[index35].AIUnitGoal == 9 | this.game.Data.UnitObj[index35].AIUnitGoal == 8) && this.game.Data.UnitObj[UL.Id[counter18]].X != -1 & !this.game.Data.UnitObj[UL.Id[counter18]].AIReserve & !this.game.Data.UnitObj[UL.Id[counter18]].AIDisband && this.TPlanObj[PlanNr].Type == 20)
           {
             let mut tfacing: i32 =  1;
             do
@@ -5240,7 +5240,7 @@ namespace WindowsApplication1
           }
           if (num40 == 1)
           {
-            let mut num41: i32 =  !Information.IsNothing((object) this.TPlanObj[PlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0, this.TPlanObj[PlanNr].TooArea.X, this.TPlanObj[PlanNr].TooArea.Y, 0) : 15;
+            let mut num41: i32 =  !Information.IsNothing( this.TPlanObj[PlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.TPlanObj[PlanNr].FromArea.X, this.TPlanObj[PlanNr].FromArea.Y, 0, this.TPlanObj[PlanNr].TooArea.X, this.TPlanObj[PlanNr].TooArea.Y, 0) : 15;
             if (num41 < 10)
               num41 = 10;
             let mut MaxDist: i32 =  num41 * 2;
@@ -5270,7 +5270,7 @@ namespace WindowsApplication1
             }
             else
             {
-              let mut gothroughenemy: i32 =  (int) Math.Round((double) ((float) this.game.HandyFunctionsObj.GetPower(index35, this.game.Data.Turn) / (2f * this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative)));
+              let mut gothroughenemy: i32 =  (int) Math.Round( ( this.game.HandyFunctionsObj.GetPower(index35, this.game.Data.Turn) / (2f * this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative)));
               this.game.HandyFunctionsObj.MakeMovePrediction(index35, this.game.Data.UnitObj[index35].X, this.game.Data.UnitObj[index35].Y, 0, increaseap: 250, ismove: true, gothroughenemy: gothroughenemy);
             }
             OrderResult orderResult = (OrderResult) null;
@@ -5294,14 +5294,14 @@ namespace WindowsApplication1
               }
               if (num39 > 0)
               {
-                if ((double) this.game.Data.RuleVar[253] == 1.0 & !this.game.HandyFunctionsObj.HasUnitNavySF(index35) & !this.game.HandyFunctionsObj.HasUnitAirSF(index35))
+                if ( this.game.Data.RuleVar[253] == 1.0 & !this.game.HandyFunctionsObj.HasUnitNavySF(index35) & !this.game.HandyFunctionsObj.HasUnitAirSF(index35))
                 {
                   if (this.game.Data.MapObj[0].HexObj[SL.Data1[UL.Data1[counter18]], SL.Data2[UL.Data1[counter18]]].UnitCounter <= 14 & this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[SL.Data1[UL.Data1[counter18]], SL.Data2[UL.Data1[counter18]]].Regime, this.game.Data.Turn))
                   {
                     orderResult = (OrderResult) this.game.ProcessingObj.DoStrategicTransfer(-1, index35, 0, SL.Data1[UL.Data1[counter18]], SL.Data2[UL.Data1[counter18]], 0);
                     index36 = SL.Data1[UL.Data1[counter18]];
                     index37 = SL.Data2[UL.Data1[counter18]];
-                    s: String = this.game.Data.UnitObj[index35].Name + " strategicly transfers to " + Conversion.Str((object) index36) + "," + Conversion.Str((object) index37);
+                    s: String = this.game.Data.UnitObj[index35].Name + " strategicly transfers to " + Conversion.Str( index36) + "," + Conversion.Str( index37);
                     this.UnitMovePhase[index35] = MovePhaseNr;
                     this.AddLog(s);
                   }
@@ -5309,7 +5309,7 @@ namespace WindowsApplication1
                 else if (!(this.game.Data.MapObj[0].HexObj[index36, index37].UnitCounter > 14 & this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index36, index37].Regime, this.game.Data.Turn)))
                 {
                   orderResult = this.game.ProcessingObj.ExecuteMovement(index35, this.game.Data.UnitObj[index35].X, this.game.Data.UnitObj[index35].Y, 0, index36, index37, 0);
-                  s: String = this.game.Data.UnitObj[index35].Name + " moves to " + Conversion.Str((object) index36) + "," + Conversion.Str((object) index37);
+                  s: String = this.game.Data.UnitObj[index35].Name + " moves to " + Conversion.Str( index36) + "," + Conversion.Str( index37);
                   this.UnitMovePhase[index35] = MovePhaseNr;
                   this.AddLog(s);
                 }
@@ -5331,7 +5331,7 @@ namespace WindowsApplication1
                     break;
                   }
                   Expression = this.game.EditObj.TempCameFrom[0].Value[index36, index37];
-                  if (!Information.IsNothing((object) Expression) && Expression.onmap)
+                  if (!Information.IsNothing( Expression) && Expression.onmap)
                   {
                     index36 = Expression.x;
                     index37 = Expression.y;
@@ -5345,7 +5345,7 @@ namespace WindowsApplication1
               if (num43 > 0 & !(this.game.Data.MapObj[0].HexObj[index36, index37].UnitCounter > 14 & this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index36, index37].Regime, this.game.Data.Turn)))
               {
                 orderResult = this.game.ProcessingObj.ExecuteMovement(index35, this.game.Data.UnitObj[index35].X, this.game.Data.UnitObj[index35].Y, 0, index36, index37, 0);
-                s: String = this.game.Data.UnitObj[index35].Name + " moves to " + Conversion.Str((object) index36) + "," + Conversion.Str((object) index37);
+                s: String = this.game.Data.UnitObj[index35].Name + " moves to " + Conversion.Str( index36) + "," + Conversion.Str( index37);
                 this.UnitMovePhase[index35] = MovePhaseNr;
                 this.AddLog(s);
               }
@@ -5383,7 +5383,7 @@ namespace WindowsApplication1
           let mut qty: i32 =  this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty;
           let mut landscapeType: i32 =  this.game.Data.MapObj[0].HexObj[x, y].LandscapeType;
           let mut num5: i32 =  this.game.Data.SFTypeObj[type].PowerPts * qty;
-          num4 += (float) (((double) this.game.Data.SFTypeObj[type].CombatModAtt[landscapeType] + (double) this.game.Data.SFTypeObj[type].CombatModDef[landscapeType]) / 2.0 * ((double) num5 / (double) num2));
+          num4 +=  (( this.game.Data.SFTypeObj[type].CombatModAtt[landscapeType] +  this.game.Data.SFTypeObj[type].CombatModDef[landscapeType]) / 2.0 * ( num5 /  num2));
         }
         Coordinate coordinate = this.game.EditObj.TempCameFrom[0].Value[x, y];
         if (coordinate.onmap)
@@ -5393,7 +5393,7 @@ namespace WindowsApplication1
           num1 = 1;
         }
       }
-      return num4 / (float) num3;
+      return num4 /  num3;
     }
 
     pub void ExecuteLandFrontAttacks(int plannr, float advneed)
@@ -5432,12 +5432,12 @@ namespace WindowsApplication1
                     let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].UnitList[index3];
                     if (this.game.HandyFunctionsObj.MoveApCostPreview(unit, this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, 0, index1, index2, 0, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unit))
                     {
-                      if ((double) this.game.Data.RuleVar[30] > (double) num4)
+                      if ( this.game.Data.RuleVar[30] >  num4)
                       {
                         let mut num5: i32 =  this.GetForceLandStrength(unit, asattack: true, attackx: index1, attacky: index2);
                         if (this.TPlanObj[plannr].Stand == 2)
-                          num5 = (int) Math.Round((double) ((float) num5 * (1f / this.GetEntrenchMod(unit))));
-                        let mut tweight: i32 =  (int) Math.Round((double) num5 * (Math.Pow((double) this.game.HandyFunctionsObj.GetAverageRdn(unit), 2.0) / 10000.0));
+                          num5 = (int) Math.Round( ( num5 * (1f / this.GetEntrenchMod(unit))));
+                        let mut tweight: i32 =  (int) Math.Round( num5 * (Math.Pow( this.game.HandyFunctionsObj.GetAverageRdn(unit), 2.0) / 10000.0));
                         num2 += tweight;
                         num3 += tweight;
                         num4 += this.game.HandyFunctionsObj.GetUnitStackPts(unit);
@@ -5448,8 +5448,8 @@ namespace WindowsApplication1
                       {
                         let mut num6: i32 =  this.GetForceLandStrength(unit, asattack: true, attackx: index1, attacky: index2);
                         if (this.TPlanObj[plannr].Stand == 2)
-                          num6 = (int) Math.Round((double) ((float) num6 * (1f / this.GetEntrenchMod(unit))));
-                        let mut num7: i32 =  (int) Math.Round((double) num6 * (Math.Pow((double) this.game.HandyFunctionsObj.GetAverageRdn(unit), 2.0) / 10000.0));
+                          num6 = (int) Math.Round( ( num6 * (1f / this.GetEntrenchMod(unit))));
+                        let mut num7: i32 =  (int) Math.Round( num6 * (Math.Pow( this.game.HandyFunctionsObj.GetAverageRdn(unit), 2.0) / 10000.0));
                         num3 += num7;
                       }
                     }
@@ -5461,26 +5461,26 @@ namespace WindowsApplication1
               if (num2 > 0)
               {
                 float concentricBonus2 = this.game.HandyFunctionsObj.GetConcentricBonus2();
-                if ((double) concentricBonus2 >= (double) num1)
+                if ( concentricBonus2 >=  num1)
                 {
-                  let mut Number2: i32 =  (int) Math.Round((double) ((float) num2 * concentricBonus2));
-                  if ((double) this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0) > (double) this.game.Data.RuleVar[30] * 1.5)
+                  let mut Number2: i32 =  (int) Math.Round( ( num2 * concentricBonus2));
+                  if ( this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0) >  this.game.Data.RuleVar[30] * 1.5)
                   {
-                    float num8 = this.game.Data.RuleVar[30] * 1.5f / (float) this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0);
-                    if ((double) num8 > 1.0)
+                    float num8 = this.game.Data.RuleVar[30] * 1.5f /  this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0);
+                    if ( num8 > 1.0)
                       num8 = 1f;
-                    Number1 = (int) Math.Round((double) Conversion.Int((float) Number1 * num8));
+                    Number1 = (int) Math.Round( Conversion.Int( Number1 * num8));
                   }
                   if (num3 > Number2 & Number2 > 0)
-                    Number2 = (int) Math.Round((double) Number2 * ((double) num3 / (double) Number2));
-                  if ((double) Number2 / (double) Number1 >= (double) advneed)
+                    Number2 = (int) Math.Round( Number2 * ( num3 /  Number2));
+                  if ( Number2 /  Number1 >=  advneed)
                   {
                     this.game.TempCombat = new CombatClass(this.game);
                     Coordinate Target = Coordinate::new();
                     Target.x = index1;
                     Target.y = index2;
                     this.game.EditObj.TempUnitList = UnitList::new();
-                    this.AddLog("* Battle versus " + Conversion.Str((object) index1) + "," + Conversion.Str((object) index2) + " with " + Conversion.Str((object) Number2) + " vs " + Conversion.Str((object) Number1) + " force.");
+                    this.AddLog("* Battle versus " + Conversion.Str( index1) + "," + Conversion.Str( index2) + " with " + Conversion.Str( Number2) + " vs " + Conversion.Str( Number1) + " force.");
                     let mut counter: i32 =  simpleList.Counter;
                     for (let mut index4: i32 =  0; index4 <= counter; index4 += 1)
                       this.game.EditObj.TempUnitList.add(simpleList.Id[index4]);
@@ -5496,7 +5496,7 @@ namespace WindowsApplication1
         }
         num1 += -0.5f;
       }
-      while ((double) num1 >= 0.0);
+      while ( num1 >= 0.0);
     }
 
     pub void ExecuteNavalAttacks(int plannr, float advneed)
@@ -5541,22 +5541,22 @@ namespace WindowsApplication1
             while (tfacing <= 6);
             if (num1 > 0)
             {
-              let mut Number2: i32 =  (int) Math.Round((double) ((float) num1 * this.game.HandyFunctionsObj.GetConcentricBonus2()));
-              if ((double) this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0) > (double) this.game.Data.RuleVar[30])
+              let mut Number2: i32 =  (int) Math.Round( ( num1 * this.game.HandyFunctionsObj.GetConcentricBonus2()));
+              if ( this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0) >  this.game.Data.RuleVar[30])
               {
-                float num2 = this.game.Data.RuleVar[30] / (float) this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0);
-                if ((double) num2 > 1.0)
+                float num2 = this.game.Data.RuleVar[30] /  this.game.HandyFunctionsObj.GetHexStackPts(index1, index2, 0);
+                if ( num2 > 1.0)
                   num2 = 1f;
-                Number1 = (int) Math.Round((double) Conversion.Int((float) Number1 * num2));
+                Number1 = (int) Math.Round( Conversion.Int( Number1 * num2));
               }
-              if ((double) Number2 / (double) Number1 >= (double) advneed & Number2 > 0)
+              if ( Number2 /  Number1 >=  advneed & Number2 > 0)
               {
                 this.game.TempCombat = new CombatClass(this.game);
                 Coordinate Target = Coordinate::new();
                 Target.x = index1;
                 Target.y = index2;
                 this.game.EditObj.TempUnitList = UnitList::new();
-                this.AddLog("* Nav Battle versus " + Conversion.Str((object) index1) + "," + Conversion.Str((object) index2) + " with " + Conversion.Str((object) Number2) + " vs " + Conversion.Str((object) Number1) + " force.");
+                this.AddLog("* Nav Battle versus " + Conversion.Str( index1) + "," + Conversion.Str( index2) + " with " + Conversion.Str( Number2) + " vs " + Conversion.Str( Number1) + " force.");
                 let mut counter: i32 =  simpleList.Counter;
                 for (let mut index4: i32 =  0; index4 <= counter; index4 += 1)
                   this.game.EditObj.TempUnitList.add(simpleList.Id[index4]);
@@ -5581,7 +5581,7 @@ namespace WindowsApplication1
       int[,,] numArray6 = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1, 11];
       if (this.TPlanObj[plannr].FriendlyAir < 1)
         return;
-      this.AddLog("AirAttacks for plannr: " + Conversion.Str((object) plannr));
+      this.AddLog("AirAttacks for plannr: " + Conversion.Str( plannr));
       let mut index1: i32 =  -1;
       let mut index2: i32 =  0;
       do
@@ -5701,7 +5701,7 @@ namespace WindowsApplication1
                     let mut type: i32 =  this.game.Data.SFObj[sf].Type;
                     int num10;
                     if (this.game.Data.SFTypeObj[type].AIRoleScore[12] > 0)
-                      num10 = (int) Math.Round((double) (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty) * ((double) this.game.Data.SFTypeObj[type].AIRoleScore[12] / 100.0));
+                      num10 = (int) Math.Round( (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty) * ( this.game.Data.SFTypeObj[type].AIRoleScore[12] / 100.0));
                     num9 += num10;
                   }
                   int[,] numArray15 = numArray5;
@@ -5731,16 +5731,16 @@ namespace WindowsApplication1
         {
           if (this.game.Data.MapObj[0].HexObj[index31, index32].UnitCounter > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.UnitObj[this.game.Data.MapObj[0].HexObj[index31, index32].UnitList[0]].Regime] == 0)
           {
-            let mut num13: i32 =  (int) Math.Round((double) ((float) (numArray1[index31, index32] + numArray4[index31, index32]) + VBMath.Rnd() * (float) numArray4[index31, index32]));
-            if ((double) this.game.Data.RuleVar[834] > 0.0)
+            let mut num13: i32 =  (int) Math.Round( ( (numArray1[index31, index32] + numArray4[index31, index32]) + VBMath.Rnd() *  numArray4[index31, index32]));
+            if ( this.game.Data.RuleVar[834] > 0.0)
             {
-              if (this.game.Data.MapObj[0].HexObj[index31, index32].get_BattleStackAir(this.game.Data.Turn) > (int) Math.Round((double) this.game.Data.RuleVar[833] * 0.5))
-                num13 = (int) Math.Round((double) num13 / 2.0);
-              else if (this.game.Data.MapObj[0].HexObj[index31, index32].get_BattleStackAir(this.game.Data.Turn) > (int) Math.Round((double) (this.game.Data.RuleVar[833] * 1f)))
-                num13 = (int) Math.Round((double) num13 / 4.0);
+              if (this.game.Data.MapObj[0].HexObj[index31, index32].get_BattleStackAir(this.game.Data.Turn) > (int) Math.Round( this.game.Data.RuleVar[833] * 0.5))
+                num13 = (int) Math.Round( num13 / 2.0);
+              else if (this.game.Data.MapObj[0].HexObj[index31, index32].get_BattleStackAir(this.game.Data.Turn) > (int) Math.Round( (this.game.Data.RuleVar[833] * 1f)))
+                num13 = (int) Math.Round( num13 / 4.0);
             }
             if (numArray5[index31, index32] * 3 > numArray2[index31, index32])
-              num13 = (int) Math.Round((double) num13 - (double) numArray5[index31, index32] / 3.0);
+              num13 = (int) Math.Round( num13 -  numArray5[index31, index32] / 3.0);
             if (numArray5[index31, index32] > numArray2[index31, index32])
               num13 = 0;
             if (num13 > num12 & num13 > 0)
@@ -5767,7 +5767,7 @@ namespace WindowsApplication1
       Coordinate Target = Coordinate::new();
       Target.x = Number1;
       Target.y = Number2;
-      this.AddLog("* AIR Battle versus " + Conversion.Str((object) Number1) + "," + Conversion.Str((object) Number2));
+      this.AddLog("* AIR Battle versus " + Conversion.Str( Number1) + "," + Conversion.Str( Number2));
       this.game.TempCombat.Init(Target, 1, this.game.EditObj.TempUnitList, 14);
       this.game.TempCombat.DoBattle();
       this.game.TempCombat.EndBattle();
@@ -5795,8 +5795,8 @@ namespace WindowsApplication1
             this.game.EditObj.TempUnitList = UnitList::new();
             this.game.EditObj.OrderX = index1;
             this.game.EditObj.OrderY = index2;
-            let mut num1: i32 =  (int) Math.Round((double) ((float) index1 - this.game.Data.RuleVar[223]));
-            let mut num2: i32 =  (int) Math.Round((double) ((float) index1 + this.game.Data.RuleVar[223]));
+            let mut num1: i32 =  (int) Math.Round( ( index1 - this.game.Data.RuleVar[223]));
+            let mut num2: i32 =  (int) Math.Round( ( index1 + this.game.Data.RuleVar[223]));
             for (let mut index3: i32 =  num1; index3 <= num2; index3 += 1)
             {
               Coordinate coordinate;
@@ -5806,8 +5806,8 @@ namespace WindowsApplication1
               if (this.game.Data.MapObj[0].MapLoop & coordinate.x > this.game.Data.MapObj[0].MapWidth)
                 coordinate.x = coordinate.x - this.game.Data.MapObj[0].MapWidth - 1;
               ref Coordinate local = ref coordinate;
-              let mut num3: i32 =  (int) Math.Round((double) ((float) index2 - this.game.Data.RuleVar[223]));
-              let mut num4: i32 =  (int) Math.Round((double) ((float) index2 + this.game.Data.RuleVar[223]));
+              let mut num3: i32 =  (int) Math.Round( ( index2 - this.game.Data.RuleVar[223]));
+              let mut num4: i32 =  (int) Math.Round( ( index2 + this.game.Data.RuleVar[223]));
               for (local.y = num3; coordinate.y <= num4; coordinate += 1.y)
               {
                 if (coordinate.x > -1 & coordinate.y > -1 && coordinate.x <= this.game.Data.MapObj[0].MapWidth & coordinate.y <= this.game.Data.MapObj[0].MapHeight && this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime == this.game.Data.Turn & !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea)
@@ -5837,7 +5837,7 @@ namespace WindowsApplication1
               Target.x = index1;
               Target.y = index2;
               this.game.EditObj.TempUnitList = UnitList::new();
-              this.AddLog("* Battle versus " + Conversion.Str((object) index1) + "," + Conversion.Str((object) index2) + " with " + Conversion.Str((object) Number2) + " vs " + Conversion.Str((object) Number1) + " force.");
+              this.AddLog("* Battle versus " + Conversion.Str( index1) + "," + Conversion.Str( index2) + " with " + Conversion.Str( Number2) + " vs " + Conversion.Str( Number1) + " force.");
               let mut counter: i32 =  simpleList.Counter;
               for (let mut index5: i32 =  0; index5 <= counter; index5 += 1)
                 this.game.EditObj.TempUnitList.add(simpleList.Id[index5]);
@@ -5913,7 +5913,7 @@ namespace WindowsApplication1
                       {
                         Number2 += this.GetForceLandStrength(unit, asattack: true, attackx: index1, attacky: index2);
                         num1 += this.game.HandyFunctionsObj.GetUnitStackPtsArt(unit);
-                        if (phase > 1 | (double) num1 < (double) this.game.Data.RuleVar[834] | (double) this.game.Data.RuleVar[834] < 1.0)
+                        if (phase > 1 |  num1 <  this.game.Data.RuleVar[834] |  this.game.Data.RuleVar[834] < 1.0)
                         {
                           simpleList.Add(unit, this.GetForceLandStrength(unit, asattack: true, attackx: index1, attacky: index2));
                           this.game.EditObj.TempUnitList.add(unit);
@@ -5931,7 +5931,7 @@ namespace WindowsApplication1
               Target.x = index1;
               Target.y = index2;
               this.game.EditObj.TempUnitList = UnitList::new();
-              this.AddLog("* Battle versus " + Conversion.Str((object) index1) + "," + Conversion.Str((object) index2) + " with " + Conversion.Str((object) Number2) + " vs " + Conversion.Str((object) Number1) + " force.");
+              this.AddLog("* Battle versus " + Conversion.Str( index1) + "," + Conversion.Str( index2) + " with " + Conversion.Str( Number2) + " vs " + Conversion.Str( Number1) + " force.");
               let mut counter: i32 =  simpleList.Counter;
               for (let mut index5: i32 =  0; index5 <= counter; index5 += 1)
                 this.game.EditObj.TempUnitList.add(simpleList.Id[index5]);
@@ -5952,7 +5952,7 @@ namespace WindowsApplication1
       {
         int Number;
         Number += 1;
-        this.AddLog("INIT DECISION ROUND " + Conversion.Str((object) Number));
+        this.AddLog("INIT DECISION ROUND " + Conversion.Str( Number));
         num1 = 0;
         SimpleList simpleList = SimpleList::new();
         let mut locTypeCounter: i32 =  this.game.Data.LocTypeCounter;
@@ -6006,7 +6006,7 @@ namespace WindowsApplication1
         simpleList.Sort();
         let mut counter: i32 =  simpleList.Counter;
         for (let mut index: i32 =  0; index <= counter; index += 1)
-          this.AddLog(Conversion.Str((object) simpleList.Id[index]) + ", weight=" + Conversion.Str((object) simpleList.Weight[index]) + " data= " + Conversion.Str((object) simpleList.Data1[index]) + "," + Conversion.Str((object) simpleList.Data2[index]) + "," + Conversion.Str((object) simpleList.Data3[index]) + ",");
+          this.AddLog(Conversion.Str( simpleList.Id[index]) + ", weight=" + Conversion.Str( simpleList.Weight[index]) + " data= " + Conversion.Str( simpleList.Data1[index]) + "," + Conversion.Str( simpleList.Data2[index]) + "," + Conversion.Str( simpleList.Data3[index]) + ",");
         if (simpleList.Counter > -1)
         {
           let mut num3: i32 =  simpleList.Data1[simpleList.Counter];
@@ -6015,7 +6015,7 @@ namespace WindowsApplication1
           let mut num5: i32 =  simpleList.Data4[simpleList.Counter];
           if (num3 == 1)
           {
-            this.AddLog("CONSTRUCT====>build type " + this.game.Data.LocTypeObj[index].Name + " on hex " + Conversion.Str((object) num4) + "," + Conversion.Str((object) num5));
+            this.AddLog("CONSTRUCT====>build type " + this.game.Data.LocTypeObj[index].Name + " on hex " + Conversion.Str( num4) + "," + Conversion.Str( num5));
             this.game.ProcessingObj.Build(-1, num4, num5, 0, index, this.game.Data.Turn);
             if (this.game.Data.LocTypeObj[index].AIAfterBuildEvent > -1)
               this.game.EventRelatedObj.DoCheckSpecificEvent(this.game.Data.LocTypeObj[index].AIAfterBuildEvent, index);
@@ -6037,7 +6037,7 @@ namespace WindowsApplication1
         let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
         for (let mut y: i32 =  0; y <= mapHeight; y += 1)
         {
-          if (this.game.HandyFunctionsObj.HasHexRoad(x, y, 0) | (double) this.game.Data.RuleVar[864] < 1.0)
+          if (this.game.HandyFunctionsObj.HasHexRoad(x, y, 0) |  this.game.Data.RuleVar[864] < 1.0)
           {
             if (this.game.Data.MapObj[0].HexObj[x, y].Regime > -1)
               numArray[x, y] = !this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[x, y].Regime) ? (!this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[x, y].Regime) ? 6000 : (this.game.Data.Turn != this.game.Data.MapObj[0].HexObj[x, y].Regime ? 7500 : 0)) : 9000;
@@ -6063,9 +6063,9 @@ namespace WindowsApplication1
             do
             {
               locationForLocType = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
-              if (locationForLocType.onmap && (double) numArray[locationForLocType.x, locationForLocType.y] < Conversion.Int((double) numArray[cx, cy] * 0.9))
+              if (locationForLocType.onmap &&  numArray[locationForLocType.x, locationForLocType.y] < Conversion.Int( numArray[cx, cy] * 0.9))
               {
-                numArray[locationForLocType.x, locationForLocType.y] = (int) Math.Round(Conversion.Int((double) numArray[cx, cy] * 0.9));
+                numArray[locationForLocType.x, locationForLocType.y] = (int) Math.Round(Conversion.Int( numArray[cx, cy] * 0.9));
                 num3 = 1;
               }
               tfacing += 1;
@@ -6086,7 +6086,7 @@ namespace WindowsApplication1
           if (this.game.Data.MapObj[0].HexObj[index1, index2].Regime == this.game.Data.Turn && this.game.Data.MapObj[0].HexObj[index1, index2].Location == -1)
           {
             let mut buildGround: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[index1, index2].LandscapeType].BuildGround;
-            if (this.game.Data.LocTypeObj[loctyp].BuildgroundType[buildGround] && this.game.HandyFunctionsObj.IsHexNextToSea(index1, index2, 0) | !this.game.Data.LocTypeObj[loctyp].IsPort && this.game.HandyFunctionsObj.HasHexRoad(index1, index2, 0) | (double) this.game.Data.RuleVar[864] < 1.0)
+            if (this.game.Data.LocTypeObj[loctyp].BuildgroundType[buildGround] && this.game.HandyFunctionsObj.IsHexNextToSea(index1, index2, 0) | !this.game.Data.LocTypeObj[loctyp].IsPort && this.game.HandyFunctionsObj.HasHexRoad(index1, index2, 0) |  this.game.Data.RuleVar[864] < 1.0)
             {
               bool flag = true;
               let mut mapWidth4: i32 =  this.game.Data.MapObj[0].MapWidth;
@@ -6136,49 +6136,49 @@ namespace WindowsApplication1
 
     pub void InitRandomAI()
     {
-      if ((double) this.game.Data.RuleVar[248] < 1.0)
+      if ( this.game.Data.RuleVar[248] < 1.0)
         return;
-      Random random = new Random((int) Math.Round((double) this.game.Data.GameID / (double) ((1 + this.game.Data.Turn) * 10) + (double) (this.game.Data.Turn * 100)));
-      float num1 = (float) random.Next(1, 100) / 100f;
-      float num2 = (float) random.Next(1, 100) / 100f;
-      float num3 = (float) random.Next(1, 100) / 100f;
-      float num4 = (float) random.Next(1, 100) / 100f;
-      float num5 = (float) random.Next(1, 100) / 100f;
-      if ((double) num1 < 0.33)
+      Random random = new Random((int) Math.Round( this.game.Data.GameID /  ((1 + this.game.Data.Turn) * 10) +  (this.game.Data.Turn * 100)));
+      float num1 =  random.Next(1, 100) / 100f;
+      float num2 =  random.Next(1, 100) / 100f;
+      float num3 =  random.Next(1, 100) / 100f;
+      float num4 =  random.Next(1, 100) / 100f;
+      float num5 =  random.Next(1, 100) / 100f;
+      if ( num1 < 0.33)
       {
-        this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative = (float) ((double) num4 / 3.0 + 0.33);
-        if ((double) this.game.Data.RuleVar[226] > 0.0)
-          this.game.Data.RuleVar[226] = (float) (0.1 + (double) num3 / 5.0);
-        if ((double) this.game.Data.RuleVar[501] == 1.0)
+        this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative =  ( num4 / 3.0 + 0.33);
+        if ( this.game.Data.RuleVar[226] > 0.0)
+          this.game.Data.RuleVar[226] =  (0.1 +  num3 / 5.0);
+        if ( this.game.Data.RuleVar[501] == 1.0)
           this.game.Data.RuleVar[226] = 0.0f;
         this.game.Data.RuleVar[225] = 0.0f;
         this.AddLog("THIS IS AN OFFENSIVE AI");
       }
-      else if ((double) num1 < 0.66)
+      else if ( num1 < 0.66)
       {
-        this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative = (float) ((double) num4 / 4.0 + 0.88);
-        if ((double) this.game.Data.RuleVar[226] > 0.0)
-          this.game.Data.RuleVar[226] = (float) (0.1 + (double) num3 / 4.0);
-        if ((double) this.game.Data.RuleVar[501] == 1.0)
+        this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative =  ( num4 / 4.0 + 0.88);
+        if ( this.game.Data.RuleVar[226] > 0.0)
+          this.game.Data.RuleVar[226] =  (0.1 +  num3 / 4.0);
+        if ( this.game.Data.RuleVar[501] == 1.0)
           this.game.Data.RuleVar[226] = 0.0f;
         this.game.Data.RuleVar[225] = 0.0f;
         this.AddLog("THIS IS A NORMAL AI");
       }
       else
       {
-        this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative = (float) ((double) num4 / 3.0 + 1.25);
-        if ((double) this.game.Data.RuleVar[226] > 0.0)
-          this.game.Data.RuleVar[226] = (float) (0.1 + (double) num3 / 3.0);
-        if ((double) this.game.Data.RuleVar[501] == 1.0)
+        this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative =  ( num4 / 3.0 + 1.25);
+        if ( this.game.Data.RuleVar[226] > 0.0)
+          this.game.Data.RuleVar[226] =  (0.1 +  num3 / 3.0);
+        if ( this.game.Data.RuleVar[501] == 1.0)
           this.game.Data.RuleVar[226] = 0.0f;
         this.game.Data.RuleVar[225] = 0.0f;
         this.AddLog("FRONTLINE FOCUS");
         this.AddLog("THIS IS A DEFENSIVE AI");
       }
-      this.game.Data.RuleVar[224] = (float) (0.05 + (double) num5 / 6.0);
-      this.AddLog("CONSERVATIVE = " + Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative));
-      this.AddLog("AIR TO LAND RATIO = " + Conversion.Str((object) this.game.Data.RuleVar[224]));
-      this.AddLog("RESEARCH = " + Conversion.Str((object) this.game.Data.RuleVar[226]));
+      this.game.Data.RuleVar[224] =  (0.05 +  num5 / 6.0);
+      this.AddLog("CONSERVATIVE = " + Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative));
+      this.AddLog("AIR TO LAND RATIO = " + Conversion.Str( this.game.Data.RuleVar[224]));
+      this.AddLog("RESEARCH = " + Conversion.Str( this.game.Data.RuleVar[226]));
       this.AddLog("-------------------------");
     }
 
@@ -6216,13 +6216,13 @@ namespace WindowsApplication1
           int[] numArray7 = numArray6;
           let mut index4: i32 =  landReservePlan;
           let mut index5: i32 =  index4;
-          let mut num2: i32 =  (int) Math.Round((double) ((float) numArray6[index4] + this.TPlanObj[index1].WeightFriendlyForce));
+          let mut num2: i32 =  (int) Math.Round( ( numArray6[index4] + this.TPlanObj[index1].WeightFriendlyForce));
           numArray7[index5] = num2;
           int[] numArray8 = numArray3;
           int[] numArray9 = numArray8;
           let mut index6: i32 =  landReservePlan;
           let mut index7: i32 =  index6;
-          let mut num3: i32 =  (int) Math.Round((double) ((float) numArray8[index6] + this.TPlanObj[index1].WeightEnemyForceUnMod));
+          let mut num3: i32 =  (int) Math.Round( ( numArray8[index6] + this.TPlanObj[index1].WeightEnemyForceUnMod));
           numArray9[index7] = num3;
         }
         if (this.TPlanObj[index1].Type == 40 && this.SAObj[this.GetSANr(this.TPlanObj[index1].FromArea)].LandReservePlan > 0)
@@ -6240,13 +6240,13 @@ namespace WindowsApplication1
             int[] numArray13 = numArray12;
             let mut index10: i32 =  landReservePlan;
             let mut index11: i32 =  index10;
-            let mut num5: i32 =  (int) Math.Round((double) ((float) numArray12[index10] + this.TPlanObj[index1].WeightFriendlyForce));
+            let mut num5: i32 =  (int) Math.Round( ( numArray12[index10] + this.TPlanObj[index1].WeightFriendlyForce));
             numArray13[index11] = num5;
             int[] numArray14 = numArray3;
             int[] numArray15 = numArray14;
             let mut index12: i32 =  landReservePlan;
             let mut index13: i32 =  index12;
-            let mut num6: i32 =  (int) Math.Round((double) ((float) numArray14[index12] + this.TPlanObj[index1].WeightEnemyForceUnMod));
+            let mut num6: i32 =  (int) Math.Round( ( numArray14[index12] + this.TPlanObj[index1].WeightEnemyForceUnMod));
             numArray15[index13] = num6;
             int[] numArray16 = numArray2;
             int[] numArray17 = numArray16;
@@ -6293,7 +6293,7 @@ namespace WindowsApplication1
           let mut num12: i32 =  numArray1[index24] * 10;
           if (numArray2[index24] == 0)
             numArray2[index24] = 1;
-          let mut num13: i32 =  (int) Math.Round((double) num12 * ((double) numArray3[index24] / (double) numArray2[index24]));
+          let mut num13: i32 =  (int) Math.Round( num12 * ( numArray3[index24] /  numArray2[index24]));
           this.TPlanObj[index24].WeightStrategic = num13;
           AIPlanClass[] tplanObj = this.TPlanObj;
           AIPlanClass[] aiPlanClassArray = tplanObj;
@@ -6314,14 +6314,14 @@ namespace WindowsApplication1
         if (this.TPlanObj[Number].Type == 20 | this.TPlanObj[Number].Type == 50)
         {
           this.AddLog(" ");
-          this.AddLog("*Plan " + Strings.Trim(Conversion.Str((object) Number)) + ": ");
+          this.AddLog("*Plan " + Strings.Trim(Conversion.Str( Number)) + ": ");
           str1: String = "";
           if (this.TPlanObj[Number].Type == 20)
             str1 = "LANDFRONT";
           if (this.TPlanObj[Number].Type == 50)
             str1 = "OLD-LANDFRONT";
-          this.AddLog(str1 + " from " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[Number].FromArea.X, this.TPlanObj[Number].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str((object) this.TPlanObj[Number].FromArea.X)) + "," + Strings.Trim(Conversion.Str((object) this.TPlanObj[Number].FromArea.Y)) + ")" + " to " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[Number].TooArea.X, this.TPlanObj[Number].TooArea.Y, 0) + "(" + Strings.Trim(Conversion.Str((object) this.TPlanObj[Number].TooArea.X)) + "," + Strings.Trim(Conversion.Str((object) this.TPlanObj[Number].TooArea.Y)) + "" + ", strategic-weight: " + Conversion.Str((object) this.TPlanObj[Number].WeightStrategic));
-          this.AddLog("Friendly Force = " + Conversion.Str((object) this.TPlanObj[Number].WeightFriendlyForce) + ", Enemy Force = " + Conversion.Str((object) this.TPlanObj[Number].WeightEnemyForce) + ", Enemy UnMod = " + Conversion.Str((object) this.TPlanObj[Number].WeightEnemyForceUnMod));
+          this.AddLog(str1 + " from " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[Number].FromArea.X, this.TPlanObj[Number].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str( this.TPlanObj[Number].FromArea.X)) + "," + Strings.Trim(Conversion.Str( this.TPlanObj[Number].FromArea.Y)) + ")" + " to " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[Number].TooArea.X, this.TPlanObj[Number].TooArea.Y, 0) + "(" + Strings.Trim(Conversion.Str( this.TPlanObj[Number].TooArea.X)) + "," + Strings.Trim(Conversion.Str( this.TPlanObj[Number].TooArea.Y)) + "" + ", strategic-weight: " + Conversion.Str( this.TPlanObj[Number].WeightStrategic));
+          this.AddLog("Friendly Force = " + Conversion.Str( this.TPlanObj[Number].WeightFriendlyForce) + ", Enemy Force = " + Conversion.Str( this.TPlanObj[Number].WeightEnemyForce) + ", Enemy UnMod = " + Conversion.Str( this.TPlanObj[Number].WeightEnemyForceUnMod));
           str2: String = "Units: ";
           let mut unitCounter: i32 =  this.game.Data.UnitCounter;
           for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -6344,7 +6344,7 @@ namespace WindowsApplication1
               str2 = str3 + ", ";
             }
           }
-          this.AddLog(str2 + " (count: F=" + Conversion.Str((object) this.TPlanObj[Number].FriendlyUnitCount) + "/E=" + Conversion.Str((object) this.TPlanObj[Number].EnemyUnitCount) + ")");
+          this.AddLog(str2 + " (count: F=" + Conversion.Str( this.TPlanObj[Number].FriendlyUnitCount) + "/E=" + Conversion.Str( this.TPlanObj[Number].EnemyUnitCount) + ")");
           s: String = "Stand: ";
           if (this.TPlanObj[Number].Stand == 1)
             s += "ATTACK";
@@ -6355,7 +6355,7 @@ namespace WindowsApplication1
           this.AddLog(s);
           if (this.TPlanObj[Number].RiverLine == 1)
             this.AddLog("RIVERLINE DEFEND PLAN");
-          this.AddLog("CurrentApCost: " + Conversion.Str((object) this.TPlanObj[Number].CurrentAPCost) + ", PossibleApCost: " + Conversion.Str((object) this.TPlanObj[Number].PossibleAPCost) + ", AverageunitAPDistance =" + Conversion.Str((object) this.TPlanObj[Number].AverageUnitAPCost));
+          this.AddLog("CurrentApCost: " + Conversion.Str( this.TPlanObj[Number].CurrentAPCost) + ", PossibleApCost: " + Conversion.Str( this.TPlanObj[Number].PossibleAPCost) + ", AverageunitAPDistance =" + Conversion.Str( this.TPlanObj[Number].AverageUnitAPCost));
           str4: String = "HQ: ";
           this.AddLog(this.TPlanObj[Number].HQ != -1 ? str4 + this.game.Data.UnitObj[this.TPlanObj[Number].HQ].Name : str4 + "n/a");
         }
@@ -6366,10 +6366,10 @@ namespace WindowsApplication1
         if (this.TPlanObj[index1].Type == 40)
         {
           this.AddLog(" ");
-          this.AddLog("*Plan " + Strings.Trim(Conversion.Str((object) index1)) + ": ");
-          this.AddLog("PLANBACK" + " from " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[index1].FromArea.X, this.TPlanObj[index1].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str((object) this.TPlanObj[index1].FromArea.X)) + "," + Strings.Trim(Conversion.Str((object) this.TPlanObj[index1].FromArea.Y)) + ")" + ", strategic-weight: " + Conversion.Str((object) this.TPlanObj[index1].WeightStrategic));
-          this.AddLog("Friendly Force = " + Conversion.Str((object) this.TPlanObj[index1].WeightFriendlyForce) + ", Enemy Force = " + Conversion.Str((object) this.TPlanObj[index1].WeightEnemyForce) + ", Enemy UnMod = " + Conversion.Str((object) this.TPlanObj[index1].WeightEnemyForceUnMod));
-          this.AddLog("Friendly Naval Force = " + Conversion.Str((object) this.TPlanObj[index1].FriendlyNavy) + ", Enemy Naval Force = " + Conversion.Str((object) this.TPlanObj[index1].EnemyNavy));
+          this.AddLog("*Plan " + Strings.Trim(Conversion.Str( index1)) + ": ");
+          this.AddLog("PLANBACK" + " from " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[index1].FromArea.X, this.TPlanObj[index1].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str( this.TPlanObj[index1].FromArea.X)) + "," + Strings.Trim(Conversion.Str( this.TPlanObj[index1].FromArea.Y)) + ")" + ", strategic-weight: " + Conversion.Str( this.TPlanObj[index1].WeightStrategic));
+          this.AddLog("Friendly Force = " + Conversion.Str( this.TPlanObj[index1].WeightFriendlyForce) + ", Enemy Force = " + Conversion.Str( this.TPlanObj[index1].WeightEnemyForce) + ", Enemy UnMod = " + Conversion.Str( this.TPlanObj[index1].WeightEnemyForceUnMod));
+          this.AddLog("Friendly Naval Force = " + Conversion.Str( this.TPlanObj[index1].FriendlyNavy) + ", Enemy Naval Force = " + Conversion.Str( this.TPlanObj[index1].EnemyNavy));
           s: String = "Units: ";
           let mut unitCounter: i32 =  this.game.Data.UnitCounter;
           for (let mut index2: i32 =  0; index2 <= unitCounter; index2 += 1)
@@ -6413,15 +6413,15 @@ namespace WindowsApplication1
           else
             s = "No Sea Stand";
           this.AddLog(s);
-          this.AddLog(this.TPlanObj[index1].SeaTarget <= 0 ? "No Sea Target" : "Sea Target is Area# " + Conversion.Str((object) this.TPlanObj[index1].SeaTarget));
+          this.AddLog(this.TPlanObj[index1].SeaTarget <= 0 ? "No Sea Target" : "Sea Target is Area# " + Conversion.Str( this.TPlanObj[index1].SeaTarget));
           if (this.MakeNavyActive(index1))
             this.AddLog("Navy is ACTIVE");
           else
             this.AddLog("Navy is NOT active");
           if (this.TPlanObj[index1].AssemblyArea == 1)
             this.AddLog("ASSEMBLY AREA FOR DEFENSE IN DEPTH");
-          this.AddLog("CurrentApCost: " + Conversion.Str((object) this.TPlanObj[index1].CurrentAPCost) + ", PossibleApCost: " + Conversion.Str((object) this.TPlanObj[index1].PossibleAPCost) + ", AverageunitAPDistance =" + Conversion.Str((object) this.TPlanObj[index1].AverageUnitAPCost));
-          this.AddLog("CurrentBackRoad to Area: " + Conversion.Str((object) this.TPlanObj[index1].CurrentBackRoad));
+          this.AddLog("CurrentApCost: " + Conversion.Str( this.TPlanObj[index1].CurrentAPCost) + ", PossibleApCost: " + Conversion.Str( this.TPlanObj[index1].PossibleAPCost) + ", AverageunitAPDistance =" + Conversion.Str( this.TPlanObj[index1].AverageUnitAPCost));
+          this.AddLog("CurrentBackRoad to Area: " + Conversion.Str( this.TPlanObj[index1].CurrentBackRoad));
           str5: String = "HQ: ";
           this.AddLog(this.TPlanObj[index1].HQ != -1 ? str5 + this.game.Data.UnitObj[this.TPlanObj[index1].HQ].Name : str5 + "n/a");
         }
@@ -6434,11 +6434,11 @@ namespace WindowsApplication1
         if (this.TPlanObj[Number1].Type == 30)
         {
           this.AddLog(" ");
-          this.AddLog("*Plan " + Strings.Trim(Conversion.Str((object) Number1)) + ": ");
+          this.AddLog("*Plan " + Strings.Trim(Conversion.Str( Number1)) + ": ");
           str6: String = "";
           if (this.TPlanObj[Number1].Type == 20)
             str6 = "LANDRESERVE";
-          this.AddLog(str6 + " at " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[Number1].FromArea.X, this.TPlanObj[Number1].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str((object) this.TPlanObj[Number1].FromArea.X)) + "," + Strings.Trim(Conversion.Str((object) this.TPlanObj[Number1].FromArea.Y)) + ")");
+          this.AddLog(str6 + " at " + this.game.HandyFunctionsObj.GetHexName(this.TPlanObj[Number1].FromArea.X, this.TPlanObj[Number1].FromArea.Y, 0) + "(" + Strings.Trim(Conversion.Str( this.TPlanObj[Number1].FromArea.X)) + "," + Strings.Trim(Conversion.Str( this.TPlanObj[Number1].FromArea.Y)) + ")");
           str7: String = "Units: ";
           let mut unitCounter: i32 =  this.game.Data.UnitCounter;
           for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -6446,20 +6446,20 @@ namespace WindowsApplication1
             if (this.game.Data.UnitObj[index].AIPlanNr == Number1 & this.game.Data.UnitObj[index].Regime == this.game.Data.Turn)
               str7 = str7 + this.game.Data.UnitObj[index].Name + ", ";
           }
-          this.AddLog(str7 + " (count=" + Conversion.Str((object) this.TPlanObj[Number1].FriendlyUnitCount) + ")");
+          this.AddLog(str7 + " (count=" + Conversion.Str( this.TPlanObj[Number1].FriendlyUnitCount) + ")");
           s: String = "Areas: ";
           let mut saCount: i32 =  this.SACount;
           for (let mut Number2: i32 =  1; Number2 <= saCount; Number2 += 1)
           {
             if (this.SAObj[Number2].LandReservePlan == Number1)
-              s = s + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number2].X, this.SAObj[Number2].Y, 0) + "(#" + Conversion.Str((object) Number2) + "), ";
+              s = s + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number2].X, this.SAObj[Number2].Y, 0) + "(#" + Conversion.Str( Number2) + "), ";
           }
           this.AddLog(s);
           str8: String = "HQ: ";
           this.AddLog(this.TPlanObj[Number1].HQ != -1 ? str8 + this.game.Data.UnitObj[this.TPlanObj[Number1].HQ].Name : str8 + "n/a");
-          this.AddLog("ProdPts Total: " + Conversion.Str((object) this.TPlanObj[Number1].ProdPts) + " , Strategic Weight: " + Conversion.Str((object) this.TPlanObj[Number1].WeightStrategic));
-          this.AddLog("CurrentHighestApCost: " + Conversion.Str((object) this.TPlanObj[Number1].CurrentAPCost) + ", PossibleHighestApCost: " + Conversion.Str((object) this.TPlanObj[Number1].PossibleAPCost));
-          this.AddLog("MetaChainNr: " + Conversion.Str((object) this.TPlanObj[Number1].MetaChainNr));
+          this.AddLog("ProdPts Total: " + Conversion.Str( this.TPlanObj[Number1].ProdPts) + " , Strategic Weight: " + Conversion.Str( this.TPlanObj[Number1].WeightStrategic));
+          this.AddLog("CurrentHighestApCost: " + Conversion.Str( this.TPlanObj[Number1].CurrentAPCost) + ", PossibleHighestApCost: " + Conversion.Str( this.TPlanObj[Number1].PossibleAPCost));
+          this.AddLog("MetaChainNr: " + Conversion.Str( this.TPlanObj[Number1].MetaChainNr));
         }
       }
     }
@@ -6471,7 +6471,7 @@ namespace WindowsApplication1
       for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
       {
         if (this.game.Data.UnitObj[unr].X > -1 && this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.Data.UnitObj[unr].AIPlanNr == plannr)
-          integer = Conversions.ToInteger(Operators.AddObject((object) integer, this.GetEPPerTurn(unr)));
+          integer = Conversions.ToInteger(Operators.AddObject( integer, this.GetEPPerTurn(unr)));
       }
       return integer;
     }
@@ -6560,7 +6560,7 @@ namespace WindowsApplication1
             {
               num12 = -1;
               Number = false;
-              if ((double) this.GetRolePercent(unr, 10) >= (double) this.game.Data.RuleVar[157] * 0.6)
+              if ( this.GetRolePercent(unr, 10) >=  this.game.Data.RuleVar[157] * 0.6)
               {
                 num3 += 1;
                 num6 += 1;
@@ -6568,14 +6568,14 @@ namespace WindowsApplication1
                 str = "ARMOUR";
                 if (this.TPlanObj[index1].Stand == 1)
                 {
-                  if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[154])
+                  if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[154])
                     Number = true;
                 }
-                else if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[153])
+                else if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[153])
                   Number = true;
-                if ((double) this.game.Data.RuleVar[164] == 1.0)
+                if ( this.game.Data.RuleVar[164] == 1.0)
                   Number = true;
-                if (!Number && Operators.ConditionalCompareObjectGreaterEqual((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
+                if (!Number && Operators.ConditionalCompareObjectGreaterEqual( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
                   Number = true;
               }
               else if (this.GetRolePercent(unr, 5) >= 50)
@@ -6584,10 +6584,10 @@ namespace WindowsApplication1
                 num6 += 1;
                 num12 = 4;
                 str = "ENGINEER";
-                if ((double) this.game.Data.RuleVar[214] == 1.0)
+                if ( this.game.Data.RuleVar[214] == 1.0)
                   Number = true;
               }
-              else if ((double) this.GetRolePercent(unr, 8) >= (double) this.game.Data.RuleVar[158] * 0.3)
+              else if ( this.GetRolePercent(unr, 8) >=  this.game.Data.RuleVar[158] * 0.3)
               {
                 num4 += 1;
                 num6 += 1;
@@ -6595,17 +6595,17 @@ namespace WindowsApplication1
                 str = "ART";
                 if (this.TPlanObj[index1].Stand == 1)
                 {
-                  if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[154])
+                  if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[154])
                     Number = true;
                 }
-                else if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[153])
+                else if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[153])
                   Number = true;
-                if ((double) this.game.Data.RuleVar[165] == 1.0)
+                if ( this.game.Data.RuleVar[165] == 1.0)
                   Number = true;
-                if (!Number && Operators.ConditionalCompareObjectGreaterEqual((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
+                if (!Number && Operators.ConditionalCompareObjectGreaterEqual( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
                   Number = true;
               }
-              else if ((double) this.GetRolePercent(unr, 6) >= (double) this.game.Data.RuleVar[156] * 0.8)
+              else if ( this.GetRolePercent(unr, 6) >=  this.game.Data.RuleVar[156] * 0.8)
               {
                 num2 += 1;
                 num6 += 1;
@@ -6613,12 +6613,12 @@ namespace WindowsApplication1
                 str = "INF";
                 if (this.TPlanObj[index1].Stand == 1)
                 {
-                  if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[154])
+                  if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[154])
                     Number = true;
                 }
-                else if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[153])
+                else if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[153])
                   Number = true;
-                if (!Number && Operators.ConditionalCompareObjectGreaterEqual((object) this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
+                if (!Number && Operators.ConditionalCompareObjectGreaterEqual( this.game.HandyFunctionsObj.GetUnitCarryCap(unr, 0), this.game.HandyFunctionsObj.GetUnitWeightWithoutLandCarryCap(unr), false))
                   Number = true;
               }
               else if (this.GetRolePercent(unr, 17) > 0)
@@ -6644,11 +6644,11 @@ namespace WindowsApplication1
               }
               if (num12 > -1)
               {
-                if (this.TPlanObj[index1].Type == 20 && this.game.Data.MapObj[0].HexObj[this.TPlanObj[index1].TooArea.X, this.TPlanObj[index1].TooArea.Y].Regime == -1 | (double) this.TPlanObj[index1].WeightFriendlyForce > (double) this.TPlanObj[index1].WeightEnemyForce * 4.0)
+                if (this.TPlanObj[index1].Type == 20 && this.game.Data.MapObj[0].HexObj[this.TPlanObj[index1].TooArea.X, this.TPlanObj[index1].TooArea.Y].Regime == -1 |  this.TPlanObj[index1].WeightFriendlyForce >  this.TPlanObj[index1].WeightEnemyForce * 4.0)
                   Number = true;
                 this.game.Data.UnitObj[unr].AIUnitGoal = num12;
                 this.game.Data.UnitObj[unr].AIMobilize = Number;
-                this.AddLog("AFTER ANALYSE OF COMPOSITION Unit: " + this.game.Data.UnitObj[unr].Name + " has been assigned goal: " + str + ", mobilize=" + Conversion.Str((object) Number));
+                this.AddLog("AFTER ANALYSE OF COMPOSITION Unit: " + this.game.Data.UnitObj[unr].Name + " has been assigned goal: " + str + ", mobilize=" + Conversion.Str( Number));
               }
             }
           }
@@ -6666,7 +6666,7 @@ namespace WindowsApplication1
                   str = "INFANTRY";
                   if (this.TPlanObj[index1].Stand == 2)
                   {
-                    if ((double) this.TPlanObj[index1].WeightEnemyForce < 5.0)
+                    if ( this.TPlanObj[index1].WeightEnemyForce < 5.0)
                     {
                       num12 = 2;
                       str = "ARMOUR";
@@ -6674,69 +6674,69 @@ namespace WindowsApplication1
                       num6 += 1;
                       Number = true;
                     }
-                    else if ((double) (num2 * 100) / (double) num6 < (double) this.game.Data.RuleVar[162])
+                    else if ( (num2 * 100) /  num6 <  this.game.Data.RuleVar[162])
                     {
                       num12 = 1;
                       str = "INFANTRY ";
                       num2 += 1;
                       num6 += 1;
-                      if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[153])
+                      if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[153])
                         Number = true;
                     }
-                    else if ((double) (num3 * 100) / (double) num6 < (double) this.game.Data.RuleVar[161] & 100.0 * (1.0 / (double) num7) <= (double) this.game.Data.RuleVar[161])
+                    else if ( (num3 * 100) /  num6 <  this.game.Data.RuleVar[161] & 100.0 * (1.0 /  num7) <=  this.game.Data.RuleVar[161])
                     {
                       num12 = 2;
                       str = "ARMOUR";
                       num3 += 1;
                       num6 += 1;
-                      if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[153])
+                      if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[153])
                         Number = true;
-                      if ((double) this.game.Data.RuleVar[164] == 1.0)
+                      if ( this.game.Data.RuleVar[164] == 1.0)
                         Number = true;
                     }
-                    else if ((double) (num4 * 100) / (double) num6 < (double) this.game.Data.RuleVar[163] & 100.0 * (1.0 / (double) num7) <= (double) this.game.Data.RuleVar[163])
+                    else if ( (num4 * 100) /  num6 <  this.game.Data.RuleVar[163] & 100.0 * (1.0 /  num7) <=  this.game.Data.RuleVar[163])
                     {
                       num12 = 3;
                       str = "ARTILLERY";
                       num4 += 1;
                       num6 += 1;
-                      if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[153])
+                      if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[153])
                         Number = true;
-                      if ((double) this.game.Data.RuleVar[165] == 1.0)
+                      if ( this.game.Data.RuleVar[165] == 1.0)
                         Number = true;
                     }
                   }
                   else if (this.TPlanObj[index1].Stand == 1)
                   {
-                    if ((double) (num3 * 100) / (double) num6 < (double) this.game.Data.RuleVar[171] & 100.0 * (1.0 / (double) num7) <= (double) this.game.Data.RuleVar[171])
+                    if ( (num3 * 100) /  num6 <  this.game.Data.RuleVar[171] & 100.0 * (1.0 /  num7) <=  this.game.Data.RuleVar[171])
                     {
                       num12 = 2;
                       str = "ARMOUR";
                       num3 += 1;
                       num6 += 1;
-                      if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[154])
+                      if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[154])
                         Number = true;
-                      if ((double) this.game.Data.RuleVar[164] == 1.0)
+                      if ( this.game.Data.RuleVar[164] == 1.0)
                         Number = true;
                     }
-                    else if ((double) (num2 * 100) / (double) num6 < (double) this.game.Data.RuleVar[172])
+                    else if ( (num2 * 100) /  num6 <  this.game.Data.RuleVar[172])
                     {
                       num12 = 1;
                       str = "INFANTRY";
                       num2 += 1;
                       num6 += 1;
-                      if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[154])
+                      if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[154])
                         Number = true;
                     }
-                    else if ((double) (num4 * 100) / (double) num6 < (double) this.game.Data.RuleVar[173] & 100.0 * (1.0 / (double) num7) <= (double) this.game.Data.RuleVar[173])
+                    else if ( (num4 * 100) /  num6 <  this.game.Data.RuleVar[173] & 100.0 * (1.0 /  num7) <=  this.game.Data.RuleVar[173])
                     {
                       num12 = 3;
                       str = "ARTILLERY";
                       num4 += 1;
                       num6 += 1;
-                      if ((double) VBMath.Rnd() * 100.0 <= (double) this.game.Data.RuleVar[154])
+                      if ( VBMath.Rnd() * 100.0 <=  this.game.Data.RuleVar[154])
                         Number = true;
-                      if ((double) this.game.Data.RuleVar[165] == 1.0)
+                      if ( this.game.Data.RuleVar[165] == 1.0)
                         Number = true;
                     }
                   }
@@ -6749,21 +6749,21 @@ namespace WindowsApplication1
                     num12 = 9;
                     Number = false;
                     str = "NAVALWAR";
-                    if ((double) (num11 * 100) / (double) num8 < (double) this.game.Data.RuleVar[232])
+                    if ( (num11 * 100) /  num8 <  this.game.Data.RuleVar[232])
                     {
                       num12 = 8;
                       str = "CARGO";
                       num11 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num10 * 100) / (double) num8 < (double) this.game.Data.RuleVar[231])
+                    else if ( (num10 * 100) /  num8 <  this.game.Data.RuleVar[231])
                     {
                       num12 = 9;
                       str = "NAVWAR";
                       num10 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num9 * 100) / (double) num8 < (double) this.game.Data.RuleVar[230])
+                    else if ( (num9 * 100) /  num8 <  this.game.Data.RuleVar[230])
                     {
                       num12 = 10;
                       str = "RAIDER";
@@ -6776,21 +6776,21 @@ namespace WindowsApplication1
                     num12 = 9;
                     Number = false;
                     str = "NAVALWAR";
-                    if ((double) (num11 * 100) / (double) num8 < (double) this.game.Data.RuleVar[235])
+                    if ( (num11 * 100) /  num8 <  this.game.Data.RuleVar[235])
                     {
                       num12 = 8;
                       str = "CARGO";
                       num11 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num10 * 100) / (double) num8 < (double) this.game.Data.RuleVar[234])
+                    else if ( (num10 * 100) /  num8 <  this.game.Data.RuleVar[234])
                     {
                       num12 = 9;
                       str = "NAVWAR";
                       num10 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num9 * 100) / (double) num8 < (double) this.game.Data.RuleVar[233])
+                    else if ( (num9 * 100) /  num8 <  this.game.Data.RuleVar[233])
                     {
                       num12 = 10;
                       str = "RAIDER";
@@ -6803,21 +6803,21 @@ namespace WindowsApplication1
                     num12 = 8;
                     Number = false;
                     str = "NAVALWAR";
-                    if ((double) (num11 * 100) / (double) num8 < (double) this.game.Data.RuleVar[238])
+                    if ( (num11 * 100) /  num8 <  this.game.Data.RuleVar[238])
                     {
                       num12 = 8;
                       str = "CARGO";
                       num11 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num10 * 100) / (double) num8 < (double) this.game.Data.RuleVar[237])
+                    else if ( (num10 * 100) /  num8 <  this.game.Data.RuleVar[237])
                     {
                       num12 = 9;
                       str = "NAVWAR";
                       num10 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num9 * 100) / (double) num8 < (double) this.game.Data.RuleVar[236])
+                    else if ( (num9 * 100) /  num8 <  this.game.Data.RuleVar[236])
                     {
                       num12 = 10;
                       str = "RAIDER";
@@ -6840,21 +6840,21 @@ namespace WindowsApplication1
                     num12 = 9;
                     Number = false;
                     str = "NAVALWAR";
-                    if ((double) (num11 * 100) / (double) num8 < (double) this.game.Data.RuleVar[242])
+                    if ( (num11 * 100) /  num8 <  this.game.Data.RuleVar[242])
                     {
                       num12 = 8;
                       str = "CARGO";
                       num11 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num10 * 100) / (double) num8 < (double) this.game.Data.RuleVar[241])
+                    else if ( (num10 * 100) /  num8 <  this.game.Data.RuleVar[241])
                     {
                       num12 = 9;
                       str = "NAVWAR";
                       num10 += 1;
                       num8 += 1;
                     }
-                    else if ((double) (num9 * 100) / (double) num8 < (double) this.game.Data.RuleVar[240])
+                    else if ( (num9 * 100) /  num8 <  this.game.Data.RuleVar[240])
                     {
                       num12 = 10;
                       str = "RAIDER";
@@ -6865,9 +6865,9 @@ namespace WindowsApplication1
                 }
                 this.game.Data.UnitObj[unr].AIUnitGoal = num12;
                 this.game.Data.UnitObj[unr].AIMobilize = Number;
-                this.AddLog("Unit: " + this.game.Data.UnitObj[unr].Name + " has been assigned goal: " + str + ", mobilize=" + Conversion.Str((object) Number));
+                this.AddLog("Unit: " + this.game.Data.UnitObj[unr].Name + " has been assigned goal: " + str + ", mobilize=" + Conversion.Str( Number));
               }
-              if ((double) this.game.Data.RuleVar[211] > 0.0 & (double) this.game.Data.RuleVar[32] > -1.0 && !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.game.Data.UnitObj[unr].AIUnitGoal != 4 && this.game.HandyFunctionsObj.GetUnitEP(unr) >= this.game.Data.RoadTypeObj[(int) Math.Round((double) this.game.Data.RuleVar[32])].EPCost && (double) this.GetRolePercent(unr, 5) > 1.0 + (double) VBMath.Rnd() * 100.0)
+              if ( this.game.Data.RuleVar[211] > 0.0 &  this.game.Data.RuleVar[32] > -1.0 && !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.game.Data.UnitObj[unr].AIUnitGoal != 4 && this.game.HandyFunctionsObj.GetUnitEP(unr) >= this.game.Data.RoadTypeObj[(int) Math.Round( this.game.Data.RuleVar[32])].EPCost &&  this.GetRolePercent(unr, 5) > 1.0 +  VBMath.Rnd() * 100.0)
               {
                 str = "ENGINEER";
                 num12 = 4;
@@ -6875,7 +6875,7 @@ namespace WindowsApplication1
                 num5 += 1;
                 this.AddLog("Unit: " + this.game.Data.UnitObj[unr].Name + " has been re-assigned goal: " + str);
               }
-              if ((double) this.game.Data.RuleVar[221] > 0.0 && !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.TPlanObj[index1].Type == 40 && this.game.HandyFunctionsObj.HasUnitAirSF(unr) & !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.Data.UnitObj[unr].AIUnitGoal != 5)
+              if ( this.game.Data.RuleVar[221] > 0.0 && !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.TPlanObj[index1].Type == 40 && this.game.HandyFunctionsObj.HasUnitAirSF(unr) & !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.Data.UnitObj[unr].AIUnitGoal != 5)
               {
                 str = "AIRSUPPORT";
                 num12 = 5;
@@ -6883,7 +6883,7 @@ namespace WindowsApplication1
                 this.game.Data.UnitObj[unr].SOInterceptRdnStop = 75;
                 this.AddLog("Unit: " + this.game.Data.UnitObj[unr].Name + " has been re-assigned goal: " + str);
               }
-              if ((double) this.game.Data.RuleVar[227] > 0.0 && !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.TPlanObj[index1].Type == 40 && this.MakeNavyActive(index1) && this.game.HandyFunctionsObj.HasUnitNavySF(unr) && !(this.game.Data.UnitObj[unr].AIUnitGoal == 10 | this.game.Data.UnitObj[unr].AIUnitGoal == 8 | this.game.Data.UnitObj[unr].AIUnitGoal == 9) && this.game.HandyFunctionsObj.IsHexHarbourOrSea(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0))
+              if ( this.game.Data.RuleVar[227] > 0.0 && !this.game.Data.UnitObj[unr].IsHQ & this.game.Data.UnitObj[unr].AIPlanNr == index1 && this.TPlanObj[index1].Type == 40 && this.MakeNavyActive(index1) && this.game.HandyFunctionsObj.HasUnitNavySF(unr) && !(this.game.Data.UnitObj[unr].AIUnitGoal == 10 | this.game.Data.UnitObj[unr].AIUnitGoal == 8 | this.game.Data.UnitObj[unr].AIUnitGoal == 9) && this.game.HandyFunctionsObj.IsHexHarbourOrSea(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0))
               {
                 str = "GOALNAVALWAR";
                 num12 = 9;
@@ -6898,9 +6898,9 @@ namespace WindowsApplication1
           let mut Number: i32 =  this.PlanEngineerNeedScore(index1);
           int num13;
           if (this.TPlanObj[index1].Type == 20)
-            num13 = (int) Math.Round((double) this.game.Data.RuleVar[216]);
+            num13 = (int) Math.Round( this.game.Data.RuleVar[216]);
           if (this.TPlanObj[index1].Type == 40)
-            num13 = (int) Math.Round((double) this.game.Data.RuleVar[217]);
+            num13 = (int) Math.Round( this.game.Data.RuleVar[217]);
           let mut num14: i32 =  0;
           let mut num15: i32 =  0;
           let mut num16: i32 =  0;
@@ -6919,14 +6919,14 @@ namespace WindowsApplication1
               if (aiUnitGoal == 3)
                 num16 += 1;
               if (aiUnitGoal == 4)
-                num17 = Conversions.ToInteger(Operators.AddObject((object) num17, this.GetEPPerTurn(unr)));
+                num17 = Conversions.ToInteger(Operators.AddObject( num17, this.GetEPPerTurn(unr)));
               num18 += 1;
             }
           }
-          this.AddLog("Plan #" + Conversion.Str((object) index1) + " engineer need score =" + Conversion.Str((object) Number) + ", geng=" + Conversion.Str((object) num17));
-          if ((double) this.game.Data.RuleVar[211] > 0.0 & !(num18 == 0 & this.TPlanObj[index1].Type == 20 & this.TPlanObj[index1].EnemyUnitCount > 0))
+          this.AddLog("Plan #" + Conversion.Str( index1) + " engineer need score =" + Conversion.Str( Number) + ", geng=" + Conversion.Str( num17));
+          if ( this.game.Data.RuleVar[211] > 0.0 & !(num18 == 0 & this.TPlanObj[index1].Type == 20 & this.TPlanObj[index1].EnemyUnitCount > 0))
           {
-            if (Number > num13 & (double) num17 < (double) this.game.Data.RuleVar[215] * 2.0)
+            if (Number > num13 &  num17 <  this.game.Data.RuleVar[215] * 2.0)
             {
               SimpleList simpleList = SimpleList::new();
               let mut tplanCount2: i32 =  this.TPlanCount;
@@ -6953,16 +6953,16 @@ namespace WindowsApplication1
                       num23 = 9999;
                     int num24;
                     if (this.TPlanObj[index3].Type == 20)
-                      num24 = (int) Math.Round((double) this.game.Data.RuleVar[216]);
+                      num24 = (int) Math.Round( this.game.Data.RuleVar[216]);
                     if (this.TPlanObj[index3].Type == 40)
-                      num24 = (int) Math.Round((double) this.game.Data.RuleVar[217]);
-                    if (this.PlanEngineerNeedScore(index3) > num24 & (double) num17 >= (double) this.game.Data.RuleVar[215])
+                      num24 = (int) Math.Round( this.game.Data.RuleVar[217]);
+                    if (this.PlanEngineerNeedScore(index3) > num24 &  num17 >=  this.game.Data.RuleVar[215])
                       num20 = 0;
-                    if (this.PlanEngineerNeedScore(index3) > num24 & (double) this.GetPlanEPPerTurn(index3) < (double) this.game.Data.RuleVar[215])
+                    if (this.PlanEngineerNeedScore(index3) > num24 &  this.GetPlanEPPerTurn(index3) <  this.game.Data.RuleVar[215])
                       num20 = 0;
                     if (num20 == 1 & num23 < 9999)
                     {
-                      this.AddLog("-" + Conversion.Str((object) index3) + " gets weight=" + Conversion.Str((object) num23));
+                      this.AddLog("-" + Conversion.Str( index3) + " gets weight=" + Conversion.Str( num23));
                       simpleList.Add(index3, num23);
                     }
                   }
@@ -6975,7 +6975,7 @@ namespace WindowsApplication1
                 {
                   let mut index4: i32 =  this.HasPlanEngineerUnit(simpleList.Id[0]);
                   this.game.Data.UnitObj[index4].AIPlanNr = index1;
-                  this.AddLog("Switched " + this.game.Data.UnitObj[index4].Name + " from plannr " + Conversion.Str((object) simpleList.Id[0]) + " to " + Conversion.Str((object) index1));
+                  this.AddLog("Switched " + this.game.Data.UnitObj[index4].Name + " from plannr " + Conversion.Str( simpleList.Id[0]) + " to " + Conversion.Str( index1));
                   num17 += 1;
                 }
               }
@@ -6991,7 +6991,7 @@ namespace WindowsApplication1
                 {
                   let mut landReservePlan1: i32 =  this.SAObj[this.GetAreaNr(this.TPlanObj[aiPlanNr].FromArea)].LandReservePlan;
                   let mut landReservePlan2: i32 =  this.SAObj[this.GetAreaNr(this.TPlanObj[index1].FromArea)].LandReservePlan;
-                  if (landReservePlan1 > 0 & landReservePlan1 == landReservePlan2 && this.game.Data.UnitObj[unr].AIUnitGoal == 4 && Operators.ConditionalCompareObjectLess(this.GetEPPerTurn(unr), (object) this.game.Data.RuleVar[215], false))
+                  if (landReservePlan1 > 0 & landReservePlan1 == landReservePlan2 && this.game.Data.UnitObj[unr].AIUnitGoal == 4 && Operators.ConditionalCompareObjectLess(this.GetEPPerTurn(unr),  this.game.Data.RuleVar[215], false))
                   {
                     num25 += 1;
                     this.AddLog("Found 1 engineer in same landreserve with not at ideal filling yet (if 5x found no new ones allowed).");
@@ -6999,7 +6999,7 @@ namespace WindowsApplication1
                 }
               }
             }
-            if ((double) this.game.Data.RuleVar[249] == 0.0 && Number > num13 & num17 == 0 & num25 < 5)
+            if ( this.game.Data.RuleVar[249] == 0.0 && Number > num13 & num17 == 0 & num25 < 5)
             {
               Coordinate engineerCoord = this.GetEngineerCoord(1, index1);
               if (engineerCoord.onmap && this.game.Data.MapObj[0].HexObj[engineerCoord.x, engineerCoord.y].Regime == this.game.Data.Turn)
@@ -7015,7 +7015,7 @@ namespace WindowsApplication1
                 {
                   int index6;
                   int index7;
-                  if (((double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= (double) this.game.Data.RuleVar[46] | (double) this.game.Data.RuleVar[863] > 0.0) & this.game.Data.MapObj[0].HexObj[index6, index7].UnitCounter < 15)
+                  if (( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >=  this.game.Data.RuleVar[46] |  this.game.Data.RuleVar[863] > 0.0) & this.game.Data.MapObj[0].HexObj[index6, index7].UnitCounter < 15)
                   {
                     this.game.ProcessingObj.NewUnit(engineerCoord.x, engineerCoord.y, 0, false, this.game.Data.Turn);
                     this.game.Data.UnitObj[this.game.Data.UnitCounter].HQ = this.TPlanObj[index1].HQ;
@@ -7026,7 +7026,7 @@ namespace WindowsApplication1
                     let mut index8: i32 =  index1;
                     let mut index9: i32 =  index8;
                     aiPlanClassArray[index9].FriendlyUnitCount = tplanObj[index8].FriendlyUnitCount + 1;
-                    this.AddLog("New engineer goal unit placed at " + Conversion.Str((object) engineerCoord.x) + "," + Conversion.Str((object) engineerCoord.y) + " for plan #" + Conversion.Str((object) index1));
+                    this.AddLog("New engineer goal unit placed at " + Conversion.Str( engineerCoord.x) + "," + Conversion.Str( engineerCoord.y) + " for plan #" + Conversion.Str( index1));
                   }
                 }
                 else
@@ -7061,11 +7061,11 @@ namespace WindowsApplication1
             let mut absoluteLandForRegime: i32 =  this.game.HandyFunctionsObj.GetPowerPtsAbsoluteLandForRegime(this.game.Data.Turn);
             let mut totalStrategicValue: i32 =  this.GetTotalStrategicValue();
             let mut weightStrategic: i32 =  this.TPlanObj[index1].WeightStrategic;
-            let mut Number2: i32 =  (int) Math.Round((double) absoluteLandForRegime * ((double) weightStrategic / (double) totalStrategicValue) * ((double) this.game.Data.RuleVar[244] * (double) this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative / 100.0));
+            let mut Number2: i32 =  (int) Math.Round( absoluteLandForRegime * ( weightStrategic /  totalStrategicValue) * ( this.game.Data.RuleVar[244] *  this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative / 100.0));
             if (Number1 == 2)
-              Number2 = (int) Math.Round((double) Number2 * 0.5);
+              Number2 = (int) Math.Round( Number2 * 0.5);
             let mut num28: i32 =  0;
-            this.AddLog("Plan #" + Conversion.Str((object) index1) + " needs a reserve (typ" + Conversion.Str((object) Number1) + ") of " + Conversion.Str((object) Number2) + " absolute power pts.");
+            this.AddLog("Plan #" + Conversion.Str( index1) + " needs a reserve (typ" + Conversion.Str( Number1) + ") of " + Conversion.Str( Number2) + " absolute power pts.");
             let mut unitCounter: i32 =  this.game.Data.UnitCounter;
             for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
             {
@@ -7090,12 +7090,12 @@ namespace WindowsApplication1
           let mut absoluteLandForRegime: i32 =  this.game.HandyFunctionsObj.GetPowerPtsAbsoluteLandForRegime(this.game.Data.Turn);
           let mut totalStrategicValue: i32 =  this.GetTotalStrategicValue();
           let mut weightStrategic: i32 =  this.TPlanObj[index1].WeightStrategic;
-          let mut Number: i32 =  (int) Math.Round((double) absoluteLandForRegime * ((double) weightStrategic / (double) totalStrategicValue) * ((double) this.game.Data.RuleVar[244] * (double) this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative / 100.0));
+          let mut Number: i32 =  (int) Math.Round( absoluteLandForRegime * ( weightStrategic /  totalStrategicValue) * ( this.game.Data.RuleVar[244] *  this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative / 100.0));
           let mut num29: i32 =  0;
           let mut num30: i32 =  0;
           if (this.getfrontplan(this.TPlanObj[index1].FromArea.X, this.TPlanObj[index1].FromArea.Y) == -1)
           {
-            this.AddLog("Plan amph #" + Conversion.Str((object) index1) + " needs a reserve (typ amph reserve) of " + Conversion.Str((object) Number) + " absolute power pts.");
+            this.AddLog("Plan amph #" + Conversion.Str( index1) + " needs a reserve (typ amph reserve) of " + Conversion.Str( Number) + " absolute power pts.");
             let mut unitCounter: i32 =  this.game.Data.UnitCounter;
             for (let mut unr: i32 =  0; unr <= unitCounter; unr += 1)
             {
@@ -7130,21 +7130,21 @@ namespace WindowsApplication1
       object LoopForResult;
       object CounterResult;
       object obj;
-      if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter, (object) 0, (object) this.game.Data.UnitCounter, (object) 1, ref LoopForResult, ref CounterResult))
+      if (ObjectFlowControl.ForLoopControl.ForLoopInitObj(Counter,  0,  this.game.Data.UnitCounter,  1, ref LoopForResult, ref CounterResult))
       {
         do
         {
           if (this.game.Data.UnitObj[Conversions.ToInteger(CounterResult)].AIPlanNr == plnr & this.game.Data.UnitObj[Conversions.ToInteger(CounterResult)].AIReserve)
-            obj = Operators.AddObject(obj, (object) 1);
+            obj = Operators.AddObject(obj,  1);
         }
         while (ObjectFlowControl.ForLoopControl.ForNextCheckObj(CounterResult, LoopForResult, ref CounterResult));
       }
-      object absoluteLandForRegime = (object) this.game.HandyFunctionsObj.GetPowerPtsAbsoluteLandForRegime(this.game.Data.Turn);
-      object totalStrategicValue = (object) this.GetTotalStrategicValue();
-      object weightStrategic = (object) this.TPlanObj[plnr].WeightStrategic;
-      object Left = Operators.MultiplyObject(Operators.MultiplyObject(absoluteLandForRegime, Operators.DivideObject(weightStrategic, totalStrategicValue)), (object) (float) ((double) this.game.Data.RuleVar[244] * (double) this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative / 100.0));
-      if (Operators.ConditionalCompareObjectEqual(obj, (object) 0, false))
-        obj = (object) 1;
+      object absoluteLandForRegime =  this.game.HandyFunctionsObj.GetPowerPtsAbsoluteLandForRegime(this.game.Data.Turn);
+      object totalStrategicValue =  this.GetTotalStrategicValue();
+      object weightStrategic =  this.TPlanObj[plnr].WeightStrategic;
+      object Left = Operators.MultiplyObject(Operators.MultiplyObject(absoluteLandForRegime, Operators.DivideObject(weightStrategic, totalStrategicValue)),   ( this.game.Data.RuleVar[244] *  this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative / 100.0));
+      if (Operators.ConditionalCompareObjectEqual(obj,  0, false))
+        obj =  1;
       return Conversions.ToInteger(Conversion.Int(Operators.DivideObject(Left, obj)));
     }
 
@@ -7191,10 +7191,10 @@ namespace WindowsApplication1
           {
             let mut num2: i32 =  10;
             let mut num3: i32 =  !(this.TPlanObj[tid].SeaTarget > 0 & this.TPlanObj[tid].SeaTarget <= this.SACount) ? 5 : (!this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[this.SAObj[this.TPlanObj[tid].SeaTarget].X, this.SAObj[this.TPlanObj[tid].SeaTarget].Y].Regime, this.game.Data.Turn) ? num2 * this.SAObj[this.TPlanObj[tid].SeaTarget].fuzzyvp : num2 * 1);
-            float num4 = !(this.TPlanObj[tid].FriendlyNavy > 0 & this.TPlanObj[tid].EnemyNavy > 0) ? 1f : (float) this.TPlanObj[tid].EnemyNavy / (float) this.TPlanObj[tid].FriendlyNavy;
-            if ((double) num4 > 10.0)
+            float num4 = !(this.TPlanObj[tid].FriendlyNavy > 0 & this.TPlanObj[tid].EnemyNavy > 0) ? 1f :  this.TPlanObj[tid].EnemyNavy /  this.TPlanObj[tid].FriendlyNavy;
+            if ( num4 > 10.0)
               num4 = 10f;
-            let mut tweight: i32 =  (int) Math.Round((double) Conversion.Int((float) num3 * num4));
+            let mut tweight: i32 =  (int) Math.Round( Conversion.Int( num3 * num4));
             if (tweight < 1)
               tweight = 1;
             simpleList3.Add(tid, tweight);
@@ -7203,7 +7203,7 @@ namespace WindowsApplication1
         simpleList3.Sort();
         let mut counter1: i32 =  simpleList3.Counter;
         for (let mut index: i32 =  0; index <= counter1; index += 1)
-          this.AddLog("Plan #" + Conversion.Str((object) simpleList3.Id[index]) + " ... weight = " + Conversion.Str((object) simpleList3.Weight[index]));
+          this.AddLog("Plan #" + Conversion.Str( simpleList3.Id[index]) + " ... weight = " + Conversion.Str( simpleList3.Weight[index]));
         if (simpleList3.Counter > -1)
         {
           SimpleList simpleList4 = SimpleList::new();
@@ -7235,7 +7235,7 @@ namespace WindowsApplication1
                   if (nr > -1 && simpleList3.Weight[nr] * 4 < simpleList3.Weight[simpleList3.Counter] & !flagArray[tid])
                   {
                     this.SetNavalMatrix1(this.game.Data.UnitObj[tid].X, this.game.Data.UnitObj[tid].Y);
-                    let mut tweight: i32 =  (int) Math.Round((double) this.Matrix1[this.TPlanObj[simpleList3.Id[simpleList3.Counter]].FromArea.X, this.TPlanObj[simpleList3.Id[simpleList3.Counter]].FromArea.Y] / Math.Sqrt((double) simpleList3.Weight[nr]));
+                    let mut tweight: i32 =  (int) Math.Round( this.Matrix1[this.TPlanObj[simpleList3.Id[simpleList3.Counter]].FromArea.X, this.TPlanObj[simpleList3.Id[simpleList3.Counter]].FromArea.Y] / Math.Sqrt( simpleList3.Weight[nr]));
                     if (tweight > 0)
                       simpleList4.Add(tid, tweight);
                   }
@@ -7244,13 +7244,13 @@ namespace WindowsApplication1
             }
           }
           simpleList4.Sort();
-          this.AddLog("Find unit for transfer to plan #" + Conversion.Str((object) simpleList3.Id[simpleList3.Counter]));
+          this.AddLog("Find unit for transfer to plan #" + Conversion.Str( simpleList3.Id[simpleList3.Counter]));
           let mut counter2: i32 =  simpleList4.Counter;
           for (let mut index: i32 =  0; index <= counter2; index += 1)
-            this.AddLog("Unit #" + this.game.Data.UnitObj[simpleList4.Id[index]].Name + " ... weight = " + Conversion.Str((object) simpleList4.Weight[index]));
+            this.AddLog("Unit #" + this.game.Data.UnitObj[simpleList4.Id[index]].Name + " ... weight = " + Conversion.Str( simpleList4.Weight[index]));
           if (simpleList4.Counter > -1)
           {
-            this.AddLog("Changing naval unit " + this.game.Data.UnitObj[simpleList4.Id[simpleList4.Counter]].Name + " to plan # " + Conversion.Str((object) simpleList3.Id[simpleList3.Counter]));
+            this.AddLog("Changing naval unit " + this.game.Data.UnitObj[simpleList4.Id[simpleList4.Counter]].Name + " to plan # " + Conversion.Str( simpleList3.Id[simpleList3.Counter]));
             num1 = 1;
             flagArray[simpleList4.Id[simpleList4.Counter]] = true;
             this.game.Data.UnitObj[simpleList4.Id[simpleList4.Counter]].AIPlanNr = simpleList3.Id[simpleList3.Counter];
@@ -7268,7 +7268,7 @@ namespace WindowsApplication1
       {
         if (this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.Data.UnitObj[unr].PreDef == -1 & this.game.Data.UnitObj[unr].X > -1 && this.game.HandyFunctionsObj.HasUnitAirSF(unr))
         {
-          this.game.Data.UnitObj[unr].SOInterceptRdnStop = (double) friendlyAirRatio < 1.0 ? ((double) friendlyAirRatio < 0.5 ? (!((double) friendlyAirRatio >= 0.25 & (double) VBMath.Rnd() > 0.75) ? 100 : 75) : 75) : 50;
+          this.game.Data.UnitObj[unr].SOInterceptRdnStop =  friendlyAirRatio < 1.0 ? ( friendlyAirRatio < 0.5 ? (!( friendlyAirRatio >= 0.25 &  VBMath.Rnd() > 0.75) ? 100 : 75) : 75) : 50;
           let mut aiPlanNr: i32 =  this.game.Data.UnitObj[unr].AIPlanNr;
           this.game.Data.UnitObj[unr].SODefendPercent = aiPlanNr <= 0 ? 50 : (this.TPlanObj[aiPlanNr].Stand != 3 ? 50 : 5);
         }
@@ -7286,7 +7286,7 @@ namespace WindowsApplication1
       int[] numArray4 = new int[this.TPlanCount + 1];
       int[] numArray5 = new int[this.TPlanCount + 1];
       int[] numArray6 = new int[this.TPlanCount + 1];
-      if ((double) this.game.Data.RuleVar[221] < 1.0)
+      if ( this.game.Data.RuleVar[221] < 1.0)
         return;
       let mut num1: i32 =  1;
       let mut num2: i32 =  0;
@@ -7319,8 +7319,8 @@ namespace WindowsApplication1
                   if (this.game.HandyFunctionsObj.IsHexAirfield(index2, index3, 0) & num5 == 0)
                   {
                     num5 = 1;
-                    let mut num7: i32 =  (int) Math.Round((double) ((float) index2 - this.game.Data.RuleVar[223]));
-                    let mut num8: i32 =  (int) Math.Round((double) ((float) index2 + this.game.Data.RuleVar[223]));
+                    let mut num7: i32 =  (int) Math.Round( ( index2 - this.game.Data.RuleVar[223]));
+                    let mut num8: i32 =  (int) Math.Round( ( index2 + this.game.Data.RuleVar[223]));
                     for (let mut index4: i32 =  num7; index4 <= num8; index4 += 1)
                     {
                       let mut index5: i32 =  index4;
@@ -7328,15 +7328,15 @@ namespace WindowsApplication1
                         index5 = this.game.Data.MapObj[0].MapWidth + index5 + 1;
                       if (this.game.Data.MapObj[0].MapLoop & index5 > this.game.Data.MapObj[0].MapWidth)
                         index5 = index5 - this.game.Data.MapObj[0].MapWidth - 1;
-                      let mut num9: i32 =  (int) Math.Round((double) ((float) index3 - this.game.Data.RuleVar[223]));
-                      let mut num10: i32 =  (int) Math.Round((double) ((float) index3 + this.game.Data.RuleVar[223]));
+                      let mut num9: i32 =  (int) Math.Round( ( index3 - this.game.Data.RuleVar[223]));
+                      let mut num10: i32 =  (int) Math.Round( ( index3 + this.game.Data.RuleVar[223]));
                       for (let mut index6: i32 =  num9; index6 <= num10; index6 += 1)
                       {
                         if (index5 > -1 & index6 > -1 && index5 <= this.game.Data.MapObj[0].MapWidth & index6 <= this.game.Data.MapObj[0].MapHeight)
                         {
-                          if (this.game.Data.MapObj[0].HexObj[index5, index6].Location > -1 & this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index5, index6].Regime, this.game.Data.Turn) && (double) this.game.HandyFunctionsObj.Distance(index2, index3, 0, index5, index6, 0) <= (double) this.game.Data.RuleVar[223] * (double) this.game.Data.RuleVar[147])
+                          if (this.game.Data.MapObj[0].HexObj[index5, index6].Location > -1 & this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index5, index6].Regime, this.game.Data.Turn) &&  this.game.HandyFunctionsObj.Distance(index2, index3, 0, index5, index6, 0) <=  this.game.Data.RuleVar[223] *  this.game.Data.RuleVar[147])
                             num6 += this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[index5, index6].Location].Type].MaxProd;
-                          if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[index5, index6].Regime) && this.game.Data.MapObj[0].HexObj[index5, index6].UnitCounter > -1 && (double) this.game.HandyFunctionsObj.Distance(index2, index3, 0, index5, index6, 0) <= (double) this.game.Data.RuleVar[223])
+                          if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[index5, index6].Regime) && this.game.Data.MapObj[0].HexObj[index5, index6].UnitCounter > -1 &&  this.game.HandyFunctionsObj.Distance(index2, index3, 0, index5, index6, 0) <=  this.game.Data.RuleVar[223])
                           {
                             let mut forceLandStrength2: i32 =  this.GetHexForceLandStrength(index5, index6, true);
                             let mut forceAirStrength: i32 =  this.GetHexForceAirStrength(index5, index6);
@@ -7367,15 +7367,15 @@ namespace WindowsApplication1
             numArray4[index1] = num4;
             numArray5[index1] = num3;
             numArray6[index1] = d1;
-            let mut num12: i32 =  (int) Math.Round((double) (int) Math.Round((double) (int) Math.Round(1000.0 - Math.Sqrt((double) (num4 * 10))) - Math.Sqrt((double) d1)) - Math.Sqrt((double) num6 / 10.0));
+            let mut num12: i32 =  (int) Math.Round( (int) Math.Round( (int) Math.Round(1000.0 - Math.Sqrt( (num4 * 10))) - Math.Sqrt( d1)) - Math.Sqrt( num6 / 10.0));
             if (num4 < 1 & d1 < 1)
               num12 += 250;
             if (num11 < 1)
               num11 = 1;
             let mut d2: i32 =  num11 * 10;
-            let mut num13: i32 =  (int) Math.Round((double) num12 + Math.Sqrt((double) d2));
+            let mut num13: i32 =  (int) Math.Round( num12 + Math.Sqrt( d2));
             simpleList3.Add(index1, num13);
-            this.AddLog("plnr " + Conversion.Str((object) index1) + " weight= " + Conversion.Str((object) num13));
+            this.AddLog("plnr " + Conversion.Str( index1) + " weight= " + Conversion.Str( num13));
           }
         }
         if (simpleList3.Counter > 0)
@@ -7406,10 +7406,10 @@ namespace WindowsApplication1
                     let mut d4: i32 =  numArray4[Number2] * 10;
                     let mut d5: i32 =  numArray6[Number2];
                     let mut prodPtsInRange1: i32 =  this.TPlanObj[Number2].ProdPtsInRange;
-                    let mut num16: i32 =  (int) Math.Round((double) (int) Math.Round((double) (int) Math.Round(1000.0 - Math.Sqrt((double) d4)) - Math.Sqrt((double) d5)) - Math.Sqrt((double) prodPtsInRange1 / 10.0));
+                    let mut num16: i32 =  (int) Math.Round( (int) Math.Round( (int) Math.Round(1000.0 - Math.Sqrt( d4)) - Math.Sqrt( d5)) - Math.Sqrt( prodPtsInRange1 / 10.0));
                     if (d4 < 1 & d5 < 1)
                       num16 += 250;
-                    let mut Number3: i32 =  (int) Math.Round((double) num16 + Math.Sqrt((double) d3));
+                    let mut Number3: i32 =  (int) Math.Round( num16 + Math.Sqrt( d3));
                     let mut num17: i32 =  numArray3[Number1] + this.GetForceAirStrength(unr, true);
                     if (1 > num17)
                       num17 = 1;
@@ -7417,15 +7417,15 @@ namespace WindowsApplication1
                     let mut d7: i32 =  numArray4[Number1] * 10;
                     let mut d8: i32 =  numArray6[Number1];
                     let mut prodPtsInRange2: i32 =  this.TPlanObj[Number2].ProdPtsInRange;
-                    let mut num18: i32 =  (int) Math.Round((double) (int) Math.Round((double) (int) Math.Round(1000.0 - Math.Sqrt((double) d7)) - Math.Sqrt((double) d8)) - Math.Sqrt((double) prodPtsInRange2 / 10.0));
+                    let mut num18: i32 =  (int) Math.Round( (int) Math.Round( (int) Math.Round(1000.0 - Math.Sqrt( d7)) - Math.Sqrt( d8)) - Math.Sqrt( prodPtsInRange2 / 10.0));
                     if (d7 < 1 & d8 < 1)
                       Number3 += 250;
-                    let mut Number4: i32 =  (int) Math.Round((double) num18 + Math.Sqrt((double) d6));
-                    this.AddLog(Conversion.Str((object) Number1) + " will be " + Conversion.Str((object) Number4) + " while source plan " + Conversion.Str((object) Number2) + " will be " + Conversion.Str((object) Number3));
-                    if ((double) Number3 > (double) Number4 * 1.15)
+                    let mut Number4: i32 =  (int) Math.Round( num18 + Math.Sqrt( d6));
+                    this.AddLog(Conversion.Str( Number1) + " will be " + Conversion.Str( Number4) + " while source plan " + Conversion.Str( Number2) + " will be " + Conversion.Str( Number3));
+                    if ( Number3 >  Number4 * 1.15)
                     {
-                      this.AddLog("Switching Airunit " + this.game.Data.UnitObj[unr].Name + " from plan#" + Conversion.Str((object) Number2) + " to plan#" + Conversion.Str((object) Number1));
-                      this.AddLog("pred.weight= " + Conversion.Str((object) Number3) + " wile sl.weight= " + Conversion.Str((object) simpleList3.Weight[simpleList3.Counter]));
+                      this.AddLog("Switching Airunit " + this.game.Data.UnitObj[unr].Name + " from plan#" + Conversion.Str( Number2) + " to plan#" + Conversion.Str( Number1));
+                      this.AddLog("pred.weight= " + Conversion.Str( Number3) + " wile sl.weight= " + Conversion.Str( simpleList3.Weight[simpleList3.Counter]));
                       this.game.Data.UnitObj[unr].AIPlanNr = Number1;
                       num1 = 1;
                       break;
@@ -7478,15 +7478,15 @@ namespace WindowsApplication1
         {
           if (this.TPlanObj[index].Type == 20)
           {
-            if ((double) this.TPlanObj[index].WeightFriendlyForce > 0.0)
+            if ( this.TPlanObj[index].WeightFriendlyForce > 0.0)
             {
-              num3 = (int) Math.Round(200.0 * ((double) this.TPlanObj[index].WeightEnemyForceUnMod / (double) this.TPlanObj[index].WeightFriendlyForce));
+              num3 = (int) Math.Round(200.0 * ( this.TPlanObj[index].WeightEnemyForceUnMod /  this.TPlanObj[index].WeightFriendlyForce));
             }
             else
             {
               try
               {
-                num3 = (double) this.TPlanObj[index].WeightEnemyForceUnMod >= 1.0 ? (int) Math.Round(400.0 + 20.0 * (double) this.TPlanObj[index].WeightEnemyForceUnMod) : 100;
+                num3 =  this.TPlanObj[index].WeightEnemyForceUnMod >= 1.0 ? (int) Math.Round(400.0 + 20.0 *  this.TPlanObj[index].WeightEnemyForceUnMod) : 100;
               }
               catch (Exception ex)
               {
@@ -7494,27 +7494,27 @@ namespace WindowsApplication1
                 ProjectData.ClearProjectError();
               }
             }
-            num3 = (int) Math.Round((double) (int) Math.Round((double) ((float) num3 + this.TPlanObj[index].WeightFriendlyForce * this.GetPercentCuttenOff(index))) + Math.Sqrt((double) this.TPlanObj[index].WeightStrategic) * 100.0);
+            num3 = (int) Math.Round( (int) Math.Round( ( num3 + this.TPlanObj[index].WeightFriendlyForce * this.GetPercentCuttenOff(index))) + Math.Sqrt( this.TPlanObj[index].WeightStrategic) * 100.0);
             let mut regime: i32 =  this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime;
-            if ((double) this.game.Data.RuleVar[264] == 0.0 && regime > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[regime] == 0 && this.game.Data.RegimeObj[regime].AI)
+            if ( this.game.Data.RuleVar[264] == 0.0 && regime > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[regime] == 0 && this.game.Data.RegimeObj[regime].AI)
             {
-              num3 = (int) Math.Round((double) num3 * 0.5);
+              num3 = (int) Math.Round( num3 * 0.5);
               if (1 > num3)
                 num3 = 1;
               if ((this.game.Data.GameID + regime + this.game.Data.Turn) % 2 == 0)
               {
-                num3 = (int) Math.Round((double) num3 * 0.5);
+                num3 = (int) Math.Round( num3 * 0.5);
                 if (1 > num3)
                   num3 = 1;
               }
               else if ((this.game.Data.GameID + regime + this.game.Data.Turn) % 3 == 0)
               {
-                num3 = (int) Math.Round((double) num3 * 0.1);
+                num3 = (int) Math.Round( num3 * 0.1);
                 if (1 > num3)
                   num3 = 1;
               }
             }
-            this.AddLog("Plan #" + Conversion.Str((object) index) + " gets weight=" + Conversion.Str((object) num3));
+            this.AddLog("Plan #" + Conversion.Str( index) + " gets weight=" + Conversion.Str( num3));
             simpleList3.Add(index, num3);
           }
         }
@@ -7544,10 +7544,10 @@ namespace WindowsApplication1
                 if (num3 < 99)
                 {
                   let mut num4: i32 =  simpleList3.Weight[counter1] - simpleList3.Weight[index];
-                  let mut tweight: i32 =  num3 != 0 ? (int) Math.Round((double) num4 / (double) num3) : num4 * 2;
+                  let mut tweight: i32 =  num3 != 0 ? (int) Math.Round( num4 /  num3) : num4 * 2;
                   if (this.TPlanObj[tid].FriendlyUnitCount < 2)
                     tweight = 0;
-                  if ((double) this.TPlanObj[tid].WeightFriendlyForce == 0.0)
+                  if ( this.TPlanObj[tid].WeightFriendlyForce == 0.0)
                     tweight = 0;
                   simpleList4.Add(tid, tweight);
                 }
@@ -7570,10 +7570,10 @@ namespace WindowsApplication1
                     if (this.AIVP[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] > 0)
                       num6 *= 4;
                     if (this.game.Data.UnitObj[unr].HQ > -1 & this.game.Data.UnitObj[unr].HQ == this.TPlanObj[Number1].HQ)
-                      num6 = (int) Math.Round((double) num6 / 2.0);
+                      num6 = (int) Math.Round( num6 / 2.0);
                     if (this.game.Data.UnitObj[unr].X == this.TPlanObj[Number2].FromArea.X & this.game.Data.UnitObj[unr].Y == this.TPlanObj[Number2].FromArea.Y)
                       num6 = 999999;
-                    if (num6 < num5 & (double) num6 >= (double) this.game.Data.RuleVar[183] & num6 < 9999)
+                    if (num6 < num5 &  num6 >=  this.game.Data.RuleVar[183] & num6 < 9999)
                     {
                       num5 = num6;
                       index1 = unr;
@@ -7582,14 +7582,14 @@ namespace WindowsApplication1
                 }
                 if (index1 > -1)
                 {
-                  this.AddLog("Switching " + this.game.Data.UnitObj[index1].Name + " from plan#" + Conversion.Str((object) Number2) + " to plan#" + Conversion.Str((object) Number1));
+                  this.AddLog("Switching " + this.game.Data.UnitObj[index1].Name + " from plan#" + Conversion.Str( Number2) + " to plan#" + Conversion.Str( Number1));
                   this.game.Data.UnitObj[index1].AIPlanNr = Number1;
                   flagArray[index1] = true;
                   AIPlanClass[] tplanObj1 = this.TPlanObj;
                   AIPlanClass[] aiPlanClassArray1 = tplanObj1;
                   let mut index2: i32 =  Number1;
                   let mut index3: i32 =  index2;
-                  aiPlanClassArray1[index3].WeightFriendlyForce = tplanObj1[index2].WeightFriendlyForce + (float) num5;
+                  aiPlanClassArray1[index3].WeightFriendlyForce = tplanObj1[index2].WeightFriendlyForce +  num5;
                   AIPlanClass[] tplanObj2 = this.TPlanObj;
                   AIPlanClass[] aiPlanClassArray2 = tplanObj2;
                   let mut index4: i32 =  Number1;
@@ -7599,7 +7599,7 @@ namespace WindowsApplication1
                   AIPlanClass[] aiPlanClassArray3 = tplanObj3;
                   let mut index6: i32 =  Number2;
                   let mut index7: i32 =  index6;
-                  aiPlanClassArray3[index7].WeightFriendlyForce = tplanObj3[index6].WeightFriendlyForce - (float) num5;
+                  aiPlanClassArray3[index7].WeightFriendlyForce = tplanObj3[index6].WeightFriendlyForce -  num5;
                   AIPlanClass[] tplanObj4 = this.TPlanObj;
                   AIPlanClass[] aiPlanClassArray4 = tplanObj4;
                   let mut index8: i32 =  Number2;
@@ -7663,7 +7663,7 @@ namespace WindowsApplication1
       int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       SimpleList simpleList = SimpleList::new();
       SimpleList UL = SimpleList::new();
-      if ((double) this.game.Data.RuleVar[(int) byte.MaxValue] == 1.0)
+      if ( this.game.Data.RuleVar[(int) byte.MaxValue] == 1.0)
         return;
       let mut tplanCount1: i32 =  this.TPlanCount;
       for (let mut Number1: i32 =  1; Number1 <= tplanCount1; Number1 += 1)
@@ -7673,7 +7673,7 @@ namespace WindowsApplication1
           let mut hq: i32 =  this.TPlanObj[Number1].HQ;
           let mut x: i32 =  this.game.Data.UnitObj[hq].X;
           let mut y: i32 =  this.game.Data.UnitObj[hq].Y;
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), x, y, 0);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 99, (int) Math.Round( this.game.Data.RuleVar[3]), x, y, 0);
           let mut unitCounter: i32 =  this.game.Data.UnitCounter;
           int Number2;
           int num1;
@@ -7682,16 +7682,16 @@ namespace WindowsApplication1
             if (this.game.Data.UnitObj[index].HQ == hq & this.game.Data.UnitObj[Number1].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index].X > -1 & this.game.Data.UnitObj[index].PreDef == -1 && this.HexSA[this.game.Data.UnitObj[index].X, this.game.Data.UnitObj[index].Y] == this.GetAreaNr(this.TPlanObj[Number1].FromArea))
             {
               let mut num2: i32 =  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index].X, this.game.Data.UnitObj[index].Y];
-              if ((double) num2 > (double) this.game.Data.RuleVar[3] * 2.0)
-                num2 = (int) Math.Round((double) (this.game.Data.RuleVar[3] * 2f));
+              if ( num2 >  this.game.Data.RuleVar[3] * 2.0)
+                num2 = (int) Math.Round( (this.game.Data.RuleVar[3] * 2f));
               Number2 += num2;
               num1 += 1;
             }
           }
-          Number2 = num1 != 0 ? (int) Math.Round((double) Number2 / (double) num1) : 0;
-          if ((double) Number2 > (double) this.game.Data.RuleVar[52])
+          Number2 = num1 != 0 ? (int) Math.Round( Number2 /  num1) : 0;
+          if ( Number2 >  this.game.Data.RuleVar[52])
           {
-            this.AddLog("SET TAC.HQ of Plan #" + Conversion.Str((object) Number1) + " to NONE because of really bad supply currently.. avg=" + Conversion.Str((object) Number2) + "ap need.");
+            this.AddLog("SET TAC.HQ of Plan #" + Conversion.Str( Number1) + " to NONE because of really bad supply currently.. avg=" + Conversion.Str( Number2) + "ap need.");
             this.TPlanObj[Number1].HQ = -1;
           }
         }
@@ -7707,7 +7707,7 @@ namespace WindowsApplication1
             if (this.game.Data.UnitObj[index].AIPlanNr == Number & this.game.Data.UnitObj[index].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index].IsHQ)
             {
               this.TPlanObj[Number].HQ = index;
-              this.AddLog("*** Gave plan " + Conversion.Str((object) Number) + " the following HQ: " + this.game.Data.UnitObj[index].Name + " from its own troops.");
+              this.AddLog("*** Gave plan " + Conversion.Str( Number) + " the following HQ: " + this.game.Data.UnitObj[index].Name + " from its own troops.");
               break;
             }
           }
@@ -7734,7 +7734,7 @@ namespace WindowsApplication1
                   {
                     this.TPlanObj[index1].HQ = index2;
                     this.game.Data.UnitObj[index2].AIPlanNr = index1;
-                    this.AddLog("*** Gave plan " + Conversion.Str((object) index1) + " the following HQ: " + this.game.Data.UnitObj[index2].Name + " from plan # " + Conversion.Str((object) Number));
+                    this.AddLog("*** Gave plan " + Conversion.Str( index1) + " the following HQ: " + this.game.Data.UnitObj[index2].Name + " from plan # " + Conversion.Str( Number));
                     AIPlanClass[] tplanObj1 = this.TPlanObj;
                     AIPlanClass[] aiPlanClassArray1 = tplanObj1;
                     let mut index3: i32 =  index1;
@@ -7759,13 +7759,13 @@ namespace WindowsApplication1
       let mut tplanCount5: i32 =  this.TPlanCount;
       for (let mut index7: i32 =  1; index7 <= tplanCount5; index7 += 1)
       {
-        if (this.TPlanObj[index7].Type == 20 && this.TPlanObj[index7].HQ == -1 & this.NeedHQ(index7) && (double) this.game.Data.RuleVar[47] <= (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts | (double) this.game.Data.RuleVar[863] > 0.0)
+        if (this.TPlanObj[index7].Type == 20 && this.TPlanObj[index7].HQ == -1 & this.NeedHQ(index7) &&  this.game.Data.RuleVar[47] <=  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts |  this.game.Data.RuleVar[863] > 0.0)
         {
           let mut num: i32 =  1;
           let mut tplanCount6: i32 =  this.TPlanCount;
           for (let mut index8: i32 =  1; index8 <= tplanCount6; index8 += 1)
           {
-            if (index8 != index7 && this.TPlanObj[index8].Type == 20 | this.TPlanObj[index8].Type == 30 && this.TPlanObj[index8].FromArea.X == this.TPlanObj[index7].FromArea.X && this.TPlanObj[index8].FromArea.Y == this.TPlanObj[index7].FromArea.Y && this.TPlanObj[index8].HQ > -1 && (double) this.AverageDistanceUnits(index7, this.game.Data.UnitObj[this.TPlanObj[index8].HQ].X, this.game.Data.UnitObj[this.TPlanObj[index8].HQ].Y) <= (double) this.game.Data.RuleVar[191])
+            if (index8 != index7 && this.TPlanObj[index8].Type == 20 | this.TPlanObj[index8].Type == 30 && this.TPlanObj[index8].FromArea.X == this.TPlanObj[index7].FromArea.X && this.TPlanObj[index8].FromArea.Y == this.TPlanObj[index7].FromArea.Y && this.TPlanObj[index8].HQ > -1 &&  this.AverageDistanceUnits(index7, this.game.Data.UnitObj[this.TPlanObj[index8].HQ].X, this.game.Data.UnitObj[this.TPlanObj[index8].HQ].Y) <=  this.game.Data.RuleVar[191])
               num = 0;
           }
           if (this.SAObj[this.GetAreaNr(this.TPlanObj[index7].FromArea)].LandReservePlan == 0)
@@ -7779,8 +7779,8 @@ namespace WindowsApplication1
             {
               let mut x2: i32 =  this.TPlanObj[index7].FromArea.X;
               let mut y2: i32 =  this.TPlanObj[index7].FromArea.Y;
-              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), x1, y1, 0);
-              if ((double) this.game.EditObj.TempValue[0].Value[x2, y2] > (double) this.game.Data.RuleVar[52])
+              this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 99, (int) Math.Round( this.game.Data.RuleVar[3]), x1, y1, 0);
+              if ( this.game.EditObj.TempValue[0].Value[x2, y2] >  this.game.Data.RuleVar[52])
                 num = 0;
             }
             else
@@ -7826,7 +7826,7 @@ namespace WindowsApplication1
               let mut index9: i32 =  index7;
               let mut index10: i32 =  index9;
               aiPlanClassArray[index10].FriendlyUnitCount = tplanObj[index9].FriendlyUnitCount + 1;
-              this.AddLog("*** Gave plan " + Conversion.Str((object) index7) + " a new HQ: " + this.game.Data.UnitObj[this.game.Data.UnitCounter].Name + ", created freshly.");
+              this.AddLog("*** Gave plan " + Conversion.Str( index7) + " a new HQ: " + this.game.Data.UnitObj[this.game.Data.UnitCounter].Name + ", created freshly.");
             }
           }
         }
@@ -7848,14 +7848,14 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      return (int) Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return (int) Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int AverageDistanceUnitsInAP(int plannr, int x, int y, bool onlyifinownarea = false)
     {
       if (this.TempAvgUnits[plannr] > -1)
         return this.TempAvgUnits[plannr];
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[3]), x, y, 0);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[3]), x, y, 0);
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       int num1;
       int num2;
@@ -7868,7 +7868,7 @@ namespace WindowsApplication1
             num3 = 0;
           if (num3 == 1)
           {
-            let mut num4: i32 =  (int) Math.Round((double) this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative);
+            let mut num4: i32 =  (int) Math.Round( this.game.Data.RegimeObj[this.game.Data.Turn].AIConservative);
             if (num4 > 250)
               num4 = 250;
             num1 += num4;
@@ -7878,7 +7878,7 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      return (int) Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return (int) Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub void InitLandReserveMetaHQ()
@@ -7918,11 +7918,11 @@ namespace WindowsApplication1
           numArray[simpleList1.Id[simpleList1.Counter]] = Number;
           if (Number == 0)
             this.TPlanObj[this.game.Data.UnitObj[simpleList1.Id[simpleList1.Counter]].AIPlanNr].MetaChainNr = 0;
-          this.AddLog("Set " + this.game.Data.UnitObj[simpleList1.Id[simpleList1.Counter]].Name + " to temp=" + Conversion.Str((object) Number));
+          this.AddLog("Set " + this.game.Data.UnitObj[simpleList1.Id[simpleList1.Counter]].Name + " to temp=" + Conversion.Str( Number));
           num = 1;
           if (Number > 0)
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[simpleList1.Id[simpleList1.Counter]].X, this.game.Data.UnitObj[simpleList1.Id[simpleList1.Counter]].Y, 0, NoAPPenalties: true);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 99, (int) Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[simpleList1.Id[simpleList1.Counter]].X, this.game.Data.UnitObj[simpleList1.Id[simpleList1.Counter]].Y, 0, NoAPPenalties: true);
             SimpleList simpleList2 = SimpleList::new();
             let mut unitCounter4: i32 =  this.game.Data.UnitCounter;
             for (let mut tid: i32 =  0; tid <= unitCounter4; tid += 1)
@@ -7948,14 +7948,14 @@ namespace WindowsApplication1
     {
       int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
       SimpleList simpleList = SimpleList::new();
-      if ((double) this.game.Data.RuleVar[226] <= 0.0)
+      if ( this.game.Data.RuleVar[226] <= 0.0)
         return;
       this.AddLog("");
       this.AddLog("RESEARCH");
       let mut resPts1: i32 =  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts;
-      if ((double) resPts1 > (double) this.game.Data.RuleVar[181] & (double) VBMath.Rnd() > 0.5 | (double) resPts1 > (double) this.game.Data.RuleVar[181] * 5.0)
+      if ( resPts1 >  this.game.Data.RuleVar[181] &  VBMath.Rnd() > 0.5 |  resPts1 >  this.game.Data.RuleVar[181] * 5.0)
       {
-        let mut Number: i32 =  (int) Math.Round((double) ((float) resPts1 - this.game.Data.RuleVar[181]));
+        let mut Number: i32 =  (int) Math.Round( ( resPts1 - this.game.Data.RuleVar[181]));
         RegimeClass[] regimeObj1 = this.game.Data.RegimeObj;
         RegimeClass[] regimeClassArray1 = regimeObj1;
         let mut turn1: i32 =  this.game.Data.Turn;
@@ -7966,9 +7966,9 @@ namespace WindowsApplication1
         let mut turn2: i32 =  this.game.Data.Turn;
         let mut index2: i32 =  turn2;
         regimeClassArray2[index2].ResPts = regimeObj2[turn2].ResPts - Number;
-        this.AddLog("Added " + Conversion.Str((object) Number) + " pp to savedpp of regime. which is now: " + Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP));
+        this.AddLog("Added " + Conversion.Str( Number) + " pp to savedpp of regime. which is now: " + Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP));
       }
-      this.AddLog("Saved pp: " + Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP) + ", Normal pp: " + Conversion.Str((object) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts));
+      this.AddLog("Saved pp: " + Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP) + ", Normal pp: " + Conversion.Str( this.game.Data.RegimeObj[this.game.Data.Turn].ResPts));
       float Number1 = 1000f;
       let mut researchCounter1: i32 =  this.game.Data.ResearchCounter;
       for (let mut index: i32 =  0; index <= researchCounter1; index += 1)
@@ -7990,20 +7990,20 @@ namespace WindowsApplication1
                 {
                   float num3 = this.AverageCombatPerform(-1, sfTypePic, attackx, attacky, onlysametheater: true);
                   float num4 = this.AverageCombatPerform(-1, sfTypePic, attackx, attacky, true, true);
-                  if ((double) num3 > (double) num4)
-                    num1 += (float) (((double) num3 * 3.0 + (double) num4) / 4.0);
+                  if ( num3 >  num4)
+                    num1 +=  (( num3 * 3.0 +  num4) / 4.0);
                   else
-                    num1 += (float) (((double) num4 * 3.0 + (double) num3) / 4.0);
+                    num1 +=  (( num4 * 3.0 +  num3) / 4.0);
                   num2 += 1;
                 }
               }
             }
-            if (num2 > 0 & (double) num1 > 0.0 && 1.0 / ((double) num1 / (double) num2) < (double) Number1)
-              Number1 = (float) (1.0 / ((double) num1 / (double) num2));
+            if (num2 > 0 &  num1 > 0.0 && 1.0 / ( num1 /  num2) <  Number1)
+              Number1 =  (1.0 / ( num1 /  num2));
           }
         }
       }
-      this.AddLog("bestseamod= " + Conversion.Str((object) Number1));
+      this.AddLog("bestseamod= " + Conversion.Str( Number1));
       let mut researchCounter2: i32 =  this.game.Data.ResearchCounter;
       for (let mut tid: i32 =  0; tid <= researchCounter2; tid += 1)
       {
@@ -8018,7 +8018,7 @@ namespace WindowsApplication1
           {
             let mut num6: i32 =  this.game.Data.ResearchObj[tid].PointCost[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].PeopleGroup];
             let mut sfTypePic: i32 =  this.game.Data.ResearchObj[tid].SFTypePic;
-            if (sfTypePic > -1 & num6 > -1 & num6 < 9998 && this.game.Data.SFTypeObj[sfTypePic].StaffPts <= 0 && this.game.Data.SFTypeObj[sfTypePic].Cap <= 0 && !(this.game.Data.SFTypeObj[sfTypePic].Theater == 1 & (double) this.game.Data.RuleVar[227] == 0.0))
+            if (sfTypePic > -1 & num6 > -1 & num6 < 9998 && this.game.Data.SFTypeObj[sfTypePic].StaffPts <= 0 && this.game.Data.SFTypeObj[sfTypePic].Cap <= 0 && !(this.game.Data.SFTypeObj[sfTypePic].Theater == 1 &  this.game.Data.RuleVar[227] == 0.0))
             {
               float num7 = 0.0f;
               let mut num8: i32 =  0;
@@ -8034,10 +8034,10 @@ namespace WindowsApplication1
                     {
                       float num9 = this.AverageCombatPerform(-1, sfTypePic, index3, index4, onlysametheater: true);
                       float num10 = this.AverageCombatPerform(-1, sfTypePic, index3, index4, true, true);
-                      if ((double) num9 > (double) num10)
-                        num7 += (float) (((double) num9 * 3.0 + (double) num10) / 4.0);
+                      if ( num9 >  num10)
+                        num7 +=  (( num9 * 3.0 +  num10) / 4.0);
                       else
-                        num7 += (float) (((double) num10 * 3.0 + (double) num9) / 4.0);
+                        num7 +=  (( num10 * 3.0 +  num9) / 4.0);
                       num8 += 1;
                     }
                   }
@@ -8045,43 +8045,43 @@ namespace WindowsApplication1
                   {
                     float num11 = this.AverageCombatPerform(-1, sfTypePic, index3, index4, onlysametheater: true);
                     float num12 = this.AverageCombatPerform(-1, sfTypePic, index3, index4, true, true);
-                    if ((double) num11 > (double) num12)
-                      num7 += (float) (((double) num11 * 3.0 + (double) num12) / 4.0);
+                    if ( num11 >  num12)
+                      num7 +=  (( num11 * 3.0 +  num12) / 4.0);
                     else
-                      num7 += (float) (((double) num12 * 3.0 + (double) num11) / 4.0);
+                      num7 +=  (( num12 * 3.0 +  num11) / 4.0);
                     num8 += 1;
                   }
                 }
               }
-              if (num8 > 0 & (double) num7 > 0.0)
-                num6 = (int) Math.Round((double) ((float) num6 * (float) (1.0 / ((double) num7 / (double) num8))));
+              if (num8 > 0 &  num7 > 0.0)
+                num6 = (int) Math.Round( ( num6 *  (1.0 / ( num7 /  num8))));
               let mut num13: i32 =  this.GetPowerPointPercentUpgradeableToo(sfTypePic);
               if (num13 > 25)
                 num13 = 25;
               if (num13 < 1)
                 num13 = 1;
               let mut Number2: i32 =  num6;
-              let mut num14: i32 =  (int) Math.Round((double) (100 * num6) * 0.1 + (double) (100 * num6) * 0.9 * ((double) (25 - num13 + 1) / 25.0));
-              let mut Number3: i32 =  (int) Math.Round((double) this.GetPowerPointPercentUpgradeableToo(sfTypePic) / 10.0);
+              let mut num14: i32 =  (int) Math.Round( (100 * num6) * 0.1 +  (100 * num6) * 0.9 * ( (25 - num13 + 1) / 25.0));
+              let mut Number3: i32 =  (int) Math.Round( this.GetPowerPointPercentUpgradeableToo(sfTypePic) / 10.0);
               if (Number3 > 7)
                 Number3 = 7;
               if (Number3 < 1)
                 Number3 = 1;
-              let mut num15: i32 =  (int) Math.Round((double) num14 / (double) Number3);
-              if ((double) this.GetFriendlyAirRatio() < (double) this.game.Data.RuleVar[258] & (double) this.game.Data.Round > (double) this.game.Data.RuleVar[259] && this.game.Data.SFTypeObj[sfTypePic].AIRoleScore[12] > 0)
-                num15 = (int) Math.Round((double) num15 / 4.0);
+              let mut num15: i32 =  (int) Math.Round( num14 /  Number3);
+              if ( this.GetFriendlyAirRatio() <  this.game.Data.RuleVar[258] &  this.game.Data.Round >  this.game.Data.RuleVar[259] && this.game.Data.SFTypeObj[sfTypePic].AIRoleScore[12] > 0)
+                num15 = (int) Math.Round( num15 / 4.0);
               if (this.game.Data.SFTypeObj[sfTypePic].Theater == 1)
               {
-                if (1.0 / ((double) num7 / (double) num8) <= (double) Number1 * 0.9)
+                if (1.0 / ( num7 /  num8) <=  Number1 * 0.9)
                 {
                   simpleList.Add(tid, num15);
-                  this.AddLog(this.game.Data.SFTypeObj[sfTypePic].Name + " .. weight =" + Conversion.Str((object) num15) + ", previous weight= " + Conversion.Str((object) Number2) + ",  powerpointpercentmod=" + Conversion.Str((object) Number3));
+                  this.AddLog(this.game.Data.SFTypeObj[sfTypePic].Name + " .. weight =" + Conversion.Str( num15) + ", previous weight= " + Conversion.Str( Number2) + ",  powerpointpercentmod=" + Conversion.Str( Number3));
                 }
               }
               else
               {
                 simpleList.Add(tid, num15);
-                this.AddLog(this.game.Data.SFTypeObj[sfTypePic].Name + " .. weight =" + Conversion.Str((object) num15) + ", previous weight= " + Conversion.Str((object) Number2) + ",  powerpointpercentmod=" + Conversion.Str((object) Number3));
+                this.AddLog(this.game.Data.SFTypeObj[sfTypePic].Name + " .. weight =" + Conversion.Str( num15) + ", previous weight= " + Conversion.Str( Number2) + ",  powerpointpercentmod=" + Conversion.Str( Number3));
               }
             }
           }
@@ -8093,7 +8093,7 @@ namespace WindowsApplication1
       let mut counter: i32 =  simpleList.Counter;
       for (let mut index5: i32 =  0; index5 <= counter; index5 += 1)
       {
-        if (index5 < 9 && (double) this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP >= (double) this.game.Data.ResearchObj[simpleList.Id[index5]].PointCost[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].PeopleGroup] * (double) this.game.Data.ResCostMod && !(this.game.Data.SFTypeObj[this.game.Data.ResearchObj[simpleList.Id[index5]].SFTypePic].Theater == 1 & (double) Number1 == 9999.0))
+        if (index5 < 9 &&  this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP >=  this.game.Data.ResearchObj[simpleList.Id[index5]].PointCost[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.Turn].People].PeopleGroup] *  this.game.Data.ResCostMod && !(this.game.Data.SFTypeObj[this.game.Data.ResearchObj[simpleList.Id[index5]].SFTypePic].Theater == 1 &  Number1 == 9999.0))
         {
           RegimeClass[] regimeObj3 = this.game.Data.RegimeObj;
           RegimeClass[] regimeClassArray3 = regimeObj3;
@@ -8175,7 +8175,7 @@ namespace WindowsApplication1
       let mut num3: i32 =  num1 * 100;
       if (num2 < 1)
         num2 = 1;
-      return (int) Math.Round((double) num3 / (double) num2);
+      return (int) Math.Round( num3 /  num2);
     }
 
     pub int GetPowerPointPercentUpgradeableToo(int sftype)
@@ -8201,7 +8201,7 @@ namespace WindowsApplication1
       let mut num3: i32 =  num1 * 100;
       if (num2 < 1)
         num2 = 1;
-      return (int) Math.Round((double) num3 / (double) num2);
+      return (int) Math.Round( num3 /  num2);
     }
 
     pub int GetlandUnitsUnderHQ(int unr)
@@ -8242,7 +8242,7 @@ namespace WindowsApplication1
             {
               if (this.TPlanObj[index2].Type == 30 && this.HexOA[this.TPlanObj[index2].FromArea.X, this.TPlanObj[index2].FromArea.Y] == this.HexOA[this.SAObj[index1].X, this.SAObj[index1].Y])
               {
-                this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 99, (int) Math.Round((double) this.game.Data.RuleVar[3]), this.TPlanObj[index2].FromArea.X, this.TPlanObj[index2].FromArea.Y, 0, istransfer: true, BridgeAP: 80);
+                this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 99, (int) Math.Round( this.game.Data.RuleVar[3]), this.TPlanObj[index2].FromArea.X, this.TPlanObj[index2].FromArea.Y, 0, istransfer: true, BridgeAP: 80);
                 let mut num5: i32 =  this.game.EditObj.TempValue[0].Value[this.SAObj[index1].X, this.SAObj[index1].Y];
                 if (num5 < num3)
                 {
@@ -8251,7 +8251,7 @@ namespace WindowsApplication1
                 }
               }
             }
-            if (num4 > 0 & (double) num3 <= (double) this.game.Data.RuleVar[52])
+            if (num4 > 0 &  num3 <=  this.game.Data.RuleVar[52])
             {
               this.SAObj[index1].LandReservePlan = num4;
             }
@@ -8279,7 +8279,7 @@ namespace WindowsApplication1
           this.TPlanObj[this.TPlanCount].FromArea = this.SAObj[Number];
           this.TPlanObj[this.TPlanCount].TooArea = (SAClass) null;
           this.TPlanObj[this.TPlanCount].Type = 30;
-          this.AddLog("created new PLANLANDRESERVE " + Conversion.Str((object) this.TPlanCount) + " at area# " + Conversion.Str((object) Number));
+          this.AddLog("created new PLANLANDRESERVE " + Conversion.Str( this.TPlanCount) + " at area# " + Conversion.Str( Number));
           num1 = 1;
         }
       }
@@ -8313,7 +8313,7 @@ namespace WindowsApplication1
           {
             simpleList3.Sort();
             let mut Number2: i32 =  simpleList3.Data1[simpleList3.Counter];
-            this.AddLog("Assigned Existing PLANLANDRESERVE " + Conversion.Str((object) Number1) + " the HQ AREA: " + Conversion.Str((object) Number2));
+            this.AddLog("Assigned Existing PLANLANDRESERVE " + Conversion.Str( Number1) + " the HQ AREA: " + Conversion.Str( Number2));
             this.TPlanObj[Number1].FromArea = this.SAObj[Number2];
           }
         }
@@ -8365,11 +8365,11 @@ namespace WindowsApplication1
         let mut x1: i32 =  this.TPlanObj[simpleList4.Id[index6]].FromArea.X;
         let mut y2: i32 =  this.TPlanObj[simpleList4.Id[index6]].FromArea.Y;
         SimpleList simpleList5 = SimpleList::new();
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, (int) Math.Round((double) this.game.Data.RuleVar[51]), x1, y2, 0, SeaBlock: true, BlockAllSea: true);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, (int) Math.Round( this.game.Data.RuleVar[51]), x1, y2, 0, SeaBlock: true, BlockAllSea: true);
         let mut unitCounter: i32 =  this.game.Data.UnitCounter;
         for (let mut index7: i32 =  0; index7 <= unitCounter; index7 += 1)
         {
-          if (this.game.Data.UnitObj[index7].AIPlanNr > 0 & this.game.Data.UnitObj[index7].IsHQ & this.game.Data.UnitObj[index7].Regime == this.game.Data.Turn && this.TPlanObj[this.game.Data.UnitObj[index7].AIPlanNr].Type != 30 && (double) this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index7].X, this.game.Data.UnitObj[index7].Y] <= (double) this.game.Data.RuleVar[53])
+          if (this.game.Data.UnitObj[index7].AIPlanNr > 0 & this.game.Data.UnitObj[index7].IsHQ & this.game.Data.UnitObj[index7].Regime == this.game.Data.Turn && this.TPlanObj[this.game.Data.UnitObj[index7].AIPlanNr].Type != 30 &&  this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index7].X, this.game.Data.UnitObj[index7].Y] <=  this.game.Data.RuleVar[53])
           {
             let mut num13: i32 =  0;
             let mut num14: i32 =  0;
@@ -8389,7 +8389,7 @@ namespace WindowsApplication1
             }
             let mut num15: i32 =  0;
             if (num13 > 0)
-              num15 = (int) Math.Round((double) (-2 * this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index7].X, this.game.Data.UnitObj[index7].Y]) * ((double) num13 / (double) num14));
+              num15 = (int) Math.Round( (-2 * this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[index7].X, this.game.Data.UnitObj[index7].Y]) * ( num13 /  num14));
             let mut num16: i32 =  num15 - 150 * num13 + 10 * this.GetlandUnitsUnderHQ(index7) - 5 * this.GetClosestFrontlineDistance2(this.game.Data.UnitObj[index7].X, this.game.Data.UnitObj[index7].Y);
             let mut num17: i32 =  1;
             if (!this.game.HandyFunctionsObj.IsHexAirfield(this.game.Data.UnitObj[index7].X, this.game.Data.UnitObj[index7].Y, 0))
@@ -8426,23 +8426,23 @@ namespace WindowsApplication1
         else
         {
           int x2;
-          if ((double) this.game.Data.RuleVar[863] != 0.0)
+          if ( this.game.Data.RuleVar[863] != 0.0)
           {
             RegimeClass[] regimeObj = this.game.Data.RegimeObj;
             RegimeClass[] regimeClassArray = regimeObj;
             let mut turn: i32 =  this.game.Data.Turn;
             let mut index15: i32 =  turn;
-            regimeClassArray[index15].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
+            regimeClassArray[index15].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
             x2 = x1;
             y1 = y2;
           }
-          else if ((double) this.game.Data.RuleVar[47] > (double) this.game.Data.RegimeObj[this.game.Data.Turn].ResPts)
+          else if ( this.game.Data.RuleVar[47] >  this.game.Data.RegimeObj[this.game.Data.Turn].ResPts)
           {
             RegimeClass[] regimeObj = this.game.Data.RegimeObj;
             RegimeClass[] regimeClassArray = regimeObj;
             let mut turn: i32 =  this.game.Data.Turn;
             let mut index16: i32 =  turn;
-            regimeClassArray[index16].AISavedPP = (int) Math.Round((double) ((float) regimeObj[turn].AISavedPP - this.game.Data.RuleVar[47]));
+            regimeClassArray[index16].AISavedPP = (int) Math.Round( ( regimeObj[turn].AISavedPP - this.game.Data.RuleVar[47]));
             if (this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP < 0)
               this.game.Data.RegimeObj[this.game.Data.Turn].AISavedPP = 0;
             x2 = x1;
@@ -8469,7 +8469,7 @@ namespace WindowsApplication1
             RegimeClass[] regimeClassArray = regimeObj;
             let mut turn: i32 =  this.game.Data.Turn;
             let mut index20: i32 =  turn;
-            regimeClassArray[index20].ResPts = (int) Math.Round((double) ((float) regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
+            regimeClassArray[index20].ResPts = (int) Math.Round( ( regimeObj[turn].ResPts + this.game.Data.RuleVar[47]));
           }
         }
       }
@@ -8505,10 +8505,10 @@ namespace WindowsApplication1
       {
         if (this.TPlanObj[plannr].Type == 20)
         {
-          let mut num1: i32 =  (int) Math.Round(Conversion.Int((double) (int) Math.Round((double) ((float) this.GetRealForceInArea(this.GetAreaNr(this.TPlanObj[plannr].FromArea), plannr, false) + this.TPlanObj[plannr].WeightFriendlyForce)) / 2.0));
-          let mut num2: i32 =  (int) Math.Round((double) this.TPlanObj[plannr].WeightEnemyForceUnMod);
-          if ((double) this.TPlanObj[plannr].WeightEnemyForce < (double) num2)
-            num2 = (int) Math.Round((double) this.TPlanObj[plannr].WeightEnemyForce);
+          let mut num1: i32 =  (int) Math.Round(Conversion.Int( (int) Math.Round( ( this.GetRealForceInArea(this.GetAreaNr(this.TPlanObj[plannr].FromArea), plannr, false) + this.TPlanObj[plannr].WeightFriendlyForce)) / 2.0));
+          let mut num2: i32 =  (int) Math.Round( this.TPlanObj[plannr].WeightEnemyForceUnMod);
+          if ( this.TPlanObj[plannr].WeightEnemyForce <  num2)
+            num2 = (int) Math.Round( this.TPlanObj[plannr].WeightEnemyForce);
           let mut index: i32 =  this.game.Data.MapObj[0].HexObj[this.TPlanObj[plannr].TooArea.X, this.TPlanObj[plannr].TooArea.Y].Regime;
           let mut num3: i32 =  -1;
           if (index < 0)
@@ -8518,11 +8518,11 @@ namespace WindowsApplication1
           }
           if (num3 == -1 & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[index] > 0)
             this.TPlanObj[plannr].Stand = 2;
-          else if ((double) num2 * (double) aiConservative < (double) num1)
+          else if ( num2 *  aiConservative <  num1)
             this.TPlanObj[plannr].Stand = 1;
-          else if ((double) num2 * (double) aiConservative / 2.0 > (double) num1)
+          else if ( num2 *  aiConservative / 2.0 >  num1)
           {
-            if ((double) num2 * (double) aiConservative / 4.0 > (double) num1)
+            if ( num2 *  aiConservative / 4.0 >  num1)
             {
               let mut num4: i32 =  1;
               let mut areaNr: i32 =  this.GetAreaNr(this.TPlanObj[plannr].FromArea);
@@ -8532,7 +8532,7 @@ namespace WindowsApplication1
                 num4 = 0;
               if (num4 == 1 && this.SAObj[areaNr].aivp > this.GetAverageAIVP())
                 num4 = 0;
-              if ((double) this.TPlanObj[plannr].WeightFriendlyForce * 2.0 > (double) this.TPlanObj[plannr].WeightEnemyForce)
+              if ( this.TPlanObj[plannr].WeightFriendlyForce * 2.0 >  this.TPlanObj[plannr].WeightEnemyForce)
                 num4 = 1;
               this.TPlanObj[plannr].Stand = num4 != 1 ? 2 : 3;
             }
@@ -8547,11 +8547,11 @@ namespace WindowsApplication1
           if (this.TPlanObj[plannr].FromArea.SeaNeighbourCount > 0)
           {
             if (this.TPlanObj[plannr].SeaStand == 0 | this.TPlanObj[plannr].SeaStand == 5 | this.TPlanObj[plannr].SeaStand == 4)
-              this.TPlanObj[plannr].SeaStand = (double) this.TPlanObj[plannr].FriendlyNavy / 2.0 < (double) this.TPlanObj[plannr].EnemyNavy ? (this.TPlanObj[plannr].FriendlyNavy < this.TPlanObj[plannr].EnemyNavy ? ((double) this.TPlanObj[plannr].FriendlyNavy < (double) this.TPlanObj[plannr].EnemyNavy / 4.0 ? 4 : 5) : 6) : 7;
+              this.TPlanObj[plannr].SeaStand =  this.TPlanObj[plannr].FriendlyNavy / 2.0 <  this.TPlanObj[plannr].EnemyNavy ? (this.TPlanObj[plannr].FriendlyNavy < this.TPlanObj[plannr].EnemyNavy ? ( this.TPlanObj[plannr].FriendlyNavy <  this.TPlanObj[plannr].EnemyNavy / 4.0 ? 4 : 5) : 6) : 7;
             else if (this.TPlanObj[plannr].SeaStand == 7)
-              this.TPlanObj[plannr].SeaStand = this.TPlanObj[plannr].FriendlyNavy < this.TPlanObj[plannr].EnemyNavy ? ((double) this.TPlanObj[plannr].FriendlyNavy < (double) this.TPlanObj[plannr].EnemyNavy / 2.0 ? ((double) this.TPlanObj[plannr].FriendlyNavy < (double) this.TPlanObj[plannr].EnemyNavy / 8.0 ? 4 : 5) : 6) : 7;
+              this.TPlanObj[plannr].SeaStand = this.TPlanObj[plannr].FriendlyNavy < this.TPlanObj[plannr].EnemyNavy ? ( this.TPlanObj[plannr].FriendlyNavy <  this.TPlanObj[plannr].EnemyNavy / 2.0 ? ( this.TPlanObj[plannr].FriendlyNavy <  this.TPlanObj[plannr].EnemyNavy / 8.0 ? 4 : 5) : 6) : 7;
             else if (this.TPlanObj[plannr].SeaStand == 6)
-              this.TPlanObj[plannr].SeaStand = (double) this.TPlanObj[plannr].FriendlyNavy / 2.0 < (double) this.TPlanObj[plannr].EnemyNavy ? ((double) this.TPlanObj[plannr].FriendlyNavy < (double) this.TPlanObj[plannr].EnemyNavy / 2.0 ? ((double) this.TPlanObj[plannr].FriendlyNavy < (double) this.TPlanObj[plannr].EnemyNavy / 4.0 ? 4 : 5) : 6) : 7;
+              this.TPlanObj[plannr].SeaStand =  this.TPlanObj[plannr].FriendlyNavy / 2.0 <  this.TPlanObj[plannr].EnemyNavy ? ( this.TPlanObj[plannr].FriendlyNavy <  this.TPlanObj[plannr].EnemyNavy / 2.0 ? ( this.TPlanObj[plannr].FriendlyNavy <  this.TPlanObj[plannr].EnemyNavy / 4.0 ? 4 : 5) : 6) : 7;
             if (this.getfrontplan(this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y) > 0)
             {
               if (this.TPlanObj[plannr].SeaStand == 4)
@@ -8564,13 +8564,13 @@ namespace WindowsApplication1
           }
           else
             this.TPlanObj[plannr].Stand = 2;
-          if ((double) this.game.Data.RuleVar[252] > 0.0)
+          if ( this.game.Data.RuleVar[252] > 0.0)
           {
             let mut closestFrontline: i32 =  this.GetClosestFrontline(this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y);
             if (closestFrontline > 0)
             {
               let mut num: i32 =  this.AreaDistance(this.GetAreaNr(this.TPlanObj[plannr].FromArea), this.GetAreaNr(this.TPlanObj[closestFrontline].FromArea), true);
-              if (num > 0 & (double) num <= (double) this.game.Data.RuleVar[252])
+              if (num > 0 &  num <=  this.game.Data.RuleVar[252])
               {
                 if (this.TPlanObj[closestFrontline].Stand != 1)
                   this.TPlanObj[plannr].AssemblyArea = 1;
@@ -8589,7 +8589,7 @@ namespace WindowsApplication1
               }
             }
           }
-          if ((double) this.game.Data.RuleVar[256] > 0.0 && this.game.Data.MapObj[0].HexObj[this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y].Location > -1 && this.game.HandyFunctionsObj.CanLocProduce(this.game.Data.MapObj[0].HexObj[this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y].Location, this.game.Data.Turn) && (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y].Location].Type].MaxProd >= (double) this.game.Data.RuleVar[256])
+          if ( this.game.Data.RuleVar[256] > 0.0 && this.game.Data.MapObj[0].HexObj[this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y].Location > -1 && this.game.HandyFunctionsObj.CanLocProduce(this.game.Data.MapObj[0].HexObj[this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y].Location, this.game.Data.Turn) &&  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.TPlanObj[plannr].FromArea.X, this.TPlanObj[plannr].FromArea.Y].Location].Type].MaxProd >=  this.game.Data.RuleVar[256])
             this.TPlanObj[plannr].AssemblyArea = 1;
         }
       }
@@ -8603,7 +8603,7 @@ namespace WindowsApplication1
       int num;
       for (let mut index: i32 =  1; index <= saCount; index += 1)
         num += this.SAObj[index].aivp;
-      let mut averageAivp: i32 =  (int) Math.Round((double) num / (double) this.SACount);
+      let mut averageAivp: i32 =  (int) Math.Round( num /  this.SACount);
       if (0 > averageAivp)
         averageAivp = 0;
       return averageAivp;
@@ -8698,8 +8698,8 @@ namespace WindowsApplication1
         if (this.TPlanObj[index].Type == 20)
         {
           let mut areaNr: i32 =  this.GetAreaNr(this.TPlanObj[index].TooArea);
-          num6 = (float) numArray2[areaNr] * ((float) this.TPlanObj[index].FrontSize / (float) numArray4[areaNr]);
-          num7 = (float) numArray3[areaNr] * ((float) this.TPlanObj[index].FrontSize / (float) numArray4[areaNr]);
+          num6 =  numArray2[areaNr] * ( this.TPlanObj[index].FrontSize /  numArray4[areaNr]);
+          num7 =  numArray3[areaNr] * ( this.TPlanObj[index].FrontSize /  numArray4[areaNr]);
           if (this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime > -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime] > 0)
           {
             num6 *= this.game.Data.RuleVar[246];
@@ -8707,11 +8707,11 @@ namespace WindowsApplication1
           }
           this.TPlanObj[index].EnemyUnitCount = numArray5[areaNr];
         }
-        if ((double) num6 > 99999.0)
+        if ( num6 > 99999.0)
           num6 = 99999f;
-        if ((double) num7 > 99999.0)
+        if ( num7 > 99999.0)
           num7 = 99999f;
-        this.TPlanObj[index].WeightFriendlyForce = (float) num4;
+        this.TPlanObj[index].WeightFriendlyForce =  num4;
         this.TPlanObj[index].FriendlyUnitCount = num5;
         this.TPlanObj[index].WeightEnemyForce = num6;
         this.TPlanObj[index].WeightEnemyForceUnMod = num7;
@@ -8811,9 +8811,9 @@ namespace WindowsApplication1
         if (this.game.Data.UnitObj[index1].PreDef == -1 & this.game.Data.UnitObj[index1].Regime == this.game.Data.Turn && this.game.Data.UnitObj[index1].AIPlanRef != null)
         {
           this.AddLog("evaluating: " + this.game.Data.UnitObj[index1].Name);
-          this.AddLog("FromArea:#" + Conversion.Str((object) this.WhichCurrentAreaIsThis(ref this.game.Data.UnitObj[index1].AIPlanRef.FromArea)));
+          this.AddLog("FromArea:#" + Conversion.Str( this.WhichCurrentAreaIsThis(ref this.game.Data.UnitObj[index1].AIPlanRef.FromArea)));
           if (this.game.Data.UnitObj[index1].AIPlanRef.TooArea != null)
-            this.AddLog("TooArea:#" + Conversion.Str((object) this.WhichCurrentAreaIsThis(ref this.game.Data.UnitObj[index1].AIPlanRef.TooArea)));
+            this.AddLog("TooArea:#" + Conversion.Str( this.WhichCurrentAreaIsThis(ref this.game.Data.UnitObj[index1].AIPlanRef.TooArea)));
           let mut tplanCount1: i32 =  this.TPlanCount;
           for (let mut Number: i32 =  1; Number <= tplanCount1; Number += 1)
           {
@@ -8823,7 +8823,7 @@ namespace WindowsApplication1
               {
                 this.game.Data.UnitObj[index1].AIPlanNr = Number;
                 this.TPlanObj[Number].HQ = this.game.Data.UnitObj[index1].AIPlanRef.HQ;
-                this.AddLog(this.game.Data.UnitObj[index1].Name + " to LANDFRONT plan# " + Conversion.Str((object) Number));
+                this.AddLog(this.game.Data.UnitObj[index1].Name + " to LANDFRONT plan# " + Conversion.Str( Number));
               }
               if (this.TPlanObj[Number].Type == 40 && this.GetAreaNr(this.TPlanObj[Number].FromArea) == this.WhichCurrentAreaIsThis(ref this.game.Data.UnitObj[index1].AIPlanRef.FromArea))
               {
@@ -8832,7 +8832,7 @@ namespace WindowsApplication1
                 this.TPlanObj[Number].HQ = this.game.Data.UnitObj[index1].AIPlanRef.HQ;
                 this.TPlanObj[Number].SeaStand = this.game.Data.UnitObj[index1].AIPlanRef.SeaStand;
                 this.TPlanObj[Number].SeaTarget = this.game.Data.UnitObj[index1].AIPlanRef.SeaTarget;
-                this.AddLog(this.game.Data.UnitObj[index1].Name + " to BACK plan# " + Conversion.Str((object) Number));
+                this.AddLog(this.game.Data.UnitObj[index1].Name + " to BACK plan# " + Conversion.Str( Number));
               }
             }
           }
@@ -8865,7 +8865,7 @@ namespace WindowsApplication1
                 this.game.Data.UnitObj[index1].AIPlanNr = Number;
                 if (this.TPlanObj[Number].HQ == -1)
                   this.TPlanObj[Number].HQ = this.game.Data.UnitObj[index1].AIPlanRef.HQ;
-                this.AddLog(this.game.Data.UnitObj[index1].Name + " to almost same plan# " + Conversion.Str((object) Number));
+                this.AddLog(this.game.Data.UnitObj[index1].Name + " to almost same plan# " + Conversion.Str( Number));
               }
             }
           }
@@ -8875,7 +8875,7 @@ namespace WindowsApplication1
             this.TPlanObj[this.TPlanCount] = this.game.Data.UnitObj[index1].AIPlanRef;
             this.TPlanObj[this.TPlanCount].FromArea = this.SAObj[this.WhichCurrentAreaIsThis(ref this.TPlanObj[this.TPlanCount].FromArea)];
             this.game.Data.UnitObj[index1].AIPlanNr = this.TPlanCount;
-            this.AddLog("Initiated LANDRESERVEPLAN from memory by " + this.game.Data.UnitObj[index1].Name + " to plan# " + Conversion.Str((object) this.TPlanCount));
+            this.AddLog("Initiated LANDRESERVEPLAN from memory by " + this.game.Data.UnitObj[index1].Name + " to plan# " + Conversion.Str( this.TPlanCount));
           }
         }
       }
@@ -8934,7 +8934,7 @@ namespace WindowsApplication1
     pub void BlowBridges()
     {
       int[,] numArray = new int[this.game.Data.MapObj[0].MapWidth + 1, this.game.Data.MapObj[0].MapHeight + 1];
-      if ((double) this.game.Data.RuleVar[245] < 1.0)
+      if ( this.game.Data.RuleVar[245] < 1.0)
         return;
       let mut tplanCount1: i32 =  this.TPlanCount;
       for (let mut plnr: i32 =  1; plnr <= tplanCount1; plnr += 1)
@@ -8948,7 +8948,7 @@ namespace WindowsApplication1
             if (this.TPlanObj[index].Type == 20 && this.TPlanObj[index].Stand == 1 && this.GetAreaNr(this.TPlanObj[index].TooArea) == this.GetAreaNr(this.TPlanObj[plnr].TooArea))
               num1 = 0;
           }
-          if (num1 == 1 && (double) this.GivePercentBehindRiver(plnr) >= 0.75)
+          if (num1 == 1 &&  this.GivePercentBehindRiver(plnr) >= 0.75)
           {
             let mut mapWidth1: i32 =  this.game.Data.MapObj[0].MapWidth;
             for (let mut index1: i32 =  0; index1 <= mapWidth1; index1 += 1)
@@ -8977,7 +8977,7 @@ namespace WindowsApplication1
                     do
                     {
                       coordinate = this.game.HandyFunctionsObj.HexNeighbour(index3, index4, 0, tfacing);
-                      if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[plnr].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[plnr].TooArea) && this.game.Data.MapObj[0].HexObj[index3, index4].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index3, index4, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, index3, index4, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
+                      if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[plnr].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[plnr].TooArea) && this.game.Data.MapObj[0].HexObj[index3, index4].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index3, index4, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, index3, index4, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
                       {
                         numArray[coordinate.x, coordinate.y] = 1;
                         num2 = 1;
@@ -9051,7 +9051,7 @@ namespace WindowsApplication1
                 do
                 {
                   coordinate = this.game.HandyFunctionsObj.HexNeighbour(index4, index5, 0, tfacing);
-                  if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].TooArea) && this.game.Data.MapObj[0].HexObj[index4, index5].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index4, index5, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, index4, index5, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
+                  if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].TooArea) && this.game.Data.MapObj[0].HexObj[index4, index5].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index4, index5, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, index4, index5, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
                   {
                     numArray[coordinate.x, coordinate.y] = 1;
                     num = 1;
@@ -9101,7 +9101,7 @@ namespace WindowsApplication1
       }
       if (num2 <= 0)
         return;
-      let mut num4: i32 =  (int) Math.Round((double) num1 / (double) num2);
+      let mut num4: i32 =  (int) Math.Round( num1 /  num2);
       let mut mapWidth5: i32 =  this.game.Data.MapObj[0].MapWidth;
       for (let mut index10: i32 =  0; index10 <= mapWidth5; index10 += 1)
       {
@@ -9130,7 +9130,7 @@ namespace WindowsApplication1
               let mut num7: i32 =  this.game.HandyFunctionsObj.Distance(index10, index11, 0, this.TPlanObj[index1].FromArea.X, this.TPlanObj[index1].FromArea.Y, 0);
               if (num7 == 0)
                 num7 = 1;
-              this.Matrix1[index10, index11] = (int) Math.Round((double) this.game.Data.RuleVar[152] * ((double) num4 / (double) num7));
+              this.Matrix1[index10, index11] = (int) Math.Round( this.game.Data.RuleVar[152] * ( num4 /  num7));
               if (num6 > 0)
                 this.Matrix1[index10, index11] = this.Matrix1[index10, index11] * (num6 * 2);
             }
@@ -9171,7 +9171,7 @@ namespace WindowsApplication1
                 do
                 {
                   Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(index4, index5, 0, tfacing);
-                  if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].TooArea) && this.game.Data.MapObj[0].HexObj[index4, index5].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index4, index5, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, index4, index5, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
+                  if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].TooArea) && this.game.Data.MapObj[0].HexObj[index4, index5].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index4, index5, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, index4, index5, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
                   {
                     numArray[coordinate.x, coordinate.y] = 1;
                     num = 1;
@@ -9197,7 +9197,7 @@ namespace WindowsApplication1
             num2 += this.game.HandyFunctionsObj.GetPower(unr, this.game.Data.Turn);
         }
       }
-      return num1 + num2 > 0 ? (float) num2 / (float) (num1 + num2) : 0.0f;
+      return num1 + num2 > 0 ?  num2 /  (num1 + num2) : 0.0f;
     }
 
     pub void InitRiverLine()
@@ -9235,7 +9235,7 @@ namespace WindowsApplication1
                   do
                   {
                     Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(index4, index5, 0, tfacing);
-                    if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].TooArea) && this.game.Data.MapObj[0].HexObj[index4, index5].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index4, index5, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[0]), 0, index4, index5, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
+                    if (coordinate.onmap && this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].FromArea) | this.HexSA[coordinate.x, coordinate.y] == this.GetAreaNr(this.TPlanObj[index1].TooArea) && this.game.Data.MapObj[0].HexObj[index4, index5].RiverType[tfacing - 1] == -1 & this.game.HandyFunctionsObj.MoveApCostPreview2(index4, index5, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[0]), 0, index4, index5, 0, coordinate.x, coordinate.y, 0, false).x < 9999 && numArray[coordinate.x, coordinate.y] == 0)
                     {
                       numArray[coordinate.x, coordinate.y] = 1;
                       num = 1;
@@ -9383,14 +9383,14 @@ namespace WindowsApplication1
           let mut MaxDistance: i32 =  num1 * 2;
           if (!(x2 == x1 & y2 == y1))
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true, MaxDistance: MaxDistance);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true, MaxDistance: MaxDistance);
             AIPlanClass[] tplanObj = this.TPlanObj;
             AIPlanClass[] aiPlanClassArray = tplanObj;
             let mut index2: i32 =  plannr;
             let mut index3: i32 =  index2;
             aiPlanClassArray[index3].CurrentAPCost = tplanObj[index2].CurrentAPCost + this.game.EditObj.TempValue[0].Value[x1, y1];
           }
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x1, y1, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true, MaxDistance: MaxDistance);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x1, y1, 0, dontenterenemy: false, NoAPPenalties: true, SeaBlock: true, BlockAllSea: true, MaxDistance: MaxDistance);
           AIPlanClass[] tplanObj1 = this.TPlanObj;
           AIPlanClass[] aiPlanClassArray1 = tplanObj1;
           let mut index4: i32 =  plannr;
@@ -9409,17 +9409,17 @@ namespace WindowsApplication1
           }
           if (num3 < 1)
             num3 = 1;
-          this.TPlanObj[plannr].AverageUnitAPCost = (int) Math.Round(Conversion.Int((double) num2 / (double) num3));
+          this.TPlanObj[plannr].AverageUnitAPCost = (int) Math.Round(Conversion.Int( num2 /  num3));
           if (!(x2 == x1 & y2 == y1))
           {
-            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true, MaxDistance: MaxDistance);
+            this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true, MaxDistance: MaxDistance);
             AIPlanClass[] tplanObj2 = this.TPlanObj;
             AIPlanClass[] aiPlanClassArray2 = tplanObj2;
             let mut index7: i32 =  plannr;
             let mut index8: i32 =  index7;
             aiPlanClassArray2[index8].PossibleAPCost = tplanObj2[index7].PossibleAPCost + this.game.EditObj.TempValue[0].Value[x1, y1];
           }
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x1, y1, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true, MaxDistance: MaxDistance);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x1, y1, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true, MaxDistance: MaxDistance);
           AIPlanClass[] tplanObj3 = this.TPlanObj;
           AIPlanClass[] aiPlanClassArray3 = tplanObj3;
           let mut index9: i32 =  plannr;
@@ -9437,7 +9437,7 @@ namespace WindowsApplication1
           let mut y3: i32 =  this.TPlanObj[index11].FromArea.Y;
           let mut num4: i32 =  0;
           let mut index12: i32 =  0;
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
           let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
           for (let mut index13: i32 =  0; index13 <= mapWidth; index13 += 1)
           {
@@ -9445,7 +9445,7 @@ namespace WindowsApplication1
             for (let mut index14: i32 =  0; index14 <= mapHeight; index14 += 1)
               numArray[index13, index14] = this.game.EditObj.TempValue[0].Value[index13, index14];
           }
-          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true, MaxDistance: 20);
+          this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true, MaxDistance: 20);
           if (this.TPlanObj[index11].CurrentBackRoad > 0)
           {
             let mut x4: i32 =  this.SAObj[this.TPlanObj[index11].CurrentBackRoad].X;
@@ -9531,9 +9531,9 @@ namespace WindowsApplication1
         let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
         for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
-          objArray[index1, index2] = (object) -1;
+          objArray[index1, index2] =  -1;
           if (this.game.Data.MapObj[0].HexObj[index1, index2].UnitCounter > -1 && this.HexSA[index1, index2] == fromarea)
-            objArray[index1, index2] = (object) 0;
+            objArray[index1, index2] =  0;
         }
       }
       for (let mut index: i32 =  1; index == 1 & Right < 99; Right += 1)
@@ -9545,7 +9545,7 @@ namespace WindowsApplication1
           let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
           for (let mut cy: i32 =  0; cy <= mapHeight; cy += 1)
           {
-            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy], (object) Right, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray[cx, cy],  Right, false))
             {
               if (this.HexSA[cx, cy] == towardsarea)
                 return Right;
@@ -9555,7 +9555,7 @@ namespace WindowsApplication1
                 Coordinate coordinate = this.game.HandyFunctionsObj.HexNeighbour(cx, cy, 0, tfacing);
                 if (coordinate.onmap && !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].LandscapeType].IsSea)
                 {
-                  objArray[coordinate.x, coordinate.y] = (object) (Right + 1);
+                  objArray[coordinate.x, coordinate.y] =  (Right + 1);
                   index = 1;
                 }
                 tfacing += 1;
@@ -9583,16 +9583,16 @@ namespace WindowsApplication1
           {
             if (!this.IsAreaEmpty(this.GetAreaNr(this.TPlanObj[index].TooArea)))
             {
-              let mut num: i32 =  (int) Math.Round(Math.Pow((double) this.getDistanceClosestUnit(this.GetAreaNr(this.TPlanObj[index].TooArea), this.GetAreaNr(this.TPlanObj[index].FromArea)), 2.0));
-              this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) this.TPlanObj[index].WeightStrategic / (double) num);
+              let mut num: i32 =  (int) Math.Round(Math.Pow( this.getDistanceClosestUnit(this.GetAreaNr(this.TPlanObj[index].TooArea), this.GetAreaNr(this.TPlanObj[index].FromArea)), 2.0));
+              this.TPlanObj[index].WeightStrategic = (int) Math.Round( this.TPlanObj[index].WeightStrategic /  num);
               if (this.TPlanObj[index].WeightStrategic < 1)
                 this.TPlanObj[index].WeightStrategic = 1;
               if (this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime == -1 & this.TPlanObj[index].TooArea.aivp == 0)
-                this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) this.TPlanObj[index].WeightStrategic / 3.0);
+                this.TPlanObj[index].WeightStrategic = (int) Math.Round( this.TPlanObj[index].WeightStrategic / 3.0);
               else if (this.TPlanObj[index].EnemyUnitCount == 0 & this.TPlanObj[index].TooArea.aivp == 0)
-                this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) this.TPlanObj[index].WeightStrategic / 3.0);
+                this.TPlanObj[index].WeightStrategic = (int) Math.Round( this.TPlanObj[index].WeightStrategic / 3.0);
               else if (this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime] > 0)
-                this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) ((float) this.TPlanObj[index].WeightStrategic * this.game.Data.RuleVar[246]));
+                this.TPlanObj[index].WeightStrategic = (int) Math.Round( ( this.TPlanObj[index].WeightStrategic * this.game.Data.RuleVar[246]));
               else
                 this.TPlanObj[index].WeightStrategic *= 3;
             }
@@ -9602,9 +9602,9 @@ namespace WindowsApplication1
           else if (this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime != -1)
           {
             if (this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime] > 0)
-              this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) ((float) this.TPlanObj[index].WeightStrategic * this.game.Data.RuleVar[246]));
+              this.TPlanObj[index].WeightStrategic = (int) Math.Round( ( this.TPlanObj[index].WeightStrategic * this.game.Data.RuleVar[246]));
             else if (this.GetFriendlyAreaNeighbours(this.GetAreaNr(this.TPlanObj[index].TooArea), false) == 0)
-              this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) this.TPlanObj[index].WeightStrategic * 1.25);
+              this.TPlanObj[index].WeightStrategic = (int) Math.Round( this.TPlanObj[index].WeightStrategic * 1.25);
           }
         }
         else
@@ -9616,13 +9616,13 @@ namespace WindowsApplication1
         if (this.TPlanObj[index].Type == 20 && this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime != -1 && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[0].HexObj[this.TPlanObj[index].TooArea.X, this.TPlanObj[index].TooArea.Y].Regime] == 0)
         {
           Random random = new Random(this.game.Data.GameID);
-          float num1 = (float) random.Next(1, 100) / 100f;
-          float num2 = (float) random.Next(1, 100) / 100f;
-          float num3 = (float) random.Next(1, 100) / 100f;
-          if ((double) num1 < 0.25)
-            this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) ((float) this.TPlanObj[index].WeightStrategic * (num2 * 3f)));
-          else if ((double) num1 > 0.75)
-            this.TPlanObj[index].WeightStrategic = (int) Math.Round((double) ((float) this.TPlanObj[index].WeightStrategic / (num2 * 3f)));
+          float num1 =  random.Next(1, 100) / 100f;
+          float num2 =  random.Next(1, 100) / 100f;
+          float num3 =  random.Next(1, 100) / 100f;
+          if ( num1 < 0.25)
+            this.TPlanObj[index].WeightStrategic = (int) Math.Round( ( this.TPlanObj[index].WeightStrategic * (num2 * 3f)));
+          else if ( num1 > 0.75)
+            this.TPlanObj[index].WeightStrategic = (int) Math.Round( ( this.TPlanObj[index].WeightStrategic / (num2 * 3f)));
           if (1 > this.TPlanObj[index].WeightStrategic)
             this.TPlanObj[index].WeightStrategic = 1;
         }
@@ -9661,7 +9661,7 @@ namespace WindowsApplication1
               let mut num: i32 =  1;
               if (regime > -1)
               {
-                if (this.game.Data.RegimeObj[regime].Sleep & this.game.Data.RegimeObj[regime].DipBlock & (double) this.game.Data.RuleVar[263] == 0.0)
+                if (this.game.Data.RegimeObj[regime].Sleep & this.game.Data.RegimeObj[regime].DipBlock &  this.game.Data.RuleVar[263] == 0.0)
                   num = 0;
                 if (this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[regime] == 0 & num == 0)
                   num = 1;
@@ -9769,8 +9769,8 @@ namespace WindowsApplication1
           num6 = 0;
           if (numArray1[index] + num3 < numArray1[this.game.Data.Turn])
           {
-            let mut num7: i32 =  (int) Math.Round((double) numArray2[index] * ((double) numArray1[this.game.Data.Turn] / (double) numArray1[index]));
-            num6 = (int) Math.Round((double) num7 * 0.5 + (double) num7 * (double) VBMath.Rnd() * 0.5);
+            let mut num7: i32 =  (int) Math.Round( numArray2[index] * ( numArray1[this.game.Data.Turn] /  numArray1[index]));
+            num6 = (int) Math.Round( num7 * 0.5 +  num7 *  VBMath.Rnd() * 0.5);
             if (!this.game.Data.RegimeObj[index].AI)
               num6 *= 2;
           }
@@ -9783,7 +9783,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (num5 == 1 && (double) this.game.Data.RuleVar[903] > 100.0 * (double) VBMath.Rnd() && (double) this.game.Data.RuleVar[903] > 100.0 * (double) VBMath.Rnd())
+      if (num5 == 1 &&  this.game.Data.RuleVar[903] > 100.0 *  VBMath.Rnd() &&  this.game.Data.RuleVar[903] > 100.0 *  VBMath.Rnd())
         num5 = 0;
       if (onregnr1 == -1 & num5 == 0)
       {
@@ -9798,7 +9798,7 @@ namespace WindowsApplication1
             if (numArray1[regnr] + num3 < numArray1[this.game.Data.Turn])
             {
               this.game.HandyFunctionsObj.SetInitialXY(regnr);
-              num6 = (int) Math.Round((double) ((float) (int) Math.Round(100.0 - Math.Sqrt((double) this.game.HandyFunctionsObj.Distance(selectX, selectY, 0, this.game.SelectX, this.game.SelectY, 0))) - VBMath.Rnd() * 5f));
+              num6 = (int) Math.Round( ( (int) Math.Round(100.0 - Math.Sqrt( this.game.HandyFunctionsObj.Distance(selectX, selectY, 0, this.game.SelectX, this.game.SelectY, 0))) - VBMath.Rnd() * 5f));
               if (!this.game.Data.RegimeObj[regnr].AI)
                 num6 += 4;
             }
@@ -9810,7 +9810,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (onregnr1 <= -1 || (double) this.game.Data.RuleVar[903] <= 100.0 * (double) VBMath.Rnd())
+      if (onregnr1 <= -1 ||  this.game.Data.RuleVar[903] <= 100.0 *  VBMath.Rnd())
         return;
       this.game.ProcessingObj.DeclareWar(this.game.Data.Turn, onregnr1);
       let mut regimeCounter4: i32 =  this.game.Data.RegimeCounter;
@@ -9865,7 +9865,7 @@ namespace WindowsApplication1
           }
         }
       }
-      this.AddLog("Operational Areas found for this regime: " + Conversion.Str((object) this.OACount));
+      this.AddLog("Operational Areas found for this regime: " + Conversion.Str( this.OACount));
     }
 
     pub void InitFindContinent()
@@ -9916,7 +9916,7 @@ namespace WindowsApplication1
           }
         }
       }
-      this.AddLog("Continents found on this map: " + Conversion.Str((object) this.ContinentCount));
+      this.AddLog("Continents found on this map: " + Conversion.Str( this.ContinentCount));
     }
 
     pub void InitGetSeaSA()
@@ -10261,7 +10261,7 @@ namespace WindowsApplication1
               let mut num2: i32 =  this.AreaDistance2(nr, nr2, MaxDistance: 3);
               if (num2 > 0)
               {
-                let mut num3: i32 =  (int) Math.Round(Conversion.Int((double) this.SAObj[nr2].aivp / (double) num2));
+                let mut num3: i32 =  (int) Math.Round(Conversion.Int( this.SAObj[nr2].aivp /  num2));
                 if (num3 > num1)
                   num1 = num3;
               }
@@ -10272,19 +10272,19 @@ namespace WindowsApplication1
             this.SAObj[nr].fuzzyvp = 0;
         }
       }
-      this.AddLog("SubAreas found on whole map: " + Conversion.Str((object) this.SACount));
+      this.AddLog("SubAreas found on whole map: " + Conversion.Str( this.SACount));
       let mut saCount3: i32 =  this.SACount;
       for (let mut Number1: i32 =  1; Number1 <= saCount3; Number1 += 1)
       {
         this.AddLog(" ");
-        this.AddLog("SubArea #" + Conversion.Str((object) Number1) + ": ");
-        this.AddLog(this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number1].X, this.SAObj[Number1].Y, 0) + "(" + Conversion.Str((object) this.SAObj[Number1].X) + "," + Conversion.Str((object) this.SAObj[Number1].Y) + "), size: " + Conversion.Str((object) this.SAObj[Number1].Size) + ", aivp/fuzzyvp: " + Conversion.Str((object) this.SAObj[Number1].aivp) + "/" + Conversion.Str((object) this.SAObj[Number1].fuzzyvp) + ", Bordering SA's: " + Conversion.Str((object) this.SAObj[Number1].NeighbourCount));
+        this.AddLog("SubArea #" + Conversion.Str( Number1) + ": ");
+        this.AddLog(this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number1].X, this.SAObj[Number1].Y, 0) + "(" + Conversion.Str( this.SAObj[Number1].X) + "," + Conversion.Str( this.SAObj[Number1].Y) + "), size: " + Conversion.Str( this.SAObj[Number1].Size) + ", aivp/fuzzyvp: " + Conversion.Str( this.SAObj[Number1].aivp) + "/" + Conversion.Str( this.SAObj[Number1].fuzzyvp) + ", Bordering SA's: " + Conversion.Str( this.SAObj[Number1].NeighbourCount));
         s1: String = "Neighbours: ";
         let mut neighbourCount: i32 =  this.SAObj[Number1].NeighbourCount;
         for (let mut index: i32 =  1; index <= neighbourCount; index += 1)
         {
           let mut Number2: i32 =  this.SAObj[Number1].Neighbour[index];
-          s1 = s1 + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number2].X, this.SAObj[Number2].Y, 0) + "(#" + Conversion.Str((object) Number2) + ")";
+          s1 = s1 + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number2].X, this.SAObj[Number2].Y, 0) + "(#" + Conversion.Str( Number2) + ")";
           if (index < this.SAObj[Number1].NeighbourCount)
             s1 += ", ";
         }
@@ -10294,7 +10294,7 @@ namespace WindowsApplication1
         for (let mut index: i32 =  1; index <= seaNeighbourCount; index += 1)
         {
           let mut Number3: i32 =  this.SAObj[Number1].SeaNeighbour[index];
-          s2 = s2 + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number3].X, this.SAObj[Number3].Y, 0) + "(#" + Conversion.Str((object) Number3) + ")";
+          s2 = s2 + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number3].X, this.SAObj[Number3].Y, 0) + "(#" + Conversion.Str( Number3) + ")";
           if (index < this.SAObj[Number1].SeaNeighbourCount)
             s2 += ", ";
         }
@@ -10307,7 +10307,7 @@ namespace WindowsApplication1
           {
             let mut Number4: i32 =  this.SAObj[Number1].Constitutant[index];
             if (Number4 > 0)
-              s3 = s3 + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number4].X, this.SAObj[Number4].Y, 0) + "(#" + Conversion.Str((object) Number4) + ")";
+              s3 = s3 + this.game.HandyFunctionsObj.GetHexName(this.SAObj[Number4].X, this.SAObj[Number4].Y, 0) + "(#" + Conversion.Str( Number4) + ")";
             else
               s3 += "No VP Area";
             if (index < this.SAObj[Number1].ConstitutantCount)
@@ -10335,7 +10335,7 @@ namespace WindowsApplication1
             let mut type: i32 =  this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[index1, index2].Location].Type;
             if (this.game.Data.LocTypeObj[type].OnDestructLT == -1)
             {
-              let mut num1: i32 =  (int) Math.Round((double) Conversion.Int((float) this.game.Data.LocTypeObj[type].MaxProd / this.game.Data.RuleVar[201]));
+              let mut num1: i32 =  (int) Math.Round( Conversion.Int( this.game.Data.LocTypeObj[type].MaxProd / this.game.Data.RuleVar[201]));
               if (num1 == 0)
                 num1 = 1;
               if (this.game.Data.LocTypeObj[type].MaxProd < 1)
@@ -10359,20 +10359,20 @@ namespace WindowsApplication1
           let mut num: i32 =  aivp1[index7, index9] + this.game.Data.RegimeObj[this.game.Data.Turn].AIVP[0].Value[index1, index2];
           numArray1[index8, index10] = num;
           let mut regime: i32 =  this.game.Data.MapObj[0].HexObj[index1, index2].Regime;
-          if (regime > -1 & this.AIVP[index1, index2] > 0 && this.game.Data.Turn != regime && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[regime] == 0 && (double) this.game.Data.RuleVar[264] == 0.0 && this.game.Data.RegimeObj[regime].AI)
+          if (regime > -1 & this.AIVP[index1, index2] > 0 && this.game.Data.Turn != regime && this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[regime] == 0 &&  this.game.Data.RuleVar[264] == 0.0 && this.game.Data.RegimeObj[regime].AI)
           {
-            this.AIVP[index1, index2] = (int) Math.Round((double) this.AIVP[index1, index2] * 0.5);
+            this.AIVP[index1, index2] = (int) Math.Round( this.AIVP[index1, index2] * 0.5);
             if (1 > this.AIVP[index1, index2])
               this.AIVP[index1, index2] = 1;
             if ((this.game.Data.GameID + regime + this.game.Data.Turn) % 2 == 0)
             {
-              this.AIVP[index1, index2] = (int) Math.Round((double) this.AIVP[index1, index2] * 0.5);
+              this.AIVP[index1, index2] = (int) Math.Round( this.AIVP[index1, index2] * 0.5);
               if (1 > this.AIVP[index1, index2])
                 this.AIVP[index1, index2] = 1;
             }
             else if ((this.game.Data.GameID + regime + this.game.Data.Turn) % 3 == 0)
             {
-              this.AIVP[index1, index2] = (int) Math.Round((double) this.AIVP[index1, index2] * 0.1);
+              this.AIVP[index1, index2] = (int) Math.Round( this.AIVP[index1, index2] * 0.1);
               if (1 > this.AIVP[index1, index2])
                 this.AIVP[index1, index2] = 1;
             }
@@ -10389,11 +10389,11 @@ namespace WindowsApplication1
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
         let mut entrenchPower: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].EntrenchPower;
-        float num = entrenchPower <= 0 ? 0.0f : (float) this.game.Data.SFObj[sf].CurrentEntrench / (float) entrenchPower;
-        if ((double) num > (double) entrenchMod)
+        float num = entrenchPower <= 0 ? 0.0f :  this.game.Data.SFObj[sf].CurrentEntrench /  entrenchPower;
+        if ( num >  entrenchMod)
           entrenchMod = num;
       }
-      if ((double) entrenchMod < 1.0)
+      if ( entrenchMod < 1.0)
         entrenchMod = 1f;
       return entrenchMod;
     }
@@ -10409,8 +10409,8 @@ namespace WindowsApplication1
         let mut unit: i32 =  this.game.Data.MapObj[0].HexObj[x, y].UnitList[index];
         num += this.GetEntrenchMod(unit);
       }
-      float entrenchMod = num / (float) (this.game.Data.MapObj[0].HexObj[x, y].UnitCounter + 1);
-      if ((double) entrenchMod < 1.0)
+      float entrenchMod = num /  (this.game.Data.MapObj[0].HexObj[x, y].UnitCounter + 1);
+      if ( entrenchMod < 1.0)
         entrenchMod = 1f;
       return entrenchMod;
     }
@@ -10423,14 +10423,14 @@ namespace WindowsApplication1
       else if (this.TPlanObj[plnr].Type == 20 & (this.TPlanObj[plnr].Stand == 1 | this.TPlanObj[plnr].EnemyUnitCount == 0))
       {
         let mut num2: i32 =  this.TPlanObj[plnr].CurrentAPCost - this.TPlanObj[plnr].PossibleAPCost;
-        float num3 = (float) this.TPlanObj[plnr].AverageUnitAPCost / this.game.Data.RuleVar[51];
-        if ((double) num3 < 1.0)
+        float num3 =  this.TPlanObj[plnr].AverageUnitAPCost / this.game.Data.RuleVar[51];
+        if ( num3 < 1.0)
           num3 = 1f;
-        num1 = (int) Math.Round((double) Conversion.Int((float) num2 * num3));
+        num1 = (int) Math.Round( Conversion.Int( num2 * num3));
         if (this.TPlanObj[plnr].FromArea.ConstitutantCount > 0)
           num1 = 0;
         if (this.TPlanObj[plnr].TooArea.ConstitutantCount > 0)
-          num1 = (int) Math.Round((double) num1 / 2.0);
+          num1 = (int) Math.Round( num1 / 2.0);
       }
       else
         num1 = this.TPlanObj[plnr].Type != 50 ? 0 : 9999;
@@ -10451,7 +10451,7 @@ namespace WindowsApplication1
             num2 += this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr);
         }
       }
-      return num1 == 0 ? 0.0f : (float) num2 / (float) num1;
+      return num1 == 0 ? 0.0f :  num2 /  num1;
     }
 
     pub Coordinate SetMatrixHQ(SimpleList UL, let mut hqnr: i32 =  -1, let mut onlysanr: i32 =  -1)
@@ -10472,7 +10472,7 @@ namespace WindowsApplication1
       if (aiPlanNr > 0 && this.TPlanObj[aiPlanNr].Type == 30)
       {
         flag = false;
-        this.Matrix2[this.TPlanObj[aiPlanNr].FromArea.X, this.TPlanObj[aiPlanNr].FromArea.Y] = (int) Math.Round((double) this.game.Data.RuleVar[152]);
+        this.Matrix2[this.TPlanObj[aiPlanNr].FromArea.X, this.TPlanObj[aiPlanNr].FromArea.Y] = (int) Math.Round( this.game.Data.RuleVar[152]);
       }
       if (flag && UL.Counter > -1)
       {
@@ -10482,8 +10482,8 @@ namespace WindowsApplication1
           int num1;
           if (aiPlanNr > 0)
           {
-            num1 = Information.IsNothing((object) this.TPlanObj[aiPlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[UL.Id[index3]].X, this.game.Data.UnitObj[UL.Id[index3]].Y, 0, this.TPlanObj[aiPlanNr].FromArea.X, this.TPlanObj[aiPlanNr].FromArea.Y, 0) : this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[UL.Id[index3]].X, this.game.Data.UnitObj[UL.Id[index3]].Y, 0, this.TPlanObj[aiPlanNr].TooArea.X, this.TPlanObj[aiPlanNr].TooArea.Y, 0);
-            if ((double) num1 <= (double) this.game.Data.RuleVar[191])
+            num1 = Information.IsNothing( this.TPlanObj[aiPlanNr].TooArea) ? this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[UL.Id[index3]].X, this.game.Data.UnitObj[UL.Id[index3]].Y, 0, this.TPlanObj[aiPlanNr].FromArea.X, this.TPlanObj[aiPlanNr].FromArea.Y, 0) : this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[UL.Id[index3]].X, this.game.Data.UnitObj[UL.Id[index3]].Y, 0, this.TPlanObj[aiPlanNr].TooArea.X, this.TPlanObj[aiPlanNr].TooArea.Y, 0);
+            if ( num1 <=  this.game.Data.RuleVar[191])
               num1 = 1;
           }
           this.SetMatrix1(this.game.Data.UnitObj[UL.Id[index3]].X, this.game.Data.UnitObj[UL.Id[index3]].Y, onlythroughfriendlyhex: true);
@@ -10495,9 +10495,9 @@ namespace WindowsApplication1
             {
               int num2;
               num2 += 10 * this.game.HandyFunctionsObj.GetPowerPtsAbsolute(UL.Id[index3], true);
-              let mut num3: i32 =  (int) Math.Round((double) ((float) this.Matrix1[index4, index5] * ((float) (10 * this.game.HandyFunctionsObj.GetPowerPtsAbsolute(UL.Id[index3], true)) / this.game.Data.RuleVar[152])));
+              let mut num3: i32 =  (int) Math.Round( ( this.Matrix1[index4, index5] * ( (10 * this.game.HandyFunctionsObj.GetPowerPtsAbsolute(UL.Id[index3], true)) / this.game.Data.RuleVar[152])));
               if (aiPlanNr > 0)
-                num3 = (int) Math.Round((double) num3 / (double) num1);
+                num3 = (int) Math.Round( num3 /  num1);
               int[,] matrix2 = this.Matrix2;
               int[,] numArray = matrix2;
               let mut index6: i32 =  index4;
@@ -10520,11 +10520,11 @@ namespace WindowsApplication1
           {
             if (this.game.Data.MapObj[0].HexObj[x1, y1].Regime == -1 && this.AIVP[x1, y1] > 0 & this.HexSA[x1, y1] > 0 && this.IsAreaNeighbour(this.HexSA[x1, y1], this.HexSA[this.game.Data.UnitObj[hqnr].X, this.game.Data.UnitObj[hqnr].Y]))
             {
-              let mut num5: i32 =  (int) Math.Round((double) ((float) this.AIVP[x1, y1] * this.game.Data.RuleVar[152]));
-              let mut num6: i32 =  (int) Math.Round((double) this.game.HandyFunctionsObj.Distance(x1, y1, 0, this.game.Data.UnitObj[hqnr].X, this.game.Data.UnitObj[hqnr].Y, 0) / 2.0);
+              let mut num5: i32 =  (int) Math.Round( ( this.AIVP[x1, y1] * this.game.Data.RuleVar[152]));
+              let mut num6: i32 =  (int) Math.Round( this.game.HandyFunctionsObj.Distance(x1, y1, 0, this.game.Data.UnitObj[hqnr].X, this.game.Data.UnitObj[hqnr].Y, 0) / 2.0);
               if (num6 < 1)
                 num6 = 1;
-              let mut num7: i32 =  (int) Math.Round((double) num5 / (double) num6);
+              let mut num7: i32 =  (int) Math.Round( num5 /  num6);
               this.Matrix2[x1, y1] = num7;
             }
           }
@@ -10545,27 +10545,27 @@ namespace WindowsApplication1
               {
                 if (this.TPlanObj[this.game.Data.UnitObj[hqnr].AIPlanNr].Stand == 1)
                 {
-                  if ((double) this.Matrix1[index10, index11] >= 0.9 * (double) this.game.Data.RuleVar[152])
-                    this.Matrix2[index10, index11] = (int) Math.Round((double) this.Matrix2[index10, index11] * 0.5);
+                  if ( this.Matrix1[index10, index11] >= 0.9 *  this.game.Data.RuleVar[152])
+                    this.Matrix2[index10, index11] = (int) Math.Round( this.Matrix2[index10, index11] * 0.5);
                 }
                 else if (this.TPlanObj[this.game.Data.UnitObj[hqnr].AIPlanNr].Stand == 2)
                 {
-                  if ((double) this.Matrix1[index10, index11] >= 0.8 * (double) this.game.Data.RuleVar[152])
-                    this.Matrix2[index10, index11] = (int) Math.Round((double) this.Matrix2[index10, index11] * 0.4);
+                  if ( this.Matrix1[index10, index11] >= 0.8 *  this.game.Data.RuleVar[152])
+                    this.Matrix2[index10, index11] = (int) Math.Round( this.Matrix2[index10, index11] * 0.4);
                 }
-                else if ((double) this.Matrix1[index10, index11] >= 0.7 * (double) this.game.Data.RuleVar[152])
-                  this.Matrix2[index10, index11] = (int) Math.Round((double) this.Matrix2[index10, index11] * 0.3);
+                else if ( this.Matrix1[index10, index11] >= 0.7 *  this.game.Data.RuleVar[152])
+                  this.Matrix2[index10, index11] = (int) Math.Round( this.Matrix2[index10, index11] * 0.3);
               }
               else if (this.TPlanObj[this.game.Data.UnitObj[hqnr].AIPlanNr].Type == 30)
               {
-                if ((double) this.Matrix1[index10, index11] >= 0.7 * (double) this.game.Data.RuleVar[152])
-                  this.Matrix2[index10, index11] = (int) Math.Round((double) this.Matrix2[index10, index11] * 0.3);
+                if ( this.Matrix1[index10, index11] >= 0.7 *  this.game.Data.RuleVar[152])
+                  this.Matrix2[index10, index11] = (int) Math.Round( this.Matrix2[index10, index11] * 0.3);
               }
-              else if ((double) this.Matrix1[index10, index11] >= 0.9 * (double) this.game.Data.RuleVar[152])
-                this.Matrix2[index10, index11] = (int) Math.Round((double) this.Matrix2[index10, index11] * 0.5);
+              else if ( this.Matrix1[index10, index11] >= 0.9 *  this.game.Data.RuleVar[152])
+                this.Matrix2[index10, index11] = (int) Math.Round( this.Matrix2[index10, index11] * 0.5);
             }
-            else if ((double) this.Matrix1[index10, index11] >= 0.9 * (double) this.game.Data.RuleVar[152])
-              this.Matrix2[index10, index11] = (int) Math.Round((double) this.Matrix2[index10, index11] * 0.5);
+            else if ( this.Matrix1[index10, index11] >= 0.9 *  this.game.Data.RuleVar[152])
+              this.Matrix2[index10, index11] = (int) Math.Round( this.Matrix2[index10, index11] * 0.5);
           }
         }
       }
@@ -10626,7 +10626,7 @@ namespace WindowsApplication1
 
     pub int WhichCurrentAreaIsThis(ref SAClass Area)
     {
-      if (Information.IsNothing((object) Area))
+      if (Information.IsNothing( Area))
         return 0;
       let mut saCount1: i32 =  this.SACount;
       for (let mut index: i32 =  1; index <= saCount1; index += 1)
@@ -10734,11 +10734,11 @@ namespace WindowsApplication1
         coordinate1.x = num4;
         coordinate1.y = num5;
         coordinate1.onmap = true;
-        return (object) coordinate1;
+        return  coordinate1;
       }
       coordinate1.x = -1;
       coordinate1.onmap = false;
-      return (object) coordinate1;
+      return  coordinate1;
     }
 
     pub void SetMatrix1(
@@ -10762,7 +10762,7 @@ namespace WindowsApplication1
       }
       if (hq > -1)
         this.game.HandyFunctionsObj.MakeSupplyLayer(hq, true);
-      this.Matrix1[x, y] = (int) Math.Round((double) this.game.Data.RuleVar[152]);
+      this.Matrix1[x, y] = (int) Math.Round( this.game.Data.RuleVar[152]);
       numArray1[x, y] = 1;
       let mut num1: i32 =  0;
       let mut num2: i32 =  1;
@@ -10789,7 +10789,7 @@ namespace WindowsApplication1
                   {
                     numArray1[coordinate.x, coordinate.y] = num1 + 1;
                     num2 = 1;
-                    this.Matrix1[coordinate.x, coordinate.y] = (double) this.Matrix1[cx, cy] <= (double) this.game.Data.RuleVar[152] * 0.25 ? this.Matrix1[cx, cy] - 1 : (int) Math.Round(Conversion.Int((double) this.Matrix1[cx, cy] * 0.95));
+                    this.Matrix1[coordinate.x, coordinate.y] =  this.Matrix1[cx, cy] <=  this.game.Data.RuleVar[152] * 0.25 ? this.Matrix1[cx, cy] - 1 : (int) Math.Round(Conversion.Int( this.Matrix1[cx, cy] * 0.95));
                     if (subtractformovedunit)
                     {
                       let mut unitCounter: i32 =  this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].UnitCounter;
@@ -10801,10 +10801,10 @@ namespace WindowsApplication1
                           let mut aiPlanNr: i32 =  this.game.Data.UnitObj[unit].AIPlanNr;
                           if (aiPlanNr > 0)
                           {
-                            num2 = (int) Math.Round((double) this.TPlanObj[aiPlanNr].WeightFriendlyForce);
+                            num2 = (int) Math.Round( this.TPlanObj[aiPlanNr].WeightFriendlyForce);
                             if (num2 == 0)
                               num2 = 1;
-                            let mut num3: i32 =  (int) Math.Round(Conversion.Int((double) this.GetForceLandStrength(unit) / (double) num2 * ((double) this.game.Data.RuleVar[152] * 0.1)));
+                            let mut num3: i32 =  (int) Math.Round(Conversion.Int( this.GetForceLandStrength(unit) /  num2 * ( this.game.Data.RuleVar[152] * 0.1)));
                             int[,] matrix1 = this.Matrix1;
                             int[,] numArray2 = matrix1;
                             let mut x1: i32 =  coordinate.x;
@@ -10816,11 +10816,11 @@ namespace WindowsApplication1
                             if (unitnr > -1 && this.game.Data.UnitObj[unitnr].HQ > -1)
                             {
                               num2 = this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unitnr].X, this.game.Data.UnitObj[unitnr].Y, 0, this.game.Data.UnitObj[this.game.Data.UnitObj[unitnr].HQ].X, this.game.Data.UnitObj[this.game.Data.UnitObj[unitnr].HQ].Y, 0);
-                              if ((double) num2 > (double) this.game.Data.RuleVar[191])
-                                num2 = (int) Math.Round((double) (this.game.Data.RuleVar[191] - (float) num2));
+                              if ( num2 >  this.game.Data.RuleVar[191])
+                                num2 = (int) Math.Round( (this.game.Data.RuleVar[191] -  num2));
                               if (num2 == 0)
                                 num2 = 1;
-                              this.Matrix1[coordinate.x, coordinate.y] = (int) Math.Round((double) this.Matrix1[coordinate.x, coordinate.y] * (1.0 / (double) num2));
+                              this.Matrix1[coordinate.x, coordinate.y] = (int) Math.Round( this.Matrix1[coordinate.x, coordinate.y] * (1.0 /  num2));
                             }
                             if (0 > this.Matrix1[coordinate.x, coordinate.y])
                               this.Matrix1[coordinate.x, coordinate.y] = 0;
@@ -10832,7 +10832,7 @@ namespace WindowsApplication1
                     {
                       let mut aiPlanNr: i32 =  this.game.Data.UnitObj[unitnr].AIPlanNr;
                       if (aiPlanNr > 0 && this.TPlanObj[aiPlanNr].Type != 30 & this.TPlanObj[aiPlanNr].Type != 40 && this.HexSA[coordinate.x, coordinate.y] != this.GetAreaNr(this.TPlanObj[aiPlanNr].FromArea) && this.HexSA[coordinate.x, coordinate.y] != this.GetAreaNr(this.TPlanObj[aiPlanNr].TooArea))
-                        this.Matrix1[coordinate.x, coordinate.y] = (int) Math.Round((double) this.Matrix1[coordinate.x, coordinate.y] / 2.0);
+                        this.Matrix1[coordinate.x, coordinate.y] = (int) Math.Round( this.Matrix1[coordinate.x, coordinate.y] / 2.0);
                     }
                     if (onlythroughfriendlyhex && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime, this.game.Data.MapObj[0].HexObj[x, y].Regime))
                       this.Matrix1[coordinate.x, coordinate.y] = 0;
@@ -10847,12 +10847,12 @@ namespace WindowsApplication1
       }
       if (hq <= -1)
         return;
-      float num5 = this.game.HandyFunctionsObj.UnitSupplyUse(unit) >= 1 ? (float) this.game.Data.UnitObj[unit].Supply / (float) this.game.HandyFunctionsObj.UnitSupplyUse(unit) : 1f;
-      if (1.0 > (double) num5)
+      float num5 = this.game.HandyFunctionsObj.UnitSupplyUse(unit) >= 1 ?  this.game.Data.UnitObj[unit].Supply /  this.game.HandyFunctionsObj.UnitSupplyUse(unit) : 1f;
+      if (1.0 >  num5)
         num5 = 1f;
-      if ((double) num5 > 9.0)
+      if ( num5 > 9.0)
         num5 = 9f;
-      let mut num6: i32 =  (int) Math.Round((double) num5 * (double) num5 * 3.0);
+      let mut num6: i32 =  (int) Math.Round( num5 *  num5 * 3.0);
       if (1 > num6)
         num6 = 1;
       if (num6 > 50)
@@ -10864,7 +10864,7 @@ namespace WindowsApplication1
         for (let mut index7: i32 =  0; index7 <= mapHeight; index7 += 1)
         {
           let mut num7: i32 =  this.Matrix1[index6, index7];
-          let mut num8: i32 =  (int) Math.Round((double) ((float) num7 - (float) num7 * ((float) this.game.EditObj.TempSup[0].Value[index6, index7] / ((float) num6 * this.game.Data.RuleVar[3]))));
+          let mut num8: i32 =  (int) Math.Round( ( num7 -  num7 * ( this.game.EditObj.TempSup[0].Value[index6, index7] / ( num6 * this.game.Data.RuleVar[3]))));
           this.Matrix1[index6, index7] = num8;
           if (0 > this.Matrix1[index6, index7])
             this.Matrix1[index6, index7] = 0;
@@ -10885,7 +10885,7 @@ namespace WindowsApplication1
       }
       if (x == -1)
         return;
-      this.Matrix1[x, y] = (int) Math.Round((double) this.game.Data.RuleVar[152]);
+      this.Matrix1[x, y] = (int) Math.Round( this.game.Data.RuleVar[152]);
       numArray[x, y] = 1;
       let mut num1: i32 =  0;
       let mut num2: i32 =  1;
@@ -10914,7 +10914,7 @@ namespace WindowsApplication1
                   {
                     numArray[coordinate.x, coordinate.y] = num1 + 1;
                     num2 = 1;
-                    this.Matrix1[coordinate.x, coordinate.y] = (double) this.Matrix1[cx, cy] <= (double) this.game.Data.RuleVar[152] * 0.25 ? this.Matrix1[cx, cy] - 1 : (int) Math.Round(Conversion.Int((double) this.Matrix1[cx, cy] * 0.95));
+                    this.Matrix1[coordinate.x, coordinate.y] =  this.Matrix1[cx, cy] <=  this.game.Data.RuleVar[152] * 0.25 ? this.Matrix1[cx, cy] - 1 : (int) Math.Round(Conversion.Int( this.Matrix1[cx, cy] * 0.95));
                   }
                 }
                 tfacing += 1;
@@ -10951,12 +10951,12 @@ namespace WindowsApplication1
             if (this.game.HandyFunctionsObj.IsHexAirfield(x, y, 0))
             {
               float fieldStackModifier = this.game.HandyFunctionsObj.GetAirFieldStackModifier(x, y);
-              if ((double) fieldStackModifier < 0.66)
+              if ( fieldStackModifier < 0.66)
                 numArray3[x, y] = 0L;
-              else if ((double) fieldStackModifier < 0.8)
-                numArray3[x, y] = (long) Math.Round((double) numArray3[x, y] / 10.0);
-              else if ((double) fieldStackModifier < 1.0)
-                numArray3[x, y] = (long) Math.Round((double) numArray3[x, y] / 3.0);
+              else if ( fieldStackModifier < 0.8)
+                numArray3[x, y] = (long) Math.Round( numArray3[x, y] / 10.0);
+              else if ( fieldStackModifier < 1.0)
+                numArray3[x, y] = (long) Math.Round( numArray3[x, y] / 3.0);
             }
             let mut closestFrontline: i32 =  this.GetClosestFrontline(x, y);
             if (closestFrontline > 0)
@@ -10965,17 +10965,17 @@ namespace WindowsApplication1
               {
                 let mut closestEnemyDistance: i32 =  this.GetClosestEnemyDistance(x, y, true);
                 if (closestEnemyDistance > 0 & closestEnemyDistance < 4)
-                  numArray3[x, y] = (long) Math.Round((double) numArray3[x, y] / 2.0);
+                  numArray3[x, y] = (long) Math.Round( numArray3[x, y] / 2.0);
                 if (closestEnemyDistance > 0 & closestEnemyDistance < 3)
-                  numArray3[x, y] = (long) Math.Round((double) numArray3[x, y] / 3.0);
+                  numArray3[x, y] = (long) Math.Round( numArray3[x, y] / 3.0);
               }
               if (this.TPlanObj[closestFrontline].Stand == 1)
               {
                 let mut closestEnemyDistance: i32 =  this.GetClosestEnemyDistance(x, y, true);
                 if (closestEnemyDistance > 0 & closestEnemyDistance < 4)
-                  numArray3[x, y] = (long) Math.Round((double) numArray3[x, y] / 2.0);
+                  numArray3[x, y] = (long) Math.Round( numArray3[x, y] / 2.0);
                 if (closestEnemyDistance > 0 & closestEnemyDistance < 3)
-                  numArray3[x, y] = (long) Math.Round((double) numArray3[x, y] / 2.0);
+                  numArray3[x, y] = (long) Math.Round( numArray3[x, y] / 2.0);
               }
             }
           }
@@ -11006,7 +11006,7 @@ namespace WindowsApplication1
                     {
                       if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[index3, index4].Regime))
                       {
-                        if ((double) this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) > (double) this.game.Data.RuleVar[223] / 3.0 && (double) this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) <= (double) this.game.Data.RuleVar[223] && -(-1 < this.AreaDistance(this.HexSA[index3, index4], this.GetAreaNr(this.TPlanObj[plannr].FromArea)) ? 1 : 0) <= 1)
+                        if ( this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) >  this.game.Data.RuleVar[223] / 3.0 &&  this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) <=  this.game.Data.RuleVar[223] && -(-1 < this.AreaDistance(this.HexSA[index3, index4], this.GetAreaNr(this.TPlanObj[plannr].FromArea)) ? 1 : 0) <= 1)
                         {
                           long[,] numArray5 = numArray4;
                           long[,] numArray6 = numArray5;
@@ -11014,11 +11014,11 @@ namespace WindowsApplication1
                           let mut index6: i32 =  index5;
                           let mut index7: i32 =  index2;
                           let mut index8: i32 =  index7;
-                          long num2 = (long) Math.Round((double) numArray5[index5, index7] + (double) this.GetHexForceLandStrength(index3, index4, true) / 2.0);
+                          long num2 = (long) Math.Round( numArray5[index5, index7] +  this.GetHexForceLandStrength(index3, index4, true) / 2.0);
                           numArray6[index6, index8] = num2;
                         }
                       }
-                      else if (!this.game.Data.RegimeObj[this.game.Data.MapObj[0].HexObj[index3, index4].Regime].DipBlock && (double) this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) > (double) this.game.Data.RuleVar[223] / 3.0 && (double) this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) <= (double) this.game.Data.RuleVar[223] && -(-1 < this.AreaDistance(this.HexSA[index3, index4], this.GetAreaNr(this.TPlanObj[plannr].FromArea)) ? 1 : 0) <= 1)
+                      else if (!this.game.Data.RegimeObj[this.game.Data.MapObj[0].HexObj[index3, index4].Regime].DipBlock &&  this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) >  this.game.Data.RuleVar[223] / 3.0 &&  this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) <=  this.game.Data.RuleVar[223] && -(-1 < this.AreaDistance(this.HexSA[index3, index4], this.GetAreaNr(this.TPlanObj[plannr].FromArea)) ? 1 : 0) <= 1)
                       {
                         long[,] numArray7 = numArray4;
                         long[,] numArray8 = numArray7;
@@ -11026,19 +11026,19 @@ namespace WindowsApplication1
                         let mut index10: i32 =  index9;
                         let mut index11: i32 =  index2;
                         let mut index12: i32 =  index11;
-                        long num3 = (long) Math.Round((double) numArray7[index9, index11] + (double) this.GetHexForceLandStrength(index3, index4, true) / 2.0);
+                        long num3 = (long) Math.Round( numArray7[index9, index11] +  this.GetHexForceLandStrength(index3, index4, true) / 2.0);
                         numArray8[index10, index12] = num3;
                       }
                     }
-                    if (!this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index3, index4].Regime, this.game.Data.Turn) || this.game.EditObj.TempValue[0].Value[index3, index4] > 100 || (double) this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) > (double) this.game.Data.RuleVar[223] / 2.0)
+                    if (!this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index3, index4].Regime, this.game.Data.Turn) || this.game.EditObj.TempValue[0].Value[index3, index4] > 100 ||  this.game.HandyFunctionsObj.Distance(index1, index2, 0, index3, index4, 0) >  this.game.Data.RuleVar[223] / 2.0)
                       ;
                   }
                 }
               }
               if (this.GetHexForceAirStrength(index1, index2, true) > 0)
               {
-                let mut num4: i32 =  (int) Math.Round(Math.Sqrt(Math.Sqrt(Math.Sqrt((double) this.GetHexForceAirStrength(index1, index2, true)))));
-                numArray4[index1, index2] = (long) Math.Round((double) numArray4[index1, index2] / (double) num4);
+                let mut num4: i32 =  (int) Math.Round(Math.Sqrt(Math.Sqrt(Math.Sqrt( this.GetHexForceAirStrength(index1, index2, true)))));
+                numArray4[index1, index2] = (long) Math.Round( numArray4[index1, index2] /  num4);
               }
               long[,] numArray9 = numArray3;
               long[,] numArray10 = numArray9;
@@ -11046,7 +11046,7 @@ namespace WindowsApplication1
               let mut index14: i32 =  index13;
               let mut index15: i32 =  index2;
               let mut index16: i32 =  index15;
-              long num5 = (long) Math.Round((double) numArray9[index13, index15] + Math.Sqrt((double) numArray4[index1, index2]));
+              long num5 = (long) Math.Round( numArray9[index13, index15] + Math.Sqrt( numArray4[index1, index2]));
               numArray10[index14, index16] = num5;
             }
           }
@@ -11103,15 +11103,15 @@ namespace WindowsApplication1
         let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
         for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
         {
-          if (!Information.IsNothing((object) this.TPlanObj[plannr].TooArea) && this.GetAreaNr(this.TPlanObj[plannr].TooArea) == this.HexSA[index1, index2] && this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[index1, index2].Regime) && this.game.Data.MapObj[0].HexObj[index1, index2].UnitCounter > -1)
+          if (!Information.IsNothing( this.TPlanObj[plannr].TooArea) && this.GetAreaNr(this.TPlanObj[plannr].TooArea) == this.HexSA[index1, index2] && this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[index1, index2].Regime) && this.game.Data.MapObj[0].HexObj[index1, index2].UnitCounter > -1)
           {
-            objArray[index1, index2] = (object) 1;
+            objArray[index1, index2] =  1;
             let mut tfacing: i32 =  1;
             do
             {
               artilleryCoord = this.game.HandyFunctionsObj.HexNeighbour(index1, index2, 0, tfacing);
               if (artilleryCoord.onmap)
-                objArray[artilleryCoord.x, artilleryCoord.y] = (object) 1;
+                objArray[artilleryCoord.x, artilleryCoord.y] =  1;
               tfacing += 1;
             }
             while (tfacing <= 6);
@@ -11143,9 +11143,9 @@ namespace WindowsApplication1
               let mut num7: i32 =  y1 + 5;
               for (let mut index5: i32 =  num6; index5 <= num7; index5 += 1)
               {
-                if (index4 >= 0 & index5 >= 0 && index4 <= this.game.Data.MapObj[0].MapWidth & index5 < this.game.Data.MapObj[0].MapHeight && Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectEqual(objArray[index4, index5], (object) 0, false), (object) this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index4, index5].Regime, this.game.Data.Turn))) && this.game.HandyFunctionsObj.Distance(x1, y1, 0, index4, index5, 0) <= maxArtRange)
+                if (index4 >= 0 & index5 >= 0 && index4 <= this.game.Data.MapObj[0].MapWidth & index5 < this.game.Data.MapObj[0].MapHeight && Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectEqual(objArray[index4, index5],  0, false),  this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[0].HexObj[index4, index5].Regime, this.game.Data.Turn))) && this.game.HandyFunctionsObj.Distance(x1, y1, 0, index4, index5, 0) <= maxArtRange)
                 {
-                  let mut num8: i32 =  (int) Math.Round((double) numArray3[x1, y1] - Math.Pow((double) this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, index4, index5, 0), 2.0)) + this.GetHexForceLandStrength(index4, index5, true) * 12;
+                  let mut num8: i32 =  (int) Math.Round( numArray3[x1, y1] - Math.Pow( this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, index4, index5, 0), 2.0)) + this.GetHexForceLandStrength(index4, index5, true) * 12;
                   if (num8 > num2)
                   {
                     num1 = index4;
@@ -11254,13 +11254,13 @@ namespace WindowsApplication1
       }
       else if (num1 == 8 | num1 == 5)
       {
-        if ((double) this.game.HandyFunctionsObj.UnitSupplyStore(unr) * 0.4 > (double) this.game.Data.UnitObj[unr].Supply & this.game.Data.UnitObj[unr].PassengerCounter == -1)
+        if ( this.game.HandyFunctionsObj.UnitSupplyStore(unr) * 0.4 >  this.game.Data.UnitObj[unr].Supply & this.game.Data.UnitObj[unr].PassengerCounter == -1)
         {
           navalWarCoord1.x = this.TPlanObj[plannr].FromArea.X;
           navalWarCoord1.y = this.TPlanObj[plannr].FromArea.Y;
           navalWarCoord1.onmap = true;
         }
-        else if ((double) this.game.HandyFunctionsObj.UnitSupplyStore(unr) * 0.8 > (double) this.game.Data.UnitObj[unr].Supply & this.game.Data.UnitObj[unr].X == this.TPlanObj[plannr].FromArea.X & this.game.Data.UnitObj[unr].Y == this.TPlanObj[plannr].FromArea.Y)
+        else if ( this.game.HandyFunctionsObj.UnitSupplyStore(unr) * 0.8 >  this.game.Data.UnitObj[unr].Supply & this.game.Data.UnitObj[unr].X == this.TPlanObj[plannr].FromArea.X & this.game.Data.UnitObj[unr].Y == this.TPlanObj[plannr].FromArea.Y)
         {
           navalWarCoord1.x = this.TPlanObj[plannr].FromArea.X;
           navalWarCoord1.y = this.TPlanObj[plannr].FromArea.Y;
@@ -11297,8 +11297,8 @@ namespace WindowsApplication1
                       num2 = 0;
                     if (!this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.Turn, this.game.Data.MapObj[0].HexObj[navalWarCoord1.x, navalWarCoord1.y].Regime))
                       num2 += 10 * this.GetHexForceLandStrength(navalWarCoord1.x, navalWarCoord1.y);
-                    let mut num3: i32 =  (int) Math.Round((double) num2 + (double) num2 * 0.1 * ((double) this.game.HandyFunctionsObj.Distance(navalWarCoord1.x, navalWarCoord1.y, 0, this.SAObj[seaTarget].X, this.SAObj[seaTarget].Y, 0) / 2.0));
-                    let mut tweight: i32 =  (int) Math.Round((double) num3 + (double) num3 * 0.1 * ((double) this.game.HandyFunctionsObj.Distance(navalWarCoord1.x, navalWarCoord1.y, 0, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0) / 4.0));
+                    let mut num3: i32 =  (int) Math.Round( num2 +  num2 * 0.1 * ( this.game.HandyFunctionsObj.Distance(navalWarCoord1.x, navalWarCoord1.y, 0, this.SAObj[seaTarget].X, this.SAObj[seaTarget].Y, 0) / 2.0));
+                    let mut tweight: i32 =  (int) Math.Round( num3 +  num3 * 0.1 * ( this.game.HandyFunctionsObj.Distance(navalWarCoord1.x, navalWarCoord1.y, 0, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0) / 4.0));
                     simpleList.Add(tid, tweight, navalWarCoord1.x, navalWarCoord1.y);
                   }
                   tfacing += 1;
@@ -11555,7 +11555,7 @@ namespace WindowsApplication1
         x4 = this.TPlanObj[plannr].FromArea.X;
         y4 = this.TPlanObj[plannr].FromArea.Y;
       }
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 100, x4, y4, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 100, x4, y4, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
       let mut num1: i32 =  1;
       let mut x5: i32 =  x1;
       let mut y5: i32 =  y1;
@@ -11579,7 +11579,7 @@ namespace WindowsApplication1
       let mut num2: i32 =  -1;
       if (!(x3 == x4 & y3 == y4))
       {
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
         let mut num3: i32 =  1;
         let mut index1: i32 =  x4;
         let mut index2: i32 =  y4;
@@ -11618,7 +11618,7 @@ namespace WindowsApplication1
         for (let mut index7: i32 =  0; index7 <= mapHeight; index7 += 1)
           numArray1[index6, index7] = this.game.EditObj.TempValue[0].Value[index6, index7];
       }
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x4, y4, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x4, y4, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
       let mut num6: i32 =  1;
       let mut x7: i32 =  x1;
       let mut y7: i32 =  y1;
@@ -11641,7 +11641,7 @@ namespace WindowsApplication1
       let mut num7: i32 =  -1;
       if (!(x3 == x4 & y3 == y4))
       {
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
         let mut num8: i32 =  1;
         let mut index8: i32 =  x4;
         let mut index9: i32 =  y4;
@@ -11677,9 +11677,9 @@ namespace WindowsApplication1
       int counter3;
       for (counter3 = coordList2.counter; counter3 >= 0 && counter3 != 0; counter3 += -1)
       {
-        Coordinate coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[counter3].x, coordList2.coord[counter3].y, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, coordList2.coord[counter3].x, coordList2.coord[counter3].y, 0, coordList2.coord[counter3 - 1].x, coordList2.coord[counter3 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true);
+        Coordinate coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[counter3].x, coordList2.coord[counter3].y, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, coordList2.coord[counter3].x, coordList2.coord[counter3].y, 0, coordList2.coord[counter3 - 1].x, coordList2.coord[counter3 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true);
         let mut x9: i32 =  coordinate2.x;
-        coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[counter3].x, coordList2.coord[counter3].y, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, coordList2.coord[counter3].x, coordList2.coord[counter3].y, 0, coordList2.coord[counter3 - 1].x, coordList2.coord[counter3 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
+        coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[counter3].x, coordList2.coord[counter3].y, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, coordList2.coord[counter3].x, coordList2.coord[counter3].y, 0, coordList2.coord[counter3 - 1].x, coordList2.coord[counter3 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
         let mut x10: i32 =  coordinate2.x;
         if (x9 > x10)
           num11 += 1;
@@ -11747,7 +11747,7 @@ namespace WindowsApplication1
         x3 = this.TPlanObj[plannr].FromArea.X;
         y3 = this.TPlanObj[plannr].FromArea.Y;
       }
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
       let mut num1: i32 =  1;
       let mut x4: i32 =  x1;
       let mut y4: i32 =  y1;
@@ -11771,7 +11771,7 @@ namespace WindowsApplication1
       let mut num2: i32 =  -1;
       if (!(x2 == x3 & y2 == y3))
       {
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true);
         let mut num3: i32 =  1;
         let mut index2: i32 =  x3;
         let mut index3: i32 =  y3;
@@ -11810,7 +11810,7 @@ namespace WindowsApplication1
         for (let mut index8: i32 =  0; index8 <= mapHeight; index8 += 1)
           numArray1[index7, index8] = this.game.EditObj.TempValue[0].Value[index7, index8];
       }
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x3, y3, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
       let mut num6: i32 =  1;
       let mut x6: i32 =  x1;
       let mut y6: i32 =  y1;
@@ -11833,7 +11833,7 @@ namespace WindowsApplication1
       let mut num7: i32 =  -1;
       if (!(x2 == x3 & y2 == y3))
       {
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, 200, x2, y2, 0, dontenterenemy: false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
         let mut num8: i32 =  1;
         let mut index9: i32 =  x3;
         let mut index10: i32 =  y3;
@@ -11881,9 +11881,9 @@ namespace WindowsApplication1
         int index14;
         for (index14 = counter3 - 1; index14 >= 0; index14 += -1)
         {
-          Coordinate coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[index14].x, coordList2.coord[index14].y, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, coordList2.coord[index14].x, coordList2.coord[index14].y, 0, coordList2.coord[index14 - 1].x, coordList2.coord[index14 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true);
+          Coordinate coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[index14].x, coordList2.coord[index14].y, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, coordList2.coord[index14].x, coordList2.coord[index14].y, 0, coordList2.coord[index14 - 1].x, coordList2.coord[index14 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true);
           let mut x8: i32 =  coordinate2.x;
-          coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[index14].x, coordList2.coord[index14].y, this.game.Data.Turn, (int) Math.Round((double) this.game.Data.RuleVar[99]), 0, coordList2.coord[index14].x, coordList2.coord[index14].y, 0, coordList2.coord[index14 - 1].x, coordList2.coord[index14 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
+          coordinate2 = this.game.HandyFunctionsObj.MoveApCostPreview2(coordList2.coord[index14].x, coordList2.coord[index14].y, this.game.Data.Turn, (int) Math.Round( this.game.Data.RuleVar[99]), 0, coordList2.coord[index14].x, coordList2.coord[index14].y, 0, coordList2.coord[index14 - 1].x, coordList2.coord[index14 - 1].y, 0, false, NoAPPenalties: true, BlockAllSea: true, EngineerTest: true);
           let mut x9: i32 =  coordinate2.x;
           if (x8 > x9)
             break;
@@ -11915,7 +11915,7 @@ namespace WindowsApplication1
           numArray4[index1, index2] = 0;
           if (this.HexSA[index1, index2] == areanr)
           {
-            numArray4[index1, index2] = (int) Math.Round((double) this.game.Data.RuleVar[152]);
+            numArray4[index1, index2] = (int) Math.Round( this.game.Data.RuleVar[152]);
             numArray1[index1, index2] = 1;
           }
         }
@@ -11943,7 +11943,7 @@ namespace WindowsApplication1
                 {
                   numArray1[escapeCoord.x, escapeCoord.y] = num1 + 1;
                   num2 = 1;
-                  numArray4[escapeCoord.x, escapeCoord.y] = (int) Math.Round(Conversion.Int((double) numArray4[cx, cy] * 0.95));
+                  numArray4[escapeCoord.x, escapeCoord.y] = (int) Math.Round(Conversion.Int( numArray4[cx, cy] * 0.95));
                 }
                 tfacing += 1;
               }
@@ -11963,7 +11963,7 @@ namespace WindowsApplication1
           numArray4[index3, index4] = 0;
         }
       }
-      numArray4[x, y] = (int) Math.Round((double) this.game.Data.RuleVar[152]);
+      numArray4[x, y] = (int) Math.Round( this.game.Data.RuleVar[152]);
       numArray1[x, y] = 1;
       let mut num3: i32 =  0;
       let mut num4: i32 =  1;
@@ -11987,7 +11987,7 @@ namespace WindowsApplication1
                 {
                   numArray1[escapeCoord.x, escapeCoord.y] = num3 + 1;
                   num4 = 1;
-                  numArray4[escapeCoord.x, escapeCoord.y] = (int) Math.Round(Conversion.Int((double) numArray4[cx, cy] * 0.95));
+                  numArray4[escapeCoord.x, escapeCoord.y] = (int) Math.Round(Conversion.Int( numArray4[cx, cy] * 0.95));
                 }
                 tfacing += 1;
               }
@@ -12041,12 +12041,12 @@ namespace WindowsApplication1
             if (this.game.Data.MapObj[0].HexObj[x, y].UnitCounter > -1)
             {
               numArray[x, y] = 1;
-              this.Matrix1[x, y] = (int) Math.Round((double) (this.game.Data.RuleVar[152] * ((float) this.GetHexForceLandStrength(x, y) / this.game.Data.RuleVar[183])));
-              if ((double) this.Matrix1[x, y] > (double) this.game.Data.RuleVar[152])
-                this.Matrix1[x, y] = (int) Math.Round((double) this.game.Data.RuleVar[152]);
+              this.Matrix1[x, y] = (int) Math.Round( (this.game.Data.RuleVar[152] * ( this.GetHexForceLandStrength(x, y) / this.game.Data.RuleVar[183])));
+              if ( this.Matrix1[x, y] >  this.game.Data.RuleVar[152])
+                this.Matrix1[x, y] = (int) Math.Round( this.game.Data.RuleVar[152]);
             }
             if (emptyhexisdanger)
-              this.Matrix1[x, y] = (int) Math.Round((double) this.game.Data.RuleVar[152]);
+              this.Matrix1[x, y] = (int) Math.Round( this.game.Data.RuleVar[152]);
           }
         }
       }
@@ -12072,7 +12072,7 @@ namespace WindowsApplication1
                 {
                   numArray[coordinate.x, coordinate.y] = num1 + 1;
                   num2 = 1;
-                  this.Matrix1[coordinate.x, coordinate.y] = (int) Math.Round(Conversion.Int((double) this.Matrix1[cx, cy] * 0.95));
+                  this.Matrix1[coordinate.x, coordinate.y] = (int) Math.Round(Conversion.Int( this.Matrix1[cx, cy] * 0.95));
                 }
                 tfacing += 1;
               }
@@ -12137,32 +12137,32 @@ namespace WindowsApplication1
           {
             if (!withoutmods)
             {
-              let mut num2: i32 =  (int) Math.Round((double) num1 * 0.5 + (double) num1 * 0.5 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
-              let mut num3: i32 =  (int) Math.Round((double) num2 * 0.5 + (double) num2 * 0.5 * ((double) (this.game.Data.SFObj[sf].DefMod + 100) / 100.0));
-              let mut num4: i32 =  (int) Math.Round((double) num3 * 0.1 + (double) num3 * 0.9 * ((double) this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
+              let mut num2: i32 =  (int) Math.Round( num1 * 0.5 +  num1 * 0.5 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
+              let mut num3: i32 =  (int) Math.Round( num2 * 0.5 +  num2 * 0.5 * ( (this.game.Data.SFObj[sf].DefMod + 100) / 100.0));
+              let mut num4: i32 =  (int) Math.Round( num3 * 0.1 +  num3 * 0.9 * ( this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
               if (this.game.Data.Turn != this.game.Data.UnitObj[unr].Regime)
-                num4 = (int) Math.Round((double) num4 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
-              let mut num5: i32 =  (int) Math.Round((double) num4 * (1.0 + (double) this.game.Data.SFObj[sf].CurrentEntrench / 100.0));
+                num4 = (int) Math.Round( num4 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
+              let mut num5: i32 =  (int) Math.Round( num4 * (1.0 +  this.game.Data.SFObj[sf].CurrentEntrench / 100.0));
               if (this.game.Data.UnitObj[unr].X != -1)
-                num5 = (int) Math.Round((double) ((float) num5 * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType]));
-              num1 = (int) Math.Round((double) ((float) num5 * this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].BattleForMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regime].People].PeopleGroup]));
+                num5 = (int) Math.Round( ( num5 * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType]));
+              num1 = (int) Math.Round( ( num5 * this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].BattleForMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regime].People].PeopleGroup]));
             }
           }
           else
           {
-            let mut num6: i32 =  (int) Math.Round((double) num1 * 0.5 + (double) num1 * 0.5 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
-            let mut num7: i32 =  (int) Math.Round((double) num6 * 0.1 + (double) num6 * 0.9 * ((double) (this.game.Data.SFObj[sf].OffMod + 100) / 100.0));
-            num1 = (int) Math.Round((double) num7 * 0.1 + (double) num7 * 0.9 * ((double) this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
+            let mut num6: i32 =  (int) Math.Round( num1 * 0.5 +  num1 * 0.5 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
+            let mut num7: i32 =  (int) Math.Round( num6 * 0.1 +  num6 * 0.9 * ( (this.game.Data.SFObj[sf].OffMod + 100) / 100.0));
+            num1 = (int) Math.Round( num7 * 0.1 +  num7 * 0.9 * ( this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
             if (this.game.Data.Turn != this.game.Data.UnitObj[unr].Regime)
-              num1 = (int) Math.Round((double) num1 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+              num1 = (int) Math.Round( num1 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
             if (attackx > -1)
             {
-              num1 = (int) Math.Round((double) ((float) num1 * this.AverageCombatPerform(sf, type, attackx, attacky)));
+              num1 = (int) Math.Round( ( num1 * this.AverageCombatPerform(sf, type, attackx, attacky)));
               if (this.game.Data.UnitObj[unr].X != -1)
-                num1 = (int) Math.Round((double) ((float) num1 * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType]));
+                num1 = (int) Math.Round( ( num1 * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType]));
             }
           }
-          let mut Number: i32 =  (int) Math.Round((double) num1 * 0.5 + 1.5 * (double) num1 * ((double) this.game.Data.SFObj[sf].Xp / 100.0));
+          let mut Number: i32 =  (int) Math.Round( num1 * 0.5 + 1.5 *  num1 * ( this.game.Data.SFObj[sf].Xp / 100.0));
           forceLandStrength += Conversion.Int(Number);
         }
       }
@@ -12193,22 +12193,22 @@ namespace WindowsApplication1
           {
             if (!withoutmods)
             {
-              let mut num2: i32 =  (int) Math.Round((double) num1 * 0.5 + (double) num1 * 0.5 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
-              num1 = (int) Math.Round((double) num2 * 0.5 + (double) num2 * 0.5 * ((double) (this.game.Data.SFObj[sf].DefMod + 100) / 100.0));
+              let mut num2: i32 =  (int) Math.Round( num1 * 0.5 +  num1 * 0.5 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
+              num1 = (int) Math.Round( num2 * 0.5 +  num2 * 0.5 * ( (this.game.Data.SFObj[sf].DefMod + 100) / 100.0));
               if (this.game.Data.Turn != this.game.Data.UnitObj[unr].Regime)
-                num1 = (int) Math.Round((double) num1 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+                num1 = (int) Math.Round( num1 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
             }
           }
           else
           {
-            let mut num3: i32 =  (int) Math.Round((double) num1 * 0.5 + (double) num1 * 0.5 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
-            num1 = (int) Math.Round((double) num3 * 0.1 + (double) num3 * 0.9 * ((double) (this.game.Data.SFObj[sf].OffMod + 100) / 100.0));
+            let mut num3: i32 =  (int) Math.Round( num1 * 0.5 +  num1 * 0.5 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
+            num1 = (int) Math.Round( num3 * 0.1 +  num3 * 0.9 * ( (this.game.Data.SFObj[sf].OffMod + 100) / 100.0));
             if (this.game.Data.Turn != this.game.Data.UnitObj[unr].Regime)
-              num1 = (int) Math.Round((double) num1 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+              num1 = (int) Math.Round( num1 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
             if (attackx > -1)
-              num1 = (int) Math.Round((double) ((float) (int) Math.Round((double) ((float) num1 * this.AverageCombatPerform(sf, type, attackx, attacky))) * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType]));
+              num1 = (int) Math.Round( ( (int) Math.Round( ( num1 * this.AverageCombatPerform(sf, type, attackx, attacky))) * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType]));
           }
-          let mut Number: i32 =  (int) Math.Round((double) num1 * 0.5 + 1.5 * (double) num1 * ((double) this.game.Data.SFObj[sf].Xp / 100.0));
+          let mut Number: i32 =  (int) Math.Round( num1 * 0.5 + 1.5 *  num1 * ( this.game.Data.SFObj[sf].Xp / 100.0));
           forceAirStrength += Conversion.Int(Number);
         }
       }
@@ -12241,22 +12241,22 @@ namespace WindowsApplication1
           {
             if (!withoutmods)
             {
-              let mut num3: i32 =  (int) Math.Round((double) num2 * 0.5 + (double) num2 * 0.5 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
-              num2 = (int) Math.Round((double) num3 * 0.5 + (double) num3 * 0.5 * ((double) (this.game.Data.SFObj[sf].DefMod + 100) / 100.0));
+              let mut num3: i32 =  (int) Math.Round( num2 * 0.5 +  num2 * 0.5 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
+              num2 = (int) Math.Round( num3 * 0.5 +  num3 * 0.5 * ( (this.game.Data.SFObj[sf].DefMod + 100) / 100.0));
               if (this.game.Data.Turn != this.game.Data.UnitObj[unr].Regime)
-                num2 = (int) Math.Round((double) num2 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+                num2 = (int) Math.Round( num2 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
             }
           }
           else
           {
-            let mut num4: i32 =  (int) Math.Round((double) num2 * 0.1 + (double) num2 * 0.9 * ((double) (this.game.Data.SFObj[sf].OffMod + 100) / 100.0));
-            num2 = (int) Math.Round((double) num4 * 0.5 + (double) num4 * 0.5 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+            let mut num4: i32 =  (int) Math.Round( num2 * 0.1 +  num2 * 0.9 * ( (this.game.Data.SFObj[sf].OffMod + 100) / 100.0));
+            num2 = (int) Math.Round( num4 * 0.5 +  num4 * 0.5 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
             if (this.game.Data.Turn != this.game.Data.UnitObj[unr].Regime)
-              num2 = (int) Math.Round((double) num2 * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+              num2 = (int) Math.Round( num2 * ( this.game.Data.SFObj[sf].Rdn / 100.0));
             if (attackx > -1)
-              num2 = (int) Math.Round((double) ((float) (int) Math.Round((double) ((float) num2 * this.AverageCombatPerform(sf, type, attackx, attacky))) * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType]));
+              num2 = (int) Math.Round( ( (int) Math.Round( ( num2 * this.AverageCombatPerform(sf, type, attackx, attacky))) * this.game.Data.SFTypeObj[type].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType]));
           }
-          let mut Number: i32 =  (int) Math.Round((double) num2 * 0.5 + 1.5 * (double) num2 * ((double) this.game.Data.SFObj[sf].Xp / 100.0));
+          let mut Number: i32 =  (int) Math.Round( num2 * 0.5 + 1.5 *  num2 * ( this.game.Data.SFObj[sf].Xp / 100.0));
           forceNavalStrength += Conversion.Int(Number);
         }
       }
@@ -12288,7 +12288,7 @@ namespace WindowsApplication1
           if (tweight > 0)
           {
             if (prodpts > -1 && this.game.Data.ItemTypeObj[index].ProdWeight > prodpts)
-              tweight = (int) Math.Round((double) tweight / (0.5 + (double) this.game.Data.ItemTypeObj[index].ProdWeight / (double) prodpts));
+              tweight = (int) Math.Round( tweight / (0.5 +  this.game.Data.ItemTypeObj[index].ProdWeight /  prodpts));
             if (tweight > 0)
               simpleList1.Add(isSfType, tweight, index);
           }
@@ -12390,9 +12390,9 @@ namespace WindowsApplication1
           if (numArray1[index8] > 0)
           {
             if (this.TPlanObj[aiPlanNr].Stand == 2)
-              num12 = num12 + (float) ((double) this.game.Data.LandscapeTypeObj[index8].DefBonus[this.game.Data.SFTypeObj[simpleList1.Id[index1]].UnitGroup] / 100.0 * ((double) numArray1[index8] / (double) num3)) + this.game.Data.SFTypeObj[simpleList1.Id[index1]].CombatModDef[index8] * ((float) numArray1[index8] / (float) num3);
+              num12 = num12 +  ( this.game.Data.LandscapeTypeObj[index8].DefBonus[this.game.Data.SFTypeObj[simpleList1.Id[index1]].UnitGroup] / 100.0 * ( numArray1[index8] /  num3)) + this.game.Data.SFTypeObj[simpleList1.Id[index1]].CombatModDef[index8] * ( numArray1[index8] /  num3);
             else if (this.TPlanObj[aiPlanNr].Stand == 1 | this.TPlanObj[aiPlanNr].Type == 40)
-              num12 += this.game.Data.SFTypeObj[simpleList1.Id[index1]].CombatModAtt[index8] * ((float) numArray1[index8] / (float) num3);
+              num12 += this.game.Data.SFTypeObj[simpleList1.Id[index1]].CombatModAtt[index8] * ( numArray1[index8] /  num3);
           }
         }
         if (num2 > 0)
@@ -12423,23 +12423,23 @@ namespace WindowsApplication1
                       a = this.AverageCombatPerform(-1, simpleList1.Id[index1], attackx, attacky, true) + this.AverageCombatPerform(-1, simpleList1.Id[index1], attackx, attacky) / 2f;
                     else if (this.TPlanObj[aiPlanNr].Stand == 1)
                       a = this.AverageCombatPerform(-1, simpleList1.Id[index1], attackx, attacky) + this.AverageCombatPerform(-1, simpleList1.Id[index1], attackx, attacky, true) / 2f;
-                    if ((double) a > 10.0)
+                    if ( a > 10.0)
                       a = 10f;
-                    if ((double) a < 0.1)
+                    if ( a < 0.1)
                       a = 0.1f;
                     tid += 1;
-                    simpleList2.Add(tid, (int) Math.Round((double) (a * 10f)));
+                    simpleList2.Add(tid, (int) Math.Round( (a * 10f)));
                   }
                 }
                 else if (this.TPlanObj[aiPlanNr].Type == 40 && -(-1 < this.AreaDistance(this.HexSA[attackx, attacky], this.GetAreaNr(this.TPlanObj[aiPlanNr].FromArea)) ? 1 : 0) <= 1 && this.game.Data.MapObj[0].HexObj[attackx, attacky].UnitCounter > -1)
                 {
                   a = this.AverageCombatPerform(-1, simpleList1.Id[index1], attackx, attacky) + this.AverageCombatPerform(-1, simpleList1.Id[index1], attackx, attacky, true) / 2f;
-                  if ((double) a > 10.0)
+                  if ( a > 10.0)
                     a = 10f;
-                  if ((double) a < 0.1)
+                  if ( a < 0.1)
                     a = 0.1f;
                   tid += 1;
-                  simpleList2.Add(tid, (int) Math.Round((double) a));
+                  simpleList2.Add(tid, (int) Math.Round( a));
                 }
               }
             }
@@ -12447,14 +12447,14 @@ namespace WindowsApplication1
           if (simpleList2.Counter > -1)
           {
             simpleList2.Sort();
-            num1 = simpleList2.Counter <= 0 ? (int) Math.Round((double) num1 * ((double) (simpleList2.Weight[0] + simpleList2.Weight[simpleList2.Counter]) / 2.0)) : (int) Math.Round((double) num1 * ((double) (simpleList2.Weight[(int) Math.Round((double) (Conversion.Int(VBMath.Rnd() * (float) simpleList2.Counter) + 1f))] + simpleList2.Weight[(int) Math.Round((double) (Conversion.Int(VBMath.Rnd() * (float) simpleList2.Counter) + 1f))] + simpleList2.Weight[0] + simpleList2.Weight[simpleList2.Counter]) / 4.0));
+            num1 = simpleList2.Counter <= 0 ? (int) Math.Round( num1 * ( (simpleList2.Weight[0] + simpleList2.Weight[simpleList2.Counter]) / 2.0)) : (int) Math.Round( num1 * ( (simpleList2.Weight[(int) Math.Round( (Conversion.Int(VBMath.Rnd() *  simpleList2.Counter) + 1f))] + simpleList2.Weight[(int) Math.Round( (Conversion.Int(VBMath.Rnd() *  simpleList2.Counter) + 1f))] + simpleList2.Weight[0] + simpleList2.Weight[simpleList2.Counter]) / 4.0));
           }
         }
         else
           num1 = simpleList1.Weight[index1];
-        let mut num17: i32 =  (int) Math.Round((double) ((float) num1 * num12));
+        let mut num17: i32 =  (int) Math.Round( ( num1 * num12));
         if (randomeffect)
-          num17 = (int) Math.Round((double) num17 * 0.5 + (double) num17 * (double) VBMath.Rnd());
+          num17 = (int) Math.Round( num17 * 0.5 +  num17 *  VBMath.Rnd());
         simpleList1.Weight[index1] = num17;
       }
       simpleList1.Sort();
@@ -12496,30 +12496,30 @@ namespace WindowsApplication1
           float num8 = 1f;
           if (num5 > num6)
           {
-            num2 = (int) Math.Round((double) num2 * ((double) num5 / (double) num6));
-            num4 = (int) Math.Round((double) num4 * ((double) num5 / (double) num6));
-            num8 *= (float) num5 / (float) num6;
+            num2 = (int) Math.Round( num2 * ( num5 /  num6));
+            num4 = (int) Math.Round( num4 * ( num5 /  num6));
+            num8 *=  num5 /  num6;
           }
           else if (num6 > num5)
           {
-            num1 = (int) Math.Round((double) num1 * ((double) num6 / (double) num5));
-            num3 = (int) Math.Round((double) num3 * ((double) num6 / (double) num5));
-            num7 *= (float) num6 / (float) num5;
+            num1 = (int) Math.Round( num1 * ( num6 /  num5));
+            num3 = (int) Math.Round( num3 * ( num6 /  num5));
+            num7 *=  num6 /  num5;
           }
-          if ((double) num7 * (double) this.game.Data.SFTypeObj[index1].Attacks > (double) num8 * (double) this.game.Data.SFTypeObj[index2].MaxAttacked)
-            num1 = (int) Math.Round((double) ((float) num1 * (float) ((double) num8 * (double) this.game.Data.SFTypeObj[index2].MaxAttacked / ((double) num7 * (double) this.game.Data.SFTypeObj[index1].Attacks))));
-          if ((double) num8 * (double) this.game.Data.SFTypeObj[index2].Attacks > (double) num7 * (double) this.game.Data.SFTypeObj[index1].MaxAttacked)
-            num2 = (int) Math.Round((double) ((float) num2 * (float) ((double) num7 * (double) this.game.Data.SFTypeObj[index1].MaxAttacked / ((double) num8 * (double) this.game.Data.SFTypeObj[index2].Attacks))));
-          float num9 = (float) num1 / (float) num4;
-          float num10 = (float) num2 / (float) num3;
-          float Number = (double) num10 <= 0.0 ? 10f : num9 / num10;
-          if ((double) Number > 5.0)
-            Number = (float) (5.0 + Math.Sqrt((double) Number - 4.0));
-          if ((double) Number < 0.1)
+          if ( num7 *  this.game.Data.SFTypeObj[index1].Attacks >  num8 *  this.game.Data.SFTypeObj[index2].MaxAttacked)
+            num1 = (int) Math.Round( ( num1 *  ( num8 *  this.game.Data.SFTypeObj[index2].MaxAttacked / ( num7 *  this.game.Data.SFTypeObj[index1].Attacks))));
+          if ( num8 *  this.game.Data.SFTypeObj[index2].Attacks >  num7 *  this.game.Data.SFTypeObj[index1].MaxAttacked)
+            num2 = (int) Math.Round( ( num2 *  ( num7 *  this.game.Data.SFTypeObj[index1].MaxAttacked / ( num8 *  this.game.Data.SFTypeObj[index2].Attacks))));
+          float num9 =  num1 /  num4;
+          float num10 =  num2 /  num3;
+          float Number =  num10 <= 0.0 ? 10f : num9 / num10;
+          if ( Number > 5.0)
+            Number =  (5.0 + Math.Sqrt( Number - 4.0));
+          if ( Number < 0.1)
             Number = 0.1f;
           this.CombatMatrix[index1, index2] = Number;
-          if (this.game.Data.SFTypeObj[index1].Theater == this.game.Data.SFTypeObj[index2].Theater | (double) num9 > 0.0 && flag)
-            this.AddLog(this.game.Data.SFTypeObj[index2].Name + " = " + Conversion.Str((object) Number));
+          if (this.game.Data.SFTypeObj[index1].Theater == this.game.Data.SFTypeObj[index2].Theater |  num9 > 0.0 && flag)
+            this.AddLog(this.game.Data.SFTypeObj[index2].Name + " = " + Conversion.Str( Number));
         }
       }
     }
@@ -12551,12 +12551,12 @@ namespace WindowsApplication1
             if (!onlysametheater | this.game.Data.SFTypeObj[typ].Theater == this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater)
             {
               float num4 = !defend ? this.CombatMatrix[typ, this.game.Data.SFObj[sf].Type] * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] : this.CombatMatrix[this.game.Data.SFObj[sf].Type, typ] * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].CombatModDef[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType];
-              num1 = (int) Math.Round((double) ((float) num1 + num4 * (float) num3));
+              num1 = (int) Math.Round( ( num1 + num4 *  num3));
               num2 += num3;
             }
           }
         }
-        return num2 <= 0 ? 1f : (float) num1 / (float) num2;
+        return num2 <= 0 ? 1f :  num1 /  num2;
       }
       float num5;
       if (!defend)
@@ -12564,19 +12564,19 @@ namespace WindowsApplication1
         let mut sfTypeCounter1: i32 =  this.game.Data.SFTypeCounter;
         for (let mut index: i32 =  0; index <= sfTypeCounter1; index += 1)
         {
-          float num6 = (float) this.game.Data.SFTypeObj[typ].AttackPower[this.game.Data.SFTypeObj[index].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] * (float) this.game.Data.SFTypeObj[typ].Attacks;
-          float num7 = (float) Conversion.Int((double) this.game.Data.SFTypeObj[typ].KillPercent / 100.0 * 10.0 * 100.0 * ((double) num6 / (double) this.game.Data.SFTypeObj[index].DefPower));
-          if ((double) num7 > 9999.0)
+          float num6 =  this.game.Data.SFTypeObj[typ].AttackPower[this.game.Data.SFTypeObj[index].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] *  this.game.Data.SFTypeObj[typ].Attacks;
+          float num7 =  Conversion.Int( this.game.Data.SFTypeObj[typ].KillPercent / 100.0 * 10.0 * 100.0 * ( num6 /  this.game.Data.SFTypeObj[index].DefPower));
+          if ( num7 > 9999.0)
             num7 = 9999f;
-          float num8 = this.game.Data.SFTypeObj[typ].PowerPts <= 0 ? num7 : num7 * ((float) this.game.Data.SFTypeObj[index].PowerPts / (float) this.game.Data.SFTypeObj[typ].PowerPts);
+          float num8 = this.game.Data.SFTypeObj[typ].PowerPts <= 0 ? num7 : num7 * ( this.game.Data.SFTypeObj[index].PowerPts /  this.game.Data.SFTypeObj[typ].PowerPts);
           numArray2[index] = num8;
-          float num9 = (float) this.game.Data.SFTypeObj[index].AttackPowerDef[this.game.Data.SFTypeObj[typ].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModDef[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] * (float) this.game.Data.SFTypeObj[index].Attacks;
-          float num10 = (float) Conversion.Int((double) this.game.Data.SFTypeObj[index].KillPercent / 100.0 * 10.0 * 100.0 * ((double) num9 / (double) this.game.Data.SFTypeObj[typ].DefPower));
+          float num9 =  this.game.Data.SFTypeObj[index].AttackPowerDef[this.game.Data.SFTypeObj[typ].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModDef[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] *  this.game.Data.SFTypeObj[index].Attacks;
+          float num10 =  Conversion.Int( this.game.Data.SFTypeObj[index].KillPercent / 100.0 * 10.0 * 100.0 * ( num9 /  this.game.Data.SFTypeObj[typ].DefPower));
           if (this.game.Data.SFTypeObj[typ].BackBench)
             num10 /= this.game.Data.RuleVar[222];
           if (this.game.Data.SFTypeObj[typ].ArtRange > 1)
             num10 /= 3f;
-          if ((double) num10 > 9999.0)
+          if ( num10 > 9999.0)
             num10 = 9999f;
           numArray3[index] = num10;
         }
@@ -12611,13 +12611,13 @@ namespace WindowsApplication1
         {
           if (numArray1[index] > 0)
           {
-            num14 += numArray2[index] * ((float) numArray1[index] / (float) num11);
-            num15 += numArray3[index] * ((float) numArray1[index] / (float) num11);
+            num14 += numArray2[index] * ( numArray1[index] /  num11);
+            num15 += numArray3[index] * ( numArray1[index] /  num11);
           }
         }
-        if ((double) num14 == 0.0)
+        if ( num14 == 0.0)
           num14 = 1f;
-        if ((double) num15 == 0.0)
+        if ( num15 == 0.0)
           num15 = 1f;
         num5 = num14 / num15;
       }
@@ -12626,20 +12626,20 @@ namespace WindowsApplication1
         let mut sfTypeCounter3: i32 =  this.game.Data.SFTypeCounter;
         for (let mut index: i32 =  0; index <= sfTypeCounter3; index += 1)
         {
-          float num16 = (float) this.game.Data.SFTypeObj[typ].AttackPowerDef[this.game.Data.SFTypeObj[index].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModDef[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] * (float) this.game.Data.SFTypeObj[typ].Attacks;
-          float num17 = (float) Conversion.Int((double) this.game.Data.SFTypeObj[typ].KillPercent / 100.0 * 10.0 * 100.0 * ((double) num16 / (double) this.game.Data.SFTypeObj[index].DefPower));
-          if ((double) num17 > 9999.0)
+          float num16 =  this.game.Data.SFTypeObj[typ].AttackPowerDef[this.game.Data.SFTypeObj[index].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModDef[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] *  this.game.Data.SFTypeObj[typ].Attacks;
+          float num17 =  Conversion.Int( this.game.Data.SFTypeObj[typ].KillPercent / 100.0 * 10.0 * 100.0 * ( num16 /  this.game.Data.SFTypeObj[index].DefPower));
+          if ( num17 > 9999.0)
             num17 = 9999f;
           if (this.game.Data.SFTypeObj[typ].PowerPts > 0)
-            num17 *= (float) this.game.Data.SFTypeObj[index].PowerPts / (float) this.game.Data.SFTypeObj[typ].PowerPts;
+            num17 *=  this.game.Data.SFTypeObj[index].PowerPts /  this.game.Data.SFTypeObj[typ].PowerPts;
           numArray2[index] = num17;
-          float num18 = (float) this.game.Data.SFTypeObj[index].AttackPower[this.game.Data.SFTypeObj[typ].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] * (float) this.game.Data.SFTypeObj[index].Attacks;
-          float num19 = (float) Conversion.Int((double) this.game.Data.SFTypeObj[index].KillPercent / 100.0 * 10.0 * 100.0 * ((double) num18 / (double) this.game.Data.SFTypeObj[typ].DefPower));
+          float num18 =  this.game.Data.SFTypeObj[index].AttackPower[this.game.Data.SFTypeObj[typ].UnitGroup] * this.game.Data.SFTypeObj[typ].CombatModAtt[this.game.Data.MapObj[0].HexObj[attackx, attacky].LandscapeType] *  this.game.Data.SFTypeObj[index].Attacks;
+          float num19 =  Conversion.Int( this.game.Data.SFTypeObj[index].KillPercent / 100.0 * 10.0 * 100.0 * ( num18 /  this.game.Data.SFTypeObj[typ].DefPower));
           if (this.game.Data.SFTypeObj[typ].BackBench)
             num19 /= this.game.Data.RuleVar[222];
           if (this.game.Data.SFTypeObj[typ].ArtRange > 1)
             num19 /= 3f;
-          if ((double) num19 > 9999.0)
+          if ( num19 > 9999.0)
             num19 = 9999f;
           numArray3[index] = num19;
         }
@@ -12674,13 +12674,13 @@ namespace WindowsApplication1
         {
           if (numArray1[index] > 0)
           {
-            num23 += numArray2[index] * ((float) numArray1[index] / (float) num20);
-            num24 += numArray3[index] * ((float) numArray1[index] / (float) num20);
+            num23 += numArray2[index] * ( numArray1[index] /  num20);
+            num24 += numArray3[index] * ( numArray1[index] /  num20);
           }
         }
-        if ((double) num23 == 0.0)
+        if ( num23 == 0.0)
           num23 = 1f;
-        if ((double) num24 == 0.0)
+        if ( num24 == 0.0)
           num24 = 1f;
         num5 = num23 / num24;
       }
@@ -12906,7 +12906,7 @@ namespace WindowsApplication1
       int num;
       for (let mut index: i32 =  1; index <= saCount; index += 1)
         num += this.SAObj[index].fuzzyvp;
-      return (int) Math.Round(Conversion.Int((double) num / (double) this.SACount));
+      return (int) Math.Round(Conversion.Int( num /  this.SACount));
     }
 
     pub int GetFriendlyAreaNeighbours(int areanr, bool withoutenemies)
@@ -13254,9 +13254,9 @@ namespace WindowsApplication1
 
     pub void Screenshot(int typ, string fileextension)
     {
-      FileStream fileStream = new FileStream(this.game.AppPath + "logs/screenshot_typ" + Strings.Trim(Conversion.Str((object) typ)) + "_pl" + Strings.Trim(Conversion.Str((object) this.game.Data.Turn)) + fileextension + ".bmp", FileMode.Create);
+      FileStream fileStream = new FileStream(this.game.AppPath + "logs/screenshot_typ" + Strings.Trim(Conversion.Str( typ)) + "_pl" + Strings.Trim(Conversion.Str( this.game.Data.Turn)) + fileextension + ".bmp", FileMode.Create);
       Bitmap bitmap = new Bitmap(this.game.Data.MapObj[0].MapWidth * 40 + 80, this.game.Data.MapObj[0].MapHeight * 32 + 68, PixelFormat.Format24bppRgb);
-      bitmap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      bitmap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       Graphics graphics = Graphics.FromImage((Image) bitmap);
       if (typ == 1)
       {
@@ -13346,9 +13346,9 @@ namespace WindowsApplication1
           if (this.HexContinent[index1, index2] > 0)
           {
             if (index1 == 0 | index1 % 2 == 0)
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexContinent[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexContinent[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
             else
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexContinent[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexContinent[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
           }
         }
       }
@@ -13365,9 +13365,9 @@ namespace WindowsApplication1
           if (this.HexOA[index1, index2] > 0)
           {
             if (index1 == 0 | index1 % 2 == 0)
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexOA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexOA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
             else
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexOA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexOA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
           }
         }
       }
@@ -13384,9 +13384,9 @@ namespace WindowsApplication1
           if (this.HexSeaSA[index1, index2] > 0)
           {
             if (index1 == 0 | index1 % 2 == 0)
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexSeaSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexSeaSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
             else
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexSeaSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexSeaSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
           }
         }
       }
@@ -13404,13 +13404,13 @@ namespace WindowsApplication1
           {
             if (index1 == 0 | index1 % 2 == 0)
             {
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexSAWithoutTemp[index1, index2]), Font::new("Times New Roman", 11f, FontStyle.Italic, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 17);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexSAWithoutTemp[index1, index2]), Font::new("Times New Roman", 11f, FontStyle.Italic, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 17);
             }
             else
             {
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexSAWithoutTemp[index1, index2]), Font::new("Times New Roman", 11f, FontStyle.Italic, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 17 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexSA[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexSAWithoutTemp[index1, index2]), Font::new("Times New Roman", 11f, FontStyle.Italic, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 17 + 16);
             }
           }
         }
@@ -13428,9 +13428,9 @@ namespace WindowsApplication1
           if (this.HexPlan[index1, index2] > 0)
           {
             if (index1 == 0 | index1 % 2 == 0)
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexPlan[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexPlan[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
             else
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.HexPlan[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.HexPlan[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
           }
         }
       }
@@ -13447,9 +13447,9 @@ namespace WindowsApplication1
           if (this.Matrix1[index1, index2] > 0)
           {
             if (index1 == 0 | index1 % 2 == 0)
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.Matrix1[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.Matrix1[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
             else
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.Matrix1[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.Matrix1[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
           }
         }
       }
@@ -13466,9 +13466,9 @@ namespace WindowsApplication1
           if (this.Matrix2[index1, index2] > 0)
           {
             if (index1 == 0 | index1 % 2 == 0)
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.Matrix2[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.Matrix2[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2);
             else
-              DrawMod.DrawTextOutline(ref g, Conversion.Str((object) this.Matrix2[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
+              DrawMod.DrawTextOutline(ref g, Conversion.Str( this.Matrix2[index1, index2]), Font::new("Times New Roman", 13f, FontStyle.Bold, GraphicsUnit.Pixel), index1 * 40 + 2, index2 * 32 + 2 + 16);
           }
         }
       }
@@ -13544,7 +13544,7 @@ namespace WindowsApplication1
       let mut num1: i32 =  this.game.HandyFunctionsObj.CheckDiskSpace(Strings.Left(this.game.AppPath, Strings.InStr(this.game.AppPath, ":")));
       if (num1 > 0 & num1 < 50)
       {
-        let mut num2: i32 =  (int) Interaction.MsgBox((object) "Not of space left to write to disk.");
+        let mut num2: i32 =  (int) Interaction.MsgBox( "Not of space left to write to disk.");
       }
       else
       {
@@ -13568,11 +13568,11 @@ namespace WindowsApplication1
       let mut num1: i32 =  this.game.HandyFunctionsObj.CheckDiskSpace(Strings.Left(this.game.AppPath, Strings.InStr(this.game.AppPath, ":")));
       if (num1 > 0 & num1 < 50)
       {
-        let mut num2: i32 =  (int) Interaction.MsgBox((object) "Not of space left to write to disk.");
+        let mut num2: i32 =  (int) Interaction.MsgBox( "Not of space left to write to disk.");
       }
       else
       {
-        StreamWriter text = File.CreateText(this.game.AppPath + "logs/AIlog_" + Conversion.Str((object) this.game.Data.Turn) + ".txt");
+        StreamWriter text = File.CreateText(this.game.AppPath + "logs/AIlog_" + Conversion.Str( this.game.Data.Turn) + ".txt");
         let mut logCounter: i32 =  this.LogCounter;
         for (let mut index: i32 =  0; index <= logCounter; index += 1)
           text.WriteLine(this.LogTxt[index]);
@@ -13608,7 +13608,7 @@ namespace WindowsApplication1
                   let mut type: i32 =  this.game.Data.SFObj[sf].Type;
                   int num;
                   if (this.game.Data.SFTypeObj[type].AIRoleScore[12] > 0)
-                    num = (int) Math.Round((double) (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty) * ((double) this.game.Data.SFTypeObj[type].AIRoleScore[12] / 100.0));
+                    num = (int) Math.Round( (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty) * ( this.game.Data.SFTypeObj[type].AIRoleScore[12] / 100.0));
                   aaonHex += num;
                 }
               }
@@ -13616,7 +13616,7 @@ namespace WindowsApplication1
           }
         }
       }
-      return (object) aaonHex;
+      return  aaonHex;
     }
 
     pub int GetMeRandomUnit()
@@ -13628,7 +13628,7 @@ namespace WindowsApplication1
         if (this.game.Data.UnitObj[tid].Regime == this.game.Data.Turn && this.game.Data.UnitObj[tid].X > -1 & this.game.Data.UnitObj[tid].SupplyConsume >= 100 & this.game.Data.UnitObj[tid].PreDef == -1)
           simpleList.Add(tid, 1);
       }
-      return simpleList.Counter > -1 ? simpleList.Id[(int) Math.Round((double) (VBMath.Rnd() * (float) (simpleList.Counter + 1)))] : -1;
+      return simpleList.Counter > -1 ? simpleList.Id[(int) Math.Round( (VBMath.Rnd() *  (simpleList.Counter + 1)))] : -1;
     }
 
     pub void ExecResourceComplient()
@@ -13674,9 +13674,9 @@ namespace WindowsApplication1
                           {
                             if (this.game.Data.ItemTypeObj[tdata2].RegimeSlotsCost[index2] == index1 & this.game.Data.ItemTypeObj[tdata2].RegimeSlotsCostQty[index2] > 0)
                             {
-                              let mut tweight: i32 =  (int) Math.Round(100.0 / (double) this.game.Data.ItemTypeObj[tdata2].ProdWeight * (double) this.game.Data.ItemTypeObj[tdata2].RegimeSlotsCostQty[index2] * 100.0);
+                              let mut tweight: i32 =  (int) Math.Round(100.0 /  this.game.Data.ItemTypeObj[tdata2].ProdWeight *  this.game.Data.ItemTypeObj[tdata2].RegimeSlotsCostQty[index2] * 100.0);
                               if (this.game.Data.ItemTypeObj[tdata2].IsSFType > -1 && this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[tdata2].IsSFType].Theater == 1)
-                                tweight = (int) Math.Round((double) Conversion.Int((float) (int) Math.Round((double) tweight / 2.0) * VBMath.Rnd()));
+                                tweight = (int) Math.Round( Conversion.Int( (int) Math.Round( tweight / 2.0) * VBMath.Rnd()));
                               simpleList1.Add(tid, tweight, tdata1, tdata2, CheckExistence: false);
                             }
                             index2 += 1;
@@ -13737,7 +13737,7 @@ namespace WindowsApplication1
                                 }
                                 while (index8 <= 4);
                                 if (num6 == 1 && !(this.game.Data.ItemTypeObj[index3].IsSFType > -1 & this.game.Data.ItemTypeObj[tid].IsSFType == -1) && !(this.game.Data.ItemTypeObj[index3].IsRegimeSlot > -1 & this.game.Data.ItemTypeObj[tid].IsRegimeSlot == -1) && !(this.game.Data.ItemTypeObj[index3].IsSupply & !this.game.Data.ItemTypeObj[tid].IsSupply) && !(this.game.Data.ItemTypeObj[index3].IsResPt & !this.game.Data.ItemTypeObj[tid].IsResPt) && this.game.Data.ItemTypeObj[tid].IsSFType > -1 & this.game.Data.ItemTypeObj[index3].IsSFType > -1 && this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[tid].IsSFType].AIRoleScore[5] <= 0 && this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[tid].IsSFType].AIRoleScore[1] <= 0)
-                                  simpleList2.Add(tid, 3000 + (int) Math.Round((double) (VBMath.Rnd() * 1000f)));
+                                  simpleList2.Add(tid, 3000 + (int) Math.Round( (VBMath.Rnd() * 1000f)));
                               }
                             }
                             index7 += 1;
@@ -13828,10 +13828,10 @@ namespace WindowsApplication1
                                   else if (this.game.Data.ItemTypeObj[tid].IsSFType > -1 & this.game.Data.ItemTypeObj[index3].IsSFType > -1)
                                   {
                                     if (this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[tid].IsSFType].AIRoleScore[5] <= 0 && this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[tid].IsSFType].AIRoleScore[1] <= 0)
-                                      simpleList2.Add(tid, 3000 + (int) Math.Round((double) (VBMath.Rnd() * 1000f)));
+                                      simpleList2.Add(tid, 3000 + (int) Math.Round( (VBMath.Rnd() * 1000f)));
                                   }
                                   else
-                                    simpleList2.Add(tid, 5000 + (int) Math.Round((double) (VBMath.Rnd() * 1000f)));
+                                    simpleList2.Add(tid, 5000 + (int) Math.Round( (VBMath.Rnd() * 1000f)));
                                 }
                               }
                             }

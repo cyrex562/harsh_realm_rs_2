@@ -4,14 +4,14 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -20,7 +20,7 @@ namespace WindowsApplication1
   {
     pub Name: String;
     pub SFCount: i32;
-    pub int[] SFList;
+    pub SFList: Vec<i32>;
     pub Regime: i32;
     pub HQ: i32;
     pub IsHQ: bool;
@@ -64,10 +64,10 @@ namespace WindowsApplication1
     pub AirNeed: i32;
     pub OnBoard: i32;
     pub PassengerCounter: i32;
-    pub int[] PassengerList;
+    pub PassengerList: Vec<i32>;
     pub attachedTo: i32;
     pub TransportCounter: i32;
-    pub int[] TransportList;
+    pub TransportList: Vec<i32>;
     pub moveMode: i32;
     pub FreeCombatX: i32;
     pub FreeCombatY: i32;
@@ -146,10 +146,10 @@ namespace WindowsApplication1
     pub FuelUsedAtt: i32;
     pub FuelUsedDef: i32;
     pub LogCounter: i32;
-    pub int[] LogType;
-    pub int[] LogData1;
-    pub int[] LogData2;
-    pub int[] LogData3;
+    pub LogType: Vec<i32>;
+    pub LogData1: Vec<i32>;
+    pub LogData2: Vec<i32>;
+    pub LogData3: Vec<i32>;
     pub StockpileCurrent: i32;
     pub ItemList items;
     pub SimpleList lisInstructions;
@@ -181,16 +181,16 @@ namespace WindowsApplication1
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
       let mut num: i32 = num;
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (UnitClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) self.Name);
+      info.AddValue("Name",  self.Name);
       info.AddValue("SFCount", self.SFCount);
-      info.AddValue("SFList", (object) self.SFList);
+      info.AddValue("SFList",  self.SFList);
       info.AddValue("Regime", self.Regime);
       info.AddValue("Supply", self.Supply);
       info.AddValue("HQ", self.HQ);
@@ -207,7 +207,7 @@ namespace WindowsApplication1
       info.AddValue("LastSupplyPercent", self.LastSupplyPercent);
       info.AddValue("SupplyConsume", self.SupplyConsume);
       info.AddValue("PassengerCounter", self.PassengerCounter);
-      info.AddValue("PassengerList", (object) self.PassengerList);
+      info.AddValue("PassengerList",  self.PassengerList);
       info.AddValue("FreeCombatX", self.FreeCombatX);
       info.AddValue("FreeCombatY", self.FreeCombatY);
       info.AddValue("FreeCombatMap", self.FreeCombatMap);
@@ -229,10 +229,10 @@ namespace WindowsApplication1
       info.AddValue("SupplyLost", self.SupplyLost);
       info.AddValue("Reserve", self.Reserve);
       info.AddValue("TransportCounter", self.TransportCounter);
-      info.AddValue("TransportList", (object) self.TransportList);
+      info.AddValue("TransportList",  self.TransportList);
       info.AddValue("attachedTo", self.attachedTo);
       info.AddValue("moveMode", self.moveMode);
-      info.AddValue("AIPlanRef", (object) self.AIPlanRef);
+      info.AddValue("AIPlanRef",  self.AIPlanRef);
       info.AddValue("AIUnitGoal", self.AIUnitGoal);
       info.AddValue("AIMobilize", self.AIMobilize);
       info.AddValue("AINavtargetX", self.AINavtargetX);
@@ -261,16 +261,16 @@ namespace WindowsApplication1
       info.AddValue("FuelUsedAtt", self.FuelUsedAtt);
       info.AddValue("FuelUsedDef", self.FuelUsedDef);
       info.AddValue("LogCounter", self.LogCounter);
-      info.AddValue("LogType", (object) self.LogType);
-      info.AddValue("LogData1", (object) self.LogData1);
-      info.AddValue("LogData2", (object) self.LogData2);
-      info.AddValue("LogData3", (object) self.LogData3);
+      info.AddValue("LogType",  self.LogType);
+      info.AddValue("LogData1",  self.LogData1);
+      info.AddValue("LogData2",  self.LogData2);
+      info.AddValue("LogData3",  self.LogData3);
       info.AddValue("StockpileCurrent", self.StockpileCurrent);
       info.AddValue("DidHQ", self.DidHQ);
       info.AddValue("offensiveCombat", self.offensiveCombat);
       info.AddValue("defensiveCombat", self.defensiveCombat);
       info.AddValue("moveApSpent", self.MoveAPSpent);
-      info.AddValue("LibId", (object) self.LibId);
+      info.AddValue("LibId",  self.LibId);
       info.AddValue("AISubStrictGroup", self.AISubStrictGroup);
       info.AddValue("SOInterceptFire", self.SOInterceptFire);
       info.AddValue("SOReturnFire", self.SOReturnFire);
@@ -279,16 +279,16 @@ namespace WindowsApplication1
       info.AddValue("FuelReceived", self.FuelReceived);
       info.AddValue("supplyBaseSupplyIn", self.supplyBaseSupplyIn);
       info.AddValue("supplyBaseFuelIn", self.supplyBaseFuelIn);
-      if (Information.IsNothing((object) self.items))
+      if (Information.IsNothing( self.items))
         self.items = ItemList::new();
-      info.AddValue("items", (object) self.items);
-      if (Information.IsNothing((object) self.lisInstructions))
+      info.AddValue("items",  self.items);
+      if (Information.IsNothing( self.lisInstructions))
         self.lisInstructions = SimpleList::new();
-      info.AddValue("lisInstructions", (object) self.lisInstructions);
+      info.AddValue("lisInstructions",  self.lisInstructions);
       info.AddValue("ApReserve", self.apReserve);
       info.AddValue("supplyX", self.supplyX);
       info.AddValue("supplyY", self.supplyY);
-      info.AddValue("prevTurnAiFrontHexes", (object) self.prevTurnAiFrontHexes);
+      info.AddValue("prevTurnAiFrontHexes",  self.prevTurnAiFrontHexes);
       info.AddValue("cycleOrder", self.cycleOrder);
     }
 
@@ -672,15 +672,15 @@ namespace WindowsApplication1
       }
       try
       {
-        if (Information.IsNothing((object) self.items))
+        if (Information.IsNothing( self.items))
           self.items = ItemList::new();
         self.items = (ItemList) info.GetValue(nameof (items), self.items.GetType());
-        if (Information.IsNothing((object) self.items))
+        if (Information.IsNothing( self.items))
           self.items = ItemList::new();
-        if (Information.IsNothing((object) self.lisInstructions))
+        if (Information.IsNothing( self.lisInstructions))
           self.lisInstructions = SimpleList::new();
         self.lisInstructions = (SimpleList) info.GetValue(nameof (lisInstructions), self.lisInstructions.GetType());
-        if (Information.IsNothing((object) self.lisInstructions))
+        if (Information.IsNothing( self.lisInstructions))
           self.lisInstructions = SimpleList::new();
       }
       catch (Exception ex)
@@ -983,9 +983,9 @@ namespace WindowsApplication1
       self.OnBoard = -1;
       self.FreeCombatX = -1;
       self.FreeCombatY = -1;
-      self.Red =  Math.Round((double) VBMath.Rnd() * 215.0 + 40.0);
-      self.Green =  Math.Round((double) VBMath.Rnd() * 215.0 + 40.0);
-      self.Blue =  Math.Round((double) VBMath.Rnd() * 215.0 + 40.0);
+      self.Red =  Math.Round( VBMath.Rnd() * 215.0 + 40.0);
+      self.Green =  Math.Round( VBMath.Rnd() * 215.0 + 40.0);
+      self.Blue =  Math.Round( VBMath.Rnd() * 215.0 + 40.0);
       self.PreDef = -1;
       self.SODoAS = true;
       self.Historical = -1;
@@ -1032,7 +1032,7 @@ namespace WindowsApplication1
     {
       if (self.SFCount <= -1)
         return;
-      let mut num: i32 =  Interaction.MsgBox((object) "Programm attempting to delete Unit with Subformations in it. END.", Title: ((object) "Error"));
+      let mut num: i32 =  Interaction.MsgBox( "Programm attempting to delete Unit with Subformations in it. END.", Title: ( "Error"));
       ProjectData.EndApp();
     }
 

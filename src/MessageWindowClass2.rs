@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -107,18 +107,18 @@ namespace WindowsApplication1
           height1 = BitmapStore.Getheight(nr);
           if (width1 > 340)
           {
-            height1 =  Math.Round((double) height1 * (340.0 / (double) width1));
-            width1 =  Math.Round((double) width1 * (340.0 / (double) width1));
+            height1 =  Math.Round( height1 * (340.0 /  width1));
+            width1 =  Math.Round( width1 * (340.0 /  width1));
           }
           if (height1 > 150)
           {
-            width1 =  Math.Round((double) width1 * (150.0 / (double) height1));
-            height1 =  Math.Round((double) height1 * (150.0 / (double) height1));
+            width1 =  Math.Round( width1 * (150.0 /  height1));
+            height1 =  Math.Round( height1 * (150.0 /  height1));
           }
-          rectangle = Rectangle::new( Math.Round(180.0 - (double) width1 / 2.0), 15, width1, height1);
+          rectangle = Rectangle::new( Math.Round(180.0 -  width1 / 2.0), 15, width1, height1);
           num2 = height1 + 15;
         }
-        if (!Information.IsNothing((object) this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage]) && this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage].Length > 0)
+        if (!Information.IsNothing( this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage]) && this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage].Length > 0)
           rectangle.X = 15;
         rectangle.X += 40;
         rectangle.Y += 30;
@@ -144,20 +144,20 @@ namespace WindowsApplication1
       else
         num1 = 15 + 30;
       SizeF sizeF1 = SizeF::new();
-      if (!Information.IsNothing((object) this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage]) && this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage].Length > 0 & width1 < 150)
+      if (!Information.IsNothing( this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage]) && this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage].Length > 0 & width1 < 150)
       {
         str: String = this.game.Data.RegimeObj[this.game.Data.Turn].MesNote2[this.FromMessage];
         int num3;
-        for (SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont7); (double) sizeF2.Width > (double) (620 - width1); sizeF2 = g.MeasureString(str, this.game.MarcFont7))
+        for (SizeF sizeF2 = g.MeasureString(str, this.game.MarcFont7);  sizeF2.Width >  (620 - width1); sizeF2 = g.MeasureString(str, this.game.MarcFont7))
         {
           str = Strings.Left(str, Strings.Len(str) - 1);
           num3 = 1;
         }
         if (num3 == 1)
           str = Strings.Left(str, Strings.Len(str) - 1) + "...";
-        DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont7, 55 + width1 + 15,  Math.Round(30.0 + (double) height1 / 4.0), Color.White);
+        DrawMod.DrawTextColouredMarc( g, str, this.game.MarcFont7, 55 + width1 + 15,  Math.Round(30.0 +  height1 / 4.0), Color.White);
       }
-      let mut trows: i32 =   Math.Round(Conversion.Int((double) (370 - num1) / 16.0));
+      let mut trows: i32 =   Math.Round(Conversion.Int( (370 - num1) / 16.0));
       let mut tsubpart1: SubPartClass =  new TextAreaClass2(this.game, 569, trows, this.game.MarcFont8, this.game.Data.RegimeObj[this.game.Data.Turn].MessString[this.FromMessage], tbackbitmap: ( this.BackBitmap), bbx: 50, bby: num1, tUseEncy: true);
       this.TAid = this.AddSubPart( tsubpart1, 50, num1, 569, 16 * (trows + 2), 0);
       let mut num4: i32 =  16 * (trows + 1);

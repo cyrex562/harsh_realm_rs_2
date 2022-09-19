@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
 namespace WindowsApplication1
 {
@@ -17,7 +17,7 @@ namespace WindowsApplication1
   {
     pub Name: String;
     pub PeopleGroup: i32;
-    pub int[] BaseMorale;
+    pub BaseMorale: Vec<i32>;
     pub float[] ProdMod;
     pub float[] ProdMod2;
     pub float[] ProdMod3;
@@ -53,32 +53,32 @@ namespace WindowsApplication1
 
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-      info.AddValue("Name", (object) this.Name);
+      info.AddValue("Name",  this.Name);
       info.AddValue("PeopleGroup", this.PeopleGroup);
-      info.AddValue("BaseMorale", (object) this.BaseMorale);
-      info.AddValue("ProdMod", (object) this.ProdMod);
-      info.AddValue("ProdMod2", (object) this.ProdMod2);
-      info.AddValue("ProdMod3", (object) this.ProdMod3);
-      info.AddValue("ProdMod4", (object) this.ProdMod4);
+      info.AddValue("BaseMorale",  this.BaseMorale);
+      info.AddValue("ProdMod",  this.ProdMod);
+      info.AddValue("ProdMod2",  this.ProdMod2);
+      info.AddValue("ProdMod3",  this.ProdMod3);
+      info.AddValue("ProdMod4",  this.ProdMod4);
       info.AddValue("PolPts", this.PolPts);
-      info.AddValue("BattleForMod", (object) this.BattleForMod);
-      info.AddValue("BattleVSMod", (object) this.BattleVSMod);
+      info.AddValue("BattleForMod",  this.BattleForMod);
+      info.AddValue("BattleVSMod",  this.BattleVSMod);
       info.AddValue("RegCol", this.RegCol);
       info.AddValue("Red", this.Red);
       info.AddValue("Blue", this.Blue);
       info.AddValue("Green", this.Green);
       info.AddValue("BreakAt", this.BreakAt);
       info.AddValue("ExtraGraphicUse", this.ExtraGraphicUse);
-      info.AddValue("SidewaysFileName", (object) this.SidewaysFileName);
-      info.AddValue("NationalFileName", (object) this.NationalFileName);
-      info.AddValue("Description", (object) this.Description);
+      info.AddValue("SidewaysFileName",  this.SidewaysFileName);
+      info.AddValue("NationalFileName",  this.NationalFileName);
+      info.AddValue("Description",  this.Description);
       info.AddValue("SFIll", this.SFIll);
       info.AddValue("SFExtra", this.SFExtra);
-      info.AddValue("LibId", (object) this.LibId);
+      info.AddValue("LibId",  this.LibId);
       info.AddValue("Id", this.id);
-      info.AddValue("SidewaysFileName2", (object) this.SidewaysFileName2);
-      info.AddValue("SidewaysFileName3", (object) this.SidewaysFileName3);
-      info.AddValue("SidewaysFileName4", (object) this.SidewaysFileName4);
+      info.AddValue("SidewaysFileName2",  this.SidewaysFileName2);
+      info.AddValue("SidewaysFileName3",  this.SidewaysFileName3);
+      info.AddValue("SidewaysFileName4",  this.SidewaysFileName4);
       info.AddValue("tv0", this.tv0);
       info.AddValue("tv1", this.tv1);
       info.AddValue("tv2", this.tv2);
@@ -89,7 +89,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (PeopleClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }

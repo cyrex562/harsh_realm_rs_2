@@ -4,13 +4,13 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Text;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Text;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -62,7 +62,7 @@ namespace WindowsApplication1
 
     pub void DoStuff()
     {
-      let mut num1: i32 =  Math.Round((double) (self.game.ScreenWidth - 1024) / 2.0);
+      let mut num1: i32 =  Math.Round( (self.game.ScreenWidth - 1024) / 2.0);
       if (self.loadMapId > 0)
         self.RemoveSubPart(self.loadMapId);
       if (self.saveId > 0)
@@ -221,7 +221,7 @@ namespace WindowsApplication1
               }
               else
               {
-                let mut num3: i32 =  Interaction.MsgBox((object) "You are not allowed to use the following reserved words: default, _v, random, system, shadow, big, small, se_", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num3: i32 =  Interaction.MsgBox( "You are not allowed to use the following reserved words: default, _v, random, system, shadow, big, small, se_", Title: ( "Shadow Empire : Planetary Conquest"));
               }
               self.DoStuff();
               windowReturnClass.SetFlag(true);
@@ -252,7 +252,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num5: i32 =  Interaction.MsgBox((object) "Could not find file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num5: i32 =  Interaction.MsgBox( "Could not find file", Title: ( "Shadow Empire : Planetary Conquest"));
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
@@ -268,7 +268,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num6: i32 =  Interaction.MsgBox((object) "Could not find file", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =  Interaction.MsgBox( "Could not find file", Title: ( "Shadow Empire : Planetary Conquest"));
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
@@ -282,7 +282,7 @@ namespace WindowsApplication1
               {
                 self.game.Data.MasterFile = "";
                 tinitdir: String = self.game.AppPath + "scenarios\\";
-                if (!Information.IsNothing((object) self.game.Data.ScenarioDir))
+                if (!Information.IsNothing( self.game.Data.ScenarioDir))
                 {
                   if (self.game.Data.ScenarioDir.Length > 1)
                     tinitdir = tinitdir.Replace("scenarios", self.game.Data.ScenarioDir);
@@ -294,7 +294,7 @@ namespace WindowsApplication1
                 str1: String = self.game.HandyFunctionsObj.SaveSomething("SE1 Event library(*.se1evlib)|*.se1evlib", "Give save name...", tinitdir, false);
                 if (Strings.Len(str1) < 2)
                 {
-                  let mut num7: i32 =  Interaction.MsgBox((object) "Operation is Cancelled", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num7: i32 =  Interaction.MsgBox( "Operation is Cancelled", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                 {
@@ -316,7 +316,7 @@ namespace WindowsApplication1
                   if (!Directory.Exists(path3))
                     Directory.CreateDirectory(path3);
                   str2: String = self.game.AppPath + "graphics\\";
-                  let mut num8: i32 =  Interaction.MsgBox((object) "Completed & Saved", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num8: i32 =  Interaction.MsgBox( "Completed & Saved", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
               }
             }

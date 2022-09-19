@@ -1,106 +1,124 @@
 ﻿// Decompiled with JetBrains decompiler
+#![allow(non_snake_case)]
+use rand::random;
+use rand::seq::IteratorRandom;
+
 // Type: WindowsApplication1.SimpleList
 // Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
 
-namespace WindowsApplication1
-{
-  [Serializable]
-  pub class SimpleList : ISerializable
-  {
-    pub Counter: i32;
-    pub MaxCounter: i32;
-    pub int[] Id;
-    pub int[] Weight;
-    pub int[] Data1;
-    pub int[] Data2;
-    pub int[] Data3;
-    pub int[] Data4;
-    pub int[] Data5;
+// namespace WindowsApplication1
+// {
+//   [Serializable]
+//   pub class SimpleList : ISerializable
+#[derive(Default,Clone)]
+pub struct SimpleList {
+    pub Counter: isize,
+    pub MaxCounter: i32,
+    pub Id: Vec<i32>,
+    pub Weight: Vec<i32>,
+    pub Data1: Vec<i32>,
+    pub Data2: Vec<i32>,
+    pub Data3: Vec<i32>,
+    pub Data4: Vec<i32>,
+    pub Data5: Vec<i32>,
 
-    pub SimpleList()
+}
+// }
+
+impl SimpleList {
+    // pub SimpleList()
+    pub fn new() -> Self
     {
-      self.Id = new int[11];
-      self.Weight = new int[11];
-      self.Data1 = new int[11];
-      self.Data2 = new int[11];
-      self.Data3 = new int[11];
-      self.Data4 = new int[11];
-      self.Data5 = new int[11];
-      self.Counter = -1;
-      self.MaxCounter = 10;
+        Self {
+            Id: vec![],
+            Weight: vec![],
+            Data1: vec![],
+            Data2: vec![],
+            Data3: vec![],
+            Data4: vec![],
+            Data5: vec![],
+            Counter: -1,
+            MaxCounter: 10
+        }
+
     }
 
-    pub SimpleList Clone()
-    {
-      if (self.Counter == -1)
-        return SimpleList::new();
-      BinaryFormatter binaryFormatter = BinaryFormatter::new();
-      MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
-      serializationStream.Position = 0L;
-      return (SimpleList) binaryFormatter.Deserialize((Stream) serializationStream);
-    }
+    // pub SimpleList Clone()
+    // {
+    //   if (self.Counter == -1)
+    //     return SimpleList::new();
+    //   BinaryFormatter binaryFormatter = BinaryFormatter::new();
+    //   MemoryStream serializationStream = MemoryStream::new();
+    //   binaryFormatter.Serialize((Stream) serializationStream,  this);
+    //   serializationStream.Position = 0L;
+    //   return (SimpleList) binaryFormatter.Deserialize((Stream) serializationStream);
+    // }
 
-    pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-      info.AddValue("Counter", self.Counter);
-      info.AddValue("MaxCounter", self.MaxCounter);
-      info.AddValue("Id", (object) self.Id);
-      info.AddValue("Weight", (object) self.Weight);
-      info.AddValue("Data1", (object) self.Data1);
-      info.AddValue("Data2", (object) self.Data2);
-      info.AddValue("Data3", (object) self.Data3);
-      info.AddValue("Data4", (object) self.Data4);
-      info.AddValue("Data5", (object) self.Data5);
-    }
+    // pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    // {
+    //   info.AddValue("Counter", self.Counter);
+    //   info.AddValue("MaxCounter", self.MaxCounter);
+    //   info.AddValue("Id",  self.Id);
+    //   info.AddValue("Weight",  self.Weight);
+    //   info.AddValue("Data1",  self.Data1);
+    //   info.AddValue("Data2",  self.Data2);
+    //   info.AddValue("Data3",  self.Data3);
+    //   info.AddValue("Data4",  self.Data4);
+    //   info.AddValue("Data5",  self.Data5);
+    // }
 
-    protected SimpleList(SerializationInfo info, StreamingContext context)
-    {
-      self.Id = new int[11];
-      self.Weight = new int[11];
-      self.Data1 = new int[11];
-      self.Data2 = new int[11];
-      self.Data3 = new int[11];
-      self.Data4 = new int[11];
-      self.Data5 = new int[11];
-      self.Counter = info.GetInt32(nameof (Counter));
-      self.MaxCounter = info.GetInt32(nameof (MaxCounter));
-      self.Id = new int[self.MaxCounter + 1];
-      self.Weight = new int[self.MaxCounter + 1];
-      self.Data1 = new int[self.MaxCounter + 1];
-      self.Data2 = new int[self.MaxCounter + 1];
-      self.Data3 = new int[self.MaxCounter + 1];
-      self.Data4 = new int[self.MaxCounter + 1];
-      self.Data5 = new int[self.MaxCounter + 1];
-      self.Id = (int[]) info.GetValue(nameof (Id), self.Id.GetType());
-      self.Weight = (int[]) info.GetValue(nameof (Weight), self.Weight.GetType());
-      self.Data1 = (int[]) info.GetValue(nameof (Data1), self.Data1.GetType());
-      self.Data2 = (int[]) info.GetValue(nameof (Data2), self.Data2.GetType());
-      self.Data3 = (int[]) info.GetValue(nameof (Data3), self.Data3.GetType());
-      self.Data4 = (int[]) info.GetValue(nameof (Data4), self.Data4.GetType());
-      self.Data5 = (int[]) info.GetValue(nameof (Data5), self.Data5.GetType());
-    }
+    // pub fn make_simple_list(info: &SerializationInfo, context: &StreamingContext) -> Self
+    // pub fn make_simple_list(context: &StreamingContext) -> Self
+    // {
+    //   // self.Id = new int[11];
+    //   // self.Weight = new int[11];
+    //   // self.Data1 = new int[11];
+    //   // self.Data2 = new int[11];
+    //   // self.Data3 = new int[11];
+    //   // self.Data4 = new int[11];
+    //   // self.Data5 = new int[11];
+    //   // self.Counter = info.GetInt32(nameof (Counter));
+    //   // self.MaxCounter = info.GetInt32(nameof (MaxCounter));
+    //   // self.Id = new int[self.MaxCounter + 1];
+    //   // self.Weight = new int[self.MaxCounter + 1];
+    //   // self.Data1 = new int[self.MaxCounter + 1];
+    //   // self.Data2 = new int[self.MaxCounter + 1];
+    //   // self.Data3 = new int[self.MaxCounter + 1];
+    //   // self.Data4 = new int[self.MaxCounter + 1];
+    //   // self.Data5 = new int[self.MaxCounter + 1];
+    //   // self.Id = (int[]) info.GetValue(nameof (Id), self.Id.GetType());
+    //   // self.Weight = (int[]) info.GetValue(nameof (Weight), self.Weight.GetType());
+    //   // self.Data1 = (int[]) info.GetValue(nameof (Data1), self.Data1.GetType());
+    //   // self.Data2 = (int[]) info.GetValue(nameof (Data2), self.Data2.GetType());
+    //   // self.Data3 = (int[]) info.GetValue(nameof (Data3), self.Data3.GetType());
+    //   // self.Data4 = (int[]) info.GetValue(nameof (Data4), self.Data4.GetType());
+    //   // self.Data5 = (int[]) info.GetValue(nameof (Data5), self.Data5.GetType());
+    //     todo!()
+    // }
 
-    pub void Remove(int tid)
+    // pub void Remove(int tid)
+    pub fn Remove(&mut self, tid: i32)
     {
-      let mut nr: i32 = self.FindNr(tid);
-      if (nr == -1)
-        return;
-      if (nr < self.Counter)
+      let mut nr: isize = self.FindNr(tid);
+      if nr == -1 {
+          return;
+      }
+      if nr < self.Counter
       {
-        let mut num1: i32 = nr;
-        let mut num2: i32 = self.Counter - 1;
-        for (let mut index: i32 = num1; index <= num2; index += 1)
-        {
+        let mut num1: isize = nr;
+        let mut num2: isize = self.Counter - 1;
+        // for (let mut index: i32 = num1; index <= num2; index += 1)
+        for index in num1 as usize .. num2 as usize
+          {
           self.Id[index] = self.Id[index + 1];
           self.Weight[index] = self.Weight[index + 1];
           self.Data1[index] = self.Data1[index + 1];
@@ -110,203 +128,271 @@ namespace WindowsApplication1
           self.Data5[index] = self.Data5[index + 1];
         }
       }
-      --self.Counter;
+      self.Counter -= 1;
     }
 
-    pub void ReverseWeights()
+    pub fn ReverseWeights(&mut self)
     {
       let mut num1: i32 = 999999;
-      let mut counter1: i32 = self.Counter;
-      int num2;
-      for (let mut index: i32 = 0; index <= counter1; index += 1)
-      {
-        if (self.Weight[index] > num2)
-          num2 = self.Weight[index];
-        if (num1 > self.Weight[index])
-          num1 = self.Weight[index];
-      }
-      let mut counter2: i32 = self.Counter;
-      for (let mut index: i32 = 0; index <= counter2; index += 1)
-      {
-        self.Weight[index] = num2 - self.Weight[index];
-        if (num1 > self.Weight[index])
-          self.Weight[index] = num1;
-      }
-    }
-
-    pub void removeWeight0orLower()
-    {
-      for (let mut counter: i32 = self.Counter; counter >= 0; counter += -1)
-      {
-        if (self.Weight[counter] <= 0)
-          self.RemoveNr(counter);
-      }
-    }
-
-    pub int GetRandomIdbasedOnWeight()
-    {
-      let mut counter1: i32 = self.Counter;
-      int num1;
-      for (let mut index: i32 = 0; index <= counter1; index += 1)
-        num1 += self.Weight[index];
-      if (num1 < 1)
-        return -1;
-      let mut num2: i32 =  Math.Round((double) (1f + Conversion.Int(VBMath.Rnd() * (float) num1)));
-      let mut num3: i32 = 0;
-      let mut counter2: i32 = self.Counter;
-      for (let mut index: i32 = 0; index <= counter2; index += 1)
-      {
-        num3 += self.Weight[index];
-        if (num2 <= num3)
-          return self.Id[index];
-      }
-      return -1;
-    }
-
-    pub int GetRandomIdbasedOnWeightWithSeed(object tseed)
-    {
-      Random random = new Random(Conversions.ToInteger(tseed));
-      let mut counter1: i32 = self.Counter;
-      int num1;
-      for (let mut index: i32 = 0; index <= counter1; index += 1)
-        num1 += self.Weight[index];
-      int num2;
-      if (num1 < 1)
-      {
-        let mut num3: i32 = self.Counter + 1;
-        let mut num4: i32 =  Math.Round(1.0 + Conversion.Int((double) random.Next(0, 1000) / 1000.0 * (double) num3));
-        let mut num5: i32 = 0;
-        num2 = -1;
-        let mut counter2: i32 = self.Counter;
-        for (let mut index: i32 = 0; index <= counter2; index += 1)
+      let mut counter1 = self.Counter as usize;
+      let mut num2 = 0i32;
+      // for (let mut index: i32 = 0; index <= counter1; index += 1)
+      for index in 0usize .. counter1
         {
-          num5 += 1;
-          if (num4 <= num5)
+        if self.Weight[index] > num2 {
+            num2 = self.Weight[index];
+        }
+        if num1 > self.Weight[index] {
+            num1 = self.Weight[index];
+        }
+      }
+      let mut counter2 = self.Counter as usize;
+      // for (let mut index: i32 = 0; index <= counter2; index += 1)
+      for index in 0usize .. counter2
+        {
+        self.Weight[index] = num2 - self.Weight[index];
+        if num1 > self.Weight[index] {
+            self.Weight[index] = num1;
+        }
+      }
+    }
+
+    // pub void removeWeight0orLower()
+    pub fn removeWeidth0orLower(&mut self) {
+        // for (let mut counter: i32 = self.Counter; counter >= 0; counter += -1)
+        for counter in self.Counter as usize..0 {
+            if self.Weight[counter] <= 0 {
+                self.RemoveNr(counter);
+            }
+        }
+    }
+
+    // pub int GetRandomIdbasedOnWeight()
+    pub fn GetRandomIdbaseOnWeight(&mut self) -> i32
+    {
+      let mut counter1 = self.Counter as usize;
+      // int num1;
+      let mut num1 = 0i32;
+        // for (let mut index: i32 = 0; index <= counter1; index += 1)
+        for index in 0 .. counter1
+        {
+            num1 += self.Weight[index];
+        }
+      if num1 < 1 {
+          return -1;
+      }
+      // let mut num2: i32 =  Math.Round( (1f + Conversion.Int(VBMath.Rnd() *  num1)));
+      let mut num2 = 1f32 + (rand::random::<f32>() * num1);
+        let mut num3 = 0f32;
+      let mut counter2: i32 = self.Counter as i32;
+      // for (let mut index: i32 = 0; index <= counter2; index += 1)
+      for index in 0 as usize .. counter2 as usize
+        {
+        num3 += self.Weight[index];
+        if num2 <= num3 {
             return self.Id[index];
         }
-        return -1;
-      }
-      let mut num6: i32 =  Math.Round(1.0 + Conversion.Int((double) random.Next(0, 1000) / 1000.0 * (double) num1));
-      let mut num7: i32 = 0;
-      num2 = -1;
-      let mut counter3: i32 = self.Counter;
-      for (let mut index: i32 = 0; index <= counter3; index += 1)
-      {
-        num7 += self.Weight[index];
-        if (num6 <= num7)
-          return self.Id[index];
       }
       return -1;
     }
 
-    pub int GetRandomSlotbasedOnWeightWithSeed(object tseed)
+    // pub int GetRandomIdbasedOnWeightWithSeed(object tseed)
+    pub fn GetRandomIdbasedOnWeightWithSeed(&mut self, tseed: i32) -> i32 {
+        // Random random = new Random(Conversions.ToInteger(tseed));
+        // let random = rand::random::<i32>();
+        let mut rng = rand::thread_rng();
+        let range_of_items: Vec<i32> = (1..1000).collect();
+        let mut counter1 = self.Counter;
+        // int num1;
+        let mut num1 = 0;
+        // for (let mut index: i32 = 0; index <= counter1; index += 1)
+        for index in 0..counter1 as usize {
+            num1 += self.Weight[index];
+        }
+        let mut num2 = 0;
+        if num1 < 1 {
+            let mut num3 = self.Counter + 1;
+            // let mut num4: i32 =  Math.Round(1.0 + Conversion.Int( random.Next(0, 1000) / 1000.0 *  num3));
+
+            let rand_val = range_of_items.iter().choose(&mut rng).unwrap();
+            let mut num4 = f32::round(1.0 + rand_val / 1000.0 * num3);
+            let mut num5: i32 = 0;
+            num2 = -1;
+            let mut counter2 = self.Counter;
+            // for (let mut index: i32 = 0; index <= counter2; index += 1)
+            for index in 0..counter2 as usize {
+                num5 += 1;
+                if num4 <= num5 as f32 {
+                    return self.Id[index];
+                }
+            }
+            return -1;
+        }
+        // let mut num6: i32 = Math.Round(1.0 + Conversion.Int(random.Next(0, 1000) / 1000.0 * num1));
+        let next_val = range_of_items.iter().choose(&mut rng).unwrap();
+        let mut num6 = f32::round(1.0 + (*next_val as f32 / 1000.0) * num1 as f32);
+        let mut num7 = 0f32;
+        num2 = -1;
+        let mut counter3 = self.Counter;
+        // for (let mut index: i32 = 0; index < = counter3; index += 1)
+        for index in 0..counter3 as usize {
+            num7 += self.Weight[index] as f32;
+            if num6 <= num7 {
+                return self.Id[index];
+            }
+        }
+        return -1;
+    }
+
+    // pub int GetRandomSlotbasedOnWeightWithSeed(object tseed)
+    pub fn GetRandomSlotBasedOnWeightWithSeed(&mut self) -> i32
     {
-      Random random = new Random(Conversions.ToInteger(tseed));
-      let mut counter1: i32 = self.Counter;
-      int num1;
-      for (let mut index: i32 = 0; index <= counter1; index += 1)
-        num1 += self.Weight[index];
-      int num2;
-      if (self.Counter > -1 & num1 == 0)
+        let mut rng = rand::thread_rng();
+        let range_of_items: Vec<i32> = (1..1000).collect();
+      // Random random = new Random(Conversions.ToInteger(tseed));
+      let mut counter1 = self.Counter;
+      let mut num1 = 0i32;
+      for index in 0 .. counter1 as usize
       {
-        let mut num3: i32 =  Math.Round(1.0 + Conversion.Int((double) random.Next(0, 1000) / 1000.0 * 1.0));
+          num1 += self.Weight[index];
+      }
+      let mut num2 = 0i32;
+      if (self.Counter > -1isize) & (num1 as isize == 0isize)
+      {
+          let next_val = range_of_items.iter().choose(&mut rng).unwrap();
+        let mut num3 =  f32::round(1.0 +( *next_val as f32 / 1000.0 * 1.0));
         let mut num4: i32 = 0;
         num2 = -1;
-        let mut counter2: i32 = self.Counter;
-        for (let mut onWeightWithSeed: i32 = 0; onWeightWithSeed <= counter2; onWeightWithSeed += 1)
-        {
+        let mut counter2 = self.Counter;
+        // for (let mut onWeightWithSeed: i32 = 0; onWeightWithSeed <= counter2; onWeightWithSeed += 1)
+        for onWeightWithSeed in 0 .. counter2 as usize
+          {
           num4 += 1;
-          if (num3 <= 1)
-            return onWeightWithSeed;
+          if num3 <= 1f32 {
+              return onWeightWithSeed as i32;
+          }
         }
-        return self.Counter;
+        return self.Counter as i32;
       }
-      if (num1 < 1)
-        return -1;
-      let mut num5: i32 =  Math.Round(1.0 + Conversion.Int((double) random.Next(0, 1000) / 1000.0 * (double) num1));
-      let mut num6: i32 = 0;
+      if (num1 < 1) {
+          return -1;
+      }
+      // let mut num5: i32 =  Math.Round(1.0 + Conversion.Int( random.Next(0, 1000) / 1000.0 *  num1));
+      let next_val = range_of_items.iter().choose(&mut rng).unwrap().to_owned();
+        let num5 = f32::round(1.0 + (next_val / 1000.0) * num1);
+        let mut num6 = 0;
       num2 = -1;
-      let mut counter3: i32 = self.Counter;
-      for (let mut onWeightWithSeed: i32 = 0; onWeightWithSeed <= counter3; onWeightWithSeed += 1)
-      {
-        num6 += self.Weight[onWeightWithSeed];
-        if (num5 <= num6)
-          return onWeightWithSeed;
-      }
-      return self.Counter > -1 ? self.Counter : -1;
-    }
-
-    pub void RemoveNr(int nr)
-    {
-      if (nr < 0 || nr > self.Counter)
-        return;
-      if (nr < self.Counter)
-      {
-        let mut num1: i32 = nr;
-        let mut num2: i32 = self.Counter - 1;
-        for (let mut index: i32 = num1; index <= num2; index += 1)
+      let mut counter3 = self.Counter;
+      // for (let mut onWeightWithSeed: i32 = 0; onWeightWithSeed <= counter3; onWeightWithSeed += 1)
+      for onWeightWithSeed in 0 .. counter3 as usize
         {
-          self.Id[index] = self.Id[index + 1];
-          self.Weight[index] = self.Weight[index + 1];
-          self.Data1[index] = self.Data1[index + 1];
-          self.Data2[index] = self.Data2[index + 1];
-          self.Data3[index] = self.Data3[index + 1];
-          self.Data4[index] = self.Data4[index + 1];
-          self.Data5[index] = self.Data5[index + 1];
+        num6 += self.Weight[onWeightWithSeed];
+        if num5 as i32 <= num6 {
+            return onWeightWithSeed as i32;
         }
       }
-      --self.Counter;
+      // return self.Counter > -1 ? self.Counter : -1;
+        if self.Counter > -1 {
+            return self.Counter as i32
+        }
+        return -1;
     }
 
-    pub void MultiplyWeight(int multi)
-    {
-      let mut counter: i32 = self.Counter;
-      for (let mut index: i32 = 0; index <= counter; index += 1)
-        self.Weight[index] = self.Weight[index] * multi;
+    // pub void RemoveNr(int nr)
+    pub fn RemoveNr(&mut self, nr: isize) {
+        if nr < 0 || nr > self.Counter {
+            return;
+        }
+        if (nr < self.Counter) {
+            let mut num1 = nr;
+            let mut num2 = self.Counter - 1;
+            // for (let mut index: i32 = num1; index <= num2; index += 1)
+            for index in num1 as usize..num2 as usize {
+                self.Id[index] = self.Id[index + 1];
+                self.Weight[index] = self.Weight[index + 1];
+                self.Data1[index] = self.Data1[index + 1];
+                self.Data2[index] = self.Data2[index + 1];
+                self.Data3[index] = self.Data3[index + 1];
+                self.Data4[index] = self.Data4[index + 1];
+                self.Data5[index] = self.Data5[index + 1];
+            }
+        }
+        self.Counter -= 1;
     }
 
-    pub void AddWeight( SimpleList SL)
+    // pub void MultiplyWeight(int multi)
+    pub fn MultiplyWeight(&mut self, multi: isize)
     {
-      if (Information.IsNothing((object) SL) || SL.Counter == -1)
-        return;
-      let mut counter: i32 = SL.Counter;
-      for (let mut index: i32 = 0; index <= counter; index += 1)
-        self.AddWeight(SL.Id[index], SL.Weight[index]);
+      let mut counter = self.Counter;
+      // for (let mut index: i32 = 0; index <= counter; index += 1)
+      for index in 0 .. counter as usize
+        {
+          self.Weight[index] = self.Weight[index] * multi as i32;
+      }
     }
 
-    pub void AddWeightBlind( SimpleList SL)
+    // pub void AddWeight( SimpleList SL)
+    pub fn AddWeight(&mut self, SL: &mut Self)
     {
-      if (Information.IsNothing((object) SL) || SL.Counter == -1)
-        return;
-      let mut counter: i32 = SL.Counter;
-      for (let mut index: i32 = 0; index <= counter; index += 1)
-        self.AddBlind(SL.Id[index], SL.Weight[index]);
+      if (Information::IsNothing( SL) || SL.Counter == -1) {
+          return;
+      }
+      let mut counter = SL.Counter;
+      // for (let mut index: i32 = 0; index <= counter; index += 1)
+      for index in 0 .. counter as usize
+        {
+          self.AddWeight2(SL.Id[index], SL.Weight[index]);
+      }
     }
 
-    pub void RemoveWeight( SimpleList SL)
+    // pub void AddWeightBlind( SimpleList SL)
+    pub fn AddWeightBlind(&mut self, SL: &mut Self)
     {
-      let mut counter: i32 = SL.Counter;
-      for (let mut index: i32 = 0; index <= counter; index += 1)
-        self.RemoveWeight(SL.Id[index], SL.Weight[index]);
+      if (Information::IsNothing( SL) || SL.Counter == -1) {
+          return;
+      }
+      let mut counter = SL.Counter;
+      // for (let mut index: i32 = 0; index <= counter; index += 1)
+      for index in 0 .. counter as usize
+        {
+          self.AddBlind(SL.Id[index], SL.Weight[index]);
+      }
     }
 
-    pub CanRemoveWeight: bool( SimpleList SL)
+    // pub void RemoveWeight( SimpleList SL)
+    pub fn RemoveWeight(&mut self, SL: &mut Self)
     {
-      let mut counter: i32 = SL.Counter;
-      for (let mut index: i32 = 0; index <= counter; index += 1)
-      {
-        if (self.FindWeight(SL.Id[index]) < SL.Weight[index])
-          return false;
+      let mut counter = SL.Counter;
+      // for (let mut index: i32 = 0; index <= counter; index += 1)
+      for index in 0 .. counter as usize
+        {
+          self.RemoveWeight2(SL.Id[index], SL.Weight[index]);
+
+      }
+    }
+
+    // pub CanRemoveWeight: bool( SimpleList SL)
+    pub fn CanRemoveWeidht(&mut self, SL: &mut Self) -> bool
+    {
+      let mut counter = SL.Counter;
+      // for (let mut index: i32 = 0; index <= counter; index += 1)
+      for index in 0 .. counter as usize
+        {
+        if (self.FindWeight(SL.Id[index]) < SL.Weight[index]) {
+            return false;
+        }
       }
       return true;
     }
 
-    pub void MultiplyWeight(int tid, float multi)
+    // pub void MultiplyWeight(int tid, float multi)
+    pub fn MultiplyWeight2(&mut self, tid: i32, multi: f32)
     {
-      let mut nr: i32 = self.FindNr(tid);
-      if (nr == -1)
-        return;
-      self.Weight[nr] =  Math.Round((double) ((float) self.Weight[nr] * multi));
+      let mut nr = self.FindNr(tid);
+      if nr == -1 {
+          return;
+      }
+      self.Weight[nr] =  (self.Weight[nr] * multi);
     }
 
     pub void AddWeight(
@@ -768,7 +854,7 @@ namespace WindowsApplication1
       {
         let mut num3: i32 = 0;
         if (num2 > 0)
-          num3 =  Math.Round(Math.Ceiling((double) (100 * self.Weight[index]) / (double) num2));
+          num3 =  Math.Round(Math.Ceiling( (100 * self.Weight[index]) /  num2));
         self.Weight[index] = num3;
       }
     }
@@ -887,7 +973,7 @@ namespace WindowsApplication1
         let mut counter2: i32 = self.Counter;
         for (let mut index1: i32 = 0; index1 <= counter2; index1 += 1)
         {
-          if (Information.IsNothing((object) numArray1[self.Weight[index1] - num1]))
+          if (Information.IsNothing( numArray1[self.Weight[index1] - num1]))
           {
             numArray1[self.Weight[index1] - num1] = new int[1];
           }
@@ -915,7 +1001,7 @@ namespace WindowsApplication1
           let mut num4: i32 = num3;
           for (let mut index5: i32 = 0; index5 <= num4; index5 += 1)
           {
-            if (!Information.IsNothing((object) numArray1[index5]))
+            if (!Information.IsNothing( numArray1[index5]))
             {
               let mut upperBound: i32 = numArray1[index5].GetUpperBound(0);
               for (let mut index6: i32 = 0; index6 <= upperBound; index6 += 1)
@@ -936,7 +1022,7 @@ namespace WindowsApplication1
         {
           for (let mut index7: i32 = num3; index7 >= 0; index7 += -1)
           {
-            if (!Information.IsNothing((object) numArray1[index7]))
+            if (!Information.IsNothing( numArray1[index7]))
             {
               let mut upperBound: i32 = numArray1[index7].GetUpperBound(0);
               for (let mut index8: i32 = 0; index8 <= upperBound; index8 += 1)
@@ -1005,5 +1091,4 @@ namespace WindowsApplication1
         }
       }
     }
-  }
 }

@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -204,11 +204,11 @@ namespace WindowsApplication1
             {
               let mut tweight1: i32 = numArray1[landscapeType];
               if (num1 < 10)
-                tweight1 =  Math.Round(Math.Ceiling((double) tweight1 / 15.0));
+                tweight1 =  Math.Round(Math.Ceiling( tweight1 / 15.0));
               else if (num1 == 10)
-                tweight1 =  Math.Round(Math.Ceiling((double) tweight1 / 10.0));
+                tweight1 =  Math.Round(Math.Ceiling( tweight1 / 10.0));
               else if (num1 > 10)
-                tweight1 =  Math.Round(Math.Ceiling((double) tweight1 / 6.0));
+                tweight1 =  Math.Round(Math.Ceiling( tweight1 / 6.0));
               this.faunaAreaList.AddWeight(hexLibVarValue1, tweight1);
               if (this.data.MapObj[0].HexObj[cx, cy].Regime > -1 && numArray2[this.data.MapObj[0].HexObj[cx, cy].Regime] == 1)
                 simpleList1.AddWeight(hexLibVarValue1, 1);
@@ -245,9 +245,9 @@ namespace WindowsApplication1
                       let mut tweight3: i32 = this.data.HistoricalUnitObj[historical].GiveHisVarValue(96);
                       this.faunaTypeListCrusaderHistory.AddWeight(hexLibVarValue1, tweight3, type, CheckData1Existence: true);
                     }
-                    let mut num3: i32 =  Math.Round(Math.Ceiling((double) this.data.HistoricalUnitObj[historical].GiveHisVarValue(95) * 0.9)) - 1;
+                    let mut num3: i32 =  Math.Round(Math.Ceiling( this.data.HistoricalUnitObj[historical].GiveHisVarValue(95) * 0.9)) - 1;
                     this.data.HistoricalUnitObj[historical].SetHisVarValue(95, num3);
-                    let mut num4: i32 =  Math.Round(Math.Ceiling((double) this.data.HistoricalUnitObj[historical].GiveHisVarValue(96) * 0.9)) - 1;
+                    let mut num4: i32 =  Math.Round(Math.Ceiling( this.data.HistoricalUnitObj[historical].GiveHisVarValue(96) * 0.9)) - 1;
                     this.data.HistoricalUnitObj[historical].SetHisVarValue(96, num4);
                   }
                 }
@@ -295,12 +295,12 @@ namespace WindowsApplication1
                   if (weight > 0)
                   {
                     SimpleList behaviourStats = this.ai.game.EventRelatedObj.AlienFauna_GetBehaviourStats(index5);
-                    if ( Math.Round((double) (num7 * simpleList2.FindWeight(index5)) / 100.0) > this.data.SFTypeObj[index5].Weight)
+                    if ( Math.Round( (num7 * simpleList2.FindWeight(index5)) / 100.0) > this.data.SFTypeObj[index5].Weight)
                     {
-                      float d = (float) (weight * behaviourStats.Weight[1]) / 100f;
-                      let mut num8: i32 =  Math.Round(Math.Floor((double) d));
+                      float d =  (weight * behaviourStats.Weight[1]) / 100f;
+                      let mut num8: i32 =  Math.Round(Math.Floor( d));
                       float num9 = d - Convert.ToSingle(Math.Floor(new Decimal(num8)));
-                      if ((double) num9 > 0.0 &&  Math.Round((double) (num9 * 100f)) >= DrawMod.RandyNumber.Next(0, 100))
+                      if ( num9 > 0.0 &&  Math.Round( (num9 * 100f)) >= DrawMod.RandyNumber.Next(0, 100))
                         num8 = 1;
                       if (num8 > 0)
                       {
@@ -338,7 +338,7 @@ namespace WindowsApplication1
                             SFClass[] sfClassArray = sfObj;
                             let mut index9: i32 = sf;
                             let mut index10: i32 = index9;
-                            sfClassArray[index10].Xp = sfObj[index9].Xp -  Math.Round(Math.Ceiling((double) (this.data.SFObj[sf].Xp * 1) / (double) qty));
+                            sfClassArray[index10].Xp = sfObj[index9].Xp -  Math.Round(Math.Ceiling( (this.data.SFObj[sf].Xp * 1) /  qty));
                             let mut num11: i32 = qty + 1;
                             --num8;
                             this.data.SFObj[sf].Qty = num11;
@@ -379,7 +379,7 @@ namespace WindowsApplication1
                       let mut tid2: i32 = this.faunaAreaNeighbourList.Data1[index13];
                       let mut weight1: i32 = this.faunaTypeList.FindWeight(tid2, index11);
                       let mut weight2: i32 = this.faunaAreaList.FindWeight(tid2);
-                      if (num12 > weight1 && (double) (num12 + weight1) < (double) weight2 / (double) (1 + this.data.SFTypeObj[index11].Weight) &&  Math.Round((double) (num12 * behaviourStats.Weight[2]) / 100.0) > weight1)
+                      if (num12 > weight1 &&  (num12 + weight1) <  weight2 /  (1 + this.data.SFTypeObj[index11].Weight) &&  Math.Round( (num12 * behaviourStats.Weight[2]) / 100.0) > weight1)
                         simpleList4.AddWeight(tid2, weight1);
                     }
                   }
@@ -418,7 +418,7 @@ namespace WindowsApplication1
                           if (this.ai.game.HandyFunctionsObj.HasUnitSFType(unit, index11))
                           {
                             let mut qty: i32 = this.data.SFObj[this.data.UnitObj[unit].SFList[0]].Qty;
-                            if (qty >  Math.Round((double) behaviourStats.Weight[0] * 0.8) & qty >= 2)
+                            if (qty >  Math.Round( behaviourStats.Weight[0] * 0.8) & qty >= 2)
                               simpleList5.AddWeight(unit, qty);
                           }
                         }
@@ -431,7 +431,7 @@ namespace WindowsApplication1
                     let mut x: i32 = this.ai.game.Data.UnitObj[randomIdbasedOnWeight2].X;
                     let mut y: i32 = this.ai.game.Data.UnitObj[randomIdbasedOnWeight2].Y;
                     let mut sf: i32 = this.data.UnitObj[randomIdbasedOnWeight2].SFList[0];
-                    let mut num15: i32 =  Math.Round((double) this.data.SFObj[sf].Qty / 2.0);
+                    let mut num15: i32 =  Math.Round( this.data.SFObj[sf].Qty / 2.0);
                     this.ai.game.EventRelatedObj.Helper_AddSpecificUnit(this.data.UnitObj[randomIdbasedOnWeight2].Name, x, y, 0, 1, index11, num15, this.data.SFObj[sf].Xp, this.data.SFObj[sf].Mor);
                     this.ai.game.Data.HistoricalUnitObj[this.ai.game.Data.HistoricalUnitCounter].SetHisVarValue(91, 300);
                     this.ai.game.Data.HistoricalUnitObj[this.ai.game.Data.HistoricalUnitCounter].Counter = -1;
@@ -473,7 +473,7 @@ namespace WindowsApplication1
               SimpleList behaviourStats = this.ai.game.EventRelatedObj.AlienFauna_GetBehaviourStats(index22);
               if (behaviourStats.Weight[4] > DrawMod.RandyNumber.Next(0, 100))
               {
-                if (num16 >  Math.Round((double) behaviourStats.Weight[0] * 0.5))
+                if (num16 >  Math.Round( behaviourStats.Weight[0] * 0.5))
                 {
                   let mut counter6: i32 = this.faunaAreaNeighbourList.Counter;
                   for (let mut index24: i32 = 0; index24 <= counter6; index24 += 1)
@@ -483,7 +483,7 @@ namespace WindowsApplication1
                       let mut tid4: i32 = this.faunaAreaNeighbourList.Data1[index24];
                       let mut weight4: i32 = this.faunaTypeList.FindWeight(tid4, index22);
                       let mut weight5: i32 = simpleList1.FindWeight(tid4, index22);
-                      if (num16 > weight4 & weight5 > 0 &&  Math.Round((double) (num16 * behaviourStats.Weight[4]) / 100.0) > weight4 & (double) (weight5 * behaviourStats.Weight[4]) / 100.0 > (double) weight3)
+                      if (num16 > weight4 & weight5 > 0 &&  Math.Round( (num16 * behaviourStats.Weight[4]) / 100.0) > weight4 &  (weight5 * behaviourStats.Weight[4]) / 100.0 >  weight3)
                         simpleList6.AddWeight(tid4, weight5);
                     }
                   }
@@ -507,7 +507,7 @@ namespace WindowsApplication1
                           if (this.ai.game.HandyFunctionsObj.HasUnitSFType(unit, index22))
                           {
                             let mut qty: i32 = this.data.SFObj[this.data.UnitObj[unit].SFList[0]].Qty;
-                            if (qty >  Math.Round((double) behaviourStats.Weight[0] * 0.8) & qty >= 2)
+                            if (qty >  Math.Round( behaviourStats.Weight[0] * 0.8) & qty >= 2)
                               simpleList7.AddWeight(unit, qty);
                           }
                         }
@@ -520,7 +520,7 @@ namespace WindowsApplication1
                     let mut x: i32 = this.ai.game.Data.UnitObj[randomIdbasedOnWeight4].X;
                     let mut y: i32 = this.ai.game.Data.UnitObj[randomIdbasedOnWeight4].Y;
                     let mut sf: i32 = this.data.UnitObj[randomIdbasedOnWeight4].SFList[0];
-                    let mut num17: i32 =  Math.Round((double) this.data.SFObj[sf].Qty / 2.0);
+                    let mut num17: i32 =  Math.Round( this.data.SFObj[sf].Qty / 2.0);
                     this.ai.game.EventRelatedObj.Helper_AddSpecificUnit(this.data.UnitObj[randomIdbasedOnWeight4].Name, x, y, 0, 1, index22, num17, this.data.SFObj[sf].Xp, this.data.SFObj[sf].Mor);
                     this.ai.game.Data.HistoricalUnitObj[this.ai.game.Data.HistoricalUnitCounter].SetHisVarValue(91, 300);
                     this.ai.game.Data.HistoricalUnitObj[this.ai.game.Data.HistoricalUnitCounter].Counter = -1;
@@ -591,12 +591,12 @@ namespace WindowsApplication1
           let mut tid: i32 = this.data.HistoricalUnitObj[historical].GiveHisVarValue(92);
           let mut num19: i32 = this.data.HistoricalUnitObj[historical].GiveHisVarValue(93);
           let mut num20: i32 = this.data.HistoricalUnitObj[historical].GiveHisVarValue(94);
-          if (this.data.SFTypeObj[type].SFTypeVar[82] > 0 && this.ai.game.EventRelatedObj.AlienFauna_GetBehaviourStats(type).Weight[0] <  Math.Round((double) qty * 0.66))
+          if (this.data.SFTypeObj[type].SFTypeVar[82] > 0 && this.ai.game.EventRelatedObj.AlienFauna_GetBehaviourStats(type).Weight[0] <  Math.Round( qty * 0.66))
           {
             let mut x: i32 = this.ai.game.Data.UnitObj[index30].X;
             let mut y: i32 = this.ai.game.Data.UnitObj[index30].Y;
             let mut sf2: i32 = this.data.UnitObj[index30].SFList[0];
-            let mut num21: i32 =  Math.Round((double) this.data.SFObj[sf2].Qty / 2.0);
+            let mut num21: i32 =  Math.Round( this.data.SFObj[sf2].Qty / 2.0);
             this.ai.game.EventRelatedObj.Helper_AddSpecificUnit(this.data.UnitObj[index30].Name, x, y, 0, 1, type, num21, this.data.SFObj[sf2].Xp, this.data.SFObj[sf2].Mor);
             this.ai.game.Data.HistoricalUnitObj[this.ai.game.Data.HistoricalUnitCounter].SetHisVarValue(91, 300);
             this.ai.game.Data.HistoricalUnitObj[this.ai.game.Data.HistoricalUnitCounter].Counter = -1;
@@ -707,7 +707,7 @@ namespace WindowsApplication1
                 num6 += DrawMod.RandyNumber.Next(0, 30);
             }
             let mut hexLibVarValue: i32 = this.data.MapObj[0].HexObj[cx, cy].GetHexLibVarValue(libVar);
-            let mut num7: i32 = DrawMod.TGame.EditObj.TempValue[0].Value[cx, cy] != 0 ? num6 +  Math.Round((double) Math.Max(0, 100 - DrawMod.TGame.EditObj.TempValue[0].Value[cx, cy]) / 5.0) : num6 + 20;
+            let mut num7: i32 = DrawMod.TGame.EditObj.TempValue[0].Value[cx, cy] != 0 ? num6 +  Math.Round( Math.Max(0, 100 - DrawMod.TGame.EditObj.TempValue[0].Value[cx, cy]) / 5.0) : num6 + 20;
             if (num3 > 0)
             {
               let mut num8: i32 = aiMatrix1.Value[cx, cy];
@@ -754,30 +754,30 @@ namespace WindowsApplication1
             let mut num17: i32 = num11;
             let mut num18: i32 = num13;
             if (num17 > 0)
-              num7 +=  Math.Round(100.0 * ((double) behaviourStats.Weight[9] / 100.0));
+              num7 +=  Math.Round(100.0 * ( behaviourStats.Weight[9] / 100.0));
             else if (aiMatrix2.Value[x1, y1] > aiMatrix2.Value[cx, cy])
             {
               let mut num19: i32 = aiMatrix2.Value[cx, cy];
               let mut num20: i32 = aiMatrix2.Value[x1, y1] - num19;
-              num7 += Math.Min(70,  Math.Round((double) (num20 * 30) * ((double) behaviourStats.Weight[9] / 100.0)));
+              num7 += Math.Min(70,  Math.Round( (num20 * 30) * ( behaviourStats.Weight[9] / 100.0)));
             }
             else if (aiMatrix3.Value[cx, cy] > 0)
-              num7 +=  Math.Round((double) (25 * behaviourStats.Weight[9]) / 100.0);
+              num7 +=  Math.Round( (25 * behaviourStats.Weight[9]) / 100.0);
             if (behaviourStats.Weight[6] > 0 && this.data.MapObj[0].HexObj[cx, cy].UnitCounter == -1 && num12 > 0)
               num7 += num15 * 50;
             if (behaviourStats.Weight[11] > 0)
             {
               if (num16 > tempUnitPower * 4)
-                num7 =  Math.Round((double) num7 * 0.1);
+                num7 =  Math.Round( num7 * 0.1);
               else if (num16 > tempUnitPower * 3)
-                num7 =  Math.Round((double) num7 * 0.3);
+                num7 =  Math.Round( num7 * 0.3);
               else if (num16 > tempUnitPower * 2)
-                num7 =  Math.Round((double) num7 * 0.5);
+                num7 =  Math.Round( num7 * 0.5);
               else if (num16 > tempUnitPower * 1)
-                num7 =  Math.Round((double) num7 * 0.8);
+                num7 =  Math.Round( num7 * 0.8);
             }
             if (behaviourStats.Weight[2] > DrawMod.RandyNumber.Next(0, 100) | behaviourStats.Weight[1] > DrawMod.RandyNumber.Next(0, 100) && x1 == cx & y1 == cy & num17 > 0)
-              num7 +=  Math.Round((double) (40f * Math.Min(1f, (float) tempUnitPower / (float) (num16 + 1))));
+              num7 +=  Math.Round( (40f * Math.Min(1f,  tempUnitPower /  (num16 + 1))));
             if (behaviourStats.Weight[7] > 0)
             {
               if (num18 > 0)
@@ -812,10 +812,10 @@ namespace WindowsApplication1
             if (num3 > 0)
             {
               if (hexLibVarValue != num2)
-                num7 =  Math.Round((double) num7 / 2.0);
+                num7 =  Math.Round( num7 / 2.0);
             }
             else if (hexLibVarValue != num1)
-              num7 =  Math.Round((double) num7 / 5.0);
+              num7 =  Math.Round( num7 / 5.0);
             if (num7 > num5)
             {
               num5 = num7;
@@ -1200,7 +1200,7 @@ namespace WindowsApplication1
                   }
                 }
               }
-              if ((double) num5 > (double) num6 * 1.1)
+              if ( num5 >  num6 * 1.1)
               {
                 DrawMod.TGame.ProcessingObj.ExecuteMovement(unitByHistorical, x, y, 0, x2, y2, 0);
                 flag = true;
@@ -1298,7 +1298,7 @@ namespace WindowsApplication1
           if (this.UnitList.Data1[index3] == this.GroupList.Id[index1] && DrawMod.TGame.HandyFunctionsObj.GetHistoricalUnitByID(this.UnitList.Id[index3]) > -1)
           {
             num4 += 1;
-            this.UnitList.Data2[index3] = (double) num4 > Math.Ceiling((double) num3 / 2.0) ? 1 : 2;
+            this.UnitList.Data2[index3] =  num4 > Math.Ceiling( num3 / 2.0) ? 1 : 2;
           }
         }
       }

@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -365,7 +365,7 @@ namespace WindowsApplication1
       self.RemoveSubPart(self.Text14id);
       self.RemoveSubPart(self.Text15id);
       self.RemoveSubPart(self.text16id);
-      let mut num1: i32 =  Math.Round((double) Math.Max(0, self.w - 1060) / 2.0);
+      let mut num1: i32 =  Math.Round( Math.Max(0, self.w - 1060) / 2.0);
       if (num1 > 200)
         num1 = 200;
       if (self.detailnr <= -1)
@@ -451,7 +451,7 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut num8: i32 =  Math.Round(Math.Floor((double) (self.h - 80) / 24.0));
+        let mut num8: i32 =  Math.Round(Math.Floor( (self.h - 80) / 24.0));
         if (num2 < 50)
         {
           let mut tsubpart: SubPartClass =  new ListSubPartClass(self.OptionsList5Obj, num8 - 1, 170 + num2, tlistselect, self.game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: 30, bby: 20, tMarcStyle: true, overruleFont: ( self.game.MarcFont7), overruleItemSize: 24);
@@ -505,7 +505,7 @@ namespace WindowsApplication1
         DrawMod.DrawTextColouredMarc( g, "AVERAGE", self.game.MarcFont4, x7, 325, Color.White);
       }
       let mut num15: i32 = 190 + num2;
-      let mut num16: i32 = 360 +  Math.Round((double) Math.Max(0, self.w - num2 - 920) / 2.0) + num2;
+      let mut num16: i32 = 360 +  Math.Round( Math.Max(0, self.w - num2 - 920) / 2.0) + num2;
       let mut num17: i32 = 785 + Math.Max(0, self.w - num2 - 920) + num2;
       let mut num18: i32 = 825 + Math.Max(0, self.w - num2 - 920) + num2;
       let mut num19: i32 = 865 + Math.Max(0, self.w - num2 - 920) + num2;
@@ -569,10 +569,10 @@ namespace WindowsApplication1
             if (simpleList1.Counter > -1)
             {
               num22 = 1;
-              let mut num23: i32 =  Math.Round(Conversion.Int((double) (num18 - num15) / (double) (simpleList1.Counter + 1)));
+              let mut num23: i32 =  Math.Round(Conversion.Int( (num18 - num15) /  (simpleList1.Counter + 1)));
               if (num23 > 100)
                 num23 = 100;
-              let mut num24: i32 =  Math.Round((double) num20 - (double) ((simpleList1.Counter + 1) * num23) / 2.0);
+              let mut num24: i32 =  Math.Round( num20 -  ((simpleList1.Counter + 1) * num23) / 2.0);
               if (num24 + num23 * (simpleList1.Counter + 1) > num19 - num15)
                 num24 -= num24 + num23 * (simpleList1.Counter + 1) - (num19 - num15);
               if (num24 < 226)
@@ -584,8 +584,8 @@ namespace WindowsApplication1
               for (let mut index8: i32 = 0; index8 <= counter5; index8 += 1)
               {
                 num25 += num23;
-                let mut num26: i32 =  Math.Round((double) num25 + ((double) num23 / 2.0 - 18.0));
-                let mut num27: i32 =  Math.Round((double) num21 + ((double) self.RowHeight / 2.0 - 18.0));
+                let mut num26: i32 =  Math.Round( num25 + ( num23 / 2.0 - 18.0));
+                let mut num27: i32 =  Math.Round( num21 + ( self.RowHeight / 2.0 - 18.0));
                 self.Ox[simpleList1.Id[index8]] = num26;
                 self.Oy[simpleList1.Id[index8]] = num27;
                 if (index7 == 1 & simpleList1.Counter == 0)
@@ -627,13 +627,13 @@ namespace WindowsApplication1
         simpleList1.Sort();
         if (simpleList1.Counter > -1)
         {
-          let mut num29: i32 =  Math.Round(Conversion.Int(3900.0 / (double) (simpleList1.Counter + 7)));
+          let mut num29: i32 =  Math.Round(Conversion.Int(3900.0 /  (simpleList1.Counter + 7)));
           if (num29 > 50)
             num29 = 50;
           let mut num30: i32 = 60;
           if (num29 < 30)
             num30 = 42;
-          let mut num31: i32 =  Math.Round(220.0 / (double)  Math.Round(1.0 + (double) (num29 * (simpleList1.Counter + 1)) / (double) Conversion.Int(390)));
+          let mut num31: i32 =  Math.Round(220.0 /   Math.Round(1.0 +  (num29 * (simpleList1.Counter + 1)) /  Conversion.Int(390)));
           if (num31 > 60)
             num31 = 60;
           let mut num32: i32 = -num29;
@@ -787,7 +787,7 @@ namespace WindowsApplication1
             }
             let mut counter9: i32 = simpleList2.Counter;
             for (let mut index22: i32 = 0; index22 <= counter9; index22 += 1)
-              simpleList2.Weight[index22] =  Math.Round((double) simpleList2.Weight[index22] / (double) num36);
+              simpleList2.Weight[index22] =  Math.Round( simpleList2.Weight[index22] /  num36);
           }
         }
         self.OptionsList6Obj = ListClass::new();
@@ -801,7 +801,7 @@ namespace WindowsApplication1
           self.OptionsList6Obj.add("AVERAGE UNIT", 0);
           self.OptionsList6Obj.add(self.game.Data.StringListObj[stringListById2].GetData(0, self.detailnr, 1), 0);
         }
-        if (self.opt5 == 1 | index5 > -1 & !Information.IsNothing((object) Expression))
+        if (self.opt5 == 1 | index5 > -1 & !Information.IsNothing( Expression))
         {
           self.OptionsList6Obj.add("", 0);
           self.OptionsList6Obj.add("TYPE", 0, "TOE", "CUR", "MISS");
@@ -827,7 +827,7 @@ namespace WindowsApplication1
                 num39 = 0;
                 str = tdata1.ToString();
               }
-              if (Information.IsNothing((object) str))
+              if (Information.IsNothing( str))
                 str = "0";
               self.OptionsList6Obj.add(self.game.Data.ReinfName[index23], 0, tdata1.ToString(), num39.ToString(), str);
             }
@@ -843,7 +843,7 @@ namespace WindowsApplication1
           ListClass optionsList6Obj = self.OptionsList6Obj;
           let mut twidth: i32 = 200 + Math.Max(0, self.w - num2 - 1060);
           let mut game: GameClass = self.game;
-          let mut tValueWidth: i32 = 100 + Math.Max(0,  Math.Round((double) (self.w - num2 - 1060) / 3.0));
+          let mut tValueWidth: i32 = 100 + Math.Max(0,  Math.Round( (self.w - num2 - 1060) / 3.0));
            Bitmap local1 =  self.OwnBitmap;
           let mut bbx: i32 = 660 + num2;
           Font font =  null;
@@ -957,7 +957,7 @@ namespace WindowsApplication1
                       num41 += self.game.Data.UnitObj[self.UL.Id[tdata2]].LogData3[index24];
                   }
                   if (tdata1 > 0)
-                    tdata1 =  Math.Round((double) (100 * num41) / (double) tdata1);
+                    tdata1 =  Math.Round( (100 * num41) /  tdata1);
                   else if (tdata1 == 0 & num41 == 0)
                     tdata1 = 100;
                   DrawMod.DrawTextColouredMarcCenter( g, "sup=" + tdata1.ToString(), self.game.MarcFont5, self.Ox[tdata2] + 18, self.Oy[tdata2] + 40, Color.White);
@@ -991,7 +991,7 @@ namespace WindowsApplication1
             if (self.game.Data.UnitObj[index26].Historical > -1 && self.game.Data.UnitObj[index26].IsHQ)
             {
               tdata1 = self.game.Data.UnitObj[index26].Historical;
-              if (!Information.IsNothing((object) self.game.Data.HistoricalUnitObj[tdata1].CommanderName) && self.game.Data.HistoricalUnitObj[tdata1].CommanderName.Length > 1)
+              if (!Information.IsNothing( self.game.Data.HistoricalUnitObj[tdata1].CommanderName) && self.game.Data.HistoricalUnitObj[tdata1].CommanderName.Length > 1)
                 str = str + "\r\n" + self.game.Data.HistoricalUnitObj[tdata1].CommanderName;
             }
             ttext: String = str + "\r\n(click to select, double click for selecting HQ)";
@@ -1071,23 +1071,23 @@ namespace WindowsApplication1
                   if (self.game.EditObj.GuiDown)
                     num -= 222;
                   if (self.game.EditObj.Zoom == 1)
-                    num =  Math.Round((double) num / 128.0);
+                    num =  Math.Round( num / 128.0);
                   if (self.game.EditObj.Zoom == 0)
-                    num =  Math.Round((double) num / 64.0);
+                    num =  Math.Round( num / 64.0);
                   if (self.game.EditObj.Zoom == -1)
-                    num =  Math.Round((double) num / 32.0);
-                  self.game.CornerY -=  Math.Round((double) num / 2.0) - 1;
+                    num =  Math.Round( num / 32.0);
+                  self.game.CornerY -=  Math.Round( num / 2.0) - 1;
                   if (self.game.CornerY > self.game.Data.MapObj[0].MapHeight - num)
                     self.game.CornerY = self.game.Data.MapObj[0].MapHeight - num;
                   if (self.game.CornerY < 0)
                     self.game.CornerY = 0;
-                  if ((double) self.game.Data.RuleVar[701] > 0.0)
+                  if ( self.game.Data.RuleVar[701] > 0.0)
                   {
                     ScreenClass screeny = self.formref.Screeny;
                     Type type = typeof (MapWindowClass2);
                      Type local =  type;
                     MapWindowClass2 window = (MapWindowClass2) screeny.GetWindow( local);
-                    if (!Information.IsNothing((object) window))
+                    if (!Information.IsNothing( window))
                     {
                       windowReturnClass2: WindowReturnClass = (WindowReturnClass) window.UdsClickUnit(self.game.Data.UnitObj[self.game.EditObj.UnitSelected].X, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Y, self.game.Data.UnitObj[self.game.EditObj.UnitSelected].Map, true);
                       self.game.EditObj.TempCoordList = CoordList::new();
@@ -1398,8 +1398,8 @@ namespace WindowsApplication1
       let mut num3: i32 = self.h - 60;
       self.RowOffset = 0;
       if (num3 > 400)
-        self.RowOffset =  Math.Round((double)  Math.Round((double) (num3 - 400) * 0.3) / 2.0);
-      self.RowHeight =  Math.Round(Conversion.Int((double) (self.h - (100 + self.RowOffset * 2)) / (double) self.MaxLayer));
+        self.RowOffset =  Math.Round(  Math.Round( (num3 - 400) * 0.3) / 2.0);
+      self.RowHeight =  Math.Round(Conversion.Int( (self.h - (100 + self.RowOffset * 2)) /  self.MaxLayer));
       if (self.RowHeight > 150)
         self.RowHeight = 150;
       self.RowOffset += 20;

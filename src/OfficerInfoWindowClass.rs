@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Text;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Text;
 
 namespace WindowsApplication1
 {
@@ -56,27 +56,27 @@ namespace WindowsApplication1
       {
         SizeF sizeF1 = SizeF::new();
         SizeF sizeF2 = objgraphics.MeasureString(this.game.Data.HistoricalUnitObj[this.His].CommanderName, Font::new("Arial", 48f, FontStyle.Regular, GraphicsUnit.Pixel));
-        DrawMod.DrawTextColouredNicely( objgraphics, this.game.Data.HistoricalUnitObj[this.His].CommanderName, Font::new("Arial", 48f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(405.0 - (double) sizeF2.Width / 2.0 + 2.0), 62, Color.Black);
-        DrawMod.DrawTextColouredNicely( objgraphics, this.game.Data.HistoricalUnitObj[this.His].CommanderName, Font::new("Arial", 48f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(405.0 - (double) sizeF2.Width / 2.0), 60, Color.White);
+        DrawMod.DrawTextColouredNicely( objgraphics, this.game.Data.HistoricalUnitObj[this.His].CommanderName, Font::new("Arial", 48f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(405.0 -  sizeF2.Width / 2.0 + 2.0), 62, Color.Black);
+        DrawMod.DrawTextColouredNicely( objgraphics, this.game.Data.HistoricalUnitObj[this.His].CommanderName, Font::new("Arial", 48f, FontStyle.Regular, GraphicsUnit.Pixel),  Math.Round(405.0 -  sizeF2.Width / 2.0), 60, Color.White);
         let mut width: i32 =  BitmapStore.GetWidth(commanderSpriteId);
         let mut height: i32 =  BitmapStore.Getheight(commanderSpriteId);
         if (width > 320)
         {
-          height =  Math.Round((double) height * (320.0 / (double) width));
-          width =  Math.Round((double) width * (320.0 / (double) width));
+          height =  Math.Round( height * (320.0 /  width));
+          width =  Math.Round( width * (320.0 /  width));
         }
-        Rectangle rectangle = Rectangle::new( Math.Round(405.0 - (double) width / 2.0), 130, width, height);
+        Rectangle rectangle = Rectangle::new( Math.Round(405.0 -  width / 2.0), 130, width, height);
         DrawMod.DrawOfficer(objgraphics, this.His, rectangle.X, rectangle.Y, BitmapStore.GetWidth(commanderSpriteId), BitmapStore.Getheight(commanderSpriteId));
         num = height + 100 + 20 + 30;
       }
       else
         num = 60;
-      let mut trows: i32 =   Math.Round(Conversion.Int(65.0 / 3.0) - (double) num / 24.0);
+      let mut trows: i32 =   Math.Round(Conversion.Int(65.0 / 3.0) -  num / 24.0);
       let mut tsubpart1: SubPartClass =  new TextAreaClass(this.game, 650, trows, this.game.GameFont1, "", false, this.game.Data.HistoricalUnitObj[this.His].Descript, Color.White, tItemSize: 20, tbackbitmap: ( this.OwnBitmap), bbx: 75, bby: num, tcenterit: true);
       this.TAid = this.AddSubPart( tsubpart1, 75, num, 650, 20 * (trows + 3), 0);
       let mut tsubpart2: SubPartClass =  new TextButtonPartClass("OK", 200, tBackbitmap: ( this.OwnBitmap), bbx: 300, bby: 540);
       this.cancelid = this.AddSubPart( tsubpart2, 300, 540, 200, 35, 1);
-      if (Information.IsNothing((object) objgraphics))
+      if (Information.IsNothing( objgraphics))
         return;
       objgraphics.Dispose();
       objgraphics = (Graphics) null;

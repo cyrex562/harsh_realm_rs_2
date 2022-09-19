@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -21,7 +21,7 @@ namespace WindowsApplication1
     pub HistoryScreenClass( GameClass tGame)
       : base( tGame, tGame.BACKGROUND1MARC)
     {
-      let mut num: i32 =   Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+      let mut num: i32 =   Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
       this.offsetx = 0;
       this.wtop = this.AddWindow((WindowClass) new HistoryWindowClass( tGame, this.OwnBackground, this.offsetx, this.Game.ScreenHeight - 250), this.offsetx, this.Game.ScreenHeight - 250, this.Game.ScreenWidth, 250);
       this.wup = this.AddWindow((WindowClass) new InfoWindowClass( tGame), 0, this.Game.ScreenHeight - 270, this.Game.ScreenWidth, 20);
@@ -113,7 +113,7 @@ namespace WindowsApplication1
       ScreenReturnClass screenReturnClass = ScreenReturnClass::new();
       if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
         this.Game.FormRef.WindowState = FormWindowState.Minimized;
-      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         if (this.Game.AIRunning | this.Game.AIThreadRunning)
           this.Game.AIThread.Abort();

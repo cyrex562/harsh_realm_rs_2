@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -56,15 +56,15 @@ namespace WindowsApplication1
         this.Game.HandyFunctionsObj.RedimTempAttack(false);
       }
       this.Game.HandyFunctionsObj.RedimTempValue3(9999);
-      if ((double) this.Game.Data.RuleVar[701] > 0.0)
+      if ( this.Game.Data.RuleVar[701] > 0.0)
         this.Game.HandyFunctionsObj.RedimTempValue4(9999);
-      this.OffSetX =  Math.Round((double) (this.Game.ScreenWidth - 1024) / 2.0);
+      this.OffSetX =  Math.Round( (this.Game.ScreenWidth - 1024) / 2.0);
       this.Game.HandyFunctionsObj.SetGameColors();
       Rectangle rectangle1;
       Rectangle rectangle2;
       if (this.Game.EditObj.GuiDown)
       {
-        if ((double) this.Game.Data.RuleVar[408] > 0.0)
+        if ( this.Game.Data.RuleVar[408] > 0.0)
         {
           if (this.Game.EditObj.RightDown)
           {
@@ -165,7 +165,7 @@ namespace WindowsApplication1
             this.wRight = this.AddWindow((WindowClass) new RightSideBar( local25, theight,  local26,  local27), this.Game.ScreenWidth - this.rightSideBarWidth, 75, this.rightSideBarWidth, this.Game.ScreenHeight - 165);
           }
         }
-        if ((double) this.Game.Data.RuleVar[408] > 0.0)
+        if ( this.Game.Data.RuleVar[408] > 0.0)
         {
            let mut local28: GameClass =  tgame;
            WindowClass local29 =  this.WindowList[this.GetNr(this.WMap)];
@@ -187,7 +187,7 @@ namespace WindowsApplication1
       }
       else
       {
-        if ((double) this.Game.Data.RuleVar[408] > 0.0)
+        if ( this.Game.Data.RuleVar[408] > 0.0)
         {
           MapWindowClass2 tmpWindow = new MapWindowClass2( tgame, this.playExtraHeight, 0);
           let mut screenWidth: i32 =  this.Game.ScreenWidth;
@@ -263,7 +263,7 @@ namespace WindowsApplication1
             this.wRight = this.AddWindow((WindowClass) new RightSideBar( local52, theight,  local53,  local54), this.Game.ScreenWidth - this.rightSideBarWidth, 75, this.rightSideBarWidth, this.Game.ScreenHeight - (165 + this.playExtraHeight));
           }
         }
-        if ((double) this.Game.Data.RuleVar[408] > 0.0)
+        if ( this.Game.Data.RuleVar[408] > 0.0)
         {
            let mut local55: GameClass =  tgame;
            WindowClass local56 =  this.WindowList[this.GetNr(this.WMap)];
@@ -784,13 +784,13 @@ namespace WindowsApplication1
       {
         if (x > this.Game.ScreenWidth - 52 & x < this.Game.ScreenWidth - 28 & y < 25)
           this.Game.FormRef.WindowState = FormWindowState.Minimized;
-        if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox((object) "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+        if (x > this.Game.ScreenWidth - 28 & x < this.Game.ScreenWidth - 4 & y < 25 && Interaction.MsgBox( "Are you sure you want to exit your current game?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         {
           this.Game.Data = DataClass::new();
           this.Game.EditObj = new EditClass(this.Game.AppPath + "editobj.txt");
           if (this.Game.Data.UseAI == 1)
           {
-            if (Information.IsNothing((object) this.Game.NewAIObj))
+            if (Information.IsNothing( this.Game.NewAIObj))
               this.Game.NewAIObj = new NewAIClass(this.Game);
             this.Game.NewAIObj.LastRegime = -1;
           }
@@ -883,7 +883,7 @@ namespace WindowsApplication1
       {
         for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
         {
-          if (x > this.WindowX[windowCounter] & x < this.WindowX[windowCounter] + this.WindowW[windowCounter] & !this.WindowInputBlock[windowCounter] && y > this.WindowY[windowCounter] & y < this.WindowY[windowCounter] + this.WindowH[windowCounter] && !Information.IsNothing((object) this.WindowList[windowCounter]))
+          if (x > this.WindowX[windowCounter] & x < this.WindowX[windowCounter] + this.WindowW[windowCounter] & !this.WindowInputBlock[windowCounter] && y > this.WindowY[windowCounter] & y < this.WindowY[windowCounter] + this.WindowH[windowCounter] && !Information.IsNothing( this.WindowList[windowCounter]))
           {
             wr: WindowReturnClass = this.WindowList[windowCounter].HandleMouseUp(x - this.WindowX[windowCounter], y - this.WindowY[windowCounter], b);
             this.WindowFlag[windowCounter] = wr.Flag;
@@ -940,14 +940,14 @@ namespace WindowsApplication1
       let mut num1: i32 =  -1;
       for (let mut windowCounter: i32 =  this.WindowCounter; windowCounter >= 0; windowCounter += -1)
       {
-        if (!Information.IsNothing((object) this.WindowList[windowCounter]))
+        if (!Information.IsNothing( this.WindowList[windowCounter]))
         {
           this.WindowList[windowCounter].MouseInThisWindow = false;
           if (x >= this.WindowX[windowCounter] & x < this.WindowX[windowCounter] + this.WindowW[windowCounter] && y >= this.WindowY[windowCounter] & y < this.WindowY[windowCounter] + this.WindowH[windowCounter])
           {
             if (num1 == -1)
               num1 = windowCounter;
-            if (num1 > -1 && !Information.IsNothing((object) this.WindowList[windowCounter].LowerWindow))
+            if (num1 > -1 && !Information.IsNothing( this.WindowList[windowCounter].LowerWindow))
               num1 = windowCounter;
           }
         }
@@ -1000,7 +1000,7 @@ namespace WindowsApplication1
         }
       }
       int num2;
-      if (Information.IsNothing((object) windowReturnClass))
+      if (Information.IsNothing( windowReturnClass))
         num2 = 1;
       else if (!windowReturnClass.NoMouseClickBelow)
         num2 = 1;

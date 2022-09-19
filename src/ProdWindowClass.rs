@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -259,7 +259,7 @@ namespace WindowsApplication1
           }
           DrawMod.DrawRectangle( Expression, 6, 6 + prodslot * 44, 40, 31,  this.game.VicColor3.R,  this.game.VicColor3.G,  this.game.VicColor3.B,  this.game.VicColor3.A);
         }
-        txt: String = this.game.Data.LocObj[this.LocNr].Production[prodslot] <= -1 ? "Empty Prod Slot" : Conversion.Str((object) Conversions.ToInteger(Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[this.LocNr].TempProdPredict[prodslot])))) + "x " + this.game.Data.ItemTypeObj[this.game.Data.LocObj[this.LocNr].Production[prodslot]].Name;
+        txt: String = this.game.Data.LocObj[this.LocNr].Production[prodslot] <= -1 ? "Empty Prod Slot" : Conversion.Str( Conversions.ToInteger(Strings.Trim(Conversion.Str( this.game.Data.LocObj[this.LocNr].TempProdPredict[prodslot])))) + "x " + this.game.Data.ItemTypeObj[this.game.Data.LocObj[this.LocNr].Production[prodslot]].Name;
         if (this.slotty == prodslot)
         {
           int[] slotText1 = this.SlotText1;
@@ -278,22 +278,22 @@ namespace WindowsApplication1
         }
         if (this.game.Data.LocObj[this.LocNr].Production[prodslot] > -1)
         {
-          float estimatedProduction1 = (float) this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, this.LocNr, false, false, true);
+          float estimatedProduction1 =  this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, this.LocNr, false, false, true);
           int[] slotText2 = this.SlotText2;
           let mut index14: i32 = prodslot;
-          tsubpart =  new ATTextPartClass("prd: " + Strings.Trim(Conversion.Str((object) estimatedProduction1)), this.game.VicFont4, 50, 20, false);
+          tsubpart =  new ATTextPartClass("prd: " + Strings.Trim(Conversion.Str( estimatedProduction1)), this.game.VicFont4, 50, 20, false);
           let mut num1: i32 = this.AddSubPart( tsubpart, 53, 0 + prodslot * 44 + 20, 45, 20, 0);
           slotText2[index14] = num1;
-          float single = Conversions.ToSingle(Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[this.LocNr].TempProdPredict[prodslot])));
+          float single = Conversions.ToSingle(Strings.Trim(Conversion.Str( this.game.Data.LocObj[this.LocNr].TempProdPredict[prodslot])));
           int[] slotText4 = this.SlotText4;
           let mut index15: i32 = prodslot;
-          tsubpart =  new ATTextPartClass("real: " + Strings.Trim(Conversion.Str((object) single)), this.game.VicFont4, 50, 20, false);
+          tsubpart =  new ATTextPartClass("real: " + Strings.Trim(Conversion.Str( single)), this.game.VicFont4, 50, 20, false);
           let mut num2: i32 = this.AddSubPart( tsubpart, 53, 12 + prodslot * 44 + 20, 45, 20, 0);
           slotText4[index15] = num2;
-          float estimatedProduction2 = (float) this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, this.LocNr, false, true, true);
+          float estimatedProduction2 =  this.game.HandyFunctionsObj.GetEstimatedProduction(prodslot, this.LocNr, false, true, true);
           int[] slotText3 = this.SlotText3;
           let mut index16: i32 = prodslot;
-          tsubpart =  new ATTextPartClass("lft: " + Strings.Trim(Conversion.Str((object) estimatedProduction2)), this.game.VicFont4, 50, 20, false);
+          tsubpart =  new ATTextPartClass("lft: " + Strings.Trim(Conversion.Str( estimatedProduction2)), this.game.VicFont4, 50, 20, false);
           let mut num3: i32 = this.AddSubPart( tsubpart, 100, 0 + prodslot * 44 + 20, 50, 20, 0);
           slotText3[index16] = num3;
         }
@@ -408,24 +408,24 @@ namespace WindowsApplication1
                 if (this.detailnr == index26)
                   num6 = num7;
                 str1: String = "";
-                if (this.game.Data.ItemTypeObj[index26].IsSupply & (double) this.game.Data.SupplyMultiplier != 1.0)
-                  str1 = Strings.Trim(Conversion.Str((object) this.game.Data.SupplyMultiplier)) + "x ";
-                if (this.game.Data.ItemTypeObj[index26].IsResPt & (double) this.game.Data.PPMultiplier != 1.0)
-                  str1 = Strings.Trim(Conversion.Str((object) this.game.Data.PPMultiplier)) + "x ";
+                if (this.game.Data.ItemTypeObj[index26].IsSupply &  this.game.Data.SupplyMultiplier != 1.0)
+                  str1 = Strings.Trim(Conversion.Str( this.game.Data.SupplyMultiplier)) + "x ";
+                if (this.game.Data.ItemTypeObj[index26].IsResPt &  this.game.Data.PPMultiplier != 1.0)
+                  str1 = Strings.Trim(Conversion.Str( this.game.Data.PPMultiplier)) + "x ";
                 str2: String = str1 + this.game.Data.ItemTypeObj[index26].Name;
                 if (Strings.Len(str2) > 25)
                   str2 = Strings.Left(str2, 25);
                 tname: String = str2;
                 let mut Number: i32 = this.game.Data.ItemTypeObj[index26].ProdWeight;
-                if (this.game.Data.ItemTypeObj[index26].UseProdMod <= 1 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
-                  Number =  Math.Round((double) Conversion.Int((float) Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
-                if (this.game.Data.ItemTypeObj[index26].UseProdMod == 2 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod2[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
-                  Number =  Math.Round((double) Conversion.Int((float) Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod2[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
-                if (this.game.Data.ItemTypeObj[index26].UseProdMod == 3 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod3[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
-                  Number =  Math.Round((double) Conversion.Int((float) Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod3[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
-                if (this.game.Data.ItemTypeObj[index26].UseProdMod == 4 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod4[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
-                  Number =  Math.Round((double) Conversion.Int((float) Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod4[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
-                this.OptionsListObj.add(tname, index26, Strings.Trim(Conversion.Str((object) Number)));
+                if (this.game.Data.ItemTypeObj[index26].UseProdMod <= 1 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
+                  Number =  Math.Round( Conversion.Int( Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
+                if (this.game.Data.ItemTypeObj[index26].UseProdMod == 2 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod2[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
+                  Number =  Math.Round( Conversion.Int( Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod2[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
+                if (this.game.Data.ItemTypeObj[index26].UseProdMod == 3 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod3[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
+                  Number =  Math.Round( Conversion.Int( Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod3[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
+                if (this.game.Data.ItemTypeObj[index26].UseProdMod == 4 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod4[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup] != 0.0)
+                  Number =  Math.Round( Conversion.Int( Number / this.game.Data.PeopleObj[this.game.Data.LocObj[this.LocNr].People].ProdMod4[this.game.Data.PeopleObj[this.game.Data.RegimeObj[this.game.Data.MapObj[this.game.Data.LocObj[this.LocNr].Map].HexObj[this.game.Data.LocObj[this.LocNr].X, this.game.Data.LocObj[this.LocNr].Y].Regime].People].PeopleGroup]));
+                this.OptionsListObj.add(tname, index26, Strings.Trim(Conversion.Str( Number)));
               }
             }
           }
@@ -624,21 +624,21 @@ namespace WindowsApplication1
             y1 = 5;
             width1 = 135;
             height = 100;
-            if ((double) this.game.Data.RuleVar[869] >= 1.0 & num8 == 0)
+            if ( this.game.Data.RuleVar[869] >= 1.0 & num8 == 0)
             {
-              index33 =  Math.Round((double) this.game.Data.RuleVar[873]);
+              index33 =  Math.Round( this.game.Data.RuleVar[873]);
               index34 = 0;
-              if ((double) this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[index28].Theater == 2)
+              if ( this.game.Data.RuleVar[848] > 0.0 & this.game.Data.SFTypeObj[index28].Theater == 2)
               {
-                index33 =  Math.Round((double) this.game.Data.RuleVar[848]);
+                index33 =  Math.Round( this.game.Data.RuleVar[848]);
                 index34 = 0;
               }
-              if ((double) this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[index28].Theater == 1)
+              if ( this.game.Data.RuleVar[872] > 0.0 & this.game.Data.SFTypeObj[index28].Theater == 1)
               {
-                index33 =  Math.Round((double) this.game.Data.RuleVar[872]);
+                index33 =  Math.Round( this.game.Data.RuleVar[872]);
                 index34 = 0;
               }
-              if ((double) this.game.Data.RuleVar[869] == 3.0)
+              if ( this.game.Data.RuleVar[869] == 3.0)
               {
                 let mut nr3: i32 = this.game.Data.LandscapeTypeObj[index33].BasicPicID[index34];
                  let mut local6: &Graphics = &Expression;
@@ -652,7 +652,7 @@ namespace WindowsApplication1
               }
               else
               {
-                if ((double) this.game.Data.RuleVar[869] == 1.0)
+                if ( this.game.Data.RuleVar[869] == 1.0)
                 {
                   let mut nr4: i32 = this.game.Data.LandscapeTypeObj[index33].SidewaysSPriteID1[index34];
                    let mut local8: &Graphics = &Expression;
@@ -697,10 +697,10 @@ namespace WindowsApplication1
                 let mut h2: i32 = height;
                 let mut width2: i32 = BitmapStore.GetWidth(nr1);
                 let mut origh1: i32 = BitmapStore.Getheight(nr1);
-                double r1 = (double) ((float) red / 256f);
-                double g1 = (double) ((float) green / 256f);
-                double b1 = (double) ((float) blue / 256f);
-                DrawMod.DrawScaledColorized2( local14,  local15, x3, y3, w2, h2, width2, origh1, (float) r1, (float) g1, (float) b1, 1f);
+                double r1 =  ( red / 256f);
+                double g1 =  ( green / 256f);
+                double b1 =  ( blue / 256f);
+                DrawMod.DrawScaledColorized2( local14,  local15, x3, y3, w2, h2, width2, origh1,  r1,  g1,  b1, 1f);
                 break;
               case 2:
                 let mut red2: i32 = this.game.Data.RegimeObj[index35].Red2;
@@ -715,10 +715,10 @@ namespace WindowsApplication1
                 let mut h3: i32 = height;
                 let mut width3: i32 = BitmapStore.GetWidth(nr1);
                 let mut origh2: i32 = BitmapStore.Getheight(nr1);
-                double r2 = (double) ((float) red2 / 256f);
-                double g2 = (double) ((float) green2 / 256f);
-                double b2 = (double) ((float) blue2 / 256f);
-                DrawMod.DrawScaledColorized2( local16,  local17, x4, y4, w3, h3, width3, origh2, (float) r2, (float) g2, (float) b2, 1f);
+                double r2 =  ( red2 / 256f);
+                double g2 =  ( green2 / 256f);
+                double b2 =  ( blue2 / 256f);
+                DrawMod.DrawScaledColorized2( local16,  local17, x4, y4, w3, h3, width3, origh2,  r2,  g2,  b2, 1f);
                 break;
               case 3:
                 let mut red3: i32 = this.game.Data.RegimeObj[index35].Red3;
@@ -733,10 +733,10 @@ namespace WindowsApplication1
                 let mut h4: i32 = height;
                 let mut width4: i32 = BitmapStore.GetWidth(nr1);
                 let mut origh3: i32 = BitmapStore.Getheight(nr1);
-                double r3 = (double) ((float) red3 / 256f);
-                double g3 = (double) ((float) green3 / 256f);
-                double b3 = (double) ((float) blue3 / 256f);
-                DrawMod.DrawScaledColorized2( local18,  local19, x5, y5, w4, h4, width4, origh3, (float) r3, (float) g3, (float) b3, 1f);
+                double r3 =  ( red3 / 256f);
+                double g3 =  ( green3 / 256f);
+                double b3 =  ( blue3 / 256f);
+                DrawMod.DrawScaledColorized2( local18,  local19, x5, y5, w4, h4, width4, origh3,  r3,  g3,  b3, 1f);
                 break;
               case 4:
                 let mut red4: i32 = this.game.Data.RegimeObj[index35].Red4;
@@ -751,10 +751,10 @@ namespace WindowsApplication1
                 let mut h5: i32 = height;
                 let mut width5: i32 = BitmapStore.GetWidth(nr1);
                 let mut origh4: i32 = BitmapStore.Getheight(nr1);
-                double r4 = (double) ((float) red4 / 256f);
-                double g4 = (double) ((float) green4 / 256f);
-                double b4 = (double) ((float) blue4 / 256f);
-                DrawMod.DrawScaledColorized2( local20,  local21, x6, y6, w5, h5, width5, origh4, (float) r4, (float) g4, (float) b4, 1f);
+                double r4 =  ( red4 / 256f);
+                double g4 =  ( green4 / 256f);
+                double b4 =  ( blue4 / 256f);
+                DrawMod.DrawScaledColorized2( local20,  local21, x6, y6, w5, h5, width5, origh4,  r4,  g4,  b4, 1f);
                 break;
               case 5:
                  let mut local22: &Graphics = &Expression;
@@ -766,10 +766,10 @@ namespace WindowsApplication1
                 let mut h6: i32 = height;
                 let mut width6: i32 = BitmapStore.GetWidth(nr1);
                 let mut origh5: i32 = BitmapStore.Getheight(nr1);
-                double r5 = (double) ((float) (red + 392) / 1024f);
-                double g5 = (double) ((float) (green + 392) / 1024f);
-                double b5 = (double) ((float) (blue + 392) / 1024f);
-                DrawMod.DrawScaledColorized2( local22,  local23, x7, y7, w6, h6, width6, origh5, (float) r5, (float) g5, (float) b5, 1f);
+                double r5 =  ( (red + 392) / 1024f);
+                double g5 =  ( (green + 392) / 1024f);
+                double b5 =  ( (blue + 392) / 1024f);
+                DrawMod.DrawScaledColorized2( local22,  local23, x7, y7, w6, h6, width6, origh5,  r5,  g5,  b5, 1f);
                 break;
               case 6:
                  let mut local24: &Graphics = &Expression;
@@ -781,14 +781,14 @@ namespace WindowsApplication1
                 let mut h7: i32 = height;
                 let mut width7: i32 = BitmapStore.GetWidth(nr1);
                 let mut origh6: i32 = BitmapStore.Getheight(nr1);
-                double r6 = (double) ((float) (red + 80) / 512f);
-                double g6 = (double) ((float) (green + 200) / 512f);
-                double b6 = (double) ((float) (blue + 80) / 512f);
-                DrawMod.DrawScaledColorized2( local24,  local25, x8, y8, w7, h7, width7, origh6, (float) r6, (float) g6, (float) b6, 1f);
+                double r6 =  ( (red + 80) / 512f);
+                double g6 =  ( (green + 200) / 512f);
+                double b6 =  ( (blue + 80) / 512f);
+                DrawMod.DrawScaledColorized2( local24,  local25, x8, y8, w7, h7, width7, origh6,  r6,  g6,  b6, 1f);
                 break;
             }
           }
-          if (nr2 > -1 && (double) this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing((object) BitmapStore.GetBitmap(nr2)))
+          if (nr2 > -1 &&  this.game.Data.RuleVar[870] > 0.0 & !Information.IsNothing( BitmapStore.GetBitmap(nr2)))
           {
              let mut local26: &Graphics = &Expression;
             bitmap = BitmapStore.GetBitmap(nr2);
@@ -799,7 +799,7 @@ namespace WindowsApplication1
             let mut h: i32 = height;
             DrawMod.DrawScaled( local26,  local27, x9, y9, w, h);
           }
-          if ((double) this.game.Data.RuleVar[869] >= 1.0 & (double) this.game.Data.RuleVar[869] < 3.0)
+          if ( this.game.Data.RuleVar[869] >= 1.0 &  this.game.Data.RuleVar[869] < 3.0)
           {
             let mut nr6: i32 = this.game.Data.LandscapeTypeObj[index33].SidewaysSPriteID3[index34];
              let mut local28: &Graphics = &Expression;
@@ -818,7 +818,7 @@ namespace WindowsApplication1
             if (this.game.Data.ItemTypeObj[this.detailnr].RegimeSlotsCost[index36] > -1)
             {
               num9 += 1;
-              tstring: String = Strings.Trim(Conversion.Str((object) this.game.Data.ItemTypeObj[this.detailnr].RegimeSlotsCostQty[index36])) + "x " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.detailnr].RegimeSlotsCost[index36]];
+              tstring: String = Strings.Trim(Conversion.Str( this.game.Data.ItemTypeObj[this.detailnr].RegimeSlotsCostQty[index36])) + "x " + this.game.Data.RegimeSlotName[this.game.Data.ItemTypeObj[this.detailnr].RegimeSlotsCost[index36]];
               let mut num10: i32 = 90 - num9 * 15;
               DrawMod.DrawBlock( Expression, 815, num10, 135, 15, 0, 0, 0, 125);
               DrawMod.DrawTextVic2( Expression, tstring, this.game.VicFont2, 820, num10, this.game.VicColor2, this.game.VicColor2Shade);
@@ -848,7 +848,7 @@ namespace WindowsApplication1
           }
         }
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
       Expression = (Graphics) null;
@@ -870,7 +870,7 @@ label_60:
             {
               if (this.detailnr > -1)
               {
-                if (this.game.Data.LocObj[this.LocNr].ProdPointRemainder[this.slotty] > 0 && Interaction.MsgBox((object) "Are you sure you want to change production? You will lose left over production currently stored.", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+                if (this.game.Data.LocObj[this.LocNr].ProdPointRemainder[this.slotty] > 0 && Interaction.MsgBox( "Are you sure you want to change production? You will lose left over production currently stored.", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
                   return windowReturnClass;
                 this.game.Data.LocObj[this.LocNr].Production[this.slotty] = this.detailnr;
                 this.game.Data.LocObj[this.LocNr].ProdPointRemainder[this.slotty] = 0;
@@ -989,7 +989,7 @@ label_36:
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
               }
-              if (num4 == this.PercentX[index2] && Interaction.MsgBox((object) "Are you sure to delete this slot? You'll lose all remaining production stored in this slot.", MsgBoxStyle.YesNo, (object) "Check") == MsgBoxResult.Yes)
+              if (num4 == this.PercentX[index2] && Interaction.MsgBox( "Are you sure to delete this slot? You'll lose all remaining production stored in this slot.", MsgBoxStyle.YesNo,  "Check") == MsgBoxResult.Yes)
               {
                 this.game.Data.LocObj[this.LocNr].ProdPercent[index2] = 0;
                 this.game.Data.LocObj[this.LocNr].Production[index2] = -1;
@@ -1041,7 +1041,7 @@ label_36:
         }
         if (x < 330 && y < 176)
         {
-          this.slotty =  Math.Round(Conversion.Int((double) y / 44.0));
+          this.slotty =  Math.Round(Conversion.Int( y / 44.0));
           if (this.slotty > 3)
             this.slotty = 3;
           if (this.game.Data.LocObj[this.LocNr].Production[this.slotty] > -1)

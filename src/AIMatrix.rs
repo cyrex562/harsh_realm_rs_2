@@ -4,8 +4,8 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using System;
+// usingMicrosoft.VisualBasic;
+// usingSystem;
 
 namespace WindowsApplication1
 {
@@ -534,7 +534,7 @@ namespace WindowsApplication1
           let mut index4: i32 =  index3;
           let mut index5: i32 =  index2;
           let mut index6: i32 =  index5;
-          let mut num: i32 =  numArray1[index3, index5] - (int) Math.Round((double) (this.Value[index1, index2] * Math.Min(maxPercentRemove, mult.Value[index1, index2])) / 100.0);
+          let mut num: i32 =  numArray1[index3, index5] - (int) Math.Round( (this.Value[index1, index2] * Math.Min(maxPercentRemove, mult.Value[index1, index2])) / 100.0);
           numArray2[index4, index6] = num;
         }
       }
@@ -554,7 +554,7 @@ namespace WindowsApplication1
           let mut index4: i32 =  index3;
           let mut index5: i32 =  index2;
           let mut index6: i32 =  index5;
-          let mut num: i32 =  numArray1[index3, index5] + (int) Math.Round((double) (this.Value[index1, index2] * (mult.Value[index1, index2] + mult2.Value[index1, index2])) / 100.0);
+          let mut num: i32 =  numArray1[index3, index5] + (int) Math.Round( (this.Value[index1, index2] * (mult.Value[index1, index2] + mult2.Value[index1, index2])) / 100.0);
           numArray2[index4, index6] = num;
         }
       }
@@ -629,7 +629,7 @@ namespace WindowsApplication1
       {
         let mut height: i32 =  this.Height;
         for (let mut index4: i32 =  0; index4 <= height; index4 += 1)
-          this.Value[index3, index4] = this.Value[index3, index4] <= 0 ? 0 : (int) Math.Round((double) (100 * this.Value[index3, index4]) / (double) num);
+          this.Value[index3, index4] = this.Value[index3, index4] <= 0 ? 0 : (int) Math.Round( (100 * this.Value[index3, index4]) /  num);
       }
     }
 
@@ -743,7 +743,7 @@ namespace WindowsApplication1
                   if (this.ai.game.Data.Product >= 6 && this.ai.game.Data.MapObj[0].HexObj[index3, index4].VP > 0)
                   {
                     let mut d: i32 =  this.ai.game.Data.MapObj[0].HexObj[index3, index4].VP + this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].AIVP[0].Value[index3, index4];
-                    tweight += (int) Math.Round(Math.Sqrt((double) d));
+                    tweight += (int) Math.Round(Math.Sqrt( d));
                   }
                 }
               }
@@ -752,7 +752,7 @@ namespace WindowsApplication1
           }
         }
       }
-      let mut num1: i32 =  (int) Math.Round((double) (this.ai.VAR_FRONTLINE_MAX_LENGTH * this.ai.VAR_FRONTLINE_DEPTH) / 2.0);
+      let mut num1: i32 =  (int) Math.Round( (this.ai.VAR_FRONTLINE_MAX_LENGTH * this.ai.VAR_FRONTLINE_DEPTH) / 2.0);
       let mut counter: i32 =  simpleList.Counter;
       for (let mut index5: i32 =  0; index5 <= counter; index5 += 1)
       {
@@ -1014,21 +1014,21 @@ namespace WindowsApplication1
                   if (this.ai.game.Data.Product >= 6 && this.ai.game.Data.MapObj[0].HexObj[cx, cy].VP > 0)
                   {
                     let mut d: i32 =  this.ai.game.Data.MapObj[0].HexObj[cx, cy].VP + this.ai.game.Data.RegimeObj[this.ai.game.Data.Turn].AIVP[0].Value[cx, cy];
-                    num12 += (int) Math.Round(Math.Sqrt((double) d));
+                    num12 += (int) Math.Round(Math.Sqrt( d));
                   }
                   tweight += num12;
                 }
               }
             }
             if (num9 > 0 & num10 > 0)
-              tweight = (int) Math.Round((double) tweight * 0.1 + (double) (int) Math.Round((double) tweight * 0.9 * (double) (num9 - num10) / (double) num9));
-            if ((double) num10 <= (double) num9 * 0.75)
+              tweight = (int) Math.Round( tweight * 0.1 +  (int) Math.Round( tweight * 0.9 *  (num9 - num10) /  num9));
+            if ( num10 <=  num9 * 0.75)
               tweight *= 3;
             simpleList5.Add(this.Value[index13, index14], tweight);
           }
         }
       }
-      let mut num13: i32 =  (int) Math.Round((double) (this.ai.VAR_FRONTLINE_MAX_LENGTH * this.ai.VAR_FRONTLINE_DEPTH) / 2.0);
+      let mut num13: i32 =  (int) Math.Round( (this.ai.VAR_FRONTLINE_MAX_LENGTH * this.ai.VAR_FRONTLINE_DEPTH) / 2.0);
       let mut counter4: i32 =  simpleList5.Counter;
       for (let mut index15: i32 =  0; index15 <= counter4; index15 += 1)
       {
@@ -1220,7 +1220,7 @@ namespace WindowsApplication1
             }
           }
         }
-        let mut num7: i32 =  num3 <= 0 ? 100 : (int) Math.Round((double) num4 / (double) num3);
+        let mut num7: i32 =  num3 <= 0 ? 100 : (int) Math.Round( num4 /  num3);
         if (simpleList1.Weight[index5] < frontlineMaxLength | num7 >= 200 && num1 >= 1 & num2 <= 0 && num5 > 50)
         {
           let mut num8: i32 =  0;
@@ -1285,7 +1285,7 @@ namespace WindowsApplication1
               {
                 if (num2 > 60)
                   num2 = num2;
-                let mut num8: i32 =  (int) Math.Round(((double) num2 + (double) num3 * 0.25) / (double) num3);
+                let mut num8: i32 =  (int) Math.Round(( num2 +  num3 * 0.25) /  num3);
                 if (num8 > num1)
                   num8 = num1;
                 aiMatrix.Value[index1, index2] = num8;
@@ -1347,7 +1347,7 @@ namespace WindowsApplication1
                 {
                   if (num2 > 1000)
                     num2 = num2;
-                  let mut num8: i32 =  (int) Math.Round((double) num2 / (double) dividy);
+                  let mut num8: i32 =  (int) Math.Round( num2 /  dividy);
                   if (num8 > num1)
                     num8 = num1;
                   if (num8 < this.Value[index1, index2])
@@ -1441,7 +1441,7 @@ namespace WindowsApplication1
               {
                 if (num3 > 1000)
                   num3 = num3;
-                let mut num9: i32 =  (int) Math.Round((double) num3 / (double) dividy);
+                let mut num9: i32 =  (int) Math.Round( num3 /  dividy);
                 if (num9 > num1)
                   num9 = num1;
                 if (num9 < this.Value[index1, index2])
@@ -1504,7 +1504,7 @@ namespace WindowsApplication1
             }
             if (num2 > 60 & this.Value[x1, y1] == 0)
               num2 = num2;
-            let mut num8: i32 =  (int) Math.Round(((double) num2 + (double) num3 * 0.25) / (double) num3);
+            let mut num8: i32 =  (int) Math.Round(( num2 +  num3 * 0.25) /  num3);
             if (num8 > num1)
               num8 = num1;
             aiMatrix.Value[x1, y1] = num8;
@@ -1567,7 +1567,7 @@ namespace WindowsApplication1
                 num5 += 1;
               }
               while (num5 <= 6);
-              let mut num7: i32 =  (int) Math.Round((double) num2 / (double) num3);
+              let mut num7: i32 =  (int) Math.Round( num2 /  num3);
               if (allowLowering)
                 aiMatrix1.Value[index2, index3] = num7;
               else if (num7 > aiMatrix1.Value[index2, index3])
@@ -2135,7 +2135,7 @@ label_16:
                     if (this.ai.game.Data.MapObj[0].HexObj[index1, index2].RiverType[index4] > -1)
                       num7 *= 2;
                     if (horizMoreExpansive & !(index4 == 0 | index4 == 5))
-                      num7 = (int) Math.Round((double) num7 * 1.33);
+                      num7 = (int) Math.Round( num7 * 1.33);
                     aiMatrix.Value[this.ai.TempHexNeighbour[index1, index2, index4].x, this.ai.TempHexNeighbour[index1, index2, index4].y] = num6 + num7;
                     this.Value[this.ai.TempHexNeighbour[index1, index2, index4].x, this.ai.TempHexNeighbour[index1, index2, index4].y] = this.Value[index1, index2];
                   }
@@ -2188,7 +2188,7 @@ label_25:
                 {
                   num1 += 1;
                   aiMatrix.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = num3 + 1;
-                  this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = (int) Math.Round((double) (this.Value[index1, index2] * percenta) / 100.0) + addVal;
+                  this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = (int) Math.Round( (this.Value[index1, index2] * percenta) / 100.0) + addVal;
                 }
                 index3 += 1;
               }
@@ -2227,7 +2227,7 @@ label_25:
                 {
                   num1 += 1;
                   aiMatrix.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = num2 + 1;
-                  this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = (int) Math.Round((double) ((float) this.Value[index1, index2] * moddyOfValue));
+                  this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = (int) Math.Round( ( this.Value[index1, index2] * moddyOfValue));
                 }
                 index3 += 1;
               }
@@ -2270,11 +2270,11 @@ label_25:
                   let mut index4: i32 =  this.ai.map.HexObj[index1 + this.Left, index2 + this.Top].RoadType[index3];
                   if (index4 > -1 && this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] == 0 | this.Value[index1, index2] > this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y])
                   {
-                    let mut num2: i32 =  this.ai.game.Data.RoadTypeObj[index4].MoveCostOverrule[(int) Math.Round((double) this.ai.game.Data.RuleVar[99])];
+                    let mut num2: i32 =  this.ai.game.Data.RoadTypeObj[index4].MoveCostOverrule[(int) Math.Round( this.ai.game.Data.RuleVar[99])];
                     float num3 = !(num2 <= 2 | val2 <= 5 | aiMatrix2.Value[index1, index2] + 6 > val2) ? (!(num2 <= 5 | val2 <= 9 | aiMatrix2.Value[index1, index2] + 9 > val2) ? (num2 > 10 ? moddyOfValue * 0.6f : moddyOfValue * 0.7f) : moddyOfValue * 0.8f) : (aiMatrix3.Value[index1, index2] > 1 ? moddyOfValue * 0.9f : moddyOfValue);
-                    if (DrawMod.TGame.Data.MapObj[0].HexObj[index1 + this.Left, index2 + this.Top].UnitCounter > -1 & !Information.IsNothing((object) enemyMoveLimit) && enemyMoveLimit.Value[index1, index2] > 0 & DrawMod.TGame.Data.MapObj[0].HexObj[index1 + this.Left, index2 + this.Top].Regime != DrawMod.TGame.Data.Turn)
-                      num3 -= (float) ((double) num3 * 0.150000005960464 * (double) enemyMoveLimit.Value[index1, index2] / 100.0);
-                    let mut num4: i32 =  Math.Max(this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y], (int) Math.Round((double) ((float) this.Value[index1, index2] * num3)));
+                    if (DrawMod.TGame.Data.MapObj[0].HexObj[index1 + this.Left, index2 + this.Top].UnitCounter > -1 & !Information.IsNothing( enemyMoveLimit) && enemyMoveLimit.Value[index1, index2] > 0 & DrawMod.TGame.Data.MapObj[0].HexObj[index1 + this.Left, index2 + this.Top].Regime != DrawMod.TGame.Data.Turn)
+                      num3 -=  ( num3 * 0.150000005960464 *  enemyMoveLimit.Value[index1, index2] / 100.0);
+                    let mut num4: i32 =  Math.Max(this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y], (int) Math.Round( ( this.Value[index1, index2] * num3)));
                     if (num4 > this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y])
                     {
                       num1 += 1;
@@ -2334,13 +2334,13 @@ label_25:
                   if (this.ai.map.HexObj[index1 + this.Left, index2 + this.Top].RoadType[index3] > -1)
                   {
                     num2 += 1;
-                    let mut num3: i32 =  (int) Math.Round((double) ((float) this.Value[index1, index2] * moddyOfValue));
+                    let mut num3: i32 =  (int) Math.Round( ( this.Value[index1, index2] * moddyOfValue));
                     if (supplyMatrix.Value[index1, index2] > 200 + this.ai.VAR_SUPPLY_25PERCENT_RANGE)
-                      num3 = (int) Math.Round((double) num3 * 0.5);
+                      num3 = (int) Math.Round( num3 * 0.5);
                     else if (supplyMatrix.Value[index1, index2] > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
-                      num3 = (int) Math.Round((double) num3 * 0.85);
-                    if (!Information.IsNothing((object) moveLimit))
-                      num3 = (int) Math.Round((double) (num3 * moveLimit.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y]) / 100.0);
+                      num3 = (int) Math.Round( num3 * 0.85);
+                    if (!Information.IsNothing( moveLimit))
+                      num3 = (int) Math.Round( (num3 * moveLimit.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y]) / 100.0);
                     if (num3 > this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y])
                     {
                       aiMatrix.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = num1 + 1;
@@ -2350,13 +2350,13 @@ label_25:
                   else
                   {
                     num2 += 1;
-                    let mut num4: i32 =  (int) Math.Round((double) ((float) this.Value[index1, index2] * moddyOfValue * extraModdyForOffRoad));
+                    let mut num4: i32 =  (int) Math.Round( ( this.Value[index1, index2] * moddyOfValue * extraModdyForOffRoad));
                     if (supplyMatrix.Value[index1, index2] > 200 + this.ai.VAR_SUPPLY_25PERCENT_RANGE)
-                      num4 = (int) Math.Round((double) num4 * 0.2);
+                      num4 = (int) Math.Round( num4 * 0.2);
                     else if (supplyMatrix.Value[index1, index2] > this.ai.VAR_SUPPLY_25PERCENT_RANGE)
-                      num4 = (int) Math.Round((double) num4 * 0.5);
-                    if (!Information.IsNothing((object) moveLimit))
-                      num4 = (int) Math.Round((double) (num4 * moveLimit.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y]) / 100.0);
+                      num4 = (int) Math.Round( num4 * 0.5);
+                    if (!Information.IsNothing( moveLimit))
+                      num4 = (int) Math.Round( (num4 * moveLimit.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y]) / 100.0);
                     if (num4 > this.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y])
                     {
                       aiMatrix.Value[this.ai.TempHexNeighbour[index1, index2, index3].x, this.ai.TempHexNeighbour[index1, index2, index3].y] = num1 + 1;
@@ -2498,7 +2498,7 @@ label_25:
                         this.Value[coordinate.x, coordinate.y] = this.Value[x, y] + num6;
                         numArray1[coordinate.x, coordinate.y] = num1 + 1;
                         numArray2[coordinate.x, coordinate.y] = num5;
-                        if (!Information.IsNothing((object) camefromMatrix))
+                        if (!Information.IsNothing( camefromMatrix))
                         {
                           camefromMatrix.Value[coordinate.x, coordinate.y].x = x;
                           camefromMatrix.Value[coordinate.x, coordinate.y].y = y;
@@ -2655,16 +2655,16 @@ label_25:
                   if (!NeverRoads & mapClass.HexObj[this.ai.GetRealX(x, this.Left), y + this.Top].RoadType[index2] > -1 & !(!useRoads & ownerMatrix.Value[x, y] != 1))
                   {
                     num2 = this.ai.game.Data.LandscapeTypeObj[mapClass.HexObj[this.ai.GetRealX(coordinate.x, this.Left), coordinate.y + this.Top].LandscapeType].MoveCost[MoveType];
-                    if ((double) nonRoadCostMod != 1.0)
-                      num2 = (int) Math.Round((double) ((float) num2 * nonRoadCostMod));
+                    if ( nonRoadCostMod != 1.0)
+                      num2 = (int) Math.Round( ( num2 * nonRoadCostMod));
                     if (this.ai.game.Data.RoadTypeObj[mapClass.HexObj[this.ai.GetRealX(x, this.Left), y + this.Top].RoadType[index2]].MoveCostOverrule[MoveType] < num2)
                       num2 = this.ai.game.Data.RoadTypeObj[mapClass.HexObj[this.ai.GetRealX(x, this.Left), y + this.Top].RoadType[index2]].MoveCostOverrule[MoveType];
                   }
                   else
                   {
                     num2 = this.ai.game.Data.LandscapeTypeObj[mapClass.HexObj[this.ai.GetRealX(coordinate.x, this.Left), coordinate.y + this.Top].LandscapeType].MoveCost[MoveType];
-                    if ((double) nonRoadCostMod != 1.0)
-                      num2 = (int) Math.Round((double) ((float) num2 * nonRoadCostMod));
+                    if ( nonRoadCostMod != 1.0)
+                      num2 = (int) Math.Round( ( num2 * nonRoadCostMod));
                   }
                   if (mapClass.HexObj[this.ai.GetRealX(x, this.Left), y + this.Top].RiverType[index2] > -1 & !mapClass.HexObj[this.ai.GetRealX(x, this.Left), y + this.Top].Bridge[index2] && !NeverRoads)
                     num2 += this.ai.game.Data.RiverTypeObj[mapClass.HexObj[this.ai.GetRealX(x, this.Left), y + this.Top].RiverType[index2]].MovePenalty[MoveType];
@@ -2687,7 +2687,7 @@ label_25:
                     if (!NeverRoads && mapClass.HexObj[this.ai.GetRealX(coordinate.x, this.Left), coordinate.y + this.Top].UnitCounter > -1)
                       num2 += extraForEnemy * Math.Min(3, mapClass.HexObj[this.ai.GetRealX(coordinate.x, this.Left), coordinate.y + this.Top].UnitCounter + 1);
                   }
-                  else if (!Information.IsNothing((object) enemyDist))
+                  else if (!Information.IsNothing( enemyDist))
                   {
                     if (enemyDist.Value[coordinate.x, coordinate.y] == 1)
                       num2 += 40;
@@ -3547,7 +3547,7 @@ label_25:
                 if (this.ai.TempHexNeighbour[tx, index1, index2].onmap && this.ai.TempHexNeighbour[tx, index1, index2].x <= this.Width & this.ai.TempHexNeighbour[tx, index1, index2].y <= this.Height && this.ai.game.Data.LandscapeTypeObj[this.ai.map.HexObj[this.ai.GetRealX(tx, this.Left), index1 + this.Top].LandscapeType].AIBlock < 1 | anyhex && this.Value[this.ai.TempHexNeighbour[tx, index1, index2].x, this.ai.TempHexNeighbour[tx, index1, index2].y] == 0 | this.Value[this.ai.TempHexNeighbour[tx, index1, index2].x, this.ai.TempHexNeighbour[tx, index1, index2].y] < this.Value[tx, index1] - 1 && mapClass.HexObj[this.ai.GetRealX(this.ai.TempHexNeighbour[tx, index1, index2].x, this.Left), this.ai.TempHexNeighbour[tx, index1, index2].y + this.Top].Regime > -1 | anyhex)
                 {
                   num1 += 1;
-                  this.Value[this.ai.TempHexNeighbour[tx, index1, index2].x, this.ai.TempHexNeighbour[tx, index1, index2].y] = (int) Math.Round((double) ((float) this.Value[tx, index1] * moddy));
+                  this.Value[this.ai.TempHexNeighbour[tx, index1, index2].x, this.ai.TempHexNeighbour[tx, index1, index2].y] = (int) Math.Round( ( this.Value[tx, index1] * moddy));
                   numArray[this.ai.TempHexNeighbour[tx, index1, index2].x, this.ai.TempHexNeighbour[tx, index1, index2].y] = num2 + 1;
                 }
                 index2 += 1;

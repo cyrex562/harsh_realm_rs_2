@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -178,7 +178,7 @@ namespace WindowsApplication1
         {
           num2 += 1;
           str: String = "(" + this.game.Data.AreaObj[tdata].Slot.ToString() + "," + this.game.Data.AreaObj[tdata].Code.ToString() + ")";
-          this.AreaListObj.add(Conversion.Str((object) this.game.Data.AreaObj[tdata].ID) + ") " + this.game.Data.AreaObj[tdata].Name + str, tdata);
+          this.AreaListObj.add(Conversion.Str( this.game.Data.AreaObj[tdata].ID) + ") " + this.game.Data.AreaObj[tdata].Name + str, tdata);
           if (this.detailnr2 == tdata)
             num1 = num2;
         }
@@ -490,7 +490,7 @@ namespace WindowsApplication1
       this.ss = "Click to change the number of Victory Points on this hex.";
       tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.a1id = this.AddSubPart( tsubpart1, 10, 190, 32, 16, 1);
-      tsubpart1 =  TextPartClass::new("Hex VP:" + Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+      tsubpart1 =  TextPartClass::new("Hex VP:" + Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.a1bid = this.AddSubPart( tsubpart1, 50, 189, 300, 20, 0);
       this.ss = "Click to change the name of the Hex (Location name overrules this name)";
       tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -510,12 +510,12 @@ namespace WindowsApplication1
       this.ss = "Click to set Type of Label for Label 1 (top of hex)";
       tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.a5id = this.AddSubPart( tsubpart1, 10, 270, 32, 16, 1);
-      tsubpart1 =  TextPartClass::new("Type1:" + Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType1), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+      tsubpart1 =  TextPartClass::new("Type1:" + Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType1), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.a5bid = this.AddSubPart( tsubpart1, 50, 269, 300, 20, 0);
       this.ss = "Click to set Type of Label for Label 2 (bottom of hex)";
       tsubpart1 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
       this.a6id = this.AddSubPart( tsubpart1, 10, 290, 32, 16, 1);
-      tsubpart1 =  TextPartClass::new("Type2:" + Conversion.Str((object) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+      tsubpart1 =  TextPartClass::new("Type2:" + Conversion.Str( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
       this.a6bid = this.AddSubPart( tsubpart1, 50, 289, 300, 20, 0);
       this.ss = "Click to clear";
       tsubpart1 =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
@@ -634,7 +634,7 @@ namespace WindowsApplication1
                 let mut num5: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give New VP for hex 0-99", "Shadow Empire : Planetary Conquest")));
                 if (num5 < 0 | num5 > 99)
                 {
-                  let mut num6: i32 =  Interaction.MsgBox((object) "Oh.. please.. between 0 and 99!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num6: i32 =  Interaction.MsgBox( "Oh.. please.. between 0 and 99!", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                   this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP = num5;
@@ -684,7 +684,7 @@ namespace WindowsApplication1
                 let mut num7: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Label Type for top of hex (label1)", "Shadow Empire : Planetary Conquest")));
                 if (num7 < 0 | num7 > 10)
                 {
-                  let mut num8: i32 =  Interaction.MsgBox((object) "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num8: i32 =  Interaction.MsgBox( "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                   this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType1 = num7;
@@ -697,7 +697,7 @@ namespace WindowsApplication1
                 let mut num9: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Label Type for bottom of hex (label2)", "Shadow Empire : Planetary Conquest")));
                 if (num9 < 0 | num9 > 10)
                 {
-                  let mut num10: i32 =  Interaction.MsgBox((object) "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num10: i32 =  Interaction.MsgBox( "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                   this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType2 = num9;
@@ -722,7 +722,7 @@ namespace WindowsApplication1
                 if (usetype > 0 & usetype <= 10 && Strings.Len(str) > 0)
                 {
                   this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, usetype, str, true);
-                  let mut num11: i32 =  Interaction.MsgBox((object) "Done");
+                  let mut num11: i32 =  Interaction.MsgBox( "Done");
                 }
                 this.showinfo();
                 windowReturnClass.SetFlag(true);
@@ -733,11 +733,11 @@ namespace WindowsApplication1
                 let mut index2: i32 =  Math.Round(Conversion.Val(Interaction.InputBox("Give Hex Side (0=top,1=NE, 2=SE, 3=S, 4=SW, 5=NW)", "Shadow Empire : Planetary Conquest")));
                 if (index2 >= 0 & index2 <= 5)
                 {
-                  object Left = (object) Conversion.Val(Interaction.InputBox("Give RoadType", "Shadow Empire : Planetary Conquest"));
-                  if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreaterEqual(Left, (object) -1, false), Operators.CompareObjectLessEqual(Left, (object) this.game.Data.RoadTypeCounter, false))))
+                  object Left =  Conversion.Val(Interaction.InputBox("Give RoadType", "Shadow Empire : Planetary Conquest"));
+                  if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreaterEqual(Left,  -1, false), Operators.CompareObjectLessEqual(Left,  this.game.Data.RoadTypeCounter, false))))
                   {
                     this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].RoadType[index2] = Conversions.ToInteger(Left);
-                    let mut num12: i32 =  Interaction.MsgBox((object) "Done");
+                    let mut num12: i32 =  Interaction.MsgBox( "Done");
                   }
                 }
                 this.showinfo();

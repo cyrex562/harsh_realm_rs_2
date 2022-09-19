@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -279,7 +279,7 @@ namespace WindowsApplication1
         num2 += 1;
         if (this.libnr == index)
           num1 = num2;
-        this.LibListObj.add(Conversion.Str((object) index) + ") " + this.game.Data.LibraryObj[index].name, index);
+        this.LibListObj.add(Conversion.Str( index) + ") " + this.game.Data.LibraryObj[index].name, index);
       }
       if (this.libnr == -1)
         num1 = 0;
@@ -315,18 +315,18 @@ namespace WindowsApplication1
               tvalue = "7.AG";
             if (this.game.Data.HistoricalUnitObj[index].Type == 8)
               tvalue = "8.High";
-            tvalue4: String = Strings.Trim(Conversion.Str((object) numArray1[index]));
-            tvalue3: String = Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[index].TempRegime));
-            tvalue2: String = Conversion.Str((object) this.game.Data.HistoricalUnitObj[index].SmallGfx) + "," + Conversion.Str((object) this.game.Data.HistoricalUnitObj[index].Counter) + "," + this.game.Data.HistoricalUnitObj[index].CounterString;
+            tvalue4: String = Strings.Trim(Conversion.Str( numArray1[index]));
+            tvalue3: String = Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[index].TempRegime));
+            tvalue2: String = Conversion.Str( this.game.Data.HistoricalUnitObj[index].SmallGfx) + "," + Conversion.Str( this.game.Data.HistoricalUnitObj[index].Counter) + "," + this.game.Data.HistoricalUnitObj[index].CounterString;
             if (!this.game.Data.HistoricalUnitObj[index].Model)
             {
               if (this.game.Data.HistoricalUnitObj[index].ModelMaster > -1)
-                this.HisListObj.add(Strings.Trim(Conversion.Str((object) index)) + ") ID=" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[index].ID) + ", " + this.game.Data.HistoricalUnitObj[index].Name + " (" + this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[index].ModelMaster].Name + ")", index, tvalue, tvalue2, tvalue3, tvalue4);
+                this.HisListObj.add(Strings.Trim(Conversion.Str( index)) + ") ID=" + Conversion.Str( this.game.Data.HistoricalUnitObj[index].ID) + ", " + this.game.Data.HistoricalUnitObj[index].Name + " (" + this.game.Data.HistoricalUnitObj[this.game.Data.HistoricalUnitObj[index].ModelMaster].Name + ")", index, tvalue, tvalue2, tvalue3, tvalue4);
               else
-                this.HisListObj.add(Strings.Trim(Conversion.Str((object) index)) + ") ID=" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[index].ID) + ", " + this.game.Data.HistoricalUnitObj[index].Name, index, tvalue, tvalue2, tvalue3, tvalue4);
+                this.HisListObj.add(Strings.Trim(Conversion.Str( index)) + ") ID=" + Conversion.Str( this.game.Data.HistoricalUnitObj[index].ID) + ", " + this.game.Data.HistoricalUnitObj[index].Name, index, tvalue, tvalue2, tvalue3, tvalue4);
             }
             else
-              this.HisListObj.add(Strings.Trim(Conversion.Str((object) index)) + ") ID=" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[index].ID) + ", MODEL " + this.game.Data.HistoricalUnitObj[index].Name, index, tvalue, tvalue2, tvalue3, tvalue4);
+              this.HisListObj.add(Strings.Trim(Conversion.Str( index)) + ") ID=" + Conversion.Str( this.game.Data.HistoricalUnitObj[index].ID) + ", MODEL " + this.game.Data.HistoricalUnitObj[index].Name, index, tvalue, tvalue2, tvalue3, tvalue4);
             if (this.detailnr == index)
               num3 = num4;
           }
@@ -740,7 +740,7 @@ namespace WindowsApplication1
         for (let mut index: i32 =  0; index <= unitCounter; index += 1)
         {
           if (this.game.Data.UnitObj[index].Historical == this.detailnr)
-            str1 = str1 + this.game.Data.UnitObj[index].Name + "(" + Conversion.Str((object) this.game.Data.UnitObj[index].X) + "," + Conversion.Str((object) this.game.Data.UnitObj[index].Y) + "), reg = " + Conversion.Str((object) this.game.Data.UnitObj[index].Regime) + "\r\n";
+            str1 = str1 + this.game.Data.UnitObj[index].Name + "(" + Conversion.Str( this.game.Data.UnitObj[index].X) + "," + Conversion.Str( this.game.Data.UnitObj[index].Y) + "), reg = " + Conversion.Str( this.game.Data.UnitObj[index].Regime) + "\r\n";
         }
         let mut game: GameClass = this.game;
         let mut twidth: i32 =  Math.Min(300, this.game.ScreenWidth - 830);
@@ -785,7 +785,7 @@ namespace WindowsApplication1
         this.ss = "Click to set if AI will be allowed to split this group (only for HQs)";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a39id = this.AddSubPart(ref tsubpart21, 10, 440, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("NoSplit = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].NoSplit), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("NoSplit = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].NoSplit), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: this.ss);
         this.a39bid = this.AddSubPart(ref tsubpart21, 50, 440, 100, 20, 0);
         this.ss = "Click to change name of the historical unit selected...";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -800,24 +800,24 @@ namespace WindowsApplication1
         this.ss = "Set if Historical Unit is a Model Unit";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.x1id = this.AddSubPart(ref tsubpart21, 10, 480, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("Model=" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Model), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("Model=" + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Model), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 100, 20, false, tDescript: this.ss);
         this.x1bid = this.AddSubPart(ref tsubpart21, 50, 479, 100, 20, 0);
         this.ss = "Set the maximum number of units with this model to be present. -1=unlimited. 0=none can be created in game by player";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a41id = this.AddSubPart(ref tsubpart21, 150, 480, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("MaxPresent=" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].MaxPresent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 120, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("MaxPresent=" + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].MaxPresent), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 120, 20, false, tDescript: this.ss);
         this.a41bid = this.AddSubPart(ref tsubpart21, 190, 479, 120, 20, 0);
         this.ss = "Set color blender -255 to +255, it adds or diminishes from the counter color";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.x2id = this.AddSubPart(ref tsubpart21, 410, 540, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("Color = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Red) + "," + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Green) + "," + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Blue), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("Color = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Red) + "," + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Green) + "," + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Blue), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.x2bid = this.AddSubPart(ref tsubpart21, 450, 539, 200, 20, 0);
         this.SPListObj = ListClass::new();
         let mut index: i32 =  0;
         do
         {
-          str2: String = Conversion.Str((object) index) + ") ";
-          this.SPListObj.add(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[index] <= -1 ? (this.game.Data.HistoricalUnitObj[this.detailnr].Designation[index] <= -1 ? str2 + " -" : str2 + "No Predef" + ", " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].DesignationSmall[index]) + ", " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Designation[index])) : str2 + this.game.Data.UnitObj[this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[index])].Name + ", " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].DesignationSmall[index]) + ", " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Designation[index]), index);
+          str2: String = Conversion.Str( index) + ") ";
+          this.SPListObj.add(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[index] <= -1 ? (this.game.Data.HistoricalUnitObj[this.detailnr].Designation[index] <= -1 ? str2 + " -" : str2 + "No Predef" + ", " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].DesignationSmall[index]) + ", " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Designation[index])) : str2 + this.game.Data.UnitObj[this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.detailnr].SubParts[index])].Name + ", " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].DesignationSmall[index]) + ", " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Designation[index]), index);
           index += 1;
         }
         while (index <= 9);
@@ -910,22 +910,22 @@ namespace WindowsApplication1
         this.ss = "Click to change the political cost of the commander or of the Unit";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a26id = this.AddSubPart(ref tsubpart21, 410, 500, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("PP = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].PP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("PP = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].PP), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a26bid = this.AddSubPart(ref tsubpart21, 450, 499, 100, 20, 0);
         this.ss = "Click to set the combatmod of the general (0=none, -100 - +999)";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a27id = this.AddSubPart(ref tsubpart21, 570, 500, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("CombatMod = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].CombatMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("CombatMod = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].CombatMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 200, 20, false, tDescript: this.ss);
         this.a27bid = this.AddSubPart(ref tsubpart21, 600, 499, 200, 20, 0);
         this.ss = "Click to set the moralemod of the general (0=none, -100 - +999)";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a28id = this.AddSubPart(ref tsubpart21, 410, 520, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("MorMod = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].MoraleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("MorMod = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].MoraleMod), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a28bid = this.AddSubPart(ref tsubpart21, 450, 519, 100, 20, 0);
         this.ss = "Click to set the staff pts size the general can maximum command and apply its combat and morale mods too (0=none - 99999)";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a29id = this.AddSubPart(ref tsubpart21, 570, 520, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("Staff= " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].StaffSize), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("Staff= " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].StaffSize), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a29bid = this.AddSubPart(ref tsubpart21, 600, 519, 100, 20, 0);
         this.ss = "Click to set the all Historical Units with Model specified exactly as their Models";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONYELLOW, tDescript: this.ss);
@@ -935,37 +935,37 @@ namespace WindowsApplication1
         this.ss = "Click to set the this hist.unit to Fixed";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a31id = this.AddSubPart(ref tsubpart21, 410, 560, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("Fixed =" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Fixed), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("Fixed =" + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Fixed), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a31bid = this.AddSubPart(ref tsubpart21, 450, 560, 100, 20, 0);
         this.ss = "Click to set the name Counter of this model to that of another model or historical unit.";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a320id = this.AddSubPart(ref tsubpart21, 570, 540, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("UseModelCounter= " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].UseModelCounter), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("UseModelCounter= " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].UseModelCounter), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a320bid = this.AddSubPart(ref tsubpart21, 600, 540, 200, 20, 0);
         this.ss = "Click to set the numeric name counter, chance to use an older number not used at moment, +if to use romans or not";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a32id = this.AddSubPart(ref tsubpart21, 570, 560, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("Counter= " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].NameCounter) + " O= " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].PercentOldName) + "%, R=" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].UseRomans), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("Counter= " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].NameCounter) + " O= " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].PercentOldName) + "%, R=" + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].UseRomans), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a32bid = this.AddSubPart(ref tsubpart21, 600, 560, 200, 20, 0);
         this.ss = "Click to set tempvar1";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a34id = this.AddSubPart(ref tsubpart21, 410, 580, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("tv1 = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].TempVar1), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("tv1 = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].TempVar1), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a34bid = this.AddSubPart(ref tsubpart21, 450, 579, 100, 20, 0);
         this.ss = "Click to set tempvar2";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a35id = this.AddSubPart(ref tsubpart21, 570, 580, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("tv2 = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].TempVar2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("tv2 = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].TempVar2), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a35bid = this.AddSubPart(ref tsubpart21, 600, 579, 100, 20, 0);
         this.ss = "Click to set tempvar3";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a36id = this.AddSubPart(ref tsubpart21, 410, 600, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("tv3 = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].TempVar3), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("tv3 = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].TempVar3), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a36bid = this.AddSubPart(ref tsubpart21, 450, 599, 100, 20, 0);
         this.ss = "Click to set the numeric name counter";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a37id = this.AddSubPart(ref tsubpart21, 570, 600, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("XP = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].Xp), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("XP = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].Xp), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a37bid = this.AddSubPart(ref tsubpart21, 600, 599, 100, 20, 0);
         this.ss = "Click to set description";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
@@ -980,17 +980,17 @@ namespace WindowsApplication1
         this.ss = "Click to set tempvar4";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a42id = this.AddSubPart(ref tsubpart21, 410, 620, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("tv4 = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].TempVar4), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("tv4 = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].TempVar4), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a42bid = this.AddSubPart(ref tsubpart21, 450, 619, 100, 20, 0);
         this.ss = "Click to set tempvar5";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a43id = this.AddSubPart(ref tsubpart21, 570, 620, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("tv5 = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].TempVar5), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("tv5 = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].TempVar5), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a43bid = this.AddSubPart(ref tsubpart21, 600, 619, 100, 20, 0);
         this.ss = "Click to set Battlegroup flag.. 0=no, 1=yes";
         tsubpart21 =  ButtonPartClass::new(this.game.BUTTONBLOCK, tDescript: this.ss);
         this.a45id = this.AddSubPart(ref tsubpart21, 570, 640, 32, 16, 1);
-        tsubpart21 =  TextPartClass::new("Battlegroup = " + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].BattleGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
+        tsubpart21 =  TextPartClass::new("Battlegroup = " + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].BattleGroup), Font::new("Times New Roman", 16f, FontStyle.Regular, GraphicsUnit.Pixel), 300, 20, false, tDescript: this.ss);
         this.a45bid = this.AddSubPart(ref tsubpart21, 600, 639, 100, 20, 0);
         if (this.game.Data.HistoricalUnitObj[this.detailnr].LibId.libSlot > -1)
         {
@@ -1043,7 +1043,7 @@ namespace WindowsApplication1
         this.deckListObj = ListClass::new();
         let mut deckCardCounter: i32 =  this.game.Data.HistoricalUnitObj[this.detailnr].DeckCardCounter;
         for (let mut tdata: i32 =  0; tdata <= deckCardCounter; tdata += 1)
-          this.deckListObj.add(Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].DeckChance[tdata])) + "% on " + this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[this.detailnr].DeckCard[tdata]].Title + " (#" + Conversion.Str((object) this.game.Data.HistoricalUnitObj[this.detailnr].DeckCard[tdata]) + ")", tdata);
+          this.deckListObj.add(Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].DeckChance[tdata])) + "% on " + this.game.Data.ActionCardObj[this.game.Data.HistoricalUnitObj[this.detailnr].DeckCard[tdata]].Title + " (#" + Conversion.Str( this.game.Data.HistoricalUnitObj[this.detailnr].DeckCard[tdata]) + ")", tdata);
         ListClass deckListObj = this.deckListObj;
         let mut twidth: i32 =  Math.Min(300, this.game.ScreenWidth - 830);
         let mut detailnr4: i32 =  this.detailnr4;
@@ -1120,11 +1120,11 @@ namespace WindowsApplication1
               let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
               for (let mut index2: i32 =  0; index2 <= historicalUnitCounter; index2 += 1)
               {
-                text.Write(Strings.Trim(Conversion.Str((object) this.game.Data.HistoricalUnitObj[index2].Counter)) + "," + this.game.Data.HistoricalUnitObj[index2].Name);
+                text.Write(Strings.Trim(Conversion.Str( this.game.Data.HistoricalUnitObj[index2].Counter)) + "," + this.game.Data.HistoricalUnitObj[index2].Name);
                 text.Write("\r\n");
               }
               text.Close();
-              let mut num3: i32 =   Interaction.MsgBox((object) "Export completed correctly", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num3: i32 =   Interaction.MsgBox( "Export completed correctly", Title: ( "Shadow Empire : Planetary Conquest"));
             }
             else if (num1 == this.impid)
             {
@@ -1143,7 +1143,7 @@ namespace WindowsApplication1
                   catch (Exception ex)
                   {
                     ProjectData.SetProjectError(ex);
-                    let mut num5: i32 =   Interaction.MsgBox((object) ("Error in line " + Conversion.Str((object) Number)), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num5: i32 =   Interaction.MsgBox( ("Error in line " + Conversion.Str( Number)), Title: ( "Shadow Empire : Planetary Conquest"));
                     ProjectData.ClearProjectError();
                     break;
                   }
@@ -1152,10 +1152,10 @@ namespace WindowsApplication1
               catch (Exception ex)
               {
                 ProjectData.SetProjectError(ex);
-                let mut num6: i32 =   Interaction.MsgBox((object) "Couldnt find file. make export first.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num6: i32 =   Interaction.MsgBox( "Couldnt find file. make export first.", Title: ( "Shadow Empire : Planetary Conquest"));
                 ProjectData.ClearProjectError();
               }
-              let mut num7: i32 =   Interaction.MsgBox((object) "Import completed correctly", Title: ((object) "Shadow Empire : Planetary Conquest"));
+              let mut num7: i32 =   Interaction.MsgBox( "Import completed correctly", Title: ( "Shadow Empire : Planetary Conquest"));
             }
             else
             {
@@ -1270,7 +1270,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num14: i32 =   Interaction.MsgBox((object) "wrong input");
+                  let mut num14: i32 =   Interaction.MsgBox( "wrong input");
                 }
                 let mut num15: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give green.. (-255 to +255)", "Shadow Empire : Planetary Conquest")));
                 if (num15 >= -255 & num15 <=  byte.MaxValue)
@@ -1280,7 +1280,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num16: i32 =   Interaction.MsgBox((object) "wrong input");
+                  let mut num16: i32 =   Interaction.MsgBox( "wrong input");
                 }
                 let mut num17: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give blue.. (-255 to +255)", "Shadow Empire : Planetary Conquest")));
                 if (num17 >= -255 & num17 <=  byte.MaxValue)
@@ -1290,7 +1290,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num18: i32 =   Interaction.MsgBox((object) "wrong input");
+                  let mut num18: i32 =   Interaction.MsgBox( "wrong input");
                 }
                 this.showinfo();
                 windowReturnClass.SetFlag(true);
@@ -1324,7 +1324,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num20: i32 =   Interaction.MsgBox((object) "wrong input");
+                let mut num20: i32 =   Interaction.MsgBox( "wrong input");
                 this.showinfo();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1344,7 +1344,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num22: i32 =   Interaction.MsgBox((object) "Invalid NATO counter value. Either -1, 1-X");
+                  let mut num22: i32 =   Interaction.MsgBox( "Invalid NATO counter value. Either -1, 1-X");
                 }
                 this.showinfo();
                 windowReturnClass.SetFlag(true);
@@ -1359,7 +1359,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num24: i32 =   Interaction.MsgBox((object) "Invalid NATO counter value. Either -1, 1-X");
+                  let mut num24: i32 =   Interaction.MsgBox( "Invalid NATO counter value. Either -1, 1-X");
                 }
                 this.showinfo();
                 windowReturnClass.SetFlag(true);
@@ -1374,7 +1374,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num26: i32 =   Interaction.MsgBox((object) "Invalid NATO counter value. Either -1, 1-X");
+                  let mut num26: i32 =   Interaction.MsgBox( "Invalid NATO counter value. Either -1, 1-X");
                 }
                 this.showinfo();
                 windowReturnClass.SetFlag(true);
@@ -1564,7 +1564,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num39: i32 =   Interaction.MsgBox((object) "Between 0-100 plz");
+                  let mut num39: i32 =   Interaction.MsgBox( "Between 0-100 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1585,7 +1585,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num41: i32 =   Interaction.MsgBox((object) "Between 0-100 plz");
+                  let mut num41: i32 =   Interaction.MsgBox( "Between 0-100 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1600,7 +1600,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num43: i32 =   Interaction.MsgBox((object) "Between 0-9999 plz");
+                  let mut num43: i32 =   Interaction.MsgBox( "Between 0-9999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1615,7 +1615,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num45: i32 =   Interaction.MsgBox((object) "Between 0-9999 plz");
+                  let mut num45: i32 =   Interaction.MsgBox( "Between 0-9999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1644,7 +1644,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num47: i32 =   Interaction.MsgBox((object) "Between -100 and 9999 plz");
+                  let mut num47: i32 =   Interaction.MsgBox( "Between -100 and 9999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1659,7 +1659,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num49: i32 =   Interaction.MsgBox((object) "Between -100 and 9999 plz");
+                  let mut num49: i32 =   Interaction.MsgBox( "Between -100 and 9999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1674,7 +1674,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num51: i32 =   Interaction.MsgBox((object) "Between -100 and 9999 plz");
+                  let mut num51: i32 =   Interaction.MsgBox( "Between -100 and 9999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1696,7 +1696,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num53: i32 =   Interaction.MsgBox((object) "Between 0 and 99999 plz");
+                  let mut num53: i32 =   Interaction.MsgBox( "Between 0 and 99999 plz");
                 }
                 let mut num54: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Chance on Old number currently not used in % (0=for not use)", "Shadow Empire : Planetary Conquest")));
                 if (num54 >= 0 & num54 <= 100)
@@ -1706,7 +1706,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num55: i32 =   Interaction.MsgBox((object) "Between 0 and 100 plz");
+                  let mut num55: i32 =   Interaction.MsgBox( "Between 0 and 100 plz");
                 }
                 if ( Math.Round(Conversion.Val(Interaction.InputBox("0=use no romans, 1=use romans", "Shadow Empire : Planetary Conquest"))) == 1)
                   this.game.Data.HistoricalUnitObj[this.detailnr].UseRomans = true;
@@ -1725,7 +1725,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num57: i32 =   Interaction.MsgBox((object) "Between -99999 and 99999 plz");
+                  let mut num57: i32 =   Interaction.MsgBox( "Between -99999 and 99999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1740,7 +1740,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num59: i32 =   Interaction.MsgBox((object) "Between -99999 and 99999 plz");
+                  let mut num59: i32 =   Interaction.MsgBox( "Between -99999 and 99999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1755,7 +1755,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num61: i32 =   Interaction.MsgBox((object) "Between -99999 and 99999 plz");
+                  let mut num61: i32 =   Interaction.MsgBox( "Between -99999 and 99999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1770,7 +1770,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num63: i32 =   Interaction.MsgBox((object) "Either 0 or 1 as value plz.");
+                  let mut num63: i32 =   Interaction.MsgBox( "Either 0 or 1 as value plz.");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1785,7 +1785,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num65: i32 =   Interaction.MsgBox((object) "Between -99999 and 99999 plz");
+                  let mut num65: i32 =   Interaction.MsgBox( "Between -99999 and 99999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1800,7 +1800,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num67: i32 =   Interaction.MsgBox((object) "Between -99999 and 99999 plz");
+                  let mut num67: i32 =   Interaction.MsgBox( "Between -99999 and 99999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1815,7 +1815,7 @@ namespace WindowsApplication1
                 }
                 else
                 {
-                  let mut num69: i32 =   Interaction.MsgBox((object) "Between 0 and 99999 plz");
+                  let mut num69: i32 =   Interaction.MsgBox( "Between 0 and 99999 plz");
                 }
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -1828,7 +1828,7 @@ namespace WindowsApplication1
               }
               if (num1 == this.a30id)
               {
-                let mut num70: i32 =   Interaction.MsgBox((object) "Do you want to OVERWRITE all the units equipment with the BASIC MODELS?? .... advice No..", MsgBoxStyle.YesNo);
+                let mut num70: i32 =   Interaction.MsgBox( "Do you want to OVERWRITE all the units equipment with the BASIC MODELS?? .... advice No..", MsgBoxStyle.YesNo);
                 let mut num71: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Overwite how many first tempvars? 0=none, 1=only tv1, 2=tv1+tv2, etc...", "Shadow Empire : Planetary Conquest")));
                 let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
                 for (let mut index11: i32 =  0; index11 <= historicalUnitCounter; index11 += 1)
@@ -2055,7 +2055,7 @@ namespace WindowsApplication1
                 let mut num72: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give New VP for hex 0-99", "Shadow Empire : Planetary Conquest")));
                 if (num72 < 0 | num72 > 99)
                 {
-                  let mut num73: i32 =   Interaction.MsgBox((object) "Oh.. please.. between 0 and 99!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num73: i32 =   Interaction.MsgBox( "Oh.. please.. between 0 and 99!", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                   this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].VP = num72;
@@ -2089,7 +2089,7 @@ namespace WindowsApplication1
                 let mut num74: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Label Type for top of hex (label1)", "Shadow Empire : Planetary Conquest")));
                 if (num74 < 0 | num74 > 10)
                 {
-                  let mut num75: i32 =   Interaction.MsgBox((object) "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num75: i32 =   Interaction.MsgBox( "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                   this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType1 = num74;
@@ -2102,7 +2102,7 @@ namespace WindowsApplication1
                 let mut num76: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give Label Type for bottom of hex (label2)", "Shadow Empire : Planetary Conquest")));
                 if (num76 < 0 | num76 > 10)
                 {
-                  let mut num77: i32 =   Interaction.MsgBox((object) "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num77: i32 =   Interaction.MsgBox( "Oh.. please.. between 0 and 10 (0=dont show, 1-5 = small font, 6-10 = big font)", Title: ( "Shadow Empire : Planetary Conquest"));
                 }
                 else
                   this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].LabelType2 = num76;
@@ -2127,7 +2127,7 @@ namespace WindowsApplication1
                 if (usetype > 0 & usetype <= 10 && Strings.Len(str) > 0)
                 {
                   this.game.HandyFunctionsObj.MakeSpecificAutoLabels(this.game.SelectX, this.game.SelectY, this.game.EditObj.MapSelected, usetype, str, true);
-                  let mut num78: i32 =   Interaction.MsgBox((object) "Done");
+                  let mut num78: i32 =   Interaction.MsgBox( "Done");
                 }
                 this.showinfo();
                 windowReturnClass.SetFlag(true);
@@ -2160,7 +2160,7 @@ namespace WindowsApplication1
                   if (num79 >= -1 & num79 <= this.game.Data.RoadTypeCounter)
                   {
                     this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].RoadType[index18] = num79;
-                    let mut num80: i32 =   Interaction.MsgBox((object) "Done");
+                    let mut num80: i32 =   Interaction.MsgBox( "Done");
                   }
                 }
                 this.showinfo();
@@ -2235,7 +2235,7 @@ namespace WindowsApplication1
                 let mut Number: i32 =   Math.Round(Conversion.Val(Strings.Mid(this.game.Data.UnitObj[unr].Name, Start)));
                 if (Number > 0)
                 {
-                  this.game.Data.HistoricalUnitObj[historicalUnitCounter2].CounterString = Strings.Trim(Conversion.Str((object) Number));
+                  this.game.Data.HistoricalUnitObj[historicalUnitCounter2].CounterString = Strings.Trim(Conversion.Str( Number));
                   break;
                 }
               }

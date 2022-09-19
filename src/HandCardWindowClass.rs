@@ -4,11 +4,11 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -77,7 +77,7 @@ namespace WindowsApplication1
         let mut tsubpart: SubPartClass =  new TextButtonPartClass("Cancel", 200, tBackbitmap: ( this.OwnBitmap), bbx: 300, bby: 540);
         this.cancelid = this.AddSubPart( tsubpart, 300, 540, 200, 35, 1);
       }
-      if (Information.IsNothing((object) Expression))
+      if (Information.IsNothing( Expression))
         return;
       Expression.Dispose();
     }
@@ -175,7 +175,7 @@ namespace WindowsApplication1
               }
               if (Number > 0)
               {
-                let mut num2: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " production lines have been cancelled due to this action card being played."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num2: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " production lines have been cancelled due to this action card being played."), Title: ( "Shadow Empire : Planetary Conquest"));
               }
               this.game.CornerX = this.tCornerX;
               this.game.CornerY = this.tCornerY;

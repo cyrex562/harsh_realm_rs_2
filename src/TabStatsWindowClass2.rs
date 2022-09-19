@@ -4,10 +4,10 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -151,7 +151,7 @@ namespace WindowsApplication1
         let mut num3: i32 = 0;
         do
         {
-          if (Information.IsNothing((object) self.game.Data.TempString[num3 + 400]))
+          if (Information.IsNothing( self.game.Data.TempString[num3 + 400]))
             self.game.Data.TempString[num3 + 400] = "";
           if (self.game.Data.TempString[400 + num3].Length > 1 && self.game.HandyFunctionsObj.ShowStatsOfSFTypeGroup(num3))
           {
@@ -175,7 +175,7 @@ namespace WindowsApplication1
           }
         }
         let mut tlistselect1: i32 = self.OptionsList5Obj.SortWithRef(TempInt);
-        let mut num4: i32 =  Math.Round((double) (self.h - 90) / 16.0) - 8;
+        let mut num4: i32 =  Math.Round( (self.h - 90) / 16.0) - 8;
         if (self.OptionsList5id > 0)
         {
           self.SubPartList[self.SubpartNr(self.OptionsList5id)].Refresh(self.OptionsList5Obj, tlistselect1);
@@ -183,7 +183,7 @@ namespace WindowsApplication1
         }
         else if (self.game.Data.Product >= 7)
         {
-          let mut tlistsize: i32 =  Math.Round((double) (self.h - 90) / 24.0) - 6;
+          let mut tlistsize: i32 =  Math.Round( (self.h - 90) / 24.0) - 6;
           let mut tsubpart2: SubPartClass =  new ListSubPartClass(self.OptionsList5Obj, tlistsize, 170, tlistselect1, self.game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: (num1 + 30), bby: 10, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
           self.OptionsList5id = self.AddSubPart( tsubpart2, num1 + 30, 10, 170, (tlistsize + 1) * 24, 0);
         }
@@ -243,7 +243,7 @@ namespace WindowsApplication1
           let mut regimeCounter2: i32 = self.game.Data.RegimeCounter;
           for (let mut reg2: i32 = 0; reg2 <= regimeCounter2; reg2 += 1)
           {
-            if (!self.game.Data.RegimeObj[reg2].hideFromList && flagArray1[reg2] && self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.Turn, reg2) | !self.game.Data.FOWOn | self.game.Data.Winner > -1 | (double) self.game.Data.RuleVar[313] > 0.0)
+            if (!self.game.Data.RegimeObj[reg2].hideFromList && flagArray1[reg2] && self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.Turn, reg2) | !self.game.Data.FOWOn | self.game.Data.Winner > -1 |  self.game.Data.RuleVar[313] > 0.0)
             {
               tregcount += 1;
               numArray1[index3, tregcount] = 0;
@@ -412,13 +412,13 @@ namespace WindowsApplication1
           }
         }
         if (num5 > 0)
-          tMultiplier =  Math.Round(Conversion.Int((double) num5 / (double) num6));
+          tMultiplier =  Math.Round(Conversion.Int( num5 /  num6));
         tsubpart1 =  new GraphClass(self.game, numArray1, self.detailnr3 == 1, str1, tMultiplier, colorArray, strArray1, tregcount, self.w - 880 + 620 - num1, self.h - 80,  self.OwnBitmap, num1 + 220, 0);
         self.Info1Id = self.AddSubPart( tsubpart1, num1 + 220, 0, self.w - 880 + 620 - num1, 330, 0);
         tsubpart1 =  new MarcRadioPartClass(0, self.detailnr2 == 0, "Troops at start of round",  self.OwnBitmap, 30 + num1, self.h - 160);
         self.Text1Id = self.AddSubPart( tsubpart1, 30 + num1, self.h - 160, 35, 35, 1);
         DrawMod.DrawTextColouredMarc( g, "Total troops", self.game.MarcFont4, 75 + num1, self.h - 150, Color.White);
-        if ((double) self.game.Data.RuleVar[976] == 0.0 | self.game.Data.RegimeCounter > 1)
+        if ( self.game.Data.RuleVar[976] == 0.0 | self.game.Data.RegimeCounter > 1)
         {
           tsubpart1 =  new MarcRadioPartClass(0, self.detailnr2 == 1, "How much of selected type of troops did each regime manage to take out.",  self.OwnBitmap, 30 + num1, 300);
           self.Text2Id = self.AddSubPart( tsubpart1, 30 + num1, self.h - 80, 35, 35, 1);
@@ -438,8 +438,8 @@ namespace WindowsApplication1
         self.OptionsList5Obj = ListClass::new();
         let mut tlistselect3: i32 = -1;
         let mut num20: i32 = -1;
-        let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[404]));
-        let mut num21: i32 =  Math.Round(Conversion.Val((object) self.game.Data.StringListObj[stringListById].GetHighestValue(0)));
+        let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[404]));
+        let mut num21: i32 =  Math.Round(Conversion.Val( self.game.Data.StringListObj[stringListById].GetHighestValue(0)));
         object[] objArray1 = new object[num21 + 1];
         object[] objArray2 = new object[num21 + 1];
         object[] objArray3 = new object[num21 + 1];
@@ -456,9 +456,9 @@ namespace WindowsApplication1
         let mut num22: i32 = num21;
         for (let mut index: i32 = 0; index <= num22; index += 1)
         {
-          objArray1[index] = (object) 0;
-          objArray2[index] = (object) 0;
-          objArray3[index] = (object) 0;
+          objArray1[index] =  0;
+          objArray2[index] =  0;
+          objArray3[index] =  0;
         }
         let mut unitCounter1: i32 = self.game.Data.UnitCounter;
         for (let mut index44: i32 = 0; index44 <= unitCounter1; index44 += 1)
@@ -466,24 +466,24 @@ namespace WindowsApplication1
           let mut num23: i32 = num21;
           for (let mut index45: i32 = 0; index45 <= num23; index45 += 1)
           {
-            objArray6[index44, index45] = (object) 0;
-            objArray7[index44, index45] = (object) 0;
+            objArray6[index44, index45] =  0;
+            objArray7[index44, index45] =  0;
           }
         }
         let mut locCounter1: i32 = self.game.Data.LocCounter;
         for (let mut index46: i32 = 0; index46 <= locCounter1; index46 += 1)
         {
-          objArray10[index46] = (object) 0;
-          objArray11[index46] = (object) 0;
-          objArray12[index46] = (object) 0;
-          objArray13[index46] = (object) 0;
+          objArray10[index46] =  0;
+          objArray11[index46] =  0;
+          objArray12[index46] =  0;
+          objArray13[index46] =  0;
           let mut num24: i32 = num21;
           for (let mut index47: i32 = 0; index47 <= num24; index47 += 1)
           {
-            objArray4[index46, index47] = (object) 0;
-            objArray5[index46, index47] = (object) 0;
-            objArray8[index46, index47] = (object) 0;
-            objArray9[index46, index47] = (object) 0;
+            objArray4[index46, index47] =  0;
+            objArray5[index46, index47] =  0;
+            objArray8[index46, index47] =  0;
+            objArray9[index46, index47] =  0;
           }
         }
         let mut num25: i32 = 0;
@@ -509,7 +509,7 @@ namespace WindowsApplication1
                   let mut index50: i32 = index49;
                   let mut index51: i32 = index50;
                   let mut index52: i32 = numArray20[index51];
-                  object obj1 = Operators.AddObject(objArray14[logData1_1[index50]], (object) self.game.Data.UnitObj[index48].LogData3[index49]);
+                  object obj1 = Operators.AddObject(objArray14[logData1_1[index50]],  self.game.Data.UnitObj[index48].LogData3[index49]);
                   objArray15[index52] = obj1;
                   object[,] objArray16 = objArray6;
                   object[,] objArray17 = objArray16;
@@ -520,7 +520,7 @@ namespace WindowsApplication1
                   let mut index55: i32 = index49;
                   let mut index56: i32 = index55;
                   let mut index57: i32 = numArray21[index56];
-                  object obj2 = Operators.AddObject(objArray16[index53, logData1_2[index55]], (object) self.game.Data.UnitObj[index48].LogData3[index49]);
+                  object obj2 = Operators.AddObject(objArray16[index53, logData1_2[index55]],  self.game.Data.UnitObj[index48].LogData3[index49]);
                   objArray17[index54, index57] = obj2;
                 }
                 if (self.game.Data.UnitObj[index48].LogType[index49] == 105)
@@ -533,7 +533,7 @@ namespace WindowsApplication1
                   let mut index58: i32 = index49;
                   let mut index59: i32 = index58;
                   let mut index60: i32 = numArray22[index59];
-                  object obj3 = Operators.AddObject(objArray18[logData1_3[index58]], (object) self.game.Data.UnitObj[index48].LogData3[index49]);
+                  object obj3 = Operators.AddObject(objArray18[logData1_3[index58]],  self.game.Data.UnitObj[index48].LogData3[index49]);
                   objArray19[index60] = obj3;
                   object[,] objArray20 = objArray7;
                   object[,] objArray21 = objArray20;
@@ -544,7 +544,7 @@ namespace WindowsApplication1
                   let mut index63: i32 = index49;
                   let mut index64: i32 = index63;
                   let mut index65: i32 = numArray23[index64];
-                  object obj4 = Operators.AddObject(objArray20[index61, logData1_4[index63]], (object) self.game.Data.UnitObj[index48].LogData3[index49]);
+                  object obj4 = Operators.AddObject(objArray20[index61, logData1_4[index63]],  self.game.Data.UnitObj[index48].LogData3[index49]);
                   objArray21[index62, index65] = obj4;
                 }
                 if (self.game.Data.UnitObj[index48].LogType[index49] == 503)
@@ -553,7 +553,7 @@ namespace WindowsApplication1
                   object[] objArray23 = objArray22;
                   let mut index66: i32 = index48;
                   let mut index67: i32 = index66;
-                  object obj = Operators.AddObject(objArray22[index66], (object) self.game.Data.UnitObj[index48].LogData3[index49]);
+                  object obj = Operators.AddObject(objArray22[index66],  self.game.Data.UnitObj[index48].LogData3[index49]);
                   objArray23[index67] = obj;
                 }
               }
@@ -563,7 +563,7 @@ namespace WindowsApplication1
                 object[] objArray25 = objArray24;
                 let mut index68: i32 = index48;
                 let mut index69: i32 = index68;
-                object obj = Operators.AddObject(objArray24[index68], (object) self.game.Data.UnitObj[index48].LogData3[index49]);
+                object obj = Operators.AddObject(objArray24[index68],  self.game.Data.UnitObj[index48].LogData3[index49]);
                 objArray25[index69] = obj;
               }
             }
@@ -589,7 +589,7 @@ namespace WindowsApplication1
                   let mut index72: i32 = index71;
                   let mut index73: i32 = index72;
                   let mut index74: i32 = numArray24[index73];
-                  object obj5 = Operators.AddObject(objArray26[logData1_5[index72]], (object) self.game.Data.LocObj[index70].LogData3[index71]);
+                  object obj5 = Operators.AddObject(objArray26[logData1_5[index72]],  self.game.Data.LocObj[index70].LogData3[index71]);
                   objArray27[index74] = obj5;
                   object[,] objArray28 = objArray8;
                   object[,] objArray29 = objArray28;
@@ -600,7 +600,7 @@ namespace WindowsApplication1
                   let mut index77: i32 = index71;
                   let mut index78: i32 = index77;
                   let mut index79: i32 = numArray25[index78];
-                  object obj6 = Operators.AddObject(objArray28[index75, logData1_6[index77]], (object) self.game.Data.LocObj[index70].LogData3[index71]);
+                  object obj6 = Operators.AddObject(objArray28[index75, logData1_6[index77]],  self.game.Data.LocObj[index70].LogData3[index71]);
                   objArray29[index76, index79] = obj6;
                 }
                 if (self.game.Data.LocObj[index70].LogType[index71] == 102)
@@ -613,7 +613,7 @@ namespace WindowsApplication1
                   let mut index80: i32 = index71;
                   let mut index81: i32 = index80;
                   let mut index82: i32 = numArray26[index81];
-                  object obj7 = Operators.AddObject(objArray30[logData1_7[index80]], (object) self.game.Data.LocObj[index70].LogData3[index71]);
+                  object obj7 = Operators.AddObject(objArray30[logData1_7[index80]],  self.game.Data.LocObj[index70].LogData3[index71]);
                   objArray31[index82] = obj7;
                   object[,] objArray32 = objArray9;
                   object[,] objArray33 = objArray32;
@@ -624,7 +624,7 @@ namespace WindowsApplication1
                   let mut index85: i32 = index71;
                   let mut index86: i32 = index85;
                   let mut index87: i32 = numArray27[index86];
-                  object obj8 = Operators.AddObject(objArray32[index83, logData1_8[index85]], (object) self.game.Data.LocObj[index70].LogData3[index71]);
+                  object obj8 = Operators.AddObject(objArray32[index83, logData1_8[index85]],  self.game.Data.LocObj[index70].LogData3[index71]);
                   objArray33[index84, index87] = obj8;
                 }
                 if (self.game.Data.LocObj[index70].LogType[index71] == 505)
@@ -633,7 +633,7 @@ namespace WindowsApplication1
                   object[] objArray35 = objArray34;
                   let mut index88: i32 = index70;
                   let mut index89: i32 = index88;
-                  object obj = Operators.AddObject(objArray34[index88], (object) self.game.Data.LocObj[index70].LogData3[index71]);
+                  object obj = Operators.AddObject(objArray34[index88],  self.game.Data.LocObj[index70].LogData3[index71]);
                   objArray35[index89] = obj;
                 }
               }
@@ -660,7 +660,7 @@ namespace WindowsApplication1
                   let mut index92: i32 = index91;
                   let mut index93: i32 = index92;
                   let mut index94: i32 = numArray28[index93];
-                  object obj9 = Operators.AddObject(objArray36[logData1_9[index92]], (object) self.game.Data.LocObj[index90].LogData3[index91]);
+                  object obj9 = Operators.AddObject(objArray36[logData1_9[index92]],  self.game.Data.LocObj[index90].LogData3[index91]);
                   objArray37[index94] = obj9;
                   object[,] objArray38 = objArray4;
                   object[,] objArray39 = objArray38;
@@ -671,7 +671,7 @@ namespace WindowsApplication1
                   let mut index97: i32 = index91;
                   let mut index98: i32 = index97;
                   let mut index99: i32 = numArray29[index98];
-                  object obj10 = Operators.AddObject(objArray38[index95, logData1_10[index97]], (object) self.game.Data.LocObj[index90].LogData3[index91]);
+                  object obj10 = Operators.AddObject(objArray38[index95, logData1_10[index97]],  self.game.Data.LocObj[index90].LogData3[index91]);
                   objArray39[index96, index99] = obj10;
                 }
                 if (self.game.Data.LocObj[index90].LogType[index91] == 101)
@@ -684,7 +684,7 @@ namespace WindowsApplication1
                   let mut index100: i32 = index91;
                   let mut index101: i32 = index100;
                   let mut index102: i32 = numArray30[index101];
-                  object obj11 = Operators.AddObject(objArray40[logData1_11[index100]], (object) self.game.Data.LocObj[index90].LogData3[index91]);
+                  object obj11 = Operators.AddObject(objArray40[logData1_11[index100]],  self.game.Data.LocObj[index90].LogData3[index91]);
                   objArray41[index102] = obj11;
                   object[,] objArray42 = objArray5;
                   object[,] objArray43 = objArray42;
@@ -695,7 +695,7 @@ namespace WindowsApplication1
                   let mut index105: i32 = index91;
                   let mut index106: i32 = index105;
                   let mut index107: i32 = numArray31[index106];
-                  object obj12 = Operators.AddObject(objArray42[index103, logData1_12[index105]], (object) self.game.Data.LocObj[index90].LogData3[index91]);
+                  object obj12 = Operators.AddObject(objArray42[index103, logData1_12[index105]],  self.game.Data.LocObj[index90].LogData3[index91]);
                   objArray43[index104, index107] = obj12;
                 }
                 if (self.game.Data.LocObj[index90].LogType[index91] == 502)
@@ -704,7 +704,7 @@ namespace WindowsApplication1
                   object[] objArray45 = objArray44;
                   let mut index108: i32 = index90;
                   let mut index109: i32 = index108;
-                  object obj = Operators.AddObject(objArray44[index108], (object) self.game.Data.LocObj[index90].LogData3[index91]);
+                  object obj = Operators.AddObject(objArray44[index108],  self.game.Data.LocObj[index90].LogData3[index91]);
                   objArray45[index109] = obj;
                 }
               }
@@ -720,7 +720,7 @@ namespace WindowsApplication1
           let mut num28: i32 = num21;
           for (let mut idValue: i32 = 0; idValue <= num28; idValue += 1)
           {
-            if (Operators.ConditionalCompareObjectGreater(objArray1[idValue], (object) 0, false))
+            if (Operators.ConditionalCompareObjectGreater(objArray1[idValue],  0, false))
             {
               str2 = self.game.Data.StringListObj[stringListById].GetData(0, idValue, 2);
               num20 += 1;
@@ -739,7 +739,7 @@ namespace WindowsApplication1
           let mut num29: i32 = num21;
           for (let mut idValue: i32 = 0; idValue <= num29; idValue += 1)
           {
-            if (Operators.ConditionalCompareObjectGreater(objArray2[idValue], (object) 0, false))
+            if (Operators.ConditionalCompareObjectGreater(objArray2[idValue],  0, false))
             {
               str2 = self.game.Data.StringListObj[stringListById].GetData(0, idValue, 2);
               num20 += 1;
@@ -758,7 +758,7 @@ namespace WindowsApplication1
           let mut num30: i32 = num21;
           for (let mut idValue: i32 = 0; idValue <= num30; idValue += 1)
           {
-            if (Operators.ConditionalCompareObjectGreater(objArray3[idValue], (object) 0, false))
+            if (Operators.ConditionalCompareObjectGreater(objArray3[idValue],  0, false))
             {
               str2 = self.game.Data.StringListObj[stringListById].GetData(0, idValue, 2);
               num20 += 1;
@@ -768,7 +768,7 @@ namespace WindowsApplication1
             }
           }
         }
-        if ((double) self.game.Data.RuleVar[337] > 0.0)
+        if ( self.game.Data.RuleVar[337] > 0.0)
         {
           let mut num31: i32 = num20 + 1;
           if (self.detailnr == 600)
@@ -784,7 +784,7 @@ namespace WindowsApplication1
           if (self.detailnr == 12)
             tlistselect3 = num20;
           self.OptionsList5Obj.add("Replacements requested", 12);
-          if ((double) self.game.Data.RuleVar[977] < 1.0)
+          if ( self.game.Data.RuleVar[977] < 1.0)
           {
             num20 += 1;
             if (self.detailnr == 13)
@@ -794,7 +794,7 @@ namespace WindowsApplication1
         }
         if (num20 > -1)
         {
-          let mut num33: i32 =  Math.Round((double) (self.h - 90) / 16.0) - 8;
+          let mut num33: i32 =  Math.Round( (self.h - 90) / 16.0) - 8;
           if (self.OptionsList5id > 0)
           {
             self.SubPartList[self.SubpartNr(self.OptionsList5id)].Refresh(self.OptionsList5Obj, tlistselect3);
@@ -802,7 +802,7 @@ namespace WindowsApplication1
           }
           else if (self.game.Data.Product >= 7)
           {
-            let mut tlistsize: i32 =  Math.Round((double) (self.h - 90) / 24.0) - 6;
+            let mut tlistsize: i32 =  Math.Round( (self.h - 90) / 24.0) - 6;
             tsubpart1 =  new ListSubPartClass(self.OptionsList5Obj, tlistsize, 170, tlistselect3, self.game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: (num1 + 30), bby: 10, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
             self.OptionsList5id = self.AddSubPart( tsubpart1, num1 + 30, 10, 170, (tlistsize + 1) * 24, 0);
           }
@@ -861,7 +861,7 @@ namespace WindowsApplication1
             self.RemoveSubPart(self.optionslist6id);
             self.optionslist6id = 0;
           }
-          let mut num35: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 1;
+          let mut num35: i32 =  Math.Round( (self.h - 80) / 16.0) - 1;
           if (self.optionslist6id > 0)
           {
             self.SubPartList[self.SubpartNr(self.optionslist6id)].Refresh(self.OptionsList6Obj, tlistselect5);
@@ -871,16 +871,16 @@ namespace WindowsApplication1
           {
             ListClass optionsList6Obj = self.OptionsList6Obj;
             let mut tlistsize: i32 = num35;
-            let mut twidth: i32 = 320 +  Math.Round((double) (self.w - 880) / 2.0);
+            let mut twidth: i32 = 320 +  Math.Round( (self.w - 880) / 2.0);
             let mut tlistselect6: i32 = tlistselect5;
             let mut game: GameClass = self.game;
-            let mut tValueWidth: i32 = 100 +  Math.Round((double) (self.w - 880) / 5.0);
+            let mut tValueWidth: i32 = 100 +  Math.Round( (self.w - 880) / 5.0);
              Bitmap local5 =  self.OwnBitmap;
             let mut bbx: i32 = num1 + 220;
             Font font =  null;
              Font local6 =  font;
             tsubpart1 =  new ListSubPartClass(optionsList6Obj, tlistsize, twidth, tlistselect6, game, tHeaderCenter: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local5), bbx: bbx, bby: 16, tMarcStyle: true, overruleFont: ( local6));
-            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round((double) (self.w - 880) / 2.0), (num35 + 1) * 16, 0);
+            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round( (self.w - 880) / 2.0), (num35 + 1) * 16, 0);
           }
           else
           {
@@ -891,7 +891,7 @@ namespace WindowsApplication1
           {
             let mut x1: i32 = num1 + 220 + 10;
             DrawMod.DrawTextColouredMarc( g, "SHQ / LOCATION", self.game.MarcFont5, x1, 3, Color.White);
-            let mut x2: i32 = num1 + 220 + 320 +  Math.Round((double) (self.w - 880) / 2.0) -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 1.0);
+            let mut x2: i32 = num1 + 220 + 320 +  Math.Round( (self.w - 880) / 2.0) -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 1.0);
             upper: String = "Logistical Points used".ToUpper();
             DrawMod.DrawTextColouredMarc( g, upper, self.game.MarcFont5, x2, 3, Color.White);
           }
@@ -917,7 +917,7 @@ namespace WindowsApplication1
               let mut locCounter5: i32 = self.game.Data.LocCounter;
               for (let mut index: i32 = 0; index <= locCounter5; index += 1)
               {
-                if (self.game.Data.LocObj[index].HQ == tdata && Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectGreater(objArray4[index, idValue], (object) 0, false), Operators.CompareObjectGreater(objArray4[index, idValue], (object) 0, false))))
+                if (self.game.Data.LocObj[index].HQ == tdata && Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectGreater(objArray4[index, idValue],  0, false), Operators.CompareObjectGreater(objArray4[index, idValue],  0, false))))
                 {
                   tvalue2: String = objArray4[index, idValue].ToString();
                   tvalue: String = objArray5[index, idValue].ToString();
@@ -936,7 +936,7 @@ namespace WindowsApplication1
             self.RemoveSubPart(self.optionslist6id);
             self.optionslist6id = 0;
           }
-          let mut num37: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 1;
+          let mut num37: i32 =  Math.Round( (self.h - 80) / 16.0) - 1;
           if (self.optionslist6id > 0)
           {
             self.SubPartList[self.SubpartNr(self.optionslist6id)].Refresh(self.OptionsList6Obj, tlistselect7);
@@ -946,24 +946,24 @@ namespace WindowsApplication1
           {
             ListClass optionsList6Obj = self.OptionsList6Obj;
             let mut tlistsize: i32 = num37;
-            let mut twidth: i32 = 320 +  Math.Round((double) (self.w - 880) / 2.0);
+            let mut twidth: i32 = 320 +  Math.Round( (self.w - 880) / 2.0);
             let mut tlistselect8: i32 = tlistselect7;
             let mut game: GameClass = self.game;
-            let mut tValueWidth: i32 = 100 +  Math.Round((double) (self.w - 880) / 5.0);
+            let mut tValueWidth: i32 = 100 +  Math.Round( (self.w - 880) / 5.0);
              Bitmap local7 =  self.OwnBitmap;
             let mut bbx: i32 = num1 + 220;
             Font font =  null;
              Font local8 =  font;
             tsubpart1 =  new ListSubPartClass(optionsList6Obj, tlistsize, twidth, tlistselect8, game, tHeaderCenter: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local7), bbx: bbx, bby: 16, tMarcStyle: true, overruleFont: ( local8));
-            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round((double) (self.w - 880) / 2.0), (num37 + 1) * 16, 0);
+            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round( (self.w - 880) / 2.0), (num37 + 1) * 16, 0);
           }
           let mut x3: i32 = num1 + 220 + 10;
           str2 = self.game.Data.StringListObj[stringListById].GetData(0, idValue, 2);
           DrawMod.DrawTextColouredMarc( g, "SHQ / LOCATION", self.game.MarcFont5, x3, 3, Color.White);
-          let mut x4: i32 = num1 + 220 + 320 +  Math.Round((double) (self.w - 880) / 2.0) -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x4: i32 = num1 + 220 + 320 +  Math.Round( (self.w - 880) / 2.0) -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           upper1: String = "requested".ToUpper();
           DrawMod.DrawTextColouredMarc( g, upper1, self.game.MarcFont5, x4, 3, Color.White);
-          let mut x5: i32 = x4 -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x5: i32 = x4 -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           upper2: String = "received".ToUpper();
           DrawMod.DrawTextColouredMarc( g, upper2, self.game.MarcFont5, x5, 3, Color.White);
         }
@@ -988,7 +988,7 @@ namespace WindowsApplication1
               let mut locCounter6: i32 = self.game.Data.LocCounter;
               for (let mut index: i32 = 0; index <= locCounter6; index += 1)
               {
-                if (self.game.Data.LocObj[index].HQ == tdata && Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectGreater(objArray8[index, idValue], (object) 0, false), Operators.CompareObjectGreater(objArray8[index, idValue], (object) 0, false))))
+                if (self.game.Data.LocObj[index].HQ == tdata && Conversions.ToBoolean(Operators.OrObject(Operators.CompareObjectGreater(objArray8[index, idValue],  0, false), Operators.CompareObjectGreater(objArray8[index, idValue],  0, false))))
                 {
                   tvalue2: String = objArray8[index, idValue].ToString();
                   tvalue: String = objArray9[index, idValue].ToString();
@@ -1007,7 +1007,7 @@ namespace WindowsApplication1
             self.RemoveSubPart(self.optionslist6id);
             self.optionslist6id = 0;
           }
-          let mut num39: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 1;
+          let mut num39: i32 =  Math.Round( (self.h - 80) / 16.0) - 1;
           if (self.optionslist6id > 0)
           {
             self.SubPartList[self.SubpartNr(self.optionslist6id)].Refresh(self.OptionsList6Obj, tlistselect9);
@@ -1017,24 +1017,24 @@ namespace WindowsApplication1
           {
             ListClass optionsList6Obj = self.OptionsList6Obj;
             let mut tlistsize: i32 = num39;
-            let mut twidth: i32 = 320 +  Math.Round((double) (self.w - 880) / 2.0);
+            let mut twidth: i32 = 320 +  Math.Round( (self.w - 880) / 2.0);
             let mut tlistselect10: i32 = tlistselect9;
             let mut game: GameClass = self.game;
-            let mut tValueWidth: i32 = 100 +  Math.Round((double) (self.w - 880) / 5.0);
+            let mut tValueWidth: i32 = 100 +  Math.Round( (self.w - 880) / 5.0);
              Bitmap local9 =  self.OwnBitmap;
             let mut bbx: i32 = num1 + 220;
             Font font =  null;
              Font local10 =  font;
             tsubpart1 =  new ListSubPartClass(optionsList6Obj, tlistsize, twidth, tlistselect10, game, tHeaderCenter: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local9), bbx: bbx, bby: 16, tMarcStyle: true, overruleFont: ( local10));
-            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round((double) (self.w - 880) / 2.0), (num39 + 1) * 16, 0);
+            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round( (self.w - 880) / 2.0), (num39 + 1) * 16, 0);
           }
           let mut x6: i32 = num1 + 220 + 10;
           str2 = self.game.Data.StringListObj[stringListById].GetData(0, idValue, 2);
           DrawMod.DrawTextColouredMarc( g, "SHQ / LOCATION", self.game.MarcFont5, x6, 3, Color.White);
-          let mut x7: i32 = num1 + 220 + 320 +  Math.Round((double) (self.w - 880) / 2.0) -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x7: i32 = num1 + 220 + 320 +  Math.Round( (self.w - 880) / 2.0) -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           upper3: String = "offered".ToUpper();
           DrawMod.DrawTextColouredMarc( g, upper3, self.game.MarcFont5, x7, 3, Color.White);
-          let mut x8: i32 = x7 -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x8: i32 = x7 -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           upper4: String = "picked-up".ToUpper();
           DrawMod.DrawTextColouredMarc( g, upper4, self.game.MarcFont5, x8, 3, Color.White);
         }
@@ -1064,11 +1064,11 @@ namespace WindowsApplication1
               let mut Left: i32 = 0;
               if (self.detailnr == 300)
               {
-                if (Operators.ConditionalCompareObjectGreater(objArray11[unr], (object) 0, false))
-                  Left = Conversions.ToInteger(Operators.AddObject((object) Left, objArray11[unr]));
+                if (Operators.ConditionalCompareObjectGreater(objArray11[unr],  0, false))
+                  Left = Conversions.ToInteger(Operators.AddObject( Left, objArray11[unr]));
               }
-              else if (self.detailnr == 600 && Operators.ConditionalCompareObjectGreater(objArray13[unr], (object) 0, false))
-                Left = Conversions.ToInteger(Operators.AddObject((object) Left, objArray13[unr]));
+              else if (self.detailnr == 600 && Operators.ConditionalCompareObjectGreater(objArray13[unr],  0, false))
+                Left = Conversions.ToInteger(Operators.AddObject( Left, objArray13[unr]));
               int num42;
               if (Left > 0 | num42 > 0 | self.game.Data.UnitObj[unr].IsHQ)
               {
@@ -1181,7 +1181,7 @@ namespace WindowsApplication1
             self.RemoveSubPart(self.optionslist6id);
             self.optionslist6id = 0;
           }
-          let mut num59: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 1;
+          let mut num59: i32 =  Math.Round( (self.h - 80) / 16.0) - 1;
           if (self.optionslist6id > 0)
           {
             self.SubPartList[self.SubpartNr(self.optionslist6id)].Refresh(self.OptionsList6Obj, tlistselect11);
@@ -1191,16 +1191,16 @@ namespace WindowsApplication1
           {
             ListClass optionsList6Obj = self.OptionsList6Obj;
             let mut tlistsize: i32 = num59;
-            let mut twidth: i32 = 320 +  Math.Round((double) (self.w - 880) / 2.0);
+            let mut twidth: i32 = 320 +  Math.Round( (self.w - 880) / 2.0);
             let mut tlistselect12: i32 = tlistselect11;
             let mut game: GameClass = self.game;
-            let mut tValueWidth: i32 = 100 +  Math.Round((double) (self.w - 880) / 5.0);
+            let mut tValueWidth: i32 = 100 +  Math.Round( (self.w - 880) / 5.0);
              Bitmap local11 =  self.OwnBitmap;
             let mut bbx: i32 = num1 + 220;
             Font font =  null;
              Font local12 =  font;
             tsubpart1 =  new ListSubPartClass(optionsList6Obj, tlistsize, twidth, tlistselect12, game, tHeaderCenter: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local11), bbx: bbx, bby: 16, tMarcStyle: true, overruleFont: ( local12));
-            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round((double) (self.w - 880) / 2.0), (num59 + 1) * 16, 0);
+            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round( (self.w - 880) / 2.0), (num59 + 1) * 16, 0);
           }
           else
           {
@@ -1211,17 +1211,17 @@ namespace WindowsApplication1
           {
             let mut x9: i32 = num1 + 220 + 10;
             DrawMod.DrawTextColouredMarc( g, "UNIT", self.game.MarcFont5, x9, 3, Color.White);
-            let mut x10: i32 = num1 + 220 + 320 +  Math.Round((double) (self.w - 880) / 2.0) -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+            let mut x10: i32 = num1 + 220 + 320 +  Math.Round( (self.w - 880) / 2.0) -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
             upper5: String = "Log. Pts".ToUpper();
             DrawMod.DrawTextColouredMarc( g, upper5, self.game.MarcFont5, x10, 3, Color.White);
-            let mut x11: i32 = x10 -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+            let mut x11: i32 = x10 -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
             upper6: String = "Cumulative".ToUpper();
             DrawMod.DrawTextColouredMarc( g, upper6, self.game.MarcFont5, x11, 3, Color.White);
             if (self.detailhisnr > -1)
             {
-              let mut num60: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 3;
-              tsubpart1 =  new TextButtonPartClass("GO TO UNIT", 140, "Click to center map on this unit.",  self.OwnBitmap, num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0), (num60 + 2) * 16 - 7, theight: 40, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
-              self.text6id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0), (num60 + 2) * 16 - 7, 140, 40, 1);
+              let mut num60: i32 =  Math.Round( (self.h - 80) / 16.0) - 3;
+              tsubpart1 =  new TextButtonPartClass("GO TO UNIT", 140, "Click to center map on this unit.",  self.OwnBitmap, num1 + 560 +  Math.Round( (self.w - 880) / 2.0), (num60 + 2) * 16 - 7, theight: 40, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
+              self.text6id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round( (self.w - 880) / 2.0), (num60 + 2) * 16 - 7, 140, 40, 1);
             }
           }
         }
@@ -1254,10 +1254,10 @@ namespace WindowsApplication1
               }
               let mut Left1: i32 = 0;
               let mut Left2: i32 = 0;
-              if (Operators.ConditionalCompareObjectGreater(objArray6[unr, idValue], (object) 0, false))
-                Left1 = Conversions.ToInteger(Operators.AddObject((object) Left1, objArray6[unr, idValue]));
-              if (Operators.ConditionalCompareObjectGreater(objArray6[unr, idValue], (object) 0, false))
-                Left2 = Conversions.ToInteger(Operators.AddObject((object) Left2, objArray7[unr, idValue]));
+              if (Operators.ConditionalCompareObjectGreater(objArray6[unr, idValue],  0, false))
+                Left1 = Conversions.ToInteger(Operators.AddObject( Left1, objArray6[unr, idValue]));
+              if (Operators.ConditionalCompareObjectGreater(objArray6[unr, idValue],  0, false))
+                Left2 = Conversions.ToInteger(Operators.AddObject( Left2, objArray7[unr, idValue]));
               if (Left1 > 0 | Left2 > 0 | self.game.Data.UnitObj[unr].IsHQ)
               {
                 let mut num63: i32 = self.game.HandyFunctionsObj.HowmanyHQsAbove(unr);
@@ -1396,7 +1396,7 @@ namespace WindowsApplication1
             self.RemoveSubPart(self.optionslist6id);
             self.optionslist6id = 0;
           }
-          let mut num86: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 1;
+          let mut num86: i32 =  Math.Round( (self.h - 80) / 16.0) - 1;
           if (self.optionslist6id > 0)
           {
             self.SubPartList[self.SubpartNr(self.optionslist6id)].Refresh(self.OptionsList6Obj, tlistselect13);
@@ -1406,31 +1406,31 @@ namespace WindowsApplication1
           {
             ListClass optionsList6Obj = self.OptionsList6Obj;
             let mut tlistsize: i32 = num86;
-            let mut twidth: i32 = 320 +  Math.Round((double) (self.w - 880) / 2.0);
+            let mut twidth: i32 = 320 +  Math.Round( (self.w - 880) / 2.0);
             let mut tlistselect14: i32 = tlistselect13;
             let mut game: GameClass = self.game;
-            let mut tValueWidth: i32 = 100 +  Math.Round((double) (self.w - 880) / 5.0);
+            let mut tValueWidth: i32 = 100 +  Math.Round( (self.w - 880) / 5.0);
              Bitmap local13 =  self.OwnBitmap;
             let mut bbx: i32 = num1 + 220;
             Font font =  null;
              Font local14 =  font;
             tsubpart1 =  new ListSubPartClass(optionsList6Obj, tlistsize, twidth, tlistselect14, game, tHeaderCenter: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local13), bbx: bbx, bby: 16, tMarcStyle: true, overruleFont: ( local14));
-            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round((double) (self.w - 880) / 2.0), (num86 + 1) * 16, 0);
+            self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round( (self.w - 880) / 2.0), (num86 + 1) * 16, 0);
           }
           let mut x12: i32 = num1 + 220 + 10;
           str2 = self.game.Data.StringListObj[stringListById].GetData(0, idValue, 2);
           DrawMod.DrawTextColouredMarc( g, "UNIT", self.game.MarcFont5, x12, 3, Color.White);
-          let mut x13: i32 = num1 + 220 + 320 +  Math.Round((double) (self.w - 880) / 2.0) -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x13: i32 = num1 + 220 + 320 +  Math.Round( (self.w - 880) / 2.0) -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           upper7: String = "rec/req".ToUpper();
           DrawMod.DrawTextColouredMarc( g, upper7, self.game.MarcFont5, x13, 3, Color.White);
-          let mut x14: i32 = x13 -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x14: i32 = x13 -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           upper8: String = "cumulative".ToUpper();
           DrawMod.DrawTextColouredMarc( g, upper8, self.game.MarcFont5, x14, 3, Color.White);
           if (self.detailhisnr > -1)
           {
-            let mut num87: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 3;
-            tsubpart1 =  new TextButtonPartClass("GO TO UNIT", 140, "Click to center map on this unit.",  self.OwnBitmap, num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0), (num87 + 2) * 16 - 7, theight: 40, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
-            self.text6id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0), (num87 + 2) * 16 - 7, 140, 40, 1);
+            let mut num87: i32 =  Math.Round( (self.h - 80) / 16.0) - 3;
+            tsubpart1 =  new TextButtonPartClass("GO TO UNIT", 140, "Click to center map on this unit.",  self.OwnBitmap, num1 + 560 +  Math.Round( (self.w - 880) / 2.0), (num87 + 2) * 16 - 7, theight: 40, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
+            self.text6id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round( (self.w - 880) / 2.0), (num87 + 2) * 16 - 7, 140, 40, 1);
           }
         }
       }
@@ -1445,7 +1445,7 @@ namespace WindowsApplication1
         let mut tdata: i32 = 0;
         do
         {
-          if ((double) self.game.Data.RuleVar[650 + tdata] > 0.0)
+          if ( self.game.Data.RuleVar[650 + tdata] > 0.0)
           {
             index128 += 1;
             if (self.detailnr == -1)
@@ -1457,9 +1457,9 @@ namespace WindowsApplication1
           tdata += 1;
         }
         while (tdata <= 2);
-        if ((double) self.game.Data.RuleVar[403] < 1.0)
+        if ( self.game.Data.RuleVar[403] < 1.0)
         {
-          if ((double) self.game.Data.RuleVar[337] > 0.0)
+          if ( self.game.Data.RuleVar[337] > 0.0)
           {
             let mut num88: i32 = index128 + 1;
             if (self.detailnr == -1)
@@ -1471,7 +1471,7 @@ namespace WindowsApplication1
             if (self.detailnr == 12)
               tlistselect15 = index128;
             self.OptionsList5Obj.add("Replacements requested", 12);
-            if ((double) self.game.Data.RuleVar[977] < 1.0)
+            if ( self.game.Data.RuleVar[977] < 1.0)
             {
               index128 += 1;
               if (self.detailnr == 13)
@@ -1479,7 +1479,7 @@ namespace WindowsApplication1
               self.OptionsList5Obj.add("Replacements returned", 13);
             }
           }
-          if ((double) self.game.Data.RuleVar[499] > 0.0 & (double) self.game.Data.RuleVar[957] > 0.0)
+          if ( self.game.Data.RuleVar[499] > 0.0 &  self.game.Data.RuleVar[957] > 0.0)
           {
             let mut num89: i32 = index128 + 1;
             if (self.detailnr == 14)
@@ -1491,9 +1491,9 @@ namespace WindowsApplication1
             self.OptionsList5Obj.add("Unit Fuel Logbook", 15);
           }
         }
-        if ((double) self.game.Data.RuleVar[957] > 0.0)
+        if ( self.game.Data.RuleVar[957] > 0.0)
         {
-          let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[957]));
+          let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[957]));
           if (stringListById > -1)
           {
             let mut length: i32 = self.game.Data.StringListObj[stringListById].Length;
@@ -1502,7 +1502,7 @@ namespace WindowsApplication1
               str11: String = self.game.Data.StringListObj[stringListById].Data[index129, 0];
               let mut num90: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[stringListById].Data[index129, 1]));
               bool flag = true;
-              if (num90 == self.game.Data.Turn && !Information.IsNothing((object) str11) && str11.Length > 0)
+              if (num90 == self.game.Data.Turn && !Information.IsNothing( str11) && str11.Length > 0)
               {
                 let mut num91: i32 = index129 - 1;
                 for (let mut index130: i32 = 0; index130 <= num91; index130 += 1)
@@ -1543,7 +1543,7 @@ namespace WindowsApplication1
         }
         if (index128 > -1)
         {
-          let mut num92: i32 =  Math.Round((double) (self.h - 90) / 16.0) - 8;
+          let mut num92: i32 =  Math.Round( (self.h - 90) / 16.0) - 8;
           if (self.OptionsList5id > 0)
           {
             self.SubPartList[self.SubpartNr(self.OptionsList5id)].Refresh(self.OptionsList5Obj, tlistselect15);
@@ -1551,7 +1551,7 @@ namespace WindowsApplication1
           }
           else if (self.game.Data.Product >= 7)
           {
-            let mut tlistsize: i32 =  Math.Round((double) (self.h - 90) / 24.0) - 6;
+            let mut tlistsize: i32 =  Math.Round( (self.h - 90) / 24.0) - 6;
             tsubpart1 =  new ListSubPartClass(self.OptionsList5Obj, tlistsize, 170, tlistselect15, self.game, tHeaderCenter: false, tdotopandbottom: false, tbackbitmap: ( self.OwnBitmap), bbx: (num1 + 30), bby: 10, tMarcStyle: true, overruleFont: ( self.game.MarcFont4), overruleItemSize: 24);
             self.OptionsList5id = self.AddSubPart( tsubpart1, num1 + 30, 10, 170, (tlistsize + 1) * 24, 0);
           }
@@ -1569,10 +1569,10 @@ namespace WindowsApplication1
             self.OptionsList5id = self.AddSubPart( tsubpart1, num1 + 30, 10, 170, (num92 + 1) * 16, 0);
           }
         }
-        if (self.detailnr >= 100 & (double) self.game.Data.RuleVar[957] > 0.0)
+        if (self.detailnr >= 100 &  self.game.Data.RuleVar[957] > 0.0)
         {
           let mut index131: i32 = self.detailnr - 100;
-          let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[957]));
+          let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[957]));
           Left3: String = self.game.Data.StringListObj[stringListById].Data[index131, 0];
           tregcount = 0;
           str1 = Left3;
@@ -1592,7 +1592,7 @@ namespace WindowsApplication1
             {
               str12: String = self.game.Data.StringListObj[stringListById].Data[index132, 2];
               bool flag2 = true;
-              if (!Information.IsNothing((object) str12) & str12.Length > 0)
+              if (!Information.IsNothing( str12) & str12.Length > 0)
               {
                 let mut num93: i32 = index132 - 1;
                 for (index128 = 0; index128 <= num93; index128 += 1)
@@ -1767,7 +1767,7 @@ namespace WindowsApplication1
             let mut regimeCounter4: i32 = self.game.Data.RegimeCounter;
             for (let mut reg2: i32 = 0; reg2 <= regimeCounter4; reg2 += 1)
             {
-              if (!self.game.Data.RegimeObj[reg2].hideFromList && !self.game.Data.RegimeObj[reg2].Sleep | flagArray[reg2] && self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.Turn, reg2) | !self.game.Data.FOWOn | self.game.Data.Winner > -1 | (double) self.game.Data.RuleVar[313] > 0.0)
+              if (!self.game.Data.RegimeObj[reg2].hideFromList && !self.game.Data.RegimeObj[reg2].Sleep | flagArray[reg2] && self.game.HandyFunctionsObj.IsAlliedOrSelf(self.game.Data.Turn, reg2) | !self.game.Data.FOWOn | self.game.Data.Winner > -1 |  self.game.Data.RuleVar[313] > 0.0)
               {
                 tregcount += 1;
                 numArray1[index141, tregcount] = 0;
@@ -1790,7 +1790,7 @@ namespace WindowsApplication1
           self.Info1Id = self.AddSubPart( tsubpart1, num1 + 220, 0, self.w - 880 + 620 - num1, 330, 0);
         }
       }
-      if (self.subtabnr == 1 & (double) self.game.Data.RuleVar[403] < 1.0 | self.subtabnr == 2 & (double) self.game.Data.RuleVar[403] > 0.0 && self.detailnr >= 11 & self.detailnr <= 13 | self.detailnr >= 14 & self.detailnr <= 15 & (double) self.game.Data.RuleVar[499] > 0.0)
+      if (self.subtabnr == 1 &  self.game.Data.RuleVar[403] < 1.0 | self.subtabnr == 2 &  self.game.Data.RuleVar[403] > 0.0 && self.detailnr >= 11 & self.detailnr <= 13 | self.detailnr >= 14 & self.detailnr <= 15 &  self.game.Data.RuleVar[499] > 0.0)
       {
         self.OptionsList6Obj = ListClass::new();
         bool[] flagArray7 = new bool[self.game.Data.HistoricalUnitCounter + 1];
@@ -2034,7 +2034,7 @@ namespace WindowsApplication1
           self.RemoveSubPart(self.optionslist6id);
           self.optionslist6id = 0;
         }
-        let mut num129: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 1;
+        let mut num129: i32 =  Math.Round( (self.h - 80) / 16.0) - 1;
         if (self.optionslist6id > 0)
         {
           self.SubPartList[self.SubpartNr(self.optionslist6id)].Refresh(self.OptionsList6Obj, tlistselect17);
@@ -2044,16 +2044,16 @@ namespace WindowsApplication1
         {
           ListClass optionsList6Obj = self.OptionsList6Obj;
           let mut tlistsize: i32 = num129;
-          let mut twidth: i32 = 320 +  Math.Round((double) (self.w - 880) / 2.0);
+          let mut twidth: i32 = 320 +  Math.Round( (self.w - 880) / 2.0);
           let mut tlistselect18: i32 = tlistselect17;
           let mut game: GameClass = self.game;
-          let mut tValueWidth: i32 = 100 +  Math.Round((double) (self.w - 880) / 5.0);
+          let mut tValueWidth: i32 = 100 +  Math.Round( (self.w - 880) / 5.0);
            Bitmap local17 =  self.OwnBitmap;
           let mut bbx: i32 = num1 + 220;
           Font font =  null;
            Font local18 =  font;
           tsubpart1 =  new ListSubPartClass(optionsList6Obj, tlistsize, twidth, tlistselect18, game, tHeaderCenter: false, tShowPair: true, tValueWidth: tValueWidth, tdotopandbottom: false, tbackbitmap: ( local17), bbx: bbx, bby: 0, tMarcStyle: true, overruleFont: ( local18));
-          self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round((double) (self.w - 880) / 2.0), (num129 + 1) * 16, 0);
+          self.optionslist6id = self.AddSubPart( tsubpart1, num1 + 220, 16, 320 +  Math.Round( (self.w - 880) / 2.0), (num129 + 1) * 16, 0);
         }
         else
         {
@@ -2073,7 +2073,7 @@ namespace WindowsApplication1
         {
           let mut x15: i32 = num1 + 220 + 10;
           DrawMod.DrawTextColouredMarc( g, "UNIT / HQ", self.game.MarcFont5, x15, 3, Color.White);
-          let mut x16: i32 = num1 + 220 + 320 +  Math.Round((double) (self.w - 880) / 2.0) -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x16: i32 = num1 + 220 + 320 +  Math.Round( (self.w - 880) / 2.0) -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           if (self.detailnr == 11)
             DrawMod.DrawTextColouredMarc( g, "RECEIVED", self.game.MarcFont5, x16, 3, Color.White);
           if (self.detailnr == 12)
@@ -2084,7 +2084,7 @@ namespace WindowsApplication1
             DrawMod.DrawTextColouredMarc( g, "RECEIVED", self.game.MarcFont5, x16, 3, Color.White);
           if (self.detailnr == 15)
             DrawMod.DrawTextColouredMarc( g, "RECEIVED", self.game.MarcFont5, x16, 3, Color.White);
-          let mut x17: i32 = x16 -  Math.Round((double) (100 +  Math.Round((double) (self.w - 880) / 5.0)) / 2.0);
+          let mut x17: i32 = x16 -  Math.Round( (100 +  Math.Round( (self.w - 880) / 5.0)) / 2.0);
           if (self.detailnr == 11)
             DrawMod.DrawTextColouredMarc( g, "REC CUM.", self.game.MarcFont5, x17, 3, Color.White);
           if (self.detailnr == 12)
@@ -2188,7 +2188,7 @@ namespace WindowsApplication1
             self.OptionsList7Obj = ListClass::new();
             let mut num135: i32 = -1;
             SimpleList simpleList = SimpleList::new();
-            let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) self.game.Data.RuleVar[499]));
+            let mut stringListById: i32 = self.game.HandyFunctionsObj.GetStringListByID( Math.Round( self.game.Data.RuleVar[499]));
             let mut tdata4: i32 = num135 + 1;
             let mut num136: i32 = 0;
             if (self.detailnr == 14)
@@ -2246,7 +2246,7 @@ namespace WindowsApplication1
             if (num136 == 0)
               self.OptionsList7Obj.add("-none-", tdata5 + 1);
           }
-          let mut num139: i32 =  Math.Round((double) (self.h - 80) / 16.0) - 3;
+          let mut num139: i32 =  Math.Round( (self.h - 80) / 16.0) - 3;
           if (self.optionslist7id > 0)
           {
             self.SubPartList[self.SubpartNr(self.optionslist7id)].Refresh(self.OptionsList7Obj, tlistselect17);
@@ -2256,32 +2256,32 @@ namespace WindowsApplication1
           {
             ListClass optionsList7Obj = self.OptionsList7Obj;
             let mut tlistsize: i32 = num139;
-            let mut twidth: i32 = 140 +  Math.Round((double) (self.w - 880) / 2.0);
+            let mut twidth: i32 = 140 +  Math.Round( (self.w - 880) / 2.0);
             let mut game: GameClass = self.game;
              Bitmap local19 =  self.OwnBitmap;
-            let mut bbx: i32 = num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0);
+            let mut bbx: i32 = num1 + 560 +  Math.Round( (self.w - 880) / 2.0);
             Font font =  null;
              Font local20 =  font;
             tsubpart1 =  new ListSubPartClass(optionsList7Obj, tlistsize, twidth, -1, game, tHeaderCenter: false, tHighlight: false, tShowPair: true, tValueWidth: 100, tdotopandbottom: false, tbackbitmap: ( local19), bbx: bbx, bby: 0, tMarcStyle: true, overruleFont: ( local20));
-            self.optionslist7id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0), 0, 140 +  Math.Round((double) (self.w - 880) / 2.0), (num139 + 1) * 16, 0);
+            self.optionslist7id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round( (self.w - 880) / 2.0), 0, 140 +  Math.Round( (self.w - 880) / 2.0), (num139 + 1) * 16, 0);
           }
-          tsubpart1 =  new TextButtonPartClass("GO TO UNIT", 140, "Click to center map on this unit.",  self.OwnBitmap, num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0), (num139 + 2) * 16 - 7, theight: 40, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
-          self.text6id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round((double) (self.w - 880) / 2.0), (num139 + 2) * 16 - 7, 140, 40, 1);
+          tsubpart1 =  new TextButtonPartClass("GO TO UNIT", 140, "Click to center map on this unit.",  self.OwnBitmap, num1 + 560 +  Math.Round( (self.w - 880) / 2.0), (num139 + 2) * 16 - 7, theight: 40, usefont: self.game.MarcFont4, useshadow: true, tMarcStyle: true);
+          self.text6id = self.AddSubPart( tsubpart1, num1 + 560 +  Math.Round( (self.w - 880) / 2.0), (num139 + 2) * 16 - 7, 140, 40, 1);
         }
       }
       let mut num140: i32 = -1;
       let mut num141: i32 = 0;
       do
       {
-        if ((double) self.game.Data.RuleVar[650 + num141] > 0.0)
+        if ( self.game.Data.RuleVar[650 + num141] > 0.0)
           num140 += 1;
         num141 += 1;
       }
       while (num141 <= 2);
-      if ((double) self.game.Data.RuleVar[337] > 0.0)
+      if ( self.game.Data.RuleVar[337] > 0.0)
         num140 += 2;
       let mut num142: i32 = -1;
-      if ((double) self.game.Data.RuleVar[403] > 0.0)
+      if ( self.game.Data.RuleVar[403] > 0.0)
         num142 += 1;
       Rectangle trect2 = Rectangle::new(15, 20, 135, 70);
       self.AddMouse( trect2, "Click to see statistics on troops", "", 1);

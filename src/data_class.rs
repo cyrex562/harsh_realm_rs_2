@@ -1,574 +1,258 @@
 ﻿// Decompiled with JetBrains decompiler
+#![allow(non_upper_case_globals)]
+#![allow(non_snake_case)]
 // Type: WindowsApplication1.DataClass
 // Assembly: WindowsApplication1, Version=1.0.8020.28903, Culture=neutral, PublicKeyToken=null
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.IO;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Runtime.Serialization;
+// usingSystem.Runtime.Serialization.Formatters.Binary;
+// usingSystem.Windows.Forms;
 
-namespace WindowsApplication1
+// namespace WindowsApplication1
+// {
+//   [Serializable]
+//   pub class DataClass : ISerializable
+
+use crate::action_card_class::ActionCardClass;
+use crate::lib_id_class::LibIdClass;
+
+pub const CONSTVERSION: i32 =  424;
+pub const CONSTSUBVERSION: &'static str = ".04b";
+pub const CONSTFILEEXTENSIONSLOAD: &'static str = "SE1 Scenario file (*.se1)|*.se1";
+pub const CONSTFILEEXTENSIONSSAVE: &'static str = "SE1 Scenario file (*.se1)|*.se1";
+pub const CONSTFILEEXTENSIONAUTOSAVE: &'static str = ".se1";
+pub const CONSTVERSIONDISPLAYMINUS: i32 =  314;
+pub const CONSTFILEEXTENSTIONLOADMAP: &'static str = "SE1 Map file(*.se1map)|*.se1map";
+pub const CONSTFILEEXTENSIONEVENTLIB: &'static str = "SE1 Event library(*.se1evlib)|*.se1evlib";
+pub const CONSTFILEEXTENSIONTROOPSLIB: &'static str = "SE1 Troops&Equipment library(*.se1troops)|*.se1troops";
+pub const CONSTFILEEXTENSIONHISTORICALLIB: &'static str = "SE1 Historical library(*.se1his)|*.se1his";
+pub const CONSTFILEEXTENSIONOFFICERLIB: &'static str = "SE1 Officer library(*.se1off)|*.se1off";
+pub const CONSTFILEEXTENSIONOFFICERCARDLIB: &'static str = "SE1 Officer Card Library(*.se1offcard)|*.se1offcard";
+pub const CONSTFILEEXTENSIONLOADANYLIB: &'static str = "SE1 Scenario file (*.se1)|*.se1|SE1 Map file(*.se1map)|*.se1map|SE1 Master file(*.se1master)|*.se1master|SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off";
+pub const CONSTFILEEXTENSIONLOADLIB: &'static str = "SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off";
+pub const CONSTFILEEXTENSIONLOADMASTER: &'static str = "SE1 Master file(*.se1master)|*.se1master";
+pub const CONSTSHORTLOADMAP: &'static str = ".se1map";
+pub const CONSTSHORTEVENTLIB: &'static str = ".se1evlib";
+pub const CONSTSHORTTROOPSLIB: &'static str = ".se1troops";
+pub const CONSTSHORTHISTORICALLIB: &'static str = ".se1his";
+pub const CONSTSHORTOFFICERLIB: &'static str = ".se1off";
+pub const CONSTSHORTOFFICERCARDLIB: &'static str = ".se1offcard";
+pub const CONSTSHORTMASTER: &'static str = ".se1master";
+pub const CONSTPREINSTALLEDGFXDIR: &'static str = "shadow";
+pub const Slotcounter: i32 =  499;
+pub const MoveGroup1: i32 =  0;
+pub const MoveGroup2: i32 = 99;
+pub const LandscapeGroup1: i32 = 100;
+pub const LandscapeGroup2: i32 = 199;
+pub const PeopleGroup1: i32 = 200;
+pub const PeopleGroup2: i32 = 299;
+pub const ItemGroup1: i32 = 300;
+pub const ItemGroup2: i32 = 399;
+pub const SFTypeGroup1: i32 = 400;
+pub const SFTypeGroup2: i32 = 499;
+pub const LocTypeGroup1: i32 = 500;
+pub const LocTypeGroup2: i32 = 599;
+
+pub struct DataClass
 {
-  [Serializable]
-  pub class DataClass : ISerializable
-  {
-    pub const let mut CONSTVERSION: i32 =  424;
-    pub const CONSTSUBVERSION: String = ".04b";
-    pub const CONSTFILEEXTENSIONSLOAD: String = "SE1 Scenario file (*.se1)|*.se1";
-    pub const CONSTFILEEXTENSIONSSAVE: String = "SE1 Scenario file (*.se1)|*.se1";
-    pub const CONSTFILEEXTENSIONAUTOSAVE: String = ".se1";
-    pub const let mut CONSTVERSIONDISPLAYMINUS: i32 =  314;
-    pub const CONSTFILEEXTENSTIONLOADMAP: String = "SE1 Map file(*.se1map)|*.se1map";
-    pub const CONSTFILEEXTENSIONEVENTLIB: String = "SE1 Event library(*.se1evlib)|*.se1evlib";
-    pub const CONSTFILEEXTENSIONTROOPSLIB: String = "SE1 Troops&Equipment library(*.se1troops)|*.se1troops";
-    pub const CONSTFILEEXTENSIONHISTORICALLIB: String = "SE1 Historical library(*.se1his)|*.se1his";
-    pub const CONSTFILEEXTENSIONOFFICERLIB: String = "SE1 Officer library(*.se1off)|*.se1off";
-    pub const CONSTFILEEXTENSIONOFFICERCARDLIB: String = "SE1 Officer Card Library(*.se1offcard)|*.se1offcard";
-    pub const CONSTFILEEXTENSIONLOADANYLIB: String = "SE1 Scenario file (*.se1)|*.se1|SE1 Map file(*.se1map)|*.se1map|SE1 Master file(*.se1master)|*.se1master|SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off";
-    pub const CONSTFILEEXTENSIONLOADLIB: String = "SE1 Event library(*.se1evlib)|*.se1evlib|SE1 Troops&Equipment library(*.se1troops)|*.se1troops|SE1 Historical library(*.se1his)|*.se1his|SE1 Officer Card Library(*.se1offcard)|*.se1offcard|SE1 Officer library(*.se1off)|*.se1off";
-    pub const CONSTFILEEXTENSIONLOADMASTER: String = "SE1 Master file(*.se1master)|*.se1master";
-    pub const CONSTSHORTLOADMAP: String = ".se1map";
-    pub const CONSTSHORTEVENTLIB: String = ".se1evlib";
-    pub const CONSTSHORTTROOPSLIB: String = ".se1troops";
-    pub const CONSTSHORTHISTORICALLIB: String = ".se1his";
-    pub const CONSTSHORTOFFICERLIB: String = ".se1off";
-    pub const CONSTSHORTOFFICERCARDLIB: String = ".se1offcard";
-    pub const CONSTSHORTMASTER: String = ".se1master";
-    pub const CONSTPREINSTALLEDGFXDIR: String = "shadow";
-    pub Name: String;
-    pub Product: i32;
-    pub Description: String;
-    pub Designer: String;
-    pub Designer2: String;
-    pub Round: i32;
-    pub Version: i32;
-    pub Turn: i32;
-    pub InTurn: bool;
-    pub StepNr: i32;
-    pub int[] GameSlot;
-    pub string[] GameSlotName;
-    pub bool[] GameSlotShow;
-    pub bool[] GameSlotShow2;
-    pub string[] RegimeSlotName;
-    pub bool[] RegimeSlotShow;
-    pub int[] RegimeSlotShow2;
-    pub int[] RegimeSlotNato;
-    pub int[] RegimeSlotSmallGfx;
-    pub string[] RealTempString;
-    pub int[] GameSlotNato;
-    pub int[] GameSlotSmallGfx;
-    pub const let mut Slotcounter: i32 =  499;
-    pub ShrowdOn: bool;
-    pub FOWOn: bool;
-    pub UncertaintyOn: bool;
-    pub ASOn: bool;
-    pub ResMod: i32;
-    pub LoadPass: String;
-    pub EditPass: String;
-    pub MasterFile: String;
-    pub Winner: i32;
-    pub LastWinner: i32;
-    pub VPWin: i32;
-    pub PasswordsOn: bool;
-    pub PBEM: bool;
-    pub ScreenShotOn: bool;
-    pub CreatedWithShrowd: bool;
-    pub ShrowdPeek: bool;
-    pub AutoSave: bool;
-    pub Verify1: bool;
-    pub Verify2: bool;
-    pub MapCounter: i32;
-    pub MapClass[] MapObj;
-    pub LibraryCounter: i32;
-    pub LibraryClass[] LibraryObj;
-    pub LibVarCounter: i32;
-    pub LibVarClass[] LibVarObj;
-    pub MapWidth: i32;
-    pub MapHeight: i32;
-    pub HexClass[,] HexObj;
-    pub LandscapeTypeCounter: i32;
-    pub LandscapeTypeClass[] LandscapeTypeObj;
-    pub RoadTypeCounter: i32;
-    pub RoadTypeClass[] RoadTypeObj;
-    pub RegimeCounter: i32;
-    pub RegimeClass[] RegimeObj;
-    pub RegimeIdCounter: i32;
-    pub UnitCounter: i32;
-    pub UnitClass[] UnitObj;
-    pub SFCounter: i32;
-    pub SFClass[] SFObj;
-    pub SFTypeCounter: i32;
-    pub SFTypeClass[] SFTypeObj;
-    pub SFTypeIdCounter: i32;
-    pub LocTypeCounter: i32;
-    pub LocationTypeClass[] LocTypeObj;
-    pub LocCounter: i32;
-    pub LocationClass[] LocObj;
-    pub object LocIdCounter;
-    pub ItemTypeCounter: i32;
-    pub ItemTypeClass[] ItemTypeObj;
-    pub PeopleCounter: i32;
-    pub PeopleClass[] PeopleObj;
-    pub PeopleIdCounter: i32;
-    pub StringCounter: i32;
-    pub string[] TempString;
-    pub float[] RuleVar;
-    pub string[] RuleString;
-    pub int[] RuleGroup;
-    pub int[] RuleGroup2;
-    pub RuleCounter: i32;
-    pub RiverTypeCounter: i32;
-    pub RiverTypeClass[] RiverTypeObj;
-    pub AreaCounter: i32;
-    pub AreaClass[] AreaObj;
-    pub AreaIDCounter: i32;
-    pub HistoricalUnitCounter: i32;
-    pub HistoricalUnitClass[] HistoricalUnitObj;
-    pub HistoricalIDCounter: i32;
-    pub BridgeClass[] BridgeObj;
-    pub ActionCardCounter: i32;
-    pub ActionCardClass[] ActionCardObj;
-    pub ResearchCounter: i32;
-    pub ResearchClass[] ResearchObj;
-    pub EventCounter: i32;
-    pub EventClass[] EventObj;
-    pub EventIdCounter: i32;
-    pub EventPicCounter: i32;
-    pub string[] EventPicName;
-    pub int[] EventPicNr;
-    pub LibIdClass[] eventPicLibId;
-    pub SmallPicCounter: i32;
-    pub string[] SmallPicName;
-    pub int[] SmallPicNr;
-    pub LibIdClass[] SmallLibId;
-    pub reinfIdCounter: i32;
-    pub ReinfCounter: i32;
-    pub string[] ReinfName;
-    pub LibIdClass[] ReinfLibId;
-    pub int[] ReinfId;
-    pub StringListCounter: i32;
-    pub StringListClass[] StringListObj;
-    pub StringIDCounter: i32;
-    pub string[] CheckTypeNames;
-    pub string[] ExecTypeNames;
-    pub string[,] CheckTypeVarName;
-    pub int[] CheckTypeVarCount;
-    pub CheckTypeCount: i32;
-    pub string[] CheckDesc;
-    pub int[] CheckCategory;
-    pub int[] CheckCategory2;
-    pub int[] ExecCategory;
-    pub int[] ExecCategory2;
-    pub string[,] ExecTypeVarName;
-    pub int[] ExecTypeVarCount;
-    pub string[] ExecDesc;
-    pub ExecTypeCount: i32;
-    pub int[] ExecTypeString;
-    pub int[] TempVar;
-    pub string[] ExecCategoryName;
-    pub string[] CheckCategoryName;
-    pub AlternateRound: i32;
-    pub AlternateRound2: i32;
-    pub DateTime StartData;
-    pub float PPMultiplier;
-    pub float SupplyMultiplier;
-    pub float ResCostMod;
-    pub NoPlayChoice: bool;
-    pub NoAIAdvice: bool;
-    pub int[] Variants;
-    pub int[] VariantEvent;
-    pub const let mut MoveGroup1: i32 =  0;
-    pub const let mut MoveGroup2: i32 =  99;
-    pub const let mut LandscapeGroup1: i32 =  100;
-    pub const let mut LandscapeGroup2: i32 =  199;
-    pub const let mut PeopleGroup1: i32 =  200;
-    pub const let mut PeopleGroup2: i32 =  299;
-    pub const let mut ItemGroup1: i32 =  300;
-    pub const let mut ItemGroup2: i32 =  399;
-    pub const let mut SFTypeGroup1: i32 =  400;
-    pub const let mut SFTypeGroup2: i32 =  499;
-    pub const let mut LocTypeGroup1: i32 =  500;
-    pub const let mut LocTypeGroup2: i32 =  599;
-    pub int[] MoveTypePenalty;
-    pub int[] UnitTypePenalty;
-    pub int[] WheaterColor;
-    pub MasterfileReadPeople: bool;
-    pub MapLoop: bool;
-    pub int[] ReinfRatio;
-    pub GameID: i32;
-    pub TerrorMode: bool;
-    pub DontShowAIMove: bool;
-    pub LoadGame: String;
-    pub UseAI: i32;
-    pub CampaignRoom: i32;
-    pub SystemGfx: String;
-    pub ScenarioDir: String;
-    pub SoundDir: String;
-    pub SFModelIDCounter: i32;
-    pub TurnString: String;
-    pub Loadable: bool;
-    pub specialSaveMode: i32;
-    pub RuleSetName: String;
-    pub DoAllied: bool;
-    pub PermanentOverlayUse: bool;
-    pub PermanentOverlayName: String;
-    pub PermanentOverlaySpriteID: i32;
-    pub PbemGameID: i32;
-    pub PbemPlayer1: String;
-    pub PbemPlayer2: String;
-    pub PbemGameOver: i32;
-    pub PbemDrawGame: i32;
-    pub AIUnitCounter: i32;
-    pub SimpleEditor: bool;
-    pub ExtraTabName: String;
-    pub ExtraTabEvent: i32;
-    pub ExtraTabName2: String;
-    pub ExtraTabEvent2: i32;
-    pub ExtraTabName3: String;
-    pub ExtraTabEvent3: i32;
-    pub ExtraTabName4: String;
-    pub ExtraTabEvent4: i32;
-    pub MapName: String;
-    pub MapVersion: i32;
-    pub MapDesigner: String;
-    pub CombatLogId: i32;
-    pub scenarioVersion: String;
-    pub scenarioVersionMaster: String;
-    pub int[] transportMovementType;
-    pub se1_earlyCinematicsLogin: i32;
 
-    pub int GetLibVarUseId(int libVarId, int slotId)
-    {
-      let mut index: i32 =  slotId;
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Hex || this.LibVarObj[libVarId].type == NewEnums.LibVarType.General)
-        return libVarId;
-      let mut num1: i32 =  -1;
-      let mut num2: i32 =  -1;
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.HistoricalUnit)
-      {
-        num2 = this.HistoricalUnitObj[index].LibId.libSlot;
-        num1 = this.HistoricalUnitObj[index].LibId.id;
-        if (num1 == -1)
-          num1 = index;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.HistoricalUnitModel)
-      {
-        num2 = this.HistoricalUnitObj[index].LibId.libSlot;
-        num1 = this.HistoricalUnitObj[index].LibId.id;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Officer)
-      {
-        if (this.HistoricalUnitObj[index].OffLibId.id > -1)
-        {
-          num2 = this.HistoricalUnitObj[index].OffLibId.libSlot;
-          num1 = this.HistoricalUnitObj[index].OffLibId.id;
-        }
-        else
-        {
-          num2 = this.HistoricalUnitObj[index].LibId.libSlot;
-          num1 = this.HistoricalUnitObj[index].LibId.id;
-        }
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Landscape)
-      {
-        num2 = -1;
-        num1 = index;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.LocationType)
-      {
-        num2 = -1;
-        num1 = index;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.People)
-      {
-        num2 = this.PeopleObj[index].LibId.libSlot;
-        num1 = this.PeopleObj[index].LibId.id;
-        if (num1 == -1)
-          num1 = index;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Regime)
-      {
-        num2 = this.RegimeObj[index].libId.libSlot;
-        num1 = this.RegimeObj[index].libId.id;
-        if (num1 == -1)
-          num1 = index;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.River)
-      {
-        num2 = -1;
-        num1 = index;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Road)
-      {
-        num2 = -1;
-        num1 = index;
-      }
-      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.SFtype)
-      {
-        num2 = this.SFTypeObj[index].LibId.libSlot;
-        num1 = this.SFTypeObj[index].LibId.id;
-        if (num1 == -1)
-          num1 = index;
-      }
-      if (index > -1)
-      {
-        let mut libVarCounter: i32 =  this.LibVarCounter;
-        for (let mut libVarUseId: i32 =  0; libVarUseId <= libVarCounter; libVarUseId += 1)
-        {
-          if (this.LibVarObj[libVarId].libId.libSlot == this.LibVarObj[libVarUseId].libId.libSlot && Operators.CompareString(this.LibVarObj[libVarId].name, this.LibVarObj[libVarUseId].name, false) == 0 && num2 == this.LibVarObj[libVarUseId].instanceId.libSlot && num1 == this.LibVarObj[libVarUseId].instanceId.id)
-            return libVarUseId;
-        }
-      }
-      return libVarId;
-    }
+    pub Name: String,
+    pub Product: i32,
+    pub Description: String,
+    pub Designer: String,
+    pub Designer2: String,
+    pub Round: i32,
+    pub Version: i32,
+    pub Turn: i32,
+    pub InTurn: bool,
+    pub StepNr: i32,
+    pub GameSlot: Vec<i32>,
+    pub GameSlotName: Vec<String>,
+    pub GameSlotShow: Vec<bool>,
+    pub GameSlotShow2: Vec<bool>,
+    pub RegimeSlotName: Vec<String>,
+    pub RegimeSlotShow: Vec<bool>,
+    pub RegimeSlotShow2: Vec<i32>,
+    pub RegimeSlotNato: Vec<i32>,
+    pub RegimeSlotSmallGfx: Vec<i32>,
+    pub RealTempString: Vec<String>,
+    pub GameSlotNato: Vec<i32>,
+    pub GameSlotSmallGfx: Vec<i32>,
+    pub ShrowdOn: bool,
+    pub FOWOn: bool,
+    pub UncertaintyOn: bool,
+    pub ASOn: bool,
+    pub ResMod: i32,
+    pub LoadPass: String,
+    pub EditPass: String,
+    pub MasterFile: String,
+    pub Winner: i32,
+    pub LastWinner: i32,
+    pub VPWin: i32,
+    pub PasswordsOn: bool,
+    pub PBEM: bool,
+    pub ScreenShotOn: bool,
+    pub CreatedWithShrowd: bool,
+    pub ShrowdPeek: bool,
+    pub AutoSave: bool,
+    pub Verify1: bool,
+    pub Verify2: bool,
+    pub MapCounter: i32,
+    pub MapObj: Vec<MapClass>,
+    pub LibraryCounter: i32,
+    pub LibraryObj: Vec<LibraryClass>,
+    pub LibVarCounter: i32,
+    pub LibVarObj: Vec<LibVarClass>,
+    pub MapWidth: i32,
+    pub MapHeight: i32,
+    pub HexObj: Vec<HexClass>,
+    pub LandscapeTypeCounter: i32,
+    pub LandscapeTypeObj: Vec<LandscapeTypeClass>,
+    pub RoadTypeCounter: i32,
+    pub RoadTypeObj: Vec<RoadTypeClass>,
+    pub RegimeCounter: i32,
+    pub RegimeObj: Vec<RegimeClass>,
+    pub RegimeIdCounter: i32,
+    pub UnitCounter: i32,
+    pub UnitObj: Vec<UnitClass>,
+    pub SFCounter: i32,
+    pub SFObj: Vec<SFClass>,
+    pub SFTypeCounter: i32,
+    pub SFTypeObj: Vec<SFTypeClass>,
+    pub SFTypeIdCounter: i32,
+    pub LocTypeCounter: i32,
+    pub LocTypeObj: Vec<LocationTypeClass>,
+    pub LocCounter: i32,
+    pub LocObj: Vec<LocationClass>,
+    pub LocIdCounter: object,
+    pub ItemTypeCounter: i32,
+    pub ItemTypeObj: Vec<ItemTypeClass>,
+    pub PeopleCounter: i32,
+    pub PeopleObj: Vec<PeopleClass>,
+    pub PeopleIdCounter: i32,
+    pub StringCounter: i32,
+    pub TempString: Vec<String>,
+    pub RuleVar: Vec<f32>,
+    pub RuleString: Vec<String>,
+    pub RuleGroup: Vec<i32>,
+    pub RuleGroup2: Vec<i32>,
+    pub RuleCounter: i32,
+    pub RiverTypeCounter: i32,
+    pub RiverTypeObj: Vec<RiverTypeClass>,
+    pub AreaCounter: i32,
+    pub AreaObj: Vec<AreaClass>,
+    pub AreaIDCounter: i32,
+    pub HistoricalUnitCounter: i32,
+    pub HistoricalUnitObj: Vec<HistoricalUnitClass>,
+    pub HistoricalIDCounter: i32,
+    pub BridgeObj: Vec<BridgeClass>,
+    pub ActionCardCounter: i32,
+    pub ActionCardObj: Vec<ActionCardClass>,
+    pub ResearchCounter: i32,
+    pub ResearchObj: Vec<ResearchClass>,
+    pub EventCounter: i32,
+    pub EventObj: Vec<EventClass>,
+    pub EventIdCounter: i32,
+    pub EventPicCounter: i32,
+    pub EventPicName: Vec<String>,
+    pub EventPicNr: Vec<i32>,
+    pub eventPicLibId: Vec<LibIdClass>,
+    pub SmallPicCounter: i32,
+    pub SmallPicName: Vec<String>,
+    pub SmallPicNr: Vec<i32>,
+    pub SmallLibId: Vec<LibIdClass>,
+    pub reinfIdCounter: i32,
+    pub ReinfCounter: i32,
+    pub ReinfName: Vec<String>,
+    pub ReinfLibId: Vec<LibIdClass>,
+    pub ReinfId: Vec<i32>,
+    pub StringListCounter: i32,
+    pub StringListObj: Vec<StringListClass>,
+    pub StringIDCounter: i32,
+    pub CheckTypeNames: Vec<String>,
+    pub ExecTypeNames: Vec<String>,
+    pub CheckTypeVarName: Vec<String>,
+    pub CheckTypeVarCount: Vec<i32>,
+    pub CheckTypeCount: i32,
+    pub CheckDesc: Vec<String>,
+    pub CheckCategory: Vec<i32>,
+    pub CheckCategory2: Vec<i32>,
+    pub ExecCategory: Vec<i32>,
+    pub ExecCategory2: Vec<i32>,
+    pub ExecTypeVarName: Vec<String>,
+    pub ExecTypeVarCount: Vec<i32>,
+    pub ExecDesc: Vec<String>,
+    pub ExecTypeCount: i32,
+    pub ExecTypeString: Vec<i32>,
+    pub TempVar: Vec<i32>,
+    pub ExecCategoryName: Vec<String>,
+    pub CheckCategoryName: Vec<String>,
+    pub AlternateRound: i32,
+    pub AlternateRound2: i32,
+    pub StartData: DateTime,
+    pub PPMultiplier: f32,
+    pub SupplyMultiplier: f32,
+    pub ResCostMod: f32,
+    pub NoPlayChoice: bool,
+    pub NoAIAdvice: bool,
+    pub Variants: Vec<i32>,
+    pub VariantEvent: Vec<i32>,
+    pub MoveTypePenalty: Vec<i32>,
+    pub UnitTypePenalty: Vec<i32>,
+    pub WheaterColor: Vec<i32>,
+    pub MasterfileReadPeople: bool,
+    pub MapLoop: bool,
+    pub ReinfRatio: Vec<i32>,
+    pub GameID: i32,
+    pub TerrorMode: bool,
+    pub DontShowAIMove: bool,
+    pub LoadGame: String,
+    pub UseAI: i32,
+    pub CampaignRoom: i32,
+    pub SystemGfx: String,
+    pub ScenarioDir: String,
+    pub SoundDir: String,
+    pub SFModelIDCounter: i32,
+    pub TurnString: String,
+    pub Loadable: bool,
+    pub specialSaveMode: i32,
+    pub RuleSetName: String,
+    pub DoAllied: bool,
+    pub PermanentOverlayUse: bool,
+    pub PermanentOverlayName: String,
+    pub PermanentOverlaySpriteID: i32,
+    pub PbemGameID: i32,
+    pub PbemPlayer1: String,
+    pub PbemPlayer2: String,
+    pub PbemGameOver: i32,
+    pub PbemDrawGame: i32,
+    pub AIUnitCounter: i32,
+    pub SimpleEditor: bool,
+    pub ExtraTabName: String,
+    pub ExtraTabEvent: i32,
+    pub ExtraTabName2: String,
+    pub ExtraTabEvent2: i32,
+    pub ExtraTabName3: String,
+    pub ExtraTabEvent3: i32,
+    pub ExtraTabName4: String,
+    pub ExtraTabEvent4: i32,
+    pub MapName: String,
+    pub MapVersion: i32,
+    pub MapDesigner: String,
+    pub CombatLogId: i32,
+    pub scenarioVersion: String,
+    pub scenarioVersionMaster: String,
+    pub transportMovementType: Vec<i32>,
+    pub se1_earlyCinematicsLogin: i32,
 
-    pub DataClass(let mut twidth: i32 =  25, let mut theight: i32 =  25, bool DontLoadGraphics = false)
-    {
-      this.GameSlot = new int[500];
-      this.GameSlotName = new string[500];
-      this.GameSlotShow = new bool[500];
-      this.GameSlotShow2 = new bool[500];
-      this.RegimeSlotName = new string[500];
-      this.RegimeSlotShow = new bool[500];
-      this.RegimeSlotShow2 = new int[500];
-      this.RegimeSlotNato = new int[500];
-      this.RegimeSlotSmallGfx = new int[500];
-      this.RealTempString = new string[1000];
-      this.GameSlotNato = new int[500];
-      this.GameSlotSmallGfx = new int[500];
-      this.MapObj = new MapClass[1];
-      this.LibraryObj = new LibraryClass[1];
-      this.LibVarObj = new LibVarClass[1];
-      this.HexObj = new HexClass[1, 1];
-      this.LandscapeTypeObj = new LandscapeTypeClass[1];
-      this.RoadTypeObj = new RoadTypeClass[1];
-      this.RegimeObj = new RegimeClass[1];
-      this.UnitObj = new UnitClass[1];
-      this.SFObj = new SFClass[1];
-      this.SFTypeObj = new SFTypeClass[1];
-      this.LocTypeObj = new LocationTypeClass[1];
-      this.LocObj = new LocationClass[1];
-      this.ItemTypeObj = new ItemTypeClass[1];
-      this.PeopleObj = new PeopleClass[1];
-      this.StringCounter = 1500;
-      this.TempString = new string[1501];
-      this.RuleVar = new float[1001];
-      this.RuleString = new string[1001];
-      this.RuleGroup = new int[1001];
-      this.RuleGroup2 = new int[1001];
-      this.RuleCounter = 1000;
-      this.RiverTypeObj = new RiverTypeClass[1];
-      this.AreaObj = new AreaClass[1];
-      this.HistoricalUnitObj = new HistoricalUnitClass[1];
-      this.BridgeObj = new BridgeClass[1];
-      this.ActionCardObj = new ActionCardClass[1];
-      this.ResearchObj = new ResearchClass[1];
-      this.EventObj = new EventClass[1];
-      this.EventPicName = new string[1];
-      this.EventPicNr = new int[1];
-      this.eventPicLibId = new LibIdClass[1];
-      this.SmallPicName = new string[1];
-      this.SmallPicNr = new int[1];
-      this.SmallLibId = new LibIdClass[1];
-      this.ReinfName = new string[1];
-      this.ReinfLibId = new LibIdClass[1];
-      this.ReinfId = new int[1];
-      this.StringListObj = new StringListClass[1];
-      this.CheckTypeNames = new string[400];
-      this.ExecTypeNames = new string[400];
-      this.CheckTypeVarName = new string[300, 5];
-      this.CheckTypeVarCount = new int[300];
-      this.CheckDesc = new string[300];
-      this.CheckCategory = new int[300];
-      this.CheckCategory2 = new int[300];
-      this.ExecCategory = new int[400];
-      this.ExecCategory2 = new int[400];
-      this.ExecTypeVarName = new string[400, 5];
-      this.ExecTypeVarCount = new int[400];
-      this.ExecDesc = new string[400];
-      this.ExecTypeString = new int[400];
-      this.TempVar = new int[1000];
-      this.ExecCategoryName = new string[100];
-      this.CheckCategoryName = new string[100];
-      this.Variants = new int[12];
-      this.VariantEvent = new int[12];
-      this.MoveTypePenalty = new int[100];
-      this.UnitTypePenalty = new int[100];
-      this.WheaterColor = new int[3];
-      this.ReinfRatio = new int[50];
-      this.transportMovementType = new int[100];
-      this.se1_earlyCinematicsLogin = 0;
-      this.UncertaintyOn = false;
-      this.Name = "New Scenario";
-      this.Description = "This is a blank scenario.";
-      this.Round = 0;
-      this.Turn = 0;
-      this.scenarioVersion = "";
-      this.scenarioVersionMaster = "";
-      this.MapDesigner = "Unknown";
-      this.MapName = "Unnamed";
-      this.MapVersion = 1;
-      this.se1_earlyCinematicsLogin = 0;
-      this.PermanentOverlayName = "systemgraphics/trans.bmp";
-      this.PermanentOverlayUse = false;
-      this.Version = 424;
-      this.ExtraTabName = "";
-      this.ExtraTabEvent = -1;
-      this.ExtraTabName2 = "";
-      this.ExtraTabEvent2 = -1;
-      this.ExtraTabName3 = "";
-      this.ExtraTabEvent3 = -1;
-      this.ExtraTabName4 = "";
-      this.ExtraTabEvent4 = -1;
-      this.LandscapeTypeCounter = 0;
-      this.LandscapeTypeObj = new LandscapeTypeClass[this.LandscapeTypeCounter + 1];
-      this.LandscapeTypeObj[0] = new LandscapeTypeClass(0);
-      this.MapObj = new MapClass[1];
-      this.MapCounter = 0;
-      this.MapObj[0] = new MapClass(0, 0, twidth, theight);
-      this.MapObj[0].MapWidth = twidth;
-      this.MapObj[0].MapHeight = theight;
-      this.HexObj = new HexClass[this.MapWidth + 1, this.MapHeight + 1];
-      let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
-      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
-      {
-        let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
-        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
-          this.MapObj[0].HexObj[index1, index2] = new HexClass(0, 0, 0);
-      }
-      this.RoadTypeCounter = 0;
-      this.RoadTypeObj[0] = new RoadTypeClass(0);
-      this.LibraryCounter = -1;
-      this.LibVarCounter = -1;
-      this.RegimeCounter = -1;
-      this.UnitCounter = -1;
-      this.SFCounter = -1;
-      this.SFTypeCounter = -1;
-      this.LocTypeCounter = -1;
-      this.LocCounter = -1;
-      this.ItemTypeCounter = -1;
-      this.PeopleCounter = -1;
-      this.ActionCardCounter = -1;
-      this.ActionCardObj[0] = (ActionCardClass) null;
-      this.RiverTypeCounter = 0;
-      this.RiverTypeObj[0] = new RiverTypeClass(0);
-      this.BridgeObj[0] = new BridgeClass(0);
-      this.StringListCounter = -1;
-      let mut index3: i32 =  0;
-      do
-      {
-        this.GameSlot[index3] = -1;
-        this.GameSlotName[index3] = "Empty";
-        this.RegimeSlotName[index3] = "Empty";
-        this.GameSlotSmallGfx[index3] = -1;
-        this.RegimeSlotSmallGfx[index3] = -1;
-        index3 += 1;
-      }
-      while (index3 <= 499);
-      this.ResearchCounter = -1;
-      this.EventCounter = -1;
-      this.EventPicCounter = -1;
-      this.SmallPicCounter = -1;
-      this.ReinfCounter = -1;
-      this.HistoricalUnitCounter = -1;
-      this.AreaCounter = -1;
-      this.Winner = -1;
-      this.LastWinner = -1;
-      this.VPWin = -1;
-      this.ASOn = true;
-      this.ResCostMod = 1f;
-      this.SupplyMultiplier = 1f;
-      this.PPMultiplier = 1f;
-      this.AlternateRound = -1;
-      this.AlternateRound2 = -1;
-      this.Turn = -1;
-      let mut index4: i32 =  0;
-      do
-      {
-        this.Variants[index4] = -1;
-        this.VariantEvent[index4] = -1;
-        index4 += 1;
-      }
-      while (index4 <= 11);
-      let mut index5: i32 =  0;
-      do
-      {
-        this.MoveTypePenalty[index5] = 100;
-        this.UnitTypePenalty[index5] = 100;
-        index5 += 1;
-      }
-      while (index5 <= 99);
-      this.Designer = "";
-      this.Designer2 = "";
-      this.CampaignRoom = -1;
-      this.MasterfileReadPeople = false;
-      this.MapLoop = false;
-      this.SetDefaultTempStrings();
-      this.SetDefaultRules();
-      this.SetEventNames();
-      if (!DontLoadGraphics)
-        this.LoadGraphics((Form1) null);
-      let mut index6: i32 =  0;
-      do
-      {
-        this.ReinfRatio[index6] = 1;
-        index6 += 1;
-      }
-      while (index6 <= 49);
-      let mut index7: i32 =  0;
-      do
-      {
-        this.transportMovementType[index7] = 0;
-        index7 += 1;
-      }
-      while (index7 <= 99);
-      this.RuleVar[839] = 1f;
-      this.RuleVar[501] = 1f;
-      this.RuleVar[503] = 1f;
-      this.RuleVar[504] = 1f;
-      this.RuleVar[506] = 1f;
-      this.RuleVar[509] = 0.0f;
-      this.RuleVar[510] = 1f;
-      this.RuleVar[517] = 1f;
-      this.RuleVar[513] = 1f;
-      this.RuleVar[847] = 1f;
-      this.RuleVar[518] = 1f;
-      this.RuleVar[519] = 1f;
-      this.RuleVar[524] = 0.0f;
-      this.RuleVar[307] = 1f;
-      this.RuleVar[530] = 0.0f;
-      this.RuleVar[861] = 0.0f;
-      this.RuleVar[862] = 0.0f;
-      this.RuleVar[316] = 1f;
-      this.RuleVar[317] = 1f;
-      this.RuleVar[344] = 1f;
-      this.RuleVar[843] = -1f;
-      this.RuleVar[340] = -1f;
-      this.RuleVar[337] = 1f;
-      this.RuleVar[884] = 1f;
-      this.RuleVar[143] = 10f;
-      this.RuleVar[144] = 10f;
-      this.RuleVar[145] = 10f;
-      this.RuleVar[146] = 10f;
-      this.RuleVar[339] = 250f;
-      this.RuleVar[887] = 1f;
-      this.UseAI = 1;
-      this.MasterFile = "";
-      this.EditPass = "";
-      this.LoadPass = "";
-      this.PbemGameID = 0;
-      this.PbemPlayer1 = "";
-      this.PbemPlayer2 = "";
-      this.PbemGameOver = 0;
-      this.Product = 7;
-      this.HistoricalIDCounter = 0;
-    }
+
 
     pub void SetEventNames()
     {
@@ -6358,7 +6042,7 @@ namespace WindowsApplication1
     {
       BinaryFormatter binaryFormatter = BinaryFormatter::new();
       MemoryStream serializationStream = MemoryStream::new();
-      binaryFormatter.Serialize((Stream) serializationStream, (object) this);
+      binaryFormatter.Serialize((Stream) serializationStream,  this);
       serializationStream.Position = 0L;
       return (DataClass) binaryFormatter.Deserialize((Stream) serializationStream);
     }
@@ -6406,7 +6090,7 @@ namespace WindowsApplication1
 
     pub void RemoveUnit(int nr, ref let mut tgame: GameClass = null, bool deleteRegimeMod = false)
     {
-      if (this.UnitObj[nr].X > -1 & !Information.IsNothing((object) tgame))
+      if (this.UnitObj[nr].X > -1 & !Information.IsNothing( tgame))
         tgame.HandyFunctionsObj.SetHexReconAndZOCUnitMoves(this.UnitObj[nr].X, this.UnitObj[nr].Y, this.UnitObj[nr].Map, -1, -1, -1, this.UnitObj[nr].Regime, nr);
       let mut x: i32 =  this.UnitObj[nr].X;
       let mut y: i32 =  this.UnitObj[nr].Y;
@@ -6469,7 +6153,7 @@ namespace WindowsApplication1
       bool skipmap,
       bool DeleteRegimeMode = false)
     {
-      if (!Information.IsNothing((object) tgame))
+      if (!Information.IsNothing( tgame))
       {
         if (tgame.EditObj.UnitSelected > -1 && Oldnr == tgame.EditObj.UnitSelected)
           tgame.EditObj.UnitSelected = Newnr;
@@ -6566,17 +6250,17 @@ namespace WindowsApplication1
             }
           }
         }
-        if (!Information.IsNothing((object) this.UnitObj[index7].AIPlanRef) && this.UnitObj[index7].AIPlanRef.HQ == Oldnr)
+        if (!Information.IsNothing( this.UnitObj[index7].AIPlanRef) && this.UnitObj[index7].AIPlanRef.HQ == Oldnr)
           this.UnitObj[index7].AIPlanRef.HQ = Newnr;
       }
-      if (!DeleteRegimeMode && !Information.IsNothing((object) tgame))
+      if (!DeleteRegimeMode && !Information.IsNothing( tgame))
       {
-        if (!Information.IsNothing((object) tgame.AIObj))
+        if (!Information.IsNothing( tgame.AIObj))
         {
           let mut tplanCount: i32 =  tgame.AIObj.TPlanCount;
           for (let mut index: i32 =  0; index <= tplanCount; index += 1)
           {
-            if (!Information.IsNothing((object) tgame.AIObj.TPlanObj[index]) && tgame.AIObj.TPlanObj[index].HQ == Oldnr)
+            if (!Information.IsNothing( tgame.AIObj.TPlanObj[index]) && tgame.AIObj.TPlanObj[index].HQ == Oldnr)
               tgame.AIObj.TPlanObj[index].HQ = Newnr;
           }
         }
@@ -6748,11 +6432,11 @@ namespace WindowsApplication1
             let mut num: i32 =  this.Round + 1;
             for (let mut index3: i32 =  0; index3 <= num; index3 += 1)
             {
-              objArray1[index2, index3] = (object) this.RegimeObj[index1].SKills[index2, index3];
-              objArray2[index2, index3] = (object) this.RegimeObj[index1].SLoss[index2, index3];
-              objArray3[index2, index3] = (object) this.RegimeObj[index1].SPresent[index2, index3];
+              objArray1[index2, index3] =  this.RegimeObj[index1].SKills[index2, index3];
+              objArray2[index2, index3] =  this.RegimeObj[index1].SLoss[index2, index3];
+              objArray3[index2, index3] =  this.RegimeObj[index1].SPresent[index2, index3];
             }
-            objArray4[index2] = (object) this.RegimeObj[index1].SASKilled[index2];
+            objArray4[index2] =  this.RegimeObj[index1].SASKilled[index2];
           }
           this.RegimeObj[index1].SKills = new int[this.SFTypeCounter + 1, this.Round + 1 + 1];
           this.RegimeObj[index1].SLoss = new int[this.SFTypeCounter + 1, this.Round + 1 + 1];
@@ -8071,7 +7755,7 @@ namespace WindowsApplication1
       }
       if (this.Product >= 6 & this.Round > 0)
       {
-        if (!Information.IsNothing((object) DrawMod.TGame.EditObj.HisOwner[0]))
+        if (!Information.IsNothing( DrawMod.TGame.EditObj.HisOwner[0]))
         {
           try
           {
@@ -8122,7 +7806,7 @@ namespace WindowsApplication1
             this.RegimeObj[index11].UberRegime = Newnr;
           try
           {
-            if (!Information.IsNothing((object) this.RegimeObj[index11].HistoryOwner[0]))
+            if (!Information.IsNothing( this.RegimeObj[index11].HistoryOwner[0]))
             {
               let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
               for (let mut index12: i32 =  0; index12 <= mapWidth; index12 += 1)
@@ -8409,7 +8093,7 @@ namespace WindowsApplication1
     pub void AddLoc(int x, int y, int map)
     {
       this.ThreadBlock();
-      this.LocIdCounter = Operators.AddObject(this.LocIdCounter, (object) 1);
+      this.LocIdCounter = Operators.AddObject(this.LocIdCounter,  1);
       this += 1.LocCounter;
       this.LocObj = (LocationClass[]) Utils.CopyArray((Array) this.LocObj, (Array) new LocationClass[this.LocCounter + 1]);
       this.LocObj[this.LocCounter] = new LocationClass(0);
@@ -8425,7 +8109,7 @@ namespace WindowsApplication1
     pub void AddLoc2(int x, int y, int map)
     {
       this.ThreadBlock();
-      this.LocIdCounter = Operators.AddObject(this.LocIdCounter, (object) 1);
+      this.LocIdCounter = Operators.AddObject(this.LocIdCounter,  1);
       this += 1.LocCounter;
       this.LocObj = (LocationClass[]) Utils.CopyArray((Array) this.LocObj, (Array) new LocationClass[this.LocCounter + 1]);
       this.LocObj[this.LocCounter] = new LocationClass(0);
@@ -8948,7 +8632,7 @@ namespace WindowsApplication1
         {
           let mut round: i32 =  this.Round;
           for (let mut index3: i32 =  0; index3 <= round; index3 += 1)
-            objArray[index1, index2, index3] = (object) this.RegimeObj[index1].SProd[index2, index3];
+            objArray[index1, index2, index3] =  this.RegimeObj[index1].SProd[index2, index3];
         }
       }
       let mut regimeCounter3: i32 =  this.RegimeCounter;
@@ -9008,7 +8692,7 @@ namespace WindowsApplication1
 
     pub int FindActionCard(ref ActionCardClass e, int origCardSlot, string libname)
     {
-      if (Information.IsNothing((object) e))
+      if (Information.IsNothing( e))
       {
         let mut actionCardCounter: i32 =  this.ActionCardCounter;
         for (let mut actionCard: i32 =  0; actionCard <= actionCardCounter; actionCard += 1)
@@ -9151,8 +8835,8 @@ namespace WindowsApplication1
     pub virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
       this.Version = 424;
-      info.AddValue("Name", (object) this.Name);
-      info.AddValue("Description", (object) this.Description);
+      info.AddValue("Name",  this.Name);
+      info.AddValue("Description",  this.Description);
       info.AddValue("Turn", this.Turn);
       info.AddValue("StepNr", this.StepNr);
       info.AddValue("Round", this.Round);
@@ -9166,79 +8850,79 @@ namespace WindowsApplication1
       info.AddValue("ResMod", this.ResMod);
       GC.Collect();
       Application.DoEvents();
-      info.AddValue("HexObj", (object) this.HexObj);
+      info.AddValue("HexObj",  this.HexObj);
       info.AddValue("LandscapeTypeCounter", this.LandscapeTypeCounter);
-      info.AddValue("LandscapeTypeObj", (object) this.LandscapeTypeObj);
+      info.AddValue("LandscapeTypeObj",  this.LandscapeTypeObj);
       info.AddValue("RoadTypeCounter", this.RoadTypeCounter);
-      info.AddValue("RoadTypeObj", (object) this.RoadTypeObj);
+      info.AddValue("RoadTypeObj",  this.RoadTypeObj);
       info.AddValue("RegimeCounter", this.RegimeCounter);
-      info.AddValue("RegimeObj", (object) this.RegimeObj);
+      info.AddValue("RegimeObj",  this.RegimeObj);
       GC.Collect();
       Application.DoEvents();
       info.AddValue("UnitCounter", this.UnitCounter);
-      info.AddValue("UnitObj", (object) this.UnitObj);
+      info.AddValue("UnitObj",  this.UnitObj);
       info.AddValue("SFCounter", this.SFCounter);
-      info.AddValue("SFObj", (object) this.SFObj);
+      info.AddValue("SFObj",  this.SFObj);
       GC.Collect();
       Application.DoEvents();
       info.AddValue("SFTypeCounter", this.SFTypeCounter);
-      info.AddValue("SFTypeObj", (object) this.SFTypeObj);
+      info.AddValue("SFTypeObj",  this.SFTypeObj);
       info.AddValue("StringCounter", this.StringCounter);
-      info.AddValue("TempString", (object) this.TempString);
+      info.AddValue("TempString",  this.TempString);
       info.AddValue("LocTypeCounter", this.LocTypeCounter);
-      info.AddValue("LocTypeObj", (object) this.LocTypeObj);
+      info.AddValue("LocTypeObj",  this.LocTypeObj);
       info.AddValue("LocCounter", this.LocCounter);
-      info.AddValue("LocObj", (object) this.LocObj);
+      info.AddValue("LocObj",  this.LocObj);
       GC.Collect();
       Application.DoEvents();
       info.AddValue("ItemTypeCounter", this.ItemTypeCounter);
-      info.AddValue("ItemTypeObj", (object) this.ItemTypeObj);
+      info.AddValue("ItemTypeObj",  this.ItemTypeObj);
       info.AddValue("PeopleCounter", this.PeopleCounter);
-      info.AddValue("PeopleObj", (object) this.PeopleObj);
-      info.AddValue("GameSlot", (object) this.GameSlot);
-      info.AddValue("GameSlotName", (object) this.GameSlotName);
-      info.AddValue("RegimeSlotName", (object) this.RegimeSlotName);
+      info.AddValue("PeopleObj",  this.PeopleObj);
+      info.AddValue("GameSlot",  this.GameSlot);
+      info.AddValue("GameSlotName",  this.GameSlotName);
+      info.AddValue("RegimeSlotName",  this.RegimeSlotName);
       info.AddValue("RuleCounter", this.RuleCounter);
-      info.AddValue("RuleVar", (object) this.RuleVar);
-      info.AddValue("RuleGroup", (object) this.RuleGroup);
+      info.AddValue("RuleVar",  this.RuleVar);
+      info.AddValue("RuleGroup",  this.RuleGroup);
       info.AddValue("RiverTypeCounter", this.RiverTypeCounter);
-      info.AddValue("RiverTypeObj", (object) this.RiverTypeObj);
+      info.AddValue("RiverTypeObj",  this.RiverTypeObj);
       info.AddValue("HistoricalUnitCounter", this.HistoricalUnitCounter);
-      info.AddValue("HistoricalUnitObj", (object) this.HistoricalUnitObj);
+      info.AddValue("HistoricalUnitObj",  this.HistoricalUnitObj);
       info.AddValue("HistoricalIDCounter", this.HistoricalIDCounter);
       info.AddValue("AreaCounter", this.AreaCounter);
-      info.AddValue("AreaObj", (object) this.AreaObj);
+      info.AddValue("AreaObj",  this.AreaObj);
       info.AddValue("AreaIDCounter", this.AreaIDCounter);
-      info.AddValue("BridgeObj", (object) this.BridgeObj);
+      info.AddValue("BridgeObj",  this.BridgeObj);
       info.AddValue("ActionCardCounter", this.ActionCardCounter);
-      info.AddValue("ActionCardObj", (object) this.ActionCardObj);
+      info.AddValue("ActionCardObj",  this.ActionCardObj);
       GC.Collect();
       Application.DoEvents();
       info.AddValue("MapCounter", this.MapCounter);
-      info.AddValue("MapObj", (object) this.MapObj);
+      info.AddValue("MapObj",  this.MapObj);
       info.AddValue("ResearchCounter", this.ResearchCounter);
-      info.AddValue("ResearchObj", (object) this.ResearchObj);
+      info.AddValue("ResearchObj",  this.ResearchObj);
       info.AddValue("EventCounter", this.EventCounter);
-      info.AddValue("EventObj", (object) this.EventObj);
+      info.AddValue("EventObj",  this.EventObj);
       GC.Collect();
       Application.DoEvents();
       info.AddValue("EventPicCounter", this.EventPicCounter);
-      info.AddValue("EventPicName", (object) this.EventPicName);
-      info.AddValue("EventPicNr", (object) this.EventPicNr);
-      info.AddValue("EventPicLibId", (object) this.eventPicLibId);
+      info.AddValue("EventPicName",  this.EventPicName);
+      info.AddValue("EventPicNr",  this.EventPicNr);
+      info.AddValue("EventPicLibId",  this.eventPicLibId);
       info.AddValue("SmallPicCounter", this.SmallPicCounter);
-      info.AddValue("SmallPicName", (object) this.SmallPicName);
-      info.AddValue("SmallPicNr", (object) this.SmallPicNr);
-      info.AddValue("SmallLibId", (object) this.SmallLibId);
+      info.AddValue("SmallPicName",  this.SmallPicName);
+      info.AddValue("SmallPicNr",  this.SmallPicNr);
+      info.AddValue("SmallLibId",  this.SmallLibId);
       info.AddValue("ReinfCounter", this.ReinfCounter);
-      info.AddValue("ReinfName", (object) this.ReinfName);
-      info.AddValue("ReinfId", (object) this.ReinfId);
-      info.AddValue("ReinfLibId", (object) this.ReinfLibId);
+      info.AddValue("ReinfName",  this.ReinfName);
+      info.AddValue("ReinfId",  this.ReinfId);
+      info.AddValue("ReinfLibId",  this.ReinfLibId);
       info.AddValue("ReinfIdCounter", this.reinfIdCounter);
-      info.AddValue("ReinfRatio", (object) this.ReinfRatio);
-      info.AddValue("LoadPass", (object) this.LoadPass);
-      info.AddValue("EditPass", (object) this.EditPass);
-      info.AddValue("MasterFile", (object) this.MasterFile);
+      info.AddValue("ReinfRatio",  this.ReinfRatio);
+      info.AddValue("LoadPass",  this.LoadPass);
+      info.AddValue("EditPass",  this.EditPass);
+      info.AddValue("MasterFile",  this.MasterFile);
       info.AddValue("VPWin", this.VPWin);
       info.AddValue("Winner", this.Winner);
       info.AddValue("LastWinner", this.LastWinner);
@@ -9254,84 +8938,84 @@ namespace WindowsApplication1
       info.AddValue("SupplyMultiplier", this.SupplyMultiplier);
       info.AddValue("PPMultiplier", this.PPMultiplier);
       info.AddValue("AsOn", this.ASOn);
-      info.AddValue("RegimeSlotShow", (object) this.RegimeSlotShow);
-      info.AddValue("RegimeSlotShow2", (object) this.RegimeSlotShow2);
-      info.AddValue("RegimeSlotnato", (object) this.RegimeSlotNato);
-      info.AddValue("RegimeSlotSmallGfx", (object) this.RegimeSlotSmallGfx);
-      info.AddValue("GameSlotShow", (object) this.GameSlotShow);
-      info.AddValue("GameSlotShow2", (object) this.GameSlotShow2);
-      info.AddValue("GameSlotNato", (object) this.GameSlotNato);
-      info.AddValue("GameSlotSmallGfx", (object) this.GameSlotSmallGfx);
+      info.AddValue("RegimeSlotShow",  this.RegimeSlotShow);
+      info.AddValue("RegimeSlotShow2",  this.RegimeSlotShow2);
+      info.AddValue("RegimeSlotnato",  this.RegimeSlotNato);
+      info.AddValue("RegimeSlotSmallGfx",  this.RegimeSlotSmallGfx);
+      info.AddValue("GameSlotShow",  this.GameSlotShow);
+      info.AddValue("GameSlotShow2",  this.GameSlotShow2);
+      info.AddValue("GameSlotNato",  this.GameSlotNato);
+      info.AddValue("GameSlotSmallGfx",  this.GameSlotSmallGfx);
       info.AddValue("NoPlayChoice", this.NoPlayChoice);
       info.AddValue("NoAIAdvice", this.NoAIAdvice);
       info.AddValue("PBEM", this.PBEM);
       info.AddValue("ScreenShotOn", this.ScreenShotOn);
       info.AddValue("CreatedWithShrowd", this.CreatedWithShrowd);
       info.AddValue("ShrowdPeek", this.ShrowdPeek);
-      info.AddValue("Variants", (object) this.Variants);
-      info.AddValue("MoveTypePenalty", (object) this.MoveTypePenalty);
-      info.AddValue("UnitTypePenalty", (object) this.UnitTypePenalty);
-      info.AddValue("WheaterColor", (object) this.WheaterColor);
-      info.AddValue("Designer", (object) this.Designer);
-      info.AddValue("Designer2", (object) this.Designer2);
+      info.AddValue("Variants",  this.Variants);
+      info.AddValue("MoveTypePenalty",  this.MoveTypePenalty);
+      info.AddValue("UnitTypePenalty",  this.UnitTypePenalty);
+      info.AddValue("WheaterColor",  this.WheaterColor);
+      info.AddValue("Designer",  this.Designer);
+      info.AddValue("Designer2",  this.Designer2);
       info.AddValue("MasterfileReadPeople", this.MasterfileReadPeople);
       info.AddValue("GameID", this.GameID);
       info.AddValue("AutoSave", this.AutoSave);
       this.MapLoop = this.MapObj[0].MapLoop;
       info.AddValue("MapLoop", this.MapLoop);
-      info.AddValue("LoadGame", (object) this.LoadGame);
+      info.AddValue("LoadGame",  this.LoadGame);
       info.AddValue("UseAI", this.UseAI);
-      info.AddValue("SystemGfx", (object) this.SystemGfx);
-      info.AddValue("ScenarioDir", (object) this.ScenarioDir);
-      info.AddValue("SoundDir", (object) this.SoundDir);
+      info.AddValue("SystemGfx",  this.SystemGfx);
+      info.AddValue("ScenarioDir",  this.ScenarioDir);
+      info.AddValue("SoundDir",  this.SoundDir);
       info.AddValue("CampaignRoom", this.CampaignRoom);
       info.AddValue("DontShowAIMove", this.DontShowAIMove);
       info.AddValue("StringListCounter", this.StringListCounter);
       info.AddValue("StringIDCounter", this.StringIDCounter);
-      info.AddValue("StringListObj", (object) this.StringListObj);
-      info.AddValue("VariantEvent", (object) this.VariantEvent);
+      info.AddValue("StringListObj",  this.StringListObj);
+      info.AddValue("VariantEvent",  this.VariantEvent);
       let mut num: i32 =  7;
       this.Product = !DrawMod.TGame.SuperAdminRights ? num : this.Product;
       info.AddValue("Product", this.Product);
       info.AddValue("SFModelIDCounter", this.SFModelIDCounter);
-      info.AddValue("TurnString", (object) this.TurnString);
+      info.AddValue("TurnString",  this.TurnString);
       info.AddValue("Loadable", this.Loadable);
       info.AddValue("Verify1", this.Verify1);
       info.AddValue("Verify2", this.Verify2);
-      info.AddValue("RuleSetName", (object) this.RuleSetName);
+      info.AddValue("RuleSetName",  this.RuleSetName);
       info.AddValue("DoAllied", this.DoAllied);
       info.AddValue("PermanentOverlayUse", this.PermanentOverlayUse);
-      info.AddValue("PermanentOverlayName", (object) this.PermanentOverlayName);
+      info.AddValue("PermanentOverlayName",  this.PermanentOverlayName);
       info.AddValue("PbemGameID", this.PbemGameID);
-      info.AddValue("PbemPlayer1", (object) this.PbemPlayer1);
-      info.AddValue("PbemPlayer2", (object) this.PbemPlayer2);
+      info.AddValue("PbemPlayer1",  this.PbemPlayer1);
+      info.AddValue("PbemPlayer2",  this.PbemPlayer2);
       info.AddValue("PbemGameOver", this.PbemGameOver);
       info.AddValue("PbemDrawGame", this.PbemDrawGame);
       info.AddValue("LibraryCounter", this.LibraryCounter);
-      info.AddValue("LibraryObj", (object) this.LibraryObj);
+      info.AddValue("LibraryObj",  this.LibraryObj);
       info.AddValue("LibVarCounter", this.LibVarCounter);
-      info.AddValue("LibVarObj", (object) this.LibVarObj);
+      info.AddValue("LibVarObj",  this.LibVarObj);
       info.AddValue("SimpleEditor", this.SimpleEditor);
       info.AddValue("RegimeIdCounter", this.RegimeIdCounter);
       info.AddValue("SFTypeIdCounter", this.SFTypeIdCounter);
       info.AddValue("PeopleIdCounter", this.PeopleIdCounter);
       info.AddValue("EventIdCounter", this.EventIdCounter);
       info.AddValue("LocIdCounter", RuntimeHelpers.GetObjectValue(this.LocIdCounter));
-      info.AddValue("ExtraTabName", (object) this.ExtraTabName);
+      info.AddValue("ExtraTabName",  this.ExtraTabName);
       info.AddValue("ExtraTabEvent", this.ExtraTabEvent);
-      info.AddValue("ExtraTabName2", (object) this.ExtraTabName2);
+      info.AddValue("ExtraTabName2",  this.ExtraTabName2);
       info.AddValue("ExtraTabEvent2", this.ExtraTabEvent2);
-      info.AddValue("ExtraTabName3", (object) this.ExtraTabName3);
+      info.AddValue("ExtraTabName3",  this.ExtraTabName3);
       info.AddValue("ExtraTabEvent3", this.ExtraTabEvent3);
-      info.AddValue("ExtraTabName4", (object) this.ExtraTabName4);
+      info.AddValue("ExtraTabName4",  this.ExtraTabName4);
       info.AddValue("ExtraTabEvent4", this.ExtraTabEvent4);
-      info.AddValue("MapName", (object) this.MapName);
-      info.AddValue("MapDesigner", (object) this.MapDesigner);
+      info.AddValue("MapName",  this.MapName);
+      info.AddValue("MapDesigner",  this.MapDesigner);
       info.AddValue("MapVersion", this.MapVersion);
       info.AddValue("CombatLogId", this.CombatLogId);
-      info.AddValue("scenarioVersion", (object) this.scenarioVersion);
-      info.AddValue("scenarioVersionMaster", (object) this.scenarioVersionMaster);
-      info.AddValue("transportMovementType", (object) this.transportMovementType);
+      info.AddValue("scenarioVersion",  this.scenarioVersion);
+      info.AddValue("scenarioVersionMaster",  this.scenarioVersionMaster);
+      info.AddValue("transportMovementType",  this.transportMovementType);
       info.AddValue("se1_earlyCinematicsLogin", this.se1_earlyCinematicsLogin);
       info.AddValue("specialSaveMode", this.specialSaveMode);
     }
@@ -9431,14 +9115,14 @@ namespace WindowsApplication1
           ;
         if (num1 == 1 | num1 == 3 && this.Product != num1)
         {
-          let mut num2: i32 =   Interaction.MsgBox((object) "This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num2: i32 =   Interaction.MsgBox( "This file could not be loaded. We have to Quit the application due to this. ", Title: ( "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 2 && this.Product == 1 | this.Product == 0)
         {
           if (this.Version >= 185)
           {
-            let mut num3: i32 =   Interaction.MsgBox((object) "This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num3: i32 =   Interaction.MsgBox( "This file could not be loaded. We have to Quit the application due to this. ", Title: ( "Shadow Empire : Planetary Conquest"));
             ProjectData.EndApp();
           }
           else
@@ -9446,32 +9130,32 @@ namespace WindowsApplication1
         }
         if (num1 == 4 && this.Product != 4)
         {
-          let mut num4: i32 =   Interaction.MsgBox((object) "This file might have the propper file extension but is not a real DC3 file. This file could not be loaded. We have to Quit the application due to this. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num4: i32 =   Interaction.MsgBox( "This file might have the propper file extension but is not a real DC3 file. This file could not be loaded. We have to Quit the application due to this. ", Title: ( "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 5 && this.Product != 5)
         {
-          let mut num5: i32 =   Interaction.MsgBox((object) "This file have the propper file extension but is not a real DCX file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num5: i32 =   Interaction.MsgBox( "This file have the propper file extension but is not a real DCX file. This file could not be loaded. We have to Quit the application due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 6 && this.Product != 6)
         {
-          let mut num6: i32 =   Interaction.MsgBox((object) "This file have the propper file extension but is not a real DC4 file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num6: i32 =   Interaction.MsgBox( "This file have the propper file extension but is not a real DC4 file. This file could not be loaded. We have to Quit the application due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
         if (num1 == 7 && this.Product != 7)
         {
-          let mut num7: i32 =   Interaction.MsgBox((object) "This file have the propper file extension but is not a real SE1 file. This file could not be loaded. We have to Quit the application due to this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+          let mut num7: i32 =   Interaction.MsgBox( "This file have the propper file extension but is not a real SE1 file. This file could not be loaded. We have to Quit the application due to this.", Title: ( "Shadow Empire : Planetary Conquest"));
           ProjectData.EndApp();
         }
       }
       if (this.Version > 424)
       {
-        let mut num8: i32 =   Interaction.MsgBox((object) ("You are loading a scenario or saved game made with version " + Conversion.Str((object) (this.Version - 314)) + ". Your version is " + Conversion.Str((object) 110) + ". This could cause errors. You are advised to upgrade to the latest version of this Shadow Empire : Planetary Conquest."), Title: ((object) "You should upgrade to the latest version!"));
+        let mut num8: i32 =   Interaction.MsgBox( ("You are loading a scenario or saved game made with version " + Conversion.Str( (this.Version - 314)) + ". Your version is " + Conversion.Str( 110) + ". This could cause errors. You are advised to upgrade to the latest version of this Shadow Empire : Planetary Conquest."), Title: ( "You should upgrade to the latest version!"));
       }
       if (this.Version < 424)
       {
-        let mut num9: i32 =   Interaction.MsgBox((object) ("You are loading a scenario or saved game made with a previous version " + Conversion.Str((object) (this.Version - 314)) + ". This is probably incompatible with the current game version " + Conversion.Str((object) 110) + "."));
+        let mut num9: i32 =   Interaction.MsgBox( ("You are loading a scenario or saved game made with a previous version " + Conversion.Str( (this.Version - 314)) + ". This is probably incompatible with the current game version " + Conversion.Str( 110) + "."));
       }
       DrawMod.TGame.Data.Version = this.Version;
       this.Name = info.GetString(nameof (Name));
@@ -10041,9 +9725,9 @@ namespace WindowsApplication1
       }
       if (this.Version < 203)
       {
-        if ((double) this.RuleVar[857] == 0.0)
+        if ( this.RuleVar[857] == 0.0)
           this.RuleVar[857] = this.RuleVar[99];
-        if ((double) this.RuleVar[858] == 0.0)
+        if ( this.RuleVar[858] == 0.0)
           this.RuleVar[858] = this.RuleVar[3];
       }
       this.MoveTypePenalty = (int[]) info.GetValue(nameof (MoveTypePenalty), this.MoveTypePenalty.GetType());
@@ -10257,12 +9941,12 @@ namespace WindowsApplication1
       }
       try
       {
-        this.LocIdCounter = (object) info.GetInt32("locIdCounter");
+        this.LocIdCounter =  info.GetInt32("locIdCounter");
       }
       catch (Exception ex)
       {
         ProjectData.SetProjectError(ex);
-        this.LocIdCounter = (object) -1;
+        this.LocIdCounter =  -1;
         ProjectData.ClearProjectError();
       }
       try
@@ -10385,13 +10069,13 @@ namespace WindowsApplication1
         this.specialSaveMode = 0;
         ProjectData.ClearProjectError();
       }
-      if ((double) this.RuleVar[316] == 0.0)
+      if ( this.RuleVar[316] == 0.0)
         this.RuleVar[316] = 1f;
-      if ((double) this.RuleVar[317] == 0.0)
+      if ( this.RuleVar[317] == 0.0)
         this.RuleVar[317] = 1f;
-      if ((double) this.RuleVar[319] == 0.0)
+      if ( this.RuleVar[319] == 0.0)
         this.RuleVar[319] = 1f;
-      if ((double) DrawMod.TGame.Data.RuleVar[344] == 1.0 & DrawMod.TGame.EditObj.HideUnit == 0)
+      if ( DrawMod.TGame.Data.RuleVar[344] == 1.0 & DrawMod.TGame.EditObj.HideUnit == 0)
         DrawMod.TGame.EditObj.HideUnit = 2;
       let mut index1: i32 =  440;
       do
@@ -10409,7 +10093,7 @@ namespace WindowsApplication1
       FileStream serializationStream = new FileStream(fileloc, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
       GC.Collect();
       Application.DoEvents();
-      BinaryFormatter::new().Serialize((Stream) serializationStream, (object) this);
+      BinaryFormatter::new().Serialize((Stream) serializationStream,  this);
       serializationStream.Close();
       GC.Collect();
       Application.DoEvents();
@@ -10424,7 +10108,7 @@ namespace WindowsApplication1
       dataClass1: DataClass = (DataClass) binaryFormatter.Deserialize((Stream) serializationStream);
       serializationStream.Flush();
       serializationStream.Close();
-      if ((double) dataClass1.RuleVar[306] == 0.0)
+      if ( dataClass1.RuleVar[306] == 0.0)
         dataClass1.RuleVar[306] = 0.3f;
       if (Operators.CompareString(dataClass1.Designer, dataClass1.Designer2, false) == 0)
         dataClass1.Designer2 = "";
@@ -10508,14 +10192,14 @@ namespace WindowsApplication1
           dataClass1.EventObj[index].Id = dataClass1.EventIdCounter;
         }
       }
-      if (Operators.ConditionalCompareObjectEqual(dataClass1.LocIdCounter, (object) -1, false))
+      if (Operators.ConditionalCompareObjectEqual(dataClass1.LocIdCounter,  -1, false))
       {
-        dataClass1.LocIdCounter = (object) 0;
+        dataClass1.LocIdCounter =  0;
         let mut locCounter: i32 =  dataClass1.LocCounter;
         for (let mut index: i32 =  0; index <= locCounter; index += 1)
         {
-          if (Operators.ConditionalCompareObjectGreaterEqual((object) dataClass1.LocObj[index].ID, dataClass1.LocIdCounter, false))
-            dataClass1.LocIdCounter = (object) dataClass1.LocObj[index].ID;
+          if (Operators.ConditionalCompareObjectGreaterEqual( dataClass1.LocObj[index].ID, dataClass1.LocIdCounter, false))
+            dataClass1.LocIdCounter =  dataClass1.LocObj[index].ID;
         }
       }
       let mut locCounter1: i32 =  dataClass1.LocCounter;
@@ -10524,7 +10208,7 @@ namespace WindowsApplication1
         if (dataClass1.LocObj[index].ID == -1)
         {
           dataClass2: DataClass = dataClass1;
-          dataClass2.LocIdCounter = Operators.AddObject(dataClass2.LocIdCounter, (object) 1);
+          dataClass2.LocIdCounter = Operators.AddObject(dataClass2.LocIdCounter,  1);
           dataClass1.LocObj[index].ID = Conversions.ToInteger(dataClass1.LocIdCounter);
         }
       }
@@ -10650,7 +10334,7 @@ namespace WindowsApplication1
     pub void LoadGraphics(Form1 tformref)
     {
       BitmapStore.FlagForDelete();
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading Scn Gfx 4/6";
       Application.DoEvents();
       if (this.LandscapeTypeCounter > -1)
@@ -10659,8 +10343,8 @@ namespace WindowsApplication1
         for (let mut Number: i32 =  0; Number <= landscapeTypeCounter; Number += 1)
         {
           this.LandscapeTypeObj[Number].LoadSprites();
-          str: String = Strings.Trim(Conversion.Str((object) Number)) + " of " + Strings.Trim(Conversion.Str((object) this.LandscapeTypeCounter));
-          if (!Information.IsNothing((object) tformref))
+          str: String = Strings.Trim(Conversion.Str( Number)) + " of " + Strings.Trim(Conversion.Str( this.LandscapeTypeCounter));
+          if (!Information.IsNothing( tformref))
             tformref.Label1.Text = "Loading Scn Gfx 4/6, step " + str;
           Application.DoEvents();
         }
@@ -10671,7 +10355,7 @@ namespace WindowsApplication1
         for (let mut index: i32 =  0; index <= roadTypeCounter; index += 1)
           this.RoadTypeObj[index].LoadSprites();
       }
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading Scn Gfx 5/6";
       Application.DoEvents();
       if (this.SFTypeCounter > -1)
@@ -10679,14 +10363,14 @@ namespace WindowsApplication1
         let mut sfTypeCounter: i32 =  this.SFTypeCounter;
         for (let mut Number: i32 =  0; Number <= sfTypeCounter; Number += 1)
         {
-          str: String = Strings.Trim(Conversion.Str((object) Number)) + " of " + Strings.Trim(Conversion.Str((object) this.SFTypeCounter));
-          if (!Information.IsNothing((object) tformref))
+          str: String = Strings.Trim(Conversion.Str( Number)) + " of " + Strings.Trim(Conversion.Str( this.SFTypeCounter));
+          if (!Information.IsNothing( tformref))
             tformref.Label1.Text = "Loading Scn Gfx 5/6, step " + str;
           Application.DoEvents();
           this.SFTypeObj[Number].LoadSprites();
         }
       }
-      if (!Information.IsNothing((object) tformref))
+      if (!Information.IsNothing( tformref))
         tformref.Label1.Text = "Loading Scn Gfx 6/6";
       Application.DoEvents();
       if (this.RegimeCounter > -1)
@@ -11076,12 +10760,12 @@ namespace WindowsApplication1
         if (this.LocTypeObj[index1].SmallGraphic == oldnr)
           this.LocTypeObj[index1].SmallGraphic = newnr;
       }
-      if ((double) this.RuleVar[947] != 1.0)
+      if ( this.RuleVar[947] != 1.0)
         return;
       index1 = 1000;
       do
       {
-        if (this.TempString[index1].Length > 0 && Conversion.Val(this.TempString[index1]) == (double) oldnr)
+        if (this.TempString[index1].Length > 0 && Conversion.Val(this.TempString[index1]) ==  oldnr)
           this.TempString[index1] = newnr != -1 ? newnr.ToString() : "";
         index1 += 1;
       }
@@ -11102,4 +10786,334 @@ namespace WindowsApplication1
       }
     }
   }
+// }
+
+impl DataClass {
+        pub int GetLibVarUseId(int libVarId, int slotId)
+    {
+      let mut index: i32 =  slotId;
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Hex || this.LibVarObj[libVarId].type == NewEnums.LibVarType.General)
+        return libVarId;
+      let mut num1: i32 =  -1;
+      let mut num2: i32 =  -1;
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.HistoricalUnit)
+      {
+        num2 = this.HistoricalUnitObj[index].LibId.libSlot;
+        num1 = this.HistoricalUnitObj[index].LibId.id;
+        if (num1 == -1)
+          num1 = index;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.HistoricalUnitModel)
+      {
+        num2 = this.HistoricalUnitObj[index].LibId.libSlot;
+        num1 = this.HistoricalUnitObj[index].LibId.id;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Officer)
+      {
+        if (this.HistoricalUnitObj[index].OffLibId.id > -1)
+        {
+          num2 = this.HistoricalUnitObj[index].OffLibId.libSlot;
+          num1 = this.HistoricalUnitObj[index].OffLibId.id;
+        }
+        else
+        {
+          num2 = this.HistoricalUnitObj[index].LibId.libSlot;
+          num1 = this.HistoricalUnitObj[index].LibId.id;
+        }
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Landscape)
+      {
+        num2 = -1;
+        num1 = index;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.LocationType)
+      {
+        num2 = -1;
+        num1 = index;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.People)
+      {
+        num2 = this.PeopleObj[index].LibId.libSlot;
+        num1 = this.PeopleObj[index].LibId.id;
+        if (num1 == -1)
+          num1 = index;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Regime)
+      {
+        num2 = this.RegimeObj[index].libId.libSlot;
+        num1 = this.RegimeObj[index].libId.id;
+        if (num1 == -1)
+          num1 = index;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.River)
+      {
+        num2 = -1;
+        num1 = index;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.Road)
+      {
+        num2 = -1;
+        num1 = index;
+      }
+      if (this.LibVarObj[libVarId].type == NewEnums.LibVarType.SFtype)
+      {
+        num2 = this.SFTypeObj[index].LibId.libSlot;
+        num1 = this.SFTypeObj[index].LibId.id;
+        if (num1 == -1)
+          num1 = index;
+      }
+      if (index > -1)
+      {
+        let mut libVarCounter: i32 =  this.LibVarCounter;
+        for (let mut libVarUseId: i32 =  0; libVarUseId <= libVarCounter; libVarUseId += 1)
+        {
+          if (this.LibVarObj[libVarId].libId.libSlot == this.LibVarObj[libVarUseId].libId.libSlot && Operators.CompareString(this.LibVarObj[libVarId].name, this.LibVarObj[libVarUseId].name, false) == 0 && num2 == this.LibVarObj[libVarUseId].instanceId.libSlot && num1 == this.LibVarObj[libVarUseId].instanceId.id)
+            return libVarUseId;
+        }
+      }
+      return libVarId;
+    }
+
+        pub DataClass(let mut twidth: i32 =  25, let mut theight: i32 =  25, bool DontLoadGraphics = false)
+    {
+      this.GameSlot = new int[500];
+      this.GameSlotName = new string[500];
+      this.GameSlotShow = new bool[500];
+      this.GameSlotShow2 = new bool[500];
+      this.RegimeSlotName = new string[500];
+      this.RegimeSlotShow = new bool[500];
+      this.RegimeSlotShow2 = new int[500];
+      this.RegimeSlotNato = new int[500];
+      this.RegimeSlotSmallGfx = new int[500];
+      this.RealTempString = new string[1000];
+      this.GameSlotNato = new int[500];
+      this.GameSlotSmallGfx = new int[500];
+      this.MapObj = new MapClass[1];
+      this.LibraryObj = new LibraryClass[1];
+      this.LibVarObj = new LibVarClass[1];
+      this.HexObj = new HexClass[1, 1];
+      this.LandscapeTypeObj = new LandscapeTypeClass[1];
+      this.RoadTypeObj = new RoadTypeClass[1];
+      this.RegimeObj = new RegimeClass[1];
+      this.UnitObj = new UnitClass[1];
+      this.SFObj = new SFClass[1];
+      this.SFTypeObj = new SFTypeClass[1];
+      this.LocTypeObj = new LocationTypeClass[1];
+      this.LocObj = new LocationClass[1];
+      this.ItemTypeObj = new ItemTypeClass[1];
+      this.PeopleObj = new PeopleClass[1];
+      this.StringCounter = 1500;
+      this.TempString = new string[1501];
+      this.RuleVar = new float[1001];
+      this.RuleString = new string[1001];
+      this.RuleGroup = new int[1001];
+      this.RuleGroup2 = new int[1001];
+      this.RuleCounter = 1000;
+      this.RiverTypeObj = new RiverTypeClass[1];
+      this.AreaObj = new AreaClass[1];
+      this.HistoricalUnitObj = new HistoricalUnitClass[1];
+      this.BridgeObj = new BridgeClass[1];
+      this.ActionCardObj = new ActionCardClass[1];
+      this.ResearchObj = new ResearchClass[1];
+      this.EventObj = new EventClass[1];
+      this.EventPicName = new string[1];
+      this.EventPicNr = new int[1];
+      this.eventPicLibId = new LibIdClass[1];
+      this.SmallPicName = new string[1];
+      this.SmallPicNr = new int[1];
+      this.SmallLibId = new LibIdClass[1];
+      this.ReinfName = new string[1];
+      this.ReinfLibId = new LibIdClass[1];
+      this.ReinfId = new int[1];
+      this.StringListObj = new StringListClass[1];
+      this.CheckTypeNames = new string[400];
+      this.ExecTypeNames = new string[400];
+      this.CheckTypeVarName = new string[300, 5];
+      this.CheckTypeVarCount = new int[300];
+      this.CheckDesc = new string[300];
+      this.CheckCategory = new int[300];
+      this.CheckCategory2 = new int[300];
+      this.ExecCategory = new int[400];
+      this.ExecCategory2 = new int[400];
+      this.ExecTypeVarName = new string[400, 5];
+      this.ExecTypeVarCount = new int[400];
+      this.ExecDesc = new string[400];
+      this.ExecTypeString = new int[400];
+      this.TempVar = new int[1000];
+      this.ExecCategoryName = new string[100];
+      this.CheckCategoryName = new string[100];
+      this.Variants = new int[12];
+      this.VariantEvent = new int[12];
+      this.MoveTypePenalty = new int[100];
+      this.UnitTypePenalty = new int[100];
+      this.WheaterColor = new int[3];
+      this.ReinfRatio = new int[50];
+      this.transportMovementType = new int[100];
+      this.se1_earlyCinematicsLogin = 0;
+      this.UncertaintyOn = false;
+      this.Name = "New Scenario";
+      this.Description = "This is a blank scenario.";
+      this.Round = 0;
+      this.Turn = 0;
+      this.scenarioVersion = "";
+      this.scenarioVersionMaster = "";
+      this.MapDesigner = "Unknown";
+      this.MapName = "Unnamed";
+      this.MapVersion = 1;
+      this.se1_earlyCinematicsLogin = 0;
+      this.PermanentOverlayName = "systemgraphics/trans.bmp";
+      this.PermanentOverlayUse = false;
+      this.Version = 424;
+      this.ExtraTabName = "";
+      this.ExtraTabEvent = -1;
+      this.ExtraTabName2 = "";
+      this.ExtraTabEvent2 = -1;
+      this.ExtraTabName3 = "";
+      this.ExtraTabEvent3 = -1;
+      this.ExtraTabName4 = "";
+      this.ExtraTabEvent4 = -1;
+      this.LandscapeTypeCounter = 0;
+      this.LandscapeTypeObj = new LandscapeTypeClass[this.LandscapeTypeCounter + 1];
+      this.LandscapeTypeObj[0] = new LandscapeTypeClass(0);
+      this.MapObj = new MapClass[1];
+      this.MapCounter = 0;
+      this.MapObj[0] = new MapClass(0, 0, twidth, theight);
+      this.MapObj[0].MapWidth = twidth;
+      this.MapObj[0].MapHeight = theight;
+      this.HexObj = new HexClass[this.MapWidth + 1, this.MapHeight + 1];
+      let mut mapWidth: i32 =  this.MapObj[0].MapWidth;
+      for (let mut index1: i32 =  0; index1 <= mapWidth; index1 += 1)
+      {
+        let mut mapHeight: i32 =  this.MapObj[0].MapHeight;
+        for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
+          this.MapObj[0].HexObj[index1, index2] = new HexClass(0, 0, 0);
+      }
+      this.RoadTypeCounter = 0;
+      this.RoadTypeObj[0] = new RoadTypeClass(0);
+      this.LibraryCounter = -1;
+      this.LibVarCounter = -1;
+      this.RegimeCounter = -1;
+      this.UnitCounter = -1;
+      this.SFCounter = -1;
+      this.SFTypeCounter = -1;
+      this.LocTypeCounter = -1;
+      this.LocCounter = -1;
+      this.ItemTypeCounter = -1;
+      this.PeopleCounter = -1;
+      this.ActionCardCounter = -1;
+      this.ActionCardObj[0] = (ActionCardClass) null;
+      this.RiverTypeCounter = 0;
+      this.RiverTypeObj[0] = new RiverTypeClass(0);
+      this.BridgeObj[0] = new BridgeClass(0);
+      this.StringListCounter = -1;
+      let mut index3: i32 =  0;
+      do
+      {
+        this.GameSlot[index3] = -1;
+        this.GameSlotName[index3] = "Empty";
+        this.RegimeSlotName[index3] = "Empty";
+        this.GameSlotSmallGfx[index3] = -1;
+        this.RegimeSlotSmallGfx[index3] = -1;
+        index3 += 1;
+      }
+      while (index3 <= 499);
+      this.ResearchCounter = -1;
+      this.EventCounter = -1;
+      this.EventPicCounter = -1;
+      this.SmallPicCounter = -1;
+      this.ReinfCounter = -1;
+      this.HistoricalUnitCounter = -1;
+      this.AreaCounter = -1;
+      this.Winner = -1;
+      this.LastWinner = -1;
+      this.VPWin = -1;
+      this.ASOn = true;
+      this.ResCostMod = 1f;
+      this.SupplyMultiplier = 1f;
+      this.PPMultiplier = 1f;
+      this.AlternateRound = -1;
+      this.AlternateRound2 = -1;
+      this.Turn = -1;
+      let mut index4: i32 =  0;
+      do
+      {
+        this.Variants[index4] = -1;
+        this.VariantEvent[index4] = -1;
+        index4 += 1;
+      }
+      while (index4 <= 11);
+      let mut index5: i32 =  0;
+      do
+      {
+        this.MoveTypePenalty[index5] = 100;
+        this.UnitTypePenalty[index5] = 100;
+        index5 += 1;
+      }
+      while (index5 <= 99);
+      this.Designer = "";
+      this.Designer2 = "";
+      this.CampaignRoom = -1;
+      this.MasterfileReadPeople = false;
+      this.MapLoop = false;
+      this.SetDefaultTempStrings();
+      this.SetDefaultRules();
+      this.SetEventNames();
+      if (!DontLoadGraphics)
+        this.LoadGraphics((Form1) null);
+      let mut index6: i32 =  0;
+      do
+      {
+        this.ReinfRatio[index6] = 1;
+        index6 += 1;
+      }
+      while (index6 <= 49);
+      let mut index7: i32 =  0;
+      do
+      {
+        this.transportMovementType[index7] = 0;
+        index7 += 1;
+      }
+      while (index7 <= 99);
+      this.RuleVar[839] = 1f;
+      this.RuleVar[501] = 1f;
+      this.RuleVar[503] = 1f;
+      this.RuleVar[504] = 1f;
+      this.RuleVar[506] = 1f;
+      this.RuleVar[509] = 0.0f;
+      this.RuleVar[510] = 1f;
+      this.RuleVar[517] = 1f;
+      this.RuleVar[513] = 1f;
+      this.RuleVar[847] = 1f;
+      this.RuleVar[518] = 1f;
+      this.RuleVar[519] = 1f;
+      this.RuleVar[524] = 0.0f;
+      this.RuleVar[307] = 1f;
+      this.RuleVar[530] = 0.0f;
+      this.RuleVar[861] = 0.0f;
+      this.RuleVar[862] = 0.0f;
+      this.RuleVar[316] = 1f;
+      this.RuleVar[317] = 1f;
+      this.RuleVar[344] = 1f;
+      this.RuleVar[843] = -1f;
+      this.RuleVar[340] = -1f;
+      this.RuleVar[337] = 1f;
+      this.RuleVar[884] = 1f;
+      this.RuleVar[143] = 10f;
+      this.RuleVar[144] = 10f;
+      this.RuleVar[145] = 10f;
+      this.RuleVar[146] = 10f;
+      this.RuleVar[339] = 250f;
+      this.RuleVar[887] = 1f;
+      this.UseAI = 1;
+      this.MasterFile = "";
+      this.EditPass = "";
+      this.LoadPass = "";
+      this.PbemGameID = 0;
+      this.PbemPlayer1 = "";
+      this.PbemPlayer2 = "";
+      this.PbemGameOver = 0;
+      this.Product = 7;
+      this.HistoricalIDCounter = 0;
+    }
+
 }

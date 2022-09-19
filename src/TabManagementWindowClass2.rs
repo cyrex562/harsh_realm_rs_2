@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -71,13 +71,13 @@ namespace WindowsApplication1
       if (self.game.EditObj.SetViewMode2 < 100)
       {
         self.tabnr = self.game.EditObj.SetViewMode2 - 10;
-        id =  Math.Round((double) self.game.Data.RuleVar[441]);
+        id =  Math.Round( self.game.Data.RuleVar[441]);
       }
       else
       {
         self.tabnr = self.game.EditObj.SetViewMode2 - 100;
         forUDSRandomTab = true;
-        id =  Math.Round((double) self.game.Data.RuleVar[443]);
+        id =  Math.Round( self.game.Data.RuleVar[443]);
       }
       if (self.tabnr < 0)
         self.tabnr = 0;
@@ -213,7 +213,7 @@ namespace WindowsApplication1
               subPart1.dyn.element[index].texty = dyn.element[index].texty;
             }
           }
-          if (subPart1.dyn.element[index].type == UDSType.Table & !Information.IsNothing((object) Expression))
+          if (subPart1.dyn.element[index].type == UDSType.Table & !Information.IsNothing( Expression))
           {
             StringListClass stringListClass = self.game.Data.StringListObj[ Math.Round(Conversion.Val(subPart1.dyn.element[index].texty))];
             self.game.Data.StringListObj[ Math.Round(Conversion.Val(subPart1.dyn.element[index].texty))] = Expression;
@@ -277,7 +277,7 @@ namespace WindowsApplication1
       {
         if (self.subtabcount < 1)
           return;
-        let mut width: i32 =  Math.Round((double) Math.Min(self.w - 80, 1180) / (double) self.subtabcount);
+        let mut width: i32 =  Math.Round( Math.Min(self.w - 80, 1180) /  self.subtabcount);
         if (width > 250)
           width = 250;
         g.SmoothingMode = SmoothingMode.None;
@@ -301,11 +301,11 @@ namespace WindowsApplication1
               self.subtabnr = index1;
             if (index1 == self.subtabnr)
             {
-              DrawMod.DrawBlockGradient( g, num8, num9,  Math.Round((double) width / 2.0), 40, Color.FromArgb(0, 0, 0, 0), Color.FromArgb(96,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
-              DrawMod.DrawBlockGradient( g, num8 +  Math.Round((double) width / 2.0), num9,  Math.Round((double) width / 2.0), 40, Color.FromArgb(96,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue), Color.FromArgb(0, 0, 0, 0));
+              DrawMod.DrawBlockGradient( g, num8, num9,  Math.Round( width / 2.0), 40, Color.FromArgb(0, 0, 0, 0), Color.FromArgb(96,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue));
+              DrawMod.DrawBlockGradient( g, num8 +  Math.Round( width / 2.0), num9,  Math.Round( width / 2.0), 40, Color.FromArgb(96,  byte.MaxValue,  byte.MaxValue,  byte.MaxValue), Color.FromArgb(0, 0, 0, 0));
             }
             SizeF sizeF = SizeF::new();
-            let mut num10: i32 =  Math.Round((double) g.MeasureString(self.subtabname[index1], self.game.MarcFont4).Width);
+            let mut num10: i32 =  Math.Round( g.MeasureString(self.subtabname[index1], self.game.MarcFont4).Width);
             Rectangle trect2 = Rectangle::new(num8, num9, width, 40);
             self.AddMouse( trect2, self.subtabname[index1], "Click to see all pages for this tab.", 1000 + index1);
             if (num10 > width - 20 & Strings.InStr(self.subtabname[index1], " ") > 0)
@@ -316,7 +316,7 @@ namespace WindowsApplication1
               let mut upperBound: i32 = strArray.GetUpperBound(0);
               for (let mut index2: i32 = 0; index2 <= upperBound; index2 += 1)
               {
-                if ((double) index2 < Math.Max(1.0, (double) strArray.GetUpperBound(0) / 2.0))
+                if ( index2 < Math.Max(1.0,  strArray.GetUpperBound(0) / 2.0))
                 {
                   if (tstring1.Length > 0)
                     tstring1 += " ";
@@ -329,11 +329,11 @@ namespace WindowsApplication1
                   tstring2 += strArray[index2];
                 }
               }
-              DrawMod.DrawTextColouredMarcCenter( g, tstring1, self.game.MarcFont4,  Math.Round((double) num8 + (double) width / 2.0), num9 + 3, Color.White);
-              DrawMod.DrawTextColouredMarcCenter( g, tstring2, self.game.MarcFont4,  Math.Round((double) num8 + (double) width / 2.0), num9 + 20, Color.White);
+              DrawMod.DrawTextColouredMarcCenter( g, tstring1, self.game.MarcFont4,  Math.Round( num8 +  width / 2.0), num9 + 3, Color.White);
+              DrawMod.DrawTextColouredMarcCenter( g, tstring2, self.game.MarcFont4,  Math.Round( num8 +  width / 2.0), num9 + 20, Color.White);
             }
             else
-              DrawMod.DrawTextColouredMarcCenter( g, self.subtabname[index1], self.game.MarcFont4,  Math.Round((double) num8 + (double) width / 2.0), num9 + 12, Color.White);
+              DrawMod.DrawTextColouredMarcCenter( g, self.subtabname[index1], self.game.MarcFont4,  Math.Round( num8 +  width / 2.0), num9 + 12, Color.White);
             g.SmoothingMode = SmoothingMode.None;
             DrawMod.drawLineDot( g, num8 + width, num9, num8 + width, num9 + 40, Color.White);
             g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -345,8 +345,8 @@ namespace WindowsApplication1
         if (self.w < 1240)
         {
           let mut num14: i32 = 1240 - self.w;
-          num11 =  Math.Round((double) num14 * 0.65);
-          let mut num15: i32 =  Math.Round((double) num14 * 0.35);
+          num11 =  Math.Round( num14 * 0.65);
+          let mut num15: i32 =  Math.Round( num14 * 0.35);
           if (num15 > 10)
           {
             num12 = 10;
@@ -371,7 +371,7 @@ namespace WindowsApplication1
         let mut num17: i32 = 25;
         let mut num18: i32 = 74;
         let mut overruleItemSize1: i32 = 24;
-        let mut tlistsize1: i32 =  Math.Round((double) (self.h - 134) / (double) overruleItemSize1) - 1;
+        let mut tlistsize1: i32 =  Math.Round( (self.h - 134) /  overruleItemSize1) - 1;
         self.OptionsListObj = ListClass::new();
         if (self.subtabnr < 0)
           return;
@@ -432,7 +432,7 @@ namespace WindowsApplication1
             let mut tv3: i32 =  Math.Round(Conversion.Val(self.game.Data.StringListObj[self.stringlistslot].Data[self.pagerow[self.subtabnr, self.pagenr], 13]));
             self.game.EventRelatedObj.DoCheckSpecificEvent(enr, tv0, tv1, tv2, tv3);
             udStabText = self.game.EditObj.UDStabText;
-            let mut num25: i32 =  Math.Round(Conversion.Val((object) Conversions.ToInteger(self.game.Data.StringListObj[self.stringlistslot].GetData(4, self.subtabname[self.subtabnr], 0))));
+            let mut num25: i32 =  Math.Round(Conversion.Val( Conversions.ToInteger(self.game.Data.StringListObj[self.stringlistslot].GetData(4, self.subtabname[self.subtabnr], 0))));
             if (!(num25 >= 77 & num25 <= 79))
             {
               let mut id: i32 = self.game.EventRelatedObj.CheckStringlistID("SE_IO", 158, 0, 0);
@@ -485,7 +485,7 @@ namespace WindowsApplication1
       if (!(self.game.EditObj.interfaceCue == 5 & self.game.EditObj.SetViewMode2 > 100))
         return windowReturnClass;
       VBMath.Randomize();
-      self.game.Data.GameID =  Math.Round((double) (VBMath.Rnd() * 1E+08f));
+      self.game.Data.GameID =  Math.Round( (VBMath.Rnd() * 1E+08f));
       self.game.HandyFunctionsObj.RedimStats();
       self.game.HandyFunctionsObj.DoResMod();
       if (self.game.EditObj.AutoSave)
@@ -622,7 +622,7 @@ namespace WindowsApplication1
             if (num3 > 0)
             {
               bool flag = false;
-              if (self.game.EditObj.UdsInsideTabOpenMode & !Information.IsNothing((object) self.game.EditObj.udsInsideTabOpenModeList) && self.game.EditObj.udsInsideTabOpenModeList.FindNr(num3) > -1)
+              if (self.game.EditObj.UdsInsideTabOpenMode & !Information.IsNothing( self.game.EditObj.udsInsideTabOpenModeList) && self.game.EditObj.udsInsideTabOpenModeList.FindNr(num3) > -1)
                 flag = true;
               if (self.game.EditObj.UdsInsideTabOpenMode & flag)
               {

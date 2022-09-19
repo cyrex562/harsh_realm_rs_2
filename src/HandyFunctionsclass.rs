@@ -4,24 +4,24 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using ICSharpCode.SharpZipLib.Checksums;
-using ICSharpCode.SharpZipLib.Core;
-using ICSharpCode.SharpZipLib.Zip;
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Net;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading;
-using System.Windows.Forms;
+// usingICSharpCode.SharpZipLib.Checksums;
+// usingICSharpCode.SharpZipLib.Core;
+// usingICSharpCode.SharpZipLib.Zip;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Diagnostics;
+// usingSystem.Drawing;
+// usingSystem.Drawing.Drawing2D;
+// usingSystem.Drawing.Imaging;
+// usingSystem.IO;
+// usingSystem.Net;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Runtime.InteropServices;
+// usingSystem.Security.Cryptography;
+// usingSystem.Text;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -98,7 +98,7 @@ namespace WindowsApplication1
       }
       else
       {
-        let mut index1: i32 =   Math.Round(Math.Floor((double) numy / 26.0));
+        let mut index1: i32 =   Math.Round(Math.Floor( numy / 26.0));
         upper: String = strArray[index1].ToUpper();
         let mut index2: i32 =  numy - index1 * 26;
         letter = upper + strArray[index2];
@@ -141,7 +141,7 @@ namespace WindowsApplication1
 
     pub void CheckAttachTransportValidity()
     {
-      if (!((double) this.game.Data.RuleVar[474] > 0.0 & this.game.Data.Product >= 6))
+      if (!( this.game.Data.RuleVar[474] > 0.0 & this.game.Data.Product >= 6))
         return;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       for (let mut index1: i32 =  0; index1 <= unitCounter; index1 += 1)
@@ -201,7 +201,7 @@ namespace WindowsApplication1
         if (num3 == 1)
           num1 += powerPts * qty;
       }
-      return (num2 <= 0 ? 0.0 : (double)  Math.Round((double) (100 * num1) / (double) num2)) >= (double) this.game.Data.RuleVar[474];
+      return (num2 <= 0 ? 0.0 :   Math.Round( (100 * num1) /  num2)) >=  this.game.Data.RuleVar[474];
     }
 
     pub int GiveTransporterMaxCarry(int unr)
@@ -321,7 +321,7 @@ namespace WindowsApplication1
         let mut moveType: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].MoveType;
         if (this.game.Data.SFObj[sf].MoveType > -1)
           moveType = this.game.Data.SFObj[sf].MoveType;
-        numArray2[index] = this.game.Data.LandscapeTypeObj[ Math.Round((double) this.game.Data.RuleVar[38])].MoveCost[moveType];
+        numArray2[index] = this.game.Data.LandscapeTypeObj[ Math.Round( this.game.Data.RuleVar[38])].MoveCost[moveType];
         if (numArray2[index] >= 999 & this.game.Data.RoadTypeCounter > -1)
           numArray2[index] = this.game.Data.RoadTypeObj[0].MoveCostOverrule[moveType];
         if (this.game.Data.Product >= 5 & this.game.Data.RoadTypeCounter > -1)
@@ -389,8 +389,8 @@ namespace WindowsApplication1
               {
                 let mut num6: i32 =  numArray6[index2] - numArray10[index2];
                 num5 = numArray7[index4] <= num6 ? numArray7[index4] : num6;
-                let mut num7: i32 =   Math.Round((double) val1 / (double) numArray9[index2]);
-                let mut num8: i32 =   Math.Round(Math.Ceiling((double) num5 / (double) numArray8[index2]));
+                let mut num7: i32 =   Math.Round( val1 /  numArray9[index2]);
+                let mut num8: i32 =   Math.Round(Math.Ceiling( num5 /  numArray8[index2]));
                 if (num8 < num7)
                 {
                   val1 = Math.Min(val1, numArray9[index2] * num7);
@@ -477,7 +477,7 @@ namespace WindowsApplication1
           flag2 = false;
         if (flag2 && num == 2 && numArray4[index] < numArray3[index] | numArray10[index] < numArray6[index])
         {
-          let mut tweight: i32 =   Math.Round((double) (numArray3[index] - numArray4[index]) / (double) weight);
+          let mut tweight: i32 =   Math.Round( (numArray3[index] - numArray4[index]) /  weight);
           simpleList.Add(sf, tweight);
         }
       }
@@ -486,9 +486,9 @@ namespace WindowsApplication1
 
     pub string GetUDSmanagementTabName(int tabnr, bool forUDSRandomTab = false)
     {
-      let mut id: i32 =   Math.Round((double) this.game.Data.RuleVar[441]);
+      let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
-        id =  Math.Round((double) this.game.Data.RuleVar[443]);
+        id =  Math.Round( this.game.Data.RuleVar[443]);
       if (id > 0)
       {
         SimpleList simpleList = SimpleList::new();
@@ -515,9 +515,9 @@ namespace WindowsApplication1
     pub int GetUDSmanagementTabPageCount(int tabnr, bool forUDSRandomTab = false)
     {
       let mut smanagementTabPageCount: i32 =  0;
-      let mut id: i32 =   Math.Round((double) this.game.Data.RuleVar[441]);
+      let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
-        id =  Math.Round((double) this.game.Data.RuleVar[443]);
+        id =  Math.Round( this.game.Data.RuleVar[443]);
       if (id > 0)
       {
         let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID(id);
@@ -540,9 +540,9 @@ namespace WindowsApplication1
 
     pub string GetUDSmanagementSubTabName(int tabnr, int subTabNr, bool forUDSRandomTab = false)
     {
-      let mut id: i32 =   Math.Round((double) this.game.Data.RuleVar[441]);
+      let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
-        id =  Math.Round((double) this.game.Data.RuleVar[443]);
+        id =  Math.Round( this.game.Data.RuleVar[443]);
       if (id > 0)
       {
         SimpleList simpleList1 = SimpleList::new();
@@ -564,7 +564,7 @@ namespace WindowsApplication1
             let mut length2: i32 =  this.game.Data.StringListObj[stringListById].Length;
             for (let mut tid: i32 =  0; tid <= length2; tid += 1)
             {
-              if (Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 1]) == 2.0 & Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 2]) == (double) integer)
+              if (Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 1]) == 2.0 & Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 2]) ==  integer)
                 simpleList2.Add(tid, Conversions.ToInteger(this.game.Data.StringListObj[stringListById].Data[tid, 3]));
             }
             simpleList2.Sort();
@@ -585,9 +585,9 @@ namespace WindowsApplication1
       int pageNr,
       bool forUDSRandomTab = false)
     {
-      let mut id: i32 =   Math.Round((double) this.game.Data.RuleVar[441]);
+      let mut id: i32 =   Math.Round( this.game.Data.RuleVar[441]);
       if (forUDSRandomTab)
-        id =  Math.Round((double) this.game.Data.RuleVar[443]);
+        id =  Math.Round( this.game.Data.RuleVar[443]);
       if (id > 0)
       {
         SimpleList simpleList1 = SimpleList::new();
@@ -609,7 +609,7 @@ namespace WindowsApplication1
             let mut length2: i32 =  this.game.Data.StringListObj[stringListById].Length;
             for (let mut tid: i32 =  0; tid <= length2; tid += 1)
             {
-              if (Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 1]) == 2.0 & Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 2]) == (double) integer1)
+              if (Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 1]) == 2.0 & Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 2]) ==  integer1)
                 simpleList2.Add(tid, Conversions.ToInteger(this.game.Data.StringListObj[stringListById].Data[tid, 3]));
             }
             simpleList2.Sort();
@@ -621,7 +621,7 @@ namespace WindowsApplication1
               let mut length3: i32 =  this.game.Data.StringListObj[stringListById].Length;
               for (let mut tid: i32 =  0; tid <= length3; tid += 1)
               {
-                if (Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 1]) == 3.0 & Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 2]) == (double) integer2)
+                if (Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 1]) == 3.0 & Conversions.ToDouble(this.game.Data.StringListObj[stringListById].Data[tid, 2]) ==  integer2)
                   simpleList3.Add(tid, Conversions.ToInteger(this.game.Data.StringListObj[stringListById].Data[tid, 3]));
               }
               simpleList3.Sort();
@@ -643,28 +643,28 @@ namespace WindowsApplication1
         this.game.ScreenHeight = this.game.RealScreenHeight;
         if (this.game.EditObj.DoubleSizePercentage == 125)
         {
-          this.game.ScreenWidth =  Math.Round((double) (this.game.ScreenWidth * 7) / 8.0);
-          this.game.ScreenHeight =  Math.Round((double) (this.game.ScreenHeight * 7) / 8.0);
+          this.game.ScreenWidth =  Math.Round( (this.game.ScreenWidth * 7) / 8.0);
+          this.game.ScreenHeight =  Math.Round( (this.game.ScreenHeight * 7) / 8.0);
         }
         else if (this.game.EditObj.DoubleSizePercentage == 150)
         {
-          this.game.ScreenWidth =  Math.Round((double) (this.game.ScreenWidth * 6) / 8.0);
-          this.game.ScreenHeight =  Math.Round((double) (this.game.ScreenHeight * 6) / 8.0);
+          this.game.ScreenWidth =  Math.Round( (this.game.ScreenWidth * 6) / 8.0);
+          this.game.ScreenHeight =  Math.Round( (this.game.ScreenHeight * 6) / 8.0);
         }
         else if (this.game.EditObj.DoubleSizePercentage == 175)
         {
-          this.game.ScreenWidth =  Math.Round((double) (this.game.ScreenWidth * 5) / 8.0);
-          this.game.ScreenHeight =  Math.Round((double) (this.game.ScreenHeight * 5) / 8.0);
+          this.game.ScreenWidth =  Math.Round( (this.game.ScreenWidth * 5) / 8.0);
+          this.game.ScreenHeight =  Math.Round( (this.game.ScreenHeight * 5) / 8.0);
         }
         else if (this.game.EditObj.DoubleSizePercentage == 200)
         {
-          this.game.ScreenWidth =  Math.Round((double) this.game.ScreenWidth / 2.0);
-          this.game.ScreenHeight =  Math.Round((double) this.game.ScreenHeight / 2.0);
+          this.game.ScreenWidth =  Math.Round( this.game.ScreenWidth / 2.0);
+          this.game.ScreenHeight =  Math.Round( this.game.ScreenHeight / 2.0);
         }
         else if (this.game.EditObj.DoubleSizePercentage == 75)
         {
-          this.game.ScreenWidth =  Math.Round((double) (this.game.ScreenWidth * 5) / 4.0);
-          this.game.ScreenHeight =  Math.Round((double) (this.game.ScreenHeight * 5) / 4.0);
+          this.game.ScreenWidth =  Math.Round( (this.game.ScreenWidth * 5) / 4.0);
+          this.game.ScreenHeight =  Math.Round( (this.game.ScreenHeight * 5) / 4.0);
         }
         else if (this.game.EditObj.DoubleSizePercentage == 50)
         {
@@ -675,18 +675,18 @@ namespace WindowsApplication1
           this.game.ScreenWidth = 1024;
         if (this.game.ScreenHeight < 768)
           this.game.ScreenHeight = 768;
-        formref.doubleModX = (float) this.game.ScreenWidth / (float) this.game.RealScreenWidth;
-        formref.doubleModY = (float) this.game.ScreenHeight / (float) this.game.RealScreenHeight;
-        if ((double) formref.doubleModX < 2.0 | (double) formref.doubleModY < 2.0)
+        formref.doubleModX =  this.game.ScreenWidth /  this.game.RealScreenWidth;
+        formref.doubleModY =  this.game.ScreenHeight /  this.game.RealScreenHeight;
+        if ( formref.doubleModX < 2.0 |  formref.doubleModY < 2.0)
         {
-          if ((double) formref.doubleModY > (double) formref.doubleModX)
+          if ( formref.doubleModY >  formref.doubleModX)
           {
-            this.game.ScreenWidth =  Math.Round((double) ((float) this.game.RealScreenWidth * formref.doubleModY));
+            this.game.ScreenWidth =  Math.Round( ( this.game.RealScreenWidth * formref.doubleModY));
             formref.doubleModX = formref.doubleModY;
           }
-          else if ((double) formref.doubleModX > (double) formref.doubleModY)
+          else if ( formref.doubleModX >  formref.doubleModY)
           {
-            this.game.ScreenHeight =  Math.Round((double) ((float) this.game.RealScreenHeight * formref.doubleModX));
+            this.game.ScreenHeight =  Math.Round( ( this.game.RealScreenHeight * formref.doubleModX));
             formref.doubleModY = formref.doubleModX;
           }
         }
@@ -708,12 +708,12 @@ namespace WindowsApplication1
       DEVMODE1 lpDevMode1 = DEVMODE1::new();
       Form1.EnumDisplaySettings(0, -1,  lpDevMode1);
       DEVMODE1 lpDevMode2 = DEVMODE1::new();
-      lpDevMode2.dmSize = (short) Marshal.SizeOf((object) lpDevMode2);
+      lpDevMode2.dmSize = (short) Marshal.SizeOf( lpDevMode2);
       if (Form1.EnumDisplaySettings(0, 0,  lpDevMode2))
       {
         lpDevMode2.dmDeviceName = new string(new char[33]);
         lpDevMode2.dmFormName = new string(new char[33]);
-        lpDevMode2.dmSize = (short) Marshal.SizeOf((object) lpDevMode2);
+        lpDevMode2.dmSize = (short) Marshal.SizeOf( lpDevMode2);
         lpDevMode2.dmPelsWidth = tWidth;
         lpDevMode2.dmPelsHeight = tHeight;
         lpDevMode2.dmBitsPerPel = lpDevMode1.dmBitsPerPel;
@@ -734,7 +734,7 @@ namespace WindowsApplication1
         }
         else
         {
-          let mut num2: i32 =   Interaction.MsgBox((object) ("Error code: " + num1.ToString()), Title: ((object) "Resolution change failed"));
+          let mut num2: i32 =   Interaction.MsgBox( ("Error code: " + num1.ToString()), Title: ( "Resolution change failed"));
         }
       }
       if (setToDesktop)
@@ -756,13 +756,13 @@ namespace WindowsApplication1
       return false;
     }
 
-    pub int[] RecodeTextStringToEncyIdsNew(string s,  StringListClass tStringList)
+    pub RecodeTextStringToEncyIdsNew: Vec<i32>(string s,  StringListClass tStringList)
     {
       int[] encyIdsNew = new int[s.Length * 2 + 1];
       let mut length1: i32 =  s.Length;
       for (let mut index: i32 =  1; index <= length1; index += 1)
         encyIdsNew[index] = 0;
-      if (Information.IsNothing((object) tStringList))
+      if (Information.IsNothing( tStringList))
         return encyIdsNew;
       if (this.game.Data.Product >= 7)
       {
@@ -1754,7 +1754,7 @@ namespace WindowsApplication1
                   }
                   if (!flag2)
                   {
-                    let mut num: i32 =   Interaction.MsgBox((object) "Error: Card uses smallgraphic not included in lib");
+                    let mut num: i32 =   Interaction.MsgBox( "Error: Card uses smallgraphic not included in lib");
                     this.game.Data.AddSmallPic(str);
                     this.game.Data.ActionCardObj[index2].SmallGfx = this.game.Data.SmallPicCounter;
                   }
@@ -1774,7 +1774,7 @@ namespace WindowsApplication1
                   }
                   if (!flag3)
                   {
-                    let mut num: i32 =   Interaction.MsgBox((object) "Error: Card uses graphic not included in lib");
+                    let mut num: i32 =   Interaction.MsgBox( "Error: Card uses graphic not included in lib");
                     this.game.Data.AddEventPic(str);
                     this.game.Data.ActionCardObj[index2].EventPicNr = this.game.Data.EventPicCounter;
                   }
@@ -1794,7 +1794,7 @@ namespace WindowsApplication1
                   }
                   if (!flag4)
                   {
-                    let mut num: i32 =   Interaction.MsgBox((object) "Error: Card uses graphic not included in lib");
+                    let mut num: i32 =   Interaction.MsgBox( "Error: Card uses graphic not included in lib");
                     this.game.Data.AddEventPic(str);
                     this.game.Data.ActionCardObj[index2].AlternateEventPicNr = this.game.Data.EventPicCounter;
                   }
@@ -2311,7 +2311,7 @@ namespace WindowsApplication1
                   }
                   if (!flag7)
                   {
-                    let mut num: i32 =   Interaction.MsgBox((object) "Error: His Unit uses graphic not included in lib");
+                    let mut num: i32 =   Interaction.MsgBox( "Error: His Unit uses graphic not included in lib");
                     this.game.Data.AddSmallPic(str);
                     this.game.Data.HistoricalUnitObj[index2].SmallGfx = this.game.Data.SmallPicCounter;
                   }
@@ -2334,7 +2334,7 @@ namespace WindowsApplication1
                     }
                     if (!flag8)
                     {
-                      let mut num: i32 =   Interaction.MsgBox((object) "Error: His Unit uses graphic not included in lib");
+                      let mut num: i32 =   Interaction.MsgBox( "Error: His Unit uses graphic not included in lib");
                       this.game.Data.AddSmallPic(str);
                       this.game.Data.HistoricalUnitObj[index2].HisVarSmall[index37] = this.game.Data.SmallPicCounter;
                     }
@@ -2358,7 +2358,7 @@ namespace WindowsApplication1
                     }
                     if (!flag9)
                     {
-                      let mut num: i32 =   Interaction.MsgBox((object) "Error: His Unit uses graphic not included in lib");
+                      let mut num: i32 =   Interaction.MsgBox( "Error: His Unit uses graphic not included in lib");
                       this.game.Data.AddSmallPic(str);
                       this.game.Data.HistoricalUnitObj[index2].DesignationSmall[index39] = this.game.Data.SmallPicCounter;
                     }
@@ -2847,14 +2847,14 @@ namespace WindowsApplication1
       let mut zoom: i32 =  this.game.EditObj.Zoom;
       if (this.game.Data.Product >= 5 && this.game.EditObj.OrderType == 26 | this.game.EditObj.AIMoving)
         this.game.EditObj.Zoom = 0;
-      if ((double) this.game.Data.RuleVar[329] == 0.0)
+      if ( this.game.Data.RuleVar[329] == 0.0)
       {
         let mut num: i32 =  5;
         if (this.game.Data.Product >= 5)
           num = 0;
         if (this.game.EditObj.Zoom == 0)
         {
-          if ( Math.Round((double) (this.game.ScreenWidth - 200) / 53.0) - num > this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+          if ( Math.Round( (this.game.ScreenWidth - 200) / 53.0) - num > this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
           {
             this.game.Data.RuleVar[329] = 1f;
             this.game.CornerX = 0;
@@ -2862,13 +2862,13 @@ namespace WindowsApplication1
         }
         else if (this.game.EditObj.Zoom == 1)
         {
-          if ( Math.Round((double) (this.game.ScreenWidth - 200) / 106.0) - num > this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+          if ( Math.Round( (this.game.ScreenWidth - 200) / 106.0) - num > this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
           {
             this.game.Data.RuleVar[329] = 1f;
             this.game.CornerX = 0;
           }
         }
-        else if (this.game.EditObj.Zoom == -1 &&  Math.Round((double) (this.game.ScreenWidth - 200) / 27.0) - num > this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+        else if (this.game.EditObj.Zoom == -1 &&  Math.Round( (this.game.ScreenWidth - 200) / 27.0) - num > this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
         {
           this.game.Data.RuleVar[329] = 1f;
           this.game.CornerX = 0;
@@ -2881,15 +2881,15 @@ namespace WindowsApplication1
           num = 0;
         if (this.game.EditObj.Zoom == 0)
         {
-          if ( Math.Round((double) (this.game.ScreenWidth - 200) / 53.0) - num <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+          if ( Math.Round( (this.game.ScreenWidth - 200) / 53.0) - num <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
             this.game.Data.RuleVar[329] = 0.0f;
         }
         else if (this.game.EditObj.Zoom == 1)
         {
-          if ( Math.Round((double) (this.game.ScreenWidth - 200) / 106.0) - num <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+          if ( Math.Round( (this.game.ScreenWidth - 200) / 106.0) - num <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
             this.game.Data.RuleVar[329] = 0.0f;
         }
-        else if (this.game.EditObj.Zoom == -1 &&  Math.Round((double) (this.game.ScreenWidth - 200) / 27.0) - num <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
+        else if (this.game.EditObj.Zoom == -1 &&  Math.Round( (this.game.ScreenWidth - 200) / 27.0) - num <= this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth)
           this.game.Data.RuleVar[329] = 0.0f;
       }
       if (this.game.Data.Product < 5)
@@ -2984,9 +2984,9 @@ namespace WindowsApplication1
     pub void ResetFireListCache()
     {
       let mut index1: i32 =  0;
-      if ((double) this.game.Data.RuleVar[485] < 1.0)
+      if ( this.game.Data.RuleVar[485] < 1.0)
         return;
-      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[485]));
+      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[485]));
       if (stringListById == -1)
         return;
       let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
@@ -3011,9 +3011,9 @@ namespace WindowsApplication1
 
     pub void ClearFireListRecent()
     {
-      if ((double) this.game.Data.RuleVar[485] < 1.0)
+      if ( this.game.Data.RuleVar[485] < 1.0)
         return;
-      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[485]));
+      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[485]));
       if (stringListById == -1)
         return;
       for (let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length; length >= 0; length += -1)
@@ -3022,9 +3022,9 @@ namespace WindowsApplication1
 
     pub void ClearFireList(int regnr)
     {
-      if ((double) this.game.Data.RuleVar[485] < 1.0)
+      if ( this.game.Data.RuleVar[485] < 1.0)
         return;
-      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[485]));
+      let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[485]));
       if (stringListById == -1)
         return;
       for (let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length; length >= 0; length += -1)
@@ -3039,7 +3039,7 @@ namespace WindowsApplication1
       SimpleList supplyReceivingHq = SimpleList::new();
       if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea && !this.IsAlliedOrSelf(regnr, this.game.Data.MapObj[map].HexObj[x, y].Regime))
         return supplyReceivingHq;
-      this.game.HandyFunctionsObj.MakeMovePrediction2(regnr,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), x, y, map, allowshoredrop: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(regnr,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), x, y, map, allowshoredrop: true);
       SimpleList simpleList = SimpleList::new();
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
       for (let mut tid: i32 =  0; tid <= unitCounter1; tid += 1)
@@ -3062,7 +3062,7 @@ namespace WindowsApplication1
             if (this.game.Data.UnitObj[index2].HQ > -1)
             {
               let mut hq: i32 =  this.game.Data.UnitObj[index2].HQ;
-              if (this.game.Data.UnitObj[hq].X > -1 && (double) this.game.EditObj.TempValue[this.game.Data.UnitObj[hq].Map].Value[this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y] <= (double) this.game.Data.RuleVar[51])
+              if (this.game.Data.UnitObj[hq].X > -1 &&  this.game.EditObj.TempValue[this.game.Data.UnitObj[hq].Map].Value[this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y] <=  this.game.Data.RuleVar[51])
               {
                 index2 = hq;
                 num2 = 1;
@@ -3089,7 +3089,7 @@ namespace WindowsApplication1
           for (let mut index: i32 =  0; index <= counter2; index += 1)
           {
             let mut num3: i32 =  supplyReceivingHq.Id[index];
-            let mut num4: i32 =   Math.Round((double) pts * ((double) supplyReceivingHq.Weight[index] / (double) num1));
+            let mut num4: i32 =   Math.Round( pts * ( supplyReceivingHq.Weight[index] /  num1));
             supplyReceivingHq.Data1[index] = num4;
           }
         }
@@ -3116,7 +3116,7 @@ namespace WindowsApplication1
             num2 += this.GetPowerPtsAbsolute(unr1);
         }
       }
-      return num2 > 0 ?  Math.Round(Conversion.Int((double) num2 / (double) num1 * (double) Math.Abs(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].PP) + 0.99999)) : 0;
+      return num2 > 0 ?  Math.Round(Conversion.Int( num2 /  num1 *  Math.Abs(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].PP) + 0.99999)) : 0;
     }
 
     pub int AddUnitToHQIsHowMuchPercentage(int hq, int unr, bool wholehistoricalunit)
@@ -3139,7 +3139,7 @@ namespace WindowsApplication1
       }
       let mut howMuchPercentage: i32 =  0;
       if (num2 > 0)
-        howMuchPercentage =  Math.Round(Conversion.Int(100.0 * ((double) num2 / (double) num1)));
+        howMuchPercentage =  Math.Round(Conversion.Int(100.0 * ( num2 /  num1)));
       return howMuchPercentage;
     }
 
@@ -3221,9 +3221,9 @@ namespace WindowsApplication1
       long lpTotalNumberOfFreeBytes;
       if (HandyFunctionsclass.GetDiskFreeSpaceEx( DriveOrFolder,  lpFreeBytesAvailableToMe,  lpTotalNumberOfBytes,  lpTotalNumberOfFreeBytes) == 0)
         return 999;
-      str1: String = Strings.Format((object) lpTotalNumberOfFreeBytes, "###,###,##") + " bytes )";
-      double num = (double) (lpTotalNumberOfFreeBytes / 1024L / 1024L);
-      str2: String = Strings.Format((object) num, "###,###,##") + " MB free";
+      str1: String = Strings.Format( lpTotalNumberOfFreeBytes, "###,###,##") + " bytes )";
+      double num =  (lpTotalNumberOfFreeBytes / 1024L / 1024L);
+      str2: String = Strings.Format( num, "###,###,##") + " MB free";
       return  Math.Round(Conversion.Int(num));
     }
 
@@ -3302,7 +3302,7 @@ namespace WindowsApplication1
 
     pub int GetStartPower(int unr)
     {
-      if (this.game.Data.UnitObj[unr].Historical == -1 | this.game.Data.UnitObj[unr].HistoricalSubPart == -1 || (double) this.game.Data.RuleVar[884] < 1.0)
+      if (this.game.Data.UnitObj[unr].Historical == -1 | this.game.Data.UnitObj[unr].HistoricalSubPart == -1 ||  this.game.Data.RuleVar[884] < 1.0)
         return this.game.Data.UnitObj[unr].StartPower;
       let mut preDef: i32 =  this.game.HandyFunctionsObj.GetPreDef(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].SubParts[this.game.Data.UnitObj[unr].HistoricalSubPart]);
       return preDef == -1 ? this.game.Data.UnitObj[unr].StartPower : this.game.HandyFunctionsObj.GetPowerPtsAbsolute(preDef);
@@ -3338,7 +3338,7 @@ namespace WindowsApplication1
             num2 = this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Ap;
         }
       }
-      return num1 < 1 ? -1 :  Math.Round(Conversion.Int((double) num2 / (double) num1));
+      return num1 < 1 ? -1 :  Math.Round(Conversion.Int( num2 /  num1));
     }
 
     pub int GetUnitStackPtsArt(int unr)
@@ -3449,10 +3449,10 @@ namespace WindowsApplication1
       {
         if (this.game.Data.MapObj[map].HexObj[x, y].Regime == -1)
         {
-          if ((double) this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(regnr) >= (double) this.game.Data.RuleVar[10])
+          if ( this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(regnr) >=  this.game.Data.RuleVar[10])
             num1 = 1;
         }
-        else if (this.game.Data.MapObj[map].HexObj[x, y].Regime != regnr & this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.MapObj[map].HexObj[x, y].Regime] != 2 && (double) this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(regnr) >= (double) this.game.Data.RuleVar[9] && (double) this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(regnr) >= (double) this.game.Data.RuleVar[40] * (double) this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(this.game.Data.MapObj[0].HexObj[x, y].Regime) && this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
+        else if (this.game.Data.MapObj[map].HexObj[x, y].Regime != regnr & this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.MapObj[map].HexObj[x, y].Regime] != 2 &&  this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(regnr) >=  this.game.Data.RuleVar[9] &&  this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(regnr) >=  this.game.Data.RuleVar[40] *  this.game.Data.MapObj[map].HexObj[x, y].get_ZocPts(this.game.Data.MapObj[0].HexObj[x, y].Regime) && this.game.Data.MapObj[map].HexObj[x, y].UnitCounter < 0)
           num1 = 1;
       }
       if (num1 == 1)
@@ -3473,14 +3473,14 @@ namespace WindowsApplication1
         if (num2 == 0)
           num1 = 0;
       }
-      if (this.game.Data.MapObj[map].HexObj[x, y].Regime == -1 & (double) this.game.Data.RuleVar[79] == 0.0)
+      if (this.game.Data.MapObj[map].HexObj[x, y].Regime == -1 &  this.game.Data.RuleVar[79] == 0.0)
         num1 = 0;
       if (this.game.Data.MapObj[map].HexObj[x, y].Location > -1 && this.game.Data.MapObj[map].HexObj[x, y].Regime != regnr && num1 == 1)
       {
-        if ((double) this.game.Data.RuleVar[901] < 1.0)
+        if ( this.game.Data.RuleVar[901] < 1.0)
         {
           this.game.Data.LocObj[this.game.Data.MapObj[map].HexObj[x, y].Location].HQ = -1;
-          if ((double) this.game.Data.RuleVar[898] > 0.0)
+          if ( this.game.Data.RuleVar[898] > 0.0)
             this.game.Data.LocObj[this.game.Data.MapObj[map].HexObj[x, y].Location].StructuralPts = 0;
           let mut index: i32 =  0;
           do
@@ -3495,11 +3495,11 @@ namespace WindowsApplication1
         else
           num1 = 0;
       }
-      if (this.game.HandyFunctionsObj.HasHexRoad(x, y, 0) & (double) this.game.Data.RuleVar[901] == 2.0)
+      if (this.game.HandyFunctionsObj.HasHexRoad(x, y, 0) &  this.game.Data.RuleVar[901] == 2.0)
         num1 = 0;
       if (num1 != 1)
         return;
-      if ((double) this.game.Data.RuleVar[840] == 1.0 & this.game.Data.MapObj[map].HexObj[x, y].OrigOwner > -1 & this.game.HandyFunctionsObj.IsAlliedOrSelf(regnr, this.game.Data.MapObj[map].HexObj[x, y].OrigOwner))
+      if ( this.game.Data.RuleVar[840] == 1.0 & this.game.Data.MapObj[map].HexObj[x, y].OrigOwner > -1 & this.game.HandyFunctionsObj.IsAlliedOrSelf(regnr, this.game.Data.MapObj[map].HexObj[x, y].OrigOwner))
       {
         this.game.Data.MapObj[map].HexObj[x, y].set_LastReg(this.game.Data.MapObj[map].HexObj[x, y].Regime, this.game.Data.MapObj[map].HexObj[x, y].OrigOwner);
         this.game.Data.MapObj[map].HexObj[x, y].Regime = this.game.Data.MapObj[map].HexObj[x, y].OrigOwner;
@@ -3527,7 +3527,7 @@ namespace WindowsApplication1
       this.HistoryAddHex(x, y, map, regnr, 1, 1);
     }
 
-    pub int GetEffectiveRecon(int rawRecon) => rawRecon < 1 ? 0 : (rawRecon <= 1 ? 1 :  Math.Round(Math.Ceiling(Math.Log10((double) rawRecon) * 30.0)));
+    pub int GetEffectiveRecon(int rawRecon) => rawRecon < 1 ? 0 : (rawRecon <= 1 ? 1 :  Math.Round(Math.Ceiling(Math.Log10( rawRecon) * 30.0)));
 
     pub void HistoryAddHex(
       int x,
@@ -3566,7 +3566,7 @@ namespace WindowsApplication1
                 infostring = infostringunknown;
             }
           }
-          else if ((double) this.game.Data.RuleVar[455] > 0.0)
+          else if ( this.game.Data.RuleVar[455] > 0.0)
           {
             num = 0;
             if (this.game.Data.MapObj[0].HexObj[x, y].Location2 > -1)
@@ -3627,7 +3627,7 @@ namespace WindowsApplication1
               let mut index4: i32 =  0;
               do
               {
-                if (!Information.IsNothing((object) neighbour))
+                if (!Information.IsNothing( neighbour))
                   historyStepClass.AttackDirection[index4] = neighbour.data[index4];
                 index4 += 1;
               }
@@ -3671,7 +3671,7 @@ namespace WindowsApplication1
       {
         if (this.game.Data.RegimeObj[Left].minimumDataUsage)
         {
-          if (Operators.ConditionalCompareObjectEqual((object) Left, regnr, false))
+          if (Operators.ConditionalCompareObjectEqual( Left, regnr, false))
           {
             let mut mapCount: i32 =  this.game.Data.RegimeObj[Conversions.ToInteger(regnr)].MapCount;
             for (let mut index: i32 =  0; index <= mapCount; index += 1)
@@ -3719,12 +3719,12 @@ namespace WindowsApplication1
       let mut unitCounter1: i32 =  this.game.Data.UnitCounter;
       for (let mut index: i32 =  0; index <= unitCounter1; index += 1)
       {
-        if (Operators.ConditionalCompareObjectEqual((object) this.game.Data.UnitObj[index].Regime, regnr, false))
+        if (Operators.ConditionalCompareObjectEqual( this.game.Data.UnitObj[index].Regime, regnr, false))
           this.game.Data.UnitObj[index].txtLog = "";
       }
       if (this.game.Data.Product >= 7)
         this.ResetRegimeLowData(RuntimeHelpers.GetObjectValue(regnr));
-      if (Operators.ConditionalCompareObjectEqual(regnr, (object) 2, false))
+      if (Operators.ConditionalCompareObjectEqual(regnr,  2, false))
         ;
       if (!this.game.Data.RegimeObj[Conversions.ToInteger(regnr)].minimumDataUsage)
       {
@@ -3752,7 +3752,7 @@ namespace WindowsApplication1
             {
               if (this.game.Data.MapObj[map].HexObj[x, y].get_ReconPts(Conversions.ToInteger(regnr)) >= 1)
                 flag = true;
-              if (Operators.ConditionalCompareObjectEqual((object) this.game.Data.Turn, regnr, false) && this.game.Data.MapObj[map].HexObj[x, y].MaxRecon >= 1)
+              if (Operators.ConditionalCompareObjectEqual( this.game.Data.Turn, regnr, false) && this.game.Data.MapObj[map].HexObj[x, y].MaxRecon >= 1)
                 flag = true;
               if (!this.game.Data.FOWOn)
                 flag = true;
@@ -4157,12 +4157,12 @@ namespace WindowsApplication1
           let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
           let mut type: i32 =  this.game.Data.SFObj[sf].Type;
           let mut theater: i32 =  this.game.Data.SFTypeObj[type].Theater;
-          let mut num1: i32 =   Math.Round((double) (this.game.Data.SFTypeObj[type].Cap * qty) * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
-          let mut num2: i32 =   Math.Round((double) (this.game.Data.SFTypeObj[type].RailCap * qty) * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+          let mut num1: i32 =   Math.Round( (this.game.Data.SFTypeObj[type].Cap * qty) * ( this.game.Data.SFObj[sf].Rdn / 100.0));
+          let mut num2: i32 =   Math.Round( (this.game.Data.SFTypeObj[type].RailCap * qty) * ( this.game.Data.SFObj[sf].Rdn / 100.0));
           if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpStrategic > 0)
           {
-            num1 +=  Math.Round((double) num1 / 100.0 * (double) this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpStrategic);
-            num2 +=  Math.Round((double) num2 / 100.0 * (double) this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpStrategic);
+            num1 +=  Math.Round( num1 / 100.0 *  this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpStrategic);
+            num2 +=  Math.Round( num2 / 100.0 *  this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpStrategic);
           }
           switch (theater)
           {
@@ -4188,7 +4188,7 @@ namespace WindowsApplication1
       let mut num3: i32 =  0;
       if (this.game.Data.UnitObj[unr].X == -1 || this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].IsSea && !this.game.Data.UnitObj[unr].IsHQ)
         return 0;
-      if ((double) this.game.Data.RuleVar[471] > 0.0)
+      if ( this.game.Data.RuleVar[471] > 0.0)
       {
         if (this.game.Data.UnitObj[unr].SFCount <= -1)
           return 0;
@@ -4220,8 +4220,8 @@ namespace WindowsApplication1
           let mut type: i32 =  this.game.Data.SFObj[sf].Type;
           let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
           let mut num9: i32 =  this.game.Data.SFTypeObj[type].SupplyCarry * qty;
-          let mut num10: i32 =   Math.Round((double) this.game.Data.SFTypeObj[type].BasicSupplyNeed * 1.5 * (double) qty);
-          num8 =  Math.Round((double) this.game.Data.SFTypeObj[type].BasicSupplyNeed / 2.0 * (double) qty);
+          let mut num10: i32 =   Math.Round( this.game.Data.SFTypeObj[type].BasicSupplyNeed * 1.5 *  qty);
+          num8 =  Math.Round( this.game.Data.SFTypeObj[type].BasicSupplyNeed / 2.0 *  qty);
           if (this.game.Data.SFTypeObj[type].Theater == 1)
             num10 = !(this.game.Data.UnitObj[unr].X > -1 & this.game.Data.UnitObj[unr].Y > -1) ? 0 : (this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].Location <= -1 ? 0 : (!this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].Location].Type].IsPort ? 0 : this.game.Data.SFTypeObj[type].SupplyCarry * qty));
           num1 += num10;
@@ -4237,18 +4237,18 @@ namespace WindowsApplication1
         }
         if (0 > num1)
           num1 = 0;
-        let mut num12: i32 =  (double) this.game.Data.RuleVar[887] != 1.0 ? this.game.Data.UnitObj[unr].SOSupReqPercent : this.game.HandyFunctionsObj.GetAggregatedSupplyRequest(unr);
-        num1 = num8 <= 0 ?  Math.Round(Conversion.Int((double) num1 * ((double) num12 / 100.0))) : (num8 >= num1 ? Conversion.Int(num1) :  Math.Round((double) (num8 + Conversion.Int(num1 - num8)) * ((double) num12 / 100.0)));
+        let mut num12: i32 =   this.game.Data.RuleVar[887] != 1.0 ? this.game.Data.UnitObj[unr].SOSupReqPercent : this.game.HandyFunctionsObj.GetAggregatedSupplyRequest(unr);
+        num1 = num8 <= 0 ?  Math.Round(Conversion.Int( num1 * ( num12 / 100.0))) : (num8 >= num1 ? Conversion.Int(num1) :  Math.Round( (num8 + Conversion.Int(num1 - num8)) * ( num12 / 100.0)));
         if (unr == 815)
           unr = unr;
-        if (Operators.ConditionalCompareObjectGreater((object) num1, this.game.HandyFunctionsObj.GetMaxSupplyRequest(unr), false))
+        if (Operators.ConditionalCompareObjectGreater( num1, this.game.HandyFunctionsObj.GetMaxSupplyRequest(unr), false))
           num1 = Conversions.ToInteger(this.game.HandyFunctionsObj.GetMaxSupplyRequest(unr));
         if (AlsoStockpile)
         {
           let mut num13: i32 =  num12 < 100 ? (num12 < 75 ? 0 : 50) : 100;
           if (num13 > 0)
           {
-            let mut num14: i32 =   Math.Round(Conversion.Int((double) Conversions.ToInteger(this.game.HandyFunctionsObj.GetStockpileRequest(unr)) * ((double) num13 / 100.0)));
+            let mut num14: i32 =   Math.Round(Conversion.Int( Conversions.ToInteger(this.game.HandyFunctionsObj.GetStockpileRequest(unr)) * ( num13 / 100.0)));
             num1 += num14;
           }
         }
@@ -4263,7 +4263,7 @@ namespace WindowsApplication1
       let mut qty: i32 =  this.game.Data.SFObj[sfnr].Qty;
       let mut rdn: i32 =  this.game.Data.SFObj[sfnr].Rdn;
       int num2;
-      if ((double) this.game.Data.RuleVar[434] > 0.0)
+      if ( this.game.Data.RuleVar[434] > 0.0)
       {
         num2 = this.game.Data.SFTypeObj[type].BasicSupplyNeed * qty;
       }
@@ -4271,17 +4271,17 @@ namespace WindowsApplication1
       {
         float num3 = 0.5f;
         if (rdn > 89 & rdn < 100)
-          num3 += (float) ((double) (100 - rdn) / 10.0 * 0.5);
+          num3 +=  ( (100 - rdn) / 10.0 * 0.5);
         else if (rdn < 90)
           num3 += 0.5f;
         if (rdn < 90)
         {
           let mut num4: i32 =  90 - rdn;
-          if ((double) num4 > (double) this.game.Data.RuleVar[59] - 10.0)
-            num4 =  Math.Round((double) (this.game.Data.RuleVar[59] - 10f));
-          num3 += (float) ((double) num4 / 90.0 * 1.0);
+          if ( num4 >  this.game.Data.RuleVar[59] - 10.0)
+            num4 =  Math.Round( (this.game.Data.RuleVar[59] - 10f));
+          num3 +=  ( num4 / 90.0 * 1.0);
         }
-        let mut num5: i32 =   Math.Round((double) ((float) (this.game.Data.SFTypeObj[type].BasicSupplyNeed * qty) * num3));
+        let mut num5: i32 =   Math.Round( ( (this.game.Data.SFTypeObj[type].BasicSupplyNeed * qty) * num3));
         if (this.game.Data.SFTypeObj[type].BasicSupplyNeed > 0 & num5 == 0)
           num5 = 1;
         num2 = num1 + num5;
@@ -4299,7 +4299,7 @@ namespace WindowsApplication1
         unr = this.game.Data.UnitObj[unr].HQ;
         int num;
         num += 1;
-        aggregatedSupplyRequest =  Math.Round((double) aggregatedSupplyRequest * ((double) this.game.Data.UnitObj[unr].SOSupReqPercent / 100.0));
+        aggregatedSupplyRequest =  Math.Round( aggregatedSupplyRequest * ( this.game.Data.UnitObj[unr].SOSupReqPercent / 100.0));
         if (num > 99)
           break;
       }
@@ -4314,7 +4314,7 @@ namespace WindowsApplication1
       while (this.game.Data.UnitObj[unr].HQ > -1)
       {
         unr = this.game.Data.UnitObj[unr].HQ;
-        replacementRequest = this.game.Data.UnitObj[unr].SOReplacementPercent != 999 ?  Math.Round((double) replacementRequest * ((double) this.game.Data.UnitObj[unr].SOReplacementPercent / 100.0)) : 999;
+        replacementRequest = this.game.Data.UnitObj[unr].SOReplacementPercent != 999 ?  Math.Round( replacementRequest * ( this.game.Data.UnitObj[unr].SOReplacementPercent / 100.0)) : 999;
         if (replacementRequest < 999 & replacementRequest > 100)
           replacementRequest = 100;
         int num;
@@ -4328,7 +4328,7 @@ namespace WindowsApplication1
     pub int UnitSupplyUse(int unr, bool includepas = false, let mut onlytheater: i32 =  -1)
     {
       let mut num1: i32 =  0;
-      if ((double) this.game.Data.RuleVar[814] == 1.0)
+      if ( this.game.Data.RuleVar[814] == 1.0)
         return 0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
@@ -4339,7 +4339,7 @@ namespace WindowsApplication1
           let mut type: i32 =  this.game.Data.SFObj[sf].Type;
           let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
           let mut rdn: i32 =  this.game.Data.SFObj[sf].Rdn;
-          if ((double) this.game.Data.RuleVar[434] > 0.0)
+          if ( this.game.Data.RuleVar[434] > 0.0)
           {
             let mut num2: i32 =  this.game.Data.SFTypeObj[type].BasicSupplyNeed * qty;
             num1 += num2;
@@ -4350,17 +4350,17 @@ namespace WindowsApplication1
             if (onlytheater == -1 | onlytheater == this.game.Data.SFTypeObj[type].Theater)
             {
               if (rdn > 89 & rdn < 100)
-                num3 += (float) ((double) (100 - rdn) / 10.0 * 0.5);
+                num3 +=  ( (100 - rdn) / 10.0 * 0.5);
               else if (rdn < 90)
                 num3 += 0.5f;
               if (rdn < 90)
               {
                 let mut num4: i32 =  90 - rdn;
-                if ((double) num4 > (double) this.game.Data.RuleVar[59] - 10.0)
-                  num4 =  Math.Round((double) (this.game.Data.RuleVar[59] - 10f));
-                num3 += (float) ((double) num4 / 90.0 * 1.0);
+                if ( num4 >  this.game.Data.RuleVar[59] - 10.0)
+                  num4 =  Math.Round( (this.game.Data.RuleVar[59] - 10f));
+                num3 +=  ( num4 / 90.0 * 1.0);
               }
-              let mut num5: i32 =   Math.Round((double) ((float) (this.game.Data.SFTypeObj[type].BasicSupplyNeed * qty) * num3));
+              let mut num5: i32 =   Math.Round( ( (this.game.Data.SFTypeObj[type].BasicSupplyNeed * qty) * num3));
               num1 += num5;
             }
           }
@@ -4381,7 +4381,7 @@ namespace WindowsApplication1
     pub int UnitMaximumFuelReserve(int unr)
     {
       let mut num1: i32 =  0;
-      if ((double) this.game.Data.RuleVar[435] < 1.0)
+      if ( this.game.Data.RuleVar[435] < 1.0)
         return 0;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
       {
@@ -4423,8 +4423,8 @@ namespace WindowsApplication1
 
     pub object RandomizeForUnit(int unr, int i)
     {
-      double num = (double) VBMath.Rnd(-1f);
-      VBMath.Randomize((double) (this.game.Data.UnitObj[unr].Historical + this.game.Data.UnitObj[unr].X + this.game.Data.UnitObj[unr].Y + this.game.Data.Round + i + 10));
+      double num =  VBMath.Rnd(-1f);
+      VBMath.Randomize( (this.game.Data.UnitObj[unr].Historical + this.game.Data.UnitObj[unr].X + this.game.Data.UnitObj[unr].Y + this.game.Data.Round + i + 10));
       object obj;
       return obj;
     }
@@ -4462,16 +4462,16 @@ namespace WindowsApplication1
         return reconMinusHide;
       }
       let mut rawRecon: i32 =  this.game.Data.Turn != player ? this.game.Data.MapObj[this.game.Data.UnitObj[unr].Map].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].get_ReconPts(player) : this.game.Data.MapObj[this.game.Data.UnitObj[unr].Map].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].MaxRecon;
-      if ((double) this.game.Data.RuleVar[419] > 0.0)
+      if ( this.game.Data.RuleVar[419] > 0.0)
         rawRecon = this.GetEffectiveRecon(rawRecon);
       let mut num1: i32 =  rawRecon;
       let mut unitHide: i32 =  this.GetUnitHide(unr, withoutIdentify);
       let mut num2: i32 =  num1 - unitHide;
-      if ((double) this.game.Data.RuleVar[419] > 0.0 & !withoutIdentify && this.game.Data.UnitObj[unr].Spotted & !this.game.Data.UnitObj[unr].Identified && (double) (num1 - unitHide * 2) < (double) this.game.Data.RuleVar[55])
-        num2 =  Math.Round((double) (this.game.Data.RuleVar[55] - 1f));
+      if ( this.game.Data.RuleVar[419] > 0.0 & !withoutIdentify && this.game.Data.UnitObj[unr].Spotted & !this.game.Data.UnitObj[unr].Identified &&  (num1 - unitHide * 2) <  this.game.Data.RuleVar[55])
+        num2 =  Math.Round( (this.game.Data.RuleVar[55] - 1f));
       Coordinate reconMinusHide1;
-      reconMinusHide1.x = num2 >= 1 ? ((double) num2 >= (double) this.game.Data.RuleVar[55] ? ((double) num2 >= (double) this.game.Data.RuleVar[56] ? 3 : 2) : 1) : 0;
-      if ((double) this.game.Data.RuleVar[419] > 0.0 && !withoutIdentify)
+      reconMinusHide1.x = num2 >= 1 ? ( num2 >=  this.game.Data.RuleVar[55] ? ( num2 >=  this.game.Data.RuleVar[56] ? 3 : 2) : 1) : 0;
+      if ( this.game.Data.RuleVar[419] > 0.0 && !withoutIdentify)
       {
         if (reconMinusHide1.x < 1 & this.game.Data.UnitObj[unr].Spotted)
           reconMinusHide1.x = 1;
@@ -4511,9 +4511,9 @@ namespace WindowsApplication1
               Number = 0;
             if (reconMinusHide.x == 2)
             {
-              float num1 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-              float num2 = (float) ((1.0 - (double) num1) * 2.0);
-              Number =  Math.Round((double) ((VBMath.Rnd() * num2 + num1) * (float) Number));
+              float num1 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+              float num2 =  ((1.0 -  num1) * 2.0);
+              Number =  Math.Round( ((VBMath.Rnd() * num2 + num1) *  Number));
             }
             VBMath.Randomize();
           }
@@ -4546,12 +4546,12 @@ namespace WindowsApplication1
         let mut regime: i32 =  this.game.Data.UnitObj[unr].Regime;
         if (!AbsPower)
         {
-          let mut num: i32 =   Math.Round((double) ((float) Number * this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].BattleForMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regime].People].PeopleGroup]));
+          let mut num: i32 =   Math.Round( ( Number * this.game.Data.PeopleObj[this.game.Data.SFObj[sf].People].BattleForMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regime].People].PeopleGroup]));
           if (!withoutrdnmod)
-            num =  Math.Round((double) num * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+            num =  Math.Round( num * ( this.game.Data.SFObj[sf].Rdn / 100.0));
           if (!withoutfullaiprog)
-            num =  Math.Round((double) ((float)  Math.Round((double) num * (1.0 + (double) this.game.Data.SFObj[sf].CurrentEntrench / 100.0)) * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType]));
-          Number =  Math.Round((double) num + (double) (1 * num) * ((double) this.game.Data.SFObj[sf].Xp / 100.0));
+            num =  Math.Round( (  Math.Round( num * (1.0 +  this.game.Data.SFObj[sf].CurrentEntrench / 100.0)) * this.game.Data.SFTypeObj[type].CombatModDef[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType]));
+          Number =  Math.Round( num +  (1 * num) * ( this.game.Data.SFObj[sf].Xp / 100.0));
         }
         if (!FullRecon && this.game.Data.FOWOn & (this.game.Data.UnitObj[unr].Regime != player | ishis) & this.game.Data.Round != 0)
         {
@@ -4561,9 +4561,9 @@ namespace WindowsApplication1
             Number = -1;
           if (reconMinusHide.x == 2)
           {
-            float num1 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-            float num2 = (float) ((1.0 - (double) num1) * 2.0);
-            Number =  Math.Round((double) ((VBMath.Rnd() * num2 + num1) * (float) Number));
+            float num1 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+            float num2 =  ((1.0 -  num1) * 2.0);
+            Number =  Math.Round( ((VBMath.Rnd() * num2 + num1) *  Number));
           }
           VBMath.Randomize();
         }
@@ -4588,18 +4588,18 @@ namespace WindowsApplication1
           num2 += this.game.Data.SFObj[sf].Qty;
         }
       }
-      return num1 == 0 | num2 == 0 ? 0 :  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return num1 == 0 | num2 == 0 ? 0 :  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageAirRange(int sftyp, int unr)
     {
       let mut moveType: i32 =  this.game.Data.SFTypeObj[sftyp].MoveType;
-      let mut num: i32 =   Math.Round(Conversion.Int((double) this.game.Data.LandscapeTypeObj[0].MoveCost[moveType] * ((double) this.game.Data.MoveTypePenalty[moveType] / 100.0)));
+      let mut num: i32 =   Math.Round(Conversion.Int( this.game.Data.LandscapeTypeObj[0].MoveCost[moveType] * ( this.game.Data.MoveTypePenalty[moveType] / 100.0)));
       if (this.game.Data.SFTypeObj[sftyp].MoveRedux != 0)
-        num =  Math.Round(Conversion.Int((double) num * ((double) (100 - this.game.Data.SFTypeObj[sftyp].MoveRedux) / 100.0)));
+        num =  Math.Round(Conversion.Int( num * ( (100 - this.game.Data.SFTypeObj[sftyp].MoveRedux) / 100.0)));
       if (unr > -1 && this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-        num =  Math.Round(Conversion.Int((double) num * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
-      return  Math.Round(Conversion.Int(100.0 / (double) num));
+        num =  Math.Round(Conversion.Int( num * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+      return  Math.Round(Conversion.Int(100.0 /  num));
     }
 
     pub void SetHexReconAndZOCAround(int x, int y, int map, int regnr)
@@ -4691,7 +4691,7 @@ namespace WindowsApplication1
             }
             let mut num4: i32 =  num3;
             for (let mut index: i32 =  1; index <= num4; index += 1)
-              num2 =  Math.Round((double) ((float) num2 * this.game.Data.SFTypeObj[tv9].ModelCostPerSameModel));
+              num2 =  Math.Round( ( num2 * this.game.Data.SFTypeObj[tv9].ModelCostPerSameModel));
             let mut num5: i32 =  0;
             let mut index5: i32 =  1;
             do
@@ -4708,7 +4708,7 @@ namespace WindowsApplication1
             while (index5 <= 9);
             let mut num6: i32 =  num5;
             for (let mut index7: i32 =  1; index7 <= num6; index7 += 1)
-              num2 =  Math.Round((double) ((float) num2 * this.game.Data.SFTypeObj[tv9].ModelCostPerLevel));
+              num2 =  Math.Round( ( num2 * this.game.Data.SFTypeObj[tv9].ModelCostPerLevel));
             this.game.Data.SFTypeObj[tv9].TempNewLevels = num5;
             if (this.game.Data.SFTypeObj[tv9].ModelResearch[0] > -1 && !this.game.Data.RegimeObj[this.game.Data.Turn].ResField[this.game.Data.SFTypeObj[tv9].ModelResearch[0]])
               num2 = -1;
@@ -4736,7 +4736,7 @@ namespace WindowsApplication1
           while (index8 <= 9);
           let mut num9: i32 =  num8;
           for (let mut index10: i32 =  1; index10 <= num9; index10 += 1)
-            num7 =  Math.Round((double) ((float) num7 * this.game.Data.SFTypeObj[tv9].ModelCostPerLevel));
+            num7 =  Math.Round( ( num7 * this.game.Data.SFTypeObj[tv9].ModelCostPerLevel));
           this.game.Data.SFTypeObj[tv9].TempUpgradeLevels = num8 - this.game.Data.SFTypeObj[tv9].ModelLevel;
           if (this.game.Data.SFTypeObj[tv9].TempUpgradeLevels < 1)
             num7 = -1;
@@ -4766,7 +4766,7 @@ namespace WindowsApplication1
           }
           let mut num12: i32 =  num11;
           for (let mut index: i32 =  1; index <= num12; index += 1)
-            num10 =  Math.Round((double) ((float) num10 * this.game.Data.SFTypeObj[tv9].ModelCostPerSameModel));
+            num10 =  Math.Round( ( num10 * this.game.Data.SFTypeObj[tv9].ModelCostPerSameModel));
           let mut num13: i32 =  0;
           if (this.game.Data.SFTypeObj[tv9].ModelAllowImprovements)
           {
@@ -4781,7 +4781,7 @@ namespace WindowsApplication1
           int num14;
           if (num13 > 0)
           {
-            num14 =  Math.Round((double) ((float) num10 * this.game.Data.SFTypeObj[tv9].ModelImproveCostMod));
+            num14 =  Math.Round( ( num10 * this.game.Data.SFTypeObj[tv9].ModelImproveCostMod));
             let mut sfTypeCounter6: i32 =  this.game.Data.SFTypeCounter;
             for (let mut index: i32 =  0; index <= sfTypeCounter6; index += 1)
             {
@@ -4824,40 +4824,40 @@ namespace WindowsApplication1
       switch (nr)
       {
         case 1:
-          return (object) "a";
+          return  "a";
         case 2:
-          return (object) "b";
+          return  "b";
         case 3:
-          return (object) "c";
+          return  "c";
         case 4:
-          return (object) "d";
+          return  "d";
         case 5:
-          return (object) "e";
+          return  "e";
         case 6:
-          return (object) "f";
+          return  "f";
         case 7:
-          return (object) "g";
+          return  "g";
         case 8:
-          return (object) "h";
+          return  "h";
         case 9:
-          return (object) "i";
+          return  "i";
         case 10:
-          return (object) "j";
+          return  "j";
         case 11:
-          return (object) "k";
+          return  "k";
         case 12:
-          return (object) "l";
+          return  "l";
         case 13:
-          return (object) "m";
+          return  "m";
         case 14:
-          return (object) "n";
+          return  "n";
         case 15:
-          return (object) "o";
+          return  "o";
         case 16:
-          return (object) "p";
+          return  "p";
         default:
           object obj;
-          return nr > 16 ? (object) ("p" + Strings.Trim(Conversion.Str((object) (nr - 16)))) : obj;
+          return nr > 16 ?  ("p" + Strings.Trim(Conversion.Str( (nr - 16)))) : obj;
       }
     }
 
@@ -4888,16 +4888,16 @@ namespace WindowsApplication1
               if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
               {
                 if (mapMatrix2.TempValue[x2, y2] > 0 & mapMatrix2.TempValue[x2, y2] <= 4)
-                  num5 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 1) * this.game.Data.RuleVar[10 + mapMatrix2.TempValue[x2, y2]]));
+                  num5 =  Math.Round( ( this.GetUnitRecon(unr, 1) * this.game.Data.RuleVar[10 + mapMatrix2.TempValue[x2, y2]]));
                 else if (mapMatrix2.TempValue[x2, y2] == 0)
-                  num5 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 1) * this.game.Data.RuleVar[11]));
+                  num5 =  Math.Round( ( this.GetUnitRecon(unr, 1) * this.game.Data.RuleVar[11]));
               }
               else if (mapMatrix1.TempValue[x2, y2] > 0 & mapMatrix1.TempValue[x2, y2] <= 4)
-                num5 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 0) * this.game.Data.RuleVar[10 + mapMatrix1.TempValue[x2, y2]]));
+                num5 =  Math.Round( ( this.GetUnitRecon(unr, 0) * this.game.Data.RuleVar[10 + mapMatrix1.TempValue[x2, y2]]));
               else if (mapMatrix1.TempValue[x2, y2] == 0)
-                num5 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 0) * this.game.Data.RuleVar[11]));
-              if (num6 <= 1 & this.game.Data.MapObj[map].HexObj[x, y].Regime == regnr && (double) this.game.Data.MapObj[map].HexObj[x2, y2].get_ReconPts(regnr) < (double) this.game.Data.RuleVar[8])
-                this.game.Data.MapObj[map].HexObj[x2, y2].set_ReconPts(regnr,  Math.Round((double) (this.game.Data.RuleVar[8] - (float) this.game.Data.MapObj[0].HexObj[x2, y2].get_ReconPts(regnr))));
+                num5 =  Math.Round( ( this.GetUnitRecon(unr, 0) * this.game.Data.RuleVar[11]));
+              if (num6 <= 1 & this.game.Data.MapObj[map].HexObj[x, y].Regime == regnr &&  this.game.Data.MapObj[map].HexObj[x2, y2].get_ReconPts(regnr) <  this.game.Data.RuleVar[8])
+                this.game.Data.MapObj[map].HexObj[x2, y2].set_ReconPts(regnr,  Math.Round( (this.game.Data.RuleVar[8] -  this.game.Data.MapObj[0].HexObj[x2, y2].get_ReconPts(regnr))));
               if (num5 > 0)
               {
                 HexClass[,] hexObj = this.game.Data.MapObj[map].HexObj;
@@ -4963,9 +4963,9 @@ namespace WindowsApplication1
               if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
               {
                 if (mapMatrix.TempValue[x2, y2] > 0 & mapMatrix.TempValue[x2, y2] <= 4)
-                  num5 =  Math.Round((double) ((float) num5 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + mapMatrix.TempValue[x2, y2]]));
+                  num5 =  Math.Round( ( num5 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + mapMatrix.TempValue[x2, y2]]));
                 if (mapMatrix.TempValue[x2, y2] == 0)
-                  num5 =  Math.Round((double) ((float) num5 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
+                  num5 =  Math.Round( ( num5 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
               }
               HexClass[,] hexObj = this.game.Data.MapObj[map].HexObj;
               HexClass[,] hexClassArray = hexObj;
@@ -5067,7 +5067,7 @@ namespace WindowsApplication1
     pub int Uncertainty_RollLoadedDice(int unr)
     {
       let mut num1: i32 =  this.game.Data.UnitObj[unr].Historical <= -1 ? unr : this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].ID * 10 + this.game.Data.UnitObj[unr].HistoricalSubPart;
-      Random random = new Random( Math.Round(Math.Floor((double) this.game.Data.GameID / 1000.0)) * num1);
+      Random random = new Random( Math.Round(Math.Floor( this.game.Data.GameID / 1000.0)) * num1);
       let mut num2: i32 =  random.Next(1, 7) + random.Next(1, 7);
       let mut num3: i32 =  DrawMod.RandyNumber.Next(1, 7);
       let mut averageXp: i32 =  this.game.HandyFunctionsObj.GetAverageXp(unr);
@@ -5214,7 +5214,7 @@ namespace WindowsApplication1
         if (coordinate.onmap)
         {
           int num4;
-          if (this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime > -1 && this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime] == 2 & (double) this.game.Data.RuleVar[328] == 1.0)
+          if (this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime > -1 && this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime] == 2 &  this.game.Data.RuleVar[328] == 1.0)
             num4 = 1;
           if (this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == regnr)
             num4 = 1;
@@ -5254,9 +5254,9 @@ namespace WindowsApplication1
               if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[omap].HexObj[ox, oy].LandscapeType].IsSea)
               {
                 if (mapMatrix.TempValue[x2, y2] > 0 & mapMatrix.TempValue[x2, y2] <= 4)
-                  num5 =  Math.Round((double) ((float) num5 + (float) zocpts * this.game.Data.RuleVar[20 + mapMatrix.TempValue[x2, y2]]));
+                  num5 =  Math.Round( ( num5 +  zocpts * this.game.Data.RuleVar[20 + mapMatrix.TempValue[x2, y2]]));
                 if (mapMatrix.TempValue[x2, y2] == 0)
-                  num5 =  Math.Round((double) ((float) num5 + (float) zocpts * this.game.Data.RuleVar[21]));
+                  num5 =  Math.Round( ( num5 +  zocpts * this.game.Data.RuleVar[21]));
               }
               HexClass[,] hexObj = this.game.Data.MapObj[omap].HexObj;
               HexClass[,] hexClassArray = hexObj;
@@ -5315,12 +5315,12 @@ namespace WindowsApplication1
           let mut index3: i32 =  0;
           do
           {
-            objArray1[index1, index2, index3] = (object) 0;
+            objArray1[index1, index2, index3] =  0;
             index3 += 1;
           }
           while (index3 <= 9);
           numArray2[index1, index2] = 0;
-          objArray2[index1, index2] = (object) 0;
+          objArray2[index1, index2] =  0;
           numArray1[index1, index2] = 0;
           numArray3[index1, index2] = 0;
           numArray4[index1, index2] = 0;
@@ -5357,7 +5357,7 @@ namespace WindowsApplication1
             do
             {
               objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1] = RuntimeHelpers.GetObjectValue(objArray1[coordinate1.x, coordinate1.y, dat1]);
-              if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1], (object) 0, false) && Operators.ConditionalCompareObjectLess(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1], (object) 999, false))
+              if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1],  0, false) && Operators.ConditionalCompareObjectLess(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1],  999, false))
               {
                 object[,,] objArray3 = objArray1;
                 object[,,] objArray4 = objArray3;
@@ -5367,7 +5367,7 @@ namespace WindowsApplication1
                 let mut index5: i32 =  y1;
                 let mut index6: i32 =  dat1;
                 let mut index7: i32 =  index6;
-                object obj = Operators.SubtractObject(objArray3[x1, y1, index6], (object) 1);
+                object obj = Operators.SubtractObject(objArray3[x1, y1, index6],  1);
                 objArray4[index4, index5, index7] = obj;
               }
               dat1 += 1;
@@ -5400,7 +5400,7 @@ namespace WindowsApplication1
                 let mut index10: i32 =  x3;
                 let mut y3: i32 =  coordList.coord[counter].y;
                 let mut index11: i32 =  y3;
-                let mut num14: i32 =  numArray7[x3, y3] +  Math.Round(Math.Ceiling((double) ((100 - numArray2[coordList.coord[counter].x, coordList.coord[counter].y]) * num12) / (double) (num13 * 100)));
+                let mut num14: i32 =  numArray7[x3, y3] +  Math.Round(Math.Ceiling( ((100 - numArray2[coordList.coord[counter].x, coordList.coord[counter].y]) * num12) /  (num13 * 100)));
                 numArray8[index10, index11] = num14;
               }
               if (this.game.Data.MapObj[0].HexObj[coordList.coord[counter].x, coordList.coord[counter].y].HeightLevel == this.game.Data.MapObj[0].HexObj[x, y].HeightLevel)
@@ -5419,7 +5419,7 @@ namespace WindowsApplication1
                 let mut index13: i32 =  y5;
                 // ISSUE: variable of a boxed type
                 __Boxed<int> local = (ValueType) numArray10[index12, index13];
-                objArray7[0] = (object) local;
+                objArray7[0] =  local;
                 object[] objArray8 = objArray6;
                 object[,] objArray9 = objArray2;
                 object[,] objArray10 = objArray9;
@@ -5433,7 +5433,7 @@ namespace WindowsApplication1
                 object[] Arguments = objArray11;
                 bool[] flagArray = new bool[2]{ true, true };
                 bool[] CopyBack = flagArray;
-                object obj = NewLateBinding.LateGet((object) null, Type, "Max", Arguments, (string[]) null, (System.Type[]) null, CopyBack);
+                object obj = NewLateBinding.LateGet( null, Type, "Max", Arguments, (string[]) null, (System.Type[]) null, CopyBack);
                 if (flagArray[0])
                   numArray9[x5, y5] =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray11[0]), typeof );
                 if (flagArray[1])
@@ -5447,9 +5447,9 @@ namespace WindowsApplication1
             let mut val2: i32 =  this.game.Data.MapObj[0].HexObj[coordList.coord[counter].x, coordList.coord[counter].y].HeightLevel;
             if (val2 > 9)
               val2 = 9;
-            if (Operators.ConditionalCompareObjectEqual(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2], (object) 999, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2],  999, false))
               numArray4[coordList.coord[counter].x, coordList.coord[counter].y] = 100;
-            else if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2], (object) 0, false))
+            else if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2],  0, false))
               numArray4[coordList.coord[counter].x, coordList.coord[counter].y] = 100;
             if (numArray3[coordList.coord[counter].x, coordList.coord[counter].y] < 100)
             {
@@ -5459,27 +5459,27 @@ namespace WindowsApplication1
               if (num15 > 0)
               {
                 for (dat1 = Math.Min(9, val2); dat1 >= 0; dat1 += -1)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1] = (object) 999;
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1] =  999;
               }
               else if (num15 == 0)
               {
                 for (dat1 = Math.Min(9, val2 - 1); dat1 >= 0; dat1 += -1)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1] = (object) 999;
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, dat1] =  999;
               }
               else if (num15 < 0)
               {
                 if (val2 - 1 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 1] = (object) Math.Floor(new Decimal(1 * data2));
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 1] =  Math.Floor(new Decimal(1 * data2));
                 if (val2 - 2 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 2] = (object) (2 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 2] =  (2 * data2);
                 if (val2 - 3 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 3] = (object) (3 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 3] =  (3 * data2);
                 if (val2 - 4 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 4] = (object) (4 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 4] =  (4 * data2);
                 if (val2 - 5 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 5] = (object) (5 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 5] =  (5 * data2);
                 if (val2 - 6 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 6] = (object) (6 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, val2 - 6] =  (6 * data2);
               }
               if (data2 < maxDist)
               {
@@ -5589,8 +5589,8 @@ namespace WindowsApplication1
                   num16 = 0;
                 if (num17 >= 999 & num16 < 999)
                   num17 = 0;
-                objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index16] = (object)  Math.Round(Math.Ceiling((double) (num16 + num17) / 2.0));
-                if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index16], (object) 0, false) && Operators.ConditionalCompareObjectLess(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index16], (object) 999, false))
+                objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index16] =   Math.Round(Math.Ceiling( (num16 + num17) / 2.0));
+                if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index16],  0, false) && Operators.ConditionalCompareObjectLess(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index16],  999, false))
                 {
                   object[,,] objArray12 = objArray1;
                   object[,,] objArray13 = objArray12;
@@ -5600,7 +5600,7 @@ namespace WindowsApplication1
                   let mut index18: i32 =  y7;
                   let mut index19: i32 =  index16;
                   let mut index20: i32 =  index19;
-                  object obj = Operators.SubtractObject(objArray12[x7, y7, index19], (object) 1);
+                  object obj = Operators.SubtractObject(objArray12[x7, y7, index19],  1);
                   objArray13[index17, index18, index20] = obj;
                 }
                 index16 += 1;
@@ -5615,8 +5615,8 @@ namespace WindowsApplication1
                 let mut num18: i32 =  Conversions.ToInteger(objArray1[coordinate1.x, coordinate1.y, index21]);
                 if (numArray1[coordinate1.x, coordinate1.y] < 1)
                   num18 = 999;
-                objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index21] = (object) num18;
-                if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index21], (object) 0, false) && Operators.ConditionalCompareObjectLess(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index21], (object) 999, false))
+                objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index21] =  num18;
+                if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index21],  0, false) && Operators.ConditionalCompareObjectLess(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index21],  999, false))
                 {
                   object[,,] objArray14 = objArray1;
                   object[,,] objArray15 = objArray14;
@@ -5626,7 +5626,7 @@ namespace WindowsApplication1
                   let mut index23: i32 =  y8;
                   let mut index24: i32 =  index21;
                   let mut index25: i32 =  index24;
-                  object obj = Operators.SubtractObject(objArray14[x8, y8, index24], (object) 1);
+                  object obj = Operators.SubtractObject(objArray14[x8, y8, index24],  1);
                   objArray15[index22, index23, index25] = obj;
                 }
                 index21 += 1;
@@ -5641,7 +5641,7 @@ namespace WindowsApplication1
                 num19 = 100;
               if (numArray1[coordinate2.x, coordinate2.y] < 1)
                 num20 = 100;
-              numArray3[coordList.coord[counter].x, coordList.coord[counter].y] =  Math.Round(Math.Ceiling((double) (num19 + num20) / 2.0));
+              numArray3[coordList.coord[counter].x, coordList.coord[counter].y] =  Math.Round(Math.Ceiling( (num19 + num20) / 2.0));
             }
             else
             {
@@ -5654,9 +5654,9 @@ namespace WindowsApplication1
             {
               let mut num22: i32 =  numArray2[coordinate1.x, coordinate1.y];
               let mut num23: i32 =  numArray2[coordinate2.x, coordinate2.y];
-              if (Conversions.ToBoolean(Operators.AndObject((object) (num22 < num23), Operators.CompareObjectGreaterEqual(objArray1[coordinate1.x, coordinate1.y, this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].HeightLevel], (object) 999, false))))
+              if (Conversions.ToBoolean(Operators.AndObject( (num22 < num23), Operators.CompareObjectGreaterEqual(objArray1[coordinate1.x, coordinate1.y, this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].HeightLevel],  999, false))))
                 num22 = num23;
-              if (Conversions.ToBoolean(Operators.AndObject((object) (num23 < num22), Operators.CompareObjectGreaterEqual(objArray1[coordinate2.x, coordinate2.y, this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].HeightLevel], (object) 999, false))))
+              if (Conversions.ToBoolean(Operators.AndObject( (num23 < num22), Operators.CompareObjectGreaterEqual(objArray1[coordinate2.x, coordinate2.y, this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].HeightLevel],  999, false))))
                 num23 = num22;
               int[,] numArray11 = numArray2;
               int[,] numArray12 = numArray11;
@@ -5664,7 +5664,7 @@ namespace WindowsApplication1
               let mut index26: i32 =  x9;
               let mut y9: i32 =  coordList.coord[counter].y;
               let mut index27: i32 =  y9;
-              let mut num24: i32 =  numArray11[x9, y9] +  Math.Round(Math.Ceiling((double) (num22 + num23) / 2.0));
+              let mut num24: i32 =  numArray11[x9, y9] +  Math.Round(Math.Ceiling( (num22 + num23) / 2.0));
               numArray12[index26, index27] = num24;
               let mut num25: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate1.x, coordinate1.y].LandscapeType].Obstruction;
               let mut num26: i32 =  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[coordinate2.x, coordinate2.y].LandscapeType].Obstruction;
@@ -5687,7 +5687,7 @@ namespace WindowsApplication1
                 let mut index28: i32 =  x10;
                 let mut y10: i32 =  coordList.coord[counter].y;
                 let mut index29: i32 =  y10;
-                let mut num28: i32 =  numArray13[x10, y10] +  Math.Round(Math.Ceiling((double) ((100 - numArray2[coordList.coord[counter].x, coordList.coord[counter].y]) * (num25 + num26)) / (double) (num27 * 100)));
+                let mut num28: i32 =  numArray13[x10, y10] +  Math.Round(Math.Ceiling( ((100 - numArray2[coordList.coord[counter].x, coordList.coord[counter].y]) * (num25 + num26)) /  (num27 * 100)));
                 numArray14[index28, index29] = num28;
               }
               if (this.game.Data.MapObj[0].HexObj[coordList.coord[counter].x, coordList.coord[counter].y].HeightLevel == this.game.Data.MapObj[0].HexObj[x, y].HeightLevel)
@@ -5706,7 +5706,7 @@ namespace WindowsApplication1
                 let mut index31: i32 =  y12;
                 // ISSUE: variable of a boxed type
                 __Boxed<int> local = (ValueType) numArray16[index30, index31];
-                objArray18[0] = (object) local;
+                objArray18[0] =  local;
                 object[] objArray19 = objArray17;
                 System.Type Type2 = typeof (Math);
                 object[] objArray20 = new object[2];
@@ -5736,7 +5736,7 @@ namespace WindowsApplication1
                   true
                 };
                 bool[] CopyBack1 = flagArray1;
-                object obj1 = NewLateBinding.LateGet((object) null, Type2, "Min", Arguments1, (string[]) null, (System.Type[]) null, CopyBack1);
+                object obj1 = NewLateBinding.LateGet( null, Type2, "Min", Arguments1, (string[]) null, (System.Type[]) null, CopyBack1);
                 if (flagArray1[0])
                   objArray22[x13, y13] = RuntimeHelpers.GetObjectValue(objArray27[0]);
                 if (flagArray1[1])
@@ -5751,7 +5751,7 @@ namespace WindowsApplication1
                   false
                 };
                 bool[] CopyBack2 = flagArray2;
-                object obj2 = NewLateBinding.LateGet((object) null, Type1, "Max", Arguments2, (string[]) null, (System.Type[]) null, CopyBack2);
+                object obj2 = NewLateBinding.LateGet( null, Type1, "Max", Arguments2, (string[]) null, (System.Type[]) null, CopyBack2);
                 if (flagArray2[0])
                   numArray15[x12, y12] =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray28[0]), typeof );
                 object objectValue6 = RuntimeHelpers.GetObjectValue(obj2);
@@ -5786,7 +5786,7 @@ namespace WindowsApplication1
                 object[] Arguments = objArray37;
                 bool[] flagArray = new bool[2]{ true, true };
                 bool[] CopyBack = flagArray;
-                object obj = NewLateBinding.LateGet((object) null, Type, "Min", Arguments, (string[]) null, (System.Type[]) null, CopyBack);
+                object obj = NewLateBinding.LateGet( null, Type, "Min", Arguments, (string[]) null, (System.Type[]) null, CopyBack);
                 if (flagArray[0])
                   objArray32[x16, y16] = RuntimeHelpers.GetObjectValue(objArray37[0]);
                 if (flagArray[1])
@@ -5821,7 +5821,7 @@ namespace WindowsApplication1
                 let mut index42: i32 =  x19;
                 let mut y19: i32 =  coordList.coord[counter].y;
                 let mut index43: i32 =  y19;
-                let mut num33: i32 =  numArray19[x19, y19] +  Math.Round(Math.Ceiling((double) ((100 - numArray2[coordList.coord[counter].x, coordList.coord[counter].y]) * num31) / (double) (num32 * 100)));
+                let mut num33: i32 =  numArray19[x19, y19] +  Math.Round(Math.Ceiling( ((100 - numArray2[coordList.coord[counter].x, coordList.coord[counter].y]) * num31) /  (num32 * 100)));
                 numArray20[index42, index43] = num33;
               }
               if (this.game.Data.MapObj[0].HexObj[coordList.coord[counter].x, coordList.coord[counter].y].HeightLevel == this.game.Data.MapObj[0].HexObj[x, y].HeightLevel)
@@ -5840,7 +5840,7 @@ namespace WindowsApplication1
                 let mut index45: i32 =  y21;
                 // ISSUE: variable of a boxed type
                 __Boxed<int> local = (ValueType) numArray22[index44, index45];
-                objArray40[0] = (object) local;
+                objArray40[0] =  local;
                 object[] objArray41 = objArray39;
                 object[,] objArray42 = objArray2;
                 object[,] objArray43 = objArray42;
@@ -5854,7 +5854,7 @@ namespace WindowsApplication1
                 object[] Arguments = objArray44;
                 bool[] flagArray = new bool[2]{ true, true };
                 bool[] CopyBack = flagArray;
-                object obj = NewLateBinding.LateGet((object) null, Type, "Max", Arguments, (string[]) null, (System.Type[]) null, CopyBack);
+                object obj = NewLateBinding.LateGet( null, Type, "Max", Arguments, (string[]) null, (System.Type[]) null, CopyBack);
                 if (flagArray[0])
                   numArray21[x21, y21] =  Conversions.ChangeType(RuntimeHelpers.GetObjectValue(objArray44[0]), typeof );
                 if (flagArray[1])
@@ -5866,9 +5866,9 @@ namespace WindowsApplication1
                 objArray2[coordList.coord[counter].x, coordList.coord[counter].y] = RuntimeHelpers.GetObjectValue(objArray2[coordinate1.x, coordinate1.y]);
             }
             let mut heightLevel: i32 =  this.game.Data.MapObj[0].HexObj[coordList.coord[counter].x, coordList.coord[counter].y].HeightLevel;
-            if (Operators.ConditionalCompareObjectEqual(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel], (object) 999, false))
+            if (Operators.ConditionalCompareObjectEqual(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel],  999, false))
               numArray4[coordList.coord[counter].x, coordList.coord[counter].y] = 100;
-            else if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel], (object) 0, false))
+            else if (Operators.ConditionalCompareObjectGreater(objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel],  0, false))
               numArray4[coordList.coord[counter].x, coordList.coord[counter].y] = 100;
             if (numArray3[coordList.coord[counter].x, coordList.coord[counter].y] < 100)
             {
@@ -5878,27 +5878,27 @@ namespace WindowsApplication1
               if (num34 > 0)
               {
                 for (let mut index: i32 =  heightLevel; index >= 0; index += -1)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index] = (object) 999;
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index] =  999;
               }
               else if (num34 == 0)
               {
                 for (let mut index: i32 =  heightLevel - 1; index >= 0; index += -1)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index] = (object) 999;
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, index] =  999;
               }
               else if (num34 < 0)
               {
                 if (heightLevel - 1 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 1] = (object) Math.Floor(new Decimal(1 * data2));
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 1] =  Math.Floor(new Decimal(1 * data2));
                 if (heightLevel - 2 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 2] = (object) (2 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 2] =  (2 * data2);
                 if (heightLevel - 3 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 3] = (object) (3 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 3] =  (3 * data2);
                 if (heightLevel - 4 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 4] = (object) (4 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 4] =  (4 * data2);
                 if (heightLevel - 5 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 5] = (object) (5 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 5] =  (5 * data2);
                 if (heightLevel - 6 >= 0)
-                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 6] = (object) (6 * data2);
+                  objArray1[coordList.coord[counter].x, coordList.coord[counter].y, heightLevel - 6] =  (6 * data2);
               }
               if (data2 < maxDist)
               {
@@ -5923,7 +5923,7 @@ namespace WindowsApplication1
         let mut index: i32 =  2;
         do
         {
-          if ((double) index > (double) this.game.Data.RuleVar[422])
+          if ( index >  this.game.Data.RuleVar[422])
           {
             numArray23[index] = 0.0f;
           }
@@ -5943,7 +5943,7 @@ namespace WindowsApplication1
         let mut index: i32 =  2;
         do
         {
-          numArray23[index] = (double) index <= (double) this.game.Data.RuleVar[422] ? numArray23[1] : 0.0f;
+          numArray23[index] =  index <=  this.game.Data.RuleVar[422] ? numArray23[1] : 0.0f;
           index += 1;
         }
         while (index <= 199);
@@ -5970,25 +5970,25 @@ namespace WindowsApplication1
             let mut index51: i32 =  index50;
             let mut index52: i32 =  index49;
             let mut index53: i32 =  index52;
-            let mut num41: i32 =  numArray24[index50, index52] +  Math.Round((double) ((100 - this.game.EditObj.TempObstruct[0].Value[index48, index49]) * obstruction) / 200.0);
+            let mut num41: i32 =  numArray24[index50, index52] +  Math.Round( ((100 - this.game.EditObj.TempObstruct[0].Value[index48, index49]) * obstruction) / 200.0);
             numArray25[index51, index53] = num41;
           }
           if (numArray1[index48, index49] > 0)
           {
             let mut num42: i32 =  100 - numArray3[index48, index49];
-            let mut num43: i32 =   Math.Round((double) num42 - Math.Ceiling((double) (num42 * numArray4[index48, index49]) / 100.0));
+            let mut num43: i32 =   Math.Round( num42 - Math.Ceiling( (num42 * numArray4[index48, index49]) / 100.0));
             if (this.game.Data.MapObj[0].HexObj[x, y].HeightLevel == this.game.Data.MapObj[0].HexObj[index48, index49].HeightLevel && numArray2[index48, index49] > 0)
-              num43 -=  Math.Round(Math.Ceiling((double) (num43 * numArray2[index48, index49]) / 100.0));
-            let mut num44: i32 =  num43 -  Math.Round((double) (num43 * this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[index48, index49].LandscapeType].Obstruction) / 200.0);
+              num43 -=  Math.Round(Math.Ceiling( (num43 * numArray2[index48, index49]) / 100.0));
+            let mut num44: i32 =  num43 -  Math.Round( (num43 * this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[index48, index49].LandscapeType].Obstruction) / 200.0);
             if (index48 == 57 & index49 == 11)
               index48 = index48;
             if (x == index48 & y == index49)
             {
               let mut num45: i32 =  100;
-              this.game.EditObj.TempLos[0].Value[index48, index49] =  Math.Round(Math.Floor((double) num45 * 1.0));
+              this.game.EditObj.TempLos[0].Value[index48, index49] =  Math.Round(Math.Floor( num45 * 1.0));
             }
             else
-              this.game.EditObj.TempLos[0].Value[index48, index49] =  Math.Round(Math.Floor((double) num44 * (double) numArray23[numArray1[index48, index49]]));
+              this.game.EditObj.TempLos[0].Value[index48, index49] =  Math.Round(Math.Floor( num44 *  numArray23[numArray1[index48, index49]]));
             if (this.game.EditObj.TempLos[0].Value[index48, index49] > 100)
               index48 = index48;
             if (setBestObstruct)
@@ -6050,15 +6050,15 @@ namespace WindowsApplication1
                 int num9;
                 if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[omap].HexObj[ox, oy].LandscapeType].IsSea)
                 {
-                  num9 =  Math.Round(Math.Floor((double) (unitRecon1 * this.game.EditObj.TempLos[0].Value[index2, index3]) / 100.0));
+                  num9 =  Math.Round(Math.Floor( (unitRecon1 * this.game.EditObj.TempLos[0].Value[index2, index3]) / 100.0));
                 }
                 else
                 {
-                  num9 =  Math.Round(Math.Floor((double) (unitRecon2 * this.game.EditObj.TempLos[0].Value[index2, index3]) / 100.0));
+                  num9 =  Math.Round(Math.Floor( (unitRecon2 * this.game.EditObj.TempLos[0].Value[index2, index3]) / 100.0));
                   if (num8 > 0 & num8 <= 4)
-                    num7 =  Math.Round((double) ((float) num7 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num8]));
+                    num7 =  Math.Round( ( num7 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num8]));
                   if (num8 == 0)
-                    num7 =  Math.Round((double) ((float) num7 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
+                    num7 =  Math.Round( ( num7 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
                 }
                 if (changezoc)
                 {
@@ -6087,8 +6087,8 @@ namespace WindowsApplication1
                 hexClass1.set_ReconPts(Index4, num11);
                 if (this.game.Data.MapObj[omap].HexObj[index2, index3].get_ReconPts(regnr) < 0)
                   this.game.Data.MapObj[omap].HexObj[index2, index3].set_ReconPts(regnr, 0);
-                if (this.ViewFriendlyHexNeighbourOrSelf(index2, index3, omap, regnr) && (double) this.game.Data.MapObj[omap].HexObj[index2, index3].get_ReconPts(regnr) < (double) this.game.Data.RuleVar[8])
-                  this.game.Data.MapObj[omap].HexObj[index2, index3].set_ReconPts(regnr,  Math.Round((double) this.game.Data.RuleVar[8]));
+                if (this.ViewFriendlyHexNeighbourOrSelf(index2, index3, omap, regnr) &&  this.game.Data.MapObj[omap].HexObj[index2, index3].get_ReconPts(regnr) <  this.game.Data.RuleVar[8])
+                  this.game.Data.MapObj[omap].HexObj[index2, index3].set_ReconPts(regnr,  Math.Round( this.game.Data.RuleVar[8]));
               }
             }
           }
@@ -6125,17 +6125,17 @@ namespace WindowsApplication1
                 int num18;
                 if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].IsSea)
                 {
-                  num18 = overrulerecon <= 0 ?  Math.Round(Math.Floor((double) (unitRecon1 * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0)) :  Math.Round(Math.Floor((double) (overrulerecon * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0));
+                  num18 = overrulerecon <= 0 ?  Math.Round(Math.Floor( (unitRecon1 * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0)) :  Math.Round(Math.Floor( (overrulerecon * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0));
                 }
                 else
                 {
-                  num18 = overrulerecon <= 0 ?  Math.Round(Math.Floor((double) (unitRecon2 * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0)) :  Math.Round(Math.Floor((double) (overrulerecon * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0));
+                  num18 = overrulerecon <= 0 ?  Math.Round(Math.Floor( (unitRecon2 * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0)) :  Math.Round(Math.Floor( (overrulerecon * this.game.EditObj.TempLos[0].Value[index13, index14]) / 100.0));
                   if (unr > -1)
                   {
                     if (num17 > 0 & num17 <= 4)
-                      num16 =  Math.Round((double) ((float) num16 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num17]));
+                      num16 =  Math.Round( ( num16 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num17]));
                     if (num17 == 0)
-                      num16 =  Math.Round((double) ((float) num16 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
+                      num16 =  Math.Round( ( num16 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
                   }
                 }
                 if (changezoc)
@@ -6152,9 +6152,9 @@ namespace WindowsApplication1
                   let mut num19: i32 =  hexObj[index15, index17].get_ZocPts(Index5) + num16;
                   hexClass.set_ZocPts(Index6, num19);
                 }
-                if (this.ViewFriendlyHexNeighbourOrSelf(index13, index14, map, regnr) && (double) this.game.Data.MapObj[map].HexObj[index13, index14].get_ReconPts(regnr) < (double) this.game.Data.RuleVar[8])
+                if (this.ViewFriendlyHexNeighbourOrSelf(index13, index14, map, regnr) &&  this.game.Data.MapObj[map].HexObj[index13, index14].get_ReconPts(regnr) <  this.game.Data.RuleVar[8])
                 {
-                  this.game.Data.MapObj[map].HexObj[index13, index14].set_ReconPts(regnr,  Math.Round((double) this.game.Data.RuleVar[8]));
+                  this.game.Data.MapObj[map].HexObj[index13, index14].set_ReconPts(regnr,  Math.Round( this.game.Data.RuleVar[8]));
                   this.game.Data.MapObj[map].CanSee = true;
                 }
                 if (num18 > 0)
@@ -6234,9 +6234,9 @@ namespace WindowsApplication1
 
     pub CheckIfIntercepted: bool(int unr, int x, int y)
     {
-      if ((double) this.game.Data.RuleVar[428] < 1.0)
+      if ( this.game.Data.RuleVar[428] < 1.0)
         return false;
-      if (Information.IsNothing((object) this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList))
+      if (Information.IsNothing( this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList))
       {
         bool flag;
         return flag;
@@ -6250,10 +6250,10 @@ namespace WindowsApplication1
         if (historicalUnitById > -1)
         {
           let mut unitByHistorical: i32 =  this.game.HandyFunctionsObj.GetUnitByHistorical(historicalUnitById, this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data2[index1]);
-          if (unitByHistorical > -1 && this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.UnitObj[unitByHistorical].Regime, this.game.Data.UnitObj[unr].Regime) && (uint) this.CanWeSeeUnit(unr, this.game.Data.UnitObj[unitByHistorical].Regime) > 0U && this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true) >=  Math.Round((double) (this.game.Data.RuleVar[428] * 10f)))
+          if (unitByHistorical > -1 && this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.UnitObj[unitByHistorical].Regime, this.game.Data.UnitObj[unr].Regime) && (uint) this.CanWeSeeUnit(unr, this.game.Data.UnitObj[unitByHistorical].Regime) > 0U && this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true) >=  Math.Round( (this.game.Data.RuleVar[428] * 10f)))
           {
             let mut Seed: i32 =  unr * (x * 500 + y);
-            let mut num1: i32 =   Math.Round(Math.Floor((double) this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * ((double) this.game.HandyFunctionsObj.GetAverageXp(unitByHistorical) / 30.0) * (double) this.game.HandyFunctionsObj.GetAverageRdn(unitByHistorical) / 100.0));
+            let mut num1: i32 =   Math.Round(Math.Floor( this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * ( this.game.HandyFunctionsObj.GetAverageXp(unitByHistorical) / 30.0) *  this.game.HandyFunctionsObj.GetAverageRdn(unitByHistorical) / 100.0));
             Random random = new Random(Seed);
             if (random.Next(1, 100) < num1)
             {
@@ -6267,12 +6267,12 @@ namespace WindowsApplication1
                   let mut num4: i32 =  100;
                   let mut num5: i32 =  num3;
                   for (let mut index2: i32 =  1; index2 <= num5; index2 += 1)
-                    num4 -=  Math.Round((double) (num4 * num2) / 100.0);
+                    num4 -=  Math.Round( (num4 * num2) / 100.0);
                   if (this.game.Data.TempString[726].Length > 0 & this.game.Data.TempString[727].Length > 0)
                   {
                     let mut num6: i32 =   Math.Round(Conversion.Val(this.game.EventRelatedObj.CheckLibVarRegime(this.game.Data.UnitObj[unitByHistorical].Regime, this.game.Data.TempString[726], this.game.Data.TempString[727], 0)));
                     if (num6 > 0)
-                      num4 -=  Math.Round((double) (num4 * num6) / 100.0);
+                      num4 -=  Math.Round( (num4 * num6) / 100.0);
                   }
                   if (random.Next(1, 101) > num4)
                     flag = false;
@@ -6291,7 +6291,7 @@ namespace WindowsApplication1
     {
       UnitList interceptFireUnits = UnitList::new();
       SimpleList simpleList = SimpleList::new();
-      if ((double) this.game.Data.RuleVar[428] < 1.0 || Information.IsNothing((object) this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList))
+      if ( this.game.Data.RuleVar[428] < 1.0 || Information.IsNothing( this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList))
         return interceptFireUnits;
       let mut counter1: i32 =  this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.counter;
       int tweight;
@@ -6305,10 +6305,10 @@ namespace WindowsApplication1
           {
             if (unr > -1)
             {
-              if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.UnitObj[unitByHistorical].Regime, this.game.Data.UnitObj[unr].Regime) && (uint) this.CanWeSeeUnit(unr, this.game.Data.UnitObj[unitByHistorical].Regime) > 0U && this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true) >=  Math.Round((double) (this.game.Data.RuleVar[428] * 10f)))
+              if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.Data.UnitObj[unitByHistorical].Regime, this.game.Data.UnitObj[unr].Regime) && (uint) this.CanWeSeeUnit(unr, this.game.Data.UnitObj[unitByHistorical].Regime) > 0U && this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true) >=  Math.Round( (this.game.Data.RuleVar[428] * 10f)))
               {
                 let mut Seed: i32 =  unr * (x * 500 + y);
-                let mut num1: i32 =   Math.Round(Math.Floor((double) this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * ((double) this.game.HandyFunctionsObj.GetAverageXp(unitByHistorical) / 30.0) * (double) this.game.HandyFunctionsObj.GetAverageRdn(unitByHistorical) / 100.0));
+                let mut num1: i32 =   Math.Round(Math.Floor( this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * ( this.game.HandyFunctionsObj.GetAverageXp(unitByHistorical) / 30.0) *  this.game.HandyFunctionsObj.GetAverageRdn(unitByHistorical) / 100.0));
                 Random random = new Random(Seed);
                 if (random.Next(1, 100) < num1)
                 {
@@ -6322,12 +6322,12 @@ namespace WindowsApplication1
                       let mut num4: i32 =  100;
                       let mut num5: i32 =  num3;
                       for (let mut index2: i32 =  1; index2 <= num5; index2 += 1)
-                        num4 -=  Math.Round((double) (num4 * num2) / 100.0);
+                        num4 -=  Math.Round( (num4 * num2) / 100.0);
                       if (this.game.Data.TempString[726].Length > 0 & this.game.Data.TempString[727].Length > 0)
                       {
                         let mut num6: i32 =   Math.Round(Conversion.Val(this.game.EventRelatedObj.CheckLibVarRegime(this.game.Data.UnitObj[unitByHistorical].Regime, this.game.Data.TempString[726], this.game.Data.TempString[727], 0)));
                         if (num6 > 0)
-                          num4 -=  Math.Round((double) (num4 * num6) / 100.0);
+                          num4 -=  Math.Round( (num4 * num6) / 100.0);
                       }
                       if (random.Next(1, 101) > num4)
                         flag = false;
@@ -6335,16 +6335,16 @@ namespace WindowsApplication1
                   }
                   if (flag)
                   {
-                    tweight =  Math.Round((double) (this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true)) / 100.0);
+                    tweight =  Math.Round( (this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true)) / 100.0);
                     simpleList.Add(unitByHistorical, tweight);
                   }
                 }
               }
             }
-            else if (this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true) >=  Math.Round((double) (this.game.Data.RuleVar[428] * 10f)))
+            else if (this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true) >=  Math.Round( (this.game.Data.RuleVar[428] * 10f)))
             {
               let mut Seed: i32 =  this.game.Data.Round * (x * 500 + y);
-              let mut num7: i32 =   Math.Round(Math.Floor((double) this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * ((double) this.game.HandyFunctionsObj.GetAverageXp(unitByHistorical) / 30.0) * (double) this.game.HandyFunctionsObj.GetAverageRdn(unitByHistorical) / 100.0));
+              let mut num7: i32 =   Math.Round(Math.Floor( this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * ( this.game.HandyFunctionsObj.GetAverageXp(unitByHistorical) / 30.0) *  this.game.HandyFunctionsObj.GetAverageRdn(unitByHistorical) / 100.0));
               Random random = new Random(Seed);
               if (random.Next(1, 100) < num7)
               {
@@ -6358,12 +6358,12 @@ namespace WindowsApplication1
                     let mut num10: i32 =  100;
                     let mut num11: i32 =  num9;
                     for (let mut index3: i32 =  1; index3 <= num11; index3 += 1)
-                      num10 -=  Math.Round((double) (num10 * num8) / 100.0);
+                      num10 -=  Math.Round( (num10 * num8) / 100.0);
                     if (this.game.Data.TempString[726].Length > 0 & this.game.Data.TempString[727].Length > 0)
                     {
                       let mut num12: i32 =   Math.Round(Conversion.Val(this.game.EventRelatedObj.CheckLibVarRegime(this.game.Data.UnitObj[unitByHistorical].Regime, this.game.Data.TempString[726], this.game.Data.TempString[727], 0)));
                       if (num12 > 0)
-                        num10 -=  Math.Round((double) (num10 * num12) / 100.0);
+                        num10 -=  Math.Round( (num10 * num12) / 100.0);
                     }
                     if (random.Next(1, 101) > num10)
                       flag = false;
@@ -6371,7 +6371,7 @@ namespace WindowsApplication1
                 }
                 if (flag)
                 {
-                  tweight =  Math.Round((double) (this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true)) / 100.0);
+                  tweight =  Math.Round( (this.game.Data.MapObj[0].HexObj[x, y].tempInterceptList.data[index1] * this.game.HandyFunctionsObj.GetLowestAp(unitByHistorical, true)) / 100.0);
                   simpleList.Add(unitByHistorical, tweight);
                 }
               }
@@ -6397,10 +6397,10 @@ namespace WindowsApplication1
         tweight += simpleList.Weight[index];
         num14 += 1;
       }
-      let mut num15: i32 =   Math.Round((double) num13 / (double) num14);
+      let mut num15: i32 =   Math.Round( num13 /  num14);
       let mut num16: i32 =  tweight;
       let mut num17: i32 =  0;
-      let mut num18: i32 =   Math.Round((double) num16 / (6.0 - (double) num15 / 20.0));
+      let mut num18: i32 =   Math.Round( num16 / (6.0 -  num15 / 20.0));
       let mut counter4: i32 =  simpleList.Counter;
       for (let mut index: i32 =  0; index <= counter4; index += 1)
       {
@@ -6421,7 +6421,7 @@ namespace WindowsApplication1
         for (let mut index2: i32 =  0; index2 <= mapHeight; index2 += 1)
           this.game.Data.MapObj[0].HexObj[index1, index2].tempInterceptList = (UnitList) null;
       }
-      if ((double) this.game.Data.RuleVar[428] < 1.0)
+      if ( this.game.Data.RuleVar[428] < 1.0)
         return;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       for (let mut index3: i32 =  0; index3 <= unitCounter; index3 += 1)
@@ -6473,17 +6473,17 @@ namespace WindowsApplication1
                     if (this.game.Data.SFTypeObj[type].ArtRange >= num10)
                     {
                       let mut rawRecon: i32 =  this.game.Data.MapObj[0].HexObj[x2, y2].get_ReconPts(this.game.Data.UnitObj[index3].Regime);
-                      if ((double) this.game.Data.RuleVar[419] > 0.0)
+                      if ( this.game.Data.RuleVar[419] > 0.0)
                         rawRecon = this.GetEffectiveRecon(rawRecon);
-                      let mut num12: i32 =  rawRecon -  Math.Round((double) this.game.Data.RuleVar[55]);
+                      let mut num12: i32 =  rawRecon -  Math.Round( this.game.Data.RuleVar[55]);
                       if (num12 < 0)
                         num12 = 0;
-                      let mut num13: i32 =   Math.Round((double) this.game.Data.RuleVar[55]) +  Math.Round((double) ( Math.Round((double) this.game.Data.RuleVar[56]) -  Math.Round((double) this.game.Data.RuleVar[55])) / 2.0);
+                      let mut num13: i32 =   Math.Round( this.game.Data.RuleVar[55]) +  Math.Round( ( Math.Round( this.game.Data.RuleVar[56]) -  Math.Round( this.game.Data.RuleVar[55])) / 2.0);
                       if (x2 == 14 & y2 == 5)
                         x2 = x2;
                       if (num12 > num13)
                         num12 = num13;
-                      let mut num14: i32 =   Math.Round((double) (num12 * 100) / (double) num13);
+                      let mut num14: i32 =   Math.Round( (num12 * 100) /  num13);
                       if (num14 > 100)
                         num14 = 100;
                       tdata += this.game.Data.SFObj[sf].Qty * num14 * 4;
@@ -6497,23 +6497,23 @@ namespace WindowsApplication1
                     else if (this.game.Data.SFTypeObj[type].directRange >= num10)
                     {
                       let mut rawRecon: i32 =  this.game.Data.MapObj[0].HexObj[x2, y2].get_ReconPts(this.game.Data.UnitObj[index3].Regime);
-                      if ((double) this.game.Data.RuleVar[419] > 0.0)
+                      if ( this.game.Data.RuleVar[419] > 0.0)
                         rawRecon = this.GetEffectiveRecon(rawRecon);
-                      let mut num15: i32 =  rawRecon -  Math.Round((double) this.game.Data.RuleVar[55]);
+                      let mut num15: i32 =  rawRecon -  Math.Round( this.game.Data.RuleVar[55]);
                       if (num15 < 0)
                         num15 = 0;
-                      let mut num16: i32 =   Math.Round((double) this.game.Data.RuleVar[55]) +  Math.Round((double) ( Math.Round((double) this.game.Data.RuleVar[56]) -  Math.Round((double) this.game.Data.RuleVar[55])) / 2.0);
+                      let mut num16: i32 =   Math.Round( this.game.Data.RuleVar[55]) +  Math.Round( ( Math.Round( this.game.Data.RuleVar[56]) -  Math.Round( this.game.Data.RuleVar[55])) / 2.0);
                       if (x2 == 14 & y2 == 5)
                         x2 = x2;
                       if (num15 > num16)
                         num15 = num16;
-                      let mut val1: i32 =   Math.Round((double) (num15 * 100) / (double) num16);
+                      let mut val1: i32 =   Math.Round( (num15 * 100) /  num16);
                       if (val1 > 100)
                         val1 = 100;
                       let mut num17: i32 =  Math.Min(val1, this.game.EditObj.TempLos[0].Value[x2, y2]);
                       let mut num18: i32 =  num10;
                       for (let mut index6: i32 =  2; index6 <= num18; index6 += 1)
-                        num17 =  Math.Round((double) (num17 * this.game.Data.SFTypeObj[type].directModPerHex) / 100.0);
+                        num17 =  Math.Round( (num17 * this.game.Data.SFTypeObj[type].directModPerHex) / 100.0);
                       tdata += this.game.Data.SFObj[sf].Qty * num17 * 4;
                       num11 += this.game.Data.SFObj[sf].Qty * 4;
                     }
@@ -6524,14 +6524,14 @@ namespace WindowsApplication1
                     }
                   }
                   if (num11 > 0)
-                    tdata =  Math.Round((double) tdata / (double) num11);
+                    tdata =  Math.Round( tdata /  num11);
                   if (index3 == 152 & x2 == 9 & y2 == 16)
                     index3 = index3;
                   if (tdata >= 10 & tdata > this.game.Data.UnitObj[index3].SOInterceptFire)
                   {
                     if (x2 == 7 & y2 == 4)
                       index3 = index3;
-                    if (Information.IsNothing((object) this.game.Data.MapObj[0].HexObj[x2, y2].tempInterceptList))
+                    if (Information.IsNothing( this.game.Data.MapObj[0].HexObj[x2, y2].tempInterceptList))
                       this.game.Data.MapObj[0].HexObj[x2, y2].tempInterceptList = UnitList::new();
                     this.game.Data.MapObj[0].HexObj[x2, y2].tempInterceptList.add(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[index3].Historical].ID, tdata, this.game.Data.UnitObj[index3].HistoricalSubPart, this.game.EditObj.TempLos[0].Value[x2, y2]);
                   }
@@ -6562,7 +6562,7 @@ namespace WindowsApplication1
         numArray = new int[this.game.Data.MapObj[omap].MapWidth + 1, this.game.Data.MapObj[omap].MapHeight + 1];
       if (this.game.Data.Round == 0)
         return;
-      if ( Math.Round(Conversion.Val((object) this.game.Data.RuleVar[419])) == 1 & this.game.Data.Product >= 6)
+      if ( Math.Round(Conversion.Val( this.game.Data.RuleVar[419])) == 1 & this.game.Data.Product >= 6)
       {
         this.SetHexReconAndZOCUnitMoves_LosRules(ox, oy, omap, x, y, map, regnr, unr, ZOCConquest, dontcountair, changezoc, overrulerecon);
       }
@@ -6596,20 +6596,20 @@ namespace WindowsApplication1
                   if (this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[omap].HexObj[ox, oy].LandscapeType].IsSea)
                   {
                     if (num8 > 0 & num8 <= 4)
-                      num7 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[10 + num8]));
+                      num7 =  Math.Round( ( this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[10 + num8]));
                     else if (num8 == 0)
-                      num7 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[11]));
+                      num7 =  Math.Round( ( this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[11]));
                   }
                   else
                   {
                     if (num8 > 0 & num8 <= 4)
-                      num7 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[10 + num8]));
+                      num7 =  Math.Round( ( this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[10 + num8]));
                     else if (num8 == 0)
-                      num7 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[11]));
+                      num7 =  Math.Round( ( this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[11]));
                     if (num8 > 0 & num8 <= 4)
-                      num6 =  Math.Round((double) ((float) num6 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num8]));
+                      num6 =  Math.Round( ( num6 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num8]));
                     if (num8 == 0)
-                      num6 =  Math.Round((double) ((float) num6 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
+                      num6 =  Math.Round( ( num6 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
                   }
                   if (changezoc)
                   {
@@ -6636,8 +6636,8 @@ namespace WindowsApplication1
                   let mut Index4: i32 =  Index3;
                   let mut num10: i32 =  hexObj1[index8, index10].get_ReconPts(Index3) - num7;
                   hexClass1.set_ReconPts(Index4, num10);
-                  if (this.ViewFriendlyHexNeighbourOrSelf(index2, index3, omap, regnr) && (double) this.game.Data.MapObj[omap].HexObj[index2, index3].get_ReconPts(regnr) < (double) this.game.Data.RuleVar[8])
-                    this.game.Data.MapObj[omap].HexObj[index2, index3].set_ReconPts(regnr,  Math.Round((double) this.game.Data.RuleVar[8]));
+                  if (this.ViewFriendlyHexNeighbourOrSelf(index2, index3, omap, regnr) &&  this.game.Data.MapObj[omap].HexObj[index2, index3].get_ReconPts(regnr) <  this.game.Data.RuleVar[8])
+                    this.game.Data.MapObj[omap].HexObj[index2, index3].set_ReconPts(regnr,  Math.Round( this.game.Data.RuleVar[8]));
                   numArray[index2, index3] = num7;
                 }
               }
@@ -6695,34 +6695,34 @@ namespace WindowsApplication1
                     if (overrulerecon > 0)
                     {
                       if (num19 > 0 & num19 <= 4)
-                        num18 =  Math.Round((double) ((float) overrulerecon * this.game.Data.RuleVar[10 + num19]));
+                        num18 =  Math.Round( ( overrulerecon * this.game.Data.RuleVar[10 + num19]));
                       else if (num19 == 0)
-                        num18 =  Math.Round((double) ((float) overrulerecon * this.game.Data.RuleVar[11]));
+                        num18 =  Math.Round( ( overrulerecon * this.game.Data.RuleVar[11]));
                     }
                     else if (num19 > 0 & num19 <= 4)
-                      num18 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[10 + num19]));
+                      num18 =  Math.Round( ( this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[10 + num19]));
                     else if (num19 == 0)
-                      num18 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[11]));
+                      num18 =  Math.Round( ( this.GetUnitRecon(unr, 1, dontcountair) * this.game.Data.RuleVar[11]));
                   }
                   else
                   {
                     if (overrulerecon > 0)
                     {
                       if (num19 > 0 & num19 <= 4)
-                        num18 =  Math.Round((double) ((float) overrulerecon * this.game.Data.RuleVar[10 + num19]));
+                        num18 =  Math.Round( ( overrulerecon * this.game.Data.RuleVar[10 + num19]));
                       else if (num19 == 0)
-                        num18 =  Math.Round((double) ((float) overrulerecon * this.game.Data.RuleVar[11]));
+                        num18 =  Math.Round( ( overrulerecon * this.game.Data.RuleVar[11]));
                     }
                     else if (num19 > 0 & num19 <= 4)
-                      num18 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[10 + num19]));
+                      num18 =  Math.Round( ( this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[10 + num19]));
                     else if (num19 == 0)
-                      num18 =  Math.Round((double) ((float) this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[11]));
+                      num18 =  Math.Round( ( this.GetUnitRecon(unr, 0, dontcountair) * this.game.Data.RuleVar[11]));
                     if (unr > -1)
                     {
                       if (num19 > 0 & num19 <= 4)
-                        num17 =  Math.Round((double) ((float) num17 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num19]));
+                        num17 =  Math.Round( ( num17 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[20 + num19]));
                       if (num19 == 0)
-                        num17 =  Math.Round((double) ((float) num17 + (float) this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
+                        num17 =  Math.Round( ( num17 +  this.GetUnitZOC(unr) * this.game.Data.RuleVar[21]));
                     }
                   }
                   if (changezoc)
@@ -6739,9 +6739,9 @@ namespace WindowsApplication1
                     let mut num20: i32 =  hexObj[index17, index19].get_ZocPts(Index7) + num17;
                     hexClass.set_ZocPts(Index8, num20);
                   }
-                  if (this.ViewFriendlyHexNeighbourOrSelf(index15, index16, map, regnr) && (double) this.game.Data.MapObj[map].HexObj[index15, index16].get_ReconPts(regnr) < (double) this.game.Data.RuleVar[8])
+                  if (this.ViewFriendlyHexNeighbourOrSelf(index15, index16, map, regnr) &&  this.game.Data.MapObj[map].HexObj[index15, index16].get_ReconPts(regnr) <  this.game.Data.RuleVar[8])
                   {
-                    this.game.Data.MapObj[map].HexObj[index15, index16].set_ReconPts(regnr,  Math.Round((double) this.game.Data.RuleVar[8]));
+                    this.game.Data.MapObj[map].HexObj[index15, index16].set_ReconPts(regnr,  Math.Round( this.game.Data.RuleVar[8]));
                     this.game.Data.MapObj[map].CanSee = true;
                   }
                   if (num18 > 0)
@@ -7148,7 +7148,7 @@ namespace WindowsApplication1
         let mut num: i32 =  0;
         if (this.game.Data.UnitObj[unit].Regime == regnr)
           num = 1;
-        if (this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.UnitObj[unit].Regime] == 2 & (double) this.game.Data.RuleVar[328] == 1.0)
+        if (this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.UnitObj[unit].Regime] == 2 &  this.game.Data.RuleVar[328] == 1.0)
           num = 1;
         if (num == 1 && this.game.Data.UnitObj[unit].PreDef == -1)
           this.SetHexReconAndZOCUnitMoves(-1, -1, -1, this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, this.game.Data.UnitObj[unit].Map, regnr, unit, false);
@@ -7157,7 +7157,7 @@ namespace WindowsApplication1
 
     pub int CanWeSeeUnit(int unr, int byregnr)
     {
-      if (this.game.Data.Round == 0 & !this.game.EditObj.firstroundcheck || !this.game.Data.FOWOn || this.game.Data.RegimeObj[byregnr].RegimeRel[this.game.Data.UnitObj[unr].Regime] == 2 & (double) this.game.Data.RuleVar[328] == 1.0)
+      if (this.game.Data.Round == 0 & !this.game.EditObj.firstroundcheck || !this.game.Data.FOWOn || this.game.Data.RegimeObj[byregnr].RegimeRel[this.game.Data.UnitObj[unr].Regime] == 2 &  this.game.Data.RuleVar[328] == 1.0)
         return 1000;
       if (byregnr == -1)
         return 0;
@@ -7174,15 +7174,15 @@ namespace WindowsApplication1
       if (regime == byregnr)
         return 1000;
       let mut rawRecon: i32 =  byregnr != this.game.Data.Turn ? this.game.Data.MapObj[map].HexObj[x, y].get_ReconPts(byregnr) : this.game.Data.MapObj[map].HexObj[x, y].MaxRecon;
-      let mut num1: i32 =  (double) this.game.Data.RuleVar[419] <= 0.0 ?  Math.Round((double) ((float) this.game.HandyFunctionsObj.GetUnitHide(unr) + this.game.Data.RuleVar[9] + (float) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].HidePts)) : this.game.HandyFunctionsObj.GetUnitHide(unr);
+      let mut num1: i32 =   this.game.Data.RuleVar[419] <= 0.0 ?  Math.Round( ( this.game.HandyFunctionsObj.GetUnitHide(unr) + this.game.Data.RuleVar[9] +  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].HidePts)) : this.game.HandyFunctionsObj.GetUnitHide(unr);
       int num2;
-      if ((double) this.game.Data.RuleVar[419] > 0.0 & rawRecon > 0)
+      if ( this.game.Data.RuleVar[419] > 0.0 & rawRecon > 0)
       {
         let mut unitHide: i32 =  this.game.HandyFunctionsObj.GetUnitHide(unr);
         rawRecon = this.GetEffectiveRecon(rawRecon);
         num2 = rawRecon - unitHide;
-        if (this.game.Data.UnitObj[unr].Spotted & !this.game.Data.UnitObj[unr].Identified && (double) (rawRecon - unitHide * 2) < (double) this.game.Data.RuleVar[55])
-          num2 =  Math.Round((double) (this.game.Data.RuleVar[55] - 1f));
+        if (this.game.Data.UnitObj[unr].Spotted & !this.game.Data.UnitObj[unr].Identified &&  (rawRecon - unitHide * 2) <  this.game.Data.RuleVar[55])
+          num2 =  Math.Round( (this.game.Data.RuleVar[55] - 1f));
         if (this.game.Data.UnitObj[unr].Spotted && rawRecon > 0 & num2 < 1)
           num2 = 1;
       }
@@ -7195,7 +7195,7 @@ namespace WindowsApplication1
         if (this.game.Data.UnitObj[unr].Identified && num2 < 1)
           num2 = 1;
       }
-      if ((double) this.game.Data.RuleVar[816] == 1.0)
+      if ( this.game.Data.RuleVar[816] == 1.0)
         num2 = 0;
       return num2;
     }
@@ -7218,12 +7218,12 @@ namespace WindowsApplication1
         if (num1 == 1)
         {
           let mut num2: i32 =  this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].ReconPts;
-          if ((double) this.game.Data.RuleVar[419] > 0.0)
+          if ( this.game.Data.RuleVar[419] > 0.0)
           {
-            if ((double) this.game.Data.SFObj[sf].Xp > (double) this.game.Data.RuleVar[423])
-              num2 +=  Math.Round(Math.Floor(0.5 * (double) num2 * (double) Math.Min(1f, (float) (((double) this.game.Data.SFObj[sf].Xp - (double) this.game.Data.RuleVar[423]) / (100.0 - (double) this.game.Data.RuleVar[423])))));
+            if ( this.game.Data.SFObj[sf].Xp >  this.game.Data.RuleVar[423])
+              num2 +=  Math.Round(Math.Floor(0.5 *  num2 *  Math.Min(1f,  (( this.game.Data.SFObj[sf].Xp -  this.game.Data.RuleVar[423]) / (100.0 -  this.game.Data.RuleVar[423])))));
             else
-              num2 =  Math.Round(Math.Ceiling(0.5 * (double) num2)) +  Math.Round(Math.Floor(0.5 * (double) num2 * (double) this.game.Data.SFObj[sf].Xp / (double) this.game.Data.RuleVar[423]));
+              num2 =  Math.Round(Math.Ceiling(0.5 *  num2)) +  Math.Round(Math.Floor(0.5 *  num2 *  this.game.Data.SFObj[sf].Xp /  this.game.Data.RuleVar[423]));
           }
           unitRecon += num2;
         }
@@ -7249,12 +7249,12 @@ namespace WindowsApplication1
         if (num1 == 1)
         {
           let mut num2: i32 =  this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].ExtraRecon[Lt];
-          if ((double) this.game.Data.RuleVar[419] > 0.0)
+          if ( this.game.Data.RuleVar[419] > 0.0)
           {
-            if ((double) this.game.Data.SFObj[sf].Xp > (double) this.game.Data.RuleVar[423])
-              num2 +=  Math.Round(Math.Floor(0.5 * (double) num2 * ((double) this.game.Data.SFObj[sf].Xp - (double) this.game.Data.RuleVar[423]) / (100.0 - (double) this.game.Data.RuleVar[423])));
+            if ( this.game.Data.SFObj[sf].Xp >  this.game.Data.RuleVar[423])
+              num2 +=  Math.Round(Math.Floor(0.5 *  num2 * ( this.game.Data.SFObj[sf].Xp -  this.game.Data.RuleVar[423]) / (100.0 -  this.game.Data.RuleVar[423])));
             else
-              num2 =  Math.Round(Math.Ceiling(0.5 * (double) num2)) +  Math.Round(Math.Floor(0.5 * (double) num2 * (double) this.game.Data.SFObj[sf].Xp / (double) this.game.Data.RuleVar[423]));
+              num2 =  Math.Round(Math.Ceiling(0.5 *  num2)) +  Math.Round(Math.Floor(0.5 *  num2 *  this.game.Data.SFObj[sf].Xp /  this.game.Data.RuleVar[423]));
           }
           unitExtraRecon += num2;
         }
@@ -7313,7 +7313,7 @@ namespace WindowsApplication1
             object[] objArray3 = objArray2;
             let mut people: i32 =  this.game.Data.SFObj[sf].People;
             let mut index2: i32 =  people;
-            object obj = Operators.AddObject(objArray2[people], (object) (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty));
+            object obj = Operators.AddObject(objArray2[people],  (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty));
             objArray3[index2] = obj;
           }
         }
@@ -7334,7 +7334,7 @@ namespace WindowsApplication1
               object[] objArray5 = objArray4;
               let mut people: i32 =  this.game.Data.SFObj[sf].People;
               let mut index4: i32 =  people;
-              object obj = Operators.AddObject(objArray4[people], (object) (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty));
+              object obj = Operators.AddObject(objArray4[people],  (this.game.Data.SFTypeObj[type].PowerPts * this.game.Data.SFObj[sf].Qty));
               objArray5[index4] = obj;
             }
           }
@@ -7345,20 +7345,20 @@ namespace WindowsApplication1
       let mut peopleCounter: i32 =  this.game.Data.PeopleCounter;
       for (let mut index: i32 =  0; index <= peopleCounter; index += 1)
       {
-        if (Operators.ConditionalCompareObjectGreater(objArray1[index], (object) Right, false))
+        if (Operators.ConditionalCompareObjectGreater(objArray1[index],  Right, false))
         {
           num = index;
           Right = Conversions.ToInteger(objArray1[index]);
         }
       }
-      return num > -1 ? (object) num : (object) this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].People;
+      return num > -1 ?  num :  this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].People;
     }
 
     pub int GetUnitHide(int unr, bool withoutIdentify = false)
     {
       let mut unitHide: i32 =  9999;
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
-        return  Math.Round((double) (0.0f + this.game.Data.RuleVar[9]));
+        return  Math.Round( (0.0f + this.game.Data.RuleVar[9]));
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
@@ -7368,30 +7368,30 @@ namespace WindowsApplication1
       }
       if (unitHide == 9999)
         unitHide = 0;
-      if ((double) this.game.Data.RuleVar[419] > 0.0)
+      if ( this.game.Data.RuleVar[419] > 0.0)
       {
         if (this.game.Data.UnitObj[unr].X > -1)
           unitHide += this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].HidePts;
         let mut num1: i32 =  unitHide;
         let mut averageXp: i32 =  this.game.HandyFunctionsObj.GetAverageXp(unr);
-        let mut num2: i32 =  (double) averageXp <= (double) this.game.Data.RuleVar[423] ?  Math.Round(Math.Ceiling(0.6 * (double) num1)) +  Math.Round(Math.Floor(0.4 * (double) num1 * (double) averageXp / (double) this.game.Data.RuleVar[423])) : num1 +  Math.Round(Math.Floor(0.4 * (double) num1 * (double) Math.Min(1f, (float) (((double) averageXp - (double) this.game.Data.RuleVar[423]) / (80.0 - (double) this.game.Data.RuleVar[423])))));
-        float num3 = (float) this.GetHexStackPts(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0) / this.game.Data.RuleVar[30];
+        let mut num2: i32 =   averageXp <=  this.game.Data.RuleVar[423] ?  Math.Round(Math.Ceiling(0.6 *  num1)) +  Math.Round(Math.Floor(0.4 *  num1 *  averageXp /  this.game.Data.RuleVar[423])) : num1 +  Math.Round(Math.Floor(0.4 *  num1 *  Math.Min(1f,  (( averageXp -  this.game.Data.RuleVar[423]) / (80.0 -  this.game.Data.RuleVar[423])))));
+        float num3 =  this.GetHexStackPts(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0) / this.game.Data.RuleVar[30];
         float num4 = 1f;
-        if ((double) num3 < 0.333)
-          num4 = (float) (1.39999997615814 - 0.4 * ((double) num3 / 0.333));
-        else if ((double) num3 > 1.0)
+        if ( num3 < 0.333)
+          num4 =  (1.39999997615814 - 0.4 * ( num3 / 0.333));
+        else if ( num3 > 1.0)
         {
-          num4 = (float) (1.0 - 0.5 * ((double) num3 - 1.0));
-          if ((double) num4 < 0.0)
+          num4 =  (1.0 - 0.5 * ( num3 - 1.0));
+          if ( num4 < 0.0)
             num4 = 0.0f;
         }
-        unitHide =  Math.Round((double) ((float)  Math.Round((double) ((float) num2 * num4)) + this.game.Data.RuleVar[9]));
+        unitHide =  Math.Round( (  Math.Round( ( num2 * num4)) + this.game.Data.RuleVar[9]));
         if (!withoutIdentify)
         {
           if (this.game.Data.UnitObj[unr].Spotted)
-            unitHide =  Math.Round((double) unitHide / 2.0);
+            unitHide =  Math.Round( unitHide / 2.0);
           if (this.game.Data.UnitObj[unr].Identified)
-            unitHide =  Math.Round((double) unitHide / 2.0);
+            unitHide =  Math.Round( unitHide / 2.0);
         }
       }
       return unitHide;
@@ -7409,7 +7409,7 @@ namespace WindowsApplication1
         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater == 0)
           num += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].ZOCPts;
       }
-      return  Math.Round((double) num * ((double) this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
+      return  Math.Round( num * ( this.game.Data.UnitObj[unr].SupplyConsume / 100.0));
     }
 
     pub int GetHighestSizeForAirBridge(int unr)
@@ -7440,17 +7440,17 @@ namespace WindowsApplication1
         }
       }
       if (includeexcessweight)
-        Left = Conversions.ToInteger(Operators.AddObject((object) Left, this.GetUnitExcessWeight(unr)));
+        Left = Conversions.ToInteger(Operators.AddObject( Left, this.GetUnitExcessWeight(unr)));
       if (includeLisWeight)
       {
         let mut counter: i32 =  this.game.Data.UnitObj[unr].items.list.Counter;
         for (let mut index: i32 =  0; index <= counter; index += 1)
         {
-          let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[404]))].GetData(0, this.game.Data.UnitObj[unr].items.list.Id[index], 3));
+          let mut integer: i32 =  Conversions.ToInteger(this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[404]))].GetData(0, this.game.Data.UnitObj[unr].items.list.Id[index], 3));
           Left += integer * this.game.Data.UnitObj[unr].items.list.Weight[index];
         }
       }
-      if ((double) this.game.Data.RuleVar[407] > 0.0 && Left < 1)
+      if ( this.game.Data.RuleVar[407] > 0.0 && Left < 1)
         Left = 1;
       return Left;
     }
@@ -7458,7 +7458,7 @@ namespace WindowsApplication1
     pub object GetUnitWeightWithoutLandCarryCap(int unr, bool includeexcessweight = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
-        return (object) 0;
+        return  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int integer;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
@@ -7468,14 +7468,14 @@ namespace WindowsApplication1
           integer += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Weight;
       }
       if (includeexcessweight)
-        integer = Conversions.ToInteger(Operators.AddObject((object) integer, this.GetUnitExcessWeight(unr)));
-      return (object) integer;
+        integer = Conversions.ToInteger(Operators.AddObject( integer, this.GetUnitExcessWeight(unr)));
+      return  integer;
     }
 
     pub object GetUnitSpecialAIWeightWithoutLandCarryCap(int unr, bool includeexcessweight = false)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
-        return (object) 0;
+        return  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int integer;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
@@ -7489,20 +7489,20 @@ namespace WindowsApplication1
             let mut moveType: i32 =  this.game.Data.SFTypeObj[type].MoveType;
             if (this.game.Data.SFObj[sf].MoveType > -1)
               moveType = this.game.Data.SFObj[sf].MoveType;
-            if ((double) moveType == (double) this.game.Data.RuleVar[260] | (double) moveType == (double) this.game.Data.RuleVar[261] | (double) moveType == (double) this.game.Data.RuleVar[262])
+            if ( moveType ==  this.game.Data.RuleVar[260] |  moveType ==  this.game.Data.RuleVar[261] |  moveType ==  this.game.Data.RuleVar[262])
               integer += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Weight;
           }
         }
       }
       if (includeexcessweight)
-        integer = Conversions.ToInteger(Operators.AddObject((object) integer, this.GetUnitExcessWeight(unr)));
-      return (object) integer;
+        integer = Conversions.ToInteger(Operators.AddObject( integer, this.GetUnitExcessWeight(unr)));
+      return  integer;
     }
 
     pub object GetUnitNonSeaWeight(int unr, bool includingaircraft)
     {
       if (this.game.Data.UnitObj[unr].SFCount <= -1)
-        return (object) 0;
+        return  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int unitNonSeaWeight;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
@@ -7511,7 +7511,7 @@ namespace WindowsApplication1
         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater != 1 && includingaircraft | !includingaircraft & this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater == 0)
           unitNonSeaWeight += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Weight;
       }
-      return (object) unitNonSeaWeight;
+      return  unitNonSeaWeight;
     }
 
     pub int GetUnitCarryCap(int unr, int theater, bool withexcessweight = false)
@@ -7528,7 +7528,7 @@ namespace WindowsApplication1
       }
       if (withexcessweight)
       {
-        integer = Conversions.ToInteger(Operators.SubtractObject((object) integer, this.GetUnitExcessWeight(unr)));
+        integer = Conversions.ToInteger(Operators.SubtractObject( integer, this.GetUnitExcessWeight(unr)));
         let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
         for (let mut index: i32 =  0; index <= sfCount2; index += 1)
         {
@@ -7556,7 +7556,7 @@ namespace WindowsApplication1
             int num;
             num += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].CarryCap;
             if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].CarryCap > 0)
-              simpleList.Add(this.game.Data.SFObj[sf].Type, this.game.Data.LandscapeTypeObj[ Math.Round((double) this.game.Data.RuleVar[38])].MoveCost[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].MoveType]);
+              simpleList.Add(this.game.Data.SFObj[sf].Type, this.game.Data.LandscapeTypeObj[ Math.Round( this.game.Data.RuleVar[38])].MoveCost[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].MoveType]);
           }
         }
         if (simpleList.Counter > -1)
@@ -7578,7 +7578,7 @@ namespace WindowsApplication1
         {
           let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
           if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].Theater == theater)
-            simpleList.Add(this.game.Data.SFObj[sf].Type, this.game.Data.LandscapeTypeObj[ Math.Round((double) this.game.Data.RuleVar[38])].MoveCost[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].MoveType]);
+            simpleList.Add(this.game.Data.SFObj[sf].Type, this.game.Data.LandscapeTypeObj[ Math.Round( this.game.Data.RuleVar[38])].MoveCost[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].MoveType]);
         }
         if (simpleList.Counter > -1)
         {
@@ -7604,7 +7604,7 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageVigor(int unr)
@@ -7622,14 +7622,14 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int OBSOLETE_LIS_GetAmmoPercentageForAttack(int unr, int minArtRange, int maxArtRange)
     {
       ItemList itemList = ItemList::new();
-      let mut index1: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 2;
-      let mut index2: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 8;
+      let mut index1: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 2;
+      let mut index2: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 8;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       for (let mut index3: i32 =  0; index3 <= sfCount; index3 += 1)
       {
@@ -7659,14 +7659,14 @@ namespace WindowsApplication1
           num2 += num4;
         }
       }
-      return 100 -  Math.Round((double) (100 * num2) / (double) num1);
+      return 100 -  Math.Round( (100 * num2) /  num1);
     }
 
     pub HasLimitedCombatRoundArtillery: bool(int unr, int minArtRange, int maxArtRange)
     {
       ItemList itemList = ItemList::new();
-      let mut num1: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 2;
-      let mut num2: i32 =   Math.Round((double) this.game.Data.RuleVar[407]) + 8;
+      let mut num1: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 2;
+      let mut num2: i32 =   Math.Round( this.game.Data.RuleVar[407]) + 8;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
@@ -7695,47 +7695,47 @@ namespace WindowsApplication1
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
         let mut num7: i32 =   Math.Round(10.0 * 1.25);
         if (useSupply)
-          num1 =  Math.Round((double) num1 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttack * 10) / (double) num7 * (double) this.game.Data.SFObj[sf].Qty);
+          num1 =  Math.Round( num1 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttack * 10) /  num7 *  this.game.Data.SFObj[sf].Qty);
         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttack > 0 && useFuel)
         {
           num2 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttack * num7 * this.game.Data.SFObj[sf].Qty;
-          num3 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelAttack * (float) this.game.Data.SFObj[sf].Qty;
+          num3 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelAttack *  this.game.Data.SFObj[sf].Qty;
           num4 += this.game.Data.SFObj[sf].Qty;
         }
         if (useSupply)
-          num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyAttack * (float) this.game.Data.SFObj[sf].Qty;
+          num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyAttack *  this.game.Data.SFObj[sf].Qty;
         if (useSupply)
           num6 += this.game.Data.SFObj[sf].Qty;
       }
       if (num6 > 0)
-        num5 /= (float) num6;
+        num5 /=  num6;
       if (num4 > 0)
-        num3 /= (float) num4;
-      let mut num8: i32 =  num1 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Supply / (double) num1));
+        num3 /=  num4;
+      let mut num8: i32 =  num1 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Supply /  num1));
       if (num8 < 100)
-        num5 *= (float) (100 - num8) / 100f;
+        num5 *=  (100 - num8) / 100f;
       float num9 = 0.0f;
       if (num6 > 0)
-        num9 = (float) num4 / (float) num6;
+        num9 =  num4 /  num6;
       else if (num4 > 0)
         num9 = 1f;
-      let mut num10: i32 =   Math.Round(100.0 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Fuel / (double) num2));
+      let mut num10: i32 =   Math.Round(100.0 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Fuel /  num2));
       let mut num11: i32 =  100;
       if (!(num8 >= 100 & num10 >= 100))
       {
         if (num8 < 100 & num10 >= 100)
-          num11 = num8 +  Math.Round((double) num5 * 100.0 * (double) (100 - num8) / 100.0);
+          num11 = num8 +  Math.Round( num5 * 100.0 *  (100 - num8) / 100.0);
         else if (num10 < 100 & num8 >= 100)
         {
-          let mut num12: i32 =  num10 +  Math.Round((double) num3 * 100.0 * (double) (100 - num10) / 100.0);
-          num11 =  Math.Round(100.0 * (1.0 - (double) num9) + (double) num12 * (double) num9);
+          let mut num12: i32 =  num10 +  Math.Round( num3 * 100.0 *  (100 - num10) / 100.0);
+          num11 =  Math.Round(100.0 * (1.0 -  num9) +  num12 *  num9);
         }
         else
         {
-          let mut num13: i32 =  num8 +  Math.Round((double) num5 * 100.0 * (double) (100 - num8) / 100.0);
-          let mut num14: i32 =  num10 +  Math.Round((double) num3 * 100.0 * (double) (100 - num10) / 100.0);
-          let mut num15: i32 =   Math.Round(100.0 * (1.0 - (double) num9) + (double) num14 * (double) num9);
-          num11 =  Math.Round((double) (num13 * num15) / 100.0);
+          let mut num13: i32 =  num8 +  Math.Round( num5 * 100.0 *  (100 - num8) / 100.0);
+          let mut num14: i32 =  num10 +  Math.Round( num3 * 100.0 *  (100 - num10) / 100.0);
+          let mut num15: i32 =   Math.Round(100.0 * (1.0 -  num9) +  num14 *  num9);
+          num11 =  Math.Round( (num13 * num15) / 100.0);
         }
       }
       return num11 - 100;
@@ -7756,45 +7756,45 @@ namespace WindowsApplication1
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
         let mut num7: i32 =  10;
-        num1 =  Math.Round((double) num1 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttackDef * 20) / (double) num7 * (double) this.game.Data.SFObj[sf].Qty);
+        num1 =  Math.Round( num1 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttackDef * 20) /  num7 *  this.game.Data.SFObj[sf].Qty);
         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttackDef > 0)
         {
           num2 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttackDef * num7 * this.game.Data.SFObj[sf].Qty;
-          num3 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelDefense * (float) this.game.Data.SFObj[sf].Qty;
+          num3 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelDefense *  this.game.Data.SFObj[sf].Qty;
           num4 += this.game.Data.SFObj[sf].Qty;
         }
-        num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyDefense * (float) this.game.Data.SFObj[sf].Qty;
+        num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyDefense *  this.game.Data.SFObj[sf].Qty;
         num6 += this.game.Data.SFObj[sf].Qty;
       }
       if (num6 > 0)
-        num5 /= (float) num6;
+        num5 /=  num6;
       if (num4 > 0)
-        num3 /= (float) num4;
-      let mut num8: i32 =  num1 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Supply / (double) num1));
+        num3 /=  num4;
+      let mut num8: i32 =  num1 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Supply /  num1));
       if (num8 < 100)
-        num5 *= (float) (100 - num8) / 100f;
+        num5 *=  (100 - num8) / 100f;
       float num9 = 0.0f;
       if (num6 > 0)
-        num9 = (float) num4 / (float) num6;
+        num9 =  num4 /  num6;
       else if (num4 > 0)
         num9 = 1f;
-      let mut num10: i32 =   Math.Round(100.0 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Fuel / (double) num2));
+      let mut num10: i32 =   Math.Round(100.0 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Fuel /  num2));
       let mut num11: i32 =  100;
       if (!(num8 >= 100 & num10 >= 100))
       {
         if (num8 < 100 & num10 >= 100)
-          num11 = num8 +  Math.Round((double) num5 * 100.0 * (double) (100 - num8) / 100.0);
+          num11 = num8 +  Math.Round( num5 * 100.0 *  (100 - num8) / 100.0);
         else if (num10 < 100 & num8 >= 100)
         {
-          let mut num12: i32 =  num10 +  Math.Round((double) num3 * 100.0 * (double) (100 - num10) / 100.0);
-          num11 =  Math.Round(100.0 * (1.0 - (double) num9) + (double) num12 * (double) num9);
+          let mut num12: i32 =  num10 +  Math.Round( num3 * 100.0 *  (100 - num10) / 100.0);
+          num11 =  Math.Round(100.0 * (1.0 -  num9) +  num12 *  num9);
         }
         else
         {
-          let mut num13: i32 =  num8 +  Math.Round((double) num5 * 100.0 * (double) (100 - num8) / 100.0);
-          let mut num14: i32 =  num10 +  Math.Round((double) num3 * 100.0 * (double) (100 - num10) / 100.0);
-          let mut num15: i32 =   Math.Round(100.0 * (1.0 - (double) num9) + (double) num14 * (double) num9);
-          num11 =  Math.Round((double) (num13 * num15) / 100.0);
+          let mut num13: i32 =  num8 +  Math.Round( num5 * 100.0 *  (100 - num8) / 100.0);
+          let mut num14: i32 =  num10 +  Math.Round( num3 * 100.0 *  (100 - num10) / 100.0);
+          let mut num15: i32 =   Math.Round(100.0 * (1.0 -  num9) +  num14 *  num9);
+          num11 =  Math.Round( (num13 * num15) / 100.0);
         }
       }
       return num11 - 100;
@@ -7815,8 +7815,8 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      if ((double) this.game.Data.RuleVar[434] < 1.0 | this.game.Data.Product < 6)
-        return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      if ( this.game.Data.RuleVar[434] < 1.0 | this.game.Data.Product < 6)
+        return  Math.Round(Conversion.Int( num1 /  num2));
       let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int num3;
       int num4;
@@ -7828,33 +7828,33 @@ namespace WindowsApplication1
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
         let mut num9: i32 =   Math.Round(10.0 * 1.25);
-        num3 =  Math.Round((double) num3 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttack * 10) / (double) num9 * (double) this.game.Data.SFObj[sf].Qty);
+        num3 =  Math.Round( num3 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttack * 10) /  num9 *  this.game.Data.SFObj[sf].Qty);
         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttack > 0)
         {
           num4 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttack * num9 * this.game.Data.SFObj[sf].Qty;
-          num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelAttack * (float) this.game.Data.SFObj[sf].Qty;
+          num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelAttack *  this.game.Data.SFObj[sf].Qty;
           num6 += this.game.Data.SFObj[sf].Qty;
         }
-        num7 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyAttack * (float) this.game.Data.SFObj[sf].Qty;
+        num7 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyAttack *  this.game.Data.SFObj[sf].Qty;
         num8 += this.game.Data.SFObj[sf].Qty;
       }
-      let mut num10: i32 =   Math.Round(Conversion.Int((double) num1 / (double) num2));
+      let mut num10: i32 =   Math.Round(Conversion.Int( num1 /  num2));
       if (num8 > 0)
-        num7 /= (float) num8;
+        num7 /=  num8;
       if (num6 > 0)
-        num5 /= (float) num6;
-      let mut num11: i32 =  num3 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Supply / (double) num3));
+        num5 /=  num6;
+      let mut num11: i32 =  num3 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Supply /  num3));
       if (num11 < 100)
-        num11 +=  Math.Round((double) ((float) (100 - num11) * num7));
-      if ((double) this.game.Data.RuleVar[435] > 0.0 & num4 > 0)
+        num11 +=  Math.Round( ( (100 - num11) * num7));
+      if ( this.game.Data.RuleVar[435] > 0.0 & num4 > 0)
       {
         if (num11 < 80 & num11 > 30)
           num11 = num11;
-        float num12 = (float) num6 / (float) num8;
-        if ((double) num12 < 1.0)
+        float num12 =  num6 /  num8;
+        if ( num12 < 1.0)
           num12 *= num5;
         let mut num13: i32 =  num11;
-        num11 =  Math.Round((double) num12 * (double) num13 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Fuel / (double) num4)) +  Math.Round((double) ((1f - num12) * (float) num13));
+        num11 =  Math.Round( num12 *  num13 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Fuel /  num4)) +  Math.Round( ((1f - num12) *  num13));
       }
       return num10 + num11 - 100;
     }
@@ -7874,8 +7874,8 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      if ((double) this.game.Data.RuleVar[434] < 1.0 | this.game.Data.Product < 6)
-        return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      if ( this.game.Data.RuleVar[434] < 1.0 | this.game.Data.Product < 6)
+        return  Math.Round(Conversion.Int( num1 /  num2));
       let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
       int num3;
       int num4;
@@ -7887,31 +7887,31 @@ namespace WindowsApplication1
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
         let mut num9: i32 =  10;
-        num3 =  Math.Round((double) num3 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttackDef * 20) / (double) num9 * (double) this.game.Data.SFObj[sf].Qty);
+        num3 =  Math.Round( num3 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyForAttackDef * 20) /  num9 *  this.game.Data.SFObj[sf].Qty);
         if (this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttackDef > 0)
         {
           num4 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].FuelForAttackDef * num9 * this.game.Data.SFObj[sf].Qty;
-          num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelDefense * (float) this.game.Data.SFObj[sf].Qty;
+          num5 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfFuelDefense *  this.game.Data.SFObj[sf].Qty;
           num6 += this.game.Data.SFObj[sf].Qty;
         }
-        num7 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyDefense * (float) this.game.Data.SFObj[sf].Qty;
+        num7 += this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].OutOfSupplyDefense *  this.game.Data.SFObj[sf].Qty;
         num8 += this.game.Data.SFObj[sf].Qty;
       }
-      let mut num10: i32 =   Math.Round(Conversion.Int((double) num1 / (double) num2));
+      let mut num10: i32 =   Math.Round(Conversion.Int( num1 /  num2));
       if (num8 > 0)
-        num7 /= (float) num8;
+        num7 /=  num8;
       if (num6 > 0)
-        num5 /= (float) num6;
-      let mut num11: i32 =  num3 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Supply / (double) num3));
+        num5 /=  num6;
+      let mut num11: i32 =  num3 <= 0 ? 100 :  Math.Round(100.0 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Supply /  num3));
       if (num11 < 100)
-        num11 +=  Math.Round((double) ((float) (100 - num11) * num7));
-      if ((double) this.game.Data.RuleVar[435] > 0.0 & num4 > 0)
+        num11 +=  Math.Round( ( (100 - num11) * num7));
+      if ( this.game.Data.RuleVar[435] > 0.0 & num4 > 0)
       {
-        float num12 = (float) num6 / (float) num8;
-        if ((double) num12 < 1.0)
+        float num12 =  num6 /  num8;
+        if ( num12 < 1.0)
           num12 *= num5;
         let mut num13: i32 =  num11;
-        num11 =  Math.Round((double) num12 * (double) num13 * Math.Min(1.0, (double) this.game.Data.UnitObj[unr].Fuel / (double) num4)) +  Math.Round((double) ((1f - num12) * (float) num13));
+        num11 =  Math.Round( num12 *  num13 * Math.Min(1.0,  this.game.Data.UnitObj[unr].Fuel /  num4)) +  Math.Round( ((1f - num12) *  num13));
       }
       return num10 + num11 - 100;
     }
@@ -7931,7 +7931,7 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageBaseMor(int unr)
@@ -7950,7 +7950,7 @@ namespace WindowsApplication1
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub CanUnitBecomeHQfor: bool(int unr, int forunr)
@@ -7959,7 +7959,7 @@ namespace WindowsApplication1
         return false;
       let mut index: i32 =  unr;
       let mut num: i32 =  0;
-      if ((double) this.game.Data.RuleVar[344] == 1.0 & (double) this.game.Data.RuleVar[348] == 1.0 && this.game.Data.UnitObj[unr].Historical > -1 & this.game.Data.UnitObj[forunr].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[forunr].Historical].Type >= this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].Type && !(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[forunr].Historical].Type == 8 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].Type == 8) || this.game.Data.UnitObj[unr].Regime != this.game.Data.UnitObj[forunr].Regime && this.game.Data.RegimeObj[this.game.Data.UnitObj[forunr].Regime].UberRegime != this.game.Data.UnitObj[unr].Regime && this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].UberRegime != this.game.Data.UnitObj[forunr].Regime && !(this.game.Data.Turn == this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].UberRegime & this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].UberRegime == this.game.Data.RegimeObj[this.game.Data.UnitObj[forunr].Regime].UberRegime))
+      if ( this.game.Data.RuleVar[344] == 1.0 &  this.game.Data.RuleVar[348] == 1.0 && this.game.Data.UnitObj[unr].Historical > -1 & this.game.Data.UnitObj[forunr].Historical > -1 && this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[forunr].Historical].Type >= this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].Type && !(this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[forunr].Historical].Type == 8 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].Type == 8) || this.game.Data.UnitObj[unr].Regime != this.game.Data.UnitObj[forunr].Regime && this.game.Data.RegimeObj[this.game.Data.UnitObj[forunr].Regime].UberRegime != this.game.Data.UnitObj[unr].Regime && this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].UberRegime != this.game.Data.UnitObj[forunr].Regime && !(this.game.Data.Turn == this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].UberRegime & this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].UberRegime == this.game.Data.RegimeObj[this.game.Data.UnitObj[forunr].Regime].UberRegime))
         return false;
       for (; this.game.Data.UnitObj[index].HQ > -1; index = this.game.Data.UnitObj[index].HQ)
       {
@@ -8028,7 +8028,7 @@ label_8:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageEntrenchAboveAuto(int unr)
@@ -8041,7 +8041,7 @@ label_8:
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
-        let mut num3: i32 =  this.game.Data.SFObj[sf].CurrentEntrench -  Math.Round((double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]);
+        let mut num3: i32 =  this.game.Data.SFObj[sf].CurrentEntrench -  Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]);
         if (num3 < 0)
           num3 = 0;
         num1 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].PowerPts * num3;
@@ -8049,7 +8049,7 @@ label_8:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageAutoEntrench(int unr)
@@ -8062,13 +8062,13 @@ label_8:
       for (let mut index: i32 =  0; index <= sfCount; index += 1)
       {
         let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index];
-        let mut num3: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]);
+        let mut num3: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].DefBonus[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]);
         num1 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].PowerPts * num3;
         num2 += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].PowerPts;
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageEntrenchPredict(int unr, bool StayOnHex)
@@ -8098,7 +8098,7 @@ label_8:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetAverageXp(int unr)
@@ -8116,7 +8116,7 @@ label_8:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetStackPercent(int unr)
@@ -8132,7 +8132,7 @@ label_8:
         num += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].SupplyCarry;
       }
       let mut supply: i32 =  this.game.Data.UnitObj[unr].Supply;
-      return supply == 0 ? 0 :  Math.Round(Conversion.Int((double) supply / (double) num * 100.0));
+      return supply == 0 ? 0 :  Math.Round(Conversion.Int( supply /  num * 100.0));
     }
 
     pub Coordinate FindLandRetreat(
@@ -8164,7 +8164,7 @@ label_8:
               let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
               for (let mut Index: i32 =  0; Index <= regimeCounter; Index += 1)
               {
-                if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeRel[Index] < 2 & Index != this.game.Data.UnitObj[unr].Regime && (double) this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(this.game.Data.UnitObj[unr].Regime) * (double) this.game.Data.RuleVar[40] < (double) this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(Index))
+                if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeRel[Index] < 2 & Index != this.game.Data.UnitObj[unr].Regime &&  this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(this.game.Data.UnitObj[unr].Regime) *  this.game.Data.RuleVar[40] <  this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(Index))
                   numArray1[tfacing1] = 0;
               }
             }
@@ -8183,7 +8183,7 @@ label_8:
                 {
                   if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeRel[this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].Regime] == 1)
                     num = 0;
-                  if ((double) this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(this.game.Data.UnitObj[unr].Regime) * (double) this.game.Data.RuleVar[40] < (double) this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].Regime))
+                  if ( this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(this.game.Data.UnitObj[unr].Regime) *  this.game.Data.RuleVar[40] <  this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].get_ZocPts(this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].Regime))
                     num = 0;
                 }
               }
@@ -8210,7 +8210,7 @@ label_8:
         tfacing1 += 1;
       }
       while (tfacing1 <= 6);
-      if (this.game.Data.Product == 6 && !Information.IsNothing((object) neighbour))
+      if (this.game.Data.Product == 6 && !Information.IsNothing( neighbour))
       {
         let mut num1: i32 =  0;
         let mut num2: i32 =  1;
@@ -8252,7 +8252,7 @@ label_8:
           let mut num3: i32 =  num1 + 1;
         }
       }
-      if (!Information.IsNothing((object) neighbour))
+      if (!Information.IsNothing( neighbour))
       {
         let mut num: i32 =  1;
         do
@@ -8296,7 +8296,7 @@ label_8:
           numArray9[index4] = num;
           if (x > 999)
             numArray4[tfacing2] = 1;
-          if ((double) this.game.Data.RuleVar[455] > 0.0 & this.game.Data.Product >= 6 && x > 100)
+          if ( this.game.Data.RuleVar[455] > 0.0 & this.game.Data.Product >= 6 && x > 100)
             numArray4[tfacing2] = 1;
           if (this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].UnitCounter > 14 && this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].Regime == -1 | this.game.Data.MapObj[coordinate2.map].HexObj[coordinate2.x, coordinate2.y].Regime == this.game.Data.UnitObj[unr].Regime)
             numArray4[tfacing2] = 1;
@@ -8373,7 +8373,7 @@ label_8:
         tfacing1 += 1;
       }
       while (tfacing1 <= 6);
-      if (!Information.IsNothing((object) neighbour))
+      if (!Information.IsNothing( neighbour))
       {
         let mut num: i32 =  1;
         do
@@ -8425,7 +8425,7 @@ label_8:
     pub int HexNeighbourCountAir(int cx, int cy, int cmap)
     {
       let mut num: i32 =  6;
-      if (!Information.IsNothing((object) this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps))
+      if (!Information.IsNothing( this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps))
       {
         let mut counter: i32 =  this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps.Counter;
         for (let mut index: i32 =  0; index <= counter; index += 1)
@@ -8436,19 +8436,19 @@ label_8:
 
     pub int GetMinimumEntrench(int x, int y, int map, int grp)
     {
-      let mut minimumEntrench: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonus[grp]);
+      let mut minimumEntrench: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonus[grp]);
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
       if (location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].PictureLT > -1)
-        minimumEntrench =  Math.Round((double) ((float) minimumEntrench + this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].PictureLT].DefBonus[grp]));
+        minimumEntrench =  Math.Round( ( minimumEntrench + this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].PictureLT].DefBonus[grp]));
       return minimumEntrench;
     }
 
     pub int GetMaximumEntrench(int x, int y, int map, int grp)
     {
-      let mut maximumEntrench: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonusMax[grp]);
+      let mut maximumEntrench: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].DefBonusMax[grp]);
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
       if (location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].PictureLT > -1)
-        maximumEntrench =  Math.Round((double) ((float) maximumEntrench + this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].PictureLT].DefBonusMax[grp]));
+        maximumEntrench =  Math.Round( ( maximumEntrench + this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].PictureLT].DefBonusMax[grp]));
       return maximumEntrench;
     }
 
@@ -8510,7 +8510,7 @@ label_8:
               {
                 tfacing -= num5 + 1;
                 let mut num6: i32 =  tfacing % (this.game.Data.MapObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].ConnectionMap[index]].MapWidth + 1);
-                let mut num7: i32 =   Math.Round(Conversion.Int((double) tfacing / (double) (this.game.Data.MapObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].ConnectionMap[index]].MapWidth + 1)));
+                let mut num7: i32 =   Math.Round(Conversion.Int( tfacing /  (this.game.Data.MapObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].ConnectionMap[index]].MapWidth + 1)));
                 let mut connection: i32 =  this.game.Data.MapObj[cmap].HexObj[cx, cy].ConnectionMap[index];
                 coordinate.onmap = true;
                 coordinate.x = num6;
@@ -8605,7 +8605,7 @@ label_8:
       if (tfacing > 6)
       {
         let mut num4: i32 =  6;
-        if (!Information.IsNothing((object) this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps))
+        if (!Information.IsNothing( this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps))
         {
           let mut counter: i32 =  this.game.Data.MapObj[cmap].HexObj[cx, cy].tempLISjumps.Counter;
           for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
@@ -8663,7 +8663,7 @@ label_8:
     pub Coordinate HexNeighbourSameMap(int cx, int cy, int cmap, int tfacing)
     {
       Coordinate coordinate = Coordinate::new();
-      if (this.game.Data.MapObj[cmap].MapLoop & (double) this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0 && cx > this.game.Data.MapObj[cmap].MapWidth)
+      if (this.game.Data.MapObj[cmap].MapLoop &  this.game.Data.RuleVar[329] == 0.0 & this.game.Data.Round > 0 && cx > this.game.Data.MapObj[cmap].MapWidth)
         cx -= this.game.Data.MapObj[cmap].MapWidth + 1;
       int num1;
       int num2;
@@ -8729,7 +8729,7 @@ label_8:
 
     pub int Distance(int x1, int y1, int map1, int x2, int y2, int map2, let mut maxdistance: i32 =  9999)
     {
-      if (this.game.Data.MapObj[0].MapLoop && (double) Math.Abs(x2 - x1) > Conversion.Int((double) this.game.Data.MapObj[0].MapWidth / 2.0) + 1.0)
+      if (this.game.Data.MapObj[0].MapLoop &&  Math.Abs(x2 - x1) > Conversion.Int( this.game.Data.MapObj[0].MapWidth / 2.0) + 1.0)
       {
         if (x1 < x2)
           x1 += this.game.Data.MapObj[0].MapWidth + 1;
@@ -8739,7 +8739,7 @@ label_8:
       let mut val1: i32 =  Math.Abs(x2 - x1);
       let mut num1: i32 =  y2 - y1;
       let mut num2: i32 =  Math.Abs(num1);
-      return (x1 + 2) % 2 != 0 ? ((x2 + 2) % 2 != 0 ?  Math.Round(Math.Max((double) val1, (double) val1 + ((double) num2 - (double) val1 / 2.0))) : (num1 >= 0 ?  Math.Round(Math.Max((double) val1, (double) val1 + ((double) num2 - Math.Ceiling((double) val1 / 2.0)))) :  Math.Round(Math.Max((double) val1, (double) val1 + ((double) num2 - Math.Floor((double) val1 / 2.0)))))) : ((x2 + 2) % 2 != 0 ? (num1 <= 0 ?  Math.Round(Math.Max((double) val1, (double) val1 + ((double) num2 - Math.Ceiling((double) val1 / 2.0)))) :  Math.Round(Math.Max((double) val1, (double) val1 + ((double) num2 - Math.Floor((double) val1 / 2.0))))) :  Math.Round(Math.Max((double) val1, (double) val1 + ((double) num2 - (double) val1 / 2.0))));
+      return (x1 + 2) % 2 != 0 ? ((x2 + 2) % 2 != 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 -  val1 / 2.0))) : (num1 >= 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Ceiling( val1 / 2.0)))) :  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Floor( val1 / 2.0)))))) : ((x2 + 2) % 2 != 0 ? (num1 <= 0 ?  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Ceiling( val1 / 2.0)))) :  Math.Round(Math.Max( val1,  val1 + ( num2 - Math.Floor( val1 / 2.0))))) :  Math.Round(Math.Max( val1,  val1 + ( num2 -  val1 / 2.0))));
     }
 
     pub int GetMaxStaffIndividuals(int unr, int @this)
@@ -8773,18 +8773,18 @@ label_8:
         }
       }
       if (num3 > 0)
-        num2 =  Math.Round((double) num2 / (double) num3);
+        num2 =  Math.Round( num2 /  num3);
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round((double) num1 / (double) num2);
+      return  Math.Round( num1 /  num2);
     }
 
     pub int AirSupplyNeeded(int targetx, int targety, int targetmap)
     {
       let mut num1: i32 =  0;
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[857]), 99,  Math.Round((double) this.game.Data.RuleVar[858]), targetx, targety, targetmap, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[857]), 99,  Math.Round( this.game.Data.RuleVar[858]), targetx, targety, targetmap, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
       int index1;
-      if (Information.IsNothing((object) this.game.EditObj.TempValue3[index1]))
+      if (Information.IsNothing( this.game.EditObj.TempValue3[index1]))
         this.game.EditObj.TempValue3[index1] = this.game.EditObj.TempValue[index1].Clone();
       let mut mapWidth: i32 =  this.game.Data.MapObj[0].MapWidth;
       for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -8801,19 +8801,19 @@ label_8:
           let mut x: i32 =  this.game.Data.UnitObj[index4].X;
           let mut y: i32 =  this.game.Data.UnitObj[index4].Y;
           let mut map: i32 =  this.game.Data.UnitObj[index4].Map;
-          if ((double) this.game.EditObj.TempValue[map].Value[x, y] <= (double) this.game.Data.RuleVar[858])
+          if ( this.game.EditObj.TempValue[map].Value[x, y] <=  this.game.Data.RuleVar[858])
           {
             let mut num2: i32 =  this.game.Data.UnitObj[index4].SupplyInReq - this.game.Data.UnitObj[index4].SupplyIn;
             if (this.game.Data.UnitObj[index4].IsHQ)
               num2 -= this.game.Data.UnitObj[index4].SupplyReq - this.game.Data.UnitObj[index4].SupplyOut;
             if (0 > num2)
               num2 = 0;
-            if ((double) this.game.EditObj.TempValue[map].Value[x, y] >= (double) this.game.Data.RuleVar[858] * 0.25)
-              num2 =  Math.Round((double) num2 * 0.75);
-            else if ((double) this.game.EditObj.TempValue[map].Value[x, y] >= (double) this.game.Data.RuleVar[858] * 0.5)
-              num2 =  Math.Round((double) num2 * 0.5);
-            else if ((double) this.game.EditObj.TempValue[map].Value[x, y] >= (double) this.game.Data.RuleVar[858] * 0.75)
-              num2 =  Math.Round((double) num2 * 0.25);
+            if ( this.game.EditObj.TempValue[map].Value[x, y] >=  this.game.Data.RuleVar[858] * 0.25)
+              num2 =  Math.Round( num2 * 0.75);
+            else if ( this.game.EditObj.TempValue[map].Value[x, y] >=  this.game.Data.RuleVar[858] * 0.5)
+              num2 =  Math.Round( num2 * 0.5);
+            else if ( this.game.EditObj.TempValue[map].Value[x, y] >=  this.game.Data.RuleVar[858] * 0.75)
+              num2 =  Math.Round( num2 * 0.25);
             num1 += num2;
           }
         }
@@ -8893,7 +8893,7 @@ label_8:
             let mut num2: i32 =  0;
             if (this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.UnitObj[unit].Regime] == 2)
               num2 = 1;
-            if (this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.UnitObj[unit].Regime] == 1 && this.game.Data.MapObj[map].HexObj[x, y].Regime == -1 & (double) this.game.Data.RuleVar[525] == 1.0)
+            if (this.game.Data.RegimeObj[regnr].RegimeRel[this.game.Data.UnitObj[unit].Regime] == 1 && this.game.Data.MapObj[map].HexObj[x, y].Regime == -1 &  this.game.Data.RuleVar[525] == 1.0)
               num2 = 1;
             if (num2 == 0)
             {
@@ -9011,7 +9011,7 @@ label_8:
       coordinate.x = num1;
       coordinate.y = num2;
       if (num1 > 0)
-        coordinate.data1 =  Math.Round((double) num3 / (double) num1);
+        coordinate.data1 =  Math.Round( num3 /  num1);
       coordinate.data2 = num4;
       return coordinate;
     }
@@ -9058,9 +9058,9 @@ label_8:
                 if (reconMinusHide.x == 2)
                 {
                   this.game.HandyFunctionsObj.RandomizeForUnit(unr, i);
-                  float num4 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-                  float num5 = (float) ((1.0 - (double) num4) * 2.0);
-                  num3 =  Math.Round((double) Conversion.Int((VBMath.Rnd() * num5 + num4) * (float) num3));
+                  float num4 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+                  float num5 =  ((1.0 -  num4) * 2.0);
+                  num3 =  Math.Round( Conversion.Int((VBMath.Rnd() * num5 + num4) *  num3));
                   if (num3 < 1)
                     num3 = 1;
                   VBMath.Randomize();
@@ -9099,9 +9099,9 @@ label_8:
                 if (reconMinusHide.x == 2)
                 {
                   this.game.HandyFunctionsObj.RandomizeForUnit(unr, i);
-                  float num10 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-                  float num11 = (float) ((1.0 - (double) num10) * 2.0);
-                  num9 =  Math.Round((double) Conversion.Int((VBMath.Rnd() * num11 + num10) * (float) num9));
+                  float num10 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+                  float num11 =  ((1.0 -  num10) * 2.0);
+                  num9 =  Math.Round( Conversion.Int((VBMath.Rnd() * num11 + num10) *  num9));
                   if (num9 < 1)
                     num9 = 1;
                   VBMath.Randomize();
@@ -9159,9 +9159,9 @@ label_8:
                   if (reconMinusHide.x == 2)
                   {
                     this.game.HandyFunctionsObj.RandomizeForUnit(unr, i);
-                    float num15 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-                    float num16 = (float) ((1.0 - (double) num15) * 2.0);
-                    num14 =  Math.Round((double) Conversion.Int((VBMath.Rnd() * num16 + num15) * (float) num14));
+                    float num15 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+                    float num16 =  ((1.0 -  num15) * 2.0);
+                    num14 =  Math.Round( Conversion.Int((VBMath.Rnd() * num16 + num15) *  num14));
                     if (num14 < 1)
                       num14 = 1;
                     VBMath.Randomize();
@@ -9201,9 +9201,9 @@ label_8:
                     if (reconMinusHide.x == 2)
                     {
                       this.game.HandyFunctionsObj.RandomizeForUnit(unr, i);
-                      float num20 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-                      float num21 = (float) ((1.0 - (double) num20) * 2.0);
-                      num19 =  Math.Round((double) Conversion.Int((VBMath.Rnd() * num21 + num20) * (float) num19));
+                      float num20 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+                      float num21 =  ((1.0 -  num20) * 2.0);
+                      num19 =  Math.Round( Conversion.Int((VBMath.Rnd() * num21 + num20) *  num19));
                       if (num19 < 1)
                         num19 = 1;
                       VBMath.Randomize();
@@ -9263,9 +9263,9 @@ label_8:
               if (reconMinusHide.x == 2)
               {
                 this.game.HandyFunctionsObj.RandomizeForUnit(unr, simpleList1.Id[index14]);
-                float num27 = (float) reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
-                float num28 = (float) ((1.0 - (double) num27) * 2.0);
-                num26 =  Math.Round((double) Conversion.Int((VBMath.Rnd() * num28 + num27) * (float) num26));
+                float num27 =  reconMinusHide.y / (this.game.Data.RuleVar[56] - this.game.Data.RuleVar[55]);
+                float num28 =  ((1.0 -  num27) * 2.0);
+                num26 =  Math.Round( Conversion.Int((VBMath.Rnd() * num28 + num27) *  num26));
                 if (num26 < 1)
                   num26 = 1;
                 VBMath.Randomize();
@@ -9273,10 +9273,10 @@ label_8:
             }
             if (this.game.Data.Product >= 6)
             {
-              if ((double) this.game.Data.RuleVar[474] > 0.0)
+              if ( this.game.Data.RuleVar[474] > 0.0)
               {
                 let mut num29: i32 =  this.game.Data.transportMovementType[this.game.Data.SFTypeObj[this.game.Data.SFObj[simpleList1.Id[index14]].Type].MoveType];
-                num24 += num26 * 1 * Math.Max(1,  Math.Round((double) this.game.Data.SFTypeObj[this.game.Data.SFObj[simpleList1.Id[index14]].Type].Ratio / 3.0));
+                num24 += num26 * 1 * Math.Max(1,  Math.Round( this.game.Data.SFTypeObj[this.game.Data.SFObj[simpleList1.Id[index14]].Type].Ratio / 3.0));
               }
               else
                 num24 += num26 * this.game.Data.SFTypeObj[this.game.Data.SFObj[simpleList1.Id[index14]].Type].Ratio;
@@ -9308,7 +9308,7 @@ label_8:
           }
         }
       }
-      return (object) simpleList7;
+      return  simpleList7;
     }
 
     pub int ClickOnHexGivesUnit(
@@ -9466,7 +9466,7 @@ label_8:
           for (let mut index: i32 =  0; index <= unitCounter2; index += 1)
           {
             let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index];
-            if (this.CanWeSeeUnit(unit, this.game.Data.Turn) > 0 && (double) this.game.Data.RuleVar[474] < 1.0 | this.game.Data.UnitObj[unit].Regime != this.game.Data.Turn | this.game.Data.UnitObj[unit].attachedTo == -1)
+            if (this.CanWeSeeUnit(unit, this.game.Data.Turn) > 0 &&  this.game.Data.RuleVar[474] < 1.0 | this.game.Data.UnitObj[unit].Regime != this.game.Data.Turn | this.game.Data.UnitObj[unit].attachedTo == -1)
             {
               num3 += 1;
               if (num2 == num3)
@@ -9484,7 +9484,7 @@ label_8:
         for (let mut index: i32 =  0; index <= unitCounter3; index += 1)
         {
           let mut unit: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitList[index];
-          if (this.CanWeSeeUnit(unit, this.game.Data.Turn) > 0 && (double) this.game.Data.RuleVar[474] < 1.0 | this.game.Data.UnitObj[unit].Regime != this.game.Data.Turn | this.game.Data.UnitObj[unit].attachedTo == -1)
+          if (this.CanWeSeeUnit(unit, this.game.Data.Turn) > 0 &&  this.game.Data.RuleVar[474] < 1.0 | this.game.Data.UnitObj[unit].Regime != this.game.Data.Turn | this.game.Data.UnitObj[unit].attachedTo == -1)
             return unit;
         }
         return -1;
@@ -9514,7 +9514,7 @@ label_8:
               this.game.Data.MapObj[map].HexObj[x, y].UnitList[index2] = this.game.Data.MapObj[map].HexObj[x, y].UnitList[index2 + 1];
           }
           this.game.Data.MapObj[map].HexObj[x, y].UnitList[this.game.Data.MapObj[map].HexObj[x, y].UnitCounter] = unit;
-          if (this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].Regime != this.game.Data.Turn | (double) this.game.Data.RuleVar[474] < 1.0 | this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].attachedTo == -1)
+          if (this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].Regime != this.game.Data.Turn |  this.game.Data.RuleVar[474] < 1.0 | this.game.Data.UnitObj[this.game.Data.MapObj[map].HexObj[x, y].UnitList[0]].attachedTo == -1)
             break;
         }
       }
@@ -9529,7 +9529,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.FuzzyPresumed[index1]) && this.game.EditObj.FuzzyPresumed[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.FuzzyPresumed[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.FuzzyPresumed[index1]) && this.game.EditObj.FuzzyPresumed[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.FuzzyPresumed[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9562,7 +9562,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.FuzzyReal[index1]) && this.game.EditObj.FuzzyReal[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.FuzzyReal[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.FuzzyReal[index1]) && this.game.EditObj.FuzzyReal[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.FuzzyReal[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9595,7 +9595,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempValue[index1]) && this.game.EditObj.TempValue[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempValue[index1]) && this.game.EditObj.TempValue[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9628,7 +9628,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempLos[index1]) && this.game.EditObj.TempLos[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempLos[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempLos[index1]) && this.game.EditObj.TempLos[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempLos[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9661,7 +9661,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempObstruct[index1]) && this.game.EditObj.TempObstruct[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempObstruct[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempObstruct[index1]) && this.game.EditObj.TempObstruct[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempObstruct[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9694,7 +9694,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempValueSpecial[index1]) && this.game.EditObj.TempValueSpecial[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValueSpecial[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempValueSpecial[index1]) && this.game.EditObj.TempValueSpecial[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValueSpecial[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9727,7 +9727,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempValueSpecial2[index1]) && this.game.EditObj.TempValueSpecial2[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValueSpecial2[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempValueSpecial2[index1]) && this.game.EditObj.TempValueSpecial2[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValueSpecial2[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9760,7 +9760,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempValue2[index1]) && this.game.EditObj.TempValue2[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue2[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempValue2[index1]) && this.game.EditObj.TempValue2[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue2[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9792,7 +9792,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempValue3[index1]) && this.game.EditObj.TempValue3[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue3[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempValue3[index1]) && this.game.EditObj.TempValue3[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue3[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9824,7 +9824,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempValue4[index1]) && this.game.EditObj.TempValue4[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue4[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempValue4[index1]) && this.game.EditObj.TempValue4[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempValue4[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -9899,8 +9899,8 @@ label_8:
       let mut location: i32 =  this.game.Data.MapObj[0].HexObj[x, y].Location;
       if (location <= -1 || this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].TopAirStack <= 0)
         return 1f;
-      float num2 = (float) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].TopAirStack / (float) num1;
-      return (double) num2 > 1.0 ? 1f : num2;
+      float num2 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].TopAirStack /  num1;
+      return  num2 > 1.0 ? 1f : num2;
     }
 
     pub void RedimTempSupCameFrom()
@@ -9944,24 +9944,24 @@ label_8:
       string bridgeBuildCostString;
       if (num1 > -1)
       {
-        let mut num2: i32 =  !((double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6) ? this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, x1, y1, z1, x2, y2, z2, EngineerTest: true).x : this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, x1, y1, z1, x2, y2, z2, true, EngineerTest: true).x;
+        let mut num2: i32 =  !( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6) ? this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, x1, y1, z1, x2, y2, z2, EngineerTest: true).x : this.game.HandyFunctionsObj.MoveApCostPreview(this.game.EditObj.OrderUnit, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].X, this.game.Data.UnitObj[this.game.EditObj.OrderUnit].Y, x1, y1, z1, x2, y2, z2, true, EngineerTest: true).x;
         if (num2 <= this.game.HandyFunctionsObj.GetLowestAp(this.game.EditObj.OrderUnit))
         {
           let mut facing: i32 =  num1 - 1;
           string str;
-          if ((double) this.game.Data.RuleVar[32] == -1.0)
+          if ( this.game.Data.RuleVar[32] == -1.0)
           {
             if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing] > -1 & this.game.HandyFunctionsObj.CanConstructBridge(this.game.EditObj.OrderUnit, x1, y1, z1, facing))
             {
-              if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])
+              if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])
               {
-                str = (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier > (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit) ? "Cannot build bridge here. Not enough EP. Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP" : "Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
+                str =  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier >  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit) ? "Cannot build bridge here. Not enough EP. Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP" : "Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
               }
               else
               {
                 str = "Cannot build bridge here. Not enough resources to build bridge.";
-                if ((double) this.game.Data.RuleVar[822] > -1.0)
-                  str = str + ". " + Conversion.Str((object) (float) ((double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                if ( this.game.Data.RuleVar[822] > -1.0)
+                  str = str + ". " + Conversion.Str(  ( this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
               }
             }
             else
@@ -9969,75 +9969,75 @@ label_8:
           }
           else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing] > -1 & !this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].Bridge[facing])
           {
-            if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])
+            if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])
             {
-              if ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
+              if ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
               {
-                str = "Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
-                if ((double) this.game.Data.RuleVar[822] > -1.0)
-                  str = str + ". " + Conversion.Str((object) (float) ((double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                str = "Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
+                if ( this.game.Data.RuleVar[822] > -1.0)
+                  str = str + ". " + Conversion.Str(  ( this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
               }
               else
-                str = "Cannot build bridge here. Not enough EP. Bridge Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
+                str = "Cannot build bridge here. Not enough EP. Bridge Cost: " + Conversion.Str(  ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
             }
             else
             {
               str = "Cannot build bridge here. Not enough resources to build bridge.";
-              if ((double) this.game.Data.RuleVar[822] > -1.0)
-                str = str + ". " + Conversion.Str((object) (float) ((double) this.game.Data.RuleVar[823] + (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier * (double) this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+              if ( this.game.Data.RuleVar[822] > -1.0)
+                str = str + ". " + Conversion.Str(  ( this.game.Data.RuleVar[823] +  this.game.Data.RiverTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RiverType[facing]].BridgeCostModifier *  this.game.Data.RuleVar[825])) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
             }
           }
           else if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].CanBuildRoad)
             str = "You are not allowed to build roads on this landscape type";
           else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RoadType[facing] == -1)
           {
-            if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823])
+            if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823])
             {
-              if ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
+              if ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
               {
-                str = "Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
-                if ((double) this.game.Data.RuleVar[822] > -1.0)
-                  str = str + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                str = "Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
+                if ( this.game.Data.RuleVar[822] > -1.0)
+                  str = str + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
               }
               else
-                str = "Cannot build bridge here. Not enough EP. Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
+                str = "Cannot build bridge here. Not enough EP. Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
             }
             else
             {
               str = "Cannot build bridge here. Not enough resources to construct road.";
-              if ((double) this.game.Data.RuleVar[822] > -1.0)
-                str = str + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+              if ( this.game.Data.RuleVar[822] > -1.0)
+                str = str + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
             }
           }
-          else if ((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RoadType[facing] == (double) this.game.Data.RuleVar[821])
+          else if ( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RoadType[facing] ==  this.game.Data.RuleVar[821])
           {
-            if ((double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[824])
+            if ( this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[824])
             {
-              if ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[821])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
+              if ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[821])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(this.game.EditObj.OrderUnit))
               {
-                str = "Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[821])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
-                if ((double) this.game.Data.RuleVar[822] > -1.0)
-                  str = str + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+                str = "Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[821])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
+                if ( this.game.Data.RuleVar[822] > -1.0)
+                  str = str + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
               }
               else
-                str = "Cannot build bridge here. Not enough EP. Road Cost: " + Conversion.Str((object) (float) ((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[821])].EPCost * (double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
+                str = "Cannot build bridge here. Not enough EP. Road Cost: " + Conversion.Str(  ( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[821])].EPCost *  this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x2, y2].LandscapeType].RoadCostModifier)) + " EP";
             }
             else
             {
               str = "Cannot build bridge here. Not enough resources to construct road.";
-              if ((double) this.game.Data.RuleVar[822] > -1.0)
-                str = str + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+              if ( this.game.Data.RuleVar[822] > -1.0)
+                str = str + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
             }
           }
-          else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RoadType[facing] > -1 & !((double) this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RoadType[facing] == (double) this.game.Data.RuleVar[821] & (double) this.game.Data.RuleVar[820] > -1.0))
+          else if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RoadType[facing] > -1 & !( this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[x1, y1].RoadType[facing] ==  this.game.Data.RuleVar[821] &  this.game.Data.RuleVar[820] > -1.0))
           {
             str = "Cannot build bridge here. Already road/bridge here.";
           }
           else
           {
             str = "Cannot build bridge here. Not enough resources to construct road.";
-            if ((double) this.game.Data.RuleVar[822] > -1.0)
-              str = str + ". " + Conversion.Str((object) this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round((double) this.game.Data.RuleVar[822])];
+            if ( this.game.Data.RuleVar[822] > -1.0)
+              str = str + ". " + Conversion.Str( this.game.Data.RuleVar[823]) + "x " + this.game.Data.RegimeSlotName[ Math.Round( this.game.Data.RuleVar[822])];
           }
           bridgeBuildCostString = str + " AP Cost = " + num2.ToString();
         }
@@ -10060,11 +10060,11 @@ label_8:
         if (coordinate1.onmap)
         {
           let mut landscapeType: i32 =  this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].LandscapeType;
-          if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) | (double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6 && !this.HasUnitAirSF(unr) & !this.HasUnitNavySF(unr))
+          if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) |  this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6 && !this.HasUnitAirSF(unr) & !this.HasUnitNavySF(unr))
           {
             Coordinate coordinate2;
             int x1;
-            if ((double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
+            if ( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
             {
               coordinate2 = this.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x, y, map, coordinate1.x, coordinate1.y, map, true, EngineerTest: true);
               x1 = coordinate2.x;
@@ -10078,17 +10078,17 @@ label_8:
             {
               if (this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1] > -1 & !this.game.Data.MapObj[map].HexObj[x, y].Bridge[tfacing - 1])
               {
-                if ((double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+                if ( this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
                 {
                   let mut num: i32 =  0;
-                  if ((double) this.game.Data.RuleVar[822] > -1.0)
+                  if ( this.game.Data.RuleVar[822] > -1.0)
                   {
                     if (this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] == -1)
                     {
-                      if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[825] * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier + (double) this.game.Data.RuleVar[823])
+                      if ( this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[825] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier +  this.game.Data.RuleVar[823])
                         num = 1;
                     }
-                    else if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[825] * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier)
+                    else if ( this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[825] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier)
                       num = 1;
                   }
                   else
@@ -10102,13 +10102,13 @@ label_8:
               }
               else if (this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] == -1)
               {
-                if ((double) this.game.Data.RuleVar[32] > -1.0 && (double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823] && (double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier * (double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+                if ( this.game.Data.RuleVar[32] > -1.0 &&  this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823] &&  this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier *  this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
                 {
                   this.game.EditObj.TempValue[coordinate1.map].Value[coordinate1.x, coordinate1.y] = 0;
                   this.game.EditObj.TempCoordList.AddCoord(coordinate1.x, coordinate1.y, coordinate1.map);
                 }
               }
-              else if ((double) this.game.Data.RuleVar[820] > -1.0 & (double) this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] == (double) this.game.Data.RuleVar[821] && (double) this.game.Data.RuleVar[32] > -1.0 && (double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[824] && (double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+              else if ( this.game.Data.RuleVar[820] > -1.0 &  this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] ==  this.game.Data.RuleVar[821] &&  this.game.Data.RuleVar[32] > -1.0 &&  this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[824] &&  this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
               {
                 this.game.EditObj.TempValue[coordinate1.map].Value[coordinate1.x, coordinate1.y] = 0;
                 this.game.EditObj.TempCoordList.AddCoord(coordinate1.x, coordinate1.y, coordinate1.map);
@@ -10131,11 +10131,11 @@ label_8:
         if (coordinate1.onmap)
         {
           let mut landscapeType: i32 =  this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].LandscapeType;
-          if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) | (double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6 && !this.HasUnitAirSF(unr) & !this.HasUnitNavySF(unr))
+          if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) |  this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6 && !this.HasUnitAirSF(unr) & !this.HasUnitNavySF(unr))
           {
             Coordinate coordinate2;
             int x1;
-            if ((double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
+            if ( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
             {
               coordinate2 = this.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x, y, map, coordinate1.x, coordinate1.y, map, true, EngineerTest: true);
               x1 = coordinate2.x;
@@ -10149,17 +10149,17 @@ label_8:
             {
               if (this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1] > -1 & !this.game.Data.MapObj[map].HexObj[x, y].Bridge[tfacing - 1])
               {
-                if ((double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+                if ( this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
                 {
                   let mut num: i32 =  0;
-                  if ((double) this.game.Data.RuleVar[822] > -1.0)
+                  if ( this.game.Data.RuleVar[822] > -1.0)
                   {
                     if (this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] == -1)
                     {
-                      if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[825] * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier + (double) this.game.Data.RuleVar[823])
+                      if ( this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[825] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier +  this.game.Data.RuleVar[823])
                         num = 1;
                     }
-                    else if ((double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[825] * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier)
+                    else if ( this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[825] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[tfacing - 1]].BridgeCostModifier)
                       num = 1;
                   }
                   else
@@ -10170,10 +10170,10 @@ label_8:
               }
               else if (this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] == -1)
               {
-                if ((double) this.game.Data.RuleVar[32] > -1.0 && (double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823] && (double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier * (double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+                if ( this.game.Data.RuleVar[32] > -1.0 &&  this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823] &&  this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier *  this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
                   coordList.AddCoord(coordinate1.x, coordinate1.y, 0);
               }
-              else if ((double) this.game.Data.RuleVar[820] > -1.0 & (double) this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] == (double) this.game.Data.RuleVar[821] && (double) this.game.Data.RuleVar[32] > -1.0 && (double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[824] && (double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+              else if ( this.game.Data.RuleVar[820] > -1.0 &  this.game.Data.MapObj[map].HexObj[x, y].RoadType[tfacing - 1] ==  this.game.Data.RuleVar[821] &&  this.game.Data.RuleVar[32] > -1.0 &&  this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[824] &&  this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
                 coordList.AddCoord(coordinate1.x, coordinate1.y, 0);
             }
           }
@@ -10310,7 +10310,7 @@ label_8:
       for (let mut index1: i32 =  0; index1 <= mapCounter; index1 += 1)
       {
         let mut num: i32 =  0;
-        if (!Information.IsNothing((object) this.game.EditObj.TempCameFrom[index1]) && this.game.EditObj.TempCameFrom[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempCameFrom[index1].Height == this.game.Data.MapObj[index1].MapHeight)
+        if (!Information.IsNothing( this.game.EditObj.TempCameFrom[index1]) && this.game.EditObj.TempCameFrom[index1].Width == this.game.Data.MapObj[index1].MapWidth && this.game.EditObj.TempCameFrom[index1].Height == this.game.Data.MapObj[index1].MapHeight)
         {
           let mut mapWidth: i32 =  this.game.Data.MapObj[index1].MapWidth;
           for (let mut index2: i32 =  0; index2 <= mapWidth; index2 += 1)
@@ -10376,7 +10376,7 @@ label_8:
       for (let mut unr1: i32 =  0; unr1 <= unitCounter1; unr1 += 1)
       {
         bool flag = false;
-        if ((double) this.game.Data.RuleVar[954] == 0.0)
+        if ( this.game.Data.RuleVar[954] == 0.0)
         {
           if (this.game.Data.UnitObj[unr1].PreDef == -1 & this.game.Data.UnitObj[unr1].Historical == historical & (this.game.Data.UnitObj[unr1].Regime == this.game.Data.Turn | this.game.Data.Round == 0))
             flag = true;
@@ -10423,7 +10423,7 @@ label_8:
       for (let mut index: i32 =  0; index <= unitCounter2; index += 1)
       {
         bool flag = false;
-        if ((double) this.game.Data.RuleVar[954] == 0.0)
+        if ( this.game.Data.RuleVar[954] == 0.0)
         {
           if (this.game.Data.UnitObj[index].PreDef == -1 & this.game.Data.UnitObj[index].Historical == historical & (this.game.Data.UnitObj[index].Regime == this.game.Data.Turn | this.game.Data.Round == 0))
             flag = true;
@@ -10555,9 +10555,9 @@ label_8:
             {
               num4 = this.game.Data.SFTypeObj[type].AirAPRule;
               if (this.game.Data.SFTypeObj[type].Theater == 2 && IsTransfer)
-                num4 =  Math.Round(Conversion.Int((double) num4 / 2.0));
+                num4 =  Math.Round(Conversion.Int( num4 / 2.0));
               if (this.game.Data.SFTypeObj[type].Theater == 2 & !IsTransfer & ismove)
-                num4 =  Math.Round(Conversion.Int((double) num4 / 2.0));
+                num4 =  Math.Round(Conversion.Int( num4 / 2.0));
             }
             if (this.game.Data.SFTypeObj[type].AirAPRule == -1)
             {
@@ -10615,7 +10615,7 @@ label_8:
               {
                 let mut PreviousAPspent: i32 =  this.game.EditObj.TempValue[arySrc1[index1].map].Value[arySrc1[index1].x, arySrc1[index1].y];
                 int val2;
-                if ((double) this.game.Data.RuleVar[814] == 1.0)
+                if ( this.game.Data.RuleVar[814] == 1.0)
                   val2 = PreviousAPspent + 0;
                 else if (num4 == -1)
                 {
@@ -10768,7 +10768,7 @@ label_8:
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[701] > 0.0 & this.game.Data.Product >= 6)
+      if ( this.game.Data.RuleVar[701] > 0.0 & this.game.Data.Product >= 6)
       {
         let mut counter: i32 =  coordList1.counter;
         for (let mut index: i32 =  0; index <= counter; index += 1)
@@ -10801,7 +10801,7 @@ label_8:
           }
         }
       }
-      if (!this.game.HandyFunctionsObj.HasUnitAirSF(unr) && (double) this.game.Data.RuleVar[814] == 0.0 & attackoptions)
+      if (!this.game.HandyFunctionsObj.HasUnitAirSF(unr) &&  this.game.Data.RuleVar[814] == 0.0 & attackoptions)
       {
         let mut mapCounter: i32 =  this.game.Data.MapCounter;
         for (let mut index11: i32 =  0; index11 <= mapCounter; index11 += 1)
@@ -10824,7 +10824,7 @@ label_8:
                     let mut x1: i32 =  coordinate2.x;
                     let mut index14: i32 =  this.HexFacing(coordinate4.x, coordinate4.y, coordinate4.map, index12, index13, index11) - 1;
                     let mut lowestAp: i32 =  this.GetLowestAp(unr);
-                    if ((double) this.game.Data.RuleVar[493] > 0.0 & index14 >= 0 & x1 + this.game.EditObj.TempValue[index11].Value[index12, index13] > lowestAp)
+                    if ( this.game.Data.RuleVar[493] > 0.0 & index14 >= 0 & x1 + this.game.EditObj.TempValue[index11].Value[index12, index13] > lowestAp)
                     {
                       if (x1 + this.game.EditObj.TempValue[index11].Value[index12, index13] <= this.GetLowestAp(unr) | coordinate2.data2 > 0)
                       {
@@ -10882,7 +10882,7 @@ label_8:
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[814] == 1.0)
+      if ( this.game.Data.RuleVar[814] == 1.0)
       {
         let mut num17: i32 =  -1;
         if (this.game.Data.TempString[740].Length > 0 & unr > -1)
@@ -11084,7 +11084,7 @@ label_8:
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[814] == 0.0 & attackoptions)
+      if ( this.game.Data.RuleVar[814] == 0.0 & attackoptions)
       {
         let mut mapCounter: i32 =  this.game.Data.MapCounter;
         for (let mut index5: i32 =  0; index5 <= mapCounter; index5 += 1)
@@ -11348,11 +11348,11 @@ label_8:
                     flag3 = true;
                   if (flag1)
                   {
-                    if (val2_1 > 0 & !flag3 & val2_1 >= Math.Min(dontGoUnder, this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y]) & this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y] > 0 && !Information.IsNothing((object) this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y]) && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 > 0 & this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 < 999 && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data1 > 0 && arySrc1[index1].data2 <= 0 | arySrc1[index1].data2 == 999)
+                    if (val2_1 > 0 & !flag3 & val2_1 >= Math.Min(dontGoUnder, this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y]) & this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y] > 0 && !Information.IsNothing( this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y]) && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 > 0 & this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 < 999 && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data1 > 0 && arySrc1[index1].data2 <= 0 | arySrc1[index1].data2 == 999)
                       flag3 = true;
-                    if (val2_1 > 0 & val2_1 > this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y] & this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y] > 0 && !Information.IsNothing((object) this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y]) && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 < 1 | this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 >= 999 && arySrc1[index1].data2 > 0 | arySrc1[index1].data2 < 999)
+                    if (val2_1 > 0 & val2_1 > this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y] & this.game.EditObj.TempValue[0].Value[coordinate.x, coordinate.y] > 0 && !Information.IsNothing( this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y]) && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 < 1 | this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 >= 999 && arySrc1[index1].data2 > 0 | arySrc1[index1].data2 < 999)
                       flag3 = false;
-                    if (!flag3 & favorizeHighestSize && val2_1 > 0 & !flag3 && !Information.IsNothing((object) this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y]) && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 > 0 & this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 < 999 && coordinate.data2 > this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 & coordinate.data2 < 999)
+                    if (!flag3 & favorizeHighestSize && val2_1 > 0 & !flag3 && !Information.IsNothing( this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y]) && this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 > 0 & this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 < 999 && coordinate.data2 > this.game.EditObj.TempCameFrom[0].Value[coordinate.x, coordinate.y].data2 & coordinate.data2 < 999)
                       flag3 = true;
                   }
                   if (flag3)
@@ -11537,8 +11537,8 @@ label_8:
       {
         Coordinate historicalAverageHex;
         historicalAverageHex.onmap = true;
-        historicalAverageHex.x =  Math.Round((double) num1 / (double) num3);
-        historicalAverageHex.y =  Math.Round((double) num2 / (double) num3);
+        historicalAverageHex.x =  Math.Round( num1 /  num3);
+        historicalAverageHex.y =  Math.Round( num2 /  num3);
         return historicalAverageHex;
       }
       Coordinate historicalAverageHex1;
@@ -11557,7 +11557,7 @@ label_8:
         if (this.game.Data.RegimeObj[reg1].RegimeRel[reg2] == 2)
           return true;
       }
-      else if (this.game.Data.RegimeObj[reg1].UberRegime == reg2 || this.game.Data.RegimeObj[reg2].UberRegime == reg1 || this.game.Data.RegimeObj[reg1].UberRegime == this.game.Data.RegimeObj[reg2].UberRegime & this.game.Data.RegimeObj[reg1].UberRegime > -1 || (double) this.game.Data.RuleVar[328] == 1.0 && this.game.Data.RegimeObj[reg1].RegimeRel[reg2] == 2)
+      else if (this.game.Data.RegimeObj[reg1].UberRegime == reg2 || this.game.Data.RegimeObj[reg2].UberRegime == reg1 || this.game.Data.RegimeObj[reg1].UberRegime == this.game.Data.RegimeObj[reg2].UberRegime & this.game.Data.RegimeObj[reg1].UberRegime > -1 ||  this.game.Data.RuleVar[328] == 1.0 && this.game.Data.RegimeObj[reg1].RegimeRel[reg2] == 2)
         return true;
       return false;
     }
@@ -11574,7 +11574,7 @@ label_8:
           let mut type: i32 =  this.game.Data.SFObj[sf].Type;
           if (this.game.Data.SFTypeObj[type].FuelForMove > 0)
           {
-            let mut num2: i32 =   Math.Round(Conversion.Int((double) (ap * this.game.Data.SFTypeObj[type].FuelForMove) / 10.0));
+            let mut num2: i32 =   Math.Round(Conversion.Int( (ap * this.game.Data.SFTypeObj[type].FuelForMove) / 10.0));
             if (this.game.Data.SFTypeObj[type].FuelForMove > num2 & ap > 0)
               num2 = this.game.Data.SFTypeObj[type].FuelForMove;
             let mut num3: i32 =  num2 * this.game.Data.SFObj[sf].Qty;
@@ -11582,21 +11582,21 @@ label_8:
           }
         }
       }
-      return (object) num1;
+      return  num1;
     }
 
     pub CheckIfInCorrectFrontzone: bool(int unr, int x, int y)
     {
       bool flag = false;
-      if ((double) this.game.Data.RuleVar[983] < 1.0)
+      if ( this.game.Data.RuleVar[983] < 1.0)
         return true;
       int num;
-      if ((double) this.game.Data.RuleVar[984] < 5.0)
+      if ( this.game.Data.RuleVar[984] < 5.0)
       {
         if (!(this.game.Data.TempString[723].Length > 0 & this.game.Data.TempString[725].Length > 0 & this.game.Data.UnitObj[unr].Historical > -1))
           return true;
         str: String = this.game.EventRelatedObj.CheckLibVarHistorical(this.game.Data.UnitObj[unr].Historical, this.game.Data.TempString[725], this.game.Data.TempString[723], 0);
-        if (Information.IsNothing((object) str) || Operators.CompareString(str, "", false) == 0)
+        if (Information.IsNothing( str) || Operators.CompareString(str, "", false) == 0)
           return true;
         num =  Math.Round(Conversion.Val(str));
         if (num == 0)
@@ -11605,29 +11605,29 @@ label_8:
       }
       if (!flag)
       {
-        if (this.game.Data.UnitObj[unr].Historical <= -1 || (double) this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].Type >= (double) this.game.Data.RuleVar[984])
+        if (this.game.Data.UnitObj[unr].Historical <= -1 ||  this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[unr].Historical].Type >=  this.game.Data.RuleVar[984])
           return true;
         let mut hq: i32 =  this.game.Data.UnitObj[unr].HQ;
         if (hq > -1 && this.game.Data.UnitObj[hq].Historical > -1)
         {
-          if ((double) this.game.Data.RuleVar[984] >= 6.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 5)
+          if ( this.game.Data.RuleVar[984] >= 6.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 5)
             hq = this.game.Data.UnitObj[hq].HQ;
           if (hq > -1 && this.game.Data.UnitObj[hq].Historical > -1)
           {
-            if ((double) this.game.Data.RuleVar[984] >= 7.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 6)
+            if ( this.game.Data.RuleVar[984] >= 7.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 6)
               hq = this.game.Data.UnitObj[hq].HQ;
             if (hq > -1 && this.game.Data.UnitObj[hq].Historical > -1)
             {
-              if ((double) this.game.Data.RuleVar[984] >= 8.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 7)
+              if ( this.game.Data.RuleVar[984] >= 8.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 7)
                 hq = this.game.Data.UnitObj[hq].HQ;
-              if (hq > -1 && this.game.Data.UnitObj[hq].Historical > -1 && (double) this.game.Data.RuleVar[984] >= 9.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 8)
+              if (hq > -1 && this.game.Data.UnitObj[hq].Historical > -1 &&  this.game.Data.RuleVar[984] >= 9.0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[hq].Historical].Type <= 8)
                 hq = this.game.Data.UnitObj[hq].HQ;
             }
           }
         }
         return !(this.game.Data.TempString[721].Length > 0 & hq > -1) ||  Math.Round(Conversion.Val(this.game.EventRelatedObj.CheckLibVarHex(x, y, this.game.Data.TempString[722], this.game.Data.TempString[721]))) ==  Math.Round(Conversion.Val(this.game.EventRelatedObj.CheckLibVarHex(this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.TempString[722], this.game.Data.TempString[721])));
       }
-      return this.game.Data.TempString[721].Length <= 0 ||  Math.Round(Conversion.Val(this.game.EventRelatedObj.CheckLibVarHex(x, y, this.game.Data.TempString[722], this.game.Data.TempString[721]))) == num || (double) num == Conversion.Val(this.game.Data.TempString[724]);
+      return this.game.Data.TempString[721].Length <= 0 ||  Math.Round(Conversion.Val(this.game.EventRelatedObj.CheckLibVarHex(x, y, this.game.Data.TempString[722], this.game.Data.TempString[721]))) == num ||  num == Conversion.Val(this.game.Data.TempString[724]);
     }
 
     pub Coordinate MoveApCostPreview(
@@ -11669,8 +11669,8 @@ label_8:
       int[] numArray11 = new int[251];
       int[] numArray12 = new int[500];
       int num1;
-      if ((double) this.game.Data.RuleVar[459] > 0.0)
-        num1 =  Math.Round(Math.Ceiling((double) (this.game.HandyFunctionsObj.GetUnitWeight(unr, true) * 1) / (double) this.game.Data.RuleVar[33]));
+      if ( this.game.Data.RuleVar[459] > 0.0)
+        num1 =  Math.Round(Math.Ceiling( (this.game.HandyFunctionsObj.GetUnitWeight(unr, true) * 1) /  this.game.Data.RuleVar[33]));
       Coordinate tcoord;
       tcoord.y = 0;
       tcoord.data2 = 0;
@@ -11726,15 +11726,15 @@ label_8:
           if (this.game.Data.SFTypeObj[type].FuelForMove > 0 && this.game.Data.SFTypeObj[type].FuelRegimeVar > -1 & PreviousAPspent > 0)
           {
             let mut currentSlot: i32 =  this.game.Data.SFTypeObj[type].FuelRegimeVar;
-            if ((double) this.game.Data.RuleVar[435] > 0.0)
+            if ( this.game.Data.RuleVar[435] > 0.0)
             {
-              let mut num2: i32 =   Math.Round((double) this.game.Data.RuleVar[435]);
-              let mut num3: i32 =   Math.Round(Conversion.Int((double) (PreviousAPspent * this.game.Data.SFTypeObj[type].FuelForMove) / 10.0));
+              let mut num2: i32 =   Math.Round( this.game.Data.RuleVar[435]);
+              let mut num3: i32 =   Math.Round(Conversion.Int( (PreviousAPspent * this.game.Data.SFTypeObj[type].FuelForMove) / 10.0));
               if (this.game.Data.SFTypeObj[type].FuelForMove > num3)
                 num3 = this.game.Data.SFTypeObj[type].FuelForMove;
               let mut num4: i32 =  num3 * simpleList.Weight[index2];
               if (this.game.Data.UnitObj[unr].moveMode == 1)
-                num4 =  Math.Round(Math.Ceiling((double) num4 / 2.0));
+                num4 =  Math.Round(Math.Ceiling( num4 / 2.0));
               int[] numArray13 = numArray12;
               int[] numArray14 = numArray13;
               let mut index3: i32 =  num2;
@@ -11744,9 +11744,9 @@ label_8:
             }
             else
             {
-              if ((double) this.game.Data.RuleVar[949] > 0.0)
+              if ( this.game.Data.RuleVar[949] > 0.0)
                 currentSlot = this.game.HandyFunctionsObj.GetFuelSlot949(currentSlot, ox1, oy1);
-              let mut num6: i32 =   Math.Round(Conversion.Int((double) (PreviousAPspent * this.game.Data.SFTypeObj[type].FuelForMove) / 10.0));
+              let mut num6: i32 =   Math.Round(Conversion.Int( (PreviousAPspent * this.game.Data.SFTypeObj[type].FuelForMove) / 10.0));
               if (this.game.Data.SFTypeObj[type].FuelForMove > num6)
                 num6 = this.game.Data.SFTypeObj[type].FuelForMove;
               let mut num7: i32 =  num6 * simpleList.Weight[index2];
@@ -11788,7 +11788,7 @@ label_8:
       let mut index8: i32 =  index7 + 3;
       if (index8 > 5)
         index8 -= 6;
-      if ((double) this.game.Data.RuleVar[452] > 0.0 & index7 > -1 && this.game.Data.MapObj[0].HexObj[x2, y2].RoadType[index7] > -1)
+      if ( this.game.Data.RuleVar[452] > 0.0 & index7 > -1 && this.game.Data.MapObj[0].HexObj[x2, y2].RoadType[index7] > -1)
         IgnoreBridges = true;
       let mut num10: i32 =  0;
       let mut num11: i32 =  0;
@@ -11804,9 +11804,9 @@ label_8:
           if (index1 == onlySfNr | onlySfNr == -1)
           {
             let mut index10: i32 =  this.game.Data.SFObj[index1].Type;
-            if (ignoreScrappable && (double) this.game.Data.RuleVar[486] > 0.0 && this.game.Data.SFTypeObj[index10].scrapable > 1)
+            if (ignoreScrappable &&  this.game.Data.RuleVar[486] > 0.0 && this.game.Data.SFTypeObj[index10].scrapable > 1)
             {
-              let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[486]));
+              let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[486]));
               if (stringListById > -1)
               {
                 let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
@@ -11843,16 +11843,16 @@ label_8:
               }
               if (!Frontlineonly | Frontlineonly & !this.game.Data.SFTypeObj[index10].BackBench)
               {
-                let mut num15: i32 =   Math.Round(Conversion.Int((double) num14 * ((double) this.game.Data.MoveTypePenalty[moveType] / 100.0)));
+                let mut num15: i32 =   Math.Round(Conversion.Int( num14 * ( this.game.Data.MoveTypePenalty[moveType] / 100.0)));
                 if (this.game.Data.SFTypeObj[index10].MoveRedux != 0)
-                  num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
+                  num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
                 if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-                  num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+                  num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
                 if (this.game.Data.MapObj[map2].HexObj[x2, y2].get_SeeNow(this.game.Data.UnitObj[unr].Regime) == 0)
                 {
                   if (this.game.EditObj.OrderType == 33 | this.game.EditObj.OrderType == 14 | this.game.EditObj.OrderType == 15 | this.game.EditObj.OrderType == 19 | this.game.EditObj.OrderType == 1 & this.game.Data.SFTypeObj[index10].Theater == 2)
                   {
-                    if ((double) this.game.Data.RuleVar[100] == 1.0)
+                    if ( this.game.Data.RuleVar[100] == 1.0)
                     {
                       if (this.game.EditObj.OrderType == 15 | this.game.EditObj.OrderType == 19 | this.game.EditObj.OrderType == 14 && this.game.Data.MapObj[map2].HexObj[x2, y2].get_LastLT(this.game.Data.UnitObj[unr].Regime) == -1)
                       {
@@ -11902,13 +11902,13 @@ label_8:
                       let mut num18: i32 =  this.game.Data.RoadTypeObj[index13].MoveCostOverrule[moveType];
                       if (this.game.Data.UnitObj[unr].moveMode == 1)
                       {
-                        num18 =  Math.Round(Math.Floor((double) num18 / 2.0));
+                        num18 =  Math.Round(Math.Floor( num18 / 2.0));
                         if (num18 < 1)
                           num18 = 1;
                       }
                       if (num18 < num15)
                       {
-                        if ((double) this.game.Data.RuleVar[459] > 0.0 & this.game.Data.RoadTypeObj[index13].trafficPoints > 0)
+                        if ( this.game.Data.RuleVar[459] > 0.0 & this.game.Data.RoadTypeObj[index13].trafficPoints > 0)
                         {
                           let mut num19: i32 =  0;
                           if (this.game.EditObj.OrderType == 48)
@@ -11916,31 +11916,31 @@ label_8:
                             let mut groupMoveCounter: i32 =  this.game.EditObj.tempGroupMoveCounter;
                             for (let mut index14: i32 =  0; index14 <= groupMoveCounter; index14 += 1)
                             {
-                              if (this.game.EditObj.tempGroupMoveUnr[index14] != unr && !Information.IsNothing((object) this.game.EditObj.tempGroupMovePath[index14]))
+                              if (this.game.EditObj.tempGroupMoveUnr[index14] != unr && !Information.IsNothing( this.game.EditObj.tempGroupMovePath[index14]))
                               {
                                 let mut counter2: i32 =  this.game.EditObj.tempGroupMovePath[index14].counter;
                                 for (let mut index15: i32 =  0; index15 <= counter2; index15 += 1)
                                 {
                                   if (this.game.EditObj.tempGroupMovePath[index14].coord[index15].x == x1 & this.game.EditObj.tempGroupMovePath[index14].coord[index15].y == y1 && this.game.EditObj.tempGroupMovePath[index14].coord[index15].data1 == x2 & this.game.EditObj.tempGroupMovePath[index14].coord[index15].data2 == y2)
-                                    num19 +=  Math.Round(Math.Ceiling((double) (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index14], true) * 1) / (double) this.game.Data.RuleVar[33]));
+                                    num19 +=  Math.Round(Math.Ceiling( (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index14], true) * 1) /  this.game.Data.RuleVar[33]));
                                   if (this.game.EditObj.tempGroupMovePath[index14].coord[index15].x == x2 & this.game.EditObj.tempGroupMovePath[index14].coord[index15].y == y2 && this.game.EditObj.tempGroupMovePath[index14].coord[index15].data1 == x1 & this.game.EditObj.tempGroupMovePath[index14].coord[index15].data2 == y1)
-                                    num19 +=  Math.Round(Math.Ceiling((double) (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index14], true) * 1) / (double) this.game.Data.RuleVar[33]));
+                                    num19 +=  Math.Round(Math.Ceiling( (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index14], true) * 1) /  this.game.Data.RuleVar[33]));
                                 }
                               }
                             }
                           }
                           let mut index16: i32 =  this.game.Data.MapObj[map2].HexObj[x1, y1].RoadType[index8];
-                          let mut val1: i32 =   Math.Round(Math.Floor((double) ((this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[index7] + num1 + num19) * 100) / (double) this.game.Data.RoadTypeObj[index13].trafficPoints));
+                          let mut val1: i32 =   Math.Round(Math.Floor( ((this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[index7] + num1 + num19) * 100) /  this.game.Data.RoadTypeObj[index13].trafficPoints));
                           let mut val2: i32 =  0;
                           if (index16 > -1 && this.game.Data.RoadTypeObj[index16].trafficPoints > 0)
-                            val2 =  Math.Round(Math.Floor((double) ((this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints[index8] + num1 + num19) * 100) / (double) this.game.Data.RoadTypeObj[index16].trafficPoints));
+                            val2 =  Math.Round(Math.Floor( ((this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints[index8] + num1 + num19) * 100) /  this.game.Data.RoadTypeObj[index16].trafficPoints));
                           let mut num20: i32 =  Math.Max(val1, val2);
                           if (num20 > 100)
                           {
                             if (num20 > 400)
                               num20 = 400;
                             let mut num21: i32 =  num20 - 100;
-                            num15 =  Math.Round(Math.Ceiling((double) num15 * ((double) num21 / 300.0))) +  Math.Round(Math.Ceiling((double) num18 * ((double) (300 - num21) / 300.0)));
+                            num15 =  Math.Round(Math.Ceiling( num15 * ( num21 / 300.0))) +  Math.Round(Math.Ceiling( num18 * ( (300 - num21) / 300.0)));
                           }
                           else
                             num15 = num18;
@@ -11948,19 +11948,19 @@ label_8:
                         else
                           num15 = num18;
                       }
-                      num15 =  Math.Round(Conversion.Int((double) num15 * ((double) this.game.Data.MoveTypePenalty[moveType] / 100.0)));
+                      num15 =  Math.Round(Conversion.Int( num15 * ( this.game.Data.MoveTypePenalty[moveType] / 100.0)));
                       if (this.game.Data.SFTypeObj[index10].MoveRedux != 0)
-                        num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
+                        num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
                       if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-                        num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+                        num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
                     }
                     else if (EngineerTest)
                     {
-                      num15 = Conversion.Int(this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].MoveCostOverrule[moveType]);
+                      num15 = Conversion.Int(this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].MoveCostOverrule[moveType]);
                       if (this.game.Data.SFTypeObj[index10].MoveRedux != 0)
-                        num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
+                        num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
                       if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-                        num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+                        num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
                     }
                     if (!IgnoreBridges && this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index7] > -1)
                     {
@@ -11969,10 +11969,10 @@ label_8:
                       {
                         if (!EngineerTest)
                         {
-                          if ((double) this.game.Data.RuleVar[945] > 0.0 & (double) this.game.Data.RuleVar[945] == (double) moveType & this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity > 0)
+                          if ( this.game.Data.RuleVar[945] > 0.0 &  this.game.Data.RuleVar[945] ==  moveType & this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity > 0)
                           {
                             if (this.game.HandyFunctionsObj.IsHexPort(x1, y1, 0))
-                              num15 +=  Math.Round((1.0 - (double) this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].StructuralPts / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].Type].StructuralPts * ((double) this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity / 100.0)) * (double) this.game.Data.RiverTypeObj[index17].MovePenalty[moveType]);
+                              num15 +=  Math.Round((1.0 -  this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].StructuralPts /  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].Type].StructuralPts * ( this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity / 100.0)) *  this.game.Data.RiverTypeObj[index17].MovePenalty[moveType]);
                             else
                               num15 += this.game.Data.RiverTypeObj[index17].MovePenalty[moveType];
                           }
@@ -11983,7 +11983,7 @@ label_8:
                         else
                           num15 = num15;
                       }
-                      else if ((double) this.game.Data.RuleVar[459] > 0.0)
+                      else if ( this.game.Data.RuleVar[459] > 0.0)
                       {
                         let mut num22: i32 =  0;
                         if (this.game.EditObj.OrderType == 48)
@@ -11991,15 +11991,15 @@ label_8:
                           let mut groupMoveCounter: i32 =  this.game.EditObj.tempGroupMoveCounter;
                           for (let mut index18: i32 =  0; index18 <= groupMoveCounter; index18 += 1)
                           {
-                            if (this.game.EditObj.tempGroupMoveUnr[index18] != unr && !Information.IsNothing((object) this.game.EditObj.tempGroupMovePath[index18]))
+                            if (this.game.EditObj.tempGroupMoveUnr[index18] != unr && !Information.IsNothing( this.game.EditObj.tempGroupMovePath[index18]))
                             {
                               let mut counter3: i32 =  this.game.EditObj.tempGroupMovePath[index18].counter;
                               for (let mut index19: i32 =  0; index19 <= counter3; index19 += 1)
                               {
                                 if (this.game.EditObj.tempGroupMovePath[index18].coord[index19].x == x1 & this.game.EditObj.tempGroupMovePath[index18].coord[index19].y == y1 && this.game.EditObj.tempGroupMovePath[index18].coord[index19].data1 == x2 & this.game.EditObj.tempGroupMovePath[index18].coord[index19].data2 == y2)
-                                  num22 +=  Math.Round(Math.Ceiling((double) (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index18], true) * 1) / (double) this.game.Data.RuleVar[33]));
+                                  num22 +=  Math.Round(Math.Ceiling( (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index18], true) * 1) /  this.game.Data.RuleVar[33]));
                                 if (this.game.EditObj.tempGroupMovePath[index18].coord[index19].x == x2 & this.game.EditObj.tempGroupMovePath[index18].coord[index19].y == y2 && this.game.EditObj.tempGroupMovePath[index18].coord[index19].data1 == x1 & this.game.EditObj.tempGroupMovePath[index18].coord[index19].data2 == y1)
-                                  num22 +=  Math.Round(Math.Ceiling((double) (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index18], true) * 1) / (double) this.game.Data.RuleVar[33]));
+                                  num22 +=  Math.Round(Math.Ceiling( (this.game.HandyFunctionsObj.GetUnitWeight(this.game.EditObj.tempGroupMoveUnr[index18], true) * 1) /  this.game.Data.RuleVar[33]));
                               }
                             }
                           }
@@ -12010,11 +12010,11 @@ label_8:
                         if (index20 > -1)
                         {
                           if (this.game.Data.RoadTypeObj[index20].trafficPoints > 0)
-                            val1 =  Math.Round(Math.Floor((double) ((this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[index7] + num1 + num22) * 100) / (double) this.game.Data.RoadTypeObj[index20].trafficPoints));
+                            val1 =  Math.Round(Math.Floor( ((this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[index7] + num1 + num22) * 100) /  this.game.Data.RoadTypeObj[index20].trafficPoints));
                           val2 = 0;
                           let mut index21: i32 =  this.game.Data.MapObj[map2].HexObj[x1, y1].RoadType[index8];
                           if (index21 > -1 && this.game.Data.RoadTypeObj[index21].trafficPoints > 0)
-                            val2 =  Math.Round(Math.Floor((double) ((this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints[index8] + num1 + num22) * 100) / (double) this.game.Data.RoadTypeObj[index21].trafficPoints));
+                            val2 =  Math.Round(Math.Floor( ((this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints[index8] + num1 + num22) * 100) /  this.game.Data.RoadTypeObj[index21].trafficPoints));
                         }
                         let mut num23: i32 =  Math.Max(val1, val2);
                         if (num23 > 100)
@@ -12031,7 +12031,7 @@ label_8:
                             num17 = 75;
                           else if (num25 >= 999)
                             num17 = 999;
-                          let mut num26: i32 =   Math.Round(Math.Ceiling((double) num17 * ((double) num24 / 300.0))) +  Math.Round(Math.Ceiling(0.0 * ((double) (300 - num24) / 300.0)));
+                          let mut num26: i32 =   Math.Round(Math.Ceiling( num17 * ( num24 / 300.0))) +  Math.Round(Math.Ceiling(0.0 * ( (300 - num24) / 300.0)));
                           num15 += num26;
                         }
                       }
@@ -12046,20 +12046,20 @@ label_8:
                       if (flag2)
                       {
                         if (num27 == 1)
-                          num28 +=  Math.Round((double) (1f * this.game.Data.RuleVar[427]));
+                          num28 +=  Math.Round( (1f * this.game.Data.RuleVar[427]));
                         if (num27 == 2)
-                          num28 +=  Math.Round((double) (2f * this.game.Data.RuleVar[427]));
+                          num28 +=  Math.Round( (2f * this.game.Data.RuleVar[427]));
                         if (num27 >= 3)
-                          num28 +=  Math.Round((double) (5f * this.game.Data.RuleVar[427]));
+                          num28 +=  Math.Round( (5f * this.game.Data.RuleVar[427]));
                       }
                       else
                       {
                         if (num27 == 1)
-                          num28 +=  Math.Round(1.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
+                          num28 +=  Math.Round(1.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
                         if (num27 == 2)
-                          num28 +=  Math.Round(2.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
+                          num28 +=  Math.Round(2.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
                         if (num27 >= 3)
-                          num28 +=  Math.Round(5.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
+                          num28 +=  Math.Round(5.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
                       }
                     }
                     else if (num27 < 0)
@@ -12067,23 +12067,23 @@ label_8:
                       if (flag2)
                       {
                         if (num27 == -1)
-                          num28 +=  Math.Round((double) (1f * this.game.Data.RuleVar[427]));
+                          num28 +=  Math.Round( (1f * this.game.Data.RuleVar[427]));
                         if (num27 == -2)
-                          num28 +=  Math.Round((double) (2f * this.game.Data.RuleVar[427]));
+                          num28 +=  Math.Round( (2f * this.game.Data.RuleVar[427]));
                         if (num27 <= -3)
-                          num28 +=  Math.Round((double) (5f * this.game.Data.RuleVar[427]));
+                          num28 +=  Math.Round( (5f * this.game.Data.RuleVar[427]));
                       }
                       else
                       {
                         if (num27 == -1)
-                          num28 +=  Math.Round(0.5 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
+                          num28 +=  Math.Round(0.5 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
                         if (num27 == -2)
-                          num28 +=  Math.Round(1.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
+                          num28 +=  Math.Round(1.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
                         if (num27 <= -3)
-                          num28 +=  Math.Round(2.5 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
+                          num28 +=  Math.Round(2.5 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index10].heightLevelDiff / 100.0);
                       }
                     }
-                    if ((double) this.game.Data.RuleVar[495] > 0.0 & num28 > 0)
+                    if ( this.game.Data.RuleVar[495] > 0.0 & num28 > 0)
                     {
                       int tSlotNr;
                       if (this.tempHexLibVarSnowIsSet == this.game.Data.GameID)
@@ -12101,10 +12101,10 @@ label_8:
                       }
                       num17 = this.game.Data.MapObj[0].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].GetHexLibVarValue(tSlotNr);
                       if (num17 > 0)
-                        num28 +=  Math.Round((double) num28 * (double) this.game.Data.RuleVar[495] / 100.0);
+                        num28 +=  Math.Round( num28 *  this.game.Data.RuleVar[495] / 100.0);
                     }
                     num15 += num28;
-                    if ((double) this.game.Data.RuleVar[470] > 0.0)
+                    if ( this.game.Data.RuleVar[470] > 0.0)
                     {
                       if (flag2)
                         num15 += 5;
@@ -12125,9 +12125,9 @@ label_8:
                       let mut num30: i32 =  0;
                       if (this.IsHostileNotSelf(this.game.Data.UnitObj[unr].Regime, index22) && this.game.Data.MapObj[map2].HexObj[x2, y2].get_ZocPts(index22) > 0 && this.VisibleEnemyUnitsInOrAroundHEx(x2, y2, map2, this.game.Data.UnitObj[unr].Regime))
                       {
-                        num30 =  Math.Round((double) ((float) num30 + this.game.Data.RuleVar[323]));
-                        if (this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index7] > -1 && (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index7]].BridgeCostModifier > 0.0)
-                          num30 =  Math.Round((double) ((float) num30 + this.game.Data.RuleVar[323]));
+                        num30 =  Math.Round( ( num30 + this.game.Data.RuleVar[323]));
+                        if (this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index7] > -1 &&  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index7]].BridgeCostModifier > 0.0)
+                          num30 =  Math.Round( ( num30 + this.game.Data.RuleVar[323]));
                       }
                       if (num30 > num29)
                         num29 = num30;
@@ -12144,11 +12144,11 @@ label_8:
                 }
                 if (location > -1 & flag4 & !predictaironly && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].IsPort && this.IsAlliedOrSelf(this.game.Data.UnitObj[unr].Regime, regime) | attack)
                 {
-                  num15 =  Math.Round(Conversion.Int((double) this.game.Data.LandscapeTypeObj[landscapeType].MoveCost[moveType] * ((double) this.game.Data.MoveTypePenalty[moveType] / 100.0)));
+                  num15 =  Math.Round(Conversion.Int( this.game.Data.LandscapeTypeObj[landscapeType].MoveCost[moveType] * ( this.game.Data.MoveTypePenalty[moveType] / 100.0)));
                   if (this.game.Data.SFTypeObj[index10].MoveRedux != 0)
-                    num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
+                    num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.SFTypeObj[index10].MoveRedux) / 100.0)));
                   if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-                    num15 =  Math.Round(Conversion.Int((double) num15 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+                    num15 =  Math.Round(Conversion.Int( num15 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
                   this.game.EditObj.ApTempString = "";
                 }
                 if (this.game.Data.MapObj[map2].HexObj[x2, y2].Regime != this.game.Data.UnitObj[unr].Regime)
@@ -12160,10 +12160,10 @@ label_8:
                       num31 = 1;
                     this.MovementSpecialCoordSet(this.game.Data.UnitObj[unr].Regime, x2, y2,  tcoord, false);
                   }
-                  if (num31 == 0 & (double) this.game.Data.RuleVar[307] > (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && !predictaironly && !this.game.Data.LandscapeTypeObj[landscapeType].IsSea)
+                  if (num31 == 0 &  this.game.Data.RuleVar[307] >  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && !predictaironly && !this.game.Data.LandscapeTypeObj[landscapeType].IsSea)
                     num15 = 9999;
                 }
-                if (this.game.Data.Product >= 7 && !Information.IsNothing((object) this.game.EditObj.TempValueSpecial[0]) && this.game.EditObj.TempValueSpecial[0].Value[x1, y1] > 0)
+                if (this.game.Data.Product >= 7 && !Information.IsNothing( this.game.EditObj.TempValueSpecial[0]) && this.game.EditObj.TempValueSpecial[0].Value[x1, y1] > 0)
                   num15 = 9999;
                 if (this.VisibleEnemyUnitsInHex(x2, y2, map2, this.game.Data.UnitObj[unr].Regime) & !attack)
                 {
@@ -12187,24 +12187,24 @@ label_8:
                 if (this.game.Data.SFTypeObj[index10].Theater == 2 & this.HasUnitNavySF(unr) & !predictaironly && this.game.HandyFunctionsObj.GetAirCarryCapPts(unr) >= Conversions.ToInteger(Operators.SubtractObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, true), this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, false))))
                   num15 = 0;
                 if (theater == 2 && IsTransfer)
-                  num15 =  Math.Round(Conversion.Int((double) num15 / 2.0));
+                  num15 =  Math.Round(Conversion.Int( num15 / 2.0));
                 if (theater == 2 & ismove)
-                  num15 =  Math.Round(Conversion.Int((double) num15 / 2.0));
+                  num15 =  Math.Round(Conversion.Int( num15 / 2.0));
                 if (theater < 2 & predictaironly)
                   num15 = 0;
-                if (!ignoreFuel && this.game.Data.SFTypeObj[index10].FuelForMove > 0 & num15 < 9999 && this.game.Data.SFTypeObj[index10].FuelRegimeVar > -1 | (double) this.game.Data.RuleVar[435] > 0.0 & this.game.Data.SFTypeObj[index10].FuelForMove > 0)
+                if (!ignoreFuel && this.game.Data.SFTypeObj[index10].FuelForMove > 0 & num15 < 9999 && this.game.Data.SFTypeObj[index10].FuelRegimeVar > -1 |  this.game.Data.RuleVar[435] > 0.0 & this.game.Data.SFTypeObj[index10].FuelForMove > 0)
                 {
                   let mut currentSlot: i32 =  this.game.Data.SFTypeObj[index10].FuelRegimeVar;
-                  if ((double) this.game.Data.RuleVar[435] > 0.0)
+                  if ( this.game.Data.RuleVar[435] > 0.0)
                   {
                     if (num15 + PreviousAPspent <= this.game.HandyFunctionsObj.GetLowestAp(unr) + this.game.Data.UnitObj[unr].apReserve)
                     {
-                      let mut num32: i32 =   Math.Round(Conversion.Int((double) (num15 * this.game.Data.SFTypeObj[index10].FuelForMove) / 10.0));
+                      let mut num32: i32 =   Math.Round(Conversion.Int( (num15 * this.game.Data.SFTypeObj[index10].FuelForMove) / 10.0));
                       if (this.game.Data.SFTypeObj[index10].FuelForMove > num32)
                         num32 = this.game.Data.SFTypeObj[index10].FuelForMove;
                       let mut num33: i32 =  num32 * simpleList.Weight[index9];
                       if (this.game.Data.UnitObj[unr].moveMode == 1)
-                        num33 =  Math.Round(Math.Ceiling((double) num33 / 2.0));
+                        num33 =  Math.Round(Math.Ceiling( num33 / 2.0));
                       if (this.game.Data.UnitObj[unr].Fuel >= num33 + numArray12[currentSlot])
                       {
                         int[] numArray17 = numArray12;
@@ -12219,7 +12219,7 @@ label_8:
                       else
                       {
                         if (this.GetLowestAp(unr) + this.game.Data.UnitObj[unr].apReserve >= num15)
-                          num15 =  Math.Round((double) ((float) num15 * this.game.Data.SFTypeObj[index10].OutOfFuelMove));
+                          num15 =  Math.Round( ( num15 * this.game.Data.SFTypeObj[index10].OutOfFuelMove));
                         tcoord.y = tcoord.y != 2 ? 1 : 3;
                         int[] numArray19 = numArray12;
                         int[] numArray20 = numArray19;
@@ -12234,15 +12234,15 @@ label_8:
                   }
                   else
                   {
-                    if ((double) this.game.Data.RuleVar[949] > 0.0)
+                    if ( this.game.Data.RuleVar[949] > 0.0)
                       currentSlot = this.game.HandyFunctionsObj.GetFuelSlot949(currentSlot, ox1, oy1);
-                    let mut num36: i32 =   Math.Round(Conversion.Int((double) (num15 * this.game.Data.SFTypeObj[index10].FuelForMove) / 10.0));
+                    let mut num36: i32 =   Math.Round(Conversion.Int( (num15 * this.game.Data.SFTypeObj[index10].FuelForMove) / 10.0));
                     if (this.game.Data.SFTypeObj[index10].FuelForMove > num36)
                       num36 = this.game.Data.SFTypeObj[index10].FuelForMove;
                     let mut num37: i32 =  num36 * simpleList.Weight[index9];
                     if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].RegimeSlot[currentSlot] < num37 + numArray12[currentSlot])
                     {
-                      num15 =  Math.Round((double) ((float) num15 * this.game.Data.SFTypeObj[index10].OutOfFuelMove));
+                      num15 =  Math.Round( ( num15 * this.game.Data.SFTypeObj[index10].OutOfFuelMove));
                       tcoord.y = tcoord.y != 2 ? 1 : 3;
                     }
                     int[] numArray21 = numArray12;
@@ -12264,16 +12264,16 @@ label_8:
                 numArray10[index9] = this.game.Data.SFTypeObj[index10].Weight;
                 numArray7[index9] = this.game.Data.SFTypeObj[index10].manpower * simpleList.Weight[index9];
                 numArray8[index9] = this.game.Data.SFTypeObj[index10].manpowerCarry * simpleList.Weight[index9];
-                if ((double) this.game.Data.RuleVar[490] > 0.0)
+                if ( this.game.Data.RuleVar[490] > 0.0)
                 {
-                  let mut num39: i32 =  new Random(unr *  Math.Round((double) this.game.Data.GameID / 25000.0) * (this.game.Data.Round * 2)).Next(0,  Math.Round((double) this.game.Data.RuleVar[490]));
+                  let mut num39: i32 =  new Random(unr *  Math.Round( this.game.Data.GameID / 25000.0) * (this.game.Data.Round * 2)).Next(0,  Math.Round( this.game.Data.RuleVar[490]));
                   if (numArray5[index9] > 0)
                   {
                     int[] numArray23 = numArray5;
                     int[] numArray24 = numArray23;
                     let mut index29: i32 =  index9;
                     let mut index30: i32 =  index29;
-                    let mut num40: i32 =  numArray23[index29] +  Math.Round(Math.Floor((double) (numArray5[index9] * num39) / 100.0));
+                    let mut num40: i32 =  numArray23[index29] +  Math.Round(Math.Floor( (numArray5[index9] * num39) / 100.0));
                     numArray24[index30] = num40;
                   }
                   if (numArray8[index9] > 0)
@@ -12282,7 +12282,7 @@ label_8:
                     int[] numArray26 = numArray25;
                     let mut index31: i32 =  index9;
                     let mut index32: i32 =  index31;
-                    let mut num41: i32 =  numArray25[index31] +  Math.Round(Math.Floor((double) (numArray8[index9] * num39) / 100.0));
+                    let mut num41: i32 =  numArray25[index31] +  Math.Round(Math.Floor( (numArray8[index9] * num39) / 100.0));
                     numArray26[index32] = num41;
                   }
                 }
@@ -12298,19 +12298,19 @@ label_8:
             num42 = Conversions.ToInteger(this.GetUnitExcessWeight(unr));
             if (num42 > 0)
             {
-              numArray1[simpleList.Counter + 1] = this.game.Data.LandscapeTypeObj[landscapeType].MoveCost[ Math.Round((double) this.game.Data.RuleVar[41])];
+              numArray1[simpleList.Counter + 1] = this.game.Data.LandscapeTypeObj[landscapeType].MoveCost[ Math.Round( this.game.Data.RuleVar[41])];
               if (index7 > -1)
               {
                 if (this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index7] > -1)
                 {
                   let mut index33: i32 =  this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index7];
-                  numArray1[simpleList.Counter + 1] = this.game.Data.RoadTypeObj[index33].MoveCostOverrule[ Math.Round((double) this.game.Data.RuleVar[41])];
+                  numArray1[simpleList.Counter + 1] = this.game.Data.RoadTypeObj[index33].MoveCostOverrule[ Math.Round( this.game.Data.RuleVar[41])];
                 }
                 if (this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index7] > -1)
                 {
                   let mut index34: i32 =  this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index7];
                   if (!this.game.Data.MapObj[map2].HexObj[x2, y2].Bridge[index7])
-                    numArray1[simpleList.Counter + 1] = numArray1[simpleList.Counter + 1] + this.game.Data.RiverTypeObj[index34].MovePenalty[ Math.Round((double) this.game.Data.RuleVar[41])];
+                    numArray1[simpleList.Counter + 1] = numArray1[simpleList.Counter + 1] + this.game.Data.RiverTypeObj[index34].MovePenalty[ Math.Round( this.game.Data.RuleVar[41])];
                 }
               }
               numArray1[simpleList.Counter + 1] = numArray1[simpleList.Counter + 1] + this.game.Data.MapObj[map2].HexObj[x2, y2].get_APPenalty(this.game.Data.UnitObj[unr].Regime);
@@ -12343,9 +12343,9 @@ label_8:
                 if (onlySfNr == -1 | index38 == onlySfNr)
                 {
                   let mut index39: i32 =  this.game.Data.SFObj[index38].Type;
-                  if (ignoreScrappable && (double) this.game.Data.RuleVar[486] > 0.0 && this.game.Data.SFTypeObj[index39].scrapable > 1)
+                  if (ignoreScrappable &&  this.game.Data.RuleVar[486] > 0.0 && this.game.Data.SFTypeObj[index39].scrapable > 1)
                   {
-                    let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[486]));
+                    let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[486]));
                     if (stringListById > -1)
                     {
                       let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
@@ -12383,9 +12383,9 @@ label_8:
                 {
                   let mut index44: i32 =  simpleList.Id[index43];
                   let mut index45: i32 =  this.game.Data.SFObj[index44].Type;
-                  if (ignoreScrappable && (double) this.game.Data.RuleVar[486] > 0.0 && this.game.Data.SFTypeObj[index45].scrapable > 1)
+                  if (ignoreScrappable &&  this.game.Data.RuleVar[486] > 0.0 && this.game.Data.SFTypeObj[index45].scrapable > 1)
                   {
-                    let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[486]));
+                    let mut stringListById: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[486]));
                     if (stringListById > -1)
                     {
                       let mut length: i32 =  this.game.Data.StringListObj[stringListById].Length;
@@ -12424,8 +12424,8 @@ label_8:
                   {
                     let mut num48: i32 =  numArray7[index36] - numArray11[index36];
                     num47 = numArray8[index42] <= num48 ? numArray8[index42] : num48;
-                    let mut num49: i32 =   Math.Round((double) val1 / (double) numArray10[index36]);
-                    let mut num50: i32 =   Math.Round(Math.Ceiling((double) num47 / (double) numArray9[index36]));
+                    let mut num49: i32 =   Math.Round( val1 /  numArray10[index36]);
+                    let mut num50: i32 =   Math.Round(Math.Ceiling( num47 /  numArray9[index36]));
                     if (num50 < num49)
                     {
                       val1 = Math.Min(val1, numArray10[index36] * num49);
@@ -12499,7 +12499,7 @@ label_8:
           {
             num12 = 0;
             let mut num61: i32 =  numArray1[index59];
-            if ((double) this.game.Data.RuleVar[493] > 0.0 & index59 <= simpleList.Counter)
+            if ( this.game.Data.RuleVar[493] > 0.0 & index59 <= simpleList.Counter)
             {
               let mut index60: i32 =  simpleList.Id[index59];
               if (attack & num61 + apAlreadySpent <= this.game.Data.SFObj[index60].Ap)
@@ -12533,15 +12533,15 @@ label_8:
             if (num63 > num59)
               num59 = num63;
           }
-          if ((double) this.game.Data.RuleVar[472] > 0.0 & this.game.Data.Product >= 6 && !this.game.Data.UnitObj[unr].DidMove & this.game.Data.UnitObj[unr].apReserve > 0 && x1 == this.game.Data.UnitObj[unr].X & y1 == this.game.Data.UnitObj[unr].Y)
+          if ( this.game.Data.RuleVar[472] > 0.0 & this.game.Data.Product >= 6 && !this.game.Data.UnitObj[unr].DidMove & this.game.Data.UnitObj[unr].apReserve > 0 && x1 == this.game.Data.UnitObj[unr].X & y1 == this.game.Data.UnitObj[unr].Y)
           {
             let mut lowestAp: i32 =  this.game.HandyFunctionsObj.GetLowestAp(unr, true);
             if (lowestAp < num59 & num59 < 999 && lowestAp + this.game.Data.UnitObj[unr].apReserve >= num59)
               num59 = lowestAp;
           }
-          if ((double) this.game.Data.RuleVar[493] > 0.0 & num11 > 0 & attack)
+          if ( this.game.Data.RuleVar[493] > 0.0 & num11 > 0 & attack)
           {
-            let mut num64: i32 =   Math.Round(Math.Floor((double) (num10 * 100) / (double) num11));
+            let mut num64: i32 =   Math.Round(Math.Floor( (num10 * 100) /  num11));
             tcoord.data2 = num64;
           }
           tcoord.x = num59;
@@ -12584,7 +12584,7 @@ label_8:
         return 9999;
       if (x2 == 81 & y2 == 36 & this.game.Data.Turn == 19)
         x2 = x2;
-      if (!Information.IsNothing((object) tcustomAi) && this.game.Data.MapObj[map1].HexObj[x2, y2].Regime > -1)
+      if (!Information.IsNothing( tcustomAi) && this.game.Data.MapObj[map1].HexObj[x2, y2].Regime > -1)
       {
         if (this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[this.game.Data.MapObj[map1].HexObj[x2, y2].Regime] == 0)
         {
@@ -12596,7 +12596,7 @@ label_8:
           let mut num1: i32 =  num1;
         }
       }
-      if (!Information.IsNothing((object) TempUnitsMatrix) && TempUnitsMatrix.Value[x2, y2])
+      if (!Information.IsNothing( TempUnitsMatrix) && TempUnitsMatrix.Value[x2, y2])
         return 9999;
       if (this.game.Data.UnitObj[unr].SFCount == -1 & !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map2].HexObj[x2, y2].LandscapeType].IsSea && this.game.Data.MapObj[map2].HexObj[x2, y2].Regime == this.game.Data.UnitObj[unr].Regime && this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI)
         return 0;
@@ -12614,7 +12614,7 @@ label_8:
         return 9999;
       int index1;
       if (this.game.Data.UnitObj[unr].TempTypeRoad == -2)
-        index1 =  Math.Round((double) this.game.Data.RuleVar[41]);
+        index1 =  Math.Round( this.game.Data.RuleVar[41]);
       else
         index1 = this.game.Data.SFTypeObj[this.game.Data.UnitObj[unr].TempTypeRoad].MoveType;
       let mut index2: i32 =  this.game.Data.UnitObj[unr].TempType;
@@ -12622,7 +12622,7 @@ label_8:
       if (index2 == -2)
       {
         index2 = 0;
-        index3 =  Math.Round((double) this.game.Data.RuleVar[41]);
+        index3 =  Math.Round( this.game.Data.RuleVar[41]);
       }
       else
         index3 = this.game.Data.SFTypeObj[this.game.Data.UnitObj[unr].TempType].MoveType;
@@ -12636,16 +12636,16 @@ label_8:
       let mut num2: i32 =  this.game.Data.LandscapeTypeObj[landscapeType1].MoveCost[index3];
       if (this.game.Data.LandscapeTypeObj[landscapeType2].MoveCost[index3] >= 199 && this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index4] == -1)
         num2 = 9999;
-      let mut num3: i32 =   Math.Round(Conversion.Int((double) num2 * ((double) this.game.Data.MoveTypePenalty[index3] / 100.0)));
+      let mut num3: i32 =   Math.Round(Conversion.Int( num2 * ( this.game.Data.MoveTypePenalty[index3] / 100.0)));
       if (this.game.Data.SFTypeObj[index2].MoveRedux != 0)
-        num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
+        num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
       if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-        num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+        num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
       if (this.game.Data.MapObj[map2].HexObj[x2, y2].get_SeeNow(this.game.Data.UnitObj[unr].Regime) == 0)
       {
         if (this.game.EditObj.OrderType == 33 | this.game.EditObj.OrderType == 15 | this.game.EditObj.OrderType == 19 | this.game.EditObj.OrderType == 1 & this.game.Data.SFTypeObj[index2].Theater == 2)
         {
-          if ((double) this.game.Data.RuleVar[100] == 1.0)
+          if ( this.game.Data.RuleVar[100] == 1.0)
           {
             if (this.game.EditObj.OrderType == 15 | this.game.EditObj.OrderType == 19 && this.game.Data.MapObj[map2].HexObj[x2, y2].get_LastLT(this.game.Data.UnitObj[unr].Regime) == -1)
             {
@@ -12671,7 +12671,7 @@ label_8:
           }
         }
       }
-      if ((double) this.game.Data.RuleVar[452] > 0.0 && this.game.Data.MapObj[0].HexObj[x2, y2].RoadType[index4] > -1)
+      if ( this.game.Data.RuleVar[452] > 0.0 && this.game.Data.MapObj[0].HexObj[x2, y2].RoadType[index4] > -1)
         IgnoreBridges = true;
       bool flag2 = true;
       if (this.game.Data.Product >= 6)
@@ -12694,24 +12694,24 @@ label_8:
               num3 = this.game.Data.RoadTypeObj[index5].MoveCostOverrule[index1];
               if (this.game.Data.UnitObj[unr].moveMode == 1)
               {
-                num3 =  Math.Round(Math.Floor((double) num3 / 2.0));
+                num3 =  Math.Round(Math.Floor( num3 / 2.0));
                 if (num3 < 1)
                   num3 = 1;
               }
             }
-            num3 =  Math.Round(Conversion.Int((double) num3 * ((double) this.game.Data.MoveTypePenalty[index1] / 100.0)));
+            num3 =  Math.Round(Conversion.Int( num3 * ( this.game.Data.MoveTypePenalty[index1] / 100.0)));
             if (this.game.Data.SFTypeObj[index2].MoveRedux != 0)
-              num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
+              num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
             if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-              num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+              num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
           }
           else if (EngineerTest)
           {
-            num3 =  Math.Round(Conversion.Int((double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].MoveCostOverrule[index1] * 1.5));
+            num3 =  Math.Round(Conversion.Int( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].MoveCostOverrule[index1] * 1.5));
             if (this.game.Data.SFTypeObj[index2].MoveRedux != 0)
-              num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
+              num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
             if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-              num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+              num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
           }
           if (!IgnoreBridges && this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index4] > -1)
           {
@@ -12720,10 +12720,10 @@ label_8:
             {
               if (!EngineerTest)
               {
-                if ((double) this.game.Data.RuleVar[945] > 0.0 & (double) this.game.Data.RuleVar[945] == (double) index3 & this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity > 0)
+                if ( this.game.Data.RuleVar[945] > 0.0 &  this.game.Data.RuleVar[945] ==  index3 & this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity > 0)
                 {
                   if (this.game.HandyFunctionsObj.IsHexPort(x1, y1, 0))
-                    num3 +=  Math.Round((1.0 - (double) this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].StructuralPts / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].Type].StructuralPts * ((double) this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity / 100.0)) * (double) this.game.Data.RiverTypeObj[index6].MovePenalty[index3]);
+                    num3 +=  Math.Round((1.0 -  this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].StructuralPts /  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].Type].StructuralPts * ( this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].FerryEffectivity / 100.0)) *  this.game.Data.RiverTypeObj[index6].MovePenalty[index3]);
                   else
                     num3 += this.game.Data.RiverTypeObj[index6].MovePenalty[index3];
                 }
@@ -12741,9 +12741,9 @@ label_8:
           num3 += this.game.Data.MapObj[map2].HexObj[x2, y2].get_BattlePenalty(this.game.Data.UnitObj[unr].Regime);
         if (this.game.Data.UnitObj[unr].Regime != this.game.Data.Turn && this.game.Data.MapObj[map2].HexObj[x2, y2].Regime != this.game.Data.UnitObj[unr].Regime)
         {
-          num3 =  Math.Round((double) ((float) num3 + this.game.Data.RuleVar[4]));
+          num3 =  Math.Round( ( num3 + this.game.Data.RuleVar[4]));
           if (this.game.Data.MapObj[map2].HexObj[x2, y2].UnitCounter > -1)
-            num3 =  Math.Round((double) ((float) num3 + this.game.Data.RuleVar[4]));
+            num3 =  Math.Round( ( num3 + this.game.Data.RuleVar[4]));
         }
         if (this.game.AllowHeightMap & num3 < 9999)
         {
@@ -12754,20 +12754,20 @@ label_8:
             if (flag1)
             {
               if (num5 == 1)
-                num6 +=  Math.Round((double) (1f * this.game.Data.RuleVar[427]));
+                num6 +=  Math.Round( (1f * this.game.Data.RuleVar[427]));
               if (num5 == 2)
-                num6 +=  Math.Round((double) (2f * this.game.Data.RuleVar[427]));
+                num6 +=  Math.Round( (2f * this.game.Data.RuleVar[427]));
               if (num5 >= 3)
-                num6 +=  Math.Round((double) (5f * this.game.Data.RuleVar[427]));
+                num6 +=  Math.Round( (5f * this.game.Data.RuleVar[427]));
             }
             else
             {
               if (num5 == 1)
-                num6 +=  Math.Round(1.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
+                num6 +=  Math.Round(1.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
               if (num5 == 2)
-                num6 +=  Math.Round(2.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
+                num6 +=  Math.Round(2.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
               if (num5 >= 3)
-                num6 +=  Math.Round(5.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
+                num6 +=  Math.Round(5.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
             }
           }
           else if (num5 < 0)
@@ -12775,23 +12775,23 @@ label_8:
             if (flag1)
             {
               if (num5 == -1)
-                num6 +=  Math.Round((double) (1f * this.game.Data.RuleVar[427]));
+                num6 +=  Math.Round( (1f * this.game.Data.RuleVar[427]));
               if (num5 == -2)
-                num6 +=  Math.Round((double) (2f * this.game.Data.RuleVar[427]));
+                num6 +=  Math.Round( (2f * this.game.Data.RuleVar[427]));
               if (num5 <= -3)
-                num6 +=  Math.Round((double) (5f * this.game.Data.RuleVar[427]));
+                num6 +=  Math.Round( (5f * this.game.Data.RuleVar[427]));
             }
             else
             {
               if (num5 == -1)
-                num6 +=  Math.Round(0.5 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
+                num6 +=  Math.Round(0.5 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
               if (num5 == -2)
-                num6 +=  Math.Round(1.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
+                num6 +=  Math.Round(1.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
               if (num5 <= -3)
-                num6 +=  Math.Round(2.5 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
+                num6 +=  Math.Round(2.5 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index2].heightLevelDiff / 100.0);
             }
           }
-          if ((double) this.game.Data.RuleVar[495] > 0.0 & num6 > 0)
+          if ( this.game.Data.RuleVar[495] > 0.0 & num6 > 0)
           {
             int tSlotNr;
             if (this.tempHexLibVarSnowIsSet == this.game.Data.GameID)
@@ -12808,10 +12808,10 @@ label_8:
               this.tempHexLibVarSnowIsSet = this.game.Data.GameID;
             }
             if (this.game.Data.MapObj[0].HexObj[x1, y1].GetHexLibVarValue(tSlotNr) > 0)
-              num6 +=  Math.Round((double) num6 * (double) this.game.Data.RuleVar[495] / 100.0);
+              num6 +=  Math.Round( num6 *  this.game.Data.RuleVar[495] / 100.0);
           }
           num3 += num6;
-          if ((double) this.game.Data.RuleVar[470] > 0.0)
+          if ( this.game.Data.RuleVar[470] > 0.0)
           {
             if (flag1)
               num3 += 5;
@@ -12834,9 +12834,9 @@ label_8:
                 let mut regime2: i32 =  this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime;
                 if (regime2 > -1 && this.IsHostileNotSelf(this.game.Data.UnitObj[unr].Regime, regime2) && this.game.Data.MapObj[map2].HexObj[x2, y2].get_ZocPts(regime2) > 0)
                 {
-                  num8 =  Math.Round((double) ((float) num8 + this.game.Data.RuleVar[323]));
+                  num8 =  Math.Round( ( num8 + this.game.Data.RuleVar[323]));
                   if (this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index4] > -1)
-                    num8 =  Math.Round((double) ((float) num8 + this.game.Data.RuleVar[323]));
+                    num8 =  Math.Round( ( num8 + this.game.Data.RuleVar[323]));
                 }
               }
               if (num8 > num7)
@@ -12853,9 +12853,9 @@ label_8:
               let mut num9: i32 =  0;
               if (this.IsHostileNotSelf(this.game.Data.UnitObj[unr].Regime, index7) && this.game.Data.MapObj[map2].HexObj[x2, y2].get_ZocPts(index7) > 0)
               {
-                num9 =  Math.Round((double) ((float) num9 + this.game.Data.RuleVar[323]));
+                num9 =  Math.Round( ( num9 + this.game.Data.RuleVar[323]));
                 if (this.game.Data.MapObj[map2].HexObj[x2, y2].RiverType[index4] > -1)
-                  num9 =  Math.Round((double) ((float) num9 + this.game.Data.RuleVar[323]));
+                  num9 =  Math.Round( ( num9 + this.game.Data.RuleVar[323]));
               }
               if (num9 > num7)
                 num7 = num9;
@@ -12875,14 +12875,14 @@ label_8:
       }
       if (location > -1 & flag3 & !predictaironly && this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].IsPort && this.IsAlliedOrSelf(this.game.Data.UnitObj[unr].Regime, regime1) | attack)
       {
-        num3 =  Math.Round(Conversion.Int((double) this.game.Data.LandscapeTypeObj[landscapeType1].MoveCost[index3] * ((double) this.game.Data.MoveTypePenalty[index3] / 100.0)));
+        num3 =  Math.Round(Conversion.Int( this.game.Data.LandscapeTypeObj[landscapeType1].MoveCost[index3] * ( this.game.Data.MoveTypePenalty[index3] / 100.0)));
         if (this.game.Data.SFTypeObj[index2].MoveRedux != 0)
-          num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
+          num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.SFTypeObj[index2].MoveRedux) / 100.0)));
         if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove > 0)
-          num3 =  Math.Round(Conversion.Int((double) num3 * ((double) (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
+          num3 =  Math.Round(Conversion.Int( num3 * ( (100 - this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AIHelpMove) / 100.0)));
         this.game.EditObj.ApTempString = "";
       }
-      if (this.game.Data.MapObj[map2].HexObj[x2, y2].Regime != this.game.Data.UnitObj[unr].Regime && (double) this.game.Data.RuleVar[307] > (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && !this.game.Data.LandscapeTypeObj[landscapeType1].IsSea)
+      if (this.game.Data.MapObj[map2].HexObj[x2, y2].Regime != this.game.Data.UnitObj[unr].Regime &&  this.game.Data.RuleVar[307] >  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && !this.game.Data.LandscapeTypeObj[landscapeType1].IsSea)
         num3 = 9999;
       if (this.VisibleEnemyUnitsInHex(x2, y2, map2, this.game.Data.UnitObj[unr].Regime, true) & !attack)
       {
@@ -12905,9 +12905,9 @@ label_8:
       if (this.game.Data.SFTypeObj[index2].Theater == 2 & this.HasUnitNavySF(unr) & !predictaironly && this.game.HandyFunctionsObj.GetAirCarryCapPts(unr) >= Conversions.ToInteger(Operators.SubtractObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, true), this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, false))))
         num3 = 0;
       if (tempTheater == 2 && IsTransfer)
-        num3 =  Math.Round(Conversion.Int((double) num3 / 2.0));
+        num3 =  Math.Round(Conversion.Int( num3 / 2.0));
       if (tempTheater == 2 & ismove)
-        num3 =  Math.Round(Conversion.Int((double) num3 / 2.0));
+        num3 =  Math.Round(Conversion.Int( num3 / 2.0));
       if (tempTheater < 2 & predictaironly)
         num3 = 0;
       return num3;
@@ -12925,7 +12925,7 @@ label_8:
       int[] numArray6 = new int[this.game.Data.UnitObj[unr].SFCount + 1 + 1];
       if (this.game.Data.RoadTypeCounter == -1)
       {
-        let mut num: i32 =   Interaction.MsgBox((object) "Error - No Road Types defined");
+        let mut num: i32 =   Interaction.MsgBox( "Error - No Road Types defined");
         int lowestSpeedOnRoad;
         return lowestSpeedOnRoad;
       }
@@ -12943,9 +12943,9 @@ label_8:
         numArray3[index] = this.game.Data.SFTypeObj[type].Weight * this.game.Data.SFObj[sf].Qty;
         numArray5[index] = this.game.Data.SFTypeObj[type].CarryCap * this.game.Data.SFObj[sf].Qty;
       }
-      if ((double) this.game.Data.RuleVar[490] > 0.0)
+      if ( this.game.Data.RuleVar[490] > 0.0)
       {
-        let mut num1: i32 =  new Random(unr *  Math.Round((double) this.game.Data.GameID / 25000.0) * (this.game.Data.Round * 2)).Next(0,  Math.Round((double) this.game.Data.RuleVar[490]));
+        let mut num1: i32 =  new Random(unr *  Math.Round( this.game.Data.GameID / 25000.0) * (this.game.Data.Round * 2)).Next(0,  Math.Round( this.game.Data.RuleVar[490]));
         let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
         for (let mut index1: i32 =  0; index1 <= sfCount2; index1 += 1)
         {
@@ -12955,7 +12955,7 @@ label_8:
             int[] numArray8 = numArray7;
             let mut index2: i32 =  index1;
             let mut index3: i32 =  index2;
-            let mut num2: i32 =  numArray7[index2] +  Math.Round(Math.Floor((double) (numArray5[index1] * num1) / 100.0));
+            let mut num2: i32 =  numArray7[index2] +  Math.Round(Math.Floor( (numArray5[index1] * num1) / 100.0));
             numArray8[index3] = num2;
           }
         }
@@ -13123,7 +13123,7 @@ label_8:
         let mut moveType: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].MoveType;
         if (this.game.Data.SFObj[sf].MoveType > -1)
           moveType = this.game.Data.SFObj[sf].MoveType;
-        numArray2[index] = this.game.Data.LandscapeTypeObj[ Math.Round((double) this.game.Data.RuleVar[38])].MoveCost[moveType];
+        numArray2[index] = this.game.Data.LandscapeTypeObj[ Math.Round( this.game.Data.RuleVar[38])].MoveCost[moveType];
         if (numArray2[index] >= 999 & this.game.Data.RoadTypeCounter > -1)
           numArray2[index] = this.game.Data.RoadTypeObj[0].MoveCostOverrule[moveType];
         if (this.game.Data.Product >= 5 & this.game.Data.RoadTypeCounter > -1)
@@ -13135,9 +13135,9 @@ label_8:
         numArray6[index] = this.game.Data.SFTypeObj[type].manpower * this.game.Data.SFObj[sf].Qty;
         numArray7[index] = this.game.Data.SFTypeObj[type].manpowerCarry * this.game.Data.SFObj[sf].Qty;
       }
-      if ((double) this.game.Data.RuleVar[490] > 0.0)
+      if ( this.game.Data.RuleVar[490] > 0.0)
       {
-        let mut num1: i32 =  new Random(unr *  Math.Round((double) this.game.Data.GameID / 25000.0) * (this.game.Data.Round * 2)).Next(0,  Math.Round((double) this.game.Data.RuleVar[490]));
+        let mut num1: i32 =  new Random(unr *  Math.Round( this.game.Data.GameID / 25000.0) * (this.game.Data.Round * 2)).Next(0,  Math.Round( this.game.Data.RuleVar[490]));
         let mut sfCount2: i32 =  this.game.Data.UnitObj[unr].SFCount;
         for (let mut index1: i32 =  0; index1 <= sfCount2; index1 += 1)
         {
@@ -13147,7 +13147,7 @@ label_8:
             int[] numArray13 = numArray12;
             let mut index2: i32 =  index1;
             let mut index3: i32 =  index2;
-            let mut num2: i32 =  numArray12[index2] +  Math.Round(Math.Floor((double) (numArray5[index1] * num1) / 100.0));
+            let mut num2: i32 =  numArray12[index2] +  Math.Round(Math.Floor( (numArray5[index1] * num1) / 100.0));
             numArray13[index3] = num2;
           }
           if (numArray7[index1] > 0)
@@ -13156,7 +13156,7 @@ label_8:
             int[] numArray15 = numArray14;
             let mut index4: i32 =  index1;
             let mut index5: i32 =  index4;
-            let mut num3: i32 =  numArray14[index4] +  Math.Round(Math.Floor((double) (numArray7[index1] * num1) / 100.0));
+            let mut num3: i32 =  numArray14[index4] +  Math.Round(Math.Floor( (numArray7[index1] * num1) / 100.0));
             numArray15[index5] = num3;
           }
         }
@@ -13240,8 +13240,8 @@ label_8:
               {
                 let mut num9: i32 =  numArray6[index7] - numArray10[index7];
                 num8 = numArray7[index10] <= num9 ? numArray7[index10] : num9;
-                let mut num10: i32 =   Math.Round((double) val1 / (double) numArray9[index7]);
-                let mut num11: i32 =   Math.Round(Math.Ceiling((double) num8 / (double) numArray8[index7]));
+                let mut num10: i32 =   Math.Round( val1 /  numArray9[index7]);
+                let mut num11: i32 =   Math.Round(Math.Ceiling( num8 /  numArray8[index7]));
                 if (num11 < num10)
                 {
                   val1 = Math.Min(val1, numArray9[index7] * num10);
@@ -13371,7 +13371,7 @@ label_8:
       }
       int num2;
       if (num1 < this.game.Data.UnitObj[unr].Supply)
-        num2 =  Math.Round((double) Conversion.Int(this.game.Data.RuleVar[33] * (float) (this.game.Data.UnitObj[unr].Supply - num1)));
+        num2 =  Math.Round( Conversion.Int(this.game.Data.RuleVar[33] *  (this.game.Data.UnitObj[unr].Supply - num1)));
       int integer;
       if (this.game.Data.UnitObj[unr].PassengerCounter > -1)
       {
@@ -13379,10 +13379,10 @@ label_8:
         for (let mut index: i32 =  0; index <= passengerCounter; index += 1)
         {
           let mut passenger: i32 =  this.game.Data.UnitObj[unr].PassengerList[index];
-          integer = Conversions.ToInteger(Operators.AddObject((object) integer, Operators.AddObject((object) this.GetUnitWeight(passenger), this.GetUnitExcessWeight(passenger))));
+          integer = Conversions.ToInteger(Operators.AddObject( integer, Operators.AddObject( this.GetUnitWeight(passenger), this.GetUnitExcessWeight(passenger))));
         }
       }
-      return (object) (num2 + integer);
+      return  (num2 + integer);
     }
 
     pub CanBeCarriedBy: bool(int typ, int bytyp)
@@ -13488,9 +13488,9 @@ label_8:
       let mut landscapeType2: i32 =  this.game.Data.MapObj[map2].HexObj[x2, y2].LandscapeType;
       if (x2 == 107 & y2 == 62)
         x2 = x2;
-      let mut val1_1: i32 =   Math.Round(Conversion.Int((double) this.game.Data.LandscapeTypeObj[landscapeType2].MoveCost[index1] * ((double) this.game.Data.MoveTypePenalty[index1] / 100.0)));
+      let mut val1_1: i32 =   Math.Round(Conversion.Int( this.game.Data.LandscapeTypeObj[landscapeType2].MoveCost[index1] * ( this.game.Data.MoveTypePenalty[index1] / 100.0)));
       if (redux != 0)
-        val1_1 =  Math.Round(Conversion.Int((double) val1_1 * ((double) (100 - redux) / 100.0)));
+        val1_1 =  Math.Round(Conversion.Int( val1_1 * ( (100 - redux) / 100.0)));
       if (BlockAllSea & this.game.Data.LandscapeTypeObj[landscapeType2].IsSea)
       {
         Coordinate coordinate;
@@ -13543,7 +13543,7 @@ label_8:
       }
       let mut index3: i32 =  this.game.HandyFunctionsObj.HexFacing(x2, y2, map2, x1, y1, map1) - 1;
       bool flag2;
-      if ((double) this.game.Data.RuleVar[452] > 0.0 && this.game.Data.MapObj[0].HexObj[x1, y1].RoadType[index2] > -1)
+      if ( this.game.Data.RuleVar[452] > 0.0 && this.game.Data.MapObj[0].HexObj[x1, y1].RoadType[index2] > -1)
         flag2 = true;
       if (roadsOnly)
       {
@@ -13569,7 +13569,7 @@ label_8:
         coordinate.y = 0;
         return coordinate;
       }
-      if ((double) movetype == (double) this.game.Data.RuleVar[1] && this.IsHexPort(x1, y1, map1) & !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map1].HexObj[x1, y1].LandscapeType].IsSea && this.IsHexPort(x2, y2, map2) & !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map2].HexObj[x2, y2].LandscapeType].IsSea)
+      if ( movetype ==  this.game.Data.RuleVar[1] && this.IsHexPort(x1, y1, map1) & !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map1].HexObj[x1, y1].LandscapeType].IsSea && this.IsHexPort(x2, y2, map2) & !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map2].HexObj[x2, y2].LandscapeType].IsSea)
       {
         this.game.EditObj.ApTempString = "Naval transfer cannot go from harbour to harbour.";
         Coordinate coordinate;
@@ -13610,13 +13610,13 @@ label_8:
             if (this.game.Data.RoadTypeObj[index4].MoveCostOverrule[index1] < val1_1)
             {
               int num3;
-              if (useTrafficRules & (double) this.game.Data.RuleVar[459] > 0.0 & this.game.Data.RoadTypeObj[index4].trafficPoints > 0)
+              if (useTrafficRules &  this.game.Data.RuleVar[459] > 0.0 & this.game.Data.RoadTypeObj[index4].trafficPoints > 0)
               {
                 let mut index5: i32 =  this.game.Data.MapObj[map2].HexObj[x1, y1].RoadType[index2];
-                let mut val1_2: i32 =   Math.Round(Math.Floor((double) ( Math.Round((double) ((float) this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[index3] * trafficPointMod)) * 100) / (double) this.game.Data.RoadTypeObj[index4].trafficPoints));
+                let mut val1_2: i32 =   Math.Round(Math.Floor( ( Math.Round( ( this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[index3] * trafficPointMod)) * 100) /  this.game.Data.RoadTypeObj[index4].trafficPoints));
                 let mut val2: i32 =  0;
                 if (index5 > -1 && this.game.Data.RoadTypeObj[index5].trafficPoints > 0)
-                  val2 =  Math.Round(Math.Floor((double) ( Math.Round((double) ((float) this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints[index2] * trafficPointMod)) * 100) / (double) this.game.Data.RoadTypeObj[index5].trafficPoints));
+                  val2 =  Math.Round(Math.Floor( ( Math.Round( ( this.game.Data.MapObj[0].HexObj[x1, y1].LISpoints[index2] * trafficPointMod)) * 100) /  this.game.Data.RoadTypeObj[index5].trafficPoints));
                 let mut num4: i32 =  Math.Max(val1_2, val2);
                 if (num4 >= 100)
                 {
@@ -13628,16 +13628,16 @@ label_8:
                     num4 = 200;
                   else if (num4 >= 100)
                     num4 = 100;
-                  num3 =  Math.Round(Math.Ceiling((double) val1_1 * ((double) num4 / 400.0))) +  Math.Round(Math.Ceiling((double) this.game.Data.RoadTypeObj[index4].MoveCostOverrule[index1] * ((double) (400 - num4) / 400.0)));
+                  num3 =  Math.Round(Math.Ceiling( val1_1 * ( num4 / 400.0))) +  Math.Round(Math.Ceiling( this.game.Data.RoadTypeObj[index4].MoveCostOverrule[index1] * ( (400 - num4) / 400.0)));
                 }
                 else
                   num3 = this.game.Data.RoadTypeObj[index4].MoveCostOverrule[index1];
               }
               else
                 num3 = this.game.Data.RoadTypeObj[index4].MoveCostOverrule[index1];
-              val1_1 =  Math.Round(Conversion.Int((double) num3 * ((double) this.game.Data.MoveTypePenalty[index1] / 100.0)));
+              val1_1 =  Math.Round(Conversion.Int( num3 * ( this.game.Data.MoveTypePenalty[index1] / 100.0)));
               if (redux != 0)
-                val1_1 =  Math.Round(Conversion.Int((double) val1_1 * ((double) (100 - redux) / 100.0)));
+                val1_1 =  Math.Round(Conversion.Int( val1_1 * ( (100 - redux) / 100.0)));
             }
           }
           else if (OverruleRoadType > -1 & !this.game.Data.LandscapeTypeObj[landscapeType2].IsSea & !this.game.Data.LandscapeTypeObj[landscapeType1].IsSea)
@@ -13648,16 +13648,16 @@ label_8:
               flag3 = true;
               if (this.game.Data.RoadTypeObj[index6].MoveCostOverrule[index1] < val1_1)
                 val1_1 = this.game.Data.RoadTypeObj[index6].MoveCostOverrule[index1];
-              val1_1 =  Math.Round(Conversion.Int((double) val1_1 * ((double) this.game.Data.MoveTypePenalty[index1] / 100.0)));
+              val1_1 =  Math.Round(Conversion.Int( val1_1 * ( this.game.Data.MoveTypePenalty[index1] / 100.0)));
               if (redux != 0)
-                val1_1 =  Math.Round(Conversion.Int((double) val1_1 * ((double) (100 - redux) / 100.0)));
+                val1_1 =  Math.Round(Conversion.Int( val1_1 * ( (100 - redux) / 100.0)));
               if (BridgeAP > 0)
-                val1_1 =  Math.Round(Math.Max((double) val1_1, (double) BridgeAP / 4.0));
+                val1_1 =  Math.Round(Math.Max( val1_1,  BridgeAP / 4.0));
             }
           }
-          else if (EngineerTest & (double) this.game.Data.RuleVar[32] > -1.0)
+          else if (EngineerTest &  this.game.Data.RuleVar[32] > -1.0)
           {
-            val1_1 =  Math.Round((double) Conversion.Int((float) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].MoveCostOverrule[index1] * this.game.Data.RuleVar[213]));
+            val1_1 =  Math.Round( Conversion.Int( this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].MoveCostOverrule[index1] * this.game.Data.RuleVar[213]));
             if (!this.game.Data.LandscapeTypeObj[landscapeType2].CanBuildRoad)
               val1_1 = 9999;
           }
@@ -13671,21 +13671,21 @@ label_8:
             {
               if (byregnr > -1)
               {
-                if (!this.game.Data.RegimeObj[byregnr].AI | this.game.Data.UseAI >= 1 | (double) this.game.Data.RuleVar[257] > 0.0 | (double) this.game.Data.RuleVar[865] < 1.0)
+                if (!this.game.Data.RegimeObj[byregnr].AI | this.game.Data.UseAI >= 1 |  this.game.Data.RuleVar[257] > 0.0 |  this.game.Data.RuleVar[865] < 1.0)
                 {
                   if (!nobridgepenalty)
                   {
-                    if ((double) this.game.Data.RuleVar[945] > 0.0 & (double) this.game.Data.RuleVar[945] == (double) index1 & this.game.Data.RegimeObj[byregnr].FerryEffectivity > 0)
+                    if ( this.game.Data.RuleVar[945] > 0.0 &  this.game.Data.RuleVar[945] ==  index1 & this.game.Data.RegimeObj[byregnr].FerryEffectivity > 0)
                     {
                       if (this.game.HandyFunctionsObj.IsHexPort(x1, y1, 0))
-                        val1_1 +=  Math.Round((1.0 - (double) this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].StructuralPts / (double) this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].Type].StructuralPts * ((double) this.game.Data.RegimeObj[byregnr].FerryEffectivity / 100.0)) * (double) this.game.Data.RiverTypeObj[index7].MovePenalty[index1]);
+                        val1_1 +=  Math.Round((1.0 -  this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].StructuralPts /  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x1, y1].Location].Type].StructuralPts * ( this.game.Data.RegimeObj[byregnr].FerryEffectivity / 100.0)) *  this.game.Data.RiverTypeObj[index7].MovePenalty[index1]);
                       else
                         val1_1 += this.game.Data.RiverTypeObj[index7].MovePenalty[index1];
                     }
                     else
                       val1_1 += this.game.Data.RiverTypeObj[index7].MovePenalty[index1];
                   }
-                  else if ((double) this.game.Data.RuleVar[320] == 1.0 && this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index3] == -1)
+                  else if ( this.game.Data.RuleVar[320] == 1.0 && this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index3] == -1)
                     val1_1 += this.game.Data.RiverTypeObj[index7].MovePenalty[index1];
                 }
                 else
@@ -13693,11 +13693,11 @@ label_8:
               }
               else if (!nobridgepenalty)
                 val1_1 += this.game.Data.RiverTypeObj[index7].MovePenalty[index1];
-              else if ((double) this.game.Data.RuleVar[320] == 1.0 && this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index3] == -1)
+              else if ( this.game.Data.RuleVar[320] == 1.0 && this.game.Data.MapObj[map2].HexObj[x2, y2].RoadType[index3] == -1)
                 val1_1 += this.game.Data.RiverTypeObj[index7].MovePenalty[index1];
             }
             else
-              val1_1 =  Math.Round((double) ((float) val1_1 + this.game.Data.RuleVar[212]));
+              val1_1 =  Math.Round( ( val1_1 + this.game.Data.RuleVar[212]));
             if (BridgeAP > 0)
               val1_1 += BridgeAP;
           }
@@ -13713,21 +13713,21 @@ label_8:
             if (!flag3)
             {
               if (num == 1)
-                val1_1 +=  Math.Round(1.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
+                val1_1 +=  Math.Round(1.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
               if (num == 2)
-                val1_1 +=  Math.Round(2.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
+                val1_1 +=  Math.Round(2.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
               if (num >= 3)
-                val1_1 +=  Math.Round(5.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
+                val1_1 +=  Math.Round(5.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
             }
           }
           else if (num < 0 && !flag3)
           {
             if (num == -1)
-              val1_1 +=  Math.Round(0.5 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
+              val1_1 +=  Math.Round(0.5 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
             if (num == -2)
-              val1_1 +=  Math.Round(1.0 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
+              val1_1 +=  Math.Round(1.0 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
             if (num <= -3)
-              val1_1 +=  Math.Round(2.5 * (double) this.game.Data.RuleVar[426] * (double) this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
+              val1_1 +=  Math.Round(2.5 *  this.game.Data.RuleVar[426] *  this.game.Data.SFTypeObj[index8].heightLevelDiff / 100.0);
           }
         }
       }
@@ -13737,7 +13737,7 @@ label_8:
       else if (theater == 99)
         flag5 = false;
       if (theater == 2 && istransfer)
-        val1_1 =  Math.Round(Conversion.Int((double) val1_1 / 2.0));
+        val1_1 =  Math.Round(Conversion.Int( val1_1 / 2.0));
       if (x2 == 10 & y2 == 46)
         x2 = x2;
       if (flag5)
@@ -13753,9 +13753,9 @@ label_8:
             val1_1 = 9999;
           if (location1 > -1 & flag5 && this.game.Data.LocTypeObj[this.game.Data.LocObj[location1].Type].IsPort && this.game.HandyFunctionsObj.IsAlliedOrSelf(byregnr, regime1))
           {
-            val1_1 =  Math.Round(Conversion.Int((double) this.game.Data.LandscapeTypeObj[landscapeType2].MoveCost[index1] * ((double) this.game.Data.MoveTypePenalty[index1] / 100.0)));
+            val1_1 =  Math.Round(Conversion.Int( this.game.Data.LandscapeTypeObj[landscapeType2].MoveCost[index1] * ( this.game.Data.MoveTypePenalty[index1] / 100.0)));
             if (redux != 0)
-              val1_1 =  Math.Round(Conversion.Int((double) val1_1 * ((double) (100 - redux) / 100.0)));
+              val1_1 =  Math.Round(Conversion.Int( val1_1 * ( (100 - redux) / 100.0)));
           }
         }
         else
@@ -13769,8 +13769,8 @@ label_8:
           {
             if (!this.game.Data.LandscapeTypeObj[landscapeType1].IsSea)
               val1_1 = 9999;
-            else if (!this.game.Data.RegimeObj[byregnr].AI | this.game.Data.UseAI >= 1 | (double) this.game.Data.RuleVar[257] > 0.0 && !this.game.Data.LandscapeTypeObj[landscapeType1].NoPortReq)
-              val1_1 =  Math.Round((double) ((float) val1_1 + this.game.Data.RuleVar[82]));
+            else if (!this.game.Data.RegimeObj[byregnr].AI | this.game.Data.UseAI >= 1 |  this.game.Data.RuleVar[257] > 0.0 && !this.game.Data.LandscapeTypeObj[landscapeType1].NoPortReq)
+              val1_1 =  Math.Round( ( val1_1 + this.game.Data.RuleVar[82]));
           }
           if (!this.game.Data.LandscapeTypeObj[landscapeType1].IsSea)
           {
@@ -13782,8 +13782,8 @@ label_8:
               if (this.game.Data.LocTypeObj[type].IsPort && this.game.HandyFunctionsObj.IsAlliedOrSelf(byregnr, regime2))
               {
                 val1_1 = this.game.Data.LandscapeTypeObj[landscapeType2].MoveCost[index1];
-                if ((double) this.game.Data.LocObj[location2].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts < 1.0 && !this.game.Data.LandscapeTypeObj[landscapeType2].NoPortReq)
-                  val1_1 =  Math.Round((double) val1_1 + ((double) this.game.Data.RuleVar[82] - (double) this.game.Data.RuleVar[82] * ((double) this.game.Data.LocObj[location2].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts)));
+                if ( this.game.Data.LocObj[location2].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts < 1.0 && !this.game.Data.LandscapeTypeObj[landscapeType2].NoPortReq)
+                  val1_1 =  Math.Round( val1_1 + ( this.game.Data.RuleVar[82] -  this.game.Data.RuleVar[82] * ( this.game.Data.LocObj[location2].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts)));
               }
             }
           }
@@ -13793,14 +13793,14 @@ label_8:
             if (this.game.Data.LocTypeObj[type].IsPort && this.game.HandyFunctionsObj.IsAlliedOrSelf(byregnr, regime1))
             {
               val1_1 = this.game.Data.LandscapeTypeObj[landscapeType2].MoveCost[index1];
-              if ((double) this.game.Data.LocObj[location1].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts < 1.0 && !this.game.Data.LandscapeTypeObj[landscapeType1].NoPortReq)
-                val1_1 =  Math.Round((double) val1_1 + ((double) this.game.Data.RuleVar[82] - (double) this.game.Data.RuleVar[82] * ((double) this.game.Data.LocObj[location1].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts)));
+              if ( this.game.Data.LocObj[location1].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts < 1.0 && !this.game.Data.LandscapeTypeObj[landscapeType1].NoPortReq)
+                val1_1 =  Math.Round( val1_1 + ( this.game.Data.RuleVar[82] -  this.game.Data.RuleVar[82] * ( this.game.Data.LocObj[location1].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts)));
             }
           }
         }
       }
       if (EnemyPenalty && regime1 != byregnr && !this.game.Data.LandscapeTypeObj[landscapeType2].IsSea & !flag1)
-        val1_1 =  Math.Round((double) ((float) val1_1 + this.game.Data.RuleVar[4]));
+        val1_1 =  Math.Round( ( val1_1 + this.game.Data.RuleVar[4]));
       if (dontenterenemy & this.game.Data.Product >= 6 | dontenterenemy & !EnemyPenalty & this.game.Data.Product < 6 && theater != 2 && regime1 != byregnr && !this.game.Data.LandscapeTypeObj[landscapeType2].IsSea)
       {
         let mut num: i32 =  0;
@@ -13820,15 +13820,15 @@ label_8:
       if (SFTypeX > -1 & SFTypeQty > 0 && this.game.Data.SFTypeObj[SFTypeX].FuelForMove > 0 && this.game.Data.SFTypeObj[SFTypeX].FuelRegimeVar > -1)
       {
         let mut currentSlot: i32 =  this.game.Data.SFTypeObj[SFTypeX].FuelRegimeVar;
-        if ((double) this.game.Data.RuleVar[949] > 0.0)
+        if ( this.game.Data.RuleVar[949] > 0.0)
           currentSlot = this.game.HandyFunctionsObj.GetFuelSlot949(currentSlot, ox1, oy1);
-        let mut num5: i32 =   Math.Round(Conversion.Int((double) ((val1_1 + PreviousAPspent) * this.game.Data.SFTypeObj[SFTypeX].FuelForMove) / 10.0));
+        let mut num5: i32 =   Math.Round(Conversion.Int( ((val1_1 + PreviousAPspent) * this.game.Data.SFTypeObj[SFTypeX].FuelForMove) / 10.0));
         if (this.game.Data.SFTypeObj[SFTypeX].FuelForMove > num5)
           num5 = this.game.Data.SFTypeObj[SFTypeX].FuelForMove;
         let mut num6: i32 =  num5 * SFTypeQty;
         if (this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[currentSlot] < num6)
         {
-          val1_1 =  Math.Round((double) ((float) val1_1 * this.game.Data.SFTypeObj[SFTypeX].OutOfFuelMove));
+          val1_1 =  Math.Round( ( val1_1 * this.game.Data.SFTypeObj[SFTypeX].OutOfFuelMove));
           coordinate1.y = 1;
         }
       }
@@ -13841,14 +13841,14 @@ label_8:
         }
         else
         {
-          let mut num8: i32 =   Math.Round(Math.Floor((double) this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[6] / 100.0));
+          let mut num8: i32 =   Math.Round(Math.Floor( this.game.Data.MapObj[0].HexObj[x2, y2].LISpoints[6] / 100.0));
           if (num8 < 1)
             num8 = 1;
           if (num8 > 100)
             num8 = 100;
           if (num8 > 10 & num8 < 50)
             num8 = num8;
-          val1_1 +=  Math.Round((double) (val1_1 * 2 * (100 - num8)) / 100.0);
+          val1_1 +=  Math.Round( (val1_1 * 2 * (100 - num8)) / 100.0);
         }
       }
       if (lisMode > 100000 & lisMode < 199999)
@@ -13856,19 +13856,19 @@ label_8:
         let mut num9: i32 =  lisMode - 100000;
         if (num9 > 0)
         {
-          let mut num10: i32 =   Math.Round(Math.Floor((double) this.game.Data.MapObj[0].HexObj[x2, y2].LIStotalHistory[6] / (double) num9));
+          let mut num10: i32 =   Math.Round(Math.Floor( this.game.Data.MapObj[0].HexObj[x2, y2].LIStotalHistory[6] /  num9));
           if (num10 < 1)
             num10 = 0;
           if (num10 > 100)
             num10 = 100;
-          val1_1 +=  Math.Round((double) (50 * (100 - num10)) / 100.0);
+          val1_1 +=  Math.Round( (50 * (100 - num10)) / 100.0);
         }
       }
       if (x1 == 22 & y1 == 13 & index2 == 1)
         x1 = x1;
       if (specialRuleNumber == 1 && val1_1 > 10 & val1_1 < 9999)
       {
-        val1_1 +=  Math.Round((double) (val1_1 - 10) * Math.Ceiling((double) val1_1 / 100.0));
+        val1_1 +=  Math.Round( (val1_1 - 10) * Math.Ceiling( val1_1 / 100.0));
         if (val1_1 > 9999)
           val1_1 = 9999;
       }
@@ -13937,8 +13937,8 @@ label_8:
           else
           {
             let mut num12: i32 =  Math.Abs(num11);
-            float num13 = (float) Math.Abs(num12) / (float) this.game.EditObj.PossiblePull[x1, y1, index2];
-            val1_1 = (double) num13 >= 1.0 ? ((double) num13 >= 2.0 ? ((double) num13 >= 4.0 ?  Math.Round((double) val1_1 + (double) (120 * num12) / (double) specialRuleNumber2) :  Math.Round((double) val1_1 + (double) (80 * num12) / (double) specialRuleNumber2)) :  Math.Round((double) val1_1 + (double) (40 * num12) / (double) specialRuleNumber2)) :  Math.Round((double) ((float) val1_1 + 20f * num13 * (float) num12 / (float) specialRuleNumber2));
+            float num13 =  Math.Abs(num12) /  this.game.EditObj.PossiblePull[x1, y1, index2];
+            val1_1 =  num13 >= 1.0 ? ( num13 >= 2.0 ? ( num13 >= 4.0 ?  Math.Round( val1_1 +  (120 * num12) /  specialRuleNumber2) :  Math.Round( val1_1 +  (80 * num12) /  specialRuleNumber2)) :  Math.Round( val1_1 +  (40 * num12) /  specialRuleNumber2)) :  Math.Round( ( val1_1 + 20f * num13 *  num12 /  specialRuleNumber2));
           }
         }
       }
@@ -13960,10 +13960,10 @@ label_8:
         {
           logisticalBonus = this.game.Data.LocTypeObj[type].Logistical;
           if (!this.game.Data.LocTypeObj[type].Invincible | this.game.Data.Product >= 6)
-            logisticalBonus =  Math.Round(Conversion.Int((double) logisticalBonus * ((double) this.game.Data.LocObj[location].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts)));
+            logisticalBonus =  Math.Round(Conversion.Int( logisticalBonus * ( this.game.Data.LocObj[location].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts)));
         }
       }
-      if (this.game.Data.Product >= 7 & (double) this.game.Data.RuleVar[403] > 0.0)
+      if (this.game.Data.Product >= 7 &  this.game.Data.RuleVar[403] > 0.0)
       {
         int num;
         if (lisMode > 0 & lisMode <= 99 & location > -1)
@@ -13979,7 +13979,7 @@ label_8:
         if (num > 0)
           logisticalBonus += num;
       }
-      if (this.game.Data.Product >= 6 & (double) this.game.Data.RuleVar[471] > 0.0)
+      if (this.game.Data.Product >= 6 &  this.game.Data.RuleVar[471] > 0.0)
       {
         let mut location2: i32 =  this.game.Data.MapObj[0].HexObj[x1, y1].Location2;
         let mut num: i32 =  0;
@@ -13990,7 +13990,7 @@ label_8:
           {
             num = this.game.Data.LocTypeObj[type].Logistical;
             if (!this.game.Data.LocTypeObj[type].Invincible | this.game.Data.Product >= 6)
-              num =  Math.Round(Conversion.Int((double) num * ((double) this.game.Data.LocObj[location2].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts)));
+              num =  Math.Round(Conversion.Int( num * ( this.game.Data.LocObj[location2].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts)));
           }
         }
         if (num > 0 && num > logisticalBonus)
@@ -14003,7 +14003,7 @@ label_8:
     {
       Coordinate[] arySrc1 = new Coordinate[1];
       bool[] arySrc2 = new bool[1];
-      let mut num1: i32 =   Math.Round((double) this.game.Data.RuleVar[3]);
+      let mut num1: i32 =   Math.Round( this.game.Data.RuleVar[3]);
       let mut index1: i32 =  0;
       this.RedimTempValue(9999);
       this.RedimTempCameFrom();
@@ -14645,7 +14645,7 @@ label_8:
 
     pub CanAddTroops: bool(int unr, int sftype, int ppl, int MoveType)
     {
-      if ((double) this.game.Data.RuleVar[331] == 1.0)
+      if ( this.game.Data.RuleVar[331] == 1.0)
         return this.game.Data.UnitObj[unr].SFCount > -1 && this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[0]].Type == sftype && !this.game.Data.SFTypeObj[sftype].Unique;
       if (this.game.Data.UnitObj[unr].IsHQ)
         return true;
@@ -14697,7 +14697,7 @@ label_8:
         }
         let mut num3: i32 =  this.game.Data.SFTypeObj[SfType].BasicSupplyNeed * Qty;
         let mut supplyConsume: i32 =  this.game.Data.UnitObj[unr].SupplyConsume;
-        this.game.Data.UnitObj[unr].SupplyConsume = num3 + num2 <= 0 ? 100 :  Math.Round((double) (num2 * this.game.Data.UnitObj[unr].SupplyConsume + num3 * tsc) / (double) (num3 + num2));
+        this.game.Data.UnitObj[unr].SupplyConsume = num3 + num2 <= 0 ? 100 :  Math.Round( (num2 * this.game.Data.UnitObj[unr].SupplyConsume + num3 * tsc) /  (num3 + num2));
         if (tsc < supplyConsume & this.game.Data.UnitObj[unr].SupplyConsume == supplyConsume)
         {
           UnitClass[] unitObj = this.game.Data.UnitObj;
@@ -14731,20 +14731,20 @@ label_8:
         num4 = -1;
       if (num4 > -1)
       {
-        object obj = (object) sf;
+        object obj =  sf;
         this.game.Data.SFObj[Conversions.ToInteger(obj)].EP += Ep;
-        this.game.Data.SFObj[Conversions.ToInteger(obj)].Xp =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Xp + Qty * Xp) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
-        this.game.Data.SFObj[Conversions.ToInteger(obj)].Vigor =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Vigor + Qty * vigor) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
-        this.game.Data.SFObj[Conversions.ToInteger(obj)].Rdn =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Rdn + Qty * Rdn) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
-        this.game.Data.SFObj[Conversions.ToInteger(obj)].Mor =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Mor + Qty * Mor) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
-        this.game.Data.SFObj[Conversions.ToInteger(obj)].OffMod =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].OffMod + Qty * offmod) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
-        this.game.Data.SFObj[Conversions.ToInteger(obj)].DefMod =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].DefMod + Qty * defmod) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+        this.game.Data.SFObj[Conversions.ToInteger(obj)].Xp =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Xp + Qty * Xp) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+        this.game.Data.SFObj[Conversions.ToInteger(obj)].Vigor =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Vigor + Qty * vigor) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+        this.game.Data.SFObj[Conversions.ToInteger(obj)].Rdn =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Rdn + Qty * Rdn) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+        this.game.Data.SFObj[Conversions.ToInteger(obj)].Mor =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].Mor + Qty * Mor) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+        this.game.Data.SFObj[Conversions.ToInteger(obj)].OffMod =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].OffMod + Qty * offmod) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+        this.game.Data.SFObj[Conversions.ToInteger(obj)].DefMod =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].DefMod + Qty * defmod) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
         if (entr > 0)
-          this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench + Qty * entr) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+          this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty * this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench + Qty * entr) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
         else if (this.game.Data.UnitObj[unr].PreDef == -1)
         {
           let mut minimumEntrench: i32 =  this.game.HandyFunctionsObj.GetMinimumEntrench(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, this.game.Data.SFTypeObj[SfType].UnitGroup);
-          this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench =  Math.Round(Conversion.Int((double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench * this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty * minimumEntrench) / (double) (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
+          this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench =  Math.Round(Conversion.Int( (this.game.Data.SFObj[Conversions.ToInteger(obj)].CurrentEntrench * this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty * minimumEntrench) /  (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty + Qty)));
         }
         if (this.game.Data.SFObj[Conversions.ToInteger(obj)].Ap > Ap)
           this.game.Data.SFObj[Conversions.ToInteger(obj)].Ap = Ap;
@@ -14752,7 +14752,7 @@ label_8:
       }
       else
       {
-        object obj = (object) this.game.Data.AddSF(unr);
+        object obj =  this.game.Data.AddSF(unr);
         this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty = Qty;
         this.game.Data.SFObj[Conversions.ToInteger(obj)].Type = SfType;
         this.game.Data.SFObj[Conversions.ToInteger(obj)].Ap = Ap;
@@ -14793,7 +14793,7 @@ label_8:
         num = -1;
       if (num <= -1)
         return;
-      object obj = (object) sf;
+      object obj =  sf;
       this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty -= qty;
       if (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty >= 1)
         return;
@@ -14816,7 +14816,7 @@ label_8:
       let mut num: i32 =  simpleList.Counter <= -1 ? -1 : simpleList.Id[0];
       if (num <= -1)
         return;
-      object obj = (object) num;
+      object obj =  num;
       this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty -= qty;
       if (this.game.Data.SFObj[Conversions.ToInteger(obj)].Qty >= 1)
         return;
@@ -14985,7 +14985,7 @@ label_8:
       shortmaster = shortmaster.Replace("\\", "/");
       if (Strings.InStr(shortmaster, "/") > 0)
       {
-        let mut num: i32 =   Interaction.MsgBox((object) "Master should not be long, code will continue");
+        let mut num: i32 =   Interaction.MsgBox( "Master should not be long, code will continue");
         return shortmaster;
       }
       if (Strings.InStr(filename, "/") > 0)
@@ -15049,7 +15049,7 @@ label_8:
         let mut num2: i32 =  this.CheckDiskSpace(Strings.Left(str1, Strings.InStr(str1, ":")));
         if (num2 > 0 & num2 < 50)
         {
-          let mut num3: i32 =   Interaction.MsgBox((object) "Save aborted. Volume must have at least 50mb free memory in order to save.");
+          let mut num3: i32 =   Interaction.MsgBox( "Save aborted. Volume must have at least 50mb free memory in order to save.");
         }
       }
       return str1;
@@ -15092,25 +15092,25 @@ label_8:
       if (locnr > -1 && this.game.Data.LocObj[locnr].People > -1)
       {
         let mut peopleGroup2: i32 =  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].PeopleGroup;
-        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod <= 1 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod[peopleGroup1] <= 0.0)
+        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod <= 1 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod[peopleGroup1] <= 0.0)
         {
           produceItemResult.result = false;
           produceItemResult.refusal = "Location cannot produce this itemgroup.";
           return produceItemResult;
         }
-        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod == 2 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod2[peopleGroup1] <= 0.0)
+        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod == 2 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod2[peopleGroup1] <= 0.0)
         {
           produceItemResult.result = false;
           produceItemResult.refusal = "Location cannot produce this itemgroup.";
           return produceItemResult;
         }
-        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod == 3 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod3[peopleGroup1] <= 0.0)
+        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod == 3 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod3[peopleGroup1] <= 0.0)
         {
           produceItemResult.result = false;
           produceItemResult.refusal = "Location cannot produce this itemgroup.";
           return produceItemResult;
         }
-        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod == 4 && (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod4[peopleGroup1] <= 0.0)
+        if (this.game.Data.ItemTypeObj[itemtypenr].UseProdMod == 4 &&  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod4[peopleGroup1] <= 0.0)
         {
           produceItemResult.result = false;
           produceItemResult.refusal = "Location cannot produce this itemgroup.";
@@ -15353,9 +15353,9 @@ label_8:
           let mut type: i32 =  this.game.Data.SFObj[sf].Type;
           let mut num: i32 =  this.game.Data.SFTypeObj[type].BlowBridgePts * this.game.Data.SFObj[sf].Qty;
           if (this.game.Data.SFTypeObj[type].manpower > 0 & this.game.Data.Product == 6)
-            num =  Math.Round((double) (num * this.game.Data.SFTypeObj[type].manpower) / 10.0);
+            num =  Math.Round( (num * this.game.Data.SFTypeObj[type].manpower) / 10.0);
           if (this.game.Data.SFTypeObj[type].EP > 0)
-            num =  Math.Round((double) num * ((double) (this.game.Data.SFObj[sf].EP + this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].EP) / (double) (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].EP)));
+            num =  Math.Round( num * ( (this.game.Data.SFObj[sf].EP + this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].EP) /  (this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[type].EP)));
           blowBridgePts += num;
         }
       }
@@ -15588,14 +15588,14 @@ label_8:
       do
       {
         Coordinate coordinate1 = this.HexNeighbourSameMap(x1, y, map, tfacing);
-        if (coordinate1.onmap && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) | (double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
+        if (coordinate1.onmap && this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].Regime, this.game.Data.UnitObj[unr].Regime) |  this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
         {
           let mut landscapeType: i32 =  this.game.Data.MapObj[map].HexObj[coordinate1.x, coordinate1.y].LandscapeType;
           if (this.game.Data.LandscapeTypeObj[landscapeType].CanBuildRoad)
           {
             Coordinate coordinate2;
             int x2;
-            if ((double) this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
+            if ( this.game.Data.RuleVar[483] > 0.0 & this.game.Data.Product >= 6)
             {
               coordinate2 = this.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, x1, y, map, coordinate1.x, coordinate1.y, coordinate1.map, true, IgnoreBridges: true);
               x2 = coordinate2.x;
@@ -15610,15 +15610,15 @@ label_8:
             {
               if (this.game.Data.MapObj[map].HexObj[x1, y].RiverType[tfacing - 1] > -1 & !this.game.Data.MapObj[map].HexObj[x1, y].Bridge[tfacing - 1])
               {
-                if ((double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x1, y].RiverType[tfacing - 1]].BridgeCostModifier * (double) this.game.Data.BridgeObj[0].EPCost <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr) && (double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[825] && this.CanConstructBridge(unr, x1, y, map, tfacing - 1))
+                if ( this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x1, y].RiverType[tfacing - 1]].BridgeCostModifier *  this.game.Data.BridgeObj[0].EPCost <=  this.game.HandyFunctionsObj.GetUnitEP(unr) &&  this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[825] && this.CanConstructBridge(unr, x1, y, map, tfacing - 1))
                   return true;
               }
               else if (this.game.Data.MapObj[map].HexObj[x1, y].RoadType[tfacing - 1] == -1)
               {
-                if ((double) this.game.Data.RuleVar[32] > -1.0 && (double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[823] && (double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+                if ( this.game.Data.RuleVar[32] > -1.0 &&  this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[823] &&  this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
                   return true;
               }
-              else if ((double) this.game.Data.RuleVar[820] > -1.0 & (double) this.game.Data.MapObj[map].HexObj[x1, y].RoadType[tfacing - 1] == (double) this.game.Data.RuleVar[821] && (double) this.game.Data.RuleVar[32] > -1.0 && (double) this.game.Data.RuleVar[822] == -1.0 | (double) this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round((double) Math.Max(0.0f, this.game.Data.RuleVar[822]))] >= (double) this.game.Data.RuleVar[824] && (double) this.game.Data.RoadTypeObj[ Math.Round((double) this.game.Data.RuleVar[32])].EPCost * (double) this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <= (double) this.game.HandyFunctionsObj.GetUnitEP(unr))
+              else if ( this.game.Data.RuleVar[820] > -1.0 &  this.game.Data.MapObj[map].HexObj[x1, y].RoadType[tfacing - 1] ==  this.game.Data.RuleVar[821] &&  this.game.Data.RuleVar[32] > -1.0 &&  this.game.Data.RuleVar[822] == -1.0 |  this.game.Data.RegimeObj[this.game.Data.Turn].RegimeSlot[ Math.Round( Math.Max(0.0f, this.game.Data.RuleVar[822]))] >=  this.game.Data.RuleVar[824] &&  this.game.Data.RoadTypeObj[ Math.Round( this.game.Data.RuleVar[32])].EPCost *  this.game.Data.LandscapeTypeObj[landscapeType].RoadCostModifier <=  this.game.HandyFunctionsObj.GetUnitEP(unr))
                 return true;
             }
           }
@@ -15678,7 +15678,7 @@ label_8:
         }
         if (num2 == 1)
         {
-          let mut increaseap: i32 =   Math.Round((double) Conversion.Int((float) this.GetLowestAirRdn(unr, true) * this.game.Data.RuleVar[147]));
+          let mut increaseap: i32 =   Math.Round( Conversion.Int( this.GetLowestAirRdn(unr, true) * this.game.Data.RuleVar[147]));
           if (num2 == 1 && increaseap > 0)
           {
             this.MakeMovePrediction(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, false, PredictAirOnly: true, attack: true, increaseap: increaseap, OnlyFrontline: true);
@@ -15925,7 +15925,7 @@ label_8:
       if (this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn & this.game.Data.UnitObj[unr].Map == target.map)
       {
         let mut dist: i32 =  !Prognosis ? this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, 0, target.x, target.y, target.map) : this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY, 0, target.x, target.y, target.map);
-        if (0 < dist && dist <= this.GetMaxArtRange(unr, 0) && (this.game.EditObj.OrderType == 0 || !Information.IsNothing((object) this.game.EditObj.TempUnitList) && 10 <= this.game.HandyFunctionsObj.GetLowestlandartAp(unr, dist) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr)))
+        if (0 < dist && dist <= this.GetMaxArtRange(unr, 0) && (this.game.EditObj.OrderType == 0 || !Information.IsNothing( this.game.EditObj.TempUnitList) && 10 <= this.game.HandyFunctionsObj.GetLowestlandartAp(unr, dist) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr)))
           return true;
       }
       return false;
@@ -15945,7 +15945,7 @@ label_8:
         {
           if (this.game.EditObj.OrderType == 0)
             return true;
-          if (!Information.IsNothing((object) this.game.EditObj.TempUnitList) && 10 <= this.game.HandyFunctionsObj.GetLowestlandDirectAp(unr, dist) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr))
+          if (!Information.IsNothing( this.game.EditObj.TempUnitList) && 10 <= this.game.HandyFunctionsObj.GetLowestlandDirectAp(unr, dist) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr))
           {
             this.SetTempLos(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, dist + 1, false);
             if (this.game.EditObj.TempLos[0].Value[target.x, target.y] > 0)
@@ -15969,18 +15969,18 @@ label_8:
 
     pub CanDoSeaAttack: bool(int unr, Coordinate target) => this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1 && this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr);
 
-    pub CanDoLandAttack: bool(int unr, Coordinate target) => this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1 && this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) && (double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr);
+    pub CanDoLandAttack: bool(int unr, Coordinate target) => this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1 && this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) &&  this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr);
 
     pub OrderResult CanDoLandAttack2(int unr, Coordinate target)
     {
       OrderResult orderResult = OrderResult::new();
       orderResult.OK = false;
       orderResult.Data = 0;
-      if (this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn & !Information.IsNothing((object) this.game.EditObj.TempUnitList) && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1)
+      if (this.game.Data.UnitObj[unr].Regime == this.game.Data.Turn & !Information.IsNothing( this.game.EditObj.TempUnitList) && !this.game.HandyFunctionsObj.HasUnitAirSF(unr) && !this.game.HandyFunctionsObj.HasUnitNavySF(unr) && this.game.HandyFunctionsObj.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map) <= 1)
       {
-        if ((double) this.game.Data.RuleVar[493] > 0.0)
+        if ( this.game.Data.RuleVar[493] > 0.0)
         {
-          if ((double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr))
+          if ( this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr))
           {
             Coordinate coordinate = this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true);
             let mut lowestAp: i32 =  this.game.HandyFunctionsObj.GetLowestAp(unr);
@@ -15999,7 +15999,7 @@ label_8:
             return orderResult;
           }
         }
-        else if (this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) && (double) this.game.Data.RuleVar[307] <= (double) this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr))
+        else if (this.game.HandyFunctionsObj.MoveApCostPreview(unr, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, target.x, target.y, target.map, true).x <= this.game.HandyFunctionsObj.GetLowestAp(unr) &&  this.game.Data.RuleVar[307] <=  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr) && this.game.EditObj.TempUnitList.counter < 15 | this.game.EditObj.TempUnitList.CheckIfPresent(unr))
         {
           orderResult.OK = true;
           return orderResult;
@@ -16075,21 +16075,21 @@ label_8:
       do
       {
         if (numArray[index] > 0)
-          num1 =  Math.Round((double) ((float) num1 + this.game.Data.RuleVar[31]));
+          num1 =  Math.Round( ( num1 + this.game.Data.RuleVar[31]));
         index += 1;
       }
       while (index <= 5);
       if (num1 == 0)
-        num1 =  Math.Round((double) this.game.Data.RuleVar[31]);
-      if ((double) num1 < (double) this.game.Data.RuleVar[30])
-        num1 =  Math.Round((double) this.game.Data.RuleVar[30]);
+        num1 =  Math.Round( this.game.Data.RuleVar[31]);
+      if ( num1 <  this.game.Data.RuleVar[30])
+        num1 =  Math.Round( this.game.Data.RuleVar[30]);
       return num1;
     }
 
     pub int maxAttackStackPrognosis(bool facingInData2 = false)
     {
       int[] numArray = new int[6];
-      if (Information.IsNothing((object) this.game.EditObj.TempUnitList))
+      if (Information.IsNothing( this.game.EditObj.TempUnitList))
         return 0;
       if (this.game.EditObj.TempUnitList.counter > -1)
       {
@@ -16118,14 +16118,14 @@ label_8:
       do
       {
         if (numArray[index] > 0)
-          num1 =  Math.Round((double) ((float) num1 + this.game.Data.RuleVar[31]));
+          num1 =  Math.Round( ( num1 + this.game.Data.RuleVar[31]));
         index += 1;
       }
       while (index <= 5);
       if (num1 == 0)
-        num1 =  Math.Round((double) this.game.Data.RuleVar[31]);
-      if ((double) num1 < (double) this.game.Data.RuleVar[30])
-        num1 =  Math.Round((double) this.game.Data.RuleVar[30]);
+        num1 =  Math.Round( this.game.Data.RuleVar[31]);
+      if ( num1 <  this.game.Data.RuleVar[30])
+        num1 =  Math.Round( this.game.Data.RuleVar[30]);
       return num1;
     }
 
@@ -16138,7 +16138,7 @@ label_8:
       {
         if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.Data.UnitObj[unr].Map].HexObj[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y].LandscapeType].IsSea)
         {
-          if (!Conversions.ToBoolean(Operators.OrObject((object) (this.game.HandyFunctionsObj.IsHexAirfield(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map) | flag), Operators.CompareObjectGreaterEqual((object) this.GetAirCarryCapPts(unr), Operators.SubtractObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, true), this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, false)), false))))
+          if (!Conversions.ToBoolean(Operators.OrObject( (this.game.HandyFunctionsObj.IsHexAirfield(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map) | flag), Operators.CompareObjectGreaterEqual( this.GetAirCarryCapPts(unr), Operators.SubtractObject(this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, true), this.game.HandyFunctionsObj.GetUnitNonSeaWeight(unr, false)), false))))
             return false;
           let mut unitAirRangeInHex: i32 =  this.GetUnitAirRangeInHex(unr);
           if (unitAirRangeInHex == -1)
@@ -16202,7 +16202,7 @@ label_8:
         if (this.game.Data.SFTypeObj[type].Theater == 2 && this.game.Data.SFTypeObj[type].AirAPRule > -1 && this.game.Data.SFTypeObj[type].AirAPRule > num)
           num = this.game.Data.SFTypeObj[type].AirAPRule;
       }
-      return num < 1 ? 0 :  Math.Round(Math.Floor((double) this.game.HandyFunctionsObj.GetLowestAirAp(unr) / (double) num));
+      return num < 1 ? 0 :  Math.Round(Math.Floor( this.game.HandyFunctionsObj.GetLowestAirAp(unr) /  num));
     }
 
     pub AIMatrix AutoMoveLongRangeMatrix(
@@ -16277,7 +16277,7 @@ label_8:
 
     pub int GetMaxDirectRange(int unr, int temptheater)
     {
-      if ((double) this.game.Data.RuleVar[419] < 1.0 || this.game.Data.UnitObj[unr].SFCount <= -1)
+      if ( this.game.Data.RuleVar[419] < 1.0 || this.game.Data.UnitObj[unr].SFCount <= -1)
         return 0;
       let mut maxDirectRange: i32 =  0;
       let mut sfCount: i32 =  this.game.Data.UnitObj[unr].SFCount;
@@ -16309,7 +16309,7 @@ label_8:
           num2 += this.game.Data.SFTypeObj[type].PowerPts * qty;
         }
       }
-      return num2 <= 0 ? 0 :  Math.Round((double) num1 / (double) num2);
+      return num2 <= 0 ? 0 :  Math.Round( num1 /  num2);
     }
 
     pub int GetArtPercent(int unr, bool useHis)
@@ -16338,7 +16338,7 @@ label_8:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round((double) (num1 * 100) / (double) num2);
+      return  Math.Round( (num1 * 100) /  num2);
     }
 
     pub int GetDirectPercent(int unr, bool useHis)
@@ -16367,7 +16367,7 @@ label_8:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round((double) (num1 * 100) / (double) num2);
+      return  Math.Round( (num1 * 100) /  num2);
     }
 
     pub IsHexHarbourOrSea: bool(int x, int y, int map)
@@ -16450,7 +16450,7 @@ label_8:
     {
       if (!this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].CanBuildRoad)
         return false;
-      this.MakeMovePrediction2(this.game.Data.UnitObj[hq].Regime,  Math.Round((double) this.game.Data.RuleVar[0]), 0,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map);
+      this.MakeMovePrediction2(this.game.Data.UnitObj[hq].Regime,  Math.Round( this.game.Data.RuleVar[0]), 0,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map);
       if (this.game.EditObj.TempValue[map].Value[x, y] > 9998)
         return false;
       if (tlist.counter == -1)
@@ -16466,10 +16466,10 @@ label_8:
 
     pub CanConstructBridge: bool(int hq, int x, int y, int map, int facing)
     {
-      if (facing != -1 && this.game.Data.MapObj[map].HexObj[x, y].Bridge[facing] || facing != -1 && (this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing] == -1 || (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing]].BridgeCostModifier < 0.0))
+      if (facing != -1 && this.game.Data.MapObj[map].HexObj[x, y].Bridge[facing] || facing != -1 && (this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing] == -1 ||  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[facing]].BridgeCostModifier < 0.0))
         return false;
       Coordinate coordinate;
-      if ((double) this.game.Data.RuleVar[320] == 1.0)
+      if ( this.game.Data.RuleVar[320] == 1.0)
       {
         coordinate = this.HexNeighbour(x, y, map, facing + 1);
         if (!coordinate.onmap)
@@ -16483,7 +16483,7 @@ label_8:
       if (facing != -1)
       {
         coordinate = this.HexNeighbour(x, y, map, facing + 1);
-        if (!coordinate.onmap || (double) this.game.Data.RuleVar[483] < 1.0 | this.game.Data.Product < 6 && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[x, y].Regime, this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime))
+        if (!coordinate.onmap ||  this.game.Data.RuleVar[483] < 1.0 | this.game.Data.Product < 6 && !this.game.HandyFunctionsObj.IsAlliedOrSelf(this.game.Data.MapObj[map].HexObj[x, y].Regime, this.game.Data.MapObj[0].HexObj[coordinate.x, coordinate.y].Regime))
           return false;
       }
       return true;
@@ -16491,7 +16491,7 @@ label_8:
 
     pub CanBlowBridge: bool(int hq, int x, int y, int map, int facing)
     {
-      this.MakeMovePrediction2(this.game.Data.UnitObj[hq].Regime,  Math.Round((double) this.game.Data.RuleVar[0]), 0,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map);
+      this.MakeMovePrediction2(this.game.Data.UnitObj[hq].Regime,  Math.Round( this.game.Data.RuleVar[0]), 0,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[hq].X, this.game.Data.UnitObj[hq].Y, this.game.Data.UnitObj[hq].Map);
       return this.game.EditObj.TempValue[map].Value[x, y] <= 9998 && this.game.Data.MapObj[map].HexObj[x, y].Bridge[facing];
     }
 
@@ -16516,7 +16516,7 @@ label_8:
       }
       else if (this.game.Data.LocTypeObj[loctype].UpgradeNr > -1)
         return false;
-      if (!this.game.Data.LocTypeObj[loctype].Buildable || !this.game.Data.LocTypeObj[loctype].PeopleGroup[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] || (double) this.game.Data.RuleVar[862] > 0.0 && !this.game.HandyFunctionsObj.IsHexNextToSea(x, y, map) & this.game.Data.LocTypeObj[loctype].IsPort)
+      if (!this.game.Data.LocTypeObj[loctype].Buildable || !this.game.Data.LocTypeObj[loctype].PeopleGroup[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] ||  this.game.Data.RuleVar[862] > 0.0 && !this.game.HandyFunctionsObj.IsHexNextToSea(x, y, map) & this.game.Data.LocTypeObj[loctype].IsPort)
         return false;
       let mut index: i32 =  0;
       while ((this.game.Data.LocTypeObj[loctype].Research[index] <= -1 || this.game.Data.RegimeObj[regnr].ResField[this.game.Data.LocTypeObj[loctype].Research[index]]) && (!(this.game.Data.LocTypeObj[loctype].VarType[index] > -1 & this.game.Data.LocTypeObj[loctype].VarQty[index] > 0) || this.game.Data.RegimeObj[regnr].RegimeSlot[this.game.Data.LocTypeObj[loctype].VarType[index]] >= this.game.Data.LocTypeObj[loctype].VarQty[index]))
@@ -16540,7 +16540,7 @@ label_8:
               }
             }
           }
-          return this.game.Data.LocTypeObj[loctype].BuildgroundType[this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].BuildGround] && (potentialy || (unr <= -1 || (double) this.game.HandyFunctionsObj.HQSupplyChain(unr, true) >= (double) this.game.Data.LocTypeObj[loctype].SupplyCost / (double) this.game.Data.RuleVar[77]) && this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= this.game.Data.LocTypeObj[loctype].PPCost && (unr <= -1 || this.game.HandyFunctionsObj.GetUnitEP(unr) >= this.game.Data.LocTypeObj[loctype].EPCost));
+          return this.game.Data.LocTypeObj[loctype].BuildgroundType[this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[map].HexObj[x, y].LandscapeType].BuildGround] && (potentialy || (unr <= -1 ||  this.game.HandyFunctionsObj.HQSupplyChain(unr, true) >=  this.game.Data.LocTypeObj[loctype].SupplyCost /  this.game.Data.RuleVar[77]) && this.game.Data.RegimeObj[this.game.Data.Turn].ResPts >= this.game.Data.LocTypeObj[loctype].PPCost && (unr <= -1 || this.game.HandyFunctionsObj.GetUnitEP(unr) >= this.game.Data.LocTypeObj[loctype].EPCost));
         }
       }
       return false;
@@ -16601,7 +16601,7 @@ label_8:
         let mut num2: i32 =  Conversions.ToInteger(this.GetUnitNonSeaWeight(unr, false)) + Conversions.ToInteger(this.GetUnitExcessWeight(unr));
         if (num2 > unitCarryCap)
         {
-          float loss = (float) (1.0 - (double) unitCarryCap / (double) num2);
+          float loss =  (1.0 -  unitCarryCap /  num2);
           if (this.game.Data.UnitObj[unr].PassengerCounter > -1)
           {
             let mut passengerCounter: i32 =  this.game.Data.UnitObj[unr].PassengerCounter;
@@ -16632,7 +16632,7 @@ label_8:
         let mut integer: i32 =  Conversions.ToInteger(Operators.SubtractObject(this.GetUnitNonSeaWeight(unr, true), this.GetUnitNonSeaWeight(unr, false)));
         if (integer > airCarryCapPts)
         {
-          float loss = (float) (1.0 - (double) airCarryCapPts / (double) integer);
+          float loss =  (1.0 -  airCarryCapPts /  integer);
           num1 = this.DoLoseCargoAircraft(unr, loss, Attacker, Defender);
         }
       }
@@ -16650,7 +16650,7 @@ label_8:
           let mut type: i32 =  this.game.Data.SFObj[sf].Type;
           if (this.game.Data.SFTypeObj[type].Theater == 0)
           {
-            let mut num2: i32 =   Math.Round((double) Conversion.Int((float) this.game.Data.SFObj[sf].Qty * loss)) + 1;
+            let mut num2: i32 =   Math.Round( Conversion.Int( this.game.Data.SFObj[sf].Qty * loss)) + 1;
             if (num2 > this.game.Data.SFObj[sf].Qty)
               num2 = this.game.Data.SFObj[sf].Qty;
             int index1;
@@ -16665,7 +16665,7 @@ label_8:
               index1 = Defender;
               index2 = Attacker;
             }
-            if (index2 < Attacker & (double) this.game.Data.RuleVar[841] == 0.0)
+            if (index2 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
               int[,] skills = this.game.Data.RegimeObj[index2].SKills;
               int[,] numArray = skills;
@@ -16687,7 +16687,7 @@ label_8:
               let mut num4: i32 =  skills[index7, round] + num2;
               numArray[index8, index9] = num4;
             }
-            if (index1 < Attacker & (double) this.game.Data.RuleVar[841] == 0.0)
+            if (index1 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
               int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
               int[,] numArray = sloss;
@@ -16744,7 +16744,7 @@ label_8:
             num1 += this.game.Data.SFObj[sf].Qty;
         }
       }
-      let mut num9: i32 =   Math.Round((double) Conversion.Int((float) this.game.Data.UnitObj[unr].Supply * loss)) + 1;
+      let mut num9: i32 =   Math.Round( Conversion.Int( this.game.Data.UnitObj[unr].Supply * loss)) + 1;
       if (num9 > this.game.Data.UnitObj[unr].Supply)
         num9 = this.game.Data.UnitObj[unr].Supply;
       UnitClass[] unitObj = this.game.Data.UnitObj;
@@ -16766,7 +16766,7 @@ label_8:
           let mut type: i32 =  this.game.Data.SFObj[sf].Type;
           if (this.game.Data.SFTypeObj[type].Theater == 2)
           {
-            let mut num2: i32 =   Math.Round((double) Conversion.Int((float) this.game.Data.SFObj[sf].Qty * loss)) + 1;
+            let mut num2: i32 =   Math.Round( Conversion.Int( this.game.Data.SFObj[sf].Qty * loss)) + 1;
             if (num2 > this.game.Data.SFObj[sf].Qty)
               num2 = this.game.Data.SFObj[sf].Qty;
             int index1;
@@ -16781,7 +16781,7 @@ label_8:
               index1 = Defender;
               index2 = Attacker;
             }
-            if (index2 < Attacker & (double) this.game.Data.RuleVar[841] == 0.0)
+            if (index2 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
               int[,] skills = this.game.Data.RegimeObj[index2].SKills;
               int[,] numArray = skills;
@@ -16803,7 +16803,7 @@ label_8:
               let mut num4: i32 =  skills[index7, round] + num2;
               numArray[index8, index9] = num4;
             }
-            if (index1 < Attacker & (double) this.game.Data.RuleVar[841] == 0.0)
+            if (index1 < Attacker &  this.game.Data.RuleVar[841] == 0.0)
             {
               int[,] sloss = this.game.Data.RegimeObj[index1].SLoss;
               int[,] numArray = sloss;
@@ -17215,7 +17215,7 @@ label_8:
           let mut eventCounter: i32 =  dataClass.EventCounter;
           for (let mut index: i32 =  0; index <= eventCounter; index += 1)
           {
-            if (Information.IsNothing((object) data.EventObj[index]))
+            if (Information.IsNothing( data.EventObj[index]))
               data.EventObj[index] = dataClass.EventObj[index];
             else if (!(data.EventObj[index].CommandCounter > -1 & dataClass.EventObj[index].CommandCounter == -1))
               data.EventObj[index] = dataClass.EventObj[index];
@@ -17237,7 +17237,7 @@ label_8:
           object[] objArray = new object[data.UnitCounter + 1];
           let mut unitCounter1: i32 =  data.UnitCounter;
           for (let mut index: i32 =  0; index <= unitCounter1; index += 1)
-            objArray[index] = data.UnitObj[index].Historical <= -1 ? (object) -1 : (object) data.HistoricalUnitObj[data.UnitObj[index].Historical].ID;
+            objArray[index] = data.UnitObj[index].Historical <= -1 ?  -1 :  data.HistoricalUnitObj[data.UnitObj[index].Historical].ID;
           if (dataClass.HistoricalUnitCounter > data.HistoricalUnitCounter)
           {
             data.HistoricalUnitCounter = dataClass.HistoricalUnitCounter;
@@ -17252,7 +17252,7 @@ label_8:
           let mut unitCounter2: i32 =  data.UnitCounter;
           for (let mut index: i32 =  0; index <= unitCounter2; index += 1)
           {
-            if (Operators.ConditionalCompareObjectGreater(objArray[index], (object) -1, false))
+            if (Operators.ConditionalCompareObjectGreater(objArray[index],  -1, false))
               data.UnitObj[index].Historical = this.GetHistoricalUnitByID(Conversions.ToInteger(objArray[index]));
           }
         }
@@ -17271,7 +17271,7 @@ label_8:
             data.eventPicLibId[index] = LibIdClass::new();
             if (Strings.Len(dataClass.EventPicName[index]) > 0 & Strings.InStr(dataClass.EventPicName[index], "empty.bmp") <= 0)
               data.EventPicName[index] = dataClass.EventPicName[index];
-            else if (Information.IsNothing((object) data.EventPicName[index]))
+            else if (Information.IsNothing( data.EventPicName[index]))
               data.EventPicName[index] = dataClass.EventPicName[index];
           }
         }
@@ -17467,7 +17467,7 @@ label_8:
       object[] objArray = new object[data.UnitCounter + 1];
       let mut unitCounter1: i32 =  data.UnitCounter;
       for (let mut index: i32 =  0; index <= unitCounter1; index += 1)
-        objArray[index] = data.UnitObj[index].Historical <= -1 ? (object) -1 : (object) data.HistoricalUnitObj[data.UnitObj[index].Historical].ID;
+        objArray[index] = data.UnitObj[index].Historical <= -1 ?  -1 :  data.HistoricalUnitObj[data.UnitObj[index].Historical].ID;
       if (dataClass2.HistoricalUnitCounter > data.HistoricalUnitCounter)
       {
         data.HistoricalUnitCounter = dataClass2.HistoricalUnitCounter;
@@ -17482,7 +17482,7 @@ label_8:
       let mut unitCounter2: i32 =  data.UnitCounter;
       for (let mut index: i32 =  0; index <= unitCounter2; index += 1)
       {
-        if (Operators.ConditionalCompareObjectGreater(objArray[index], (object) -1, false))
+        if (Operators.ConditionalCompareObjectGreater(objArray[index],  -1, false))
           data.UnitObj[index].Historical = this.GetHistoricalUnitByID(Conversions.ToInteger(objArray[index]));
       }
       dataClass1 = (DataClass) null;
@@ -17578,8 +17578,8 @@ label_8:
       if (num1 > 0 & this.game.Data.HistoricalUnitObj[this.game.Data.UnitObj[useHQ].Historical].Type <= 5)
       {
         averageHqCoordinate.onmap = true;
-        averageHqCoordinate.x =  Math.Round((double) num2 / (double) num1);
-        averageHqCoordinate.y =  Math.Round((double) num3 / (double) num1);
+        averageHqCoordinate.x =  Math.Round( num2 /  num1);
+        averageHqCoordinate.y =  Math.Round( num3 /  num1);
       }
       else if (this.CanWeSeeUnit(useHQ, this.game.Data.Turn) > 0)
       {
@@ -17618,9 +17618,9 @@ label_8:
       dataClass2: DataClass = DataClass.deserialize(str);
       this.ZipFile(str);
       data: DataClass = this.game.Data;
-      if (Interaction.MsgBox((object) "Overwrite existing SFTypes?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      if (Interaction.MsgBox( "Overwrite existing SFTypes?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
-        if (Interaction.MsgBox((object) "Only overwrite graphics sheet data? ", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+        if (Interaction.MsgBox( "Only overwrite graphics sheet data? ", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         {
           if (dataClass2.SFTypeCounter > data.SFTypeCounter)
           {
@@ -17816,7 +17816,7 @@ label_8:
       }
       if (Number > 0)
       {
-        let mut num: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " researchfields disabled because not present."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " researchfields disabled because not present."), Title: ( "Shadow Empire : Planetary Conquest"));
       }
       dataClass1 = (DataClass) null;
       GC.Collect();
@@ -17849,7 +17849,7 @@ label_8:
         index += 1;
       }
       while (index <= 499);
-      let mut num: i32 =   Interaction.MsgBox((object) "Gamevars,names and settings loaded!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num: i32 =   Interaction.MsgBox( "Gamevars,names and settings loaded!", Title: ( "Shadow Empire : Planetary Conquest"));
       dataClass1 = (DataClass) null;
       GC.Collect();
       Application.DoEvents();
@@ -17872,13 +17872,13 @@ label_8:
       this.ZipFile(str);
       if (Operators.CompareString(dataClass2.RuleSetName, this.data.RuleSetName, false) != 0 & simpleLoad)
       {
-        if (Interaction.MsgBox((object) ("The name of the ruleset of the map (" + dataClass2.RuleSetName + ") is different from the ruleset you are using (" + this.data.RuleSetName + "). Do you want to import map anyway?"), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+        if (Interaction.MsgBox( ("The name of the ruleset of the map (" + dataClass2.RuleSetName + ") is different from the ruleset you are using (" + this.data.RuleSetName + "). Do you want to import map anyway?"), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
           return false;
       }
       data: DataClass = this.game.Data;
       if (reload && !(data.MapObj[0].MapWidth == dataClass2.MapObj[0].MapWidth & data.MapObj[0].MapHeight == dataClass2.MapObj[0].MapHeight))
       {
-        let mut num: i32 =   Interaction.MsgBox((object) "Map not same size. Reload is cancelled.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( "Map not same size. Reload is cancelled.", Title: ( "Shadow Empire : Planetary Conquest"));
         bool flag;
         return flag;
       }
@@ -17888,9 +17888,9 @@ label_8:
         bool flag2;
         if (!simpleLoad)
         {
-          if (Interaction.MsgBox((object) "Also import locations?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
+          if (Interaction.MsgBox( "Also import locations?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
             flag1 = true;
-          if (Interaction.MsgBox((object) "Also overwrite owner of hexes?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
+          if (Interaction.MsgBox( "Also overwrite owner of hexes?", MsgBoxStyle.YesNo) == MsgBoxResult.Yes)
             flag2 = true;
         }
         else
@@ -17982,11 +17982,11 @@ label_8:
         {
           if (flag1)
           {
-            let mut num1: i32 =   Interaction.MsgBox((object) "Map and locations loaded!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num1: i32 =   Interaction.MsgBox( "Map and locations loaded!", Title: ( "Shadow Empire : Planetary Conquest"));
           }
           else
           {
-            let mut num2: i32 =   Interaction.MsgBox((object) "Map loaded!", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num2: i32 =   Interaction.MsgBox( "Map loaded!", Title: ( "Shadow Empire : Planetary Conquest"));
           }
         }
         dataClass1 = (DataClass) null;
@@ -17996,7 +17996,7 @@ label_8:
           this.game.Data.LoadGraphics((Form1) null);
         return true;
       }
-      let mut num3: i32 =   Interaction.MsgBox((object) ("Import map is " + dataClass2.MapObj[0].MapWidth.ToString() + "x" + dataClass2.MapObj[0].MapHeight.ToString() + ". Can not import due to this. First change your current map to same size."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num3: i32 =   Interaction.MsgBox( ("Import map is " + dataClass2.MapObj[0].MapWidth.ToString() + "x" + dataClass2.MapObj[0].MapHeight.ToString() + ". Can not import due to this. First change your current map to same size."), Title: ( "Shadow Empire : Planetary Conquest"));
       return false;
     }
 
@@ -18042,7 +18042,7 @@ label_8:
       }
       if (Number > 0)
       {
-        let mut num1: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " sftype pictures disabled because not present."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " sftype pictures disabled because not present."), Title: ( "Shadow Empire : Planetary Conquest"));
       }
       dataClass1 = (DataClass) null;
       GC.Collect();
@@ -18110,7 +18110,7 @@ label_8:
       }
       if (Number > 0)
       {
-        let mut num: i32 =   Interaction.MsgBox((object) (Conversion.Str((object) Number) + " settings because referred to landscape type or research not present."), Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( (Conversion.Str( Number) + " settings because referred to landscape type or research not present."), Title: ( "Shadow Empire : Planetary Conquest"));
       }
       dataClass1 = (DataClass) null;
       GC.Collect();
@@ -18264,7 +18264,7 @@ label_8:
 
     pub void DoStrucPtsDammage(int x, int y, int map, int dam, bool onlytown = false, bool both = true)
     {
-      if ((double) this.game.Data.RuleVar[305] > 0.0)
+      if ( this.game.Data.RuleVar[305] > 0.0)
       {
         onlytown = true;
         both = false;
@@ -18299,7 +18299,7 @@ label_9:
       this.game.EditObj.CombatOneSentence = "";
       if (num1 == 0)
         return;
-      dam =  Math.Round(Conversion.Int((double) dam / (double) num1));
+      dam =  Math.Round(Conversion.Int( dam /  num1));
       if (onlytown | both && this.game.Data.MapObj[0].HexObj[x, y].Location > -1)
       {
         let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
@@ -18307,7 +18307,7 @@ label_9:
         if (!this.game.Data.LocTypeObj[type].Invincible)
         {
           let mut Number: i32 =  dam;
-          this.game.EditObj.CombatOneSentence = "Loc has " + Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts) + "pts. Dam done to loc: " + Strings.Trim(Conversion.Str((object) Number)) + ".";
+          this.game.EditObj.CombatOneSentence = "Loc has " + Conversion.Str( this.game.Data.LocObj[location].StructuralPts) + "pts. Dam done to loc: " + Strings.Trim(Conversion.Str( Number)) + ".";
           LocationClass[] locObj = this.game.Data.LocObj;
           LocationClass[] locationClassArray = locObj;
           let mut index3: i32 =  location;
@@ -18336,7 +18336,7 @@ label_9:
           else
           {
             EditClass editObj = this.game.EditObj;
-            editObj.CombatOneSentence = editObj.CombatOneSentence + ". Loc down to " + Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts)) + " pts.";
+            editObj.CombatOneSentence = editObj.CombatOneSentence + ". Loc down to " + Strings.Trim(Conversion.Str( this.game.Data.LocObj[location].StructuralPts)) + " pts.";
           }
         }
       }
@@ -18351,17 +18351,17 @@ label_9:
         index5 += 1;
       }
       while (index5 <= 5);
-      dam =  Math.Round(Conversion.Int((double) dam / (double) num4));
+      dam =  Math.Round(Conversion.Int( dam /  num4));
       let mut index6: i32 =  0;
       do
       {
         if (this.game.Data.MapObj[map].HexObj[x, y].Bridge[index6] & this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6] > -1)
         {
-          let mut Number: i32 =   Math.Round((double) (this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier));
+          let mut Number: i32 =   Math.Round( (this.game.Data.RuleVar[7] * this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier));
           EditClass editObj = this.game.EditObj;
-          editObj.CombatOneSentence = editObj.CombatOneSentence + Strings.Trim(Conversion.Str((object) dam)) + " vs Brid: " + Strings.Trim(Conversion.Str((object) Number));
-          let mut num5: i32 =   Math.Round(Conversion.Int((double) dam * 0.5 * (double) VBMath.Rnd()) + (double) dam * 0.5);
-          let mut num6: i32 =   Math.Round((double) VBMath.Rnd() * (double) this.game.Data.RuleVar[7] * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier * 0.5 + 0.5 * (double) this.game.Data.RuleVar[7] * (double) this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier);
+          editObj.CombatOneSentence = editObj.CombatOneSentence + Strings.Trim(Conversion.Str( dam)) + " vs Brid: " + Strings.Trim(Conversion.Str( Number));
+          let mut num5: i32 =   Math.Round(Conversion.Int( dam * 0.5 *  VBMath.Rnd()) +  dam * 0.5);
+          let mut num6: i32 =   Math.Round( VBMath.Rnd() *  this.game.Data.RuleVar[7] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier * 0.5 + 0.5 *  this.game.Data.RuleVar[7] *  this.game.Data.RiverTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RiverType[index6]].BridgeCostModifier);
           if (num6 < 9999)
           {
             if (num5 > num6)
@@ -18489,14 +18489,14 @@ label_9:
     pub int HexLowestRulevar99moveCost(int x, int y, int map)
     {
       let mut num1: i32 =  999;
-      if ((double) this.game.Data.RuleVar[99] < 0.0 | this.game.Data.RoadTypeCounter == -1)
+      if ( this.game.Data.RuleVar[99] < 0.0 | this.game.Data.RoadTypeCounter == -1)
         return 999;
       let mut index: i32 =  0;
       do
       {
         if (this.game.Data.MapObj[map].HexObj[x, y].RoadType[index] > -1)
         {
-          let mut num2: i32 =  this.game.Data.RoadTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RoadType[index]].MoveCostOverrule[ Math.Round((double) this.game.Data.RuleVar[99])];
+          let mut num2: i32 =  this.game.Data.RoadTypeObj[this.game.Data.MapObj[map].HexObj[x, y].RoadType[index]].MoveCostOverrule[ Math.Round( this.game.Data.RuleVar[99])];
           if (num2 < num1)
             num1 = num2;
         }
@@ -18588,7 +18588,7 @@ label_9:
         concentricBonus = this.GetConcentricBonus( local3,  local4, num3 != 0);
       }
       if (aiExtraBonus && this.game.Data.RegimeObj[this.game.Data.Turn].AI)
-        concentricBonus += 0.3f * (float) num1;
+        concentricBonus += 0.3f *  num1;
       return concentricBonus;
     }
 
@@ -18596,7 +18596,7 @@ label_9:
     {
       let mut num: i32 =  -1;
       if (UL.counter <= -1)
-        return (object) 0;
+        return  0;
       let mut counter: i32 =  UL.counter;
       int hqsInUnitList;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
@@ -18632,7 +18632,7 @@ label_9:
             hqsInUnitList += 1;
         }
       }
-      return (object) hqsInUnitList;
+      return  hqsInUnitList;
     }
 
     pub int GetHQsInUnitList()
@@ -18770,7 +18770,7 @@ label_9:
         num11 = this.game.Data.RuleVar[138];
       if (num5 == 6)
         num11 = this.game.Data.RuleVar[139];
-      return !multiplehq ? 1f + num11 : (!(forAI & (double) this.game.Data.RuleVar[993] > 0.0) ? (float) (1.0 + (double) num11 / 2.0) : 1f + num11);
+      return !multiplehq ? 1f + num11 : (!(forAI &  this.game.Data.RuleVar[993] > 0.0) ?  (1.0 +  num11 / 2.0) : 1f + num11);
     }
 
     pub int GetNumberOfSubordinates(int hq)
@@ -19361,25 +19361,25 @@ label_9:
       }
       else
         index1 = people;
-      let mut prodPtsForLoc: i32 =   Math.Round((double) this.game.Data.LocTypeObj[type].MaxProd * ((double) this.game.Data.LocObj[locnr].ProdPercent[slot] / 100.0));
+      let mut prodPtsForLoc: i32 =   Math.Round( this.game.Data.LocTypeObj[type].MaxProd * ( this.game.Data.LocObj[locnr].ProdPercent[slot] / 100.0));
       let mut index2: i32 =  this.game.Data.LocObj[locnr].Production[slot];
       if (index2 > -1)
       {
         if (this.game.Data.ItemTypeObj[index2].UseProdMod <= 1)
-          prodPtsForLoc =  Math.Round((double) ((float) prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod[this.game.Data.PeopleObj[index1].PeopleGroup]));
+          prodPtsForLoc =  Math.Round( ( prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod[this.game.Data.PeopleObj[index1].PeopleGroup]));
         if (this.game.Data.ItemTypeObj[index2].UseProdMod == 2)
-          prodPtsForLoc =  Math.Round((double) ((float) prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod2[this.game.Data.PeopleObj[index1].PeopleGroup]));
+          prodPtsForLoc =  Math.Round( ( prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod2[this.game.Data.PeopleObj[index1].PeopleGroup]));
         if (this.game.Data.ItemTypeObj[index2].UseProdMod == 3)
-          prodPtsForLoc =  Math.Round((double) ((float) prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod3[this.game.Data.PeopleObj[index1].PeopleGroup]));
+          prodPtsForLoc =  Math.Round( ( prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod3[this.game.Data.PeopleObj[index1].PeopleGroup]));
         if (this.game.Data.ItemTypeObj[index2].UseProdMod == 4)
-          prodPtsForLoc =  Math.Round((double) ((float) prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod4[this.game.Data.PeopleObj[index1].PeopleGroup]));
+          prodPtsForLoc =  Math.Round( ( prodPtsForLoc * this.game.Data.PeopleObj[people].ProdMod4[this.game.Data.PeopleObj[index1].PeopleGroup]));
       }
       else
         prodPtsForLoc = 0;
       if (regime > -1 && this.game.Data.RegimeObj[regime].ProdBonus != 0)
-        prodPtsForLoc =  Math.Round((double) prodPtsForLoc * ((double) (this.game.Data.RegimeObj[regime].ProdBonus + 100) / 100.0));
+        prodPtsForLoc =  Math.Round( prodPtsForLoc * ( (this.game.Data.RegimeObj[regime].ProdBonus + 100) / 100.0));
       if (this.game.Data.LocTypeObj[type].StructuralPts > 0)
-        prodPtsForLoc =  Math.Round((double) prodPtsForLoc * ((double) this.game.Data.LocObj[locnr].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts));
+        prodPtsForLoc =  Math.Round( prodPtsForLoc * ( this.game.Data.LocObj[locnr].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts));
       if (AddRem)
         prodPtsForLoc += this.game.Data.LocObj[locnr].ProdPointRemainder[slot];
       return prodPtsForLoc;
@@ -19398,11 +19398,11 @@ label_9:
       }
       else
         index = people;
-      let mut prodPtsForLoc2: i32 =   Math.Round((double) ((float) this.game.Data.LocTypeObj[type].MaxProd * this.game.Data.PeopleObj[people].ProdMod[this.game.Data.PeopleObj[index].PeopleGroup]));
+      let mut prodPtsForLoc2: i32 =   Math.Round( ( this.game.Data.LocTypeObj[type].MaxProd * this.game.Data.PeopleObj[people].ProdMod[this.game.Data.PeopleObj[index].PeopleGroup]));
       if (regime > -1 && this.game.Data.RegimeObj[regime].ProdBonus != 0)
-        prodPtsForLoc2 =  Math.Round((double) prodPtsForLoc2 * ((double) (this.game.Data.RegimeObj[regime].ProdBonus + 100) / 100.0));
+        prodPtsForLoc2 =  Math.Round( prodPtsForLoc2 * ( (this.game.Data.RegimeObj[regime].ProdBonus + 100) / 100.0));
       if (this.game.Data.LocTypeObj[type].StructuralPts > 0)
-        prodPtsForLoc2 =  Math.Round((double) prodPtsForLoc2 * ((double) this.game.Data.LocObj[locnr].StructuralPts / (double) this.game.Data.LocTypeObj[type].StructuralPts));
+        prodPtsForLoc2 =  Math.Round( prodPtsForLoc2 * ( this.game.Data.LocObj[locnr].StructuralPts /  this.game.Data.LocTypeObj[type].StructuralPts));
       return prodPtsForLoc2;
     }
 
@@ -19429,11 +19429,11 @@ label_9:
         num1 = num2 + this.game.Data.LocObj[locnr].ProdPointRemainder[prodslot];
       }
       if (this.game.Data.ItemTypeObj[this.game.Data.LocObj[locnr].Production[prodslot]].IsSupply)
-        num1 =  Math.Round((double) ((float) num1 * this.game.Data.SupplyMultiplier));
+        num1 =  Math.Round( ( num1 * this.game.Data.SupplyMultiplier));
       if (this.game.Data.ItemTypeObj[this.game.Data.LocObj[locnr].Production[prodslot]].IsResPt)
-        num1 =  Math.Round((double) ((float) num1 * this.game.Data.PPMultiplier));
+        num1 =  Math.Round( ( num1 * this.game.Data.PPMultiplier));
       let mut prodWeight: i32 =  this.game.Data.ItemTypeObj[index1].ProdWeight;
-      double estimatedProduction = Math.Round((double) num1 / (double) prodWeight, 1);
+      double estimatedProduction = Math.Round( num1 /  prodWeight, 1);
       if (!dontshowregvar && this.game.Data.Turn > -1)
       {
         let mut index2: i32 =  0;
@@ -19442,9 +19442,9 @@ label_9:
           if (this.game.Data.ItemTypeObj[index1].RegimeSlotsCost[index2] > -1 & this.game.Data.ItemTypeObj[index1].RegimeSlotsCostQty[index2] > 0)
           {
             let mut num3: i32 =  this.game.Data.RegimeObj[regime].RegimeSlot[this.game.Data.ItemTypeObj[index1].RegimeSlotsCost[index2]];
-            let mut num4: i32 =  num3 <= 0 ? 0 :  Math.Round(Conversion.Int((double) num3 / (double) this.game.Data.ItemTypeObj[index1].RegimeSlotsCostQty[index2]));
-            if (estimatedProduction > (double) num4)
-              estimatedProduction = (double) num4;
+            let mut num4: i32 =  num3 <= 0 ? 0 :  Math.Round(Conversion.Int( num3 /  this.game.Data.ItemTypeObj[index1].RegimeSlotsCostQty[index2]));
+            if (estimatedProduction >  num4)
+              estimatedProduction =  num4;
           }
           index2 += 1;
         }
@@ -19457,11 +19457,11 @@ label_9:
     {
       let mut num: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].MaxProd;
       if (this.game.Data.ItemTypeObj[itemtype].IsSupply)
-        num =  Math.Round((double) ((float) num * this.game.Data.SupplyMultiplier));
+        num =  Math.Round( ( num * this.game.Data.SupplyMultiplier));
       if (this.game.Data.ItemTypeObj[itemtype].IsResPt)
-        num =  Math.Round((double) ((float) num * this.game.Data.PPMultiplier));
+        num =  Math.Round( ( num * this.game.Data.PPMultiplier));
       let mut prodWeight: i32 =  this.game.Data.ItemTypeObj[itemtype].ProdWeight;
-      return (double) num / (double) prodWeight;
+      return  num /  prodWeight;
     }
 
     pub int NumberOfOtherHQinHex(int x, int y, int map, int currentunr)
@@ -19613,11 +19613,11 @@ label_9:
       this.game.EditObj.MapSelected = num6;
       this.game.SelectX = num2;
       this.game.SelectY = num3;
-      this.game.CornerX = (double) this.game.Data.RuleVar[839] != 1.0 ?  Math.Round((double) this.game.SelectX - ((double) (this.game.ScreenWidth - 200) / 2.0 - 0.0) / (double) num4) :  Math.Round((double) this.game.SelectX - ((double) this.game.ScreenWidth / 2.0 - 0.0) / (double) num4);
+      this.game.CornerX =  this.game.Data.RuleVar[839] != 1.0 ?  Math.Round( this.game.SelectX - ( (this.game.ScreenWidth - 200) / 2.0 - 0.0) /  num4) :  Math.Round( this.game.SelectX - ( this.game.ScreenWidth / 2.0 - 0.0) /  num4);
       let mut num8: i32 =  265;
       if (this.game.Data.Round == 0)
         num8 += 100;
-      this.game.CornerY =  Math.Round((double) this.game.SelectY - (double) (this.game.ScreenHeight - num8) / 2.0 / (double) num5);
+      this.game.CornerY =  Math.Round( this.game.SelectY -  (this.game.ScreenHeight - num8) / 2.0 /  num5);
       if (0 > this.game.CornerX)
         this.game.CornerX = 0;
       if (0 > this.game.CornerY)
@@ -19625,7 +19625,7 @@ label_9:
       this.SetCornerXY();
       if (!this.game.Data.MapObj[0].MapLoop)
         return;
-      this.game.EditObj.MiniMapOffset = this.game.SelectX -  Math.Round(Math.Floor((double) this.game.Data.MapObj[0].MapWidth / 2.0));
+      this.game.EditObj.MiniMapOffset = this.game.SelectX -  Math.Round(Math.Floor( this.game.Data.MapObj[0].MapWidth / 2.0));
       if (this.game.EditObj.MiniMapOffset < 0)
       {
         this.game.EditObj.MiniMapOffset = this.game.Data.MapObj[0].MapWidth + this.game.EditObj.MiniMapOffset;
@@ -19669,7 +19669,7 @@ label_9:
       if (this.game.Data.Round == 0)
         num4 += 100;
       let mut num5: i32 =  this.game.ScreenHeight - num4;
-      if ((double) this.game.Data.RuleVar[839] != 1.0)
+      if ( this.game.Data.RuleVar[839] != 1.0)
         num3 -= 200;
       if (useWidth > -1)
       {
@@ -19681,8 +19681,8 @@ label_9:
         this.game.SelectX = tx;
         this.game.SelectY = ty;
       }
-      this.game.CornerX = (double) this.game.Data.RuleVar[839] != 1.0 ?  Math.Round((double) tx - ((double) num3 / 2.0 - 0.0) / (double) num1) :  Math.Round((double) tx - ((double) num3 / 2.0 - 0.0) / (double) num1);
-      this.game.CornerY =  Math.Round((double) ty - Math.Floor((double) num5 / 2.0 / (double) num2));
+      this.game.CornerX =  this.game.Data.RuleVar[839] != 1.0 ?  Math.Round( tx - ( num3 / 2.0 - 0.0) /  num1) :  Math.Round( tx - ( num3 / 2.0 - 0.0) /  num1);
+      this.game.CornerY =  Math.Round( ty - Math.Floor( num5 / 2.0 /  num2));
       if (!this.game.Data.MapObj[0].MapLoop)
       {
         if (0 > this.game.CornerX)
@@ -19791,11 +19791,11 @@ label_9:
         num1 = 106;
         num2 = 96;
       }
-      this.game.CornerX =  Math.Round((double) useX - ((double) this.game.ScreenWidth / 2.0 - 0.0) / (double) num1);
+      this.game.CornerX =  Math.Round( useX - ( this.game.ScreenWidth / 2.0 - 0.0) /  num1);
       let mut num3: i32 =  325;
       if (this.game.Data.Round == 0)
         num3 += 100;
-      this.game.CornerY =  Math.Round((double) useY - (double) (this.game.ScreenHeight - num3) / 2.0 / (double) num2);
+      this.game.CornerY =  Math.Round( useY -  (this.game.ScreenHeight - num3) / 2.0 /  num2);
       if (this.game.Data.MapObj[0].MapLoop)
       {
         if (0 > this.game.CornerX)
@@ -19838,8 +19838,8 @@ label_9:
         let mut num6: i32 =  Math.Abs(this.game.CornerY - cornerY);
         if (this.game.Data.MapObj[0].MapLoop)
           val1 = Math.Min(Math.Min(val1, Math.Abs(this.game.CornerX - (cornerX + this.game.Data.MapObj[0].MapWidth))), Math.Abs(this.game.CornerX + this.game.Data.MapObj[0].MapWidth) - cornerX);
-        let mut num7: i32 =   Math.Round(Math.Floor((double) this.game.ScreenWidth / (double) (num4 * 2)));
-        let mut num8: i32 =   Math.Round(Math.Floor((double) (this.game.ScreenHeight - num3) / (double) (num5 * 2)));
+        let mut num7: i32 =   Math.Round(Math.Floor( this.game.ScreenWidth /  (num4 * 2)));
+        let mut num8: i32 =   Math.Round(Math.Floor( (this.game.ScreenHeight - num3) /  (num5 * 2)));
         let mut num9: i32 =  num7 - 2;
         let mut num10: i32 =  num8 - 1;
         if (val1 < num9 & num6 < num10)
@@ -19875,8 +19875,8 @@ label_9:
       }
       if (this.game.Data.Round == 0)
         num1 += 100;
-      let mut num4: i32 =  (double) this.game.Data.RuleVar[839] != 1.0 ?  Math.Round((double) (this.game.ScreenWidth - 200) / (double) num2) :  Math.Round((double) this.game.ScreenWidth / (double) num2);
-      let mut num5: i32 =   Math.Round((double) (this.game.ScreenHeight - num1) / (double) num3);
+      let mut num4: i32 =   this.game.Data.RuleVar[839] != 1.0 ?  Math.Round( (this.game.ScreenWidth - 200) /  num2) :  Math.Round( this.game.ScreenWidth /  num2);
+      let mut num5: i32 =   Math.Round( (this.game.ScreenHeight - num1) /  num3);
       let mut num6: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapWidth - this.game.CornerX;
       let mut num7: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].MapHeight - this.game.CornerY;
       if (num4 > num6)
@@ -19928,7 +19928,7 @@ label_9:
       let mut peopleGroup: i32 =  this.game.Data.PeopleObj[this.game.Data.SFObj[sfnr].People].PeopleGroup;
       let mut upgradeToo: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeToo;
       let mut upgradeCost: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeCost;
-      return this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeXP > this.game.Data.SFObj[sfnr].Xp || !this.game.Data.SFTypeObj[upgradeToo].PeopleGroup[peopleGroup] || (!this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr) == -1 ? -1 :  Math.Round((double) ((float) (upgradeCost * qty) / this.game.Data.RuleVar[77]));
+      return this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeXP > this.game.Data.SFObj[sfnr].Xp || !this.game.Data.SFTypeObj[upgradeToo].PeopleGroup[peopleGroup] || (!this.game.Data.UnitObj[unr].IsHQ ? this.game.Data.UnitObj[unr].HQ : unr) == -1 ? -1 :  Math.Round( ( (upgradeCost * qty) / this.game.Data.RuleVar[77]));
     }
 
     pub int CanUpgradeMax(int sfnr, int unr, int hq)
@@ -19939,7 +19939,7 @@ label_9:
       let mut upgradeXp: i32 =  this.game.Data.SFTypeObj[this.game.Data.SFObj[sfnr].Type].UpgradeXP;
       if (hq == -1)
         return -1;
-      return upgradeCost < 1 ? 9999 :  Math.Round((double) Conversion.Int((float) this.game.Data.UnitObj[hq].Supply / ((float) upgradeCost / this.game.Data.RuleVar[77])));
+      return upgradeCost < 1 ? 9999 :  Math.Round( Conversion.Int( this.game.Data.UnitObj[hq].Supply / ( upgradeCost / this.game.Data.RuleVar[77])));
     }
 
     pub int HQSupply(int unr)
@@ -19958,12 +19958,12 @@ label_9:
       int num;
       if (unr1 != unr)
       {
-        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[unr1].Regime,  Math.Round((double) this.game.Data.RuleVar[99]), 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y, this.game.Data.UnitObj[unr1].Map, allowshoredrop: true);
+        this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.UnitObj[unr1].Regime,  Math.Round( this.game.Data.RuleVar[99]), 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[unr1].X, this.game.Data.UnitObj[unr1].Y, this.game.Data.UnitObj[unr1].Map, allowshoredrop: true);
         num = this.game.EditObj.TempValue[0].Value[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y];
       }
       else
         num = 0;
-      return (double) num <= (double) this.game.Data.RuleVar[53] ? Math.Max(this.game.Data.UnitObj[unr1].Supply, this.HQSupplyChain(unr1, true, unr)) : 0;
+      return  num <=  this.game.Data.RuleVar[53] ? Math.Max(this.game.Data.UnitObj[unr1].Supply, this.HQSupplyChain(unr1, true, unr)) : 0;
     }
 
     pub CanUpgrade: bool(int sfnr, int unr, int qty)
@@ -20005,7 +20005,7 @@ label_9:
       let mut location: i32 =  this.game.Data.MapObj[map].HexObj[x, y].Location;
       if (location == -1)
       {
-        let mut num: i32 =   Interaction.MsgBox((object) "Location does not exist", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( "Location does not exist", Title: ( "Shadow Empire : Planetary Conquest"));
         ProjectData.EndApp();
       }
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter > -1)
@@ -20034,7 +20034,7 @@ label_9:
         return unitForProduction1;
       if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI)
       {
-        if ((double) this.game.Data.RuleVar[332] == 0.0 && this.game.Data.MapObj[map].HexObj[x, y].UnitCounter > -1)
+        if ( this.game.Data.RuleVar[332] == 0.0 && this.game.Data.MapObj[map].HexObj[x, y].UnitCounter > -1)
         {
           let mut unitCounter: i32 =  this.game.Data.MapObj[map].HexObj[x, y].UnitCounter;
           for (let mut index: i32 =  0; index <= unitCounter; index += 1)
@@ -20070,7 +20070,7 @@ label_9:
         }
       }
       int unitForProduction2;
-      if ((double) this.game.Data.RegimeObj[this.game.Data.MapObj[map].HexObj[x, y].Regime].ResPts >= (double) this.game.Data.RuleVar[46])
+      if ( this.game.Data.RegimeObj[this.game.Data.MapObj[map].HexObj[x, y].Regime].ResPts >=  this.game.Data.RuleVar[46])
       {
         this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.MapObj[map].HexObj[x, y].Regime);
         unitForProduction2 = this.game.Data.UnitCounter;
@@ -20088,7 +20088,7 @@ label_9:
       let mut unitForProduction1: i32 =  -1;
       if (this.game.Data.MapObj[map].HexObj[x, y].Location == -1)
       {
-        let mut num: i32 =   Interaction.MsgBox((object) "Location does not exist", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( "Location does not exist", Title: ( "Shadow Empire : Planetary Conquest"));
         ProjectData.EndApp();
       }
       if (this.game.Data.MapObj[map].HexObj[x, y].UnitCounter > -1)
@@ -20141,7 +20141,7 @@ label_9:
         }
       }
       int unitForProduction2;
-      if ((double) this.game.Data.RegimeObj[this.game.Data.MapObj[map].HexObj[x, y].Regime].ResPts >= (double) this.game.Data.RuleVar[46])
+      if ( this.game.Data.RegimeObj[this.game.Data.MapObj[map].HexObj[x, y].Regime].ResPts >=  this.game.Data.RuleVar[46])
       {
         this.game.ProcessingObj.NewUnit(x, y, 0, false, this.game.Data.MapObj[map].HexObj[x, y].Regime);
         unitForProduction2 = this.game.Data.UnitCounter;
@@ -20210,7 +20210,7 @@ label_9:
       let mut mapHeight: i32 =  this.game.Data.MapObj[0].MapHeight;
       int[,] numArray1 = new int[mapWidth + 1, mapHeight + 1];
       int[,] numArray2 = new int[mapWidth + 1, mapHeight + 1];
-      let mut num1: i32 =   Math.Round(Conversion.Val((object) this.game.Data.RuleVar[456]));
+      let mut num1: i32 =   Math.Round(Conversion.Val( this.game.Data.RuleVar[456]));
       this.game.EditObj.resourceVpCacheSet = false;
       let mut num2: i32 =  mapWidth;
       for (let mut x: i32 =  0; x <= num2; x += 1)
@@ -20405,12 +20405,12 @@ label_9:
       this.RedimTempSupCameFrom();
       bool useTrafficRules = false;
       float trafficPointMod = 0.0f;
-      if ((double) this.game.Data.RuleVar[459] > 0.0 & this.game.Data.Product >= 6)
+      if ( this.game.Data.RuleVar[459] > 0.0 & this.game.Data.Product >= 6)
       {
         useTrafficRules = true;
-        if ((double) this.game.Data.RuleVar[487] > 0.0 & (double) this.game.Data.RuleVar[487] < 100.0)
+        if ( this.game.Data.RuleVar[487] > 0.0 &  this.game.Data.RuleVar[487] < 100.0)
         {
-          float num = (float) (100 -  Math.Round((double) (this.game.Data.RuleVar[487] / 3f))) / 100f;
+          float num =  (100 -  Math.Round( (this.game.Data.RuleVar[487] / 3f))) / 100f;
           trafficPointMod = 1f;
         }
       }
@@ -20418,12 +20418,12 @@ label_9:
       this.game.EditObj.RightClickX = -1;
       if (unr <= -1)
         return;
-      let mut movetype: i32 =   Math.Round((double) this.game.Data.RuleVar[99]);
+      let mut movetype: i32 =   Math.Round( this.game.Data.RuleVar[99]);
       SimpleList simpleList = SimpleList::new();
       let mut hq: i32 =  this.game.Data.UnitObj[unr].HQ;
       this.game.HandyFunctionsObj.RedimTempValue(0);
       int num1;
-      if ((double) this.game.Data.RuleVar[324] == 1.0)
+      if ( this.game.Data.RuleVar[324] == 1.0)
       {
         for (; hq > -1; hq = this.game.Data.UnitObj[hq].HQ)
           simpleList.Add(hq, 1);
@@ -20432,10 +20432,10 @@ label_9:
           let mut index1: i32 =  simpleList.Id[counter];
           if (counter < simpleList.Counter)
             num1 = this.game.EditObj.TempValue[this.game.Data.UnitObj[index1].Map].Value[this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y];
-          if ((double) this.game.Data.RuleVar[455] > 0.0)
+          if ( this.game.Data.RuleVar[455] > 0.0)
             this.MakeFuzzyOwner(false, true, this.game.Data.Turn);
-          this.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime, movetype, 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, this.game.Data.UnitObj[index1].Map, allowshoredrop: true, SeaBlock: true, EnemyPenalty: enemypenalty, IsForSupplyLayer: true, useTrafficRules: true);
-          if ((double) this.game.EditObj.TempValue[this.game.Data.UnitObj[unr].Map].Value[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] <= (double) this.game.Data.RuleVar[3])
+          this.MakeMovePrediction2(this.game.Data.UnitObj[index1].Regime, movetype, 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[index1].X, this.game.Data.UnitObj[index1].Y, this.game.Data.UnitObj[index1].Map, allowshoredrop: true, SeaBlock: true, EnemyPenalty: enemypenalty, IsForSupplyLayer: true, useTrafficRules: true);
+          if ( this.game.EditObj.TempValue[this.game.Data.UnitObj[unr].Map].Value[this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y] <=  this.game.Data.RuleVar[3])
           {
             if (counter < simpleList.Counter)
             {
@@ -20466,11 +20466,11 @@ label_9:
             break;
         }
       }
-      if ((double) this.game.Data.RuleVar[455] > 0.0)
+      if ( this.game.Data.RuleVar[455] > 0.0)
         this.MakeFuzzyOwner(false, true, this.game.Data.Turn);
-      this.game.EditObj.LayerSupplyAP =  Math.Round((double) this.game.Data.RuleVar[3]);
-      this.MakeMovePrediction2(this.game.Data.UnitObj[unr].Regime, movetype, 99,  Math.Round((double) this.game.Data.RuleVar[3]), this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, allowshoredrop: true, SeaBlock: true, EnemyPenalty: enemypenalty, IsForSupplyLayer: true, useTrafficRules: useTrafficRules, trafficPointMod: trafficPointMod);
-      if ((double) this.game.Data.RuleVar[324] == 1.0)
+      this.game.EditObj.LayerSupplyAP =  Math.Round( this.game.Data.RuleVar[3]);
+      this.MakeMovePrediction2(this.game.Data.UnitObj[unr].Regime, movetype, 99,  Math.Round( this.game.Data.RuleVar[3]), this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, allowshoredrop: true, SeaBlock: true, EnemyPenalty: enemypenalty, IsForSupplyLayer: true, useTrafficRules: useTrafficRules, trafficPointMod: trafficPointMod);
+      if ( this.game.Data.RuleVar[324] == 1.0)
       {
         let mut mapCounter: i32 =  this.game.Data.MapCounter;
         for (let mut index9: i32 =  0; index9 <= mapCounter; index9 += 1)
@@ -20519,20 +20519,20 @@ label_9:
       this.RedimTempSupCameFrom();
       bool useTrafficRules = false;
       float trafficPointMod = 0.0f;
-      if ((double) this.game.Data.RuleVar[459] > 0.0 & this.game.Data.Product >= 6)
+      if ( this.game.Data.RuleVar[459] > 0.0 & this.game.Data.Product >= 6)
       {
         useTrafficRules = true;
-        if ((double) this.game.Data.RuleVar[487] > 0.0 & (double) this.game.Data.RuleVar[487] < 100.0)
+        if ( this.game.Data.RuleVar[487] > 0.0 &  this.game.Data.RuleVar[487] < 100.0)
         {
-          float num = (float) (100 -  Math.Round((double) (this.game.Data.RuleVar[487] / 3f))) / 100f;
+          float num =  (100 -  Math.Round( (this.game.Data.RuleVar[487] / 3f))) / 100f;
           trafficPointMod = 1f;
         }
       }
       this.game.EditObj.SupplyPath = (CoordList) null;
       this.game.EditObj.RightClickX = -1;
-      let mut num1: i32 =   Math.Round((double) this.game.Data.RuleVar[99]);
+      let mut num1: i32 =   Math.Round( this.game.Data.RuleVar[99]);
       this.game.HandyFunctionsObj.RedimTempValue(0);
-      if ((double) this.game.Data.RuleVar[455] > 0.0 & !fastMode)
+      if ( this.game.Data.RuleVar[455] > 0.0 & !fastMode)
       {
         if (this.game.Data.MapObj[0].HexObj[x, y].Regime != this.game.Data.Turn & this.game.Data.MapObj[0].HexObj[x, y].Regime > -1)
           this.MakeFuzzyOwner(false, true, this.game.Data.Turn, true);
@@ -20544,8 +20544,8 @@ label_9:
         num2 = this.game.Data.MapObj[map].HexObj[x, y].Regime;
       if (num2 == -1)
         num2 = this.game.Data.Turn;
-      let mut movetype: i32 =   Math.Round((double) this.game.Data.RuleVar[99]);
-      let mut ap: i32 =   Math.Round((double) this.game.Data.RuleVar[3]);
+      let mut movetype: i32 =   Math.Round( this.game.Data.RuleVar[99]);
+      let mut ap: i32 =   Math.Round( this.game.Data.RuleVar[3]);
       this.game.EditObj.LayerSupplyAP = ap;
       int index1;
       let mut mapWidth1: i32 =  this.game.Data.MapObj[index1].MapWidth;
@@ -20607,28 +20607,28 @@ label_9:
       this.game.EditObj.SupplyPath = (CoordList) null;
       this.game.EditObj.RightClickX = -1;
       bool useTrafficRules = false;
-      if ((double) this.game.Data.RuleVar[459] > 0.0 & this.game.Data.Product >= 6)
+      if ( this.game.Data.RuleVar[459] > 0.0 & this.game.Data.Product >= 6)
         useTrafficRules = true;
       this.RedimTempSup(9999);
       this.RedimTempSupCameFrom();
-      let mut movetype: i32 =   Math.Round((double) this.game.Data.RuleVar[99]);
+      let mut movetype: i32 =   Math.Round( this.game.Data.RuleVar[99]);
       bool blockLogisticalBonus = false;
       float trafficPointMod = 0.0f;
-      if ((double) this.game.Data.RuleVar[487] > 0.0 & (double) this.game.Data.RuleVar[487] < 100.0)
+      if ( this.game.Data.RuleVar[487] > 0.0 &  this.game.Data.RuleVar[487] < 100.0)
       {
-        float num = (float) (100 -  Math.Round((double) (this.game.Data.RuleVar[487] / 3f))) / 100f;
+        float num =  (100 -  Math.Round( (this.game.Data.RuleVar[487] / 3f))) / 100f;
         trafficPointMod = 1f;
       }
       int num1;
-      if (num1 != this.game.Data.Turn & (double) this.game.Data.RuleVar[890] > 0.0)
-        movetype =  Math.Round((double) this.game.Data.RuleVar[890]);
-      let mut ap: i32 =   Math.Round((double) this.game.Data.RuleVar[3]);
-      if ((double) this.game.Data.RuleVar[462] > 0.0 && this.game.Data.MapObj[0].HexObj[x, y].Location2 > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x, y].Location2].Type].isSupplyBase)
+      if (num1 != this.game.Data.Turn &  this.game.Data.RuleVar[890] > 0.0)
+        movetype =  Math.Round( this.game.Data.RuleVar[890]);
+      let mut ap: i32 =   Math.Round( this.game.Data.RuleVar[3]);
+      if ( this.game.Data.RuleVar[462] > 0.0 && this.game.Data.MapObj[0].HexObj[x, y].Location2 > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x, y].Location2].Type].isSupplyBase)
       {
         ap = this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[x, y].Location2].Type].supplyRange;
         blockLogisticalBonus = true;
       }
-      if ((double) this.game.Data.RuleVar[455] > 0.0)
+      if ( this.game.Data.RuleVar[455] > 0.0)
       {
         if (this.game.Data.MapObj[0].HexObj[x, y].Regime != this.game.Data.Turn & this.game.Data.MapObj[0].HexObj[x, y].Regime > -1)
           this.MakeFuzzyOwner(false, true, this.game.Data.Turn, true);
@@ -20639,7 +20639,7 @@ label_9:
       if (byregnr == -1)
         byregnr = this.game.Data.Turn;
       this.game.EditObj.LayerSupplyAP = ap;
-      if (byregnr != this.game.Data.Turn & (double) this.game.Data.RuleVar[890] > 0.0)
+      if (byregnr != this.game.Data.Turn &  this.game.Data.RuleVar[890] > 0.0)
         this.MakeMovePrediction2(byregnr, movetype, 99, ap, x, y, map, allowshoredrop: true, EnemyPenalty: enemypenalty, IsForSupplyLayer: true, useTrafficRules: useTrafficRules, blockLogisticalBonus: blockLogisticalBonus, trafficPointMod: trafficPointMod);
       else
         this.MakeMovePrediction2(byregnr, movetype, 99, ap, x, y, map, allowshoredrop: true, EnemyPenalty: enemypenalty, IsForSupplyLayer: true, useTrafficRules: useTrafficRules, blockLogisticalBonus: blockLogisticalBonus, trafficPointMod: trafficPointMod);
@@ -20671,7 +20671,7 @@ label_9:
         if (index != regnr && this.game.Data.RegimeObj[regnr].RegimeRel[index] >= 1)
           num += 1;
       }
-      return (object) num;
+      return  num;
     }
 
     pub void deleted_CopyDataFrom()
@@ -20735,7 +20735,7 @@ label_9:
       {
         int num;
         num += 1;
-        cumulativeReplacement =  Math.Round((double) cumulativeReplacement * ((double) this.game.Data.UnitObj[unr].SOReplacementPercent / 100.0));
+        cumulativeReplacement =  Math.Round( cumulativeReplacement * ( this.game.Data.UnitObj[unr].SOReplacementPercent / 100.0));
         if (num > 99 || unr == hq)
           return cumulativeReplacement;
       }
@@ -20754,19 +20754,19 @@ label_9:
         for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
           num1 += this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty;
-          num2 =  Math.Round((double) ((float) num2 + (float) (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffCombatMod));
+          num2 =  Math.Round( ( num2 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffCombatMod));
         }
       }
-      float staffCombatMod = num1 <= 0 ? 0.0f : (float) num2 / (float) num1;
+      float staffCombatMod = num1 <= 0 ? 0.0f :  num2 /  num1;
       if (this.game.Data.UnitObj[unr].Historical > -1)
       {
         let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
-        if (this.game.Data.HistoricalUnitObj[historical].StaffSize > 0 && this.game.Data.HistoricalUnitObj[historical].Type < 6 | (double) this.game.Data.RuleVar[927] == 0.0)
+        if (this.game.Data.HistoricalUnitObj[historical].StaffSize > 0 && this.game.Data.HistoricalUnitObj[historical].Type < 6 |  this.game.Data.RuleVar[927] == 0.0)
         {
           if (this.GetGroupPowerPoints(unr) > this.game.Data.HistoricalUnitObj[historical].StaffSize)
-            staffCombatMod *= (float) ((100.0 + (double) this.game.Data.HistoricalUnitObj[historical].CombatMod * ((double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) this.GetGroupPowerPoints(unr))) / 100.0);
+            staffCombatMod *=  ((100.0 +  this.game.Data.HistoricalUnitObj[historical].CombatMod * ( this.game.Data.HistoricalUnitObj[historical].StaffSize /  this.GetGroupPowerPoints(unr))) / 100.0);
           else
-            staffCombatMod *= (float) (100 + this.game.Data.HistoricalUnitObj[historical].CombatMod) / 100f;
+            staffCombatMod *=  (100 + this.game.Data.HistoricalUnitObj[historical].CombatMod) / 100f;
         }
       }
       return staffCombatMod;
@@ -20782,13 +20782,13 @@ label_9:
       if (num1 == 0)
         num1 = 1;
       int num2;
-      if ( Math.Round(40.0 * ((double) staffPoints / (double) num1)) > 80)
+      if ( Math.Round(40.0 * ( staffPoints /  num1)) > 80)
         num2 = 80;
-      if ( Math.Round(40.0 * ((double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) num1)) > 80)
+      if ( Math.Round(40.0 * ( this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)) > 80)
         num2 = 80;
       int num3;
       if (this.game.Data.UnitObj[unr].Historical > -1 && this.game.Data.HistoricalUnitObj[historical].StaffSize > 0)
-        num3 = !(this.game.Data.HistoricalUnitObj[historical].Type < 6 | (double) this.game.Data.RuleVar[927] == 0.0) ? 0 : (num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round((double) this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0, (double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) num1)));
+        num3 = !(this.game.Data.HistoricalUnitObj[historical].Type < 6 |  this.game.Data.RuleVar[927] == 0.0) ? 0 : (num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round( this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0,  this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1)));
       int num4;
       int num5;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -20797,13 +20797,13 @@ label_9:
         for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
           num4 += this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty;
-          num5 =  Math.Round((double) num5 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * ((double) this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Xp / 100.0) * (double) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffCombatMod * Math.Min(1.0, (double) staffPoints / (double) num1));
+          num5 =  Math.Round( num5 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * ( this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Xp / 100.0) *  this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffCombatMod * Math.Min(1.0,  staffPoints /  num1));
         }
       }
-      let mut num6: i32 =  num4 <= 0 ? 0 :  Math.Round(100.0 * ((double) num5 / (double) num4));
-      let mut num7: i32 =   Math.Round((double) num6 * ((double) (100 + num3) / 100.0));
-      let mut num8: i32 =  num6 +  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1));
-      return num7 +  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1));
+      let mut num6: i32 =  num4 <= 0 ? 0 :  Math.Round(100.0 * ( num5 /  num4));
+      let mut num7: i32 =   Math.Round( num6 * ( (100 + num3) / 100.0));
+      let mut num8: i32 =  num6 +  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1));
+      return num7 +  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1));
     }
 
     pub float GetCombatImprovePercent(int unr)
@@ -20822,7 +20822,7 @@ label_9:
       let mut staffSize: i32 =  this.game.Data.HistoricalUnitObj[historical].StaffSize;
       int num2;
       if (this.game.Data.UnitObj[unr].Historical > -1 && this.game.Data.HistoricalUnitObj[historical].StaffSize > 0)
-        num2 = num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round((double) this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0, (double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) num1));
+        num2 = num1 <= this.game.Data.HistoricalUnitObj[historical].StaffSize ? this.game.Data.HistoricalUnitObj[historical].CombatMod :  Math.Round( this.game.Data.HistoricalUnitObj[historical].CombatMod * Math.Min(1.0,  this.game.Data.HistoricalUnitObj[historical].StaffSize /  num1));
       int num3;
       int num4;
       if (this.game.Data.UnitObj[unr].SFCount > -1)
@@ -20831,12 +20831,12 @@ label_9:
         for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
           num3 += this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty;
-          num4 =  Math.Round((double) num4 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * ((double) this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Xp / 100.0) * (double) this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffCombatMod * Math.Min(1.0, (double) staffPoints / (double) num1));
+          num4 =  Math.Round( num4 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * ( this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Xp / 100.0) *  this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffCombatMod * Math.Min(1.0,  staffPoints /  num1));
         }
       }
-      let mut num5: i32 =  num3 <= 0 ? 0 :  Math.Round(100.0 * ((double) num4 / (double) num3));
-      let mut num6: i32 =   Math.Round((double) num5 * ((double) (100 + num2) / 100.0));
-      return (float) (num5 +  Math.Round(100.0 * (double) this.game.Data.RuleVar[140] * Math.Min(1.0, (double) staffPoints / (double) num1)) + 100) / 100f;
+      let mut num5: i32 =  num3 <= 0 ? 0 :  Math.Round(100.0 * ( num4 /  num3));
+      let mut num6: i32 =   Math.Round( num5 * ( (100 + num2) / 100.0));
+      return  (num5 +  Math.Round(100.0 *  this.game.Data.RuleVar[140] * Math.Min(1.0,  staffPoints /  num1)) + 100) / 100f;
     }
 
     pub float GetStaffMoraleMod(int unr)
@@ -20851,19 +20851,19 @@ label_9:
         for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
           num1 += this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty;
-          num2 =  Math.Round((double) ((float) num2 + (float) (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffMoraleMod));
+          num2 =  Math.Round( ( num2 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffMoraleMod));
         }
       }
-      float staffMoraleMod = num1 <= 0 ? 0.0f : (float) num2 / (float) num1;
+      float staffMoraleMod = num1 <= 0 ? 0.0f :  num2 /  num1;
       if (this.game.Data.UnitObj[unr].Historical > -1)
       {
         let mut historical: i32 =  this.game.Data.UnitObj[unr].Historical;
-        if (this.game.Data.HistoricalUnitObj[historical].StaffSize > 0 && this.game.Data.HistoricalUnitObj[historical].Type < 6 | (double) this.game.Data.RuleVar[927] == 0.0)
+        if (this.game.Data.HistoricalUnitObj[historical].StaffSize > 0 && this.game.Data.HistoricalUnitObj[historical].Type < 6 |  this.game.Data.RuleVar[927] == 0.0)
         {
           if (this.GetGroupPowerPoints(unr) > this.game.Data.HistoricalUnitObj[historical].StaffSize)
-            staffMoraleMod *= (float) ((100.0 + (double) this.game.Data.HistoricalUnitObj[historical].MoraleMod * ((double) this.game.Data.HistoricalUnitObj[historical].StaffSize / (double) this.GetGroupPowerPoints(unr))) / 100.0);
+            staffMoraleMod *=  ((100.0 +  this.game.Data.HistoricalUnitObj[historical].MoraleMod * ( this.game.Data.HistoricalUnitObj[historical].StaffSize /  this.GetGroupPowerPoints(unr))) / 100.0);
           else
-            staffMoraleMod *= (float) (100 + this.game.Data.HistoricalUnitObj[historical].MoraleMod) / 100f;
+            staffMoraleMod *=  (100 + this.game.Data.HistoricalUnitObj[historical].MoraleMod) / 100f;
         }
       }
       return staffMoraleMod;
@@ -20919,15 +20919,15 @@ label_9:
         for (let mut index: i32 =  0; index <= sfCount; index += 1)
         {
           num3 += this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty;
-          num4 =  Math.Round((double) num4 + (double) (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * ((double) this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Xp / 100.0));
+          num4 =  Math.Round( num4 +  (this.game.Data.SFTypeObj[this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Type].StaffPts * this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Qty) * ( this.game.Data.SFObj[this.game.Data.UnitObj[unr].SFList[index]].Xp / 100.0));
         }
       }
       let mut num5: i32 =  num3 + additionalstaffpts;
-      float num6 = num5 <= 0 ? 0.0f : (float) num4 / (float) num5;
+      float num6 = num5 <= 0 ? 0.0f :  num4 /  num5;
       int staffPercent;
       if (num2 > 0)
       {
-        staffPercent =  Math.Round(Conversion.Int((double) num5 / (double) num2 * 100.0));
+        staffPercent =  Math.Round(Conversion.Int( num5 /  num2 * 100.0));
         if (staffPercent > 999999)
           staffPercent = 999999;
       }
@@ -20937,7 +20937,7 @@ label_9:
       {
         if (staffPercent > 100)
           staffPercent = 100;
-        staffPercent =  Math.Round((double) ((float) staffPercent * num6));
+        staffPercent =  Math.Round( ( staffPercent * num6));
       }
       return staffPercent;
     }
@@ -21021,7 +21021,7 @@ label_9:
       int num1;
       for (let mut index: i32 =  0; index <= locCounter; index += 1)
         num1 += this.game.Data.LocTypeObj[this.game.Data.LocObj[index].Type].MaxProd;
-      float num2 = (float) num1 / (float) this.game.Data.ResMod;
+      float num2 =  num1 /  this.game.Data.ResMod;
       let mut researchCounter: i32 =  this.game.Data.ResearchCounter;
       for (let mut index3: i32 =  0; index3 <= researchCounter; index3 += 1)
       {
@@ -21030,7 +21030,7 @@ label_9:
         {
           if (this.game.Data.ResearchObj[index3].PointCost[index4] > 0)
           {
-            this.game.Data.ResearchObj[index3].PointCost[index4] =  Math.Round((double) Conversion.Int((float) this.game.Data.ResearchObj[index3].PointCost[index4] * num2));
+            this.game.Data.ResearchObj[index3].PointCost[index4] =  Math.Round( Conversion.Int( this.game.Data.ResearchObj[index3].PointCost[index4] * num2));
             if (this.game.Data.ResearchObj[index3].PointCost[index4] < 1)
               this.game.Data.ResearchObj[index3].PointCost[index4] = 1;
           }
@@ -21043,7 +21043,7 @@ label_9:
       {
         if (this.game.Data.SFTypeObj[index].ModelCost > 0)
         {
-          this.game.Data.SFTypeObj[index].ModelCost =  Math.Round((double) Conversion.Int((float) this.game.Data.SFTypeObj[index].ModelCost * num2));
+          this.game.Data.SFTypeObj[index].ModelCost =  Math.Round( Conversion.Int( this.game.Data.SFTypeObj[index].ModelCost * num2));
           if (this.game.Data.SFTypeObj[index].ModelCost < 1)
             this.game.Data.SFTypeObj[index].ModelCost = 0;
         }
@@ -21066,13 +21066,13 @@ label_9:
       }
       let mut divBonus: i32 =  0;
       if (num == 1)
-        divBonus =  Math.Round((double) this.game.Data.RuleVar[143]);
+        divBonus =  Math.Round( this.game.Data.RuleVar[143]);
       if (num == 2)
-        divBonus =  Math.Round((double) this.game.Data.RuleVar[144]);
+        divBonus =  Math.Round( this.game.Data.RuleVar[144]);
       if (num == 3)
-        divBonus =  Math.Round((double) this.game.Data.RuleVar[145]);
+        divBonus =  Math.Round( this.game.Data.RuleVar[145]);
       if (num >= 4)
-        divBonus =  Math.Round((double) this.game.Data.RuleVar[146]);
+        divBonus =  Math.Round( this.game.Data.RuleVar[146]);
       if (divBonus < 0)
         divBonus = 0;
       return divBonus;
@@ -21103,13 +21103,13 @@ label_9:
       }
       let mut divBonusPrognosis: i32 =  0;
       if (num == 1)
-        divBonusPrognosis =  Math.Round((double) this.game.Data.RuleVar[143]);
+        divBonusPrognosis =  Math.Round( this.game.Data.RuleVar[143]);
       if (num == 2)
-        divBonusPrognosis =  Math.Round((double) this.game.Data.RuleVar[144]);
+        divBonusPrognosis =  Math.Round( this.game.Data.RuleVar[144]);
       if (num == 3)
-        divBonusPrognosis =  Math.Round((double) this.game.Data.RuleVar[145]);
+        divBonusPrognosis =  Math.Round( this.game.Data.RuleVar[145]);
       if (num >= 4)
-        divBonusPrognosis =  Math.Round((double) this.game.Data.RuleVar[146]);
+        divBonusPrognosis =  Math.Round( this.game.Data.RuleVar[146]);
       if (divBonusPrognosis < 0)
         divBonusPrognosis = 0;
       return divBonusPrognosis;
@@ -21152,13 +21152,13 @@ label_9:
               }
               num4 = 0;
               if (num3 == 1)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[143]);
+                num4 =  Math.Round( this.game.Data.RuleVar[143]);
               if (num3 == 2)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[144]);
+                num4 =  Math.Round( this.game.Data.RuleVar[144]);
               if (num3 == 3)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[145]);
+                num4 =  Math.Round( this.game.Data.RuleVar[145]);
               if (num3 >= 4)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[146]);
+                num4 =  Math.Round( this.game.Data.RuleVar[146]);
               if (num4 < 0)
                 num4 = 0;
             }
@@ -21167,7 +21167,7 @@ label_9:
         num1 += num5;
         num2 += num5 * num4;
       }
-      return num1 == 0 ? 0 :  Math.Round((double) num2 / (double) num1);
+      return num1 == 0 ? 0 :  Math.Round( num2 /  num1);
     }
 
     pub int GetDivBonusForAttackPrognosis(int tarx, int tary)
@@ -21209,13 +21209,13 @@ label_9:
               }
               num4 = 0;
               if (num3 == 1)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[143]);
+                num4 =  Math.Round( this.game.Data.RuleVar[143]);
               if (num3 == 2)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[144]);
+                num4 =  Math.Round( this.game.Data.RuleVar[144]);
               if (num3 == 3)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[145]);
+                num4 =  Math.Round( this.game.Data.RuleVar[145]);
               if (num3 >= 4)
-                num4 =  Math.Round((double) this.game.Data.RuleVar[146]);
+                num4 =  Math.Round( this.game.Data.RuleVar[146]);
               if (num4 < 0)
                 num4 = 0;
             }
@@ -21224,13 +21224,13 @@ label_9:
         num1 += num5;
         num2 += num5 * num4;
       }
-      return num1 == 0 ? 0 :  Math.Round((double) num2 / (double) num1);
+      return num1 == 0 ? 0 :  Math.Round( num2 /  num1);
     }
 
     pub int Gethqpowifhqis(int unr, int hq, bool UseTemp = false)
     {
       float num1 = this.game.Data.RuleVar[73];
-      if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI && (double) this.game.Data.RuleVar[987] > 0.0)
+      if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI &&  this.game.Data.RuleVar[987] > 0.0)
         num1 = this.game.Data.RuleVar[987];
       let mut num2: i32 =  -1;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
@@ -21255,13 +21255,13 @@ label_9:
       }
       let mut num3: i32 =  num2 <= -1 ? 99 : (!(UseTemp & this.game.Data.UnitObj[unr].TempX > -1) ? (this.game.Data.UnitObj[unr].Map != map2 ? 99 : this.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, x2, y2, map2)) : this.Distance(this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY, 0, x2, y2, 0));
       int num4;
-      if ((double) num3 <= (double) num1)
+      if ( num3 <=  num1)
       {
         num4 = 100;
       }
       else
       {
-        num4 =  Math.Round(100.0 - (double) this.game.Data.RuleVar[74] * ((double) num3 - (double) num1));
+        num4 =  Math.Round(100.0 -  this.game.Data.RuleVar[74] * ( num3 -  num1));
         if (0 > num4)
           num4 = 0;
       }
@@ -21271,7 +21271,7 @@ label_9:
     pub int Gethqpow(int unr, bool UseTemp = false)
     {
       float num1 = this.game.Data.RuleVar[73];
-      if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI && (double) this.game.Data.RuleVar[987] > 0.0)
+      if (this.game.Data.RegimeObj[this.game.Data.UnitObj[unr].Regime].AI &&  this.game.Data.RuleVar[987] > 0.0)
         num1 = this.game.Data.RuleVar[987];
       let mut num2: i32 =  -1;
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
@@ -21296,13 +21296,13 @@ label_9:
       }
       let mut num3: i32 =  num2 <= -1 ? 99 : (!(UseTemp & this.game.Data.UnitObj[unr].TempX > -1) ? (this.game.Data.UnitObj[unr].Map != map2 ? 99 : this.Distance(this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, x2, y2, map2)) : this.Distance(this.game.Data.UnitObj[unr].TempX, this.game.Data.UnitObj[unr].TempY, 0, x2, y2, 0));
       int num4;
-      if ((double) num3 <= (double) num1)
+      if ( num3 <=  num1)
       {
         num4 = 100;
       }
       else
       {
-        num4 =  Math.Round(100.0 - (double) this.game.Data.RuleVar[74] * ((double) num3 - (double) num1));
+        num4 =  Math.Round(100.0 -  this.game.Data.RuleVar[74] * ( num3 -  num1));
         if (0 > num4)
           num4 = 0;
       }
@@ -21477,7 +21477,7 @@ label_9:
       let mut powerPtsAbsolute: i32 =  this.game.HandyFunctionsObj.GetPowerPtsAbsolute(unr);
       if (num1 == 0)
         num1 = 1;
-      let mut num2: i32 =   Math.Round(100.0 - 100.0 * ((double) powerPtsAbsolute / (double) num1));
+      let mut num2: i32 =   Math.Round(100.0 - 100.0 * ( powerPtsAbsolute /  num1));
       if (0 > num2)
         num2 = 0;
       return num2;
@@ -21527,7 +21527,7 @@ label_9:
         if (this.game.Data.LocTypeObj[this.game.Data.LocObj[locnr].Type].ItemGroup[this.game.Data.ItemTypeObj[index].ItemGroup])
         {
           let mut useProdMod: i32 =  this.game.Data.ItemTypeObj[index].UseProdMod;
-          if ((useProdMod == 0 | useProdMod == 1) & (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0 || useProdMod == 2 & (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod2[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0 || useProdMod == 3 & (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod3[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0 || useProdMod == 4 & (double) this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod4[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0)
+          if ((useProdMod == 0 | useProdMod == 1) &  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0 || useProdMod == 2 &  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod2[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0 || useProdMod == 3 &  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod3[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0 || useProdMod == 4 &  this.game.Data.PeopleObj[this.game.Data.LocObj[locnr].People].ProdMod4[this.game.Data.PeopleObj[this.game.Data.RegimeObj[regnr].People].PeopleGroup] > 0.0)
             return true;
         }
       }
@@ -21621,7 +21621,7 @@ label_9:
                 {
                   let mut fuelRegimeVar: i32 =  this.game.Data.SFTypeObj[type2].FuelRegimeVar;
                   let mut currentSlot: i32 =  this.game.Data.SFTypeObj[type1].FuelRegimeVar;
-                  if ((double) this.game.Data.RuleVar[949] > 0.0)
+                  if ( this.game.Data.RuleVar[949] > 0.0)
                     currentSlot = this.game.HandyFunctionsObj.GetFuelSlot949(currentSlot, this.game.Data.UnitObj[unr].RealX( this.game), this.game.Data.UnitObj[unr].RealY( this.game));
                   let mut index6: i32 =  currentSlot;
                   if (index6 > -1)
@@ -21645,7 +21645,7 @@ label_9:
                 {
                   let mut sf: i32 =  this.game.Data.UnitObj[unr].SFList[index9];
                   type1 = this.game.Data.SFObj[sf].Type;
-                  let mut ap: i32 =   Math.Round((double) ((float) this.game.Data.SFObj[sf].Rdn * this.game.Data.RuleVar[147]));
+                  let mut ap: i32 =   Math.Round( ( this.game.Data.SFObj[sf].Rdn * this.game.Data.RuleVar[147]));
                   if (!this.game.Data.SFTypeObj[type1].BackBench & this.game.Data.SFTypeObj[type1].Theater == 2 && ap > 0)
                   {
                     this.MakeMovePrediction2(this.game.Data.UnitObj[unr].Regime, this.game.Data.SFTypeObj[type1].MoveType, 2, ap, this.game.Data.UnitObj[unr].X, this.game.Data.UnitObj[unr].Y, this.game.Data.UnitObj[unr].Map, false, false, muststartonairfield: false);
@@ -21693,7 +21693,7 @@ label_9:
                   {
                     let mut sf: i32 =  this.game.Data.UnitObj[unit].SFList[index17];
                     let mut type: i32 =  this.game.Data.SFObj[sf].Type;
-                    let mut ap: i32 =   Math.Round(Conversion.Int((double) this.game.Data.SFObj[sf].Rdn * ((double) this.game.Data.SFTypeObj[type].AntiSupplyRange / 100.0)));
+                    let mut ap: i32 =   Math.Round(Conversion.Int( this.game.Data.SFObj[sf].Rdn * ( this.game.Data.SFTypeObj[type].AntiSupplyRange / 100.0)));
                     if (this.game.Data.SFTypeObj[type].Theater == 2 && this.game.Data.SFTypeObj[type].AntiSupply > 0 | this.game.Data.SFTypeObj[type].AntiSupplySea > 0)
                     {
                       this.MakeMovePrediction2(this.game.Data.UnitObj[unit].Regime, this.game.Data.SFTypeObj[type].MoveType, 2, ap, this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, this.game.Data.UnitObj[unit].Map, false, false, NoAPPenalties: true);
@@ -21708,13 +21708,13 @@ label_9:
                           {
                             if (this.game.EditObj.TempValue[cmap].Value[cx, cy] < 999 && mapMatrix2Array[cmap].Value[cx, cy] == 0)
                             {
-                              let mut num4: i32 =  !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].LandscapeType].IsSea ?  Math.Round((double) (this.game.Data.SFTypeObj[type].AntiSupply * this.game.Data.SFObj[sf].Qty) * ((double) this.game.Data.SFObj[sf].Rdn / 100.0)) :  Math.Round((double) (this.game.Data.SFTypeObj[type].AntiSupplySea * this.game.Data.SFObj[sf].Qty) * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+                              let mut num4: i32 =  !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].LandscapeType].IsSea ?  Math.Round( (this.game.Data.SFTypeObj[type].AntiSupply * this.game.Data.SFObj[sf].Qty) * ( this.game.Data.SFObj[sf].Rdn / 100.0)) :  Math.Round( (this.game.Data.SFTypeObj[type].AntiSupplySea * this.game.Data.SFObj[sf].Qty) * ( this.game.Data.SFObj[sf].Rdn / 100.0));
                               let mut tfacing: i32 =  1;
                               do
                               {
                                 coordinate = this.HexNeighbourSameMap(cx, cy, cmap, tfacing);
-                                if (coordinate.onmap && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].LandscapeType].IsSea && this.game.Data.MapObj[cmap].HexObj[coordinate.x, coordinate.y].Regime == this.game.Data.Turn && this.game.Data.MapObj[cmap].HexObj[coordinate.x, coordinate.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[cmap].HexObj[coordinate.x, coordinate.y].Location].Type].IsPort && this.Distance(this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, this.game.Data.UnitObj[unit].Map, coordinate.x, coordinate.y, coordinate.map) <= 1 && (double) this.game.Data.RuleVar[303] > 0.0)
-                                  num4 =  Math.Round((double) ((float) num4 * this.game.Data.RuleVar[303]));
+                                if (coordinate.onmap && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].LandscapeType].IsSea && this.game.Data.MapObj[cmap].HexObj[coordinate.x, coordinate.y].Regime == this.game.Data.Turn && this.game.Data.MapObj[cmap].HexObj[coordinate.x, coordinate.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[cmap].HexObj[coordinate.x, coordinate.y].Location].Type].IsPort && this.Distance(this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, this.game.Data.UnitObj[unit].Map, coordinate.x, coordinate.y, coordinate.map) <= 1 &&  this.game.Data.RuleVar[303] > 0.0)
+                                  num4 =  Math.Round( ( num4 * this.game.Data.RuleVar[303]));
                                 tfacing += 1;
                               }
                               while (tfacing <= 6);
@@ -21755,7 +21755,7 @@ label_9:
                 {
                   let mut sf: i32 =  this.game.Data.UnitObj[unit].SFList[index30];
                   let mut type: i32 =  this.game.Data.SFObj[sf].Type;
-                  let mut ap: i32 =   Math.Round(Conversion.Int((double) this.game.Data.SFObj[sf].Rdn * ((double) this.game.Data.SFTypeObj[type].AntiSupplyRange / 100.0)));
+                  let mut ap: i32 =   Math.Round(Conversion.Int( this.game.Data.SFObj[sf].Rdn * ( this.game.Data.SFTypeObj[type].AntiSupplyRange / 100.0)));
                   let mut num6: i32 =  0;
                   if (this.game.Data.SFTypeObj[type].Theater == 1 & this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[this.game.Data.UnitObj[unit].Map].HexObj[this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y].LandscapeType].IsSea)
                     num6 = 1;
@@ -21775,13 +21775,13 @@ label_9:
                         {
                           if (this.game.EditObj.TempValue[cmap].Value[cx, cy] < 999 && this.game.Data.SFTypeObj[type].Theater < 2)
                           {
-                            let mut num7: i32 =  !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].LandscapeType].IsSea ?  Math.Round((double) (this.game.Data.SFTypeObj[type].AntiSupply * this.game.Data.SFObj[sf].Qty) * ((double) this.game.Data.SFObj[sf].Rdn / 100.0)) :  Math.Round((double) (this.game.Data.SFTypeObj[type].AntiSupplySea * this.game.Data.SFObj[sf].Qty) * ((double) this.game.Data.SFObj[sf].Rdn / 100.0));
+                            let mut num7: i32 =  !this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[cmap].HexObj[cx, cy].LandscapeType].IsSea ?  Math.Round( (this.game.Data.SFTypeObj[type].AntiSupply * this.game.Data.SFObj[sf].Qty) * ( this.game.Data.SFObj[sf].Rdn / 100.0)) :  Math.Round( (this.game.Data.SFTypeObj[type].AntiSupplySea * this.game.Data.SFObj[sf].Qty) * ( this.game.Data.SFObj[sf].Rdn / 100.0));
                             let mut tfacing: i32 =  1;
                             do
                             {
                               coordinate = this.HexNeighbour(cx, cy, cmap, tfacing);
-                              if (coordinate.onmap && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[cx, cy].LandscapeType].IsSea && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == this.game.Data.Turn && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Location].Type].IsPort && this.Distance(this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, this.game.Data.UnitObj[unit].Map, coordinate.x, coordinate.y, coordinate.map) <= 1 && (double) this.game.Data.RuleVar[303] > 0.0)
-                                num7 =  Math.Round((double) ((float) num7 * this.game.Data.RuleVar[303]));
+                              if (coordinate.onmap && this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[cx, cy].LandscapeType].IsSea && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Regime == this.game.Data.Turn && this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[coordinate.map].HexObj[coordinate.x, coordinate.y].Location].Type].IsPort && this.Distance(this.game.Data.UnitObj[unit].X, this.game.Data.UnitObj[unit].Y, this.game.Data.UnitObj[unit].Map, coordinate.x, coordinate.y, coordinate.map) <= 1 &&  this.game.Data.RuleVar[303] > 0.0)
+                                num7 =  Math.Round( ( num7 * this.game.Data.RuleVar[303]));
                               tfacing += 1;
                             }
                             while (tfacing <= 6);
@@ -21843,7 +21843,7 @@ label_9:
       }
       if (num2 == 0)
         num2 = 1;
-      return  Math.Round(Conversion.Int((double) num1 / (double) num2));
+      return  Math.Round(Conversion.Int( num1 /  num2));
     }
 
     pub int GetMaxStockpile(int unr)
@@ -21869,7 +21869,7 @@ label_9:
         let mut type: i32 =  this.game.Data.SFObj[sf].Type;
         stockpileUsePerRound += this.game.Data.SFTypeObj[type].StockpileUsedPerRound * this.game.Data.SFObj[sf].Qty;
       }
-      return (object) stockpileUsePerRound;
+      return  stockpileUsePerRound;
     }
 
     pub object GetMaxSupplyRequest(int unr)
@@ -21885,7 +21885,7 @@ label_9:
         else
           maxSupplyRequest += (this.game.Data.SFTypeObj[type].SupplyCarry + this.game.Data.SFTypeObj[type].BasicSupplyNeed) * this.game.Data.SFObj[sf].Qty;
       }
-      return (object) maxSupplyRequest;
+      return  maxSupplyRequest;
     }
 
     pub object GetStockpileRequest(int unr)
@@ -21904,7 +21904,7 @@ label_9:
         stockpileRequest -= num - maxStockpile;
       if (0 > stockpileRequest)
         stockpileRequest = 0;
-      return (object) stockpileRequest;
+      return  stockpileRequest;
     }
 
     pub int GetHumanPlayers()
@@ -21914,7 +21914,7 @@ label_9:
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
       for (let mut reg2: i32 =  0; reg2 <= regimeCounter; reg2 += 1)
       {
-        if (!(reg1 == reg2 | reg1 > -1 & this.game.Data.RegimeObj[reg2].UberRegime == reg1) && !(this.game.HandyFunctionsObj.IsAlliedOrSelf(reg1, reg2) & (double) this.game.Data.RuleVar[328] == 1.0) && !this.game.Data.RegimeObj[reg2].Sleep && !this.game.Data.RegimeObj[reg2].AI)
+        if (!(reg1 == reg2 | reg1 > -1 & this.game.Data.RegimeObj[reg2].UberRegime == reg1) && !(this.game.HandyFunctionsObj.IsAlliedOrSelf(reg1, reg2) &  this.game.Data.RuleVar[328] == 1.0) && !this.game.Data.RegimeObj[reg2].Sleep && !this.game.Data.RegimeObj[reg2].AI)
         {
           reg1 = reg2;
           if (this.game.Data.RegimeObj[reg2].UberRegime > -1)
@@ -21981,7 +21981,7 @@ label_9:
       }
       if (d > 9000)
         d = 9000;
-      return  Math.Round(Conversion.Int(Math.Sqrt((double) d)));
+      return  Math.Round(Conversion.Int(Math.Sqrt( d)));
     }
 
     pub void SetAntiSupplyKills(
@@ -22059,11 +22059,11 @@ label_9:
       {
         if (index12 != this.game.Data.Turn & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[index12] == 0)
         {
-          float num8 = num3 <= 0 ? 0.0f : (float) numArray1[index12] / (float) num3;
+          float num8 = num3 <= 0 ? 0.0f :  numArray1[index12] /  num3;
           if (suppts > 0)
           {
-            let mut num9: i32 =   Math.Round((double) (num8 * (float) suppts));
-            if ((double) VBMath.Rnd() < (double) num8 * (double) suppts - (double) num9)
+            let mut num9: i32 =   Math.Round( (num8 *  suppts));
+            if ( VBMath.Rnd() <  num8 *  suppts -  num9)
               num9 += 1;
             if (num9 + num7 > suppts)
               num9 = suppts - num7;
@@ -22077,8 +22077,8 @@ label_9:
           }
           else
           {
-            let mut num11: i32 =   Math.Round((double) (num8 * (float) qty));
-            if ((double) VBMath.Rnd() < (double) num8 * (double) qty - (double) num11)
+            let mut num11: i32 =   Math.Round( (num8 *  qty));
+            if ( VBMath.Rnd() <  num8 *  qty -  num11)
               num11 += 1;
             if (num11 + num7 > qty)
               num11 = suppts - qty;
@@ -22128,7 +22128,7 @@ label_9:
       let mut regimeCounter3: i32 =  this.game.Data.RegimeCounter;
       for (let mut Index1: i32 =  0; Index1 <= regimeCounter3; Index1 += 1)
       {
-        if (Index1 != this.game.Data.Turn & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[Index1] == 0 && (num3 <= 0 ? 0.0 : (double) ((float) numArray1[Index1] / (float) num3)) > 0.0)
+        if (Index1 != this.game.Data.Turn & this.game.Data.RegimeObj[this.game.Data.Turn].RegimeRel[Index1] == 0 && (num3 <= 0 ? 0.0 :  ( numArray1[Index1] /  num3)) > 0.0)
         {
           let mut num17: i32 =  0;
           let mut num18: i32 =  0;
@@ -22145,12 +22145,12 @@ label_9:
                 {
                   if (mapMatrix2Array[index22].Value[index23, index24] > 0)
                   {
-                    float num19 = this.game.Data.MapObj[index22].HexObj[index23, index24].get_DammagePerRegime(Index1) <= 0 ? 0.0f : (float) this.game.Data.MapObj[index22].HexObj[index23, index24].get_DammagePerRegime(Index1) / (float) numArray1[Index1];
-                    if ((double) num19 > 0.0)
+                    float num19 = this.game.Data.MapObj[index22].HexObj[index23, index24].get_DammagePerRegime(Index1) <= 0 ? 0.0f :  this.game.Data.MapObj[index22].HexObj[index23, index24].get_DammagePerRegime(Index1) /  numArray1[Index1];
+                    if ( num19 > 0.0)
                     {
                       num18 += 1;
-                      let mut num20: i32 =   Math.Round((double) Conversion.Int(num19 * (float) numArray3[Index1]));
-                      if ((double) VBMath.Rnd() < (double) num19 * (double) numArray3[Index1] - (double) num20)
+                      let mut num20: i32 =   Math.Round( Conversion.Int(num19 *  numArray3[Index1]));
+                      if ( VBMath.Rnd() <  num19 *  numArray3[Index1] -  num20)
                         num20 += 1;
                       if (num18 == numArray2[Index1])
                         num20 = numArray3[Index1] - num17;
@@ -22208,12 +22208,12 @@ label_9:
                 {
                   if (mapMatrix2Array[index35].Value[index36, index37] > 0)
                   {
-                    float num25 = this.game.Data.MapObj[index35].HexObj[index36, index37].get_DammagePerRegime(Index1) <= 0 ? 0.0f : (float) this.game.Data.MapObj[index35].HexObj[index36, index37].get_DammagePerRegime(Index1) / (float) numArray1[Index1];
-                    if ((double) num25 > 0.0)
+                    float num25 = this.game.Data.MapObj[index35].HexObj[index36, index37].get_DammagePerRegime(Index1) <= 0 ? 0.0f :  this.game.Data.MapObj[index35].HexObj[index36, index37].get_DammagePerRegime(Index1) /  numArray1[Index1];
+                    if ( num25 > 0.0)
                     {
                       num24 += 1;
-                      let mut num26: i32 =   Math.Round((double) Conversion.Int(num25 * (float) numArray3[Index1]));
-                      if ((double) VBMath.Rnd() < (double) num25 * (double) numArray3[Index1] - (double) num26)
+                      let mut num26: i32 =   Math.Round( Conversion.Int(num25 *  numArray3[Index1]));
+                      if ( VBMath.Rnd() <  num25 *  numArray3[Index1] -  num26)
                         num26 += 1;
                       if (num24 == numArray2[Index1])
                         num26 = numArray3[Index1] - num23;
@@ -22481,8 +22481,8 @@ label_9:
           if (this.game.Data.SFTypeObj[type].Theater == theater && this.game.Data.SFTypeObj[type].Cap > 0)
           {
             let mut num3: i32 =  cappts;
-            float num4 = theater != 0 ? (float) num3 / (float) this.game.Data.UnitObj[hq].NavyStart : (float) num3 / (float) this.game.Data.UnitObj[hq].LandStart;
-            if ((double) VBMath.Rnd() < (double) num4)
+            float num4 = theater != 0 ?  num3 /  this.game.Data.UnitObj[hq].NavyStart :  num3 /  this.game.Data.UnitObj[hq].LandStart;
+            if ( VBMath.Rnd() <  num4)
             {
               num1 += 1;
               num2 += this.game.Data.SFTypeObj[type].Cap;
@@ -22518,8 +22518,8 @@ label_9:
         let mut qty: i32 =  this.game.Data.SFObj[sf].Qty;
         for (let mut index: i32 =  1; index <= qty; index += 1)
         {
-          float num2 = (float) percentage / 100f;
-          if ((double) VBMath.Rnd() < (double) num2)
+          float num2 =  percentage / 100f;
+          if ( VBMath.Rnd() <  num2)
           {
             num1 += 1;
             int num3;
@@ -22569,7 +22569,7 @@ label_9:
     pub void doscreenshot(string extension, int map)
     {
       this.game.EditObj.TempCoordList = CoordList::new();
-      if (this.game.Data.MapWidth + this.game.Data.MapHeight > 400 & (double) this.game.Data.RuleVar[878] < 1.0)
+      if (this.game.Data.MapWidth + this.game.Data.MapHeight > 400 &  this.game.Data.RuleVar[878] < 1.0)
         return;
       let mut zoom: i32 =  this.game.EditObj.Zoom;
       this.game.EditObj.Zoom = -1;
@@ -22578,25 +22578,25 @@ label_9:
       let mut num1: i32 =  this.CheckDiskSpace(Strings.Left(this.game.AppPath, Strings.InStr(this.game.AppPath, ":")));
       if (num1 > 0 & num1 < 50)
       {
-        let mut num2: i32 =   Interaction.MsgBox((object) "Not enough space left to write to disk.");
+        let mut num2: i32 =   Interaction.MsgBox( "Not enough space left to write to disk.");
       }
       else
       {
         int width;
         int height;
-        if ((double) this.game.Data.RuleVar[850] == 0.0)
+        if ( this.game.Data.RuleVar[850] == 0.0)
         {
           this.game.EditObj.Zoom = -1;
           width = this.game.Data.MapObj[map].MapWidth * 27 + 40;
           height = this.game.Data.MapObj[map].MapHeight * 24 + 32;
         }
-        else if ((double) this.game.Data.RuleVar[850] == 1.0)
+        else if ( this.game.Data.RuleVar[850] == 1.0)
         {
           this.game.EditObj.Zoom = 0;
           width = this.game.Data.MapObj[map].MapWidth * 53 + 80;
           height = this.game.Data.MapObj[map].MapHeight * 48 + 64;
         }
-        else if ((double) this.game.Data.RuleVar[850] == 2.0)
+        else if ( this.game.Data.RuleVar[850] == 2.0)
         {
           this.game.EditObj.Zoom = 1;
           width = this.game.Data.MapObj[map].MapWidth * 106 + 160;
@@ -22613,7 +22613,7 @@ label_9:
           ProjectData.ClearProjectError();
           return;
         }
-        FileStream fileStream = new FileStream(this.game.AppPath + "screenshots/" + this.game.Data.Name + "_map" + Conversion.Str((object) map) + "_turn" + Strings.Trim(Conversion.Str((object) this.game.Data.Turn)) + "_round" + Strings.Trim(Conversion.Str((object) this.game.Data.Round)) + "_" + extension + ".jpg", FileMode.Create);
+        FileStream fileStream = new FileStream(this.game.AppPath + "screenshots/" + this.game.Data.Name + "_map" + Conversion.Str( map) + "_turn" + Strings.Trim(Conversion.Str( this.game.Data.Turn)) + "_round" + Strings.Trim(Conversion.Str( this.game.Data.Round)) + "_" + extension + ".jpg", FileMode.Create);
         let mut cornerX: i32 =  this.game.CornerX;
         let mut cornerY: i32 =  this.game.CornerY;
         let mut selectX: i32 =  this.game.SelectX;
@@ -22628,7 +22628,7 @@ label_9:
         try
         {
           bitmap1 = new Bitmap(width, height, PixelFormat.Format24bppRgb);
-          bitmap1.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+          bitmap1.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
         }
         catch (Exception ex)
         {
@@ -22644,7 +22644,7 @@ label_9:
         DrawMod.DrawSimple( local1,  local2, 0, 0);
         bitmap1.Save((Stream) fileStream, ImageFormat.Jpeg);
         fileStream.Close();
-        if (!Information.IsNothing((object) Expression))
+        if (!Information.IsNothing( Expression))
         {
           Expression.Dispose();
           Expression = (Graphics) null;
@@ -22705,7 +22705,7 @@ label_9:
         fileStream1.Close();
         fileStream2 = (FileStream) null;
         System.IO.File.Delete(str);
-        let mut num2: i32 =   Interaction.MsgBox((object) "Sorry. Was not able to create output stream. This results in file not being zipped properly. Your file is still usable but really big now. This issue might have to do with mediacenter or antivirus software.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num2: i32 =   Interaction.MsgBox( "Sorry. Was not able to create output stream. This results in file not being zipped properly. Your file is still usable but really big now. This issue might have to do with mediacenter or antivirus software.", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       else
       {
@@ -22821,7 +22821,7 @@ label_9:
           ProjectData.ClearProjectError();
           break;
         }
-        if (Information.IsNothing((object) nextEntry))
+        if (Information.IsNothing( nextEntry))
         {
           num2 = 0;
           break;
@@ -22927,7 +22927,7 @@ label_9:
         binaryWriter = (BinaryWriter) null;
         output = (FileStream) null;
         System.IO.File.Delete(str);
-        let mut num: i32 =   Interaction.MsgBox((object) "Error : Your (save)file is corrupt. Sorry, but we have to exit the game now. ", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num: i32 =   Interaction.MsgBox( "Error : Your (save)file is corrupt. Sorry, but we have to exit the game now. ", Title: ( "Shadow Empire : Planetary Conquest"));
         ProjectData.EndApp();
         ProjectData.ClearProjectError();
       }
@@ -23069,7 +23069,7 @@ label_9:
     pub void DisperseAirSupply(int x, int y, int map, int pts)
     {
       SimpleList simpleList = SimpleList::new();
-      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round((double) this.game.Data.RuleVar[857]), 99,  Math.Round((double) this.game.Data.RuleVar[858]), x, y, map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
+      this.game.HandyFunctionsObj.MakeMovePrediction2(this.game.Data.Turn,  Math.Round( this.game.Data.RuleVar[857]), 99,  Math.Round( this.game.Data.RuleVar[858]), x, y, map, allowshoredrop: true, SeaBlock: true, BlockAllSea: true);
       let mut unitCounter: i32 =  this.game.Data.UnitCounter;
       int num1;
       for (let mut tid: i32 =  0; tid <= unitCounter; tid += 1)
@@ -23080,19 +23080,19 @@ label_9:
           let mut y1: i32 =  this.game.Data.UnitObj[tid].Y;
           let mut map1: i32 =  this.game.Data.UnitObj[tid].Map;
           this.game.EditObj.TempValue3[map1].Value[x1, y1] = 9999;
-          if ((double) this.game.EditObj.TempValue[map1].Value[x1, y1] <= (double) this.game.Data.RuleVar[858])
+          if ( this.game.EditObj.TempValue[map1].Value[x1, y1] <=  this.game.Data.RuleVar[858])
           {
             let mut tweight: i32 =  this.game.Data.UnitObj[tid].SupplyInReq - this.game.Data.UnitObj[tid].SupplyIn;
             if (this.game.Data.UnitObj[tid].IsHQ)
               tweight -= this.game.Data.UnitObj[tid].SupplyReq - this.game.Data.UnitObj[tid].SupplyOut;
             if (0 > tweight)
               tweight = 0;
-            if ((double) this.game.EditObj.TempValue[map1].Value[x1, y1] >= (double) this.game.Data.RuleVar[858] * 0.25)
-              tweight =  Math.Round((double) tweight * 0.75);
-            else if ((double) this.game.EditObj.TempValue[map1].Value[x1, y1] >= (double) this.game.Data.RuleVar[858] * 0.5)
-              tweight =  Math.Round((double) tweight * 0.5);
-            else if ((double) this.game.EditObj.TempValue[map1].Value[x1, y1] >= (double) this.game.Data.RuleVar[858] * 0.75)
-              tweight =  Math.Round((double) tweight * 0.25);
+            if ( this.game.EditObj.TempValue[map1].Value[x1, y1] >=  this.game.Data.RuleVar[858] * 0.25)
+              tweight =  Math.Round( tweight * 0.75);
+            else if ( this.game.EditObj.TempValue[map1].Value[x1, y1] >=  this.game.Data.RuleVar[858] * 0.5)
+              tweight =  Math.Round( tweight * 0.5);
+            else if ( this.game.EditObj.TempValue[map1].Value[x1, y1] >=  this.game.Data.RuleVar[858] * 0.75)
+              tweight =  Math.Round( tweight * 0.25);
             num1 += tweight;
             simpleList.Add(tid, tweight);
           }
@@ -23101,14 +23101,14 @@ label_9:
       }
       if (simpleList.Counter <= -1)
         return;
-      float num2 = (float) pts / (float) num1;
-      if ((double) num2 > 1.0)
+      float num2 =  pts /  num1;
+      if ( num2 > 1.0)
         num2 = 1f;
       let mut counter: i32 =  simpleList.Counter;
       for (let mut index1: i32 =  0; index1 <= counter; index1 += 1)
       {
         let mut num3: i32 =  simpleList.Id[index1];
-        let mut num4: i32 =   Math.Round((double) ((float) simpleList.Weight[index1] * num2));
+        let mut num4: i32 =   Math.Round( ( simpleList.Weight[index1] * num2));
         UnitClass[] unitObj1 = this.game.Data.UnitObj;
         UnitClass[] unitClassArray1 = unitObj1;
         let mut index2: i32 =  num3;
@@ -23239,7 +23239,7 @@ label_11:
         if (this.game.Data.LandscapeTypeObj[ltnr].BasicSpriteRandom[index] == this.game.Data.LandscapeTypeObj[ltnr].BasicSpriteRandom[spnr])
           num1 += 1;
       }
-      let mut num2: i32 =   Math.Round((double) VBMath.Rnd() * (double) num1 + 1.0);
+      let mut num2: i32 =   Math.Round( VBMath.Rnd() *  num1 + 1.0);
       let mut num3: i32 =  0;
       let mut basicSpriteCounter2: i32 =  this.game.Data.LandscapeTypeObj[ltnr].BasicSpriteCounter;
       for (let mut index: i32 =  0; index <= basicSpriteCounter2; index += 1)
@@ -23458,7 +23458,7 @@ label_11:
                           gameClassSmall.Data.UnitObj[gameClassSmall.Data.UnitCounter].SOReplacementPercent = this.game.Data.UnitObj[unr].SOReplacementPercent;
                           let mut historical1: i32 =  gameClassSmall.Data.UnitObj[gameClassSmall.Data.UnitCounter].Historical;
                           let mut historical2: i32 =  this.game.Data.UnitObj[unr].Historical;
-                          if (historical1 > -1 & historical2 > -1 && !Information.IsNothing((object) this.game.Data.HistoricalUnitObj[historical2].CommanderName) && this.game.Data.HistoricalUnitObj[historical2].CommanderName.Length > 0)
+                          if (historical1 > -1 & historical2 > -1 && !Information.IsNothing( this.game.Data.HistoricalUnitObj[historical2].CommanderName) && this.game.Data.HistoricalUnitObj[historical2].CommanderName.Length > 0)
                           {
                             gameClassSmall.Data.HistoricalUnitObj[historical1].CommanderName = this.game.Data.HistoricalUnitObj[historical2].CommanderName;
                             gameClassSmall.Data.HistoricalUnitObj[historical1].Descript = this.game.Data.HistoricalUnitObj[historical2].Descript;
@@ -23580,7 +23580,7 @@ label_11:
                 gameClassSmall.Data.HistoricalUnitObj[index24].Pool = true;
                 let mut index25: i32 =  index24;
                 let mut index26: i32 =  index23;
-                if (index25 > -1 & index26 > -1 && !Information.IsNothing((object) this.game.Data.HistoricalUnitObj[index26].CommanderName) && this.game.Data.HistoricalUnitObj[index26].CommanderName.Length > 0)
+                if (index25 > -1 & index26 > -1 && !Information.IsNothing( this.game.Data.HistoricalUnitObj[index26].CommanderName) && this.game.Data.HistoricalUnitObj[index26].CommanderName.Length > 0)
                 {
                   gameClassSmall.Data.HistoricalUnitObj[index25].CommanderName = this.game.Data.HistoricalUnitObj[index26].CommanderName;
                   gameClassSmall.Data.HistoricalUnitObj[index25].Descript = this.game.Data.HistoricalUnitObj[index26].Descript;
@@ -23645,7 +23645,7 @@ label_11:
       }
       else
       {
-        let mut num1: i32 =   Interaction.MsgBox((object) "File could not be found or op. is cancelled. Faulty event that tries to load new scenario. Scenario Bug.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+        let mut num1: i32 =   Interaction.MsgBox( "File could not be found or op. is cancelled. Faulty event that tries to load new scenario. Scenario Bug.", Title: ( "Shadow Empire : Planetary Conquest"));
       }
       this.game.Data = gameClassSmall.Data;
       this.game.Data.MapLoop = this.game.Data.MapObj[0].MapLoop;
@@ -23662,10 +23662,10 @@ label_11:
       DrawMod.TGame = this.game;
       this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.MiniMap, 200, 150, false);
       this.game.EditObj.StratMap = new Bitmap(this.game.ScreenWidth, this.game.ScreenHeight - 305, PixelFormat.Format32bppPArgb);
-      this.game.EditObj.StratMap.SetResolution((float) DrawMod.DPIx, (float) DrawMod.DPIy);
+      this.game.EditObj.StratMap.SetResolution( DrawMod.DPIx,  DrawMod.DPIy);
       this.game.CustomBitmapObj.MakeMiniMap(this.game.EditObj.StratMap, this.game.ScreenWidth, this.game.ScreenHeight - 305, false, true, false);
       SoundMod.StopWave();
-      this.game.Data.GameID =  Math.Round((double) (VBMath.Rnd() * 1E+08f));
+      this.game.Data.GameID =  Math.Round( (VBMath.Rnd() * 1E+08f));
       this.game.HandyFunctionsObj.RedimStats();
       this.game.HandyFunctionsObj.DoResMod();
       let mut index32: i32 =  0;
@@ -23675,7 +23675,7 @@ label_11:
         index32 += 1;
       }
       while (index32 <= 399);
-      if ((double) this.game.Data.RuleVar[344] == 1.0 & this.game.EditObj.HideUnit == 0)
+      if ( this.game.Data.RuleVar[344] == 1.0 & this.game.EditObj.HideUnit == 0)
         this.game.EditObj.HideUnit = 2;
       let mut regimeCounter4: i32 =  this.game.Data.RegimeCounter;
       for (let mut reg1: i32 =  0; reg1 <= regimeCounter4; reg1 += 1)
@@ -24040,7 +24040,7 @@ label_11:
       bool flag;
       if (!questions)
         flag = true;
-      else if (Interaction.MsgBox((object) "Set all units to highest entrenchment?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      else if (Interaction.MsgBox( "Set all units to highest entrenchment?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         flag = true;
       if (flag)
       {
@@ -24063,9 +24063,9 @@ label_11:
                 for (let mut index8: i32 =  0; index8 <= sfCount; index8 += 1)
                 {
                   let mut sf: i32 =  this.game.Data.UnitObj[unit].SFList[index8];
-                  let mut num2: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[index5, index6].LandscapeType].DefBonusMax[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]);
+                  let mut num2: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[this.game.Data.MapObj[0].HexObj[index5, index6].LandscapeType].DefBonusMax[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]);
                   if (this.game.Data.MapObj[0].HexObj[index5, index6].Location > -1 && this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[index5, index6].Location].Type].PictureLT > -1)
-                    num2 =  Math.Round((double) ((float) num2 + this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[index5, index6].Location].Type].PictureLT].DefBonusMax[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]));
+                    num2 =  Math.Round( ( num2 + this.game.Data.LandscapeTypeObj[this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[index5, index6].Location].Type].PictureLT].DefBonusMax[this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].UnitGroup]));
                   if (num2 > this.game.Data.SFObj[sf].CurrentEntrench)
                   {
                     this.game.Data.SFObj[sf].CurrentEntrench = num2;
@@ -24078,7 +24078,7 @@ label_11:
         }
         if (Number > 0 & questions)
         {
-          let mut num: i32 =   Interaction.MsgBox((object) ("Have reseted " + Conversion.Str((object) Number) + " subformations due to higher entrenchment available"));
+          let mut num: i32 =   Interaction.MsgBox( ("Have reseted " + Conversion.Str( Number) + " subformations due to higher entrenchment available"));
         }
       }
       int index9;
@@ -24117,7 +24117,7 @@ label_11:
               num += this.game.Data.SFObj[sf].Qty * this.game.Data.SFTypeObj[this.game.Data.SFObj[sf].Type].SupplyCarry;
           }
           this.game.Data.UnitObj[index9].Supply = num;
-          if ((double) this.game.Data.RuleVar[435] > 0.0)
+          if ( this.game.Data.RuleVar[435] > 0.0)
             this.game.Data.UnitObj[index9].Fuel = this.UnitMaximumFuelReserve(index9);
         }
       }
@@ -24156,7 +24156,7 @@ label_11:
                 {
                   if (this.game.Data.SFObj[this.game.Data.UnitObj[index11].SFList[index13]].People > this.game.Data.PeopleCounter)
                     this.game.Data.SFObj[this.game.Data.UnitObj[index11].SFList[index13]].People = 0;
-                  this.game.Data.SFObj[this.game.Data.UnitObj[index11].SFList[index13]].Mor =  Math.Round((double) this.game.Data.RegimeObj[this.game.Data.UnitObj[index11].Regime].BaseMorale / 100.0 * (double) this.game.Data.PeopleObj[this.game.Data.SFObj[this.game.Data.UnitObj[index11].SFList[index13]].People].BaseMorale[this.game.Data.PeopleObj[this.game.Data.RegimeObj[index9].People].PeopleGroup]);
+                  this.game.Data.SFObj[this.game.Data.UnitObj[index11].SFList[index13]].Mor =  Math.Round( this.game.Data.RegimeObj[this.game.Data.UnitObj[index11].Regime].BaseMorale / 100.0 *  this.game.Data.PeopleObj[this.game.Data.SFObj[this.game.Data.UnitObj[index11].SFList[index13]].People].BaseMorale[this.game.Data.PeopleObj[this.game.Data.RegimeObj[index9].People].PeopleGroup]);
                 }
               }
             }
@@ -24177,11 +24177,11 @@ label_11:
         {
           this.game.Data.UnitObj[unr].Supply = this.game.HandyFunctionsObj.UnitSupplyStore(unr);
           this.game.Data.UnitObj[unr].StockpileCurrent = this.game.HandyFunctionsObj.GetMaxStockpile(unr);
-          if ((double) this.game.Data.RuleVar[434] > 0.0)
+          if ( this.game.Data.RuleVar[434] > 0.0)
             this.game.Data.UnitObj[index9].SupplyConsume = 100;
         }
       }
-      if (!((double) this.game.Data.RuleVar[455] > 0.0 & this.game.Data.RegimeCounter > -1))
+      if (!( this.game.Data.RuleVar[455] > 0.0 & this.game.Data.RegimeCounter > -1))
         return;
       this.game.HandyFunctionsObj.MakeFuzzyOwner(true, false, 0);
     }
@@ -24284,12 +24284,12 @@ label_11:
       FileName: String = this.game.HandyFunctionsObj.SaveSomething("DC Zip package files(dczip)|*.dczip|Regular ZIP file(zip)|*.zip", "Save as .dczip or .zip file", this.game.AppPath, false);
       let mut num1: i32 =  1;
       string path;
-      while (Interaction.MsgBox((object) ("Add a file (scenario, game menu mod txt file) under '" + this.game.AppPath + "'."), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+      while (Interaction.MsgBox( ("Add a file (scenario, game menu mod txt file) under '" + this.game.AppPath + "'."), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
       {
         path = this.game.HandyFunctionsObj.LoadSomething("All files|*.*", "Add a file (scenario, game menu mod txt file)", this.game.AppPath, false);
         if (!System.IO.File.Exists(path))
         {
-          if (Interaction.MsgBox((object) "Added! Do you want to add another single file or try again?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+          if (Interaction.MsgBox( "Added! Do you want to add another single file or try again?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
             break;
         }
         else
@@ -24299,19 +24299,19 @@ label_11:
           index1 += 1;
           arySrc[index1] = path;
           num1 += 1;
-          if (Interaction.MsgBox((object) "Added! Do you want to add another single file?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+          if (Interaction.MsgBox( "Added! Do you want to add another single file?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
             break;
         }
       }
 label_10:
       while (true)
       {
-        if (Interaction.MsgBox((object) ("Add a directory (with sounds or scenarios) directly under '" + this.game.AppPath + "'. For example '" + this.game.AppPath + "mysounds'"), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+        if (Interaction.MsgBox( ("Add a directory (with sounds or scenarios) directly under '" + this.game.AppPath + "'. For example '" + this.game.AppPath + "mysounds'"), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         {
           path = Interaction.InputBox("Give directory full path. Must be directly under '" + this.game.AppPath + "'. For example '" + this.game.AppPath + "mysounds'. Keep in mind subdirectories are not packed. ", "Shadow Empire : Planetary Conquest", this.game.AppPath);
           if (!Directory.Exists(path))
           {
-            let mut num2: i32 =   Interaction.MsgBox((object) "Dir not found.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num2: i32 =   Interaction.MsgBox( "Dir not found.", Title: ( "Shadow Empire : Planetary Conquest"));
           }
           else
             break;
@@ -24480,7 +24480,7 @@ label_11:
           strArray3[index6] = Right;
         }
       }
-      let mut num10: i32 =   Interaction.MsgBox((object) "This can take a while. Please leave the application running. Keep in mind that graphics from the at2, default, systemgraphics and modgraphics directory are never included since they are presumed to be present on all ATGold installs. Press OK to start.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num10: i32 =   Interaction.MsgBox( "This can take a while. Please leave the application running. Keep in mind that graphics from the at2, default, systemgraphics and modgraphics directory are never included since they are presumed to be present on all ATGold installs. Press OK to start.", Title: ( "Shadow Empire : Planetary Conquest"));
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       let mut num11: i32 =  index6;
       for (let mut index9: i32 =  0; index9 <= num11; index9 += 1)
@@ -24530,7 +24530,7 @@ label_11:
       Directory.Delete(this.game.AppPath + "packagingzip/", true);
       Application.DoEvents();
       this.game.FormRef.Cursor = Cursors.Default;
-      let mut num15: i32 =   Interaction.MsgBox((object) "Export completed.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num15: i32 =   Interaction.MsgBox( "Export completed.", Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
     pub void ExportModLibraryEditor(string libName)
@@ -24541,9 +24541,9 @@ label_11:
       let mut index1: i32 =  -1;
       let mut index2: i32 =  -1;
       str1: String = this.game.HandyFunctionsObj.SaveSomething("SE1 Zip package files(se1zip)|*.se1zip|Regular ZIP file(zip)|*.zip", "Save as .se1zip or .zip file", this.game.AppPath, false);
-      if (Information.IsNothing((object) str1))
+      if (Information.IsNothing( str1))
         return;
-      if (Interaction.MsgBox((object) ("Did you save your Mod Library before pressing the Se1zip button?" + this.game.AppPath + "/" + this.game.ModSoundDir + "'. "), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+      if (Interaction.MsgBox( ("Did you save your Mod Library before pressing the Se1zip button?" + this.game.AppPath + "/" + this.game.ModSoundDir + "'. "), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
         return;
       let mut num1: i32 =  1;
       bool flag = true;
@@ -24554,7 +24554,7 @@ label_11:
         flag = false;
         if (!System.IO.File.Exists(str2))
         {
-          if (Interaction.MsgBox((object) "Not found. try again?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") != MsgBoxResult.No)
+          if (Interaction.MsgBox( "Not found. try again?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") != MsgBoxResult.No)
             flag = true;
           else
             break;
@@ -24592,7 +24592,7 @@ label_11:
           strArray3[index4] = str2;
         }
       }
-      let mut num6: i32 =   Interaction.MsgBox((object) "This can take a while. Please leave the application running. Keep in mind that graphics from the at2, default, systemgraphics and modgraphics directory are never included since they are presumed to be present on all ATGold installs. Press OK to start.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num6: i32 =   Interaction.MsgBox( "This can take a while. Please leave the application running. Keep in mind that graphics from the at2, default, systemgraphics and modgraphics directory are never included since they are presumed to be present on all ATGold installs. Press OK to start.", Title: ( "Shadow Empire : Planetary Conquest"));
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       let mut num7: i32 =  index4;
       for (let mut index7: i32 =  0; index7 <= num7; index7 += 1)
@@ -24675,7 +24675,7 @@ label_11:
       Directory.Delete(this.game.AppPath + "packagingzip/", true);
       Application.DoEvents();
       this.game.FormRef.Cursor = Cursors.Default;
-      let mut num12: i32 =   Interaction.MsgBox((object) "Export completed.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num12: i32 =   Interaction.MsgBox( "Export completed.", Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
     pub void CopyDirectory(string sourcePath, string destinationPath)
@@ -24701,9 +24701,9 @@ label_11:
       let mut index1: i32 =  -1;
       let mut index2: i32 =  -1;
       str1: String = this.game.HandyFunctionsObj.SaveSomething("DC Zip package files(dczip)|*.dczip|Regular ZIP file(zip)|*.zip", "Save as .dczip or .zip file", this.game.AppPath, false);
-      if (Information.IsNothing((object) str1))
+      if (Information.IsNothing( str1))
         return;
-      let mut num1: i32 =   Interaction.MsgBox((object) "Most important: First select the scenario file you have currently open please", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num1: i32 =   Interaction.MsgBox( "Most important: First select the scenario file you have currently open please", Title: ( "Shadow Empire : Planetary Conquest"));
       let mut num2: i32 =  1;
       bool flag = true;
       while (flag)
@@ -24711,7 +24711,7 @@ label_11:
         path: String = this.game.HandyFunctionsObj.LoadSomething("All files|*.*", "Add a file (scenario, game menu mod txt file)", this.game.AppPath, false);
         if (!System.IO.File.Exists(path))
         {
-          if (Interaction.MsgBox((object) "Not found. try again?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
+          if (Interaction.MsgBox( "Not found. try again?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.No)
             break;
         }
         else
@@ -24724,19 +24724,19 @@ label_11:
         }
         Prompt: String = "Add another file (game menu mod, text file, pdf) under '" + this.game.AppPath + "' to the DCZIP?";
         flag = false;
-        if (Interaction.MsgBox((object) Prompt, MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+        if (Interaction.MsgBox( Prompt, MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
           flag = true;
       }
 label_13:
       string path1;
       while (true)
       {
-        if (Interaction.MsgBox((object) ("Add a directory directly under '" + this.game.AppPath + "/" + this.game.ModSoundDir + "'. "), MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+        if (Interaction.MsgBox( ("Add a directory directly under '" + this.game.AppPath + "/" + this.game.ModSoundDir + "'. "), MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
         {
           path1 = Interaction.InputBox("Give directory name. Must be directly under '" + this.game.AppPath + "/" + this.game.ModSoundDir + "/'. For example 'mysounds'. Keep in mind subdirectories of specified directory are not packed. ", "Shadow Empire : Planetary Conquest", this.game.AppPath + "/" + this.game.ModSoundDir + "/");
           if (!Directory.Exists(path1))
           {
-            let mut num3: i32 =   Interaction.MsgBox((object) "Dir not found. Please try again.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+            let mut num3: i32 =   Interaction.MsgBox( "Dir not found. Please try again.", Title: ( "Shadow Empire : Planetary Conquest"));
           }
           else
             break;
@@ -24829,7 +24829,7 @@ label_14:
           strArray3[index6] = Right;
         }
       }
-      let mut num9: i32 =   Interaction.MsgBox((object) "This can take a while. Please leave the application running. Keep in mind that graphics from the at2, default, systemgraphics and modgraphics directory are never included since they are presumed to be present on all ATGold installs. Press OK to start.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num9: i32 =   Interaction.MsgBox( "This can take a while. Please leave the application running. Keep in mind that graphics from the at2, default, systemgraphics and modgraphics directory are never included since they are presumed to be present on all ATGold installs. Press OK to start.", Title: ( "Shadow Empire : Planetary Conquest"));
       this.game.FormRef.Cursor = Cursors.WaitCursor;
       let mut num10: i32 =  index6;
       for (let mut index9: i32 =  0; index9 <= num10; index9 += 1)
@@ -24885,7 +24885,7 @@ label_14:
       Directory.Delete(this.game.AppPath + "packagingzip/", true);
       Application.DoEvents();
       this.game.FormRef.Cursor = Cursors.Default;
-      let mut num14: i32 =   Interaction.MsgBox((object) "Export completed.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+      let mut num14: i32 =   Interaction.MsgBox( "Export completed.", Title: ( "Shadow Empire : Planetary Conquest"));
     }
 
     pub static FileAttributes RemoveAttribute(
@@ -24910,9 +24910,9 @@ label_14:
       Target.x = targetX;
       Target.y = targetY;
       Target.onmap = true;
-      DrawMod.RandyNumber = new Random( Math.Round((double) (this.game.Data.GameID * (this.game.SelectX + 1)) / (double) (this.game.SelectY + 1)));
+      DrawMod.RandyNumber = new Random( Math.Round( (this.game.Data.GameID * (this.game.SelectX + 1)) /  (this.game.SelectY + 1)));
       this.game.TempCombat.Init(Target, 1, this.game.EditObj.TempUnitList, this.game.EditObj.OrderType);
-      DrawMod.RandyNumber = new Random( Math.Round((double) (this.game.Data.GameID * (this.game.SelectX + 1)) / (double) (this.game.SelectY + 1)));
+      DrawMod.RandyNumber = new Random( Math.Round( (this.game.Data.GameID * (this.game.SelectX + 1)) /  (this.game.SelectY + 1)));
       if (this.game.Data.Product == 6)
       {
         let mut num1: i32 =  1;
@@ -24926,7 +24926,7 @@ label_14:
             if (lowestAp > num2)
               num2 = lowestAp;
           }
-          num1 =  Math.Round(Math.Floor((double) num2 / 10.0));
+          num1 =  Math.Round(Math.Floor( num2 / 10.0));
           if (num1 < 1)
             num1 = 1;
         }
@@ -25071,7 +25071,7 @@ label_14:
               d = 1;
             if (num29 < 1)
               num29 = 1;
-            let mut tvalue: i32 =   Math.Round((double)  Math.Round(Math.Max(1.0, Math.Max(1.0, Math.Sqrt((double) d) * (double) this.game.Data.SFTypeObj[isfType].Attacks + 1.0) * (double) num29)) / 100.0);
+            let mut tvalue: i32 =   Math.Round(  Math.Round(Math.Max(1.0, Math.Max(1.0, Math.Sqrt( d) *  this.game.Data.SFTypeObj[isfType].Attacks + 1.0) *  num29)) / 100.0);
             if (tvalue < 1)
               tvalue = 1;
             if (this.game.TempCombat.IList[index3].IAttacker == tdata3)
@@ -25747,7 +25747,7 @@ label_14:
             }
           }
         }
-        let mut num86: i32 =  num4 <= 0 ? 0 :  Math.Round((double) num5 / (double) num4);
+        let mut num86: i32 =  num4 <= 0 ? 0 :  Math.Round( num5 /  num4);
         tid1: String = "Landscape modifier of ";
         string str1;
         if (tdata3 == 1)
@@ -25768,7 +25768,7 @@ label_14:
           let mut tdata5: i32 =  simpleListArray1[tdata3].Id[index120];
           tdata2_1 = simpleListArray1[tdata3].Weight[index120];
           let mut tweight: i32 =  simpleListArray1[tdata3].Data1[index120];
-          tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+          tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
           str3: String = str2 + "\r\n";
           str4: String = "-";
           if (tdata2_1 > 0)
@@ -25787,7 +25787,7 @@ label_14:
         simpleStringList1.Add(tid1 + "#" + str2, 1, tdata1_1, tdata2_2, tdata3, tdata4_1);
         if (tdata3 == 1)
         {
-          let mut num87: i32 =  num6 <= 0 ? 0 :  Math.Round((double) num7 / (double) num6);
+          let mut num87: i32 =  num6 <= 0 ? 0 :  Math.Round( num7 /  num6);
           tid2: String = "River modifier of ";
           if (tdata3 == 1)
             tid2 += "Hitpoints";
@@ -25798,7 +25798,7 @@ label_14:
             let mut tdata5: i32 =  simpleListArray2[tdata3].Id[index121];
             tdata2_1 = simpleListArray2[tdata3].Weight[index121];
             let mut tweight: i32 =  simpleListArray2[tdata3].Data1[index121];
-            tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+            tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
             str6: String = str5 + "\r\n";
             str7: String = "-";
             if (tdata2_1 > 0)
@@ -25818,7 +25818,7 @@ label_14:
         }
         if (tdata3 == 1)
         {
-          let mut num88: i32 =  num8 <= 0 ? 0 :  Math.Round((double) num9 / (double) num8);
+          let mut num88: i32 =  num8 <= 0 ? 0 :  Math.Round( num9 /  num8);
           str8: String = "Concentric attack modifier for offensive Attack Values ";
           str9: String = "From the more sides you attack, the more bonus you'll get.";
           let mut tdata1_3: i32 =  3;
@@ -25826,7 +25826,7 @@ label_14:
           let mut tdata4_3: i32 =  1;
           simpleStringList1.Add(str8 + "#" + str9, 1, tdata1_3, tdata2_4, tdata3, tdata4_3);
         }
-        let mut num89: i32 =  num10 <= 0 ? 0 :  Math.Round((double) num11 / (double) num10);
+        let mut num89: i32 =  num10 <= 0 ? 0 :  Math.Round( num11 /  num10);
         tid3: String = "Entrenchment modifier of ";
         if (tdata3 == 1)
           tid3 += "Hitpoints";
@@ -25837,7 +25837,7 @@ label_14:
           let mut tdata5: i32 =  simpleListArray3[tdata3].Id[index122];
           tdata2_1 = simpleListArray3[tdata3].Weight[index122];
           let mut tweight: i32 =  simpleListArray3[tdata3].Data1[index122];
-          tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+          tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
           str11: String = str10 + "\r\n";
           str12: String = "-";
           if (tdata2_1 > 0)
@@ -25854,7 +25854,7 @@ label_14:
         let mut tdata2_5: i32 =  num89;
         let mut tdata4_4: i32 =  num10;
         simpleStringList1.Add(tid3 + "#" + str10, 1, tdata1_4, tdata2_5, tdata3, tdata4_4);
-        let mut num90: i32 =  !(num13 > 0 & num12 > 0) ? (!(num13 < 0 & num12 > 0) ? (num12 <= 0 ? 0 :  Math.Round((double) num13 / (double) num12)) : Math.Min(-1,  Math.Round((double) num13 / (double) num12))) : Math.Max(1,  Math.Round((double) num13 / (double) num12));
+        let mut num90: i32 =  !(num13 > 0 & num12 > 0) ? (!(num13 < 0 & num12 > 0) ? (num12 <= 0 ? 0 :  Math.Round( num13 /  num12)) : Math.Min(-1,  Math.Round( num13 /  num12))) : Math.Max(1,  Math.Round( num13 /  num12));
         tid4: String = "Readiness modifier on Attack Values";
         str13: String = "The Readiness levels modify the Attack Values and the Hitpoints of Troops. ";
         let mut counter4: i32 =  simpleListArray4[tdata3].Counter;
@@ -25863,7 +25863,7 @@ label_14:
           let mut tdata5: i32 =  simpleListArray4[tdata3].Id[index123];
           tdata2_1 = simpleListArray4[tdata3].Weight[index123];
           let mut tweight: i32 =  simpleListArray4[tdata3].Data1[index123];
-          tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+          tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
           str14: String = str13 + "\r\n";
           str15: String = "-";
           if (tdata2_1 > 0)
@@ -25880,7 +25880,7 @@ label_14:
         let mut tdata2_6: i32 =  num90;
         let mut tdata4_5: i32 =  num12;
         simpleStringList1.Add(tid4 + "#" + str13, 1, tdata1_5, tdata2_6, tdata3, tdata4_5);
-        let mut num91: i32 =  num14 <= 0 ? 0 :  Math.Round((double) num15 / (double) num14);
+        let mut num91: i32 =  num14 <= 0 ? 0 :  Math.Round( num15 /  num14);
         tid5: String = "Readiness modifier on Hitpoints";
         str16: String = "The Readiness levels modify the Attack Values and the Hitpoints of Troops. ";
         let mut counter5: i32 =  simpleListArray6[tdata3].Counter;
@@ -25889,7 +25889,7 @@ label_14:
           let mut tdata5: i32 =  simpleListArray6[tdata3].Id[index124];
           tdata2_1 = simpleListArray6[tdata3].Weight[index124];
           let mut tweight: i32 =  simpleListArray6[tdata3].Data1[index124];
-          tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+          tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
           str17: String = str16 + "\r\n";
           str18: String = "-";
           if (tdata2_1 > 0)
@@ -25906,7 +25906,7 @@ label_14:
         let mut tdata2_7: i32 =  num91;
         let mut tdata4_6: i32 =  num14;
         simpleStringList1.Add(tid5 + "#" + str16, 1, tdata1_6, tdata2_7, tdata3, tdata4_6);
-        let mut num92: i32 =  num16 <= 0 ? 0 :  Math.Round((double) num17 / (double) num16);
+        let mut num92: i32 =  num16 <= 0 ? 0 :  Math.Round( num17 /  num16);
         tid6: String = "Experience modifier on Attack Values";
         str19: String = "The Experience levels modify the Attack Values and the Hitpoints of Troops. ";
         let mut counter6: i32 =  simpleListArray5[tdata3].Counter;
@@ -25915,7 +25915,7 @@ label_14:
           let mut tdata5: i32 =  simpleListArray5[tdata3].Id[index125];
           tdata2_1 = simpleListArray5[tdata3].Weight[index125];
           let mut tweight: i32 =  simpleListArray5[tdata3].Data1[index125];
-          tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+          tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
           str20: String = str19 + "\r\n";
           str21: String = "-";
           if (tdata2_1 > 0)
@@ -25932,7 +25932,7 @@ label_14:
         let mut tdata2_8: i32 =  num92;
         let mut tdata4_7: i32 =  num16;
         simpleStringList1.Add(tid6 + "#" + str19, 1, tdata1_7, tdata2_8, tdata3, tdata4_7);
-        let mut num93: i32 =  num18 <= 0 ? 0 :  Math.Round((double) num19 / (double) num18);
+        let mut num93: i32 =  num18 <= 0 ? 0 :  Math.Round( num19 /  num18);
         tid7: String = "Experience modifier on Hitpoints";
         str22: String = "The Experience levels modify the Attack Values and the Hitpoints of Troops. ";
         let mut counter7: i32 =  simpleListArray7[tdata3].Counter;
@@ -25941,7 +25941,7 @@ label_14:
           let mut tdata5: i32 =  simpleListArray7[tdata3].Id[index126];
           tdata2_1 = simpleListArray7[tdata3].Weight[index126];
           let mut tweight: i32 =  simpleListArray7[tdata3].Data1[index126];
-          tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+          tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
           str23: String = str22 + "\r\n";
           str24: String = "-";
           if (tdata2_1 > 0)
@@ -25958,10 +25958,10 @@ label_14:
         let mut tdata2_9: i32 =  num93;
         let mut tdata4_8: i32 =  num18;
         simpleStringList1.Add(tid7 + "#" + str22, 1, tdata1_8, tdata2_9, tdata3, tdata4_8);
-        let mut num94: i32 =  num24 <= 0 ? 0 :  Math.Round((double) num20 / (double) num24);
-        num22 = num26 <= 0 ? 0 :  Math.Round((double) num22 / (double) num26);
-        let mut num95: i32 =  num27 <= 0 ? 0 :  Math.Round((double) num23 / (double) num27);
-        let mut num96: i32 =   Math.Round((double) (100 + num94) * ((double) (100 + num22) / 100.0) * ((double) (100 + num95) / 100.0)) - 100;
+        let mut num94: i32 =  num24 <= 0 ? 0 :  Math.Round( num20 /  num24);
+        num22 = num26 <= 0 ? 0 :  Math.Round( num22 /  num26);
+        let mut num95: i32 =  num27 <= 0 ? 0 :  Math.Round( num23 /  num27);
+        let mut num96: i32 =   Math.Round( (100 + num94) * ( (100 + num22) / 100.0) * ( (100 + num95) / 100.0)) - 100;
         tid8: String = "Supply/Ammo/Fuel modifier of ";
         if (tdata3 == 1)
         {
@@ -25985,7 +25985,7 @@ label_14:
             let mut tdata5: i32 =  simpleListArray8[tdata3].Id[index127];
             tdata2_1 = simpleListArray8[tdata3].Weight[index127];
             let mut tweight: i32 =  simpleListArray8[tdata3].Data1[index127];
-            tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+            tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
             str26: String = str25 + "\r\n";
             str27: String = "-";
             if (tdata2_1 > 0)
@@ -26006,7 +26006,7 @@ label_14:
             let mut tdata5: i32 =  simpleListArray9[tdata3].Id[index128];
             tdata2_1 = simpleListArray9[tdata3].Weight[index128];
             let mut tweight: i32 =  simpleListArray9[tdata3].Data1[index128];
-            tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+            tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
             str28: String = str25 + "\r\n";
             str29: String = "-";
             if (tdata2_1 > 0)
@@ -26024,7 +26024,7 @@ label_14:
         let mut tdata2_10: i32 =  num96;
         let mut tdata4_9: i32 =  num24;
         simpleStringList1.Add(tid8 + "#" + str25, 1, tdata1_9, tdata2_10, tdata3, tdata4_9);
-        let mut num97: i32 =  num24 <= 0 ? 0 :  Math.Round((double) num94 / (double) num24);
+        let mut num97: i32 =  num24 <= 0 ? 0 :  Math.Round( num94 /  num24);
         tid9: String = "Supply modifier on Hitpoints";
         str30: String = "Supply Consumption can impose a heavy negative modifier on the Hitpoints.\r\n";
         if (num24 > 0)
@@ -26051,7 +26051,7 @@ label_14:
             flag1 = false;
           if (flag1)
           {
-            numArray1[index129] = numArray2[index129] <= 0 ? 0 :  Math.Round((double) numArray1[index129] / (double) numArray2[index129]);
+            numArray1[index129] = numArray2[index129] <= 0 ? 0 :  Math.Round( numArray1[index129] /  numArray2[index129]);
             if (index129 == 8)
             {
               tid9 = "Posture modifier for Attack Values";
@@ -26158,7 +26158,7 @@ label_14:
               let mut tdata5: i32 =  simpleListArray10[index129, tdata3].Id[index130];
               tdata2_1 = simpleListArray10[index129, tdata3].Weight[index130];
               let mut tweight: i32 =  simpleListArray10[index129, tdata3].Data1[index130];
-              tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+              tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
               str31: String = str30 + "\r\n";
               str32: String = "-";
               if (tdata2_1 > 0)
@@ -26181,7 +26181,7 @@ label_14:
               tdata1_11 = 11;
             if (index129 == 11)
               tdata1_11 = 10;
-            if ((double) this.game.Data.RuleVar[419] < 1.0 && index129 == 10 | index129 == 11)
+            if ( this.game.Data.RuleVar[419] < 1.0 && index129 == 10 | index129 == 11)
               flag2 = false;
             if (flag2)
               simpleStringList1.Add(tid9 + "#" + str30, 1, tdata1_11, tdata2_12, tdata3, tdata4_11, CheckExistence: false);
@@ -26199,7 +26199,7 @@ label_14:
             flag3 = false;
           if (flag3)
           {
-            numArray3[index131] = numArray4[index131] <= 0 ? 0 :  Math.Round((double) numArray3[index131] / (double) numArray4[index131]);
+            numArray3[index131] = numArray4[index131] <= 0 ? 0 :  Math.Round( numArray3[index131] /  numArray4[index131]);
             if (index131 == 8)
             {
               tid9 = "Posture modifier on Hitpoints";
@@ -26271,7 +26271,7 @@ label_14:
               let mut tdata5: i32 =  simpleListArray11[index131, tdata3].Id[index132];
               tdata2_1 = simpleListArray11[index131, tdata3].Weight[index132];
               let mut tweight: i32 =  simpleListArray11[index131, tdata3].Data1[index132];
-              tdata2_1 = tweight <= 0 ? 0 :  Math.Round((double) tdata2_1 / (double) tweight);
+              tdata2_1 = tweight <= 0 ? 0 :  Math.Round( tdata2_1 /  tweight);
               str33: String = str30 + "\r\n";
               str34: String = "-";
               if (tdata2_1 > 0)
@@ -26326,20 +26326,20 @@ label_14:
         {
           if (flag)
           {
-            let mut num100: i32 =   Math.Round((double) num98 / (double) num99);
+            let mut num100: i32 =   Math.Round( num98 /  num99);
             if (num100 < -100)
               num100 = num100;
-            numArray117[simpleStringList1.Data3[index133]] = numArray117[simpleStringList1.Data3[index133]] * ((float) (100 + num100) / 100f);
+            numArray117[simpleStringList1.Data3[index133]] = numArray117[simpleStringList1.Data3[index133]] * ( (100 + num100) / 100f);
           }
           else
-            numArray117[simpleStringList1.Data3[index133]] = numArray117[simpleStringList1.Data3[index133]] * ((float) (100 + simpleStringList1.Data2[index133]) / 100f);
+            numArray117[simpleStringList1.Data3[index133]] = numArray117[simpleStringList1.Data3[index133]] * ( (100 + simpleStringList1.Data2[index133]) / 100f);
         }
       }
       simpleStringList1.Sort();
       numArray117[0] = numArray117[0] - 100f;
       numArray117[1] = numArray117[1] - 100f;
-      simpleStringList1.Add("Cumulative modifier#All the estimated modifiers multiplied with eachother.", 1, 24,  Math.Round((double) numArray117[0]), tdata4: 1, CheckExistence: false);
-      simpleStringList1.Add("Cumulative modifier#All the estimated modifiers multiplied with eachother.", 1, 24,  Math.Round((double) numArray117[1]), 1, 1, CheckExistence: false);
+      simpleStringList1.Add("Cumulative modifier#All the estimated modifiers multiplied with eachother.", 1, 24,  Math.Round( numArray117[0]), tdata4: 1, CheckExistence: false);
+      simpleStringList1.Add("Cumulative modifier#All the estimated modifiers multiplied with eachother.", 1, 24,  Math.Round( numArray117[1]), 1, 1, CheckExistence: false);
       int[] numArray118 = new int[2]{ 0, 0 };
       let mut icounter1: i32 =  this.game.TempCombat.ICounter;
       for (let mut index135: i32 =  0; index135 <= icounter1; index135 += 1)
@@ -26381,7 +26381,7 @@ label_14:
             d = 1;
           if (num101 < 1)
             num101 = 1;
-          let mut num102: i32 =   Math.Round((double) attacks * Math.Sqrt((double) d) * (double) num101 / 100.0);
+          let mut num102: i32 =   Math.Round( attacks * Math.Sqrt( d) *  num101 / 100.0);
           int[] numArray119 = numArray118;
           int[] numArray120 = numArray119;
           let mut index138: i32 =  iattacker;
@@ -26392,8 +26392,8 @@ label_14:
       }
       simpleStringList1.Add("Defensive Power#A rough estimate of the defensive value of the forces.", 1, 27, numArray118[0], tdata4: 1, CheckExistence: false);
       simpleStringList1.Add("Offensive Power#A rough estimate of the offensive value of the forces.", 1, 25, numArray118[1], 1, 1, CheckExistence: false);
-      numArray118[0] =  Math.Round((double) ((float) numArray118[0] * (float) ((100.0 + (double) numArray117[0]) / 100.0)));
-      numArray118[1] =  Math.Round((double) ((float) numArray118[1] * (float) ((100.0 + (double) numArray117[1]) / 100.0)));
+      numArray118[0] =  Math.Round( ( numArray118[0] *  ((100.0 +  numArray117[0]) / 100.0)));
+      numArray118[1] =  Math.Round( ( numArray118[1] *  ((100.0 +  numArray117[1]) / 100.0)));
       simpleStringList1.Add("Modified Defensive Power#A rough estimate of the defensive value of the forces modified with all the estimated modifiers.", 1, 28, numArray118[0], tdata4: 1, CheckExistence: false);
       simpleStringList1.Add("Modified Offensive Power#A rough estimate of the offensive value of the forces modified with all the estimated modifiers.", 1, 26, numArray118[1], 1, 1, CheckExistence: false);
       let mut ucounter: i32 =  this.game.TempCombat.UCounter;
@@ -26407,12 +26407,12 @@ label_14:
           if (this.game.TempCombat.IList[index141].IUlistNr == index140 && this.game.Data.SFTypeObj[this.game.TempCombat.IList[index141].ISFType].ArtRange > 0)
           {
             num104 += 1;
-            num105 =  Math.Round((double) ((float) num105 + this.game.TempCombat.IList[index141].ILisAmmoMod * 100f));
+            num105 =  Math.Round( ( num105 + this.game.TempCombat.IList[index141].ILisAmmoMod * 100f));
           }
         }
         if (num104 > 0)
         {
-          let mut tweight: i32 =   Math.Round((double) num105 / (double) num104);
+          let mut tweight: i32 =   Math.Round( num105 /  num104);
           simpleStringList1.Add("Ammo Modifier", tweight, -1, this.game.TempCombat.UList[index140].UNr, CheckExistence: false);
         }
       }
@@ -26542,10 +26542,10 @@ label_14:
 
     pub int Air_GetRandomizedRoundingDam(int number, int damPercent)
     {
-      float num1 = (float) (number * damPercent) / 100f;
-      let mut randomizedRoundingDam: i32 =   Math.Round(Math.Floor((double) (number * damPercent) / 100.0));
-      float num2 = num1 - (float) randomizedRoundingDam;
-      if ((double) ((float) DrawMod.RandyNumber.Next(0, 100) / 100f) <= (double) num2)
+      float num1 =  (number * damPercent) / 100f;
+      let mut randomizedRoundingDam: i32 =   Math.Round(Math.Floor( (number * damPercent) / 100.0));
+      float num2 = num1 -  randomizedRoundingDam;
+      if ( ( DrawMod.RandyNumber.Next(0, 100) / 100f) <=  num2)
         randomizedRoundingDam += 1;
       return randomizedRoundingDam;
     }
@@ -26728,7 +26728,7 @@ label_14:
         }
         if (num1 >= 1)
         {
-          float num4 = (float) lisRemove / (float) num1;
+          float num4 =  lisRemove /  num1;
           let mut length2: i32 =  this.game.Data.StringListObj[stringListById].Length;
           for (let mut index: i32 =  0; index <= length2; index += 1)
           {
@@ -26737,7 +26737,7 @@ label_14:
               let mut num5: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[index, 5]));
               if (num5 > 0)
               {
-                let mut num6: i32 =   Math.Round((double) num5 - Math.Ceiling((double) num5 * (double) num4));
+                let mut num6: i32 =   Math.Round( num5 - Math.Ceiling( num5 *  num4));
                 if (num6 < 1)
                 {
                   num6 = 0;
@@ -26778,7 +26778,7 @@ label_14:
           }
         }
       }
-      return (object) lisFromAirBridge;
+      return  lisFromAirBridge;
     }
 
     pub int Air_GetDamForAirBridge(int fromX, int fromY, int toX, int toY)
@@ -26822,7 +26822,7 @@ label_14:
         int damForAirBridge;
         return damForAirBridge;
       }
-      let mut damForAirBridge1: i32 =   Math.Round(Math.Ceiling((double) num2 / (double) num1));
+      let mut damForAirBridge1: i32 =   Math.Round(Math.Ceiling( num2 /  num1));
       if (damForAirBridge1 > 100)
         damForAirBridge1 = 100;
       if (damForAirBridge1 < 0)
@@ -26857,9 +26857,9 @@ label_14:
           let mut index2: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[tid, 2]));
           let mut index3: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[tid, 3]));
           let mut index4: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById].Data[tid, 4]));
-          if (Information.IsNothing((object) this.game.Data.MapObj[0].HexObj[index1, index2].tempLISjumps))
+          if (Information.IsNothing( this.game.Data.MapObj[0].HexObj[index1, index2].tempLISjumps))
             this.game.Data.MapObj[0].HexObj[index1, index2].tempLISjumps = SimpleList::new();
-          if (Information.IsNothing((object) this.game.Data.MapObj[0].HexObj[index3, index4].tempLISjumps))
+          if (Information.IsNothing( this.game.Data.MapObj[0].HexObj[index3, index4].tempLISjumps))
             this.game.Data.MapObj[0].HexObj[index3, index4].tempLISjumps = SimpleList::new();
           this.game.Data.MapObj[0].HexObj[index1, index2].tempLISjumps.Add(tid, 1);
           this.game.Data.MapObj[0].HexObj[index3, index4].tempLISjumps.Add(tid, 1);
@@ -27031,7 +27031,7 @@ label_14:
           index5 += 1;
         }
         while (index5 <= 5);
-        if ((double) this.game.Data.RiverTypeObj[index4].BridgeCostModifier >= 0.0)
+        if ( this.game.Data.RiverTypeObj[index4].BridgeCostModifier >= 0.0)
         {
           let mut index6: i32 =  0;
           do
@@ -27088,7 +27088,7 @@ label_14:
       if (Left1.Length > 0 & this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
         Left1 = Left1 + "\r\n" + "Location present: " + this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].Name + "(VP=" + this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].VP.ToString() + ")";
       if (Left1.Length > 0)
-        str1 = str1 + Left1 + "\r\n" + "Recon Points: " + this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon.ToString() + "\r\n" + "Minimum recon for unit info: " + ( Math.Round((double) this.game.Data.RuleVar[55])).ToString() + "\r\n" + "Minimum recon for full unit info " + ( Math.Round((double) this.game.Data.RuleVar[56])).ToString() + "\r\n" + "\r\n";
+        str1 = str1 + Left1 + "\r\n" + "Recon Points: " + this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].MaxRecon.ToString() + "\r\n" + "Minimum recon for unit info: " + ( Math.Round( this.game.Data.RuleVar[55])).ToString() + "\r\n" + "Minimum recon for full unit info " + ( Math.Round( this.game.Data.RuleVar[56])).ToString() + "\r\n" + "\r\n";
       bool[] flagArray = new bool[100];
       int[] numArray = new int[100];
       let mut sfTypeCounter: i32 =  this.game.Data.SFTypeCounter;
@@ -27105,7 +27105,7 @@ label_14:
       let mut index9: i32 =  0;
       do
       {
-        if (Information.IsNothing((object) this.game.Data.TempString[index9 + 400]))
+        if (Information.IsNothing( this.game.Data.TempString[index9 + 400]))
           this.game.Data.TempString[index9 + 400] = "";
         if (this.game.Data.TempString[index9 + 400].Length > 1 & numArray[index9] > 0)
         {
@@ -27114,51 +27114,51 @@ label_14:
             str6 = Strings.Left(str6, 21);
           str7: String = str5 + str6 + Strings.Space(23 - str6.Length);
           let mut index10: i32 =  numArray[index9];
-          let mut Number1: i32 =   Math.Round((double) (this.game.Data.SFTypeObj[index10].CombatModAtt[landscapeType] * 100f)) - 100;
+          let mut Number1: i32 =   Math.Round( (this.game.Data.SFTypeObj[index10].CombatModAtt[landscapeType] * 100f)) - 100;
           if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
           {
             let mut pictureLt: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].PictureLT;
             if (pictureLt > -1)
-              Number1 =  Math.Round((double) ((float) Number1 * this.game.Data.SFTypeObj[index10].CombatModAtt[pictureLt]));
+              Number1 =  Math.Round( ( Number1 * this.game.Data.SFTypeObj[index10].CombatModAtt[pictureLt]));
           }
-          str8: String = Strings.Trim(Conversion.Str((object) Number1)) + "%";
+          str8: String = Strings.Trim(Conversion.Str( Number1)) + "%";
           if (Number1 > 0)
             str8 = "+" + str8;
           if (str8.Length > 6)
             str8 = Strings.Left(str8, 6);
           str9: String = str7 + str8 + Strings.Space(10 - str8.Length);
-          let mut Number2: i32 =   Math.Round((double) (this.game.Data.SFTypeObj[index10].CombatModDef[landscapeType] * 100f)) - 100;
+          let mut Number2: i32 =   Math.Round( (this.game.Data.SFTypeObj[index10].CombatModDef[landscapeType] * 100f)) - 100;
           if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
           {
             let mut pictureLt: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].PictureLT;
             if (pictureLt > -1)
-              Number2 =  Math.Round((double) ((float) Number2 * this.game.Data.SFTypeObj[index10].CombatModDef[pictureLt]));
+              Number2 =  Math.Round( ( Number2 * this.game.Data.SFTypeObj[index10].CombatModDef[pictureLt]));
           }
-          str10: String = Strings.Trim(Conversion.Str((object) Number2)) + "%";
+          str10: String = Strings.Trim(Conversion.Str( Number2)) + "%";
           if (Number2 > 0)
             str10 = "+" + str10;
           if (str10.Length > 6)
             str10 = Strings.Left(str10, 6);
           str11: String = str9 + str10 + Strings.Space(10 - str10.Length);
-          let mut Number3: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[landscapeType].DefBonus[index9]);
+          let mut Number3: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[landscapeType].DefBonus[index9]);
           if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
           {
             let mut pictureLt: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].PictureLT;
             if (pictureLt > -1)
-              Number3 =  Math.Round((double) ((float) Number3 + this.game.Data.LandscapeTypeObj[pictureLt].DefBonus[index9]));
+              Number3 =  Math.Round( ( Number3 + this.game.Data.LandscapeTypeObj[pictureLt].DefBonus[index9]));
           }
-          str12: String = Strings.Trim(Conversion.Str((object) Number3));
+          str12: String = Strings.Trim(Conversion.Str( Number3));
           if (str12.Length > 6)
             str12 = Strings.Left(str12, 6);
           str13: String = str11 + str12 + Strings.Space(10 - str12.Length);
-          let mut Number4: i32 =   Math.Round((double) this.game.Data.LandscapeTypeObj[landscapeType].DefBonusMax[index9]);
+          let mut Number4: i32 =   Math.Round( this.game.Data.LandscapeTypeObj[landscapeType].DefBonusMax[index9]);
           if (this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location > -1)
           {
             let mut pictureLt: i32 =  this.game.Data.LocTypeObj[this.game.Data.LocObj[this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].Location].Type].PictureLT;
             if (pictureLt > -1)
-              Number4 =  Math.Round((double) ((float) Number4 + this.game.Data.LandscapeTypeObj[pictureLt].DefBonusMax[index9]));
+              Number4 =  Math.Round( ( Number4 + this.game.Data.LandscapeTypeObj[pictureLt].DefBonusMax[index9]));
           }
-          str14: String = Strings.Trim(Conversion.Str((object) Number4));
+          str14: String = Strings.Trim(Conversion.Str( Number4));
           if (str14.Length > 6)
             str14 = Strings.Left(str14, 6);
           str15: String = str13 + str14 + Strings.Space(10 - str14.Length);
@@ -27166,7 +27166,7 @@ label_14:
           let mut counter: i32 =  simpleList2.Counter;
           for (let mut index11: i32 =  0; index11 <= counter; index11 += 1)
           {
-            str17: String = "-" + Strings.Trim(Conversion.Str((object)  Math.Round((double) (this.game.Data.RiverTypeObj[simpleList2.Data1[index11]].AttackPenalty[index9] * 100f)))) + "%";
+            str17: String = "-" + Strings.Trim(Conversion.Str(  Math.Round( (this.game.Data.RiverTypeObj[simpleList2.Data1[index11]].AttackPenalty[index9] * 100f)))) + "%";
             if (Operators.CompareString(str16, "", false) != 0)
               str16 += "/";
             str16 += str17;
@@ -27194,7 +27194,7 @@ label_14:
           if (str18.Length > 21)
             str18 = Strings.Left(str18, 21);
           str19: String = Left3 + str18 + Strings.Space(23 - str18.Length);
-          str20: String = Strings.Trim(Conversion.Str((object) this.game.Data.LandscapeTypeObj[landscapeType].MoveCost[index12]));
+          str20: String = Strings.Trim(Conversion.Str( this.game.Data.LandscapeTypeObj[landscapeType].MoveCost[index12]));
           if (this.game.Data.LandscapeTypeObj[landscapeType].MoveCost[index12] >= 999)
             str20 = "NA";
           if (str20.Length > 6)
@@ -27205,7 +27205,7 @@ label_14:
           for (let mut index13: i32 =  0; index13 <= counter1; index13 += 1)
           {
             let mut index14: i32 =  simpleList1.Data1[index13];
-            str23: String = Strings.Trim(Conversion.Str((object) this.game.Data.RoadTypeObj[index14].MoveCostOverrule[index12]));
+            str23: String = Strings.Trim(Conversion.Str( this.game.Data.RoadTypeObj[index14].MoveCostOverrule[index12]));
             if (this.game.Data.RoadTypeObj[index14].MoveCostOverrule[index12] >= 999)
               str23 = "NA";
             if (Operators.CompareString(str22, "", false) != 0)
@@ -27222,7 +27222,7 @@ label_14:
           for (let mut index15: i32 =  0; index15 <= counter2; index15 += 1)
           {
             let mut index16: i32 =  simpleList2.Data1[index15];
-            str26: String = "+" + Strings.Trim(Conversion.Str((object) this.game.Data.RiverTypeObj[index16].MovePenalty[index12]));
+            str26: String = "+" + Strings.Trim(Conversion.Str( this.game.Data.RiverTypeObj[index16].MovePenalty[index12]));
             if (this.game.Data.RiverTypeObj[index16].MovePenalty[index12] >= 999)
               str26 = "NA";
             if (Operators.CompareString(str25, "", false) != 0)
@@ -27243,28 +27243,28 @@ label_14:
       {
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "regular battlestack = " + Strings.Trim(Conversion.Str((object) Number5));
+        Left3 = Left3 + "regular battlestack = " + Strings.Trim(Conversion.Str( Number5));
       }
       let mut Number6: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackArt(this.game.EditObj.RealTurn);
       if (Number6 > 0)
       {
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "artillery battlestack = " + Strings.Trim(Conversion.Str((object) Number6));
+        Left3 = Left3 + "artillery battlestack = " + Strings.Trim(Conversion.Str( Number6));
       }
       let mut Number7: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_BattleStackAir(this.game.EditObj.RealTurn);
       if (Number7 > 0)
       {
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "air battlestack = " + Strings.Trim(Conversion.Str((object) Number7));
+        Left3 = Left3 + "air battlestack = " + Strings.Trim(Conversion.Str( Number7));
       }
       let mut Number8: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_BattlePenalty(this.game.EditObj.RealTurn);
       if (Number8 > 0)
       {
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "battle penalty in AP = " + Strings.Trim(Conversion.Str((object) Number8));
+        Left3 = Left3 + "battle penalty in AP = " + Strings.Trim(Conversion.Str( Number8));
       }
       let mut num1: i32 =  0;
       let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
@@ -27272,7 +27272,7 @@ label_14:
       {
         let mut num2: i32 =  0;
         if (this.game.HandyFunctionsObj.IsHostileNotSelf(this.game.EditObj.RealTurn, index17) && this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ZocPts(index17) > 0 && this.game.HandyFunctionsObj.VisibleEnemyUnitsInOrAroundHEx(this.game.SelectX, this.game.SelectY, 0, this.game.EditObj.RealTurn))
-          num2 =  Math.Round((double) ((float) num2 + this.game.Data.RuleVar[323]));
+          num2 =  Math.Round( ( num2 + this.game.Data.RuleVar[323]));
         if (num2 > num1)
           num1 = num2;
       }
@@ -27281,42 +27281,42 @@ label_14:
       {
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "ZOC penalty in AP = " + Strings.Trim(Conversion.Str((object) Number9));
+        Left3 = Left3 + "ZOC penalty in AP = " + Strings.Trim(Conversion.Str( Number9));
       }
       let mut Number10: i32 =  this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_APPenalty(this.game.EditObj.RealTurn);
       if (Number10 > 0)
       {
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "enemy terrain penalty in AP = " + Strings.Trim(Conversion.Str((object) Number10));
+        Left3 = Left3 + "enemy terrain penalty in AP = " + Strings.Trim(Conversion.Str( Number10));
       }
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SupplyLost(this.game.EditObj.RealTurn) > 0)
       {
         let mut Number11: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SupplyLost(this.game.EditObj.RealTurn);
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "Supply lost in hex = " + Strings.Trim(Conversion.Str((object) Number11));
+        Left3 = Left3 + "Supply lost in hex = " + Strings.Trim(Conversion.Str( Number11));
       }
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_PowerPointsLost(this.game.EditObj.RealTurn) > 0)
       {
         let mut Number12: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_PowerPointsLost(this.game.EditObj.RealTurn);
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "Power points lost in hex = " + Strings.Trim(Conversion.Str((object) Number12));
+        Left3 = Left3 + "Power points lost in hex = " + Strings.Trim(Conversion.Str( Number12));
       }
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SupplyKilled(this.game.EditObj.RealTurn) > 0)
       {
         let mut Number13: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_SupplyKilled(this.game.EditObj.RealTurn);
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "Supply points destroyed by you = " + Strings.Trim(Conversion.Str((object) Number13));
+        Left3 = Left3 + "Supply points destroyed by you = " + Strings.Trim(Conversion.Str( Number13));
       }
       if (this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_PowerPointsKilled(this.game.EditObj.RealTurn) > 0)
       {
         let mut Number14: i32 =  this.game.Data.MapObj[this.game.EditObj.MapSelected].HexObj[this.game.SelectX, this.game.SelectY].get_PowerPointsKilled(this.game.EditObj.RealTurn);
         if (Operators.CompareString(Left3, "", false) != 0)
           Left3 += "\r\n";
-        Left3 = Left3 + "Power points destroyed by you = " + Strings.Trim(Conversion.Str((object) Number14));
+        Left3 = Left3 + "Power points destroyed by you = " + Strings.Trim(Conversion.Str( Number14));
       }
       return Left3;
     }
@@ -28137,7 +28137,7 @@ label_14:
           }
           else
           {
-            if (!(this.game.HandyFunctionsObj.HasHexRoad(tarX, tarY, 0) & (double) this.game.Data.RuleVar[901] >= 2.0 & !forRecon))
+            if (!(this.game.HandyFunctionsObj.HasHexRoad(tarX, tarY, 0) &  this.game.Data.RuleVar[901] >= 2.0 & !forRecon))
               return;
             tcoord.y = 2;
           }
@@ -28148,7 +28148,7 @@ label_14:
         }
         else
         {
-          if (!(this.game.HandyFunctionsObj.HasHexRoad(tarX, tarY, 0) & (double) this.game.Data.RuleVar[901] >= 2.0 & !forRecon))
+          if (!(this.game.HandyFunctionsObj.HasHexRoad(tarX, tarY, 0) &  this.game.Data.RuleVar[901] >= 2.0 & !forRecon))
             return;
           tcoord.y = 2;
         }
@@ -28185,7 +28185,7 @@ label_14:
         d = 1;
       if (num < 1)
         num = 1;
-      return  Math.Round((double) attacks * Math.Sqrt((double) d) * (double) num / 100.0);
+      return  Math.Round( attacks * Math.Sqrt( d) *  num / 100.0);
     }
 
     pub string GetSFTypeCombatValueScoreString(int typ) => "";

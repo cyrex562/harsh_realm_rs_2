@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Drawing;
+// usingSystem.IO;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -221,7 +221,7 @@ namespace WindowsApplication1
       this.detail2 = -1;
       this.detail3 = -1;
       this.detail4 = -1;
-      this.groupdetail = (object) -1;
+      this.groupdetail =  -1;
       this.cat = -1;
       this.COMMANDTYPE[0] = "EMPTY";
       this.COMMANDTYPE[1] = nameof (CHECK);
@@ -609,7 +609,7 @@ namespace WindowsApplication1
             num4 += 1;
             if (index3 == this.detail1)
               num5 = num4;
-            str2: String = "slot" + Strings.Trim(Conversion.Str((object) index3)) + ") " + this.game.Data.EventObj[index3].Name + "<id" + this.game.Data.EventObj[index3].Id.ToString() + ">";
+            str2: String = "slot" + Strings.Trim(Conversion.Str( index3)) + ") " + this.game.Data.EventObj[index3].Name + "<id" + this.game.Data.EventObj[index3].Id.ToString() + ">";
             if (Strings.Len(str2) > 60)
               str2 = Strings.Left(str2, 60);
             str3: String = str2 + Strings.Space(65 - Strings.Len(str2));
@@ -752,7 +752,7 @@ namespace WindowsApplication1
               str5 = str5 + ": " + this.ItemInfo(this.detail1, index4, 0) + " " + this.ItemInfo(this.detail1, index4, 1) + " " + this.ItemInfo(this.detail1, index4, 2);
             if (this.game.Data.EventObj[this.detail1].CommandList[index4].type == 5)
               str5 = str5 + ": " + this.ItemInfo(this.detail1, index4, 0) + " " + this.ItemInfo(this.detail1, index4, 1) + " " + this.ItemInfo(this.detail1, index4, 2);
-            str1 = Strings.Trim(Conversion.Str((object) index4)) + ") " + Strings.Space(4 - Strings.Len(Strings.Trim(Conversion.Str((object) index4)))) + Strings.Space(num6 * 2) + str5;
+            str1 = Strings.Trim(Conversion.Str( index4)) + ") " + Strings.Space(4 - Strings.Len(Strings.Trim(Conversion.Str( index4)))) + Strings.Space(num6 * 2) + str5;
             if (this.game.Data.EventObj[this.detail1].CommandList[index4].type == 7)
               this.OptionsList2Obj.add(str1, index4, tcol: 1);
             else
@@ -766,7 +766,7 @@ namespace WindowsApplication1
         if (this.game.Data.EventObj[this.detail1].CommandCounter < this.detail2)
           this.detail2 = -1;
         ListClass optionsList2Obj = this.OptionsList2Obj;
-        let mut tlistsize: i32 =   Math.Round(Conversion.Int((double) y / 16.0) - 1.0);
+        let mut tlistsize: i32 =   Math.Round(Conversion.Int( y / 16.0) - 1.0);
         let mut twidth2: i32 =  w2;
         let mut detail2: i32 =  this.detail2;
         let mut game4: GameClass = this.game;
@@ -774,7 +774,7 @@ namespace WindowsApplication1
         Font font4 =  null;
         ref Font local8 = ref font4;
         tsubpart18 =  new ListSubPartClass(optionsList2Obj, tlistsize, twidth2, detail2, game4, true, "Code", tbackbitmap: (ref local7), bbx: 210, bby: 220, overruleFont: (ref local8));
-        this.OptionsList2Id = this.AddSubPart(ref tsubpart18, 210, 220, w2,  Math.Round((Conversion.Int((double) y / 16.0) + 2.0) * 16.0), 0);
+        this.OptionsList2Id = this.AddSubPart(ref tsubpart18, 210, 220, w2,  Math.Round((Conversion.Int( y / 16.0) + 2.0) * 16.0), 0);
         this.ss = "Click to add a line of code to the selected event; will be placed below selected line";
         tsubpart18 =  ButtonPartClass::new(this.game.BUTTONPLUS, tDescript: this.ss);
         this.AddCommandId = this.AddSubPart(ref tsubpart18, 300, 202, 32, 16, 1);
@@ -1100,7 +1100,7 @@ namespace WindowsApplication1
           }
           if (this.StepCurrent > 1 & Conversions.ToDouble(command.Data[this.SetSlot, 0]) == 2.0 && this.game.Data.CheckTypeVarCount[Conversions.ToInteger(command.Data[this.SetSlot, 1])] >= this.StepCurrent - 1)
           {
-            this.String1 = "Set CheckType Variable " + Conversion.Str((object) (this.StepCurrent - 1)) + ": '" + this.game.Data.CheckTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent - 1] + "'";
+            this.String1 = "Set CheckType Variable " + Conversion.Str( (this.StepCurrent - 1)) + ": '" + this.game.Data.CheckTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent - 1] + "'";
             num = 1;
             this.VarExtra = (this.StepCurrent - 1) * 3;
           }
@@ -1124,7 +1124,7 @@ namespace WindowsApplication1
         {
           if (this.game.Data.ExecTypeVarCount[Conversions.ToInteger(command.Data[this.SetSlot, 1])] >= this.StepCurrent)
           {
-            this.String1 = "Set Exec Type Variable " + Conversion.Str((object) this.StepCurrent) + ": '" + this.game.Data.ExecTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent] + "'";
+            this.String1 = "Set Exec Type Variable " + Conversion.Str( this.StepCurrent) + ": '" + this.game.Data.ExecTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent] + "'";
             num = 1;
             this.VarExtra = this.StepCurrent * 3;
           }
@@ -1172,7 +1172,7 @@ namespace WindowsApplication1
           }
           if (this.StepCurrent > 1 & Conversions.ToDouble(command.Data[this.SetSlot, 0]) == 2.0 && this.game.Data.CheckTypeVarCount[Conversions.ToInteger(command.Data[this.SetSlot, 1])] >= this.StepCurrent - 1)
           {
-            this.String1 = "Set CheckType Variable " + Conversion.Str((object) (this.StepCurrent - 1)) + ": '" + this.game.Data.CheckTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent - 1] + "'";
+            this.String1 = "Set CheckType Variable " + Conversion.Str( (this.StepCurrent - 1)) + ": '" + this.game.Data.CheckTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent - 1] + "'";
             num = 1;
             this.VarExtra = (this.StepCurrent - 1) * 3;
           }
@@ -1207,7 +1207,7 @@ namespace WindowsApplication1
         }
         if (this.StepCurrent > 1 & Conversions.ToDouble(command.Data[this.SetSlot, 0]) == 2.0 && this.game.Data.CheckTypeVarCount[Conversions.ToInteger(command.Data[this.SetSlot, 1])] >= this.StepCurrent - 1)
         {
-          this.String1 = "Set CheckType Variable " + Conversion.Str((object) (this.StepCurrent - 1)) + ": '" + this.game.Data.CheckTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent - 1] + "'";
+          this.String1 = "Set CheckType Variable " + Conversion.Str( (this.StepCurrent - 1)) + ": '" + this.game.Data.CheckTypeVarName[Conversions.ToInteger(command.Data[this.SetSlot, 1]), this.StepCurrent - 1] + "'";
           num = 1;
           this.VarExtra = (this.StepCurrent - 1) * 3;
         }
@@ -1337,7 +1337,7 @@ namespace WindowsApplication1
         this.OptionsList3Obj = ListClass::new();
         let mut historicalUnitCounter: i32 =  this.game.Data.HistoricalUnitCounter;
         for (let mut tdata: i32 =  0; tdata <= historicalUnitCounter; tdata += 1)
-          this.OptionsList3Obj.add(Conversion.Str((object) this.game.Data.HistoricalUnitObj[tdata].ID) + ") " + this.game.Data.HistoricalUnitObj[tdata].Name, tdata);
+          this.OptionsList3Obj.add(Conversion.Str( this.game.Data.HistoricalUnitObj[tdata].ID) + ") " + this.game.Data.HistoricalUnitObj[tdata].Name, tdata);
         if (this.game.Data.HistoricalUnitCounter < this.detail3)
           this.detail3 = -1;
         if (this.OptionsList3Id > 0)
@@ -1348,7 +1348,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList3Obj = this.OptionsList3Obj;
-          let mut tlistsize: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 500) / 16.0) - 3.0);
+          let mut tlistsize: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) - 3.0);
           let mut detail3: i32 =  this.detail3;
           let mut game: GameClass = this.game;
           ref Bitmap local1 = ref this.OwnBitmap;
@@ -1370,7 +1370,7 @@ namespace WindowsApplication1
         this.OptionsList3Obj = ListClass::new();
         let mut areaCounter: i32 =  this.game.Data.AreaCounter;
         for (let mut tdata: i32 =  0; tdata <= areaCounter; tdata += 1)
-          this.OptionsList3Obj.add(Conversion.Str((object) this.game.Data.AreaObj[tdata].ID) + ") " + this.game.Data.AreaObj[tdata].Name + " (" + Conversion.Str((object) this.game.Data.AreaObj[tdata].Slot) + "," + Conversion.Str((object) this.game.Data.AreaObj[tdata].Code) + ")", tdata);
+          this.OptionsList3Obj.add(Conversion.Str( this.game.Data.AreaObj[tdata].ID) + ") " + this.game.Data.AreaObj[tdata].Name + " (" + Conversion.Str( this.game.Data.AreaObj[tdata].Slot) + "," + Conversion.Str( this.game.Data.AreaObj[tdata].Code) + ")", tdata);
         if (this.game.Data.AreaCounter < this.detail3)
           this.detail3 = -1;
         if (this.OptionsList3Id > 0)
@@ -1381,7 +1381,7 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList3Obj = this.OptionsList3Obj;
-          let mut tlistsize: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 500) / 16.0) - 3.0);
+          let mut tlistsize: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) - 3.0);
           let mut detail3: i32 =  this.detail3;
           let mut game: GameClass = this.game;
           ref Bitmap local3 = ref this.OwnBitmap;
@@ -1404,7 +1404,7 @@ namespace WindowsApplication1
         let mut index: i32 =  0;
         do
         {
-          this.OptionsList3Obj.add(Conversion.Str((object) index) + ") " + this.game.Data.GameSlotName[index], index);
+          this.OptionsList3Obj.add(Conversion.Str( index) + ") " + this.game.Data.GameSlotName[index], index);
           index += 1;
         }
         while (index <= 499);
@@ -1418,14 +1418,14 @@ namespace WindowsApplication1
         else
         {
           ListClass optionsList3Obj = this.OptionsList3Obj;
-          let mut tlistsize: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 500) / 16.0) - 3.0);
+          let mut tlistsize: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) - 3.0);
           let mut detail3: i32 =  this.detail3;
           let mut game: GameClass = this.game;
           ref Bitmap local5 = ref this.OwnBitmap;
           Font font =  null;
           ref Font local6 = ref font;
           let mut tsubpart23: SubPartClass =  new ListSubPartClass(optionsList3Obj, tlistsize, 490, detail3, game, true, "Game Variables", tbackbitmap: (ref local5), bbx: 10, bby: 250, overruleFont: (ref local6));
-          this.OptionsList3Id = this.AddSubPart(ref tsubpart23, 10, 450, 490,  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 500) / 16.0) * 16.0), 0);
+          this.OptionsList3Id = this.AddSubPart(ref tsubpart23, 10, 450, 490,  Math.Round(Conversion.Int( (this.game.ScreenHeight - 500) / 16.0) * 16.0), 0);
         }
         if (this.detail3 > -1)
         {
@@ -1442,26 +1442,26 @@ namespace WindowsApplication1
       {
         let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
         for (let mut index: i32 =  0; index <= regimeCounter; index += 1)
-          this.OptionsList4Obj.add(Conversion.Str((object) index) + ") " + this.game.Data.RegimeObj[index].Name, index);
+          this.OptionsList4Obj.add(Conversion.Str( index) + ") " + this.game.Data.RegimeObj[index].Name, index);
       }
       if (this.game.Data.RegimeCounter < this.detail4)
         this.detail4 = -1;
       ListClass optionsList4Obj = this.OptionsList4Obj;
-      let mut tlistsize1: i32 =   Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 650) / 16.0) - 3.0);
+      let mut tlistsize1: i32 =   Math.Round(Conversion.Int( (this.game.ScreenHeight - 650) / 16.0) - 3.0);
       let mut detail4: i32 =  this.detail4;
       let mut game1: GameClass = this.game;
       ref Bitmap local7 = ref this.OwnBitmap;
       Font font1 =  null;
       ref Font local8 = ref font1;
       let mut tsubpart26: SubPartClass =  new ListSubPartClass(optionsList4Obj, tlistsize1, 290, detail4, game1, true, "Regimes", tbackbitmap: (ref local7), bbx: 10, bby: 600, overruleFont: (ref local8));
-      this.OptionsList4Id = this.AddSubPart(ref tsubpart26, 10, 600, 290,  Math.Round(Conversion.Int((double) (this.game.ScreenHeight - 650) / 16.0) * 16.0), 0);
+      this.OptionsList4Id = this.AddSubPart(ref tsubpart26, 10, 600, 290,  Math.Round(Conversion.Int( (this.game.ScreenHeight - 650) / 16.0) * 16.0), 0);
       if (this.detail4 <= -1)
         return;
       this.OptionsList3Obj = ListClass::new();
       let mut index1: i32 =  0;
       do
       {
-        this.OptionsList3Obj.add(Conversion.Str((object) index1) + ") " + this.game.Data.RegimeSlotName[index1], index1);
+        this.OptionsList3Obj.add(Conversion.Str( index1) + ") " + this.game.Data.RegimeSlotName[index1], index1);
         index1 += 1;
       }
       while (index1 <= 499);
@@ -1494,8 +1494,8 @@ namespace WindowsApplication1
     pub void TabSheetNr2()
     {
       this.GroupListObj = ListClass::new();
-      if (Operators.ConditionalCompareObjectLess(this.groupdetail, (object) 1, false))
-        this.groupdetail = (object) 1;
+      if (Operators.ConditionalCompareObjectLess(this.groupdetail,  1, false))
+        this.groupdetail =  1;
       let mut tdata1: i32 =  1;
       do
       {
@@ -1504,8 +1504,8 @@ namespace WindowsApplication1
       }
       while (tdata1 <= 12);
       let mut tlistselect1: i32 =  -1;
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreater(this.groupdetail, (object) 0, false), Operators.CompareObjectGreaterEqual((object) 12, this.groupdetail, false))))
-        tlistselect1 = Conversions.ToInteger(Operators.SubtractObject(this.groupdetail, (object) 1));
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreater(this.groupdetail,  0, false), Operators.CompareObjectGreaterEqual( 12, this.groupdetail, false))))
+        tlistselect1 = Conversions.ToInteger(Operators.SubtractObject(this.groupdetail,  1));
       if (this.GroupListId > 0)
       {
         this.SubPartList[this.SubpartNr(this.GroupListId)].Refresh(this.GroupListObj, tlistselect1);
@@ -1526,7 +1526,7 @@ namespace WindowsApplication1
       let mut checkTypeCount: i32 =  this.game.Data.CheckTypeCount;
       for (let mut tdata2: i32 =  1; tdata2 <= checkTypeCount; tdata2 += 1)
       {
-        if (Conversions.ToBoolean(Operators.OrObject(Operators.OrObject(Operators.CompareObjectEqual((object) this.game.Data.CheckCategory[tdata2], this.groupdetail, false), Operators.CompareObjectEqual((object) this.game.Data.CheckCategory2[tdata2], this.groupdetail, false)), Operators.CompareObjectEqual(this.groupdetail, (object) -1, false))))
+        if (Conversions.ToBoolean(Operators.OrObject(Operators.OrObject(Operators.CompareObjectEqual( this.game.Data.CheckCategory[tdata2], this.groupdetail, false), Operators.CompareObjectEqual( this.game.Data.CheckCategory2[tdata2], this.groupdetail, false)), Operators.CompareObjectEqual(this.groupdetail,  -1, false))))
           this.OptionsList3Obj.add(this.game.Data.CheckTypeNames[tdata2], tdata2);
       }
       this.OptionsList3Obj.Sort();
@@ -1567,7 +1567,7 @@ namespace WindowsApplication1
       {
         let mut num: i32 =  this.game.Data.CheckTypeVarCount[this.detail3];
         for (let mut Number: i32 =  1; Number <= num; Number += 1)
-          str = str + Conversion.Str((object) Number) + ") " + this.game.Data.CheckTypeVarName[this.detail3, Number] + "\r\n";
+          str = str + Conversion.Str( Number) + ") " + this.game.Data.CheckTypeVarName[this.detail3, Number] + "\r\n";
         tText: String = str + "\r\n" + this.game.Data.CheckDesc[this.detail3];
         if (this.DescriptId > 0)
           this.RemoveSubPart(this.DescriptId);
@@ -1615,8 +1615,8 @@ namespace WindowsApplication1
 
     pub void TabSheetNr4()
     {
-      if (Operators.ConditionalCompareObjectLess(this.groupdetail, (object) 1, false))
-        this.groupdetail = (object) 1;
+      if (Operators.ConditionalCompareObjectLess(this.groupdetail,  1, false))
+        this.groupdetail =  1;
       this.GroupListObj = ListClass::new();
       let mut tdata1: i32 =  1;
       do
@@ -1626,8 +1626,8 @@ namespace WindowsApplication1
       }
       while (tdata1 <= 22);
       let mut tlistselect1: i32 =  -1;
-      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreater(this.groupdetail, (object) 0, false), Operators.CompareObjectGreaterEqual((object) 22, this.groupdetail, false))))
-        tlistselect1 = Conversions.ToInteger(Operators.SubtractObject(this.groupdetail, (object) 1));
+      if (Conversions.ToBoolean(Operators.AndObject(Operators.CompareObjectGreater(this.groupdetail,  0, false), Operators.CompareObjectGreaterEqual( 22, this.groupdetail, false))))
+        tlistselect1 = Conversions.ToInteger(Operators.SubtractObject(this.groupdetail,  1));
       if (this.GroupListId > 0)
       {
         this.SubPartList[this.SubpartNr(this.GroupListId)].Refresh(this.GroupListObj, tlistselect1);
@@ -1648,7 +1648,7 @@ namespace WindowsApplication1
       let mut execTypeCount: i32 =  this.game.Data.ExecTypeCount;
       for (let mut tdata2: i32 =  1; tdata2 <= execTypeCount; tdata2 += 1)
       {
-        if (Conversions.ToBoolean(Operators.OrObject(Operators.OrObject(Operators.CompareObjectEqual((object) this.game.Data.ExecCategory[tdata2], this.groupdetail, false), Operators.CompareObjectEqual((object) this.game.Data.ExecCategory2[tdata2], this.groupdetail, false)), Operators.CompareObjectEqual(this.groupdetail, (object) -1, false))))
+        if (Conversions.ToBoolean(Operators.OrObject(Operators.OrObject(Operators.CompareObjectEqual( this.game.Data.ExecCategory[tdata2], this.groupdetail, false), Operators.CompareObjectEqual( this.game.Data.ExecCategory2[tdata2], this.groupdetail, false)), Operators.CompareObjectEqual(this.groupdetail,  -1, false))))
           this.OptionsList3Obj.add(this.game.Data.ExecTypeNames[tdata2], tdata2);
       }
       this.OptionsList3Obj.Sort();
@@ -1682,7 +1682,7 @@ namespace WindowsApplication1
       {
         let mut num: i32 =  this.game.Data.ExecTypeVarCount[this.detail3];
         for (let mut Number: i32 =  1; Number <= num; Number += 1)
-          str = str + Conversion.Str((object) Number) + ") " + this.game.Data.ExecTypeVarName[this.detail3, Number] + "\r\n";
+          str = str + Conversion.Str( Number) + ") " + this.game.Data.ExecTypeVarName[this.detail3, Number] + "\r\n";
         if (this.game.Data.ExecTypeString[this.detail3] == 2)
           str += "+ You can input a string\r\n";
         if (this.game.Data.ExecTypeString[this.detail3] == 1)
@@ -1821,7 +1821,7 @@ namespace WindowsApplication1
             toption[index7] = num10;
             int[] trefer = this.trefer;
             let mut index8: i32 =  index4;
-            let mut tsubpart6: SubPartClass =  TextPartClass::new(Conversion.Str((object) this.temprefer[index4]), Font::new("Times New Roman", 11f, FontStyle.Bold, GraphicsUnit.Pixel), 200, 20, false);
+            let mut tsubpart6: SubPartClass =  TextPartClass::new(Conversion.Str( this.temprefer[index4]), Font::new("Times New Roman", 11f, FontStyle.Bold, GraphicsUnit.Pixel), 200, 20, false);
             let mut num11: i32 =  this.AddSubPart(ref tsubpart6, 790, y, 200, 20, 0);
             trefer[index8] = num11;
           }
@@ -1887,7 +1887,7 @@ namespace WindowsApplication1
     {
       CommandClass command = this.game.Data.EventObj[enr].CommandList[cnr];
       if (command.type == 5 && inr == 0)
-        return "TempVar" + Strings.Trim(Conversion.Str((object) command.Data[inr, 0]));
+        return "TempVar" + Strings.Trim(Conversion.Str( command.Data[inr, 0]));
       if (Conversions.ToDouble(command.Data[inr, 0]) == 0.0)
         return "Empty";
       if (Conversions.ToDouble(command.Data[inr, 0]) == 1.0)
@@ -1981,25 +1981,25 @@ namespace WindowsApplication1
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 0.0)
         return "Empty VarInfo";
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 1.0)
-        return "TempVar" + Strings.Trim(Conversion.Str((object) command.Data[inr, datnr + 1]));
+        return "TempVar" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 1]));
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 2.0)
       {
         string varInfo;
-        if (Conversions.ToDouble(command.Data[inr, datnr + 1]) <= (double) this.game.Data.RegimeCounter)
-          varInfo = this.game.Data.RegimeObj[Conversions.ToInteger(command.Data[inr, datnr + 1])].Name + "_" + this.game.Data.RegimeSlotName[Conversions.ToInteger(command.Data[inr, datnr + 2])] + "(#" + Strings.Trim(Conversion.Str((object) command.Data[inr, datnr + 2])) + ")";
+        if (Conversions.ToDouble(command.Data[inr, datnr + 1]) <=  this.game.Data.RegimeCounter)
+          varInfo = this.game.Data.RegimeObj[Conversions.ToInteger(command.Data[inr, datnr + 1])].Name + "_" + this.game.Data.RegimeSlotName[Conversions.ToInteger(command.Data[inr, datnr + 2])] + "(#" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 2])) + ")";
         else
-          varInfo = "Non-existing Regime" + Conversion.Str((object) command.Data[inr, datnr + 1]) + "_" + this.game.Data.RegimeSlotName[Conversions.ToInteger(command.Data[inr, datnr + 2])] + "(#" + Strings.Trim(Conversion.Str((object) command.Data[inr, datnr + 2])) + ")";
+          varInfo = "Non-existing Regime" + Conversion.Str( command.Data[inr, datnr + 1]) + "_" + this.game.Data.RegimeSlotName[Conversions.ToInteger(command.Data[inr, datnr + 2])] + "(#" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 2])) + ")";
         return varInfo;
       }
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 3.0)
       {
-        str: String = "Gameslot_(#" + Strings.Trim(Conversion.Str((object) command.Data[inr, datnr + 1])) + ")_" + this.game.Data.GameSlotName[Conversions.ToInteger(command.Data[inr, datnr + 1])];
+        str: String = "Gameslot_(#" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 1])) + ")_" + this.game.Data.GameSlotName[Conversions.ToInteger(command.Data[inr, datnr + 1])];
         if (str.Length > 49)
           str = Strings.Left(str, 49) + "...";
         return str;
       }
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 4.0)
-        return Strings.Trim(Conversion.Str((object) command.Data[inr, datnr + 1]));
+        return Strings.Trim(Conversion.Str( command.Data[inr, datnr + 1]));
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 5.0)
       {
         let mut historicalUnitById: i32 =  this.game.HandyFunctionsObj.GetHistoricalUnitByID(Conversions.ToInteger(command.Data[inr, datnr + 1]));
@@ -2011,7 +2011,7 @@ namespace WindowsApplication1
         return areaById <= -1 ? "_!!Area_Aint_OnMap!!_" : "[Area]" + this.game.Data.AreaObj[areaById].Name;
       }
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 7.0)
-        return "TempString" + Strings.Trim(Conversion.Str((object) command.Data[inr, datnr + 1]));
+        return "TempString" + Strings.Trim(Conversion.Str( command.Data[inr, datnr + 1]));
       if (Conversions.ToDouble(command.Data[inr, datnr]) == 8.0)
         return "'" + command.Data[inr, datnr + 1] + "'";
       string varInfo1;
@@ -2037,7 +2037,7 @@ namespace WindowsApplication1
                 let mut regimeCounter: i32 =  this.game.Data.RegimeCounter;
                 for (let mut regnr: i32 =  0; regnr <= regimeCounter; regnr += 1)
                 {
-                  this.game.HandyFunctionsObj.ClearHistory((object) regnr);
+                  this.game.HandyFunctionsObj.ClearHistory( regnr);
                   this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
                 }
                 let mut turn: i32 =  this.game.Data.Turn;
@@ -2045,7 +2045,7 @@ namespace WindowsApplication1
                 this.game.EventRelatedObj.DoCheckSpecificEvent(this.detail1);
                 this.game.Data.EventObj[this.detail1].Blocked = false;
                 this.game.Data.Turn = turn;
-                let mut num2: i32 =   Interaction.MsgBox((object) "Done");
+                let mut num2: i32 =   Interaction.MsgBox( "Done");
                 this.dostuff();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -2065,9 +2065,9 @@ namespace WindowsApplication1
                   let mut eventCounter: i32 =  dataClass.EventCounter;
                   for (let mut index2: i32 =  0; index2 <= eventCounter; index2 += 1)
                   {
-                    if (Conversion.Val(InputStr) != -1.0 & Conversion.Val(InputStr) == (double) index2 & this.detail1 > -1)
+                    if (Conversion.Val(InputStr) != -1.0 & Conversion.Val(InputStr) ==  index2 & this.detail1 > -1)
                     {
-                      if (Interaction.MsgBox((object) "Overwrite selected event?", MsgBoxStyle.YesNo, (object) "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
+                      if (Interaction.MsgBox( "Overwrite selected event?", MsgBoxStyle.YesNo,  "Shadow Empire : Planetary Conquest") == MsgBoxResult.Yes)
                         this.game.Data.EventObj[this.detail1] = dataClass.EventObj[index2].Clone();
                       else if (Operators.CompareString(this.game.Data.EventObj[this.detail1].Name, "New Event", false) == 0)
                       {
@@ -2083,7 +2083,7 @@ namespace WindowsApplication1
                         this.game.Data.EventObj[this.game.Data.EventCounter].Id = this.game.Data.EventIdCounter;
                       }
                     }
-                    else if ((double) index2 == Conversion.Val(InputStr) | Conversion.Val(InputStr) == -1.0)
+                    else if ( index2 == Conversion.Val(InputStr) | Conversion.Val(InputStr) == -1.0)
                     {
                       if (this.detail1 > -1 & Conversion.Val(InputStr) != -1.0)
                       {
@@ -2127,7 +2127,7 @@ namespace WindowsApplication1
                   let mut eventCounter: i32 =  dataClass.EventCounter;
                   for (let mut index3: i32 =  0; index3 <= eventCounter; index3 += 1)
                   {
-                    if ((double) dataClass.EventObj[index3].Category == Conversion.Val(InputStr) | Conversion.Val(InputStr) == -1.0)
+                    if ( dataClass.EventObj[index3].Category == Conversion.Val(InputStr) | Conversion.Val(InputStr) == -1.0)
                     {
                       this.game.Data.AddEvent();
                       this.game.Data.EventObj[this.game.Data.EventCounter] = dataClass.EventObj[index3].Clone();
@@ -2187,7 +2187,7 @@ namespace WindowsApplication1
                   return windowReturnClass;
                 if (this.detail1 == -1 & num4 < 3)
                 {
-                  let mut num5: i32 =   Interaction.MsgBox((object) "You must have an event selected to use the replace function like this.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                  let mut num5: i32 =   Interaction.MsgBox( "You must have an event selected to use the replace function like this.", Title: ( "Shadow Empire : Planetary Conquest"));
                   return windowReturnClass;
                 }
                 str1: String = Interaction.InputBox("Search for");
@@ -2249,7 +2249,7 @@ namespace WindowsApplication1
                     str2 = str2 + "[" + index4.ToString() + "] " + this.game.Data.EventObj[index4].Name;
                   }
                 }
-                let mut num9: i32 =   Interaction.MsgBox((object) ("Made " + num6.ToString() + " changes in " + num7.ToString() + " events. " + str2), Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num9: i32 =   Interaction.MsgBox( ("Made " + num6.ToString() + " changes in " + num7.ToString() + " events. " + str2), Title: ( "Shadow Empire : Planetary Conquest"));
                 this.dostuff();
                 windowReturnClass.SetFlag(true);
                 return windowReturnClass;
@@ -2562,7 +2562,7 @@ namespace WindowsApplication1
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
                 }
-                let mut num13: i32 =   Interaction.MsgBox((object) "Cannot edit tempstring. Is not exectype, or exectype has no text option.", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                let mut num13: i32 =   Interaction.MsgBox( "Cannot edit tempstring. Is not exectype, or exectype has no text option.", Title: ( "Shadow Empire : Planetary Conquest"));
                 this.bigclear();
                 this.dostuff();
                 windowReturnClass.SetFlag(true);
@@ -2596,7 +2596,7 @@ namespace WindowsApplication1
                   let mut num14: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give a TempVar between 0-999.", "Shadow Empire : Planetary Conquest")));
                   if (num14 < 0 | num14 > 999)
                   {
-                    let mut num15: i32 =   Interaction.MsgBox((object) "between 0 and 999 please", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num15: i32 =   Interaction.MsgBox( "between 0 and 999 please", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -2833,7 +2833,7 @@ namespace WindowsApplication1
                 }
                 if (num1 == this.GroupListId)
                 {
-                  this.groupdetail = (object) this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
+                  this.groupdetail =  this.SubPartList[index1].Click(x - this.SubPartX[index1], y - this.SubPartY[index1]);
                   this.dostuff();
                   windowReturnClass.SetFlag(true);
                   return windowReturnClass;
@@ -2871,7 +2871,7 @@ namespace WindowsApplication1
                   let mut num21: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give a TempVar number between 0 and 999", "Shadow Empire : Planetary Conquest")));
                   if (num21 < 0 | num21 > 999)
                   {
-                    let mut num22: i32 =   Interaction.MsgBox((object) "Beep. Stay in the limits plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num22: i32 =   Interaction.MsgBox( "Beep. Stay in the limits plz", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -2898,7 +2898,7 @@ namespace WindowsApplication1
                   let mut num23: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give a Real number between -999999 and 999999", "Shadow Empire : Planetary Conquest")));
                   if (num23 < -999999 | num23 > 999999)
                   {
-                    let mut num24: i32 =   Interaction.MsgBox((object) "Beep. Stay in the limits plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num24: i32 =   Interaction.MsgBox( "Beep. Stay in the limits plz", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -2925,7 +2925,7 @@ namespace WindowsApplication1
                   let mut num25: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give a TempString number between 0 and 999", "Shadow Empire : Planetary Conquest")));
                   if (num25 < -999999 | num25 > 999999)
                   {
-                    let mut num26: i32 =   Interaction.MsgBox((object) "Beep. Stay in the limits plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num26: i32 =   Interaction.MsgBox( "Beep. Stay in the limits plz", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -2948,7 +2948,7 @@ namespace WindowsApplication1
                   let mut num27: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give a TempString number between 0 and 999", "Shadow Empire : Planetary Conquest")));
                   if (num27 < 0 | num27 > 999)
                   {
-                    let mut num28: i32 =   Interaction.MsgBox((object) "Beep. Stay in the limits plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num28: i32 =   Interaction.MsgBox( "Beep. Stay in the limits plz", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -3014,7 +3014,7 @@ namespace WindowsApplication1
                     let mut num29: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give a TempVar number between 0 and 999", "Shadow Empire : Planetary Conquest")));
                     if (num29 < 0 | num29 > 999)
                     {
-                      let mut num30: i32 =   Interaction.MsgBox((object) "Beep. Stay in the limits plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num30: i32 =   Interaction.MsgBox( "Beep. Stay in the limits plz", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
@@ -3036,7 +3036,7 @@ namespace WindowsApplication1
                     let mut num31: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Give a Real number between -9999 and 9999", "Shadow Empire : Planetary Conquest")));
                     if (num31 < -999999 | num31 > 999999)
                     {
-                      let mut num32: i32 =   Interaction.MsgBox((object) "Beep. Stay in the limits plz", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                      let mut num32: i32 =   Interaction.MsgBox( "Beep. Stay in the limits plz", Title: ( "Shadow Empire : Planetary Conquest"));
                     }
                     else
                     {
@@ -3330,7 +3330,7 @@ namespace WindowsApplication1
                         this.game.FormRef.Cursor = Cursors.WaitCursor;
                         this.DoExport();
                         this.game.FormRef.Cursor = Cursors.Default;
-                        let mut num33: i32 =   Interaction.MsgBox((object) "Done");
+                        let mut num33: i32 =   Interaction.MsgBox( "Done");
                         windowReturnClass.SetFlag(true);
                         return windowReturnClass;
                       }
@@ -3362,7 +3362,7 @@ namespace WindowsApplication1
                   let mut num35: i32 =   Math.Round(Conversion.Val(Interaction.InputBox("Leads to which event nr#??", "Shadow Empire : Planetary Conquest")));
                   if (num35 < 0 | num35 > this.game.Data.EventCounter)
                   {
-                    let mut num36: i32 =   Interaction.MsgBox((object) "No valid event#", Title: ((object) "Shadow Empire : Planetary Conquest"));
+                    let mut num36: i32 =   Interaction.MsgBox( "No valid event#", Title: ( "Shadow Empire : Planetary Conquest"));
                   }
                   else
                   {
@@ -3393,7 +3393,7 @@ namespace WindowsApplication1
       let mut eventCounter: i32 =  this.game.Data.EventCounter;
       for (let mut enr: i32 =  0; enr <= eventCounter; enr += 1)
       {
-        StreamWriter text = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_eventID" + Conversion.Str((object) this.game.Data.EventObj[enr].Id) + ".txt");
+        StreamWriter text = File.CreateText(this.game.AppPath + "logs/" + this.game.Data.Name + "_eventID" + Conversion.Str( this.game.Data.EventObj[enr].Id) + ".txt");
         let mut num: i32 =  0;
         if (this.game.Data.EventObj[enr].CommandCounter > -1)
         {
@@ -3423,7 +3423,7 @@ namespace WindowsApplication1
               str1 = str1 + ": " + this.ItemInfo(enr, index, 0) + " " + this.ItemInfo(enr, index, 1) + " " + this.ItemInfo(enr, index, 2);
             if (this.game.Data.EventObj[enr].CommandList[index].type == 5)
               str1 = str1 + ": " + this.ItemInfo(enr, index, 0) + " " + this.ItemInfo(enr, index, 1) + " " + this.ItemInfo(enr, index, 2);
-            str2: String = Strings.Trim(Conversion.Str((object) index)) + ") " + Strings.Space(4 - Strings.Len(Strings.Trim(Conversion.Str((object) index)))) + Strings.Space(num * 2) + str1;
+            str2: String = Strings.Trim(Conversion.Str( index)) + ") " + Strings.Space(4 - Strings.Len(Strings.Trim(Conversion.Str( index)))) + Strings.Space(num * 2) + str1;
             text.WriteLine(str2);
             if (this.game.Data.EventObj[enr].CommandList[index].type == 1)
               num += 1;
@@ -3454,7 +3454,7 @@ namespace WindowsApplication1
           str += "*";
         str += this.temptext[index2];
         if (this.tempoption[index2] == 1)
-          str = str + "@" + Strings.Trim(Conversion.Str((object) this.temprefer[index2]));
+          str = str + "@" + Strings.Trim(Conversion.Str( this.temprefer[index2]));
         if (index2 < num1)
           str += "#";
       }

@@ -4,9 +4,9 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System.Drawing;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem.Drawing;
 
 namespace WindowsApplication1
 {
@@ -171,7 +171,7 @@ namespace WindowsApplication1
       let mut rect2_2: &Rectangle = &rectangle1
       txt2_2: String = str1;
       DrawMod.MakeFullBoxVic2( local2, rect1_2, "PPL", rect2_2, txt2_2);
-      str2: String = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ReconPts(this.game.Data.Turn) <= 0 ? "? / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts)) : Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[location].StructuralPts)) + " / " + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts));
+      str2: String = this.game.Data.MapObj[0].HexObj[this.game.SelectX, this.game.SelectY].get_ReconPts(this.game.Data.Turn) <= 0 ? "? / " + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts)) : Strings.Trim(Conversion.Str( this.game.Data.LocObj[location].StructuralPts)) + " / " + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].StructuralPts));
        let mut local3: &Graphics = &g;
       rectangle2 = Rectangle::new(55, ty + 203, 95, 14);
       let mut rect1_3: &Rectangle = &rectangle2
@@ -179,7 +179,7 @@ namespace WindowsApplication1
       let mut rect2_3: &Rectangle = &rectangle1
       txt2_3: String = str2;
       DrawMod.MakeFullBoxVic2( local3, rect1_3, "STRUCTURAL", rect2_3, txt2_3);
-      str3: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts <= 0 ? "0" : "+" + Strings.Trim(Conversion.Str((object) this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts));
+      str3: String = this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts <= 0 ? "0" : "+" + Strings.Trim(Conversion.Str( this.game.Data.LocTypeObj[this.game.Data.LocObj[location].Type].AutoRecoverPts));
        let mut local4: &Graphics = &g;
       rectangle2 = Rectangle::new(160, ty + 203, 55, 14);
       let mut rect1_4: &Rectangle = &rectangle2
@@ -218,12 +218,12 @@ namespace WindowsApplication1
             Left = "Political";
           if (this.game.Data.ItemTypeObj[index2].IsSFType > -1)
             Left = Strings.Left(this.game.Data.SFTypeObj[this.game.Data.ItemTypeObj[index2].IsSFType].Name, 12);
-          Number = Conversions.ToSingle(Strings.Trim(Conversion.Str((object) this.game.Data.LocObj[location].TempProdPredict[index1])));
+          Number = Conversions.ToSingle(Strings.Trim(Conversion.Str( this.game.Data.LocObj[location].TempProdPredict[index1])));
           if (Operators.CompareString(Left, "Supplies", false) == 0)
             Number = Conversion.Int(Number);
-          str4 = Strings.Trim(Conversion.Str((object) Number)) + "x " + Left;
+          str4 = Strings.Trim(Conversion.Str( Number)) + "x " + Left;
         }
-        if ((double) Number <= 0.0)
+        if ( Number <= 0.0)
           str4 = "";
         if (index1 == 0)
         {

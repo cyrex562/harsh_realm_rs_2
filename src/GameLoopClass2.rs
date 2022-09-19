@@ -4,12 +4,12 @@
 // MVID: F52869E5-0850-48AD-BBBE-68E7A4900AFE
 // Assembly location: C:\Program Files (x86)\Steam\steamapps\common\Shadow Empire\ShadowEmpire.exe
 
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Windows.Forms;
+// usingMicrosoft.VisualBasic;
+// usingMicrosoft.VisualBasic.CompilerServices;
+// usingSystem;
+// usingSystem.Runtime.CompilerServices;
+// usingSystem.Threading;
+// usingSystem.Windows.Forms;
 
 namespace WindowsApplication1
 {
@@ -67,19 +67,19 @@ namespace WindowsApplication1
             {
               if (this.game.Data.UseAI == 1)
               {
-                if (Information.IsNothing((object) this.game.NewAIObj))
+                if (Information.IsNothing( this.game.NewAIObj))
                   this.game.NewAIObj = new NewAIClass(this.game);
                 this.game.DC2AIObj = (DC2AIClass) null;
                 this.game.AIObj = (AIClass) null;
               }
               else if (this.game.Data.UseAI == 2)
               {
-                if (Information.IsNothing((object) this.game.DC2AIObj))
+                if (Information.IsNothing( this.game.DC2AIObj))
                   this.game.DC2AIObj = new DC2AIClass(this.game);
                 this.game.NewAIObj = (NewAIClass) null;
                 this.game.AIObj = (AIClass) null;
               }
-              if (!Information.IsNothing((object) this.game.AIThread))
+              if (!Information.IsNothing( this.game.AIThread))
               {
                 if (!this.game.AIRunning & this.game.AIThreadRunning & (this.game.EditObj.Test == 10 | this.game.EditObj.Test == 9))
                 {
@@ -123,13 +123,13 @@ namespace WindowsApplication1
                 if (this.game.Data.Turn > -1 & this.game.Data.Round != 0 && this.game.Data.RegimeObj[this.game.Data.Turn].AI)
                 {
                   this.game.ProcessingObj.SetInitialReconAndZOC(this.game.Data.Turn);
-                  this.game.HandyFunctionsObj.ClearHistory((object) this.game.Data.Turn);
+                  this.game.HandyFunctionsObj.ClearHistory( this.game.Data.Turn);
                 }
                 if (this.game.Data.Round == 0)
                 {
                   if (this.game.Data.UseAI == 1)
                     this.game.NewAIObj.tempextraaivp = false;
-                  if ((double) this.game.Data.RuleVar[840] == 1.0)
+                  if ( this.game.Data.RuleVar[840] == 1.0)
                   {
                     let mut mapCounter: i32 =  this.game.Data.MapCounter;
                     for (let mut index2: i32 =  0; index2 <= mapCounter; index2 += 1)
@@ -143,7 +143,7 @@ namespace WindowsApplication1
                       }
                     }
                   }
-                  if ((double) this.game.Data.RuleVar[501] == 1.0)
+                  if ( this.game.Data.RuleVar[501] == 1.0)
                     this.game.Data.RuleVar[226] = 0.0f;
                   let mut regimeCounter1: i32 =  this.game.Data.RegimeCounter;
                   for (let mut regnr: i32 =  0; regnr <= regimeCounter1; regnr += 1)
@@ -157,7 +157,7 @@ namespace WindowsApplication1
                     this.game.Data.Turn = regnr;
                     this.game.Data.Round = 1;
                     this.game.ProcessingObj.SetInitialReconAndZOC(regnr);
-                    this.game.HandyFunctionsObj.ClearHistory((object) regnr);
+                    this.game.HandyFunctionsObj.ClearHistory( regnr);
                     this.game.Data.Round = 0;
                     this.game.Data.Turn = turn;
                   }
@@ -201,8 +201,8 @@ namespace WindowsApplication1
                     this.game.ProcessingObj.MakeInitialModels();
                 }
                 if (this.game.Data.Product >= 7)
-                  this.game.HandyFunctionsObj.ResetRegimeLowData((object) this.game.Data.Turn);
-                if ((double) this.game.Data.RuleVar[336] == 2.0)
+                  this.game.HandyFunctionsObj.ResetRegimeLowData( this.game.Data.Turn);
+                if ( this.game.Data.RuleVar[336] == 2.0)
                 {
                   let mut unitCounter: i32 =  this.game.Data.UnitCounter;
                   for (index1 = 0; index1 <= unitCounter; index1 += 1)
@@ -236,10 +236,10 @@ namespace WindowsApplication1
                 this.game.EditObj.CombatSim = false;
               if (this.game.EditObj.Test == 4)
               {
-                if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI && this.game.Data.Product == 7 & this.game.EditObj.TestEarlyCinematics == 0 & (double) this.game.Data.RuleVar[971] > 0.0)
+                if (!this.game.Data.RegimeObj[this.game.Data.Turn].AI && this.game.Data.Product == 7 & this.game.EditObj.TestEarlyCinematics == 0 &  this.game.Data.RuleVar[971] > 0.0)
                 {
                   this.game.EventRelatedObj.DoCheckEvents(12);
-                  if (this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[971]))].Length > -1)
+                  if (this.game.Data.StringListObj[this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[971]))].Length > -1)
                   {
                     this.game.EditObj.TestEarlyCinematics = 1;
                     if (DrawMod.TGame.EditObj.debugAiOnlyTillRound < this.game.Data.Round)
@@ -260,7 +260,7 @@ namespace WindowsApplication1
                 {
                   if (this.game.Data.UnitObj[index6].Regime == this.game.Data.Turn)
                     this.game.Data.UnitObj[index6].ClearLogs();
-                  if (this.game.Data.UnitObj[index6].Regime == this.game.Data.Turn && (double) this.game.Data.RuleVar[403] > 0.0)
+                  if (this.game.Data.UnitObj[index6].Regime == this.game.Data.Turn &&  this.game.Data.RuleVar[403] > 0.0)
                   {
                     this.game.Data.UnitObj[index6].SupplyConsume = 0;
                     this.game.Data.UnitObj[index6].SupplyIn = 0;
@@ -290,9 +290,9 @@ namespace WindowsApplication1
                 if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
                   this.game.EventRelatedObj.DoCheckEvents(2);
                 this.game.ProcessingObj.InitialAPPenalty(this.game.Data.Turn, false);
-                if ((double) this.game.Data.RuleVar[955] > 0.0)
+                if ( this.game.Data.RuleVar[955] > 0.0)
                 {
-                  let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[955]));
+                  let mut stringListById1: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[955]));
                   if (stringListById1 > -1)
                   {
                     for (let mut length1: i32 =  this.game.Data.StringListObj[stringListById1].Length; length1 >= 0; length1 += -1)
@@ -300,7 +300,7 @@ namespace WindowsApplication1
                       let mut num: i32 =   Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length1, 0]));
                       if ( Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length1, 9])) < this.game.Data.Round &  Math.Round(Conversion.Val(this.game.Data.StringListObj[stringListById1].Data[length1, 1])) == this.game.Data.Turn)
                       {
-                        let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round((double) this.game.Data.RuleVar[956]));
+                        let mut stringListById2: i32 =  this.game.HandyFunctionsObj.GetStringListByID( Math.Round( this.game.Data.RuleVar[956]));
                         if (stringListById2 > -1)
                         {
                           for (let mut length2: i32 =  this.game.Data.StringListObj[stringListById2].Length; length2 >= 0; length2 += -1)
@@ -318,22 +318,22 @@ namespace WindowsApplication1
                   this.game.ProcessingObj.LocationProduction();
                 if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
                   this.game.ProcessingObj.SetCapForUnitS();
-                if ((double) this.game.Data.RuleVar[403] == 1.0)
+                if ( this.game.Data.RuleVar[403] == 1.0)
                   this.game.ProcessingObj.LIS_SetNetwork(false);
-                if ((double) this.game.Data.RuleVar[403] == 1.0)
+                if ( this.game.Data.RuleVar[403] == 1.0)
                   this.game.ProcessingObj.LIS_LocationSupply();
-                if ((double) this.game.Data.RuleVar[403] == 1.0)
+                if ( this.game.Data.RuleVar[403] == 1.0)
                   this.game.ProcessingObj.LIS_UnitSupply(false);
                 this.game.EventRelatedObj.DoCheckEvents(11);
-                if ((double) this.game.Data.RuleVar[403] == 1.0)
+                if ( this.game.Data.RuleVar[403] == 1.0)
                   this.game.ProcessingObj.LIS_LocationReturns(false);
-                if ((double) this.game.Data.RuleVar[403] == 1.0)
+                if ( this.game.Data.RuleVar[403] == 1.0)
                   this.game.ProcessingObj.LIS_UnitAutoReinforce();
-                if ((double) this.game.Data.RuleVar[403] == 1.0)
+                if ( this.game.Data.RuleVar[403] == 1.0)
                   this.game.ProcessingObj.LIS_UnitAutoReinforceReturns(true, false);
-                if ((double) this.game.Data.RuleVar[403] == 1.0)
+                if ( this.game.Data.RuleVar[403] == 1.0)
                   this.game.ProcessingObj.LIS_UnitAutoReinforceReturns(false, true);
-                if ((double) this.game.Data.RuleVar[403] != 1.0 & this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 & (double) this.game.Data.RuleVar[337] == 1.0)
+                if ( this.game.Data.RuleVar[403] != 1.0 & this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 &  this.game.Data.RuleVar[337] == 1.0)
                   this.game.ProcessingObj.DoAutoReinforce();
               }
               if (this.game.EditObj.Test == 5)
@@ -344,14 +344,14 @@ namespace WindowsApplication1
               if (this.game.EditObj.Test == 6)
               {
                 s = "Supply consumption";
-                if ((double) this.game.Data.RuleVar[333] == 0.0 & (double) this.game.Data.RuleVar[403] < 1.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
+                if ( this.game.Data.RuleVar[333] == 0.0 &  this.game.Data.RuleVar[403] < 1.0 && this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
                   this.game.ProcessingObj.DoSupplySystem();
-                if ((double) this.game.Data.RuleVar[402] > 0.0 & this.game.Data.Product > 6)
+                if ( this.game.Data.RuleVar[402] > 0.0 & this.game.Data.Product > 6)
                 {
-                  this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round((double) this.game.Data.RuleVar[402]));
+                  this.game.EventRelatedObj.DoCheckSpecificEvent( Math.Round( this.game.Data.RuleVar[402]));
                   if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
                     this.game.ProcessingObj.DoAutoRecoverLocations(this.game.Data.Turn);
-                  if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 & (double) this.game.Data.RuleVar[79] == 1.0)
+                  if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 &  this.game.Data.RuleVar[79] == 1.0)
                     this.game.ProcessingObj.AutoConquerNeutral(this.game.Data.Turn);
                 }
                 else
@@ -366,7 +366,7 @@ namespace WindowsApplication1
                     this.game.ProcessingObj.DoAutoRecoverLocations(this.game.Data.Turn);
                   if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1)
                     this.game.ProcessingObj.DoTraining(this.game.Data.Turn);
-                  if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 & (double) this.game.Data.RuleVar[79] == 1.0)
+                  if (this.game.Data.RegimeObj[this.game.Data.Turn].UberRegime == -1 &  this.game.Data.RuleVar[79] == 1.0)
                     this.game.ProcessingObj.AutoConquerNeutral(this.game.Data.Turn);
                 }
                 this.game.ProcessingObj.SetUberOff();
@@ -421,9 +421,9 @@ namespace WindowsApplication1
               if (this.game.EditObj.Test == 9)
               {
                 s = "AI for " + this.game.Data.RegimeObj[this.game.Data.Turn].Name + " is playing. Executing";
-                if ((double) this.game.Data.RuleVar[814] == 0.0)
+                if ( this.game.Data.RuleVar[814] == 0.0)
                 {
-                  if (this.game.Data.Product >= 7 && Information.IsNothing((object) this.game.DC2AIObj))
+                  if (this.game.Data.Product >= 7 && Information.IsNothing( this.game.DC2AIObj))
                   {
                     this.game.DC2AIObj = (DC2AIClass) null;
                     this.game.DC2AIObj = new DC2AIClass(this.game);
@@ -435,15 +435,15 @@ namespace WindowsApplication1
                   Thread thread = new Thread((ParameterizedThreadStart) (a0 => dc2AiObj.InitAI(Conversions.ToBoolean(a0))));
                   game.AIThread = thread;
                   this.game.AIThread.Name = "AI Init Thread";
-                  this.game.AIThread.Start((object) true);
+                  this.game.AIThread.Start( true);
                 }
               }
-              if (this.game.EditObj.Test == 10 && (double) this.game.Data.RuleVar[814] == 0.0)
+              if (this.game.EditObj.Test == 10 &&  this.game.Data.RuleVar[814] == 0.0)
               {
                 if (this.game.Data.Turn == 6)
                   index1 = index1;
                 bool flag = true;
-                if (this.game.Data.UseAI == 2 & !Information.IsNothing((object) this.game.DC2AIObj) && this.game.DC2AIObj.initExitCode == 1)
+                if (this.game.Data.UseAI == 2 & !Information.IsNothing( this.game.DC2AIObj) && this.game.DC2AIObj.initExitCode == 1)
                 {
                   flag = false;
                   this.game.DC2AIObj.initExitCode = 0;
@@ -467,7 +467,7 @@ namespace WindowsApplication1
             this.game.EditObj.Test = 0;
             s = "Finished";
             this.DoingAI = true;
-            if ((double) this.game.Data.RuleVar[814] == 0.0)
+            if ( this.game.Data.RuleVar[814] == 0.0)
             {
               if (this.game.Data.UseAI == 0)
                 this.game.AIObj.CloseAI();
